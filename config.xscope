@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ======================================================= -->
+<!-- The 'ioMode' attribute on the xSCOPEconfig              -->
+<!-- element can take the following values:                  -->
+<!--   "none", "basic", "timed"                              -->
+<!--                                                         -->
+<!-- The 'type' attribute on Probe                           -->
+<!-- elements can take the following values:                 -->
+<!--   "STARTSTOP", "CONTINUOUS", "DISCRETE", "STATEMACHINE" -->
+<!--                                                         -->
+<!-- The 'datatype' attribute on Probe                       -->
+<!-- elements can take the following values:                 -->
+<!--   "NONE", "UINT", "INT", "FLOAT"                        -->
+<!-- ======================================================= -->
+
+<!-- Copied from config.xscope of startkit-adc -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xSCOPEconfig enabled="true" ioMode="basic">
+  <Probe name="ADC0" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/>
+  <Probe name="ADC1" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/>
+  <Probe name="ADC2" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/>
+  <Probe name="ADC3" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/>  
+</xSCOPEconfig>

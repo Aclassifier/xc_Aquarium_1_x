@@ -1,0 +1,58 @@
+/*
+ * _texts_and_constants.h
+ *
+ *  Created on: 28. nov. 2016
+ *      Author: teig
+ */
+
+#ifndef TEXTS_AND_CONSTANTS_H_
+#define TEXTS_AND_CONSTANTS_H_
+
+#define DEGC_CIRCLE {247,0} // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
+
+#define GENERIC_TEXT_LEN_DEGC 5 // "25.0" with space for EOS (zero)
+#define GENERIC_TEXT_DEGC          "??.?"
+#define GENERIC_TEXT_NO_DATA_DEGC  "...."
+
+#define INNER_TEMPERATURE_MAX_DEGC        99     // Think of it also as "undefined" (read not successful)
+#define INNER_TEMPERATURE_MIN_DEGC        0
+#define INNER_TEMPERATURE_TEXT_LEN_DEGC   GENERIC_TEXT_LEN_DEGC
+#define INNER_TEMPERATURE_ERROR_TEXT      "Feil" // INNER_TEMPERATURE_TEXT_LEN_DEGC also includes NUL at the end
+#define INNER_TEMPERATURE_OFFSET_DEGC_DP1 18     // 1.8 degC is 18 mV too high
+                                                 // TC1047A data sheet says 25.0 degC is 730-770 mV with 750 mV nominal
+                                                 // Observe that we also have subtracted OFFSET_ADC_INPUTS_STARTKIT
+
+#define INNER_RR_12V_24V_MAX_VOLTS     99        // Think of it also as "undefined" (read not successful)
+#define INNER_RR_12V_24V_MIN_VOLTS     0
+#define INNER_RR_12V_24V_TEXT_LEN_VOLT 5         // "12.0" with space for EOS (zero)
+#define INNER_RR_12V_24V_ERROR_TEXT   "??.?"     // INNER_12V_24V_ERROR_TEXT also includes NUL at the end
+
+#define SSD1306_TS1_LINE_CHAR_LEN        21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
+#define SSD1306_TS1_LINE_NUMS             4
+#define SSD1306_TS1_DISPLAY_CHAR_LEN     (SSD1306_TS1_LINE_CHAR_LEN * SSD1306_TS1_LINE_NUMS) // 84
+#define SSD1306_TS1_DISPLAY_CHAR_LEN_BIG (SSD1306_TS1_DISPLAY_CHAR_LEN/2)
+
+#define INNER_MAX_LUX         99
+#define INNER_MIN_LUX         0
+#define INNER_LUX_TEXT_LEN    3   // "12" with space for EOS (zero)
+#define INNER_LUX_ERROR_TEXT "??" // INNER_RR_FLUX_ERROR_TEXT also includes NUL at the end
+
+#define EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC 999    // 99.9 degC Think of it also as "undefined" (read not successful)
+#define EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC 0      // Got below zero temp from chip
+#define EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC    GENERIC_TEXT_LEN_DEGC
+#define EXTERNAL_TEMPERATURE_ERROR_TEXT       "Feil" // EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC also includes NUL at the end
+
+// Depending of now_regulating_at_t
+#define REGULATING_AT_NUMS          5
+#define REGULATING_AT_NUMS_TEXT_LEN 2 // One char plus NUL at the end
+typedef char now_regulating_at_char_t [REGULATING_AT_NUMS][REGULATING_AT_NUMS_TEXT_LEN];
+// ? REGULATING_AT_INIT
+// 2 REGULATING_AT_BOILING
+// 1 REGULATING_AT_SIMMERING
+// = REGULATING_AT_TEMP_REACHED
+// H REGULATING_AT_HOTTER_AMBIENT ("H" means "hot" for kitchen stoves, i.e. "Het" in Norwegian)
+#define NOW_REGULATING_AT_CHAR_TEXTS {"?", "2", "1", "=", "H"}
+
+#else
+    #error Nested include TEXTS_AND_CONSTANTS_H_
+#endif

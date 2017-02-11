@@ -1,0 +1,133 @@
+/*
+ * i2c_internal.xc
+ *
+ *  Created on: 27. feb.
+ *      Author: Teig
+ */
+
+#include <platform.h>
+#include <xs1.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <xccompat.h> // REFERENCE_PARAM
+#include <iso646.h>
+#include <string.h>   // memset
+#include <timer.h>    // For delay_milliseconds (but it compiles without?)
+
+#include "param.h"
+#include "button_press.h"
+
+#include "i2c.h"
+
+#include "defines_adafruit.h"
+#include "core_graphics_adafruit_GFX.h"
+
+#include "i2c_internal_server.h"
+#include "display_ssd1306.h"
+#include "chronodot_ds3231_controller.h"
+
+// #define DEBUG_PRINT_DISPLAY
+// #define DEBUG_PRINT_CHRONODOT1
+
+r_i2c i2c_internal_config = { // For display and ChronoDot
+    on tile[0]:XS1_PORT_1E, // I_SCL SCL is at startKIT GPIO header (J7.4) port P1E0, processor pin X0D12
+    on tile[0]:XS1_PORT_1F, // I_SDA SDA is at startKIT GPIO header (J7.1) port P1F0, processor pin X0D13
+    300                     // clockTics, smaller is faster
+                            // Length of I2C clock period in reference clock ticks(10ns)
+                            // 1000 * 10ns = 10.000 ns = 10 us -> 100.00 kbit/s operation
+                            //  300 * 10ns =  3.000 ns =  3 us -> 333.33 kbit/s operation
+};
+
+// Internal i2c matters (not display matters)
+[[combinable]]
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS]) {
+
+    #ifdef DEBUG_PRINT_DISPLAY
+        unsigned long int num_chars = 0;
+    #endif
+
+    i2c_master_init (i2c_internal_config); // XMOS library
+
+    // PRINT
+    printf("i2c_master_init and i2c_internal_server started\n"); // printf#02
+
+    while (1) {
+        select {
+
+            case i_i2c_internal_commands[int index_of_client].write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
+
+                i2c_result_t i2c_result;
+
+                if (nbytes <= SSD1306_WRITE_CHUNK_SIZE) {
+                    unsigned      send_nbytes = nbytes;
+                    unsigned char send_data[SSD1306_WRITE_CHUNK_SIZE];
+
+                    #ifdef DEBUG_PRINT_DISPLAY
+                        printf ("i2c-i dev:%02x reg:%02x len:%d:", (int)dev_addr, reg_addr, (int)send_nbytes);
+                    #endif
+
+                    for (uint8_t x=0; x<send_nbytes; x++) {
+                        send_data[x] = data[x];
+
+                        #ifdef DEBUG_PRINT_DISPLAY
+                            if (x==(send_nbytes-1)) {
+                                printf("%02x",data[x]); // Last, no comma
+                            }
+                            else {
+                                printf("%02x ",data[x]);
+                            }
+                        #endif
+                    }
+                    i2c_result = i2c_master_write_reg ((int)dev_addr, reg_addr, send_data, (int)send_nbytes, i2c_internal_config);
+
+                    #ifdef DEBUG_PRINT_DISPLAY
+                        num_chars += send_nbytes;
+                        printf(" #%u\n", num_chars);
+                    #endif
+
+                } else {
+                    i2c_result = I2C_PARAM_ERR; // qwe handle later or just do crash or truncate and let i be visible in the dislay
+                }
+                ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+            } break;
+            case i_i2c_internal_commands[int index_of_client].read_chronodot_ok  (const i2c_dev_address_t dev_addr) -> {chronodot_d3231_registers_t return_chronodot_d3231_registers, bool ok} : {
+                i2c_result_t i2c_result;
+                unsigned char receive_data [D3231_NUM_REGISTERS];
+
+                i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);
+
+                #ifdef DEBUG_PRINT_CHRONODOT1
+                    printf("ChronoDot %u: ", i2c_result);
+                #endif
+
+                for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
+                    return_chronodot_d3231_registers.registers[x] = receive_data[x];
+
+                    #ifdef DEBUG_PRINT_CHRONODOT1
+                        if (x==(D3231_NUM_REGISTERS-1)) {
+                            printf("%02x\n",receive_data[x]); // Last, no comma
+                        }
+                        else {
+                            printf("%02x  ",receive_data[x]); // Two spaces better for setting up names in the log
+                        }
+                     #endif
+                 }
+
+                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+            } break;
+
+            case i_i2c_internal_commands[int index_of_client].write_chronodot_ok  (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers) -> bool ok : {
+                i2c_result_t i2c_result;
+                unsigned char send_data [D3231_NUM_REGISTERS];
+
+                for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
+                    send_data[x] = chronodot_d3231_registers.registers[x];
+                }
+
+                i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, D3231_NUM_REGISTERS, i2c_internal_config);
+                ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+            } break;
+        }
+    }
+}
