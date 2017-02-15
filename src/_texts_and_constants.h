@@ -8,7 +8,8 @@
 #ifndef TEXTS_AND_CONSTANTS_H_
 #define TEXTS_AND_CONSTANTS_H_
 
-#define DEGC_CIRCLE {247,0} // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
+#define DEGC_CIRCLE_STR {247,0}      // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
+#define CHAR_AA_STR     {CHAR_AA,0}
 
 #define GENERIC_TEXT_LEN_DEGC 5 // "25.0" with space for EOS (zero)
 #define GENERIC_TEXT_DEGC          "??.?"

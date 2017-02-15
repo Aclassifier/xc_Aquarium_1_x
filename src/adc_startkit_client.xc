@@ -24,28 +24,25 @@ typedef struct tag_startkit_adc_user_vals {
     unsigned int   no_adc_cnt;
 } t_startkit_adc_user_vals;
 
-typedef enum
-{
-    ADC_AWAIT_TRIGGER_FROM_UP,
-    ADC_AWAIT_READ_FROM_UP
-} t_client_state;
-
+// [[combinable]] not possible due to nested select
 void my_startKIT_adc_client (
-   client startkit_adc_acquire_if    i_startkit_adc_down,
+   client startkit_adc_acquire_if      i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
-   const unsigned int                Num_of_data_sets) // NUM_STARTKIT_ADC_NEEDED_DATA_SETS
+   const unsigned int                  Num_of_data_sets) // NUM_STARTKIT_ADC_NEEDED_DATA_SETS
 {
    t_startkit_adc_user_vals adc_vals;
-   t_client_state           client_state = ADC_AWAIT_TRIGGER_FROM_UP;
 
    unsigned int data_set_cnt = 0;
 
-   printf("my_startKIT_adc_client started\n"); // printf#08
+   printf("my_startKIT_adc_client started\n");
 
    while(1){
        select{
-           case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up.trigger(): {
-               printf ("ADC %d values?\n", Num_of_data_sets);
+           case i_startkit_adc_up.get_adc_vals (unsigned short return_adc_mean_vals[NUM_STARTKIT_ADC_INPUTS]) ->
+                   {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
+
+               // printf ("ADC %d values?\n", Num_of_data_sets);
+
                for (int i=0; i<NUM_STARTKIT_ADC_INPUTS; i++) {
                    adc_vals.mean_sum[i] = 0;
                }
@@ -56,7 +53,7 @@ void my_startKIT_adc_client (
                data_set_cnt = 1; // First set
 
                while (data_set_cnt <= Num_of_data_sets) {
-                   i_startkit_adc_down.trigger(); // Get next data set
+                   i_startkit_adc_down.trigger(); // Nested select rules out [[combinable]]
                    select {
                        case i_startkit_adc_down.complete(): {
                            if (i_startkit_adc_down.read (adc_vals.x)) {
@@ -72,21 +69,12 @@ void my_startKIT_adc_client (
                            } else {
                                adc_vals.no_adc_cnt++; // This may happen, but ask XMOS why (freerunning and polled at the same time?)
                            }
-
-                           if (data_set_cnt == Num_of_data_sets) {
-                               // printf ("ADC %d values ready\n", Num_of_data_sets);
-                               i_startkit_adc_up.complete();
-                           } else {
-                               // No code: get next data with i_startkit_adc_down.trigger above
-                           }
                        } break;
                    }
                    data_set_cnt++;
+                   //printf ("data_set_cnt %d\n", data_set_cnt);
                }
-               client_state = ADC_AWAIT_READ_FROM_UP;
-           } break;
 
-           case (client_state == ADC_AWAIT_READ_FROM_UP) => i_startkit_adc_up.read (unsigned short return_adc_mean_vals[NUM_STARTKIT_ADC_INPUTS]) -> {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
                // printf ("ADC %d values: ", Num_of_data_sets);
                unsigned short offsets [NUM_STARTKIT_ADC_INPUTS] = {OFFSET_ADC_INPUTS_STARTKIT};
 
@@ -107,7 +95,6 @@ void my_startKIT_adc_client (
                    }
                }
                // printf ("\n");
-               client_state = ADC_AWAIT_TRIGGER_FROM_UP;
                {adc_cnt = adc_vals.adc_cnt; no_adc_cnt = adc_vals.no_adc_cnt;} // return
            } break;
         } // select

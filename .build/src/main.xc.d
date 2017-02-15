@@ -15,7 +15,6 @@
   ../../workspace/_Aquarium_1_x/src/temperature_heater_controller.h \
   ../../workspace/_Aquarium_1_x/src/temperature_water_controller.h \
   ../../workspace/_Aquarium_1_x/src/chronodot_ds3231_controller.h \
-  ../../workspace/_Aquarium_1_x/src/_test_aquarium.h \
   ../../workspace/_Aquarium_1_x/src/adc_startkit_client.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

@@ -1463,16 +1463,16 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
@@ -1605,7 +1605,7 @@ typedef struct {
 } chronodot_d3231_registers_t;
 
 typedef interface i2c_internal_commands_if {
-    bool write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
+    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 } i2c_internal_commands_if;
@@ -1613,7 +1613,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[2]);
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 26 "../src/i2c_internal_server.xc" 2
 
 # 1 "../src/display_ssd1306.h" 1
@@ -1703,10 +1703,16 @@ typedef struct {
     unsigned second;
 } DateTime_t;
 
+
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
+
+
 
 [[combinable]]
 void chronodot_ds3231_controller (
@@ -1729,7 +1735,7 @@ r_i2c i2c_internal_config = {
 
 
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[2]) {
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[1]) {
 
 
 
@@ -1738,12 +1744,12 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
     i2c_master_init (i2c_internal_config);
 
 
-    printf("i2c_master_init and i2c_internal_server started\n");
+    printf("i2c_internal_server started\n");
 
     while (1) {
         select {
 
-            case i_i2c_internal_commands[int index_of_client].write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
+            case i_i2c_internal_commands[int index_of_client].write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
 
                 i2c_result_t i2c_result;
 
@@ -1771,6 +1777,7 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
                 }
                 ok = (i2c_result == I2C_OK);
             } break;
+
             case i_i2c_internal_commands[int index_of_client].read_chronodot_ok (const i2c_dev_address_t dev_addr) -> {chronodot_d3231_registers_t return_chronodot_d3231_registers, bool ok} : {
                 i2c_result_t i2c_result;
                 unsigned char receive_data [19];
@@ -1783,7 +1790,7 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
 
                 for (uint8_t x=0; x<19; x++) {
                     return_chronodot_d3231_registers.registers[x] = receive_data[x];
-# 115 "../src/i2c_internal_server.xc"
+# 116 "../src/i2c_internal_server.xc"
                  }
 
                  ok = (i2c_result == I2C_OK);

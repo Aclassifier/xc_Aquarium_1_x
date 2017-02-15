@@ -1455,16 +1455,16 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
@@ -1593,7 +1593,7 @@ typedef struct {
 } chronodot_d3231_registers_t;
 
 typedef interface i2c_internal_commands_if {
-    bool write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
+    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 } i2c_internal_commands_if;
@@ -1601,7 +1601,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[2]);
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 27 "../src/display_ssd1306.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
@@ -1659,7 +1659,7 @@ bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_co
     unsigned char data[] = {c};
     int nbytes = 1;
 
-    error |= ! i_i2c_internal_commands.write_display (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
+    error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
 
     return ! error;
 }
@@ -1670,7 +1670,7 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
     unsigned char data[] = {c};
     int nbytes = 1;
 
-    error |= ! i_i2c_internal_commands.write_display (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
+    error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
 
     return ! error;
 }
@@ -1897,7 +1897,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         }
         i--;
 
-        error |= ! i_i2c_internal_commands.write_display (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
+        error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
     }
     return ! error;
 }

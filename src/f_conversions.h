@@ -60,7 +60,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[]);
 {light_range_t, bool}       ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i,      char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok                       (const unsigned int adc_val_mean_i,      char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);

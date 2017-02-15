@@ -1487,13 +1487,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1514,7 +1513,7 @@ typedef struct {
 } chronodot_d3231_registers_t;
 
 typedef interface i2c_internal_commands_if {
-    bool write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
+    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 } i2c_internal_commands_if;
@@ -1522,7 +1521,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[2]);
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 25 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
@@ -1630,16 +1629,16 @@ extern display_param_t display_param;
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
@@ -1648,7 +1647,7 @@ typedef struct {
 [[combinable]] void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out);
 # 29 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 30 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1683,7 +1682,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
 {light_range_t, bool} ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i, char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);
@@ -1766,12 +1765,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1852,10 +1851,16 @@ typedef struct {
     unsigned second;
 } DateTime_t;
 
+
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
+
+
 
 [[combinable]]
 void chronodot_ds3231_controller (
@@ -1863,6 +1868,32 @@ void chronodot_ds3231_controller (
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 36 "../src/chronodot_ds3231_controller.xc" 2
 
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers) {
+    DateTime_t datetime;
+
+    datetime.year = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_YEAR]) + 2000;
+    datetime.month = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_MONTH]);
+    datetime.day = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_DAYOFMONTH]);
+    datetime.hour = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_HOUR]);
+    datetime.minute = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_MINUTE]);
+    datetime.second = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] & 0x7F);
+
+    return datetime;
+}
+
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr) {
+
+
+
+
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR] = bin2bcd_8((uint8_t) (datetime.year - 2000));
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_MONTH] = bin2bcd_8((uint8_t) datetime.month);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_DAYOFMONTH] = bin2bcd_8((uint8_t) datetime.day);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_HOUR] = bin2bcd_8((uint8_t) datetime.hour);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_MINUTE] = bin2bcd_8((uint8_t) datetime.minute);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_SECOND] = bin2bcd_8((uint8_t) datetime.second);
+}
+# 84 "../src/chronodot_ds3231_controller.xc"
 [[combinable]]
 void chronodot_ds3231_controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
@@ -1873,6 +1904,9 @@ void chronodot_ds3231_controller (
     bool ok;
     timer tmr;
     int time;
+
+    printf ("chronodot_ds3231_controller started\n");
+
     tmr :> time;
 
     while(1) {
@@ -1891,7 +1925,7 @@ void chronodot_ds3231_controller (
                     datetime.minute = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_MINUTE]);
                     datetime.second = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] & 0x7F);
                 } else {}
-# 73 "../src/chronodot_ds3231_controller.xc"
+# 123 "../src/chronodot_ds3231_controller.xc"
             } break;
 
             case i_chronodot_ds3231.get_time_ok (void) -> {DateTime_t return_datetime, bool return_ok} : {

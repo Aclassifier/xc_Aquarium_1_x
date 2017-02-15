@@ -1491,22 +1491,22 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 19 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 20 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
@@ -1574,13 +1574,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 

@@ -1306,38 +1306,68 @@ typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
 # 14 "../src/button_press.xc" 2
 
+# 1 "../src/param.h" 1
+# 18 "../src/param.h"
+typedef enum {false,true} bool;
+
+typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
+
+
+
+
+
+
+typedef uint8_t i2c_dev_address_t;
+typedef uint8_t i2c_reg_address_t;
+typedef uint8_t i2c_reg_data_t;
+typedef int16_t i2c_temp_onetenthDegC_t;
+
+typedef struct tag_i2c_dev_address_reg_address_t {
+    i2c_dev_address_t _dev_address;
+    i2c_reg_address_t _reg_address;
+} i2c_server_params_t;
+
+typedef struct tag_i2c_master_param_t {
+    i2c_dev_address_t _use_dev_address;
+    i2c_result_t _result;
+} i2c_master_params_t;
+# 53 "../src/param.h"
+typedef struct tag_startkit_adc_vals {
+    unsigned short x[4];
+} t_startkit_adc_vals;
+# 16 "../src/button_press.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
 
 
 [[combinable]] void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out);
-# 16 "../src/button_press.xc" 2
-# 33 "../src/button_press.xc"
+# 17 "../src/button_press.xc" 2
+# 32 "../src/button_press.xc"
 [[combinable]]
 void mux_button_task (chanend c_button_in[3], chanend c_button_out) {
 
-    button_t button_in;
+    button_action_t button_action_in;
     buttons_t buttons_out;
 
     while (1) {
         select {
-            case c_button_in[int index] :> button_in: {
+            case c_button_in[int index] :> button_action_in: {
 
-                buttons_out.button = button_in;
+                buttons_out.button_action = button_action_in;
                 buttons_out.iof_button = index;
 
                 c_button_out <: buttons_out;
@@ -1354,6 +1384,7 @@ void inp_button_task (const unsigned button_n, port p_button, chanend c_button_o
     timer tmr;
     const unsigned debounce_delay_ms = 50;
     unsigned debounce_timeout;
+    bool initial_released_stopped = false;
 
     printf("inP_Button_Task[%u] started\n", button_n);
 
@@ -1383,11 +1414,17 @@ void inp_button_task (const unsigned button_n, port p_button, chanend c_button_o
 
                 if (current_val == 0) {
 
-                    c_button_out <: BUTTON_PRESSED;
+                    c_button_out <: BUTTON_ACTION_PRESSED;
+                    initial_released_stopped = true;
 
                 }
                 else {
-                    c_button_out <: BUTTON_RELEASED;
+                    if (initial_released_stopped == false) {
+                        initial_released_stopped = true;
+                    } else {
+                        c_button_out <: BUTTON_ACTION_RELEASED;
+                    }
+
 
                 }
                 is_stable = 1;

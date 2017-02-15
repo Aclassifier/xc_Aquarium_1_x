@@ -1373,11 +1373,15 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
-    [[guarded]] void trigger (void);
-    [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
-    [[notification]] slave void complete (void);
+
+
+
+
+
+    {unsigned int, unsigned int} get_adc_vals (unsigned short adc_val[4]);
+
 } lib_startkit_adc_commands_if;
-# 27 "../src/adc_startkit_client.h"
+# 30 "../src/adc_startkit_client.h"
 void my_startKIT_adc_client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
@@ -1392,11 +1396,6 @@ typedef struct tag_startkit_adc_user_vals {
     unsigned int no_adc_cnt;
 } t_startkit_adc_user_vals;
 
-typedef enum
-{
-    ADC_AWAIT_TRIGGER_FROM_UP,
-    ADC_AWAIT_READ_FROM_UP
-} t_client_state;
 
 void my_startKIT_adc_client (
    client startkit_adc_acquire_if i_startkit_adc_down,
@@ -1404,7 +1403,6 @@ void my_startKIT_adc_client (
    const unsigned int Num_of_data_sets)
 {
    t_startkit_adc_user_vals adc_vals;
-   t_client_state client_state = ADC_AWAIT_TRIGGER_FROM_UP;
 
    unsigned int data_set_cnt = 0;
 
@@ -1412,8 +1410,11 @@ void my_startKIT_adc_client (
 
    while(1){
        select{
-           case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up.trigger(): {
-               printf ("ADC %d values?\n", Num_of_data_sets);
+           case i_startkit_adc_up.get_adc_vals (unsigned short return_adc_mean_vals[4]) ->
+                   {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
+
+
+
                for (int i=0; i<4; i++) {
                    adc_vals.mean_sum[i] = 0;
                }
@@ -1440,21 +1441,12 @@ void my_startKIT_adc_client (
                            } else {
                                adc_vals.no_adc_cnt++;
                            }
-
-                           if (data_set_cnt == Num_of_data_sets) {
-
-                               i_startkit_adc_up.complete();
-                           } else {
-
-                           }
                        } break;
                    }
                    data_set_cnt++;
-               }
-               client_state = ADC_AWAIT_READ_FROM_UP;
-           } break;
 
-           case (client_state == ADC_AWAIT_READ_FROM_UP) => i_startkit_adc_up.read (unsigned short return_adc_mean_vals[4]) -> {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
+               }
+
 
                unsigned short offsets [4] = {190,175,195,187};
 
@@ -1475,7 +1467,6 @@ void my_startKIT_adc_client (
                    }
                }
 
-               client_state = ADC_AWAIT_TRIGGER_FROM_UP;
                {adc_cnt = adc_vals.adc_cnt; no_adc_cnt = adc_vals.no_adc_cnt;}
            } break;
         }

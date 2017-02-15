@@ -34,6 +34,53 @@
 
 #include "chronodot_ds3231_controller.h"
 
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers) {
+    DateTime_t datetime;
+
+    datetime.year   = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_YEAR]) + DATETIME_YEAR_OFFSET;
+    datetime.month  = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_MONTH]);
+    datetime.day    = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_DAYOFMONTH]);
+    datetime.hour   = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_HOUR]);
+    datetime.minute = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_MINUTE]);
+    datetime.second = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);
+
+    return datetime;
+}
+
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr) {
+
+    // The other registers are not touched.
+    // => This means that they have to be read from chronodot before they are attempted to be written
+
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR]       = bin2bcd_8((uint8_t) (datetime.year - DATETIME_YEAR_OFFSET));
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_MONTH]      = bin2bcd_8((uint8_t)  datetime.month);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_DAYOFMONTH] = bin2bcd_8((uint8_t)  datetime.day);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_HOUR]       = bin2bcd_8((uint8_t)  datetime.hour);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_MINUTE]     = bin2bcd_8((uint8_t)  datetime.minute);
+    chronodot_d3231_registers_ptr->registers[DS3231_REG_SECOND]     = bin2bcd_8((uint8_t)  datetime.second);
+}
+
+// When I not made this a separate task, but called i2c_internal_server directly from the same client
+// then I2C_INTERNAL_NUM_CLIENTS went from 2 to 1 and the chronodot_ds3231_if wasn't needed any more, so
+// we saved three chanends and almost saved about 2.1K memory:
+//
+// With chronodot_ds3231_controller:
+// Constraint check for tile[0]:
+//   Cores available:            8,   used:          7 .  OKAY
+//   Timers available:          10,   used:          8 .  OKAY
+//   Chanends available:        32,   used:         29 .  OKAY
+//   Memory available:       65536,   used:      51600 .  OKAY
+//     (Stack: 9708, Code: 36066, Data: 5826)
+//
+// With chronodot_ds3231_controller REMOVED:
+// Constraint check for tile[0]:
+//   Cores available:            8,   used:          6 .  OKAY
+//   Timers available:          10,   used:          7 .  OKAY
+//   Chanends available:        32,   used:         26 .  OKAY
+//   Memory available:       65536,   used:      49552 .  OKAY
+//     (Stack: 9272, Code: 34506, Data: 5774)
+// Constraints checks PASSED.
+
 [[combinable]]
 void chronodot_ds3231_controller (
     server chronodot_ds3231_if      i_chronodot_ds3231,
@@ -44,6 +91,9 @@ void chronodot_ds3231_controller (
     bool ok;
     timer tmr;
     int   time;
+
+    printf ("chronodot_ds3231_controller started\n");  // NOT USED!
+
     tmr :> time;
 
     while(1) {

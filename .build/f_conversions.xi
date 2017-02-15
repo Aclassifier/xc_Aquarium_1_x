@@ -1533,7 +1533,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 22 "../src/f_conversions.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 23 "../src/f_conversions.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
@@ -1576,13 +1576,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1622,7 +1621,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
 {light_range_t, bool} ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i, char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);
@@ -1835,7 +1834,7 @@ ambient_light_sensor_ALS_PDIC243_to_string_ok (
 {voltage_onetenthV_t, bool}
 RR_12V_24V_to_string_ok (
     const unsigned int adc_val_mean_i,
-    char rr_12V_24V_str[]) {
+    char (&?rr_12V_24V_str)[]) {
 # 326 "../src/f_conversions.xc"
     voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
@@ -1850,15 +1849,20 @@ RR_12V_24V_to_string_ok (
     error |= ((volt_Unary_Part < 0) || (volt_Unary_Part > 99));
     error |= ((volt_Decimal_Part < 0) || (volt_Decimal_Part > 9));
 
-    sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-    error |= (sprintf_return != 4);
-    error |= (sprintf_return < 0);
-
     if (error) {
-        char error_text [] = "??.?";
-        __builtin_memcpy_xc(rr_12V_24V_str, error_text, sizeof(error_text));
         volt_dp1 = 99;
     } else {}
+
+    if (!isnull(rr_12V_24V_str)) {
+        sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
+        error |= (sprintf_return != 4);
+        error |= (sprintf_return < 0);
+
+        if (error) {
+            char error_text [] = "??.?";
+            __builtin_memcpy_xc(rr_12V_24V_str, error_text, sizeof(error_text));
+        } else {}
+    }
 
     return {volt_dp1, ! error};
 }

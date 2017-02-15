@@ -46,7 +46,7 @@ typedef struct tag_i2c_master_param_t {
 #define   IOF_ADC_STARTKIT_12V         3 // Green cable
 
 #define ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED     0 // 0 is so; 1000 is 1 ms
-#define NUM_STARTKIT_ADC_NEEDED_DATA_SETS             1000 // Each of NUM_STARTKIT_ADC_INPUTS. MAX VALUE IS 32-16=16 bits or 0xffff = 65535
+#define NUM_STARTKIT_ADC_NEEDED_DATA_SETS             10 // qwe Each of NUM_STARTKIT_ADC_INPUTS. MAX VALUE IS 32-16=16 bits or 0xffff = 65535
 
 #define OFFSET_ADC_INPUTS_STARTKIT 190,175,195,187 // Measured with ADC nothing connected on startKIT ADC J2. Measured on set of NUM_STARTKIT_ADC_NEEDED_DATA_SETS
 

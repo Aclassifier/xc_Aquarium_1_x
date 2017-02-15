@@ -84,11 +84,17 @@ typedef struct {
     unsigned second;
 } DateTime_t;
 
+
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
+void       datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool  set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
 
+// NOT USED!
+//
 [[combinable]]
 void chronodot_ds3231_controller (
     server chronodot_ds3231_if      i_chronodot_ds3231,

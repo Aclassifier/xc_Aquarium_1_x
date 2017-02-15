@@ -16,8 +16,8 @@
   ../../workspace/_Aquarium_1_x/src/f_conversions.h \
   ../../workspace/_Aquarium_1_x/src/temperature_heater_controller.h \
   ../../workspace/_Aquarium_1_x/src/temperature_water_controller.h \
-  ../../workspace/_Aquarium_1_x/src/_test_aquarium.h \
   ../../workspace/_Aquarium_1_x/src/core_graphics_adafruit_GFX.h \
+  ../../workspace/_Aquarium_1_x/src/core_graphics_font5x8.h \
   ../../workspace/_Aquarium_1_x/src/adc_startkit_client.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

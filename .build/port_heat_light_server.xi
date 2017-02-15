@@ -1278,16 +1278,17 @@ void port_heat_light_server (server port_heat_light_commands_if i_port_heat_ligh
     uint32_t port_value = 0xffffffff;
     timer tmr;
     int time;
-    unsigned int present_iof_light_composition_level = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    unsigned int present_iof_light_composition_level = LIGHT_COMPOSITION_0666_BACK1_ON;
     unsigned int iof_light_pwm_window = 0;
     heat_cable_alternating_t heat_cable_alternating = HEAT_1_ON;
 
 
 
 
-
         dummy_wify_ctrl_port <: 0x01;
 
+
+    printf ("port_heat_light_server started\n");
 
     myport_p32 <: port_value;
 

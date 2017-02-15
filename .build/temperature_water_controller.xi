@@ -1319,7 +1319,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 19 "../src/temperature_water_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 20 "../src/temperature_water_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1354,7 +1354,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
 {light_range_t, bool} ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i, char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);
@@ -1389,13 +1389,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1471,12 +1470,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1529,10 +1528,12 @@ void temperature_water_controller (
     temp_onetenthDegC_t temp_onetenthDegC_heater_limit = temp_onetenthDegC_water_wanted;
 
     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
+
     for (int index_of_temp=0; index_of_temp < (3 +1); index_of_temp++) {
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
+    printf ("temperature_water_controller started\n");
     tmr :> time;
 
     while(1) {
@@ -1541,10 +1542,14 @@ void temperature_water_controller (
                 time += (1000 * ((100U) * 1000U));
                 raw_timer_interval_cntdown--;
 
+                printf ("timerafter %u\n", raw_timer_interval_cntdown);
+
                 if (raw_timer_interval_cntdown == 0) {
                     raw_timer_interval_cntdown = (2 * 60);
 
+                    printf ("timerafter X\n");
                     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
+                    printf ("timerafter Y\n");
 
                     temp_onetenthDegC_water_delta = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC_prev[IOF_TEMPC_WATER];
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
@@ -1617,6 +1622,8 @@ void temperature_water_controller (
                 char temp_degC_str [5] = {"??.?"};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
+
+                printf ("get_temp_degC_string_filtered %u\n", i2c_iof_temps);
 
                 {temp_onetenthDegC, ok_degC_convert} = temp_onetenthDegC_to_str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 

@@ -26,12 +26,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    [[guarded]] void     heater_set_proportional (const heater_wires_t      heater_wires, const int heat_percentage);
-    [[guarded]] void     heater_set_temp_degC    (const heater_wires_t      heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void     get_temps               (      temp_onetenthDegC_t return_temps_onetenthDegC [NUM_TEMPERATURES]);
-                void     get_temp_degC_string    (const iof_temps_t         iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]); // All NUM_TEMPERATURES [0..3]
+    void     heater_set_proportional (const heater_wires_t      heater_wires, const int heat_percentage);
+    void     heater_set_temp_degC    (const heater_wires_t      heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+    void     get_temps               (      temp_onetenthDegC_t return_temps_onetenthDegC [NUM_TEMPERATURES]);
+    void     get_temp_degC_string    (const iof_temps_t         iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]); // All NUM_TEMPERATURES [0..3]
     {unsigned, unsigned} // return_value_on_percent, return_value_on_watt
-                         get_regulator_data      (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+             get_regulator_data      (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 #define HEATER_CONTROLLER_NUM_CLIENTS 2

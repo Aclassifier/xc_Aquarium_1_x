@@ -309,7 +309,7 @@ ambient_light_sensor_ALS_PDIC243_to_string_ok (
 {voltage_onetenthV_t, bool}
 RR_12V_24V_to_string_ok (
     const unsigned int adc_val_mean_i,
-    char rr_12V_24V_str[]) {
+    char (&?rr_12V_24V_str)[]) {
 
     // Internal A/D-converter
     // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -336,15 +336,20 @@ RR_12V_24V_to_string_ok (
     error or_eq ((volt_Unary_Part < INNER_RR_12V_24V_MIN_VOLTS) or (volt_Unary_Part > INNER_RR_12V_24V_MAX_VOLTS));
     error or_eq ((volt_Decimal_Part < 0) or (volt_Decimal_Part > 9)); // error not possible if correct math
 
-    sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-    error or_eq (sprintf_return != 4); // "25.0"
-    error or_eq (sprintf_return < 0);
-
     if (error) {
-        char error_text [] = INNER_RR_12V_24V_ERROR_TEXT;
-        memcpy (rr_12V_24V_str, error_text, sizeof(error_text));
         volt_dp1 = INNER_RR_12V_24V_MAX_VOLTS;
-    } else {} // No code: ok
+    } else {}
+
+    if (!isnull(rr_12V_24V_str)) {
+        sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
+        error or_eq (sprintf_return != 4); // "25.0"
+        error or_eq (sprintf_return < 0);
+
+        if (error) {
+            char error_text [] = INNER_RR_12V_24V_ERROR_TEXT;
+            memcpy (rr_12V_24V_str, error_text, sizeof(error_text));
+        } else {} // No code: ok
+    }
 
     return {volt_dp1, not error};
 }

@@ -50,12 +50,12 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
     i2c_master_init (i2c_internal_config); // XMOS library
 
     // PRINT
-    printf("i2c_master_init and i2c_internal_server started\n"); // printf#02
+    printf("i2c_internal_server started\n"); // printf#02
 
     while (1) {
         select {
 
-            case i_i2c_internal_commands[int index_of_client].write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
+            case i_i2c_internal_commands[int index_of_client].write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
 
                 i2c_result_t i2c_result;
 
@@ -91,6 +91,7 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
                 }
                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
             } break;
+
             case i_i2c_internal_commands[int index_of_client].read_chronodot_ok  (const i2c_dev_address_t dev_addr) -> {chronodot_d3231_registers_t return_chronodot_d3231_registers, bool ok} : {
                 i2c_result_t i2c_result;
                 unsigned char receive_data [D3231_NUM_REGISTERS];

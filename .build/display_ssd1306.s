@@ -15,18 +15,18 @@ outP_display_notReset.info:
 	.int 0x00010c00
 	.long tile + 0
 	.popsection
-	.weak _i.i2c_internal_commands_if.write_display.maxchanends.group
-	.max_reduce _i.i2c_internal_commands_if.write_display.max.maxchanends, _i.i2c_internal_commands_if.write_display.maxchanends.group, 0
-	.weak _i.i2c_internal_commands_if.write_display.maxcores.group
-	.max_reduce _i.i2c_internal_commands_if.write_display.max.maxcores, _i.i2c_internal_commands_if.write_display.maxcores.group, 0
-	.weak _i.i2c_internal_commands_if.write_display.maxtimers.group
-	.max_reduce _i.i2c_internal_commands_if.write_display.max.maxtimers, _i.i2c_internal_commands_if.write_display.maxtimers.group, 0
-	.weak _i.i2c_internal_commands_if.write_display.nstackwords.group
-	.globl _i.i2c_internal_commands_if.write_display.nstackwords.group
-	.weak _i.i2c_internal_commands_if.write_display.fns.group
-	.globl _i.i2c_internal_commands_if.write_display.fns.group
-	.max_reduce _i.i2c_internal_commands_if.write_display.max.nstackwords, _i.i2c_internal_commands_if.write_display.nstackwords.group, 0
-	.max_reduce _i.i2c_internal_commands_if.write_display.fns, _i.i2c_internal_commands_if.write_display.fns.group, 0
+	.weak _i.i2c_internal_commands_if.write_display_ok.maxchanends.group
+	.max_reduce _i.i2c_internal_commands_if.write_display_ok.max.maxchanends, _i.i2c_internal_commands_if.write_display_ok.maxchanends.group, 0
+	.weak _i.i2c_internal_commands_if.write_display_ok.maxcores.group
+	.max_reduce _i.i2c_internal_commands_if.write_display_ok.max.maxcores, _i.i2c_internal_commands_if.write_display_ok.maxcores.group, 0
+	.weak _i.i2c_internal_commands_if.write_display_ok.maxtimers.group
+	.max_reduce _i.i2c_internal_commands_if.write_display_ok.max.maxtimers, _i.i2c_internal_commands_if.write_display_ok.maxtimers.group, 0
+	.weak _i.i2c_internal_commands_if.write_display_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.write_display_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.write_display_ok.fns.group
+	.globl _i.i2c_internal_commands_if.write_display_ok.fns.group
+	.max_reduce _i.i2c_internal_commands_if.write_display_ok.max.nstackwords, _i.i2c_internal_commands_if.write_display_ok.nstackwords.group, 0
+	.max_reduce _i.i2c_internal_commands_if.write_display_ok.fns, _i.i2c_internal_commands_if.write_display_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.read_chronodot_ok.maxchanends.group
 	.max_reduce _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends, _i.i2c_internal_commands_if.read_chronodot_ok.maxchanends.group, 0
 	.weak _i.i2c_internal_commands_if.read_chronodot_ok.maxcores.group
@@ -323,11 +323,11 @@ _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 	.size	_i.i2c_internal_commands_if._chan.read_chronodot_ok, .Ltmp15-_i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan.write_display
+	.weak	_i.i2c_internal_commands_if._chan.write_display_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan.write_display,@function
-	.cc_top _i.i2c_internal_commands_if._chan.write_display.function,_i.i2c_internal_commands_if._chan.write_display
-_i.i2c_internal_commands_if._chan.write_display:
+	.type	_i.i2c_internal_commands_if._chan.write_display_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan.write_display_ok.function,_i.i2c_internal_commands_if._chan.write_display_ok
+_i.i2c_internal_commands_if._chan.write_display_ok:
 	.cfi_startproc
 	entsp 4
 .Ltmp16:
@@ -363,21 +363,21 @@ _i.i2c_internal_commands_if._chan.write_display:
 	ldw r4, sp[3]
 	retsp 4
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan.write_display.function
-	.set	_i.i2c_internal_commands_if._chan.write_display.nstackwords,(__interface_client_call.nstackwords + 4)
-	.globl	_i.i2c_internal_commands_if._chan.write_display.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan.write_display.nstackwords
-	.set	_i.i2c_internal_commands_if._chan.write_display.maxcores,__interface_client_call.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if._chan.write_display.maxcores
-	.weak	_i.i2c_internal_commands_if._chan.write_display.maxcores
-	.set	_i.i2c_internal_commands_if._chan.write_display.maxtimers,__interface_client_call.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if._chan.write_display.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan.write_display.maxtimers
-	.set	_i.i2c_internal_commands_if._chan.write_display.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
-	.globl	_i.i2c_internal_commands_if._chan.write_display.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan.write_display.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan.write_display_ok.function
+	.set	_i.i2c_internal_commands_if._chan.write_display_ok.nstackwords,(__interface_client_call.nstackwords + 4)
+	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan.write_display_ok.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan.write_display_ok.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
 .Ltmp20:
-	.size	_i.i2c_internal_commands_if._chan.write_display, .Ltmp20-_i.i2c_internal_commands_if._chan.write_display
+	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp20-_i.i2c_internal_commands_if._chan.write_display_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
@@ -536,11 +536,11 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp36-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display
+	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.write_display,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.write_display.function,_i.i2c_internal_commands_if._chan_y.write_display
-_i.i2c_internal_commands_if._chan_y.write_display:
+	.type	_i.i2c_internal_commands_if._chan_y.write_display_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_y.write_display_ok.function,_i.i2c_internal_commands_if._chan_y.write_display_ok
+_i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.cfi_startproc
 	entsp 5
 .Ltmp37:
@@ -582,21 +582,21 @@ _i.i2c_internal_commands_if._chan_y.write_display:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_display.function
-	.set	_i.i2c_internal_commands_if._chan_y.write_display.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.write_display.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.write_display.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.write_display.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_display_ok.function
+	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
 .Ltmp42:
-	.size	_i.i2c_internal_commands_if._chan_y.write_display, .Ltmp42-_i.i2c_internal_commands_if._chan_y.write_display
+	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp42-_i.i2c_internal_commands_if._chan_y.write_display_ok
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -1573,13 +1573,13 @@ Adafruit_SSD1306_i2c_begin:
 	# RETURN_REG_HOLDER
 .Ltmp145:
 	.cc_bottom Adafruit_SSD1306_i2c_begin.function
-	.set	Adafruit_SSD1306_i2c_begin.nstackwords,((delay_ticks_longlong.nstackwords $M _i.i2c_internal_commands_if.write_display.max.nstackwords) + 28)
+	.set	Adafruit_SSD1306_i2c_begin.nstackwords,((delay_ticks_longlong.nstackwords $M _i.i2c_internal_commands_if.write_display_ok.max.nstackwords) + 28)
 	.globl	Adafruit_SSD1306_i2c_begin.nstackwords
-	.set	Adafruit_SSD1306_i2c_begin.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M delay_ticks_longlong.maxcores $M 1
+	.set	Adafruit_SSD1306_i2c_begin.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M delay_ticks_longlong.maxcores $M 1
 	.globl	Adafruit_SSD1306_i2c_begin.maxcores
-	.set	Adafruit_SSD1306_i2c_begin.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M delay_ticks_longlong.maxtimers $M 0
+	.set	Adafruit_SSD1306_i2c_begin.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M delay_ticks_longlong.maxtimers $M 0
 	.globl	Adafruit_SSD1306_i2c_begin.maxtimers
-	.set	Adafruit_SSD1306_i2c_begin.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M delay_ticks_longlong.maxchanends $M 0
+	.set	Adafruit_SSD1306_i2c_begin.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M delay_ticks_longlong.maxchanends $M 0
 	.globl	Adafruit_SSD1306_i2c_begin.maxchanends
 .Ltmp146:
 	.size	Adafruit_SSD1306_i2c_begin, .Ltmp146-Adafruit_SSD1306_i2c_begin
@@ -1633,13 +1633,13 @@ writeDisplay_i2c_command:
 	# RETURN_REG_HOLDER
 .Ltmp154:
 	.cc_bottom writeDisplay_i2c_command.function
-	.set	writeDisplay_i2c_command.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 5)
+	.set	writeDisplay_i2c_command.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	writeDisplay_i2c_command.nstackwords
-	.set	writeDisplay_i2c_command.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	writeDisplay_i2c_command.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	writeDisplay_i2c_command.maxcores
-	.set	writeDisplay_i2c_command.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	writeDisplay_i2c_command.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	writeDisplay_i2c_command.maxtimers
-	.set	writeDisplay_i2c_command.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	writeDisplay_i2c_command.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeDisplay_i2c_command.maxchanends
 .Ltmp155:
 	.size	writeDisplay_i2c_command, .Ltmp155-writeDisplay_i2c_command
@@ -1694,13 +1694,13 @@ writeDisplay_i2c_data:
 	# RETURN_REG_HOLDER
 .Ltmp163:
 	.cc_bottom writeDisplay_i2c_data.function
-	.set	writeDisplay_i2c_data.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 5)
+	.set	writeDisplay_i2c_data.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	writeDisplay_i2c_data.nstackwords
-	.set	writeDisplay_i2c_data.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	writeDisplay_i2c_data.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	writeDisplay_i2c_data.maxcores
-	.set	writeDisplay_i2c_data.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	writeDisplay_i2c_data.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	writeDisplay_i2c_data.maxtimers
-	.set	writeDisplay_i2c_data.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	writeDisplay_i2c_data.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeDisplay_i2c_data.maxchanends
 .Ltmp164:
 	.size	writeDisplay_i2c_data, .Ltmp164-writeDisplay_i2c_data
@@ -1767,13 +1767,13 @@ tellDisplay_i2c_invert:
 	# RETURN_REG_HOLDER
 .Ltmp174:
 	.cc_bottom tellDisplay_i2c_invert.function
-	.set	tellDisplay_i2c_invert.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 5)
+	.set	tellDisplay_i2c_invert.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	tellDisplay_i2c_invert.nstackwords
-	.set	tellDisplay_i2c_invert.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_invert.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_invert.maxcores
-	.set	tellDisplay_i2c_invert.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_invert.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_invert.maxtimers
-	.set	tellDisplay_i2c_invert.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_invert.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_invert.maxchanends
 .Ltmp175:
 	.size	tellDisplay_i2c_invert, .Ltmp175-tellDisplay_i2c_invert
@@ -2031,13 +2031,13 @@ tellDisplay_i2c_startscrollright:
 	# RETURN_REG_HOLDER
 .Ltmp217:
 	.cc_bottom tellDisplay_i2c_startscrollright.function
-	.set	tellDisplay_i2c_startscrollright.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 12)
+	.set	tellDisplay_i2c_startscrollright.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrollright.nstackwords
-	.set	tellDisplay_i2c_startscrollright.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_startscrollright.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_startscrollright.maxcores
-	.set	tellDisplay_i2c_startscrollright.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_startscrollright.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_startscrollright.maxtimers
-	.set	tellDisplay_i2c_startscrollright.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_startscrollright.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrollright.maxchanends
 .Ltmp218:
 	.size	tellDisplay_i2c_startscrollright, .Ltmp218-tellDisplay_i2c_startscrollright
@@ -2295,13 +2295,13 @@ tellDisplay_i2c_startscrollleft:
 	# RETURN_REG_HOLDER
 .Ltmp260:
 	.cc_bottom tellDisplay_i2c_startscrollleft.function
-	.set	tellDisplay_i2c_startscrollleft.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 12)
+	.set	tellDisplay_i2c_startscrollleft.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrollleft.nstackwords
-	.set	tellDisplay_i2c_startscrollleft.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_startscrollleft.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_startscrollleft.maxcores
-	.set	tellDisplay_i2c_startscrollleft.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_startscrollleft.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_startscrollleft.maxtimers
-	.set	tellDisplay_i2c_startscrollleft.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_startscrollleft.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrollleft.maxchanends
 .Ltmp261:
 	.size	tellDisplay_i2c_startscrollleft, .Ltmp261-tellDisplay_i2c_startscrollleft
@@ -2606,13 +2606,13 @@ tellDisplay_i2c_startscrolldiagright:
 	# RETURN_REG_HOLDER
 .Ltmp309:
 	.cc_bottom tellDisplay_i2c_startscrolldiagright.function
-	.set	tellDisplay_i2c_startscrolldiagright.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 12)
+	.set	tellDisplay_i2c_startscrolldiagright.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrolldiagright.nstackwords
-	.set	tellDisplay_i2c_startscrolldiagright.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_startscrolldiagright.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_startscrolldiagright.maxcores
-	.set	tellDisplay_i2c_startscrolldiagright.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_startscrolldiagright.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_startscrolldiagright.maxtimers
-	.set	tellDisplay_i2c_startscrolldiagright.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_startscrolldiagright.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrolldiagright.maxchanends
 .Ltmp310:
 	.size	tellDisplay_i2c_startscrolldiagright, .Ltmp310-tellDisplay_i2c_startscrolldiagright
@@ -2917,13 +2917,13 @@ tellDisplay_i2c_startscrolldiagleft:
 	# RETURN_REG_HOLDER
 .Ltmp358:
 	.cc_bottom tellDisplay_i2c_startscrolldiagleft.function
-	.set	tellDisplay_i2c_startscrolldiagleft.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 12)
+	.set	tellDisplay_i2c_startscrolldiagleft.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrolldiagleft.nstackwords
-	.set	tellDisplay_i2c_startscrolldiagleft.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_startscrolldiagleft.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_startscrolldiagleft.maxcores
-	.set	tellDisplay_i2c_startscrolldiagleft.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_startscrolldiagleft.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_startscrolldiagleft.maxtimers
-	.set	tellDisplay_i2c_startscrolldiagleft.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_startscrolldiagleft.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrolldiagleft.maxchanends
 .Ltmp359:
 	.size	tellDisplay_i2c_startscrolldiagleft, .Ltmp359-tellDisplay_i2c_startscrolldiagleft
@@ -2979,13 +2979,13 @@ tellDisplay_i2c_stopscroll:
 	# RETURN_REG_HOLDER
 .Ltmp368:
 	.cc_bottom tellDisplay_i2c_stopscroll.function
-	.set	tellDisplay_i2c_stopscroll.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 5)
+	.set	tellDisplay_i2c_stopscroll.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	tellDisplay_i2c_stopscroll.nstackwords
-	.set	tellDisplay_i2c_stopscroll.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	tellDisplay_i2c_stopscroll.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	tellDisplay_i2c_stopscroll.maxcores
-	.set	tellDisplay_i2c_stopscroll.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	tellDisplay_i2c_stopscroll.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	tellDisplay_i2c_stopscroll.maxtimers
-	.set	tellDisplay_i2c_stopscroll.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	tellDisplay_i2c_stopscroll.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_stopscroll.maxchanends
 .Ltmp369:
 	.size	tellDisplay_i2c_stopscroll, .Ltmp369-tellDisplay_i2c_stopscroll
@@ -3272,13 +3272,13 @@ writeToDisplay_i2c_all_buffer:
 	# RETURN_REG_HOLDER
 .Ltmp411:
 	.cc_bottom writeToDisplay_i2c_all_buffer.function
-	.set	writeToDisplay_i2c_all_buffer.nstackwords,(_i.i2c_internal_commands_if.write_display.max.nstackwords + 17)
+	.set	writeToDisplay_i2c_all_buffer.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 17)
 	.globl	writeToDisplay_i2c_all_buffer.nstackwords
-	.set	writeToDisplay_i2c_all_buffer.maxcores,_i.i2c_internal_commands_if.write_display.max.maxcores $M 1
+	.set	writeToDisplay_i2c_all_buffer.maxcores,_i.i2c_internal_commands_if.write_display_ok.max.maxcores $M 1
 	.globl	writeToDisplay_i2c_all_buffer.maxcores
-	.set	writeToDisplay_i2c_all_buffer.maxtimers,_i.i2c_internal_commands_if.write_display.max.maxtimers $M 0
+	.set	writeToDisplay_i2c_all_buffer.maxtimers,_i.i2c_internal_commands_if.write_display_ok.max.maxtimers $M 0
 	.globl	writeToDisplay_i2c_all_buffer.maxtimers
-	.set	writeToDisplay_i2c_all_buffer.maxchanends,_i.i2c_internal_commands_if.write_display.max.maxchanends $M 0
+	.set	writeToDisplay_i2c_all_buffer.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeToDisplay_i2c_all_buffer.maxchanends
 .Ltmp412:
 	.size	writeToDisplay_i2c_all_buffer, .Ltmp412-writeToDisplay_i2c_all_buffer
@@ -4406,13 +4406,13 @@ postmask.static:
 .Linfo_string32:
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 .Linfo_string33:
-.asciiz"_i.i2c_internal_commands_if._chan.write_display"
+.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 .Linfo_string34:
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 .Linfo_string35:
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 .Linfo_string36:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 .Linfo_string37:
 .asciiz"delay_seconds"
 .Linfo_string38:
@@ -12012,8 +12012,6 @@ postmask.static:
 .asciiz"clear_all_pixels_in_buffer"
 	.long	7391
 .asciiz"delay_seconds"
-	.long	7200
-.asciiz"_i.i2c_internal_commands_if._chan.write_display"
 	.long	1127
 .asciiz"Adafruit_SSD1306_i2c_begin"
 	.long	7008
@@ -12032,8 +12030,8 @@ postmask.static:
 .asciiz"_safe_memmove"
 	.long	1095
 .asciiz"delay_milliseconds"
-	.long	6161
-.asciiz"writeToDisplay_i2c_all_buffer"
+	.long	7331
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 	.long	4571
 .asciiz"tellDisplay_i2c_startscrolldiagright"
 	.long	3083
@@ -12044,12 +12042,16 @@ postmask.static:
 .asciiz"buffer"
 	.long	7439
 .asciiz"_safe_memcmp"
-	.long	152
-.asciiz"drawVerticalLineInternal_in_buffer"
+	.long	7200
+.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	6794
 .asciiz"drawVerticalLine_in_buffer"
 	.long	5305
 .asciiz"tellDisplay_i2c_startscrolldiagleft"
+	.long	6161
+.asciiz"writeToDisplay_i2c_all_buffer"
+	.long	152
+.asciiz"drawVerticalLineInternal_in_buffer"
 	.long	129
 .asciiz"splash_buffer"
 	.long	6691
@@ -12070,8 +12072,6 @@ postmask.static:
 .asciiz"setPixel_in_buffer"
 	.long	3363
 .asciiz"tellDisplay_i2c_startscrollright"
-	.long	7331
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -12112,31 +12112,31 @@ postmask.static:
 
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
-	.typestring _i.i2c_internal_commands_if._chan.write_display, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
 	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_display, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring delay_ticks_longlong, "f{0}(ull)"
 	.typestring setPixel_in_buffer, "f{0}(ss,ss,us)"
 	.typestring height, "f{ss}(0)"
 	.typestring width, "f{ss}(0)"
 	.typestring getRotation, "f{uc}(0)"
-	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
-	.overlay_reference writeDisplay_i2c_command,_i.i2c_internal_commands_if.write_display.fns
-	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
-	.overlay_reference writeDisplay_i2c_data,_i.i2c_internal_commands_if.write_display.fns
-	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
-	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display.fns
+	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
+	.overlay_reference writeDisplay_i2c_command,_i.i2c_internal_commands_if.write_display_ok.fns
+	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
+	.overlay_reference writeDisplay_i2c_data,_i.i2c_internal_commands_if.write_display_ok.fns
+	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
+	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display_ok.fns
 	.typestring clear_all_pixels_in_buffer, "f{0}(0)"
 	.typestring fillSplashScreen_in_buffer, "f{0}(0)"
 	.typestring drawVerticalLine_in_buffer, "f{0}(ss,ss,ss,us)"

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <xccompat.h> // REFERENCE_PARAM
 
+#include "param.h"
 #include "button_press.h"
 
 // On 10Feb2017 I inserted tis process but it took two extra channel ends, so I let final client do it instead
@@ -28,20 +29,18 @@
 //     Constraints checks PASSED.
 //     Build Complete
 //
-//
-//
 [[combinable]]
 void mux_button_task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out) {
 
-    button_t  button_in;
-    buttons_t buttons_out;
+    button_action_t button_action_in;
+    buttons_t       buttons_out;
 
     while (1) {
         select {
-            case c_button_in[int index] :> button_in: {
+            case c_button_in[int index] :> button_action_in: {
 
-                buttons_out.button     = button_in;
-                buttons_out.iof_button = index;
+                buttons_out.button_action = button_action_in;
+                buttons_out.iof_button    = index;
 
                 c_button_out <: buttons_out;
             } break;
@@ -52,13 +51,14 @@ void mux_button_task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button
 [[combinable]]
 void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out) {
     // From XMOS-Programming-Guide
-    int current_val = 0;
-    int is_stable = 1;
+    int   current_val = 0;
+    int   is_stable = 1;
     timer tmr;
     const unsigned debounce_delay_ms = 50;
-    unsigned debounce_timeout;
+    unsigned       debounce_timeout;
+    bool           initial_released_stopped = false; // Since it woud do BUTTON_ACTION_RELEASED always after start
 
-    printf("inP_Button_Task[%u] started\n", button_n); // printf#32, printf#05, printf#06
+    printf("inP_Button_Task[%u] started\n", button_n);
 
     while(1) {
         select {
@@ -85,13 +85,19 @@ void inp_button_task (const unsigned button_n, port p_button, chanend c_button_o
             {
                 // printf(": Button %u debounced\n", button_n);
                 if (current_val == 0) {
-                    //printf(" Button %u away\n", button_n);
-                    c_button_out <: BUTTON_PRESSED;   // button down
-                    //printf("3 Button %u sent\n", button_n);
+                    // printf(" Button %u away\n", button_n);
+                    c_button_out <: BUTTON_ACTION_PRESSED; // button down
+                    initial_released_stopped = true; // Not if BUTTON_ACTION_PRESSED was sent first
+                    // printf("3 Button %u sent\n", button_n);
                 }
                 else {
-                    c_button_out <: BUTTON_RELEASED;
-                    //printf("Button %u away\n", button_n);
+                    if (initial_released_stopped == false) {
+                        initial_released_stopped = true;
+                    } else {
+                        c_button_out <: BUTTON_ACTION_RELEASED;
+                    }
+
+                    // printf("Button %u away\n", button_n);
                 }
                 is_stable = 1;
                 break;

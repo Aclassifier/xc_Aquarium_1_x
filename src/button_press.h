@@ -9,17 +9,17 @@
 #define BUTTON_PRESS_H_
 
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 #define IOF_BUTTON_LEFT   0
 #define IOF_BUTTON_CENTER 1
 #define IOF_BUTTON_RIGHT  2
 
 typedef struct {
-    button_t button;
-    int      iof_button;
+    button_action_t button_action;
+    int             iof_button;
 } buttons_t;
 
 #define BUTTONS_NUM_CLIENTS 3

@@ -1319,7 +1319,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 19 "../src/temperature_heater_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 20 "../src/temperature_heater_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1354,7 +1354,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
 {light_range_t, bool} ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i, char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);
@@ -1389,13 +1389,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1471,12 +1470,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1497,13 +1496,7 @@ typedef enum {
     IS_READING_TEMPS,
     IS_CONTROLLING
 } is_doing_t;
-
-
-
-
-
-
-
+# 42 "../src/temperature_heater_controller.xc"
 [[combinable]]
 void temperature_heater_controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
@@ -1542,15 +1535,15 @@ void temperature_heater_controller (
         init_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], 8);
     }
 
+    printf ("temperature_heater_controller started\n");
     tmr :> time;
 
     while(1) {
         select {
-            case (is_doing == IS_CONTROLLING) => tmr when __builtin_timer_after(time) :> void: {
-
-
-
+        case tmr when __builtin_timer_after(time) :> void: {
                 time += (100 * ((100U) * 1000U));
+
+
                 raw_timer_interval_cnt_for_one_second++;
                 if (raw_timer_interval_cnt_for_one_second == 10) {
                     raw_timer_interval_cnt_for_one_second = 0;
@@ -1581,8 +1574,6 @@ void temperature_heater_controller (
                     }
                 } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) {
                     if (temp_measurement_ticks_cnt == 0) {
-
-                        i_i2c_external_commands.command (GET_TEMPC_ALL);
                         is_doing = IS_READING_TEMPS;
                     } else {}
 
@@ -1590,109 +1581,112 @@ void temperature_heater_controller (
 
                 } else {}
 
-            } break;
+                if (is_doing == IS_READING_TEMPS) {
 
-            case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): {
-
-                bool ok_degC_converts[3];
-                bool ok_degC_i2cs [3];
+                    bool ok_degC_converts[3];
+                    bool ok_degC_i2cs [3];
 
 
 
-                i2c_temps_t i2c_temps = i_i2c_external_commands.read_temperature_ok ();
+                    printf ("call read_temperatures_ok 1\n");
+                    i2c_temps_t i2c_temps = i_i2c_external_commands.read_temperatures_ok (GET_TEMPC_ALL);
+                    printf ("call read_temperatures_ok 2\n")
+                    ;
+                    for (int iof_i2c_temp = 0; iof_i2c_temp < 3; iof_i2c_temp++) {
 
-                for (int iof_i2c_temp = 0; iof_i2c_temp < 3; iof_i2c_temp++) {
-
-                    ok_degC_i2cs[iof_i2c_temp] = i2c_temps.i2c_temp_ok[iof_i2c_temp];
+                       ok_degC_i2cs[iof_i2c_temp] = i2c_temps.i2c_temp_ok[iof_i2c_temp];
 
 
 
-                    {temps_onetenthDegC[iof_i2c_temp], ok_degC_converts[iof_i2c_temp]} =
-                        temp_onetenthDegC_to_str (i2c_temps.i2c_temp_onetenthDegC[iof_i2c_temp], temps_degC_str[iof_i2c_temp]);
+                       {temps_onetenthDegC[iof_i2c_temp], ok_degC_converts[iof_i2c_temp]} =
+                           temp_onetenthDegC_to_str (i2c_temps.i2c_temp_onetenthDegC[iof_i2c_temp], temps_degC_str[iof_i2c_temp]);
 
-                    if (ok_degC_i2cs[iof_i2c_temp] && ok_degC_converts[iof_i2c_temp]) {
+                       if (ok_degC_i2cs[iof_i2c_temp] && ok_degC_converts[iof_i2c_temp]) {
 
-                        temps_onetenthDegC[iof_i2c_temp] = do_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], 8, temps_onetenthDegC[iof_i2c_temp], iof_i2c_temp);
+                           temps_onetenthDegC[iof_i2c_temp] = do_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], 8, temps_onetenthDegC[iof_i2c_temp], iof_i2c_temp);
+                       }
+                       else {
+
+                           init_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], 8);
+                       }
                     }
-                    else {
 
-                        init_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], 8);
+                    on_now_previous = on_now;
+                    temp_onetenthDegC_heater_num++;
+
+                    if (ok_degC_i2cs[IOF_TEMPC_HEATER] && ok_degC_converts[IOF_TEMPC_HEATER]) {
+
+                       temp_onetenthDegC_heater_sum += temps_onetenthDegC[IOF_TEMPC_HEATER];
+
+                       if (on_now) {
+                           if (temps_onetenthDegC[IOF_TEMPC_HEATER] >= (temp_onetenthDegC_heater_limit + 2)) {
+                               on_now = false;
+                           } else {}
+                       } else {
+                           if (temps_onetenthDegC[IOF_TEMPC_HEATER] <= (temp_onetenthDegC_heater_limit - 2)) {
+                               on_now = true;
+                           } else {}
+                       }
+                    } else {
+                       err_cnt_times++;
+                       on_now = false;
+                       temp_onetenthDegC_heater_sum = 0;
+                       printf ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
                     }
-                }
-
-                on_now_previous = on_now;
-                temp_onetenthDegC_heater_num++;
-
-                if (ok_degC_i2cs[IOF_TEMPC_HEATER] && ok_degC_converts[IOF_TEMPC_HEATER]) {
-
-                    temp_onetenthDegC_heater_sum += temps_onetenthDegC[IOF_TEMPC_HEATER];
 
                     if (on_now) {
-                        if (temps_onetenthDegC[IOF_TEMPC_HEATER] >= (temp_onetenthDegC_heater_limit + 2)) {
-                            on_now = false;
-                        } else {}
+                       if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
+                           printf ("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                           i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_ONE_ON);
+                       } else {
+                           printf ("t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                           i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_BOTH_ON);
+                       }
                     } else {
-                        if (temps_onetenthDegC[IOF_TEMPC_HEATER] <= (temp_onetenthDegC_heater_limit - 2)) {
-                            on_now = true;
-                        } else {}
+                       printf ("t=%s HEAT_CABLES_OFF on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                       i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
                     }
-                } else {
-                    err_cnt_times++;
-                    on_now = false;
-                    temp_onetenthDegC_heater_sum = 0;
-                    printf ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
-                }
 
-                if (on_now) {
-                    if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
-                        printf ("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
-                        i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_ONE_ON);
-                    } else {
-                        printf ("t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
-                        i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_BOTH_ON);
-                    }
-                } else {
-                    printf ("t=%s HEAT_CABLES_OFF on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
-                    i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
-                }
+                    if (on_now_previous != on_now) {
+                       if (on_now == false) {
 
-                if (on_now_previous != on_now) {
-                    if (on_now == false) {
+                           first_round = false;
+                           on_percent = (on_cnt_secs * 100) / (off_cnt_secs + on_cnt_secs);
 
-                        first_round = false;
-                        on_percent = (on_cnt_secs * 100) / (off_cnt_secs + on_cnt_secs);
+                           bool ok_degC_heater_mean_last_cycle;
 
-                        bool ok_degC_heater_mean_last_cycle;
+                           temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = (temp_onetenthDegC_heater_sum / temp_onetenthDegC_heater_num);
 
-                        temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = (temp_onetenthDegC_heater_sum / temp_onetenthDegC_heater_num);
+                           {temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], ok_degC_heater_mean_last_cycle} =
+                               temp_onetenthDegC_to_str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
 
-                        {temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], ok_degC_heater_mean_last_cycle} =
-                            temp_onetenthDegC_to_str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
+                           printf ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
+                                   temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],
+                                   temp_onetenthDegC_heater_num,
+                                   temp_onetenthDegC_heater_num * 10,
+                                   on_percent);
 
-                        printf ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
-                                temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],
-                                temp_onetenthDegC_heater_num,
-                                temp_onetenthDegC_heater_num * 10,
-                                on_percent);
+                           temp_onetenthDegC_heater_sum = 0;
+                           temp_onetenthDegC_heater_num = 0;
 
-                        temp_onetenthDegC_heater_sum = 0;
-                        temp_onetenthDegC_heater_num = 0;
-
+                       } else {}
                     } else {}
-                } else {}
-                printf ("\n");
 
-                is_doing = IS_CONTROLLING;
+                    printf ("\n");
+
+                    is_doing = IS_CONTROLLING;
+                } else {}
+
             } break;
 
-            case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_proportional (const heater_wires_t heater_wires_, const int heater_percent_on): {
+            case i_temperature_heater_commands[int index_of_client].heater_set_proportional (const heater_wires_t heater_wires_, const int heater_percent_on): {
                 heater_wires = heater_wires_;
                 proportional_heater_percent_on_limit = heater_percent_on;
                 method_of_on_off = ON_OFF_PROPORTIONAL;
 
             } break;
 
-            case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
+            case i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
                 heater_wires = heater_wires_;
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
@@ -1712,9 +1706,11 @@ void temperature_heater_controller (
             } break;
 
             case i_temperature_heater_commands[int index_of_client].get_temps (temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]) : {
+                printf ("get_temps X\n");
                 for (int iof_temps=0; iof_temps < (3 +1); iof_temps++) {
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps];
                 }
+                printf ("get_temps Y\n");
             } break;
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]) : {
@@ -1748,7 +1744,7 @@ void temperature_heater_controller (
                 } else {
                     ohm = 12;
                 }
-# 298 "../src/temperature_heater_controller.xc"
+# 302 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

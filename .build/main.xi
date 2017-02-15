@@ -1469,7 +1469,7 @@ typedef struct {
 } chronodot_d3231_registers_t;
 
 typedef interface i2c_internal_commands_if {
-    bool write_display (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
+    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 } i2c_internal_commands_if;
@@ -1477,7 +1477,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[2]);
+void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 27 "../src/main.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
@@ -1537,13 +1537,12 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
 
-    [[notification]]
-    slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+
+
+
+    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1554,16 +1553,16 @@ void i2c_external_server (server i2c_external_commands_if i_i2c_external_command
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-} button_t;
+    BUTTON_ACTION_RELEASED,
+    BUTTON_ACTION_PRESSED
+} button_action_t;
 
 
 
 
 
 typedef struct {
-    button_t button;
+    button_action_t button_action;
     int iof_button;
 } buttons_t;
 
@@ -1572,7 +1571,7 @@ typedef struct {
 [[combinable]] void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out);
 # 30 "../src/main.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 48 "../src/_texts_and_constants.h"
+# 49 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 31 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1607,7 +1606,7 @@ typedef struct {
 {temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
 {temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
 {light_range_t, bool} ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i, char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char rr_12V_24V_str[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
 
 uint8_t bcd2bin_8 (uint8_t val);
 uint8_t bin2bcd_8 (uint8_t val);
@@ -1690,12 +1689,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1775,10 +1774,16 @@ typedef struct {
     unsigned second;
 } DateTime_t;
 
+
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
+
+
 
 [[combinable]]
 void chronodot_ds3231_controller (
@@ -1786,90 +1791,69 @@ void chronodot_ds3231_controller (
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 36 "../src/main.xc" 2
 
-# 1 "../src/_test_aquarium.h" 1
-# 48 "../src/_test_aquarium.h"
-typedef struct tag_test_params_t {
-    int test_this_case;
-    char test_this_ascii;
-    unsigned short test_adc_vals_for_use[4];
-    i2c_temps_t test_i2c_temps;
-    int test_this_screen_num;
-    light_composition_t iof_light_composition;
-} test_params_t;
-
-extern int adafruit_display_ssd1306_128x32_i2c (
-    client i2c_internal_commands_if i_i2c_internal_commands,
-    client port_heat_light_commands_if i_port_heat_light_commands,
-    client temperature_heater_commands_if i_temperature_heater_commands,
-    client temperature_water_commands_if i_temperature_water_commands,
-    client chronodot_ds3231_if i_chronodot_ds3231,
-    test_params_t * test_params_ptr);
-# 38 "../src/main.xc" 2
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
-    [[guarded]] void trigger (void);
-    [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
-    [[notification]] slave void complete (void);
+
+
+
+
+
+    {unsigned int, unsigned int} get_adc_vals (unsigned short adc_val[4]);
+
 } lib_startkit_adc_commands_if;
-# 27 "../src/adc_startkit_client.h"
+# 30 "../src/adc_startkit_client.h"
 void my_startKIT_adc_client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
    const unsigned int Num_of_data_sets);
-# 39 "../src/main.xc" 2
+# 38 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
-# 12 "../src/_Aquarium.h"
+# 16 "../src/_Aquarium.h"
 [[combinable]]
-extern void test_and_display (
+extern void system_task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
-
     client lib_startkit_adc_commands_if i_startkit_adc_acquire,
     client port_heat_light_commands_if i_port_heat_light_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
-    client chronodot_ds3231_if i_chronodot_ds3231,
     chanend c_button_in[3]);
-# 41 "../src/main.xc" 2
+# 40 "../src/main.xc" 2
 
 port inP_button_left = on tile[0]:0x10d00;
 port inP_button_center = on tile[0]:0x10e00;
 port inP_button_right = on tile[0]:0x10f00;
 
 int main() {
-    chan c_button[3];
+    chan c_buttons[3];
     chan c_analogue;
 
 
 
     i2c_external_commands_if i_i2c_external_commands[2];
-    i2c_internal_commands_if i_i2c_internal_commands[2];
+    i2c_internal_commands_if i_i2c_internal_commands[1];
     startkit_adc_acquire_if i_startkit_adc_acquire;
     lib_startkit_adc_commands_if i_lib_startkit_adc_commands;
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-    chronodot_ds3231_if i_chronodot_ds3231;
 
     par {
         on tile[0]: installExceptionHandler ();
         on tile[0].core[0]: i2c_internal_server (i_i2c_internal_commands);
         on tile[0].core[4]: i2c_external_server (i_i2c_external_commands);
-        on tile[0].core[0]: test_and_display (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0].core[0]: system_task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                           i_chronodot_ds3231,
-                                                           c_button);
+                                                           c_buttons);
         on tile[0].core[0]: temperature_heater_controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
         on tile[0].core[5]: temperature_water_controller (i_temperature_water_commands, i_temperature_heater_commands[1]);
-        on tile[0].core[6]: chronodot_ds3231_controller (i_chronodot_ds3231, i_i2c_internal_commands[1]);
-        on tile[0].core[1]: inp_button_task (0, inP_button_left, c_button[0]);
-        on tile[0].core[1]: inp_button_task (1, inP_button_center, c_button[1]);
-        on tile[0].core[1]: inp_button_task (2, inP_button_right, c_button[2]);
-        on tile[0]: my_startKIT_adc_client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
+        on tile[0].core[1]: inp_button_task (0, inP_button_left, c_buttons[0]);
+        on tile[0].core[1]: inp_button_task (1, inP_button_center, c_buttons[1]);
+        on tile[0].core[1]: inp_button_task (2, inP_button_right, c_buttons[2]);
+        on tile[0]: my_startKIT_adc_client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 10);
         on tile[0].core[5]: port_heat_light_server (i_port_heat_light_commands);
-
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
