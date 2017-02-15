@@ -27,12 +27,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
-    // We had a [notification]] and [clears_notification]] here, but we don't need non-blocking and it
-    // makes the clients cleaner with remote procedure calls (RPC)
-    // See older project _Aquarium for that code
-    // Removing this here and in lib_startkit_adc_commands_if saved us of 5 (five!) chanends! qwe
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    [[notification]]
+    slave void notify (void);
+
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 #define I2C_EXTERNAL_NUM_CLIENTS 2

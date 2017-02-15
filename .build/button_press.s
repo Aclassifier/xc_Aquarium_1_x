@@ -66,7 +66,7 @@
 	.globl inp_button_task.select.enable.cases.maxchanends
 	.set inp_button_task.select.enable.cases,0
 	.globl inp_button_task.select.enable.cases
-	.set inp_button_task.select.enable.cases.nstackwords, 0 $M (inp_button_task.select.case.0.nstackwords) $M (inp_button_task.select.case.1.nstackwords)
+	.set inp_button_task.select.enable.cases.nstackwords, 0 $M (inp_button_task.select.case.1.nstackwords) $M (inp_button_task.select.case.0.nstackwords)
 	.globl inp_button_task.select.enable.cases.nstackwords
 	.set usage.anon.0,0
 	.set usage.anon.1,0

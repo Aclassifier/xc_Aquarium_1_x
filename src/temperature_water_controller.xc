@@ -24,15 +24,16 @@
 
 #include "temperature_water_controller.h"
 
-#define RAW_MEASURE_INTERVAL_IS_1_SECOND    (1000 * XS1_TIMER_KHZ)
+#define RAW_TIMER_INTERVAL_IS_1_SECOND       1000
 #define NUM_TIMER_TICKS_PER_MINUTE           60
-#define TEMP_MEASURE_INTERVAL_IS_1_MINUTE   (1 * NUM_TIMER_TICKS_PER_MINUTE)  // First time after power-up
 
 #define DEBUG_TEMP_FAST // qwe want this?
 #ifdef DEBUG_TEMP_FAST
-    #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES (1 * NUM_TIMER_TICKS_PER_MINUTE)
+    #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES 30 // seconds
+    #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE   30 // seconds
 #else
     #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES (10 * NUM_TIMER_TICKS_PER_MINUTE)
+    #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE    (1 * NUM_TIMER_TICKS_PER_MINUTE)  // First time after power-up
 #endif
 
 [[combinable]]
@@ -60,22 +61,23 @@ void temperature_water_controller (
     }
 
     printf ("temperature_water_controller started\n");
+
     tmr :> time;
 
     while(1) {
         select {
             case tmr when timerafter(time) :> void: {
-                time += RAW_MEASURE_INTERVAL_IS_1_SECOND;
+                time += (RAW_TIMER_INTERVAL_IS_1_SECOND * XS1_TIMER_KHZ);
                 raw_timer_interval_cntdown--;
 
-                printf ("temperature_water_controller timerafter %u\n", raw_timer_interval_cntdown);
+                printf ("   WATER: %u\n", raw_timer_interval_cntdown);
 
                 if (raw_timer_interval_cntdown == 0) {
                     raw_timer_interval_cntdown = TEMP_MEASURE_INTERVAL_IS_10_MINUTES;
 
-                    printf ("temperature_water_controller timerafter X\n");
+                    printf ("WATER: calling i_temperature_heater_commands.get_temp\n");
                     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
-                    printf ("temperature_water_controller timerafter Y\n");
+                    printf ("WATER: returned i_temperature_heater_commands.get_temp\n");
 
                     temp_onetenthDegC_water_delta        = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC_prev[IOF_TEMPC_WATER];
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
@@ -145,11 +147,10 @@ void temperature_water_controller (
 
             case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]) : {
 
+                printf ("WATER: get_temp_degC_string_filtered\n");
                 char temp_degC_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC] = {GENERIC_TEXT_DEGC};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
-
-                printf ("get_temp_degC_string_filtered %u\n", i2c_iof_temps);
 
                 {temp_onetenthDegC, ok_degC_convert} = temp_onetenthDegC_to_str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 
@@ -159,6 +160,7 @@ void temperature_water_controller (
             } break;
 
             case i_temperature_water_commands.get_now_regulating_at (void) -> {now_regulating_at_t return_now_regulating_at} : {
+                printf ("WATER: get_now_regulating_at\n");
                 return_now_regulating_at = now_regulating_at;
             } break;
         }

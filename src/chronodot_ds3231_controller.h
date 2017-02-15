@@ -24,7 +24,7 @@
 //              00  01  02  03  04  05  06  07  08  09  0A  0B  0C  0D  0E  0F  10  11 12
 // ChronoDot 1: 59  00  00  01  01  01  00  00  00  00  00  00  00  00  1c  88  00  1b 40
 // ChronoDot 1: 00  01  00  01  01  01  00  00  00  00  00  00  00  00  1c  88  00  1b 40
-//              SS  MM  HH DOW  DD  MO  YY                                          TEMP:27.25 DegC in box
+//              SS  MM  HH DOW  DD  MO  YY                                          WATER:27.25 DegC in box
 //
 //
 // As in the manual (quote): On the first application of power (VCC) or when a valid I2C

@@ -1617,12 +1617,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
+    [[notification]]
+    slave void notify (void);
 
-
-
-
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1775,12 +1776,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1884,15 +1885,11 @@ extern unsigned char font[];
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
-
-
-
-
-
-    {unsigned int, unsigned int} get_adc_vals (unsigned short adc_val[4]);
-
+    [[guarded]] void trigger (void);
+    [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
+    [[notification]] slave void complete (void);
 } lib_startkit_adc_commands_if;
-# 30 "../src/adc_startkit_client.h"
+# 26 "../src/adc_startkit_client.h"
 void my_startKIT_adc_client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
@@ -1902,7 +1899,6 @@ void my_startKIT_adc_client (
 
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
-[[combinable]]
 extern void system_task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
@@ -2185,9 +2181,47 @@ void handle_real_or_clocked_buttons (
         } break;
 
         case 1: {
-            if (context.state == STATE_ALLOW_REFRESH) {
+            if (button_action == BUTTON_ACTION_RELEASED) {
+                int sprintf_return;
+                char degC_cirle_str[] = {247,0};
+                char char_AA_str[] = {143,0};
+                for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
+                     context.display_ts1_chars [index_of_char] = ' ';
+                 }
 
-            } else {}
+                 clear_all_pixels_in_buffer();
+
+                 char temp_degC_water_str [5];
+                 char temp_degC_ambient_str [5];
+                 char temp_degC_heater_str [5];
+
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 1x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_WATER, temp_degC_water_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 2x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_AMBIENT, temp_degC_ambient_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 3x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_HEATER, temp_degC_heater_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 4x\n");
+
+                 sprintf_return = sprintf (context.display_ts1_chars, "  AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
+                         temp_degC_water_str, degC_cirle_str,
+                         temp_degC_ambient_str, degC_cirle_str,
+                         temp_degC_heater_str, degC_cirle_str);
+
+
+
+
+
+
+                 printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+
+                 setTextSize(1);
+                 setTextColor(1);
+                 setCursor(0,0);
+                 display_print (context.display_ts1_chars, (21*4));
+                 writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+                 context.display_is_on = true;
+            }
 
             i_port_heat_light_commands.light_command (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON);
         } break;
@@ -2215,7 +2249,7 @@ void handle_real_or_clocked_buttons (
 
 
 
-[[combinable]]
+
 void system_task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
@@ -2260,20 +2294,46 @@ void system_task (
         select {
             case tmr when __builtin_timer_after(time) :> void: {
 
+                bool i_startkit_adc_acquire_complete = false;
+                bool i_i2c_external_commands_notify = false;
+
                 time += (1000 * ((100U) * 1000U));
 
                 {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-                printf("system_task 4\n");
-                context.i2c_temps = i_i2c_external_commands.read_temperatures_ok (GET_TEMPC_ALL);
-                {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.get_adc_vals (context.adc_vals_for_use.x);
-                printf("system_task 5\n");
-                {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_to_string_ok (context.adc_vals_for_use.x[0], ((void*)0));
-                printf("system_task 6\n");
-                {context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
-                printf("system_task 7\n");
+                printf ("system_task: calls GET_TEMPC_ALL\n");
+                                                                                 i_i2c_external_commands.command (GET_TEMPC_ALL);
+                                                                                 i_startkit_adc_acquire.trigger();
+                printf("system_task B\n");
+
                 {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
 
 
+
+
+
+                while ((i_i2c_external_commands_notify == false) || (i_startkit_adc_acquire_complete == false)) {
+                     select {
+                         case i_i2c_external_commands.notify() : {
+                             printf("system_task GET_TEMPC_ALL 6\n");
+                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
+                             printf("system_task GET_TEMPC_ALL 7\n");
+                             i_i2c_external_commands_notify = true;
+                         } break;
+
+                         case i_startkit_adc_acquire.complete(): {
+                             printf("system_task 8\n");
+                             {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
+                             printf("system_task 9\n");
+                             {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_to_string_ok (context.adc_vals_for_use.x[0], ((void*)0));
+                             printf("system_task a\n");
+                             {context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+                             printf("system_task b\n");
+                             i_startkit_adc_acquire_complete = true;
+                         } break;
+                     }
+                }
+
+                printf("system_task X!\n");
 
                 handle_light (context, i_port_heat_light_commands);
 
@@ -2288,7 +2348,7 @@ void system_task (
                     }
                 } else {}
 
-                printf ("Tim %u\n", context.since_button_press_seconds_cnt);
+                printf ("since_button_press_seconds_cnt %u\n", context.since_button_press_seconds_cnt);
 
                 if (context.state == STATE_ALLOW_REFRESH) {
                     writeDisplay_i2c_command(i_i2c_internal_commands, 0x81);

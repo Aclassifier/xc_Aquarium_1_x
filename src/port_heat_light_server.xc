@@ -166,17 +166,18 @@ void port_heat_light_server (server port_heat_light_commands_if i_port_heat_ligh
     uint32_t port_value = UINT32_HIGH_BITS;
     timer tmr;
     int   time;
-    unsigned int             present_iof_light_composition_level = LIGHT_COMPOSITION_0666_BACK1_ON; // qwe LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    unsigned int             present_iof_light_composition_level = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
     unsigned int             iof_light_pwm_window                = 0; // 0,1,2 if NUM_PWM_TIME_WINDOWS==3
     heat_cable_alternating_t heat_cable_alternating              = HEAT_1_ON; // To wear both heating cables equally much and get optimal spread of heat
                                                                               // (even if the cables are mounted beside each other all the way)
                                                                               // And spread load and temperature increase of plugs and cable
+
+    printf("port_heat_light_server started\n");
+
     #ifdef DUMMY_WIFI
     // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
         dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
     #endif
-
-    printf ("port_heat_light_server started\n");
 
     myport_p32 <: port_value;
 

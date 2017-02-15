@@ -1576,12 +1576,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
+    [[notification]]
+    slave void notify (void);
 
-
-
-
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 

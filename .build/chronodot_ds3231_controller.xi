@@ -1487,12 +1487,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
+    [[notification]]
+    slave void notify (void);
 
-
-
-
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1765,12 +1766,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 

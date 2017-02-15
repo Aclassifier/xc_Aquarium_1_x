@@ -50,49 +50,55 @@ void i2c_external_server (server i2c_external_commands_if i_i2c_external_command
     i2c_temps_t i2c_temps;
     i2c_master_init (i2c_external_config); // XMOS library
 
-    printf ("i2c_external_server started\n");
-
     while (1) {
         select {
-            case i_i2c_external_commands[int index_of_client].read_temperatures_ok (const i2c_command_external_t command) -> i2c_temps_t return_i2c_temps: {
-
+            case i_i2c_external_commands[int index_of_client].command (const i2c_command_external_t command): {
                 switch (command) {
                     case VER_TEMPC_CHIPS: {
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_HEATER;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
-                       i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]            = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params,TEMPC_HEATER);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_HEATER;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]            = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params,TEMPC_HEATER);
 
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_AMBIENT;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
-                       i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]           = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params, TEMPC_AMBIENT);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_AMBIENT;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]           = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params, TEMPC_AMBIENT);
 
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_WATER;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
-                       i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]             = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params, TEMPC_WATER);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_WATER;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC; // not valid still ok to have a value
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]             = tempchip_mcp9808_begin_ok (i2c_external_config, &i2c_external_params, TEMPC_WATER);
                     } break;
 
                     case GET_TEMPC_ALL:  {
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_HEATER;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
+                        printf ("I2C: GET_TEMPC_ALL A %u\n", index_of_client);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_HEATER;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_AMBIENT;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_AMBIENT;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);
 
-                       i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_WATER;
-                       i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
+                        i2c_external_params._use_dev_address               = (i2c_dev_address_t) TEMPC_WATER;
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = tempchip_mcp9808_readTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
                     } break;
 
                     default: { // programming error
-                       for (int i=0; i++; i<NUM_I2C_TEMPERATURES) {
-                           i2c_temps.i2c_temp_ok[i] = false;
-                           i2c_temps.i2c_temp_onetenthDegC[i] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
-                       }
+                        for (int i=0; i++; i<NUM_I2C_TEMPERATURES) {
+                            i2c_temps.i2c_temp_ok[i] = false;
+                            i2c_temps.i2c_temp_onetenthDegC[i] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
+                        }
                     } break;
                 }
 
-                // printf ("i2c-x read_temperature_ok\n");
-                return_i2c_temps = i2c_temps;
+                printf ("I2C: GET_TEMPC_ALL R %u\n", index_of_client);
+                i_i2c_external_commands[index_of_client].notify();
+                printf ("I2C: GET_TEMPC_ALL S %u\n", index_of_client);
+            } break;
 
+            // clears_notification
+            case i_i2c_external_commands[int index_of_client].read_temperature_ok (void) -> i2c_temps_t return_i2c_temps: {
+                // printf ("i2c-x read_temperature_ok\n");
+                printf ("I2C: GET_TEMPC_ALL X %u\n", index_of_client);
+                return_i2c_temps = i2c_temps;
+                printf ("I2C: GET_TEMPC_ALL Y %u\n", index_of_client);
             } break;
         }
     }

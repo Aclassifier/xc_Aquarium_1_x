@@ -1389,12 +1389,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
+    [[notification]]
+    slave void notify (void);
 
-
-
-
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1470,12 +1471,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1508,7 +1509,7 @@ void temperature_water_controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
 # 26 "../src/temperature_water_controller.xc" 2
-# 38 "../src/temperature_water_controller.xc"
+# 39 "../src/temperature_water_controller.xc"
 [[combinable]]
 void temperature_water_controller (
     server temperature_water_commands_if i_temperature_water_commands,
@@ -1516,7 +1517,7 @@ void temperature_water_controller (
 
     timer tmr;
     int time;
-    unsigned raw_timer_interval_cntdown = (1 * 60);
+    unsigned raw_timer_interval_cntdown = 30;
     now_regulating_at_t now_regulating_at = REGULATING_AT_INIT;
 
     temp_onetenthDegC_t temps_onetenthDegC [(3 +1)];
@@ -1534,6 +1535,7 @@ void temperature_water_controller (
     }
 
     printf ("temperature_water_controller started\n");
+
     tmr :> time;
 
     while(1) {
@@ -1542,14 +1544,14 @@ void temperature_water_controller (
                 time += (1000 * ((100U) * 1000U));
                 raw_timer_interval_cntdown--;
 
-                printf ("timerafter %u\n", raw_timer_interval_cntdown);
+                printf ("   WATER: %u\n", raw_timer_interval_cntdown);
 
                 if (raw_timer_interval_cntdown == 0) {
-                    raw_timer_interval_cntdown = (2 * 60);
+                    raw_timer_interval_cntdown = 30;
 
-                    printf ("timerafter X\n");
+                    printf ("WATER: calling i_temperature_heater_commands.get_temp\n");
                     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
-                    printf ("timerafter Y\n");
+                    printf ("WATER: returned i_temperature_heater_commands.get_temp\n");
 
                     temp_onetenthDegC_water_delta = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC_prev[IOF_TEMPC_WATER];
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
@@ -1619,11 +1621,10 @@ void temperature_water_controller (
 
             case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[5]) : {
 
+                printf ("WATER: get_temp_degC_string_filtered\n");
                 char temp_degC_str [5] = {"??.?"};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
-
-                printf ("get_temp_degC_string_filtered %u\n", i2c_iof_temps);
 
                 {temp_onetenthDegC, ok_degC_convert} = temp_onetenthDegC_to_str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 
@@ -1633,6 +1634,7 @@ void temperature_water_controller (
             } break;
 
             case i_temperature_water_commands.get_now_regulating_at (void) -> {now_regulating_at_t return_now_regulating_at} : {
+                printf ("WATER: get_now_regulating_at\n");
                 return_now_regulating_at = now_regulating_at;
             } break;
         }

@@ -35,7 +35,7 @@
 	.globl adc_task.select.y.enable.cases.maxchanends
 	.set adc_task.select.y.enable.cases,0
 	.globl adc_task.select.y.enable.cases
-	.set adc_task.select.y.enable.cases.nstackwords, 0 $M (adc_task.select.y.case.1.nstackwords) $M (adc_task.select.y.case.2.nstackwords) $M (adc_task.select.y.case.0.nstackwords) $M (adc_task.select.y.case.3.nstackwords)
+	.set adc_task.select.y.enable.cases.nstackwords, 0 $M (adc_task.select.y.case.1.nstackwords) $M (adc_task.select.y.case.3.nstackwords) $M (adc_task.select.y.case.2.nstackwords) $M (adc_task.select.y.case.0.nstackwords)
 	.globl adc_task.select.y.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate

@@ -60,7 +60,7 @@ int main() {
         on tile[0]:         installExceptionHandler       ();
         on tile[0].core[0]: i2c_internal_server           (i_i2c_internal_commands);
         on tile[0].core[4]: i2c_external_server           (i_i2c_external_commands);
-        on tile[0].core[0]: system_task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0]:         system_task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: temperature_heater_controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);

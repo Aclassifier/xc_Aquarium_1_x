@@ -1537,12 +1537,13 @@ typedef enum {
 } i2c_command_external_t;
 
 typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
 
+    [[notification]]
+    slave void notify (void);
 
-
-
-
-    i2c_temps_t read_temperatures_ok (const i2c_command_external_t command);
+    void command (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1689,12 +1690,12 @@ typedef struct tag_temps_t {
 } temps_t;
 
 typedef interface temperature_heater_commands_if {
-    void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-    void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-    void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
     {unsigned, unsigned}
-             get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -1794,15 +1795,11 @@ void chronodot_ds3231_controller (
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
-
-
-
-
-
-    {unsigned int, unsigned int} get_adc_vals (unsigned short adc_val[4]);
-
+    [[guarded]] void trigger (void);
+    [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
+    [[notification]] slave void complete (void);
 } lib_startkit_adc_commands_if;
-# 30 "../src/adc_startkit_client.h"
+# 26 "../src/adc_startkit_client.h"
 void my_startKIT_adc_client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
@@ -1811,7 +1808,6 @@ void my_startKIT_adc_client (
 
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
-[[combinable]]
 extern void system_task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
@@ -1844,7 +1840,7 @@ int main() {
         on tile[0]: installExceptionHandler ();
         on tile[0].core[0]: i2c_internal_server (i_i2c_internal_commands);
         on tile[0].core[4]: i2c_external_server (i_i2c_external_commands);
-        on tile[0].core[0]: system_task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0]: system_task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: temperature_heater_controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
@@ -1852,7 +1848,7 @@ int main() {
         on tile[0].core[1]: inp_button_task (0, inP_button_left, c_buttons[0]);
         on tile[0].core[1]: inp_button_task (1, inP_button_center, c_buttons[1]);
         on tile[0].core[1]: inp_button_task (2, inP_button_right, c_buttons[2]);
-        on tile[0]: my_startKIT_adc_client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 10);
+        on tile[0]: my_startKIT_adc_client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
         on tile[0].core[5]: port_heat_light_server (i_port_heat_light_commands);
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);

@@ -318,9 +318,47 @@ void handle_real_or_clocked_buttons (
         } break;
 
         case IOF_BUTTON_CENTER: {
-            if (context.state == STATE_ALLOW_REFRESH) {
-                // not used for anything with the display so far
-            } else {} // In STATE_IDLE we only want left IOF_BUTTON_LEFT to go through
+            if (button_action == BUTTON_ACTION_RELEASED) {
+                int  sprintf_return;
+                char degC_cirle_str[] = DEGC_CIRCLE_STR;
+                char char_AA_str[]    = CHAR_AA_STR;
+                for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                     context.display_ts1_chars [index_of_char] = ' ';
+                 }
+
+                 clear_all_pixels_in_buffer();
+
+                 char temp_degC_water_str   [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+                 char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+                 char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 1x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_WATER,   temp_degC_water_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 2x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_AMBIENT, temp_degC_ambient_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 3x\n");
+                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_HEATER,  temp_degC_heater_str);
+                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 4x\n");
+
+                 sprintf_return = sprintf (context.display_ts1_chars, "  AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
+                         temp_degC_water_str,   degC_cirle_str,
+                         temp_degC_ambient_str, degC_cirle_str,
+                         temp_degC_heater_str,  degC_cirle_str);
+                 //                                            ..........----------.
+                 //                                              AKVARIETEMPERATURER
+                 //                                                      VANN 25.0oC
+                 //                                                      LUFT 25.0oC
+                 //                                              VARMEELEMENT 25.0oC
+
+                 printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+
+                 setTextSize(1);
+                 setTextColor(WHITE);
+                 setCursor(0,0);
+                 display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+                 writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+                 context.display_is_on = true;
+            }
 
             i_port_heat_light_commands.light_command (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON);
         } break;
@@ -346,9 +384,9 @@ void handle_real_or_clocked_buttons (
     }
 }
 
-#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
+#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ) // qwe 1000
 
-[[combinable]]
+// [[combinable]] not since nested select
 void system_task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
@@ -393,20 +431,46 @@ void system_task (
         select {
             case tmr when timerafter(time) :> void: {
 
+                bool i_startkit_adc_acquire_complete = false;
+                bool i_i2c_external_commands_notify  = false;
+
                 time += BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND;
 
                 {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-                printf("system_task 4\n");
-                context.i2c_temps                                              = i_i2c_external_commands.read_temperatures_ok (GET_TEMPC_ALL);
-                {context.adc_cnt, context.no_adc_cnt}                          = i_startkit_adc_acquire.get_adc_vals (context.adc_vals_for_use.x); // First
-                printf("system_task 5\n");
-                {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}   = RR_12V_24V_to_string_ok  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);   // Second
-                printf("system_task 6\n");
-                {context.on_percent, context.on_watt}                          = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV); // Third
-                printf("system_task 7\n");
+                printf ("system_task: calls GET_TEMPC_ALL\n");
+                                                                                 i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
+                                                                                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
+                printf("system_task B\n");
+
                 {context.now_regulating_at}                                    = i_temperature_water_commands.get_now_regulating_at ();
 
                 // We now have chronodot_d3231_registers, i2c_temps, adc_vals_for_use and on_percent, on_watt
+
+                // context.i2c_temps
+
+                while ((i_i2c_external_commands_notify == false) or (i_startkit_adc_acquire_complete == false)) {
+                     select {
+                         case i_i2c_external_commands.notify() : {
+                             printf("system_task GET_TEMPC_ALL 6\n");
+                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
+                             printf("system_task GET_TEMPC_ALL 7\n");
+                             i_i2c_external_commands_notify = true;
+                         } break;
+
+                         case i_startkit_adc_acquire.complete(): {
+                             printf("system_task 8\n");
+                             {context.adc_cnt, context.no_adc_cnt}                        = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
+                             printf("system_task 9\n");
+                             {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_to_string_ok  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);   // Second
+                             printf("system_task a\n");
+                             {context.on_percent, context.on_watt}                        = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV); // Third
+                             printf("system_task b\n");
+                             i_startkit_adc_acquire_complete = true;
+                         } break;
+                     }
+                }
+
+                printf("system_task X!\n");
 
                 handle_light (context, i_port_heat_light_commands);
 
