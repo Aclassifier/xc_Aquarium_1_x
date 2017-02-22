@@ -5,11 +5,11 @@
  *      Author: teig
  */
 
-
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK
 
 #define NUM_LIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
 #define NUM_LIGHT_COMPOSITION_LEVELS 13
+
 typedef enum {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
     // (where all off in any time window is avoided as much as possible)
@@ -18,10 +18,7 @@ typedef enum {
     // I call this "MONOTONOUS COLOUR AND INTENSITY INCREASE":
     //
     // MONOTONOUS COLOUR AND INTENSITY INCREASE:
-    // From off to full in 10 steps starting with increasing
-    // BACK   (2W blue   465nm) then adding more with increasing bit soon with some white (having three blue only didn't look nice)
-    // CENTER (2W whiter 3200K) then adding more with increasing
-    // FRONT  (5W white  3000K, 380 lm)
+    // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
     //
     //                #### mW
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF          =  0,  // All windows dark, of course
@@ -36,12 +33,25 @@ typedef enum {
     //
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
 
-    LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON =  9, // All two thirds
-    LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON = 10, // All one third
+    LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
     LIGHT_COMPOSITION_2000_CENTER3_ON              = 11,
     LIGHT_COMPOSITION_5000_FRONT3_ON               = 12
     // NUM_LIGHT_COMPOSITION_LEVELS                = 13
 } light_composition_t;
+
+#define NUM_PWM_TIME_WINDOWS 3
+typedef enum {
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
+
+typedef enum {
+    WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W white  3000K, 380 lm)
+    WATTOF_LED_STRIP_CENTER = 2, // CENTER (2W whiter 3200K)
+    WATTOF_LED_STRIP_BACK   = 2  // BACK   (2W blue   465nm)
+} wattOf_LED_strip_t;
 
 typedef enum {
     HEAT_CABLES_VOID, // Just to trigger a change on first call on heat_cables_command
@@ -58,13 +68,15 @@ typedef enum {
 
 typedef interface port_heat_light_commands_if {
 
-    void light_command       (const light_composition_t iof_light_composition_level);
-    void beeper_on_command   (const bool beeper_on);
-    void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
+    void                  set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
+    {light_composition_t} get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
+    void                  beeper_on_command     (const bool beeper_on);
+    void                  beeper_blip_command   (const unsigned ms);
+    void                  heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
 
 } port_heat_light_commands_if;
 
 #define PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS 2
 
 [[combinable]]
-void port_heat_light_server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);
+void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);

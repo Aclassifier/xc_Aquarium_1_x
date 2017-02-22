@@ -24,8 +24,8 @@ typedef struct {
 
 #define BUTTONS_NUM_CLIENTS 3
 
-[[combinable]] void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out);
-// [[combinable]] void mux_button_task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out);
+[[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
+// [[combinable]] void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out);
 
 #else
     #error Nested include BUTTON_PRESS_H_

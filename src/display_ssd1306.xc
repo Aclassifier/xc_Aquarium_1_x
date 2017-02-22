@@ -23,7 +23,7 @@
 #include "defines_adafruit.h"
 #include "core_graphics_adafruit_GFX.h"
 
-#include "i2c_internal_server.h"
+#include "I2C_Internal_Server.h"
 #include "display_ssd1306.h"
 
 out port outP_display_notReset =
@@ -97,7 +97,7 @@ bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_
         error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCOMPINS);          // 0xDA
         error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x02);
         error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);         // 0x81
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_DEFAULT_DIMMED);
+        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
         error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETPRECHARGE);        // 0xd9
         if (vccstate == SSD1306_SWITCHCAPVCC)
             { error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0xF1); }
@@ -287,7 +287,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
 }
 
 // clear everything
-void clear_all_pixels_in_buffer (void) {
+void Clear_All_Pixels_In_Buffer (void) {
     memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));
 }
 

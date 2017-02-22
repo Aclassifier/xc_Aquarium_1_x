@@ -9,50 +9,50 @@
 	.inline_definition _safe_memset
 	.globalresource 0x10600,"i2c_internal_config.scl","tile[0]"
 	.globalresource 0x10400,"i2c_internal_config.sda","tile[0]"
-	.set i2c_internal_server.select.0.enable.savedstate,21
-	.globl i2c_internal_server.select.0.enable.savedstate
-	.set i2c_internal_server.select.0.enable.cases.maxtimers,0 $M i2c_internal_server.select.0.case.0.maxtimers
-	.globl i2c_internal_server.select.0.enable.cases.maxtimers
-	.set i2c_internal_server.select.0.enable.cases.maxcores,0 $M i2c_internal_server.select.0.case.0.maxcores
-	.globl i2c_internal_server.select.0.enable.cases.maxcores
-	.set i2c_internal_server.select.0.enable.cases.maxchanends,0 $M i2c_internal_server.select.0.case.0.maxchanends
-	.globl i2c_internal_server.select.0.enable.cases.maxchanends
-	.set i2c_internal_server.select.0.enable.cases,0
-	.globl i2c_internal_server.select.0.enable.cases
-	.set i2c_internal_server.select.0.enable.cases.nstackwords, 0 $M (i2c_internal_server.select.0.case.0.nstackwords)
-	.globl i2c_internal_server.select.0.enable.cases.nstackwords
-	.set i2c_internal_server.dynalloc_maxchanends, 0
-	.globl i2c_internal_server.dynalloc_maxchanends
-	.set i2c_internal_server.dynalloc_maxcores, 0
-	.globl i2c_internal_server.dynalloc_maxcores
-	.set i2c_internal_server.dynalloc_maxtimers, 0
-	.globl i2c_internal_server.dynalloc_maxtimers
-	.set i2c_internal_server.init.0.savedstate,21
-	.globl i2c_internal_server.init.0.savedstate
-	.set i2c_internal_server.select.y.enable.savedstate,21
-	.globl i2c_internal_server.select.y.enable.savedstate
-	.set i2c_internal_server.select.y.enable.cases.maxtimers,0 $M i2c_internal_server.select.y.case.0.maxtimers
-	.globl i2c_internal_server.select.y.enable.cases.maxtimers
-	.set i2c_internal_server.select.y.enable.cases.maxcores,0 $M i2c_internal_server.select.y.case.0.maxcores
-	.globl i2c_internal_server.select.y.enable.cases.maxcores
-	.set i2c_internal_server.select.y.enable.cases.maxchanends,0 $M i2c_internal_server.select.y.case.0.maxchanends
-	.globl i2c_internal_server.select.y.enable.cases.maxchanends
-	.set i2c_internal_server.select.y.enable.cases,0
-	.globl i2c_internal_server.select.y.enable.cases
-	.set i2c_internal_server.select.y.enable.cases.nstackwords, 0 $M (i2c_internal_server.select.y.case.0.nstackwords)
-	.globl i2c_internal_server.select.y.enable.cases.nstackwords
-	.set i2c_internal_server.select.enable.savedstate,21
-	.globl i2c_internal_server.select.enable.savedstate
-	.set i2c_internal_server.select.enable.cases.maxtimers,0 $M i2c_internal_server.select.case.0.maxtimers
-	.globl i2c_internal_server.select.enable.cases.maxtimers
-	.set i2c_internal_server.select.enable.cases.maxcores,0 $M i2c_internal_server.select.case.0.maxcores
-	.globl i2c_internal_server.select.enable.cases.maxcores
-	.set i2c_internal_server.select.enable.cases.maxchanends,0 $M i2c_internal_server.select.case.0.maxchanends
-	.globl i2c_internal_server.select.enable.cases.maxchanends
-	.set i2c_internal_server.select.enable.cases,0
-	.globl i2c_internal_server.select.enable.cases
-	.set i2c_internal_server.select.enable.cases.nstackwords, 0 $M (i2c_internal_server.select.case.0.nstackwords)
-	.globl i2c_internal_server.select.enable.cases.nstackwords
+	.set I2C_Internal_Server.select.0.enable.savedstate,21
+	.globl I2C_Internal_Server.select.0.enable.savedstate
+	.set I2C_Internal_Server.select.0.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.0.case.0.maxtimers
+	.globl I2C_Internal_Server.select.0.enable.cases.maxtimers
+	.set I2C_Internal_Server.select.0.enable.cases.maxcores,0 $M I2C_Internal_Server.select.0.case.0.maxcores
+	.globl I2C_Internal_Server.select.0.enable.cases.maxcores
+	.set I2C_Internal_Server.select.0.enable.cases.maxchanends,0 $M I2C_Internal_Server.select.0.case.0.maxchanends
+	.globl I2C_Internal_Server.select.0.enable.cases.maxchanends
+	.set I2C_Internal_Server.select.0.enable.cases,0
+	.globl I2C_Internal_Server.select.0.enable.cases
+	.set I2C_Internal_Server.select.0.enable.cases.nstackwords, 0 $M (I2C_Internal_Server.select.0.case.0.nstackwords)
+	.globl I2C_Internal_Server.select.0.enable.cases.nstackwords
+	.set I2C_Internal_Server.dynalloc_maxchanends, 0
+	.globl I2C_Internal_Server.dynalloc_maxchanends
+	.set I2C_Internal_Server.dynalloc_maxcores, 0
+	.globl I2C_Internal_Server.dynalloc_maxcores
+	.set I2C_Internal_Server.dynalloc_maxtimers, 0
+	.globl I2C_Internal_Server.dynalloc_maxtimers
+	.set I2C_Internal_Server.init.0.savedstate,21
+	.globl I2C_Internal_Server.init.0.savedstate
+	.set I2C_Internal_Server.select.y.enable.savedstate,21
+	.globl I2C_Internal_Server.select.y.enable.savedstate
+	.set I2C_Internal_Server.select.y.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.y.case.0.maxtimers
+	.globl I2C_Internal_Server.select.y.enable.cases.maxtimers
+	.set I2C_Internal_Server.select.y.enable.cases.maxcores,0 $M I2C_Internal_Server.select.y.case.0.maxcores
+	.globl I2C_Internal_Server.select.y.enable.cases.maxcores
+	.set I2C_Internal_Server.select.y.enable.cases.maxchanends,0 $M I2C_Internal_Server.select.y.case.0.maxchanends
+	.globl I2C_Internal_Server.select.y.enable.cases.maxchanends
+	.set I2C_Internal_Server.select.y.enable.cases,0
+	.globl I2C_Internal_Server.select.y.enable.cases
+	.set I2C_Internal_Server.select.y.enable.cases.nstackwords, 0 $M (I2C_Internal_Server.select.y.case.0.nstackwords)
+	.globl I2C_Internal_Server.select.y.enable.cases.nstackwords
+	.set I2C_Internal_Server.select.enable.savedstate,21
+	.globl I2C_Internal_Server.select.enable.savedstate
+	.set I2C_Internal_Server.select.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.case.0.maxtimers
+	.globl I2C_Internal_Server.select.enable.cases.maxtimers
+	.set I2C_Internal_Server.select.enable.cases.maxcores,0 $M I2C_Internal_Server.select.case.0.maxcores
+	.globl I2C_Internal_Server.select.enable.cases.maxcores
+	.set I2C_Internal_Server.select.enable.cases.maxchanends,0 $M I2C_Internal_Server.select.case.0.maxchanends
+	.globl I2C_Internal_Server.select.enable.cases.maxchanends
+	.set I2C_Internal_Server.select.enable.cases,0
+	.globl I2C_Internal_Server.select.enable.cases
+	.set I2C_Internal_Server.select.enable.cases.nstackwords, 0 $M (I2C_Internal_Server.select.case.0.nstackwords)
+	.globl I2C_Internal_Server.select.enable.cases.nstackwords
 	.pushsection .netinfo, "", @netinfo
 	.int      0x1eaba15c
 .locl __xcc1_internal_1.info, "p"
@@ -190,28 +190,28 @@ __xcc1_internal_2.info:
 	.set usage.anon.3,0
 	.set usage.anon.4,0
 	.set usage.anon.5,0
-	.globwrite i2c_internal_server,i2c_internal_config,"../src/i2c_internal_server.xc:50:22: note: object used here\n    i2c_master_init (i2c_internal_config); // XMOS library\n                     ^~~~~~~~~~~~~~~~~~~"
-	.call i2c_internal_server,printf
-	.call i2c_internal_server,i2c_master_write_reg
-	.call i2c_internal_server,i2c_master_read_reg
-	.call i2c_internal_server,i2c_master_init
+	.globwrite I2C_Internal_Server,i2c_internal_config,"../src/i2c_internal_server.xc:50:22: note: object used here\n    i2c_master_init (i2c_internal_config); // XMOS library\n                     ^~~~~~~~~~~~~~~~~~~"
+	.call I2C_Internal_Server,printf
+	.call I2C_Internal_Server,i2c_master_write_reg
+	.call I2C_Internal_Server,i2c_master_read_reg
+	.call I2C_Internal_Server,i2c_master_init
 	.call usage.anon.5,memset
 	.call usage.anon.4,memmove
 	.call usage.anon.3,memcmp
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.set i2c_internal_server.locnoside, 0
-	.set i2c_internal_server.locnoglobalaccess, 0
-	.set i2c_internal_server.locnointerfaceaccess, 0
+	.set I2C_Internal_Server.locnoside, 0
+	.set I2C_Internal_Server.locnoglobalaccess, 0
+	.set I2C_Internal_Server.locnointerfaceaccess, 0
 	.assert 1,i2c_master_write_reg.actnonotificationselect,"../src/i2c_internal_server.xc:129:30: error: call to function `i2c_master_write_reg\' which selects on a notification in a combinable function select case\n                i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,i2c_master_read_reg.actnonotificationselect,"../src/i2c_internal_server.xc:99:30: error: call to function `i2c_master_read_reg\' which selects on a notification in a combinable function select case\n                i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
-	.globpassesref i2c_master_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:129:30: error: call to `i2c_master_write_reg\' in `i2c_internal_server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref i2c_master_read_reg, i2c_internal_config,"../src/i2c_internal_server.xc:99:30: error: call to `i2c_master_read_reg\' in `i2c_internal_server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref i2c_master_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:82:34: error: call to `i2c_master_write_reg\' in `i2c_internal_server\' makes alias of global \'i2c_internal_config\'\n                    i2c_result = i2c_master_write_reg ((int)dev_addr, reg_addr, send_data, (int)send_nbytes, i2c_internal_config);\n                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref i2c_master_init, i2c_internal_config,"../src/i2c_internal_server.xc:50:5: error: call to `i2c_master_init\' in `i2c_internal_server\' makes alias of global \'i2c_internal_config\'\n    i2c_master_init (i2c_internal_config); // XMOS library\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.globpassesref i2c_master_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:129:30: error: call to `i2c_master_write_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref i2c_master_read_reg, i2c_internal_config,"../src/i2c_internal_server.xc:99:30: error: call to `i2c_master_read_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref i2c_master_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:82:34: error: call to `i2c_master_write_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                    i2c_result = i2c_master_write_reg ((int)dev_addr, reg_addr, send_data, (int)send_nbytes, i2c_internal_config);\n                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref i2c_master_init, i2c_internal_config,"../src/i2c_internal_server.xc:50:5: error: call to `i2c_master_init\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n    i2c_master_init (i2c_internal_config); // XMOS library\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -230,11 +230,11 @@ __xcc1_internal_2.info:
 .Ldebug_range:
 	.file	1 "../src/i2c_internal_server.xc"
 	.text
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok,@function
-	.cc_top _i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.function,_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok
-_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok:
+	.type	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok,@function
+	.cc_top _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.function,_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok
+_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok:
 .Lfunc_begin0:
 	.loc	1 121 0
 	.cfi_startproc
@@ -319,25 +319,25 @@ _i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok:
 .Ltmp16:
 	# RETURN_REG_HOLDER
 .Ltmp17:
-	.cc_bottom _i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.function
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.nstackwords,((memcpy.nstackwords $M i2c_master_write_reg.nstackwords) + 17)
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.nstackwords
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxcores,i2c_master_write_reg.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxcores
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxtimers,i2c_master_write_reg.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxtimers
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxchanends,i2c_master_write_reg.maxchanends $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.function
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.nstackwords,((memcpy.nstackwords $M i2c_master_write_reg.nstackwords) + 17)
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.nstackwords
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxcores,i2c_master_write_reg.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxcores
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxtimers,i2c_master_write_reg.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxtimers
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxchanends,i2c_master_write_reg.maxchanends $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok.maxchanends
 .Ltmp18:
-	.size	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok, .Ltmp18-_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok
+	.size	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok, .Ltmp18-_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok
 .Lfunc_end0:
 	.cfi_endproc
 
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok,@function
-	.cc_top _i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.function,_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok
-_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok:
+	.type	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok,@function
+	.cc_top _i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.function,_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok
+_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok:
 .Lfunc_begin1:
 	.loc	1 95 0
 	.cfi_startproc
@@ -425,25 +425,25 @@ _i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok:
 .Ltmp35:
 	# RETURN_REG_HOLDER
 .Ltmp36:
-	.cc_bottom _i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.function
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.nstackwords,((i2c_master_read_reg.nstackwords $M memcpy.nstackwords) + 18)
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.nstackwords
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxcores,i2c_master_read_reg.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxcores
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxtimers,i2c_master_read_reg.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxtimers
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxchanends,i2c_master_read_reg.maxchanends $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.function
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.nstackwords,((i2c_master_read_reg.nstackwords $M memcpy.nstackwords) + 18)
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.nstackwords
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxcores,i2c_master_read_reg.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxcores
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxtimers,i2c_master_read_reg.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxtimers
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxchanends,i2c_master_read_reg.maxchanends $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok.maxchanends
 .Ltmp37:
-	.size	_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok, .Ltmp37-_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok
+	.size	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok, .Ltmp37-_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok
 .Lfunc_end1:
 	.cfi_endproc
 
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok,@function
-	.cc_top _i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.function,_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok
-_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok:
+	.type	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok,@function
+	.cc_top _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.function,_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok
+_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok:
 .Lfunc_begin2:
 	.loc	1 58 0
 	.cfi_startproc
@@ -551,17 +551,17 @@ _i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok:
 	ldw r4, sp[11]
 	retsp 12
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.function
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.nstackwords,(i2c_master_write_reg.nstackwords + 12)
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.nstackwords
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxcores,i2c_master_write_reg.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxcores
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxtimers,i2c_master_write_reg.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxtimers
-	.set	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxchanends,i2c_master_write_reg.maxchanends $M 0
-	.globl	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.function
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.nstackwords,(i2c_master_write_reg.nstackwords + 12)
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.nstackwords
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxcores,i2c_master_write_reg.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxcores
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxtimers,i2c_master_write_reg.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxtimers
+	.set	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxchanends,i2c_master_write_reg.maxchanends $M 0
+	.globl	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok.maxchanends
 .Ltmp58:
-	.size	_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok, .Ltmp58-_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok
+	.size	_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok, .Ltmp58-_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok
 .Lfunc_end2:
 	.cfi_endproc
 
@@ -1271,11 +1271,11 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp131-_i.chronodot_ds3231_if._chan_y.get_time_ok
 	.cfi_endproc
 
-	.globl	i2c_internal_server
+	.globl	I2C_Internal_Server
 	.align	4
-	.type	i2c_internal_server,@function
-	.cc_top i2c_internal_server.function,i2c_internal_server
-i2c_internal_server:
+	.type	I2C_Internal_Server,@function
+	.cc_top I2C_Internal_Server.function,I2C_Internal_Server
+I2C_Internal_Server:
 .Lfunc_begin13:
 	.loc	1 44 0
 	.cfi_startproc
@@ -1652,17 +1652,17 @@ i2c_internal_server:
 	.xtabranch .LBB13_1
 	waiteu
 .Ltmp184:
-	.cc_bottom i2c_internal_server.function
-	.set	i2c_internal_server.nstackwords,((i2c_master_init.nstackwords $M puts.nstackwords $M i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 38)
-	.globl	i2c_internal_server.nstackwords
-	.set	i2c_internal_server.maxcores,i2c_master_init.maxcores $M i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M puts.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.globl	i2c_internal_server.maxcores
-	.set	i2c_internal_server.maxtimers,i2c_master_init.maxtimers $M i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M puts.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.globl	i2c_internal_server.maxtimers
-	.set	i2c_internal_server.maxchanends,i2c_master_init.maxchanends $M i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M puts.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
-	.globl	i2c_internal_server.maxchanends
+	.cc_bottom I2C_Internal_Server.function
+	.set	I2C_Internal_Server.nstackwords,((i2c_master_init.nstackwords $M puts.nstackwords $M i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 38)
+	.globl	I2C_Internal_Server.nstackwords
+	.set	I2C_Internal_Server.maxcores,i2c_master_init.maxcores $M i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M puts.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.globl	I2C_Internal_Server.maxcores
+	.set	I2C_Internal_Server.maxtimers,i2c_master_init.maxtimers $M i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M puts.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.globl	I2C_Internal_Server.maxtimers
+	.set	I2C_Internal_Server.maxchanends,i2c_master_init.maxchanends $M i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M puts.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.globl	I2C_Internal_Server.maxchanends
 .Ltmp185:
-	.size	i2c_internal_server, .Ltmp185-i2c_internal_server
+	.size	I2C_Internal_Server, .Ltmp185-I2C_Internal_Server
 .Lfunc_end13:
 	.cfi_endproc
 
@@ -1689,11 +1689,11 @@ i2c_internal_server:
 	.long	171759621
 	.cc_bottom .LCPI14_2.data
 	.text
-	.globl	i2c_internal_server.select.0.enable
+	.globl	I2C_Internal_Server.select.0.enable
 	.align	4
-	.type	i2c_internal_server.select.0.enable,@function
-	.cc_top i2c_internal_server.select.0.enable.function,i2c_internal_server.select.0.enable
-i2c_internal_server.select.0.enable:
+	.type	I2C_Internal_Server.select.0.enable,@function
+	.cc_top I2C_Internal_Server.select.0.enable.function,I2C_Internal_Server.select.0.enable
+I2C_Internal_Server.select.0.enable:
 .Lfunc_begin14:
 	.file	2 "<synthesized>"
 	.loc	2 0 0
@@ -1708,12 +1708,12 @@ i2c_internal_server.select.0.enable:
 	.cfi_offset 4, -4
 	mov r4, r0
 .Ltmp189:
-	bl i2c_internal_server.init.1
+	bl I2C_Internal_Server.init.1
 	ldw r0, r4[0]
 	bf r0, .LBB14_1
 .Ltmp190:
 	.loc	2 56 9 prologue_end
-	ldap r11, i2c_internal_server.select.0.case.0
+	ldap r11, I2C_Internal_Server.select.0.case.0
 	stw r11, r4[7]
 	ldw r0, cp[.LCPI14_0]
 	stw r0, r4[5]
@@ -1750,25 +1750,25 @@ i2c_internal_server.select.0.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.0.enable.function
-	.set	i2c_internal_server.select.0.enable.nstackwords,(i2c_internal_server.init.1.nstackwords + 2)
-	.globl	i2c_internal_server.select.0.enable.nstackwords
-	.set	i2c_internal_server.select.0.enable.maxcores,i2c_internal_server.init.1.maxcores $M 1
-	.globl	i2c_internal_server.select.0.enable.maxcores
-	.set	i2c_internal_server.select.0.enable.maxtimers,i2c_internal_server.init.1.maxtimers $M 0
-	.globl	i2c_internal_server.select.0.enable.maxtimers
-	.set	i2c_internal_server.select.0.enable.maxchanends,i2c_internal_server.init.1.maxchanends $M 0
-	.globl	i2c_internal_server.select.0.enable.maxchanends
+	.cc_bottom I2C_Internal_Server.select.0.enable.function
+	.set	I2C_Internal_Server.select.0.enable.nstackwords,(I2C_Internal_Server.init.1.nstackwords + 2)
+	.globl	I2C_Internal_Server.select.0.enable.nstackwords
+	.set	I2C_Internal_Server.select.0.enable.maxcores,I2C_Internal_Server.init.1.maxcores $M 1
+	.globl	I2C_Internal_Server.select.0.enable.maxcores
+	.set	I2C_Internal_Server.select.0.enable.maxtimers,I2C_Internal_Server.init.1.maxtimers $M 0
+	.globl	I2C_Internal_Server.select.0.enable.maxtimers
+	.set	I2C_Internal_Server.select.0.enable.maxchanends,I2C_Internal_Server.init.1.maxchanends $M 0
+	.globl	I2C_Internal_Server.select.0.enable.maxchanends
 .Ltmp195:
-	.size	i2c_internal_server.select.0.enable, .Ltmp195-i2c_internal_server.select.0.enable
+	.size	I2C_Internal_Server.select.0.enable, .Ltmp195-I2C_Internal_Server.select.0.enable
 .Lfunc_end14:
 	.cfi_endproc
 
-	.globl	i2c_internal_server.init.1
+	.globl	I2C_Internal_Server.init.1
 	.align	4
-	.type	i2c_internal_server.init.1,@function
-	.cc_top i2c_internal_server.init.1.function,i2c_internal_server.init.1
-i2c_internal_server.init.1:
+	.type	I2C_Internal_Server.init.1,@function
+	.cc_top I2C_Internal_Server.init.1.function,I2C_Internal_Server.init.1
+I2C_Internal_Server.init.1:
 .Lfunc_begin15:
 	.loc	2 0 0
 	.cfi_startproc
@@ -1803,31 +1803,31 @@ i2c_internal_server.init.1:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.init.1.function
-	.set	i2c_internal_server.init.1.nstackwords,((i2c_master_init.nstackwords $M puts.nstackwords) + 2)
-	.globl	i2c_internal_server.init.1.nstackwords
-	.set	i2c_internal_server.init.1.maxcores,i2c_master_init.maxcores $M puts.maxcores $M 1
-	.globl	i2c_internal_server.init.1.maxcores
-	.set	i2c_internal_server.init.1.maxtimers,i2c_master_init.maxtimers $M puts.maxtimers $M 0
-	.globl	i2c_internal_server.init.1.maxtimers
-	.set	i2c_internal_server.init.1.maxchanends,i2c_master_init.maxchanends $M puts.maxchanends $M 0
-	.globl	i2c_internal_server.init.1.maxchanends
+	.cc_bottom I2C_Internal_Server.init.1.function
+	.set	I2C_Internal_Server.init.1.nstackwords,((i2c_master_init.nstackwords $M puts.nstackwords) + 2)
+	.globl	I2C_Internal_Server.init.1.nstackwords
+	.set	I2C_Internal_Server.init.1.maxcores,i2c_master_init.maxcores $M puts.maxcores $M 1
+	.globl	I2C_Internal_Server.init.1.maxcores
+	.set	I2C_Internal_Server.init.1.maxtimers,i2c_master_init.maxtimers $M puts.maxtimers $M 0
+	.globl	I2C_Internal_Server.init.1.maxtimers
+	.set	I2C_Internal_Server.init.1.maxchanends,i2c_master_init.maxchanends $M puts.maxchanends $M 0
+	.globl	I2C_Internal_Server.init.1.maxchanends
 .Ltmp203:
-	.size	i2c_internal_server.init.1, .Ltmp203-i2c_internal_server.init.1
+	.size	I2C_Internal_Server.init.1, .Ltmp203-I2C_Internal_Server.init.1
 .Lfunc_end15:
 	.cfi_endproc
 
-	.globl	i2c_internal_server.init.0
+	.globl	I2C_Internal_Server.init.0
 	.align	4
-	.type	i2c_internal_server.init.0,@function
-	.cc_top i2c_internal_server.init.0.function,i2c_internal_server.init.0
-i2c_internal_server.init.0:
+	.type	I2C_Internal_Server.init.0,@function
+	.cc_top I2C_Internal_Server.init.0.function,I2C_Internal_Server.init.0
+I2C_Internal_Server.init.0:
 	.cfi_startproc
 .Lxtalabel21:
 	stw r1, r0[2]
 	ldc r2, 0
 	stw r2, r0[0]
-	ldap r11, i2c_internal_server.init.1
+	ldap r11, I2C_Internal_Server.init.1
 	stw r11, r0[1]
 	ldw r1, r1[0]
 	ldw r2, r1[0]
@@ -1837,17 +1837,17 @@ i2c_internal_server.init.0:
 .LBB16_2:
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.init.0.function
-	.set	i2c_internal_server.init.0.nstackwords,0
-	.globl	i2c_internal_server.init.0.nstackwords
-	.set	i2c_internal_server.init.0.maxcores,1
-	.globl	i2c_internal_server.init.0.maxcores
-	.set	i2c_internal_server.init.0.maxtimers,0
-	.globl	i2c_internal_server.init.0.maxtimers
-	.set	i2c_internal_server.init.0.maxchanends,0
-	.globl	i2c_internal_server.init.0.maxchanends
+	.cc_bottom I2C_Internal_Server.init.0.function
+	.set	I2C_Internal_Server.init.0.nstackwords,0
+	.globl	I2C_Internal_Server.init.0.nstackwords
+	.set	I2C_Internal_Server.init.0.maxcores,1
+	.globl	I2C_Internal_Server.init.0.maxcores
+	.set	I2C_Internal_Server.init.0.maxtimers,0
+	.globl	I2C_Internal_Server.init.0.maxtimers
+	.set	I2C_Internal_Server.init.0.maxchanends,0
+	.globl	I2C_Internal_Server.init.0.maxchanends
 .Ltmp204:
-	.size	i2c_internal_server.init.0, .Ltmp204-i2c_internal_server.init.0
+	.size	I2C_Internal_Server.init.0, .Ltmp204-I2C_Internal_Server.init.0
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -1873,11 +1873,11 @@ i2c_internal_server.init.0:
 	.long	171759621
 	.cc_bottom .LCPI17_2.data
 	.text
-	.globl	i2c_internal_server.select.y.enable
+	.globl	I2C_Internal_Server.select.y.enable
 	.align	4
-	.type	i2c_internal_server.select.y.enable,@function
-	.cc_top i2c_internal_server.select.y.enable.function,i2c_internal_server.select.y.enable
-i2c_internal_server.select.y.enable:
+	.type	I2C_Internal_Server.select.y.enable,@function
+	.cc_top I2C_Internal_Server.select.y.enable.function,I2C_Internal_Server.select.y.enable
+I2C_Internal_Server.select.y.enable:
 .Lfunc_begin17:
 	.loc	2 0 0
 	.cfi_startproc
@@ -1891,12 +1891,12 @@ i2c_internal_server.select.y.enable:
 	.cfi_offset 4, -4
 	mov r4, r0
 .Ltmp208:
-	bl i2c_internal_server.init.1
+	bl I2C_Internal_Server.init.1
 	ldw r0, r4[0]
 	bf r0, .LBB17_1
 .Ltmp209:
 	.loc	2 56 9 prologue_end
-	ldap r11, i2c_internal_server.select.y.case.0
+	ldap r11, I2C_Internal_Server.select.y.case.0
 	stw r11, r4[7]
 	ldw r0, cp[.LCPI17_0]
 	stw r0, r4[5]
@@ -1933,17 +1933,17 @@ i2c_internal_server.select.y.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.y.enable.function
-	.set	i2c_internal_server.select.y.enable.nstackwords,(i2c_internal_server.init.1.nstackwords + 2)
-	.globl	i2c_internal_server.select.y.enable.nstackwords
-	.set	i2c_internal_server.select.y.enable.maxcores,i2c_internal_server.init.1.maxcores $M 1
-	.globl	i2c_internal_server.select.y.enable.maxcores
-	.set	i2c_internal_server.select.y.enable.maxtimers,i2c_internal_server.init.1.maxtimers $M 0
-	.globl	i2c_internal_server.select.y.enable.maxtimers
-	.set	i2c_internal_server.select.y.enable.maxchanends,i2c_internal_server.init.1.maxchanends $M 0
-	.globl	i2c_internal_server.select.y.enable.maxchanends
+	.cc_bottom I2C_Internal_Server.select.y.enable.function
+	.set	I2C_Internal_Server.select.y.enable.nstackwords,(I2C_Internal_Server.init.1.nstackwords + 2)
+	.globl	I2C_Internal_Server.select.y.enable.nstackwords
+	.set	I2C_Internal_Server.select.y.enable.maxcores,I2C_Internal_Server.init.1.maxcores $M 1
+	.globl	I2C_Internal_Server.select.y.enable.maxcores
+	.set	I2C_Internal_Server.select.y.enable.maxtimers,I2C_Internal_Server.init.1.maxtimers $M 0
+	.globl	I2C_Internal_Server.select.y.enable.maxtimers
+	.set	I2C_Internal_Server.select.y.enable.maxchanends,I2C_Internal_Server.init.1.maxchanends $M 0
+	.globl	I2C_Internal_Server.select.y.enable.maxchanends
 .Ltmp214:
-	.size	i2c_internal_server.select.y.enable, .Ltmp214-i2c_internal_server.select.y.enable
+	.size	I2C_Internal_Server.select.y.enable, .Ltmp214-I2C_Internal_Server.select.y.enable
 .Lfunc_end17:
 	.cfi_endproc
 
@@ -1970,11 +1970,11 @@ i2c_internal_server.select.y.enable:
 	.long	171759621
 	.cc_bottom .LCPI18_2.data
 	.text
-	.globl	i2c_internal_server.select.enable
+	.globl	I2C_Internal_Server.select.enable
 	.align	4
-	.type	i2c_internal_server.select.enable,@function
-	.cc_top i2c_internal_server.select.enable.function,i2c_internal_server.select.enable
-i2c_internal_server.select.enable:
+	.type	I2C_Internal_Server.select.enable,@function
+	.cc_top I2C_Internal_Server.select.enable.function,I2C_Internal_Server.select.enable
+I2C_Internal_Server.select.enable:
 .Lfunc_begin18:
 	.loc	2 0 0
 	.cfi_startproc
@@ -1982,7 +1982,7 @@ i2c_internal_server.select.enable:
 	bf r1, .LBB18_1
 	.loc	2 56 9 prologue_end
 .Ltmp215:
-	ldap r11, i2c_internal_server.select.case.0
+	ldap r11, I2C_Internal_Server.select.case.0
 	stw r11, r0[7]
 	ldw r1, cp[.LCPI18_0]
 	stw r1, r0[5]
@@ -2019,25 +2019,25 @@ i2c_internal_server.select.enable:
 	mov r0, r1
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.enable.function
-	.set	i2c_internal_server.select.enable.nstackwords,0
-	.globl	i2c_internal_server.select.enable.nstackwords
-	.set	i2c_internal_server.select.enable.maxcores,1
-	.globl	i2c_internal_server.select.enable.maxcores
-	.set	i2c_internal_server.select.enable.maxtimers,0
-	.globl	i2c_internal_server.select.enable.maxtimers
-	.set	i2c_internal_server.select.enable.maxchanends,0
-	.globl	i2c_internal_server.select.enable.maxchanends
+	.cc_bottom I2C_Internal_Server.select.enable.function
+	.set	I2C_Internal_Server.select.enable.nstackwords,0
+	.globl	I2C_Internal_Server.select.enable.nstackwords
+	.set	I2C_Internal_Server.select.enable.maxcores,1
+	.globl	I2C_Internal_Server.select.enable.maxcores
+	.set	I2C_Internal_Server.select.enable.maxtimers,0
+	.globl	I2C_Internal_Server.select.enable.maxtimers
+	.set	I2C_Internal_Server.select.enable.maxchanends,0
+	.globl	I2C_Internal_Server.select.enable.maxchanends
 .Ltmp220:
-	.size	i2c_internal_server.select.enable, .Ltmp220-i2c_internal_server.select.enable
+	.size	I2C_Internal_Server.select.enable, .Ltmp220-I2C_Internal_Server.select.enable
 .Lfunc_end18:
 	.cfi_endproc
 
-	.globl	i2c_internal_server.fini
+	.globl	I2C_Internal_Server.fini
 	.align	4
-	.type	i2c_internal_server.fini,@function
-	.cc_top i2c_internal_server.fini.function,i2c_internal_server.fini
-i2c_internal_server.fini:
+	.type	I2C_Internal_Server.fini,@function
+	.cc_top I2C_Internal_Server.fini.function,I2C_Internal_Server.fini
+I2C_Internal_Server.fini:
 	.cfi_startproc
 	ldw r0, r0[0]
 	bf r0, .LBB19_2
@@ -2046,23 +2046,23 @@ i2c_internal_server.fini:
 .LBB19_2:
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.fini.function
-	.set	i2c_internal_server.fini.nstackwords,0
-	.globl	i2c_internal_server.fini.nstackwords
-	.set	i2c_internal_server.fini.maxcores,1
-	.globl	i2c_internal_server.fini.maxcores
-	.set	i2c_internal_server.fini.maxtimers,0
-	.globl	i2c_internal_server.fini.maxtimers
-	.set	i2c_internal_server.fini.maxchanends,0
-	.globl	i2c_internal_server.fini.maxchanends
+	.cc_bottom I2C_Internal_Server.fini.function
+	.set	I2C_Internal_Server.fini.nstackwords,0
+	.globl	I2C_Internal_Server.fini.nstackwords
+	.set	I2C_Internal_Server.fini.maxcores,1
+	.globl	I2C_Internal_Server.fini.maxcores
+	.set	I2C_Internal_Server.fini.maxtimers,0
+	.globl	I2C_Internal_Server.fini.maxtimers
+	.set	I2C_Internal_Server.fini.maxchanends,0
+	.globl	I2C_Internal_Server.fini.maxchanends
 .Ltmp221:
-	.size	i2c_internal_server.fini, .Ltmp221-i2c_internal_server.fini
+	.size	I2C_Internal_Server.fini, .Ltmp221-I2C_Internal_Server.fini
 	.cfi_endproc
 
 	.align	4
-	.type	i2c_internal_server.select.0.case.0,@function
-	.cc_top i2c_internal_server.select.0.case.0.function,i2c_internal_server.select.0.case.0
-i2c_internal_server.select.0.case.0:
+	.type	I2C_Internal_Server.select.0.case.0,@function
+	.cc_top I2C_Internal_Server.select.0.case.0.function,I2C_Internal_Server.select.0.case.0
+I2C_Internal_Server.select.0.case.0:
 .Lfunc_begin20:
 	.loc	1 58 0
 	.cfi_startproc
@@ -2327,20 +2327,20 @@ i2c_internal_server.select.0.case.0:
 	ldw r4, sp[34]
 	retsp 35
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.0.case.0.function
-	.set	i2c_internal_server.select.0.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
-	.set	i2c_internal_server.select.0.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	i2c_internal_server.select.0.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	i2c_internal_server.select.0.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom I2C_Internal_Server.select.0.case.0.function
+	.set	I2C_Internal_Server.select.0.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
+	.set	I2C_Internal_Server.select.0.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	I2C_Internal_Server.select.0.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	I2C_Internal_Server.select.0.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp258:
-	.size	i2c_internal_server.select.0.case.0, .Ltmp258-i2c_internal_server.select.0.case.0
+	.size	I2C_Internal_Server.select.0.case.0, .Ltmp258-I2C_Internal_Server.select.0.case.0
 .Lfunc_end20:
 	.cfi_endproc
 
 	.align	4
-	.type	i2c_internal_server.select.y.case.0,@function
-	.cc_top i2c_internal_server.select.y.case.0.function,i2c_internal_server.select.y.case.0
-i2c_internal_server.select.y.case.0:
+	.type	I2C_Internal_Server.select.y.case.0,@function
+	.cc_top I2C_Internal_Server.select.y.case.0.function,I2C_Internal_Server.select.y.case.0
+I2C_Internal_Server.select.y.case.0:
 .Lfunc_begin21:
 	.loc	1 58 0
 	.cfi_startproc
@@ -2605,20 +2605,20 @@ i2c_internal_server.select.y.case.0:
 	ldw r4, sp[34]
 	retsp 35
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.y.case.0.function
-	.set	i2c_internal_server.select.y.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
-	.set	i2c_internal_server.select.y.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	i2c_internal_server.select.y.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	i2c_internal_server.select.y.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom I2C_Internal_Server.select.y.case.0.function
+	.set	I2C_Internal_Server.select.y.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
+	.set	I2C_Internal_Server.select.y.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	I2C_Internal_Server.select.y.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	I2C_Internal_Server.select.y.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp295:
-	.size	i2c_internal_server.select.y.case.0, .Ltmp295-i2c_internal_server.select.y.case.0
+	.size	I2C_Internal_Server.select.y.case.0, .Ltmp295-I2C_Internal_Server.select.y.case.0
 .Lfunc_end21:
 	.cfi_endproc
 
 	.align	4
-	.type	i2c_internal_server.select.case.0,@function
-	.cc_top i2c_internal_server.select.case.0.function,i2c_internal_server.select.case.0
-i2c_internal_server.select.case.0:
+	.type	I2C_Internal_Server.select.case.0,@function
+	.cc_top I2C_Internal_Server.select.case.0.function,I2C_Internal_Server.select.case.0
+I2C_Internal_Server.select.case.0:
 .Lfunc_begin22:
 	.loc	1 58 0
 	.cfi_startproc
@@ -2883,13 +2883,13 @@ i2c_internal_server.select.case.0:
 	ldw r4, sp[34]
 	retsp 35
 	# RETURN_REG_HOLDER
-	.cc_bottom i2c_internal_server.select.case.0.function
-	.set	i2c_internal_server.select.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
-	.set	i2c_internal_server.select.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	i2c_internal_server.select.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	i2c_internal_server.select.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom I2C_Internal_Server.select.case.0.function
+	.set	I2C_Internal_Server.select.case.0.nstackwords,((i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords) + 35)
+	.set	I2C_Internal_Server.select.case.0.maxcores,i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	I2C_Internal_Server.select.case.0.maxtimers,i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	I2C_Internal_Server.select.case.0.maxchanends,i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp332:
-	.size	i2c_internal_server.select.case.0, .Ltmp332-i2c_internal_server.select.case.0
+	.size	I2C_Internal_Server.select.case.0, .Ltmp332-I2C_Internal_Server.select.case.0
 .Lfunc_end22:
 	.cfi_endproc
 
@@ -2924,17 +2924,17 @@ __xcc1_internal_2:
 	.type	.Lstr68,@object
 	.size	.Lstr68, 28
 .Lstr68:
-.asciiz"i2c_internal_server started"
+.asciiz"I2C_Internal_Server started"
 	.cc_bottom .Lstr68.data
 	.section	.dp.data,"awd",@progbits
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
-	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/i2c_internal_server.xc"
 .Linfo_string2:
@@ -3004,31 +3004,31 @@ __xcc1_internal_2:
 .Linfo_string34:
 .asciiz"_safe_memset"
 .Linfo_string35:
-.asciiz"i2c_internal_server"
+.asciiz"I2C_Internal_Server"
 .Linfo_string36:
-.asciiz"i2c_internal_server.select.0.case.0"
+.asciiz"I2C_Internal_Server.select.0.case.0"
 .Linfo_string37:
-.asciiz"i2c_internal_server.select.0.enable"
+.asciiz"I2C_Internal_Server.select.0.enable"
 .Linfo_string38:
-.asciiz"i2c_internal_server.init.1"
+.asciiz"I2C_Internal_Server.init.1"
 .Linfo_string39:
-.asciiz"i2c_internal_server.init.0"
+.asciiz"I2C_Internal_Server.init.0"
 .Linfo_string40:
-.asciiz"i2c_internal_server.select.y.case.0"
+.asciiz"I2C_Internal_Server.select.y.case.0"
 .Linfo_string41:
-.asciiz"i2c_internal_server.select.y.enable"
+.asciiz"I2C_Internal_Server.select.y.enable"
 .Linfo_string42:
-.asciiz"i2c_internal_server.select.case.0"
+.asciiz"I2C_Internal_Server.select.case.0"
 .Linfo_string43:
-.asciiz"i2c_internal_server.select.enable"
+.asciiz"I2C_Internal_Server.select.enable"
 .Linfo_string44:
-.asciiz"i2c_internal_server.fini"
+.asciiz"I2C_Internal_Server.fini"
 .Linfo_string45:
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok"
 .Linfo_string46:
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok"
 .Linfo_string47:
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok"
 .Linfo_string48:
 .asciiz"send_data"
 .Linfo_string49:
@@ -3068,7 +3068,7 @@ __xcc1_internal_2:
 .Linfo_string66:
 .asciiz"return_chronodot_d3231_registers"
 .Linfo_string67:
-.asciiz"i2c_internal_server.select.state_ptr"
+.asciiz"I2C_Internal_Server.select.state_ptr"
 .Linfo_string68:
 .asciiz"enable.flag"
 .Linfo_string69:
@@ -3078,7 +3078,7 @@ __xcc1_internal_2:
 .Linfo_string71:
 .asciiz"frame.0"
 .Linfo_string72:
-.asciiz"i2c_internal_server.init.1.state_ptr"
+.asciiz"I2C_Internal_Server.init.1.state_ptr"
 .Linfo_string73:
 .asciiz"saved.state"
 .Linfo_string74:
@@ -3124,9 +3124,9 @@ __xcc1_internal_2:
 .Linfo_string94:
 .asciiz"c"
 .Linfo_string95:
-.asciiz"i2c_internal_server.init.0.state_ptr"
+.asciiz"I2C_Internal_Server.init.0.state_ptr"
 .Linfo_string96:
-.asciiz"i2c_internal_server.fini.state_ptr"
+.asciiz"I2C_Internal_Server.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
 	.long	3382
@@ -6278,19 +6278,19 @@ __xcc1_internal_2:
 	.long	2553
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 	.long	3022
-.asciiz"i2c_internal_server.fini"
+.asciiz"I2C_Internal_Server.fini"
 	.long	2003
-.asciiz"i2c_internal_server.select.case.0"
+.asciiz"I2C_Internal_Server.select.case.0"
 	.long	2422
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	1626
-.asciiz"i2c_internal_server.select.y.case.0"
+.asciiz"I2C_Internal_Server.select.y.case.0"
 	.long	2511
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	31
 .asciiz"i2c_internal_config"
 	.long	1061
-.asciiz"i2c_internal_server.select.0.enable"
+.asciiz"I2C_Internal_Server.select.0.enable"
 	.long	2877
 .asciiz"_safe_memmove"
 	.long	2772
@@ -6304,37 +6304,37 @@ __xcc1_internal_2:
 	.long	2451
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	1249
-.asciiz"i2c_internal_server.select.0.case.0"
+.asciiz"I2C_Internal_Server.select.0.case.0"
 	.long	2728
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 	.long	2939
 .asciiz"_safe_memset"
 	.long	275
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok"
 	.long	2675
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
 	.long	681
-.asciiz"i2c_internal_server"
+.asciiz"I2C_Internal_Server"
 	.long	1114
-.asciiz"i2c_internal_server.init.1"
+.asciiz"I2C_Internal_Server.init.1"
 	.long	2695
 .asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 	.long	1198
-.asciiz"i2c_internal_server.select.enable"
+.asciiz"I2C_Internal_Server.select.enable"
 	.long	504
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok"
 	.long	2989
-.asciiz"i2c_internal_server.init.0"
+.asciiz"I2C_Internal_Server.init.0"
 	.long	2796
 .asciiz"delay_microseconds"
 	.long	1145
-.asciiz"i2c_internal_server.select.y.enable"
+.asciiz"I2C_Internal_Server.select.y.enable"
 	.long	2642
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	2748
 .asciiz"delay_seconds"
 	.long	397
-.asciiz"_i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -6375,9 +6375,9 @@ __xcc1_internal_2:
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.i2c_internal_commands_if.i2c_internal_server._c0.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc,:s(){m(registers){a(19:uc)}})"
-	.typestring _i.i2c_internal_commands_if.i2c_internal_server._c0.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc)"
-	.typestring _i.i2c_internal_commands_if.i2c_internal_server._c0.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc,:s(){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc)"
+	.typestring _i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(a(2:ui)),:uc,:uc,&(a(:uc)),ui)"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
@@ -6397,13 +6397,13 @@ __xcc1_internal_2:
 	.typestring i2c_master_init, "f{0}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
 	.typestring i2c_master_read_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
 	.typestring i2c_master_write_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
-	.typestring i2c_internal_server, "k:f{0}(&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})))"
-	.typestring i2c_internal_server.select.0.enable, "k:fe{0}()"
-	.typestring i2c_internal_server.init.1, "k:f{0}(u:q(ui))"
-	.typestring i2c_internal_server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})))"
-	.typestring i2c_internal_server.select.y.enable, "k:fe{0}()"
-	.typestring i2c_internal_server.select.enable, "k:fe{0}()"
-	.typestring i2c_internal_server.fini, "k:f{0}(u:q(ui))"
+	.typestring I2C_Internal_Server, "k:f{0}(&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})))"
+	.typestring I2C_Internal_Server.select.0.enable, "k:fe{0}()"
+	.typestring I2C_Internal_Server.init.1, "k:f{0}(u:q(ui))"
+	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})))"
+	.typestring I2C_Internal_Server.select.y.enable, "k:fe{0}()"
+	.typestring I2C_Internal_Server.select.enable, "k:fe{0}()"
+	.typestring I2C_Internal_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring i2c_internal_config, "s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}"
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:

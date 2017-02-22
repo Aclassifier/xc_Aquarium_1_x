@@ -13,7 +13,7 @@
 //                        Use this to update           Use this to get next DISPLAY
 //                        For clock it toggles forever
 
-extern void system_task (
+extern void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
     client  lib_startkit_adc_commands_if   i_startkit_adc_acquire,

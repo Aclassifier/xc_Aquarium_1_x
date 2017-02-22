@@ -19,8 +19,8 @@ typedef int light_range_t; // [00..99]
 #define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400 // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
                                                               //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
                                                               //           holding temp of 60 degC and max temp should then be 84-30=54 degC
-#define TEMP_ONETENTHDEGC_24_0_WATER_FISH_PLANT           240 // 24.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
-#define TEMP_ONETENTHDEGC_23_5_SLOW_COOLING               235 // 23.5 degC half a degree below limit. Bad econmics to let i cool completely
+#define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           250 // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
+#define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               245 // 24.5 degC half a degree below limit. Bad econmics to let i cool completely
 #define TEMP_ONETENTHDEGC_15_0_FAST_COOLING               150 // 15.0 degC But if ambient is above water limit, off completely
 #define TEMP_ONETENTHDEGC_00_2_HYSTERESIS                   2 //  0.2 degC switching when >= or <= gives of course mean value that's most like LIMIT
 #define TEMP_ONETENTHDEGC_00_1_HYSTERESIS                   1 //  0.1 degC So small since it's very slow and because of filter ARITHMETIC_MEAN_N_OF_TEMPS
@@ -57,22 +57,22 @@ typedef struct {
     temp_onetenthDegC_t temps_sum_mten_previous;   // 0 (init) or the value
 } temp_onetenthDegC_mean_t;
 
-{temp_onetenthDegC_t, bool} temp_onetenthDegC_to_str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
-{temp_onetenthDegC_t, bool} TC1047_raw_degC_to_string_ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[]);
-{light_range_t, bool}       ambient_light_sensor_ALS_PDIC243_to_string_ok (const unsigned int adc_val_mean_i,      char lux_str[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_to_string_ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[]);
+{light_range_t, bool}       Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i,      char (&?lux_str)[]);
+{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[]);
 
-uint8_t bcd2bin_8 (uint8_t val);
-uint8_t bin2bcd_8 (uint8_t val);
+uint8_t BCD_To_Bin_8 (uint8_t val);
+uint8_t Bin_To_BCD_8 (uint8_t val);
 
-void                init_arithmetic_mean_temp_onetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps);
+void                Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps);
 
 // The largest and smallest value of the data set are removed once the data set is full of values
 // The whole purpose of this array is to filter out individual non-standard reading and also, during a real gliding of
 // the temperature, to "debounce" the change. I tried to do correct rounding (multiplied with 10 in the set and divided and looked at the
 // modulo 10 rest and pushed up or down), but it didn't look as nice. And then I tried throwing away values, which seems more adequate
 //
-temp_onetenthDegC_t do_arithmetic_mean_temp_onetenthDegC   (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps,
+temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC   (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps,
                                                             const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 
 #else

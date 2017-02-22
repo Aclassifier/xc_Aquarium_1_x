@@ -36,7 +36,7 @@ extern bool tellDisplay_i2c_stopscroll           (client i2c_internal_commands_i
 //
 extern bool writeToDisplay_i2c_all_buffer        (client i2c_internal_commands_if i_i2c_internal_commands); // Returns true if ok
 //
-extern void clear_all_pixels_in_buffer           (void);
+extern void Clear_All_Pixels_In_Buffer           (void);
 extern void fillSplashScreen_in_buffer           (void);
 extern void setPixel_in_buffer                   (int16_t x, int16_t y, uint16_t color);
 extern void drawVerticalLine_in_buffer           (int16_t x, int16_t y, int16_t h, uint16_t color); // Virtual, instead of drawVerticalLine
@@ -83,9 +83,9 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 
 //      Contrast 0..255 appearantly doesn't work on the monochrome
 //      https://forums.adafruit.com/viewtopic.php?f=47&t=30322&hilit=+oled+contrast#p172367
-#define CONTRAST_VALUE_DEFAULT_DIMMED   0x00 // Only dims to low level, not dark!
-#define CONTRAST_VALUE_READ             0x8F // The Adafruit code used 0xCF and 0x9F but they are virtually equal to this
-#define CONTRAST_VALUE_READ_EXTERNALVCC 0x9F // Not used here since 3.3V not connected
+#define CONTRAST_VALUE_DIMMED            0x00 // Only dims to low level, not dark!
+#define CONTRAST_VALUE_BRIGHT_IS_DEFAULT 0x8F // The Adafruit code used 0xCF and 0x9F but they are virtually equal to this
+#define CONTRAST_VALUE_READ_EXTERNALVCC  0x9F // Not used here since 3.3V not connected
 
 // Scrolling #defines
 #define SSD1306_ACTIVATE_SCROLL                      0x2F

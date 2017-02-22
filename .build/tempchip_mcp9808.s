@@ -66,25 +66,25 @@
 	.set usage.anon.3,0
 	.set usage.anon.4,0
 	.set usage.anon.5,0
-	.call tempchip_mcp9808_read16,i2c_master_read_reg
-	.call tempchip_mcp9808_write16,i2c_master_write_reg
-	.call tempchip_mcp9808_shutdown_wake_ok,tempchip_mcp9808_write16
-	.call tempchip_mcp9808_shutdown_wake_ok,tempchip_mcp9808_read16
-	.call tempchip_mcp9808_readTempC,tempchip_mcp9808_read16
-	.call tempchip_mcp9808_begin_ok,tempchip_mcp9808_read16
+	.call Tempchip_MCP9808_Read16,i2c_master_read_reg
+	.call Tempchip_MCP9808_Write16,i2c_master_write_reg
+	.call Tempchip_MCP9808_Shutdown_Wake_Ok,Tempchip_MCP9808_Write16
+	.call Tempchip_MCP9808_Shutdown_Wake_Ok,Tempchip_MCP9808_Read16
+	.call Tempchip_MCP9808_ReadTempC,Tempchip_MCP9808_Read16
+	.call Tempchip_MCP9808_Begin_Ok,Tempchip_MCP9808_Read16
 	.call usage.anon.5,memset
 	.call usage.anon.4,memmove
 	.call usage.anon.3,memcmp
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.set tempchip_mcp9808_begin_ok.locnoside, 0
-	.set tempchip_mcp9808_readTempC.locnoside, 0
-	.set tempchip_mcp9808_shutdown_wake_ok.locnoside, 0
-	.set tempchip_mcp9808_write16.locnoside, 0
-	.set tempchip_mcp9808_read16.locnoside, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:14:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:14:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.set Tempchip_MCP9808_Begin_Ok.locnoside, 0
+	.set Tempchip_MCP9808_ReadTempC.locnoside, 0
+	.set Tempchip_MCP9808_Shutdown_Wake_Ok.locnoside, 0
+	.set Tempchip_MCP9808_Write16.locnoside, 0
+	.set Tempchip_MCP9808_Read16.locnoside, 0
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:14:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:14:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -294,11 +294,11 @@ _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp13-_i.i2c_external_commands_if._chan_y.read_temperature_ok
 	.cfi_endproc
 
-	.globl	tempchip_mcp9808_begin_ok
+	.globl	Tempchip_MCP9808_Begin_Ok
 	.align	4
-	.type	tempchip_mcp9808_begin_ok,@function
-	.cc_top tempchip_mcp9808_begin_ok.function,tempchip_mcp9808_begin_ok
-tempchip_mcp9808_begin_ok:
+	.type	Tempchip_MCP9808_Begin_Ok,@function
+	.cc_top Tempchip_MCP9808_Begin_Ok.function,Tempchip_MCP9808_Begin_Ok
+Tempchip_MCP9808_Begin_Ok:
 .Lfunc_begin4:
 	.loc	1 27 0
 	.cfi_startproc
@@ -359,7 +359,7 @@ tempchip_mcp9808_begin_ok:
 	mov r1, r4
 	mov r3, r5
 .Lxta.call_labels0:
-	bl tempchip_mcp9808_read16
+	bl Tempchip_MCP9808_Read16
 	.loc	1 33 5
 	ldw r1, r4[1]
 	.loc	1 33 5
@@ -378,7 +378,7 @@ tempchip_mcp9808_begin_ok:
 	mov r1, r4
 	mov r3, r5
 .Lxta.call_labels1:
-	bl tempchip_mcp9808_read16
+	bl Tempchip_MCP9808_Read16
 	.loc	1 36 9
 	ldw r1, r4[1]
 	.loc	1 36 9
@@ -401,17 +401,17 @@ tempchip_mcp9808_begin_ok:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom tempchip_mcp9808_begin_ok.function
-	.set	tempchip_mcp9808_begin_ok.nstackwords,(tempchip_mcp9808_read16.nstackwords + 6)
-	.globl	tempchip_mcp9808_begin_ok.nstackwords
-	.set	tempchip_mcp9808_begin_ok.maxcores,tempchip_mcp9808_read16.maxcores $M 1
-	.globl	tempchip_mcp9808_begin_ok.maxcores
-	.set	tempchip_mcp9808_begin_ok.maxtimers,tempchip_mcp9808_read16.maxtimers $M 0
-	.globl	tempchip_mcp9808_begin_ok.maxtimers
-	.set	tempchip_mcp9808_begin_ok.maxchanends,tempchip_mcp9808_read16.maxchanends $M 0
-	.globl	tempchip_mcp9808_begin_ok.maxchanends
+	.cc_bottom Tempchip_MCP9808_Begin_Ok.function
+	.set	Tempchip_MCP9808_Begin_Ok.nstackwords,(Tempchip_MCP9808_Read16.nstackwords + 6)
+	.globl	Tempchip_MCP9808_Begin_Ok.nstackwords
+	.set	Tempchip_MCP9808_Begin_Ok.maxcores,Tempchip_MCP9808_Read16.maxcores $M 1
+	.globl	Tempchip_MCP9808_Begin_Ok.maxcores
+	.set	Tempchip_MCP9808_Begin_Ok.maxtimers,Tempchip_MCP9808_Read16.maxtimers $M 0
+	.globl	Tempchip_MCP9808_Begin_Ok.maxtimers
+	.set	Tempchip_MCP9808_Begin_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
+	.globl	Tempchip_MCP9808_Begin_Ok.maxchanends
 .Ltmp29:
-	.size	tempchip_mcp9808_begin_ok, .Ltmp29-tempchip_mcp9808_begin_ok
+	.size	Tempchip_MCP9808_Begin_Ok, .Ltmp29-Tempchip_MCP9808_Begin_Ok
 .Lfunc_end4:
 	.cfi_endproc
 
@@ -424,11 +424,11 @@ tempchip_mcp9808_begin_ok:
 	.long	3435973837
 	.cc_bottom .LCPI5_0.data
 	.text
-	.globl	tempchip_mcp9808_readTempC
+	.globl	Tempchip_MCP9808_ReadTempC
 	.align	4
-	.type	tempchip_mcp9808_readTempC,@function
-	.cc_top tempchip_mcp9808_readTempC.function,tempchip_mcp9808_readTempC
-tempchip_mcp9808_readTempC:
+	.type	Tempchip_MCP9808_ReadTempC,@function
+	.cc_top Tempchip_MCP9808_ReadTempC.function,Tempchip_MCP9808_ReadTempC
+Tempchip_MCP9808_ReadTempC:
 .Lfunc_begin5:
 	.loc	1 51 0
 	.cfi_startproc
@@ -459,7 +459,7 @@ tempchip_mcp9808_readTempC:
 	stw r7, sp[1]
 	ldc r2, 5
 .Lxta.call_labels2:
-	bl tempchip_mcp9808_read16
+	bl Tempchip_MCP9808_Read16
 .Ltmp37:
 	.loc	1 55 5
 	sub r1, r5, r6
@@ -579,25 +579,25 @@ tempchip_mcp9808_readTempC:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom tempchip_mcp9808_readTempC.function
-	.set	tempchip_mcp9808_readTempC.nstackwords,(tempchip_mcp9808_read16.nstackwords + 6)
-	.globl	tempchip_mcp9808_readTempC.nstackwords
-	.set	tempchip_mcp9808_readTempC.maxcores,tempchip_mcp9808_read16.maxcores $M 1
-	.globl	tempchip_mcp9808_readTempC.maxcores
-	.set	tempchip_mcp9808_readTempC.maxtimers,tempchip_mcp9808_read16.maxtimers $M 0
-	.globl	tempchip_mcp9808_readTempC.maxtimers
-	.set	tempchip_mcp9808_readTempC.maxchanends,tempchip_mcp9808_read16.maxchanends $M 0
-	.globl	tempchip_mcp9808_readTempC.maxchanends
+	.cc_bottom Tempchip_MCP9808_ReadTempC.function
+	.set	Tempchip_MCP9808_ReadTempC.nstackwords,(Tempchip_MCP9808_Read16.nstackwords + 6)
+	.globl	Tempchip_MCP9808_ReadTempC.nstackwords
+	.set	Tempchip_MCP9808_ReadTempC.maxcores,Tempchip_MCP9808_Read16.maxcores $M 1
+	.globl	Tempchip_MCP9808_ReadTempC.maxcores
+	.set	Tempchip_MCP9808_ReadTempC.maxtimers,Tempchip_MCP9808_Read16.maxtimers $M 0
+	.globl	Tempchip_MCP9808_ReadTempC.maxtimers
+	.set	Tempchip_MCP9808_ReadTempC.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
+	.globl	Tempchip_MCP9808_ReadTempC.maxchanends
 .Ltmp47:
-	.size	tempchip_mcp9808_readTempC, .Ltmp47-tempchip_mcp9808_readTempC
+	.size	Tempchip_MCP9808_ReadTempC, .Ltmp47-Tempchip_MCP9808_ReadTempC
 .Lfunc_end5:
 	.cfi_endproc
 
-	.globl	tempchip_mcp9808_write16
+	.globl	Tempchip_MCP9808_Write16
 	.align	4
-	.type	tempchip_mcp9808_write16,@function
-	.cc_top tempchip_mcp9808_write16.function,tempchip_mcp9808_write16
-tempchip_mcp9808_write16:
+	.type	Tempchip_MCP9808_Write16,@function
+	.cc_top Tempchip_MCP9808_Write16.function,Tempchip_MCP9808_Write16
+Tempchip_MCP9808_Write16:
 .Lfunc_begin6:
 	.loc	1 108 0
 	.cfi_startproc
@@ -682,25 +682,25 @@ tempchip_mcp9808_write16:
 .Ltmp65:
 	# RETURN_REG_HOLDER
 .Ltmp66:
-	.cc_bottom tempchip_mcp9808_write16.function
-	.set	tempchip_mcp9808_write16.nstackwords,(i2c_master_write_reg.nstackwords + 7)
-	.globl	tempchip_mcp9808_write16.nstackwords
-	.set	tempchip_mcp9808_write16.maxcores,i2c_master_write_reg.maxcores $M 1
-	.globl	tempchip_mcp9808_write16.maxcores
-	.set	tempchip_mcp9808_write16.maxtimers,i2c_master_write_reg.maxtimers $M 0
-	.globl	tempchip_mcp9808_write16.maxtimers
-	.set	tempchip_mcp9808_write16.maxchanends,i2c_master_write_reg.maxchanends $M 0
-	.globl	tempchip_mcp9808_write16.maxchanends
+	.cc_bottom Tempchip_MCP9808_Write16.function
+	.set	Tempchip_MCP9808_Write16.nstackwords,(i2c_master_write_reg.nstackwords + 7)
+	.globl	Tempchip_MCP9808_Write16.nstackwords
+	.set	Tempchip_MCP9808_Write16.maxcores,i2c_master_write_reg.maxcores $M 1
+	.globl	Tempchip_MCP9808_Write16.maxcores
+	.set	Tempchip_MCP9808_Write16.maxtimers,i2c_master_write_reg.maxtimers $M 0
+	.globl	Tempchip_MCP9808_Write16.maxtimers
+	.set	Tempchip_MCP9808_Write16.maxchanends,i2c_master_write_reg.maxchanends $M 0
+	.globl	Tempchip_MCP9808_Write16.maxchanends
 .Ltmp67:
-	.size	tempchip_mcp9808_write16, .Ltmp67-tempchip_mcp9808_write16
+	.size	Tempchip_MCP9808_Write16, .Ltmp67-Tempchip_MCP9808_Write16
 .Lfunc_end6:
 	.cfi_endproc
 
-	.globl	tempchip_mcp9808_read16
+	.globl	Tempchip_MCP9808_Read16
 	.align	4
-	.type	tempchip_mcp9808_read16,@function
-	.cc_top tempchip_mcp9808_read16.function,tempchip_mcp9808_read16
-tempchip_mcp9808_read16:
+	.type	Tempchip_MCP9808_Read16,@function
+	.cc_top Tempchip_MCP9808_Read16.function,Tempchip_MCP9808_Read16
+Tempchip_MCP9808_Read16:
 .Lfunc_begin7:
 	.loc	1 121 0
 	.cfi_startproc
@@ -785,25 +785,25 @@ tempchip_mcp9808_read16:
 	retsp 7
 	# RETURN_REG_HOLDER
 .Ltmp85:
-	.cc_bottom tempchip_mcp9808_read16.function
-	.set	tempchip_mcp9808_read16.nstackwords,(i2c_master_read_reg.nstackwords + 7)
-	.globl	tempchip_mcp9808_read16.nstackwords
-	.set	tempchip_mcp9808_read16.maxcores,i2c_master_read_reg.maxcores $M 1
-	.globl	tempchip_mcp9808_read16.maxcores
-	.set	tempchip_mcp9808_read16.maxtimers,i2c_master_read_reg.maxtimers $M 0
-	.globl	tempchip_mcp9808_read16.maxtimers
-	.set	tempchip_mcp9808_read16.maxchanends,i2c_master_read_reg.maxchanends $M 0
-	.globl	tempchip_mcp9808_read16.maxchanends
+	.cc_bottom Tempchip_MCP9808_Read16.function
+	.set	Tempchip_MCP9808_Read16.nstackwords,(i2c_master_read_reg.nstackwords + 7)
+	.globl	Tempchip_MCP9808_Read16.nstackwords
+	.set	Tempchip_MCP9808_Read16.maxcores,i2c_master_read_reg.maxcores $M 1
+	.globl	Tempchip_MCP9808_Read16.maxcores
+	.set	Tempchip_MCP9808_Read16.maxtimers,i2c_master_read_reg.maxtimers $M 0
+	.globl	Tempchip_MCP9808_Read16.maxtimers
+	.set	Tempchip_MCP9808_Read16.maxchanends,i2c_master_read_reg.maxchanends $M 0
+	.globl	Tempchip_MCP9808_Read16.maxchanends
 .Ltmp86:
-	.size	tempchip_mcp9808_read16, .Ltmp86-tempchip_mcp9808_read16
+	.size	Tempchip_MCP9808_Read16, .Ltmp86-Tempchip_MCP9808_Read16
 .Lfunc_end7:
 	.cfi_endproc
 
-	.globl	tempchip_mcp9808_shutdown_wake_ok
+	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok
 	.align	4
-	.type	tempchip_mcp9808_shutdown_wake_ok,@function
-	.cc_top tempchip_mcp9808_shutdown_wake_ok.function,tempchip_mcp9808_shutdown_wake_ok
-tempchip_mcp9808_shutdown_wake_ok:
+	.type	Tempchip_MCP9808_Shutdown_Wake_Ok,@function
+	.cc_top Tempchip_MCP9808_Shutdown_Wake_Ok.function,Tempchip_MCP9808_Shutdown_Wake_Ok
+Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lfunc_begin8:
 	.loc	1 85 0
 	.cfi_startproc
@@ -840,7 +840,7 @@ tempchip_mcp9808_shutdown_wake_ok:
 	stw r8, sp[1]
 	mkmsk r2, 1
 .Lxta.call_labels5:
-	bl tempchip_mcp9808_read16
+	bl Tempchip_MCP9808_Read16
 	.loc	1 90 5
 	sub r1, r4, r6
 	mkmsk r2, 3
@@ -895,7 +895,7 @@ tempchip_mcp9808_shutdown_wake_ok:
 	mov r0, r5
 	mov r1, r4
 .Lxta.call_labels6:
-	bl tempchip_mcp9808_write16
+	bl Tempchip_MCP9808_Write16
 	.loc	1 101 9
 	ldw r0, r4[1]
 	.loc	1 101 9
@@ -909,26 +909,26 @@ tempchip_mcp9808_shutdown_wake_ok:
 	ldw r4, sp[7]
 	retsp 8
 	# RETURN_REG_HOLDER
-	.cc_bottom tempchip_mcp9808_shutdown_wake_ok.function
-	.set	tempchip_mcp9808_shutdown_wake_ok.nstackwords,((tempchip_mcp9808_read16.nstackwords $M tempchip_mcp9808_write16.nstackwords) + 8)
-	.globl	tempchip_mcp9808_shutdown_wake_ok.nstackwords
-	.set	tempchip_mcp9808_shutdown_wake_ok.maxcores,tempchip_mcp9808_read16.maxcores $M tempchip_mcp9808_write16.maxcores $M 1
-	.globl	tempchip_mcp9808_shutdown_wake_ok.maxcores
-	.set	tempchip_mcp9808_shutdown_wake_ok.maxtimers,tempchip_mcp9808_read16.maxtimers $M tempchip_mcp9808_write16.maxtimers $M 0
-	.globl	tempchip_mcp9808_shutdown_wake_ok.maxtimers
-	.set	tempchip_mcp9808_shutdown_wake_ok.maxchanends,tempchip_mcp9808_read16.maxchanends $M tempchip_mcp9808_write16.maxchanends $M 0
-	.globl	tempchip_mcp9808_shutdown_wake_ok.maxchanends
+	.cc_bottom Tempchip_MCP9808_Shutdown_Wake_Ok.function
+	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.nstackwords,((Tempchip_MCP9808_Read16.nstackwords $M Tempchip_MCP9808_Write16.nstackwords) + 8)
+	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.nstackwords
+	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.maxcores,Tempchip_MCP9808_Read16.maxcores $M Tempchip_MCP9808_Write16.maxcores $M 1
+	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxcores
+	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.maxtimers,Tempchip_MCP9808_Read16.maxtimers $M Tempchip_MCP9808_Write16.maxtimers $M 0
+	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxtimers
+	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M Tempchip_MCP9808_Write16.maxchanends $M 0
+	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends
 .Ltmp103:
-	.size	tempchip_mcp9808_shutdown_wake_ok, .Ltmp103-tempchip_mcp9808_shutdown_wake_ok
+	.size	Tempchip_MCP9808_Shutdown_Wake_Ok, .Ltmp103-Tempchip_MCP9808_Shutdown_Wake_Ok
 .Lfunc_end8:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/tempchip_mcp9808.xc"
 .Linfo_string2:
@@ -988,15 +988,15 @@ tempchip_mcp9808_shutdown_wake_ok:
 .Linfo_string29:
 .asciiz"_safe_memset"
 .Linfo_string30:
-.asciiz"tempchip_mcp9808_begin_ok"
+.asciiz"Tempchip_MCP9808_Begin_Ok"
 .Linfo_string31:
-.asciiz"tempchip_mcp9808_readTempC"
+.asciiz"Tempchip_MCP9808_ReadTempC"
 .Linfo_string32:
-.asciiz"tempchip_mcp9808_shutdown_wake_ok"
+.asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
 .Linfo_string33:
-.asciiz"tempchip_mcp9808_write16"
+.asciiz"Tempchip_MCP9808_Write16"
 .Linfo_string34:
-.asciiz"tempchip_mcp9808_read16"
+.asciiz"Tempchip_MCP9808_Read16"
 .Linfo_string35:
 .asciiz"unsigned short"
 .Linfo_string36:
@@ -2434,11 +2434,11 @@ tempchip_mcp9808_shutdown_wake_ok:
 	.long	943
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
 	.long	340
-.asciiz"tempchip_mcp9808_write16"
+.asciiz"Tempchip_MCP9808_Write16"
 	.long	972
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 	.long	241
-.asciiz"tempchip_mcp9808_readTempC"
+.asciiz"Tempchip_MCP9808_ReadTempC"
 	.long	1196
 .asciiz"_safe_memset"
 	.long	814
@@ -2446,15 +2446,15 @@ tempchip_mcp9808_shutdown_wake_ok:
 	.long	843
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 	.long	715
-.asciiz"tempchip_mcp9808_shutdown_wake_ok"
+.asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
 	.long	159
-.asciiz"tempchip_mcp9808_begin_ok"
+.asciiz"Tempchip_MCP9808_Begin_Ok"
 	.long	1134
 .asciiz"_safe_memmove"
 	.long	1029
 .asciiz"delay_milliseconds"
 	.long	526
-.asciiz"tempchip_mcp9808_read16"
+.asciiz"Tempchip_MCP9808_Read16"
 	.long	1053
 .asciiz"delay_microseconds"
 	.long	1077
@@ -2513,11 +2513,11 @@ tempchip_mcp9808_shutdown_wake_ok:
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring i2c_master_read_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
 	.typestring i2c_master_write_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
-	.typestring tempchip_mcp9808_begin_ok, "f{e(){m(false){0},m(true){1}}}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc)"
-	.typestring tempchip_mcp9808_readTempC, "f{ss}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),q(e(){m(false){0},m(true){1}}))"
-	.typestring tempchip_mcp9808_write16, "f{0}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc,us)"
-	.typestring tempchip_mcp9808_read16, "f{us}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc)"
-	.typestring tempchip_mcp9808_shutdown_wake_ok, "f{e(){m(false){0},m(true){1}}}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),e(){m(false){0},m(true){1}})"
+	.typestring Tempchip_MCP9808_Begin_Ok, "f{e(){m(false){0},m(true){1}}}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc)"
+	.typestring Tempchip_MCP9808_ReadTempC, "f{ss}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),q(e(){m(false){0},m(true){1}}))"
+	.typestring Tempchip_MCP9808_Write16, "f{0}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc,us)"
+	.typestring Tempchip_MCP9808_Read16, "f{us}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),uc)"
+	.typestring Tempchip_MCP9808_Shutdown_Wake_Ok, "f{e(){m(false){0},m(true){1}}}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}),q(s(tag_i2c_master_param_t){m(_use_dev_address){uc},m(_result){e(){m(I2C_ERR){0},m(I2C_OK){1},m(I2C_PARAM_ERR){2}}}}),e(){m(false){0},m(true){1}})"
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0

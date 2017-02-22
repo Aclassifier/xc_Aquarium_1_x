@@ -9,8 +9,8 @@
 	.set usage.anon.2,0
 	.set usage.anon.3,0
 	.set usage.anon.4,0
-	.globread random_create_generator_from_hw_seed,usage.anon.4,"/Users/teig/workspace/module_random/src/random.xc:23:30: note: object used here\n  unsigned init_seed = getps(XS1_L_RING_OSCILLATOR_VALUE_REG);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xs1.h:1747:36: note: expanded from macro \'getps\'\n#define getps(reg) __builtin_getps(reg)\n                                   ^"
-	.globread random_get_random_number,usage.anon.3,"/Users/teig/workspace/module_random/src/random.xc:8:16: note: object used here\n  crc32(g, -1, random_poly);\n               ^~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xs1.h:1431:79: note: expanded from macro \'crc32\'\n#define crc32(checksum, data, poly)           __builtin_crc32(checksum, data, poly)\n                                                                              ^"
+	.globread random_create_generator_from_hw_seed,usage.anon.4,"/Users/teig/workspace/module_random/src/random.xc:23:30: note: object used here\n  unsigned init_seed = getps(XS1_L_RING_OSCILLATOR_VALUE_REG);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h:1747:36: note: expanded from macro \'getps\'\n#define getps(reg) __builtin_getps(reg)\n                                   ^"
+	.globread random_get_random_number,usage.anon.3,"/Users/teig/workspace/module_random/src/random.xc:8:16: note: object used here\n  crc32(g, -1, random_poly);\n               ^~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h:1431:79: note: expanded from macro \'crc32\'\n#define crc32(checksum, data, poly)           __builtin_crc32(checksum, data, poly)\n                                                                              ^"
 	.call random_create_generator_from_hw_seed,random_create_generator_from_seed
 	.call random_create_generator_from_seed,random_get_random_number
 	.call usage.anon.2,delay_ticks_longlong
@@ -168,10 +168,10 @@ random_get_random_number:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/module_random/src/random.xc"
 .Linfo_string2:

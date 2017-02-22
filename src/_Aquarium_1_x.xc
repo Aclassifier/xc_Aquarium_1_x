@@ -28,30 +28,41 @@
 //
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "i2c_internal_server.h"
-#include "chronodot_ds3231_controller.h"
+#include "I2C_Internal_Server.h"
+#include "Chronodot_DS3231_Controller.h"
 
 #include "display_ssd1306.h"
 
-#include "i2c_external_server.h"
+#include "I2C_External_Server.h"
 #include "button_press.h"
 //
 #include "port_heat_light_server.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "temperature_heater_controller.h"
-#include "temperature_water_controller.h"
+#include "Temperature_Heater_Controller.h"
+#include "Temperature_Water_Controller.h"
 #include "core_graphics_adafruit_GFX.h"
 #include "core_graphics_font5x8.h"
 #include "adc_startkit_client.h"
+#include "light_sunrise_sunset.h"
 
 #include "_Aquarium.h"
 
-#define STATIC_DISPLAY_STATE_NUMS 4
+
 typedef enum {
+    CALLER_IS_BUTTON,
+    CALLER_IS_REFRESH
+} caller_t;
+
+#define STATIC_DISPLAY_STATE_NUMS 7
+typedef enum {
+    // English-Norwegian here bacause the screens are in Norwegian
     STATIC_DISPLAY_AKVARIETEMPERATURER,
     STATIC_DISPLAY_VARMEREGULERING,
+    STATIC_DISPLAY_LYSGULERING,
     STATIC_DISPLAY_BOKSDATA,
+    STATIC_DISPLAY_VERSJON,
+    STATIC_DISPLAY_FASTE_INNSTILLINGER,
     STATIC_DISPLAY_KLOKKE
 } static_display_state_t;
 // DISPLAY_STILLKLOKKE needs to be in a separate state space
@@ -61,7 +72,7 @@ typedef enum {
     STATE_ALLOW_REFRESH
 } state_t;
 
-#define DISPLAY_ON_FOR_SECONDS (600*1) // 10 minutes
+#define DISPLAY_ON_FOR_SECONDS (10*60) // 10 minutes
 
 typedef struct {
     state_t                     state;
@@ -72,10 +83,15 @@ typedef struct {
     bool                        display_is_on;
     char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // ts1 means TextSize 1
     int                         iof_button_previous;
+    bool                        full_light;
     // For read_chronodot_ok:
     chronodot_d3231_registers_t chronodot_d3231_registers; // For real use, with also setting, this needs to be filled from chronodot before it's written
+    DateTime_t                  datetime;
     bool                        read_chronodot_ok;
-    i2c_temps_t                 i2c_temps; // For read_temperatures_ok
+    // For read_temperatures_ok:
+    i2c_temps_t                 i2c_temps;
+    light_composition_t         light_composition;
+    unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
                                 // For get_adc_vals:
     unsigned int                adc_cnt, no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
@@ -87,25 +103,23 @@ typedef struct {
     now_regulating_at_t         now_regulating_at;
 } handler_context_t;
 
-
-void handle_light (
-           handler_context_t           &context,
-    client port_heat_light_commands_if i_port_heat_light_commands) {
-
-}
-
-void handle_real_or_clocked_button_actions (
-            handler_context_t             &context,
-    client i2c_internal_commands_if       i_i2c_internal_commands,
-    client temperature_water_commands_if  i_temperature_water_commands,  // STATIC_DISPLAY_AKVARIETEMPERATURER
-    client temperature_heater_commands_if i_temperature_heater_commands) // STATIC_DISPLAY_VARMEREGULERING
+void Handle_Real_Or_Clocked_Button_Actions (
+            handler_context_t              &context,
+            light_sunrise_sunset_context_t &light_sunrise_sunset_context,
+    client i2c_internal_commands_if        i_i2c_internal_commands,
+    client temperature_water_commands_if   i_temperature_water_commands,  // STATIC_DISPLAY_AKVARIETEMPERATURER
+    client temperature_heater_commands_if  i_temperature_heater_commands, // STATIC_DISPLAY_VARMEREGULERING
+    const  caller_t                        caller)
 {
 
     int  sprintf_return;
-    char degC_cirle_str[] = DEGC_CIRCLE_STR;
-    char char_AA_str[]    = CHAR_AA_STR;
 
-    printf ("handle_real_or_clocked_button_actions %u\n", context.static_display_state);
+    char char_degC_circle_str[] = DEGC_CIRCLE_STR;
+    char char_AA_str[]          = CHAR_AA_STR; // A
+    char char_aa_str[]          = CHAR_aa_STR; // å
+    char char_OE_str[]          = CHAR_OE_STR; // Ø
+
+    // printf ("Handle_Real_Or_Clocked_Button_Actions %u\n", context.static_display_state);
 
     switch (context.static_display_state) {
 
@@ -115,31 +129,33 @@ void handle_real_or_clocked_button_actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            clear_all_pixels_in_buffer();
+            Clear_All_Pixels_In_Buffer();
 
             char temp_degC_water_str   [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
             char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
             char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
 
-            printf("STATIC_DISPLAY_AKVARIETEMPERATURER 1\n");
+            // printf("STATIC_DISPLAY_AKVARIETEMPERATURER 1\n");
             i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_WATER,   temp_degC_water_str);
-            printf("STATIC_DISPLAY_AKVARIETEMPERATURER 2\n");
+            // printf("STATIC_DISPLAY_AKVARIETEMPERATURER 2\n");
             i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_AMBIENT, temp_degC_ambient_str);
-            printf("STATIC_DISPLAY_AKVARIETEMPERATURER 3\n");
+            // printf("STATIC_DISPLAY_AKVARIETEMPERATURER 3\n");
             i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_HEATER,  temp_degC_heater_str);
-            printf("STATIC_DISPLAY_AKVARIETEMPERATURER 4\n");
+            // printf("STATIC_DISPLAY_AKVARIETEMPERATURER 4\n");
 
-            sprintf_return = sprintf (context.display_ts1_chars, "  AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
-                    temp_degC_water_str,   degC_cirle_str,
-                    temp_degC_ambient_str, degC_cirle_str,
-                    temp_degC_heater_str,  degC_cirle_str);
+            sprintf_return = sprintf (context.display_ts1_chars, "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
+                    temp_degC_water_str,   char_degC_circle_str,
+                    temp_degC_ambient_str, char_degC_circle_str,
+                    temp_degC_heater_str,  char_degC_circle_str);
             //                                            ..........----------.
-            //                                              AKVARIETEMPERATURER
+            //                                            1 AKVARIETEMPERATURER
             //                                                      VANN 25.0oC
             //                                                      LUFT 25.0oC
             //                                              VARMEELEMENT 25.0oC
 
-            printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+            if (caller == CALLER_IS_BUTTON) {
+                printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+            }
 
             setTextSize(1);
             setTextColor(WHITE);
@@ -158,26 +174,28 @@ void handle_real_or_clocked_button_actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            clear_all_pixels_in_buffer();
+            Clear_All_Pixels_In_Buffer();
 
             now_regulating_at_char_t now_regulating_at_char = NOW_REGULATING_AT_CHAR_TEXTS;
 
-            printf("STATIC_DISPLAY_VARMEREGULERING 1\n");
+            // printf("STATIC_DISPLAY_VARMEREGULERING 1\n");
             i_temperature_heater_commands.get_temp_degC_string (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str);
-            printf("STATIC_DISPLAY_VARMEREGULERING 2\n");
+            // printf("STATIC_DISPLAY_VARMEREGULERING 2\n");
 
-            sprintf_return = sprintf (context.display_ts1_chars, "VARMEREGULERING   N%s P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
+            sprintf_return = sprintf (context.display_ts1_chars, "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
                     char_AA_str,
                     char_AA_str,
                     context.on_percent,
-                    temp_degC_heater_mean_last_cycle_str, degC_cirle_str,
-                    context.on_watt);
+                    temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
+                    context.on_watt); // Tight-aligned so no format with fill_1_str is needed
             //                                            ..........----------.
-            //                                            VARMEREGULERING     .
-            //                                            PÅ       100%       .
-            //                                            SNITT  39.6oC       .
-            //                                            EFFEKT    48W       .
-            printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
+            //                                            2 VARMEREGULERING NÅ.
+            //                                              PÅ       100%     .
+            //                                              SNITT  39.6oC    ?.
+            //                                              EFFEKT    48W     .
+            if (caller == CALLER_IS_BUTTON) {
+                printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
+            }
 
             // context.now_regulating_at = REGULATING_AT_HOTTER_AMBIENT; // For testing
 
@@ -202,32 +220,92 @@ void handle_real_or_clocked_button_actions (
 
         } break;
 
+        case STATIC_DISPLAY_LYSGULERING: {
+
+            const char light_strength_full_str [] = "FULL";
+            const char light_strength_weak_str [] = "2/3";
+            const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
+            const char fill_1_str [] = " ";
+            const char fill_2_str [] = "  ";
+
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
+
+            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u      NUMMER %u%s             MAKS %s",
+                    char_AA_str,
+                    WATTOF_LED_STRIP_FRONT,
+                    WATTOF_LED_STRIP_CENTER,
+                    WATTOF_LED_STRIP_BACK,
+                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
+                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
+                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
+                    context.light_composition,                                   // Format when left-aligned 0..99 number..
+                    (context.light_composition >= 10) ? fill_1_str : fill_2_str, // ..by inserting an extra space when small number
+                    (full_light) ? light_strength_full_str : light_strength_weak_str);
+            //                                            ..........----------.
+            //                                            3 LYS PÅ   5W 2W 2W .
+            //                                              TREDELER f1 m2 b3 .
+            //                                                NUMMER xx       .
+            //                                                  MAKS x/3      .
+
+            if (caller == CALLER_IS_BUTTON) {
+                printf ("LYS: %u %u %u @ %u, %u\n",
+                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
+                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
+                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
+                    context.light_composition,
+                    full_light);
+            }
+
+            Clear_All_Pixels_In_Buffer();
+            setTextSize(1);
+            setTextColor(WHITE);
+            setCursor(0,0);
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
+        } break;
+
         case STATIC_DISPLAY_BOKSDATA: {
             char temp_degC_str [INNER_TEMPERATURE_TEXT_LEN_DEGC];
             char rr_12V_str    [INNER_RR_12V_24V_TEXT_LEN_VOLT];
             char rr_24V_str    [INNER_RR_12V_24V_TEXT_LEN_VOLT];
-            char lux_str       [INNER_LUX_TEXT_LEN];
+            light_range_t      light_sensor_intensity;
+            bool               light_sensor_intensity_ok;
+
+            char fill_1_str [] = " ";
+            char fill_2_str [] = "  ";
+
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
 
             // function
-            TC1047_raw_degC_to_string_ok                  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], temp_degC_str);
-            RR_12V_24V_to_string_ok                       (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V],         rr_12V_str);
-            RR_12V_24V_to_string_ok                       (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V],         rr_24V_str);
-            ambient_light_sensor_ALS_PDIC243_to_string_ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX],         lux_str);
+            TC1047_Raw_DegC_To_String_Ok                     (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], temp_degC_str);
+            RR_12V_24V_To_String_Ok                          (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V],         rr_12V_str);
+            RR_12V_24V_To_String_Ok                          (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V],         rr_24V_str);
 
-            sprintf_return = sprintf (context.display_ts1_chars, "SPENNING LYS   %sV OG VARME       %sV BOKS LYSSTYRKE %s    OG TEMPERATUR  %s%sC ",
+            {light_sensor_intensity, light_sensor_intensity_ok} =
+                Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
+
+            sprintf_return = sprintf (context.display_ts1_chars, "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
-                    lux_str,
-                    temp_degC_str, degC_cirle_str);
+                    light_sensor_intensity,                                    // Format when left-aligned 0..99 number..
+                    (light_sensor_intensity >= 10) ? fill_1_str : fill_2_str,  // ..by inserting an extra space when small number
+                    temp_degC_str, char_degC_circle_str);
             //                                            ..........----------.
-            //                                            SPENNING LYS  12.1V .
-            //                                            OG VARME      25.0V .
-            //                                            BOKS LYSSTYRKE   65 .
-            //                                            OG TEMPERATUR 25.4oC.
+            //                                            4 STYRING  LYS 12.1V.
+            //                                                     VARME 25.0V.
+            //                                                 LYSSTYRKE 65   .
+            //                                                TEMPERATUR 25.4oC
             //
-            printf ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %s\n", rr_12V_str, rr_24V_str, temp_degC_str, lux_str); // qwe lux_str vises ikke!
+            if (caller == CALLER_IS_BUTTON) {
+                printf ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // qwe lux_str vises ikke!
+            }
 
-            clear_all_pixels_in_buffer();
+            Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
@@ -237,60 +315,111 @@ void handle_real_or_clocked_button_actions (
 
         } break;
 
+        case STATIC_DISPLAY_VERSJON: {
+
+             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                 context.display_ts1_chars [index_of_char] = ' ';
+             }
+
+             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", __DATE__, char_OE_str, char_aa_str);
+
+             //                                            ..........----------.
+             //                                            5 AKVARIESTYRING    .
+             //                                              (C) Sep 22 2013   .
+             //                                            = Øyvind Teig       .
+             //                                              XC på XMOS startKIT
+
+             if (caller == CALLER_IS_BUTTON) {
+                 printf("Version date %s %s\n", __TIME__, __DATE__);
+             }
+
+             Clear_All_Pixels_In_Buffer();
+             setTextSize(1);
+             setTextColor(WHITE);
+             setCursor(0,0);
+             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+             context.display_is_on = true;
+
+             //i_port_heat_light_commands.beeper_on_command (true);
+         } break;
+
+        case STATIC_DISPLAY_FASTE_INNSTILLINGER: {
+
+            int temp_heater_degc  = (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING/10);
+            int temp_water_degc = (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT/10);
+
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
+
+            // Max Watts and requried voltages are technical matters, out of scope here. This is about the fish and plant living environment:
+
+            sprintf_return = sprintf (context.display_ts1_chars, "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
+                temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
+                    //                                            ..........----------.
+                    //                                            5 FASTE INNSTILLINGER
+                    //
+                    //                                                       VANN  25oC
+                    //                                              MAX UNDERVARME 25oC
+
+            Clear_All_Pixels_In_Buffer();
+            setTextSize(1);
+            setTextColor(WHITE);
+            setCursor(0,0);
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
+        } break;
+
         case STATIC_DISPLAY_KLOKKE: {
 
-            DateTime_t datetime;
-            chronodot_d3231_registers_t chronodot_d3231_registers; // For real use, with also setting, this needs to be fileld from chrondot first
-
-            datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
 
             sprintf_return = sprintf (context.display_ts1_chars, "%04u.%02u.%02u  %02u.%02u.%02u",
-                                                         datetime.year, datetime.month,  datetime.day,
-                                                         datetime.hour, datetime.minute, datetime.second);
-            #define DEBUG_PRINT_CHRONODOT3
-            #ifdef DEBUG_PRINT_CHRONODOT3
+                                                         context.datetime.year, context.datetime.month,  context.datetime.day,
+                                                         context.datetime.hour, context.datetime.minute, context.datetime.second);
+            if (caller == CALLER_IS_BUTTON) {
                 printf("ChronoDot %04u.%02u.%02u %02u.%02u.%02u\n",
-                        datetime.year, datetime.month,  datetime.day,
-                        datetime.hour, datetime.minute, datetime.second);
-            #endif
+                        context.datetime.year, context.datetime.month,  context.datetime.day,
+                        context.datetime.hour, context.datetime.minute, context.datetime.second);
+            }
 
             // I did this once by hand, then:
-            datetime.year   = 2017;
-            datetime.month  = 2;
-            datetime.day    = 10;
-            datetime.hour   = 12;
-            datetime.minute = 35;
-            datetime.second = 0;
+            context.datetime.year   = 2017;
+            context.datetime.month  = 2;
+            context.datetime.day    = 10;
+            context.datetime.hour   = 12;
+            context.datetime.minute = 35;
+            context.datetime.second = 0;
             // bool ok = i_chronodot_ds3231.set_time_ok(datetime);
 
-            clear_all_pixels_in_buffer();
+            Clear_All_Pixels_In_Buffer();
             setTextSize(2);
             setTextColor(WHITE);
             setCursor(0,0);
             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
-
         } break;
     }
 }
 
-typedef enum {
-    CALLER_IS_BUTTON,
-    CALLER_IS_REFRESH
-} caller_t;
-
-void handle_real_or_clocked_buttons (
+void Handle_Real_Or_Clocked_Buttons (
            handler_context_t              &context,
+           light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client i2c_internal_commands_if       i_i2c_internal_commands,
     client port_heat_light_commands_if    i_port_heat_light_commands,
     client temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
-    const  caller_t                       caller,
     const  unsigned                       iof_button,
-    const  button_action_t                button_action) {
+    const  button_action_t                button_action,
+    const  caller_t                       caller)
+{
 
-    printf ("handle_real_or_clocked_buttons %u\n", iof_button);
+    // printf ("Handle_Real_Or_Clocked_Buttons %u\n", iof_button);
 
     switch (iof_button) {
         case IOF_BUTTON_LEFT: {
@@ -303,7 +432,7 @@ void handle_real_or_clocked_buttons (
                         context.state = STATE_ALLOW_REFRESH; // STATE_ALLOW_REFRESH set only here
                     } else { // STATE_ALLOW_REFRESH
                         context.state = STATE_IDLE;
-                        clear_all_pixels_in_buffer();
+                        Clear_All_Pixels_In_Buffer();
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;
                     }
@@ -311,7 +440,7 @@ void handle_real_or_clocked_buttons (
 
                 if (context.state == STATE_ALLOW_REFRESH) {
                     // Display what was left last time:
-                    handle_real_or_clocked_button_actions (context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands);
+                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     context.iof_button_previous = iof_button;
                 } else {}
             }
@@ -319,54 +448,24 @@ void handle_real_or_clocked_buttons (
 
         case IOF_BUTTON_CENTER: {
             if (button_action == BUTTON_ACTION_RELEASED) {
-                int  sprintf_return;
-                char degC_cirle_str[] = DEGC_CIRCLE_STR;
-                char char_AA_str[]    = CHAR_AA_STR;
-                for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
-                     context.display_ts1_chars [index_of_char] = ' ';
-                 }
+                if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
-                 clear_all_pixels_in_buffer();
+                    light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
+                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON, 2);
 
-                 char temp_degC_water_str   [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-                 char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-                 char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+                } else { // MAX_LIGHT_IS_TWO_THIRDS
 
-                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 1x\n");
-                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_WATER,   temp_degC_water_str);
-                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 2x\n");
-                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_AMBIENT, temp_degC_ambient_str);
-                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 3x\n");
-                 i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_HEATER,  temp_degC_heater_str);
-                 printf("STATIC_DISPLAY_AKVARIETEMPERATURER 4x\n");
+                    light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
+                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
 
-                 sprintf_return = sprintf (context.display_ts1_chars, "  AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
-                         temp_degC_water_str,   degC_cirle_str,
-                         temp_degC_ambient_str, degC_cirle_str,
-                         temp_degC_heater_str,  degC_cirle_str);
-                 //                                            ..........----------.
-                 //                                              AKVARIETEMPERATURER
-                 //                                                      VANN 25.0oC
-                 //                                                      LUFT 25.0oC
-                 //                                              VARMEELEMENT 25.0oC
-
-                 printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
-
-                 setTextSize(1);
-                 setTextColor(WHITE);
-                 setCursor(0,0);
-                 display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
-                 writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-                 context.display_is_on = true;
-            }
-
-            i_port_heat_light_commands.light_command (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON);
+                }
+            } else {}
         } break;
 
         case IOF_BUTTON_RIGHT: {
             if (button_action == BUTTON_ACTION_PRESSED) {
                 // Do nothing
-            } else { // BUTTON_ACTION_RELEASED or BUTTON_ACTION_VOID
+            } else { // BUTTON_ACTION_RELEASED
                 if (context.state == STATE_ALLOW_REFRESH) {
 
                     if (caller == CALLER_IS_BUTTON) {
@@ -376,7 +475,7 @@ void handle_real_or_clocked_buttons (
                         } else {}
                     } else {} // No new screen every second!
 
-                    handle_real_or_clocked_button_actions (context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands);
+                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     context.iof_button_previous = iof_button;
                 } else {} // In STATE_IDLE we only want left IOF_BUTTON_LEFT to go through
             }
@@ -384,10 +483,10 @@ void handle_real_or_clocked_buttons (
     }
 }
 
-#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ) // qwe 1000
+#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
 
 // [[combinable]] not since nested select
-void system_task (
+void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
     client  lib_startkit_adc_commands_if   i_startkit_adc_acquire,
@@ -400,8 +499,9 @@ void system_task (
     int   time;
     timer tmr;
 
-    button_action_t   button_action;
-    handler_context_t context;
+    button_action_t                button_action;
+    handler_context_t              context;
+    light_sunrise_sunset_context_t light_sunrise_sunset_context;
 
     context.state = STATE_IDLE;
     context.static_display_state = STATIC_DISPLAY_AKVARIETEMPERATURER; // First
@@ -409,74 +509,70 @@ void system_task (
     context.since_button_press_seconds_cnt = 0;
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_previous; // No init here ok since not read before set
+    context.full_light = true;
 
-    printf("system_task started\n");
+    light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed(); // xmos
+    DATETIME_INIT (light_sunrise_sunset_context.datetime_previous);
+    light_sunrise_sunset_context.do_init = true;
+
+    printf("System_Task started\n");
 
     // Display matters (not internal i2c matters)
     Adafruit_GFX_constructor (SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT);
     Adafruit_SSD1306_i2c_begin (i_i2c_internal_commands);
-    printf("system_task 1\n");
+    // printf("System_Task 1\n");
 
-    clear_all_pixels_in_buffer();
+    Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-    printf("system_task 2\n");
-
-    // i_port_heat_light_commands.light_command (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON); qwe deadlocks here?
-
-    printf("system_task 3\n");
 
     tmr :> time;
 
     while(1) {
         select {
             case tmr when timerafter(time) :> void: {
-
+                // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_string_filtered
+                // calls later (in Handle_Real_Or_Clocked_Button_Actions) on gave a rave and deadlock if we didn't finish here before "the second"
+                // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_temps (temps_onetenthDegC)
+                // that caused the deadlock. See logs from "2017 02 15"
+                //
                 bool i_startkit_adc_acquire_complete = false;
                 bool i_i2c_external_commands_notify  = false;
+                bool beeper_blip_now                 = false;
 
                 time += BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND;
 
                 {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-                printf ("system_task: calls GET_TEMPC_ALL\n");
-                                                                                 i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
-                                                                                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
-                printf("system_task B\n");
-
-                {context.now_regulating_at}                                    = i_temperature_water_commands.get_now_regulating_at ();
+                context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+                i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
+                i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
+                {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
+                {context.light_composition} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
 
                 // We now have chronodot_d3231_registers, i2c_temps, adc_vals_for_use and on_percent, on_watt
-
-                // context.i2c_temps
 
                 while ((i_i2c_external_commands_notify == false) or (i_startkit_adc_acquire_complete == false)) {
                      select {
                          case i_i2c_external_commands.notify() : {
-                             printf("system_task GET_TEMPC_ALL 6\n");
                              context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
-                             printf("system_task GET_TEMPC_ALL 7\n");
                              i_i2c_external_commands_notify = true;
                          } break;
 
                          case i_startkit_adc_acquire.complete(): {
-                             printf("system_task 8\n");
                              {context.adc_cnt, context.no_adc_cnt}                        = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
-                             printf("system_task 9\n");
-                             {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_to_string_ok  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);   // Second
-                             printf("system_task a\n");
+                             {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);   // Second
                              {context.on_percent, context.on_watt}                        = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV); // Third
-                             printf("system_task b\n");
                              i_startkit_adc_acquire_complete = true;
                          } break;
                      }
                 }
 
-                printf("system_task X!\n");
-
-                handle_light (context, i_port_heat_light_commands);
+                light_sunrise_sunset_context.datetime_now = context.datetime;
+                beeper_blip_now = Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
                 if (context.display_is_on == true) {
                     if (context.since_button_press_seconds_cnt == DISPLAY_ON_FOR_SECONDS) {
-                        clear_all_pixels_in_buffer();
+                        beeper_blip_now = true;
+                        Clear_All_Pixels_In_Buffer();
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;
                         context.state = STATE_IDLE;
@@ -485,35 +581,40 @@ void system_task (
                     }
                 } else {}
 
-                printf ("since_button_press_seconds_cnt %u\n", context.since_button_press_seconds_cnt);
+                if (beeper_blip_now) {
+                    i_port_heat_light_commands.beeper_blip_command (100);
+                } else {} // No blip
+
+                light_sunrise_sunset_context.datetime_previous = context.datetime;
+
+                // printf ("since_button_press_seconds_cnt %u\n", context.since_button_press_seconds_cnt);
 
                 if (context.state == STATE_ALLOW_REFRESH) {
-                    writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);
-                    if (context.static_display_state == STATIC_DISPLAY_KLOKKE) {
-                        writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_DEFAULT_DIMMED); // Seconds changing is enough
-                    } else if ((context.since_button_press_seconds_cnt % 2) == 0) {
-                        writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_READ);
-                    } else {
-                        writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_DEFAULT_DIMMED);
-                    }
 
-                    handle_real_or_clocked_buttons (context,
-                    i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        CALLER_IS_REFRESH,
-                        context.iof_button_previous, BUTTON_ACTION_RELEASED);
+                    Handle_Real_Or_Clocked_Buttons (context,
+                        light_sunrise_sunset_context,
+                        i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
+                        context.iof_button_previous, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
                 } else {} // Not now
 
             } break;
 
             case c_button_in[int iof_button] :> button_action: {
 
+                bool display_is_on_pre = context.display_is_on;
+
                 printf ("Button [%u] with %u\n", iof_button, button_action);
                 context.since_button_press_seconds_cnt = 0;
 
-                handle_real_or_clocked_buttons (context,
+                Handle_Real_Or_Clocked_Buttons (context,
+                    light_sunrise_sunset_context,
                     i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        CALLER_IS_BUTTON,
-                        iof_button, button_action);
+                        iof_button, button_action, CALLER_IS_BUTTON);
+
+                if (display_is_on_pre != context.display_is_on) {
+                    i_port_heat_light_commands.beeper_blip_command (50); // Display on or off
+                } else {} // No code
+
             } break;
         }
     }

@@ -173,7 +173,7 @@
 	.globl slider_task.select.0.enable.cases.maxchanends
 	.set slider_task.select.0.enable.cases,0
 	.globl slider_task.select.0.enable.cases
-	.set slider_task.select.0.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords)
+	.set slider_task.select.0.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.0.enable.cases.nstackwords
 	.set slider_task.dynalloc_maxchanends, 0 + slider_periodic.dynalloc_maxchanends + slider.dynalloc_maxchanends + absolute_slider.dynalloc_maxchanends
 	.globl slider_task.dynalloc_maxchanends
@@ -259,7 +259,7 @@
 	.globl slider_task.select.y.enable.cases.maxchanends
 	.set slider_task.select.y.enable.cases,0
 	.globl slider_task.select.y.enable.cases
-	.set slider_task.select.y.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords)
+	.set slider_task.select.y.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.y.enable.cases.nstackwords
 	.set slider_task.select.enable.savedstate,28+ absolute_slider.select.enable.savedstate+ slider.select.enable.savedstate+ slider_periodic.select.enable.savedstate
 	.globl slider_task.select.enable.savedstate
@@ -271,7 +271,7 @@
 	.globl slider_task.select.enable.cases.maxchanends
 	.set slider_task.select.enable.cases,0
 	.globl slider_task.select.enable.cases
-	.set slider_task.select.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords)
+	.set slider_task.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.enable.cases.nstackwords
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.weak _i.slider_query_if.filter.maxcores.group
@@ -2249,10 +2249,10 @@ slider_periodic.select.case.1:
 	.cc_bottom .vtable3.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
 .Linfo_string2:

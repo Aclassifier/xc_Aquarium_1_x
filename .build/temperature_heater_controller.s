@@ -4,50 +4,50 @@
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
 	.inline_definition delay_microseconds
-	.set temperature_heater_controller.select.0.enable.savedstate,95
-	.globl temperature_heater_controller.select.0.enable.savedstate
-	.set temperature_heater_controller.select.0.enable.cases.maxtimers,0 $M temperature_heater_controller.select.0.case.0.maxtimers
-	.globl temperature_heater_controller.select.0.enable.cases.maxtimers
-	.set temperature_heater_controller.select.0.enable.cases.maxcores,0 $M temperature_heater_controller.select.0.case.0.maxcores
-	.globl temperature_heater_controller.select.0.enable.cases.maxcores
-	.set temperature_heater_controller.select.0.enable.cases.maxchanends,0 $M temperature_heater_controller.select.0.case.0.maxchanends
-	.globl temperature_heater_controller.select.0.enable.cases.maxchanends
-	.set temperature_heater_controller.select.0.enable.cases,0
-	.globl temperature_heater_controller.select.0.enable.cases
-	.set temperature_heater_controller.select.0.enable.cases.nstackwords, 0 $M (temperature_heater_controller.select.0.case.0.nstackwords)
-	.globl temperature_heater_controller.select.0.enable.cases.nstackwords
-	.set temperature_heater_controller.dynalloc_maxchanends, 0
-	.globl temperature_heater_controller.dynalloc_maxchanends
-	.set temperature_heater_controller.dynalloc_maxcores, 0
-	.globl temperature_heater_controller.dynalloc_maxcores
-	.set temperature_heater_controller.dynalloc_maxtimers, 0
-	.globl temperature_heater_controller.dynalloc_maxtimers
-	.set temperature_heater_controller.init.0.savedstate,95
-	.globl temperature_heater_controller.init.0.savedstate
-	.set temperature_heater_controller.select.y.enable.savedstate,95
-	.globl temperature_heater_controller.select.y.enable.savedstate
-	.set temperature_heater_controller.select.y.enable.cases.maxtimers,0 $M temperature_heater_controller.select.y.case.2.maxtimers $M temperature_heater_controller.select.y.case.1.maxtimers $M temperature_heater_controller.select.y.case.0.maxtimers
-	.globl temperature_heater_controller.select.y.enable.cases.maxtimers
-	.set temperature_heater_controller.select.y.enable.cases.maxcores,0 $M temperature_heater_controller.select.y.case.2.maxcores $M temperature_heater_controller.select.y.case.1.maxcores $M temperature_heater_controller.select.y.case.0.maxcores
-	.globl temperature_heater_controller.select.y.enable.cases.maxcores
-	.set temperature_heater_controller.select.y.enable.cases.maxchanends,0 $M temperature_heater_controller.select.y.case.2.maxchanends $M temperature_heater_controller.select.y.case.1.maxchanends $M temperature_heater_controller.select.y.case.0.maxchanends
-	.globl temperature_heater_controller.select.y.enable.cases.maxchanends
-	.set temperature_heater_controller.select.y.enable.cases,0
-	.globl temperature_heater_controller.select.y.enable.cases
-	.set temperature_heater_controller.select.y.enable.cases.nstackwords, 0 $M (temperature_heater_controller.select.y.case.2.nstackwords) $M (temperature_heater_controller.select.y.case.1.nstackwords) $M (temperature_heater_controller.select.y.case.0.nstackwords)
-	.globl temperature_heater_controller.select.y.enable.cases.nstackwords
-	.set temperature_heater_controller.select.enable.savedstate,95
-	.globl temperature_heater_controller.select.enable.savedstate
-	.set temperature_heater_controller.select.enable.cases.maxtimers,0 $M temperature_heater_controller.select.case.2.maxtimers $M temperature_heater_controller.select.case.1.maxtimers $M temperature_heater_controller.select.case.0.maxtimers
-	.globl temperature_heater_controller.select.enable.cases.maxtimers
-	.set temperature_heater_controller.select.enable.cases.maxcores,0 $M temperature_heater_controller.select.case.2.maxcores $M temperature_heater_controller.select.case.1.maxcores $M temperature_heater_controller.select.case.0.maxcores
-	.globl temperature_heater_controller.select.enable.cases.maxcores
-	.set temperature_heater_controller.select.enable.cases.maxchanends,0 $M temperature_heater_controller.select.case.2.maxchanends $M temperature_heater_controller.select.case.1.maxchanends $M temperature_heater_controller.select.case.0.maxchanends
-	.globl temperature_heater_controller.select.enable.cases.maxchanends
-	.set temperature_heater_controller.select.enable.cases,0
-	.globl temperature_heater_controller.select.enable.cases
-	.set temperature_heater_controller.select.enable.cases.nstackwords, 0 $M (temperature_heater_controller.select.case.0.nstackwords) $M (temperature_heater_controller.select.case.2.nstackwords) $M (temperature_heater_controller.select.case.1.nstackwords)
-	.globl temperature_heater_controller.select.enable.cases.nstackwords
+	.set Temperature_Heater_Controller.select.0.enable.savedstate,95
+	.globl Temperature_Heater_Controller.select.0.enable.savedstate
+	.set Temperature_Heater_Controller.select.0.enable.cases.maxtimers,0 $M Temperature_Heater_Controller.select.0.case.0.maxtimers
+	.globl Temperature_Heater_Controller.select.0.enable.cases.maxtimers
+	.set Temperature_Heater_Controller.select.0.enable.cases.maxcores,0 $M Temperature_Heater_Controller.select.0.case.0.maxcores
+	.globl Temperature_Heater_Controller.select.0.enable.cases.maxcores
+	.set Temperature_Heater_Controller.select.0.enable.cases.maxchanends,0 $M Temperature_Heater_Controller.select.0.case.0.maxchanends
+	.globl Temperature_Heater_Controller.select.0.enable.cases.maxchanends
+	.set Temperature_Heater_Controller.select.0.enable.cases,0
+	.globl Temperature_Heater_Controller.select.0.enable.cases
+	.set Temperature_Heater_Controller.select.0.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.0.case.0.nstackwords)
+	.globl Temperature_Heater_Controller.select.0.enable.cases.nstackwords
+	.set Temperature_Heater_Controller.dynalloc_maxchanends, 0
+	.globl Temperature_Heater_Controller.dynalloc_maxchanends
+	.set Temperature_Heater_Controller.dynalloc_maxcores, 0
+	.globl Temperature_Heater_Controller.dynalloc_maxcores
+	.set Temperature_Heater_Controller.dynalloc_maxtimers, 0
+	.globl Temperature_Heater_Controller.dynalloc_maxtimers
+	.set Temperature_Heater_Controller.init.0.savedstate,95
+	.globl Temperature_Heater_Controller.init.0.savedstate
+	.set Temperature_Heater_Controller.select.y.enable.savedstate,95
+	.globl Temperature_Heater_Controller.select.y.enable.savedstate
+	.set Temperature_Heater_Controller.select.y.enable.cases.maxtimers,0 $M Temperature_Heater_Controller.select.y.case.2.maxtimers $M Temperature_Heater_Controller.select.y.case.1.maxtimers $M Temperature_Heater_Controller.select.y.case.0.maxtimers
+	.globl Temperature_Heater_Controller.select.y.enable.cases.maxtimers
+	.set Temperature_Heater_Controller.select.y.enable.cases.maxcores,0 $M Temperature_Heater_Controller.select.y.case.2.maxcores $M Temperature_Heater_Controller.select.y.case.1.maxcores $M Temperature_Heater_Controller.select.y.case.0.maxcores
+	.globl Temperature_Heater_Controller.select.y.enable.cases.maxcores
+	.set Temperature_Heater_Controller.select.y.enable.cases.maxchanends,0 $M Temperature_Heater_Controller.select.y.case.2.maxchanends $M Temperature_Heater_Controller.select.y.case.1.maxchanends $M Temperature_Heater_Controller.select.y.case.0.maxchanends
+	.globl Temperature_Heater_Controller.select.y.enable.cases.maxchanends
+	.set Temperature_Heater_Controller.select.y.enable.cases,0
+	.globl Temperature_Heater_Controller.select.y.enable.cases
+	.set Temperature_Heater_Controller.select.y.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.y.case.0.nstackwords) $M (Temperature_Heater_Controller.select.y.case.1.nstackwords) $M (Temperature_Heater_Controller.select.y.case.2.nstackwords)
+	.globl Temperature_Heater_Controller.select.y.enable.cases.nstackwords
+	.set Temperature_Heater_Controller.select.enable.savedstate,95
+	.globl Temperature_Heater_Controller.select.enable.savedstate
+	.set Temperature_Heater_Controller.select.enable.cases.maxtimers,0 $M Temperature_Heater_Controller.select.case.2.maxtimers $M Temperature_Heater_Controller.select.case.1.maxtimers $M Temperature_Heater_Controller.select.case.0.maxtimers
+	.globl Temperature_Heater_Controller.select.enable.cases.maxtimers
+	.set Temperature_Heater_Controller.select.enable.cases.maxcores,0 $M Temperature_Heater_Controller.select.case.2.maxcores $M Temperature_Heater_Controller.select.case.1.maxcores $M Temperature_Heater_Controller.select.case.0.maxcores
+	.globl Temperature_Heater_Controller.select.enable.cases.maxcores
+	.set Temperature_Heater_Controller.select.enable.cases.maxchanends,0 $M Temperature_Heater_Controller.select.case.2.maxchanends $M Temperature_Heater_Controller.select.case.1.maxchanends $M Temperature_Heater_Controller.select.case.0.maxchanends
+	.globl Temperature_Heater_Controller.select.enable.cases.maxchanends
+	.set Temperature_Heater_Controller.select.enable.cases,0
+	.globl Temperature_Heater_Controller.select.enable.cases
+	.set Temperature_Heater_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.case.1.nstackwords) $M (Temperature_Heater_Controller.select.case.2.nstackwords) $M (Temperature_Heater_Controller.select.case.0.nstackwords)
+	.globl Temperature_Heater_Controller.select.enable.cases.nstackwords
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.max.maxchanends, _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, 0
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group
@@ -137,18 +137,30 @@
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.max.nstackwords, _i.temperature_heater_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.fns, _i.temperature_heater_commands_if._client_call_y.fns.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxchanends.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxchanends, _i.port_heat_light_commands_if.light_command.maxchanends.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxcores.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxcores, _i.port_heat_light_commands_if.light_command.maxcores.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxtimers.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxtimers, _i.port_heat_light_commands_if.light_command.maxtimers.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.nstackwords.group
-	.globl _i.port_heat_light_commands_if.light_command.nstackwords.group
-	.weak _i.port_heat_light_commands_if.light_command.fns.group
-	.globl _i.port_heat_light_commands_if.light_command.fns.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.nstackwords, _i.port_heat_light_commands_if.light_command.nstackwords.group, 0
-	.max_reduce _i.port_heat_light_commands_if.light_command.fns, _i.port_heat_light_commands_if.light_command.fns.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxchanends, _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxcores, _i.port_heat_light_commands_if.set_light_composition.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxtimers, _i.port_heat_light_commands_if.set_light_composition.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
+	.globl _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
+	.weak _i.port_heat_light_commands_if.set_light_composition.fns.group
+	.globl _i.port_heat_light_commands_if.set_light_composition.fns.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.nstackwords, _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.fns, _i.port_heat_light_commands_if.set_light_composition.fns.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxchanends, _i.port_heat_light_commands_if.get_light_composition.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxcores, _i.port_heat_light_commands_if.get_light_composition.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxtimers, _i.port_heat_light_commands_if.get_light_composition.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.fns, _i.port_heat_light_commands_if.get_light_composition.fns.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.max.maxchanends, _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxcores.group
@@ -161,6 +173,18 @@
 	.globl _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.fns, _i.port_heat_light_commands_if.beeper_on_command.fns.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxchanends, _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxcores, _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxtimers, _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
+	.globl _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.fns.group
+	.globl _i.port_heat_light_commands_if.beeper_blip_command.fns.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.fns, _i.port_heat_light_commands_if.beeper_blip_command.fns.group, 0
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group
 	.max_reduce _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends, _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group, 0
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxcores.group
@@ -258,19 +282,19 @@
 	.set usage.anon.0,0
 	.set usage.anon.1,0
 	.set usage.anon.2,0
-	.call temperature_heater_controller,temp_onetenthDegC_to_str
-	.call temperature_heater_controller,printf
-	.call temperature_heater_controller,init_arithmetic_mean_temp_onetenthDegC
-	.call temperature_heater_controller,do_arithmetic_mean_temp_onetenthDegC
+	.call Temperature_Heater_Controller,printf
+	.call Temperature_Heater_Controller,Temp_OnetenthDegC_To_Str
+	.call Temperature_Heater_Controller,Init_Arithmetic_Mean_Temp_OnetenthDegC
+	.call Temperature_Heater_Controller,Do_Arithmetic_Mean_Temp_OnetenthDegC
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.set temperature_heater_controller.locnoside, 0
-	.set temperature_heater_controller.locnointerfaceaccess, 0
-	.set temperature_heater_controller.locnonotificationselect, 0
-	.assert 1,do_arithmetic_mean_temp_onetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:156:60: error: call to function `do_arithmetic_mean_temp_onetenthDegC\' which selects on a notification in a combinable function select case\n                        temps_onetenthDegC[iof_i2c_temp] = do_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS, temps_onetenthDegC[iof_i2c_temp], iof_i2c_temp);\n                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,init_arithmetic_mean_temp_onetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:160:25: error: call to function `init_arithmetic_mean_temp_onetenthDegC\' which selects on a notification in a combinable function select case\n                        init_arithmetic_mean_temp_onetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS);\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,temp_onetenthDegC_to_str.actnonotificationselect,"../src/temperature_heater_controller.xc:211:29: error: call to function `temp_onetenthDegC_to_str\' which selects on a notification in a combinable function select case\n                            temp_onetenthDegC_to_str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.set Temperature_Heater_Controller.locnoside, 0
+	.set Temperature_Heater_Controller.locnointerfaceaccess, 0
+	.set Temperature_Heater_Controller.locnonotificationselect, 0
+	.assert 1,Do_Arithmetic_Mean_Temp_OnetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:156:60: error: call to function `Do_Arithmetic_Mean_Temp_OnetenthDegC\' which selects on a notification in a combinable function select case\n                        temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS, temps_onetenthDegC[iof_i2c_temp], iof_i2c_temp);\n                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,Init_Arithmetic_Mean_Temp_OnetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:160:25: error: call to function `Init_Arithmetic_Mean_Temp_OnetenthDegC\' which selects on a notification in a combinable function select case\n                        Init_Arithmetic_Mean_Temp_OnetenthDegC (&temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS);\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,Temp_OnetenthDegC_To_Str.actnonotificationselect,"../src/temperature_heater_controller.xc:211:29: error: call to function `Temp_OnetenthDegC_To_Str\' which selects on a notification in a combinable function select case\n                            Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,printf.actnonotificationselect,"../src/temperature_heater_controller.xc:277:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    printf (\"Zero Watt? V24 may be zero, but always until middle button!\\n\");\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
@@ -298,11 +322,11 @@
 	.long	1374389535
 	.cc_bottom .LCPI0_0.data
 	.text
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.align	4
-	.type	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data,@function
-	.cc_top _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.function,_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data
-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data:
+	.type	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data,@function
+	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
+_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data:
 .Lfunc_begin0:
 	.loc	1 271 0
 	.cfi_startproc
@@ -330,19 +354,14 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulato
 .Ltmp7:
 	ldc r5, 0
 	stw r5, r6[0]
-	.loc	1 273 0 prologue_end
-.Ltmp8:
-	ldaw r11, cp[.Lstr222]
-	mov r0, r11
-	bl puts
 	bt r4, .LBB0_4
-.Ltmp9:
+.Ltmp8:
 .Lxtalabel0:
-	.loc	1 277 0
-	ldaw r11, cp[.Lstr223]
+	.loc	1 277 0 prologue_end
+	ldaw r11, cp[.Lstr149]
 	mov r0, r11
 	bl puts
-.Ltmp10:
+.Ltmp9:
 .LBB0_4:
 .Lxtalabel1:
 	ldc r0, 72
@@ -352,7 +371,7 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulato
 	ldw r0, r0[0]
 	.loc	1 280 17
 	bf r0, .LBB0_11
-.Ltmp11:
+.Ltmp10:
 .Lxtalabel2:
 	ldc r0, 60
 	.loc	1 281 21
@@ -360,10 +379,10 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulato
 	.loc	1 281 21
 	ldw r0, r0[0]
 	bf r0, .LBB0_7
-.Ltmp12:
+.Ltmp11:
 	ldc r5, 100
 	bu .LBB0_7
-.Ltmp13:
+.Ltmp12:
 .LBB0_11:
 .Lxtalabel3:
 	ldc r0, 68
@@ -371,21 +390,21 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulato
 	add r0, r6, r0
 	.loc	1 288 0
 	ldw r5, r0[0]
-.Ltmp14:
+.Ltmp13:
 .LBB0_7:
 .Lxtalabel4:
 	.loc	1 291 17
 	ldw r0, r6[10]
 	.loc	1 292 0
 	bt r0, .LBB0_8
-.Ltmp15:
+.Ltmp14:
 .Lxtalabel5:
 	ldc r0, 2400
 	bu .LBB0_10
-.Ltmp16:
+.Ltmp15:
 .LBB0_8:
 	ldc r0, 1200
-.Ltmp17:
+.Ltmp16:
 .LBB0_10:
 .Lxtalabel6:
 	.loc	1 309 0
@@ -405,266 +424,219 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulato
 	ldw r6, sp[1]
 	ldw r5, sp[2]
 	ldw r4, sp[3]
-.Ltmp18:
+.Ltmp17:
 	retsp 4
 	# RETURN_REG_HOLDER
+.Ltmp18:
+	.cc_bottom _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.function
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.nstackwords,(puts.nstackwords + 4)
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.nstackwords
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxcores,puts.maxcores $M 1
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxcores
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxtimers,puts.maxtimers $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxtimers
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxchanends,puts.maxchanends $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxchanends
 .Ltmp19:
-	.cc_bottom _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.function
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.nstackwords,(puts.nstackwords + 4)
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.nstackwords
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxcores,puts.maxcores $M 1
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxcores
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxtimers,puts.maxtimers $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxtimers
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxchanends,puts.maxchanends $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data.maxchanends
-.Ltmp20:
-	.size	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data, .Ltmp20-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data
+	.size	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data, .Ltmp19-_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 .Lfunc_end0:
 	.cfi_endproc
 
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string
 	.align	4
-	.type	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string,@function
-	.cc_top _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.function,_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string
-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string:
+	.type	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string,@function
+	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string
+_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string:
 .Lfunc_begin1:
 	.loc	1 264 0
 	.cfi_startproc
-	entsp 6
+	extsp 2
+.Ltmp20:
+	.cfi_def_cfa_offset 8
+	stw r4, sp[1]
 .Ltmp21:
-	.cfi_def_cfa_offset 24
-.Ltmp22:
-	.cfi_offset 15, 0
-	stw r4, sp[5]
-.Ltmp23:
 	.cfi_offset 4, -4
-	stw r5, sp[4]
-.Ltmp24:
+	stw r5, sp[0]
+.Ltmp22:
 	.cfi_offset 5, -8
-	stw r6, sp[3]
-.Ltmp25:
-	.cfi_offset 6, -12
-	stw r7, sp[2]
-.Ltmp26:
-	.cfi_offset 7, -16
-	stw r8, sp[1]
-.Ltmp27:
-	.cfi_offset 8, -20
-	mov r4, r2
-.Ltmp28:
-	mov r5, r1
-.Ltmp29:
-	ldw r6, r0[0]
-.Ltmp30:
+	ldw r0, r0[0]
+.Ltmp23:
 .LBB1_1:
-	ldw r0, r6[0]
-	bf r0, .LBB1_1
-.Ltmp31:
+	ldw r3, r0[0]
+	bf r3, .LBB1_1
+.Ltmp24:
 	.loc	1 266 0 prologue_end
-	ldaw r0, r5[r5]
-	add r8, r0, r6
-	ldc r7, 0
-	stw r7, r6[0]
-.Ltmp32:
-	.loc	1 265 0
-	ldaw r11, cp[.Lstr220]
-	mov r0, r11
-	bl puts
-	ldc r0, 108
-.Ltmp33:
-	add r0, r8, r0
-	ldc r1, 4
-	lsu r1, r5, r1
-	ldc r2, 5
-.Ltmp34:
+	ldaw r3, r1[r1]
+	add r11, r3, r0
+	ldc r3, 0
+	stw r3, r0[0]
+	ldc r4, 108
+.Ltmp25:
+	add r11, r11, r4
+	ldc r4, 4
+	lsu r1, r1, r4
+.Ltmp26:
+	ldc r4, 5
 .LBB1_3:
 .Lxtalabel7:
 .Ltrap_info0:
 	ecallf r1
 	.loc	1 267 0
-.Ltmp35:
-	ld8u r3, r0[r7]
+	ld8u r5, r11[r3]
 	.loc	1 267 0
-	st8 r3, r4[r7]
+	st8 r5, r2[r3]
 	.loc	1 266 0
-	add r7, r7, 1
-.Ltmp36:
+	add r3, r3, 1
+.Ltmp27:
 	.loc	1 266 0
-	lss r3, r7, r2
+	lss r5, r3, r4
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
-	bt r3, .LBB1_3
-.Ltmp37:
+	bt r5, .LBB1_3
+.Ltmp28:
 .Lxtalabel8:
-	mkmsk r0, 1
-	stw r0, r6[0]
-	ldw r8, sp[1]
-	ldw r7, sp[2]
-	ldw r6, sp[3]
-	ldw r5, sp[4]
-	ldw r4, sp[5]
-	retsp 6
+	mkmsk r1, 1
+	stw r1, r0[0]
+	ldw r5, sp[0]
+	ldw r4, sp[1]
+	ldaw sp, sp[2]
+	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.function
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.nstackwords,(puts.nstackwords + 6)
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.nstackwords
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxcores,puts.maxcores $M 1
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxcores
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxtimers,puts.maxtimers $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxtimers
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxchanends,puts.maxchanends $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string.maxchanends
-.Ltmp38:
-	.size	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string, .Ltmp38-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string
+	.cc_bottom _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.function
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.nstackwords,2
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.nstackwords
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxcores,1
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxcores
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxtimers,0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxtimers
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxchanends,0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string.maxchanends
+.Ltmp29:
+	.size	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string, .Ltmp29-_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string
 .Lfunc_end1:
 	.cfi_endproc
 
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps,@function
-	.cc_top _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.function,_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps
-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps:
+	.type	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps,@function
+	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
+_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps:
 .Lfunc_begin2:
 	.loc	1 257 0
 	.cfi_startproc
-	entsp 3
-.Ltmp39:
-	.cfi_def_cfa_offset 12
-.Ltmp40:
-	.cfi_offset 15, 0
-	stw r4, sp[2]
-.Ltmp41:
-	.cfi_offset 4, -4
-	stw r5, sp[1]
-.Ltmp42:
-	.cfi_offset 5, -8
-	mov r4, r1
-.Ltmp43:
-	ldw r5, r0[0]
-.Ltmp44:
+	ldw r0, r0[0]
+.Ltmp30:
 .LBB2_1:
-	ldw r0, r5[0]
-	bf r0, .LBB2_1
-.Ltmp45:
+	ldw r2, r0[0]
+	bf r2, .LBB2_1
+.Ltmp31:
 .Lxtalabel9:
-	ldc r0, 0
-	stw r0, r5[0]
-	.loc	1 258 0 prologue_end
-.Ltmp46:
-	ldaw r11, cp[.Lstr219]
-	mov r0, r11
-	bl puts
-.Ltmp47:
-	ldc r0, 92
+	ldc r2, 0
+.Ltmp32:
+	stw r2, r0[0]
+	ldc r2, 92
+	.loc	1 260 0 prologue_end
+.Ltmp33:
+	add r2, r0, r2
 	.loc	1 260 0
-.Ltmp48:
-	add r0, r5, r0
+	ldw r2, r2[0]
 	.loc	1 260 0
-	ldw r0, r0[0]
+	stw r2, r1[0]
+	ldc r2, 96
+.Ltmp34:
 	.loc	1 260 0
-	stw r0, r4[0]
-	ldc r0, 96
-.Ltmp49:
+	add r2, r0, r2
 	.loc	1 260 0
-	add r0, r5, r0
+	ldw r2, r2[0]
 	.loc	1 260 0
-	ldw r0, r0[0]
+	stw r2, r1[1]
+	ldc r2, 100
 	.loc	1 260 0
-	stw r0, r4[1]
-	ldc r0, 100
+	add r2, r0, r2
 	.loc	1 260 0
-	add r0, r5, r0
+	ldw r2, r2[0]
 	.loc	1 260 0
-	ldw r0, r0[0]
+	stw r2, r1[2]
+	ldc r2, 104
 	.loc	1 260 0
-	stw r0, r4[2]
-	ldc r0, 104
+	add r2, r0, r2
 	.loc	1 260 0
-	add r0, r5, r0
+	ldw r2, r2[0]
 	.loc	1 260 0
-	ldw r0, r0[0]
-	.loc	1 260 0
-	stw r0, r4[3]
-	mkmsk r0, 1
-	stw r0, r5[0]
-	ldw r5, sp[1]
-	ldw r4, sp[2]
-.Ltmp50:
-	retsp 3
+	stw r2, r1[3]
+	mkmsk r1, 1
+.Ltmp35:
+	stw r1, r0[0]
+	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp51:
-	.cc_bottom _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.function
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.nstackwords,(puts.nstackwords + 3)
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.nstackwords
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxcores,puts.maxcores $M 1
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxcores
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxtimers,puts.maxtimers $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxtimers
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxchanends,puts.maxchanends $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps.maxchanends
-.Ltmp52:
-	.size	_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps, .Ltmp52-_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps
+.Ltmp36:
+	.cc_bottom _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.function
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.nstackwords,0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.nstackwords
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxcores,1
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxcores
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxtimers,0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxtimers
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxchanends,0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxchanends
+.Ltmp37:
+	.size	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps, .Ltmp37-_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 .Lfunc_end2:
 	.cfi_endproc
 
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 	.align	4
-	.type	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC,@function
-	.cc_top _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.function,_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC
-_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC:
+	.type	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC,@function
+	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
+_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC:
 .Lfunc_begin3:
 	.loc	1 237 0
 	.cfi_startproc
 	entsp 5
-.Ltmp53:
+.Ltmp38:
 	.cfi_def_cfa_offset 20
-.Ltmp54:
+.Ltmp39:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp55:
+.Ltmp40:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp56:
+.Ltmp41:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp57:
+.Ltmp42:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp58:
+.Ltmp43:
 	.cfi_offset 7, -16
 	mov r4, r2
-.Ltmp59:
+.Ltmp44:
 	mov r5, r1
-.Ltmp60:
+.Ltmp45:
 	ldw r7, r0[0]
 	ldw r6, r0[1]
-.Ltmp61:
+.Ltmp46:
 .LBB3_1:
 	ldw r0, r7[0]
 	bf r0, .LBB3_1
 	bu .LBB3_2
 .LBB3_5:
-.Ltmp62:
+.Ltmp47:
 	mov r0, r6
 	bl __interface_yield_once
-.Ltmp63:
+.Ltmp48:
 .LBB3_2:
 	ldw r0, r7[11]
 	eq r0, r0, 1
 	bf r0, .LBB3_5
-.Ltmp64:
+.Ltmp49:
 	ldc r0, 0
 	stw r0, r7[0]
-	.loc	1 238 0 prologue_end
-.Ltmp65:
-	ldaw r11, cp[.Lstr218]
-	mov r0, r11
-	bl puts
-	.loc	1 239 0
+	.loc	1 239 0 prologue_end
+.Ltmp50:
 	stw r5, r7[10]
 	mkmsk r5, 1
-.Ltmp66:
+.Ltmp51:
 	.loc	1 240 0
 	stw r5, r7[9]
 	ldc r0, 88
@@ -676,10 +648,10 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_t
 	eq r0, r0, r4
 	.loc	1 242 17
 	bf r0, .LBB3_6
-.Ltmp67:
+.Ltmp52:
 .Lxtalabel10:
 	.loc	1 243 0
-	ldaw r11, cp[.str175]
+	ldaw r11, cp[.str139]
 	mov r0, r11
 .Lxta.call_labels0:
 	bl iprintf
@@ -687,44 +659,44 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_t
 	ldw r4, r6[0]
 	bu .LBB3_12
 .LBB3_6:
-.Ltmp68:
+.Ltmp53:
 	ldc r0, 401
 	.loc	1 244 24
 	lss r0, r4, r0
 	bt r0, .LBB3_8
-.Ltmp69:
+.Ltmp54:
 .Lxtalabel11:
 	.loc	1 245 0
-	ldaw r11, cp[.str176]
+	ldaw r11, cp[.str140]
 	mov r0, r11
 .Lxta.call_labels1:
 	bl iprintf
 	ldc r4, 400
 	bu .LBB3_11
 .LBB3_8:
-.Ltmp70:
-	ldc r0, 234
+.Ltmp55:
+	ldc r0, 244
 	.loc	1 247 24
 	lss r0, r0, r4
 	bt r0, .LBB3_10
-.Ltmp71:
+.Ltmp56:
 .Lxtalabel12:
 	.loc	1 248 0
-	ldaw r11, cp[.str177]
+	ldaw r11, cp[.str141]
 	mov r0, r11
 .Lxta.call_labels2:
 	bl iprintf
-	ldc r4, 235
+	ldc r4, 245
 	bu .LBB3_11
 .LBB3_10:
 .Lxtalabel13:
-.Ltmp72:
+.Ltmp57:
 	.loc	1 251 0
-	ldaw r11, cp[.str178]
+	ldaw r11, cp[.str142]
 	mov r0, r11
 .Lxta.call_labels3:
 	bl iprintf
-.Ltmp73:
+.Ltmp58:
 .LBB3_11:
 .Lxtalabel14:
 	.loc	1 252 0
@@ -732,7 +704,7 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_t
 .LBB3_12:
 .Lxtalabel15:
 	.loc	1 254 0
-	ldaw r11, cp[.str179]
+	ldaw r11, cp[.str143]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels4:
@@ -744,105 +716,99 @@ _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_t
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp74:
-	.cc_bottom _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.function
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.nstackwords,((puts.nstackwords $M iprintf.nstackwords $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.nstackwords
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxcores,($D __interface_yield_once.maxcores ? __interface_yield_once.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M iprintf.maxcores $M puts.maxcores $M 1
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxcores
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxtimers,($D __interface_yield_once.maxtimers ? __interface_yield_once.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M iprintf.maxtimers $M puts.maxtimers $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxtimers
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxchanends,($D __interface_yield_once.maxchanends ? __interface_yield_once.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends) $M iprintf.maxchanends $M puts.maxchanends $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC.maxchanends
-.Ltmp75:
-	.size	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC, .Ltmp75-_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC
+.Ltmp59:
+	.cc_bottom _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.function
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.nstackwords,((iprintf.nstackwords $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.nstackwords
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxcores,($D __interface_yield_once.maxcores ? __interface_yield_once.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M iprintf.maxcores $M 1
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxcores
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxtimers,($D __interface_yield_once.maxtimers ? __interface_yield_once.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M iprintf.maxtimers $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxtimers
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxchanends,($D __interface_yield_once.maxchanends ? __interface_yield_once.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends) $M iprintf.maxchanends $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxchanends
+.Ltmp60:
+	.size	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC, .Ltmp60-_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 .Lfunc_end3:
 	.cfi_endproc
 
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 	.align	4
-	.type	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional,@function
-	.cc_top _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.function,_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional
-_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional:
+	.type	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional,@function
+	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
+_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional:
 .Lfunc_begin4:
 	.loc	1 229 0
 	.cfi_startproc
 	entsp 5
-.Ltmp76:
+.Ltmp61:
 	.cfi_def_cfa_offset 20
-.Ltmp77:
+.Ltmp62:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp78:
+.Ltmp63:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp79:
+.Ltmp64:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp80:
+.Ltmp65:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp81:
+.Ltmp66:
 	.cfi_offset 7, -16
 	mov r4, r2
-.Ltmp82:
+.Ltmp67:
 	mov r5, r1
-.Ltmp83:
+.Ltmp68:
 	ldw r7, r0[0]
 	ldw r6, r0[1]
-.Ltmp84:
+.Ltmp69:
 .LBB4_1:
 	ldw r0, r7[0]
 	bf r0, .LBB4_1
 	bu .LBB4_2
 .LBB4_4:
-.Ltmp85:
+.Ltmp70:
 	mov r0, r6
 	bl __interface_yield_once
-.Ltmp86:
+.Ltmp71:
 .LBB4_2:
 	ldw r0, r7[11]
 	eq r0, r0, 1
 	bf r0, .LBB4_4
-.Ltmp87:
-	ldc r6, 0
-	stw r6, r7[0]
-	.loc	1 230 0 prologue_end
-.Ltmp88:
-	ldaw r11, cp[.Lstr221]
-	mov r0, r11
-	bl puts
-	.loc	1 231 0
+.Ltmp72:
+	.loc	1 231 0 prologue_end
 	stw r5, r7[10]
 	ldc r0, 84
 	.loc	1 232 0
 	add r0, r7, r0
 	.loc	1 232 0
 	stw r4, r0[0]
+	ldc r0, 0
 	.loc	1 233 0
-	stw r6, r7[9]
+	stw r0, r7[9]
 	mkmsk r0, 1
 	stw r0, r7[0]
 	ldw r7, sp[1]
 	ldw r6, sp[2]
 	ldw r5, sp[3]
-.Ltmp89:
+.Ltmp73:
 	ldw r4, sp[4]
-.Ltmp90:
+.Ltmp74:
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp91:
-	.cc_bottom _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.function
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.nstackwords,((puts.nstackwords $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.nstackwords
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxcores,($D __interface_yield_once.maxcores ? __interface_yield_once.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M puts.maxcores $M 1
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxcores
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxtimers,($D __interface_yield_once.maxtimers ? __interface_yield_once.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M puts.maxtimers $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxtimers
-	.set	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxchanends,($D __interface_yield_once.maxchanends ? __interface_yield_once.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends) $M puts.maxchanends $M 0
-	.globl	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional.maxchanends
-.Ltmp92:
-	.size	_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional, .Ltmp92-_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional
+.Ltmp75:
+	.cc_bottom _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.function
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.nstackwords
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxcores,($D __interface_yield_once.maxcores ? __interface_yield_once.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxcores
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxtimers,($D __interface_yield_once.maxtimers ? __interface_yield_once.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxtimers
+	.set	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxchanends,($D __interface_yield_once.maxchanends ? __interface_yield_once.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends) $M 0
+	.globl	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxchanends
+.Ltmp76:
+	.size	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional, .Ltmp76-_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 .Lfunc_end4:
 	.cfi_endproc
 
@@ -878,8 +844,8 @@ _i.i2c_external_commands_if._chan.command:
 	.set	_i.i2c_external_commands_if._chan.command.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.command.maxchanends
-.Ltmp93:
-	.size	_i.i2c_external_commands_if._chan.command, .Ltmp93-_i.i2c_external_commands_if._chan.command
+.Ltmp77:
+	.size	_i.i2c_external_commands_if._chan.command, .Ltmp77-_i.i2c_external_commands_if._chan.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -889,12 +855,12 @@ _i.i2c_external_commands_if._chan.command:
 _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp94:
+.Ltmp78:
 	.cfi_def_cfa_offset 8
-.Ltmp95:
+.Ltmp79:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp96:
+.Ltmp80:
 	.cfi_offset 4, -4
 	mov r3, r0
 	getr r4, 2
@@ -927,8 +893,8 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
-.Ltmp97:
-	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp97-_i.i2c_external_commands_if._chan.read_temperature_ok
+.Ltmp81:
+	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp81-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.command
@@ -938,12 +904,12 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 _i.i2c_external_commands_if._chan_y.command:
 	.cfi_startproc
 	entsp 2
-.Ltmp98:
+.Ltmp82:
 	.cfi_def_cfa_offset 8
-.Ltmp99:
+.Ltmp83:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp100:
+.Ltmp84:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -976,8 +942,8 @@ _i.i2c_external_commands_if._chan_y.command:
 	.set	_i.i2c_external_commands_if._chan_y.command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.command.maxchanends
-.Ltmp101:
-	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp101-_i.i2c_external_commands_if._chan_y.command
+.Ltmp85:
+	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp85-_i.i2c_external_commands_if._chan_y.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
@@ -987,15 +953,15 @@ _i.i2c_external_commands_if._chan_y.command:
 _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
-.Ltmp102:
+.Ltmp86:
 	.cfi_def_cfa_offset 12
-.Ltmp103:
+.Ltmp87:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp104:
+.Ltmp88:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp105:
+.Ltmp89:
 	.cfi_offset 5, -8
 	mov r4, r0
 	ldw r0, r1[0]
@@ -1033,8 +999,8 @@ _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
-.Ltmp106:
-	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp106-_i.i2c_external_commands_if._chan_y.read_temperature_ok
+.Ltmp90:
+	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp90-_i.i2c_external_commands_if._chan_y.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command
@@ -1045,7 +1011,7 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
-	add r0, r2, 2
+	add r0, r2, 4
 	out res[r2], r0
 	outct res[r2], 2
 	chkct res[r2], 1
@@ -1069,8 +1035,44 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
-.Ltmp107:
-	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp107-_i.port_heat_light_commands_if._chan.heat_cables_command
+.Ltmp91:
+	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp91-_i.port_heat_light_commands_if._chan.heat_cables_command
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan.beeper_blip_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan.beeper_blip_command.function,_i.port_heat_light_commands_if._chan.beeper_blip_command
+_i.port_heat_light_commands_if._chan.beeper_blip_command:
+	.cfi_startproc
+	getr r2, 2
+	setd res[r2], r0
+	add r0, r2, 3
+	out res[r2], r0
+	outct res[r2], 2
+	chkct res[r2], 1
+	out res[r2], r1
+	outct res[r2], 2
+	in r0, res[r2]
+	chkct res[r2], 1
+	freer res[r2]
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan.beeper_blip_command.function
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords,0
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores,1
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers,0
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends,1
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
+.Ltmp92:
+	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp92-_i.port_heat_light_commands_if._chan.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command
@@ -1081,7 +1083,7 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
-	add r0, r2, 1
+	add r0, r2, 2
 	out res[r2], r0
 	outct res[r2], 2
 	chkct res[r2], 1
@@ -1105,43 +1107,92 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
-.Ltmp108:
-	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp108-_i.port_heat_light_commands_if._chan.beeper_on_command
+.Ltmp93:
+	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp93-_i.port_heat_light_commands_if._chan.beeper_on_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan.light_command
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan.light_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan.light_command.function,_i.port_heat_light_commands_if._chan.light_command
-_i.port_heat_light_commands_if._chan.light_command:
+	.type	_i.port_heat_light_commands_if._chan.get_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan.get_light_composition.function,_i.port_heat_light_commands_if._chan.get_light_composition
+_i.port_heat_light_commands_if._chan.get_light_composition:
 	.cfi_startproc
-	getr r2, 2
-	setd res[r2], r0
-	out res[r2], r2
-	outct res[r2], 2
-	chkct res[r2], 1
-	out res[r2], r1
-	outct res[r2], 2
-	in r0, res[r2]
-	chkct res[r2], 1
-	freer res[r2]
+	entsp 3
+.Ltmp94:
+	.cfi_def_cfa_offset 12
+.Ltmp95:
+	.cfi_offset 15, 0
+	stw r4, sp[2]
+.Ltmp96:
+	.cfi_offset 4, -4
+	getr r4, 2
+	setd res[r4], r0
+	add r0, r4, 1
+	out res[r4], r0
+	outct res[r4], 2
+	chkct res[r4], 1
+	stw r1, sp[1]
+	outct res[r4], 2
+	ldaw r1, sp[1]
+	mov r0, r4
+	bl __interface_client_call
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[2]
+	retsp 3
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords,(__interface_client_call.nstackwords + 3)
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
+.Ltmp97:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp97-_i.port_heat_light_commands_if._chan.get_light_composition
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan.set_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan.set_light_composition.function,_i.port_heat_light_commands_if._chan.set_light_composition
+_i.port_heat_light_commands_if._chan.set_light_composition:
+	.cfi_startproc
+	getr r3, 2
+	setd res[r3], r0
+	out res[r3], r3
+	outct res[r3], 2
+	chkct res[r3], 1
+	out res[r3], r1
+	out res[r3], r2
+	outct res[r3], 2
+	in r0, res[r3]
+	chkct res[r3], 1
+	freer res[r3]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan.light_command.function
-	.set	_i.port_heat_light_commands_if._chan.light_command.nstackwords,0
-	.globl	_i.port_heat_light_commands_if._chan.light_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan.light_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxcores,1
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxtimers,0
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxchanends,1
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxchanends
-.Ltmp109:
-	.size	_i.port_heat_light_commands_if._chan.light_command, .Ltmp109-_i.port_heat_light_commands_if._chan.light_command
+	.cc_bottom _i.port_heat_light_commands_if._chan.set_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords,0
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores,1
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers,0
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends,1
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
+.Ltmp98:
+	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp98-_i.port_heat_light_commands_if._chan.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command
@@ -1151,17 +1202,17 @@ _i.port_heat_light_commands_if._chan.light_command:
 _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp110:
+.Ltmp99:
 	.cfi_def_cfa_offset 8
-.Ltmp111:
+.Ltmp100:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp112:
+.Ltmp101:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
-	add r2, r4, 2
+	add r2, r4, 4
 	out res[r4], r2
 	outct res[r4], 2
 	chkct res[r4], 1
@@ -1189,8 +1240,57 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
-.Ltmp113:
-	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp113-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+.Ltmp102:
+	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp102-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan_y.beeper_blip_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function,_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+_i.port_heat_light_commands_if._chan_y.beeper_blip_command:
+	.cfi_startproc
+	entsp 2
+.Ltmp103:
+	.cfi_def_cfa_offset 8
+.Ltmp104:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp105:
+	.cfi_offset 4, -4
+	ldw r2, r0[0]
+	getr r4, 2
+	setd res[r4], r2
+	add r2, r4, 3
+	out res[r4], r2
+	outct res[r4], 2
+	chkct res[r4], 1
+	out res[r4], r1
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldc r1, 0
+	mov r0, r4
+	bl __interface_client_call_y
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
+.Ltmp106:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp106-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command
@@ -1200,17 +1300,17 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp114:
+.Ltmp107:
 	.cfi_def_cfa_offset 8
-.Ltmp115:
+.Ltmp108:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp116:
+.Ltmp109:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
-	add r2, r4, 1
+	add r2, r4, 2
 	out res[r4], r2
 	outct res[r4], 2
 	chkct res[r4], 1
@@ -1238,31 +1338,82 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
-.Ltmp117:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp117-_i.port_heat_light_commands_if._chan_y.beeper_on_command
+.Ltmp110:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp110-_i.port_heat_light_commands_if._chan_y.beeper_on_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.light_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.light_command.function,_i.port_heat_light_commands_if._chan_y.light_command
-_i.port_heat_light_commands_if._chan_y.light_command:
+	.type	_i.port_heat_light_commands_if._chan_y.get_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.get_light_composition.function,_i.port_heat_light_commands_if._chan_y.get_light_composition
+_i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.cfi_startproc
-	entsp 2
-.Ltmp118:
-	.cfi_def_cfa_offset 8
-.Ltmp119:
+	entsp 3
+.Ltmp111:
+	.cfi_def_cfa_offset 12
+.Ltmp112:
 	.cfi_offset 15, 0
-	stw r4, sp[1]
-.Ltmp120:
+	stw r4, sp[2]
+.Ltmp113:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
+	add r2, r4, 1
+	out res[r4], r2
+	outct res[r4], 2
+	chkct res[r4], 1
+	stw r1, sp[1]
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldaw r1, sp[1]
+	mov r0, r4
+	bl __interface_client_call_y
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[2]
+	retsp 3
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
+.Ltmp114:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp114-_i.port_heat_light_commands_if._chan_y.get_light_composition
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan_y.set_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.set_light_composition.function,_i.port_heat_light_commands_if._chan_y.set_light_composition
+_i.port_heat_light_commands_if._chan_y.set_light_composition:
+	.cfi_startproc
+	entsp 2
+.Ltmp115:
+	.cfi_def_cfa_offset 8
+.Ltmp116:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp117:
+	.cfi_offset 4, -4
+	ldw r3, r0[0]
+	getr r4, 2
+	setd res[r4], r3
 	out res[r4], r4
 	outct res[r4], 2
 	chkct res[r4], 1
 	out res[r4], r1
+	out res[r4], r2
 	outct res[r4], 2
 	ldw r2, r0[1]
 	ldc r1, 0
@@ -1273,21 +1424,21 @@ _i.port_heat_light_commands_if._chan_y.light_command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.light_command.function
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends
-.Ltmp121:
-	.size	_i.port_heat_light_commands_if._chan_y.light_command, .Ltmp121-_i.port_heat_light_commands_if._chan_y.light_command
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.set_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
+.Ltmp118:
+	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp118-_i.port_heat_light_commands_if._chan_y.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data
@@ -1297,15 +1448,15 @@ _i.port_heat_light_commands_if._chan_y.light_command:
 _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.cfi_startproc
 	entsp 3
-.Ltmp122:
+.Ltmp119:
 	.cfi_def_cfa_offset 12
-.Ltmp123:
+.Ltmp120:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp124:
+.Ltmp121:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp125:
+.Ltmp122:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1341,8 +1492,8 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
-.Ltmp126:
-	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp126-_i.temperature_heater_commands_if._chan.get_regulator_data
+.Ltmp123:
+	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp123-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string
@@ -1352,18 +1503,18 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	.cfi_startproc
 	entsp 5
-.Ltmp127:
+.Ltmp124:
 	.cfi_def_cfa_offset 20
-.Ltmp128:
+.Ltmp125:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp129:
+.Ltmp126:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp130:
+.Ltmp127:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp131:
+.Ltmp128:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1402,8 +1553,8 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
-.Ltmp132:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp132-_i.temperature_heater_commands_if._chan.get_temp_degC_string
+.Ltmp129:
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp129-_i.temperature_heater_commands_if._chan.get_temp_degC_string
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temps
@@ -1413,15 +1564,15 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 _i.temperature_heater_commands_if._chan.get_temps:
 	.cfi_startproc
 	entsp 4
-.Ltmp133:
+.Ltmp130:
 	.cfi_def_cfa_offset 16
-.Ltmp134:
+.Ltmp131:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp135:
+.Ltmp132:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp136:
+.Ltmp133:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1457,8 +1608,8 @@ _i.temperature_heater_commands_if._chan.get_temps:
 	.set	_i.temperature_heater_commands_if._chan.get_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-.Ltmp137:
-	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp137-_i.temperature_heater_commands_if._chan.get_temps
+.Ltmp134:
+	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp134-_i.temperature_heater_commands_if._chan.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
@@ -1468,18 +1619,18 @@ _i.temperature_heater_commands_if._chan.get_temps:
 _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 4
-.Ltmp138:
+.Ltmp135:
 	.cfi_def_cfa_offset 16
-.Ltmp139:
+.Ltmp136:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp140:
+.Ltmp137:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp141:
+.Ltmp138:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp142:
+.Ltmp139:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1516,8 +1667,8 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
-.Ltmp143:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp143-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
+.Ltmp140:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp140-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional
@@ -1527,18 +1678,18 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.cfi_startproc
 	entsp 4
-.Ltmp144:
+.Ltmp141:
 	.cfi_def_cfa_offset 16
-.Ltmp145:
+.Ltmp142:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp146:
+.Ltmp143:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp147:
+.Ltmp144:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp148:
+.Ltmp145:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1574,8 +1725,8 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
-.Ltmp149:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp149-_i.temperature_heater_commands_if._chan.heater_set_proportional
+.Ltmp146:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp146-_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data
@@ -1585,18 +1736,18 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.cfi_startproc
 	entsp 4
-.Ltmp150:
+.Ltmp147:
 	.cfi_def_cfa_offset 16
-.Ltmp151:
+.Ltmp148:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp152:
+.Ltmp149:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp153:
+.Ltmp150:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp154:
+.Ltmp151:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -1638,8 +1789,8 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
-.Ltmp155:
-	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp155-_i.temperature_heater_commands_if._chan_y.get_regulator_data
+.Ltmp152:
+	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp152-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
@@ -1649,21 +1800,21 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	.cfi_startproc
 	entsp 6
-.Ltmp156:
+.Ltmp153:
 	.cfi_def_cfa_offset 24
-.Ltmp157:
+.Ltmp154:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp158:
+.Ltmp155:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp159:
+.Ltmp156:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp160:
+.Ltmp157:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp161:
+.Ltmp158:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -1706,8 +1857,8 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
-.Ltmp162:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp162-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+.Ltmp159:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp159-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -1717,18 +1868,18 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 _i.temperature_heater_commands_if._chan_y.get_temps:
 	.cfi_startproc
 	entsp 5
-.Ltmp163:
+.Ltmp160:
 	.cfi_def_cfa_offset 20
-.Ltmp164:
+.Ltmp161:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp165:
+.Ltmp162:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp166:
+.Ltmp163:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp167:
+.Ltmp164:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -1768,8 +1919,8 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-.Ltmp168:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp168-_i.temperature_heater_commands_if._chan_y.get_temps
+.Ltmp165:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp165-_i.temperature_heater_commands_if._chan_y.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
@@ -1779,21 +1930,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 5
-.Ltmp169:
+.Ltmp166:
 	.cfi_def_cfa_offset 20
-.Ltmp170:
+.Ltmp167:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp171:
+.Ltmp168:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp172:
+.Ltmp169:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp173:
+.Ltmp170:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp174:
+.Ltmp171:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -1836,8 +1987,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
-.Ltmp175:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp175-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+.Ltmp172:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp172-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
@@ -1847,21 +1998,21 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.cfi_startproc
 	entsp 5
-.Ltmp176:
+.Ltmp173:
 	.cfi_def_cfa_offset 20
-.Ltmp177:
+.Ltmp174:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp178:
+.Ltmp175:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp179:
+.Ltmp176:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp180:
+.Ltmp177:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp181:
+.Ltmp178:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -1903,113 +2054,114 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
-.Ltmp182:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp182-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+.Ltmp179:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp179-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI25_0.data,.LCPI25_0
+	.cc_top .LCPI29_0.data,.LCPI29_0
 	.align	4
-	.type	.LCPI25_0,@object
-	.size	.LCPI25_0, 4
-.LCPI25_0:
+	.type	.LCPI29_0,@object
+	.size	.LCPI29_0, 4
+.LCPI29_0:
 	.long	1374389535
-	.cc_bottom .LCPI25_0.data
-	.cc_top .LCPI25_1.data,.LCPI25_1
+	.cc_bottom .LCPI29_0.data
+	.cc_top .LCPI29_1.data,.LCPI29_1
 	.align	4
-	.type	.LCPI25_1,@object
-	.size	.LCPI25_1, 4
-.LCPI25_1:
+	.type	.LCPI29_1,@object
+	.size	.LCPI29_1, 4
+.LCPI29_1:
 	.long	10000000
-	.cc_bottom .LCPI25_1.data
+	.cc_bottom .LCPI29_1.data
 	.text
-	.globl	temperature_heater_controller
+	.globl	Temperature_Heater_Controller
 	.align	4
-	.type	temperature_heater_controller,@function
-	.cc_top temperature_heater_controller.function,temperature_heater_controller
-temperature_heater_controller:
-.Lfunc_begin25:
+	.type	Temperature_Heater_Controller,@function
+	.cc_top Temperature_Heater_Controller.function,Temperature_Heater_Controller
+Temperature_Heater_Controller:
+.Lfunc_begin29:
 	.loc	1 45 0
 	.cfi_startproc
 .Lxtalabel16:
-	ENTSP_lu6 93
-.Ltmp183:
-	.cfi_def_cfa_offset 372
-.Ltmp184:
+	ENTSP_lu6 92
+.Ltmp180:
+	.cfi_def_cfa_offset 368
+.Ltmp181:
 	.cfi_offset 15, 0
-	stw r4, sp[92]
-.Ltmp185:
+	stw r4, sp[91]
+.Ltmp182:
 	.cfi_offset 4, -4
-	stw r5, sp[91]
-.Ltmp186:
+	stw r5, sp[90]
+.Ltmp183:
 	.cfi_offset 5, -8
-	stw r6, sp[90]
-.Ltmp187:
+	stw r6, sp[89]
+.Ltmp184:
 	.cfi_offset 6, -12
-	stw r7, sp[89]
-.Ltmp188:
+	stw r7, sp[88]
+.Ltmp185:
 	.cfi_offset 7, -16
-	stw r8, sp[88]
-.Ltmp189:
+	stw r8, sp[87]
+.Ltmp186:
 	.cfi_offset 8, -20
-	stw r9, sp[87]
-.Ltmp190:
+	stw r9, sp[86]
+.Ltmp187:
 	.cfi_offset 9, -24
-	stw r10, sp[86]
-.Ltmp191:
+	stw r10, sp[85]
+.Ltmp188:
 	.cfi_offset 10, -28
 	stw r2, sp[15]
-.Ltmp192:
-	stw r1, sp[24]
-.Ltmp193:
-	stw r0, sp[32]
-.Ltmp194:
+.Ltmp189:
+	stw r1, sp[23]
+.Ltmp190:
+	mov r6, r0
+.Ltmp191:
 	.loc	1 69 0 prologue_end
-	ldaw r11, cp[temperature_heater_controller.init.1.2.init]
-	ldaw r0, sp[82]
+	stw r6, sp[13]
+	ldaw r11, cp[Temperature_Heater_Controller.init.1.2.init]
+	ldaw r0, sp[81]
 	ldc r2, 16
 	mov r1, r11
 	bl __memcpy_4
 	.loc	1 71 0
-.Ltmp195:
-	ldaw r11, cp[temperature_heater_controller.init.1.3.init]
-	ldaw r4, sp[77]
+.Ltmp192:
+	ldaw r11, cp[Temperature_Heater_Controller.init.1.3.init]
+	ldaw r4, sp[76]
 	ldc r2, 20
 	mov r0, r4
 	mov r1, r11
 	bl memcpy
-.Ltmp196:
+.Ltmp193:
 	ldc r7, 8
-	ldaw r9, sp[44]
+	ldaw r9, sp[43]
 	ldc r10, 132
 	.loc	1 76 0
-.Ltmp197:
+.Ltmp194:
 	mov r0, r9
 	mov r1, r7
 	mov r2, r9
 	mov r3, r10
 .Lxta.call_labels5:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.Ltmp198:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.Ltmp195:
 	.loc	1 76 0
-	ldaw r0, sp[55]
+	ldaw r0, sp[54]
 	.loc	1 76 0
 	mov r1, r7
 	mov r2, r9
 	mov r3, r10
 .Lxta.call_labels6:
-	bl init_arithmetic_mean_temp_onetenthDegC
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
 	.loc	1 76 0
-	ldaw r0, sp[66]
+	ldaw r0, sp[65]
 	.loc	1 76 0
 	mov r1, r7
 	mov r2, r9
 	mov r3, r10
 .Lxta.call_labels7:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.Ltmp199:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.Ltmp196:
 	.loc	1 79 0
-	ldaw r11, cp[.Lstr197]
+	ldaw r11, cp[.Lstr146]
 	mov r0, r11
 	bl puts
 	.loc	1 81 0
@@ -2017,1047 +2169,1004 @@ temperature_heater_controller:
 	.loc	1 81 0
 	ldaw r0, dp[__timers]
 	.loc	1 81 0
-	ldw r7, r0[r11]
+	ldw r0, r0[r11]
 	.loc	1 81 0
-	stw r7, sp[22]
-	setc res[r7], 1
+	stw r0, sp[29]
+	setc res[r0], 1
 	.loc	1 81 0
 .Lxta.endpoint_labels0:
-	in r0, res[r7]
-.Ltmp200:
+	in r0, res[r0]
+.Ltmp197:
 	stw r0, sp[31]
 	mkmsk r0, 4
 	.loc	1 211 0
-.Ltmp201:
+.Ltmp198:
 	add r0, r4, r0
-	stw r0, sp[13]
-	mkmsk r0, 1
-	ldc r10, 0
-	ldc r1, 50
-	stw r1, sp[16]
-	ldc r1, 240
-	stw r1, sp[21]
-	mkmsk r6, 2
-	ldaw r4, sp[33]
-	stw r10, sp[23]
+	stw r0, sp[12]
+	mkmsk r10, 1
+	ldc r3, 0
+	ldc r0, 50
+	stw r0, sp[16]
+	ldc r0, 250
+	stw r0, sp[21]
+	ldaw r4, sp[32]
+	stw r3, sp[22]
+	stw r3, sp[24]
+	stw r10, sp[26]
+	stw r3, sp[27]
+	stw r3, sp[28]
+	stw r3, sp[19]
+	stw r3, sp[17]
+	stw r3, sp[20]
+	mov r7, r10
+	stw r10, sp[30]
 	stw r10, sp[25]
-	stw r0, sp[27]
-	stw r10, sp[28]
-	stw r10, sp[29]
-	stw r10, sp[19]
-	stw r10, sp[17]
-	stw r10, sp[20]
-	mov r9, r0
-	stw r0, sp[30]
-	stw r0, sp[26]
-	stw r10, sp[14]
-	stw r10, sp[12]
-	stw r10, sp[18]
-	bu .LBB25_1
-.Ltmp202:
-.LBB25_64:
+	stw r3, sp[14]
+	stw r3, sp[11]
+	stw r3, sp[18]
+	bu .LBB29_1
+.Ltmp199:
+.LBB29_62:
 .Lxtalabel17:
 	.loc	1 309 0
 	mul r2, r10, r10
 	.loc	1 309 0
 	divu r1, r2, r1
-.Ltmp203:
+.Ltmp200:
 	.loc	1 313 0
 	mul r1, r1, r0
-.Ltmp204:
-	mov r10, r5
-.Ltmp205:
-	ldw r2, cp[.LCPI25_0]
+.Ltmp201:
+	ldw r2, cp[.LCPI29_0]
 	.loc	1 313 0
-	lmul r1, r2, r1, r2, r10, r10
+	lmul r1, r2, r1, r2, r3, r3
 	shr r1, r1, 5
-.Ltmp206:
+.Ltmp202:
 	ldw r2, r9[0]
-	out res[r2], r10
+	out res[r2], r3
 	out res[r2], r0
 	out res[r2], r1
 	outct res[r2], 1
-	mov r9, r8
-.Ltmp207:
-.LBB25_1:
+	mov r10, r5
+.Ltmp203:
+.LBB29_1:
 .Lxtalabel18:
 	clre
-	eq r1, r9, 1
-	bf r1, .LBB25_10
-.Ltmp208:
-	mov r8, r9
-	ldw r0, sp[31]
-	setd res[r7], r0
-	setc res[r7], 9
-	ldap r11, .Ltmp209
-	setv res[r7], r11
-	eeu res[r7]
-	bu .LBB25_11
-.Ltmp210:
-.LBB25_10:
-	mov r8, r9
-	bf r9, .LBB25_12
-.Ltmp211:
-.LBB25_11:
-	ldw r3, sp[32]
-.Ltmp212:
-	.loc	1 229 0
-	ldw r0, r3[0]
-	.loc	1 229 0
-	ldw r2, r0[0]
-	ldap r11, .Ltmp213
-	mov r0, r11
-	.loc	1 229 0
-	setv res[r2], r11
-	.loc	1 229 0
-	mov r11, r10
-	mov r5, r10
-	setev res[r2], r11
-	.loc	1 229 0
-	eeu res[r2]
-.Ltmp214:
-	.loc	1 229 0
-	ldw r2, r3[1]
-.Ltmp215:
-	.loc	1 229 0
-	ldw r2, r2[0]
-	.loc	1 229 0
-	mov r11, r0
-	setv res[r2], r11
-	mkmsk r11, 1
-	.loc	1 229 0
-	setev res[r2], r11
-	.loc	1 229 0
-	eeu res[r2]
-
-	.xtabranch .LBB25_3, .LBB25_32, .LBB25_13
-	waiteu
-.Ltmp216:
-.LBB25_12:
-	ldw r0, sp[24]
-	ldw r0, r0[1]
-	ldap r11, .Ltmp217
+	eq r1, r7, 1
+	bf r1, .LBB29_10
+.Ltmp204:
+	ldw r0, sp[29]
+	ldw r2, sp[31]
+	setd res[r0], r2
+	setc res[r0], 9
+	ldap r11, .Ltmp205
 	setv res[r0], r11
 	eeu res[r0]
-	ldw r3, sp[32]
-.Ltmp218:
+	bu .LBB29_11
+.Ltmp206:
+.LBB29_10:
+	bf r7, .LBB29_12
+.Ltmp207:
+.LBB29_11:
 	.loc	1 229 0
-	ldw r0, r3[0]
+	ldw r0, r6[0]
 	.loc	1 229 0
 	ldw r2, r0[0]
-	ldap r11, .Ltmp213
+	ldap r11, .Ltmp208
 	mov r0, r11
 	.loc	1 229 0
 	setv res[r2], r11
 	.loc	1 229 0
-	mov r11, r10
-	mov r5, r10
+	mov r11, r3
+	mov r8, r3
 	setev res[r2], r11
 	.loc	1 229 0
 	eeu res[r2]
+.Ltmp209:
 	.loc	1 229 0
-	ldw r2, r3[1]
-.Ltmp219:
+	ldw r2, r6[1]
 	.loc	1 229 0
 	ldw r2, r2[0]
 	.loc	1 229 0
 	mov r11, r0
 	setv res[r2], r11
-	mkmsk r11, 1
 	.loc	1 229 0
+	mov r11, r10
 	setev res[r2], r11
 	.loc	1 229 0
 	eeu res[r2]
+	mkmsk r5, 2
 
-	.xtabranch .LBB25_3, .LBB25_32, .LBB25_13
+	.xtabranch .LBB29_3, .LBB29_32, .LBB29_13
 	waiteu
-.Ltmp220:
-.Ltmp213:
-.LBB25_13:
+.Ltmp210:
+.LBB29_12:
+	ldw r0, sp[23]
+	ldw r0, r0[1]
+	ldap r11, .Ltmp211
+	setv res[r0], r11
+	eeu res[r0]
+	.loc	1 229 0
+	ldw r0, r6[0]
+	.loc	1 229 0
+	ldw r2, r0[0]
+	ldap r11, .Ltmp208
+	mov r0, r11
+	.loc	1 229 0
+	setv res[r2], r11
+	.loc	1 229 0
+	mov r11, r3
+	mov r8, r3
+	setev res[r2], r11
+	.loc	1 229 0
+	eeu res[r2]
+	.loc	1 229 0
+	ldw r2, r6[1]
+	.loc	1 229 0
+	ldw r2, r2[0]
+	.loc	1 229 0
+	mov r11, r0
+	setv res[r2], r11
+	.loc	1 229 0
+	mov r11, r10
+	setev res[r2], r11
+	.loc	1 229 0
+	eeu res[r2]
+	mkmsk r5, 2
+
+	.xtabranch .LBB29_3, .LBB29_32, .LBB29_13
+	waiteu
+.Ltmp212:
+.Ltmp208:
+.LBB29_13:
 .Lxtalabel19:
 	.loc	1 229 0
 	get r11, ed
 	.loc	1 229 0
 	zext r11, 16
-.Ltmp221:
-	ldw r0, sp[32]
-	ldw r9, r0[r11]
-	ldw r10, r9[0]
-	in r0, res[r10]
-	ldc r2, 254
-	add r2, r0, r2
-	zext r2, 8
-	sub r3, r0, r2
-	setd res[r10], r3
-	lsu r3, r6, r2
-	bt r3, .LBB25_57
-.Ltmp222:
+.Ltmp213:
+	ldw r9, r6[r11]
+	ldw r0, r9[0]
+	in r2, res[r0]
+	ldc r3, 254
+	add r3, r2, r3
+	zext r3, 8
+	sub r11, r2, r3
+.Ltmp214:
+	setd res[r0], r11
+	lsu r11, r5, r3
+	bt r11, .LBB29_55
+.Ltmp215:
 .Lxtalabel20:
 
 	.xtabranch .Ljumptable0+2,.Ljumptable0+4,.Ljumptable0+6,.Ljumptable0+8
 .Ljumptable0:
 		
-	bru r2
-	.jmptable .LBB25_77,.LBB25_67,.LBB25_66,.LBB25_65
-.Ltmp223:
-.LBB25_77:
-	bt r1, .LBB25_78
-.Ltmp224:
-	setd res[r10], r10
-	out res[r10], r0
-	outct res[r10], 2
-	edu res[r10]
+	bru r3
+	.jmptable .LBB29_75,.LBB29_66,.LBB29_64,.LBB29_63
+.Ltmp216:
+.LBB29_75:
+	bt r1, .LBB29_76
+.Ltmp217:
+	setd res[r0], r0
+	out res[r0], r2
+	outct res[r0], 2
+	edu res[r0]
 
-	.xtabranch .LBB25_3, .LBB25_32, .LBB25_13
+	.xtabranch .LBB29_3, .LBB29_32, .LBB29_13
 	waiteu
-.Ltmp225:
-.LBB25_67:
-	bt r1, .LBB25_68
-.Ltmp226:
-	setd res[r10], r10
-	out res[r10], r0
-	outct res[r10], 2
-	edu res[r10]
+.Ltmp218:
+.LBB29_66:
+	bt r1, .LBB29_67
+.Ltmp219:
+	setd res[r0], r0
+	out res[r0], r2
+	outct res[r0], 2
+	edu res[r0]
 
-	.xtabranch .LBB25_3, .LBB25_32, .LBB25_13
+	.xtabranch .LBB29_3, .LBB29_32, .LBB29_13
 	waiteu
-.Ltmp227:
-.Ltmp209:
-.LBB25_3:
+.Ltmp220:
+.Ltmp205:
+.LBB29_3:
 .Lxtalabel21:
 	.loc	1 85 0
+	ldw r0, sp[29]
 .Lxta.endpoint_labels1:
-	in r0, res[r7]
-	ldw r3, sp[18]
-.Ltmp228:
+	in r0, res[r0]
+	ldw r11, sp[18]
+.Ltmp221:
 	.loc	1 90 0
-	add r3, r3, 1
-.Ltmp229:
+	add r11, r11, 1
+.Ltmp222:
 	.loc	1 91 17
-	eq r0, r3, 10
+	eq r0, r11, 10
 	.loc	1 91 17
-	bf r0, .LBB25_4
-.Ltmp230:
+	bf r0, .LBB29_4
+.Ltmp223:
 .Lxtalabel22:
 	.loc	1 93 21
-	ldw r0, sp[29]
-	bf r0, .LBB25_18
-.Ltmp231:
+	ldw r0, sp[28]
+	bf r0, .LBB29_18
+.Ltmp224:
 .Lxtalabel23:
 	.loc	1 94 0
 	ldw r0, sp[20]
 	add r0, r0, 1
-.Ltmp232:
+.Ltmp225:
 	stw r0, sp[20]
-	bu .LBB25_16
-.Ltmp233:
-.LBB25_57:
-	outct res[r10], 1
-	in r10, res[r10]
-.Ltmp234:
-	.loc	1 273 0
-	ldaw r11, cp[.Lstr222]
-	mov r0, r11
-	bl puts
-	bt r10, .LBB25_59
-.Ltmp235:
+	bu .LBB29_16
+.Ltmp226:
+.LBB29_55:
+	mov r5, r10
+	outct res[r0], 1
+	in r10, res[r0]
+.Ltmp227:
+	mov r3, r8
+	bt r10, .LBB29_57
+.Ltmp228:
 .Lxtalabel24:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr223]
+	ldaw r11, cp[.Lstr149]
 	mov r0, r11
+	mov r8, r3
 	bl puts
-.Ltmp236:
-.LBB25_59:
+	mov r3, r8
+.Ltmp229:
+.LBB29_57:
 .Lxtalabel25:
-	ldw r0, sp[28]
+	ldw r0, sp[27]
 	.loc	1 280 17
-	ldw r1, sp[27]
-	bf r1, .LBB25_62
-.Ltmp237:
+	ldw r1, sp[26]
+	bf r1, .LBB29_60
+.Ltmp230:
 .Lxtalabel26:
 	ldc r0, 100
 	.loc	1 285 0
-	ldw r1, sp[29]
-	bt r1, .LBB25_62
-.Ltmp238:
+	ldw r1, sp[28]
+	bt r1, .LBB29_60
+.Ltmp231:
 .Lxtalabel27:
-	mov r0, r5
-.Ltmp239:
-.LBB25_62:
+	mov r0, r3
+.Ltmp232:
+.LBB29_60:
 .Lxtalabel28:
 	ldc r1, 1200
 	.loc	1 292 0
 	ldw r2, sp[30]
-	bt r2, .LBB25_64
-.Ltmp240:
+	bt r2, .LBB29_62
+.Ltmp233:
 .Lxtalabel29:
 	ldc r1, 2400
-	bu .LBB25_64
-.Ltmp241:
-.Ltmp217:
-.LBB25_32:
+	bu .LBB29_62
+.Ltmp234:
+.Ltmp211:
+.LBB29_32:
 .Lxtalabel30:
-	ldw r7, sp[24]
-.Ltmp242:
+	ldw r6, sp[23]
+.Ltmp235:
 	.loc	1 134 0
-	ldw r0, r7[1]
+	ldw r0, r6[1]
 	.loc	1 134 0
 	chkct res[r0], 1
-	mkmsk r0, 1
 	.loc	1 134 0
-	stw r0, r7[2]
-.Ltmp243:
-	.loc	1 141 0
-	ldaw r11, cp[.Lstr216]
-	mov r0, r11
-	bl puts
+	stw r10, r6[2]
+.Ltmp236:
 	.loc	1 142 0
-.Ltmp244:
-	ldw r1, r7[0]
+	ldw r1, r6[0]
 	.loc	1 142 0
-	ldw r0, r7[3]
+	ldw r0, r6[3]
 	.loc	1 142 0
 	ldw r3, r0[0]
 	.loc	1 142 0
-	ldw r2, r7[2]
-	.loc	1 142 0
 	mov r0, r4
+	mov r2, r10
 .Lxta.call_labels8:
 	bla r3
 	.loc	1 142 0
-	ldw r0, r7[1]
+	ldw r0, r6[1]
 	.loc	1 142 0
 	chkct res[r0], 1
+	mov r3, r8
 	.loc	1 142 0
-	stw r5, r7[2]
-.Ltmp245:
-	.loc	1 143 0
-	ldaw r11, cp[.Lstr217]
-	mov r0, r11
-	bl puts
-.Ltmp246:
-	ldaw r10, sp[77]
-	ldaw r9, sp[44]
-	mov r7, r5
-	mov r8, r5
-.Ltmp247:
-.LBB25_33:
+	stw r3, r6[2]
+.Ltmp237:
+	ldaw r10, sp[76]
+.Ltmp238:
+	ldaw r9, sp[43]
+	mov r7, r3
+.Ltmp239:
+.LBB29_33:
 .Lxtalabel31:
+	mov r6, r5
 	.loc	1 147 0
+.Ltmp240:
 	ldw r5, r4[r7]
-	ldaw r0, sp[38]
+	ldaw r0, sp[37]
 	.loc	1 147 0
 	stw r5, r0[r7]
 	lda16 r0, r4[r7]
 	ldaw r0, r0[3]
 	.loc	1 152 0
-	ld16s r0, r0[r8]
+	ld16s r0, r0[r3]
+	mov r8, r3
 	mov r1, r10
 	ldc r2, 5
 .Lxta.call_labels9:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	mov r2, r0
-	ldaw r0, sp[82]
+	ldaw r0, sp[81]
 	.loc	1 152 0
 	stw r2, r0[r7]
-	ldaw r0, sp[41]
+	ldaw r0, sp[40]
 	.loc	1 152 0
 	stw r1, r0[r7]
-	bf r5, .LBB25_35
-.Ltmp248:
+	bf r5, .LBB29_35
+.Ltmp241:
 .Lxtalabel32:
-	bf r1, .LBB25_35
-.Ltmp249:
+	bf r1, .LBB29_35
+.Ltmp242:
 .Lxtalabel33:
 	ldc r0, 132
 	.loc	1 156 0
 	stw r0, sp[2]
-	ldaw r0, sp[44]
+	ldaw r0, sp[43]
 	stw r0, sp[1]
 	mov r0, r9
 	ldc r1, 8
 	mov r3, r7
 .Lxta.call_labels10:
-	bl do_arithmetic_mean_temp_onetenthDegC
-	ldaw r1, sp[82]
+	bl Do_Arithmetic_Mean_Temp_OnetenthDegC
+	ldaw r1, sp[81]
 	.loc	1 156 0
 	stw r0, r1[r7]
-	bu .LBB25_37
-.Ltmp250:
-.LBB25_35:
+	bu .LBB29_37
+.Ltmp243:
+.LBB29_35:
 .Lxtalabel34:
 	.loc	1 160 0
 	mov r0, r9
 	ldc r1, 8
-	ldaw r2, sp[44]
+	ldaw r2, sp[43]
 	ldc r3, 132
 .Lxta.call_labels11:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.Ltmp251:
-.LBB25_37:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.Ltmp244:
+.LBB29_37:
 .Lxtalabel35:
+	mov r3, r8
+	mov r5, r6
+.Ltmp245:
 	.loc	1 145 0
 	add r7, r7, 1
-.Ltmp252:
+.Ltmp246:
 	.loc	1 145 0
 	ldaw r9, r9[11]
 	.loc	1 145 0
 	add r10, r10, 5
 	.loc	1 145 0
-	lss r0, r7, r6
+	lss r0, r7, r5
 .Lxta.loop_labels1:
 	# LOOPMARKER 0
-	bt r0, .LBB25_33
-.Ltmp253:
+	bt r0, .LBB29_33
+.Ltmp247:
 .Lxtalabel36:
+	ldw r11, sp[24]
 	.loc	1 165 0
-	ldw r0, sp[25]
-	add r0, r0, 1
-.Ltmp254:
+	add r11, r11, 1
+.Ltmp248:
 	.loc	1 167 17
-	stw r0, sp[25]
-	ldw r1, sp[38]
+	ldw r1, sp[37]
 	.loc	1 184 0
-	ldw r0, sp[41]
+	ldw r0, sp[40]
 	.loc	1 167 17
-	bf r1, .LBB25_31
-.Ltmp255:
-	mov r10, r8
-	mov r2, r10
+	bf r1, .LBB29_31
+.Ltmp249:
+	mov r2, r3
+	mkmsk r10, 1
 	ldw r9, sp[19]
-	bf r0, .LBB25_39
-.Ltmp256:
+	ldw r7, sp[28]
+	bf r0, .LBB29_39
+.Ltmp250:
 .Lxtalabel37:
 	.loc	1 169 0
-	ldw r0, sp[82]
-	ldw r2, sp[23]
+	ldw r0, sp[81]
+	ldw r5, sp[22]
 	.loc	1 169 0
-	add r2, r0, r2
-.Ltmp257:
-	ldw r5, sp[29]
+	add r5, r0, r5
+.Ltmp251:
 	.loc	1 171 21
-	bf r5, .LBB25_44
-.Ltmp258:
+	bf r7, .LBB29_44
+.Ltmp252:
 .Lxtalabel38:
+	ldw r2, sp[21]
 	.loc	1 172 25
-	ldw r1, sp[21]
-	add r1, r1, 2
+	add r1, r2, 2
 	.loc	1 172 25
 	lss r0, r0, r1
-	mov r7, r5
-	bt r0, .LBB25_52
-.Ltmp259:
-	stw r2, sp[23]
-	bu .LBB25_40
-.Ltmp260:
-.LBB25_78:
-	outct res[r10], 1
-	in r0, res[r10]
-.Ltmp261:
-	stw r0, sp[30]
-	in r0, res[r10]
-.Ltmp262:
-	.loc	1 230 0
-	stw r0, sp[16]
-	ldaw r11, cp[.Lstr221]
-	mov r0, r11
-	bl puts
-.Ltmp263:
-	ldw r0, r9[0]
-	mov r10, r5
-	out res[r0], r10
+	mov r8, r7
+	ldw r6, sp[13]
+.Ltmp253:
+	bt r0, .LBB29_45
+	bu .LBB29_42
+.Ltmp254:
+.LBB29_76:
 	outct res[r0], 1
-	mkmsk r0, 1
-	mov r9, r0
-	stw r10, sp[26]
-	bu .LBB25_1
-.Ltmp264:
-.LBB25_68:
-	outct res[r10], 1
-	in r0, res[r10]
-.Ltmp265:
-	stw r0, sp[30]
-	in r7, res[r10]
-.Ltmp266:
-	.loc	1 238 0
-	ldaw r11, cp[.Lstr218]
-	mov r0, r11
-	bl puts
-.Ltmp267:
-	ldw r8, sp[21]
+	in r1, res[r0]
+.Ltmp255:
+	stw r1, sp[30]
+	in r1, res[r0]
+.Ltmp256:
+	stw r1, sp[16]
+	mov r3, r8
+	out res[r0], r3
+	outct res[r0], 1
+	mov r7, r10
+	stw r3, sp[25]
+	bu .LBB29_1
+.Ltmp257:
+.LBB29_67:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp258:
+	stw r1, sp[30]
+	in r7, res[r0]
+.Ltmp259:
+	ldw r5, sp[21]
 	.loc	1 242 17
-	eq r0, r7, r8
+.Ltmp260:
+	eq r0, r7, r5
 	.loc	1 242 17
-	bf r0, .LBB25_72
-.Ltmp268:
+	bf r0, .LBB29_70
+.Ltmp261:
 .Lxtalabel39:
 	.loc	1 243 0
-	ldaw r11, cp[.str42]
+	ldaw r11, cp[.str34]
 	mov r0, r11
 .Lxta.call_labels12:
 	bl iprintf
-	bu .LBB25_70
-.Ltmp269:
-.LBB25_4:
-	mov r10, r5
-	bu .LBB25_5
-.Ltmp270:
-.LBB25_66:
+	bu .LBB29_69
+.Ltmp262:
+.LBB29_4:
+	mov r3, r8
+	bu .LBB29_5
+.Ltmp263:
+.LBB29_64:
 .Lxtalabel40:
-	outct res[r10], 1
-	.loc	1 258 0
-	ldaw r11, cp[.Lstr219]
-	mov r0, r11
-	bl puts
-.Ltmp271:
-	.loc	1 260 0
-	ldw r0, sp[82]
-	ldc r1, 6
-	mov r2, r1
-	.loc	1 260 0
-	out res[r10], r2
-	.loc	1 260 0
-	out res[r10], r5
-	.loc	1 260 0
-	out res[r10], r5
-	.loc	1 260 0
-	out res[r10], r0
-	.loc	1 260 0
-	outct res[r10], 2
-	.loc	1 260 0
-	chkct res[r10], 1
-.Ltmp272:
-	.loc	1 260 0
-	ldw r0, sp[83]
-	.loc	1 260 0
-	out res[r10], r2
-	.loc	1 260 0
-	out res[r10], r5
-	mkmsk r1, 1
-	.loc	1 260 0
-	out res[r10], r1
-	.loc	1 260 0
-	out res[r10], r0
-	.loc	1 260 0
-	outct res[r10], 2
-	.loc	1 260 0
-	chkct res[r10], 1
-	.loc	1 260 0
-	ldw r0, sp[84]
-	.loc	1 260 0
-	out res[r10], r2
-	.loc	1 260 0
-	out res[r10], r5
-	ldc r1, 2
-	.loc	1 260 0
-	out res[r10], r1
-	.loc	1 260 0
-	out res[r10], r0
-	.loc	1 260 0
-	outct res[r10], 2
-	.loc	1 260 0
-	chkct res[r10], 1
-	.loc	1 260 0
-	ldw r0, sp[85]
-	.loc	1 260 0
-	out res[r10], r2
-	.loc	1 260 0
-	out res[r10], r5
-	.loc	1 260 0
-	out res[r10], r6
-	.loc	1 260 0
-	out res[r10], r0
-	.loc	1 260 0
-	outct res[r10], 2
-	.loc	1 260 0
-	chkct res[r10], 1
-	mov r10, r5
-	ldw r0, r9[0]
-	out res[r0], r10
 	outct res[r0], 1
-	mov r9, r8
-	bu .LBB25_1
-.Ltmp273:
-.LBB25_65:
-	outct res[r10], 1
-	in r7, res[r10]
-.Ltmp274:
-	.loc	1 265 0
-	ldaw r11, cp[.Lstr220]
-	mov r0, r11
-	bl puts
-.Ltmp275:
-	ldc r11, 4
+.Ltmp264:
+	.loc	1 260 0
+	ldw r1, sp[81]
+	ldc r2, 6
+	mov r11, r2
+	.loc	1 260 0
+	out res[r0], r11
+	mov r3, r8
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+.Ltmp265:
+	.loc	1 260 0
+	ldw r1, sp[82]
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r10
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	.loc	1 260 0
+	ldw r1, sp[83]
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	out res[r0], r3
+	ldc r2, 2
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	.loc	1 260 0
+	ldw r1, sp[84]
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r5
+	bu .LBB29_65
+.Ltmp266:
+.LBB29_63:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp267:
+	ldc r9, 4
 	.loc	1 267 0
-.Ltmp276:
-	lsu r0, r7, r11
+.Ltmp268:
+	lsu r2, r1, r9
 .Ltrap_info1:
-	ecallf r0
+	ecallf r2
 	.loc	1 267 0
-	ldaw r1, r7[r7]
-	ldaw r0, sp[77]
-	mov r2, r0
-	add r0, r2, r1
-	.loc	1 267 0
-	ld8u r1, r2[r1]
-	ldc r2, 8
-	.loc	1 267 0
-	out res[r10], r2
-	.loc	1 267 0
-	out res[r10], r5
-	.loc	1 267 0
-	out res[r10], r5
-	.loc	1 267 0
-	out res[r10], r1
-	.loc	1 267 0
-	outct res[r10], 2
-	.loc	1 267 0
-	chkct res[r10], 1
-.Ltmp277:
-	mkmsk r1, 1
+	ldaw r2, r1[r1]
+	ldaw r1, sp[76]
+.Ltmp269:
 	mov r3, r1
+	add r1, r3, r2
 	.loc	1 267 0
-	ld8u r1, r0[r3]
+	ld8u r2, r3[r2]
+	ldc r3, 8
 	.loc	1 267 0
-	out res[r10], r2
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r10], r5
+	out res[r0], r8
 	.loc	1 267 0
-	out res[r10], r3
+	out res[r0], r8
 	.loc	1 267 0
-	out res[r10], r1
+	out res[r0], r2
 	.loc	1 267 0
-	outct res[r10], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r10], 1
-	ldc r1, 2
-	mov r3, r1
+	chkct res[r0], 1
+.Ltmp270:
 	.loc	1 267 0
-	ld8u r1, r0[r3]
+	ld8u r2, r1[r10]
 	.loc	1 267 0
-	out res[r10], r2
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r10], r5
+	out res[r0], r8
 	.loc	1 267 0
-	out res[r10], r3
-	.loc	1 267 0
-	out res[r10], r1
-	.loc	1 267 0
-	outct res[r10], 2
-	.loc	1 267 0
-	chkct res[r10], 1
-	.loc	1 267 0
-	ld8u r1, r0[r6]
-	.loc	1 267 0
-	out res[r10], r2
-	.loc	1 267 0
-	out res[r10], r5
-	.loc	1 267 0
-	out res[r10], r6
-	.loc	1 267 0
-	out res[r10], r1
-	.loc	1 267 0
-	outct res[r10], 2
-	.loc	1 267 0
-	chkct res[r10], 1
-	.loc	1 267 0
-	ld8u r0, r0[r11]
-	.loc	1 267 0
-	out res[r10], r2
-	.loc	1 267 0
-	out res[r10], r5
-	.loc	1 267 0
-	out res[r10], r11
-	.loc	1 267 0
-	out res[r10], r0
-	.loc	1 267 0
-	outct res[r10], 2
-	.loc	1 267 0
-	chkct res[r10], 1
-	mov r10, r5
-	ldw r0, r9[0]
 	out res[r0], r10
+	.loc	1 267 0
+	out res[r0], r2
+	.loc	1 267 0
+	outct res[r0], 2
+	.loc	1 267 0
+	chkct res[r0], 1
+	ldc r2, 2
+	mov r11, r2
+	.loc	1 267 0
+	ld8u r2, r1[r11]
+	.loc	1 267 0
+	out res[r0], r3
+	.loc	1 267 0
+	out res[r0], r8
+	.loc	1 267 0
+	out res[r0], r11
+	.loc	1 267 0
+	out res[r0], r2
+	.loc	1 267 0
+	outct res[r0], 2
+	.loc	1 267 0
+	chkct res[r0], 1
+	.loc	1 267 0
+	ld8u r2, r1[r5]
+	.loc	1 267 0
+	out res[r0], r3
+	.loc	1 267 0
+	out res[r0], r8
+	.loc	1 267 0
+	out res[r0], r5
+	.loc	1 267 0
+	out res[r0], r2
+	.loc	1 267 0
+	outct res[r0], 2
+	.loc	1 267 0
+	chkct res[r0], 1
+	.loc	1 267 0
+	ld8u r1, r1[r9]
+	.loc	1 267 0
+	out res[r0], r3
+	mov r3, r8
+	.loc	1 267 0
+	out res[r0], r3
+	.loc	1 267 0
+	out res[r0], r9
+.Ltmp271:
+.LBB29_65:
+.Lxtalabel41:
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	out res[r0], r3
 	outct res[r0], 1
-	ldw r7, sp[22]
-.Ltmp278:
-	mov r9, r8
-	bu .LBB25_1
-.Ltmp279:
-.LBB25_72:
+	bu .LBB29_1
+.Ltmp272:
+.LBB29_70:
 	ldc r0, 401
 	.loc	1 244 24
 	lss r0, r7, r0
-	bt r0, .LBB25_74
-.Ltmp280:
-.Lxtalabel41:
+	bt r0, .LBB29_72
+.Ltmp273:
+.Lxtalabel42:
 	.loc	1 245 0
-	ldaw r11, cp[.str43]
+	ldaw r11, cp[.str35]
 	mov r0, r11
 .Lxta.call_labels13:
 	bl iprintf
-.Ltmp281:
+.Ltmp274:
 	ldc r0, 400
-	mov r8, r0
-.Ltmp282:
-.LBB25_70:
-.Lxtalabel42:
-	ldw r7, sp[22]
-	mov r10, r5
-.LBB25_71:
-.Lxtalabel43:
-.Ltmp283:
-	.loc	1 254 0
-	stw r8, sp[21]
-	ldaw r11, cp[.str46]
-	mov r0, r11
-	mov r1, r8
-.Lxta.call_labels14:
-	bl iprintf
-	ldw r0, r9[0]
-	out res[r0], r10
-	outct res[r0], 1
-	mkmsk r0, 1
-	mov r9, r0
-	stw r0, sp[26]
-	bu .LBB25_1
-.Ltmp284:
-.LBB25_31:
+	mov r5, r0
+	bu .LBB29_69
+.Ltmp275:
+.LBB29_31:
 	mov r2, r0
-	mov r10, r8
+	mkmsk r10, 1
 	ldw r9, sp[19]
-.Ltmp285:
-.LBB25_39:
-.Lxtalabel44:
+	ldw r7, sp[28]
+.Ltmp276:
+.LBB29_39:
+.Lxtalabel43:
+	stw r11, sp[24]
+.Ltmp277:
 	.loc	1 181 0
 	add r9, r9, 1
-.Ltmp286:
+.Ltmp278:
 	.loc	1 184 0
-	ldaw r11, cp[.str25]
+	ldaw r11, cp[.str21]
+	mov r0, r11
+	mov r5, r3
+.Lxta.call_labels14:
+	bl iprintf
+	stw r5, sp[22]
+	ldw r6, sp[13]
+.Ltmp279:
+	bu .LBB29_40
+.Ltmp280:
+.LBB29_72:
+	ldc r0, 244
+	.loc	1 247 24
+.Ltmp281:
+	lss r0, r0, r7
+	bt r0, .LBB29_74
+.Ltmp282:
+.Lxtalabel44:
+	.loc	1 248 0
+	ldaw r11, cp[.str36]
 	mov r0, r11
 .Lxta.call_labels15:
 	bl iprintf
-	stw r10, sp[23]
-	ldw r5, sp[29]
-.Ltmp287:
-.LBB25_40:
+.Ltmp283:
+	ldc r0, 245
+	mov r5, r0
+	bu .LBB29_69
+.Ltmp284:
+.LBB29_18:
 .Lxtalabel45:
-	.loc	1 196 0
-	stw r9, sp[19]
-	stw r9, sp[1]
-	ldaw r11, cp[.str28]
-	mov r0, r11
-	ldaw r1, sp[77]
-	ldw r2, sp[20]
-	ldw r3, sp[17]
-.Lxta.call_labels16:
-	bl iprintf
-	ldw r1, sp[15]
-.Ltmp288:
-	.loc	1 197 0
-	ldw r0, r1[0]
-	.loc	1 197 0
-	ldw r1, r1[1]
-.Ltmp289:
-	.loc	1 197 0
-	ldw r2, r1[2]
-	mkmsk r7, 1
-	.loc	1 197 0
-	mov r1, r7
-.Lxta.call_labels17:
-	bla r2
-	mov r9, r7
-	mov r7, r10
-	bu .LBB25_48
-.Ltmp290:
-.LBB25_74:
-	ldc r0, 234
-	.loc	1 247 24
-.Ltmp291:
-	lss r0, r0, r7
-	mov r10, r5
-	bt r0, .LBB25_76
-.Ltmp292:
-.Lxtalabel46:
-	.loc	1 248 0
-	ldaw r11, cp[.str44]
-	mov r0, r11
-.Lxta.call_labels18:
-	bl iprintf
-.Ltmp293:
-	ldc r0, 235
-	mov r8, r0
-	ldw r7, sp[22]
-	bu .LBB25_71
-.Ltmp294:
-.LBB25_18:
-.Lxtalabel47:
 	.loc	1 96 0
 	ldw r0, sp[17]
 	add r0, r0, 1
-.Ltmp295:
+.Ltmp285:
 	stw r0, sp[17]
-.Ltmp296:
-.LBB25_16:
-.Lxtalabel48:
-	mov r10, r5
-	mov r3, r10
-.LBB25_5:
-.Lxtalabel49:
-	ldc r5, 100
-	ldw r2, sp[26]
-	mov r9, r8
-.Ltmp297:
-	ldw r0, cp[.LCPI25_1]
+.Ltmp286:
+.LBB29_16:
+.Lxtalabel46:
+	mov r3, r8
+	mov r11, r3
+.LBB29_5:
+.Lxtalabel47:
+	ldc r8, 100
+	ldw r2, sp[25]
+.Ltmp287:
 	.loc	1 89 0
-	ldw r1, sp[31]
-	add r1, r1, r0
-.Ltmp298:
+	ldw r0, sp[31]
+	ldw r1, cp[.LCPI29_1]
+	add r0, r0, r1
+.Ltmp288:
 	.loc	1 100 17
-	stw r1, sp[31]
-	bt r2, .LBB25_6
-.Ltmp299:
-.Lxtalabel50:
+	stw r0, sp[31]
+	bt r2, .LBB29_6
+.Ltmp289:
+.Lxtalabel48:
 	.loc	1 101 0
 	ldw r0, sp[14]
 	add r0, r0, 1
-	ldw r1, cp[.LCPI25_0]
+	ldw r1, cp[.LCPI29_0]
 	.loc	1 101 0
-	lmul r1, r2, r0, r1, r10, r10
+	lmul r1, r2, r0, r1, r3, r3
 	shr r1, r1, 5
-	mul r1, r1, r5
+	mul r1, r1, r8
 	sub r0, r0, r1
-.Ltmp300:
+.Ltmp290:
 	stw r0, sp[14]
 	ldw r1, sp[16]
 	.loc	1 103 21
-	eq r0, r1, r5
-	bf r0, .LBB25_20
-.Ltmp301:
-.Lxtalabel51:
-	stw r3, sp[18]
+	eq r0, r1, r8
+	bf r0, .LBB29_20
+.Ltmp291:
+.Lxtalabel49:
+	stw r11, sp[18]
 	ldw r1, sp[15]
-.Ltmp302:
+.Ltmp292:
 	.loc	1 106 0
 	ldw r0, r1[0]
 	.loc	1 106 0
 	ldw r1, r1[1]
-.Ltmp303:
+.Ltmp293:
 	.loc	1 106 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
+	mkmsk r1, 2
+	mov r5, r3
 	.loc	1 106 0
-	mov r1, r6
-.Lxta.call_labels19:
+.Lxta.call_labels16:
 	bla r2
-	stw r5, sp[16]
-	stw r10, sp[26]
-	bu .LBB25_1
-.Ltmp304:
-.LBB25_6:
-.Lxtalabel52:
-	stw r3, sp[18]
+	mov r3, r5
+	stw r8, sp[16]
+	stw r3, sp[25]
+	bu .LBB29_1
+.Ltmp294:
+.LBB29_6:
+.Lxtalabel50:
+	stw r11, sp[18]
 	eq r0, r2, 1
-	stw r2, sp[26]
-	bf r0, .LBB25_1
-.Ltmp305:
-.Lxtalabel53:
-	ldw r5, sp[12]
-	bt r5, .LBB25_9
-.Ltmp306:
-.Lxtalabel54:
-	.loc	1 121 0
-	ldaw r11, cp[.Lstr214]
-	mov r0, r11
-	bl puts
-	ldw r1, sp[24]
-.Ltmp307:
+	stw r2, sp[25]
+	bf r0, .LBB29_1
+.Ltmp295:
+.Lxtalabel51:
+	ldw r8, sp[11]
+	bt r8, .LBB29_9
+.Ltmp296:
+.Lxtalabel52:
+	ldw r1, sp[23]
+.Ltmp297:
 	.loc	1 122 0
 	ldw r0, r1[0]
 	.loc	1 122 0
 	ldw r1, r1[3]
-.Ltmp308:
+.Ltmp298:
 	.loc	1 122 0
 	ldw r2, r1[1]
-	mkmsk r1, 1
 	.loc	1 122 0
-.Lxta.call_labels20:
+	mov r1, r10
+	mov r5, r3
+.Lxta.call_labels17:
 	bla r2
-	.loc	1 123 0
-	ldaw r11, cp[.Lstr215]
-	mov r0, r11
-	bl puts
-.Ltmp309:
-	mov r9, r10
-.Ltmp310:
-.LBB25_9:
-.Lxtalabel55:
+	mov r3, r5
+.Ltmp299:
+	mov r7, r3
+.Ltmp300:
+.LBB29_9:
+.Lxtalabel53:
 	.loc	1 128 0
-	add r0, r5, 1
-	ldw r1, cp[.LCPI25_0]
+	add r0, r8, 1
+	ldw r1, cp[.LCPI29_0]
 	.loc	1 128 0
-	lmul r1, r2, r0, r1, r10, r10
+	lmul r1, r2, r0, r1, r3, r3
 	shr r1, r1, 5
 	ldc r2, 100
 	mul r1, r1, r2
 	sub r0, r0, r1
-.Ltmp311:
-	stw r0, sp[12]
-	mkmsk r0, 1
-	stw r0, sp[26]
-	bu .LBB25_1
-.Ltmp312:
-.LBB25_20:
-.Lxtalabel56:
-	stw r3, sp[18]
-	bt r1, .LBB25_23
-.Ltmp313:
-.Lxtalabel57:
+.Ltmp301:
+	stw r0, sp[11]
+	stw r10, sp[25]
+	bu .LBB29_1
+.Ltmp302:
+.LBB29_20:
+.Lxtalabel54:
+	stw r11, sp[18]
+	mov r5, r3
+	bt r1, .LBB29_23
+.Ltmp303:
+.Lxtalabel55:
 	ldw r1, sp[15]
-.Ltmp314:
+.Ltmp304:
 	.loc	1 104 0
 	ldw r0, r1[0]
 	.loc	1 104 0
 	ldw r1, r1[1]
-.Ltmp315:
+.Ltmp305:
 	.loc	1 104 0
-	ldw r2, r1[2]
-	mkmsk r1, 1
+	ldw r2, r1[4]
 	.loc	1 104 0
-.Lxta.call_labels21:
+	mov r1, r10
+.Lxta.call_labels18:
 	bla r2
-	stw r10, sp[16]
-	stw r10, sp[26]
-	bu .LBB25_1
-.Ltmp316:
-.LBB25_44:
-.Lxtalabel58:
+	mov r3, r5
+	stw r3, sp[16]
+	stw r3, sp[25]
+	bu .LBB29_1
+.Ltmp306:
+.LBB29_44:
+.Lxtalabel56:
+	ldw r2, sp[21]
 	.loc	1 176 25
-	ldw r1, sp[21]
-	sub r1, r1, 2
+.Ltmp307:
+	sub r1, r2, 2
 	.loc	1 176 25
 	lss r0, r1, r0
-.Ltmp317:
-	mkmsk r7, 1
-	bf r0, .LBB25_52
-.Ltmp318:
-	stw r2, sp[23]
-	bu .LBB25_40
-.Ltmp319:
-.LBB25_52:
-.Lxtalabel59:
-	stw r2, sp[23]
-.Ltmp320:
+.Ltmp308:
+	mov r8, r10
+	ldw r6, sp[13]
+.Ltmp309:
+	bf r0, .LBB29_45
+.Ltmp310:
+.LBB29_42:
+	stw r5, sp[22]
+	stw r11, sp[24]
+	mov r5, r3
+.Ltmp311:
+.LBB29_40:
+.Lxtalabel57:
+	.loc	1 196 0
+	stw r9, sp[19]
+	stw r9, sp[1]
+	ldaw r11, cp[.str24]
+	mov r0, r11
+	ldaw r1, sp[76]
+	ldw r2, sp[20]
+	ldw r3, sp[17]
+.Lxta.call_labels19:
+	bl iprintf
+	ldw r1, sp[15]
+.Ltmp312:
+	.loc	1 197 0
+	ldw r0, r1[0]
+	.loc	1 197 0
+	ldw r1, r1[1]
+.Ltmp313:
+	.loc	1 197 0
+	ldw r2, r1[4]
+	.loc	1 197 0
+	mov r1, r10
+.Lxta.call_labels20:
+	bla r2
+	mov r9, r10
+	mov r8, r5
+	bu .LBB29_48
+.Ltmp314:
+.LBB29_45:
+.Lxtalabel58:
+	stw r5, sp[22]
+.Ltmp315:
+	stw r2, sp[21]
+	stw r11, sp[24]
+.Ltmp316:
+	mov r5, r3
 	.loc	1 187 17
-	eq r9, r7, 0
+	eq r9, r8, 0
 	.loc	1 188 21
 	ldw r0, sp[30]
-	bf r0, .LBB25_53
-.Ltmp321:
-.Lxtalabel60:
+	bf r0, .LBB29_46
+.Ltmp317:
+.Lxtalabel59:
 	.loc	1 192 0
 	ldw r0, sp[19]
 	stw r0, sp[1]
-	ldaw r11, cp[.str27]
+	ldaw r11, cp[.str23]
 	mov r0, r11
-	ldaw r1, sp[77]
+	ldaw r1, sp[76]
 	ldw r2, sp[20]
 	ldw r3, sp[17]
-.Lxta.call_labels22:
+.Lxta.call_labels21:
 	bl iprintf
 	ldw r1, sp[15]
-.Ltmp322:
+.Ltmp318:
 	.loc	1 193 0
 	ldw r0, r1[0]
 	.loc	1 193 0
 	ldw r1, r1[1]
-.Ltmp323:
+.Ltmp319:
 	.loc	1 193 0
-	ldw r2, r1[2]
-	.loc	1 193 0
-	mov r1, r6
-	bu .LBB25_47
-.Ltmp324:
-.LBB25_23:
-.Lxtalabel61:
+	ldw r2, r1[4]
+	mkmsk r1, 2
+	bu .LBB29_47
+.Ltmp320:
+.LBB29_23:
+.Lxtalabel60:
 	ldw r0, sp[14]
 	.loc	1 108 25
-	bf r0, .LBB25_24
-.Ltmp325:
+	bf r0, .LBB29_24
+.Ltmp321:
 	.loc	1 114 32
 	eq r0, r0, r1
-	stw r10, sp[26]
-	bf r0, .LBB25_1
-.Ltmp326:
-.Lxtalabel62:
+	mov r3, r5
+	stw r3, sp[25]
+	bf r0, .LBB29_1
+.Ltmp322:
+.Lxtalabel61:
 	ldw r1, sp[15]
-.Ltmp327:
+.Ltmp323:
 	.loc	1 115 0
 	ldw r0, r1[0]
 	.loc	1 115 0
 	ldw r1, r1[1]
-.Ltmp328:
+.Ltmp324:
 	.loc	1 115 0
-	ldw r2, r1[2]
-	mkmsk r1, 1
+	ldw r2, r1[4]
 	.loc	1 115 0
-.Lxta.call_labels23:
+	mov r1, r10
+	mov r5, r3
+.Lxta.call_labels22:
 	bla r2
-	stw r10, sp[26]
+	mov r3, r5
+	stw r3, sp[25]
 	ldw r0, sp[16]
 	.loc	1 115 0
 	stw r0, sp[14]
-	bu .LBB25_1
-.Ltmp329:
-.LBB25_76:
-.Lxtalabel63:
+	bu .LBB29_1
+.Ltmp325:
+.LBB29_74:
+.Lxtalabel62:
 	.loc	1 251 0
-	ldaw r11, cp[.str45]
+	ldaw r11, cp[.str37]
 	mov r0, r11
+.Lxta.call_labels23:
+	bl iprintf
+	mov r5, r7
+.Ltmp326:
+.LBB29_69:
+.Lxtalabel63:
+	.loc	1 254 0
+	stw r5, sp[21]
+	ldaw r11, cp[.str38]
+	mov r0, r11
+	mov r1, r5
 .Lxta.call_labels24:
 	bl iprintf
-	mov r8, r7
-.Ltmp330:
-	ldw r7, sp[22]
-	bu .LBB25_71
-.Ltmp331:
-.LBB25_53:
+	ldw r0, r9[0]
+	mov r3, r8
+	out res[r0], r3
+	outct res[r0], 1
+	mov r7, r10
+	stw r10, sp[25]
+	bu .LBB29_1
+.Ltmp327:
+.LBB29_46:
 .Lxtalabel64:
 	.loc	1 189 0
 	ldw r0, sp[19]
 	stw r0, sp[1]
-	ldaw r11, cp[.str26]
+	ldaw r11, cp[.str22]
 	mov r0, r11
-	ldaw r1, sp[77]
+	ldaw r1, sp[76]
 	ldw r2, sp[20]
 	ldw r3, sp[17]
 .Lxta.call_labels25:
 	bl iprintf
 	ldw r1, sp[15]
-.Ltmp332:
+.Ltmp328:
 	.loc	1 190 0
 	ldw r0, r1[0]
 	.loc	1 190 0
 	ldw r1, r1[1]
-.Ltmp333:
+.Ltmp329:
 	.loc	1 190 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	ldc r1, 2
-.Ltmp334:
-.LBB25_47:
+.Ltmp330:
+.LBB29_47:
 .Lxtalabel65:
-	.loc	1 193 0
+	.loc	1 190 0
 .Lxta.call_labels26:
 	bla r2
-.LBB25_48:
+.LBB29_48:
 .Lxtalabel66:
-.Ltmp335:
+.Ltmp331:
 	.loc	1 200 17
-	eq r0, r5, r7
-	bt r0, .LBB25_49
-.Ltmp336:
+	eq r0, r7, r8
+	bt r0, .LBB29_49
+.Ltmp332:
 .Lxtalabel67:
-	stw r7, sp[29]
-	bf r9, .LBB25_51
-.Ltmp337:
+	stw r8, sp[28]
+	bf r9, .LBB29_51
+.Ltmp333:
 .Lxtalabel68:
 	ldc r0, 100
 	ldw r2, sp[20]
@@ -3067,634 +3176,114 @@ temperature_heater_controller:
 	ldw r1, sp[17]
 	add r1, r2, r1
 	.loc	1 204 0
-	divu r5, r0, r1
-.Ltmp338:
-	stw r5, sp[28]
-	ldw r8, sp[25]
+	divu r7, r0, r1
+.Ltmp334:
+	stw r7, sp[27]
+	ldw r8, sp[24]
 	.loc	1 208 0
-.Ltmp339:
-	ldw r0, sp[23]
+.Ltmp335:
+	ldw r0, sp[22]
 	divu r0, r0, r8
 	.loc	1 211 0
 	sext r0, 16
-	ldw r9, sp[13]
+	ldw r9, sp[12]
 	mov r1, r9
 	ldc r2, 5
 .Lxta.call_labels27:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	.loc	1 211 0
-	stw r0, sp[85]
+	stw r0, sp[84]
 	ldc r0, 10
-	mov r7, r0
+	mov r10, r0
 	.loc	1 213 0
-	mul r3, r8, r7
+	mul r3, r8, r10
 	.loc	1 213 0
-	stw r5, sp[1]
-.Ltmp340:
-	ldaw r11, cp[.str29]
+	stw r7, sp[1]
+.Ltmp336:
+	ldaw r11, cp[.str25]
 	mov r0, r11
 	mov r1, r9
 	mov r2, r8
+	mov r7, r10
+	mkmsk r10, 1
 .Lxta.call_labels28:
 	bl iprintf
-	mov r0, r7
-.Ltmp341:
-	stw r10, sp[23]
-	stw r10, sp[25]
-	stw r10, sp[27]
-	bu .LBB25_55
-.Ltmp342:
-.LBB25_49:
-	ldc r0, 10
-	bu .LBB25_56
-.Ltmp343:
-.LBB25_51:
-	ldc r0, 10
-.Ltmp344:
-.LBB25_55:
+.Ltmp337:
+	stw r5, sp[22]
+	stw r5, sp[24]
+	stw r5, sp[26]
+	bu .LBB29_52
+.Ltmp338:
+.LBB29_49:
+	ldc r7, 10
+	bu .LBB29_53
+.Ltmp339:
+.LBB29_51:
+	ldc r7, 10
+.Ltmp340:
+.LBB29_52:
 .Lxtalabel69:
-	ldw r7, sp[29]
-.LBB25_56:
+	ldw r8, sp[28]
+.LBB29_53:
 .Lxtalabel70:
-.Ltmp345:
+.Ltmp341:
 	.loc	1 224 0
+	mov r0, r7
 	bl putchar
-.Ltmp346:
-	stw r7, sp[29]
-	mkmsk r0, 1
-	mov r9, r0
-	ldw r7, sp[22]
-	bu .LBB25_1
-.Ltmp347:
-.LBB25_24:
+.Ltmp342:
+	stw r8, sp[28]
+	mov r7, r10
+	mov r3, r5
+	bu .LBB29_1
+.Ltmp343:
+.LBB29_24:
 .Lxtalabel71:
-	mov r5, r9
 	ldw r1, sp[15]
-.Ltmp348:
+.Ltmp344:
 	.loc	1 110 0
 	ldw r0, r1[0]
 	.loc	1 110 0
 	ldw r1, r1[1]
-.Ltmp349:
+.Ltmp345:
 	.loc	1 110 0
-	ldw r9, r1[2]
+	ldw r9, r1[4]
 	.loc	1 109 29
 	ldw r1, sp[30]
-	bf r1, .LBB25_25
-.Ltmp350:
+	bf r1, .LBB29_25
+.Ltmp346:
 .Lxtalabel72:
+	mkmsk r1, 2
 	.loc	1 112 0
-	mov r1, r6
 .Lxta.call_labels29:
 	bla r9
-	bu .LBB25_27
-.Ltmp351:
-.LBB25_25:
+	mov r3, r5
+	bu .LBB29_27
+.Ltmp347:
+.LBB29_25:
 .Lxtalabel73:
 	ldc r1, 2
 	.loc	1 110 0
 .Lxta.call_labels30:
 	bla r9
-	stw r10, sp[30]
-.Ltmp352:
-.LBB25_27:
+	mov r3, r5
+	stw r3, sp[30]
+.Ltmp348:
+.LBB29_27:
 .Lxtalabel74:
-	stw r10, sp[26]
-	stw r10, sp[14]
-	mov r9, r5
-	bu .LBB25_1
-	.cc_bottom temperature_heater_controller.function
-	.set	temperature_heater_controller.nstackwords,((__memcpy_4.nstackwords $M memcpy.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords $M _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M init_arithmetic_mean_temp_onetenthDegC.nstackwords $M temp_onetenthDegC_to_str.nstackwords $M putchar.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M do_arithmetic_mean_temp_onetenthDegC.nstackwords $M iprintf.nstackwords $M puts.nstackwords) + 93)
-	.globl	temperature_heater_controller.nstackwords
-	.set	temperature_heater_controller.maxcores,_i.i2c_external_commands_if.command.max.maxcores $M _i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M do_arithmetic_mean_temp_onetenthDegC.maxcores $M init_arithmetic_mean_temp_onetenthDegC.maxcores $M iprintf.maxcores $M putchar.maxcores $M puts.maxcores $M temp_onetenthDegC_to_str.maxcores $M 1
-	.globl	temperature_heater_controller.maxcores
-	.set	temperature_heater_controller.maxtimers,_i.i2c_external_commands_if.command.max.maxtimers $M _i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M do_arithmetic_mean_temp_onetenthDegC.maxtimers $M init_arithmetic_mean_temp_onetenthDegC.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M puts.maxtimers $M temp_onetenthDegC_to_str.maxtimers $M 0
-	.globl	temperature_heater_controller.maxtimers
-	.set	temperature_heater_controller.maxchanends,_i.i2c_external_commands_if.command.max.maxchanends $M _i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M do_arithmetic_mean_temp_onetenthDegC.maxchanends $M init_arithmetic_mean_temp_onetenthDegC.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M puts.maxchanends $M temp_onetenthDegC_to_str.maxchanends $M 0
-	.globl	temperature_heater_controller.maxchanends
-.Ltmp353:
-	.size	temperature_heater_controller, .Ltmp353-temperature_heater_controller
-.Lfunc_end25:
-	.cfi_endproc
-
-	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI26_0.data,.LCPI26_0
-	.align	4
-	.type	.LCPI26_0,@object
-	.size	.LCPI26_0, 4
-.LCPI26_0:
-	.long	670763580
-	.cc_bottom .LCPI26_0.data
-	.cc_top .LCPI26_1.data,.LCPI26_1
-	.align	4
-	.type	.LCPI26_1,@object
-	.size	.LCPI26_1, 4
-.LCPI26_1:
-	.long	3624163008
-	.cc_bottom .LCPI26_1.data
-	.cc_top .LCPI26_2.data,.LCPI26_2
-	.align	4
-	.type	.LCPI26_2,@object
-	.size	.LCPI26_2, 4
-.LCPI26_2:
-	.long	171759621
-	.cc_bottom .LCPI26_2.data
-	.text
-	.globl	temperature_heater_controller.select.0.enable
-	.align	4
-	.type	temperature_heater_controller.select.0.enable,@function
-	.cc_top temperature_heater_controller.select.0.enable.function,temperature_heater_controller.select.0.enable
-temperature_heater_controller.select.0.enable:
-.Lfunc_begin26:
-	.file	2 "<synthesized>"
-	.loc	2 0 0
-	.cfi_startproc
-	entsp 2
-.Ltmp354:
-	.cfi_def_cfa_offset 8
-.Ltmp355:
-	.cfi_offset 15, 0
-	stw r4, sp[1]
-.Ltmp356:
-	.cfi_offset 4, -4
-	mov r4, r0
-.Ltmp357:
-	bl temperature_heater_controller.init.1
-	ldw r0, r4[0]
-	bf r0, .LBB26_1
-.Ltmp358:
-	ldc r0, 260
-	add r0, r4, r0
-	ldc r1, 276
-	add r1, r4, r1
-	ldap r11, temperature_heater_controller.select.0.case.0
-	stw r11, r1[0]
-	ldc r1, 272
-	add r1, r4, r1
-	stw r4, r1[0]
-	ldc r1, 268
-	add r1, r4, r1
-	ldw r2, cp[.LCPI26_0]
-	stw r2, r1[0]
-	ldc r1, 264
-	add r1, r4, r1
-	ldw r2, cp[.LCPI26_1]
-	stw r2, r1[0]
-	ldw r1, cp[.LCPI26_2]
-	stw r1, r0[0]
-.Ltmp359:
-	.loc	1 229 0 prologue_end
-	ldw r1, r4[2]
-	.loc	1 229 0
-	ldw r2, r1[0]
-	.loc	1 229 0
-	ldw r2, r2[0]
-	bf r2, .LBB26_3
-.Ltmp360:
-	.loc	1 229 0
-	mov r11, r0
-	setv res[r2], r11
-	ldc r11, 0
-	.loc	1 229 0
-	setev res[r2], r11
-	.loc	1 229 0
-	eeu res[r2]
-.LBB26_3:
-.Ltmp361:
-	.loc	1 229 0
-	ldw r1, r1[1]
-	.loc	1 229 0
-	ldw r1, r1[0]
-	.loc	1 229 0
-	bf r1, .LBB26_4
-	.loc	1 229 0
-	mov r11, r0
-	setv res[r1], r11
-	mkmsk r0, 1
-	.loc	1 229 0
-	mov r11, r0
-	setev res[r1], r11
-	.loc	1 229 0
-	eeu res[r1]
-	bu .LBB26_5
-.Ltmp362:
-.LBB26_1:
-	ldc r0, 0
-	bu .LBB26_5
-.LBB26_4:
-	mkmsk r0, 1
-.LBB26_5:
-	ldw r4, sp[1]
-	retsp 2
-	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.select.0.enable.function
-	.set	temperature_heater_controller.select.0.enable.nstackwords,(temperature_heater_controller.init.1.nstackwords + 2)
-	.globl	temperature_heater_controller.select.0.enable.nstackwords
-	.set	temperature_heater_controller.select.0.enable.maxcores,temperature_heater_controller.init.1.maxcores $M 1
-	.globl	temperature_heater_controller.select.0.enable.maxcores
-	.set	temperature_heater_controller.select.0.enable.maxtimers,temperature_heater_controller.init.1.maxtimers $M 0
-	.globl	temperature_heater_controller.select.0.enable.maxtimers
-	.set	temperature_heater_controller.select.0.enable.maxchanends,temperature_heater_controller.init.1.maxchanends $M 0
-	.globl	temperature_heater_controller.select.0.enable.maxchanends
-.Ltmp363:
-	.size	temperature_heater_controller.select.0.enable, .Ltmp363-temperature_heater_controller.select.0.enable
-.Lfunc_end26:
-	.cfi_endproc
-
-	.globl	temperature_heater_controller.init.1
-	.align	4
-	.type	temperature_heater_controller.init.1,@function
-	.cc_top temperature_heater_controller.init.1.function,temperature_heater_controller.init.1
-temperature_heater_controller.init.1:
-.Lfunc_begin27:
-	.loc	2 0 0
-	.cfi_startproc
-	entsp 6
-.Ltmp364:
-	.cfi_def_cfa_offset 24
-.Ltmp365:
-	.cfi_offset 15, 0
-	stw r4, sp[5]
-.Ltmp366:
-	.cfi_offset 4, -4
-	stw r5, sp[4]
-.Ltmp367:
-	.cfi_offset 5, -8
-	stw r6, sp[3]
-.Ltmp368:
-	.cfi_offset 6, -12
-	stw r7, sp[2]
-.Ltmp369:
-	.cfi_offset 7, -16
-	stw r8, sp[1]
-.Ltmp370:
-	.cfi_offset 8, -20
-	mov r4, r0
-.Ltmp371:
-	ldw r0, r4[1]
-	bf r0, .LBB27_2
-.Ltmp372:
-.Lxtalabel75:
-	ldc r5, 0
-	stw r5, r4[1]
-	.loc	1 49 0 prologue_end
-.Ltmp373:
-	stw r5, r4[6]
-	.loc	1 50 0
-.Ltmp374:
-	stw r5, r4[7]
-	.loc	1 51 0
-.Ltmp375:
-	stw r5, r4[8]
-	mkmsk r8, 1
-	.loc	1 52 0
-.Ltmp376:
-	stw r8, r4[9]
-	.loc	1 53 0
-.Ltmp377:
-	stw r8, r4[10]
-	.loc	1 54 0
-.Ltmp378:
-	stw r8, r4[11]
-	ldc r0, 48
-	.loc	1 55 0
-.Ltmp379:
-	add r0, r4, r0
-	ldc r1, 72
-	.loc	1 61 0
-.Ltmp380:
-	add r6, r4, r1
-	ldc r2, 24
-.Ltmp381:
-	.loc	1 56 0
-	mov r1, r5
-	bl memset
-	.loc	1 61 0
-.Ltmp382:
-	stw r8, r6[0]
-	ldc r0, 76
-	.loc	1 63 0
-.Ltmp383:
-	add r0, r4, r0
-	.loc	1 63 0
-	stw r5, r0[0]
-	ldc r0, 80
-	.loc	1 64 0
-.Ltmp384:
-	add r0, r4, r0
-	.loc	1 64 0
-	stw r5, r0[0]
-	ldc r0, 84
-	.loc	1 66 0
-.Ltmp385:
-	add r0, r4, r0
-	ldc r1, 50
-	.loc	1 66 0
-	stw r1, r0[0]
-	ldc r0, 88
-	.loc	1 67 0
-.Ltmp386:
-	add r0, r4, r0
-	ldc r1, 240
-	.loc	1 67 0
-	stw r1, r0[0]
-	ldc r0, 92
-	.loc	1 69 0
-.Ltmp387:
-	add r0, r4, r0
-	.loc	1 69 0
-	ldaw r11, cp[temperature_heater_controller.init.1.2.init]
-	ldc r2, 16
-	mov r1, r11
-	bl __memcpy_4
-	ldc r0, 108
-	.loc	1 71 0
-.Ltmp388:
-	add r0, r4, r0
-	.loc	1 71 0
-	ldaw r11, cp[temperature_heater_controller.init.1.3.init]
-	ldc r2, 20
-	mov r1, r11
-	bl memcpy
-	ldc r0, 128
-.Ltmp389:
-	.loc	1 76 0
-	add r5, r4, r0
-	ldc r6, 8
-	ldc r7, 132
-	.loc	1 76 0
-	mov r0, r5
-	mov r1, r6
-	mov r2, r5
-	mov r3, r7
-.Lxta.call_labels31:
-	bl init_arithmetic_mean_temp_onetenthDegC
-	ldc r0, 172
-.Ltmp390:
-	.loc	1 76 0
-	add r0, r4, r0
-	.loc	1 76 0
-	mov r1, r6
-	mov r2, r5
-	mov r3, r7
-.Lxta.call_labels32:
-	bl init_arithmetic_mean_temp_onetenthDegC
-	ldc r0, 216
-	.loc	1 76 0
-	add r0, r4, r0
-	.loc	1 76 0
-	mov r1, r6
-	mov r2, r5
-	mov r3, r7
-.Lxta.call_labels33:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.Ltmp391:
-	.loc	1 79 0
-	ldaw r11, cp[.Lstr197]
-	mov r0, r11
-	bl puts
-	.loc	1 81 0
-	get r11, id
-	.loc	1 81 0
-	ldaw r0, dp[__timers]
-	.loc	1 81 0
-	ldw r0, r0[r11]
-	.loc	1 81 0
-	setc res[r0], 1
-	.loc	1 81 0
-.Lxta.endpoint_labels2:
-	in r0, res[r0]
-	.loc	1 81 0
-	stw r0, r4[5]
-	stw r8, r4[0]
-.Ltmp392:
-.LBB27_2:
-	ldw r8, sp[1]
-	ldw r7, sp[2]
-	ldw r6, sp[3]
-	ldw r5, sp[4]
-	ldw r4, sp[5]
-	retsp 6
-	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.init.1.function
-	.set	temperature_heater_controller.init.1.nstackwords,((memset.nstackwords $M __memcpy_4.nstackwords $M memcpy.nstackwords $M init_arithmetic_mean_temp_onetenthDegC.nstackwords $M puts.nstackwords) + 6)
-	.globl	temperature_heater_controller.init.1.nstackwords
-	.set	temperature_heater_controller.init.1.maxcores,init_arithmetic_mean_temp_onetenthDegC.maxcores $M puts.maxcores $M 1
-	.globl	temperature_heater_controller.init.1.maxcores
-	.set	temperature_heater_controller.init.1.maxtimers,init_arithmetic_mean_temp_onetenthDegC.maxtimers $M puts.maxtimers $M 0
-	.globl	temperature_heater_controller.init.1.maxtimers
-	.set	temperature_heater_controller.init.1.maxchanends,init_arithmetic_mean_temp_onetenthDegC.maxchanends $M puts.maxchanends $M 0
-	.globl	temperature_heater_controller.init.1.maxchanends
-.Ltmp393:
-	.size	temperature_heater_controller.init.1, .Ltmp393-temperature_heater_controller.init.1
-.Lfunc_end27:
-	.cfi_endproc
-
-	.globl	temperature_heater_controller.init.0
-	.align	4
-	.type	temperature_heater_controller.init.0,@function
-	.cc_top temperature_heater_controller.init.0.function,temperature_heater_controller.init.0
-temperature_heater_controller.init.0:
-	.cfi_startproc
-.Lxtalabel76:
-	stw r1, r0[2]
-	stw r2, r0[3]
-	stw r3, r0[4]
-	ldc r2, 0
-	stw r2, r0[0]
-	ldap r11, temperature_heater_controller.init.1
-	stw r11, r0[1]
-	ldw r2, r1[1]
-	ldw r3, r2[0]
-	bt r3, .LBB28_1
-	ldw r2, r2[1]
-	stw r0, r2[0]
-.LBB28_1:
-	ldw r1, r1[0]
-	ldw r2, r1[0]
-	bt r2, .LBB28_3
-	ldw r1, r1[1]
-	stw r0, r1[0]
-.LBB28_3:
-	retsp 0
-	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.init.0.function
-	.set	temperature_heater_controller.init.0.nstackwords,0
-	.globl	temperature_heater_controller.init.0.nstackwords
-	.set	temperature_heater_controller.init.0.maxcores,1
-	.globl	temperature_heater_controller.init.0.maxcores
-	.set	temperature_heater_controller.init.0.maxtimers,0
-	.globl	temperature_heater_controller.init.0.maxtimers
-	.set	temperature_heater_controller.init.0.maxchanends,0
-	.globl	temperature_heater_controller.init.0.maxchanends
-.Ltmp394:
-	.size	temperature_heater_controller.init.0, .Ltmp394-temperature_heater_controller.init.0
-	.cfi_endproc
-
-	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI29_0.data,.LCPI29_0
-	.align	4
-	.type	.LCPI29_0,@object
-	.size	.LCPI29_0, 4
-.LCPI29_0:
-	.long	670763580
-	.cc_bottom .LCPI29_0.data
-	.cc_top .LCPI29_1.data,.LCPI29_1
-	.align	4
-	.type	.LCPI29_1,@object
-	.size	.LCPI29_1, 4
-.LCPI29_1:
-	.long	3624163008
-	.cc_bottom .LCPI29_1.data
-	.cc_top .LCPI29_2.data,.LCPI29_2
-	.align	4
-	.type	.LCPI29_2,@object
-	.size	.LCPI29_2, 4
-.LCPI29_2:
-	.long	171759621
-	.cc_bottom .LCPI29_2.data
-	.text
-	.globl	temperature_heater_controller.select.y.enable
-	.align	4
-	.type	temperature_heater_controller.select.y.enable,@function
-	.cc_top temperature_heater_controller.select.y.enable.function,temperature_heater_controller.select.y.enable
-temperature_heater_controller.select.y.enable:
-.Lfunc_begin29:
-	.loc	2 0 0
-	.cfi_startproc
-	entsp 2
-.Ltmp395:
-	.cfi_def_cfa_offset 8
-.Ltmp396:
-	.cfi_offset 15, 0
-	stw r4, sp[1]
-.Ltmp397:
-	.cfi_offset 4, -4
-	mov r4, r0
-.Ltmp398:
-	bl temperature_heater_controller.init.1
-	ldw r0, r4[0]
-	bf r0, .LBB29_1
-.Ltmp399:
-	ldw r0, r4[11]
-	bt r0, .LBB29_3
-.Ltmp400:
-	ldw r0, r4[3]
-	ldw r0, r0[1]
-	bf r0, .LBB29_8
-.Ltmp401:
-	ldap r11, temperature_heater_controller.select.y.case.1
-	setv res[r0], r11
-	mov r11, r4
-	setev res[r0], r11
-	eeu res[r0]
-	bu .LBB29_8
-.Ltmp402:
-.LBB29_1:
-	ldc r0, 0
-	bu .LBB29_11
-.LBB29_3:
-.Ltmp403:
-	eq r0, r0, 1
-	bf r0, .LBB29_8
-.Ltmp404:
-	get r11, id
-	ldaw r0, dp[__timers]
-	ldw r0, r0[r11]
-	ldaw r1, dp[__timer_base]
-	ldw r2, r1[r11]
-	ldw r1, r4[5]
-	sub r2, r1, r2
-	ldaw r3, dp[__timer_delta]
-	ldw r11, r3[r11]
-	lss r11, r11, r2
-	bt r11, .LBB29_6
-.Ltmp405:
-	get r11, id
-	stw r2, r3[r11]
-	setd res[r0], r1
-	setc res[r0], 9
-	ldap r11, temperature_heater_controller.select.y.case.0
-	setv res[r0], r11
-	mov r11, r4
-	setev res[r0], r11
-.Ltmp406:
-.LBB29_6:
-	eeu res[r0]
-.Ltmp407:
-.LBB29_8:
-	ldc r0, 260
-	add r0, r4, r0
-	ldc r1, 276
-	add r1, r4, r1
-	ldap r11, temperature_heater_controller.select.y.case.2
-	stw r11, r1[0]
-	ldc r1, 272
-	add r1, r4, r1
-	stw r4, r1[0]
-	ldc r1, 268
-	add r1, r4, r1
-	ldw r2, cp[.LCPI29_0]
-	stw r2, r1[0]
-	ldc r1, 264
-	add r1, r4, r1
-	ldw r2, cp[.LCPI29_1]
-	stw r2, r1[0]
-	ldw r1, cp[.LCPI29_2]
-	stw r1, r0[0]
-.Ltmp408:
-	.loc	1 229 0 prologue_end
-	ldw r1, r4[2]
-	.loc	1 229 0
-	ldw r2, r1[0]
-	.loc	1 229 0
-	ldw r2, r2[0]
-	bf r2, .LBB29_9
-.Ltmp409:
-	.loc	1 229 0
-	mov r11, r0
-	setv res[r2], r11
-	ldc r11, 0
-	.loc	1 229 0
-	setev res[r2], r11
-	.loc	1 229 0
-	eeu res[r2]
-.LBB29_9:
-.Ltmp410:
-	.loc	1 229 0
-	ldw r1, r1[1]
-	.loc	1 229 0
-	ldw r1, r1[0]
-	.loc	1 229 0
-	bf r1, .LBB29_10
-	.loc	1 229 0
-	mov r11, r0
-	setv res[r1], r11
-	mkmsk r0, 1
-	.loc	1 229 0
-	mov r11, r0
-	setev res[r1], r11
-	.loc	1 229 0
-	eeu res[r1]
-	bu .LBB29_11
-.Ltmp411:
-.LBB29_10:
-	mkmsk r0, 1
-.LBB29_11:
-	ldw r4, sp[1]
-	retsp 2
-	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.select.y.enable.function
-	.set	temperature_heater_controller.select.y.enable.nstackwords,(temperature_heater_controller.init.1.nstackwords + 2)
-	.globl	temperature_heater_controller.select.y.enable.nstackwords
-	.set	temperature_heater_controller.select.y.enable.maxcores,temperature_heater_controller.init.1.maxcores $M 1
-	.globl	temperature_heater_controller.select.y.enable.maxcores
-	.set	temperature_heater_controller.select.y.enable.maxtimers,temperature_heater_controller.init.1.maxtimers $M 0
-	.globl	temperature_heater_controller.select.y.enable.maxtimers
-	.set	temperature_heater_controller.select.y.enable.maxchanends,temperature_heater_controller.init.1.maxchanends $M 0
-	.globl	temperature_heater_controller.select.y.enable.maxchanends
-.Ltmp412:
-	.size	temperature_heater_controller.select.y.enable, .Ltmp412-temperature_heater_controller.select.y.enable
+	stw r3, sp[25]
+	stw r3, sp[14]
+	bu .LBB29_1
+	.cc_bottom Temperature_Heater_Controller.function
+	.set	Temperature_Heater_Controller.nstackwords,((__memcpy_4.nstackwords $M memcpy.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords $M _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M Init_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords $M Temp_OnetenthDegC_To_Str.nstackwords $M putchar.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M Do_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords $M puts.nstackwords $M iprintf.nstackwords) + 92)
+	.globl	Temperature_Heater_Controller.nstackwords
+	.set	Temperature_Heater_Controller.maxcores,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Temp_OnetenthDegC_To_Str.maxcores $M _i.i2c_external_commands_if.command.max.maxcores $M _i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M iprintf.maxcores $M putchar.maxcores $M puts.maxcores $M 1
+	.globl	Temperature_Heater_Controller.maxcores
+	.set	Temperature_Heater_Controller.maxtimers,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Temp_OnetenthDegC_To_Str.maxtimers $M _i.i2c_external_commands_if.command.max.maxtimers $M _i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M puts.maxtimers $M 0
+	.globl	Temperature_Heater_Controller.maxtimers
+	.set	Temperature_Heater_Controller.maxchanends,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Temp_OnetenthDegC_To_Str.maxchanends $M _i.i2c_external_commands_if.command.max.maxchanends $M _i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M puts.maxchanends $M 0
+	.globl	Temperature_Heater_Controller.maxchanends
+.Ltmp349:
+	.size	Temperature_Heater_Controller, .Ltmp349-Temperature_Heater_Controller
 .Lfunc_end29:
 	.cfi_endproc
 
@@ -3721,45 +3310,566 @@ temperature_heater_controller.select.y.enable:
 	.long	171759621
 	.cc_bottom .LCPI30_2.data
 	.text
-	.globl	temperature_heater_controller.select.enable
+	.globl	Temperature_Heater_Controller.select.0.enable
 	.align	4
-	.type	temperature_heater_controller.select.enable,@function
-	.cc_top temperature_heater_controller.select.enable.function,temperature_heater_controller.select.enable
-temperature_heater_controller.select.enable:
+	.type	Temperature_Heater_Controller.select.0.enable,@function
+	.cc_top Temperature_Heater_Controller.select.0.enable.function,Temperature_Heater_Controller.select.0.enable
+Temperature_Heater_Controller.select.0.enable:
 .Lfunc_begin30:
+	.file	2 "<synthesized>"
+	.loc	2 0 0
+	.cfi_startproc
+	entsp 2
+.Ltmp350:
+	.cfi_def_cfa_offset 8
+.Ltmp351:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp352:
+	.cfi_offset 4, -4
+	mov r4, r0
+.Ltmp353:
+	bl Temperature_Heater_Controller.init.1
+	ldw r0, r4[0]
+	bf r0, .LBB30_1
+.Ltmp354:
+	ldc r0, 260
+	add r0, r4, r0
+	ldc r1, 276
+	add r1, r4, r1
+	ldap r11, Temperature_Heater_Controller.select.0.case.0
+	stw r11, r1[0]
+	ldc r1, 272
+	add r1, r4, r1
+	stw r4, r1[0]
+	ldc r1, 268
+	add r1, r4, r1
+	ldw r2, cp[.LCPI30_0]
+	stw r2, r1[0]
+	ldc r1, 264
+	add r1, r4, r1
+	ldw r2, cp[.LCPI30_1]
+	stw r2, r1[0]
+	ldw r1, cp[.LCPI30_2]
+	stw r1, r0[0]
+.Ltmp355:
+	.loc	1 229 0 prologue_end
+	ldw r1, r4[2]
+	.loc	1 229 0
+	ldw r2, r1[0]
+	.loc	1 229 0
+	ldw r2, r2[0]
+	bf r2, .LBB30_3
+.Ltmp356:
+	.loc	1 229 0
+	mov r11, r0
+	setv res[r2], r11
+	ldc r11, 0
+	.loc	1 229 0
+	setev res[r2], r11
+	.loc	1 229 0
+	eeu res[r2]
+.LBB30_3:
+.Ltmp357:
+	.loc	1 229 0
+	ldw r1, r1[1]
+	.loc	1 229 0
+	ldw r1, r1[0]
+	.loc	1 229 0
+	bf r1, .LBB30_4
+	.loc	1 229 0
+	mov r11, r0
+	setv res[r1], r11
+	mkmsk r0, 1
+	.loc	1 229 0
+	mov r11, r0
+	setev res[r1], r11
+	.loc	1 229 0
+	eeu res[r1]
+	bu .LBB30_5
+.Ltmp358:
+.LBB30_1:
+	ldc r0, 0
+	bu .LBB30_5
+.LBB30_4:
+	mkmsk r0, 1
+.LBB30_5:
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom Temperature_Heater_Controller.select.0.enable.function
+	.set	Temperature_Heater_Controller.select.0.enable.nstackwords,(Temperature_Heater_Controller.init.1.nstackwords + 2)
+	.globl	Temperature_Heater_Controller.select.0.enable.nstackwords
+	.set	Temperature_Heater_Controller.select.0.enable.maxcores,Temperature_Heater_Controller.init.1.maxcores $M 1
+	.globl	Temperature_Heater_Controller.select.0.enable.maxcores
+	.set	Temperature_Heater_Controller.select.0.enable.maxtimers,Temperature_Heater_Controller.init.1.maxtimers $M 0
+	.globl	Temperature_Heater_Controller.select.0.enable.maxtimers
+	.set	Temperature_Heater_Controller.select.0.enable.maxchanends,Temperature_Heater_Controller.init.1.maxchanends $M 0
+	.globl	Temperature_Heater_Controller.select.0.enable.maxchanends
+.Ltmp359:
+	.size	Temperature_Heater_Controller.select.0.enable, .Ltmp359-Temperature_Heater_Controller.select.0.enable
+.Lfunc_end30:
+	.cfi_endproc
+
+	.globl	Temperature_Heater_Controller.init.1
+	.align	4
+	.type	Temperature_Heater_Controller.init.1,@function
+	.cc_top Temperature_Heater_Controller.init.1.function,Temperature_Heater_Controller.init.1
+Temperature_Heater_Controller.init.1:
+.Lfunc_begin31:
+	.loc	2 0 0
+	.cfi_startproc
+	entsp 6
+.Ltmp360:
+	.cfi_def_cfa_offset 24
+.Ltmp361:
+	.cfi_offset 15, 0
+	stw r4, sp[5]
+.Ltmp362:
+	.cfi_offset 4, -4
+	stw r5, sp[4]
+.Ltmp363:
+	.cfi_offset 5, -8
+	stw r6, sp[3]
+.Ltmp364:
+	.cfi_offset 6, -12
+	stw r7, sp[2]
+.Ltmp365:
+	.cfi_offset 7, -16
+	stw r8, sp[1]
+.Ltmp366:
+	.cfi_offset 8, -20
+	mov r4, r0
+.Ltmp367:
+	ldw r0, r4[1]
+	bf r0, .LBB31_2
+.Ltmp368:
+.Lxtalabel75:
+	ldc r5, 0
+	stw r5, r4[1]
+	.loc	1 49 0 prologue_end
+.Ltmp369:
+	stw r5, r4[6]
+	.loc	1 50 0
+.Ltmp370:
+	stw r5, r4[7]
+	.loc	1 51 0
+.Ltmp371:
+	stw r5, r4[8]
+	mkmsk r8, 1
+	.loc	1 52 0
+.Ltmp372:
+	stw r8, r4[9]
+	.loc	1 53 0
+.Ltmp373:
+	stw r8, r4[10]
+	.loc	1 54 0
+.Ltmp374:
+	stw r8, r4[11]
+	ldc r0, 48
+	.loc	1 55 0
+.Ltmp375:
+	add r0, r4, r0
+	ldc r1, 72
+	.loc	1 61 0
+.Ltmp376:
+	add r6, r4, r1
+	ldc r2, 24
+.Ltmp377:
+	.loc	1 56 0
+	mov r1, r5
+	bl memset
+	.loc	1 61 0
+.Ltmp378:
+	stw r8, r6[0]
+	ldc r0, 76
+	.loc	1 63 0
+.Ltmp379:
+	add r0, r4, r0
+	.loc	1 63 0
+	stw r5, r0[0]
+	ldc r0, 80
+	.loc	1 64 0
+.Ltmp380:
+	add r0, r4, r0
+	.loc	1 64 0
+	stw r5, r0[0]
+	ldc r0, 84
+	.loc	1 66 0
+.Ltmp381:
+	add r0, r4, r0
+	ldc r1, 50
+	.loc	1 66 0
+	stw r1, r0[0]
+	ldc r0, 88
+	.loc	1 67 0
+.Ltmp382:
+	add r0, r4, r0
+	ldc r1, 250
+	.loc	1 67 0
+	stw r1, r0[0]
+	ldc r0, 92
+	.loc	1 69 0
+.Ltmp383:
+	add r0, r4, r0
+	.loc	1 69 0
+	ldaw r11, cp[Temperature_Heater_Controller.init.1.2.init]
+	ldc r2, 16
+	mov r1, r11
+	bl __memcpy_4
+	ldc r0, 108
+	.loc	1 71 0
+.Ltmp384:
+	add r0, r4, r0
+	.loc	1 71 0
+	ldaw r11, cp[Temperature_Heater_Controller.init.1.3.init]
+	ldc r2, 20
+	mov r1, r11
+	bl memcpy
+	ldc r0, 128
+.Ltmp385:
+	.loc	1 76 0
+	add r5, r4, r0
+	ldc r6, 8
+	ldc r7, 132
+	.loc	1 76 0
+	mov r0, r5
+	mov r1, r6
+	mov r2, r5
+	mov r3, r7
+.Lxta.call_labels31:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+	ldc r0, 172
+.Ltmp386:
+	.loc	1 76 0
+	add r0, r4, r0
+	.loc	1 76 0
+	mov r1, r6
+	mov r2, r5
+	mov r3, r7
+.Lxta.call_labels32:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+	ldc r0, 216
+	.loc	1 76 0
+	add r0, r4, r0
+	.loc	1 76 0
+	mov r1, r6
+	mov r2, r5
+	mov r3, r7
+.Lxta.call_labels33:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.Ltmp387:
+	.loc	1 79 0
+	ldaw r11, cp[.Lstr146]
+	mov r0, r11
+	bl puts
+	.loc	1 81 0
+	get r11, id
+	.loc	1 81 0
+	ldaw r0, dp[__timers]
+	.loc	1 81 0
+	ldw r0, r0[r11]
+	.loc	1 81 0
+	setc res[r0], 1
+	.loc	1 81 0
+.Lxta.endpoint_labels2:
+	in r0, res[r0]
+	.loc	1 81 0
+	stw r0, r4[5]
+	stw r8, r4[0]
+.Ltmp388:
+.LBB31_2:
+	ldw r8, sp[1]
+	ldw r7, sp[2]
+	ldw r6, sp[3]
+	ldw r5, sp[4]
+	ldw r4, sp[5]
+	retsp 6
+	# RETURN_REG_HOLDER
+	.cc_bottom Temperature_Heater_Controller.init.1.function
+	.set	Temperature_Heater_Controller.init.1.nstackwords,((memset.nstackwords $M __memcpy_4.nstackwords $M memcpy.nstackwords $M Init_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords $M puts.nstackwords) + 6)
+	.globl	Temperature_Heater_Controller.init.1.nstackwords
+	.set	Temperature_Heater_Controller.init.1.maxcores,Init_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M puts.maxcores $M 1
+	.globl	Temperature_Heater_Controller.init.1.maxcores
+	.set	Temperature_Heater_Controller.init.1.maxtimers,Init_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M puts.maxtimers $M 0
+	.globl	Temperature_Heater_Controller.init.1.maxtimers
+	.set	Temperature_Heater_Controller.init.1.maxchanends,Init_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M puts.maxchanends $M 0
+	.globl	Temperature_Heater_Controller.init.1.maxchanends
+.Ltmp389:
+	.size	Temperature_Heater_Controller.init.1, .Ltmp389-Temperature_Heater_Controller.init.1
+.Lfunc_end31:
+	.cfi_endproc
+
+	.globl	Temperature_Heater_Controller.init.0
+	.align	4
+	.type	Temperature_Heater_Controller.init.0,@function
+	.cc_top Temperature_Heater_Controller.init.0.function,Temperature_Heater_Controller.init.0
+Temperature_Heater_Controller.init.0:
+	.cfi_startproc
+.Lxtalabel76:
+	stw r1, r0[2]
+	stw r2, r0[3]
+	stw r3, r0[4]
+	ldc r2, 0
+	stw r2, r0[0]
+	ldap r11, Temperature_Heater_Controller.init.1
+	stw r11, r0[1]
+	ldw r2, r1[1]
+	ldw r3, r2[0]
+	bt r3, .LBB32_1
+	ldw r2, r2[1]
+	stw r0, r2[0]
+.LBB32_1:
+	ldw r1, r1[0]
+	ldw r2, r1[0]
+	bt r2, .LBB32_3
+	ldw r1, r1[1]
+	stw r0, r1[0]
+.LBB32_3:
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom Temperature_Heater_Controller.init.0.function
+	.set	Temperature_Heater_Controller.init.0.nstackwords,0
+	.globl	Temperature_Heater_Controller.init.0.nstackwords
+	.set	Temperature_Heater_Controller.init.0.maxcores,1
+	.globl	Temperature_Heater_Controller.init.0.maxcores
+	.set	Temperature_Heater_Controller.init.0.maxtimers,0
+	.globl	Temperature_Heater_Controller.init.0.maxtimers
+	.set	Temperature_Heater_Controller.init.0.maxchanends,0
+	.globl	Temperature_Heater_Controller.init.0.maxchanends
+.Ltmp390:
+	.size	Temperature_Heater_Controller.init.0, .Ltmp390-Temperature_Heater_Controller.init.0
+	.cfi_endproc
+
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI33_0.data,.LCPI33_0
+	.align	4
+	.type	.LCPI33_0,@object
+	.size	.LCPI33_0, 4
+.LCPI33_0:
+	.long	670763580
+	.cc_bottom .LCPI33_0.data
+	.cc_top .LCPI33_1.data,.LCPI33_1
+	.align	4
+	.type	.LCPI33_1,@object
+	.size	.LCPI33_1, 4
+.LCPI33_1:
+	.long	3624163008
+	.cc_bottom .LCPI33_1.data
+	.cc_top .LCPI33_2.data,.LCPI33_2
+	.align	4
+	.type	.LCPI33_2,@object
+	.size	.LCPI33_2, 4
+.LCPI33_2:
+	.long	171759621
+	.cc_bottom .LCPI33_2.data
+	.text
+	.globl	Temperature_Heater_Controller.select.y.enable
+	.align	4
+	.type	Temperature_Heater_Controller.select.y.enable,@function
+	.cc_top Temperature_Heater_Controller.select.y.enable.function,Temperature_Heater_Controller.select.y.enable
+Temperature_Heater_Controller.select.y.enable:
+.Lfunc_begin33:
+	.loc	2 0 0
+	.cfi_startproc
+	entsp 2
+.Ltmp391:
+	.cfi_def_cfa_offset 8
+.Ltmp392:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp393:
+	.cfi_offset 4, -4
+	mov r4, r0
+.Ltmp394:
+	bl Temperature_Heater_Controller.init.1
+	ldw r0, r4[0]
+	bf r0, .LBB33_1
+.Ltmp395:
+	ldw r0, r4[11]
+	bt r0, .LBB33_3
+.Ltmp396:
+	ldw r0, r4[3]
+	ldw r0, r0[1]
+	bf r0, .LBB33_8
+.Ltmp397:
+	ldap r11, Temperature_Heater_Controller.select.y.case.1
+	setv res[r0], r11
+	mov r11, r4
+	setev res[r0], r11
+	eeu res[r0]
+	bu .LBB33_8
+.Ltmp398:
+.LBB33_1:
+	ldc r0, 0
+	bu .LBB33_11
+.LBB33_3:
+.Ltmp399:
+	eq r0, r0, 1
+	bf r0, .LBB33_8
+.Ltmp400:
+	get r11, id
+	ldaw r0, dp[__timers]
+	ldw r0, r0[r11]
+	ldaw r1, dp[__timer_base]
+	ldw r2, r1[r11]
+	ldw r1, r4[5]
+	sub r2, r1, r2
+	ldaw r3, dp[__timer_delta]
+	ldw r11, r3[r11]
+	lss r11, r11, r2
+	bt r11, .LBB33_6
+.Ltmp401:
+	get r11, id
+	stw r2, r3[r11]
+	setd res[r0], r1
+	setc res[r0], 9
+	ldap r11, Temperature_Heater_Controller.select.y.case.0
+	setv res[r0], r11
+	mov r11, r4
+	setev res[r0], r11
+.Ltmp402:
+.LBB33_6:
+	eeu res[r0]
+.Ltmp403:
+.LBB33_8:
+	ldc r0, 260
+	add r0, r4, r0
+	ldc r1, 276
+	add r1, r4, r1
+	ldap r11, Temperature_Heater_Controller.select.y.case.2
+	stw r11, r1[0]
+	ldc r1, 272
+	add r1, r4, r1
+	stw r4, r1[0]
+	ldc r1, 268
+	add r1, r4, r1
+	ldw r2, cp[.LCPI33_0]
+	stw r2, r1[0]
+	ldc r1, 264
+	add r1, r4, r1
+	ldw r2, cp[.LCPI33_1]
+	stw r2, r1[0]
+	ldw r1, cp[.LCPI33_2]
+	stw r1, r0[0]
+.Ltmp404:
+	.loc	1 229 0 prologue_end
+	ldw r1, r4[2]
+	.loc	1 229 0
+	ldw r2, r1[0]
+	.loc	1 229 0
+	ldw r2, r2[0]
+	bf r2, .LBB33_9
+.Ltmp405:
+	.loc	1 229 0
+	mov r11, r0
+	setv res[r2], r11
+	ldc r11, 0
+	.loc	1 229 0
+	setev res[r2], r11
+	.loc	1 229 0
+	eeu res[r2]
+.LBB33_9:
+.Ltmp406:
+	.loc	1 229 0
+	ldw r1, r1[1]
+	.loc	1 229 0
+	ldw r1, r1[0]
+	.loc	1 229 0
+	bf r1, .LBB33_10
+	.loc	1 229 0
+	mov r11, r0
+	setv res[r1], r11
+	mkmsk r0, 1
+	.loc	1 229 0
+	mov r11, r0
+	setev res[r1], r11
+	.loc	1 229 0
+	eeu res[r1]
+	bu .LBB33_11
+.Ltmp407:
+.LBB33_10:
+	mkmsk r0, 1
+.LBB33_11:
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom Temperature_Heater_Controller.select.y.enable.function
+	.set	Temperature_Heater_Controller.select.y.enable.nstackwords,(Temperature_Heater_Controller.init.1.nstackwords + 2)
+	.globl	Temperature_Heater_Controller.select.y.enable.nstackwords
+	.set	Temperature_Heater_Controller.select.y.enable.maxcores,Temperature_Heater_Controller.init.1.maxcores $M 1
+	.globl	Temperature_Heater_Controller.select.y.enable.maxcores
+	.set	Temperature_Heater_Controller.select.y.enable.maxtimers,Temperature_Heater_Controller.init.1.maxtimers $M 0
+	.globl	Temperature_Heater_Controller.select.y.enable.maxtimers
+	.set	Temperature_Heater_Controller.select.y.enable.maxchanends,Temperature_Heater_Controller.init.1.maxchanends $M 0
+	.globl	Temperature_Heater_Controller.select.y.enable.maxchanends
+.Ltmp408:
+	.size	Temperature_Heater_Controller.select.y.enable, .Ltmp408-Temperature_Heater_Controller.select.y.enable
+.Lfunc_end33:
+	.cfi_endproc
+
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI34_0.data,.LCPI34_0
+	.align	4
+	.type	.LCPI34_0,@object
+	.size	.LCPI34_0, 4
+.LCPI34_0:
+	.long	670763580
+	.cc_bottom .LCPI34_0.data
+	.cc_top .LCPI34_1.data,.LCPI34_1
+	.align	4
+	.type	.LCPI34_1,@object
+	.size	.LCPI34_1, 4
+.LCPI34_1:
+	.long	3624163008
+	.cc_bottom .LCPI34_1.data
+	.cc_top .LCPI34_2.data,.LCPI34_2
+	.align	4
+	.type	.LCPI34_2,@object
+	.size	.LCPI34_2, 4
+.LCPI34_2:
+	.long	171759621
+	.cc_bottom .LCPI34_2.data
+	.text
+	.globl	Temperature_Heater_Controller.select.enable
+	.align	4
+	.type	Temperature_Heater_Controller.select.enable,@function
+	.cc_top Temperature_Heater_Controller.select.enable.function,Temperature_Heater_Controller.select.enable
+Temperature_Heater_Controller.select.enable:
+.Lfunc_begin34:
 	.loc	2 0 0
 	.cfi_startproc
 	extsp 1
-.Ltmp413:
+.Ltmp409:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp414:
+.Ltmp410:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
-	bf r1, .LBB30_1
-.Ltmp415:
+	bf r1, .LBB34_1
+.Ltmp411:
 	ldw r1, r0[11]
-	bt r1, .LBB30_3
-.Ltmp416:
+	bt r1, .LBB34_3
+.Ltmp412:
 	ldw r1, r0[3]
 	ldw r1, r1[1]
-	bf r1, .LBB30_8
-.Ltmp417:
-	ldap r11, temperature_heater_controller.select.case.1
+	bf r1, .LBB34_8
+.Ltmp413:
+	ldap r11, Temperature_Heater_Controller.select.case.1
 	setv res[r1], r11
 	mov r11, r0
 	setev res[r1], r11
 	eeu res[r1]
-	bu .LBB30_8
-.Ltmp418:
-.LBB30_1:
+	bu .LBB34_8
+.Ltmp414:
+.LBB34_1:
 	ldc r0, 0
-	bu .LBB30_11
-.LBB30_3:
-.Ltmp419:
+	bu .LBB34_11
+.LBB34_3:
+.Ltmp415:
 	eq r1, r1, 1
-	bf r1, .LBB30_8
-.Ltmp420:
+	bf r1, .LBB34_8
+.Ltmp416:
 	get r11, id
 	ldaw r1, dp[__timers]
 	ldw r1, r1[r11]
@@ -3770,49 +3880,49 @@ temperature_heater_controller.select.enable:
 	ldaw r4, dp[__timer_delta]
 	ldw r11, r4[r11]
 	lss r11, r11, r3
-	bt r11, .LBB30_6
-.Ltmp421:
+	bt r11, .LBB34_6
+.Ltmp417:
 	get r11, id
 	stw r3, r4[r11]
 	setd res[r1], r2
 	setc res[r1], 9
-	ldap r11, temperature_heater_controller.select.case.0
+	ldap r11, Temperature_Heater_Controller.select.case.0
 	setv res[r1], r11
 	mov r11, r0
 	setev res[r1], r11
-.Ltmp422:
-.LBB30_6:
+.Ltmp418:
+.LBB34_6:
 	eeu res[r1]
-.Ltmp423:
-.LBB30_8:
+.Ltmp419:
+.LBB34_8:
 	ldc r1, 260
 	add r1, r0, r1
 	ldc r2, 276
 	add r2, r0, r2
-	ldap r11, temperature_heater_controller.select.case.2
+	ldap r11, Temperature_Heater_Controller.select.case.2
 	stw r11, r2[0]
 	ldc r2, 272
 	add r2, r0, r2
 	stw r0, r2[0]
 	ldc r2, 268
 	add r2, r0, r2
-	ldw r3, cp[.LCPI30_0]
+	ldw r3, cp[.LCPI34_0]
 	stw r3, r2[0]
 	ldc r2, 264
 	add r2, r0, r2
-	ldw r3, cp[.LCPI30_1]
+	ldw r3, cp[.LCPI34_1]
 	stw r3, r2[0]
-	ldw r2, cp[.LCPI30_2]
+	ldw r2, cp[.LCPI34_2]
 	stw r2, r1[0]
-.Ltmp424:
+.Ltmp420:
 	.loc	1 229 0 prologue_end
 	ldw r0, r0[2]
-.Ltmp425:
+.Ltmp421:
 	.loc	1 229 0
 	ldw r2, r0[0]
 	.loc	1 229 0
 	ldw r2, r2[0]
-	bf r2, .LBB30_9
+	bf r2, .LBB34_9
 	.loc	1 229 0
 	mov r11, r1
 	setv res[r2], r11
@@ -3821,14 +3931,14 @@ temperature_heater_controller.select.enable:
 	setev res[r2], r11
 	.loc	1 229 0
 	eeu res[r2]
-.LBB30_9:
-.Ltmp426:
+.LBB34_9:
+.Ltmp422:
 	.loc	1 229 0
 	ldw r0, r0[1]
 	.loc	1 229 0
 	ldw r2, r0[0]
 	.loc	1 229 0
-	bf r2, .LBB30_10
+	bf r2, .LBB34_10
 	.loc	1 229 0
 	mov r11, r1
 	setv res[r2], r11
@@ -3838,137 +3948,127 @@ temperature_heater_controller.select.enable:
 	setev res[r2], r11
 	.loc	1 229 0
 	eeu res[r2]
-	bu .LBB30_11
-.Ltmp427:
-.LBB30_10:
+	bu .LBB34_11
+.Ltmp423:
+.LBB34_10:
 	mkmsk r0, 1
-.LBB30_11:
+.LBB34_11:
 	ldw r4, sp[0]
 	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.select.enable.function
-	.set	temperature_heater_controller.select.enable.nstackwords,1
-	.globl	temperature_heater_controller.select.enable.nstackwords
-	.set	temperature_heater_controller.select.enable.maxcores,1
-	.globl	temperature_heater_controller.select.enable.maxcores
-	.set	temperature_heater_controller.select.enable.maxtimers,0
-	.globl	temperature_heater_controller.select.enable.maxtimers
-	.set	temperature_heater_controller.select.enable.maxchanends,0
-	.globl	temperature_heater_controller.select.enable.maxchanends
-.Ltmp428:
-	.size	temperature_heater_controller.select.enable, .Ltmp428-temperature_heater_controller.select.enable
-.Lfunc_end30:
+	.cc_bottom Temperature_Heater_Controller.select.enable.function
+	.set	Temperature_Heater_Controller.select.enable.nstackwords,1
+	.globl	Temperature_Heater_Controller.select.enable.nstackwords
+	.set	Temperature_Heater_Controller.select.enable.maxcores,1
+	.globl	Temperature_Heater_Controller.select.enable.maxcores
+	.set	Temperature_Heater_Controller.select.enable.maxtimers,0
+	.globl	Temperature_Heater_Controller.select.enable.maxtimers
+	.set	Temperature_Heater_Controller.select.enable.maxchanends,0
+	.globl	Temperature_Heater_Controller.select.enable.maxchanends
+.Ltmp424:
+	.size	Temperature_Heater_Controller.select.enable, .Ltmp424-Temperature_Heater_Controller.select.enable
+.Lfunc_end34:
 	.cfi_endproc
 
-	.globl	temperature_heater_controller.fini
+	.globl	Temperature_Heater_Controller.fini
 	.align	4
-	.type	temperature_heater_controller.fini,@function
-	.cc_top temperature_heater_controller.fini.function,temperature_heater_controller.fini
-temperature_heater_controller.fini:
+	.type	Temperature_Heater_Controller.fini,@function
+	.cc_top Temperature_Heater_Controller.fini.function,Temperature_Heater_Controller.fini
+Temperature_Heater_Controller.fini:
 	.cfi_startproc
 	ldw r0, r0[0]
-	bf r0, .LBB31_2
-.LBB31_1:
-	bu .LBB31_1
-.LBB31_2:
+	bf r0, .LBB35_2
+.LBB35_1:
+	bu .LBB35_1
+.LBB35_2:
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom temperature_heater_controller.fini.function
-	.set	temperature_heater_controller.fini.nstackwords,0
-	.globl	temperature_heater_controller.fini.nstackwords
-	.set	temperature_heater_controller.fini.maxcores,1
-	.globl	temperature_heater_controller.fini.maxcores
-	.set	temperature_heater_controller.fini.maxtimers,0
-	.globl	temperature_heater_controller.fini.maxtimers
-	.set	temperature_heater_controller.fini.maxchanends,0
-	.globl	temperature_heater_controller.fini.maxchanends
-.Ltmp429:
-	.size	temperature_heater_controller.fini, .Ltmp429-temperature_heater_controller.fini
+	.cc_bottom Temperature_Heater_Controller.fini.function
+	.set	Temperature_Heater_Controller.fini.nstackwords,0
+	.globl	Temperature_Heater_Controller.fini.nstackwords
+	.set	Temperature_Heater_Controller.fini.maxcores,1
+	.globl	Temperature_Heater_Controller.fini.maxcores
+	.set	Temperature_Heater_Controller.fini.maxtimers,0
+	.globl	Temperature_Heater_Controller.fini.maxtimers
+	.set	Temperature_Heater_Controller.fini.maxchanends,0
+	.globl	Temperature_Heater_Controller.fini.maxchanends
+.Ltmp425:
+	.size	Temperature_Heater_Controller.fini, .Ltmp425-Temperature_Heater_Controller.fini
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI32_0.data,.LCPI32_0
+	.cc_top .LCPI36_0.data,.LCPI36_0
 	.align	4
-	.type	.LCPI32_0,@object
-	.size	.LCPI32_0, 4
-.LCPI32_0:
+	.type	.LCPI36_0,@object
+	.size	.LCPI36_0, 4
+.LCPI36_0:
 	.long	1374389535
-	.cc_bottom .LCPI32_0.data
+	.cc_bottom .LCPI36_0.data
 	.text
 	.align	4
-	.type	temperature_heater_controller.select.0.case.0,@function
-	.cc_top temperature_heater_controller.select.0.case.0.function,temperature_heater_controller.select.0.case.0
-temperature_heater_controller.select.0.case.0:
-.Lfunc_begin32:
+	.type	Temperature_Heater_Controller.select.0.case.0,@function
+	.cc_top Temperature_Heater_Controller.select.0.case.0.function,Temperature_Heater_Controller.select.0.case.0
+Temperature_Heater_Controller.select.0.case.0:
+.Lfunc_begin36:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel77:
 	ldw r11, sp[0]
-	entsp 9
-.Ltmp430:
-	.cfi_def_cfa_offset 36
-.Ltmp431:
+	entsp 7
+.Ltmp426:
+	.cfi_def_cfa_offset 28
+.Ltmp427:
 	.cfi_offset 15, 0
-.Ltmp432:
-	.cfi_offset 1, -32
-.Ltmp433:
-	.cfi_offset 0, -28
-	stw r4, sp[8]
-.Ltmp434:
+.Ltmp428:
+	.cfi_offset 1, -24
+.Ltmp429:
+	.cfi_offset 0, -20
+	stw r4, sp[6]
+.Ltmp430:
 	.cfi_offset 4, -4
-	stw r5, sp[7]
-.Ltmp435:
+	stw r5, sp[5]
+.Ltmp431:
 	.cfi_offset 5, -8
-	stw r6, sp[6]
-.Ltmp436:
+	stw r6, sp[4]
+.Ltmp432:
 	.cfi_offset 6, -12
-	stw r7, sp[5]
-.Ltmp437:
+	stw r7, sp[3]
+.Ltmp433:
 	.cfi_offset 7, -16
-	stw r8, sp[4]
-.Ltmp438:
-	.cfi_offset 8, -20
-	stw r9, sp[3]
-.Ltmp439:
-	.cfi_offset 9, -24
 	mov r5, r11
-.Ltmp440:
+.Ltmp434:
 	.loc	1 229 0 prologue_end
 	get r11, ed
 	mov r4, r11
-.Ltmp441:
+.Ltmp435:
 	zext r4, 16
-.Ltmp442:
+.Ltmp436:
 	ldw r7, r5[2]
 	ldw r0, r7[r4]
-	ldw r6, r0[0]
-	in r0, res[r6]
+	ldw r0, r0[0]
+	in r2, res[r0]
 	ldc r1, 254
-	add r1, r0, r1
-	zext r1, 8
-	sub r2, r0, r1
-	setd res[r6], r2
-	mkmsk r8, 2
-	lsu r2, r8, r1
-	bf r2, .LBB32_1
-.Ltmp443:
-	outct res[r6], 1
-	in r6, res[r6]
-.Ltmp444:
-	.loc	1 273 0
-	ldaw r11, cp[.Lstr222]
-	mov r0, r11
-	bl puts
-	bt r6, .LBB32_4
-.Ltmp445:
+	add r3, r2, r1
+	zext r3, 8
+	sub r1, r2, r3
+	setd res[r0], r1
+	mkmsk r1, 2
+	lsu r11, r1, r3
+	bf r11, .LBB36_1
+.Ltmp437:
+	outct res[r0], 1
+	in r6, res[r0]
+.Ltmp438:
+	bt r6, .LBB36_4
+.Ltmp439:
 .Lxtalabel78:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr223]
+	ldaw r11, cp[.Lstr149]
 	mov r0, r11
 	bl puts
-.Ltmp446:
-.LBB32_4:
+.Ltmp440:
+.LBB36_4:
 .Lxtalabel79:
 	ldc r0, 72
 	.loc	1 280 17
@@ -3976,8 +4076,8 @@ temperature_heater_controller.select.0.case.0:
 	.loc	1 280 17
 	ldw r0, r0[0]
 	.loc	1 280 17
-	bf r0, .LBB32_12
-.Ltmp447:
+	bf r0, .LBB36_12
+.Ltmp441:
 .Lxtalabel80:
 	ldc r0, 60
 	.loc	1 281 21
@@ -3985,93 +4085,93 @@ temperature_heater_controller.select.0.case.0:
 	.loc	1 281 21
 	ldw r0, r0[0]
 	.loc	1 285 0
-	bt r0, .LBB32_6
-.Ltmp448:
+	bt r0, .LBB36_6
+.Ltmp442:
 .Lxtalabel81:
 	ldc r0, 0
-	bu .LBB32_8
-.Ltmp449:
-.LBB32_1:
+	bu .LBB36_8
+.Ltmp443:
+.LBB36_1:
 .Lxtalabel82:
 
 	.xtabranch .Ljumptable1+2,.Ljumptable1+4,.Ljumptable1+6,.Ljumptable1+8
 .Ljumptable1:
 		
-	bru r1
-	.jmptable .LBB32_25,.LBB32_15,.LBB32_14,.LBB32_13
-.Ltmp450:
-.LBB32_25:
+	bru r3
+	.jmptable .LBB36_23,.LBB36_14,.LBB36_26,.LBB36_13
+.Ltmp444:
+.LBB36_23:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB32_29
-.Ltmp451:
-	outct res[r6], 1
-	in r7, res[r6]
-.Ltmp452:
-	in r6, res[r6]
-.Ltmp453:
-	.loc	1 230 0
-	ldaw r11, cp[.Lstr221]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB36_25
+.Ltmp445:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp446:
+	in r0, res[r0]
+.Ltmp447:
 	.loc	1 231 0
-	stw r7, r5[10]
-	ldc r0, 84
+	stw r1, r5[10]
+	ldc r1, 84
+.Ltmp448:
 	.loc	1 232 0
-	add r0, r5, r0
+	add r1, r5, r1
 	.loc	1 232 0
-	stw r6, r0[0]
+	stw r0, r1[0]
 	ldc r0, 0
+.Ltmp449:
 	.loc	1 233 0
 	stw r0, r5[9]
-	ldw r1, r5[2]
-	ldw r1, r1[r4]
-	bu .LBB32_27
-.Ltmp454:
-.LBB32_12:
+	ldw r1, r7[r4]
+	ldw r1, r1[0]
+	out res[r1], r0
+	outct res[r1], 1
+	bu .LBB36_28
+.Ltmp450:
+.LBB36_12:
 .Lxtalabel83:
 	ldc r0, 68
 	.loc	1 288 0
-.Ltmp455:
+.Ltmp451:
 	add r0, r5, r0
 	.loc	1 288 0
 	ldw r0, r0[0]
-.Ltmp456:
-	bu .LBB32_8
-.Ltmp457:
-.LBB32_6:
+.Ltmp452:
+	bu .LBB36_8
+.Ltmp453:
+.LBB36_6:
 	ldc r0, 100
-.Ltmp458:
-.LBB32_8:
+.Ltmp454:
+.LBB36_8:
 .Lxtalabel84:
 	.loc	1 291 17
 	ldw r1, r5[10]
 	.loc	1 292 0
-	bt r1, .LBB32_9
-.Ltmp459:
+	bt r1, .LBB36_9
+.Ltmp455:
 .Lxtalabel85:
 	ldc r1, 2400
-	bu .LBB32_11
-.Ltmp460:
-.LBB32_9:
+	bu .LBB36_11
+.Ltmp456:
+.LBB36_9:
 	ldc r1, 1200
-.Ltmp461:
-.LBB32_11:
+.Ltmp457:
+.LBB36_11:
 .Lxtalabel86:
 	.loc	1 309 0
 	mul r2, r6, r6
 	.loc	1 309 0
 	divu r1, r2, r1
-.Ltmp462:
+.Ltmp458:
 	.loc	1 313 0
 	mul r1, r1, r0
-.Ltmp463:
+.Ltmp459:
 	ldc r2, 0
-	ldw r3, cp[.LCPI32_0]
+	ldw r3, cp[.LCPI36_0]
 	.loc	1 313 0
 	lmul r1, r3, r1, r3, r2, r2
 	shr r1, r1, 5
-.Ltmp464:
+.Ltmp460:
 	ldw r3, r5[2]
 	ldw r3, r3[r4]
 	ldw r3, r3[0]
@@ -4079,286 +4179,268 @@ temperature_heater_controller.select.0.case.0:
 	out res[r3], r0
 	out res[r3], r1
 	outct res[r3], 1
-	bu .LBB32_28
-.Ltmp465:
-.LBB32_15:
+	bu .LBB36_28
+.Ltmp461:
+.LBB36_14:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB32_29
-.Ltmp466:
-	outct res[r6], 1
-	in r8, res[r6]
-.Ltmp467:
-	in r6, res[r6]
-.Ltmp468:
-	.loc	1 238 0
-	ldaw r11, cp[.Lstr218]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB36_25
+.Ltmp462:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp463:
+	in r6, res[r0]
+.Ltmp464:
 	.loc	1 239 0
-	stw r8, r5[10]
+	stw r1, r5[10]
 	mkmsk r0, 1
 	.loc	1 240 0
 	stw r0, r5[9]
 	ldc r0, 88
 	.loc	1 242 17
 	add r5, r5, r0
-.Ltmp469:
+.Ltmp465:
 	.loc	1 242 17
 	ldw r0, r5[0]
 	.loc	1 242 17
 	eq r0, r6, r0
 	.loc	1 242 17
-	bf r0, .LBB32_20
-.Ltmp470:
+	bf r0, .LBB36_18
+.Ltmp466:
 .Lxtalabel87:
 	.loc	1 243 0
-	ldaw r11, cp[.str59]
+	ldaw r11, cp[.str46]
 	mov r0, r11
 .Lxta.call_labels34:
 	bl iprintf
-	bu .LBB32_18
-.Ltmp471:
-.LBB32_14:
+	bu .LBB36_17
+.Ltmp467:
+.LBB36_26:
 .Lxtalabel88:
-	outct res[r6], 1
-	.loc	1 258 0
-	ldaw r11, cp[.Lstr219]
-	mov r0, r11
-	bl puts
+	outct res[r0], 1
+	ldc r2, 92
+	.loc	1 260 0
+.Ltmp468:
+	add r2, r5, r2
+	.loc	1 260 0
+	ldw r11, r2[0]
+	ldc r3, 6
+	.loc	1 260 0
+	out res[r0], r3
+	ldc r2, 0
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	ldc r11, 96
+.Ltmp469:
+	.loc	1 260 0
+	add r11, r5, r11
+	.loc	1 260 0
+	ldw r11, r11[0]
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r2
+	mkmsk r4, 1
+	.loc	1 260 0
+	out res[r0], r4
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	ldc r11, 100
+	.loc	1 260 0
+	add r11, r5, r11
+	.loc	1 260 0
+	ldw r11, r11[0]
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r2
+	ldc r4, 2
+	.loc	1 260 0
+	out res[r0], r4
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	ldc r11, 104
+	.loc	1 260 0
+	add r11, r5, r11
+	.loc	1 260 0
+	ldw r11, r11[0]
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	out res[r0], r2
+	bu .LBB36_27
+.Ltmp470:
+.LBB36_13:
+	outct res[r0], 1
+	in r3, res[r0]
+.Ltmp471:
+	ldc r2, 4
 .Ltmp472:
-	ldc r0, 92
-	.loc	1 260 0
-.Ltmp473:
-	add r0, r5, r0
-	.loc	1 260 0
-	ldw r2, r0[0]
-	ldc r1, 6
-	.loc	1 260 0
-	out res[r6], r1
-	ldc r0, 0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 96
-.Ltmp474:
-	.loc	1 260 0
-	add r2, r5, r2
-	.loc	1 260 0
-	ldw r2, r2[0]
-	.loc	1 260 0
-	out res[r6], r1
-	.loc	1 260 0
-	out res[r6], r0
-	mkmsk r3, 1
-	.loc	1 260 0
-	out res[r6], r3
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 100
-	.loc	1 260 0
-	add r2, r5, r2
-	.loc	1 260 0
-	ldw r2, r2[0]
-	.loc	1 260 0
-	out res[r6], r1
-	.loc	1 260 0
-	out res[r6], r0
-	ldc r3, 2
-	.loc	1 260 0
-	out res[r6], r3
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 104
-	.loc	1 260 0
-	add r2, r5, r2
-	.loc	1 260 0
-	ldw r2, r2[0]
-	.loc	1 260 0
-	out res[r6], r1
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r8
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldw r1, r7[r4]
-.Ltmp475:
-.LBB32_27:
-	ldw r1, r1[0]
-	out res[r1], r0
-	outct res[r1], 1
-	bu .LBB32_28
-.LBB32_13:
-.Ltmp476:
-	outct res[r6], 1
-	in r9, res[r6]
-.Ltmp477:
-	.loc	1 265 0
-	ldaw r11, cp[.Lstr220]
-	mov r0, r11
-	bl puts
-	ldc r0, 4
-.Ltmp478:
 	.loc	1 267 0
-	lsu r1, r9, r0
+	lsu r11, r3, r2
 .Ltrap_info2:
-	ecallf r1
+	ecallf r11
 	.loc	1 267 0
-	ldaw r1, r9[r9]
-	add r2, r5, r1
-	ldc r1, 108
+	ldaw r3, r3[r3]
+.Ltmp473:
+	add r11, r5, r3
+	ldc r3, 108
 	.loc	1 267 0
-	ld8u r11, r2[r1]
-	ldc r3, 8
+	ld8u r5, r11[r3]
+.Ltmp474:
+	ldc r4, 8
 	.loc	1 267 0
-	out res[r6], r3
-	ldc r1, 0
+	out res[r0], r4
+	ldc r3, 0
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 109
-.Ltmp479:
+	chkct res[r0], 1
+	ldc r5, 109
+.Ltmp475:
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	mkmsk r5, 1
-.Ltmp480:
+	out res[r0], r3
+	mkmsk r6, 1
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 110
+	chkct res[r0], 1
+	ldc r5, 110
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	ldc r5, 2
+	out res[r0], r3
+	ldc r6, 2
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 111
+	chkct res[r0], 1
+	ldc r5, 111
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r8
+	out res[r0], r1
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 112
+	chkct res[r0], 1
+	ldc r1, 112
 	.loc	1 267 0
-	ld8u r2, r2[r11]
+	ld8u r1, r11[r1]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r0
+	out res[r0], r2
 	.loc	1 267 0
-	out res[r6], r2
+	out res[r0], r1
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldw r0, r7[r4]
-	ldw r0, r0[0]
-	bu .LBB32_19
-.Ltmp481:
-.LBB32_20:
+	chkct res[r0], 1
+	out res[r0], r3
+	bu .LBB36_27
+.Ltmp476:
+.LBB36_18:
 	ldc r0, 401
 	.loc	1 244 24
 	lss r0, r6, r0
-	bt r0, .LBB32_22
-.Ltmp482:
+	bt r0, .LBB36_20
+.Ltmp477:
 .Lxtalabel89:
 	.loc	1 245 0
-	ldaw r11, cp[.str60]
+	ldaw r11, cp[.str47]
 	mov r0, r11
 .Lxta.call_labels35:
 	bl iprintf
 	ldc r6, 400
 	.loc	1 246 0
 	stw r6, r5[0]
-	bu .LBB32_18
-.LBB32_22:
-.Ltmp483:
-	ldc r0, 234
+	bu .LBB36_17
+.LBB36_20:
+.Ltmp478:
+	ldc r0, 244
 	.loc	1 247 24
 	lss r0, r0, r6
-	bt r0, .LBB32_24
-.Ltmp484:
+	bt r0, .LBB36_22
+.Ltmp479:
 .Lxtalabel90:
 	.loc	1 248 0
-	ldaw r11, cp[.str61]
+	ldaw r11, cp[.str48]
 	mov r0, r11
 .Lxta.call_labels36:
 	bl iprintf
-	ldc r6, 235
+	ldc r6, 245
 	.loc	1 249 0
 	stw r6, r5[0]
-	bu .LBB32_18
-.LBB32_24:
+	bu .LBB36_17
+.LBB36_22:
 .Lxtalabel91:
-.Ltmp485:
+.Ltmp480:
 	.loc	1 251 0
-	ldaw r11, cp[.str62]
+	ldaw r11, cp[.str49]
 	mov r0, r11
 .Lxta.call_labels37:
 	bl iprintf
 	.loc	1 252 0
 	stw r6, r5[0]
-.Ltmp486:
-.LBB32_18:
+.Ltmp481:
+.LBB36_17:
 .Lxtalabel92:
 	.loc	1 254 0
-	ldaw r11, cp[.str63]
+	ldaw r11, cp[.str50]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels38:
@@ -4366,98 +4448,94 @@ temperature_heater_controller.select.0.case.0:
 	ldw r0, r7[r4]
 	ldw r0, r0[0]
 	ldc r1, 0
-.Ltmp487:
-.LBB32_19:
 	out res[r0], r1
+.Ltmp482:
+.LBB36_27:
 	outct res[r0], 1
-.LBB32_28:
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
-	retsp 9
+.LBB36_28:
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
+	retsp 7
 	# RETURN_REG_HOLDER
-.LBB32_29:
-	setd res[r6], r6
-	out res[r6], r0
-	outct res[r6], 2
-	edu res[r6]
-	ldc r0, 36
+.LBB36_25:
+	setd res[r0], r0
+	out res[r0], r2
+	outct res[r0], 2
+	edu res[r0]
+	ldc r0, 28
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
-	.cc_bottom temperature_heater_controller.select.0.case.0.function
-	.set	temperature_heater_controller.select.0.case.0.nstackwords,((iprintf.nstackwords $M puts.nstackwords) + 9)
-	.set	temperature_heater_controller.select.0.case.0.maxcores,iprintf.maxcores $M puts.maxcores $M 1
-	.set	temperature_heater_controller.select.0.case.0.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
-	.set	temperature_heater_controller.select.0.case.0.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
-.Ltmp488:
-	.size	temperature_heater_controller.select.0.case.0, .Ltmp488-temperature_heater_controller.select.0.case.0
-.Lfunc_end32:
+	.cc_bottom Temperature_Heater_Controller.select.0.case.0.function
+	.set	Temperature_Heater_Controller.select.0.case.0.nstackwords,((puts.nstackwords $M iprintf.nstackwords) + 7)
+	.set	Temperature_Heater_Controller.select.0.case.0.maxcores,iprintf.maxcores $M puts.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.0.case.0.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.0.case.0.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
+.Ltmp483:
+	.size	Temperature_Heater_Controller.select.0.case.0, .Ltmp483-Temperature_Heater_Controller.select.0.case.0
+.Lfunc_end36:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI33_0.data,.LCPI33_0
+	.cc_top .LCPI37_0.data,.LCPI37_0
 	.align	4
-	.type	.LCPI33_0,@object
-	.size	.LCPI33_0, 4
-.LCPI33_0:
+	.type	.LCPI37_0,@object
+	.size	.LCPI37_0, 4
+.LCPI37_0:
 	.long	10000000
-	.cc_bottom .LCPI33_0.data
-	.cc_top .LCPI33_1.data,.LCPI33_1
+	.cc_bottom .LCPI37_0.data
+	.cc_top .LCPI37_1.data,.LCPI37_1
 	.align	4
-	.type	.LCPI33_1,@object
-	.size	.LCPI33_1, 4
-.LCPI33_1:
+	.type	.LCPI37_1,@object
+	.size	.LCPI37_1, 4
+.LCPI37_1:
 	.long	1374389535
-	.cc_bottom .LCPI33_1.data
+	.cc_bottom .LCPI37_1.data
 	.text
 	.align	4
-	.type	temperature_heater_controller.select.y.case.0,@function
-	.cc_top temperature_heater_controller.select.y.case.0.function,temperature_heater_controller.select.y.case.0
-temperature_heater_controller.select.y.case.0:
-.Lfunc_begin33:
+	.type	Temperature_Heater_Controller.select.y.case.0,@function
+	.cc_top Temperature_Heater_Controller.select.y.case.0.function,Temperature_Heater_Controller.select.y.case.0
+Temperature_Heater_Controller.select.y.case.0:
+.Lfunc_begin37:
 	.loc	1 85 0
 	.cfi_startproc
 .Lxtalabel93:
 	entsp 2
-.Ltmp489:
+.Ltmp484:
 	.cfi_def_cfa_offset 8
-.Ltmp490:
+.Ltmp485:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp491:
+.Ltmp486:
 	.cfi_offset 4, -4
 	get r11, ed
 	mov r4, r11
 	.loc	1 85 0 prologue_end
-.Ltmp492:
+.Ltmp487:
 	get r11, id
 	.loc	1 85 0
 	ldaw r0, dp[__timers]
 	.loc	1 85 0
 	ldw r0, r0[r11]
 	.loc	1 85 0
-.Ltmp493:
+.Ltmp488:
 .Lxta.endpoint_labels3:
 	in r0, res[r0]
-.Ltmp494:
+.Ltmp489:
 	.loc	1 89 0
 	ldw r0, r4[5]
-	ldw r1, cp[.LCPI33_0]
+	ldw r1, cp[.LCPI37_0]
 	.loc	1 89 0
 	add r0, r0, r1
 	.loc	1 89 0
@@ -4470,7 +4548,7 @@ temperature_heater_controller.select.y.case.0:
 	stw r0, r4[6]
 	.loc	1 91 17
 	eq r0, r0, 10
-	bf r0, .LBB33_4
+	bf r0, .LBB37_4
 .Lxtalabel94:
 	ldc r0, 0
 	.loc	1 92 0
@@ -4481,14 +4559,14 @@ temperature_heater_controller.select.y.case.0:
 	.loc	1 93 21
 	ldw r0, r0[0]
 	.loc	1 93 21
-	bf r0, .LBB33_9
+	bf r0, .LBB37_9
 .Lxtalabel95:
 	ldc r0, 48
-	bu .LBB33_3
-.LBB33_9:
+	bu .LBB37_3
+.LBB37_9:
 .Lxtalabel96:
 	ldc r0, 52
-.LBB33_3:
+.LBB37_3:
 .Lxtalabel97:
 	.loc	1 94 0
 	add r0, r4, r0
@@ -4498,19 +4576,19 @@ temperature_heater_controller.select.y.case.0:
 	add r1, r1, 1
 	.loc	1 94 0
 	stw r1, r0[0]
-.LBB33_4:
+.LBB37_4:
 .Lxtalabel98:
 	.loc	1 100 17
 	ldw r0, r4[9]
 	.loc	1 100 17
-	bt r0, .LBB33_5
+	bt r0, .LBB37_5
 .Lxtalabel99:
 	.loc	1 101 0
 	ldw r0, r4[8]
 	.loc	1 101 0
 	add r0, r0, 1
 	ldc r1, 0
-	ldw r2, cp[.LCPI33_1]
+	ldw r2, cp[.LCPI37_1]
 	.loc	1 101 0
 	lmul r1, r2, r0, r2, r1, r1
 	shr r1, r1, 5
@@ -4526,7 +4604,7 @@ temperature_heater_controller.select.y.case.0:
 	ldw r1, r1[0]
 	.loc	1 103 21
 	eq r2, r1, r2
-	bf r2, .LBB33_11
+	bf r2, .LBB37_11
 .Lxtalabel100:
 	.loc	1 106 0
 	ldw r1, r4[4]
@@ -4535,25 +4613,21 @@ temperature_heater_controller.select.y.case.0:
 	.loc	1 106 0
 	ldw r1, r1[1]
 	.loc	1 106 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 2
 	.loc	1 106 0
 .Lxta.call_labels39:
 	bla r2
-	bu .LBB33_19
-.LBB33_5:
+	bu .LBB37_19
+.LBB37_5:
 .Lxtalabel101:
 	eq r0, r0, 1
-	bf r0, .LBB33_19
+	bf r0, .LBB37_19
 .Lxtalabel102:
 	.loc	1 119 21
 	ldw r0, r4[7]
-	bt r0, .LBB33_8
+	bt r0, .LBB37_8
 .Lxtalabel103:
-	.loc	1 121 0
-	ldaw r11, cp[.Lstr214]
-	mov r0, r11
-	bl puts
 	.loc	1 122 0
 	ldw r1, r4[3]
 	.loc	1 122 0
@@ -4566,21 +4640,17 @@ temperature_heater_controller.select.y.case.0:
 	.loc	1 122 0
 .Lxta.call_labels40:
 	bla r2
-	.loc	1 123 0
-	ldaw r11, cp[.Lstr215]
-	mov r0, r11
-	bl puts
 	ldc r0, 0
 	.loc	1 125 0
 	stw r0, r4[11]
 	.loc	1 128 0
 	ldw r0, r4[7]
-.LBB33_8:
+.LBB37_8:
 .Lxtalabel104:
 	.loc	1 128 0
 	add r0, r0, 1
 	ldc r1, 0
-	ldw r2, cp[.LCPI33_1]
+	ldw r2, cp[.LCPI37_1]
 	.loc	1 128 0
 	lmul r1, r2, r0, r2, r1, r1
 	shr r1, r1, 5
@@ -4589,17 +4659,17 @@ temperature_heater_controller.select.y.case.0:
 	sub r0, r0, r1
 	.loc	1 128 0
 	stw r0, r4[7]
-	bu .LBB33_19
-.LBB33_11:
+	bu .LBB37_19
+.LBB37_11:
 .Lxtalabel105:
-	bf r1, .LBB33_12
+	bf r1, .LBB37_12
 .Lxtalabel106:
 	.loc	1 108 25
-	bf r0, .LBB33_15
+	bf r0, .LBB37_15
 	.loc	1 114 32
 	eq r0, r0, r1
-	bf r0, .LBB33_19
-.LBB33_12:
+	bf r0, .LBB37_19
+.LBB37_12:
 .Lxtalabel107:
 	.loc	1 104 0
 	ldw r1, r4[4]
@@ -4608,17 +4678,17 @@ temperature_heater_controller.select.y.case.0:
 	.loc	1 104 0
 	ldw r1, r1[1]
 	.loc	1 104 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 1
 	.loc	1 104 0
 .Lxta.call_labels41:
 	bla r2
-.LBB33_19:
+.LBB37_19:
 .Lxtalabel108:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-.LBB33_15:
+.LBB37_15:
 .Lxtalabel109:
 	.loc	1 109 29
 	ldw r1, r4[10]
@@ -4629,71 +4699,71 @@ temperature_heater_controller.select.y.case.0:
 	.loc	1 110 0
 	ldw r2, r2[1]
 	.loc	1 110 0
-	ldw r4, r2[2]
+	ldw r4, r2[4]
 	.loc	1 109 29
-	bf r1, .LBB33_16
+	bf r1, .LBB37_16
 .Lxtalabel110:
 	mkmsk r1, 2
 	.loc	1 112 0
 .Lxta.call_labels42:
 	bla r4
-	bu .LBB33_19
-.LBB33_16:
+	bu .LBB37_19
+.LBB37_16:
 .Lxtalabel111:
 	ldc r1, 2
 	.loc	1 110 0
 .Lxta.call_labels43:
 	bla r4
-	bu .LBB33_19
-.Ltmp495:
-	.cc_bottom temperature_heater_controller.select.y.case.0.function
-	.set	temperature_heater_controller.select.y.case.0.nstackwords,((_i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords $M puts.nstackwords) + 2)
-	.set	temperature_heater_controller.select.y.case.0.maxcores,_i.i2c_external_commands_if.command.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M puts.maxcores $M 1
-	.set	temperature_heater_controller.select.y.case.0.maxtimers,_i.i2c_external_commands_if.command.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M puts.maxtimers $M 0
-	.set	temperature_heater_controller.select.y.case.0.maxchanends,_i.i2c_external_commands_if.command.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M puts.maxchanends $M 0
-.Ltmp496:
-	.size	temperature_heater_controller.select.y.case.0, .Ltmp496-temperature_heater_controller.select.y.case.0
-.Lfunc_end33:
+	bu .LBB37_19
+.Ltmp490:
+	.cc_bottom Temperature_Heater_Controller.select.y.case.0.function
+	.set	Temperature_Heater_Controller.select.y.case.0.nstackwords,((_i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords) + 2)
+	.set	Temperature_Heater_Controller.select.y.case.0.maxcores,_i.i2c_external_commands_if.command.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.y.case.0.maxtimers,_i.i2c_external_commands_if.command.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.y.case.0.maxchanends,_i.i2c_external_commands_if.command.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M 0
+.Ltmp491:
+	.size	Temperature_Heater_Controller.select.y.case.0, .Ltmp491-Temperature_Heater_Controller.select.y.case.0
+.Lfunc_end37:
 	.cfi_endproc
 
 	.align	4
-	.type	temperature_heater_controller.select.y.case.1,@function
-	.cc_top temperature_heater_controller.select.y.case.1.function,temperature_heater_controller.select.y.case.1
-temperature_heater_controller.select.y.case.1:
-.Lfunc_begin34:
+	.type	Temperature_Heater_Controller.select.y.case.1,@function
+	.cc_top Temperature_Heater_Controller.select.y.case.1.function,Temperature_Heater_Controller.select.y.case.1
+Temperature_Heater_Controller.select.y.case.1:
+.Lfunc_begin38:
 	.loc	1 134 0
 	.cfi_startproc
 .Lxtalabel112:
 	entsp 28
-.Ltmp497:
+.Ltmp492:
 	.cfi_def_cfa_offset 112
-.Ltmp498:
+.Ltmp493:
 	.cfi_offset 15, 0
 	stw r4, sp[27]
-.Ltmp499:
+.Ltmp494:
 	.cfi_offset 4, -4
 	stw r5, sp[26]
-.Ltmp500:
+.Ltmp495:
 	.cfi_offset 5, -8
 	stw r6, sp[25]
-.Ltmp501:
+.Ltmp496:
 	.cfi_offset 6, -12
 	stw r7, sp[24]
-.Ltmp502:
+.Ltmp497:
 	.cfi_offset 7, -16
 	stw r8, sp[23]
-.Ltmp503:
+.Ltmp498:
 	.cfi_offset 8, -20
 	stw r9, sp[22]
-.Ltmp504:
+.Ltmp499:
 	.cfi_offset 9, -24
 	stw r10, sp[21]
-.Ltmp505:
+.Ltmp500:
 	.cfi_offset 10, -28
 	get r11, ed
 	mov r7, r11
 	.loc	1 134 0 prologue_end
-.Ltmp506:
+.Ltmp501:
 	stw r7, sp[3]
 	ldw r0, r7[3]
 	.loc	1 134 0
@@ -4703,13 +4773,8 @@ temperature_heater_controller.select.y.case.1:
 	mkmsk r1, 1
 	.loc	1 134 0
 	stw r1, r0[2]
-	.loc	1 141 0
-.Ltmp507:
-	ldaw r11, cp[.Lstr216]
-	mov r0, r11
-	bl puts
 	.loc	1 142 0
-.Ltmp508:
+.Ltmp502:
 	ldw r0, r7[3]
 	.loc	1 142 0
 	ldw r1, r0[0]
@@ -4739,12 +4804,8 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 142 0
 	mov r1, r4
 	bl __memcpy_4
-	.loc	1 143 0
-	ldaw r11, cp[.Lstr217]
-	mov r0, r11
-	bl puts
 	ldc r0, 128
-.Ltmp509:
+.Ltmp503:
 	.loc	1 160 0
 	add r4, r7, r0
 	stw r4, sp[4]
@@ -4754,7 +4815,7 @@ temperature_heater_controller.select.y.case.1:
 	add r7, r7, r0
 	ldaw r10, sp[15]
 	mov r8, r5
-.LBB34_1:
+.LBB38_1:
 .Lxtalabel113:
 	.loc	1 147 0
 	ldw r0, r6[r8]
@@ -4767,7 +4828,7 @@ temperature_heater_controller.select.y.case.1:
 	mov r1, r7
 	ldc r2, 5
 .Lxta.call_labels45:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	.loc	1 152 0
 	stw r0, r9[r8]
 	ldaw r0, sp[18]
@@ -4775,9 +4836,9 @@ temperature_heater_controller.select.y.case.1:
 	stw r1, r0[r8]
 	.loc	1 154 21
 	ldw r0, r10[r8]
-	bf r0, .LBB34_3
+	bf r0, .LBB38_3
 .Lxtalabel114:
-	bf r1, .LBB34_3
+	bf r1, .LBB38_3
 .Lxtalabel115:
 	.loc	1 156 0
 	ldw r2, r9[r8]
@@ -4790,11 +4851,11 @@ temperature_heater_controller.select.y.case.1:
 	ldc r1, 8
 	mov r3, r8
 .Lxta.call_labels46:
-	bl do_arithmetic_mean_temp_onetenthDegC
+	bl Do_Arithmetic_Mean_Temp_OnetenthDegC
 	.loc	1 156 0
 	stw r0, r9[r8]
-	bu .LBB34_10
-.LBB34_3:
+	bu .LBB38_10
+.LBB38_3:
 .Lxtalabel116:
 	.loc	1 160 0
 	mov r0, r4
@@ -4802,12 +4863,12 @@ temperature_heater_controller.select.y.case.1:
 	ldw r2, sp[4]
 	ldc r3, 132
 .Lxta.call_labels47:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.LBB34_10:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.LBB38_10:
 .Lxtalabel117:
 	.loc	1 145 0
 	add r8, r8, 1
-.Ltmp510:
+.Ltmp504:
 	.loc	1 145 0
 	ldaw r4, r4[11]
 	.loc	1 145 0
@@ -4817,8 +4878,8 @@ temperature_heater_controller.select.y.case.1:
 	lss r0, r8, r0
 .Lxta.loop_labels2:
 	# LOOPMARKER 0
-	bt r0, .LBB34_1
-.Ltmp511:
+	bt r0, .LBB38_1
+.Ltmp505:
 .Lxtalabel118:
 	ldc r0, 64
 	ldw r10, sp[3]
@@ -4842,10 +4903,10 @@ temperature_heater_controller.select.y.case.1:
 	stw r1, r5[0]
 	.loc	1 167 17
 	ldw r1, sp[15]
-	bf r1, .LBB34_18
+	bf r1, .LBB38_18
 .Lxtalabel119:
 	ldw r1, sp[18]
-	bf r1, .LBB34_18
+	bf r1, .LBB38_18
 .Lxtalabel120:
 	ldc r1, 80
 	.loc	1 169 0
@@ -4864,20 +4925,20 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 172 25
 	ldw r2, r2[0]
 	.loc	1 171 21
-	bf r0, .LBB34_11
+	bf r0, .LBB38_11
 .Lxtalabel121:
 	.loc	1 172 25
 	add r0, r2, 2
 	.loc	1 172 25
 	lss r0, r1, r0
 	ldc r1, 108
-	bt r0, .LBB34_13
+	bt r0, .LBB38_13
 .Lxtalabel122:
 	ldc r0, 0
 	.loc	1 173 0
 	stw r0, r6[0]
-	bu .LBB34_19
-.LBB34_18:
+	bu .LBB38_19
+.LBB38_18:
 .Lxtalabel123:
 	ldc r0, 56
 	.loc	1 181 0
@@ -4901,24 +4962,24 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 184 0
 	ldw r2, sp[18]
 	.loc	1 184 0
-	ldaw r11, cp[.str90]
+	ldaw r11, cp[.str72]
 	mov r0, r11
 .Lxta.call_labels48:
 	bl iprintf
 	.loc	1 187 17
 	ldw r0, r6[0]
 	ldc r1, 108
-	bt r0, .LBB34_13
-	bu .LBB34_19
-.LBB34_11:
+	bt r0, .LBB38_13
+	bu .LBB38_19
+.LBB38_11:
 .Lxtalabel124:
 	.loc	1 176 25
 	sub r0, r2, 2
 	.loc	1 176 25
 	lss r0, r0, r1
 	ldc r1, 108
-	bf r0, .LBB34_12
-.LBB34_19:
+	bf r0, .LBB38_12
+.LBB38_19:
 .Lxtalabel125:
 	.loc	1 196 0
 	add r1, r10, r1
@@ -4939,7 +5000,7 @@ temperature_heater_controller.select.y.case.1:
 	ldw r0, r0[0]
 	.loc	1 196 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str93]
+	ldaw r11, cp[.str75]
 	mov r0, r11
 .Lxta.call_labels49:
 	bl iprintf
@@ -4950,15 +5011,15 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 197 0
 	ldw r1, r1[1]
 	.loc	1 197 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 1
-	bu .LBB34_15
-.LBB34_12:
+	bu .LBB38_15
+.LBB38_12:
 .Lxtalabel126:
 	mkmsk r0, 1
 	.loc	1 177 0
 	stw r0, r6[0]
-.LBB34_13:
+.LBB38_13:
 .Lxtalabel127:
 	.loc	1 188 21
 	ldw r11, r10[10]
@@ -4980,11 +5041,11 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 189 0
 	ldw r0, r0[0]
 	.loc	1 188 21
-	bf r11, .LBB34_14
+	bf r11, .LBB38_14
 .Lxtalabel128:
 	.loc	1 192 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str92]
+	ldaw r11, cp[.str74]
 	mov r0, r11
 .Lxta.call_labels50:
 	bl iprintf
@@ -4995,14 +5056,14 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 193 0
 	ldw r1, r1[1]
 	.loc	1 193 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 2
-	bu .LBB34_15
-.LBB34_14:
+	bu .LBB38_15
+.LBB38_14:
 .Lxtalabel129:
 	.loc	1 189 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str91]
+	ldaw r11, cp[.str73]
 	mov r0, r11
 .Lxta.call_labels51:
 	bl iprintf
@@ -5013,9 +5074,9 @@ temperature_heater_controller.select.y.case.1:
 	.loc	1 190 0
 	ldw r1, r1[1]
 	.loc	1 190 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	ldc r1, 2
-.LBB34_15:
+.LBB38_15:
 .Lxtalabel130:
 	.loc	1 190 0
 .Lxta.call_labels52:
@@ -5026,9 +5087,9 @@ temperature_heater_controller.select.y.case.1:
 	ldw r0, r6[0]
 	.loc	1 200 17
 	eq r1, r1, r0
-	bt r1, .LBB34_17
+	bt r1, .LBB38_17
 .Lxtalabel131:
-	bt r0, .LBB34_17
+	bt r0, .LBB38_17
 .Lxtalabel132:
 	ldc r0, 72
 	.loc	1 203 0
@@ -5060,7 +5121,7 @@ temperature_heater_controller.select.y.case.1:
 	stw r0, r7[0]
 	ldc r0, 104
 	.loc	1 208 0
-.Ltmp512:
+.Ltmp506:
 	add r9, r10, r0
 	ldc r0, 80
 	.loc	1 208 0
@@ -5081,7 +5142,7 @@ temperature_heater_controller.select.y.case.1:
 	ldc r2, 5
 	mov r1, r4
 .Lxta.call_labels53:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	.loc	1 211 0
 	stw r0, r9[0]
 	.loc	1 213 0
@@ -5093,7 +5154,7 @@ temperature_heater_controller.select.y.case.1:
 	ldw r0, r7[0]
 	.loc	1 213 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str94]
+	ldaw r11, cp[.str76]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels54:
@@ -5102,8 +5163,8 @@ temperature_heater_controller.select.y.case.1:
 	stw r6, r8[0]
 	.loc	1 220 0
 	stw r6, r5[0]
-.Ltmp513:
-.LBB34_17:
+.Ltmp507:
+.LBB38_17:
 .Lxtalabel133:
 	ldc r0, 10
 	.loc	1 224 0
@@ -5120,99 +5181,89 @@ temperature_heater_controller.select.y.case.1:
 	ldw r4, sp[27]
 	retsp 28
 	# RETURN_REG_HOLDER
-.Ltmp514:
-	.cc_bottom temperature_heater_controller.select.y.case.1.function
-	.set	temperature_heater_controller.select.y.case.1.nstackwords,((_i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M __memcpy_4.nstackwords $M puts.nstackwords $M init_arithmetic_mean_temp_onetenthDegC.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M temp_onetenthDegC_to_str.nstackwords $M putchar.nstackwords $M iprintf.nstackwords $M do_arithmetic_mean_temp_onetenthDegC.nstackwords) + 28)
-	.set	temperature_heater_controller.select.y.case.1.maxcores,_i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M do_arithmetic_mean_temp_onetenthDegC.maxcores $M init_arithmetic_mean_temp_onetenthDegC.maxcores $M iprintf.maxcores $M putchar.maxcores $M puts.maxcores $M temp_onetenthDegC_to_str.maxcores $M 1
-	.set	temperature_heater_controller.select.y.case.1.maxtimers,_i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M do_arithmetic_mean_temp_onetenthDegC.maxtimers $M init_arithmetic_mean_temp_onetenthDegC.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M puts.maxtimers $M temp_onetenthDegC_to_str.maxtimers $M 0
-	.set	temperature_heater_controller.select.y.case.1.maxchanends,_i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M do_arithmetic_mean_temp_onetenthDegC.maxchanends $M init_arithmetic_mean_temp_onetenthDegC.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M puts.maxchanends $M temp_onetenthDegC_to_str.maxchanends $M 0
-.Ltmp515:
-	.size	temperature_heater_controller.select.y.case.1, .Ltmp515-temperature_heater_controller.select.y.case.1
-.Lfunc_end34:
+.Ltmp508:
+	.cc_bottom Temperature_Heater_Controller.select.y.case.1.function
+	.set	Temperature_Heater_Controller.select.y.case.1.nstackwords,((_i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M __memcpy_4.nstackwords $M Init_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M Temp_OnetenthDegC_To_Str.nstackwords $M putchar.nstackwords $M iprintf.nstackwords $M Do_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords) + 28)
+	.set	Temperature_Heater_Controller.select.y.case.1.maxcores,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Temp_OnetenthDegC_To_Str.maxcores $M _i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M iprintf.maxcores $M putchar.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.y.case.1.maxtimers,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Temp_OnetenthDegC_To_Str.maxtimers $M _i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.y.case.1.maxchanends,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Temp_OnetenthDegC_To_Str.maxchanends $M _i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M 0
+.Ltmp509:
+	.size	Temperature_Heater_Controller.select.y.case.1, .Ltmp509-Temperature_Heater_Controller.select.y.case.1
+.Lfunc_end38:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI35_0.data,.LCPI35_0
+	.cc_top .LCPI39_0.data,.LCPI39_0
 	.align	4
-	.type	.LCPI35_0,@object
-	.size	.LCPI35_0, 4
-.LCPI35_0:
+	.type	.LCPI39_0,@object
+	.size	.LCPI39_0, 4
+.LCPI39_0:
 	.long	1374389535
-	.cc_bottom .LCPI35_0.data
+	.cc_bottom .LCPI39_0.data
 	.text
 	.align	4
-	.type	temperature_heater_controller.select.y.case.2,@function
-	.cc_top temperature_heater_controller.select.y.case.2.function,temperature_heater_controller.select.y.case.2
-temperature_heater_controller.select.y.case.2:
-.Lfunc_begin35:
+	.type	Temperature_Heater_Controller.select.y.case.2,@function
+	.cc_top Temperature_Heater_Controller.select.y.case.2.function,Temperature_Heater_Controller.select.y.case.2
+Temperature_Heater_Controller.select.y.case.2:
+.Lfunc_begin39:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel134:
 	ldw r11, sp[0]
-	entsp 9
-.Ltmp516:
-	.cfi_def_cfa_offset 36
-.Ltmp517:
+	entsp 7
+.Ltmp510:
+	.cfi_def_cfa_offset 28
+.Ltmp511:
 	.cfi_offset 15, 0
-.Ltmp518:
-	.cfi_offset 1, -32
-.Ltmp519:
-	.cfi_offset 0, -28
-	stw r4, sp[8]
-.Ltmp520:
+.Ltmp512:
+	.cfi_offset 1, -24
+.Ltmp513:
+	.cfi_offset 0, -20
+	stw r4, sp[6]
+.Ltmp514:
 	.cfi_offset 4, -4
-	stw r5, sp[7]
-.Ltmp521:
+	stw r5, sp[5]
+.Ltmp515:
 	.cfi_offset 5, -8
-	stw r6, sp[6]
-.Ltmp522:
+	stw r6, sp[4]
+.Ltmp516:
 	.cfi_offset 6, -12
-	stw r7, sp[5]
-.Ltmp523:
+	stw r7, sp[3]
+.Ltmp517:
 	.cfi_offset 7, -16
-	stw r8, sp[4]
-.Ltmp524:
-	.cfi_offset 8, -20
-	stw r9, sp[3]
-.Ltmp525:
-	.cfi_offset 9, -24
 	mov r5, r11
-.Ltmp526:
+.Ltmp518:
 	.loc	1 229 0 prologue_end
 	get r11, ed
 	mov r4, r11
-.Ltmp527:
+.Ltmp519:
 	zext r4, 16
-.Ltmp528:
+.Ltmp520:
 	ldw r7, r5[2]
 	ldw r0, r7[r4]
-	ldw r6, r0[0]
-	in r0, res[r6]
+	ldw r0, r0[0]
+	in r2, res[r0]
 	ldc r1, 254
-	add r1, r0, r1
-	zext r1, 8
-	sub r2, r0, r1
-	setd res[r6], r2
-	mkmsk r8, 2
-	lsu r2, r8, r1
-	bf r2, .LBB35_1
-.Ltmp529:
-	outct res[r6], 1
-	in r6, res[r6]
-.Ltmp530:
-	.loc	1 273 0
-	ldaw r11, cp[.Lstr222]
-	mov r0, r11
-	bl puts
-	bt r6, .LBB35_4
-.Ltmp531:
+	add r3, r2, r1
+	zext r3, 8
+	sub r1, r2, r3
+	setd res[r0], r1
+	mkmsk r1, 2
+	lsu r11, r1, r3
+	bf r11, .LBB39_1
+.Ltmp521:
+	outct res[r0], 1
+	in r6, res[r0]
+.Ltmp522:
+	bt r6, .LBB39_4
+.Ltmp523:
 .Lxtalabel135:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr223]
+	ldaw r11, cp[.Lstr149]
 	mov r0, r11
 	bl puts
-.Ltmp532:
-.LBB35_4:
+.Ltmp524:
+.LBB39_4:
 .Lxtalabel136:
 	ldc r0, 72
 	.loc	1 280 17
@@ -5220,8 +5271,8 @@ temperature_heater_controller.select.y.case.2:
 	.loc	1 280 17
 	ldw r0, r0[0]
 	.loc	1 280 17
-	bf r0, .LBB35_12
-.Ltmp533:
+	bf r0, .LBB39_12
+.Ltmp525:
 .Lxtalabel137:
 	ldc r0, 60
 	.loc	1 281 21
@@ -5229,93 +5280,93 @@ temperature_heater_controller.select.y.case.2:
 	.loc	1 281 21
 	ldw r0, r0[0]
 	.loc	1 285 0
-	bt r0, .LBB35_6
-.Ltmp534:
+	bt r0, .LBB39_6
+.Ltmp526:
 .Lxtalabel138:
 	ldc r0, 0
-	bu .LBB35_8
-.Ltmp535:
-.LBB35_1:
+	bu .LBB39_8
+.Ltmp527:
+.LBB39_1:
 .Lxtalabel139:
 
 	.xtabranch .Ljumptable2+2,.Ljumptable2+4,.Ljumptable2+6,.Ljumptable2+8
 .Ljumptable2:
 		
-	bru r1
-	.jmptable .LBB35_25,.LBB35_15,.LBB35_14,.LBB35_13
-.Ltmp536:
-.LBB35_25:
+	bru r3
+	.jmptable .LBB39_23,.LBB39_14,.LBB39_26,.LBB39_13
+.Ltmp528:
+.LBB39_23:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB35_29
-.Ltmp537:
-	outct res[r6], 1
-	in r7, res[r6]
-.Ltmp538:
-	in r6, res[r6]
-.Ltmp539:
-	.loc	1 230 0
-	ldaw r11, cp[.Lstr221]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB39_25
+.Ltmp529:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp530:
+	in r0, res[r0]
+.Ltmp531:
 	.loc	1 231 0
-	stw r7, r5[10]
-	ldc r0, 84
+	stw r1, r5[10]
+	ldc r1, 84
+.Ltmp532:
 	.loc	1 232 0
-	add r0, r5, r0
+	add r1, r5, r1
 	.loc	1 232 0
-	stw r6, r0[0]
+	stw r0, r1[0]
 	ldc r0, 0
+.Ltmp533:
 	.loc	1 233 0
 	stw r0, r5[9]
-	ldw r1, r5[2]
-	ldw r1, r1[r4]
-	bu .LBB35_27
-.Ltmp540:
-.LBB35_12:
+	ldw r1, r7[r4]
+	ldw r1, r1[0]
+	out res[r1], r0
+	outct res[r1], 1
+	bu .LBB39_28
+.Ltmp534:
+.LBB39_12:
 .Lxtalabel140:
 	ldc r0, 68
 	.loc	1 288 0
-.Ltmp541:
+.Ltmp535:
 	add r0, r5, r0
 	.loc	1 288 0
 	ldw r0, r0[0]
-.Ltmp542:
-	bu .LBB35_8
-.Ltmp543:
-.LBB35_6:
+.Ltmp536:
+	bu .LBB39_8
+.Ltmp537:
+.LBB39_6:
 	ldc r0, 100
-.Ltmp544:
-.LBB35_8:
+.Ltmp538:
+.LBB39_8:
 .Lxtalabel141:
 	.loc	1 291 17
 	ldw r1, r5[10]
 	.loc	1 292 0
-	bt r1, .LBB35_9
-.Ltmp545:
+	bt r1, .LBB39_9
+.Ltmp539:
 .Lxtalabel142:
 	ldc r1, 2400
-	bu .LBB35_11
-.Ltmp546:
-.LBB35_9:
+	bu .LBB39_11
+.Ltmp540:
+.LBB39_9:
 	ldc r1, 1200
-.Ltmp547:
-.LBB35_11:
+.Ltmp541:
+.LBB39_11:
 .Lxtalabel143:
 	.loc	1 309 0
 	mul r2, r6, r6
 	.loc	1 309 0
 	divu r1, r2, r1
-.Ltmp548:
+.Ltmp542:
 	.loc	1 313 0
 	mul r1, r1, r0
-.Ltmp549:
+.Ltmp543:
 	ldc r2, 0
-	ldw r3, cp[.LCPI35_0]
+	ldw r3, cp[.LCPI39_0]
 	.loc	1 313 0
 	lmul r1, r3, r1, r3, r2, r2
 	shr r1, r1, 5
-.Ltmp550:
+.Ltmp544:
 	ldw r3, r5[2]
 	ldw r3, r3[r4]
 	ldw r3, r3[0]
@@ -5323,286 +5374,268 @@ temperature_heater_controller.select.y.case.2:
 	out res[r3], r0
 	out res[r3], r1
 	outct res[r3], 1
-	bu .LBB35_28
-.Ltmp551:
-.LBB35_15:
+	bu .LBB39_28
+.Ltmp545:
+.LBB39_14:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB35_29
-.Ltmp552:
-	outct res[r6], 1
-	in r8, res[r6]
-.Ltmp553:
-	in r6, res[r6]
-.Ltmp554:
-	.loc	1 238 0
-	ldaw r11, cp[.Lstr218]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB39_25
+.Ltmp546:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp547:
+	in r6, res[r0]
+.Ltmp548:
 	.loc	1 239 0
-	stw r8, r5[10]
+	stw r1, r5[10]
 	mkmsk r0, 1
 	.loc	1 240 0
 	stw r0, r5[9]
 	ldc r0, 88
 	.loc	1 242 17
 	add r5, r5, r0
-.Ltmp555:
+.Ltmp549:
 	.loc	1 242 17
 	ldw r0, r5[0]
 	.loc	1 242 17
 	eq r0, r6, r0
 	.loc	1 242 17
-	bf r0, .LBB35_20
-.Ltmp556:
+	bf r0, .LBB39_18
+.Ltmp550:
 .Lxtalabel144:
 	.loc	1 243 0
-	ldaw r11, cp[.str107]
+	ldaw r11, cp[.str85]
 	mov r0, r11
 .Lxta.call_labels55:
 	bl iprintf
-	bu .LBB35_18
-.Ltmp557:
-.LBB35_14:
+	bu .LBB39_17
+.Ltmp551:
+.LBB39_26:
 .Lxtalabel145:
-	outct res[r6], 1
-	.loc	1 258 0
-	ldaw r11, cp[.Lstr219]
-	mov r0, r11
-	bl puts
-.Ltmp558:
-	ldc r0, 92
+	outct res[r0], 1
+	ldc r2, 92
 	.loc	1 260 0
-.Ltmp559:
-	add r0, r5, r0
-	.loc	1 260 0
-	ldw r2, r0[0]
-	ldc r1, 6
-	.loc	1 260 0
-	out res[r6], r1
-	ldc r0, 0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 96
-.Ltmp560:
-	.loc	1 260 0
+.Ltmp552:
 	add r2, r5, r2
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r2[0]
+	ldc r3, 6
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
+	ldc r2, 0
 	.loc	1 260 0
-	out res[r6], r0
-	mkmsk r3, 1
+	out res[r0], r2
 	.loc	1 260 0
-	out res[r6], r3
+	out res[r0], r2
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 100
+	chkct res[r0], 1
+	ldc r11, 96
+.Ltmp553:
 	.loc	1 260 0
-	add r2, r5, r2
+	add r11, r5, r11
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r11[0]
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 260 0
-	out res[r6], r0
-	ldc r3, 2
+	out res[r0], r2
+	mkmsk r4, 1
 	.loc	1 260 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 104
+	chkct res[r0], 1
+	ldc r11, 100
 	.loc	1 260 0
-	add r2, r5, r2
+	add r11, r5, r11
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r11[0]
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 260 0
-	out res[r6], r0
+	out res[r0], r2
+	ldc r4, 2
 	.loc	1 260 0
-	out res[r6], r8
+	out res[r0], r4
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldw r1, r7[r4]
-.Ltmp561:
-.LBB35_27:
-	ldw r1, r1[0]
-	out res[r1], r0
-	outct res[r1], 1
-	bu .LBB35_28
-.LBB35_13:
-.Ltmp562:
-	outct res[r6], 1
-	in r9, res[r6]
-.Ltmp563:
-	.loc	1 265 0
-	ldaw r11, cp[.Lstr220]
-	mov r0, r11
-	bl puts
-	ldc r0, 4
-.Ltmp564:
+	chkct res[r0], 1
+	ldc r11, 104
+	.loc	1 260 0
+	add r11, r5, r11
+	.loc	1 260 0
+	ldw r11, r11[0]
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	out res[r0], r2
+	bu .LBB39_27
+.Ltmp554:
+.LBB39_13:
+	outct res[r0], 1
+	in r3, res[r0]
+.Ltmp555:
+	ldc r2, 4
+.Ltmp556:
 	.loc	1 267 0
-	lsu r1, r9, r0
+	lsu r11, r3, r2
 .Ltrap_info3:
-	ecallf r1
+	ecallf r11
 	.loc	1 267 0
-	ldaw r1, r9[r9]
-	add r2, r5, r1
-	ldc r1, 108
+	ldaw r3, r3[r3]
+.Ltmp557:
+	add r11, r5, r3
+	ldc r3, 108
 	.loc	1 267 0
-	ld8u r11, r2[r1]
-	ldc r3, 8
+	ld8u r5, r11[r3]
+.Ltmp558:
+	ldc r4, 8
 	.loc	1 267 0
-	out res[r6], r3
-	ldc r1, 0
+	out res[r0], r4
+	ldc r3, 0
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 109
-.Ltmp565:
+	chkct res[r0], 1
+	ldc r5, 109
+.Ltmp559:
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	mkmsk r5, 1
-.Ltmp566:
+	out res[r0], r3
+	mkmsk r6, 1
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 110
+	chkct res[r0], 1
+	ldc r5, 110
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	ldc r5, 2
+	out res[r0], r3
+	ldc r6, 2
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 111
+	chkct res[r0], 1
+	ldc r5, 111
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r8
+	out res[r0], r1
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 112
+	chkct res[r0], 1
+	ldc r1, 112
 	.loc	1 267 0
-	ld8u r2, r2[r11]
+	ld8u r1, r11[r1]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r0
+	out res[r0], r2
 	.loc	1 267 0
-	out res[r6], r2
+	out res[r0], r1
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldw r0, r7[r4]
-	ldw r0, r0[0]
-	bu .LBB35_19
-.Ltmp567:
-.LBB35_20:
+	chkct res[r0], 1
+	out res[r0], r3
+	bu .LBB39_27
+.Ltmp560:
+.LBB39_18:
 	ldc r0, 401
 	.loc	1 244 24
 	lss r0, r6, r0
-	bt r0, .LBB35_22
-.Ltmp568:
+	bt r0, .LBB39_20
+.Ltmp561:
 .Lxtalabel146:
 	.loc	1 245 0
-	ldaw r11, cp[.str108]
+	ldaw r11, cp[.str86]
 	mov r0, r11
 .Lxta.call_labels56:
 	bl iprintf
 	ldc r6, 400
 	.loc	1 246 0
 	stw r6, r5[0]
-	bu .LBB35_18
-.LBB35_22:
-.Ltmp569:
-	ldc r0, 234
+	bu .LBB39_17
+.LBB39_20:
+.Ltmp562:
+	ldc r0, 244
 	.loc	1 247 24
 	lss r0, r0, r6
-	bt r0, .LBB35_24
-.Ltmp570:
+	bt r0, .LBB39_22
+.Ltmp563:
 .Lxtalabel147:
 	.loc	1 248 0
-	ldaw r11, cp[.str109]
+	ldaw r11, cp[.str87]
 	mov r0, r11
 .Lxta.call_labels57:
 	bl iprintf
-	ldc r6, 235
+	ldc r6, 245
 	.loc	1 249 0
 	stw r6, r5[0]
-	bu .LBB35_18
-.LBB35_24:
+	bu .LBB39_17
+.LBB39_22:
 .Lxtalabel148:
-.Ltmp571:
+.Ltmp564:
 	.loc	1 251 0
-	ldaw r11, cp[.str110]
+	ldaw r11, cp[.str88]
 	mov r0, r11
 .Lxta.call_labels58:
 	bl iprintf
 	.loc	1 252 0
 	stw r6, r5[0]
-.Ltmp572:
-.LBB35_18:
+.Ltmp565:
+.LBB39_17:
 .Lxtalabel149:
 	.loc	1 254 0
-	ldaw r11, cp[.str111]
+	ldaw r11, cp[.str89]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels59:
@@ -5610,98 +5643,94 @@ temperature_heater_controller.select.y.case.2:
 	ldw r0, r7[r4]
 	ldw r0, r0[0]
 	ldc r1, 0
-.Ltmp573:
-.LBB35_19:
 	out res[r0], r1
+.Ltmp566:
+.LBB39_27:
 	outct res[r0], 1
-.LBB35_28:
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
-	retsp 9
+.LBB39_28:
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
+	retsp 7
 	# RETURN_REG_HOLDER
-.LBB35_29:
-	setd res[r6], r6
-	out res[r6], r0
-	outct res[r6], 2
-	edu res[r6]
-	ldc r0, 36
+.LBB39_25:
+	setd res[r0], r0
+	out res[r0], r2
+	outct res[r0], 2
+	edu res[r0]
+	ldc r0, 28
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
-	.cc_bottom temperature_heater_controller.select.y.case.2.function
-	.set	temperature_heater_controller.select.y.case.2.nstackwords,((iprintf.nstackwords $M puts.nstackwords) + 9)
-	.set	temperature_heater_controller.select.y.case.2.maxcores,iprintf.maxcores $M puts.maxcores $M 1
-	.set	temperature_heater_controller.select.y.case.2.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
-	.set	temperature_heater_controller.select.y.case.2.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
-.Ltmp574:
-	.size	temperature_heater_controller.select.y.case.2, .Ltmp574-temperature_heater_controller.select.y.case.2
-.Lfunc_end35:
+	.cc_bottom Temperature_Heater_Controller.select.y.case.2.function
+	.set	Temperature_Heater_Controller.select.y.case.2.nstackwords,((puts.nstackwords $M iprintf.nstackwords) + 7)
+	.set	Temperature_Heater_Controller.select.y.case.2.maxcores,iprintf.maxcores $M puts.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.y.case.2.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.y.case.2.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
+.Ltmp567:
+	.size	Temperature_Heater_Controller.select.y.case.2, .Ltmp567-Temperature_Heater_Controller.select.y.case.2
+.Lfunc_end39:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI36_0.data,.LCPI36_0
+	.cc_top .LCPI40_0.data,.LCPI40_0
 	.align	4
-	.type	.LCPI36_0,@object
-	.size	.LCPI36_0, 4
-.LCPI36_0:
+	.type	.LCPI40_0,@object
+	.size	.LCPI40_0, 4
+.LCPI40_0:
 	.long	10000000
-	.cc_bottom .LCPI36_0.data
-	.cc_top .LCPI36_1.data,.LCPI36_1
+	.cc_bottom .LCPI40_0.data
+	.cc_top .LCPI40_1.data,.LCPI40_1
 	.align	4
-	.type	.LCPI36_1,@object
-	.size	.LCPI36_1, 4
-.LCPI36_1:
+	.type	.LCPI40_1,@object
+	.size	.LCPI40_1, 4
+.LCPI40_1:
 	.long	1374389535
-	.cc_bottom .LCPI36_1.data
+	.cc_bottom .LCPI40_1.data
 	.text
 	.align	4
-	.type	temperature_heater_controller.select.case.0,@function
-	.cc_top temperature_heater_controller.select.case.0.function,temperature_heater_controller.select.case.0
-temperature_heater_controller.select.case.0:
-.Lfunc_begin36:
+	.type	Temperature_Heater_Controller.select.case.0,@function
+	.cc_top Temperature_Heater_Controller.select.case.0.function,Temperature_Heater_Controller.select.case.0
+Temperature_Heater_Controller.select.case.0:
+.Lfunc_begin40:
 	.loc	1 85 0
 	.cfi_startproc
 .Lxtalabel150:
 	entsp 2
-.Ltmp575:
+.Ltmp568:
 	.cfi_def_cfa_offset 8
-.Ltmp576:
+.Ltmp569:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp577:
+.Ltmp570:
 	.cfi_offset 4, -4
 	get r11, ed
 	mov r4, r11
 	.loc	1 85 0 prologue_end
-.Ltmp578:
+.Ltmp571:
 	get r11, id
 	.loc	1 85 0
 	ldaw r0, dp[__timers]
 	.loc	1 85 0
 	ldw r0, r0[r11]
 	.loc	1 85 0
-.Ltmp579:
+.Ltmp572:
 .Lxta.endpoint_labels4:
 	in r0, res[r0]
-.Ltmp580:
+.Ltmp573:
 	.loc	1 89 0
 	ldw r0, r4[5]
-	ldw r1, cp[.LCPI36_0]
+	ldw r1, cp[.LCPI40_0]
 	.loc	1 89 0
 	add r0, r0, r1
 	.loc	1 89 0
@@ -5714,7 +5743,7 @@ temperature_heater_controller.select.case.0:
 	stw r0, r4[6]
 	.loc	1 91 17
 	eq r0, r0, 10
-	bf r0, .LBB36_4
+	bf r0, .LBB40_4
 .Lxtalabel151:
 	ldc r0, 0
 	.loc	1 92 0
@@ -5725,14 +5754,14 @@ temperature_heater_controller.select.case.0:
 	.loc	1 93 21
 	ldw r0, r0[0]
 	.loc	1 93 21
-	bf r0, .LBB36_9
+	bf r0, .LBB40_9
 .Lxtalabel152:
 	ldc r0, 48
-	bu .LBB36_3
-.LBB36_9:
+	bu .LBB40_3
+.LBB40_9:
 .Lxtalabel153:
 	ldc r0, 52
-.LBB36_3:
+.LBB40_3:
 .Lxtalabel154:
 	.loc	1 94 0
 	add r0, r4, r0
@@ -5742,19 +5771,19 @@ temperature_heater_controller.select.case.0:
 	add r1, r1, 1
 	.loc	1 94 0
 	stw r1, r0[0]
-.LBB36_4:
+.LBB40_4:
 .Lxtalabel155:
 	.loc	1 100 17
 	ldw r0, r4[9]
 	.loc	1 100 17
-	bt r0, .LBB36_5
+	bt r0, .LBB40_5
 .Lxtalabel156:
 	.loc	1 101 0
 	ldw r0, r4[8]
 	.loc	1 101 0
 	add r0, r0, 1
 	ldc r1, 0
-	ldw r2, cp[.LCPI36_1]
+	ldw r2, cp[.LCPI40_1]
 	.loc	1 101 0
 	lmul r1, r2, r0, r2, r1, r1
 	shr r1, r1, 5
@@ -5770,7 +5799,7 @@ temperature_heater_controller.select.case.0:
 	ldw r1, r1[0]
 	.loc	1 103 21
 	eq r2, r1, r2
-	bf r2, .LBB36_11
+	bf r2, .LBB40_11
 .Lxtalabel157:
 	.loc	1 106 0
 	ldw r1, r4[4]
@@ -5779,25 +5808,21 @@ temperature_heater_controller.select.case.0:
 	.loc	1 106 0
 	ldw r1, r1[1]
 	.loc	1 106 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 2
 	.loc	1 106 0
 .Lxta.call_labels60:
 	bla r2
-	bu .LBB36_19
-.LBB36_5:
+	bu .LBB40_19
+.LBB40_5:
 .Lxtalabel158:
 	eq r0, r0, 1
-	bf r0, .LBB36_19
+	bf r0, .LBB40_19
 .Lxtalabel159:
 	.loc	1 119 21
 	ldw r0, r4[7]
-	bt r0, .LBB36_8
+	bt r0, .LBB40_8
 .Lxtalabel160:
-	.loc	1 121 0
-	ldaw r11, cp[.Lstr214]
-	mov r0, r11
-	bl puts
 	.loc	1 122 0
 	ldw r1, r4[3]
 	.loc	1 122 0
@@ -5810,21 +5835,17 @@ temperature_heater_controller.select.case.0:
 	.loc	1 122 0
 .Lxta.call_labels61:
 	bla r2
-	.loc	1 123 0
-	ldaw r11, cp[.Lstr215]
-	mov r0, r11
-	bl puts
 	ldc r0, 0
 	.loc	1 125 0
 	stw r0, r4[11]
 	.loc	1 128 0
 	ldw r0, r4[7]
-.LBB36_8:
+.LBB40_8:
 .Lxtalabel161:
 	.loc	1 128 0
 	add r0, r0, 1
 	ldc r1, 0
-	ldw r2, cp[.LCPI36_1]
+	ldw r2, cp[.LCPI40_1]
 	.loc	1 128 0
 	lmul r1, r2, r0, r2, r1, r1
 	shr r1, r1, 5
@@ -5833,17 +5854,17 @@ temperature_heater_controller.select.case.0:
 	sub r0, r0, r1
 	.loc	1 128 0
 	stw r0, r4[7]
-	bu .LBB36_19
-.LBB36_11:
+	bu .LBB40_19
+.LBB40_11:
 .Lxtalabel162:
-	bf r1, .LBB36_12
+	bf r1, .LBB40_12
 .Lxtalabel163:
 	.loc	1 108 25
-	bf r0, .LBB36_15
+	bf r0, .LBB40_15
 	.loc	1 114 32
 	eq r0, r0, r1
-	bf r0, .LBB36_19
-.LBB36_12:
+	bf r0, .LBB40_19
+.LBB40_12:
 .Lxtalabel164:
 	.loc	1 104 0
 	ldw r1, r4[4]
@@ -5852,17 +5873,17 @@ temperature_heater_controller.select.case.0:
 	.loc	1 104 0
 	ldw r1, r1[1]
 	.loc	1 104 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 1
 	.loc	1 104 0
 .Lxta.call_labels62:
 	bla r2
-.LBB36_19:
+.LBB40_19:
 .Lxtalabel165:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-.LBB36_15:
+.LBB40_15:
 .Lxtalabel166:
 	.loc	1 109 29
 	ldw r1, r4[10]
@@ -5873,71 +5894,71 @@ temperature_heater_controller.select.case.0:
 	.loc	1 110 0
 	ldw r2, r2[1]
 	.loc	1 110 0
-	ldw r4, r2[2]
+	ldw r4, r2[4]
 	.loc	1 109 29
-	bf r1, .LBB36_16
+	bf r1, .LBB40_16
 .Lxtalabel167:
 	mkmsk r1, 2
 	.loc	1 112 0
 .Lxta.call_labels63:
 	bla r4
-	bu .LBB36_19
-.LBB36_16:
+	bu .LBB40_19
+.LBB40_16:
 .Lxtalabel168:
 	ldc r1, 2
 	.loc	1 110 0
 .Lxta.call_labels64:
 	bla r4
-	bu .LBB36_19
-.Ltmp581:
-	.cc_bottom temperature_heater_controller.select.case.0.function
-	.set	temperature_heater_controller.select.case.0.nstackwords,((_i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords $M puts.nstackwords) + 2)
-	.set	temperature_heater_controller.select.case.0.maxcores,_i.i2c_external_commands_if.command.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M puts.maxcores $M 1
-	.set	temperature_heater_controller.select.case.0.maxtimers,_i.i2c_external_commands_if.command.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M puts.maxtimers $M 0
-	.set	temperature_heater_controller.select.case.0.maxchanends,_i.i2c_external_commands_if.command.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M puts.maxchanends $M 0
-.Ltmp582:
-	.size	temperature_heater_controller.select.case.0, .Ltmp582-temperature_heater_controller.select.case.0
-.Lfunc_end36:
+	bu .LBB40_19
+.Ltmp574:
+	.cc_bottom Temperature_Heater_Controller.select.case.0.function
+	.set	Temperature_Heater_Controller.select.case.0.nstackwords,((_i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M _i.i2c_external_commands_if.command.max.nstackwords) + 2)
+	.set	Temperature_Heater_Controller.select.case.0.maxcores,_i.i2c_external_commands_if.command.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.case.0.maxtimers,_i.i2c_external_commands_if.command.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.case.0.maxchanends,_i.i2c_external_commands_if.command.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M 0
+.Ltmp575:
+	.size	Temperature_Heater_Controller.select.case.0, .Ltmp575-Temperature_Heater_Controller.select.case.0
+.Lfunc_end40:
 	.cfi_endproc
 
 	.align	4
-	.type	temperature_heater_controller.select.case.1,@function
-	.cc_top temperature_heater_controller.select.case.1.function,temperature_heater_controller.select.case.1
-temperature_heater_controller.select.case.1:
-.Lfunc_begin37:
+	.type	Temperature_Heater_Controller.select.case.1,@function
+	.cc_top Temperature_Heater_Controller.select.case.1.function,Temperature_Heater_Controller.select.case.1
+Temperature_Heater_Controller.select.case.1:
+.Lfunc_begin41:
 	.loc	1 134 0
 	.cfi_startproc
 .Lxtalabel169:
 	entsp 28
-.Ltmp583:
+.Ltmp576:
 	.cfi_def_cfa_offset 112
-.Ltmp584:
+.Ltmp577:
 	.cfi_offset 15, 0
 	stw r4, sp[27]
-.Ltmp585:
+.Ltmp578:
 	.cfi_offset 4, -4
 	stw r5, sp[26]
-.Ltmp586:
+.Ltmp579:
 	.cfi_offset 5, -8
 	stw r6, sp[25]
-.Ltmp587:
+.Ltmp580:
 	.cfi_offset 6, -12
 	stw r7, sp[24]
-.Ltmp588:
+.Ltmp581:
 	.cfi_offset 7, -16
 	stw r8, sp[23]
-.Ltmp589:
+.Ltmp582:
 	.cfi_offset 8, -20
 	stw r9, sp[22]
-.Ltmp590:
+.Ltmp583:
 	.cfi_offset 9, -24
 	stw r10, sp[21]
-.Ltmp591:
+.Ltmp584:
 	.cfi_offset 10, -28
 	get r11, ed
 	mov r7, r11
 	.loc	1 134 0 prologue_end
-.Ltmp592:
+.Ltmp585:
 	stw r7, sp[3]
 	ldw r0, r7[3]
 	.loc	1 134 0
@@ -5947,13 +5968,8 @@ temperature_heater_controller.select.case.1:
 	mkmsk r1, 1
 	.loc	1 134 0
 	stw r1, r0[2]
-	.loc	1 141 0
-.Ltmp593:
-	ldaw r11, cp[.Lstr216]
-	mov r0, r11
-	bl puts
 	.loc	1 142 0
-.Ltmp594:
+.Ltmp586:
 	ldw r0, r7[3]
 	.loc	1 142 0
 	ldw r1, r0[0]
@@ -5983,12 +5999,8 @@ temperature_heater_controller.select.case.1:
 	.loc	1 142 0
 	mov r1, r4
 	bl __memcpy_4
-	.loc	1 143 0
-	ldaw r11, cp[.Lstr217]
-	mov r0, r11
-	bl puts
 	ldc r0, 128
-.Ltmp595:
+.Ltmp587:
 	.loc	1 160 0
 	add r4, r7, r0
 	stw r4, sp[4]
@@ -5998,7 +6010,7 @@ temperature_heater_controller.select.case.1:
 	add r7, r7, r0
 	ldaw r10, sp[15]
 	mov r8, r5
-.LBB37_1:
+.LBB41_1:
 .Lxtalabel170:
 	.loc	1 147 0
 	ldw r0, r6[r8]
@@ -6011,7 +6023,7 @@ temperature_heater_controller.select.case.1:
 	mov r1, r7
 	ldc r2, 5
 .Lxta.call_labels66:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	.loc	1 152 0
 	stw r0, r9[r8]
 	ldaw r0, sp[18]
@@ -6019,9 +6031,9 @@ temperature_heater_controller.select.case.1:
 	stw r1, r0[r8]
 	.loc	1 154 21
 	ldw r0, r10[r8]
-	bf r0, .LBB37_3
+	bf r0, .LBB41_3
 .Lxtalabel171:
-	bf r1, .LBB37_3
+	bf r1, .LBB41_3
 .Lxtalabel172:
 	.loc	1 156 0
 	ldw r2, r9[r8]
@@ -6034,11 +6046,11 @@ temperature_heater_controller.select.case.1:
 	ldc r1, 8
 	mov r3, r8
 .Lxta.call_labels67:
-	bl do_arithmetic_mean_temp_onetenthDegC
+	bl Do_Arithmetic_Mean_Temp_OnetenthDegC
 	.loc	1 156 0
 	stw r0, r9[r8]
-	bu .LBB37_10
-.LBB37_3:
+	bu .LBB41_10
+.LBB41_3:
 .Lxtalabel173:
 	.loc	1 160 0
 	mov r0, r4
@@ -6046,12 +6058,12 @@ temperature_heater_controller.select.case.1:
 	ldw r2, sp[4]
 	ldc r3, 132
 .Lxta.call_labels68:
-	bl init_arithmetic_mean_temp_onetenthDegC
-.LBB37_10:
+	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
+.LBB41_10:
 .Lxtalabel174:
 	.loc	1 145 0
 	add r8, r8, 1
-.Ltmp596:
+.Ltmp588:
 	.loc	1 145 0
 	ldaw r4, r4[11]
 	.loc	1 145 0
@@ -6061,8 +6073,8 @@ temperature_heater_controller.select.case.1:
 	lss r0, r8, r0
 .Lxta.loop_labels3:
 	# LOOPMARKER 0
-	bt r0, .LBB37_1
-.Ltmp597:
+	bt r0, .LBB41_1
+.Ltmp589:
 .Lxtalabel175:
 	ldc r0, 64
 	ldw r10, sp[3]
@@ -6086,10 +6098,10 @@ temperature_heater_controller.select.case.1:
 	stw r1, r5[0]
 	.loc	1 167 17
 	ldw r1, sp[15]
-	bf r1, .LBB37_18
+	bf r1, .LBB41_18
 .Lxtalabel176:
 	ldw r1, sp[18]
-	bf r1, .LBB37_18
+	bf r1, .LBB41_18
 .Lxtalabel177:
 	ldc r1, 80
 	.loc	1 169 0
@@ -6108,20 +6120,20 @@ temperature_heater_controller.select.case.1:
 	.loc	1 172 25
 	ldw r2, r2[0]
 	.loc	1 171 21
-	bf r0, .LBB37_11
+	bf r0, .LBB41_11
 .Lxtalabel178:
 	.loc	1 172 25
 	add r0, r2, 2
 	.loc	1 172 25
 	lss r0, r1, r0
 	ldc r1, 108
-	bt r0, .LBB37_13
+	bt r0, .LBB41_13
 .Lxtalabel179:
 	ldc r0, 0
 	.loc	1 173 0
 	stw r0, r6[0]
-	bu .LBB37_19
-.LBB37_18:
+	bu .LBB41_19
+.LBB41_18:
 .Lxtalabel180:
 	ldc r0, 56
 	.loc	1 181 0
@@ -6145,24 +6157,24 @@ temperature_heater_controller.select.case.1:
 	.loc	1 184 0
 	ldw r2, sp[18]
 	.loc	1 184 0
-	ldaw r11, cp[.str137]
+	ldaw r11, cp[.str110]
 	mov r0, r11
 .Lxta.call_labels69:
 	bl iprintf
 	.loc	1 187 17
 	ldw r0, r6[0]
 	ldc r1, 108
-	bt r0, .LBB37_13
-	bu .LBB37_19
-.LBB37_11:
+	bt r0, .LBB41_13
+	bu .LBB41_19
+.LBB41_11:
 .Lxtalabel181:
 	.loc	1 176 25
 	sub r0, r2, 2
 	.loc	1 176 25
 	lss r0, r0, r1
 	ldc r1, 108
-	bf r0, .LBB37_12
-.LBB37_19:
+	bf r0, .LBB41_12
+.LBB41_19:
 .Lxtalabel182:
 	.loc	1 196 0
 	add r1, r10, r1
@@ -6183,7 +6195,7 @@ temperature_heater_controller.select.case.1:
 	ldw r0, r0[0]
 	.loc	1 196 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str140]
+	ldaw r11, cp[.str113]
 	mov r0, r11
 .Lxta.call_labels70:
 	bl iprintf
@@ -6194,15 +6206,15 @@ temperature_heater_controller.select.case.1:
 	.loc	1 197 0
 	ldw r1, r1[1]
 	.loc	1 197 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 1
-	bu .LBB37_15
-.LBB37_12:
+	bu .LBB41_15
+.LBB41_12:
 .Lxtalabel183:
 	mkmsk r0, 1
 	.loc	1 177 0
 	stw r0, r6[0]
-.LBB37_13:
+.LBB41_13:
 .Lxtalabel184:
 	.loc	1 188 21
 	ldw r11, r10[10]
@@ -6224,11 +6236,11 @@ temperature_heater_controller.select.case.1:
 	.loc	1 189 0
 	ldw r0, r0[0]
 	.loc	1 188 21
-	bf r11, .LBB37_14
+	bf r11, .LBB41_14
 .Lxtalabel185:
 	.loc	1 192 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str139]
+	ldaw r11, cp[.str112]
 	mov r0, r11
 .Lxta.call_labels71:
 	bl iprintf
@@ -6239,14 +6251,14 @@ temperature_heater_controller.select.case.1:
 	.loc	1 193 0
 	ldw r1, r1[1]
 	.loc	1 193 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	mkmsk r1, 2
-	bu .LBB37_15
-.LBB37_14:
+	bu .LBB41_15
+.LBB41_14:
 .Lxtalabel186:
 	.loc	1 189 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str138]
+	ldaw r11, cp[.str111]
 	mov r0, r11
 .Lxta.call_labels72:
 	bl iprintf
@@ -6257,9 +6269,9 @@ temperature_heater_controller.select.case.1:
 	.loc	1 190 0
 	ldw r1, r1[1]
 	.loc	1 190 0
-	ldw r2, r1[2]
+	ldw r2, r1[4]
 	ldc r1, 2
-.LBB37_15:
+.LBB41_15:
 .Lxtalabel187:
 	.loc	1 190 0
 .Lxta.call_labels73:
@@ -6270,9 +6282,9 @@ temperature_heater_controller.select.case.1:
 	ldw r0, r6[0]
 	.loc	1 200 17
 	eq r1, r1, r0
-	bt r1, .LBB37_17
+	bt r1, .LBB41_17
 .Lxtalabel188:
-	bt r0, .LBB37_17
+	bt r0, .LBB41_17
 .Lxtalabel189:
 	ldc r0, 72
 	.loc	1 203 0
@@ -6304,7 +6316,7 @@ temperature_heater_controller.select.case.1:
 	stw r0, r7[0]
 	ldc r0, 104
 	.loc	1 208 0
-.Ltmp598:
+.Ltmp590:
 	add r9, r10, r0
 	ldc r0, 80
 	.loc	1 208 0
@@ -6325,7 +6337,7 @@ temperature_heater_controller.select.case.1:
 	ldc r2, 5
 	mov r1, r4
 .Lxta.call_labels74:
-	bl temp_onetenthDegC_to_str
+	bl Temp_OnetenthDegC_To_Str
 	.loc	1 211 0
 	stw r0, r9[0]
 	.loc	1 213 0
@@ -6337,7 +6349,7 @@ temperature_heater_controller.select.case.1:
 	ldw r0, r7[0]
 	.loc	1 213 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str141]
+	ldaw r11, cp[.str114]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels75:
@@ -6346,8 +6358,8 @@ temperature_heater_controller.select.case.1:
 	stw r6, r8[0]
 	.loc	1 220 0
 	stw r6, r5[0]
-.Ltmp599:
-.LBB37_17:
+.Ltmp591:
+.LBB41_17:
 .Lxtalabel190:
 	ldc r0, 10
 	.loc	1 224 0
@@ -6364,99 +6376,89 @@ temperature_heater_controller.select.case.1:
 	ldw r4, sp[27]
 	retsp 28
 	# RETURN_REG_HOLDER
-.Ltmp600:
-	.cc_bottom temperature_heater_controller.select.case.1.function
-	.set	temperature_heater_controller.select.case.1.nstackwords,((_i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M __memcpy_4.nstackwords $M puts.nstackwords $M init_arithmetic_mean_temp_onetenthDegC.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M temp_onetenthDegC_to_str.nstackwords $M putchar.nstackwords $M iprintf.nstackwords $M do_arithmetic_mean_temp_onetenthDegC.nstackwords) + 28)
-	.set	temperature_heater_controller.select.case.1.maxcores,_i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M do_arithmetic_mean_temp_onetenthDegC.maxcores $M init_arithmetic_mean_temp_onetenthDegC.maxcores $M iprintf.maxcores $M putchar.maxcores $M puts.maxcores $M temp_onetenthDegC_to_str.maxcores $M 1
-	.set	temperature_heater_controller.select.case.1.maxtimers,_i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M do_arithmetic_mean_temp_onetenthDegC.maxtimers $M init_arithmetic_mean_temp_onetenthDegC.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M puts.maxtimers $M temp_onetenthDegC_to_str.maxtimers $M 0
-	.set	temperature_heater_controller.select.case.1.maxchanends,_i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M do_arithmetic_mean_temp_onetenthDegC.maxchanends $M init_arithmetic_mean_temp_onetenthDegC.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M puts.maxchanends $M temp_onetenthDegC_to_str.maxchanends $M 0
-.Ltmp601:
-	.size	temperature_heater_controller.select.case.1, .Ltmp601-temperature_heater_controller.select.case.1
-.Lfunc_end37:
+.Ltmp592:
+	.cc_bottom Temperature_Heater_Controller.select.case.1.function
+	.set	Temperature_Heater_Controller.select.case.1.nstackwords,((_i.i2c_external_commands_if.read_temperature_ok.max.nstackwords $M __memcpy_4.nstackwords $M Init_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords $M _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords $M Temp_OnetenthDegC_To_Str.nstackwords $M putchar.nstackwords $M iprintf.nstackwords $M Do_Arithmetic_Mean_Temp_OnetenthDegC.nstackwords) + 28)
+	.set	Temperature_Heater_Controller.select.case.1.maxcores,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxcores $M Temp_OnetenthDegC_To_Str.maxcores $M _i.i2c_external_commands_if.read_temperature_ok.max.maxcores $M _i.port_heat_light_commands_if.heat_cables_command.max.maxcores $M iprintf.maxcores $M putchar.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.case.1.maxtimers,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxtimers $M Temp_OnetenthDegC_To_Str.maxtimers $M _i.i2c_external_commands_if.read_temperature_ok.max.maxtimers $M _i.port_heat_light_commands_if.heat_cables_command.max.maxtimers $M iprintf.maxtimers $M putchar.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.case.1.maxchanends,Do_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Init_Arithmetic_Mean_Temp_OnetenthDegC.maxchanends $M Temp_OnetenthDegC_To_Str.maxchanends $M _i.i2c_external_commands_if.read_temperature_ok.max.maxchanends $M _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends $M iprintf.maxchanends $M putchar.maxchanends $M 0
+.Ltmp593:
+	.size	Temperature_Heater_Controller.select.case.1, .Ltmp593-Temperature_Heater_Controller.select.case.1
+.Lfunc_end41:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI38_0.data,.LCPI38_0
+	.cc_top .LCPI42_0.data,.LCPI42_0
 	.align	4
-	.type	.LCPI38_0,@object
-	.size	.LCPI38_0, 4
-.LCPI38_0:
+	.type	.LCPI42_0,@object
+	.size	.LCPI42_0, 4
+.LCPI42_0:
 	.long	1374389535
-	.cc_bottom .LCPI38_0.data
+	.cc_bottom .LCPI42_0.data
 	.text
 	.align	4
-	.type	temperature_heater_controller.select.case.2,@function
-	.cc_top temperature_heater_controller.select.case.2.function,temperature_heater_controller.select.case.2
-temperature_heater_controller.select.case.2:
-.Lfunc_begin38:
+	.type	Temperature_Heater_Controller.select.case.2,@function
+	.cc_top Temperature_Heater_Controller.select.case.2.function,Temperature_Heater_Controller.select.case.2
+Temperature_Heater_Controller.select.case.2:
+.Lfunc_begin42:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel191:
 	ldw r11, sp[0]
-	entsp 9
-.Ltmp602:
-	.cfi_def_cfa_offset 36
-.Ltmp603:
+	entsp 7
+.Ltmp594:
+	.cfi_def_cfa_offset 28
+.Ltmp595:
 	.cfi_offset 15, 0
-.Ltmp604:
-	.cfi_offset 1, -32
-.Ltmp605:
-	.cfi_offset 0, -28
-	stw r4, sp[8]
-.Ltmp606:
+.Ltmp596:
+	.cfi_offset 1, -24
+.Ltmp597:
+	.cfi_offset 0, -20
+	stw r4, sp[6]
+.Ltmp598:
 	.cfi_offset 4, -4
-	stw r5, sp[7]
-.Ltmp607:
+	stw r5, sp[5]
+.Ltmp599:
 	.cfi_offset 5, -8
-	stw r6, sp[6]
-.Ltmp608:
+	stw r6, sp[4]
+.Ltmp600:
 	.cfi_offset 6, -12
-	stw r7, sp[5]
-.Ltmp609:
+	stw r7, sp[3]
+.Ltmp601:
 	.cfi_offset 7, -16
-	stw r8, sp[4]
-.Ltmp610:
-	.cfi_offset 8, -20
-	stw r9, sp[3]
-.Ltmp611:
-	.cfi_offset 9, -24
 	mov r5, r11
-.Ltmp612:
+.Ltmp602:
 	.loc	1 229 0 prologue_end
 	get r11, ed
 	mov r4, r11
-.Ltmp613:
+.Ltmp603:
 	zext r4, 16
-.Ltmp614:
+.Ltmp604:
 	ldw r7, r5[2]
 	ldw r0, r7[r4]
-	ldw r6, r0[0]
-	in r0, res[r6]
+	ldw r0, r0[0]
+	in r2, res[r0]
 	ldc r1, 254
-	add r1, r0, r1
-	zext r1, 8
-	sub r2, r0, r1
-	setd res[r6], r2
-	mkmsk r8, 2
-	lsu r2, r8, r1
-	bf r2, .LBB38_1
-.Ltmp615:
-	outct res[r6], 1
-	in r6, res[r6]
-.Ltmp616:
-	.loc	1 273 0
-	ldaw r11, cp[.Lstr222]
-	mov r0, r11
-	bl puts
-	bt r6, .LBB38_4
-.Ltmp617:
+	add r3, r2, r1
+	zext r3, 8
+	sub r1, r2, r3
+	setd res[r0], r1
+	mkmsk r1, 2
+	lsu r11, r1, r3
+	bf r11, .LBB42_1
+.Ltmp605:
+	outct res[r0], 1
+	in r6, res[r0]
+.Ltmp606:
+	bt r6, .LBB42_4
+.Ltmp607:
 .Lxtalabel192:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr223]
+	ldaw r11, cp[.Lstr149]
 	mov r0, r11
 	bl puts
-.Ltmp618:
-.LBB38_4:
+.Ltmp608:
+.LBB42_4:
 .Lxtalabel193:
 	ldc r0, 72
 	.loc	1 280 17
@@ -6464,8 +6466,8 @@ temperature_heater_controller.select.case.2:
 	.loc	1 280 17
 	ldw r0, r0[0]
 	.loc	1 280 17
-	bf r0, .LBB38_12
-.Ltmp619:
+	bf r0, .LBB42_12
+.Ltmp609:
 .Lxtalabel194:
 	ldc r0, 60
 	.loc	1 281 21
@@ -6473,93 +6475,93 @@ temperature_heater_controller.select.case.2:
 	.loc	1 281 21
 	ldw r0, r0[0]
 	.loc	1 285 0
-	bt r0, .LBB38_6
-.Ltmp620:
+	bt r0, .LBB42_6
+.Ltmp610:
 .Lxtalabel195:
 	ldc r0, 0
-	bu .LBB38_8
-.Ltmp621:
-.LBB38_1:
+	bu .LBB42_8
+.Ltmp611:
+.LBB42_1:
 .Lxtalabel196:
 
 	.xtabranch .Ljumptable3+2,.Ljumptable3+4,.Ljumptable3+6,.Ljumptable3+8
 .Ljumptable3:
 		
-	bru r1
-	.jmptable .LBB38_25,.LBB38_15,.LBB38_14,.LBB38_13
-.Ltmp622:
-.LBB38_25:
+	bru r3
+	.jmptable .LBB42_23,.LBB42_14,.LBB42_26,.LBB42_13
+.Ltmp612:
+.LBB42_23:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB38_29
-.Ltmp623:
-	outct res[r6], 1
-	in r7, res[r6]
-.Ltmp624:
-	in r6, res[r6]
-.Ltmp625:
-	.loc	1 230 0
-	ldaw r11, cp[.Lstr221]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB42_25
+.Ltmp613:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp614:
+	in r0, res[r0]
+.Ltmp615:
 	.loc	1 231 0
-	stw r7, r5[10]
-	ldc r0, 84
+	stw r1, r5[10]
+	ldc r1, 84
+.Ltmp616:
 	.loc	1 232 0
-	add r0, r5, r0
+	add r1, r5, r1
 	.loc	1 232 0
-	stw r6, r0[0]
+	stw r0, r1[0]
 	ldc r0, 0
+.Ltmp617:
 	.loc	1 233 0
 	stw r0, r5[9]
-	ldw r1, r5[2]
-	ldw r1, r1[r4]
-	bu .LBB38_27
-.Ltmp626:
-.LBB38_12:
+	ldw r1, r7[r4]
+	ldw r1, r1[0]
+	out res[r1], r0
+	outct res[r1], 1
+	bu .LBB42_28
+.Ltmp618:
+.LBB42_12:
 .Lxtalabel197:
 	ldc r0, 68
 	.loc	1 288 0
-.Ltmp627:
+.Ltmp619:
 	add r0, r5, r0
 	.loc	1 288 0
 	ldw r0, r0[0]
-.Ltmp628:
-	bu .LBB38_8
-.Ltmp629:
-.LBB38_6:
+.Ltmp620:
+	bu .LBB42_8
+.Ltmp621:
+.LBB42_6:
 	ldc r0, 100
-.Ltmp630:
-.LBB38_8:
+.Ltmp622:
+.LBB42_8:
 .Lxtalabel198:
 	.loc	1 291 17
 	ldw r1, r5[10]
 	.loc	1 292 0
-	bt r1, .LBB38_9
-.Ltmp631:
+	bt r1, .LBB42_9
+.Ltmp623:
 .Lxtalabel199:
 	ldc r1, 2400
-	bu .LBB38_11
-.Ltmp632:
-.LBB38_9:
+	bu .LBB42_11
+.Ltmp624:
+.LBB42_9:
 	ldc r1, 1200
-.Ltmp633:
-.LBB38_11:
+.Ltmp625:
+.LBB42_11:
 .Lxtalabel200:
 	.loc	1 309 0
 	mul r2, r6, r6
 	.loc	1 309 0
 	divu r1, r2, r1
-.Ltmp634:
+.Ltmp626:
 	.loc	1 313 0
 	mul r1, r1, r0
-.Ltmp635:
+.Ltmp627:
 	ldc r2, 0
-	ldw r3, cp[.LCPI38_0]
+	ldw r3, cp[.LCPI42_0]
 	.loc	1 313 0
 	lmul r1, r3, r1, r3, r2, r2
 	shr r1, r1, 5
-.Ltmp636:
+.Ltmp628:
 	ldw r3, r5[2]
 	ldw r3, r3[r4]
 	ldw r3, r3[0]
@@ -6567,286 +6569,268 @@ temperature_heater_controller.select.case.2:
 	out res[r3], r0
 	out res[r3], r1
 	outct res[r3], 1
-	bu .LBB38_28
-.Ltmp637:
-.LBB38_15:
+	bu .LBB42_28
+.Ltmp629:
+.LBB42_14:
 	ldw r1, r5[11]
 	eq r1, r1, 1
-	bf r1, .LBB38_29
-.Ltmp638:
-	outct res[r6], 1
-	in r8, res[r6]
-.Ltmp639:
-	in r6, res[r6]
-.Ltmp640:
-	.loc	1 238 0
-	ldaw r11, cp[.Lstr218]
-	mov r0, r11
-	bl puts
+	bf r1, .LBB42_25
+.Ltmp630:
+	outct res[r0], 1
+	in r1, res[r0]
+.Ltmp631:
+	in r6, res[r0]
+.Ltmp632:
 	.loc	1 239 0
-	stw r8, r5[10]
+	stw r1, r5[10]
 	mkmsk r0, 1
 	.loc	1 240 0
 	stw r0, r5[9]
 	ldc r0, 88
 	.loc	1 242 17
 	add r5, r5, r0
-.Ltmp641:
+.Ltmp633:
 	.loc	1 242 17
 	ldw r0, r5[0]
 	.loc	1 242 17
 	eq r0, r6, r0
 	.loc	1 242 17
-	bf r0, .LBB38_20
-.Ltmp642:
+	bf r0, .LBB42_18
+.Ltmp634:
 .Lxtalabel201:
 	.loc	1 243 0
-	ldaw r11, cp[.str154]
+	ldaw r11, cp[.str123]
 	mov r0, r11
 .Lxta.call_labels76:
 	bl iprintf
-	bu .LBB38_18
-.Ltmp643:
-.LBB38_14:
+	bu .LBB42_17
+.Ltmp635:
+.LBB42_26:
 .Lxtalabel202:
-	outct res[r6], 1
-	.loc	1 258 0
-	ldaw r11, cp[.Lstr219]
-	mov r0, r11
-	bl puts
-.Ltmp644:
-	ldc r0, 92
+	outct res[r0], 1
+	ldc r2, 92
 	.loc	1 260 0
-.Ltmp645:
-	add r0, r5, r0
-	.loc	1 260 0
-	ldw r2, r0[0]
-	ldc r1, 6
-	.loc	1 260 0
-	out res[r6], r1
-	ldc r0, 0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r0
-	.loc	1 260 0
-	out res[r6], r2
-	.loc	1 260 0
-	outct res[r6], 2
-	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 96
-.Ltmp646:
-	.loc	1 260 0
+.Ltmp636:
 	add r2, r5, r2
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r2[0]
+	ldc r3, 6
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
+	ldc r2, 0
 	.loc	1 260 0
-	out res[r6], r0
-	mkmsk r3, 1
+	out res[r0], r2
 	.loc	1 260 0
-	out res[r6], r3
+	out res[r0], r2
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 100
+	chkct res[r0], 1
+	ldc r11, 96
+.Ltmp637:
 	.loc	1 260 0
-	add r2, r5, r2
+	add r11, r5, r11
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r11[0]
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 260 0
-	out res[r6], r0
-	ldc r3, 2
+	out res[r0], r2
+	mkmsk r4, 1
 	.loc	1 260 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldc r2, 104
+	chkct res[r0], 1
+	ldc r11, 100
 	.loc	1 260 0
-	add r2, r5, r2
+	add r11, r5, r11
 	.loc	1 260 0
-	ldw r2, r2[0]
+	ldw r11, r11[0]
 	.loc	1 260 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 260 0
-	out res[r6], r0
+	out res[r0], r2
+	ldc r4, 2
 	.loc	1 260 0
-	out res[r6], r8
+	out res[r0], r4
 	.loc	1 260 0
-	out res[r6], r2
+	out res[r0], r11
 	.loc	1 260 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 260 0
-	chkct res[r6], 1
-	ldw r1, r7[r4]
-.Ltmp647:
-.LBB38_27:
-	ldw r1, r1[0]
-	out res[r1], r0
-	outct res[r1], 1
-	bu .LBB38_28
-.LBB38_13:
-.Ltmp648:
-	outct res[r6], 1
-	in r9, res[r6]
-.Ltmp649:
-	.loc	1 265 0
-	ldaw r11, cp[.Lstr220]
-	mov r0, r11
-	bl puts
-	ldc r0, 4
-.Ltmp650:
+	chkct res[r0], 1
+	ldc r11, 104
+	.loc	1 260 0
+	add r11, r5, r11
+	.loc	1 260 0
+	ldw r11, r11[0]
+	.loc	1 260 0
+	out res[r0], r3
+	.loc	1 260 0
+	out res[r0], r2
+	.loc	1 260 0
+	out res[r0], r1
+	.loc	1 260 0
+	out res[r0], r11
+	.loc	1 260 0
+	outct res[r0], 2
+	.loc	1 260 0
+	chkct res[r0], 1
+	out res[r0], r2
+	bu .LBB42_27
+.Ltmp638:
+.LBB42_13:
+	outct res[r0], 1
+	in r3, res[r0]
+.Ltmp639:
+	ldc r2, 4
+.Ltmp640:
 	.loc	1 267 0
-	lsu r1, r9, r0
+	lsu r11, r3, r2
 .Ltrap_info4:
-	ecallf r1
+	ecallf r11
 	.loc	1 267 0
-	ldaw r1, r9[r9]
-	add r2, r5, r1
-	ldc r1, 108
+	ldaw r3, r3[r3]
+.Ltmp641:
+	add r11, r5, r3
+	ldc r3, 108
 	.loc	1 267 0
-	ld8u r11, r2[r1]
-	ldc r3, 8
+	ld8u r5, r11[r3]
+.Ltmp642:
+	ldc r4, 8
 	.loc	1 267 0
-	out res[r6], r3
-	ldc r1, 0
+	out res[r0], r4
+	ldc r3, 0
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 109
-.Ltmp651:
+	chkct res[r0], 1
+	ldc r5, 109
+.Ltmp643:
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	mkmsk r5, 1
-.Ltmp652:
+	out res[r0], r3
+	mkmsk r6, 1
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 110
+	chkct res[r0], 1
+	ldc r5, 110
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
-	ldc r5, 2
+	out res[r0], r3
+	ldc r6, 2
 	.loc	1 267 0
-	out res[r6], r5
+	out res[r0], r6
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 111
+	chkct res[r0], 1
+	ldc r5, 111
 	.loc	1 267 0
-	ld8u r11, r2[r11]
+	ld8u r5, r11[r5]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r8
+	out res[r0], r1
 	.loc	1 267 0
-	out res[r6], r11
+	out res[r0], r5
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldc r11, 112
+	chkct res[r0], 1
+	ldc r1, 112
 	.loc	1 267 0
-	ld8u r2, r2[r11]
+	ld8u r1, r11[r1]
 	.loc	1 267 0
-	out res[r6], r3
+	out res[r0], r4
 	.loc	1 267 0
-	out res[r6], r1
+	out res[r0], r3
 	.loc	1 267 0
-	out res[r6], r0
+	out res[r0], r2
 	.loc	1 267 0
-	out res[r6], r2
+	out res[r0], r1
 	.loc	1 267 0
-	outct res[r6], 2
+	outct res[r0], 2
 	.loc	1 267 0
-	chkct res[r6], 1
-	ldw r0, r7[r4]
-	ldw r0, r0[0]
-	bu .LBB38_19
-.Ltmp653:
-.LBB38_20:
+	chkct res[r0], 1
+	out res[r0], r3
+	bu .LBB42_27
+.Ltmp644:
+.LBB42_18:
 	ldc r0, 401
 	.loc	1 244 24
 	lss r0, r6, r0
-	bt r0, .LBB38_22
-.Ltmp654:
+	bt r0, .LBB42_20
+.Ltmp645:
 .Lxtalabel203:
 	.loc	1 245 0
-	ldaw r11, cp[.str155]
+	ldaw r11, cp[.str124]
 	mov r0, r11
 .Lxta.call_labels77:
 	bl iprintf
 	ldc r6, 400
 	.loc	1 246 0
 	stw r6, r5[0]
-	bu .LBB38_18
-.LBB38_22:
-.Ltmp655:
-	ldc r0, 234
+	bu .LBB42_17
+.LBB42_20:
+.Ltmp646:
+	ldc r0, 244
 	.loc	1 247 24
 	lss r0, r0, r6
-	bt r0, .LBB38_24
-.Ltmp656:
+	bt r0, .LBB42_22
+.Ltmp647:
 .Lxtalabel204:
 	.loc	1 248 0
-	ldaw r11, cp[.str156]
+	ldaw r11, cp[.str125]
 	mov r0, r11
 .Lxta.call_labels78:
 	bl iprintf
-	ldc r6, 235
+	ldc r6, 245
 	.loc	1 249 0
 	stw r6, r5[0]
-	bu .LBB38_18
-.LBB38_24:
+	bu .LBB42_17
+.LBB42_22:
 .Lxtalabel205:
-.Ltmp657:
+.Ltmp648:
 	.loc	1 251 0
-	ldaw r11, cp[.str157]
+	ldaw r11, cp[.str126]
 	mov r0, r11
 .Lxta.call_labels79:
 	bl iprintf
 	.loc	1 252 0
 	stw r6, r5[0]
-.Ltmp658:
-.LBB38_18:
+.Ltmp649:
+.LBB42_17:
 .Lxtalabel206:
 	.loc	1 254 0
-	ldaw r11, cp[.str158]
+	ldaw r11, cp[.str127]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels80:
@@ -6854,436 +6838,369 @@ temperature_heater_controller.select.case.2:
 	ldw r0, r7[r4]
 	ldw r0, r0[0]
 	ldc r1, 0
-.Ltmp659:
-.LBB38_19:
 	out res[r0], r1
+.Ltmp650:
+.LBB42_27:
 	outct res[r0], 1
-.LBB38_28:
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
-	retsp 9
+.LBB42_28:
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
+	retsp 7
 	# RETURN_REG_HOLDER
-.LBB38_29:
-	setd res[r6], r6
-	out res[r6], r0
-	outct res[r6], 2
-	edu res[r6]
-	ldc r0, 36
+.LBB42_25:
+	setd res[r0], r0
+	out res[r0], r2
+	outct res[r0], 2
+	edu res[r0]
+	ldc r0, 28
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-	ldw r4, sp[8]
+	ldw r7, sp[3]
+	ldw r6, sp[4]
+	ldw r5, sp[5]
+	ldw r4, sp[6]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
-	.cc_bottom temperature_heater_controller.select.case.2.function
-	.set	temperature_heater_controller.select.case.2.nstackwords,((iprintf.nstackwords $M puts.nstackwords) + 9)
-	.set	temperature_heater_controller.select.case.2.maxcores,iprintf.maxcores $M puts.maxcores $M 1
-	.set	temperature_heater_controller.select.case.2.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
-	.set	temperature_heater_controller.select.case.2.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
-.Ltmp660:
-	.size	temperature_heater_controller.select.case.2, .Ltmp660-temperature_heater_controller.select.case.2
-.Lfunc_end38:
+	.cc_bottom Temperature_Heater_Controller.select.case.2.function
+	.set	Temperature_Heater_Controller.select.case.2.nstackwords,((puts.nstackwords $M iprintf.nstackwords) + 7)
+	.set	Temperature_Heater_Controller.select.case.2.maxcores,iprintf.maxcores $M puts.maxcores $M 1
+	.set	Temperature_Heater_Controller.select.case.2.maxtimers,iprintf.maxtimers $M puts.maxtimers $M 0
+	.set	Temperature_Heater_Controller.select.case.2.maxchanends,iprintf.maxchanends $M puts.maxchanends $M 0
+.Ltmp651:
+	.size	Temperature_Heater_Controller.select.case.2, .Ltmp651-Temperature_Heater_Controller.select.case.2
+.Lfunc_end42:
 	.cfi_endproc
 
 	.section	.cp.rodata,"ac",@progbits
+	.cc_top .str21.data,.str21
+	.align	4
+	.type	.str21,@object
+	.size	.str21, 42
+.str21:
+.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
+	.cc_bottom .str21.data
+	.cc_top .str22.data,.str22
+	.align	4
+	.type	.str22,@object
+	.size	.str22, 45
+.str22:
+.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
+	.cc_bottom .str22.data
+	.cc_top .str23.data,.str23
+	.align	4
+	.type	.str23,@object
+	.size	.str23, 46
+.str23:
+.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
+	.cc_bottom .str23.data
+	.cc_top .str24.data,.str24
+	.align	4
+	.type	.str24,@object
+	.size	.str24, 42
+.str24:
+.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+	.cc_bottom .str24.data
 	.cc_top .str25.data,.str25
 	.align	4
 	.type	.str25,@object
-	.size	.str25, 42
+	.size	.str25, 84
 .str25:
-.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str25.data
-	.cc_top .str26.data,.str26
-	.align	4
-	.type	.str26,@object
-	.size	.str26, 45
-.str26:
-.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str26.data
-	.cc_top .str27.data,.str27
-	.align	4
-	.type	.str27,@object
-	.size	.str27, 46
-.str27:
-.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
-	.cc_bottom .str27.data
-	.cc_top .str28.data,.str28
-	.align	4
-	.type	.str28,@object
-	.size	.str28, 42
-.str28:
-.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
-	.cc_bottom .str28.data
-	.cc_top .str29.data,.str29
-	.align	4
-	.type	.str29,@object
-	.size	.str29, 84
-.str29:
 .asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
-	.cc_bottom .str29.data
-	.cc_top .str42.data,.str42
+	.cc_bottom .str25.data
+	.cc_top .str34.data,.str34
 	.align	4
-	.type	.str42,@object
-	.size	.str42, 5
-.str42:
+	.type	.str34,@object
+	.size	.str34, 5
+.str34:
 .asciiz"Same"
-	.cc_bottom .str42.data
-	.cc_top .str43.data,.str43
+	.cc_bottom .str34.data
+	.cc_top .str35.data,.str35
 	.align	4
-	.type	.str43,@object
-	.size	.str43, 5
-.str43:
+	.type	.str35,@object
+	.size	.str35, 5
+.str35:
 .asciiz"High"
-	.cc_bottom .str43.data
-	.cc_top .str44.data,.str44
+	.cc_bottom .str35.data
+	.cc_top .str36.data,.str36
 	.align	4
-	.type	.str44,@object
-	.size	.str44, 4
-.str44:
+	.type	.str36,@object
+	.size	.str36, 4
+.str36:
 .asciiz"Low"
-	.cc_bottom .str44.data
-	.cc_top .str45.data,.str45
+	.cc_bottom .str36.data
+	.cc_top .str37.data,.str37
 	.align	4
-	.type	.str45,@object
-	.size	.str45, 4
-.str45:
+	.type	.str37,@object
+	.size	.str37, 4
+.str37:
 .asciiz"New"
-	.cc_bottom .str45.data
+	.cc_bottom .str37.data
+	.cc_top .str38.data,.str38
+	.align	4
+	.type	.str38,@object
+	.size	.str38, 28
+.str38:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str38.data
 	.cc_top .str46.data,.str46
 	.align	4
 	.type	.str46,@object
-	.size	.str46, 28
+	.size	.str46, 5
 .str46:
-.asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str46.data
-	.cc_top .str59.data,.str59
-	.align	4
-	.type	.str59,@object
-	.size	.str59, 5
-.str59:
 .asciiz"Same"
-	.cc_bottom .str59.data
-	.cc_top .str60.data,.str60
+	.cc_bottom .str46.data
+	.cc_top .str47.data,.str47
 	.align	4
-	.type	.str60,@object
-	.size	.str60, 5
-.str60:
+	.type	.str47,@object
+	.size	.str47, 5
+.str47:
 .asciiz"High"
-	.cc_bottom .str60.data
-	.cc_top .str61.data,.str61
+	.cc_bottom .str47.data
+	.cc_top .str48.data,.str48
 	.align	4
-	.type	.str61,@object
-	.size	.str61, 4
-.str61:
+	.type	.str48,@object
+	.size	.str48, 4
+.str48:
 .asciiz"Low"
-	.cc_bottom .str61.data
-	.cc_top .str62.data,.str62
+	.cc_bottom .str48.data
+	.cc_top .str49.data,.str49
 	.align	4
-	.type	.str62,@object
-	.size	.str62, 4
-.str62:
+	.type	.str49,@object
+	.size	.str49, 4
+.str49:
 .asciiz"New"
-	.cc_bottom .str62.data
-	.cc_top .str63.data,.str63
+	.cc_bottom .str49.data
+	.cc_top .str50.data,.str50
 	.align	4
-	.type	.str63,@object
-	.size	.str63, 28
-.str63:
+	.type	.str50,@object
+	.size	.str50, 28
+.str50:
 .asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str63.data
+	.cc_bottom .str50.data
 	.section	.cp.rodata.cst16,"aMc",@progbits,16
-	.cc_top temperature_heater_controller.init.1.2.init.data,temperature_heater_controller.init.1.2.init
+	.cc_top Temperature_Heater_Controller.init.1.2.init.data,Temperature_Heater_Controller.init.1.2.init
 	.align	4
-	.type	temperature_heater_controller.init.1.2.init,@object
-	.size	temperature_heater_controller.init.1.2.init, 16
-temperature_heater_controller.init.1.2.init:
+	.type	Temperature_Heater_Controller.init.1.2.init,@object
+	.size	Temperature_Heater_Controller.init.1.2.init, 16
+Temperature_Heater_Controller.init.1.2.init:
 	.long	999
 	.long	999
 	.long	999
 	.long	999
-	.cc_bottom temperature_heater_controller.init.1.2.init.data
+	.cc_bottom Temperature_Heater_Controller.init.1.2.init.data
 	.section	.cp.rodata,"ac",@progbits
-	.cc_top temperature_heater_controller.init.1.3.init.data,temperature_heater_controller.init.1.3.init
+	.cc_top Temperature_Heater_Controller.init.1.3.init.data,Temperature_Heater_Controller.init.1.3.init
 	.align	4
-	.type	temperature_heater_controller.init.1.3.init,@object
-	.size	temperature_heater_controller.init.1.3.init, 20
-temperature_heater_controller.init.1.3.init:
+	.type	Temperature_Heater_Controller.init.1.3.init,@object
+	.size	Temperature_Heater_Controller.init.1.3.init, 20
+Temperature_Heater_Controller.init.1.3.init:
 .asciiz"??.?"
 .asciiz"??.?"
 .asciiz"??.?"
 .asciiz"...."
-	.cc_bottom temperature_heater_controller.init.1.3.init.data
-	.cc_top .str90.data,.str90
+	.cc_bottom Temperature_Heater_Controller.init.1.3.init.data
+	.cc_top .str72.data,.str72
 	.align	4
-	.type	.str90,@object
-	.size	.str90, 42
-.str90:
+	.type	.str72,@object
+	.size	.str72, 42
+.str72:
 .asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str90.data
-	.cc_top .str91.data,.str91
+	.cc_bottom .str72.data
+	.cc_top .str73.data,.str73
 	.align	4
-	.type	.str91,@object
-	.size	.str91, 45
-.str91:
+	.type	.str73,@object
+	.size	.str73, 45
+.str73:
 .asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str91.data
-	.cc_top .str92.data,.str92
+	.cc_bottom .str73.data
+	.cc_top .str74.data,.str74
 	.align	4
-	.type	.str92,@object
-	.size	.str92, 46
-.str92:
+	.type	.str74,@object
+	.size	.str74, 46
+.str74:
 .asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
-	.cc_bottom .str92.data
-	.cc_top .str93.data,.str93
+	.cc_bottom .str74.data
+	.cc_top .str75.data,.str75
 	.align	4
-	.type	.str93,@object
-	.size	.str93, 42
-.str93:
+	.type	.str75,@object
+	.size	.str75, 42
+.str75:
 .asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
-	.cc_bottom .str93.data
-	.cc_top .str94.data,.str94
+	.cc_bottom .str75.data
+	.cc_top .str76.data,.str76
 	.align	4
-	.type	.str94,@object
-	.size	.str94, 84
-.str94:
+	.type	.str76,@object
+	.size	.str76, 84
+.str76:
 .asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
-	.cc_bottom .str94.data
-	.cc_top .str107.data,.str107
+	.cc_bottom .str76.data
+	.cc_top .str85.data,.str85
 	.align	4
-	.type	.str107,@object
-	.size	.str107, 5
-.str107:
+	.type	.str85,@object
+	.size	.str85, 5
+.str85:
 .asciiz"Same"
-	.cc_bottom .str107.data
-	.cc_top .str108.data,.str108
+	.cc_bottom .str85.data
+	.cc_top .str86.data,.str86
 	.align	4
-	.type	.str108,@object
-	.size	.str108, 5
-.str108:
+	.type	.str86,@object
+	.size	.str86, 5
+.str86:
 .asciiz"High"
-	.cc_bottom .str108.data
-	.cc_top .str109.data,.str109
+	.cc_bottom .str86.data
+	.cc_top .str87.data,.str87
 	.align	4
-	.type	.str109,@object
-	.size	.str109, 4
-.str109:
+	.type	.str87,@object
+	.size	.str87, 4
+.str87:
 .asciiz"Low"
-	.cc_bottom .str109.data
+	.cc_bottom .str87.data
+	.cc_top .str88.data,.str88
+	.align	4
+	.type	.str88,@object
+	.size	.str88, 4
+.str88:
+.asciiz"New"
+	.cc_bottom .str88.data
+	.cc_top .str89.data,.str89
+	.align	4
+	.type	.str89,@object
+	.size	.str89, 28
+.str89:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str89.data
 	.cc_top .str110.data,.str110
 	.align	4
 	.type	.str110,@object
-	.size	.str110, 4
+	.size	.str110, 42
 .str110:
-.asciiz"New"
+.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
 	.cc_bottom .str110.data
 	.cc_top .str111.data,.str111
 	.align	4
 	.type	.str111,@object
-	.size	.str111, 28
+	.size	.str111, 45
 .str111:
-.asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str111.data
-	.cc_top .str137.data,.str137
-	.align	4
-	.type	.str137,@object
-	.size	.str137, 42
-.str137:
-.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str137.data
-	.cc_top .str138.data,.str138
-	.align	4
-	.type	.str138,@object
-	.size	.str138, 45
-.str138:
 .asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str138.data
+	.cc_bottom .str111.data
+	.cc_top .str112.data,.str112
+	.align	4
+	.type	.str112,@object
+	.size	.str112, 46
+.str112:
+.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
+	.cc_bottom .str112.data
+	.cc_top .str113.data,.str113
+	.align	4
+	.type	.str113,@object
+	.size	.str113, 42
+.str113:
+.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+	.cc_bottom .str113.data
+	.cc_top .str114.data,.str114
+	.align	4
+	.type	.str114,@object
+	.size	.str114, 84
+.str114:
+.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+	.cc_bottom .str114.data
+	.cc_top .str123.data,.str123
+	.align	4
+	.type	.str123,@object
+	.size	.str123, 5
+.str123:
+.asciiz"Same"
+	.cc_bottom .str123.data
+	.cc_top .str124.data,.str124
+	.align	4
+	.type	.str124,@object
+	.size	.str124, 5
+.str124:
+.asciiz"High"
+	.cc_bottom .str124.data
+	.cc_top .str125.data,.str125
+	.align	4
+	.type	.str125,@object
+	.size	.str125, 4
+.str125:
+.asciiz"Low"
+	.cc_bottom .str125.data
+	.cc_top .str126.data,.str126
+	.align	4
+	.type	.str126,@object
+	.size	.str126, 4
+.str126:
+.asciiz"New"
+	.cc_bottom .str126.data
+	.cc_top .str127.data,.str127
+	.align	4
+	.type	.str127,@object
+	.size	.str127, 28
+.str127:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str127.data
 	.cc_top .str139.data,.str139
 	.align	4
 	.type	.str139,@object
-	.size	.str139, 46
+	.size	.str139, 5
 .str139:
-.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
+.asciiz"Same"
 	.cc_bottom .str139.data
 	.cc_top .str140.data,.str140
 	.align	4
 	.type	.str140,@object
-	.size	.str140, 42
+	.size	.str140, 5
 .str140:
-.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+.asciiz"High"
 	.cc_bottom .str140.data
 	.cc_top .str141.data,.str141
 	.align	4
 	.type	.str141,@object
-	.size	.str141, 84
+	.size	.str141, 4
 .str141:
-.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+.asciiz"Low"
 	.cc_bottom .str141.data
-	.cc_top .str154.data,.str154
+	.cc_top .str142.data,.str142
 	.align	4
-	.type	.str154,@object
-	.size	.str154, 5
-.str154:
-.asciiz"Same"
-	.cc_bottom .str154.data
-	.cc_top .str155.data,.str155
-	.align	4
-	.type	.str155,@object
-	.size	.str155, 5
-.str155:
-.asciiz"High"
-	.cc_bottom .str155.data
-	.cc_top .str156.data,.str156
-	.align	4
-	.type	.str156,@object
-	.size	.str156, 4
-.str156:
-.asciiz"Low"
-	.cc_bottom .str156.data
-	.cc_top .str157.data,.str157
-	.align	4
-	.type	.str157,@object
-	.size	.str157, 4
-.str157:
+	.type	.str142,@object
+	.size	.str142, 4
+.str142:
 .asciiz"New"
-	.cc_bottom .str157.data
-	.cc_top .str158.data,.str158
+	.cc_bottom .str142.data
+	.cc_top .str143.data,.str143
 	.align	4
-	.type	.str158,@object
-	.size	.str158, 28
-.str158:
+	.type	.str143,@object
+	.size	.str143, 28
+.str143:
 .asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str158.data
-	.cc_top .str175.data,.str175
-	.align	4
-	.type	.str175,@object
-	.size	.str175, 5
-.str175:
-.asciiz"Same"
-	.cc_bottom .str175.data
-	.cc_top .str176.data,.str176
-	.align	4
-	.type	.str176,@object
-	.size	.str176, 5
-.str176:
-.asciiz"High"
-	.cc_bottom .str176.data
-	.cc_top .str177.data,.str177
-	.align	4
-	.type	.str177,@object
-	.size	.str177, 4
-.str177:
-.asciiz"Low"
-	.cc_bottom .str177.data
-	.cc_top .str178.data,.str178
-	.align	4
-	.type	.str178,@object
-	.size	.str178, 4
-.str178:
-.asciiz"New"
-	.cc_bottom .str178.data
-	.cc_top .str179.data,.str179
-	.align	4
-	.type	.str179,@object
-	.size	.str179, 28
-.str179:
-.asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str179.data
+	.cc_bottom .str143.data
 	.section	.cp.rodata.string,"aMSc",@progbits
-	.cc_top .Lstr197.data,.Lstr197
+	.cc_top .Lstr146.data,.Lstr146
 	.align	4
-	.type	.Lstr197,@object
-	.size	.Lstr197, 38
-.Lstr197:
-.asciiz"temperature_heater_controller started"
-	.cc_bottom .Lstr197.data
-	.cc_top .Lstr214.data,.Lstr214
+	.type	.Lstr146,@object
+	.size	.Lstr146, 38
+.Lstr146:
+.asciiz"Temperature_Heater_Controller started"
+	.cc_bottom .Lstr146.data
+	.cc_top .Lstr149.data,.Lstr149
 	.align	4
-	.type	.Lstr214,@object
-	.size	.Lstr214, 28
-.Lstr214:
-.asciiz"HEATER: calls GET_TEMPC_ALL"
-	.cc_bottom .Lstr214.data
-	.cc_top .Lstr215.data,.Lstr215
-	.align	4
-	.type	.Lstr215,@object
-	.size	.Lstr215, 29
-.Lstr215:
-.asciiz"HEATER: called GET_TEMPC_ALL"
-	.cc_bottom .Lstr215.data
-	.cc_top .Lstr216.data,.Lstr216
-	.align	4
-	.type	.Lstr216,@object
-	.size	.Lstr216, 43
-.Lstr216:
-.asciiz"HEATER: notified calls read_temperature_ok"
-	.cc_bottom .Lstr216.data
-	.cc_top .Lstr217.data,.Lstr217
-	.align	4
-	.type	.Lstr217,@object
-	.size	.Lstr217, 35
-.Lstr217:
-.asciiz"HEATER: called read_temperature_ok"
-	.cc_bottom .Lstr217.data
-	.cc_top .Lstr218.data,.Lstr218
-	.align	4
-	.type	.Lstr218,@object
-	.size	.Lstr218, 29
-.Lstr218:
-.asciiz"HEATER: heater_set_temp_degC"
-	.cc_bottom .Lstr218.data
-	.cc_top .Lstr219.data,.Lstr219
-	.align	4
-	.type	.Lstr219,@object
-	.size	.Lstr219, 18
-.Lstr219:
-.asciiz"HEATER: get_temps"
-	.cc_bottom .Lstr219.data
-	.cc_top .Lstr220.data,.Lstr220
-	.align	4
-	.type	.Lstr220,@object
-	.size	.Lstr220, 29
-.Lstr220:
-.asciiz"HEATER: get_temp_degC_string"
-	.cc_bottom .Lstr220.data
-	.cc_top .Lstr221.data,.Lstr221
-	.align	4
-	.type	.Lstr221,@object
-	.size	.Lstr221, 32
-.Lstr221:
-.asciiz"HEATER: heater_set_proportional"
-	.cc_bottom .Lstr221.data
-	.cc_top .Lstr222.data,.Lstr222
-	.align	4
-	.type	.Lstr222,@object
-	.size	.Lstr222, 27
-.Lstr222:
-.asciiz"HEATER: get_regulator_data"
-	.cc_bottom .Lstr222.data
-	.cc_top .Lstr223.data,.Lstr223
-	.align	4
-	.type	.Lstr223,@object
-	.size	.Lstr223, 60
-.Lstr223:
+	.type	.Lstr149,@object
+	.size	.Lstr149, 60
+.Lstr149:
 .asciiz"Zero Watt? V24 may be zero, but always until middle button!"
-	.cc_bottom .Lstr223.data
+	.cc_bottom .Lstr149.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/temperature_heater_controller.xc"
 .Linfo_string2:
@@ -7309,7 +7226,7 @@ temperature_heater_controller.init.1.3.init:
 .Linfo_string12:
 .asciiz"HEAT_CABLES_BOTH_ON"
 .Linfo_string13:
-.asciiz"__TYPE_11"
+.asciiz"__TYPE_13"
 .Linfo_string14:
 .asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
 .Linfo_string15:
@@ -7353,19 +7270,19 @@ temperature_heater_controller.init.1.3.init:
 .Linfo_string34:
 .asciiz"HEATER_WIRES_BOTH_IS_FULL"
 .Linfo_string35:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_14"
 .Linfo_string36:
 .asciiz"ON_OFF_PROPORTIONAL"
 .Linfo_string37:
 .asciiz"ON_OFF_TEMPC_HEATER"
 .Linfo_string38:
-.asciiz"__TYPE_14"
+.asciiz"__TYPE_16"
 .Linfo_string39:
 .asciiz"IS_READING_TEMPS"
 .Linfo_string40:
 .asciiz"IS_CONTROLLING"
 .Linfo_string41:
-.asciiz"__TYPE_15"
+.asciiz"__TYPE_17"
 .Linfo_string42:
 .asciiz"_i.i2c_external_commands_if._chan.command"
 .Linfo_string43:
@@ -7387,222 +7304,230 @@ temperature_heater_controller.init.1.3.init:
 .Linfo_string51:
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 .Linfo_string52:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 .Linfo_string53:
-.asciiz"_i.port_heat_light_commands_if._chan.light_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 .Linfo_string54:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string55:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string56:
-.asciiz"_i.port_heat_light_commands_if._chan_y.light_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 .Linfo_string57:
-.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 .Linfo_string58:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 .Linfo_string59:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 .Linfo_string60:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 .Linfo_string61:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string62:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
 .Linfo_string63:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string64:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string65:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
 .Linfo_string66:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string67:
-.asciiz"delay_seconds"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
 .Linfo_string68:
-.asciiz"delay_milliseconds"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string69:
-.asciiz"delay_microseconds"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string70:
-.asciiz"temperature_heater_controller"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
 .Linfo_string71:
-.asciiz"temperature_heater_controller.select.0.case.0"
+.asciiz"delay_seconds"
 .Linfo_string72:
-.asciiz"temperature_heater_controller.select.0.enable"
+.asciiz"delay_milliseconds"
 .Linfo_string73:
-.asciiz"unsigned int"
+.asciiz"delay_microseconds"
 .Linfo_string74:
-.asciiz"temperature_heater_controller.init.1"
+.asciiz"Temperature_Heater_Controller"
 .Linfo_string75:
-.asciiz"temperature_heater_controller.init.0"
+.asciiz"Temperature_Heater_Controller.select.0.case.0"
 .Linfo_string76:
-.asciiz"temperature_heater_controller.select.y.case.0"
+.asciiz"Temperature_Heater_Controller.select.0.enable"
 .Linfo_string77:
-.asciiz"temperature_heater_controller.select.y.case.1"
+.asciiz"unsigned int"
 .Linfo_string78:
-.asciiz"temperature_heater_controller.select.y.case.2"
+.asciiz"Temperature_Heater_Controller.init.1"
 .Linfo_string79:
-.asciiz"temperature_heater_controller.select.y.enable"
+.asciiz"Temperature_Heater_Controller.init.0"
 .Linfo_string80:
-.asciiz"temperature_heater_controller.select.case.0"
+.asciiz"Temperature_Heater_Controller.select.y.case.0"
 .Linfo_string81:
-.asciiz"temperature_heater_controller.select.case.1"
+.asciiz"Temperature_Heater_Controller.select.y.case.1"
 .Linfo_string82:
-.asciiz"temperature_heater_controller.select.case.2"
+.asciiz"Temperature_Heater_Controller.select.y.case.2"
 .Linfo_string83:
-.asciiz"temperature_heater_controller.select.enable"
+.asciiz"Temperature_Heater_Controller.select.y.enable"
 .Linfo_string84:
-.asciiz"temperature_heater_controller.fini"
+.asciiz"Temperature_Heater_Controller.select.case.0"
 .Linfo_string85:
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data"
+.asciiz"Temperature_Heater_Controller.select.case.1"
 .Linfo_string86:
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string"
+.asciiz"Temperature_Heater_Controller.select.case.2"
 .Linfo_string87:
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps"
+.asciiz"Temperature_Heater_Controller.select.enable"
 .Linfo_string88:
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC"
+.asciiz"Temperature_Heater_Controller.fini"
 .Linfo_string89:
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data"
 .Linfo_string90:
-.asciiz"p"
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string"
 .Linfo_string91:
-.asciiz"rr_24V_voltage_onetenthV"
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps"
 .Linfo_string92:
-.asciiz"int"
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC"
 .Linfo_string93:
-.asciiz"ohm"
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional"
 .Linfo_string94:
-.asciiz"iof_temps"
+.asciiz"p"
 .Linfo_string95:
-.asciiz"return_value_string"
+.asciiz"rr_24V_voltage_onetenthV"
 .Linfo_string96:
-.asciiz"unsigned char"
+.asciiz"int"
 .Linfo_string97:
-.asciiz"iof_char"
+.asciiz"ohm"
 .Linfo_string98:
-.asciiz"return_temps_onetenthDegC"
+.asciiz"iof_temps"
 .Linfo_string99:
-.asciiz"heater_wires_"
+.asciiz"return_value_string"
 .Linfo_string100:
-.asciiz"temp_onetenthDegC"
+.asciiz"unsigned char"
 .Linfo_string101:
-.asciiz"heater_percent_on"
+.asciiz"iof_char"
 .Linfo_string102:
-.asciiz"temps_onetenthDegC"
+.asciiz"return_temps_onetenthDegC"
 .Linfo_string103:
-.asciiz"temps_degC_str"
+.asciiz"heater_wires_"
 .Linfo_string104:
-.asciiz"temps_onetenthDegC_mean"
+.asciiz"temp_onetenthDegC"
 .Linfo_string105:
-.asciiz"temps_index_next_to_write"
+.asciiz"heater_percent_on"
 .Linfo_string106:
-.asciiz"temps_num"
+.asciiz"temps_onetenthDegC"
 .Linfo_string107:
-.asciiz"temps_sum_mten_previous"
+.asciiz"temps_degC_str"
 .Linfo_string108:
-.asciiz"__TYPE_7"
+.asciiz"temps_onetenthDegC_mean"
 .Linfo_string109:
-.asciiz"ok_degC_converts"
+.asciiz"temps_index_next_to_write"
 .Linfo_string110:
-.asciiz"ok_degC_i2cs"
+.asciiz"temps_num"
 .Linfo_string111:
-.asciiz"i_temperature_heater_commands"
+.asciiz"temps_sum_mten_previous"
 .Linfo_string112:
-.asciiz"interface"
+.asciiz"__TYPE_7"
 .Linfo_string113:
-.asciiz"i_i2c_external_commands"
+.asciiz"ok_degC_converts"
 .Linfo_string114:
-.asciiz"i_port_heat_light_commands"
+.asciiz"ok_degC_i2cs"
 .Linfo_string115:
-.asciiz"temp_onetenthDegC_heater_limit"
+.asciiz"i_temperature_heater_commands"
 .Linfo_string116:
-.asciiz"proportional_heater_percent_on_limit"
+.asciiz"interface"
 .Linfo_string117:
-.asciiz"temp_onetenthDegC_heater_sum"
+.asciiz"i_i2c_external_commands"
 .Linfo_string118:
-.asciiz"temp_onetenthDegC_heater_num"
+.asciiz"i_port_heat_light_commands"
 .Linfo_string119:
-.asciiz"first_round"
+.asciiz"temp_onetenthDegC_heater_limit"
 .Linfo_string120:
-.asciiz"on_percent"
+.asciiz"proportional_heater_percent_on_limit"
 .Linfo_string121:
-.asciiz"on_now_previous"
+.asciiz"temp_onetenthDegC_heater_sum"
 .Linfo_string122:
-.asciiz"on_now"
+.asciiz"temp_onetenthDegC_heater_num"
 .Linfo_string123:
-.asciiz"err_cnt_times"
+.asciiz"first_round"
 .Linfo_string124:
-.asciiz"off_cnt_secs"
+.asciiz"on_percent"
 .Linfo_string125:
-.asciiz"on_cnt_secs"
+.asciiz"on_now_previous"
 .Linfo_string126:
-.asciiz"is_doing"
+.asciiz"on_now"
 .Linfo_string127:
-.asciiz"heater_wires"
+.asciiz"err_cnt_times"
 .Linfo_string128:
-.asciiz"method_of_on_off"
+.asciiz"off_cnt_secs"
 .Linfo_string129:
-.asciiz"proportional_percent_cnt"
+.asciiz"on_cnt_secs"
 .Linfo_string130:
-.asciiz"temp_measurement_ticks_cnt"
+.asciiz"is_doing"
 .Linfo_string131:
-.asciiz"raw_timer_interval_cnt_for_one_second"
+.asciiz"heater_wires"
 .Linfo_string132:
-.asciiz"iof_i2c_temp"
+.asciiz"method_of_on_off"
 .Linfo_string133:
-.asciiz"time"
+.asciiz"proportional_percent_cnt"
 .Linfo_string134:
-.asciiz"return_value_on_watt"
+.asciiz"temp_measurement_ticks_cnt"
 .Linfo_string135:
-.asciiz"index_of_client"
+.asciiz"raw_timer_interval_cnt_for_one_second"
 .Linfo_string136:
-.asciiz"tmr"
+.asciiz"iof_i2c_temp"
 .Linfo_string137:
-.asciiz"timer"
+.asciiz"time"
 .Linfo_string138:
-.asciiz"i2c_temps"
+.asciiz"return_value_on_watt"
 .Linfo_string139:
-.asciiz"ok_degC_heater_mean_last_cycle"
+.asciiz"index_of_client"
 .Linfo_string140:
-.asciiz"return_value_on_percent"
+.asciiz"tmr"
 .Linfo_string141:
-.asciiz"temperature_heater_controller.select.state_ptr"
+.asciiz"timer"
 .Linfo_string142:
-.asciiz"enable.flag"
+.asciiz"i2c_temps"
 .Linfo_string143:
-.asciiz"init.flag.or.func"
+.asciiz"ok_degC_heater_mean_last_cycle"
 .Linfo_string144:
-.asciiz"trampoline"
+.asciiz"return_value_on_percent"
 .Linfo_string145:
-.asciiz"frame.0"
+.asciiz"Temperature_Heater_Controller.select.state_ptr"
 .Linfo_string146:
-.asciiz"temperature_heater_controller.init.1.state_ptr"
+.asciiz"enable.flag"
 .Linfo_string147:
-.asciiz"saved.state"
+.asciiz"init.flag.or.func"
 .Linfo_string148:
-.asciiz"dest"
+.asciiz"trampoline"
 .Linfo_string149:
-.asciiz"chanend"
+.asciiz"frame.0"
 .Linfo_string150:
-.asciiz"param1"
+.asciiz"Temperature_Heater_Controller.init.1.state_ptr"
 .Linfo_string151:
-.asciiz"last_notification_input"
+.asciiz"saved.state"
 .Linfo_string152:
-.asciiz"s"
+.asciiz"dest"
 .Linfo_string153:
-.asciiz"y"
+.asciiz"chanend"
 .Linfo_string154:
-.asciiz"yarg"
+.asciiz"param1"
 .Linfo_string155:
-.asciiz"param2"
+.asciiz"last_notification_input"
 .Linfo_string156:
-.asciiz"delay"
+.asciiz"s"
 .Linfo_string157:
-.asciiz"temperature_heater_controller.init.0.state_ptr"
+.asciiz"y"
 .Linfo_string158:
-.asciiz"temperature_heater_controller.fini.state_ptr"
+.asciiz"yarg"
+.Linfo_string159:
+.asciiz"param2"
+.Linfo_string160:
+.asciiz"delay"
+.Linfo_string161:
+.asciiz"Temperature_Heater_Controller.init.0.state_ptr"
+.Linfo_string162:
+.asciiz"Temperature_Heater_Controller.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	5027
+	.long	5164
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -7909,28 +7834,28 @@ temperature_heater_controller.init.1.3.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string85
-	.long	.Linfo_string85
+	.long	.Linfo_string89
+	.long	.Linfo_string89
 	.byte	1
 	.short	271
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc0
-	.long	.Linfo_string90
-	.long	4297
+	.long	.Linfo_string94
+	.long	4429
 	.byte	8
 	.long	.Ldebug_loc1
-	.long	.Linfo_string91
+	.long	.Linfo_string95
 	.byte	1
 	.short	271
-	.long	4315
+	.long	4447
 	.byte	9
 	.long	.Ldebug_ranges1
 	.byte	10
-	.long	.Linfo_string93
+	.long	.Linfo_string97
 	.byte	1
 	.short	274
-	.long	4215
+	.long	4347
 	.byte	0
 	.byte	0
 	.byte	6
@@ -7938,35 +7863,36 @@ temperature_heater_controller.init.1.3.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string86
-	.long	.Linfo_string86
+	.long	.Linfo_string90
+	.long	.Linfo_string90
 	.byte	1
 	.short	264
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc2
-	.long	.Linfo_string90
-	.long	4297
+	.long	.Linfo_string94
+	.long	4429
 	.byte	8
 	.long	.Ldebug_loc3
-	.long	.Linfo_string94
+	.long	.Linfo_string98
 	.byte	1
 	.short	264
-	.long	4327
-	.byte	8
-	.long	.Ldebug_loc4
-	.long	.Linfo_string95
+	.long	4459
+	.byte	11
+	.byte	1
+	.byte	82
+	.long	.Linfo_string99
 	.byte	1
 	.short	264
-	.long	4332
+	.long	4464
 	.byte	9
 	.long	.Ldebug_ranges3
-	.byte	11
-	.long	.Ldebug_loc5
-	.long	.Linfo_string97
+	.byte	12
+	.long	.Ldebug_loc4
+	.long	.Linfo_string101
 	.byte	1
 	.short	266
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	6
@@ -7974,440 +7900,440 @@ temperature_heater_controller.init.1.3.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string87
-	.long	.Linfo_string87
+	.long	.Linfo_string91
+	.long	.Linfo_string91
 	.byte	1
 	.short	257
 	.byte	1
 	.byte	7
-	.long	.Ldebug_loc6
-	.long	.Linfo_string90
-	.long	4297
+	.long	.Ldebug_loc5
+	.long	.Linfo_string94
+	.long	4429
 	.byte	8
+	.long	.Ldebug_loc6
+	.long	.Linfo_string102
+	.byte	1
+	.short	257
+	.long	4489
+	.byte	9
+	.long	.Ldebug_ranges5
+	.byte	12
 	.long	.Ldebug_loc7
 	.long	.Linfo_string98
 	.byte	1
-	.short	257
-	.long	4357
-	.byte	9
-	.long	.Ldebug_ranges5
-	.byte	11
-	.long	.Ldebug_loc8
-	.long	.Linfo_string94
-	.byte	1
 	.short	259
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
-	.byte	12
+	.byte	13
 	.long	.Ldebug_ranges6
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string88
-	.long	.Linfo_string88
+	.long	.Linfo_string92
+	.long	.Linfo_string92
 	.byte	1
 	.byte	237
 	.byte	1
 	.byte	7
+	.long	.Ldebug_loc8
+	.long	.Linfo_string94
+	.long	4429
+	.byte	14
 	.long	.Ldebug_loc9
-	.long	.Linfo_string90
-	.long	4297
-	.byte	13
+	.long	.Linfo_string103
+	.byte	1
+	.byte	237
+	.long	4507
+	.byte	14
 	.long	.Ldebug_loc10
-	.long	.Linfo_string99
+	.long	.Linfo_string104
 	.byte	1
 	.byte	237
-	.long	4375
-	.byte	13
-	.long	.Ldebug_loc11
-	.long	.Linfo_string100
-	.byte	1
-	.byte	237
-	.long	4315
+	.long	4447
 	.byte	0
-	.byte	12
+	.byte	13
 	.long	.Ldebug_ranges7
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string89
-	.long	.Linfo_string89
+	.long	.Linfo_string93
+	.long	.Linfo_string93
 	.byte	1
 	.byte	229
 	.byte	1
 	.byte	7
+	.long	.Ldebug_loc11
+	.long	.Linfo_string94
+	.long	4429
+	.byte	14
 	.long	.Ldebug_loc12
-	.long	.Linfo_string90
-	.long	4297
-	.byte	13
+	.long	.Linfo_string103
+	.byte	1
+	.byte	229
+	.long	4512
+	.byte	14
 	.long	.Ldebug_loc13
-	.long	.Linfo_string99
+	.long	.Linfo_string105
 	.byte	1
 	.byte	229
-	.long	4380
-	.byte	13
-	.long	.Ldebug_loc14
-	.long	.Linfo_string101
-	.byte	1
-	.byte	229
-	.long	4315
+	.long	4447
 	.byte	0
-	.byte	12
+	.byte	13
 	.long	.Ldebug_ranges8
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string70
-	.long	.Linfo_string70
+	.long	.Linfo_string74
+	.long	.Linfo_string74
 	.byte	1
 	.byte	45
 	.byte	1
-	.byte	13
-	.long	.Ldebug_loc15
-	.long	.Linfo_string111
+	.byte	14
+	.long	.Ldebug_loc14
+	.long	.Linfo_string115
 	.byte	1
 	.byte	43
-	.long	4514
-	.byte	13
-	.long	.Ldebug_loc16
-	.long	.Linfo_string113
+	.long	4646
+	.byte	14
+	.long	.Ldebug_loc15
+	.long	.Linfo_string117
 	.byte	1
 	.byte	44
-	.long	4532
-	.byte	13
-	.long	.Ldebug_loc17
-	.long	.Linfo_string114
+	.long	4664
+	.byte	14
+	.long	.Ldebug_loc16
+	.long	.Linfo_string118
 	.byte	1
 	.byte	45
-	.long	4532
+	.long	4664
 	.byte	9
 	.long	.Ldebug_ranges40
-	.byte	14
-	.long	.Linfo_string136
+	.byte	15
+	.long	.Linfo_string140
 	.byte	1
 	.byte	47
-	.long	4539
+	.long	4671
 	.byte	9
 	.long	.Ldebug_ranges39
-	.byte	15
-	.long	.Ldebug_loc36
-	.long	.Linfo_string133
+	.byte	16
+	.long	.Ldebug_loc35
+	.long	.Linfo_string137
 	.byte	1
 	.byte	48
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges38
-	.byte	15
-	.long	.Ldebug_loc34
-	.long	.Linfo_string131
+	.byte	16
+	.long	.Ldebug_loc33
+	.long	.Linfo_string135
 	.byte	1
 	.byte	49
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges37
-	.byte	15
-	.long	.Ldebug_loc33
-	.long	.Linfo_string130
+	.byte	16
+	.long	.Ldebug_loc32
+	.long	.Linfo_string134
 	.byte	1
 	.byte	50
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges36
-	.byte	15
-	.long	.Ldebug_loc32
-	.long	.Linfo_string129
+	.byte	16
+	.long	.Ldebug_loc31
+	.long	.Linfo_string133
 	.byte	1
 	.byte	51
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges35
-	.byte	15
-	.long	.Ldebug_loc31
-	.long	.Linfo_string128
+	.byte	16
+	.long	.Ldebug_loc30
+	.long	.Linfo_string132
 	.byte	1
 	.byte	52
 	.long	235
 	.byte	9
 	.long	.Ldebug_ranges34
-	.byte	15
-	.long	.Ldebug_loc30
-	.long	.Linfo_string127
+	.byte	16
+	.long	.Ldebug_loc29
+	.long	.Linfo_string131
 	.byte	1
 	.byte	53
 	.long	256
 	.byte	9
 	.long	.Ldebug_ranges33
-	.byte	15
-	.long	.Ldebug_loc29
-	.long	.Linfo_string126
+	.byte	16
+	.long	.Ldebug_loc28
+	.long	.Linfo_string130
 	.byte	1
 	.byte	54
 	.long	277
 	.byte	9
 	.long	.Ldebug_ranges32
-	.byte	15
-	.long	.Ldebug_loc28
-	.long	.Linfo_string125
+	.byte	16
+	.long	.Ldebug_loc27
+	.long	.Linfo_string129
 	.byte	1
 	.byte	55
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges31
-	.byte	15
-	.long	.Ldebug_loc27
-	.long	.Linfo_string124
+	.byte	16
+	.long	.Ldebug_loc26
+	.long	.Linfo_string128
 	.byte	1
 	.byte	56
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges30
-	.byte	15
-	.long	.Ldebug_loc26
-	.long	.Linfo_string123
+	.byte	16
+	.long	.Ldebug_loc25
+	.long	.Linfo_string127
 	.byte	1
 	.byte	57
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges29
-	.byte	15
-	.long	.Ldebug_loc25
-	.long	.Linfo_string122
+	.byte	16
+	.long	.Ldebug_loc24
+	.long	.Linfo_string126
 	.byte	1
 	.byte	58
 	.long	298
 	.byte	9
 	.long	.Ldebug_ranges28
-	.byte	15
-	.long	.Ldebug_loc24
-	.long	.Linfo_string121
+	.byte	16
+	.long	.Ldebug_loc23
+	.long	.Linfo_string125
 	.byte	1
 	.byte	59
 	.long	319
 	.byte	9
 	.long	.Ldebug_ranges27
-	.byte	15
-	.long	.Ldebug_loc23
-	.long	.Linfo_string120
+	.byte	16
+	.long	.Ldebug_loc22
+	.long	.Linfo_string124
 	.byte	1
 	.byte	60
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges26
-	.byte	15
-	.long	.Ldebug_loc22
-	.long	.Linfo_string119
+	.byte	16
+	.long	.Ldebug_loc21
+	.long	.Linfo_string123
 	.byte	1
 	.byte	61
 	.long	340
 	.byte	9
 	.long	.Ldebug_ranges25
-	.byte	15
-	.long	.Ldebug_loc21
-	.long	.Linfo_string118
+	.byte	16
+	.long	.Ldebug_loc20
+	.long	.Linfo_string122
 	.byte	1
 	.byte	63
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges24
-	.byte	15
-	.long	.Ldebug_loc20
-	.long	.Linfo_string117
+	.byte	16
+	.long	.Ldebug_loc19
+	.long	.Linfo_string121
 	.byte	1
 	.byte	64
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges23
-	.byte	15
-	.long	.Ldebug_loc19
-	.long	.Linfo_string116
+	.byte	16
+	.long	.Ldebug_loc18
+	.long	.Linfo_string120
 	.byte	1
 	.byte	66
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges22
-	.byte	15
-	.long	.Ldebug_loc18
-	.long	.Linfo_string115
+	.byte	16
+	.long	.Ldebug_loc17
+	.long	.Linfo_string119
 	.byte	1
 	.byte	67
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges21
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
-	.ascii	"\310\002"
-	.long	.Linfo_string102
+	.ascii	"\304\002"
+	.long	.Linfo_string106
 	.byte	1
 	.byte	69
-	.long	4362
+	.long	4494
 	.byte	9
 	.long	.Ldebug_ranges20
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
-	.ascii	"\264\002"
-	.long	.Linfo_string103
+	.ascii	"\260\002"
+	.long	.Linfo_string107
 	.byte	1
 	.byte	71
-	.long	4385
+	.long	4517
 	.byte	9
 	.long	.Ldebug_ranges19
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
-	.ascii	"\260\001"
-	.long	.Linfo_string104
+	.ascii	"\254\001"
+	.long	.Linfo_string108
 	.byte	1
 	.byte	73
-	.long	4405
+	.long	4537
 	.byte	9
 	.long	.Ldebug_ranges9
-	.byte	15
-	.long	.Ldebug_loc35
-	.long	.Linfo_string132
+	.byte	16
+	.long	.Ldebug_loc34
+	.long	.Linfo_string136
 	.byte	1
 	.byte	75
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges14
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
-	.ascii	"\244\001"
-	.long	.Linfo_string109
+	.ascii	"\240\001"
+	.long	.Linfo_string113
 	.byte	1
 	.byte	136
-	.long	4488
+	.long	4620
 	.byte	9
 	.long	.Ldebug_ranges13
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
-	.ascii	"\230\001"
-	.long	.Linfo_string110
+	.ascii	"\224\001"
+	.long	.Linfo_string114
 	.byte	1
 	.byte	137
-	.long	4501
+	.long	4633
 	.byte	9
 	.long	.Ldebug_ranges12
-	.byte	14
-	.long	.Linfo_string138
+	.byte	15
+	.long	.Linfo_string142
 	.byte	1
 	.byte	142
-	.long	3496
+	.long	3494
 	.byte	9
 	.long	.Ldebug_ranges10
-	.byte	14
-	.long	.Linfo_string139
+	.byte	15
+	.long	.Linfo_string143
 	.byte	1
 	.byte	206
 	.long	403
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges11
-	.byte	15
-	.long	.Ldebug_loc40
-	.long	.Linfo_string132
+	.byte	16
+	.long	.Ldebug_loc39
+	.long	.Linfo_string136
 	.byte	1
 	.byte	145
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges18
-	.byte	11
-	.long	.Ldebug_loc37
-	.long	.Linfo_string91
-	.byte	1
-	.short	271
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc38
-	.long	.Linfo_string134
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	15
-	.long	.Ldebug_loc39
-	.long	.Linfo_string135
-	.byte	1
-	.byte	229
-	.long	4320
-	.byte	15
-	.long	.Ldebug_loc41
-	.long	.Linfo_string99
-	.byte	1
-	.byte	229
-	.long	4380
-	.byte	15
-	.long	.Ldebug_loc42
-	.long	.Linfo_string101
-	.byte	1
-	.byte	229
-	.long	4315
-	.byte	15
-	.long	.Ldebug_loc43
-	.long	.Linfo_string99
-	.byte	1
-	.byte	237
-	.long	4375
-	.byte	15
-	.long	.Ldebug_loc44
-	.long	.Linfo_string100
-	.byte	1
-	.byte	237
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc46
-	.long	.Linfo_string94
-	.byte	1
-	.short	264
-	.long	4327
-	.byte	10
-	.long	.Linfo_string140
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	10
+	.byte	12
+	.long	.Ldebug_loc36
 	.long	.Linfo_string95
 	.byte	1
-	.short	264
-	.long	4332
-	.byte	10
+	.short	271
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc37
+	.long	.Linfo_string138
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	16
+	.long	.Ldebug_loc38
+	.long	.Linfo_string139
+	.byte	1
+	.byte	229
+	.long	4452
+	.byte	16
+	.long	.Ldebug_loc40
+	.long	.Linfo_string103
+	.byte	1
+	.byte	229
+	.long	4512
+	.byte	16
+	.long	.Ldebug_loc41
+	.long	.Linfo_string105
+	.byte	1
+	.byte	229
+	.long	4447
+	.byte	16
+	.long	.Ldebug_loc42
+	.long	.Linfo_string103
+	.byte	1
+	.byte	237
+	.long	4507
+	.byte	16
+	.long	.Ldebug_loc43
+	.long	.Linfo_string104
+	.byte	1
+	.byte	237
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc46
 	.long	.Linfo_string98
 	.byte	1
+	.short	264
+	.long	4459
+	.byte	10
+	.long	.Linfo_string144
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	10
+	.long	.Linfo_string99
+	.byte	1
+	.short	264
+	.long	4464
+	.byte	10
+	.long	.Linfo_string102
+	.byte	1
 	.short	257
-	.long	4357
+	.long	4489
 	.byte	9
 	.long	.Ldebug_ranges15
 	.byte	10
-	.long	.Linfo_string93
+	.long	.Linfo_string97
 	.byte	1
 	.short	274
-	.long	4215
+	.long	4347
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges16
-	.byte	11
-	.long	.Ldebug_loc45
-	.long	.Linfo_string94
+	.byte	12
+	.long	.Ldebug_loc44
+	.long	.Linfo_string98
 	.byte	1
 	.short	259
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges17
-	.byte	11
-	.long	.Ldebug_loc47
-	.long	.Linfo_string97
+	.byte	12
+	.long	.Ldebug_loc45
+	.long	.Linfo_string101
 	.byte	1
 	.short	266
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
@@ -8433,203 +8359,203 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	17
+	.byte	18
 	.long	.Ldebug_ranges41
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.long	4215
+	.long	.Linfo_string76
+	.long	.Linfo_string76
+	.long	4347
 	.byte	1
 	.byte	7
-	.long	.Ldebug_loc48
-	.long	.Linfo_string141
-	.long	4546
+	.long	.Ldebug_loc47
+	.long	.Linfo_string145
+	.long	4678
 	.byte	9
 	.long	.Ldebug_ranges42
-	.byte	15
-	.long	.Ldebug_loc49
-	.long	.Linfo_string135
+	.byte	16
+	.long	.Ldebug_loc48
+	.long	.Linfo_string139
 	.byte	1
 	.byte	229
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
-	.byte	18
+	.byte	19
 	.long	.Ldebug_ranges43
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string74
-	.long	.Linfo_string74
+	.long	.Linfo_string78
+	.long	.Linfo_string78
 	.byte	1
 	.byte	7
-	.long	.Ldebug_loc50
-	.long	.Linfo_string146
-	.long	4546
+	.long	.Ldebug_loc49
+	.long	.Linfo_string150
+	.long	4678
 	.byte	9
 	.long	.Ldebug_ranges66
-	.byte	14
-	.long	.Linfo_string136
+	.byte	15
+	.long	.Linfo_string140
 	.byte	1
 	.byte	47
-	.long	4539
+	.long	4671
 	.byte	9
 	.long	.Ldebug_ranges65
-	.byte	14
-	.long	.Linfo_string133
+	.byte	15
+	.long	.Linfo_string137
 	.byte	1
 	.byte	48
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges64
-	.byte	14
-	.long	.Linfo_string131
+	.byte	15
+	.long	.Linfo_string135
 	.byte	1
 	.byte	49
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges63
-	.byte	14
-	.long	.Linfo_string130
+	.byte	15
+	.long	.Linfo_string134
 	.byte	1
 	.byte	50
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges62
-	.byte	14
-	.long	.Linfo_string129
+	.byte	15
+	.long	.Linfo_string133
 	.byte	1
 	.byte	51
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges61
-	.byte	14
-	.long	.Linfo_string128
+	.byte	15
+	.long	.Linfo_string132
 	.byte	1
 	.byte	52
 	.long	235
 	.byte	9
 	.long	.Ldebug_ranges60
-	.byte	14
-	.long	.Linfo_string127
+	.byte	15
+	.long	.Linfo_string131
 	.byte	1
 	.byte	53
 	.long	256
 	.byte	9
 	.long	.Ldebug_ranges59
-	.byte	14
-	.long	.Linfo_string126
+	.byte	15
+	.long	.Linfo_string130
 	.byte	1
 	.byte	54
 	.long	277
 	.byte	9
 	.long	.Ldebug_ranges58
-	.byte	14
-	.long	.Linfo_string125
+	.byte	15
+	.long	.Linfo_string129
 	.byte	1
 	.byte	55
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges57
-	.byte	14
-	.long	.Linfo_string124
+	.byte	15
+	.long	.Linfo_string128
 	.byte	1
 	.byte	56
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges56
-	.byte	14
-	.long	.Linfo_string123
+	.byte	15
+	.long	.Linfo_string127
 	.byte	1
 	.byte	57
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges55
-	.byte	14
-	.long	.Linfo_string122
+	.byte	15
+	.long	.Linfo_string126
 	.byte	1
 	.byte	58
 	.long	298
 	.byte	9
 	.long	.Ldebug_ranges54
-	.byte	14
-	.long	.Linfo_string121
+	.byte	15
+	.long	.Linfo_string125
 	.byte	1
 	.byte	59
 	.long	319
 	.byte	9
 	.long	.Ldebug_ranges53
-	.byte	14
-	.long	.Linfo_string120
+	.byte	15
+	.long	.Linfo_string124
 	.byte	1
 	.byte	60
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges52
-	.byte	14
-	.long	.Linfo_string119
+	.byte	15
+	.long	.Linfo_string123
 	.byte	1
 	.byte	61
 	.long	340
 	.byte	9
 	.long	.Ldebug_ranges51
-	.byte	14
-	.long	.Linfo_string118
+	.byte	15
+	.long	.Linfo_string122
 	.byte	1
 	.byte	63
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges50
-	.byte	14
-	.long	.Linfo_string117
+	.byte	15
+	.long	.Linfo_string121
 	.byte	1
 	.byte	64
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges49
-	.byte	14
-	.long	.Linfo_string116
+	.byte	15
+	.long	.Linfo_string120
 	.byte	1
 	.byte	66
-	.long	4215
+	.long	4347
 	.byte	9
 	.long	.Ldebug_ranges48
-	.byte	14
-	.long	.Linfo_string115
+	.byte	15
+	.long	.Linfo_string119
 	.byte	1
 	.byte	67
-	.long	4320
+	.long	4452
 	.byte	9
 	.long	.Ldebug_ranges47
-	.byte	14
-	.long	.Linfo_string102
+	.byte	15
+	.long	.Linfo_string106
 	.byte	1
 	.byte	69
-	.long	4362
+	.long	4494
 	.byte	9
 	.long	.Ldebug_ranges46
-	.byte	14
-	.long	.Linfo_string103
+	.byte	15
+	.long	.Linfo_string107
 	.byte	1
 	.byte	71
-	.long	4385
+	.long	4517
 	.byte	9
 	.long	.Ldebug_ranges45
-	.byte	14
-	.long	.Linfo_string104
+	.byte	15
+	.long	.Linfo_string108
 	.byte	1
 	.byte	73
-	.long	4405
+	.long	4537
 	.byte	9
 	.long	.Ldebug_ranges44
-	.byte	15
-	.long	.Ldebug_loc51
-	.long	.Linfo_string132
+	.byte	16
+	.long	.Ldebug_loc50
+	.long	.Linfo_string136
 	.byte	1
 	.byte	75
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
@@ -8654,217 +8580,217 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	17
+	.byte	18
 	.long	.Ldebug_ranges67
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string79
-	.long	.Linfo_string79
-	.long	4215
+	.long	.Linfo_string83
+	.long	.Linfo_string83
+	.long	4347
 	.byte	1
 	.byte	7
-	.long	.Ldebug_loc52
-	.long	.Linfo_string141
-	.long	4546
+	.long	.Ldebug_loc51
+	.long	.Linfo_string145
+	.long	4678
 	.byte	9
 	.long	.Ldebug_ranges68
-	.byte	15
-	.long	.Ldebug_loc53
-	.long	.Linfo_string135
+	.byte	16
+	.long	.Ldebug_loc52
+	.long	.Linfo_string139
 	.byte	1
 	.byte	229
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
-	.byte	17
+	.byte	18
 	.long	.Ldebug_ranges69
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string83
-	.long	.Linfo_string83
-	.long	4215
+	.long	.Linfo_string87
+	.long	.Linfo_string87
+	.long	4347
 	.byte	1
 	.byte	7
-	.long	.Ldebug_loc54
-	.long	.Linfo_string141
-	.long	4546
+	.long	.Ldebug_loc53
+	.long	.Linfo_string145
+	.long	4678
 	.byte	9
 	.long	.Ldebug_ranges70
-	.byte	15
-	.long	.Ldebug_loc55
-	.long	.Linfo_string135
+	.byte	16
+	.long	.Ldebug_loc54
+	.long	.Linfo_string139
 	.byte	1
 	.byte	229
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
-	.byte	19
+	.byte	20
 	.long	.Ldebug_ranges71
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string71
-	.long	.Linfo_string71
+	.long	.Linfo_string75
+	.long	.Linfo_string75
 	.byte	1
 	.byte	229
 	.byte	7
-	.long	.Ldebug_loc56
-	.long	.Linfo_string147
-	.long	4956
+	.long	.Ldebug_loc55
+	.long	.Linfo_string151
+	.long	5088
 	.byte	9
 	.long	.Ldebug_ranges75
-	.byte	15
+	.byte	16
+	.long	.Ldebug_loc56
+	.long	.Linfo_string139
+	.byte	1
+	.byte	229
+	.long	4452
+	.byte	12
 	.long	.Ldebug_loc57
-	.long	.Linfo_string135
-	.byte	1
-	.byte	229
-	.long	4320
-	.byte	11
-	.long	.Ldebug_loc58
-	.long	.Linfo_string91
-	.byte	1
-	.short	271
-	.long	4315
-	.byte	15
-	.long	.Ldebug_loc59
-	.long	.Linfo_string99
-	.byte	1
-	.byte	229
-	.long	4380
-	.byte	15
-	.long	.Ldebug_loc60
-	.long	.Linfo_string101
-	.byte	1
-	.byte	229
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc61
-	.long	.Linfo_string140
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	11
-	.long	.Ldebug_loc62
-	.long	.Linfo_string134
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	15
-	.long	.Ldebug_loc63
-	.long	.Linfo_string99
-	.byte	1
-	.byte	237
-	.long	4375
-	.byte	15
-	.long	.Ldebug_loc64
-	.long	.Linfo_string100
-	.byte	1
-	.byte	237
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc66
-	.long	.Linfo_string94
-	.byte	1
-	.short	264
-	.long	4327
-	.byte	10
 	.long	.Linfo_string95
 	.byte	1
-	.short	264
-	.long	4332
-	.byte	10
+	.short	271
+	.long	4447
+	.byte	16
+	.long	.Ldebug_loc58
+	.long	.Linfo_string103
+	.byte	1
+	.byte	229
+	.long	4512
+	.byte	16
+	.long	.Ldebug_loc59
+	.long	.Linfo_string105
+	.byte	1
+	.byte	229
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc60
+	.long	.Linfo_string144
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	12
+	.long	.Ldebug_loc61
+	.long	.Linfo_string138
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	16
+	.long	.Ldebug_loc62
+	.long	.Linfo_string103
+	.byte	1
+	.byte	237
+	.long	4507
+	.byte	16
+	.long	.Ldebug_loc63
+	.long	.Linfo_string104
+	.byte	1
+	.byte	237
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc65
 	.long	.Linfo_string98
 	.byte	1
+	.short	264
+	.long	4459
+	.byte	10
+	.long	.Linfo_string99
+	.byte	1
+	.short	264
+	.long	4464
+	.byte	10
+	.long	.Linfo_string102
+	.byte	1
 	.short	257
-	.long	4357
+	.long	4489
 	.byte	9
 	.long	.Ldebug_ranges72
 	.byte	10
-	.long	.Linfo_string93
+	.long	.Linfo_string97
 	.byte	1
 	.short	274
-	.long	4215
+	.long	4347
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges73
-	.byte	11
-	.long	.Ldebug_loc65
-	.long	.Linfo_string94
+	.byte	12
+	.long	.Ldebug_loc64
+	.long	.Linfo_string98
 	.byte	1
 	.short	259
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges74
-	.byte	11
-	.long	.Ldebug_loc67
-	.long	.Linfo_string97
+	.byte	12
+	.long	.Ldebug_loc66
+	.long	.Linfo_string101
 	.byte	1
 	.short	266
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	20
+	.byte	21
 	.long	.Ldebug_ranges76
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string76
-	.long	.Linfo_string76
+	.long	.Linfo_string80
+	.long	.Linfo_string80
 	.byte	1
 	.byte	85
-	.byte	19
+	.byte	20
 	.long	.Ldebug_ranges77
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string77
-	.long	.Linfo_string77
+	.long	.Linfo_string81
+	.long	.Linfo_string81
 	.byte	1
 	.byte	134
 	.byte	9
 	.long	.Ldebug_ranges82
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
 .asciiz"\310"
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
 	.byte	136
-	.long	4488
+	.long	4620
 	.byte	9
 	.long	.Ldebug_ranges81
-	.byte	16
+	.byte	17
 	.byte	2
 	.byte	145
 	.byte	60
-	.long	.Linfo_string110
+	.long	.Linfo_string114
 	.byte	1
 	.byte	137
-	.long	4501
+	.long	4633
 	.byte	9
 	.long	.Ldebug_ranges80
-	.byte	14
-	.long	.Linfo_string138
+	.byte	15
+	.long	.Linfo_string142
 	.byte	1
 	.byte	142
-	.long	3496
+	.long	3494
 	.byte	9
 	.long	.Ldebug_ranges78
-	.byte	15
-	.long	.Ldebug_loc68
-	.long	.Linfo_string132
+	.byte	16
+	.long	.Ldebug_loc67
+	.long	.Linfo_string136
 	.byte	1
 	.byte	145
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges79
-	.byte	14
-	.long	.Linfo_string139
+	.byte	15
+	.long	.Linfo_string143
 	.byte	1
 	.byte	206
 	.long	403
@@ -8873,171 +8799,171 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	19
+	.byte	20
 	.long	.Ldebug_ranges83
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string78
-	.long	.Linfo_string78
+	.long	.Linfo_string82
+	.long	.Linfo_string82
 	.byte	1
 	.byte	229
 	.byte	7
-	.long	.Ldebug_loc69
-	.long	.Linfo_string147
-	.long	4956
+	.long	.Ldebug_loc68
+	.long	.Linfo_string151
+	.long	5088
 	.byte	9
 	.long	.Ldebug_ranges87
-	.byte	15
+	.byte	16
+	.long	.Ldebug_loc69
+	.long	.Linfo_string139
+	.byte	1
+	.byte	229
+	.long	4452
+	.byte	12
 	.long	.Ldebug_loc70
-	.long	.Linfo_string135
-	.byte	1
-	.byte	229
-	.long	4320
-	.byte	11
-	.long	.Ldebug_loc71
-	.long	.Linfo_string91
-	.byte	1
-	.short	271
-	.long	4315
-	.byte	15
-	.long	.Ldebug_loc72
-	.long	.Linfo_string99
-	.byte	1
-	.byte	229
-	.long	4380
-	.byte	15
-	.long	.Ldebug_loc73
-	.long	.Linfo_string101
-	.byte	1
-	.byte	229
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc74
-	.long	.Linfo_string140
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	11
-	.long	.Ldebug_loc75
-	.long	.Linfo_string134
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	15
-	.long	.Ldebug_loc76
-	.long	.Linfo_string99
-	.byte	1
-	.byte	237
-	.long	4375
-	.byte	15
-	.long	.Ldebug_loc77
-	.long	.Linfo_string100
-	.byte	1
-	.byte	237
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc79
-	.long	.Linfo_string94
-	.byte	1
-	.short	264
-	.long	4327
-	.byte	10
 	.long	.Linfo_string95
 	.byte	1
-	.short	264
-	.long	4332
-	.byte	10
+	.short	271
+	.long	4447
+	.byte	16
+	.long	.Ldebug_loc71
+	.long	.Linfo_string103
+	.byte	1
+	.byte	229
+	.long	4512
+	.byte	16
+	.long	.Ldebug_loc72
+	.long	.Linfo_string105
+	.byte	1
+	.byte	229
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc73
+	.long	.Linfo_string144
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	12
+	.long	.Ldebug_loc74
+	.long	.Linfo_string138
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	16
+	.long	.Ldebug_loc75
+	.long	.Linfo_string103
+	.byte	1
+	.byte	237
+	.long	4507
+	.byte	16
+	.long	.Ldebug_loc76
+	.long	.Linfo_string104
+	.byte	1
+	.byte	237
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc78
 	.long	.Linfo_string98
 	.byte	1
+	.short	264
+	.long	4459
+	.byte	10
+	.long	.Linfo_string99
+	.byte	1
+	.short	264
+	.long	4464
+	.byte	10
+	.long	.Linfo_string102
+	.byte	1
 	.short	257
-	.long	4357
+	.long	4489
 	.byte	9
 	.long	.Ldebug_ranges84
 	.byte	10
-	.long	.Linfo_string93
+	.long	.Linfo_string97
 	.byte	1
 	.short	274
-	.long	4215
+	.long	4347
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges85
-	.byte	11
-	.long	.Ldebug_loc78
-	.long	.Linfo_string94
+	.byte	12
+	.long	.Ldebug_loc77
+	.long	.Linfo_string98
 	.byte	1
 	.short	259
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges86
-	.byte	11
-	.long	.Ldebug_loc80
-	.long	.Linfo_string97
+	.byte	12
+	.long	.Ldebug_loc79
+	.long	.Linfo_string101
 	.byte	1
 	.short	266
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	20
+	.byte	21
 	.long	.Ldebug_ranges88
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string80
-	.long	.Linfo_string80
+	.long	.Linfo_string84
+	.long	.Linfo_string84
 	.byte	1
 	.byte	85
-	.byte	19
+	.byte	20
 	.long	.Ldebug_ranges89
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string81
-	.long	.Linfo_string81
+	.long	.Linfo_string85
+	.long	.Linfo_string85
 	.byte	1
 	.byte	134
 	.byte	9
 	.long	.Ldebug_ranges94
-	.byte	16
+	.byte	17
 	.byte	3
 	.byte	145
 .asciiz"\310"
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
 	.byte	136
-	.long	4488
+	.long	4620
 	.byte	9
 	.long	.Ldebug_ranges93
-	.byte	16
+	.byte	17
 	.byte	2
 	.byte	145
 	.byte	60
-	.long	.Linfo_string110
+	.long	.Linfo_string114
 	.byte	1
 	.byte	137
-	.long	4501
+	.long	4633
 	.byte	9
 	.long	.Ldebug_ranges92
-	.byte	14
-	.long	.Linfo_string138
+	.byte	15
+	.long	.Linfo_string142
 	.byte	1
 	.byte	142
-	.long	3496
+	.long	3494
 	.byte	9
 	.long	.Ldebug_ranges90
-	.byte	15
-	.long	.Ldebug_loc81
-	.long	.Linfo_string132
+	.byte	16
+	.long	.Ldebug_loc80
+	.long	.Linfo_string136
 	.byte	1
 	.byte	145
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges91
-	.byte	14
-	.long	.Linfo_string139
+	.byte	15
+	.long	.Linfo_string143
 	.byte	1
 	.byte	206
 	.long	403
@@ -9046,823 +8972,875 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	19
+	.byte	20
 	.long	.Ldebug_ranges95
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string82
-	.long	.Linfo_string82
+	.long	.Linfo_string86
+	.long	.Linfo_string86
 	.byte	1
 	.byte	229
 	.byte	7
-	.long	.Ldebug_loc82
-	.long	.Linfo_string147
-	.long	4956
+	.long	.Ldebug_loc81
+	.long	.Linfo_string151
+	.long	5088
 	.byte	9
 	.long	.Ldebug_ranges99
-	.byte	15
+	.byte	16
+	.long	.Ldebug_loc82
+	.long	.Linfo_string139
+	.byte	1
+	.byte	229
+	.long	4452
+	.byte	12
 	.long	.Ldebug_loc83
-	.long	.Linfo_string135
-	.byte	1
-	.byte	229
-	.long	4320
-	.byte	11
-	.long	.Ldebug_loc84
-	.long	.Linfo_string91
-	.byte	1
-	.short	271
-	.long	4315
-	.byte	15
-	.long	.Ldebug_loc85
-	.long	.Linfo_string99
-	.byte	1
-	.byte	229
-	.long	4380
-	.byte	15
-	.long	.Ldebug_loc86
-	.long	.Linfo_string101
-	.byte	1
-	.byte	229
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc87
-	.long	.Linfo_string140
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	11
-	.long	.Ldebug_loc88
-	.long	.Linfo_string134
-	.byte	1
-	.short	272
-	.long	4215
-	.byte	15
-	.long	.Ldebug_loc89
-	.long	.Linfo_string99
-	.byte	1
-	.byte	237
-	.long	4375
-	.byte	15
-	.long	.Ldebug_loc90
-	.long	.Linfo_string100
-	.byte	1
-	.byte	237
-	.long	4315
-	.byte	11
-	.long	.Ldebug_loc92
-	.long	.Linfo_string94
-	.byte	1
-	.short	264
-	.long	4327
-	.byte	10
 	.long	.Linfo_string95
 	.byte	1
-	.short	264
-	.long	4332
-	.byte	10
+	.short	271
+	.long	4447
+	.byte	16
+	.long	.Ldebug_loc84
+	.long	.Linfo_string103
+	.byte	1
+	.byte	229
+	.long	4512
+	.byte	16
+	.long	.Ldebug_loc85
+	.long	.Linfo_string105
+	.byte	1
+	.byte	229
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc86
+	.long	.Linfo_string144
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	12
+	.long	.Ldebug_loc87
+	.long	.Linfo_string138
+	.byte	1
+	.short	272
+	.long	4347
+	.byte	16
+	.long	.Ldebug_loc88
+	.long	.Linfo_string103
+	.byte	1
+	.byte	237
+	.long	4507
+	.byte	16
+	.long	.Ldebug_loc89
+	.long	.Linfo_string104
+	.byte	1
+	.byte	237
+	.long	4447
+	.byte	12
+	.long	.Ldebug_loc91
 	.long	.Linfo_string98
 	.byte	1
+	.short	264
+	.long	4459
+	.byte	10
+	.long	.Linfo_string99
+	.byte	1
+	.short	264
+	.long	4464
+	.byte	10
+	.long	.Linfo_string102
+	.byte	1
 	.short	257
-	.long	4357
+	.long	4489
 	.byte	9
 	.long	.Ldebug_ranges96
 	.byte	10
-	.long	.Linfo_string93
+	.long	.Linfo_string97
 	.byte	1
 	.short	274
-	.long	4215
+	.long	4347
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges97
-	.byte	11
-	.long	.Ldebug_loc91
-	.long	.Linfo_string94
+	.byte	12
+	.long	.Ldebug_loc90
+	.long	.Linfo_string98
 	.byte	1
 	.short	259
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	9
 	.long	.Ldebug_ranges98
-	.byte	11
-	.long	.Ldebug_loc93
-	.long	.Linfo_string97
+	.byte	12
+	.long	.Ldebug_loc92
+	.long	.Linfo_string101
 	.byte	1
 	.short	266
-	.long	4320
+	.long	4452
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string42
 	.long	.Linfo_string42
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	4968
-	.byte	0
 	.byte	23
-	.long	.Linfo_string43
-	.long	.Linfo_string43
-	.long	3496
-	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string151
-	.long	4215
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5100
 	.byte	0
 	.byte	24
+	.long	.Linfo_string43
+	.long	.Linfo_string43
+	.long	3494
+	.byte	1
+	.byte	23
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string155
+	.long	4347
+	.byte	0
+	.byte	25
 	.long	.Linfo_string48
 	.byte	20
-	.byte	25
+	.byte	26
 	.long	.Linfo_string44
-	.long	3523
-	.byte	0
-	.byte	25
-	.long	.Linfo_string46
-	.long	3543
-	.byte	12
+	.long	3521
 	.byte	0
 	.byte	26
-	.long	50
+	.long	.Linfo_string46
+	.long	3541
+	.byte	12
+	.byte	0
 	.byte	27
-	.long	3536
+	.long	50
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	2
 	.byte	0
-	.byte	28
+	.byte	29
 	.long	.Linfo_string45
 	.byte	8
 	.byte	7
-	.byte	26
-	.long	3556
 	.byte	27
-	.long	3536
+	.long	3554
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	2
 	.byte	0
-	.byte	29
+	.byte	30
 	.long	.Linfo_string47
 	.byte	5
 	.byte	2
-	.byte	21
+	.byte	22
 	.long	.Linfo_string49
 	.long	.Linfo_string49
 	.byte	1
-	.byte	22
-	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	4968
-	.byte	0
 	.byte	23
-	.long	.Linfo_string50
-	.long	.Linfo_string50
-	.long	3496
-	.byte	1
-	.byte	22
-	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string151
-	.long	4215
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5100
 	.byte	0
-	.byte	21
+	.byte	24
+	.long	.Linfo_string50
+	.long	.Linfo_string50
+	.long	3494
+	.byte	1
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string155
+	.long	4347
+	.byte	0
+	.byte	22
 	.long	.Linfo_string51
 	.long	.Linfo_string51
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5005
+	.byte	23
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5137
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string52
 	.long	.Linfo_string52
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5010
+	.byte	23
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5142
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string53
 	.long	.Linfo_string53
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5015
+	.byte	23
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5147
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string54
 	.long	.Linfo_string54
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5005
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	4429
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string55
 	.long	.Linfo_string55
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5010
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5152
+	.byte	23
+	.long	.Linfo_string159
+	.long	5142
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string56
 	.long	.Linfo_string56
 	.byte	1
-	.byte	22
-	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5015
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5137
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string57
 	.long	.Linfo_string57
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	4315
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5142
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string58
 	.long	.Linfo_string58
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5020
-	.byte	22
-	.long	.Linfo_string155
-	.long	4332
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5147
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string59
 	.long	.Linfo_string59
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	4357
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	4429
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string60
 	.long	.Linfo_string60
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5025
-	.byte	22
-	.long	.Linfo_string155
-	.long	4315
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5152
+	.byte	23
+	.long	.Linfo_string159
+	.long	5142
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string61
 	.long	.Linfo_string61
 	.byte	1
-	.byte	22
-	.long	.Linfo_string148
-	.long	4961
-	.byte	22
-	.long	.Linfo_string150
-	.long	5025
-	.byte	22
-	.long	.Linfo_string155
-	.long	4315
+	.byte	23
+	.long	.Linfo_string152
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	4447
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string62
 	.long	.Linfo_string62
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	4315
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5157
+	.byte	23
+	.long	.Linfo_string159
+	.long	4464
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string63
 	.long	.Linfo_string63
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5020
-	.byte	22
-	.long	.Linfo_string155
-	.long	4332
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	4489
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string64
 	.long	.Linfo_string64
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	4357
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5162
+	.byte	23
+	.long	.Linfo_string159
+	.long	4447
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string65
 	.long	.Linfo_string65
 	.byte	1
-	.byte	22
+	.byte	23
 	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5025
-	.byte	22
-	.long	.Linfo_string155
-	.long	4315
+	.long	5093
+	.byte	23
+	.long	.Linfo_string154
+	.long	5162
+	.byte	23
+	.long	.Linfo_string159
+	.long	4447
 	.byte	0
-	.byte	21
+	.byte	22
 	.long	.Linfo_string66
 	.long	.Linfo_string66
 	.byte	1
-	.byte	22
-	.long	.Linfo_string152
-	.long	4973
-	.byte	22
-	.long	.Linfo_string150
-	.long	5025
-	.byte	22
-	.long	.Linfo_string155
-	.long	4315
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	4447
 	.byte	0
-	.byte	30
+	.byte	22
 	.long	.Linfo_string67
 	.long	.Linfo_string67
+	.byte	1
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5157
+	.byte	23
+	.long	.Linfo_string159
+	.long	4464
+	.byte	0
+	.byte	22
+	.long	.Linfo_string68
+	.long	.Linfo_string68
+	.byte	1
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	4489
+	.byte	0
+	.byte	22
+	.long	.Linfo_string69
+	.long	.Linfo_string69
+	.byte	1
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5162
+	.byte	23
+	.long	.Linfo_string159
+	.long	4447
+	.byte	0
+	.byte	22
+	.long	.Linfo_string70
+	.long	.Linfo_string70
+	.byte	1
+	.byte	23
+	.long	.Linfo_string156
+	.long	5105
+	.byte	23
+	.long	.Linfo_string154
+	.long	5162
+	.byte	23
+	.long	.Linfo_string159
+	.long	4447
+	.byte	0
+	.byte	31
+	.long	.Linfo_string71
+	.long	.Linfo_string71
 	.byte	3
 	.byte	46
 	.byte	1
-	.byte	31
-	.long	.Linfo_string156
+	.byte	32
+	.long	.Linfo_string160
 	.byte	3
 	.byte	46
-	.long	4215
+	.long	4347
 	.byte	0
-	.byte	30
-	.long	.Linfo_string68
-	.long	.Linfo_string68
+	.byte	31
+	.long	.Linfo_string72
+	.long	.Linfo_string72
 	.byte	3
 	.byte	54
 	.byte	1
-	.byte	31
-	.long	.Linfo_string156
+	.byte	32
+	.long	.Linfo_string160
 	.byte	3
 	.byte	54
-	.long	4215
+	.long	4347
 	.byte	0
-	.byte	30
-	.long	.Linfo_string69
-	.long	.Linfo_string69
-	.byte	3
-	.byte	62
-	.byte	1
 	.byte	31
-	.long	.Linfo_string156
-	.byte	3
-	.byte	62
-	.long	4215
-	.byte	0
-	.byte	29
 	.long	.Linfo_string73
+	.long	.Linfo_string73
+	.byte	3
+	.byte	62
+	.byte	1
+	.byte	32
+	.long	.Linfo_string160
+	.byte	3
+	.byte	62
+	.long	4347
+	.byte	0
+	.byte	30
+	.long	.Linfo_string77
 	.byte	7
 	.byte	4
-	.byte	30
-	.long	.Linfo_string75
-	.long	.Linfo_string75
+	.byte	31
+	.long	.Linfo_string79
+	.long	.Linfo_string79
 	.byte	1
 	.byte	45
 	.byte	1
-	.byte	22
-	.long	.Linfo_string157
-	.long	4546
-	.byte	31
-	.long	.Linfo_string111
+	.byte	23
+	.long	.Linfo_string161
+	.long	4678
+	.byte	32
+	.long	.Linfo_string115
 	.byte	1
 	.byte	43
-	.long	4514
-	.byte	31
-	.long	.Linfo_string113
+	.long	4646
+	.byte	32
+	.long	.Linfo_string117
 	.byte	1
 	.byte	44
-	.long	4532
-	.byte	31
-	.long	.Linfo_string114
+	.long	4664
+	.byte	32
+	.long	.Linfo_string118
 	.byte	1
 	.byte	45
-	.long	4532
+	.long	4664
 	.byte	0
-	.byte	21
-	.long	.Linfo_string84
-	.long	.Linfo_string84
-	.byte	1
 	.byte	22
-	.long	.Linfo_string158
-	.long	4546
-	.byte	0
-	.byte	32
-	.long	4302
-	.byte	26
-	.long	4215
-	.byte	27
-	.long	3536
-	.byte	0
-	.byte	2
-	.byte	0
-	.byte	33
-	.long	4320
-	.byte	29
-	.long	.Linfo_string92
-	.byte	5
-	.byte	4
-	.byte	33
-	.long	424
-	.byte	32
-	.long	4337
-	.byte	26
-	.long	4350
-	.byte	27
-	.long	3536
-	.byte	0
-	.byte	4
-	.byte	0
-	.byte	29
-	.long	.Linfo_string96
-	.byte	8
+	.long	.Linfo_string88
+	.long	.Linfo_string88
 	.byte	1
-	.byte	32
-	.long	4362
-	.byte	26
-	.long	4320
-	.byte	27
-	.long	3536
-	.byte	0
-	.byte	3
+	.byte	23
+	.long	.Linfo_string162
+	.long	4678
 	.byte	0
 	.byte	33
-	.long	458
-	.byte	33
-	.long	479
-	.byte	26
-	.long	4350
+	.long	4434
 	.byte	27
-	.long	3536
-	.byte	0
-	.byte	3
-	.byte	27
-	.long	3536
-	.byte	0
-	.byte	4
-	.byte	0
-	.byte	26
-	.long	4418
-	.byte	27
-	.long	3536
+	.long	4347
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	34
-	.long	.Linfo_string108
+	.long	4452
+	.byte	30
+	.long	.Linfo_string96
+	.byte	5
+	.byte	4
+	.byte	34
+	.long	424
+	.byte	33
+	.long	4469
+	.byte	27
+	.long	4482
+	.byte	28
+	.long	3534
+	.byte	0
+	.byte	4
+	.byte	0
+	.byte	30
+	.long	.Linfo_string100
+	.byte	8
+	.byte	1
+	.byte	33
+	.long	4494
+	.byte	27
+	.long	4452
+	.byte	28
+	.long	3534
+	.byte	0
+	.byte	3
+	.byte	0
+	.byte	34
+	.long	458
+	.byte	34
+	.long	479
+	.byte	27
+	.long	4482
+	.byte	28
+	.long	3534
+	.byte	0
+	.byte	3
+	.byte	28
+	.long	3534
+	.byte	0
+	.byte	4
+	.byte	0
+	.byte	27
+	.long	4550
+	.byte	28
+	.long	3534
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	35
+	.long	.Linfo_string112
 	.byte	44
 	.byte	1
 	.byte	73
-	.byte	35
-	.long	.Linfo_string102
-	.long	4475
+	.byte	36
+	.long	.Linfo_string106
+	.long	4607
 	.byte	1
 	.byte	73
 	.byte	0
-	.byte	35
-	.long	.Linfo_string105
-	.long	4215
+	.byte	36
+	.long	.Linfo_string109
+	.long	4347
 	.byte	1
 	.byte	73
 	.byte	32
-	.byte	35
-	.long	.Linfo_string106
-	.long	4215
+	.byte	36
+	.long	.Linfo_string110
+	.long	4347
 	.byte	1
 	.byte	73
 	.byte	36
-	.byte	35
-	.long	.Linfo_string107
-	.long	4320
+	.byte	36
+	.long	.Linfo_string111
+	.long	4452
 	.byte	1
 	.byte	73
 	.byte	40
 	.byte	0
-	.byte	26
-	.long	4320
 	.byte	27
-	.long	3536
+	.long	4452
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	7
 	.byte	0
-	.byte	26
+	.byte	27
 	.long	361
-	.byte	27
-	.long	3536
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	2
 	.byte	0
-	.byte	26
+	.byte	27
 	.long	382
-	.byte	27
-	.long	3536
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	2
 	.byte	0
-	.byte	32
-	.long	4519
-	.byte	26
-	.long	4532
+	.byte	33
+	.long	4651
 	.byte	27
-	.long	3536
+	.long	4664
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	1
 	.byte	0
-	.byte	29
-	.long	.Linfo_string112
+	.byte	30
+	.long	.Linfo_string116
 	.byte	7
 	.byte	4
-	.byte	29
-	.long	.Linfo_string137
+	.byte	30
+	.long	.Linfo_string141
 	.byte	7
 	.byte	4
-	.byte	36
-	.long	4551
 	.byte	37
-	.long	.Linfo_string145
+	.long	4683
+	.byte	38
+	.long	.Linfo_string149
 	.short	380
 	.byte	1
 	.byte	229
-	.byte	35
-	.long	.Linfo_string142
-	.long	4215
+	.byte	36
+	.long	.Linfo_string146
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	0
-	.byte	35
-	.long	.Linfo_string143
-	.long	4215
+	.byte	36
+	.long	.Linfo_string147
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	4
-	.byte	35
-	.long	.Linfo_string111
-	.long	4938
+	.byte	36
+	.long	.Linfo_string115
+	.long	5070
 	.byte	1
 	.byte	229
 	.byte	8
-	.byte	35
-	.long	.Linfo_string113
-	.long	4532
+	.byte	36
+	.long	.Linfo_string117
+	.long	4664
 	.byte	1
 	.byte	229
 	.byte	12
-	.byte	35
-	.long	.Linfo_string114
-	.long	4532
+	.byte	36
+	.long	.Linfo_string118
+	.long	4664
 	.byte	1
 	.byte	229
 	.byte	16
-	.byte	35
-	.long	.Linfo_string133
-	.long	4320
+	.byte	36
+	.long	.Linfo_string137
+	.long	4452
 	.byte	1
 	.byte	229
 	.byte	20
-	.byte	35
-	.long	.Linfo_string131
-	.long	4215
+	.byte	36
+	.long	.Linfo_string135
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	24
-	.byte	35
-	.long	.Linfo_string130
-	.long	4215
+	.byte	36
+	.long	.Linfo_string134
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	28
-	.byte	35
-	.long	.Linfo_string129
-	.long	4215
+	.byte	36
+	.long	.Linfo_string133
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	32
-	.byte	35
-	.long	.Linfo_string128
+	.byte	36
+	.long	.Linfo_string132
 	.long	500
 	.byte	1
 	.byte	229
 	.byte	36
-	.byte	35
-	.long	.Linfo_string127
+	.byte	36
+	.long	.Linfo_string131
 	.long	479
 	.byte	1
 	.byte	229
 	.byte	40
-	.byte	35
-	.long	.Linfo_string126
+	.byte	36
+	.long	.Linfo_string130
 	.long	521
 	.byte	1
 	.byte	229
 	.byte	44
-	.byte	35
-	.long	.Linfo_string125
-	.long	4215
+	.byte	36
+	.long	.Linfo_string129
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	48
-	.byte	35
-	.long	.Linfo_string124
-	.long	4215
+	.byte	36
+	.long	.Linfo_string128
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	52
-	.byte	35
-	.long	.Linfo_string123
-	.long	4215
+	.byte	36
+	.long	.Linfo_string127
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	56
-	.byte	35
-	.long	.Linfo_string122
+	.byte	36
+	.long	.Linfo_string126
 	.long	542
 	.byte	1
 	.byte	229
 	.byte	60
-	.byte	35
-	.long	.Linfo_string121
+	.byte	36
+	.long	.Linfo_string125
 	.long	542
 	.byte	1
 	.byte	229
 	.byte	64
-	.byte	35
-	.long	.Linfo_string120
-	.long	4215
+	.byte	36
+	.long	.Linfo_string124
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	68
-	.byte	35
-	.long	.Linfo_string119
+	.byte	36
+	.long	.Linfo_string123
 	.long	542
 	.byte	1
 	.byte	229
 	.byte	72
-	.byte	35
-	.long	.Linfo_string118
-	.long	4215
+	.byte	36
+	.long	.Linfo_string122
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	76
-	.byte	35
-	.long	.Linfo_string117
-	.long	4320
+	.byte	36
+	.long	.Linfo_string121
+	.long	4452
 	.byte	1
 	.byte	229
 	.byte	80
-	.byte	35
-	.long	.Linfo_string116
-	.long	4215
+	.byte	36
+	.long	.Linfo_string120
+	.long	4347
 	.byte	1
 	.byte	229
 	.byte	84
-	.byte	35
-	.long	.Linfo_string115
-	.long	4320
+	.byte	36
+	.long	.Linfo_string119
+	.long	4452
 	.byte	1
 	.byte	229
 	.byte	88
-	.byte	35
-	.long	.Linfo_string102
-	.long	4362
+	.byte	36
+	.long	.Linfo_string106
+	.long	4494
 	.byte	1
 	.byte	229
 	.byte	92
-	.byte	35
-	.long	.Linfo_string103
-	.long	4385
+	.byte	36
+	.long	.Linfo_string107
+	.long	4517
 	.byte	1
 	.byte	229
 	.byte	108
-	.byte	35
-	.long	.Linfo_string104
-	.long	4405
+	.byte	36
+	.long	.Linfo_string108
+	.long	4537
 	.byte	1
 	.byte	229
 	.byte	128
-	.byte	38
-	.long	.Linfo_string144
-	.long	4943
+	.byte	39
+	.long	.Linfo_string148
+	.long	5075
 	.byte	1
 	.byte	229
 	.short	260
-	.byte	38
-	.long	.Linfo_string144
-	.long	4943
+	.byte	39
+	.long	.Linfo_string148
+	.long	5075
 	.byte	1
 	.byte	229
 	.short	284
-	.byte	38
-	.long	.Linfo_string144
-	.long	4943
+	.byte	39
+	.long	.Linfo_string148
+	.long	5075
 	.byte	1
 	.byte	229
 	.short	308
-	.byte	38
-	.long	.Linfo_string144
-	.long	4943
+	.byte	39
+	.long	.Linfo_string148
+	.long	5075
 	.byte	1
 	.byte	229
 	.short	332
-	.byte	38
-	.long	.Linfo_string144
-	.long	4943
+	.byte	39
+	.long	.Linfo_string148
+	.long	5075
 	.byte	1
 	.byte	229
 	.short	356
 	.byte	0
-	.byte	36
-	.long	4519
-	.byte	26
-	.long	4215
+	.byte	37
+	.long	4651
 	.byte	27
-	.long	3536
+	.long	4347
+	.byte	28
+	.long	3534
 	.byte	0
 	.byte	5
 	.byte	0
-	.byte	32
-	.long	4551
-	.byte	29
-	.long	.Linfo_string149
+	.byte	33
+	.long	4683
+	.byte	30
+	.long	.Linfo_string153
 	.byte	7
 	.byte	4
-	.byte	33
+	.byte	34
 	.long	31
-	.byte	32
-	.long	4978
-	.byte	24
-	.long	.Linfo_string154
+	.byte	33
+	.long	5110
+	.byte	25
+	.long	.Linfo_string158
 	.byte	8
-	.byte	25
-	.long	.Linfo_string148
-	.long	4961
+	.byte	26
+	.long	.Linfo_string152
+	.long	5093
 	.byte	0
-	.byte	25
-	.long	.Linfo_string153
-	.long	4215
+	.byte	26
+	.long	.Linfo_string157
+	.long	4347
 	.byte	4
 	.byte	0
-	.byte	33
+	.byte	34
 	.long	69
-	.byte	33
+	.byte	34
+	.long	4347
+	.byte	34
 	.long	50
-	.byte	33
+	.byte	34
 	.long	100
-	.byte	33
+	.byte	34
 	.long	185
-	.byte	33
+	.byte	34
 	.long	216
 	.byte	0
 .L.debug_info_end0:
@@ -9996,6 +9974,21 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	11
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	10
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
+	.byte	73
+	.byte	19
+	.byte	0
+	.byte	0
+	.byte	12
 	.byte	52
 	.byte	0
 	.byte	2
@@ -10010,7 +10003,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	12
+	.byte	13
 	.byte	46
 	.byte	1
 	.byte	85
@@ -10031,7 +10024,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	13
+	.byte	14
 	.byte	5
 	.byte	0
 	.byte	2
@@ -10046,24 +10039,9 @@ temperature_heater_controller.init.1.3.init:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	14
-	.byte	52
-	.byte	0
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
 	.byte	15
 	.byte	52
 	.byte	0
-	.byte	2
-	.byte	6
 	.byte	3
 	.byte	14
 	.byte	58
@@ -10078,7 +10056,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	52
 	.byte	0
 	.byte	2
-	.byte	10
+	.byte	6
 	.byte	3
 	.byte	14
 	.byte	58
@@ -10090,22 +10068,18 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	0
 	.byte	17
-	.byte	46
-	.byte	1
-	.byte	85
-	.byte	6
-	.byte	64
+	.byte	52
+	.byte	0
+	.byte	2
 	.byte	10
-	.ascii	"\347\177"
-	.byte	12
-	.ascii	"\207@"
-	.byte	14
 	.byte	3
 	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	11
 	.byte	73
 	.byte	19
-	.byte	63
-	.byte	12
 	.byte	0
 	.byte	0
 	.byte	18
@@ -10121,6 +10095,8 @@ temperature_heater_controller.init.1.3.init:
 	.byte	14
 	.byte	3
 	.byte	14
+	.byte	73
+	.byte	19
 	.byte	63
 	.byte	12
 	.byte	0
@@ -10138,15 +10114,13 @@ temperature_heater_controller.init.1.3.init:
 	.byte	14
 	.byte	3
 	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
+	.byte	63
+	.byte	12
 	.byte	0
 	.byte	0
 	.byte	20
 	.byte	46
-	.byte	0
+	.byte	1
 	.byte	85
 	.byte	6
 	.byte	64
@@ -10165,6 +10139,25 @@ temperature_heater_controller.init.1.3.init:
 	.byte	0
 	.byte	21
 	.byte	46
+	.byte	0
+	.byte	85
+	.byte	6
+	.byte	64
+	.byte	10
+	.ascii	"\347\177"
+	.byte	12
+	.ascii	"\207@"
+	.byte	14
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	11
+	.byte	0
+	.byte	0
+	.byte	22
+	.byte	46
 	.byte	1
 	.ascii	"\207@"
 	.byte	14
@@ -10174,7 +10167,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	22
+	.byte	23
 	.byte	5
 	.byte	0
 	.byte	3
@@ -10183,7 +10176,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	23
+	.byte	24
 	.byte	46
 	.byte	1
 	.ascii	"\207@"
@@ -10196,7 +10189,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	24
+	.byte	25
 	.byte	19
 	.byte	1
 	.byte	3
@@ -10205,7 +10198,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	25
+	.byte	26
 	.byte	13
 	.byte	0
 	.byte	3
@@ -10216,14 +10209,14 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	26
+	.byte	27
 	.byte	1
 	.byte	1
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	27
+	.byte	28
 	.byte	33
 	.byte	0
 	.byte	73
@@ -10234,29 +10227,29 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	28
-	.byte	36
-	.byte	0
-	.byte	3
-	.byte	14
-	.byte	11
-	.byte	11
-	.byte	62
-	.byte	11
-	.byte	0
-	.byte	0
 	.byte	29
 	.byte	36
 	.byte	0
 	.byte	3
 	.byte	14
+	.byte	11
+	.byte	11
+	.byte	62
+	.byte	11
+	.byte	0
+	.byte	0
+	.byte	30
+	.byte	36
+	.byte	0
+	.byte	3
+	.byte	14
 	.byte	62
 	.byte	11
 	.byte	11
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	30
+	.byte	31
 	.byte	46
 	.byte	1
 	.ascii	"\207@"
@@ -10271,7 +10264,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	31
+	.byte	32
 	.byte	5
 	.byte	0
 	.byte	3
@@ -10284,21 +10277,21 @@ temperature_heater_controller.init.1.3.init:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	32
+	.byte	33
 	.byte	16
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	33
+	.byte	34
 	.byte	38
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	34
+	.byte	35
 	.byte	19
 	.byte	1
 	.byte	3
@@ -10311,7 +10304,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	35
+	.byte	36
 	.byte	13
 	.byte	0
 	.byte	3
@@ -10326,14 +10319,14 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	36
+	.byte	37
 	.byte	15
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	37
+	.byte	38
 	.byte	19
 	.byte	1
 	.byte	3
@@ -10346,7 +10339,7 @@ temperature_heater_controller.init.1.3.init:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	38
+	.byte	39
 	.byte	13
 	.byte	0
 	.byte	3
@@ -10369,8 +10362,8 @@ temperature_heater_controller.init.1.3.init:
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Ltmp9
-	.long	.Ltmp19
+	.long	.Ltmp8
+	.long	.Ltmp18
 	.long	0
 	.long	0
 .Ldebug_ranges2:
@@ -10379,10 +10372,8 @@ temperature_heater_controller.init.1.3.init:
 	.long	0
 	.long	0
 .Ldebug_ranges3:
-	.long	.Ltmp31
-	.long	.Ltmp32
-	.long	.Ltmp35
-	.long	.Ltmp37
+	.long	.Ltmp24
+	.long	.Ltmp28
 	.long	0
 	.long	0
 .Ldebug_ranges4:
@@ -10391,8 +10382,8 @@ temperature_heater_controller.init.1.3.init:
 	.long	0
 	.long	0
 .Ldebug_ranges5:
-	.long	.Ltmp48
-	.long	.Ltmp51
+	.long	.Ltmp33
+	.long	.Ltmp36
 	.long	0
 	.long	0
 .Ldebug_ranges6:
@@ -10406,2967 +10397,2956 @@ temperature_heater_controller.init.1.3.init:
 	.long	0
 	.long	0
 .Ldebug_ranges8:
-	.long	.Lfunc_begin25
-	.long	.Lfunc_end25
-	.long	0
-	.long	0
-.Ldebug_ranges9:
-	.long	.Ltmp197
-	.long	.Ltmp199
-	.long	0
-	.long	0
-.Ldebug_ranges10:
-	.long	.Ltmp201
-	.long	.Ltmp202
-	.long	.Ltmp339
-	.long	.Ltmp342
-	.long	0
-	.long	0
-.Ldebug_ranges11:
-	.long	.Ltmp247
-	.long	.Ltmp253
-	.long	0
-	.long	0
-.Ldebug_ranges12:
-	.long	.Ltmp201
-	.long	.Ltmp202
-	.long	.Ltmp244
-	.long	.Ltmp259
-	.long	.Ltmp285
-	.long	.Ltmp290
-	.long	.Ltmp316
-	.long	.Ltmp324
-	.long	.Ltmp331
-	.long	.Ltmp347
-	.long	0
-	.long	0
-.Ldebug_ranges13:
-	.long	.Ltmp201
-	.long	.Ltmp202
-	.long	.Ltmp243
-	.long	.Ltmp259
-	.long	.Ltmp285
-	.long	.Ltmp290
-	.long	.Ltmp316
-	.long	.Ltmp324
-	.long	.Ltmp331
-	.long	.Ltmp347
-	.long	0
-	.long	0
-.Ldebug_ranges14:
-	.long	.Ltmp201
-	.long	.Ltmp202
-	.long	.Ltmp243
-	.long	.Ltmp259
-	.long	.Ltmp285
-	.long	.Ltmp290
-	.long	.Ltmp316
-	.long	.Ltmp324
-	.long	.Ltmp331
-	.long	.Ltmp347
-	.long	0
-	.long	0
-.Ldebug_ranges15:
-	.long	.Ltmp202
-	.long	.Ltmp207
-	.long	.Ltmp235
-	.long	.Ltmp240
-	.long	0
-	.long	0
-.Ldebug_ranges16:
-	.long	.Ltmp271
-	.long	.Ltmp273
-	.long	0
-	.long	0
-.Ldebug_ranges17:
-	.long	.Ltmp276
-	.long	.Ltmp279
-	.long	0
-	.long	0
-.Ldebug_ranges18:
-	.long	.Ltmp202
-	.long	.Ltmp220
-	.long	.Ltmp234
-	.long	.Ltmp240
-	.long	.Ltmp262
-	.long	.Ltmp284
-	.long	.Ltmp291
-	.long	.Ltmp294
-	.long	.Ltmp329
-	.long	.Ltmp331
-	.long	0
-	.long	0
-.Ldebug_ranges19:
-	.long	.Ltmp197
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges20:
-	.long	.Ltmp195
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges21:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges22:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges23:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges24:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges25:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges26:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges27:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges28:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges29:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges30:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges31:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges32:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges33:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges34:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges35:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges36:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges37:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges38:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges39:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges40:
-	.long	.Ltmp194
-	.long	.Ltmp352
-	.long	0
-	.long	0
-.Ldebug_ranges41:
-	.long	.Lfunc_begin26
-	.long	.Lfunc_end26
-	.long	0
-	.long	0
-.Ldebug_ranges42:
-	.long	.Ltmp359
-	.long	.Ltmp362
-	.long	0
-	.long	0
-.Ldebug_ranges43:
-	.long	.Lfunc_begin27
-	.long	.Lfunc_end27
-	.long	0
-	.long	0
-.Ldebug_ranges44:
-	.long	.Ltmp389
-	.long	.Ltmp391
-	.long	0
-	.long	0
-.Ldebug_ranges45:
-	.long	.Ltmp389
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges46:
-	.long	.Ltmp388
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges47:
-	.long	.Ltmp387
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges48:
-	.long	.Ltmp386
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges49:
-	.long	.Ltmp385
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges50:
-	.long	.Ltmp384
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges51:
-	.long	.Ltmp383
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges52:
-	.long	.Ltmp380
-	.long	.Ltmp381
-	.long	.Ltmp382
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges53:
-	.long	.Ltmp380
-	.long	.Ltmp381
-	.long	.Ltmp382
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges54:
-	.long	.Ltmp380
-	.long	.Ltmp381
-	.long	.Ltmp382
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges55:
-	.long	.Ltmp380
-	.long	.Ltmp381
-	.long	.Ltmp382
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges56:
-	.long	.Ltmp380
-	.long	.Ltmp381
-	.long	.Ltmp382
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges57:
-	.long	.Ltmp380
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges58:
-	.long	.Ltmp379
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges59:
-	.long	.Ltmp378
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges60:
-	.long	.Ltmp377
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges61:
-	.long	.Ltmp376
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges62:
-	.long	.Ltmp375
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges63:
-	.long	.Ltmp374
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges64:
-	.long	.Ltmp373
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges65:
-	.long	.Ltmp373
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges66:
-	.long	.Ltmp373
-	.long	.Ltmp392
-	.long	0
-	.long	0
-.Ldebug_ranges67:
 	.long	.Lfunc_begin29
 	.long	.Lfunc_end29
 	.long	0
 	.long	0
-.Ldebug_ranges68:
-	.long	.Ltmp408
-	.long	.Ltmp411
+.Ldebug_ranges9:
+	.long	.Ltmp194
+	.long	.Ltmp196
 	.long	0
 	.long	0
-.Ldebug_ranges69:
+.Ldebug_ranges10:
+	.long	.Ltmp198
+	.long	.Ltmp199
+	.long	.Ltmp335
+	.long	.Ltmp338
+	.long	0
+	.long	0
+.Ldebug_ranges11:
+	.long	.Ltmp240
+	.long	.Ltmp247
+	.long	0
+	.long	0
+.Ldebug_ranges12:
+	.long	.Ltmp198
+	.long	.Ltmp199
+	.long	.Ltmp236
+	.long	.Ltmp254
+	.long	.Ltmp277
+	.long	.Ltmp280
+	.long	.Ltmp307
+	.long	.Ltmp320
+	.long	.Ltmp327
+	.long	.Ltmp343
+	.long	0
+	.long	0
+.Ldebug_ranges13:
+	.long	.Ltmp198
+	.long	.Ltmp199
+	.long	.Ltmp236
+	.long	.Ltmp254
+	.long	.Ltmp277
+	.long	.Ltmp280
+	.long	.Ltmp307
+	.long	.Ltmp320
+	.long	.Ltmp327
+	.long	.Ltmp343
+	.long	0
+	.long	0
+.Ldebug_ranges14:
+	.long	.Ltmp198
+	.long	.Ltmp199
+	.long	.Ltmp236
+	.long	.Ltmp254
+	.long	.Ltmp277
+	.long	.Ltmp280
+	.long	.Ltmp307
+	.long	.Ltmp320
+	.long	.Ltmp327
+	.long	.Ltmp343
+	.long	0
+	.long	0
+.Ldebug_ranges15:
+	.long	.Ltmp199
+	.long	.Ltmp203
+	.long	.Ltmp228
+	.long	.Ltmp233
+	.long	0
+	.long	0
+.Ldebug_ranges16:
+	.long	.Ltmp264
+	.long	.Ltmp266
+	.long	.Ltmp271
+	.long	.Ltmp272
+	.long	0
+	.long	0
+.Ldebug_ranges17:
+	.long	.Ltmp268
+	.long	.Ltmp271
+	.long	0
+	.long	0
+.Ldebug_ranges18:
+	.long	.Ltmp199
+	.long	.Ltmp212
+	.long	.Ltmp228
+	.long	.Ltmp233
+	.long	.Ltmp260
+	.long	.Ltmp275
+	.long	.Ltmp281
+	.long	.Ltmp284
+	.long	.Ltmp325
+	.long	.Ltmp327
+	.long	0
+	.long	0
+.Ldebug_ranges19:
+	.long	.Ltmp194
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges20:
+	.long	.Ltmp192
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges21:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges22:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges23:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges24:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges25:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges26:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges27:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges28:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges29:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges30:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges31:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges32:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges33:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges34:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges35:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges36:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges37:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges38:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges39:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges40:
+	.long	.Ltmp191
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges41:
 	.long	.Lfunc_begin30
 	.long	.Lfunc_end30
 	.long	0
 	.long	0
-.Ldebug_ranges70:
-	.long	.Ltmp424
-	.long	.Ltmp427
+.Ldebug_ranges42:
+	.long	.Ltmp355
+	.long	.Ltmp358
 	.long	0
 	.long	0
-.Ldebug_ranges71:
-	.long	.Lfunc_begin32
-	.long	.Lfunc_end32
+.Ldebug_ranges43:
+	.long	.Lfunc_begin31
+	.long	.Lfunc_end31
 	.long	0
 	.long	0
-.Ldebug_ranges72:
-	.long	.Ltmp445
-	.long	.Ltmp448
-	.long	.Ltmp455
-	.long	.Ltmp465
+.Ldebug_ranges44:
+	.long	.Ltmp385
+	.long	.Ltmp387
 	.long	0
 	.long	0
-.Ldebug_ranges73:
-	.long	.Ltmp473
-	.long	.Ltmp475
+.Ldebug_ranges45:
+	.long	.Ltmp385
+	.long	.Ltmp388
 	.long	0
 	.long	0
-.Ldebug_ranges74:
-	.long	.Ltmp478
-	.long	.Ltmp481
+.Ldebug_ranges46:
+	.long	.Ltmp384
+	.long	.Ltmp388
 	.long	0
 	.long	0
-.Ldebug_ranges75:
-	.long	.Ltmp440
-	.long	.Ltmp487
+.Ldebug_ranges47:
+	.long	.Ltmp383
+	.long	.Ltmp388
 	.long	0
 	.long	0
-.Ldebug_ranges76:
+.Ldebug_ranges48:
+	.long	.Ltmp382
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges49:
+	.long	.Ltmp381
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges50:
+	.long	.Ltmp380
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges51:
+	.long	.Ltmp379
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges52:
+	.long	.Ltmp376
+	.long	.Ltmp377
+	.long	.Ltmp378
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges53:
+	.long	.Ltmp376
+	.long	.Ltmp377
+	.long	.Ltmp378
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges54:
+	.long	.Ltmp376
+	.long	.Ltmp377
+	.long	.Ltmp378
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges55:
+	.long	.Ltmp376
+	.long	.Ltmp377
+	.long	.Ltmp378
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges56:
+	.long	.Ltmp376
+	.long	.Ltmp377
+	.long	.Ltmp378
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges57:
+	.long	.Ltmp376
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges58:
+	.long	.Ltmp375
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges59:
+	.long	.Ltmp374
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges60:
+	.long	.Ltmp373
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges61:
+	.long	.Ltmp372
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges62:
+	.long	.Ltmp371
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges63:
+	.long	.Ltmp370
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges64:
+	.long	.Ltmp369
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges65:
+	.long	.Ltmp369
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges66:
+	.long	.Ltmp369
+	.long	.Ltmp388
+	.long	0
+	.long	0
+.Ldebug_ranges67:
 	.long	.Lfunc_begin33
 	.long	.Lfunc_end33
 	.long	0
 	.long	0
-.Ldebug_ranges77:
+.Ldebug_ranges68:
+	.long	.Ltmp404
+	.long	.Ltmp407
+	.long	0
+	.long	0
+.Ldebug_ranges69:
 	.long	.Lfunc_begin34
 	.long	.Lfunc_end34
 	.long	0
 	.long	0
-.Ldebug_ranges78:
-	.long	.Ltmp509
-	.long	.Ltmp511
+.Ldebug_ranges70:
+	.long	.Ltmp420
+	.long	.Ltmp423
 	.long	0
 	.long	0
-.Ldebug_ranges79:
-	.long	.Ltmp512
-	.long	.Ltmp513
-	.long	0
-	.long	0
-.Ldebug_ranges80:
-	.long	.Ltmp508
-	.long	.Ltmp514
-	.long	0
-	.long	0
-.Ldebug_ranges81:
-	.long	.Ltmp507
-	.long	.Ltmp514
-	.long	0
-	.long	0
-.Ldebug_ranges82:
-	.long	.Ltmp507
-	.long	.Ltmp514
-	.long	0
-	.long	0
-.Ldebug_ranges83:
-	.long	.Lfunc_begin35
-	.long	.Lfunc_end35
-	.long	0
-	.long	0
-.Ldebug_ranges84:
-	.long	.Ltmp531
-	.long	.Ltmp534
-	.long	.Ltmp541
-	.long	.Ltmp551
-	.long	0
-	.long	0
-.Ldebug_ranges85:
-	.long	.Ltmp559
-	.long	.Ltmp561
-	.long	0
-	.long	0
-.Ldebug_ranges86:
-	.long	.Ltmp564
-	.long	.Ltmp567
-	.long	0
-	.long	0
-.Ldebug_ranges87:
-	.long	.Ltmp526
-	.long	.Ltmp573
-	.long	0
-	.long	0
-.Ldebug_ranges88:
+.Ldebug_ranges71:
 	.long	.Lfunc_begin36
 	.long	.Lfunc_end36
 	.long	0
 	.long	0
-.Ldebug_ranges89:
+.Ldebug_ranges72:
+	.long	.Ltmp439
+	.long	.Ltmp442
+	.long	.Ltmp451
+	.long	.Ltmp461
+	.long	0
+	.long	0
+.Ldebug_ranges73:
+	.long	.Ltmp468
+	.long	.Ltmp470
+	.long	0
+	.long	0
+.Ldebug_ranges74:
+	.long	.Ltmp472
+	.long	.Ltmp476
+	.long	0
+	.long	0
+.Ldebug_ranges75:
+	.long	.Ltmp434
+	.long	.Ltmp482
+	.long	0
+	.long	0
+.Ldebug_ranges76:
 	.long	.Lfunc_begin37
 	.long	.Lfunc_end37
 	.long	0
 	.long	0
-.Ldebug_ranges90:
-	.long	.Ltmp595
-	.long	.Ltmp597
-	.long	0
-	.long	0
-.Ldebug_ranges91:
-	.long	.Ltmp598
-	.long	.Ltmp599
-	.long	0
-	.long	0
-.Ldebug_ranges92:
-	.long	.Ltmp594
-	.long	.Ltmp600
-	.long	0
-	.long	0
-.Ldebug_ranges93:
-	.long	.Ltmp593
-	.long	.Ltmp600
-	.long	0
-	.long	0
-.Ldebug_ranges94:
-	.long	.Ltmp593
-	.long	.Ltmp600
-	.long	0
-	.long	0
-.Ldebug_ranges95:
+.Ldebug_ranges77:
 	.long	.Lfunc_begin38
 	.long	.Lfunc_end38
 	.long	0
 	.long	0
+.Ldebug_ranges78:
+	.long	.Ltmp503
+	.long	.Ltmp505
+	.long	0
+	.long	0
+.Ldebug_ranges79:
+	.long	.Ltmp506
+	.long	.Ltmp507
+	.long	0
+	.long	0
+.Ldebug_ranges80:
+	.long	.Ltmp502
+	.long	.Ltmp508
+	.long	0
+	.long	0
+.Ldebug_ranges81:
+	.long	.Ltmp502
+	.long	.Ltmp508
+	.long	0
+	.long	0
+.Ldebug_ranges82:
+	.long	.Ltmp502
+	.long	.Ltmp508
+	.long	0
+	.long	0
+.Ldebug_ranges83:
+	.long	.Lfunc_begin39
+	.long	.Lfunc_end39
+	.long	0
+	.long	0
+.Ldebug_ranges84:
+	.long	.Ltmp523
+	.long	.Ltmp526
+	.long	.Ltmp535
+	.long	.Ltmp545
+	.long	0
+	.long	0
+.Ldebug_ranges85:
+	.long	.Ltmp552
+	.long	.Ltmp554
+	.long	0
+	.long	0
+.Ldebug_ranges86:
+	.long	.Ltmp556
+	.long	.Ltmp560
+	.long	0
+	.long	0
+.Ldebug_ranges87:
+	.long	.Ltmp518
+	.long	.Ltmp566
+	.long	0
+	.long	0
+.Ldebug_ranges88:
+	.long	.Lfunc_begin40
+	.long	.Lfunc_end40
+	.long	0
+	.long	0
+.Ldebug_ranges89:
+	.long	.Lfunc_begin41
+	.long	.Lfunc_end41
+	.long	0
+	.long	0
+.Ldebug_ranges90:
+	.long	.Ltmp587
+	.long	.Ltmp589
+	.long	0
+	.long	0
+.Ldebug_ranges91:
+	.long	.Ltmp590
+	.long	.Ltmp591
+	.long	0
+	.long	0
+.Ldebug_ranges92:
+	.long	.Ltmp586
+	.long	.Ltmp592
+	.long	0
+	.long	0
+.Ldebug_ranges93:
+	.long	.Ltmp586
+	.long	.Ltmp592
+	.long	0
+	.long	0
+.Ldebug_ranges94:
+	.long	.Ltmp586
+	.long	.Ltmp592
+	.long	0
+	.long	0
+.Ldebug_ranges95:
+	.long	.Lfunc_begin42
+	.long	.Lfunc_end42
+	.long	0
+	.long	0
 .Ldebug_ranges96:
-	.long	.Ltmp617
-	.long	.Ltmp620
-	.long	.Ltmp627
-	.long	.Ltmp637
+	.long	.Ltmp607
+	.long	.Ltmp610
+	.long	.Ltmp619
+	.long	.Ltmp629
 	.long	0
 	.long	0
 .Ldebug_ranges97:
-	.long	.Ltmp645
-	.long	.Ltmp647
+	.long	.Ltmp636
+	.long	.Ltmp638
 	.long	0
 	.long	0
 .Ldebug_ranges98:
-	.long	.Ltmp650
-	.long	.Ltmp653
+	.long	.Ltmp640
+	.long	.Ltmp644
 	.long	0
 	.long	0
 .Ldebug_ranges99:
-	.long	.Ltmp612
-	.long	.Ltmp659
+	.long	.Ltmp602
+	.long	.Ltmp650
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin0
 	.long	.Ltmp6
-.Lset0 = .Ltmp662-.Ltmp661
+.Lset0 = .Ltmp653-.Ltmp652
 	.short	.Lset0
-.Ltmp661:
+.Ltmp652:
 	.byte	80
-.Ltmp662:
+.Ltmp653:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin0
 	.long	.Ltmp5
-.Lset1 = .Ltmp664-.Ltmp663
+.Lset1 = .Ltmp655-.Ltmp654
 	.short	.Lset1
-.Ltmp663:
+.Ltmp654:
 	.byte	81
-.Ltmp664:
+.Ltmp655:
 	.long	.Ltmp5
 	.long	.Ltmp6
-.Lset2 = .Ltmp666-.Ltmp665
+.Lset2 = .Ltmp657-.Ltmp656
 	.short	.Lset2
-.Ltmp665:
+.Ltmp656:
 	.byte	84
-.Ltmp666:
+.Ltmp657:
 	.long	.Ltmp7
-	.long	.Ltmp18
-.Lset3 = .Ltmp668-.Ltmp667
+	.long	.Ltmp17
+.Lset3 = .Ltmp659-.Ltmp658
 	.short	.Lset3
-.Ltmp667:
+.Ltmp658:
 	.byte	84
-.Ltmp668:
+.Ltmp659:
 	.long	0
 	.long	0
 .Ldebug_loc2:
 	.long	.Lfunc_begin1
-	.long	.Ltmp30
-.Lset4 = .Ltmp670-.Ltmp669
+	.long	.Ltmp23
+.Lset4 = .Ltmp661-.Ltmp660
 	.short	.Lset4
-.Ltmp669:
+.Ltmp660:
 	.byte	80
-.Ltmp670:
+.Ltmp661:
 	.long	0
 	.long	0
 .Ldebug_loc3:
 	.long	.Lfunc_begin1
-	.long	.Ltmp29
-.Lset5 = .Ltmp672-.Ltmp671
+	.long	.Ltmp23
+.Lset5 = .Ltmp663-.Ltmp662
 	.short	.Lset5
-.Ltmp671:
+.Ltmp662:
 	.byte	81
-.Ltmp672:
-	.long	.Ltmp29
-	.long	.Ltmp30
-.Lset6 = .Ltmp674-.Ltmp673
+.Ltmp663:
+	.long	.Ltmp24
+	.long	.Ltmp26
+.Lset6 = .Ltmp665-.Ltmp664
 	.short	.Lset6
-.Ltmp673:
-	.byte	85
-.Ltmp674:
-	.long	.Ltmp31
-	.long	.Ltmp34
-.Lset7 = .Ltmp676-.Ltmp675
-	.short	.Lset7
-.Ltmp675:
-	.byte	85
-.Ltmp676:
+.Ltmp664:
+	.byte	81
+.Ltmp665:
 	.long	0
 	.long	0
 .Ldebug_loc4:
-	.long	.Lfunc_begin1
+	.long	.Ltmp25
+	.long	.Ltmp27
+.Lset7 = .Ltmp667-.Ltmp666
+	.short	.Lset7
+.Ltmp666:
+	.byte	17
+	.byte	0
+.Ltmp667:
+	.long	.Ltmp27
 	.long	.Ltmp28
-.Lset8 = .Ltmp678-.Ltmp677
+.Lset8 = .Ltmp669-.Ltmp668
 	.short	.Lset8
-.Ltmp677:
-	.byte	82
-.Ltmp678:
-	.long	.Ltmp28
-	.long	.Ltmp30
-.Lset9 = .Ltmp680-.Ltmp679
-	.short	.Lset9
-.Ltmp679:
-	.byte	84
-.Ltmp680:
-	.long	.Ltmp31
-	.long	.Ltmp37
-.Lset10 = .Ltmp682-.Ltmp681
-	.short	.Lset10
-.Ltmp681:
-	.byte	84
-.Ltmp682:
+.Ltmp668:
+	.byte	83
+.Ltmp669:
 	.long	0
 	.long	0
 .Ldebug_loc5:
-	.long	.Ltmp33
-	.long	.Ltmp36
-.Lset11 = .Ltmp684-.Ltmp683
-	.short	.Lset11
-.Ltmp683:
-	.byte	17
-	.byte	0
-.Ltmp684:
-	.long	.Ltmp36
-	.long	.Ltmp37
-.Lset12 = .Ltmp686-.Ltmp685
-	.short	.Lset12
-.Ltmp685:
-	.byte	87
-.Ltmp686:
+	.long	.Lfunc_begin2
+	.long	.Ltmp30
+.Lset9 = .Ltmp671-.Ltmp670
+	.short	.Lset9
+.Ltmp670:
+	.byte	80
+.Ltmp671:
 	.long	0
 	.long	0
 .Ldebug_loc6:
 	.long	.Lfunc_begin2
-	.long	.Ltmp44
-.Lset13 = .Ltmp688-.Ltmp687
-	.short	.Lset13
-.Ltmp687:
-	.byte	80
-.Ltmp688:
+	.long	.Ltmp35
+.Lset10 = .Ltmp673-.Ltmp672
+	.short	.Lset10
+.Ltmp672:
+	.byte	81
+.Ltmp673:
 	.long	0
 	.long	0
 .Ldebug_loc7:
-	.long	.Lfunc_begin2
-	.long	.Ltmp43
-.Lset14 = .Ltmp690-.Ltmp689
-	.short	.Lset14
-.Ltmp689:
-	.byte	81
-.Ltmp690:
-	.long	.Ltmp43
-	.long	.Ltmp50
-.Lset15 = .Ltmp692-.Ltmp691
-	.short	.Lset15
-.Ltmp691:
-	.byte	84
-.Ltmp692:
+	.long	.Ltmp32
+	.long	.Ltmp34
+.Lset11 = .Ltmp675-.Ltmp674
+	.short	.Lset11
+.Ltmp674:
+	.byte	17
+	.byte	0
+.Ltmp675:
+	.long	.Ltmp34
+	.long	.Lfunc_end2
+.Lset12 = .Ltmp677-.Ltmp676
+	.short	.Lset12
+.Ltmp676:
+	.byte	17
+	.byte	1
+.Ltmp677:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Ltmp47
-	.long	.Ltmp49
-.Lset16 = .Ltmp694-.Ltmp693
-	.short	.Lset16
-.Ltmp693:
-	.byte	17
-	.byte	0
-.Ltmp694:
-	.long	.Ltmp49
-	.long	.Lfunc_end2
-.Lset17 = .Ltmp696-.Ltmp695
-	.short	.Lset17
-.Ltmp695:
-	.byte	17
-	.byte	1
-.Ltmp696:
+	.long	.Lfunc_begin3
+	.long	.Ltmp46
+.Lset13 = .Ltmp679-.Ltmp678
+	.short	.Lset13
+.Ltmp678:
+	.byte	80
+.Ltmp679:
 	.long	0
 	.long	0
 .Ldebug_loc9:
 	.long	.Lfunc_begin3
-	.long	.Ltmp61
-.Lset18 = .Ltmp698-.Ltmp697
-	.short	.Lset18
-.Ltmp697:
-	.byte	80
-.Ltmp698:
+	.long	.Ltmp45
+.Lset14 = .Ltmp681-.Ltmp680
+	.short	.Lset14
+.Ltmp680:
+	.byte	81
+.Ltmp681:
+	.long	.Ltmp45
+	.long	.Ltmp46
+.Lset15 = .Ltmp683-.Ltmp682
+	.short	.Lset15
+.Ltmp682:
+	.byte	85
+.Ltmp683:
+	.long	.Ltmp47
+	.long	.Ltmp51
+.Lset16 = .Ltmp685-.Ltmp684
+	.short	.Lset16
+.Ltmp684:
+	.byte	85
+.Ltmp685:
 	.long	0
 	.long	0
 .Ldebug_loc10:
 	.long	.Lfunc_begin3
-	.long	.Ltmp60
-.Lset19 = .Ltmp700-.Ltmp699
+	.long	.Ltmp44
+.Lset17 = .Ltmp687-.Ltmp686
+	.short	.Lset17
+.Ltmp686:
+	.byte	82
+.Ltmp687:
+	.long	.Ltmp44
+	.long	.Ltmp46
+.Lset18 = .Ltmp689-.Ltmp688
+	.short	.Lset18
+.Ltmp688:
+	.byte	84
+.Ltmp689:
+	.long	.Ltmp47
+	.long	.Ltmp52
+.Lset19 = .Ltmp691-.Ltmp690
 	.short	.Lset19
-.Ltmp699:
-	.byte	81
-.Ltmp700:
-	.long	.Ltmp60
-	.long	.Ltmp61
-.Lset20 = .Ltmp702-.Ltmp701
+.Ltmp690:
+	.byte	84
+.Ltmp691:
+	.long	.Ltmp53
+	.long	.Ltmp54
+.Lset20 = .Ltmp693-.Ltmp692
 	.short	.Lset20
-.Ltmp701:
-	.byte	85
-.Ltmp702:
-	.long	.Ltmp62
-	.long	.Ltmp66
-.Lset21 = .Ltmp704-.Ltmp703
+.Ltmp692:
+	.byte	84
+.Ltmp693:
+	.long	.Ltmp55
+	.long	.Ltmp56
+.Lset21 = .Ltmp695-.Ltmp694
 	.short	.Lset21
-.Ltmp703:
-	.byte	85
-.Ltmp704:
+.Ltmp694:
+	.byte	84
+.Ltmp695:
+	.long	.Ltmp57
+	.long	.Ltmp58
+.Lset22 = .Ltmp697-.Ltmp696
+	.short	.Lset22
+.Ltmp696:
+	.byte	84
+.Ltmp697:
 	.long	0
 	.long	0
 .Ldebug_loc11:
-	.long	.Lfunc_begin3
-	.long	.Ltmp59
-.Lset22 = .Ltmp706-.Ltmp705
-	.short	.Lset22
-.Ltmp705:
-	.byte	82
-.Ltmp706:
-	.long	.Ltmp59
-	.long	.Ltmp61
-.Lset23 = .Ltmp708-.Ltmp707
-	.short	.Lset23
-.Ltmp707:
-	.byte	84
-.Ltmp708:
-	.long	.Ltmp62
-	.long	.Ltmp67
-.Lset24 = .Ltmp710-.Ltmp709
-	.short	.Lset24
-.Ltmp709:
-	.byte	84
-.Ltmp710:
-	.long	.Ltmp68
+	.long	.Lfunc_begin4
 	.long	.Ltmp69
-.Lset25 = .Ltmp712-.Ltmp711
-	.short	.Lset25
-.Ltmp711:
-	.byte	84
-.Ltmp712:
-	.long	.Ltmp70
-	.long	.Ltmp71
-.Lset26 = .Ltmp714-.Ltmp713
-	.short	.Lset26
-.Ltmp713:
-	.byte	84
-.Ltmp714:
-	.long	.Ltmp72
-	.long	.Ltmp73
-.Lset27 = .Ltmp716-.Ltmp715
-	.short	.Lset27
-.Ltmp715:
-	.byte	84
-.Ltmp716:
+.Lset23 = .Ltmp699-.Ltmp698
+	.short	.Lset23
+.Ltmp698:
+	.byte	80
+.Ltmp699:
 	.long	0
 	.long	0
 .Ldebug_loc12:
 	.long	.Lfunc_begin4
-	.long	.Ltmp84
-.Lset28 = .Ltmp718-.Ltmp717
-	.short	.Lset28
-.Ltmp717:
-	.byte	80
-.Ltmp718:
+	.long	.Ltmp68
+.Lset24 = .Ltmp701-.Ltmp700
+	.short	.Lset24
+.Ltmp700:
+	.byte	81
+.Ltmp701:
+	.long	.Ltmp68
+	.long	.Ltmp69
+.Lset25 = .Ltmp703-.Ltmp702
+	.short	.Lset25
+.Ltmp702:
+	.byte	85
+.Ltmp703:
+	.long	.Ltmp70
+	.long	.Ltmp73
+.Lset26 = .Ltmp705-.Ltmp704
+	.short	.Lset26
+.Ltmp704:
+	.byte	85
+.Ltmp705:
 	.long	0
 	.long	0
 .Ldebug_loc13:
 	.long	.Lfunc_begin4
-	.long	.Ltmp83
-.Lset29 = .Ltmp720-.Ltmp719
+	.long	.Ltmp67
+.Lset27 = .Ltmp707-.Ltmp706
+	.short	.Lset27
+.Ltmp706:
+	.byte	82
+.Ltmp707:
+	.long	.Ltmp67
+	.long	.Ltmp69
+.Lset28 = .Ltmp709-.Ltmp708
+	.short	.Lset28
+.Ltmp708:
+	.byte	84
+.Ltmp709:
+	.long	.Ltmp70
+	.long	.Ltmp74
+.Lset29 = .Ltmp711-.Ltmp710
 	.short	.Lset29
-.Ltmp719:
-	.byte	81
-.Ltmp720:
-	.long	.Ltmp83
-	.long	.Ltmp84
-.Lset30 = .Ltmp722-.Ltmp721
-	.short	.Lset30
-.Ltmp721:
-	.byte	85
-.Ltmp722:
-	.long	.Ltmp85
-	.long	.Ltmp89
-.Lset31 = .Ltmp724-.Ltmp723
-	.short	.Lset31
-.Ltmp723:
-	.byte	85
-.Ltmp724:
+.Ltmp710:
+	.byte	84
+.Ltmp711:
 	.long	0
 	.long	0
 .Ldebug_loc14:
-	.long	.Lfunc_begin4
-	.long	.Ltmp82
-.Lset32 = .Ltmp726-.Ltmp725
+	.long	.Lfunc_begin29
+	.long	.Ltmp191
+.Lset30 = .Ltmp713-.Ltmp712
+	.short	.Lset30
+.Ltmp712:
+	.byte	80
+.Ltmp713:
+	.long	.Ltmp191
+	.long	.Ltmp234
+.Lset31 = .Ltmp715-.Ltmp714
+	.short	.Lset31
+.Ltmp714:
+	.byte	86
+.Ltmp715:
+	.long	.Ltmp234
+	.long	.Ltmp244
+.Lset32 = .Ltmp717-.Ltmp716
 	.short	.Lset32
-.Ltmp725:
-	.byte	82
-.Ltmp726:
-	.long	.Ltmp82
-	.long	.Ltmp84
-.Lset33 = .Ltmp728-.Ltmp727
+.Ltmp716:
+	.byte	126
+	.byte	52
+.Ltmp717:
+	.long	.Ltmp245
+	.long	.Ltmp253
+.Lset33 = .Ltmp719-.Ltmp718
 	.short	.Lset33
-.Ltmp727:
-	.byte	84
-.Ltmp728:
-	.long	.Ltmp85
-	.long	.Ltmp90
-.Lset34 = .Ltmp730-.Ltmp729
+.Ltmp718:
+	.byte	126
+	.byte	52
+.Ltmp719:
+	.long	.Ltmp253
+	.long	.Ltmp271
+.Lset34 = .Ltmp721-.Ltmp720
 	.short	.Lset34
+.Ltmp720:
+	.byte	86
+.Ltmp721:
+	.long	.Ltmp272
+	.long	.Ltmp275
+.Lset35 = .Ltmp723-.Ltmp722
+	.short	.Lset35
+.Ltmp722:
+	.byte	86
+.Ltmp723:
+	.long	.Ltmp275
+	.long	.Ltmp279
+.Lset36 = .Ltmp725-.Ltmp724
+	.short	.Lset36
+.Ltmp724:
+	.byte	126
+	.byte	52
+.Ltmp725:
+	.long	.Ltmp279
+	.long	.Ltmp286
+.Lset37 = .Ltmp727-.Ltmp726
+	.short	.Lset37
+.Ltmp726:
+	.byte	86
+.Ltmp727:
+	.long	.Ltmp287
+	.long	.Ltmp306
+.Lset38 = .Ltmp729-.Ltmp728
+	.short	.Lset38
+.Ltmp728:
+	.byte	86
 .Ltmp729:
-	.byte	84
+	.long	.Ltmp306
+	.long	.Ltmp309
+.Lset39 = .Ltmp731-.Ltmp730
+	.short	.Lset39
 .Ltmp730:
+	.byte	126
+	.byte	52
+.Ltmp731:
+	.long	.Ltmp309
+	.long	.Ltmp330
+.Lset40 = .Ltmp733-.Ltmp732
+	.short	.Lset40
+.Ltmp732:
+	.byte	86
+.Ltmp733:
+	.long	.Ltmp331
+	.long	.Ltmp340
+.Lset41 = .Ltmp735-.Ltmp734
+	.short	.Lset41
+.Ltmp734:
+	.byte	86
+.Ltmp735:
+	.long	.Ltmp341
+	.long	.Ltmp348
+.Lset42 = .Ltmp737-.Ltmp736
+	.short	.Lset42
+.Ltmp736:
+	.byte	86
+.Ltmp737:
 	.long	0
 	.long	0
 .Ldebug_loc15:
-	.long	.Lfunc_begin25
-	.long	.Ltmp194
-.Lset35 = .Ltmp732-.Ltmp731
-	.short	.Lset35
-.Ltmp731:
-	.byte	80
-.Ltmp732:
-	.long	.Ltmp194
-	.long	.Ltmp212
-.Lset36 = .Ltmp734-.Ltmp733
-	.short	.Lset36
-.Ltmp733:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp734:
-	.long	.Ltmp212
-	.long	.Ltmp215
-.Lset37 = .Ltmp736-.Ltmp735
-	.short	.Lset37
-.Ltmp735:
-	.byte	83
-.Ltmp736:
-	.long	.Ltmp215
-	.long	.Ltmp218
-.Lset38 = .Ltmp738-.Ltmp737
-	.short	.Lset38
-.Ltmp737:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp738:
-	.long	.Ltmp218
-	.long	.Ltmp219
-.Lset39 = .Ltmp740-.Ltmp739
-	.short	.Lset39
-.Ltmp739:
-	.byte	83
-.Ltmp740:
-	.long	.Ltmp219
-	.long	.Ltmp282
-.Lset40 = .Ltmp742-.Ltmp741
-	.short	.Lset40
-.Ltmp741:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp742:
-	.long	.Ltmp283
-	.long	.Ltmp296
-.Lset41 = .Ltmp744-.Ltmp743
-	.short	.Lset41
-.Ltmp743:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp744:
-	.long	.Ltmp297
-	.long	.Ltmp334
-.Lset42 = .Ltmp746-.Ltmp745
-	.short	.Lset42
-.Ltmp745:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp746:
-	.long	.Ltmp335
-	.long	.Ltmp344
-.Lset43 = .Ltmp748-.Ltmp747
+	.long	.Lfunc_begin29
+	.long	.Ltmp190
+.Lset43 = .Ltmp739-.Ltmp738
 	.short	.Lset43
-.Ltmp747:
-	.byte	126
-	.ascii	"\200\001"
-.Ltmp748:
-	.long	.Ltmp345
-	.long	.Ltmp352
-.Lset44 = .Ltmp750-.Ltmp749
+.Ltmp738:
+	.byte	81
+.Ltmp739:
+	.long	.Ltmp190
+	.long	.Ltmp190
+.Lset44 = .Ltmp741-.Ltmp740
 	.short	.Lset44
-.Ltmp749:
+.Ltmp740:
 	.byte	126
-	.ascii	"\200\001"
+.asciiz"\334"
+.Ltmp741:
+	.long	.Ltmp199
+	.long	.Ltmp235
+.Lset45 = .Ltmp743-.Ltmp742
+	.short	.Lset45
+.Ltmp742:
+	.byte	126
+.asciiz"\334"
+.Ltmp743:
+	.long	.Ltmp235
+	.long	.Ltmp238
+.Lset46 = .Ltmp745-.Ltmp744
+	.short	.Lset46
+.Ltmp744:
+	.byte	86
+.Ltmp745:
+	.long	.Ltmp238
+	.long	.Ltmp244
+.Lset47 = .Ltmp747-.Ltmp746
+	.short	.Lset47
+.Ltmp746:
+	.byte	126
+.asciiz"\334"
+.Ltmp747:
+	.long	.Ltmp245
+	.long	.Ltmp271
+.Lset48 = .Ltmp749-.Ltmp748
+	.short	.Lset48
+.Ltmp748:
+	.byte	126
+.asciiz"\334"
+.Ltmp749:
+	.long	.Ltmp272
+	.long	.Ltmp286
+.Lset49 = .Ltmp751-.Ltmp750
+	.short	.Lset49
 .Ltmp750:
+	.byte	126
+.asciiz"\334"
+.Ltmp751:
+	.long	.Ltmp287
+	.long	.Ltmp297
+.Lset50 = .Ltmp753-.Ltmp752
+	.short	.Lset50
+.Ltmp752:
+	.byte	126
+.asciiz"\334"
+.Ltmp753:
+	.long	.Ltmp297
+	.long	.Ltmp298
+.Lset51 = .Ltmp755-.Ltmp754
+	.short	.Lset51
+.Ltmp754:
+	.byte	81
+.Ltmp755:
+	.long	.Ltmp298
+	.long	.Ltmp330
+.Lset52 = .Ltmp757-.Ltmp756
+	.short	.Lset52
+.Ltmp756:
+	.byte	126
+.asciiz"\334"
+.Ltmp757:
+	.long	.Ltmp331
+	.long	.Ltmp340
+.Lset53 = .Ltmp759-.Ltmp758
+	.short	.Lset53
+.Ltmp758:
+	.byte	126
+.asciiz"\334"
+.Ltmp759:
+	.long	.Ltmp341
+	.long	.Ltmp348
+.Lset54 = .Ltmp761-.Ltmp760
+	.short	.Lset54
+.Ltmp760:
+	.byte	126
+.asciiz"\334"
+.Ltmp761:
 	.long	0
 	.long	0
 .Ldebug_loc16:
-	.long	.Lfunc_begin25
-	.long	.Ltmp193
-.Lset45 = .Ltmp752-.Ltmp751
-	.short	.Lset45
-.Ltmp751:
-	.byte	81
-.Ltmp752:
-	.long	.Ltmp193
-	.long	.Ltmp193
-.Lset46 = .Ltmp754-.Ltmp753
-	.short	.Lset46
-.Ltmp753:
-	.byte	126
-.asciiz"\340"
-.Ltmp754:
-	.long	.Ltmp202
-	.long	.Ltmp242
-.Lset47 = .Ltmp756-.Ltmp755
-	.short	.Lset47
-.Ltmp755:
-	.byte	126
-.asciiz"\340"
-.Ltmp756:
-	.long	.Ltmp242
-	.long	.Ltmp245
-.Lset48 = .Ltmp758-.Ltmp757
-	.short	.Lset48
-.Ltmp757:
-	.byte	87
-.Ltmp758:
-	.long	.Ltmp245
-	.long	.Ltmp282
-.Lset49 = .Ltmp760-.Ltmp759
-	.short	.Lset49
-.Ltmp759:
-	.byte	126
-.asciiz"\340"
-.Ltmp760:
-	.long	.Ltmp283
-	.long	.Ltmp296
-.Lset50 = .Ltmp762-.Ltmp761
-	.short	.Lset50
-.Ltmp761:
-	.byte	126
-.asciiz"\340"
-.Ltmp762:
-	.long	.Ltmp297
-	.long	.Ltmp307
-.Lset51 = .Ltmp764-.Ltmp763
-	.short	.Lset51
-.Ltmp763:
-	.byte	126
-.asciiz"\340"
-.Ltmp764:
-	.long	.Ltmp307
-	.long	.Ltmp308
-.Lset52 = .Ltmp766-.Ltmp765
-	.short	.Lset52
-.Ltmp765:
-	.byte	81
-.Ltmp766:
-	.long	.Ltmp308
-	.long	.Ltmp334
-.Lset53 = .Ltmp768-.Ltmp767
-	.short	.Lset53
-.Ltmp767:
-	.byte	126
-.asciiz"\340"
-.Ltmp768:
-	.long	.Ltmp335
-	.long	.Ltmp344
-.Lset54 = .Ltmp770-.Ltmp769
-	.short	.Lset54
-.Ltmp769:
-	.byte	126
-.asciiz"\340"
-.Ltmp770:
-	.long	.Ltmp345
-	.long	.Ltmp352
-.Lset55 = .Ltmp772-.Ltmp771
+	.long	.Lfunc_begin29
+	.long	.Ltmp189
+.Lset55 = .Ltmp763-.Ltmp762
 	.short	.Lset55
-.Ltmp771:
+.Ltmp762:
+	.byte	82
+.Ltmp763:
+	.long	.Ltmp189
+	.long	.Ltmp244
+.Lset56 = .Ltmp765-.Ltmp764
+	.short	.Lset56
+.Ltmp764:
 	.byte	126
-.asciiz"\340"
+	.byte	60
+.Ltmp765:
+	.long	.Ltmp245
+	.long	.Ltmp271
+.Lset57 = .Ltmp767-.Ltmp766
+	.short	.Lset57
+.Ltmp766:
+	.byte	126
+	.byte	60
+.Ltmp767:
+	.long	.Ltmp272
+	.long	.Ltmp286
+.Lset58 = .Ltmp769-.Ltmp768
+	.short	.Lset58
+.Ltmp768:
+	.byte	126
+	.byte	60
+.Ltmp769:
+	.long	.Ltmp287
+	.long	.Ltmp292
+.Lset59 = .Ltmp771-.Ltmp770
+	.short	.Lset59
+.Ltmp770:
+	.byte	126
+	.byte	60
+.Ltmp771:
+	.long	.Ltmp292
+	.long	.Ltmp293
+.Lset60 = .Ltmp773-.Ltmp772
+	.short	.Lset60
 .Ltmp772:
+	.byte	81
+.Ltmp773:
+	.long	.Ltmp293
+	.long	.Ltmp304
+.Lset61 = .Ltmp775-.Ltmp774
+	.short	.Lset61
+.Ltmp774:
+	.byte	126
+	.byte	60
+.Ltmp775:
+	.long	.Ltmp304
+	.long	.Ltmp305
+.Lset62 = .Ltmp777-.Ltmp776
+	.short	.Lset62
+.Ltmp776:
+	.byte	81
+.Ltmp777:
+	.long	.Ltmp305
+	.long	.Ltmp312
+.Lset63 = .Ltmp779-.Ltmp778
+	.short	.Lset63
+.Ltmp778:
+	.byte	126
+	.byte	60
+.Ltmp779:
+	.long	.Ltmp312
+	.long	.Ltmp313
+.Lset64 = .Ltmp781-.Ltmp780
+	.short	.Lset64
+.Ltmp780:
+	.byte	81
+.Ltmp781:
+	.long	.Ltmp313
+	.long	.Ltmp318
+.Lset65 = .Ltmp783-.Ltmp782
+	.short	.Lset65
+.Ltmp782:
+	.byte	126
+	.byte	60
+.Ltmp783:
+	.long	.Ltmp318
+	.long	.Ltmp319
+.Lset66 = .Ltmp785-.Ltmp784
+	.short	.Lset66
+.Ltmp784:
+	.byte	81
+.Ltmp785:
+	.long	.Ltmp319
+	.long	.Ltmp323
+.Lset67 = .Ltmp787-.Ltmp786
+	.short	.Lset67
+.Ltmp786:
+	.byte	126
+	.byte	60
+.Ltmp787:
+	.long	.Ltmp323
+	.long	.Ltmp324
+.Lset68 = .Ltmp789-.Ltmp788
+	.short	.Lset68
+.Ltmp788:
+	.byte	81
+.Ltmp789:
+	.long	.Ltmp324
+	.long	.Ltmp328
+.Lset69 = .Ltmp791-.Ltmp790
+	.short	.Lset69
+.Ltmp790:
+	.byte	126
+	.byte	60
+.Ltmp791:
+	.long	.Ltmp328
+	.long	.Ltmp329
+.Lset70 = .Ltmp793-.Ltmp792
+	.short	.Lset70
+.Ltmp792:
+	.byte	81
+.Ltmp793:
+	.long	.Ltmp329
+	.long	.Ltmp330
+.Lset71 = .Ltmp795-.Ltmp794
+	.short	.Lset71
+.Ltmp794:
+	.byte	126
+	.byte	60
+.Ltmp795:
+	.long	.Ltmp331
+	.long	.Ltmp340
+.Lset72 = .Ltmp797-.Ltmp796
+	.short	.Lset72
+.Ltmp796:
+	.byte	126
+	.byte	60
+.Ltmp797:
+	.long	.Ltmp341
+	.long	.Ltmp344
+.Lset73 = .Ltmp799-.Ltmp798
+	.short	.Lset73
+.Ltmp798:
+	.byte	126
+	.byte	60
+.Ltmp799:
+	.long	.Ltmp344
+	.long	.Ltmp345
+.Lset74 = .Ltmp801-.Ltmp800
+	.short	.Lset74
+.Ltmp800:
+	.byte	81
+.Ltmp801:
+	.long	.Ltmp345
+	.long	.Ltmp348
+.Lset75 = .Ltmp803-.Ltmp802
+	.short	.Lset75
+.Ltmp802:
+	.byte	126
+	.byte	60
+.Ltmp803:
 	.long	0
 	.long	0
 .Ldebug_loc17:
-	.long	.Lfunc_begin25
-	.long	.Ltmp192
-.Lset56 = .Ltmp774-.Ltmp773
-	.short	.Lset56
-.Ltmp773:
-	.byte	82
-.Ltmp774:
-	.long	.Ltmp192
-	.long	.Ltmp282
-.Lset57 = .Ltmp776-.Ltmp775
-	.short	.Lset57
-.Ltmp775:
-	.byte	126
-	.byte	60
-.Ltmp776:
-	.long	.Ltmp283
-	.long	.Ltmp288
-.Lset58 = .Ltmp778-.Ltmp777
-	.short	.Lset58
-.Ltmp777:
-	.byte	126
-	.byte	60
-.Ltmp778:
-	.long	.Ltmp288
-	.long	.Ltmp289
-.Lset59 = .Ltmp780-.Ltmp779
-	.short	.Lset59
-.Ltmp779:
-	.byte	81
-.Ltmp780:
-	.long	.Ltmp289
-	.long	.Ltmp296
-.Lset60 = .Ltmp782-.Ltmp781
-	.short	.Lset60
-.Ltmp781:
-	.byte	126
-	.byte	60
-.Ltmp782:
-	.long	.Ltmp297
-	.long	.Ltmp302
-.Lset61 = .Ltmp784-.Ltmp783
-	.short	.Lset61
-.Ltmp783:
-	.byte	126
-	.byte	60
-.Ltmp784:
-	.long	.Ltmp302
-	.long	.Ltmp303
-.Lset62 = .Ltmp786-.Ltmp785
-	.short	.Lset62
-.Ltmp785:
-	.byte	81
-.Ltmp786:
-	.long	.Ltmp303
-	.long	.Ltmp314
-.Lset63 = .Ltmp788-.Ltmp787
-	.short	.Lset63
-.Ltmp787:
-	.byte	126
-	.byte	60
-.Ltmp788:
-	.long	.Ltmp314
-	.long	.Ltmp315
-.Lset64 = .Ltmp790-.Ltmp789
-	.short	.Lset64
-.Ltmp789:
-	.byte	81
-.Ltmp790:
-	.long	.Ltmp315
-	.long	.Ltmp322
-.Lset65 = .Ltmp792-.Ltmp791
-	.short	.Lset65
-.Ltmp791:
-	.byte	126
-	.byte	60
-.Ltmp792:
-	.long	.Ltmp322
-	.long	.Ltmp323
-.Lset66 = .Ltmp794-.Ltmp793
-	.short	.Lset66
-.Ltmp793:
-	.byte	81
-.Ltmp794:
-	.long	.Ltmp323
-	.long	.Ltmp327
-.Lset67 = .Ltmp796-.Ltmp795
-	.short	.Lset67
-.Ltmp795:
-	.byte	126
-	.byte	60
-.Ltmp796:
-	.long	.Ltmp327
-	.long	.Ltmp328
-.Lset68 = .Ltmp798-.Ltmp797
-	.short	.Lset68
-.Ltmp797:
-	.byte	81
-.Ltmp798:
-	.long	.Ltmp328
-	.long	.Ltmp332
-.Lset69 = .Ltmp800-.Ltmp799
-	.short	.Lset69
-.Ltmp799:
-	.byte	126
-	.byte	60
-.Ltmp800:
-	.long	.Ltmp332
-	.long	.Ltmp333
-.Lset70 = .Ltmp802-.Ltmp801
-	.short	.Lset70
-.Ltmp801:
-	.byte	81
-.Ltmp802:
-	.long	.Ltmp333
-	.long	.Ltmp334
-.Lset71 = .Ltmp804-.Ltmp803
-	.short	.Lset71
-.Ltmp803:
-	.byte	126
-	.byte	60
+	.long	.Ltmp191
+	.long	.Ltmp259
+.Lset76 = .Ltmp805-.Ltmp804
+	.short	.Lset76
 .Ltmp804:
-	.long	.Ltmp335
-	.long	.Ltmp344
-.Lset72 = .Ltmp806-.Ltmp805
-	.short	.Lset72
+	.byte	17
+	.ascii	"\372\001"
 .Ltmp805:
-	.byte	126
-	.byte	60
+	.long	.Ltmp259
+	.long	.Ltmp261
+.Lset77 = .Ltmp807-.Ltmp806
+	.short	.Lset77
 .Ltmp806:
-	.long	.Ltmp345
-	.long	.Ltmp348
-.Lset73 = .Ltmp808-.Ltmp807
-	.short	.Lset73
+	.byte	87
 .Ltmp807:
-	.byte	126
-	.byte	60
+	.long	.Ltmp272
+	.long	.Ltmp273
+.Lset78 = .Ltmp809-.Ltmp808
+	.short	.Lset78
 .Ltmp808:
-	.long	.Ltmp348
-	.long	.Ltmp349
-.Lset74 = .Ltmp810-.Ltmp809
-	.short	.Lset74
+	.byte	87
 .Ltmp809:
-	.byte	81
+	.long	.Ltmp274
+	.long	.Ltmp280
+.Lset79 = .Ltmp811-.Ltmp810
+	.short	.Lset79
 .Ltmp810:
-	.long	.Ltmp349
-	.long	.Ltmp352
-.Lset75 = .Ltmp812-.Ltmp811
-	.short	.Lset75
+	.byte	17
+	.ascii	"\220\003"
 .Ltmp811:
-	.byte	126
-	.byte	60
+	.long	.Ltmp280
+	.long	.Ltmp282
+.Lset80 = .Ltmp813-.Ltmp812
+	.short	.Lset80
 .Ltmp812:
+	.byte	87
+.Ltmp813:
+	.long	.Ltmp283
+	.long	.Ltmp325
+.Lset81 = .Ltmp815-.Ltmp814
+	.short	.Lset81
+.Ltmp814:
+	.byte	17
+	.ascii	"\365\001"
+.Ltmp815:
+	.long	.Ltmp325
+	.long	.Ltmp326
+.Lset82 = .Ltmp817-.Ltmp816
+	.short	.Lset82
+.Ltmp816:
+	.byte	87
+.Ltmp817:
+	.long	.Ltmp326
+	.long	.Ltmp326
+.Lset83 = .Ltmp819-.Ltmp818
+	.short	.Lset83
+.Ltmp818:
+	.byte	85
+.Ltmp819:
 	.long	0
 	.long	0
 .Ldebug_loc18:
-	.long	.Ltmp194
-	.long	.Ltmp266
-.Lset76 = .Ltmp814-.Ltmp813
-	.short	.Lset76
-.Ltmp813:
-	.byte	17
-	.ascii	"\360\001"
-.Ltmp814:
-	.long	.Ltmp266
-	.long	.Ltmp268
-.Lset77 = .Ltmp816-.Ltmp815
-	.short	.Lset77
-.Ltmp815:
-	.byte	87
-.Ltmp816:
-	.long	.Ltmp279
-	.long	.Ltmp280
-.Lset78 = .Ltmp818-.Ltmp817
-	.short	.Lset78
-.Ltmp817:
-	.byte	87
-.Ltmp818:
-	.long	.Ltmp281
-	.long	.Ltmp290
-.Lset79 = .Ltmp820-.Ltmp819
-	.short	.Lset79
-.Ltmp819:
-	.byte	17
-	.ascii	"\220\003"
+	.long	.Ltmp191
+	.long	.Ltmp256
+.Lset84 = .Ltmp821-.Ltmp820
+	.short	.Lset84
 .Ltmp820:
-	.long	.Ltmp290
-	.long	.Ltmp292
-.Lset80 = .Ltmp822-.Ltmp821
-	.short	.Lset80
+	.byte	16
+	.byte	50
 .Ltmp821:
-	.byte	87
+	.long	.Ltmp256
+	.long	.Ltmp257
+.Lset85 = .Ltmp823-.Ltmp822
+	.short	.Lset85
 .Ltmp822:
-	.long	.Ltmp293
-	.long	.Ltmp329
-.Lset81 = .Ltmp824-.Ltmp823
-	.short	.Lset81
+	.byte	126
+.asciiz"\300"
 .Ltmp823:
-	.byte	17
-	.ascii	"\353\001"
-.Ltmp824:
-	.long	.Ltmp329
-	.long	.Ltmp330
-.Lset82 = .Ltmp826-.Ltmp825
-	.short	.Lset82
-.Ltmp825:
-	.byte	87
-.Ltmp826:
-	.long	.Ltmp330
-	.long	.Ltmp331
-.Lset83 = .Ltmp828-.Ltmp827
-	.short	.Lset83
-.Ltmp827:
-	.byte	88
-.Ltmp828:
 	.long	0
 	.long	0
 .Ldebug_loc19:
-	.long	.Ltmp194
-	.long	.Ltmp262
-.Lset84 = .Ltmp830-.Ltmp829
-	.short	.Lset84
+	.long	.Ltmp191
+	.long	.Ltmp251
+.Lset86 = .Ltmp825-.Ltmp824
+	.short	.Lset86
+.Ltmp824:
+	.byte	17
+	.byte	0
+.Ltmp825:
+	.long	.Ltmp251
+	.long	.Ltmp254
+.Lset87 = .Ltmp827-.Ltmp826
+	.short	.Lset87
+.Ltmp826:
+	.byte	85
+.Ltmp827:
+	.long	.Ltmp278
+	.long	.Ltmp306
+.Lset88 = .Ltmp829-.Ltmp828
+	.short	.Lset88
+.Ltmp828:
+	.byte	17
+	.byte	0
 .Ltmp829:
-	.byte	16
-	.byte	50
+	.long	.Ltmp306
+	.long	.Ltmp310
+.Lset89 = .Ltmp831-.Ltmp830
+	.short	.Lset89
 .Ltmp830:
-	.long	.Ltmp262
-	.long	.Ltmp264
-.Lset85 = .Ltmp832-.Ltmp831
-	.short	.Lset85
+	.byte	85
 .Ltmp831:
-	.byte	126
-.asciiz"\300"
+	.long	.Ltmp314
+	.long	.Ltmp315
+.Lset90 = .Ltmp833-.Ltmp832
+	.short	.Lset90
 .Ltmp832:
+	.byte	85
+.Ltmp833:
+	.long	.Ltmp315
+	.long	.Ltmp320
+.Lset91 = .Ltmp835-.Ltmp834
+	.short	.Lset91
+.Ltmp834:
+	.byte	126
+.asciiz"\330"
+.Ltmp835:
+	.long	.Ltmp327
+	.long	.Ltmp330
+.Lset92 = .Ltmp837-.Ltmp836
+	.short	.Lset92
+.Ltmp836:
+	.byte	126
+.asciiz"\330"
+.Ltmp837:
+	.long	.Ltmp337
+	.long	.Lfunc_end29
+.Lset93 = .Ltmp839-.Ltmp838
+	.short	.Lset93
+.Ltmp838:
+	.byte	17
+	.byte	0
+.Ltmp839:
 	.long	0
 	.long	0
 .Ldebug_loc20:
-	.long	.Ltmp194
-	.long	.Ltmp257
-.Lset86 = .Ltmp834-.Ltmp833
-	.short	.Lset86
-.Ltmp833:
-	.byte	17
-	.byte	0
-.Ltmp834:
-	.long	.Ltmp257
-	.long	.Ltmp259
-.Lset87 = .Ltmp836-.Ltmp835
-	.short	.Lset87
-.Ltmp835:
-	.byte	82
-.Ltmp836:
-	.long	.Ltmp286
-	.long	.Ltmp316
-.Lset88 = .Ltmp838-.Ltmp837
-	.short	.Lset88
-.Ltmp837:
-	.byte	17
-	.byte	0
-.Ltmp838:
-	.long	.Ltmp316
-	.long	.Ltmp318
-.Lset89 = .Ltmp840-.Ltmp839
-	.short	.Lset89
-.Ltmp839:
-	.byte	82
+	.long	.Ltmp191
+	.long	.Ltmp248
+.Lset94 = .Ltmp841-.Ltmp840
+	.short	.Lset94
 .Ltmp840:
-	.long	.Ltmp319
-	.long	.Ltmp320
-.Lset90 = .Ltmp842-.Ltmp841
-	.short	.Lset90
-.Ltmp841:
-	.byte	82
-.Ltmp842:
-	.long	.Ltmp320
-	.long	.Ltmp324
-.Lset91 = .Ltmp844-.Ltmp843
-	.short	.Lset91
-.Ltmp843:
-	.byte	126
-.asciiz"\334"
-.Ltmp844:
-	.long	.Ltmp331
-	.long	.Ltmp334
-.Lset92 = .Ltmp846-.Ltmp845
-	.short	.Lset92
-.Ltmp845:
-	.byte	126
-.asciiz"\334"
-.Ltmp846:
-	.long	.Ltmp341
-	.long	.Lfunc_end25
-.Lset93 = .Ltmp848-.Ltmp847
-	.short	.Lset93
-.Ltmp847:
-	.byte	17
+	.byte	16
 	.byte	0
+.Ltmp841:
+	.long	.Ltmp248
+	.long	.Ltmp254
+.Lset95 = .Ltmp843-.Ltmp842
+	.short	.Lset95
+.Ltmp842:
+	.byte	91
+.Ltmp843:
+	.long	.Ltmp276
+	.long	.Ltmp277
+.Lset96 = .Ltmp845-.Ltmp844
+	.short	.Lset96
+.Ltmp844:
+	.byte	91
+.Ltmp845:
+	.long	.Ltmp277
+	.long	.Ltmp280
+.Lset97 = .Ltmp847-.Ltmp846
+	.short	.Lset97
+.Ltmp846:
+	.byte	126
+.asciiz"\340"
+.Ltmp847:
+	.long	.Ltmp306
+	.long	.Ltmp310
+.Lset98 = .Ltmp849-.Ltmp848
+	.short	.Lset98
 .Ltmp848:
+	.byte	91
+.Ltmp849:
+	.long	.Ltmp311
+	.long	.Ltmp314
+.Lset99 = .Ltmp851-.Ltmp850
+	.short	.Lset99
+.Ltmp850:
+	.byte	126
+.asciiz"\340"
+.Ltmp851:
+	.long	.Ltmp314
+	.long	.Ltmp316
+.Lset100 = .Ltmp853-.Ltmp852
+	.short	.Lset100
+.Ltmp852:
+	.byte	91
+.Ltmp853:
+	.long	.Ltmp316
+	.long	.Ltmp320
+.Lset101 = .Ltmp855-.Ltmp854
+	.short	.Lset101
+.Ltmp854:
+	.byte	126
+.asciiz"\340"
+.Ltmp855:
+	.long	.Ltmp327
+	.long	.Ltmp330
+.Lset102 = .Ltmp857-.Ltmp856
+	.short	.Lset102
+.Ltmp856:
+	.byte	126
+.asciiz"\340"
+.Ltmp857:
+	.long	.Ltmp331
+	.long	.Ltmp332
+.Lset103 = .Ltmp859-.Ltmp858
+	.short	.Lset103
+.Ltmp858:
+	.byte	126
+.asciiz"\340"
+.Ltmp859:
+	.long	.Ltmp337
+	.long	.Lfunc_end29
+.Lset104 = .Ltmp861-.Ltmp860
+	.short	.Lset104
+.Ltmp860:
+	.byte	16
+	.byte	0
+.Ltmp861:
 	.long	0
 	.long	0
 .Ldebug_loc21:
-	.long	.Ltmp194
-	.long	.Ltmp254
-.Lset94 = .Ltmp850-.Ltmp849
-	.short	.Lset94
-.Ltmp849:
-	.byte	16
-	.byte	0
-.Ltmp850:
-	.long	.Ltmp254
-	.long	.Ltmp259
-.Lset95 = .Ltmp852-.Ltmp851
-	.short	.Lset95
-.Ltmp851:
-	.byte	126
-.asciiz"\344"
-.Ltmp852:
-	.long	.Ltmp285
-	.long	.Ltmp290
-.Lset96 = .Ltmp854-.Ltmp853
-	.short	.Lset96
-.Ltmp853:
-	.byte	126
-.asciiz"\344"
-.Ltmp854:
-	.long	.Ltmp316
-	.long	.Ltmp318
-.Lset97 = .Ltmp856-.Ltmp855
-	.short	.Lset97
-.Ltmp855:
-	.byte	126
-.asciiz"\344"
-.Ltmp856:
-	.long	.Ltmp319
-	.long	.Ltmp324
-.Lset98 = .Ltmp858-.Ltmp857
-	.short	.Lset98
-.Ltmp857:
-	.byte	126
-.asciiz"\344"
-.Ltmp858:
-	.long	.Ltmp331
-	.long	.Ltmp334
-.Lset99 = .Ltmp860-.Ltmp859
-	.short	.Lset99
-.Ltmp859:
-	.byte	126
-.asciiz"\344"
-.Ltmp860:
-	.long	.Ltmp335
-	.long	.Ltmp336
-.Lset100 = .Ltmp862-.Ltmp861
-	.short	.Lset100
-.Ltmp861:
-	.byte	126
-.asciiz"\344"
+	.long	.Ltmp191
+	.long	.Ltmp333
+.Lset105 = .Ltmp863-.Ltmp862
+	.short	.Lset105
 .Ltmp862:
-	.long	.Ltmp341
-	.long	.Lfunc_end25
-.Lset101 = .Ltmp864-.Ltmp863
-	.short	.Lset101
+	.byte	16
+	.byte	1
 .Ltmp863:
+	.long	.Ltmp333
+	.long	.Lfunc_end29
+.Lset106 = .Ltmp865-.Ltmp864
+	.short	.Lset106
+.Ltmp864:
 	.byte	16
 	.byte	0
-.Ltmp864:
+.Ltmp865:
 	.long	0
 	.long	0
 .Ldebug_loc22:
-	.long	.Ltmp194
-	.long	.Ltmp337
-.Lset102 = .Ltmp866-.Ltmp865
-	.short	.Lset102
-.Ltmp865:
-	.byte	16
-	.byte	1
+	.long	.Ltmp191
+	.long	.Ltmp334
+.Lset107 = .Ltmp867-.Ltmp866
+	.short	.Lset107
 .Ltmp866:
-	.long	.Ltmp337
-	.long	.Lfunc_end25
-.Lset103 = .Ltmp868-.Ltmp867
-	.short	.Lset103
-.Ltmp867:
 	.byte	16
 	.byte	0
+.Ltmp867:
+	.long	.Ltmp334
+	.long	.Ltmp336
+.Lset108 = .Ltmp869-.Ltmp868
+	.short	.Lset108
 .Ltmp868:
+	.byte	87
+.Ltmp869:
+	.long	.Ltmp336
+	.long	.Ltmp338
+.Lset109 = .Ltmp871-.Ltmp870
+	.short	.Lset109
+.Ltmp870:
+	.byte	126
+.asciiz"\354"
+.Ltmp871:
 	.long	0
 	.long	0
 .Ldebug_loc23:
-	.long	.Ltmp194
-	.long	.Ltmp338
-.Lset104 = .Ltmp870-.Ltmp869
-	.short	.Lset104
-.Ltmp869:
+	.long	.Ltmp191
+	.long	.Ltmp230
+.Lset110 = .Ltmp873-.Ltmp872
+	.short	.Lset110
+.Ltmp872:
 	.byte	16
 	.byte	0
-.Ltmp870:
-	.long	.Ltmp338
-	.long	.Ltmp340
-.Lset105 = .Ltmp872-.Ltmp871
-	.short	.Lset105
-.Ltmp871:
-	.byte	85
-.Ltmp872:
-	.long	.Ltmp340
-	.long	.Ltmp342
-.Lset106 = .Ltmp874-.Ltmp873
-	.short	.Lset106
 .Ltmp873:
+	.long	.Ltmp230
+	.long	.Ltmp232
+.Lset111 = .Ltmp875-.Ltmp874
+	.short	.Lset111
+.Ltmp874:
 	.byte	126
 .asciiz"\360"
-.Ltmp874:
+.Ltmp875:
 	.long	0
 	.long	0
 .Ldebug_loc24:
-	.long	.Ltmp194
-	.long	.Ltmp237
-.Lset107 = .Ltmp876-.Ltmp875
-	.short	.Lset107
-.Ltmp875:
+	.long	.Ltmp191
+	.long	.Ltmp308
+.Lset112 = .Ltmp877-.Ltmp876
+	.short	.Lset112
+.Ltmp876:
 	.byte	16
 	.byte	0
-.Ltmp876:
-	.long	.Ltmp237
-	.long	.Ltmp239
-.Lset108 = .Ltmp878-.Ltmp877
-	.short	.Lset108
 .Ltmp877:
-	.byte	126
-.asciiz"\364"
+	.long	.Ltmp308
+	.long	.Lfunc_end29
+.Lset113 = .Ltmp879-.Ltmp878
+	.short	.Lset113
 .Ltmp878:
+	.byte	16
+	.byte	1
+.Ltmp879:
 	.long	0
 	.long	0
 .Ldebug_loc25:
-	.long	.Ltmp194
-	.long	.Ltmp317
-.Lset109 = .Ltmp880-.Ltmp879
-	.short	.Lset109
-.Ltmp879:
+	.long	.Ltmp191
+	.long	.Ltmp278
+.Lset114 = .Ltmp881-.Ltmp880
+	.short	.Lset114
+.Ltmp880:
 	.byte	16
 	.byte	0
-.Ltmp880:
-	.long	.Ltmp317
-	.long	.Lfunc_end25
-.Lset110 = .Ltmp882-.Ltmp881
-	.short	.Lset110
 .Ltmp881:
-	.byte	16
-	.byte	1
+	.long	.Ltmp278
+	.long	.Ltmp280
+.Lset115 = .Ltmp883-.Ltmp882
+	.short	.Lset115
 .Ltmp882:
+	.byte	89
+.Ltmp883:
 	.long	0
 	.long	0
 .Ldebug_loc26:
-	.long	.Ltmp194
-	.long	.Ltmp286
-.Lset111 = .Ltmp884-.Ltmp883
-	.short	.Lset111
-.Ltmp883:
+	.long	.Ltmp191
+	.long	.Ltmp285
+.Lset116 = .Ltmp885-.Ltmp884
+	.short	.Lset116
+.Ltmp884:
 	.byte	16
 	.byte	0
-.Ltmp884:
-	.long	.Ltmp286
-	.long	.Ltmp287
-.Lset112 = .Ltmp886-.Ltmp885
-	.short	.Lset112
 .Ltmp885:
-	.byte	89
+	.long	.Ltmp285
+	.long	.Ltmp286
+.Lset117 = .Ltmp887-.Ltmp886
+	.short	.Lset117
 .Ltmp886:
+	.byte	126
+.asciiz"\304"
+.Ltmp887:
 	.long	0
 	.long	0
 .Ldebug_loc27:
-	.long	.Ltmp194
-	.long	.Ltmp295
-.Lset113 = .Ltmp888-.Ltmp887
-	.short	.Lset113
-.Ltmp887:
+	.long	.Ltmp191
+	.long	.Ltmp225
+.Lset118 = .Ltmp889-.Ltmp888
+	.short	.Lset118
+.Ltmp888:
 	.byte	16
 	.byte	0
-.Ltmp888:
-	.long	.Ltmp295
-	.long	.Ltmp296
-.Lset114 = .Ltmp890-.Ltmp889
-	.short	.Lset114
 .Ltmp889:
-	.byte	126
-.asciiz"\304"
+	.long	.Ltmp225
+	.long	.Ltmp226
+.Lset119 = .Ltmp891-.Ltmp890
+	.short	.Lset119
 .Ltmp890:
+	.byte	126
+.asciiz"\320"
+.Ltmp891:
 	.long	0
 	.long	0
 .Ldebug_loc28:
-	.long	.Ltmp194
-	.long	.Ltmp232
-.Lset115 = .Ltmp892-.Ltmp891
-	.short	.Lset115
-.Ltmp891:
+	.long	.Ltmp191
+	.long	.Ltmp299
+.Lset120 = .Ltmp893-.Ltmp892
+	.short	.Lset120
+.Ltmp892:
+	.byte	16
+	.byte	1
+.Ltmp893:
+	.long	.Ltmp299
+	.long	.Ltmp342
+.Lset121 = .Ltmp895-.Ltmp894
+	.short	.Lset121
+.Ltmp894:
 	.byte	16
 	.byte	0
-.Ltmp892:
-	.long	.Ltmp232
-	.long	.Ltmp233
-.Lset116 = .Ltmp894-.Ltmp893
-	.short	.Lset116
-.Ltmp893:
-	.byte	126
-.asciiz"\320"
-.Ltmp894:
+.Ltmp895:
+	.long	.Ltmp342
+	.long	.Lfunc_end29
+.Lset122 = .Ltmp897-.Ltmp896
+	.short	.Lset122
+.Ltmp896:
+	.byte	16
+	.byte	1
+.Ltmp897:
 	.long	0
 	.long	0
 .Ldebug_loc29:
-	.long	.Ltmp194
-	.long	.Ltmp309
-.Lset117 = .Ltmp896-.Ltmp895
-	.short	.Lset117
-.Ltmp895:
-	.byte	16
-	.byte	1
-.Ltmp896:
-	.long	.Ltmp309
-	.long	.Ltmp346
-.Lset118 = .Ltmp898-.Ltmp897
-	.short	.Lset118
-.Ltmp897:
-	.byte	16
-	.byte	0
+	.long	.Ltmp191
+	.long	.Ltmp255
+.Lset123 = .Ltmp899-.Ltmp898
+	.short	.Lset123
 .Ltmp898:
-	.long	.Ltmp346
-	.long	.Lfunc_end25
-.Lset119 = .Ltmp900-.Ltmp899
-	.short	.Lset119
-.Ltmp899:
 	.byte	16
 	.byte	1
+.Ltmp899:
+	.long	.Ltmp255
+	.long	.Ltmp257
+.Lset124 = .Ltmp901-.Ltmp900
+	.short	.Lset124
 .Ltmp900:
+	.byte	126
+.asciiz"\370"
+.Ltmp901:
+	.long	.Ltmp258
+	.long	.Ltmp262
+.Lset125 = .Ltmp903-.Ltmp902
+	.short	.Lset125
+.Ltmp902:
+	.byte	126
+.asciiz"\370"
+.Ltmp903:
+	.long	.Ltmp272
+	.long	.Ltmp275
+.Lset126 = .Ltmp905-.Ltmp904
+	.short	.Lset126
+.Ltmp904:
+	.byte	126
+.asciiz"\370"
+.Ltmp905:
+	.long	.Ltmp280
+	.long	.Ltmp284
+.Lset127 = .Ltmp907-.Ltmp906
+	.short	.Lset127
+.Ltmp906:
+	.byte	126
+.asciiz"\370"
+.Ltmp907:
+	.long	.Ltmp325
+	.long	.Ltmp327
+.Lset128 = .Ltmp909-.Ltmp908
+	.short	.Lset128
+.Ltmp908:
+	.byte	126
+.asciiz"\370"
+.Ltmp909:
 	.long	0
 	.long	0
 .Ldebug_loc30:
-	.long	.Ltmp194
-	.long	.Ltmp261
-.Lset120 = .Ltmp902-.Ltmp901
-	.short	.Lset120
-.Ltmp901:
+	.long	.Ltmp191
+	.long	.Ltmp256
+.Lset129 = .Ltmp911-.Ltmp910
+	.short	.Lset129
+.Ltmp910:
 	.byte	16
 	.byte	1
-.Ltmp902:
-	.long	.Ltmp261
-	.long	.Ltmp264
-.Lset121 = .Ltmp904-.Ltmp903
-	.short	.Lset121
-.Ltmp903:
-	.byte	126
-.asciiz"\370"
-.Ltmp904:
-	.long	.Ltmp265
-	.long	.Ltmp269
-.Lset122 = .Ltmp906-.Ltmp905
-	.short	.Lset122
-.Ltmp905:
-	.byte	126
-.asciiz"\370"
-.Ltmp906:
-	.long	.Ltmp279
-	.long	.Ltmp282
-.Lset123 = .Ltmp908-.Ltmp907
-	.short	.Lset123
-.Ltmp907:
-	.byte	126
-.asciiz"\370"
-.Ltmp908:
-	.long	.Ltmp283
-	.long	.Ltmp284
-.Lset124 = .Ltmp910-.Ltmp909
-	.short	.Lset124
-.Ltmp909:
-	.byte	126
-.asciiz"\370"
-.Ltmp910:
-	.long	.Ltmp290
-	.long	.Ltmp294
-.Lset125 = .Ltmp912-.Ltmp911
-	.short	.Lset125
 .Ltmp911:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp256
+	.long	.Ltmp259
+.Lset130 = .Ltmp913-.Ltmp912
+	.short	.Lset130
 .Ltmp912:
-	.long	.Ltmp329
-	.long	.Ltmp331
-.Lset126 = .Ltmp914-.Ltmp913
-	.short	.Lset126
+	.byte	16
+	.byte	0
 .Ltmp913:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp259
+	.long	.Lfunc_end29
+.Lset131 = .Ltmp915-.Ltmp914
+	.short	.Lset131
 .Ltmp914:
+	.byte	16
+	.byte	1
+.Ltmp915:
 	.long	0
 	.long	0
 .Ldebug_loc31:
-	.long	.Ltmp194
-	.long	.Ltmp263
-.Lset127 = .Ltmp916-.Ltmp915
-	.short	.Lset127
-.Ltmp915:
-	.byte	16
-	.byte	1
+	.long	.Ltmp191
+	.long	.Ltmp290
+.Lset132 = .Ltmp917-.Ltmp916
+	.short	.Lset132
 .Ltmp916:
-	.long	.Ltmp263
-	.long	.Ltmp267
-.Lset128 = .Ltmp918-.Ltmp917
-	.short	.Lset128
-.Ltmp917:
 	.byte	16
 	.byte	0
+.Ltmp917:
+	.long	.Ltmp290
+	.long	.Ltmp294
+.Lset133 = .Ltmp919-.Ltmp918
+	.short	.Lset133
 .Ltmp918:
-	.long	.Ltmp267
-	.long	.Lfunc_end25
-.Lset129 = .Ltmp920-.Ltmp919
-	.short	.Lset129
+	.byte	126
+	.byte	56
 .Ltmp919:
-	.byte	16
-	.byte	1
-.Ltmp920:
 	.long	0
 	.long	0
 .Ldebug_loc32:
-	.long	.Ltmp194
-	.long	.Ltmp300
-.Lset130 = .Ltmp922-.Ltmp921
-	.short	.Lset130
-.Ltmp921:
+	.long	.Ltmp191
+	.long	.Ltmp301
+.Lset134 = .Ltmp921-.Ltmp920
+	.short	.Lset134
+.Ltmp920:
 	.byte	16
 	.byte	0
+.Ltmp921:
+	.long	.Ltmp301
+	.long	.Ltmp302
+.Lset135 = .Ltmp923-.Ltmp922
+	.short	.Lset135
 .Ltmp922:
-	.long	.Ltmp300
-	.long	.Ltmp304
-.Lset131 = .Ltmp924-.Ltmp923
-	.short	.Lset131
-.Ltmp923:
 	.byte	126
-	.byte	56
-.Ltmp924:
+	.byte	44
+.Ltmp923:
 	.long	0
 	.long	0
 .Ldebug_loc33:
-	.long	.Ltmp194
-	.long	.Ltmp311
-.Lset132 = .Ltmp926-.Ltmp925
-	.short	.Lset132
-.Ltmp925:
+	.long	.Ltmp191
+	.long	.Ltmp222
+.Lset136 = .Ltmp925-.Ltmp924
+	.short	.Lset136
+.Ltmp924:
 	.byte	16
 	.byte	0
+.Ltmp925:
+	.long	.Ltmp222
+	.long	.Ltmp223
+.Lset137 = .Ltmp927-.Ltmp926
+	.short	.Lset137
 .Ltmp926:
-	.long	.Ltmp311
-	.long	.Ltmp312
-.Lset133 = .Ltmp928-.Ltmp927
-	.short	.Lset133
+	.byte	91
 .Ltmp927:
-	.byte	126
-	.byte	48
+	.long	.Ltmp223
+	.long	.Lfunc_end29
+.Lset138 = .Ltmp929-.Ltmp928
+	.short	.Lset138
 .Ltmp928:
+	.byte	16
+	.byte	0
+.Ltmp929:
 	.long	0
 	.long	0
 .Ldebug_loc34:
-	.long	.Ltmp194
-	.long	.Ltmp229
-.Lset134 = .Ltmp930-.Ltmp929
-	.short	.Lset134
-.Ltmp929:
-	.byte	16
-	.byte	0
+	.long	.Ltmp193
+	.long	.Ltmp195
+.Lset139 = .Ltmp931-.Ltmp930
+	.short	.Lset139
 .Ltmp930:
-	.long	.Ltmp229
-	.long	.Ltmp230
-.Lset135 = .Ltmp932-.Ltmp931
-	.short	.Lset135
-.Ltmp931:
-	.byte	83
-.Ltmp932:
-	.long	.Ltmp230
-	.long	.Lfunc_end25
-.Lset136 = .Ltmp934-.Ltmp933
-	.short	.Lset136
-.Ltmp933:
-	.byte	16
+	.byte	17
 	.byte	0
-.Ltmp934:
+.Ltmp931:
+	.long	.Ltmp195
+	.long	.Lfunc_end29
+.Lset140 = .Ltmp933-.Ltmp932
+	.short	.Lset140
+.Ltmp932:
+	.byte	17
+	.byte	1
+.Ltmp933:
 	.long	0
 	.long	0
 .Ldebug_loc35:
-	.long	.Ltmp196
-	.long	.Ltmp198
-.Lset137 = .Ltmp936-.Ltmp935
-	.short	.Lset137
+	.long	.Ltmp197
+	.long	.Ltmp199
+.Lset141 = .Ltmp935-.Ltmp934
+	.short	.Lset141
+.Ltmp934:
+	.byte	126
+.asciiz"\374"
 .Ltmp935:
-	.byte	17
-	.byte	0
+	.long	.Ltmp288
+	.long	.Ltmp294
+.Lset142 = .Ltmp937-.Ltmp936
+	.short	.Lset142
 .Ltmp936:
-	.long	.Ltmp198
-	.long	.Lfunc_end25
-.Lset138 = .Ltmp938-.Ltmp937
-	.short	.Lset138
+	.byte	126
+.asciiz"\374"
 .Ltmp937:
-	.byte	17
-	.byte	1
-.Ltmp938:
 	.long	0
 	.long	0
 .Ldebug_loc36:
-	.long	.Ltmp200
-	.long	.Ltmp202
-.Lset139 = .Ltmp940-.Ltmp939
-	.short	.Lset139
+	.long	.Ltmp199
+	.long	.Ltmp203
+.Lset143 = .Ltmp939-.Ltmp938
+	.short	.Lset143
+.Ltmp938:
+	.byte	90
 .Ltmp939:
-	.byte	126
-.asciiz"\374"
+	.long	.Ltmp227
+	.long	.Ltmp234
+.Lset144 = .Ltmp941-.Ltmp940
+	.short	.Lset144
 .Ltmp940:
-	.long	.Ltmp298
-	.long	.Ltmp304
-.Lset140 = .Ltmp942-.Ltmp941
-	.short	.Lset140
+	.byte	90
 .Ltmp941:
-	.byte	126
-.asciiz"\374"
-.Ltmp942:
 	.long	0
 	.long	0
 .Ldebug_loc37:
-	.long	.Ltmp202
-	.long	.Ltmp205
-.Lset141 = .Ltmp944-.Ltmp943
-	.short	.Lset141
+	.long	.Ltmp200
+	.long	.Ltmp201
+.Lset145 = .Ltmp943-.Ltmp942
+	.short	.Lset145
+.Ltmp942:
+	.byte	81
 .Ltmp943:
-	.byte	90
+	.long	.Ltmp202
+	.long	.Ltmp203
+.Lset146 = .Ltmp945-.Ltmp944
+	.short	.Lset146
 .Ltmp944:
-	.long	.Ltmp234
-	.long	.Ltmp241
-.Lset142 = .Ltmp946-.Ltmp945
-	.short	.Lset142
+	.byte	81
 .Ltmp945:
-	.byte	90
-.Ltmp946:
 	.long	0
 	.long	0
 .Ldebug_loc38:
-	.long	.Ltmp203
-	.long	.Ltmp204
-.Lset143 = .Ltmp948-.Ltmp947
-	.short	.Lset143
+	.long	.Ltmp209
+	.long	.Ltmp213
+.Lset147 = .Ltmp947-.Ltmp946
+	.short	.Lset147
+.Ltmp946:
+	.byte	17
+	.byte	1
 .Ltmp947:
-	.byte	81
+	.long	.Ltmp213
+	.long	.Ltmp214
+.Lset148 = .Ltmp949-.Ltmp948
+	.short	.Lset148
 .Ltmp948:
-	.long	.Ltmp206
-	.long	.Ltmp207
-.Lset144 = .Ltmp950-.Ltmp949
-	.short	.Lset144
+	.byte	91
 .Ltmp949:
-	.byte	81
-.Ltmp950:
 	.long	0
 	.long	0
 .Ldebug_loc39:
-	.long	.Ltmp214
-	.long	.Ltmp221
-.Lset145 = .Ltmp952-.Ltmp951
-	.short	.Lset145
-.Ltmp951:
+	.long	.Ltmp237
+	.long	.Ltmp246
+.Lset149 = .Ltmp951-.Ltmp950
+	.short	.Lset149
+.Ltmp950:
 	.byte	17
-	.byte	1
+	.byte	0
+.Ltmp951:
+	.long	.Ltmp246
+	.long	.Ltmp247
+.Lset150 = .Ltmp953-.Ltmp952
+	.short	.Lset150
 .Ltmp952:
-	.long	.Ltmp221
-	.long	.Ltmp222
-.Lset146 = .Ltmp954-.Ltmp953
-	.short	.Lset146
+	.byte	87
 .Ltmp953:
-	.byte	91
-.Ltmp954:
 	.long	0
 	.long	0
 .Ldebug_loc40:
-	.long	.Ltmp246
-	.long	.Ltmp252
-.Lset147 = .Ltmp956-.Ltmp955
-	.short	.Lset147
+	.long	.Ltmp255
+	.long	.Ltmp257
+.Lset151 = .Ltmp955-.Ltmp954
+	.short	.Lset151
+.Ltmp954:
+	.byte	126
+.asciiz"\370"
 .Ltmp955:
-	.byte	17
-	.byte	0
-.Ltmp956:
-	.long	.Ltmp252
-	.long	.Ltmp253
-.Lset148 = .Ltmp958-.Ltmp957
-	.short	.Lset148
-.Ltmp957:
-	.byte	87
-.Ltmp958:
 	.long	0
 	.long	0
 .Ldebug_loc41:
-	.long	.Ltmp261
-	.long	.Ltmp264
-.Lset149 = .Ltmp960-.Ltmp959
-	.short	.Lset149
-.Ltmp959:
+	.long	.Ltmp256
+	.long	.Ltmp257
+.Lset152 = .Ltmp957-.Ltmp956
+	.short	.Lset152
+.Ltmp956:
 	.byte	126
-.asciiz"\370"
-.Ltmp960:
+.asciiz"\300"
+.Ltmp957:
 	.long	0
 	.long	0
 .Ldebug_loc42:
+	.long	.Ltmp258
 	.long	.Ltmp262
-	.long	.Ltmp264
-.Lset150 = .Ltmp962-.Ltmp961
-	.short	.Lset150
-.Ltmp961:
+.Lset153 = .Ltmp959-.Ltmp958
+	.short	.Lset153
+.Ltmp958:
 	.byte	126
-.asciiz"\300"
+.asciiz"\370"
+.Ltmp959:
+	.long	.Ltmp272
+	.long	.Ltmp275
+.Lset154 = .Ltmp961-.Ltmp960
+	.short	.Lset154
+.Ltmp960:
+	.byte	126
+.asciiz"\370"
+.Ltmp961:
+	.long	.Ltmp280
+	.long	.Ltmp284
+.Lset155 = .Ltmp963-.Ltmp962
+	.short	.Lset155
 .Ltmp962:
+	.byte	126
+.asciiz"\370"
+.Ltmp963:
+	.long	.Ltmp325
+	.long	.Ltmp327
+.Lset156 = .Ltmp965-.Ltmp964
+	.short	.Lset156
+.Ltmp964:
+	.byte	126
+.asciiz"\370"
+.Ltmp965:
 	.long	0
 	.long	0
 .Ldebug_loc43:
-	.long	.Ltmp265
-	.long	.Ltmp269
-.Lset151 = .Ltmp964-.Ltmp963
-	.short	.Lset151
-.Ltmp963:
-	.byte	126
-.asciiz"\370"
-.Ltmp964:
-	.long	.Ltmp279
-	.long	.Ltmp282
-.Lset152 = .Ltmp966-.Ltmp965
-	.short	.Lset152
-.Ltmp965:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp259
+	.long	.Ltmp261
+.Lset157 = .Ltmp967-.Ltmp966
+	.short	.Lset157
 .Ltmp966:
-	.long	.Ltmp283
-	.long	.Ltmp284
-.Lset153 = .Ltmp968-.Ltmp967
-	.short	.Lset153
+	.byte	87
 .Ltmp967:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp272
+	.long	.Ltmp273
+.Lset158 = .Ltmp969-.Ltmp968
+	.short	.Lset158
 .Ltmp968:
-	.long	.Ltmp290
-	.long	.Ltmp294
-.Lset154 = .Ltmp970-.Ltmp969
-	.short	.Lset154
+	.byte	87
 .Ltmp969:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp280
+	.long	.Ltmp282
+.Lset159 = .Ltmp971-.Ltmp970
+	.short	.Lset159
 .Ltmp970:
-	.long	.Ltmp329
-	.long	.Ltmp331
-.Lset155 = .Ltmp972-.Ltmp971
-	.short	.Lset155
+	.byte	87
 .Ltmp971:
-	.byte	126
-.asciiz"\370"
+	.long	.Ltmp325
+	.long	.Ltmp326
+.Lset160 = .Ltmp973-.Ltmp972
+	.short	.Lset160
 .Ltmp972:
+	.byte	87
+.Ltmp973:
+	.long	.Ltmp326
+	.long	.Ltmp326
+.Lset161 = .Ltmp975-.Ltmp974
+	.short	.Lset161
+.Ltmp974:
+	.byte	85
+.Ltmp975:
 	.long	0
 	.long	0
 .Ldebug_loc44:
-	.long	.Ltmp266
-	.long	.Ltmp268
-.Lset156 = .Ltmp974-.Ltmp973
-	.short	.Lset156
-.Ltmp973:
-	.byte	87
-.Ltmp974:
-	.long	.Ltmp279
-	.long	.Ltmp280
-.Lset157 = .Ltmp976-.Ltmp975
-	.short	.Lset157
-.Ltmp975:
-	.byte	87
+	.long	.Ltmp264
+	.long	.Ltmp265
+.Lset162 = .Ltmp977-.Ltmp976
+	.short	.Lset162
 .Ltmp976:
-	.long	.Ltmp290
-	.long	.Ltmp292
-.Lset158 = .Ltmp978-.Ltmp977
-	.short	.Lset158
+	.byte	17
+	.byte	0
 .Ltmp977:
-	.byte	87
+	.long	.Ltmp265
+	.long	.Lfunc_end29
+.Lset163 = .Ltmp979-.Ltmp978
+	.short	.Lset163
 .Ltmp978:
-	.long	.Ltmp329
-	.long	.Ltmp330
-.Lset159 = .Ltmp980-.Ltmp979
-	.short	.Lset159
+	.byte	17
+	.byte	1
 .Ltmp979:
-	.byte	87
-.Ltmp980:
-	.long	.Ltmp330
-	.long	.Ltmp331
-.Lset160 = .Ltmp982-.Ltmp981
-	.short	.Lset160
-.Ltmp981:
-	.byte	88
-.Ltmp982:
 	.long	0
 	.long	0
 .Ldebug_loc45:
-	.long	.Ltmp271
-	.long	.Ltmp272
-.Lset161 = .Ltmp984-.Ltmp983
-	.short	.Lset161
-.Ltmp983:
+	.long	.Ltmp267
+	.long	.Ltmp270
+.Lset164 = .Ltmp981-.Ltmp980
+	.short	.Lset164
+.Ltmp980:
 	.byte	17
 	.byte	0
-.Ltmp984:
-	.long	.Ltmp272
-	.long	.Lfunc_end25
-.Lset162 = .Ltmp986-.Ltmp985
-	.short	.Lset162
-.Ltmp985:
+.Ltmp981:
+	.long	.Ltmp270
+	.long	.Lfunc_end29
+.Lset165 = .Ltmp983-.Ltmp982
+	.short	.Lset165
+.Ltmp982:
 	.byte	17
 	.byte	1
-.Ltmp986:
+.Ltmp983:
 	.long	0
 	.long	0
 .Ldebug_loc46:
-	.long	.Ltmp274
-	.long	.Ltmp278
-.Lset163 = .Ltmp988-.Ltmp987
-	.short	.Lset163
-.Ltmp987:
-	.byte	87
-.Ltmp988:
+	.long	.Ltmp267
+	.long	.Ltmp269
+.Lset166 = .Ltmp985-.Ltmp984
+	.short	.Lset166
+.Ltmp984:
+	.byte	81
+.Ltmp985:
 	.long	0
 	.long	0
 .Ldebug_loc47:
-	.long	.Ltmp275
-	.long	.Ltmp277
-.Lset164 = .Ltmp990-.Ltmp989
-	.short	.Lset164
+	.long	.Lfunc_begin30
+	.long	.Ltmp353
+.Lset167 = .Ltmp987-.Ltmp986
+	.short	.Lset167
+.Ltmp986:
+	.byte	80
+.Ltmp987:
+	.long	.Ltmp353
+	.long	.Ltmp356
+.Lset168 = .Ltmp989-.Ltmp988
+	.short	.Lset168
+.Ltmp988:
+	.byte	84
 .Ltmp989:
-	.byte	17
-	.byte	0
-.Ltmp990:
-	.long	.Ltmp277
-	.long	.Lfunc_end25
-.Lset165 = .Ltmp992-.Ltmp991
-	.short	.Lset165
-.Ltmp991:
-	.byte	17
-	.byte	1
-.Ltmp992:
 	.long	0
 	.long	0
 .Ldebug_loc48:
-	.long	.Lfunc_begin26
+	.long	.Ltmp355
 	.long	.Ltmp357
-.Lset166 = .Ltmp994-.Ltmp993
-	.short	.Lset166
+.Lset169 = .Ltmp991-.Ltmp990
+	.short	.Lset169
+.Ltmp990:
+	.byte	17
+	.byte	0
+.Ltmp991:
+	.long	.Ltmp357
+	.long	.Lfunc_end30
+.Lset170 = .Ltmp993-.Ltmp992
+	.short	.Lset170
+.Ltmp992:
+	.byte	17
+	.byte	1
 .Ltmp993:
-	.byte	80
-.Ltmp994:
-	.long	.Ltmp357
-	.long	.Ltmp360
-.Lset167 = .Ltmp996-.Ltmp995
-	.short	.Lset167
-.Ltmp995:
-	.byte	84
-.Ltmp996:
 	.long	0
 	.long	0
 .Ldebug_loc49:
-	.long	.Ltmp359
-	.long	.Ltmp361
-.Lset168 = .Ltmp998-.Ltmp997
-	.short	.Lset168
+	.long	.Lfunc_begin31
+	.long	.Ltmp367
+.Lset171 = .Ltmp995-.Ltmp994
+	.short	.Lset171
+.Ltmp994:
+	.byte	80
+.Ltmp995:
+	.long	.Ltmp367
+	.long	.Ltmp388
+.Lset172 = .Ltmp997-.Ltmp996
+	.short	.Lset172
+.Ltmp996:
+	.byte	84
 .Ltmp997:
-	.byte	17
-	.byte	0
-.Ltmp998:
-	.long	.Ltmp361
-	.long	.Lfunc_end26
-.Lset169 = .Ltmp1000-.Ltmp999
-	.short	.Lset169
-.Ltmp999:
-	.byte	17
-	.byte	1
-.Ltmp1000:
 	.long	0
 	.long	0
 .Ldebug_loc50:
-	.long	.Lfunc_begin27
-	.long	.Ltmp371
-.Lset170 = .Ltmp1002-.Ltmp1001
-	.short	.Lset170
+	.long	.Ltmp385
+	.long	.Ltmp386
+.Lset173 = .Ltmp999-.Ltmp998
+	.short	.Lset173
+.Ltmp998:
+	.byte	17
+	.byte	0
+.Ltmp999:
+	.long	.Ltmp386
+	.long	.Lfunc_end31
+.Lset174 = .Ltmp1001-.Ltmp1000
+	.short	.Lset174
+.Ltmp1000:
+	.byte	17
+	.byte	1
 .Ltmp1001:
-	.byte	80
-.Ltmp1002:
-	.long	.Ltmp371
-	.long	.Ltmp392
-.Lset171 = .Ltmp1004-.Ltmp1003
-	.short	.Lset171
-.Ltmp1003:
-	.byte	84
-.Ltmp1004:
 	.long	0
 	.long	0
 .Ldebug_loc51:
-	.long	.Ltmp389
-	.long	.Ltmp390
-.Lset172 = .Ltmp1006-.Ltmp1005
-	.short	.Lset172
+	.long	.Lfunc_begin33
+	.long	.Ltmp394
+.Lset175 = .Ltmp1003-.Ltmp1002
+	.short	.Lset175
+.Ltmp1002:
+	.byte	80
+.Ltmp1003:
+	.long	.Ltmp394
+	.long	.Ltmp398
+.Lset176 = .Ltmp1005-.Ltmp1004
+	.short	.Lset176
+.Ltmp1004:
+	.byte	84
 .Ltmp1005:
-	.byte	17
-	.byte	0
+	.long	.Ltmp399
+	.long	.Ltmp405
+.Lset177 = .Ltmp1007-.Ltmp1006
+	.short	.Lset177
 .Ltmp1006:
-	.long	.Ltmp390
-	.long	.Lfunc_end27
-.Lset173 = .Ltmp1008-.Ltmp1007
-	.short	.Lset173
+	.byte	84
 .Ltmp1007:
-	.byte	17
-	.byte	1
-.Ltmp1008:
 	.long	0
 	.long	0
 .Ldebug_loc52:
-	.long	.Lfunc_begin29
-	.long	.Ltmp398
-.Lset174 = .Ltmp1010-.Ltmp1009
-	.short	.Lset174
+	.long	.Ltmp404
+	.long	.Ltmp406
+.Lset178 = .Ltmp1009-.Ltmp1008
+	.short	.Lset178
+.Ltmp1008:
+	.byte	17
+	.byte	0
 .Ltmp1009:
-	.byte	80
+	.long	.Ltmp406
+	.long	.Lfunc_end33
+.Lset179 = .Ltmp1011-.Ltmp1010
+	.short	.Lset179
 .Ltmp1010:
-	.long	.Ltmp398
-	.long	.Ltmp402
-.Lset175 = .Ltmp1012-.Ltmp1011
-	.short	.Lset175
+	.byte	17
+	.byte	1
 .Ltmp1011:
-	.byte	84
-.Ltmp1012:
-	.long	.Ltmp403
-	.long	.Ltmp409
-.Lset176 = .Ltmp1014-.Ltmp1013
-	.short	.Lset176
-.Ltmp1013:
-	.byte	84
-.Ltmp1014:
 	.long	0
 	.long	0
 .Ldebug_loc53:
-	.long	.Ltmp408
-	.long	.Ltmp410
-.Lset177 = .Ltmp1016-.Ltmp1015
-	.short	.Lset177
+	.long	.Lfunc_begin34
+	.long	.Ltmp414
+.Lset180 = .Ltmp1013-.Ltmp1012
+	.short	.Lset180
+.Ltmp1012:
+	.byte	80
+.Ltmp1013:
+	.long	.Ltmp415
+	.long	.Ltmp421
+.Lset181 = .Ltmp1015-.Ltmp1014
+	.short	.Lset181
+.Ltmp1014:
+	.byte	80
 .Ltmp1015:
-	.byte	17
-	.byte	0
-.Ltmp1016:
-	.long	.Ltmp410
-	.long	.Lfunc_end29
-.Lset178 = .Ltmp1018-.Ltmp1017
-	.short	.Lset178
-.Ltmp1017:
-	.byte	17
-	.byte	1
-.Ltmp1018:
 	.long	0
 	.long	0
 .Ldebug_loc54:
-	.long	.Lfunc_begin30
-	.long	.Ltmp418
-.Lset179 = .Ltmp1020-.Ltmp1019
-	.short	.Lset179
+	.long	.Ltmp420
+	.long	.Ltmp422
+.Lset182 = .Ltmp1017-.Ltmp1016
+	.short	.Lset182
+.Ltmp1016:
+	.byte	17
+	.byte	0
+.Ltmp1017:
+	.long	.Ltmp422
+	.long	.Lfunc_end34
+.Lset183 = .Ltmp1019-.Ltmp1018
+	.short	.Lset183
+.Ltmp1018:
+	.byte	17
+	.byte	1
 .Ltmp1019:
-	.byte	80
-.Ltmp1020:
-	.long	.Ltmp419
-	.long	.Ltmp425
-.Lset180 = .Ltmp1022-.Ltmp1021
-	.short	.Lset180
-.Ltmp1021:
-	.byte	80
-.Ltmp1022:
 	.long	0
 	.long	0
 .Ldebug_loc55:
-	.long	.Ltmp424
-	.long	.Ltmp426
-.Lset181 = .Ltmp1024-.Ltmp1023
-	.short	.Lset181
+	.long	.Lfunc_begin36
+	.long	.Ltmp434
+.Lset184 = .Ltmp1021-.Ltmp1020
+	.short	.Lset184
+.Ltmp1020:
+	.byte	91
+.Ltmp1021:
+	.long	.Ltmp434
+	.long	.Ltmp465
+.Lset185 = .Ltmp1023-.Ltmp1022
+	.short	.Lset185
+.Ltmp1022:
+	.byte	85
 .Ltmp1023:
-	.byte	17
-	.byte	0
+	.long	.Ltmp467
+	.long	.Ltmp474
+.Lset186 = .Ltmp1025-.Ltmp1024
+	.short	.Lset186
 .Ltmp1024:
-	.long	.Ltmp426
-	.long	.Lfunc_end30
-.Lset182 = .Ltmp1026-.Ltmp1025
-	.short	.Lset182
+	.byte	85
 .Ltmp1025:
-	.byte	17
-	.byte	1
-.Ltmp1026:
 	.long	0
 	.long	0
 .Ldebug_loc56:
-	.long	.Lfunc_begin32
-	.long	.Ltmp440
-.Lset183 = .Ltmp1028-.Ltmp1027
-	.short	.Lset183
+	.long	.Ltmp435
+	.long	.Ltmp436
+.Lset187 = .Ltmp1027-.Ltmp1026
+	.short	.Lset187
+.Ltmp1026:
+	.byte	84
 .Ltmp1027:
-	.byte	91
+	.long	.Ltmp437
+	.long	.Ltmp442
+.Lset188 = .Ltmp1029-.Ltmp1028
+	.short	.Lset188
 .Ltmp1028:
-	.long	.Ltmp440
-	.long	.Ltmp469
-.Lset184 = .Ltmp1030-.Ltmp1029
-	.short	.Lset184
+	.byte	84
 .Ltmp1029:
-	.byte	85
+	.long	.Ltmp450
+	.long	.Ltmp453
+.Lset189 = .Ltmp1031-.Ltmp1030
+	.short	.Lset189
 .Ltmp1030:
-	.long	.Ltmp471
-	.long	.Ltmp475
-.Lset185 = .Ltmp1032-.Ltmp1031
-	.short	.Lset185
+	.byte	84
 .Ltmp1031:
-	.byte	85
+	.long	.Ltmp454
+	.long	.Ltmp455
+.Lset190 = .Ltmp1033-.Ltmp1032
+	.short	.Lset190
 .Ltmp1032:
-	.long	.Ltmp476
-	.long	.Ltmp480
-.Lset186 = .Ltmp1034-.Ltmp1033
-	.short	.Lset186
+	.byte	84
 .Ltmp1033:
-	.byte	85
+	.long	.Ltmp457
+	.long	.Ltmp461
+.Lset191 = .Ltmp1035-.Ltmp1034
+	.short	.Lset191
 .Ltmp1034:
+	.byte	84
+.Ltmp1035:
 	.long	0
 	.long	0
 .Ldebug_loc57:
-	.long	.Ltmp441
+	.long	.Ltmp438
 	.long	.Ltmp442
-.Lset187 = .Ltmp1036-.Ltmp1035
-	.short	.Lset187
-.Ltmp1035:
-	.byte	84
+.Lset192 = .Ltmp1037-.Ltmp1036
+	.short	.Lset192
 .Ltmp1036:
-	.long	.Ltmp443
-	.long	.Ltmp448
-.Lset188 = .Ltmp1038-.Ltmp1037
-	.short	.Lset188
+	.byte	86
 .Ltmp1037:
-	.byte	84
+	.long	.Ltmp450
+	.long	.Ltmp453
+.Lset193 = .Ltmp1039-.Ltmp1038
+	.short	.Lset193
 .Ltmp1038:
-	.long	.Ltmp454
-	.long	.Ltmp457
-.Lset189 = .Ltmp1040-.Ltmp1039
-	.short	.Lset189
+	.byte	86
 .Ltmp1039:
-	.byte	84
+	.long	.Ltmp454
+	.long	.Ltmp455
+.Lset194 = .Ltmp1041-.Ltmp1040
+	.short	.Lset194
 .Ltmp1040:
-	.long	.Ltmp458
-	.long	.Ltmp459
-.Lset190 = .Ltmp1042-.Ltmp1041
-	.short	.Lset190
+	.byte	86
 .Ltmp1041:
-	.byte	84
-.Ltmp1042:
+	.long	.Ltmp457
 	.long	.Ltmp461
-	.long	.Ltmp465
-.Lset191 = .Ltmp1044-.Ltmp1043
-	.short	.Lset191
+.Lset195 = .Ltmp1043-.Ltmp1042
+	.short	.Lset195
+.Ltmp1042:
+	.byte	86
 .Ltmp1043:
-	.byte	84
-.Ltmp1044:
 	.long	0
 	.long	0
 .Ldebug_loc58:
-	.long	.Ltmp444
+	.long	.Ltmp446
 	.long	.Ltmp448
-.Lset192 = .Ltmp1046-.Ltmp1045
-	.short	.Lset192
+.Lset196 = .Ltmp1045-.Ltmp1044
+	.short	.Lset196
+.Ltmp1044:
+	.byte	81
 .Ltmp1045:
-	.byte	86
-.Ltmp1046:
-	.long	.Ltmp454
-	.long	.Ltmp457
-.Lset193 = .Ltmp1048-.Ltmp1047
-	.short	.Lset193
-.Ltmp1047:
-	.byte	86
-.Ltmp1048:
-	.long	.Ltmp458
-	.long	.Ltmp459
-.Lset194 = .Ltmp1050-.Ltmp1049
-	.short	.Lset194
-.Ltmp1049:
-	.byte	86
-.Ltmp1050:
-	.long	.Ltmp461
-	.long	.Ltmp465
-.Lset195 = .Ltmp1052-.Ltmp1051
-	.short	.Lset195
-.Ltmp1051:
-	.byte	86
-.Ltmp1052:
 	.long	0
 	.long	0
 .Ldebug_loc59:
-	.long	.Ltmp452
-	.long	.Ltmp454
-.Lset196 = .Ltmp1054-.Ltmp1053
-	.short	.Lset196
-.Ltmp1053:
-	.byte	87
-.Ltmp1054:
+	.long	.Ltmp447
+	.long	.Ltmp449
+.Lset197 = .Ltmp1047-.Ltmp1046
+	.short	.Lset197
+.Ltmp1046:
+	.byte	80
+.Ltmp1047:
 	.long	0
 	.long	0
 .Ldebug_loc60:
+	.long	.Ltmp452
 	.long	.Ltmp453
-	.long	.Ltmp454
-.Lset197 = .Ltmp1056-.Ltmp1055
-	.short	.Lset197
-.Ltmp1055:
-	.byte	86
-.Ltmp1056:
+.Lset198 = .Ltmp1049-.Ltmp1048
+	.short	.Lset198
+.Ltmp1048:
+	.byte	80
+.Ltmp1049:
 	.long	0
 	.long	0
 .Ldebug_loc61:
-	.long	.Ltmp456
-	.long	.Ltmp457
-.Lset198 = .Ltmp1058-.Ltmp1057
-	.short	.Lset198
-.Ltmp1057:
-	.byte	80
-.Ltmp1058:
+	.long	.Ltmp458
+	.long	.Ltmp459
+.Lset199 = .Ltmp1051-.Ltmp1050
+	.short	.Lset199
+.Ltmp1050:
+	.byte	81
+.Ltmp1051:
+	.long	.Ltmp460
+	.long	.Ltmp461
+.Lset200 = .Ltmp1053-.Ltmp1052
+	.short	.Lset200
+.Ltmp1052:
+	.byte	81
+.Ltmp1053:
 	.long	0
 	.long	0
 .Ldebug_loc62:
-	.long	.Ltmp462
 	.long	.Ltmp463
-.Lset199 = .Ltmp1060-.Ltmp1059
-	.short	.Lset199
-.Ltmp1059:
+	.long	.Ltmp466
+.Lset201 = .Ltmp1055-.Ltmp1054
+	.short	.Lset201
+.Ltmp1054:
 	.byte	81
-.Ltmp1060:
-	.long	.Ltmp464
-	.long	.Ltmp465
-.Lset200 = .Ltmp1062-.Ltmp1061
-	.short	.Lset200
-.Ltmp1061:
-	.byte	81
-.Ltmp1062:
+.Ltmp1055:
 	.long	0
 	.long	0
 .Ldebug_loc63:
+	.long	.Ltmp464
 	.long	.Ltmp467
-	.long	.Ltmp470
-.Lset201 = .Ltmp1064-.Ltmp1063
-	.short	.Lset201
+.Lset202 = .Ltmp1057-.Ltmp1056
+	.short	.Lset202
+.Ltmp1056:
+	.byte	86
+.Ltmp1057:
+	.long	.Ltmp476
+	.long	.Ltmp477
+.Lset203 = .Ltmp1059-.Ltmp1058
+	.short	.Lset203
+.Ltmp1058:
+	.byte	86
+.Ltmp1059:
+	.long	.Ltmp478
+	.long	.Ltmp479
+.Lset204 = .Ltmp1061-.Ltmp1060
+	.short	.Lset204
+.Ltmp1060:
+	.byte	86
+.Ltmp1061:
+	.long	.Ltmp480
+	.long	.Ltmp481
+.Lset205 = .Ltmp1063-.Ltmp1062
+	.short	.Lset205
+.Ltmp1062:
+	.byte	86
 .Ltmp1063:
-	.byte	88
-.Ltmp1064:
 	.long	0
 	.long	0
 .Ldebug_loc64:
-	.long	.Ltmp468
-	.long	.Ltmp471
-.Lset202 = .Ltmp1066-.Ltmp1065
-	.short	.Lset202
+	.long	.Ltmp467
+	.long	.Ltmp469
+.Lset206 = .Ltmp1065-.Ltmp1064
+	.short	.Lset206
+.Ltmp1064:
+	.byte	17
+	.byte	0
 .Ltmp1065:
-	.byte	86
+	.long	.Ltmp469
+	.long	.Lfunc_end36
+.Lset207 = .Ltmp1067-.Ltmp1066
+	.short	.Lset207
 .Ltmp1066:
-	.long	.Ltmp481
-	.long	.Ltmp482
-.Lset203 = .Ltmp1068-.Ltmp1067
-	.short	.Lset203
+	.byte	17
+	.byte	1
 .Ltmp1067:
-	.byte	86
-.Ltmp1068:
-	.long	.Ltmp483
-	.long	.Ltmp484
-.Lset204 = .Ltmp1070-.Ltmp1069
-	.short	.Lset204
-.Ltmp1069:
-	.byte	86
-.Ltmp1070:
-	.long	.Ltmp485
-	.long	.Ltmp486
-.Lset205 = .Ltmp1072-.Ltmp1071
-	.short	.Lset205
-.Ltmp1071:
-	.byte	86
-.Ltmp1072:
 	.long	0
 	.long	0
 .Ldebug_loc65:
-	.long	.Ltmp472
-	.long	.Ltmp474
-.Lset206 = .Ltmp1074-.Ltmp1073
-	.short	.Lset206
-.Ltmp1073:
-	.byte	17
-	.byte	0
-.Ltmp1074:
-	.long	.Ltmp474
-	.long	.Lfunc_end32
-.Lset207 = .Ltmp1076-.Ltmp1075
-	.short	.Lset207
-.Ltmp1075:
-	.byte	17
-	.byte	1
-.Ltmp1076:
+	.long	.Ltmp471
+	.long	.Ltmp473
+.Lset208 = .Ltmp1069-.Ltmp1068
+	.short	.Lset208
+.Ltmp1068:
+	.byte	83
+.Ltmp1069:
 	.long	0
 	.long	0
 .Ldebug_loc66:
-	.long	.Ltmp477
-	.long	.Ltmp481
-.Lset208 = .Ltmp1078-.Ltmp1077
-	.short	.Lset208
-.Ltmp1077:
-	.byte	89
-.Ltmp1078:
+	.long	.Ltmp472
+	.long	.Ltmp475
+.Lset209 = .Ltmp1071-.Ltmp1070
+	.short	.Lset209
+.Ltmp1070:
+	.byte	17
+	.byte	0
+.Ltmp1071:
+	.long	.Ltmp475
+	.long	.Lfunc_end36
+.Lset210 = .Ltmp1073-.Ltmp1072
+	.short	.Lset210
+.Ltmp1072:
+	.byte	17
+	.byte	1
+.Ltmp1073:
 	.long	0
 	.long	0
 .Ldebug_loc67:
-	.long	.Ltmp478
-	.long	.Ltmp479
-.Lset209 = .Ltmp1080-.Ltmp1079
-	.short	.Lset209
-.Ltmp1079:
+	.long	.Ltmp503
+	.long	.Ltmp504
+.Lset211 = .Ltmp1075-.Ltmp1074
+	.short	.Lset211
+.Ltmp1074:
 	.byte	17
 	.byte	0
-.Ltmp1080:
-	.long	.Ltmp479
-	.long	.Lfunc_end32
-.Lset210 = .Ltmp1082-.Ltmp1081
-	.short	.Lset210
-.Ltmp1081:
-	.byte	17
-	.byte	1
-.Ltmp1082:
+.Ltmp1075:
+	.long	.Ltmp504
+	.long	.Ltmp505
+.Lset212 = .Ltmp1077-.Ltmp1076
+	.short	.Lset212
+.Ltmp1076:
+	.byte	88
+.Ltmp1077:
 	.long	0
 	.long	0
 .Ldebug_loc68:
-	.long	.Ltmp509
-	.long	.Ltmp510
-.Lset211 = .Ltmp1084-.Ltmp1083
-	.short	.Lset211
+	.long	.Lfunc_begin39
+	.long	.Ltmp518
+.Lset213 = .Ltmp1079-.Ltmp1078
+	.short	.Lset213
+.Ltmp1078:
+	.byte	91
+.Ltmp1079:
+	.long	.Ltmp518
+	.long	.Ltmp549
+.Lset214 = .Ltmp1081-.Ltmp1080
+	.short	.Lset214
+.Ltmp1080:
+	.byte	85
+.Ltmp1081:
+	.long	.Ltmp551
+	.long	.Ltmp558
+.Lset215 = .Ltmp1083-.Ltmp1082
+	.short	.Lset215
+.Ltmp1082:
+	.byte	85
 .Ltmp1083:
-	.byte	17
-	.byte	0
-.Ltmp1084:
-	.long	.Ltmp510
-	.long	.Ltmp511
-.Lset212 = .Ltmp1086-.Ltmp1085
-	.short	.Lset212
-.Ltmp1085:
-	.byte	88
-.Ltmp1086:
 	.long	0
 	.long	0
 .Ldebug_loc69:
-	.long	.Lfunc_begin35
-	.long	.Ltmp526
-.Lset213 = .Ltmp1088-.Ltmp1087
-	.short	.Lset213
-.Ltmp1087:
-	.byte	91
-.Ltmp1088:
-	.long	.Ltmp526
-	.long	.Ltmp555
-.Lset214 = .Ltmp1090-.Ltmp1089
-	.short	.Lset214
-.Ltmp1089:
-	.byte	85
-.Ltmp1090:
-	.long	.Ltmp557
-	.long	.Ltmp561
-.Lset215 = .Ltmp1092-.Ltmp1091
-	.short	.Lset215
-.Ltmp1091:
-	.byte	85
-.Ltmp1092:
-	.long	.Ltmp562
-	.long	.Ltmp566
-.Lset216 = .Ltmp1094-.Ltmp1093
+	.long	.Ltmp519
+	.long	.Ltmp520
+.Lset216 = .Ltmp1085-.Ltmp1084
 	.short	.Lset216
+.Ltmp1084:
+	.byte	84
+.Ltmp1085:
+	.long	.Ltmp521
+	.long	.Ltmp526
+.Lset217 = .Ltmp1087-.Ltmp1086
+	.short	.Lset217
+.Ltmp1086:
+	.byte	84
+.Ltmp1087:
+	.long	.Ltmp534
+	.long	.Ltmp537
+.Lset218 = .Ltmp1089-.Ltmp1088
+	.short	.Lset218
+.Ltmp1088:
+	.byte	84
+.Ltmp1089:
+	.long	.Ltmp538
+	.long	.Ltmp539
+.Lset219 = .Ltmp1091-.Ltmp1090
+	.short	.Lset219
+.Ltmp1090:
+	.byte	84
+.Ltmp1091:
+	.long	.Ltmp541
+	.long	.Ltmp545
+.Lset220 = .Ltmp1093-.Ltmp1092
+	.short	.Lset220
+.Ltmp1092:
+	.byte	84
 .Ltmp1093:
-	.byte	85
-.Ltmp1094:
 	.long	0
 	.long	0
 .Ldebug_loc70:
-	.long	.Ltmp527
-	.long	.Ltmp528
-.Lset217 = .Ltmp1096-.Ltmp1095
-	.short	.Lset217
-.Ltmp1095:
-	.byte	84
-.Ltmp1096:
-	.long	.Ltmp529
-	.long	.Ltmp534
-.Lset218 = .Ltmp1098-.Ltmp1097
-	.short	.Lset218
-.Ltmp1097:
-	.byte	84
-.Ltmp1098:
-	.long	.Ltmp540
-	.long	.Ltmp543
-.Lset219 = .Ltmp1100-.Ltmp1099
-	.short	.Lset219
-.Ltmp1099:
-	.byte	84
-.Ltmp1100:
-	.long	.Ltmp544
-	.long	.Ltmp545
-.Lset220 = .Ltmp1102-.Ltmp1101
-	.short	.Lset220
-.Ltmp1101:
-	.byte	84
-.Ltmp1102:
-	.long	.Ltmp547
-	.long	.Ltmp551
-.Lset221 = .Ltmp1104-.Ltmp1103
+	.long	.Ltmp522
+	.long	.Ltmp526
+.Lset221 = .Ltmp1095-.Ltmp1094
 	.short	.Lset221
-.Ltmp1103:
-	.byte	84
-.Ltmp1104:
+.Ltmp1094:
+	.byte	86
+.Ltmp1095:
+	.long	.Ltmp534
+	.long	.Ltmp537
+.Lset222 = .Ltmp1097-.Ltmp1096
+	.short	.Lset222
+.Ltmp1096:
+	.byte	86
+.Ltmp1097:
+	.long	.Ltmp538
+	.long	.Ltmp539
+.Lset223 = .Ltmp1099-.Ltmp1098
+	.short	.Lset223
+.Ltmp1098:
+	.byte	86
+.Ltmp1099:
+	.long	.Ltmp541
+	.long	.Ltmp545
+.Lset224 = .Ltmp1101-.Ltmp1100
+	.short	.Lset224
+.Ltmp1100:
+	.byte	86
+.Ltmp1101:
 	.long	0
 	.long	0
 .Ldebug_loc71:
 	.long	.Ltmp530
-	.long	.Ltmp534
-.Lset222 = .Ltmp1106-.Ltmp1105
-	.short	.Lset222
-.Ltmp1105:
-	.byte	86
-.Ltmp1106:
-	.long	.Ltmp540
-	.long	.Ltmp543
-.Lset223 = .Ltmp1108-.Ltmp1107
-	.short	.Lset223
-.Ltmp1107:
-	.byte	86
-.Ltmp1108:
-	.long	.Ltmp544
-	.long	.Ltmp545
-.Lset224 = .Ltmp1110-.Ltmp1109
-	.short	.Lset224
-.Ltmp1109:
-	.byte	86
-.Ltmp1110:
-	.long	.Ltmp547
-	.long	.Ltmp551
-.Lset225 = .Ltmp1112-.Ltmp1111
+	.long	.Ltmp532
+.Lset225 = .Ltmp1103-.Ltmp1102
 	.short	.Lset225
-.Ltmp1111:
-	.byte	86
-.Ltmp1112:
+.Ltmp1102:
+	.byte	81
+.Ltmp1103:
 	.long	0
 	.long	0
 .Ldebug_loc72:
-	.long	.Ltmp538
-	.long	.Ltmp540
-.Lset226 = .Ltmp1114-.Ltmp1113
+	.long	.Ltmp531
+	.long	.Ltmp533
+.Lset226 = .Ltmp1105-.Ltmp1104
 	.short	.Lset226
-.Ltmp1113:
-	.byte	87
-.Ltmp1114:
+.Ltmp1104:
+	.byte	80
+.Ltmp1105:
 	.long	0
 	.long	0
 .Ldebug_loc73:
-	.long	.Ltmp539
-	.long	.Ltmp540
-.Lset227 = .Ltmp1116-.Ltmp1115
+	.long	.Ltmp536
+	.long	.Ltmp537
+.Lset227 = .Ltmp1107-.Ltmp1106
 	.short	.Lset227
-.Ltmp1115:
-	.byte	86
-.Ltmp1116:
+.Ltmp1106:
+	.byte	80
+.Ltmp1107:
 	.long	0
 	.long	0
 .Ldebug_loc74:
 	.long	.Ltmp542
 	.long	.Ltmp543
-.Lset228 = .Ltmp1118-.Ltmp1117
+.Lset228 = .Ltmp1109-.Ltmp1108
 	.short	.Lset228
-.Ltmp1117:
-	.byte	80
-.Ltmp1118:
+.Ltmp1108:
+	.byte	81
+.Ltmp1109:
+	.long	.Ltmp544
+	.long	.Ltmp545
+.Lset229 = .Ltmp1111-.Ltmp1110
+	.short	.Lset229
+.Ltmp1110:
+	.byte	81
+.Ltmp1111:
 	.long	0
 	.long	0
 .Ldebug_loc75:
-	.long	.Ltmp548
-	.long	.Ltmp549
-.Lset229 = .Ltmp1120-.Ltmp1119
-	.short	.Lset229
-.Ltmp1119:
-	.byte	81
-.Ltmp1120:
+	.long	.Ltmp547
 	.long	.Ltmp550
-	.long	.Ltmp551
-.Lset230 = .Ltmp1122-.Ltmp1121
+.Lset230 = .Ltmp1113-.Ltmp1112
 	.short	.Lset230
-.Ltmp1121:
+.Ltmp1112:
 	.byte	81
-.Ltmp1122:
+.Ltmp1113:
 	.long	0
 	.long	0
 .Ldebug_loc76:
-	.long	.Ltmp553
-	.long	.Ltmp556
-.Lset231 = .Ltmp1124-.Ltmp1123
+	.long	.Ltmp548
+	.long	.Ltmp551
+.Lset231 = .Ltmp1115-.Ltmp1114
 	.short	.Lset231
-.Ltmp1123:
-	.byte	88
-.Ltmp1124:
+.Ltmp1114:
+	.byte	86
+.Ltmp1115:
+	.long	.Ltmp560
+	.long	.Ltmp561
+.Lset232 = .Ltmp1117-.Ltmp1116
+	.short	.Lset232
+.Ltmp1116:
+	.byte	86
+.Ltmp1117:
+	.long	.Ltmp562
+	.long	.Ltmp563
+.Lset233 = .Ltmp1119-.Ltmp1118
+	.short	.Lset233
+.Ltmp1118:
+	.byte	86
+.Ltmp1119:
+	.long	.Ltmp564
+	.long	.Ltmp565
+.Lset234 = .Ltmp1121-.Ltmp1120
+	.short	.Lset234
+.Ltmp1120:
+	.byte	86
+.Ltmp1121:
 	.long	0
 	.long	0
 .Ldebug_loc77:
-	.long	.Ltmp554
-	.long	.Ltmp557
-.Lset232 = .Ltmp1126-.Ltmp1125
-	.short	.Lset232
-.Ltmp1125:
-	.byte	86
-.Ltmp1126:
-	.long	.Ltmp567
-	.long	.Ltmp568
-.Lset233 = .Ltmp1128-.Ltmp1127
-	.short	.Lset233
-.Ltmp1127:
-	.byte	86
-.Ltmp1128:
-	.long	.Ltmp569
-	.long	.Ltmp570
-.Lset234 = .Ltmp1130-.Ltmp1129
-	.short	.Lset234
-.Ltmp1129:
-	.byte	86
-.Ltmp1130:
-	.long	.Ltmp571
-	.long	.Ltmp572
-.Lset235 = .Ltmp1132-.Ltmp1131
+	.long	.Ltmp551
+	.long	.Ltmp553
+.Lset235 = .Ltmp1123-.Ltmp1122
 	.short	.Lset235
-.Ltmp1131:
-	.byte	86
-.Ltmp1132:
+.Ltmp1122:
+	.byte	17
+	.byte	0
+.Ltmp1123:
+	.long	.Ltmp553
+	.long	.Lfunc_end39
+.Lset236 = .Ltmp1125-.Ltmp1124
+	.short	.Lset236
+.Ltmp1124:
+	.byte	17
+	.byte	1
+.Ltmp1125:
 	.long	0
 	.long	0
 .Ldebug_loc78:
-	.long	.Ltmp558
-	.long	.Ltmp560
-.Lset236 = .Ltmp1134-.Ltmp1133
-	.short	.Lset236
-.Ltmp1133:
-	.byte	17
-	.byte	0
-.Ltmp1134:
-	.long	.Ltmp560
-	.long	.Lfunc_end35
-.Lset237 = .Ltmp1136-.Ltmp1135
+	.long	.Ltmp555
+	.long	.Ltmp557
+.Lset237 = .Ltmp1127-.Ltmp1126
 	.short	.Lset237
-.Ltmp1135:
-	.byte	17
-	.byte	1
-.Ltmp1136:
+.Ltmp1126:
+	.byte	83
+.Ltmp1127:
 	.long	0
 	.long	0
 .Ldebug_loc79:
-	.long	.Ltmp563
-	.long	.Ltmp567
-.Lset238 = .Ltmp1138-.Ltmp1137
+	.long	.Ltmp556
+	.long	.Ltmp559
+.Lset238 = .Ltmp1129-.Ltmp1128
 	.short	.Lset238
-.Ltmp1137:
-	.byte	89
-.Ltmp1138:
+.Ltmp1128:
+	.byte	17
+	.byte	0
+.Ltmp1129:
+	.long	.Ltmp559
+	.long	.Lfunc_end39
+.Lset239 = .Ltmp1131-.Ltmp1130
+	.short	.Lset239
+.Ltmp1130:
+	.byte	17
+	.byte	1
+.Ltmp1131:
 	.long	0
 	.long	0
 .Ldebug_loc80:
-	.long	.Ltmp564
-	.long	.Ltmp565
-.Lset239 = .Ltmp1140-.Ltmp1139
-	.short	.Lset239
-.Ltmp1139:
+	.long	.Ltmp587
+	.long	.Ltmp588
+.Lset240 = .Ltmp1133-.Ltmp1132
+	.short	.Lset240
+.Ltmp1132:
 	.byte	17
 	.byte	0
-.Ltmp1140:
-	.long	.Ltmp565
-	.long	.Lfunc_end35
-.Lset240 = .Ltmp1142-.Ltmp1141
-	.short	.Lset240
-.Ltmp1141:
-	.byte	17
-	.byte	1
-.Ltmp1142:
+.Ltmp1133:
+	.long	.Ltmp588
+	.long	.Ltmp589
+.Lset241 = .Ltmp1135-.Ltmp1134
+	.short	.Lset241
+.Ltmp1134:
+	.byte	88
+.Ltmp1135:
 	.long	0
 	.long	0
 .Ldebug_loc81:
-	.long	.Ltmp595
-	.long	.Ltmp596
-.Lset241 = .Ltmp1144-.Ltmp1143
-	.short	.Lset241
-.Ltmp1143:
-	.byte	17
-	.byte	0
-.Ltmp1144:
-	.long	.Ltmp596
-	.long	.Ltmp597
-.Lset242 = .Ltmp1146-.Ltmp1145
+	.long	.Lfunc_begin42
+	.long	.Ltmp602
+.Lset242 = .Ltmp1137-.Ltmp1136
 	.short	.Lset242
-.Ltmp1145:
-	.byte	88
-.Ltmp1146:
+.Ltmp1136:
+	.byte	91
+.Ltmp1137:
+	.long	.Ltmp602
+	.long	.Ltmp633
+.Lset243 = .Ltmp1139-.Ltmp1138
+	.short	.Lset243
+.Ltmp1138:
+	.byte	85
+.Ltmp1139:
+	.long	.Ltmp635
+	.long	.Ltmp642
+.Lset244 = .Ltmp1141-.Ltmp1140
+	.short	.Lset244
+.Ltmp1140:
+	.byte	85
+.Ltmp1141:
 	.long	0
 	.long	0
 .Ldebug_loc82:
-	.long	.Lfunc_begin38
-	.long	.Ltmp612
-.Lset243 = .Ltmp1148-.Ltmp1147
-	.short	.Lset243
-.Ltmp1147:
-	.byte	91
-.Ltmp1148:
-	.long	.Ltmp612
-	.long	.Ltmp641
-.Lset244 = .Ltmp1150-.Ltmp1149
-	.short	.Lset244
-.Ltmp1149:
-	.byte	85
-.Ltmp1150:
-	.long	.Ltmp643
-	.long	.Ltmp647
-.Lset245 = .Ltmp1152-.Ltmp1151
+	.long	.Ltmp603
+	.long	.Ltmp604
+.Lset245 = .Ltmp1143-.Ltmp1142
 	.short	.Lset245
-.Ltmp1151:
-	.byte	85
-.Ltmp1152:
-	.long	.Ltmp648
-	.long	.Ltmp652
-.Lset246 = .Ltmp1154-.Ltmp1153
+.Ltmp1142:
+	.byte	84
+.Ltmp1143:
+	.long	.Ltmp605
+	.long	.Ltmp610
+.Lset246 = .Ltmp1145-.Ltmp1144
 	.short	.Lset246
-.Ltmp1153:
-	.byte	85
-.Ltmp1154:
+.Ltmp1144:
+	.byte	84
+.Ltmp1145:
+	.long	.Ltmp618
+	.long	.Ltmp621
+.Lset247 = .Ltmp1147-.Ltmp1146
+	.short	.Lset247
+.Ltmp1146:
+	.byte	84
+.Ltmp1147:
+	.long	.Ltmp622
+	.long	.Ltmp623
+.Lset248 = .Ltmp1149-.Ltmp1148
+	.short	.Lset248
+.Ltmp1148:
+	.byte	84
+.Ltmp1149:
+	.long	.Ltmp625
+	.long	.Ltmp629
+.Lset249 = .Ltmp1151-.Ltmp1150
+	.short	.Lset249
+.Ltmp1150:
+	.byte	84
+.Ltmp1151:
 	.long	0
 	.long	0
 .Ldebug_loc83:
-	.long	.Ltmp613
-	.long	.Ltmp614
-.Lset247 = .Ltmp1156-.Ltmp1155
-	.short	.Lset247
-.Ltmp1155:
-	.byte	84
-.Ltmp1156:
-	.long	.Ltmp615
-	.long	.Ltmp620
-.Lset248 = .Ltmp1158-.Ltmp1157
-	.short	.Lset248
-.Ltmp1157:
-	.byte	84
-.Ltmp1158:
-	.long	.Ltmp626
-	.long	.Ltmp629
-.Lset249 = .Ltmp1160-.Ltmp1159
-	.short	.Lset249
-.Ltmp1159:
-	.byte	84
-.Ltmp1160:
-	.long	.Ltmp630
-	.long	.Ltmp631
-.Lset250 = .Ltmp1162-.Ltmp1161
+	.long	.Ltmp606
+	.long	.Ltmp610
+.Lset250 = .Ltmp1153-.Ltmp1152
 	.short	.Lset250
-.Ltmp1161:
-	.byte	84
-.Ltmp1162:
-	.long	.Ltmp633
-	.long	.Ltmp637
-.Lset251 = .Ltmp1164-.Ltmp1163
+.Ltmp1152:
+	.byte	86
+.Ltmp1153:
+	.long	.Ltmp618
+	.long	.Ltmp621
+.Lset251 = .Ltmp1155-.Ltmp1154
 	.short	.Lset251
-.Ltmp1163:
-	.byte	84
-.Ltmp1164:
+.Ltmp1154:
+	.byte	86
+.Ltmp1155:
+	.long	.Ltmp622
+	.long	.Ltmp623
+.Lset252 = .Ltmp1157-.Ltmp1156
+	.short	.Lset252
+.Ltmp1156:
+	.byte	86
+.Ltmp1157:
+	.long	.Ltmp625
+	.long	.Ltmp629
+.Lset253 = .Ltmp1159-.Ltmp1158
+	.short	.Lset253
+.Ltmp1158:
+	.byte	86
+.Ltmp1159:
 	.long	0
 	.long	0
 .Ldebug_loc84:
+	.long	.Ltmp614
 	.long	.Ltmp616
-	.long	.Ltmp620
-.Lset252 = .Ltmp1166-.Ltmp1165
-	.short	.Lset252
-.Ltmp1165:
-	.byte	86
-.Ltmp1166:
-	.long	.Ltmp626
-	.long	.Ltmp629
-.Lset253 = .Ltmp1168-.Ltmp1167
-	.short	.Lset253
-.Ltmp1167:
-	.byte	86
-.Ltmp1168:
-	.long	.Ltmp630
-	.long	.Ltmp631
-.Lset254 = .Ltmp1170-.Ltmp1169
+.Lset254 = .Ltmp1161-.Ltmp1160
 	.short	.Lset254
-.Ltmp1169:
-	.byte	86
-.Ltmp1170:
-	.long	.Ltmp633
-	.long	.Ltmp637
-.Lset255 = .Ltmp1172-.Ltmp1171
-	.short	.Lset255
-.Ltmp1171:
-	.byte	86
-.Ltmp1172:
+.Ltmp1160:
+	.byte	81
+.Ltmp1161:
 	.long	0
 	.long	0
 .Ldebug_loc85:
-	.long	.Ltmp624
-	.long	.Ltmp626
-.Lset256 = .Ltmp1174-.Ltmp1173
-	.short	.Lset256
-.Ltmp1173:
-	.byte	87
-.Ltmp1174:
+	.long	.Ltmp615
+	.long	.Ltmp617
+.Lset255 = .Ltmp1163-.Ltmp1162
+	.short	.Lset255
+.Ltmp1162:
+	.byte	80
+.Ltmp1163:
 	.long	0
 	.long	0
 .Ldebug_loc86:
-	.long	.Ltmp625
-	.long	.Ltmp626
-.Lset257 = .Ltmp1176-.Ltmp1175
-	.short	.Lset257
-.Ltmp1175:
-	.byte	86
-.Ltmp1176:
+	.long	.Ltmp620
+	.long	.Ltmp621
+.Lset256 = .Ltmp1165-.Ltmp1164
+	.short	.Lset256
+.Ltmp1164:
+	.byte	80
+.Ltmp1165:
 	.long	0
 	.long	0
 .Ldebug_loc87:
+	.long	.Ltmp626
+	.long	.Ltmp627
+.Lset257 = .Ltmp1167-.Ltmp1166
+	.short	.Lset257
+.Ltmp1166:
+	.byte	81
+.Ltmp1167:
 	.long	.Ltmp628
 	.long	.Ltmp629
-.Lset258 = .Ltmp1178-.Ltmp1177
+.Lset258 = .Ltmp1169-.Ltmp1168
 	.short	.Lset258
-.Ltmp1177:
-	.byte	80
-.Ltmp1178:
+.Ltmp1168:
+	.byte	81
+.Ltmp1169:
 	.long	0
 	.long	0
 .Ldebug_loc88:
+	.long	.Ltmp631
 	.long	.Ltmp634
-	.long	.Ltmp635
-.Lset259 = .Ltmp1180-.Ltmp1179
+.Lset259 = .Ltmp1171-.Ltmp1170
 	.short	.Lset259
-.Ltmp1179:
+.Ltmp1170:
 	.byte	81
-.Ltmp1180:
-	.long	.Ltmp636
-	.long	.Ltmp637
-.Lset260 = .Ltmp1182-.Ltmp1181
-	.short	.Lset260
-.Ltmp1181:
-	.byte	81
-.Ltmp1182:
+.Ltmp1171:
 	.long	0
 	.long	0
 .Ldebug_loc89:
-	.long	.Ltmp639
-	.long	.Ltmp642
-.Lset261 = .Ltmp1184-.Ltmp1183
+	.long	.Ltmp632
+	.long	.Ltmp635
+.Lset260 = .Ltmp1173-.Ltmp1172
+	.short	.Lset260
+.Ltmp1172:
+	.byte	86
+.Ltmp1173:
+	.long	.Ltmp644
+	.long	.Ltmp645
+.Lset261 = .Ltmp1175-.Ltmp1174
 	.short	.Lset261
-.Ltmp1183:
-	.byte	88
-.Ltmp1184:
+.Ltmp1174:
+	.byte	86
+.Ltmp1175:
+	.long	.Ltmp646
+	.long	.Ltmp647
+.Lset262 = .Ltmp1177-.Ltmp1176
+	.short	.Lset262
+.Ltmp1176:
+	.byte	86
+.Ltmp1177:
+	.long	.Ltmp648
+	.long	.Ltmp649
+.Lset263 = .Ltmp1179-.Ltmp1178
+	.short	.Lset263
+.Ltmp1178:
+	.byte	86
+.Ltmp1179:
 	.long	0
 	.long	0
 .Ldebug_loc90:
-	.long	.Ltmp640
-	.long	.Ltmp643
-.Lset262 = .Ltmp1186-.Ltmp1185
-	.short	.Lset262
-.Ltmp1185:
-	.byte	86
-.Ltmp1186:
-	.long	.Ltmp653
-	.long	.Ltmp654
-.Lset263 = .Ltmp1188-.Ltmp1187
-	.short	.Lset263
-.Ltmp1187:
-	.byte	86
-.Ltmp1188:
-	.long	.Ltmp655
-	.long	.Ltmp656
-.Lset264 = .Ltmp1190-.Ltmp1189
+	.long	.Ltmp635
+	.long	.Ltmp637
+.Lset264 = .Ltmp1181-.Ltmp1180
 	.short	.Lset264
-.Ltmp1189:
-	.byte	86
-.Ltmp1190:
-	.long	.Ltmp657
-	.long	.Ltmp658
-.Lset265 = .Ltmp1192-.Ltmp1191
+.Ltmp1180:
+	.byte	17
+	.byte	0
+.Ltmp1181:
+	.long	.Ltmp637
+	.long	.Lfunc_end42
+.Lset265 = .Ltmp1183-.Ltmp1182
 	.short	.Lset265
-.Ltmp1191:
-	.byte	86
-.Ltmp1192:
+.Ltmp1182:
+	.byte	17
+	.byte	1
+.Ltmp1183:
 	.long	0
 	.long	0
 .Ldebug_loc91:
-	.long	.Ltmp644
-	.long	.Ltmp646
-.Lset266 = .Ltmp1194-.Ltmp1193
+	.long	.Ltmp639
+	.long	.Ltmp641
+.Lset266 = .Ltmp1185-.Ltmp1184
 	.short	.Lset266
-.Ltmp1193:
-	.byte	17
-	.byte	0
-.Ltmp1194:
-	.long	.Ltmp646
-	.long	.Lfunc_end38
-.Lset267 = .Ltmp1196-.Ltmp1195
-	.short	.Lset267
-.Ltmp1195:
-	.byte	17
-	.byte	1
-.Ltmp1196:
+.Ltmp1184:
+	.byte	83
+.Ltmp1185:
 	.long	0
 	.long	0
 .Ldebug_loc92:
-	.long	.Ltmp649
-	.long	.Ltmp653
-.Lset268 = .Ltmp1198-.Ltmp1197
-	.short	.Lset268
-.Ltmp1197:
-	.byte	89
-.Ltmp1198:
-	.long	0
-	.long	0
-.Ldebug_loc93:
-	.long	.Ltmp650
-	.long	.Ltmp651
-.Lset269 = .Ltmp1200-.Ltmp1199
-	.short	.Lset269
-.Ltmp1199:
+	.long	.Ltmp640
+	.long	.Ltmp643
+.Lset267 = .Ltmp1187-.Ltmp1186
+	.short	.Lset267
+.Ltmp1186:
 	.byte	17
 	.byte	0
-.Ltmp1200:
-	.long	.Ltmp651
-	.long	.Lfunc_end38
-.Lset270 = .Ltmp1202-.Ltmp1201
-	.short	.Lset270
-.Ltmp1201:
+.Ltmp1187:
+	.long	.Ltmp643
+	.long	.Lfunc_end42
+.Lset268 = .Ltmp1189-.Ltmp1188
+	.short	.Lset268
+.Ltmp1188:
 	.byte	17
 	.byte	1
-.Ltmp1202:
+.Ltmp1189:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
-.Lset271 = .LpubNames_end0-.LpubNames_begin0
-	.long	.Lset271
+.Lset269 = .LpubNames_end0-.LpubNames_begin0
+	.long	.Lset269
 .LpubNames_begin0:
+	.short	2
+	.long	.L.debug_info_begin0
+.Lset270 = .L.debug_info_end0-.L.debug_info_begin0
+	.long	.Lset270
+	.long	3036
+.asciiz"Temperature_Heater_Controller.select.case.0"
+	.long	3561
+.asciiz"_i.i2c_external_commands_if._chan_y.command"
+	.long	3169
+.asciiz"Temperature_Heater_Controller.select.case.2"
+	.long	3054
+.asciiz"Temperature_Heater_Controller.select.case.1"
+	.long	4103
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+	.long	2640
+.asciiz"Temperature_Heater_Controller.select.y.case.0"
+	.long	2658
+.asciiz"Temperature_Heater_Controller.select.y.case.1"
+	.long	3777
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+	.long	3432
+.asciiz"_i.i2c_external_commands_if._chan.command"
+	.long	3864
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+	.long	1783
+.asciiz"Temperature_Heater_Controller.select.0.enable"
+	.long	4354
+.asciiz"Temperature_Heater_Controller.init.0"
+	.long	1839
+.asciiz"Temperature_Heater_Controller.init.1"
+	.long	2773
+.asciiz"Temperature_Heater_Controller.select.y.case.2"
+	.long	3623
+.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
+	.long	3710
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
+	.long	4299
+.asciiz"delay_milliseconds"
+	.long	3893
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
+	.long	563
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data"
+	.long	3739
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
+	.long	2377
+.asciiz"Temperature_Heater_Controller.select.0.case.0"
+	.long	4409
+.asciiz"Temperature_Heater_Controller.fini"
+	.long	631
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string"
+	.long	3590
+.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
+	.long	4132
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
+	.long	717
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps"
+	.long	915
+.asciiz"Temperature_Heater_Controller"
+	.long	789
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC"
+	.long	3461
+.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
+	.long	3835
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+	.long	3960
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
+	.long	2321
+.asciiz"Temperature_Heater_Controller.select.enable"
+	.long	4170
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+	.long	852
+.asciiz"_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional"
+	.long	4199
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+	.long	3681
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+	.long	4237
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+	.long	3806
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+	.long	4323
+.asciiz"delay_microseconds"
+	.long	3998
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+	.long	2265
+.asciiz"Temperature_Heater_Controller.select.y.enable"
+	.long	4027
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+	.long	4065
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+	.long	3931
+.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+	.long	4275
+.asciiz"delay_seconds"
+	.long	3652
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
+	.long	0
+.LpubNames_end0:
+	.section	.debug_pubtypes,"",@progbits
+.Lset271 = .LpubTypes_end0-.LpubTypes_begin0
+	.long	.Lset271
+.LpubTypes_begin0:
 	.short	2
 	.long	.L.debug_info_begin0
 .Lset272 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset272
-	.long	3683
-.asciiz"_i.port_heat_light_commands_if._chan.light_command"
-	.long	3563
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	3799
-.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
-	.long	4277
-.asciiz"temperature_heater_controller.fini"
-	.long	3712
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	3434
-.asciiz"_i.i2c_external_commands_if._chan.command"
-	.long	917
-.asciiz"temperature_heater_controller"
-	.long	719
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps"
-	.long	2323
-.asciiz"temperature_heater_controller.select.enable"
-	.long	563
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data"
-	.long	791
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC"
-	.long	854
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional"
-	.long	3625
-.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	631
-.asciiz"_i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string"
-	.long	2267
-.asciiz"temperature_heater_controller.select.y.enable"
-	.long	4167
-.asciiz"delay_milliseconds"
-	.long	3038
-.asciiz"temperature_heater_controller.select.case.0"
-	.long	3056
-.asciiz"temperature_heater_controller.select.case.1"
-	.long	3171
-.asciiz"temperature_heater_controller.select.case.2"
-	.long	3592
-.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
-	.long	4000
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
-	.long	2642
-.asciiz"temperature_heater_controller.select.y.case.0"
-	.long	2660
-.asciiz"temperature_heater_controller.select.y.case.1"
-	.long	2775
-.asciiz"temperature_heater_controller.select.y.case.2"
-	.long	4222
-.asciiz"temperature_heater_controller.init.0"
-	.long	1785
-.asciiz"temperature_heater_controller.select.0.enable"
-	.long	1841
-.asciiz"temperature_heater_controller.init.1"
-	.long	3463
-.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	3828
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
-	.long	3741
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
-	.long	4038
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
-	.long	4067
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
-	.long	3654
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	3770
-.asciiz"_i.port_heat_light_commands_if._chan_y.light_command"
-	.long	3971
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	4191
-.asciiz"delay_microseconds"
-	.long	3866
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	4105
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	3895
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
-	.long	3933
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	4143
-.asciiz"delay_seconds"
-	.long	2379
-.asciiz"temperature_heater_controller.select.0.case.0"
-	.long	0
-.LpubNames_end0:
-	.section	.debug_pubtypes,"",@progbits
-.Lset273 = .LpubTypes_end0-.LpubTypes_begin0
-	.long	.Lset273
-.LpubTypes_begin0:
-	.short	2
-	.long	.L.debug_info_begin0
-.Lset274 = .L.debug_info_end0-.L.debug_info_begin0
-	.long	.Lset274
 	.long	100
 .asciiz"__TYPE_10"
-	.long	69
-.asciiz"__TYPE_11"
-	.long	479
-.asciiz"__TYPE_12"
-	.long	500
-.asciiz"__TYPE_14"
-	.long	521
-.asciiz"__TYPE_15"
-	.long	4539
+	.long	4671
 .asciiz"timer"
-	.long	4215
+	.long	69
+.asciiz"__TYPE_13"
+	.long	479
+.asciiz"__TYPE_14"
+	.long	500
+.asciiz"__TYPE_16"
+	.long	521
+.asciiz"__TYPE_17"
+	.long	4347
 .asciiz"unsigned int"
-	.long	4551
+	.long	4683
 .asciiz"frame.0"
-	.long	4320
+	.long	4452
 .asciiz"int"
-	.long	3556
+	.long	3554
 .asciiz"short"
-	.long	4532
+	.long	4664
 .asciiz"interface"
-	.long	4961
+	.long	5093
 .asciiz"chanend"
 	.long	542
 .asciiz"__TYPE_4"
-	.long	3496
+	.long	3494
 .asciiz"tag_i2c_temps_t"
-	.long	4418
+	.long	4550
 .asciiz"__TYPE_7"
 	.long	424
 .asciiz"__TYPE_8"
 	.long	31
 .asciiz"__TYPE_9"
-	.long	4978
+	.long	5110
 .asciiz"yarg"
-	.long	4350
+	.long	4482
 .asciiz"unsigned char"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_regulator_data, "f{ui,ui}(&(a(3:ui)),:si)"
-	.typestring _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temp_degC_string, "f{0}(&(a(3:ui)),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.typestring _i.temperature_heater_commands_if.temperature_heater_controller._c0.get_temps, "f{0}(&(a(3:ui)),&(a(4:si)))"
-	.typestring _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC, "f{0}(&(a(3:ui)),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
-	.overlay_reference _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional, "f{0}(&(a(3:ui)),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
-	.overlay_reference _i.temperature_heater_commands_if.temperature_heater_controller._c0.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data, "f{ui,ui}(&(a(3:ui)),:si)"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_string, "f{0}(&(a(3:ui)),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps, "f{0}(&(a(3:ui)),&(a(4:si)))"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC, "f{0}(&(a(3:ui)),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.overlay_reference _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional, "f{0}(&(a(3:ui)),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.overlay_reference _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
 	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
@@ -13374,14 +13354,20 @@ temperature_heater_controller.init.1.3.init:
 	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.light_command, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)"
 	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.light_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.light_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_string, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
@@ -13405,27 +13391,27 @@ temperature_heater_controller.init.1.3.init:
 	.typestring putchar, "f{si}(si)"
 	.typestring puts, "f{si}(u:q(c:uc))"
 	.typestring iprintf, "f{si}(u:q(c:uc),va)"
-	.typestring temp_onetenthDegC_to_str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(:uc)))"
-	.typestring init_arithmetic_mean_temp_onetenthDegC, "f{0}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui)"
-	.typestring do_arithmetic_mean_temp_onetenthDegC, "f{si}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui,:si,:ui)"
-	.typestring temperature_heater_controller, "k:f{0}(&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(light_command){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
-	.overlay_reference temperature_heater_controller,_i.i2c_external_commands_if.read_temperature_ok.fns
-	.overlay_reference temperature_heater_controller,_i.i2c_external_commands_if.command.fns
-	.overlay_reference temperature_heater_controller,_i.port_heat_light_commands_if.heat_cables_command.fns
-	.typestring temperature_heater_controller.select.0.enable, "k:fe{0}()"
-	.typestring temperature_heater_controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring temperature_heater_controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(light_command){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
-	.typestring temperature_heater_controller.select.y.enable, "k:fe{0}()"
-	.typestring temperature_heater_controller.select.enable, "k:fe{0}()"
-	.typestring temperature_heater_controller.fini, "k:f{0}(u:q(ui))"
-	.overlay_reference temperature_heater_controller.select.y.case.0,_i.i2c_external_commands_if.command.fns
-	.overlay_reference temperature_heater_controller.select.y.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
-	.overlay_reference temperature_heater_controller.select.y.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
-	.overlay_reference temperature_heater_controller.select.y.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
-	.overlay_reference temperature_heater_controller.select.case.0,_i.i2c_external_commands_if.command.fns
-	.overlay_reference temperature_heater_controller.select.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
-	.overlay_reference temperature_heater_controller.select.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
-	.overlay_reference temperature_heater_controller.select.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(:uc)))"
+	.typestring Init_Arithmetic_Mean_Temp_OnetenthDegC, "f{0}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui)"
+	.typestring Do_Arithmetic_Mean_Temp_OnetenthDegC, "f{si}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui,:si,:ui)"
+	.typestring Temperature_Heater_Controller, "k:f{0}(&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)},m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(a(3:ui)))},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
+	.overlay_reference Temperature_Heater_Controller,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller,_i.i2c_external_commands_if.command.fns
+	.overlay_reference Temperature_Heater_Controller,_i.i2c_external_commands_if.read_temperature_ok.fns
+	.typestring Temperature_Heater_Controller.select.0.enable, "k:fe{0}()"
+	.typestring Temperature_Heater_Controller.init.1, "k:f{0}(u:q(ui))"
+	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)},m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(a(3:ui)))},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
+	.typestring Temperature_Heater_Controller.select.y.enable, "k:fe{0}()"
+	.typestring Temperature_Heater_Controller.select.enable, "k:fe{0}()"
+	.typestring Temperature_Heater_Controller.fini, "k:f{0}(u:q(ui))"
+	.overlay_reference Temperature_Heater_Controller.select.y.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.y.case.0,_i.i2c_external_commands_if.command.fns
+	.overlay_reference Temperature_Heater_Controller.select.y.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.y.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.0,_i.i2c_external_commands_if.command.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
@@ -13468,11 +13454,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	76
 	.long	.Lxta.call_labels5
 .cc_bottom cc_5
-.cc_top cc_6,.Lxta.call_labels21
+.cc_top cc_6,.Lxta.call_labels18
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	104
-	.long	.Lxta.call_labels21
+	.long	.Lxta.call_labels18
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels41
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13486,17 +13472,17 @@ temperature_heater_controller.init.1.3.init:
 	.long	104
 	.long	.Lxta.call_labels62
 .cc_bottom cc_8
-.cc_top cc_9,.Lxta.call_labels19
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	106
-	.long	.Lxta.call_labels19
-.cc_bottom cc_9
-.cc_top cc_10,.Lxta.call_labels60
+.cc_top cc_9,.Lxta.call_labels60
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	106
 	.long	.Lxta.call_labels60
+.cc_bottom cc_9
+.cc_top cc_10,.Lxta.call_labels16
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	106
+	.long	.Lxta.call_labels16
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels39
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13540,11 +13526,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	112
 	.long	.Lxta.call_labels63
 .cc_bottom cc_17
-.cc_top cc_18,.Lxta.call_labels23
+.cc_top cc_18,.Lxta.call_labels22
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	115
-	.long	.Lxta.call_labels23
+	.long	.Lxta.call_labels22
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels40
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13552,11 +13538,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	122
 	.long	.Lxta.call_labels40
 .cc_bottom cc_19
-.cc_top cc_20,.Lxta.call_labels20
+.cc_top cc_20,.Lxta.call_labels17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	122
-	.long	.Lxta.call_labels20
+	.long	.Lxta.call_labels17
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels61
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13582,11 +13568,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	142
 	.long	.Lxta.call_labels65
 .cc_bottom cc_24
-.cc_top cc_25,.Lxta.call_labels45
+.cc_top cc_25,.Lxta.call_labels66
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	152
-	.long	.Lxta.call_labels45
+	.long	.Lxta.call_labels66
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels9
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13594,17 +13580,17 @@ temperature_heater_controller.init.1.3.init:
 	.long	152
 	.long	.Lxta.call_labels9
 .cc_bottom cc_26
-.cc_top cc_27,.Lxta.call_labels66
+.cc_top cc_27,.Lxta.call_labels45
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	152
-	.long	.Lxta.call_labels66
+	.long	.Lxta.call_labels45
 .cc_bottom cc_27
-.cc_top cc_28,.Lxta.call_labels10
+.cc_top cc_28,.Lxta.call_labels67
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	156
-	.long	.Lxta.call_labels10
+	.long	.Lxta.call_labels67
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.call_labels46
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13612,11 +13598,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	156
 	.long	.Lxta.call_labels46
 .cc_bottom cc_29
-.cc_top cc_30,.Lxta.call_labels67
+.cc_top cc_30,.Lxta.call_labels10
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	156
-	.long	.Lxta.call_labels67
+	.long	.Lxta.call_labels10
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.call_labels68
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13648,17 +13634,17 @@ temperature_heater_controller.init.1.3.init:
 	.long	184
 	.long	.Lxta.call_labels69
 .cc_bottom cc_35
-.cc_top cc_36,.Lxta.call_labels15
+.cc_top cc_36,.Lxta.call_labels14
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	184
-	.long	.Lxta.call_labels15
+	.long	.Lxta.call_labels14
 .cc_bottom cc_36
-.cc_top cc_37,.Lxta.call_labels72
+.cc_top cc_37,.Lxta.call_labels25
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	189
-	.long	.Lxta.call_labels72
+	.long	.Lxta.call_labels25
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.call_labels51
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13666,11 +13652,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	189
 	.long	.Lxta.call_labels51
 .cc_bottom cc_38
-.cc_top cc_39,.Lxta.call_labels25
+.cc_top cc_39,.Lxta.call_labels72
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	189
-	.long	.Lxta.call_labels25
+	.long	.Lxta.call_labels72
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.call_labels52
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13684,53 +13670,53 @@ temperature_heater_controller.init.1.3.init:
 	.long	190
 	.long	.Lxta.call_labels73
 .cc_bottom cc_41
-.cc_top cc_42,.Lxta.call_labels71
+.cc_top cc_42,.Lxta.call_labels26
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	190
+	.long	.Lxta.call_labels26
+.cc_bottom cc_42
+.cc_top cc_43,.Lxta.call_labels71
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels71
-.cc_bottom cc_42
-.cc_top cc_43,.Lxta.call_labels50
+.cc_bottom cc_43
+.cc_top cc_44,.Lxta.call_labels21
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	192
+	.long	.Lxta.call_labels21
+.cc_bottom cc_44
+.cc_top cc_45,.Lxta.call_labels50
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels50
-.cc_bottom cc_43
-.cc_top cc_44,.Lxta.call_labels22
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	192
-	.long	.Lxta.call_labels22
-.cc_bottom cc_44
-.cc_top cc_45,.Lxta.call_labels26
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	193
-	.long	.Lxta.call_labels26
 .cc_bottom cc_45
-.cc_top cc_46,.Lxta.call_labels16
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	196
-	.long	.Lxta.call_labels16
-.cc_bottom cc_46
-.cc_top cc_47,.Lxta.call_labels70
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	196
-	.long	.Lxta.call_labels70
-.cc_bottom cc_47
-.cc_top cc_48,.Lxta.call_labels49
+.cc_top cc_46,.Lxta.call_labels49
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	196
 	.long	.Lxta.call_labels49
+.cc_bottom cc_46
+.cc_top cc_47,.Lxta.call_labels19
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	196
+	.long	.Lxta.call_labels19
+.cc_bottom cc_47
+.cc_top cc_48,.Lxta.call_labels70
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	196
+	.long	.Lxta.call_labels70
 .cc_bottom cc_48
-.cc_top cc_49,.Lxta.call_labels17
+.cc_top cc_49,.Lxta.call_labels20
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	197
-	.long	.Lxta.call_labels17
+	.long	.Lxta.call_labels20
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.call_labels74
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13804,11 +13790,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	245
 	.long	.Lxta.call_labels56
 .cc_bottom cc_61
-.cc_top cc_62,.Lxta.call_labels77
+.cc_top cc_62,.Lxta.call_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	245
-	.long	.Lxta.call_labels77
+	.long	.Lxta.call_labels1
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.call_labels13
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13816,11 +13802,11 @@ temperature_heater_controller.init.1.3.init:
 	.long	245
 	.long	.Lxta.call_labels13
 .cc_bottom cc_63
-.cc_top cc_64,.Lxta.call_labels1
+.cc_top cc_64,.Lxta.call_labels77
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	245
-	.long	.Lxta.call_labels1
+	.long	.Lxta.call_labels77
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.call_labels35
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13834,41 +13820,41 @@ temperature_heater_controller.init.1.3.init:
 	.long	248
 	.long	.Lxta.call_labels36
 .cc_bottom cc_66
-.cc_top cc_67,.Lxta.call_labels57
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	248
-	.long	.Lxta.call_labels57
-.cc_bottom cc_67
-.cc_top cc_68,.Lxta.call_labels18
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	248
-	.long	.Lxta.call_labels18
-.cc_bottom cc_68
-.cc_top cc_69,.Lxta.call_labels78
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	248
-	.long	.Lxta.call_labels78
-.cc_bottom cc_69
-.cc_top cc_70,.Lxta.call_labels2
+.cc_top cc_67,.Lxta.call_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	248
 	.long	.Lxta.call_labels2
+.cc_bottom cc_67
+.cc_top cc_68,.Lxta.call_labels57
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	248
+	.long	.Lxta.call_labels57
+.cc_bottom cc_68
+.cc_top cc_69,.Lxta.call_labels15
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	248
+	.long	.Lxta.call_labels15
+.cc_bottom cc_69
+.cc_top cc_70,.Lxta.call_labels78
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	248
+	.long	.Lxta.call_labels78
 .cc_bottom cc_70
-.cc_top cc_71,.Lxta.call_labels24
+.cc_top cc_71,.Lxta.call_labels79
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
-	.long	.Lxta.call_labels24
+	.long	.Lxta.call_labels79
 .cc_bottom cc_71
-.cc_top cc_72,.Lxta.call_labels58
+.cc_top cc_72,.Lxta.call_labels37
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
-	.long	.Lxta.call_labels58
+	.long	.Lxta.call_labels37
 .cc_bottom cc_72
 .cc_top cc_73,.Lxta.call_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13876,41 +13862,41 @@ temperature_heater_controller.init.1.3.init:
 	.long	251
 	.long	.Lxta.call_labels3
 .cc_bottom cc_73
-.cc_top cc_74,.Lxta.call_labels37
+.cc_top cc_74,.Lxta.call_labels23
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
-	.long	.Lxta.call_labels37
+	.long	.Lxta.call_labels23
 .cc_bottom cc_74
-.cc_top cc_75,.Lxta.call_labels79
+.cc_top cc_75,.Lxta.call_labels58
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
-	.long	.Lxta.call_labels79
+	.long	.Lxta.call_labels58
 .cc_bottom cc_75
-.cc_top cc_76,.Lxta.call_labels4
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	.Lxta.call_labels4
-.cc_bottom cc_76
-.cc_top cc_77,.Lxta.call_labels14
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	.Lxta.call_labels14
-.cc_bottom cc_77
-.cc_top cc_78,.Lxta.call_labels38
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	.Lxta.call_labels38
-.cc_bottom cc_78
-.cc_top cc_79,.Lxta.call_labels59
+.cc_top cc_76,.Lxta.call_labels59
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	254
 	.long	.Lxta.call_labels59
+.cc_bottom cc_76
+.cc_top cc_77,.Lxta.call_labels24
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	.Lxta.call_labels24
+.cc_bottom cc_77
+.cc_top cc_78,.Lxta.call_labels4
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	.Lxta.call_labels4
+.cc_bottom cc_78
+.cc_top cc_79,.Lxta.call_labels38
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	.Lxta.call_labels38
 .cc_bottom cc_79
 .cc_top cc_80,.Lxta.call_labels80
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -13976,19 +13962,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	61
 	.long	.Lxtalabel76
 .cc_bottom cc_87
-.cc_top cc_88,.Lxtalabel76
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel76
-.cc_bottom cc_88
-.cc_top cc_89,.Lxtalabel16
+.cc_top cc_88,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	63
 	.long	64
 	.long	.Lxtalabel16
+.cc_bottom cc_88
+.cc_top cc_89,.Lxtalabel76
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel76
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14004,47 +13990,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	67
 	.long	.Lxtalabel76
 .cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel76
+.cc_top cc_92,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	69
 	.long	73
-	.long	.Lxtalabel76
+	.long	.Lxtalabel16
 .cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel16
+.cc_top cc_93,.Lxtalabel76
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	69
 	.long	73
-	.long	.Lxtalabel16
+	.long	.Lxtalabel76
 .cc_bottom cc_93
-.cc_top cc_94,.Lxtalabel16
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	75
-	.long	75
-	.long	.Lxtalabel16
-.cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel76
+.cc_top cc_94,.Lxtalabel76
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	75
 	.long	75
 	.long	.Lxtalabel76
+.cc_bottom cc_94
+.cc_top cc_95,.Lxtalabel16
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	75
+	.long	75
+	.long	.Lxtalabel16
 .cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel75
+.cc_top cc_96,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	76
 	.long	77
-	.long	.Lxtalabel75
+	.long	.Lxtalabel16
 .cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel75
+.cc_top cc_97,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	76
 	.long	77
-	.long	.Lxtalabel75
+	.long	.Lxtalabel16
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel75
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14053,12 +14039,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	77
 	.long	.Lxtalabel75
 .cc_bottom cc_98
-.cc_top cc_99,.Lxtalabel16
+.cc_top cc_99,.Lxtalabel75
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	76
 	.long	77
-	.long	.Lxtalabel16
+	.long	.Lxtalabel75
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14067,75 +14053,75 @@ temperature_heater_controller.init.1.3.init:
 	.long	77
 	.long	.Lxtalabel16
 .cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel16
+.cc_top cc_101,.Lxtalabel75
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	76
 	.long	77
-	.long	.Lxtalabel16
+	.long	.Lxtalabel75
 .cc_bottom cc_101
-.cc_top cc_102,.Lxtalabel16
+.cc_top cc_102,.Lxtalabel75
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	79
 	.long	79
-	.long	.Lxtalabel16
+	.long	.Lxtalabel75
 .cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel75
+.cc_top cc_103,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	79
 	.long	79
-	.long	.Lxtalabel75
+	.long	.Lxtalabel16
 .cc_bottom cc_103
-.cc_top cc_104,.Lxtalabel16
+.cc_top cc_104,.Lxtalabel75
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	81
 	.long	81
-	.long	.Lxtalabel16
+	.long	.Lxtalabel75
 .cc_bottom cc_104
-.cc_top cc_105,.Lxtalabel75
+.cc_top cc_105,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	81
 	.long	81
-	.long	.Lxtalabel75
+	.long	.Lxtalabel16
 .cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel75
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	83
-	.long	83
-	.long	.Lxtalabel75
-.cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel16
+.cc_top cc_106,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	83
 	.long	83
 	.long	.Lxtalabel16
+.cc_bottom cc_106
+.cc_top cc_107,.Lxtalabel75
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	83
+	.long	83
+	.long	.Lxtalabel75
 .cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel18
+.cc_top cc_108,.Lxtalabel41
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	84
+	.long	85
+	.long	.Lxtalabel41
+.cc_bottom cc_108
+.cc_top cc_109,.Lxtalabel18
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	84
 	.long	85
 	.long	.Lxtalabel18
-.cc_bottom cc_108
-.cc_top cc_109,.Lxtalabel74
+.cc_bottom cc_109
+.cc_top cc_110,.Lxtalabel74
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	84
 	.long	85
 	.long	.Lxtalabel74
-.cc_bottom cc_109
-.cc_top cc_110,.Lxtalabel150
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	89
-	.long	91
-	.long	.Lxtalabel150
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel93
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14144,26 +14130,26 @@ temperature_heater_controller.init.1.3.init:
 	.long	91
 	.long	.Lxtalabel93
 .cc_bottom cc_111
-.cc_top cc_112,.Lxtalabel21
+.cc_top cc_112,.Lxtalabel150
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	89
+	.long	91
+	.long	.Lxtalabel150
+.cc_bottom cc_112
+.cc_top cc_113,.Lxtalabel21
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	89
 	.long	91
 	.long	.Lxtalabel21
-.cc_bottom cc_112
-.cc_top cc_113,.Lxtalabel94
+.cc_bottom cc_113
+.cc_top cc_114,.Lxtalabel94
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	92
 	.long	93
 	.long	.Lxtalabel94
-.cc_bottom cc_113
-.cc_top cc_114,.Lxtalabel151
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	92
-	.long	93
-	.long	.Lxtalabel151
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel22
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14172,33 +14158,33 @@ temperature_heater_controller.init.1.3.init:
 	.long	93
 	.long	.Lxtalabel22
 .cc_bottom cc_115
-.cc_top cc_116,.Lxtalabel95
+.cc_top cc_116,.Lxtalabel151
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	94
-	.long	95
-	.long	.Lxtalabel95
+	.long	92
+	.long	93
+	.long	.Lxtalabel151
 .cc_bottom cc_116
-.cc_top cc_117,.Lxtalabel152
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	94
-	.long	95
-	.long	.Lxtalabel152
-.cc_bottom cc_117
-.cc_top cc_118,.Lxtalabel23
+.cc_top cc_117,.Lxtalabel23
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	94
 	.long	95
 	.long	.Lxtalabel23
-.cc_bottom cc_118
-.cc_top cc_119,.Lxtalabel47
+.cc_bottom cc_117
+.cc_top cc_118,.Lxtalabel152
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	96
-	.long	97
-	.long	.Lxtalabel47
+	.long	94
+	.long	95
+	.long	.Lxtalabel152
+.cc_bottom cc_118
+.cc_top cc_119,.Lxtalabel95
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	94
+	.long	95
+	.long	.Lxtalabel95
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel153
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14207,33 +14193,33 @@ temperature_heater_controller.init.1.3.init:
 	.long	97
 	.long	.Lxtalabel153
 .cc_bottom cc_120
-.cc_top cc_121,.Lxtalabel96
+.cc_top cc_121,.Lxtalabel45
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	96
+	.long	97
+	.long	.Lxtalabel45
+.cc_bottom cc_121
+.cc_top cc_122,.Lxtalabel96
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	96
 	.long	97
 	.long	.Lxtalabel96
-.cc_bottom cc_121
-.cc_top cc_122,.Lxtalabel52
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	100
-	.long	100
-	.long	.Lxtalabel52
 .cc_bottom cc_122
-.cc_top cc_123,.Lxtalabel155
+.cc_top cc_123,.Lxtalabel101
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel155
+	.long	.Lxtalabel101
 .cc_bottom cc_123
-.cc_top cc_124,.Lxtalabel49
+.cc_top cc_124,.Lxtalabel98
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel49
+	.long	.Lxtalabel98
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel97
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14242,19 +14228,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	100
 	.long	.Lxtalabel97
 .cc_bottom cc_125
-.cc_top cc_126,.Lxtalabel98
+.cc_top cc_126,.Lxtalabel50
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel98
+	.long	.Lxtalabel50
 .cc_bottom cc_126
-.cc_top cc_127,.Lxtalabel158
+.cc_top cc_127,.Lxtalabel47
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel158
+	.long	.Lxtalabel47
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel154
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14263,110 +14249,110 @@ temperature_heater_controller.init.1.3.init:
 	.long	100
 	.long	.Lxtalabel154
 .cc_bottom cc_128
-.cc_top cc_129,.Lxtalabel101
+.cc_top cc_129,.Lxtalabel155
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel101
+	.long	.Lxtalabel155
 .cc_bottom cc_129
-.cc_top cc_130,.Lxtalabel48
+.cc_top cc_130,.Lxtalabel46
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	100
 	.long	100
-	.long	.Lxtalabel48
+	.long	.Lxtalabel46
 .cc_bottom cc_130
-.cc_top cc_131,.Lxtalabel56
+.cc_top cc_131,.Lxtalabel158
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	101
-	.long	101
-	.long	.Lxtalabel56
+	.long	100
+	.long	100
+	.long	.Lxtalabel158
 .cc_bottom cc_131
-.cc_top cc_132,.Lxtalabel105
+.cc_top cc_132,.Lxtalabel156
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	101
 	.long	101
-	.long	.Lxtalabel105
+	.long	.Lxtalabel156
 .cc_bottom cc_132
-.cc_top cc_133,.Lxtalabel50
+.cc_top cc_133,.Lxtalabel54
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	101
 	.long	101
-	.long	.Lxtalabel50
+	.long	.Lxtalabel54
 .cc_bottom cc_133
-.cc_top cc_134,.Lxtalabel99
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	101
-	.long	101
-	.long	.Lxtalabel99
-.cc_bottom cc_134
-.cc_top cc_135,.Lxtalabel162
+.cc_top cc_134,.Lxtalabel162
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	101
 	.long	101
 	.long	.Lxtalabel162
-.cc_bottom cc_135
-.cc_top cc_136,.Lxtalabel156
+.cc_bottom cc_134
+.cc_top cc_135,.Lxtalabel99
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	101
 	.long	101
-	.long	.Lxtalabel156
+	.long	.Lxtalabel99
+.cc_bottom cc_135
+.cc_top cc_136,.Lxtalabel48
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	101
+	.long	101
+	.long	.Lxtalabel48
 .cc_bottom cc_136
-.cc_top cc_137,.Lxtalabel99
+.cc_top cc_137,.Lxtalabel105
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	101
+	.long	101
+	.long	.Lxtalabel105
+.cc_bottom cc_137
+.cc_top cc_138,.Lxtalabel156
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	103
+	.long	103
+	.long	.Lxtalabel156
+.cc_bottom cc_138
+.cc_top cc_139,.Lxtalabel99
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	103
 	.long	103
 	.long	.Lxtalabel99
-.cc_bottom cc_137
-.cc_top cc_138,.Lxtalabel50
+.cc_bottom cc_139
+.cc_top cc_140,.Lxtalabel54
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	103
 	.long	103
-	.long	.Lxtalabel50
-.cc_bottom cc_138
-.cc_top cc_139,.Lxtalabel105
+	.long	.Lxtalabel54
+.cc_bottom cc_140
+.cc_top cc_141,.Lxtalabel105
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	103
 	.long	103
 	.long	.Lxtalabel105
-.cc_bottom cc_139
-.cc_top cc_140,.Lxtalabel156
+.cc_bottom cc_141
+.cc_top cc_142,.Lxtalabel48
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	103
 	.long	103
-	.long	.Lxtalabel156
-.cc_bottom cc_140
-.cc_top cc_141,.Lxtalabel162
+	.long	.Lxtalabel48
+.cc_bottom cc_142
+.cc_top cc_143,.Lxtalabel162
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	103
 	.long	103
 	.long	.Lxtalabel162
-.cc_bottom cc_141
-.cc_top cc_142,.Lxtalabel56
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	103
-	.long	103
-	.long	.Lxtalabel56
-.cc_bottom cc_142
-.cc_top cc_143,.Lxtalabel164
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	104
-	.long	105
-	.long	.Lxtalabel164
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel107
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14375,47 +14361,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	105
 	.long	.Lxtalabel107
 .cc_bottom cc_144
-.cc_top cc_145,.Lxtalabel57
+.cc_top cc_145,.Lxtalabel164
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	104
 	.long	105
-	.long	.Lxtalabel57
+	.long	.Lxtalabel164
 .cc_bottom cc_145
-.cc_top cc_146,.Lxtalabel51
+.cc_top cc_146,.Lxtalabel55
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	106
-	.long	107
-	.long	.Lxtalabel51
+	.long	104
+	.long	105
+	.long	.Lxtalabel55
 .cc_bottom cc_146
-.cc_top cc_147,.Lxtalabel157
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	106
-	.long	107
-	.long	.Lxtalabel157
-.cc_bottom cc_147
-.cc_top cc_148,.Lxtalabel100
+.cc_top cc_147,.Lxtalabel100
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel100
+.cc_bottom cc_147
+.cc_top cc_148,.Lxtalabel157
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	106
+	.long	107
+	.long	.Lxtalabel157
 .cc_bottom cc_148
-.cc_top cc_149,.Lxtalabel61
+.cc_top cc_149,.Lxtalabel49
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	108
-	.long	108
-	.long	.Lxtalabel61
+	.long	106
+	.long	107
+	.long	.Lxtalabel49
 .cc_bottom cc_149
-.cc_top cc_150,.Lxtalabel163
+.cc_top cc_150,.Lxtalabel60
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	108
 	.long	108
-	.long	.Lxtalabel163
+	.long	.Lxtalabel60
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel106
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14424,12 +14410,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	108
 	.long	.Lxtalabel106
 .cc_bottom cc_151
-.cc_top cc_152,.Lxtalabel71
+.cc_top cc_152,.Lxtalabel163
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	109
-	.long	109
-	.long	.Lxtalabel71
+	.long	108
+	.long	108
+	.long	.Lxtalabel163
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel166
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14445,19 +14431,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	109
 	.long	.Lxtalabel109
 .cc_bottom cc_154
-.cc_top cc_155,.Lxtalabel168
+.cc_top cc_155,.Lxtalabel71
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	109
+	.long	109
+	.long	.Lxtalabel71
+.cc_bottom cc_155
+.cc_top cc_156,.Lxtalabel168
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	110
 	.long	111
 	.long	.Lxtalabel168
-.cc_bottom cc_155
-.cc_top cc_156,.Lxtalabel73
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	110
-	.long	111
-	.long	.Lxtalabel73
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel111
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14466,89 +14452,89 @@ temperature_heater_controller.init.1.3.init:
 	.long	111
 	.long	.Lxtalabel111
 .cc_bottom cc_157
-.cc_top cc_158,.Lxtalabel167
+.cc_top cc_158,.Lxtalabel73
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	112
-	.long	113
-	.long	.Lxtalabel167
+	.long	110
+	.long	111
+	.long	.Lxtalabel73
 .cc_bottom cc_158
-.cc_top cc_159,.Lxtalabel110
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	112
-	.long	113
-	.long	.Lxtalabel110
-.cc_bottom cc_159
-.cc_top cc_160,.Lxtalabel72
+.cc_top cc_159,.Lxtalabel72
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	112
 	.long	113
 	.long	.Lxtalabel72
+.cc_bottom cc_159
+.cc_top cc_160,.Lxtalabel167
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	112
+	.long	113
+	.long	.Lxtalabel167
 .cc_bottom cc_160
-.cc_top cc_161,.Lxtalabel62
+.cc_top cc_161,.Lxtalabel110
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	112
+	.long	113
+	.long	.Lxtalabel110
+.cc_bottom cc_161
+.cc_top cc_162,.Lxtalabel61
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	115
 	.long	116
-	.long	.Lxtalabel62
-.cc_bottom cc_161
-.cc_top cc_162,.Lxtalabel53
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	119
-	.long	119
-	.long	.Lxtalabel53
+	.long	.Lxtalabel61
 .cc_bottom cc_162
-.cc_top cc_163,.Lxtalabel159
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	119
-	.long	119
-	.long	.Lxtalabel159
-.cc_bottom cc_163
-.cc_top cc_164,.Lxtalabel102
+.cc_top cc_163,.Lxtalabel102
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	119
 	.long	119
 	.long	.Lxtalabel102
-.cc_bottom cc_164
-.cc_top cc_165,.Lxtalabel54
+.cc_bottom cc_163
+.cc_top cc_164,.Lxtalabel159
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	121
-	.long	123
-	.long	.Lxtalabel54
+	.long	119
+	.long	119
+	.long	.Lxtalabel159
+.cc_bottom cc_164
+.cc_top cc_165,.Lxtalabel51
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	119
+	.long	119
+	.long	.Lxtalabel51
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel160
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	121
-	.long	123
+	.long	122
+	.long	122
 	.long	.Lxtalabel160
 .cc_bottom cc_166
-.cc_top cc_167,.Lxtalabel103
+.cc_top cc_167,.Lxtalabel52
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	121
-	.long	123
-	.long	.Lxtalabel103
+	.long	122
+	.long	122
+	.long	.Lxtalabel52
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel103
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	125
-	.long	126
+	.long	122
+	.long	122
 	.long	.Lxtalabel103
 .cc_bottom cc_168
-.cc_top cc_169,.Lxtalabel54
+.cc_top cc_169,.Lxtalabel52
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	125
 	.long	126
-	.long	.Lxtalabel54
+	.long	.Lxtalabel52
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel160
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14557,40 +14543,40 @@ temperature_heater_controller.init.1.3.init:
 	.long	126
 	.long	.Lxtalabel160
 .cc_bottom cc_170
-.cc_top cc_171,.Lxtalabel161
+.cc_top cc_171,.Lxtalabel103
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	125
+	.long	126
+	.long	.Lxtalabel103
+.cc_bottom cc_171
+.cc_top cc_172,.Lxtalabel53
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	128
+	.long	128
+	.long	.Lxtalabel53
+.cc_bottom cc_172
+.cc_top cc_173,.Lxtalabel161
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	128
 	.long	128
 	.long	.Lxtalabel161
-.cc_bottom cc_171
-.cc_top cc_172,.Lxtalabel104
+.cc_bottom cc_173
+.cc_top cc_174,.Lxtalabel104
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	128
 	.long	128
 	.long	.Lxtalabel104
-.cc_bottom cc_172
-.cc_top cc_173,.Lxtalabel55
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	128
-	.long	128
-	.long	.Lxtalabel55
-.cc_bottom cc_173
-.cc_top cc_174,.Lxtalabel161
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	130
-	.long	130
-	.long	.Lxtalabel161
 .cc_bottom cc_174
-.cc_top cc_175,.Lxtalabel55
+.cc_top cc_175,.Lxtalabel53
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel55
+	.long	.Lxtalabel53
 .cc_bottom cc_175
 .cc_top cc_176,.Lxtalabel104
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14599,12 +14585,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	130
 	.long	.Lxtalabel104
 .cc_bottom cc_176
-.cc_top cc_177,.Lxtalabel165
+.cc_top cc_177,.Lxtalabel161
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	132
-	.long	132
-	.long	.Lxtalabel165
+	.long	130
+	.long	130
+	.long	.Lxtalabel161
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel108
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14613,68 +14599,68 @@ temperature_heater_controller.init.1.3.init:
 	.long	132
 	.long	.Lxtalabel108
 .cc_bottom cc_178
-.cc_top cc_179,.Lxtalabel108
+.cc_top cc_179,.Lxtalabel165
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	132
+	.long	132
+	.long	.Lxtalabel165
+.cc_bottom cc_179
+.cc_top cc_180,.Lxtalabel108
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel108
-.cc_bottom cc_179
-.cc_top cc_180,.Lxtalabel165
+.cc_bottom cc_180
+.cc_top cc_181,.Lxtalabel165
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel165
-.cc_bottom cc_180
-.cc_top cc_181,.Lxtalabel169
+.cc_bottom cc_181
+.cc_top cc_182,.Lxtalabel30
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	136
 	.long	137
-	.long	.Lxtalabel169
-.cc_bottom cc_181
-.cc_top cc_182,.Lxtalabel112
+	.long	.Lxtalabel30
+.cc_bottom cc_182
+.cc_top cc_183,.Lxtalabel112
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	136
 	.long	137
 	.long	.Lxtalabel112
-.cc_bottom cc_182
-.cc_top cc_183,.Lxtalabel30
+.cc_bottom cc_183
+.cc_top cc_184,.Lxtalabel169
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	136
 	.long	137
-	.long	.Lxtalabel30
-.cc_bottom cc_183
-.cc_top cc_184,.Lxtalabel30
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	141
-	.long	143
-	.long	.Lxtalabel30
-.cc_bottom cc_184
-.cc_top cc_185,.Lxtalabel169
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	141
-	.long	143
 	.long	.Lxtalabel169
+.cc_bottom cc_184
+.cc_top cc_185,.Lxtalabel30
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	142
+	.long	142
+	.long	.Lxtalabel30
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel112
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	141
-	.long	143
+	.long	142
+	.long	142
 	.long	.Lxtalabel112
 .cc_bottom cc_186
-.cc_top cc_187,.Lxtalabel30
+.cc_top cc_187,.Lxtalabel169
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	145
-	.long	145
-	.long	.Lxtalabel30
+	.long	142
+	.long	142
+	.long	.Lxtalabel169
 .cc_bottom cc_187
 .cc_top cc_188,.Lxtalabel112
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14690,33 +14676,33 @@ temperature_heater_controller.init.1.3.init:
 	.long	145
 	.long	.Lxtalabel169
 .cc_bottom cc_189
-.cc_top cc_190,.Lxtalabel170
+.cc_top cc_190,.Lxtalabel30
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	147
-	.long	147
-	.long	.Lxtalabel170
+	.long	145
+	.long	145
+	.long	.Lxtalabel30
 .cc_bottom cc_190
-.cc_top cc_191,.Lxtalabel171
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	147
-	.long	147
-	.long	.Lxtalabel171
-.cc_bottom cc_191
-.cc_top cc_192,.Lxtalabel114
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	147
-	.long	147
-	.long	.Lxtalabel114
-.cc_bottom cc_192
-.cc_top cc_193,.Lxtalabel31
+.cc_top cc_191,.Lxtalabel31
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	147
 	.long	147
 	.long	.Lxtalabel31
+.cc_bottom cc_191
+.cc_top cc_192,.Lxtalabel171
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	147
+	.long	147
+	.long	.Lxtalabel171
+.cc_bottom cc_192
+.cc_top cc_193,.Lxtalabel170
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	147
+	.long	147
+	.long	.Lxtalabel170
 .cc_bottom cc_193
 .cc_top cc_194,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14725,19 +14711,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	147
 	.long	.Lxtalabel32
 .cc_bottom cc_194
-.cc_top cc_195,.Lxtalabel113
+.cc_top cc_195,.Lxtalabel114
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	147
+	.long	147
+	.long	.Lxtalabel114
+.cc_bottom cc_195
+.cc_top cc_196,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	147
 	.long	147
 	.long	.Lxtalabel113
-.cc_bottom cc_195
-.cc_top cc_196,.Lxtalabel114
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	151
-	.long	152
-	.long	.Lxtalabel114
 .cc_bottom cc_196
 .cc_top cc_197,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14760,12 +14746,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	152
 	.long	.Lxtalabel32
 .cc_bottom cc_199
-.cc_top cc_200,.Lxtalabel170
+.cc_top cc_200,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	151
 	.long	152
-	.long	.Lxtalabel170
+	.long	.Lxtalabel114
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel31
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14774,82 +14760,82 @@ temperature_heater_controller.init.1.3.init:
 	.long	152
 	.long	.Lxtalabel31
 .cc_bottom cc_201
-.cc_top cc_202,.Lxtalabel114
+.cc_top cc_202,.Lxtalabel170
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	154
-	.long	154
-	.long	.Lxtalabel114
+	.long	151
+	.long	152
+	.long	.Lxtalabel170
 .cc_bottom cc_202
-.cc_top cc_203,.Lxtalabel31
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	154
-	.long	154
-	.long	.Lxtalabel31
-.cc_bottom cc_203
-.cc_top cc_204,.Lxtalabel113
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	154
-	.long	154
-	.long	.Lxtalabel113
-.cc_bottom cc_204
-.cc_top cc_205,.Lxtalabel170
+.cc_top cc_203,.Lxtalabel170
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	154
 	.long	154
 	.long	.Lxtalabel170
+.cc_bottom cc_203
+.cc_top cc_204,.Lxtalabel114
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	154
+	.long	154
+	.long	.Lxtalabel114
+.cc_bottom cc_204
+.cc_top cc_205,.Lxtalabel31
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	154
+	.long	154
+	.long	.Lxtalabel31
 .cc_bottom cc_205
-.cc_top cc_206,.Lxtalabel171
+.cc_top cc_206,.Lxtalabel113
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	154
+	.long	154
+	.long	.Lxtalabel113
+.cc_bottom cc_206
+.cc_top cc_207,.Lxtalabel171
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	154
 	.long	154
 	.long	.Lxtalabel171
-.cc_bottom cc_206
-.cc_top cc_207,.Lxtalabel32
+.cc_bottom cc_207
+.cc_top cc_208,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	154
 	.long	154
 	.long	.Lxtalabel32
-.cc_bottom cc_207
-.cc_top cc_208,.Lxtalabel172
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	156
-	.long	157
-	.long	.Lxtalabel172
 .cc_bottom cc_208
-.cc_top cc_209,.Lxtalabel115
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	156
-	.long	157
-	.long	.Lxtalabel115
-.cc_bottom cc_209
-.cc_top cc_210,.Lxtalabel33
+.cc_top cc_209,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel33
+.cc_bottom cc_209
+.cc_top cc_210,.Lxtalabel115
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	156
+	.long	157
+	.long	.Lxtalabel115
 .cc_bottom cc_210
-.cc_top cc_211,.Lxtalabel34
+.cc_top cc_211,.Lxtalabel172
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	156
+	.long	157
+	.long	.Lxtalabel172
+.cc_bottom cc_211
+.cc_top cc_212,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	158
 	.long	158
 	.long	.Lxtalabel34
-.cc_bottom cc_211
-.cc_top cc_212,.Lxtalabel173
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	158
-	.long	158
-	.long	.Lxtalabel173
 .cc_bottom cc_212
 .cc_top cc_213,.Lxtalabel116
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14861,8 +14847,8 @@ temperature_heater_controller.init.1.3.init:
 .cc_top cc_214,.Lxtalabel173
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	160
-	.long	161
+	.long	158
+	.long	158
 	.long	.Lxtalabel173
 .cc_bottom cc_214
 .cc_top cc_215,.Lxtalabel116
@@ -14872,54 +14858,54 @@ temperature_heater_controller.init.1.3.init:
 	.long	161
 	.long	.Lxtalabel116
 .cc_bottom cc_215
-.cc_top cc_216,.Lxtalabel34
+.cc_top cc_216,.Lxtalabel173
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	160
+	.long	161
+	.long	.Lxtalabel173
+.cc_bottom cc_216
+.cc_top cc_217,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	160
 	.long	161
 	.long	.Lxtalabel34
-.cc_bottom cc_216
-.cc_top cc_217,.Lxtalabel174
+.cc_bottom cc_217
+.cc_top cc_218,.Lxtalabel174
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	162
 	.long	162
 	.long	.Lxtalabel174
-.cc_bottom cc_217
-.cc_top cc_218,.Lxtalabel117
+.cc_bottom cc_218
+.cc_top cc_219,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	162
 	.long	162
 	.long	.Lxtalabel117
-.cc_bottom cc_218
-.cc_top cc_219,.Lxtalabel35
+.cc_bottom cc_219
+.cc_top cc_220,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	162
 	.long	162
 	.long	.Lxtalabel35
-.cc_bottom cc_219
-.cc_top cc_220,.Lxtalabel119
+.cc_bottom cc_220
+.cc_top cc_221,.Lxtalabel36
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	164
 	.long	165
-	.long	.Lxtalabel119
-.cc_bottom cc_220
-.cc_top cc_221,.Lxtalabel118
+	.long	.Lxtalabel36
+.cc_bottom cc_221
+.cc_top cc_222,.Lxtalabel118
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	164
 	.long	165
 	.long	.Lxtalabel118
-.cc_bottom cc_221
-.cc_top cc_222,.Lxtalabel176
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	164
-	.long	165
-	.long	.Lxtalabel176
 .cc_bottom cc_222
 .cc_top cc_223,.Lxtalabel175
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14928,19 +14914,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	165
 	.long	.Lxtalabel175
 .cc_bottom cc_223
-.cc_top cc_224,.Lxtalabel36
+.cc_top cc_224,.Lxtalabel119
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	164
 	.long	165
-	.long	.Lxtalabel36
+	.long	.Lxtalabel119
 .cc_bottom cc_224
-.cc_top cc_225,.Lxtalabel175
+.cc_top cc_225,.Lxtalabel176
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	167
-	.long	167
-	.long	.Lxtalabel175
+	.long	164
+	.long	165
+	.long	.Lxtalabel176
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel176
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14949,33 +14935,33 @@ temperature_heater_controller.init.1.3.init:
 	.long	167
 	.long	.Lxtalabel176
 .cc_bottom cc_226
-.cc_top cc_227,.Lxtalabel119
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	167
-	.long	167
-	.long	.Lxtalabel119
-.cc_bottom cc_227
-.cc_top cc_228,.Lxtalabel36
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	167
-	.long	167
-	.long	.Lxtalabel36
-.cc_bottom cc_228
-.cc_top cc_229,.Lxtalabel118
+.cc_top cc_227,.Lxtalabel118
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	167
 	.long	167
 	.long	.Lxtalabel118
-.cc_bottom cc_229
-.cc_top cc_230,.Lxtalabel177
+.cc_bottom cc_227
+.cc_top cc_228,.Lxtalabel175
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	169
-	.long	169
-	.long	.Lxtalabel177
+	.long	167
+	.long	167
+	.long	.Lxtalabel175
+.cc_bottom cc_228
+.cc_top cc_229,.Lxtalabel36
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	167
+	.long	167
+	.long	.Lxtalabel36
+.cc_bottom cc_229
+.cc_top cc_230,.Lxtalabel119
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	167
+	.long	167
+	.long	.Lxtalabel119
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel37
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -14984,89 +14970,89 @@ temperature_heater_controller.init.1.3.init:
 	.long	169
 	.long	.Lxtalabel37
 .cc_bottom cc_231
-.cc_top cc_232,.Lxtalabel120
+.cc_top cc_232,.Lxtalabel177
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	169
+	.long	169
+	.long	.Lxtalabel177
+.cc_bottom cc_232
+.cc_top cc_233,.Lxtalabel120
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	169
 	.long	169
 	.long	.Lxtalabel120
-.cc_bottom cc_232
-.cc_top cc_233,.Lxtalabel177
+.cc_bottom cc_233
+.cc_top cc_234,.Lxtalabel177
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	171
 	.long	171
 	.long	.Lxtalabel177
-.cc_bottom cc_233
-.cc_top cc_234,.Lxtalabel37
+.cc_bottom cc_234
+.cc_top cc_235,.Lxtalabel37
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	171
 	.long	171
 	.long	.Lxtalabel37
-.cc_bottom cc_234
-.cc_top cc_235,.Lxtalabel120
+.cc_bottom cc_235
+.cc_top cc_236,.Lxtalabel120
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	171
 	.long	171
 	.long	.Lxtalabel120
-.cc_bottom cc_235
-.cc_top cc_236,.Lxtalabel178
+.cc_bottom cc_236
+.cc_top cc_237,.Lxtalabel38
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	172
+	.long	172
+	.long	.Lxtalabel38
+.cc_bottom cc_237
+.cc_top cc_238,.Lxtalabel178
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	172
 	.long	172
 	.long	.Lxtalabel178
-.cc_bottom cc_236
-.cc_top cc_237,.Lxtalabel121
+.cc_bottom cc_238
+.cc_top cc_239,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	172
 	.long	172
 	.long	.Lxtalabel121
-.cc_bottom cc_237
-.cc_top cc_238,.Lxtalabel38
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	172
-	.long	172
-	.long	.Lxtalabel38
-.cc_bottom cc_238
-.cc_top cc_239,.Lxtalabel179
+.cc_bottom cc_239
+.cc_top cc_240,.Lxtalabel179
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	173
 	.long	174
 	.long	.Lxtalabel179
-.cc_bottom cc_239
-.cc_top cc_240,.Lxtalabel38
+.cc_bottom cc_240
+.cc_top cc_241,.Lxtalabel38
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	173
 	.long	174
 	.long	.Lxtalabel38
-.cc_bottom cc_240
-.cc_top cc_241,.Lxtalabel122
+.cc_bottom cc_241
+.cc_top cc_242,.Lxtalabel122
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	173
 	.long	174
 	.long	.Lxtalabel122
-.cc_bottom cc_241
-.cc_top cc_242,.Lxtalabel181
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	176
-	.long	176
-	.long	.Lxtalabel181
 .cc_bottom cc_242
-.cc_top cc_243,.Lxtalabel58
+.cc_top cc_243,.Lxtalabel56
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	176
 	.long	176
-	.long	.Lxtalabel58
+	.long	.Lxtalabel56
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel124
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15075,68 +15061,68 @@ temperature_heater_controller.init.1.3.init:
 	.long	176
 	.long	.Lxtalabel124
 .cc_bottom cc_244
-.cc_top cc_245,.Lxtalabel126
+.cc_top cc_245,.Lxtalabel181
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	177
-	.long	178
-	.long	.Lxtalabel126
+	.long	176
+	.long	176
+	.long	.Lxtalabel181
 .cc_bottom cc_245
-.cc_top cc_246,.Lxtalabel58
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	177
-	.long	178
-	.long	.Lxtalabel58
-.cc_bottom cc_246
-.cc_top cc_247,.Lxtalabel183
+.cc_top cc_246,.Lxtalabel183
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	177
 	.long	178
 	.long	.Lxtalabel183
+.cc_bottom cc_246
+.cc_top cc_247,.Lxtalabel126
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	177
+	.long	178
+	.long	.Lxtalabel126
 .cc_bottom cc_247
-.cc_top cc_248,.Lxtalabel123
+.cc_top cc_248,.Lxtalabel56
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	181
-	.long	185
-	.long	.Lxtalabel123
+	.long	177
+	.long	178
+	.long	.Lxtalabel56
 .cc_bottom cc_248
-.cc_top cc_249,.Lxtalabel44
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	181
-	.long	185
-	.long	.Lxtalabel44
-.cc_bottom cc_249
-.cc_top cc_250,.Lxtalabel180
+.cc_top cc_249,.Lxtalabel180
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	181
 	.long	185
 	.long	.Lxtalabel180
+.cc_bottom cc_249
+.cc_top cc_250,.Lxtalabel123
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	181
+	.long	185
+	.long	.Lxtalabel123
 .cc_bottom cc_250
-.cc_top cc_251,.Lxtalabel126
+.cc_top cc_251,.Lxtalabel43
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	187
-	.long	187
-	.long	.Lxtalabel126
+	.long	181
+	.long	185
+	.long	.Lxtalabel43
 .cc_bottom cc_251
-.cc_top cc_252,.Lxtalabel59
+.cc_top cc_252,.Lxtalabel179
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
-	.long	.Lxtalabel59
+	.long	.Lxtalabel179
 .cc_bottom cc_252
-.cc_top cc_253,.Lxtalabel122
+.cc_top cc_253,.Lxtalabel180
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
-	.long	.Lxtalabel122
+	.long	.Lxtalabel180
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel183
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15145,47 +15131,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	187
 	.long	.Lxtalabel183
 .cc_bottom cc_254
-.cc_top cc_255,.Lxtalabel121
+.cc_top cc_255,.Lxtalabel58
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	187
+	.long	187
+	.long	.Lxtalabel58
+.cc_bottom cc_255
+.cc_top cc_256,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
 	.long	.Lxtalabel121
-.cc_bottom cc_255
-.cc_top cc_256,.Lxtalabel180
+.cc_bottom cc_256
+.cc_top cc_257,.Lxtalabel57
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
-	.long	.Lxtalabel180
-.cc_bottom cc_256
-.cc_top cc_257,.Lxtalabel124
+	.long	.Lxtalabel57
+.cc_bottom cc_257
+.cc_top cc_258,.Lxtalabel126
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	187
+	.long	187
+	.long	.Lxtalabel126
+.cc_bottom cc_258
+.cc_top cc_259,.Lxtalabel123
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	187
+	.long	187
+	.long	.Lxtalabel123
+.cc_bottom cc_259
+.cc_top cc_260,.Lxtalabel124
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
 	.long	.Lxtalabel124
-.cc_bottom cc_257
-.cc_top cc_258,.Lxtalabel45
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	187
-	.long	187
-	.long	.Lxtalabel45
-.cc_bottom cc_258
-.cc_top cc_259,.Lxtalabel178
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	187
-	.long	187
-	.long	.Lxtalabel178
-.cc_bottom cc_259
-.cc_top cc_260,.Lxtalabel179
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	187
-	.long	187
-	.long	.Lxtalabel179
 .cc_bottom cc_260
 .cc_top cc_261,.Lxtalabel181
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15194,40 +15180,40 @@ temperature_heater_controller.init.1.3.init:
 	.long	187
 	.long	.Lxtalabel181
 .cc_bottom cc_261
-.cc_top cc_262,.Lxtalabel123
+.cc_top cc_262,.Lxtalabel122
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	187
 	.long	187
-	.long	.Lxtalabel123
+	.long	.Lxtalabel122
 .cc_bottom cc_262
-.cc_top cc_263,.Lxtalabel59
+.cc_top cc_263,.Lxtalabel178
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	187
+	.long	187
+	.long	.Lxtalabel178
+.cc_bottom cc_263
+.cc_top cc_264,.Lxtalabel58
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	188
 	.long	188
-	.long	.Lxtalabel59
-.cc_bottom cc_263
-.cc_top cc_264,.Lxtalabel127
+	.long	.Lxtalabel58
+.cc_bottom cc_264
+.cc_top cc_265,.Lxtalabel127
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	188
 	.long	188
 	.long	.Lxtalabel127
-.cc_bottom cc_264
-.cc_top cc_265,.Lxtalabel184
+.cc_bottom cc_265
+.cc_top cc_266,.Lxtalabel184
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	188
 	.long	188
 	.long	.Lxtalabel184
-.cc_bottom cc_265
-.cc_top cc_266,.Lxtalabel129
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	189
-	.long	191
-	.long	.Lxtalabel129
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel64
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15243,12 +15229,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	191
 	.long	.Lxtalabel186
 .cc_bottom cc_268
-.cc_top cc_269,.Lxtalabel60
+.cc_top cc_269,.Lxtalabel129
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	192
-	.long	194
-	.long	.Lxtalabel60
+	.long	189
+	.long	191
+	.long	.Lxtalabel129
 .cc_bottom cc_269
 .cc_top cc_270,.Lxtalabel128
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15264,19 +15250,19 @@ temperature_heater_controller.init.1.3.init:
 	.long	194
 	.long	.Lxtalabel185
 .cc_bottom cc_271
-.cc_top cc_272,.Lxtalabel125
+.cc_top cc_272,.Lxtalabel59
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	196
-	.long	198
-	.long	.Lxtalabel125
+	.long	192
+	.long	194
+	.long	.Lxtalabel59
 .cc_bottom cc_272
-.cc_top cc_273,.Lxtalabel45
+.cc_top cc_273,.Lxtalabel57
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	196
 	.long	198
-	.long	.Lxtalabel45
+	.long	.Lxtalabel57
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel182
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15285,40 +15271,40 @@ temperature_heater_controller.init.1.3.init:
 	.long	198
 	.long	.Lxtalabel182
 .cc_bottom cc_274
-.cc_top cc_275,.Lxtalabel67
+.cc_top cc_275,.Lxtalabel125
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	200
-	.long	200
-	.long	.Lxtalabel67
+	.long	196
+	.long	198
+	.long	.Lxtalabel125
 .cc_bottom cc_275
-.cc_top cc_276,.Lxtalabel131
+.cc_top cc_276,.Lxtalabel66
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	200
 	.long	200
-	.long	.Lxtalabel131
+	.long	.Lxtalabel66
 .cc_bottom cc_276
-.cc_top cc_277,.Lxtalabel130
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	200
-	.long	200
-	.long	.Lxtalabel130
-.cc_bottom cc_277
-.cc_top cc_278,.Lxtalabel187
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	200
-	.long	200
-	.long	.Lxtalabel187
-.cc_bottom cc_278
-.cc_top cc_279,.Lxtalabel65
+.cc_top cc_277,.Lxtalabel65
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	200
 	.long	200
 	.long	.Lxtalabel65
+.cc_bottom cc_277
+.cc_top cc_278,.Lxtalabel67
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	200
+	.long	200
+	.long	.Lxtalabel67
+.cc_bottom cc_278
+.cc_top cc_279,.Lxtalabel187
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	200
+	.long	200
+	.long	.Lxtalabel187
 .cc_bottom cc_279
 .cc_top cc_280,.Lxtalabel188
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15327,47 +15313,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	200
 	.long	.Lxtalabel188
 .cc_bottom cc_280
-.cc_top cc_281,.Lxtalabel66
+.cc_top cc_281,.Lxtalabel130
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	200
 	.long	200
-	.long	.Lxtalabel66
+	.long	.Lxtalabel130
 .cc_bottom cc_281
-.cc_top cc_282,.Lxtalabel189
+.cc_top cc_282,.Lxtalabel131
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	203
-	.long	204
-	.long	.Lxtalabel189
+	.long	200
+	.long	200
+	.long	.Lxtalabel131
 .cc_bottom cc_282
-.cc_top cc_283,.Lxtalabel68
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	203
-	.long	204
-	.long	.Lxtalabel68
-.cc_bottom cc_283
-.cc_top cc_284,.Lxtalabel132
+.cc_top cc_283,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	203
 	.long	204
 	.long	.Lxtalabel132
+.cc_bottom cc_283
+.cc_top cc_284,.Lxtalabel68
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	203
+	.long	204
+	.long	.Lxtalabel68
 .cc_bottom cc_284
 .cc_top cc_285,.Lxtalabel189
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	203
+	.long	204
+	.long	.Lxtalabel189
+.cc_bottom cc_285
+.cc_top cc_286,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	206
 	.long	206
 	.long	.Lxtalabel189
-.cc_bottom cc_285
-.cc_top cc_286,.Lxtalabel68
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	206
-	.long	206
-	.long	.Lxtalabel68
 .cc_bottom cc_286
 .cc_top cc_287,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15376,54 +15362,54 @@ temperature_heater_controller.init.1.3.init:
 	.long	206
 	.long	.Lxtalabel132
 .cc_bottom cc_287
-.cc_top cc_288,.Lxtalabel189
+.cc_top cc_288,.Lxtalabel68
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	208
-	.long	208
-	.long	.Lxtalabel189
+	.long	206
+	.long	206
+	.long	.Lxtalabel68
 .cc_bottom cc_288
-.cc_top cc_289,.Lxtalabel68
+.cc_top cc_289,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	208
 	.long	208
-	.long	.Lxtalabel68
+	.long	.Lxtalabel132
 .cc_bottom cc_289
-.cc_top cc_290,.Lxtalabel132
+.cc_top cc_290,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	208
 	.long	208
-	.long	.Lxtalabel132
+	.long	.Lxtalabel189
 .cc_bottom cc_290
-.cc_top cc_291,.Lxtalabel132
+.cc_top cc_291,.Lxtalabel68
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	208
+	.long	208
+	.long	.Lxtalabel68
+.cc_bottom cc_291
+.cc_top cc_292,.Lxtalabel189
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	210
+	.long	211
+	.long	.Lxtalabel189
+.cc_bottom cc_292
+.cc_top cc_293,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	210
 	.long	211
 	.long	.Lxtalabel132
-.cc_bottom cc_291
-.cc_top cc_292,.Lxtalabel68
+.cc_bottom cc_293
+.cc_top cc_294,.Lxtalabel68
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	210
 	.long	211
 	.long	.Lxtalabel68
-.cc_bottom cc_292
-.cc_top cc_293,.Lxtalabel189
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	210
-	.long	211
-	.long	.Lxtalabel189
-.cc_bottom cc_293
-.cc_top cc_294,.Lxtalabel189
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	213
-	.long	217
-	.long	.Lxtalabel189
 .cc_bottom cc_294
 .cc_top cc_295,.Lxtalabel68
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15442,37 +15428,37 @@ temperature_heater_controller.init.1.3.init:
 .cc_top cc_297,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
+	.long	213
+	.long	217
+	.long	.Lxtalabel189
+.cc_bottom cc_297
+.cc_top cc_298,.Lxtalabel189
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
 	.long	219
 	.long	220
 	.long	.Lxtalabel189
-.cc_bottom cc_297
-.cc_top cc_298,.Lxtalabel68
+.cc_bottom cc_298
+.cc_top cc_299,.Lxtalabel68
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	219
 	.long	220
 	.long	.Lxtalabel68
-.cc_bottom cc_298
-.cc_top cc_299,.Lxtalabel132
+.cc_bottom cc_299
+.cc_top cc_300,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	219
 	.long	220
 	.long	.Lxtalabel132
-.cc_bottom cc_299
-.cc_top cc_300,.Lxtalabel189
+.cc_bottom cc_300
+.cc_top cc_301,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	222
 	.long	222
 	.long	.Lxtalabel189
-.cc_bottom cc_300
-.cc_top cc_301,.Lxtalabel132
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	222
-	.long	222
-	.long	.Lxtalabel132
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel68
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15481,166 +15467,166 @@ temperature_heater_controller.init.1.3.init:
 	.long	222
 	.long	.Lxtalabel68
 .cc_bottom cc_302
-.cc_top cc_303,.Lxtalabel133
+.cc_top cc_303,.Lxtalabel132
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	224
-	.long	224
-	.long	.Lxtalabel133
+	.long	222
+	.long	222
+	.long	.Lxtalabel132
 .cc_bottom cc_303
-.cc_top cc_304,.Lxtalabel190
+.cc_top cc_304,.Lxtalabel69
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	224
 	.long	224
-	.long	.Lxtalabel190
+	.long	.Lxtalabel69
 .cc_bottom cc_304
-.cc_top cc_305,.Lxtalabel69
+.cc_top cc_305,.Lxtalabel70
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	224
 	.long	224
-	.long	.Lxtalabel69
+	.long	.Lxtalabel70
 .cc_bottom cc_305
-.cc_top cc_306,.Lxtalabel70
+.cc_top cc_306,.Lxtalabel133
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	224
 	.long	224
-	.long	.Lxtalabel70
+	.long	.Lxtalabel133
 .cc_bottom cc_306
-.cc_top cc_307,.Lxtalabel69
+.cc_top cc_307,.Lxtalabel190
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	224
+	.long	224
+	.long	.Lxtalabel190
+.cc_bottom cc_307
+.cc_top cc_308,.Lxtalabel69
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	226
 	.long	227
 	.long	.Lxtalabel69
-.cc_bottom cc_307
-.cc_top cc_308,.Lxtalabel70
+.cc_bottom cc_308
+.cc_top cc_309,.Lxtalabel70
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	226
 	.long	227
 	.long	.Lxtalabel70
-.cc_bottom cc_308
-.cc_top cc_309,.Lxtalabel190
+.cc_bottom cc_309
+.cc_top cc_310,.Lxtalabel190
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	226
 	.long	227
 	.long	.Lxtalabel190
-.cc_bottom cc_309
-.cc_top cc_310,.Lxtalabel133
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	226
-	.long	227
-	.long	.Lxtalabel133
 .cc_bottom cc_310
 .cc_top cc_311,.Lxtalabel133
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
+	.long	226
+	.long	227
+	.long	.Lxtalabel133
+.cc_bottom cc_311
+.cc_top cc_312,.Lxtalabel133
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
 	.long	229
 	.long	229
 	.long	.Lxtalabel133
-.cc_bottom cc_311
-.cc_top cc_312,.Lxtalabel69
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	229
-	.long	229
-	.long	.Lxtalabel69
 .cc_bottom cc_312
-.cc_top cc_313,.Lxtalabel190
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	229
-	.long	229
-	.long	.Lxtalabel190
-.cc_bottom cc_313
-.cc_top cc_314,.Lxtalabel70
+.cc_top cc_313,.Lxtalabel70
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	229
 	.long	229
 	.long	.Lxtalabel70
+.cc_bottom cc_313
+.cc_top cc_314,.Lxtalabel190
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	229
+	.long	229
+	.long	.Lxtalabel190
 .cc_bottom cc_314
-.cc_top cc_315,.Lxtalabel19
+.cc_top cc_315,.Lxtalabel69
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	230
-	.long	233
-	.long	.Lxtalabel19
+	.long	229
+	.long	229
+	.long	.Lxtalabel69
 .cc_bottom cc_315
-.cc_top cc_316,.Lxtalabel196
+.cc_top cc_316,.Lxtalabel191
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	230
-	.long	233
-	.long	.Lxtalabel196
-.cc_bottom cc_316
-.cc_top cc_317,.Lxtalabel82
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	230
-	.long	233
-	.long	.Lxtalabel82
-.cc_bottom cc_317
-.cc_top cc_318,.Lxtalabel20
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	230
-	.long	233
-	.long	.Lxtalabel20
-.cc_bottom cc_318
-.cc_top cc_319,.Lxtalabel191
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	230
+	.long	231
 	.long	233
 	.long	.Lxtalabel191
-.cc_bottom cc_319
-.cc_top cc_320,.Lxtalabel139
+.cc_bottom cc_316
+.cc_top cc_317,.Lxtalabel134
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	230
-	.long	233
-	.long	.Lxtalabel139
-.cc_bottom cc_320
-.cc_top cc_321,.Lxtalabel134
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	230
+	.long	231
 	.long	233
 	.long	.Lxtalabel134
+.cc_bottom cc_317
+.cc_top cc_318,.Lxtalabel139
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	231
+	.long	233
+	.long	.Lxtalabel139
+.cc_bottom cc_318
+.cc_top cc_319,.Lxtalabel196
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	231
+	.long	233
+	.long	.Lxtalabel196
+.cc_bottom cc_319
+.cc_top cc_320,.Lxtalabel20
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	231
+	.long	233
+	.long	.Lxtalabel20
+.cc_bottom cc_320
+.cc_top cc_321,.Lxtalabel19
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	231
+	.long	233
+	.long	.Lxtalabel19
 .cc_bottom cc_321
 .cc_top cc_322,.Lxtalabel77
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	230
+	.long	231
 	.long	233
 	.long	.Lxtalabel77
 .cc_bottom cc_322
-.cc_top cc_323,.Lxtalabel19
+.cc_top cc_323,.Lxtalabel82
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	231
+	.long	233
+	.long	.Lxtalabel82
+.cc_bottom cc_323
+.cc_top cc_324,.Lxtalabel82
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	235
 	.long	235
-	.long	.Lxtalabel19
-.cc_bottom cc_323
-.cc_top cc_324,.Lxtalabel134
+	.long	.Lxtalabel82
+.cc_bottom cc_324
+.cc_top cc_325,.Lxtalabel134
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	235
 	.long	235
 	.long	.Lxtalabel134
-.cc_bottom cc_324
-.cc_top cc_325,.Lxtalabel191
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	235
-	.long	235
-	.long	.Lxtalabel191
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel77
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15649,54 +15635,54 @@ temperature_heater_controller.init.1.3.init:
 	.long	235
 	.long	.Lxtalabel77
 .cc_bottom cc_326
-.cc_top cc_327,.Lxtalabel196
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	235
-	.long	235
-	.long	.Lxtalabel196
-.cc_bottom cc_327
-.cc_top cc_328,.Lxtalabel139
+.cc_top cc_327,.Lxtalabel139
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	235
 	.long	235
 	.long	.Lxtalabel139
+.cc_bottom cc_327
+.cc_top cc_328,.Lxtalabel191
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	235
+	.long	235
+	.long	.Lxtalabel191
 .cc_bottom cc_328
-.cc_top cc_329,.Lxtalabel82
+.cc_top cc_329,.Lxtalabel19
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	235
 	.long	235
-	.long	.Lxtalabel82
+	.long	.Lxtalabel19
 .cc_bottom cc_329
-.cc_top cc_330,.Lxtalabel20
+.cc_top cc_330,.Lxtalabel196
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	235
 	.long	235
-	.long	.Lxtalabel20
+	.long	.Lxtalabel196
 .cc_bottom cc_330
-.cc_top cc_331,.Lxtalabel82
+.cc_top cc_331,.Lxtalabel20
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	235
+	.long	235
+	.long	.Lxtalabel20
+.cc_bottom cc_331
+.cc_top cc_332,.Lxtalabel139
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	237
 	.long	237
-	.long	.Lxtalabel82
-.cc_bottom cc_331
-.cc_top cc_332,.Lxtalabel20
+	.long	.Lxtalabel139
+.cc_bottom cc_332
+.cc_top cc_333,.Lxtalabel20
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	237
 	.long	237
 	.long	.Lxtalabel20
-.cc_bottom cc_332
-.cc_top cc_333,.Lxtalabel134
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	237
-	.long	237
-	.long	.Lxtalabel134
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel19
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15705,12 +15691,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	237
 	.long	.Lxtalabel19
 .cc_bottom cc_334
-.cc_top cc_335,.Lxtalabel139
+.cc_top cc_335,.Lxtalabel134
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	237
 	.long	237
-	.long	.Lxtalabel139
+	.long	.Lxtalabel134
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel191
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15733,47 +15719,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	237
 	.long	.Lxtalabel77
 .cc_bottom cc_338
-.cc_top cc_339,.Lxtalabel10
+.cc_top cc_339,.Lxtalabel82
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	243
-	.long	244
-	.long	.Lxtalabel10
+	.long	237
+	.long	237
+	.long	.Lxtalabel82
 .cc_bottom cc_339
-.cc_top cc_340,.Lxtalabel201
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	243
-	.long	244
-	.long	.Lxtalabel201
-.cc_bottom cc_340
-.cc_top cc_341,.Lxtalabel87
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	243
-	.long	244
-	.long	.Lxtalabel87
-.cc_bottom cc_341
-.cc_top cc_342,.Lxtalabel39
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	243
-	.long	244
-	.long	.Lxtalabel39
-.cc_bottom cc_342
-.cc_top cc_343,.Lxtalabel144
+.cc_top cc_340,.Lxtalabel144
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	243
 	.long	244
 	.long	.Lxtalabel144
-.cc_bottom cc_343
-.cc_top cc_344,.Lxtalabel146
+.cc_bottom cc_340
+.cc_top cc_341,.Lxtalabel39
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	245
-	.long	247
-	.long	.Lxtalabel146
+	.long	243
+	.long	244
+	.long	.Lxtalabel39
+.cc_bottom cc_341
+.cc_top cc_342,.Lxtalabel201
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	243
+	.long	244
+	.long	.Lxtalabel201
+.cc_bottom cc_342
+.cc_top cc_343,.Lxtalabel87
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	243
+	.long	244
+	.long	.Lxtalabel87
+.cc_bottom cc_343
+.cc_top cc_344,.Lxtalabel10
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	243
+	.long	244
+	.long	.Lxtalabel10
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel89
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15782,12 +15768,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	247
 	.long	.Lxtalabel89
 .cc_bottom cc_345
-.cc_top cc_346,.Lxtalabel11
+.cc_top cc_346,.Lxtalabel42
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	245
 	.long	247
-	.long	.Lxtalabel11
+	.long	.Lxtalabel42
 .cc_bottom cc_346
 .cc_top cc_347,.Lxtalabel203
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15796,26 +15782,26 @@ temperature_heater_controller.init.1.3.init:
 	.long	247
 	.long	.Lxtalabel203
 .cc_bottom cc_347
-.cc_top cc_348,.Lxtalabel41
+.cc_top cc_348,.Lxtalabel11
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	245
 	.long	247
-	.long	.Lxtalabel41
+	.long	.Lxtalabel11
 .cc_bottom cc_348
-.cc_top cc_349,.Lxtalabel90
+.cc_top cc_349,.Lxtalabel146
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	248
-	.long	250
-	.long	.Lxtalabel90
+	.long	245
+	.long	247
+	.long	.Lxtalabel146
 .cc_bottom cc_349
-.cc_top cc_350,.Lxtalabel46
+.cc_top cc_350,.Lxtalabel204
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	248
 	.long	250
-	.long	.Lxtalabel46
+	.long	.Lxtalabel204
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel147
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15824,40 +15810,40 @@ temperature_heater_controller.init.1.3.init:
 	.long	250
 	.long	.Lxtalabel147
 .cc_bottom cc_351
-.cc_top cc_352,.Lxtalabel12
+.cc_top cc_352,.Lxtalabel44
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	248
+	.long	250
+	.long	.Lxtalabel44
+.cc_bottom cc_352
+.cc_top cc_353,.Lxtalabel12
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	248
 	.long	250
 	.long	.Lxtalabel12
-.cc_bottom cc_352
-.cc_top cc_353,.Lxtalabel204
+.cc_bottom cc_353
+.cc_top cc_354,.Lxtalabel90
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	248
 	.long	250
-	.long	.Lxtalabel204
-.cc_bottom cc_353
-.cc_top cc_354,.Lxtalabel63
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	251
-	.long	253
-	.long	.Lxtalabel63
+	.long	.Lxtalabel90
 .cc_bottom cc_354
-.cc_top cc_355,.Lxtalabel91
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	251
-	.long	253
-	.long	.Lxtalabel91
-.cc_bottom cc_355
-.cc_top cc_356,.Lxtalabel13
+.cc_top cc_355,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
 	.long	253
 	.long	.Lxtalabel13
+.cc_bottom cc_355
+.cc_top cc_356,.Lxtalabel91
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	251
+	.long	253
+	.long	.Lxtalabel91
 .cc_bottom cc_356
 .cc_top cc_357,.Lxtalabel148
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15866,61 +15852,61 @@ temperature_heater_controller.init.1.3.init:
 	.long	253
 	.long	.Lxtalabel148
 .cc_bottom cc_357
-.cc_top cc_358,.Lxtalabel205
+.cc_top cc_358,.Lxtalabel62
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	251
+	.long	253
+	.long	.Lxtalabel62
+.cc_bottom cc_358
+.cc_top cc_359,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	251
 	.long	253
 	.long	.Lxtalabel205
-.cc_bottom cc_358
-.cc_top cc_359,.Lxtalabel42
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel42
 .cc_bottom cc_359
-.cc_top cc_360,.Lxtalabel15
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel15
-.cc_bottom cc_360
-.cc_top cc_361,.Lxtalabel149
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel149
-.cc_bottom cc_361
-.cc_top cc_362,.Lxtalabel92
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel92
-.cc_bottom cc_362
-.cc_top cc_363,.Lxtalabel14
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel14
-.cc_bottom cc_363
-.cc_top cc_364,.Lxtalabel43
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	254
-	.long	255
-	.long	.Lxtalabel43
-.cc_bottom cc_364
-.cc_top cc_365,.Lxtalabel206
+.cc_top cc_360,.Lxtalabel206
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	254
 	.long	255
 	.long	.Lxtalabel206
+.cc_bottom cc_360
+.cc_top cc_361,.Lxtalabel63
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	255
+	.long	.Lxtalabel63
+.cc_bottom cc_361
+.cc_top cc_362,.Lxtalabel149
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	255
+	.long	.Lxtalabel149
+.cc_bottom cc_362
+.cc_top cc_363,.Lxtalabel92
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	255
+	.long	.Lxtalabel92
+.cc_bottom cc_363
+.cc_top cc_364,.Lxtalabel14
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	255
+	.long	.Lxtalabel14
+.cc_bottom cc_364
+.cc_top cc_365,.Lxtalabel15
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	254
+	.long	255
+	.long	.Lxtalabel15
 .cc_bottom cc_365
 .cc_top cc_366,.Lxtalabel206
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -15929,47 +15915,47 @@ temperature_heater_controller.init.1.3.init:
 	.long	257
 	.long	.Lxtalabel206
 .cc_bottom cc_366
-.cc_top cc_367,.Lxtalabel43
+.cc_top cc_367,.Lxtalabel63
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	257
 	.long	257
-	.long	.Lxtalabel43
+	.long	.Lxtalabel63
 .cc_bottom cc_367
-.cc_top cc_368,.Lxtalabel42
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	257
-	.long	257
-	.long	.Lxtalabel42
-.cc_bottom cc_368
-.cc_top cc_369,.Lxtalabel92
+.cc_top cc_368,.Lxtalabel92
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	257
 	.long	257
 	.long	.Lxtalabel92
-.cc_bottom cc_369
-.cc_top cc_370,.Lxtalabel14
+.cc_bottom cc_368
+.cc_top cc_369,.Lxtalabel14
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	257
 	.long	257
 	.long	.Lxtalabel14
-.cc_bottom cc_370
-.cc_top cc_371,.Lxtalabel15
+.cc_bottom cc_369
+.cc_top cc_370,.Lxtalabel15
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	257
 	.long	257
 	.long	.Lxtalabel15
-.cc_bottom cc_371
-.cc_top cc_372,.Lxtalabel149
+.cc_bottom cc_370
+.cc_top cc_371,.Lxtalabel149
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	257
 	.long	257
 	.long	.Lxtalabel149
+.cc_bottom cc_371
+.cc_top cc_372,.Lxtalabel145
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	260
+	.long	261
+	.long	.Lxtalabel145
 .cc_bottom cc_372
 .cc_top cc_373,.Lxtalabel40
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -16069,12 +16055,12 @@ temperature_heater_controller.init.1.3.init:
 	.long	261
 	.long	.Lxtalabel145
 .cc_bottom cc_386
-.cc_top cc_387,.Lxtalabel145
+.cc_top cc_387,.Lxtalabel88
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	260
 	.long	261
-	.long	.Lxtalabel145
+	.long	.Lxtalabel88
 .cc_bottom cc_387
 .cc_top cc_388,.Lxtalabel145
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -16107,114 +16093,114 @@ temperature_heater_controller.init.1.3.init:
 .cc_top cc_392,.Lxtalabel88
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	260
-	.long	261
+	.long	262
+	.long	262
 	.long	.Lxtalabel88
 .cc_bottom cc_392
-.cc_top cc_393,.Lxtalabel88
+.cc_top cc_393,.Lxtalabel40
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	262
 	.long	262
-	.long	.Lxtalabel88
+	.long	.Lxtalabel40
 .cc_bottom cc_393
-.cc_top cc_394,.Lxtalabel202
+.cc_top cc_394,.Lxtalabel145
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	262
 	.long	262
-	.long	.Lxtalabel202
+	.long	.Lxtalabel145
 .cc_bottom cc_394
-.cc_top cc_395,.Lxtalabel40
+.cc_top cc_395,.Lxtalabel202
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	262
 	.long	262
-	.long	.Lxtalabel40
+	.long	.Lxtalabel202
 .cc_bottom cc_395
-.cc_top cc_396,.Lxtalabel145
+.cc_top cc_396,.Lxtalabel9
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	262
 	.long	262
-	.long	.Lxtalabel145
+	.long	.Lxtalabel9
 .cc_bottom cc_396
-.cc_top cc_397,.Lxtalabel9
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	262
-	.long	262
-	.long	.Lxtalabel9
-.cc_bottom cc_397
-.cc_top cc_398,.Lxtalabel9
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	264
-	.long	264
-	.long	.Lxtalabel9
-.cc_bottom cc_398
-.cc_top cc_399,.Lxtalabel145
+.cc_top cc_397,.Lxtalabel145
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	264
 	.long	264
 	.long	.Lxtalabel145
-.cc_bottom cc_399
-.cc_top cc_400,.Lxtalabel40
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	264
-	.long	264
-	.long	.Lxtalabel40
-.cc_bottom cc_400
-.cc_top cc_401,.Lxtalabel202
+.cc_bottom cc_397
+.cc_top cc_398,.Lxtalabel202
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	264
 	.long	264
 	.long	.Lxtalabel202
-.cc_bottom cc_401
-.cc_top cc_402,.Lxtalabel88
+.cc_bottom cc_398
+.cc_top cc_399,.Lxtalabel40
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	264
+	.long	264
+	.long	.Lxtalabel40
+.cc_bottom cc_399
+.cc_top cc_400,.Lxtalabel9
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	264
+	.long	264
+	.long	.Lxtalabel9
+.cc_bottom cc_400
+.cc_top cc_401,.Lxtalabel88
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	264
 	.long	264
 	.long	.Lxtalabel88
-.cc_bottom cc_402
-.cc_top cc_403,.Lxtalabel7
+.cc_bottom cc_401
+.cc_top cc_402,.Lxtalabel7
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	267
 	.long	268
 	.long	.Lxtalabel7
-.cc_bottom cc_403
-.cc_top cc_404,.Lxtalabel8
+.cc_bottom cc_402
+.cc_top cc_403,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	269
 	.long	269
 	.long	.Lxtalabel8
-.cc_bottom cc_404
-.cc_top cc_405,.Lxtalabel8
+.cc_bottom cc_403
+.cc_top cc_404,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	271
 	.long	272
 	.long	.Lxtalabel8
-.cc_bottom cc_405
-.cc_top cc_406,.Lxtalabel0
+.cc_bottom cc_404
+.cc_top cc_405,.Lxtalabel0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	277
 	.long	278
 	.long	.Lxtalabel0
-.cc_bottom cc_406
-.cc_top cc_407,.Lxtalabel135
+.cc_bottom cc_405
+.cc_top cc_406,.Lxtalabel135
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	277
 	.long	278
 	.long	.Lxtalabel135
+.cc_bottom cc_406
+.cc_top cc_407,.Lxtalabel24
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	277
+	.long	278
+	.long	.Lxtalabel24
 .cc_bottom cc_407
 .cc_top cc_408,.Lxtalabel78
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -16223,33 +16209,33 @@ temperature_heater_controller.init.1.3.init:
 	.long	278
 	.long	.Lxtalabel78
 .cc_bottom cc_408
-.cc_top cc_409,.Lxtalabel24
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	277
-	.long	278
-	.long	.Lxtalabel24
-.cc_bottom cc_409
-.cc_top cc_410,.Lxtalabel192
+.cc_top cc_409,.Lxtalabel192
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	277
 	.long	278
 	.long	.Lxtalabel192
-.cc_bottom cc_410
-.cc_top cc_411,.Lxtalabel193
+.cc_bottom cc_409
+.cc_top cc_410,.Lxtalabel193
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	280
 	.long	280
 	.long	.Lxtalabel193
-.cc_bottom cc_411
-.cc_top cc_412,.Lxtalabel1
+.cc_bottom cc_410
+.cc_top cc_411,.Lxtalabel1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	280
 	.long	280
 	.long	.Lxtalabel1
+.cc_bottom cc_411
+.cc_top cc_412,.Lxtalabel79
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	280
+	.long	280
+	.long	.Lxtalabel79
 .cc_bottom cc_412
 .cc_top cc_413,.Lxtalabel25
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -16258,54 +16244,54 @@ temperature_heater_controller.init.1.3.init:
 	.long	280
 	.long	.Lxtalabel25
 .cc_bottom cc_413
-.cc_top cc_414,.Lxtalabel79
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	280
-	.long	280
-	.long	.Lxtalabel79
-.cc_bottom cc_414
-.cc_top cc_415,.Lxtalabel136
+.cc_top cc_414,.Lxtalabel136
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	280
 	.long	280
 	.long	.Lxtalabel136
-.cc_bottom cc_415
-.cc_top cc_416,.Lxtalabel138
+.cc_bottom cc_414
+.cc_top cc_415,.Lxtalabel138
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel138
-.cc_bottom cc_416
-.cc_top cc_417,.Lxtalabel137
+.cc_bottom cc_415
+.cc_top cc_416,.Lxtalabel137
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel137
-.cc_bottom cc_417
-.cc_top cc_418,.Lxtalabel195
+.cc_bottom cc_416
+.cc_top cc_417,.Lxtalabel195
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel195
-.cc_bottom cc_418
-.cc_top cc_419,.Lxtalabel194
+.cc_bottom cc_417
+.cc_top cc_418,.Lxtalabel194
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel194
-.cc_bottom cc_419
-.cc_top cc_420,.Lxtalabel2
+.cc_bottom cc_418
+.cc_top cc_419,.Lxtalabel2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel2
+.cc_bottom cc_419
+.cc_top cc_420,.Lxtalabel81
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	281
+	.long	281
+	.long	.Lxtalabel81
 .cc_bottom cc_420
 .cc_top cc_421,.Lxtalabel80
 	.ascii	"../src/temperature_heater_controller.xc"
@@ -16314,377 +16300,370 @@ temperature_heater_controller.init.1.3.init:
 	.long	281
 	.long	.Lxtalabel80
 .cc_bottom cc_421
-.cc_top cc_422,.Lxtalabel81
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	281
-	.long	281
-	.long	.Lxtalabel81
-.cc_bottom cc_422
-.cc_top cc_423,.Lxtalabel27
+.cc_top cc_422,.Lxtalabel27
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel27
-.cc_bottom cc_423
-.cc_top cc_424,.Lxtalabel26
+.cc_bottom cc_422
+.cc_top cc_423,.Lxtalabel26
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	281
 	.long	281
 	.long	.Lxtalabel26
-.cc_bottom cc_424
-.cc_top cc_425,.Lxtalabel25
+.cc_bottom cc_423
+.cc_top cc_424,.Lxtalabel25
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	288
 	.long	289
 	.long	.Lxtalabel25
-.cc_bottom cc_425
-.cc_top cc_426,.Lxtalabel83
+.cc_bottom cc_424
+.cc_top cc_425,.Lxtalabel83
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	288
 	.long	289
 	.long	.Lxtalabel83
-.cc_bottom cc_426
-.cc_top cc_427,.Lxtalabel3
+.cc_bottom cc_425
+.cc_top cc_426,.Lxtalabel3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	288
 	.long	289
 	.long	.Lxtalabel3
-.cc_bottom cc_427
-.cc_top cc_428,.Lxtalabel140
+.cc_bottom cc_426
+.cc_top cc_427,.Lxtalabel140
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	288
 	.long	289
 	.long	.Lxtalabel140
-.cc_bottom cc_428
-.cc_top cc_429,.Lxtalabel197
+.cc_bottom cc_427
+.cc_top cc_428,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	288
 	.long	289
 	.long	.Lxtalabel197
+.cc_bottom cc_428
+.cc_top cc_429,.Lxtalabel17
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	291
+	.long	291
+	.long	.Lxtalabel17
 .cc_bottom cc_429
-.cc_top cc_430,.Lxtalabel17
+.cc_top cc_430,.Lxtalabel86
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel17
+	.long	.Lxtalabel86
 .cc_bottom cc_430
-.cc_top cc_431,.Lxtalabel86
+.cc_top cc_431,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel86
+	.long	.Lxtalabel198
 .cc_bottom cc_431
-.cc_top cc_432,.Lxtalabel198
+.cc_top cc_432,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel198
+	.long	.Lxtalabel5
 .cc_bottom cc_432
-.cc_top cc_433,.Lxtalabel5
+.cc_top cc_433,.Lxtalabel29
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel5
+	.long	.Lxtalabel29
 .cc_bottom cc_433
-.cc_top cc_434,.Lxtalabel29
+.cc_top cc_434,.Lxtalabel142
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel29
+	.long	.Lxtalabel142
 .cc_bottom cc_434
-.cc_top cc_435,.Lxtalabel142
+.cc_top cc_435,.Lxtalabel143
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel142
+	.long	.Lxtalabel143
 .cc_bottom cc_435
-.cc_top cc_436,.Lxtalabel143
+.cc_top cc_436,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel143
+	.long	.Lxtalabel4
 .cc_bottom cc_436
-.cc_top cc_437,.Lxtalabel4
+.cc_top cc_437,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel4
+	.long	.Lxtalabel199
 .cc_bottom cc_437
-.cc_top cc_438,.Lxtalabel199
+.cc_top cc_438,.Lxtalabel141
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel199
+	.long	.Lxtalabel141
 .cc_bottom cc_438
-.cc_top cc_439,.Lxtalabel141
+.cc_top cc_439,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel141
+	.long	.Lxtalabel200
 .cc_bottom cc_439
-.cc_top cc_440,.Lxtalabel200
+.cc_top cc_440,.Lxtalabel85
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel200
+	.long	.Lxtalabel85
 .cc_bottom cc_440
-.cc_top cc_441,.Lxtalabel85
+.cc_top cc_441,.Lxtalabel84
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel85
+	.long	.Lxtalabel84
 .cc_bottom cc_441
-.cc_top cc_442,.Lxtalabel84
+.cc_top cc_442,.Lxtalabel28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel84
+	.long	.Lxtalabel28
 .cc_bottom cc_442
-.cc_top cc_443,.Lxtalabel28
+.cc_top cc_443,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	291
 	.long	291
-	.long	.Lxtalabel28
+	.long	.Lxtalabel6
 .cc_bottom cc_443
-.cc_top cc_444,.Lxtalabel6
+.cc_top cc_444,.Lxtalabel28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	291
-	.long	291
-	.long	.Lxtalabel6
+	.long	309
+	.long	309
+	.long	.Lxtalabel28
 .cc_bottom cc_444
-.cc_top cc_445,.Lxtalabel28
+.cc_top cc_445,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
-	.long	.Lxtalabel28
+	.long	.Lxtalabel6
 .cc_bottom cc_445
-.cc_top cc_446,.Lxtalabel6
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	309
-	.long	309
-	.long	.Lxtalabel6
-.cc_bottom cc_446
-.cc_top cc_447,.Lxtalabel84
+.cc_top cc_446,.Lxtalabel84
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel84
-.cc_bottom cc_447
-.cc_top cc_448,.Lxtalabel85
+.cc_bottom cc_446
+.cc_top cc_447,.Lxtalabel85
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel85
-.cc_bottom cc_448
-.cc_top cc_449,.Lxtalabel141
+.cc_bottom cc_447
+.cc_top cc_448,.Lxtalabel141
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel141
-.cc_bottom cc_449
-.cc_top cc_450,.Lxtalabel5
+.cc_bottom cc_448
+.cc_top cc_449,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel5
-.cc_bottom cc_450
-.cc_top cc_451,.Lxtalabel143
+.cc_bottom cc_449
+.cc_top cc_450,.Lxtalabel143
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel143
-.cc_bottom cc_451
-.cc_top cc_452,.Lxtalabel142
+.cc_bottom cc_450
+.cc_top cc_451,.Lxtalabel142
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel142
-.cc_bottom cc_452
-.cc_top cc_453,.Lxtalabel86
+.cc_bottom cc_451
+.cc_top cc_452,.Lxtalabel86
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel86
-.cc_bottom cc_453
-.cc_top cc_454,.Lxtalabel17
+.cc_bottom cc_452
+.cc_top cc_453,.Lxtalabel17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel17
-.cc_bottom cc_454
-.cc_top cc_455,.Lxtalabel198
+.cc_bottom cc_453
+.cc_top cc_454,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel198
-.cc_bottom cc_455
-.cc_top cc_456,.Lxtalabel29
+.cc_bottom cc_454
+.cc_top cc_455,.Lxtalabel29
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel29
-.cc_bottom cc_456
-.cc_top cc_457,.Lxtalabel4
+.cc_bottom cc_455
+.cc_top cc_456,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel4
-.cc_bottom cc_457
-.cc_top cc_458,.Lxtalabel199
+.cc_bottom cc_456
+.cc_top cc_457,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel199
-.cc_bottom cc_458
-.cc_top cc_459,.Lxtalabel200
+.cc_bottom cc_457
+.cc_top cc_458,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	309
 	.long	309
 	.long	.Lxtalabel200
-.cc_bottom cc_459
-.cc_top cc_460,.Lxtalabel28
+.cc_bottom cc_458
+.cc_top cc_459,.Lxtalabel28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel28
-.cc_bottom cc_460
-.cc_top cc_461,.Lxtalabel199
+.cc_bottom cc_459
+.cc_top cc_460,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel199
-.cc_bottom cc_461
-.cc_top cc_462,.Lxtalabel200
+.cc_bottom cc_460
+.cc_top cc_461,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel200
-.cc_bottom cc_462
-.cc_top cc_463,.Lxtalabel17
+.cc_bottom cc_461
+.cc_top cc_462,.Lxtalabel17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel17
-.cc_bottom cc_463
-.cc_top cc_464,.Lxtalabel198
+.cc_bottom cc_462
+.cc_top cc_463,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel198
-.cc_bottom cc_464
-.cc_top cc_465,.Lxtalabel4
+.cc_bottom cc_463
+.cc_top cc_464,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel4
-.cc_bottom cc_465
-.cc_top cc_466,.Lxtalabel142
+.cc_bottom cc_464
+.cc_top cc_465,.Lxtalabel142
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel142
-.cc_bottom cc_466
-.cc_top cc_467,.Lxtalabel29
+.cc_bottom cc_465
+.cc_top cc_466,.Lxtalabel29
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel29
-.cc_bottom cc_467
-.cc_top cc_468,.Lxtalabel86
+.cc_bottom cc_466
+.cc_top cc_467,.Lxtalabel86
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel86
-.cc_bottom cc_468
-.cc_top cc_469,.Lxtalabel143
+.cc_bottom cc_467
+.cc_top cc_468,.Lxtalabel143
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel143
-.cc_bottom cc_469
-.cc_top cc_470,.Lxtalabel85
+.cc_bottom cc_468
+.cc_top cc_469,.Lxtalabel85
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel85
-.cc_bottom cc_470
-.cc_top cc_471,.Lxtalabel5
+.cc_bottom cc_469
+.cc_top cc_470,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel5
-.cc_bottom cc_471
-.cc_top cc_472,.Lxtalabel84
+.cc_bottom cc_470
+.cc_top cc_471,.Lxtalabel84
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel84
-.cc_bottom cc_472
-.cc_top cc_473,.Lxtalabel6
+.cc_bottom cc_471
+.cc_top cc_472,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel6
-.cc_bottom cc_473
-.cc_top cc_474,.Lxtalabel141
+.cc_bottom cc_472
+.cc_top cc_473,.Lxtalabel141
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	313
 	.long	315
 	.long	.Lxtalabel141
-.cc_bottom cc_474
+.cc_bottom cc_473
 .Lentries_end5:
 	.section	.xtalooplabeltable,"",@progbits
 .Lentries_start6:
@@ -16692,118 +16671,118 @@ temperature_heater_controller.init.1.3.init:
 	.long	0
 	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
 	.byte	0
-.cc_top cc_475,.Lxta.loop_labels2
+.cc_top cc_474,.Lxta.loop_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	147
 	.long	147
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_475
-.cc_top cc_476,.Lxta.loop_labels1
+.cc_bottom cc_474
+.cc_top cc_475,.Lxta.loop_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	147
 	.long	147
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_476
-.cc_top cc_477,.Lxta.loop_labels3
+.cc_bottom cc_475
+.cc_top cc_476,.Lxta.loop_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	147
 	.long	147
 	.long	.Lxta.loop_labels3
-.cc_bottom cc_477
-.cc_top cc_478,.Lxta.loop_labels2
+.cc_bottom cc_476
+.cc_top cc_477,.Lxta.loop_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	151
 	.long	152
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_478
-.cc_top cc_479,.Lxta.loop_labels3
+.cc_bottom cc_477
+.cc_top cc_478,.Lxta.loop_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	151
 	.long	152
 	.long	.Lxta.loop_labels3
+.cc_bottom cc_478
+.cc_top cc_479,.Lxta.loop_labels1
+	.ascii	"../src/temperature_heater_controller.xc"
+	.byte	0
+	.long	151
+	.long	152
+	.long	.Lxta.loop_labels1
 .cc_bottom cc_479
 .cc_top cc_480,.Lxta.loop_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	151
-	.long	152
+	.long	154
+	.long	154
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_480
-.cc_top cc_481,.Lxta.loop_labels1
+.cc_top cc_481,.Lxta.loop_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	154
 	.long	154
-	.long	.Lxta.loop_labels1
+	.long	.Lxta.loop_labels3
 .cc_bottom cc_481
-.cc_top cc_482,.Lxta.loop_labels3
+.cc_top cc_482,.Lxta.loop_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	154
 	.long	154
-	.long	.Lxta.loop_labels3
+	.long	.Lxta.loop_labels2
 .cc_bottom cc_482
-.cc_top cc_483,.Lxta.loop_labels2
+.cc_top cc_483,.Lxta.loop_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	154
-	.long	154
-	.long	.Lxta.loop_labels2
+	.long	156
+	.long	158
+	.long	.Lxta.loop_labels3
 .cc_bottom cc_483
-.cc_top cc_484,.Lxta.loop_labels3
+.cc_top cc_484,.Lxta.loop_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	156
 	.long	158
-	.long	.Lxta.loop_labels3
+	.long	.Lxta.loop_labels2
 .cc_bottom cc_484
-.cc_top cc_485,.Lxta.loop_labels2
-	.ascii	"../src/temperature_heater_controller.xc"
-	.byte	0
-	.long	156
-	.long	158
-	.long	.Lxta.loop_labels2
-.cc_bottom cc_485
-.cc_top cc_486,.Lxta.loop_labels1
+.cc_top cc_485,.Lxta.loop_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	156
 	.long	158
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_486
-.cc_top cc_487,.Lxta.loop_labels2
+.cc_bottom cc_485
+.cc_top cc_486,.Lxta.loop_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	160
 	.long	162
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_487
-.cc_top cc_488,.Lxta.loop_labels3
+.cc_bottom cc_486
+.cc_top cc_487,.Lxta.loop_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	160
 	.long	162
 	.long	.Lxta.loop_labels3
-.cc_bottom cc_488
-.cc_top cc_489,.Lxta.loop_labels1
+.cc_bottom cc_487
+.cc_top cc_488,.Lxta.loop_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	160
 	.long	162
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_489
-.cc_top cc_490,.Lxta.loop_labels0
+.cc_bottom cc_488
+.cc_top cc_489,.Lxta.loop_labels0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
 	.long	267
 	.long	268
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_490
+.cc_bottom cc_489
 .Lentries_end7:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

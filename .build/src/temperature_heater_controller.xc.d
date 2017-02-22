@@ -3,7 +3,7 @@
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/_Aquarium_1_x/src/_texts_and_constants.h \
   ../../workspace/_Aquarium_1_x/src/f_conversions.h \
-  ../../workspace/_Aquarium_1_x/src/i2c_external_server.h \
+  ../../workspace/_Aquarium_1_x/src/I2C_External_Server.h \
   ../../workspace/_Aquarium_1_x/src/port_heat_light_server.h \
-  ../../workspace/_Aquarium_1_x/src/temperature_heater_controller.h
+  ../../workspace/_Aquarium_1_x/src/Temperature_Heater_Controller.h
 

@@ -1,5 +1,5 @@
 /*
- * temperature_water_controller.h
+ * Temperature_Water_Controller.h
  *
  *  Created on: 1. feb. 2017
  *      Author: teig
@@ -24,7 +24,7 @@ typedef interface temperature_water_commands_if {
 } temperature_water_commands_if;
 
 [[combinable]]
-void temperature_water_controller (
+void Temperature_Water_Controller (
     server temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
 

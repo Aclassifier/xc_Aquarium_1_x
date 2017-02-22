@@ -29,8 +29,9 @@
 //     Constraints checks PASSED.
 //     Build Complete
 //
+// NOT USED
 [[combinable]]
-void mux_button_task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out) {
+void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out) {
 
     button_action_t button_action_in;
     buttons_t       buttons_out;
@@ -49,7 +50,7 @@ void mux_button_task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button
 }
 
 [[combinable]]
-void inp_button_task (const unsigned button_n, port p_button, chanend c_button_out) {
+void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
     // From XMOS-Programming-Guide
     int   current_val = 0;
     int   is_stable = 1;

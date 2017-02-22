@@ -4,50 +4,50 @@
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
 	.inline_definition delay_microseconds
-	.set chronodot_ds3231_controller.select.0.enable.savedstate,17
-	.globl chronodot_ds3231_controller.select.0.enable.savedstate
-	.set chronodot_ds3231_controller.select.0.enable.cases.maxtimers,0 $M chronodot_ds3231_controller.select.0.case.0.maxtimers
-	.globl chronodot_ds3231_controller.select.0.enable.cases.maxtimers
-	.set chronodot_ds3231_controller.select.0.enable.cases.maxcores,0 $M chronodot_ds3231_controller.select.0.case.0.maxcores
-	.globl chronodot_ds3231_controller.select.0.enable.cases.maxcores
-	.set chronodot_ds3231_controller.select.0.enable.cases.maxchanends,0 $M chronodot_ds3231_controller.select.0.case.0.maxchanends
-	.globl chronodot_ds3231_controller.select.0.enable.cases.maxchanends
-	.set chronodot_ds3231_controller.select.0.enable.cases,0
-	.globl chronodot_ds3231_controller.select.0.enable.cases
-	.set chronodot_ds3231_controller.select.0.enable.cases.nstackwords, 0 $M (chronodot_ds3231_controller.select.0.case.0.nstackwords)
-	.globl chronodot_ds3231_controller.select.0.enable.cases.nstackwords
-	.set chronodot_ds3231_controller.dynalloc_maxchanends, 0
-	.globl chronodot_ds3231_controller.dynalloc_maxchanends
-	.set chronodot_ds3231_controller.dynalloc_maxcores, 0
-	.globl chronodot_ds3231_controller.dynalloc_maxcores
-	.set chronodot_ds3231_controller.dynalloc_maxtimers, 0
-	.globl chronodot_ds3231_controller.dynalloc_maxtimers
-	.set chronodot_ds3231_controller.init.0.savedstate,17
-	.globl chronodot_ds3231_controller.init.0.savedstate
-	.set chronodot_ds3231_controller.select.y.enable.savedstate,17
-	.globl chronodot_ds3231_controller.select.y.enable.savedstate
-	.set chronodot_ds3231_controller.select.y.enable.cases.maxtimers,0 $M chronodot_ds3231_controller.select.y.case.1.maxtimers $M chronodot_ds3231_controller.select.y.case.0.maxtimers
-	.globl chronodot_ds3231_controller.select.y.enable.cases.maxtimers
-	.set chronodot_ds3231_controller.select.y.enable.cases.maxcores,0 $M chronodot_ds3231_controller.select.y.case.1.maxcores $M chronodot_ds3231_controller.select.y.case.0.maxcores
-	.globl chronodot_ds3231_controller.select.y.enable.cases.maxcores
-	.set chronodot_ds3231_controller.select.y.enable.cases.maxchanends,0 $M chronodot_ds3231_controller.select.y.case.1.maxchanends $M chronodot_ds3231_controller.select.y.case.0.maxchanends
-	.globl chronodot_ds3231_controller.select.y.enable.cases.maxchanends
-	.set chronodot_ds3231_controller.select.y.enable.cases,0
-	.globl chronodot_ds3231_controller.select.y.enable.cases
-	.set chronodot_ds3231_controller.select.y.enable.cases.nstackwords, 0 $M (chronodot_ds3231_controller.select.y.case.1.nstackwords) $M (chronodot_ds3231_controller.select.y.case.0.nstackwords)
-	.globl chronodot_ds3231_controller.select.y.enable.cases.nstackwords
-	.set chronodot_ds3231_controller.select.enable.savedstate,17
-	.globl chronodot_ds3231_controller.select.enable.savedstate
-	.set chronodot_ds3231_controller.select.enable.cases.maxtimers,0 $M chronodot_ds3231_controller.select.case.1.maxtimers $M chronodot_ds3231_controller.select.case.0.maxtimers
-	.globl chronodot_ds3231_controller.select.enable.cases.maxtimers
-	.set chronodot_ds3231_controller.select.enable.cases.maxcores,0 $M chronodot_ds3231_controller.select.case.1.maxcores $M chronodot_ds3231_controller.select.case.0.maxcores
-	.globl chronodot_ds3231_controller.select.enable.cases.maxcores
-	.set chronodot_ds3231_controller.select.enable.cases.maxchanends,0 $M chronodot_ds3231_controller.select.case.1.maxchanends $M chronodot_ds3231_controller.select.case.0.maxchanends
-	.globl chronodot_ds3231_controller.select.enable.cases.maxchanends
-	.set chronodot_ds3231_controller.select.enable.cases,0
-	.globl chronodot_ds3231_controller.select.enable.cases
-	.set chronodot_ds3231_controller.select.enable.cases.nstackwords, 0 $M (chronodot_ds3231_controller.select.case.1.nstackwords) $M (chronodot_ds3231_controller.select.case.0.nstackwords)
-	.globl chronodot_ds3231_controller.select.enable.cases.nstackwords
+	.set Chronodot_DS3231_Controller.select.0.enable.savedstate,17
+	.globl Chronodot_DS3231_Controller.select.0.enable.savedstate
+	.set Chronodot_DS3231_Controller.select.0.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.0.case.0.maxtimers
+	.globl Chronodot_DS3231_Controller.select.0.enable.cases.maxtimers
+	.set Chronodot_DS3231_Controller.select.0.enable.cases.maxcores,0 $M Chronodot_DS3231_Controller.select.0.case.0.maxcores
+	.globl Chronodot_DS3231_Controller.select.0.enable.cases.maxcores
+	.set Chronodot_DS3231_Controller.select.0.enable.cases.maxchanends,0 $M Chronodot_DS3231_Controller.select.0.case.0.maxchanends
+	.globl Chronodot_DS3231_Controller.select.0.enable.cases.maxchanends
+	.set Chronodot_DS3231_Controller.select.0.enable.cases,0
+	.globl Chronodot_DS3231_Controller.select.0.enable.cases
+	.set Chronodot_DS3231_Controller.select.0.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.0.case.0.nstackwords)
+	.globl Chronodot_DS3231_Controller.select.0.enable.cases.nstackwords
+	.set Chronodot_DS3231_Controller.dynalloc_maxchanends, 0
+	.globl Chronodot_DS3231_Controller.dynalloc_maxchanends
+	.set Chronodot_DS3231_Controller.dynalloc_maxcores, 0
+	.globl Chronodot_DS3231_Controller.dynalloc_maxcores
+	.set Chronodot_DS3231_Controller.dynalloc_maxtimers, 0
+	.globl Chronodot_DS3231_Controller.dynalloc_maxtimers
+	.set Chronodot_DS3231_Controller.init.0.savedstate,17
+	.globl Chronodot_DS3231_Controller.init.0.savedstate
+	.set Chronodot_DS3231_Controller.select.y.enable.savedstate,17
+	.globl Chronodot_DS3231_Controller.select.y.enable.savedstate
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxtimers $M Chronodot_DS3231_Controller.select.y.case.0.maxtimers
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxtimers
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxcores,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxcores $M Chronodot_DS3231_Controller.select.y.case.0.maxcores
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxcores
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxchanends $M Chronodot_DS3231_Controller.select.y.case.0.maxchanends
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends
+	.set Chronodot_DS3231_Controller.select.y.enable.cases,0
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords)
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords
+	.set Chronodot_DS3231_Controller.select.enable.savedstate,17
+	.globl Chronodot_DS3231_Controller.select.enable.savedstate
+	.set Chronodot_DS3231_Controller.select.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.case.1.maxtimers $M Chronodot_DS3231_Controller.select.case.0.maxtimers
+	.globl Chronodot_DS3231_Controller.select.enable.cases.maxtimers
+	.set Chronodot_DS3231_Controller.select.enable.cases.maxcores,0 $M Chronodot_DS3231_Controller.select.case.1.maxcores $M Chronodot_DS3231_Controller.select.case.0.maxcores
+	.globl Chronodot_DS3231_Controller.select.enable.cases.maxcores
+	.set Chronodot_DS3231_Controller.select.enable.cases.maxchanends,0 $M Chronodot_DS3231_Controller.select.case.1.maxchanends $M Chronodot_DS3231_Controller.select.case.0.maxchanends
+	.globl Chronodot_DS3231_Controller.select.enable.cases.maxchanends
+	.set Chronodot_DS3231_Controller.select.enable.cases,0
+	.globl Chronodot_DS3231_Controller.select.enable.cases
+	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.case.0.nstackwords)
+	.globl Chronodot_DS3231_Controller.select.enable.cases.nstackwords
 	.weak _i.chronodot_ds3231_if.get_time_ok.maxchanends.group
 	.max_reduce _i.chronodot_ds3231_if.get_time_ok.max.maxchanends, _i.chronodot_ds3231_if.get_time_ok.maxchanends.group, 0
 	.weak _i.chronodot_ds3231_if.get_time_ok.maxcores.group
@@ -243,18 +243,30 @@
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.max.nstackwords, _i.temperature_heater_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.fns, _i.temperature_heater_commands_if._client_call_y.fns.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxchanends.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxchanends, _i.port_heat_light_commands_if.light_command.maxchanends.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxcores.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxcores, _i.port_heat_light_commands_if.light_command.maxcores.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.maxtimers.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.maxtimers, _i.port_heat_light_commands_if.light_command.maxtimers.group, 0
-	.weak _i.port_heat_light_commands_if.light_command.nstackwords.group
-	.globl _i.port_heat_light_commands_if.light_command.nstackwords.group
-	.weak _i.port_heat_light_commands_if.light_command.fns.group
-	.globl _i.port_heat_light_commands_if.light_command.fns.group
-	.max_reduce _i.port_heat_light_commands_if.light_command.max.nstackwords, _i.port_heat_light_commands_if.light_command.nstackwords.group, 0
-	.max_reduce _i.port_heat_light_commands_if.light_command.fns, _i.port_heat_light_commands_if.light_command.fns.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxchanends, _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxcores, _i.port_heat_light_commands_if.set_light_composition.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxtimers, _i.port_heat_light_commands_if.set_light_composition.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
+	.globl _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
+	.weak _i.port_heat_light_commands_if.set_light_composition.fns.group
+	.globl _i.port_heat_light_commands_if.set_light_composition.fns.group
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.nstackwords, _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.set_light_composition.fns, _i.port_heat_light_commands_if.set_light_composition.fns.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxchanends, _i.port_heat_light_commands_if.get_light_composition.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxcores, _i.port_heat_light_commands_if.get_light_composition.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.maxtimers, _i.port_heat_light_commands_if.get_light_composition.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition.fns, _i.port_heat_light_commands_if.get_light_composition.fns.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.max.maxchanends, _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxcores.group
@@ -267,6 +279,18 @@
 	.globl _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.fns, _i.port_heat_light_commands_if.beeper_on_command.fns.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxchanends, _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxcores, _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.maxtimers, _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
+	.globl _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
+	.weak _i.port_heat_light_commands_if.beeper_blip_command.fns.group
+	.globl _i.port_heat_light_commands_if.beeper_blip_command.fns.group
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.fns, _i.port_heat_light_commands_if.beeper_blip_command.fns.group, 0
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group
 	.max_reduce _i.port_heat_light_commands_if.heat_cables_command.max.maxchanends, _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group, 0
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxcores.group
@@ -482,18 +506,18 @@
 	.set usage.anon.0,0
 	.set usage.anon.1,0
 	.set usage.anon.2,0
-	.call chronodot_ds3231_controller,printf
-	.call chronodot_ds3231_controller,bin2bcd_8
-	.call chronodot_ds3231_controller,bcd2bin_8
-	.call datetime_to_chronodot_registers,bin2bcd_8
-	.call chronodot_registers_to_datetime,bcd2bin_8
+	.call Chronodot_DS3231_Controller,printf
+	.call Chronodot_DS3231_Controller,Bin_To_BCD_8
+	.call Chronodot_DS3231_Controller,BCD_To_Bin_8
+	.call datetime_to_chronodot_registers,Bin_To_BCD_8
+	.call chronodot_registers_to_datetime,BCD_To_Bin_8
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.set chronodot_ds3231_controller.locnoside, 0
-	.set chronodot_ds3231_controller.locnointerfaceaccess, 0
-	.assert 1,bin2bcd_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:138:78: error: call to function `bin2bcd_8\' which selects on a notification in a combinable function select case\n                chronodot_d3231_registers.registers[DS3231_REG_SECOND]     = bin2bcd_8((uint8_t)  datetime.second);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,bcd2bin_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:113:39: error: call to function `bcd2bin_8\' which selects on a notification in a combinable function select case\n                    datetime.second = bcd2bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);\n                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.set Chronodot_DS3231_Controller.locnoside, 0
+	.set Chronodot_DS3231_Controller.locnointerfaceaccess, 0
+	.assert 1,Bin_To_BCD_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:139:78: error: call to function `Bin_To_BCD_8\' which selects on a notification in a combinable function select case\n                chronodot_d3231_registers.registers[DS3231_REG_SECOND]     = Bin_To_BCD_8((uint8_t)  datetime.second);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,BCD_To_Bin_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:114:39: error: call to function `BCD_To_Bin_8\' which selects on a notification in a combinable function select case\n                    datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);\n                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -512,13 +536,13 @@
 .Ldebug_range:
 	.file	1 "../src/chronodot_ds3231_controller.xc"
 	.text
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok
 	.align	4
-	.type	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok,@function
-	.cc_top _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.function,_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok
-_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok:
+	.type	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok,@function
+	.cc_top _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.function,_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok
+_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok:
 .Lfunc_begin0:
-	.loc	1 130 0
+	.loc	1 131 0
 	.cfi_startproc
 	entsp 10
 .Ltmp0:
@@ -547,83 +571,83 @@ _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok:
 .Ltmp7:
 	ldc r0, 0
 	stw r0, r4[0]
-	.loc	1 131 0 prologue_end
+	.loc	1 132 0 prologue_end
 .Ltmp8:
 	ldaw r0, r4[4]
 	ldaw r1, sp[1]
-	.loc	1 131 0
+	.loc	1 132 0
 	mov r2, r6
 	bl __memcpy_4
-	.loc	1 133 0
+	.loc	1 134 0
 	ldaw r5, r4[10]
-	.loc	1 133 0
+	.loc	1 134 0
 	ldw r0, r4[4]
 	ldc r1, 48
-	.loc	1 133 0
+	.loc	1 134 0
 	add r0, r0, r1
-	.loc	1 133 0
+	.loc	1 134 0
 	zext r0, 8
 .Lxta.call_labels0:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 46
-	.loc	1 133 0
+	.loc	1 134 0
 	st8 r0, r4[r1]
 	ldc r0, 20
-	.loc	1 134 0
+	.loc	1 135 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels1:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 45
-	.loc	1 134 0
-	st8 r0, r4[r1]
 	.loc	1 135 0
+	st8 r0, r4[r1]
+	.loc	1 136 0
 	ld8u r0, r4[r6]
 .Lxta.call_labels2:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 44
-	.loc	1 135 0
+	.loc	1 136 0
 	st8 r0, r4[r1]
 	ldc r0, 28
-	.loc	1 136 0
+	.loc	1 137 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels3:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 42
-	.loc	1 136 0
+	.loc	1 137 0
 	st8 r0, r4[r1]
 	ldc r0, 32
-	.loc	1 137 0
+	.loc	1 138 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels4:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 41
-	.loc	1 137 0
+	.loc	1 138 0
 	st8 r0, r4[r1]
 	ldc r0, 36
-	.loc	1 138 0
+	.loc	1 139 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels5:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 40
-	.loc	1 138 0
+	.loc	1 139 0
 	st8 r0, r4[r1]
 	ldc r0, 60
-	.loc	1 140 0
+	.loc	1 141 0
 	add r6, r4, r0
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r1, r4[3]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r0, r1[0]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r1, r1[1]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r3, r1[2]
 	ldc r1, 104
-	.loc	1 140 0
+	.loc	1 141 0
 	mov r2, r5
 .Lxta.call_labels6:
 	bla r3
-	.loc	1 140 0
+	.loc	1 141 0
 	stw r0, r6[0]
 	mkmsk r1, 1
 	stw r1, r4[0]
@@ -634,27 +658,27 @@ _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok:
 	retsp 10
 	# RETURN_REG_HOLDER
 .Ltmp10:
-	.cc_bottom _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.function
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.nstackwords,((__memcpy_4.nstackwords $M bin2bcd_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 10)
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.nstackwords
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxcores,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M bin2bcd_8.maxcores $M 1
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxcores
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxtimers,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M bin2bcd_8.maxtimers $M 0
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxtimers
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxchanends,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M bin2bcd_8.maxchanends $M 0
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok.maxchanends
+	.cc_bottom _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.function
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.nstackwords,((__memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 10)
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.nstackwords
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M 1
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxcores
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M 0
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxtimers
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M 0
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok.maxchanends
 .Ltmp11:
-	.size	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok, .Ltmp11-_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok
+	.size	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok, .Ltmp11-_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok
 .Lfunc_end0:
 	.cfi_endproc
 
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok
 	.align	4
-	.type	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok,@function
-	.cc_top _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.function,_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok
-_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok:
+	.type	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok,@function
+	.cc_top _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.function,_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok
+_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok:
 .Lfunc_begin1:
-	.loc	1 125 0
+	.loc	1 126 0
 	.cfi_startproc
 	entsp 2
 .Ltmp12:
@@ -668,12 +692,12 @@ _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok:
 	ldw r2, r1[0]
 	bf r2, .LBB1_1
 .Ltmp15:
-	.loc	1 126 0 prologue_end
+	.loc	1 127 0 prologue_end
 	ldaw r3, r1[4]
 	ldc r2, 60
-	.loc	1 127 0
+	.loc	1 128 0
 	add r2, r1, r2
-	.loc	1 127 0
+	.loc	1 128 0
 	ldw r4, r2[0]
 	mkmsk r2, 1
 	stw r2, r1[0]
@@ -686,17 +710,17 @@ _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok:
 	retsp 2
 	# RETURN_REG_HOLDER
 .Ltmp17:
-	.cc_bottom _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.function
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.nstackwords,(__memcpy_4.nstackwords + 2)
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.nstackwords
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxcores,1
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxcores
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxtimers,0
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxtimers
-	.set	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxchanends,0
-	.globl	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok.maxchanends
+	.cc_bottom _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.function
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.nstackwords,(__memcpy_4.nstackwords + 2)
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.nstackwords
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxcores,1
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxcores
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxtimers,0
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxtimers
+	.set	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxchanends,0
+	.globl	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok.maxchanends
 .Ltmp18:
-	.size	_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok, .Ltmp18-_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok
+	.size	_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok, .Ltmp18-_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok
 .Lfunc_end1:
 	.cfi_endproc
 
@@ -1551,7 +1575,7 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
-	add r0, r2, 2
+	add r0, r2, 4
 	out res[r2], r0
 	outct res[r2], 2
 	chkct res[r2], 1
@@ -1579,6 +1603,42 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp98-_i.port_heat_light_commands_if._chan.heat_cables_command
 	.cfi_endproc
 
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan.beeper_blip_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan.beeper_blip_command.function,_i.port_heat_light_commands_if._chan.beeper_blip_command
+_i.port_heat_light_commands_if._chan.beeper_blip_command:
+	.cfi_startproc
+	getr r2, 2
+	setd res[r2], r0
+	add r0, r2, 3
+	out res[r2], r0
+	outct res[r2], 2
+	chkct res[r2], 1
+	out res[r2], r1
+	outct res[r2], 2
+	in r0, res[r2]
+	chkct res[r2], 1
+	freer res[r2]
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan.beeper_blip_command.function
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords,0
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores,1
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers,0
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends,1
+	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
+.Ltmp99:
+	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp99-_i.port_heat_light_commands_if._chan.beeper_blip_command
+	.cfi_endproc
+
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command
 	.align	4
 	.type	_i.port_heat_light_commands_if._chan.beeper_on_command,@function
@@ -1587,7 +1647,7 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
-	add r0, r2, 1
+	add r0, r2, 2
 	out res[r2], r0
 	outct res[r2], 2
 	chkct res[r2], 1
@@ -1611,43 +1671,92 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
-.Ltmp99:
-	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp99-_i.port_heat_light_commands_if._chan.beeper_on_command
+.Ltmp100:
+	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp100-_i.port_heat_light_commands_if._chan.beeper_on_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan.light_command
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan.light_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan.light_command.function,_i.port_heat_light_commands_if._chan.light_command
-_i.port_heat_light_commands_if._chan.light_command:
+	.type	_i.port_heat_light_commands_if._chan.get_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan.get_light_composition.function,_i.port_heat_light_commands_if._chan.get_light_composition
+_i.port_heat_light_commands_if._chan.get_light_composition:
 	.cfi_startproc
-	getr r2, 2
-	setd res[r2], r0
-	out res[r2], r2
-	outct res[r2], 2
-	chkct res[r2], 1
-	out res[r2], r1
-	outct res[r2], 2
-	in r0, res[r2]
-	chkct res[r2], 1
-	freer res[r2]
+	entsp 3
+.Ltmp101:
+	.cfi_def_cfa_offset 12
+.Ltmp102:
+	.cfi_offset 15, 0
+	stw r4, sp[2]
+.Ltmp103:
+	.cfi_offset 4, -4
+	getr r4, 2
+	setd res[r4], r0
+	add r0, r4, 1
+	out res[r4], r0
+	outct res[r4], 2
+	chkct res[r4], 1
+	stw r1, sp[1]
+	outct res[r4], 2
+	ldaw r1, sp[1]
+	mov r0, r4
+	bl __interface_client_call
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[2]
+	retsp 3
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords,(__interface_client_call.nstackwords + 3)
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
+.Ltmp104:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp104-_i.port_heat_light_commands_if._chan.get_light_composition
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan.set_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan.set_light_composition.function,_i.port_heat_light_commands_if._chan.set_light_composition
+_i.port_heat_light_commands_if._chan.set_light_composition:
+	.cfi_startproc
+	getr r3, 2
+	setd res[r3], r0
+	out res[r3], r3
+	outct res[r3], 2
+	chkct res[r3], 1
+	out res[r3], r1
+	out res[r3], r2
+	outct res[r3], 2
+	in r0, res[r3]
+	chkct res[r3], 1
+	freer res[r3]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan.light_command.function
-	.set	_i.port_heat_light_commands_if._chan.light_command.nstackwords,0
-	.globl	_i.port_heat_light_commands_if._chan.light_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan.light_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxcores,1
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxtimers,0
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan.light_command.maxchanends,1
-	.globl	_i.port_heat_light_commands_if._chan.light_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan.light_command.maxchanends
-.Ltmp100:
-	.size	_i.port_heat_light_commands_if._chan.light_command, .Ltmp100-_i.port_heat_light_commands_if._chan.light_command
+	.cc_bottom _i.port_heat_light_commands_if._chan.set_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords,0
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores,1
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers,0
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends,1
+	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
+.Ltmp105:
+	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp105-_i.port_heat_light_commands_if._chan.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command
@@ -1657,17 +1766,17 @@ _i.port_heat_light_commands_if._chan.light_command:
 _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp101:
+.Ltmp106:
 	.cfi_def_cfa_offset 8
-.Ltmp102:
+.Ltmp107:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp103:
+.Ltmp108:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
-	add r2, r4, 2
+	add r2, r4, 4
 	out res[r4], r2
 	outct res[r4], 2
 	chkct res[r4], 1
@@ -1695,8 +1804,57 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
-.Ltmp104:
-	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp104-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+.Ltmp109:
+	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp109-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan_y.beeper_blip_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function,_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+_i.port_heat_light_commands_if._chan_y.beeper_blip_command:
+	.cfi_startproc
+	entsp 2
+.Ltmp110:
+	.cfi_def_cfa_offset 8
+.Ltmp111:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp112:
+	.cfi_offset 4, -4
+	ldw r2, r0[0]
+	getr r4, 2
+	setd res[r4], r2
+	add r2, r4, 3
+	out res[r4], r2
+	outct res[r4], 2
+	chkct res[r4], 1
+	out res[r4], r1
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldc r1, 0
+	mov r0, r4
+	bl __interface_client_call_y
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
+.Ltmp113:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp113-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command
@@ -1706,17 +1864,17 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp105:
+.Ltmp114:
 	.cfi_def_cfa_offset 8
-.Ltmp106:
+.Ltmp115:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp107:
+.Ltmp116:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
-	add r2, r4, 1
+	add r2, r4, 2
 	out res[r4], r2
 	outct res[r4], 2
 	chkct res[r4], 1
@@ -1744,31 +1902,82 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
-.Ltmp108:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp108-_i.port_heat_light_commands_if._chan_y.beeper_on_command
+.Ltmp117:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp117-_i.port_heat_light_commands_if._chan_y.beeper_on_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.light_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.light_command.function,_i.port_heat_light_commands_if._chan_y.light_command
-_i.port_heat_light_commands_if._chan_y.light_command:
+	.type	_i.port_heat_light_commands_if._chan_y.get_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.get_light_composition.function,_i.port_heat_light_commands_if._chan_y.get_light_composition
+_i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.cfi_startproc
-	entsp 2
-.Ltmp109:
-	.cfi_def_cfa_offset 8
-.Ltmp110:
+	entsp 3
+.Ltmp118:
+	.cfi_def_cfa_offset 12
+.Ltmp119:
 	.cfi_offset 15, 0
-	stw r4, sp[1]
-.Ltmp111:
+	stw r4, sp[2]
+.Ltmp120:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
 	setd res[r4], r2
+	add r2, r4, 1
+	out res[r4], r2
+	outct res[r4], 2
+	chkct res[r4], 1
+	stw r1, sp[1]
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldaw r1, sp[1]
+	mov r0, r4
+	bl __interface_client_call_y
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[2]
+	retsp 3
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
+.Ltmp121:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp121-_i.port_heat_light_commands_if._chan_y.get_light_composition
+	.cfi_endproc
+
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition
+	.align	4
+	.type	_i.port_heat_light_commands_if._chan_y.set_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_y.set_light_composition.function,_i.port_heat_light_commands_if._chan_y.set_light_composition
+_i.port_heat_light_commands_if._chan_y.set_light_composition:
+	.cfi_startproc
+	entsp 2
+.Ltmp122:
+	.cfi_def_cfa_offset 8
+.Ltmp123:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp124:
+	.cfi_offset 4, -4
+	ldw r3, r0[0]
+	getr r4, 2
+	setd res[r4], r3
 	out res[r4], r4
 	outct res[r4], 2
 	chkct res[r4], 1
 	out res[r4], r1
+	out res[r4], r2
 	outct res[r4], 2
 	ldw r2, r0[1]
 	ldc r1, 0
@@ -1779,21 +1988,21 @@ _i.port_heat_light_commands_if._chan_y.light_command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.light_command.function
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.light_command.maxchanends
-.Ltmp112:
-	.size	_i.port_heat_light_commands_if._chan_y.light_command, .Ltmp112-_i.port_heat_light_commands_if._chan_y.light_command
+	.cc_bottom _i.port_heat_light_commands_if._chan_y.set_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
+.Ltmp125:
+	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp125-_i.port_heat_light_commands_if._chan_y.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data
@@ -1803,15 +2012,15 @@ _i.port_heat_light_commands_if._chan_y.light_command:
 _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.cfi_startproc
 	entsp 3
-.Ltmp113:
+.Ltmp126:
 	.cfi_def_cfa_offset 12
-.Ltmp114:
+.Ltmp127:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp115:
+.Ltmp128:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp116:
+.Ltmp129:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1847,8 +2056,8 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
-.Ltmp117:
-	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp117-_i.temperature_heater_commands_if._chan.get_regulator_data
+.Ltmp130:
+	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp130-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string
@@ -1858,18 +2067,18 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	.cfi_startproc
 	entsp 5
-.Ltmp118:
+.Ltmp131:
 	.cfi_def_cfa_offset 20
-.Ltmp119:
+.Ltmp132:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp120:
+.Ltmp133:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp121:
+.Ltmp134:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp122:
+.Ltmp135:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1908,8 +2117,8 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
-.Ltmp123:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp123-_i.temperature_heater_commands_if._chan.get_temp_degC_string
+.Ltmp136:
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp136-_i.temperature_heater_commands_if._chan.get_temp_degC_string
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temps
@@ -1919,15 +2128,15 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 _i.temperature_heater_commands_if._chan.get_temps:
 	.cfi_startproc
 	entsp 4
-.Ltmp124:
+.Ltmp137:
 	.cfi_def_cfa_offset 16
-.Ltmp125:
+.Ltmp138:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp126:
+.Ltmp139:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp127:
+.Ltmp140:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1963,8 +2172,8 @@ _i.temperature_heater_commands_if._chan.get_temps:
 	.set	_i.temperature_heater_commands_if._chan.get_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-.Ltmp128:
-	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp128-_i.temperature_heater_commands_if._chan.get_temps
+.Ltmp141:
+	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp141-_i.temperature_heater_commands_if._chan.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
@@ -1974,18 +2183,18 @@ _i.temperature_heater_commands_if._chan.get_temps:
 _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 4
-.Ltmp129:
+.Ltmp142:
 	.cfi_def_cfa_offset 16
-.Ltmp130:
+.Ltmp143:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp131:
+.Ltmp144:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp132:
+.Ltmp145:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp133:
+.Ltmp146:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2022,8 +2231,8 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
-.Ltmp134:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp134-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
+.Ltmp147:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp147-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional
@@ -2033,18 +2242,18 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.cfi_startproc
 	entsp 4
-.Ltmp135:
+.Ltmp148:
 	.cfi_def_cfa_offset 16
-.Ltmp136:
+.Ltmp149:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp137:
+.Ltmp150:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp138:
+.Ltmp151:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp139:
+.Ltmp152:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2080,8 +2289,8 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
-.Ltmp140:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp140-_i.temperature_heater_commands_if._chan.heater_set_proportional
+.Ltmp153:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp153-_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data
@@ -2091,18 +2300,18 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.cfi_startproc
 	entsp 4
-.Ltmp141:
+.Ltmp154:
 	.cfi_def_cfa_offset 16
-.Ltmp142:
+.Ltmp155:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp143:
+.Ltmp156:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp144:
+.Ltmp157:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp145:
+.Ltmp158:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -2144,8 +2353,8 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
-.Ltmp146:
-	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp146-_i.temperature_heater_commands_if._chan_y.get_regulator_data
+.Ltmp159:
+	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp159-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
@@ -2155,21 +2364,21 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	.cfi_startproc
 	entsp 6
-.Ltmp147:
+.Ltmp160:
 	.cfi_def_cfa_offset 24
-.Ltmp148:
+.Ltmp161:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp149:
+.Ltmp162:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp150:
+.Ltmp163:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp151:
+.Ltmp164:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp152:
+.Ltmp165:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2212,8 +2421,8 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
-.Ltmp153:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp153-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+.Ltmp166:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp166-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -2223,18 +2432,18 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 _i.temperature_heater_commands_if._chan_y.get_temps:
 	.cfi_startproc
 	entsp 5
-.Ltmp154:
+.Ltmp167:
 	.cfi_def_cfa_offset 20
-.Ltmp155:
+.Ltmp168:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp156:
+.Ltmp169:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp157:
+.Ltmp170:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp158:
+.Ltmp171:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -2274,8 +2483,8 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-.Ltmp159:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp159-_i.temperature_heater_commands_if._chan_y.get_temps
+.Ltmp172:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp172-_i.temperature_heater_commands_if._chan_y.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
@@ -2285,21 +2494,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 5
-.Ltmp160:
+.Ltmp173:
 	.cfi_def_cfa_offset 20
-.Ltmp161:
+.Ltmp174:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp162:
+.Ltmp175:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp163:
+.Ltmp176:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp164:
+.Ltmp177:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp165:
+.Ltmp178:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2342,8 +2551,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
-.Ltmp166:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp166-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+.Ltmp179:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp179-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
@@ -2353,21 +2562,21 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.cfi_startproc
 	entsp 5
-.Ltmp167:
+.Ltmp180:
 	.cfi_def_cfa_offset 20
-.Ltmp168:
+.Ltmp181:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp169:
+.Ltmp182:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp170:
+.Ltmp183:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp171:
+.Ltmp184:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp172:
+.Ltmp185:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2409,8 +2618,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
-.Ltmp173:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp173-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+.Ltmp186:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp186-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at
@@ -2443,8 +2652,8 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends,1
 	.globl	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
-.Ltmp174:
-	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp174-_i.temperature_water_commands_if._chan.get_now_regulating_at
+.Ltmp187:
+	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp187-_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
@@ -2454,12 +2663,12 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
 	.cfi_startproc
 	entsp 3
-.Ltmp175:
+.Ltmp188:
 	.cfi_def_cfa_offset 12
-.Ltmp176:
+.Ltmp189:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp177:
+.Ltmp190:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -2490,8 +2699,8 @@ _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
 	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
-.Ltmp178:
-	.size	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, .Ltmp178-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+.Ltmp191:
+	.size	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, .Ltmp191-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
@@ -2501,12 +2710,12 @@ _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
 _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.cfi_startproc
 	entsp 2
-.Ltmp179:
+.Ltmp192:
 	.cfi_def_cfa_offset 8
-.Ltmp180:
+.Ltmp193:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp181:
+.Ltmp194:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	getr r4, 2
@@ -2537,8 +2746,8 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
-.Ltmp182:
-	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp182-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
+.Ltmp195:
+	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp195-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
@@ -2548,12 +2757,12 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
 	.cfi_startproc
 	entsp 3
-.Ltmp183:
+.Ltmp196:
 	.cfi_def_cfa_offset 12
-.Ltmp184:
+.Ltmp197:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp185:
+.Ltmp198:
 	.cfi_offset 4, -4
 	ldw r3, r0[0]
 	getr r4, 2
@@ -2586,8 +2795,8 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
 	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
-.Ltmp186:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, .Ltmp186-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
+.Ltmp199:
+	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, .Ltmp199-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok
@@ -2597,21 +2806,21 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
 _i.chronodot_ds3231_if._chan.set_time_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp187:
+.Ltmp200:
 	.cfi_def_cfa_offset 44
-.Ltmp188:
+.Ltmp201:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp189:
+.Ltmp202:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp190:
+.Ltmp203:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp191:
+.Ltmp204:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp192:
+.Ltmp205:
 	.cfi_offset 7, -16
 	mov r4, r0
 	ldaw r5, sp[1]
@@ -2653,8 +2862,8 @@ _i.chronodot_ds3231_if._chan.set_time_ok:
 	.set	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends,(1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends
-.Ltmp193:
-	.size	_i.chronodot_ds3231_if._chan.set_time_ok, .Ltmp193-_i.chronodot_ds3231_if._chan.set_time_ok
+.Ltmp206:
+	.size	_i.chronodot_ds3231_if._chan.set_time_ok, .Ltmp206-_i.chronodot_ds3231_if._chan.set_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.get_time_ok
@@ -2664,24 +2873,24 @@ _i.chronodot_ds3231_if._chan.set_time_ok:
 _i.chronodot_ds3231_if._chan.get_time_ok:
 	.cfi_startproc
 	entsp 12
-.Ltmp194:
+.Ltmp207:
 	.cfi_def_cfa_offset 48
-.Ltmp195:
+.Ltmp208:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp196:
+.Ltmp209:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp197:
+.Ltmp210:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp198:
+.Ltmp211:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp199:
+.Ltmp212:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp200:
+.Ltmp213:
 	.cfi_offset 8, -20
 	mov r4, r0
 	getr r5, 2
@@ -2723,8 +2932,8 @@ _i.chronodot_ds3231_if._chan.get_time_ok:
 	.set	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends
-.Ltmp201:
-	.size	_i.chronodot_ds3231_if._chan.get_time_ok, .Ltmp201-_i.chronodot_ds3231_if._chan.get_time_ok
+.Ltmp214:
+	.size	_i.chronodot_ds3231_if._chan.get_time_ok, .Ltmp214-_i.chronodot_ds3231_if._chan.get_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok
@@ -2734,21 +2943,21 @@ _i.chronodot_ds3231_if._chan.get_time_ok:
 _i.chronodot_ds3231_if._chan_y.set_time_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp202:
+.Ltmp215:
 	.cfi_def_cfa_offset 44
-.Ltmp203:
+.Ltmp216:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp204:
+.Ltmp217:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp205:
+.Ltmp218:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp206:
+.Ltmp219:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp207:
+.Ltmp220:
 	.cfi_offset 7, -16
 	mov r4, r0
 	ldaw r5, sp[1]
@@ -2794,8 +3003,8 @@ _i.chronodot_ds3231_if._chan_y.set_time_ok:
 	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
-.Ltmp208:
-	.size	_i.chronodot_ds3231_if._chan_y.set_time_ok, .Ltmp208-_i.chronodot_ds3231_if._chan_y.set_time_ok
+.Ltmp221:
+	.size	_i.chronodot_ds3231_if._chan_y.set_time_ok, .Ltmp221-_i.chronodot_ds3231_if._chan_y.set_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok
@@ -2805,24 +3014,24 @@ _i.chronodot_ds3231_if._chan_y.set_time_ok:
 _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.cfi_startproc
 	entsp 12
-.Ltmp209:
+.Ltmp222:
 	.cfi_def_cfa_offset 48
-.Ltmp210:
+.Ltmp223:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp211:
+.Ltmp224:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp212:
+.Ltmp225:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp213:
+.Ltmp226:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp214:
+.Ltmp227:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp215:
+.Ltmp228:
 	.cfi_offset 8, -20
 	mov r5, r0
 	ldw r0, r1[0]
@@ -2868,8 +3077,8 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
-.Ltmp216:
-	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp216-_i.chronodot_ds3231_if._chan_y.get_time_ok
+.Ltmp229:
+	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp229-_i.chronodot_ds3231_if._chan_y.get_time_ok
 	.cfi_endproc
 
 	.globl	chronodot_registers_to_datetime
@@ -2877,40 +3086,40 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.type	chronodot_registers_to_datetime,@function
 	.cc_top chronodot_registers_to_datetime.function,chronodot_registers_to_datetime
 chronodot_registers_to_datetime:
-.Lfunc_begin40:
+.Lfunc_begin44:
 	.loc	1 37 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 8
-.Ltmp217:
+.Ltmp230:
 	.cfi_def_cfa_offset 32
-.Ltmp218:
+.Ltmp231:
 	.cfi_offset 15, 0
 	stw r4, sp[7]
-.Ltmp219:
+.Ltmp232:
 	.cfi_offset 4, -4
 	stw r5, sp[6]
-.Ltmp220:
+.Ltmp233:
 	.cfi_offset 5, -8
 	stw r6, sp[5]
-.Ltmp221:
+.Ltmp234:
 	.cfi_offset 6, -12
 	stw r7, sp[4]
-.Ltmp222:
+.Ltmp235:
 	.cfi_offset 7, -16
 	stw r8, sp[3]
-.Ltmp223:
+.Ltmp236:
 	.cfi_offset 8, -20
 	stw r9, sp[2]
-.Ltmp224:
+.Ltmp237:
 	.cfi_offset 9, -24
 	stw r10, sp[1]
-.Ltmp225:
+.Ltmp238:
 	.cfi_offset 10, -28
 	mov r4, r0
 	ldc r0, 6
 	.loc	1 40 0 prologue_end
-.Ltmp226:
+.Ltmp239:
 	ld8u r0, r1[r0]
 	ldc r2, 5
 	.loc	1 41 0
@@ -2929,36 +3138,36 @@ chronodot_registers_to_datetime:
 	ld8u r5, r1[r2]
 	.loc	1 40 0
 .Lxta.call_labels7:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	ldc r1, 2000
 	.loc	1 40 0
 	add r10, r0, r1
 	.loc	1 41 0
 	mov r0, r7
 .Lxta.call_labels8:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r7, r0
 	.loc	1 42 0
 	mov r0, r8
 .Lxta.call_labels9:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r8, r0
 	.loc	1 43 0
 	mov r0, r9
 .Lxta.call_labels10:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r9, r0
 	.loc	1 44 0
 	mov r0, r6
 .Lxta.call_labels11:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r6, r0
 	.loc	1 45 0
 	zext r5, 7
 	.loc	1 45 0
 	mov r0, r5
 .Lxta.call_labels12:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	.loc	1 47 5
 	stw r10, r4[0]
 	.loc	1 47 5
@@ -2980,83 +3189,83 @@ chronodot_registers_to_datetime:
 	ldw r4, sp[7]
 	retsp 8
 	# RETURN_REG_HOLDER
-.Ltmp227:
+.Ltmp240:
 	.cc_bottom chronodot_registers_to_datetime.function
-	.set	chronodot_registers_to_datetime.nstackwords,(bcd2bin_8.nstackwords + 8)
+	.set	chronodot_registers_to_datetime.nstackwords,(BCD_To_Bin_8.nstackwords + 8)
 	.globl	chronodot_registers_to_datetime.nstackwords
-	.set	chronodot_registers_to_datetime.maxcores,bcd2bin_8.maxcores $M 1
+	.set	chronodot_registers_to_datetime.maxcores,BCD_To_Bin_8.maxcores $M 1
 	.globl	chronodot_registers_to_datetime.maxcores
-	.set	chronodot_registers_to_datetime.maxtimers,bcd2bin_8.maxtimers $M 0
+	.set	chronodot_registers_to_datetime.maxtimers,BCD_To_Bin_8.maxtimers $M 0
 	.globl	chronodot_registers_to_datetime.maxtimers
-	.set	chronodot_registers_to_datetime.maxchanends,bcd2bin_8.maxchanends $M 0
+	.set	chronodot_registers_to_datetime.maxchanends,BCD_To_Bin_8.maxchanends $M 0
 	.globl	chronodot_registers_to_datetime.maxchanends
-.Ltmp228:
-	.size	chronodot_registers_to_datetime, .Ltmp228-chronodot_registers_to_datetime
-.Lfunc_end40:
+.Ltmp241:
+	.size	chronodot_registers_to_datetime, .Ltmp241-chronodot_registers_to_datetime
+.Lfunc_end44:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI41_0.data,.LCPI41_0
+	.cc_top .LCPI45_0.data,.LCPI45_0
 	.align	4
-	.type	.LCPI41_0,@object
-	.size	.LCPI41_0, 4
-.LCPI41_0:
+	.type	.LCPI45_0,@object
+	.size	.LCPI45_0, 4
+.LCPI45_0:
 	.long	4294967278
-	.cc_bottom .LCPI41_0.data
+	.cc_bottom .LCPI45_0.data
 	.text
 	.globl	datetime_to_chronodot_registers
 	.align	4
 	.type	datetime_to_chronodot_registers,@function
 	.cc_top datetime_to_chronodot_registers.function,datetime_to_chronodot_registers
 datetime_to_chronodot_registers:
-.Lfunc_begin41:
+.Lfunc_begin45:
 	.loc	1 50 0
 	.cfi_startproc
 .Lxtalabel1:
 	entsp 8
-.Ltmp229:
+.Ltmp242:
 	.cfi_def_cfa_offset 32
-.Ltmp230:
+.Ltmp243:
 	.cfi_offset 15, 0
 	stw r4, sp[7]
-.Ltmp231:
+.Ltmp244:
 	.cfi_offset 4, -4
 	stw r5, sp[6]
-.Ltmp232:
+.Ltmp245:
 	.cfi_offset 5, -8
 	stw r6, sp[5]
-.Ltmp233:
+.Ltmp246:
 	.cfi_offset 6, -12
 	stw r7, sp[4]
-.Ltmp234:
+.Ltmp247:
 	.cfi_offset 7, -16
 	stw r8, sp[3]
-.Ltmp235:
+.Ltmp248:
 	.cfi_offset 8, -20
 	stw r9, sp[2]
-.Ltmp236:
+.Ltmp249:
 	.cfi_offset 9, -24
 	stw r10, sp[1]
-.Ltmp237:
+.Ltmp250:
 	.cfi_offset 10, -28
 	mov r4, r1
 	.loc	1 55 0 prologue_end
-.Ltmp238:
+.Ltmp251:
 	sub r1, r4, r2
 	.loc	1 55 0
 	shr r2, r3, 1
 	ldc r11, 9
 	lsu r2, r2, r11
 	.loc	1 55 0
-	bt r2, .LBB41_1
+	bt r2, .LBB45_1
 .Lxtalabel2:
-	ldw r2, cp[.LCPI41_0]
+	ldw r2, cp[.LCPI45_0]
 	.loc	1 55 0
 	add r2, r3, r2
-	bu .LBB41_3
-.LBB41_1:
+	bu .LBB45_3
+.LBB45_1:
 	ldc r2, 0
-.LBB41_3:
+.LBB45_3:
 .Lxtalabel3:
 	.loc	1 55 0
 	lsu r1, r1, r2
@@ -3086,41 +3295,41 @@ datetime_to_chronodot_registers:
 	.loc	1 55 0
 	mov r0, r1
 .Lxta.call_labels13:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 6
 	.loc	1 55 0
 	st8 r0, r4[r1]
 	.loc	1 56 0
 	mov r0, r8
 .Lxta.call_labels14:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 5
 	.loc	1 56 0
 	st8 r0, r4[r1]
 	.loc	1 57 0
 	mov r0, r9
 .Lxta.call_labels15:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	.loc	1 57 0
 	st8 r0, r4[r10]
 	.loc	1 58 0
 	mov r0, r7
 .Lxta.call_labels16:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 2
 	.loc	1 58 0
 	st8 r0, r4[r1]
 	.loc	1 59 0
 	mov r0, r6
 .Lxta.call_labels17:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	mkmsk r1, 1
 	.loc	1 59 0
 	st8 r0, r4[r1]
 	.loc	1 60 0
 	mov r0, r5
 .Lxta.call_labels18:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	.loc	1 60 0
 	ldc r1, 0
 	st8 r0, r4[r1]
@@ -3133,85 +3342,85 @@ datetime_to_chronodot_registers:
 	ldw r4, sp[7]
 	retsp 8
 	# RETURN_REG_HOLDER
-.Ltmp239:
+.Ltmp252:
 	.cc_bottom datetime_to_chronodot_registers.function
-	.set	datetime_to_chronodot_registers.nstackwords,(bin2bcd_8.nstackwords + 8)
+	.set	datetime_to_chronodot_registers.nstackwords,(Bin_To_BCD_8.nstackwords + 8)
 	.globl	datetime_to_chronodot_registers.nstackwords
-	.set	datetime_to_chronodot_registers.maxcores,bin2bcd_8.maxcores $M 1
+	.set	datetime_to_chronodot_registers.maxcores,Bin_To_BCD_8.maxcores $M 1
 	.globl	datetime_to_chronodot_registers.maxcores
-	.set	datetime_to_chronodot_registers.maxtimers,bin2bcd_8.maxtimers $M 0
+	.set	datetime_to_chronodot_registers.maxtimers,Bin_To_BCD_8.maxtimers $M 0
 	.globl	datetime_to_chronodot_registers.maxtimers
-	.set	datetime_to_chronodot_registers.maxchanends,bin2bcd_8.maxchanends $M 0
+	.set	datetime_to_chronodot_registers.maxchanends,Bin_To_BCD_8.maxchanends $M 0
 	.globl	datetime_to_chronodot_registers.maxchanends
-.Ltmp240:
-	.size	datetime_to_chronodot_registers, .Ltmp240-datetime_to_chronodot_registers
-.Lfunc_end41:
+.Ltmp253:
+	.size	datetime_to_chronodot_registers, .Ltmp253-datetime_to_chronodot_registers
+.Lfunc_end45:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI42_0.data,.LCPI42_0
+	.cc_top .LCPI46_0.data,.LCPI46_0
 	.align	4
-	.type	.LCPI42_0,@object
-	.size	.LCPI42_0, 4
-.LCPI42_0:
+	.type	.LCPI46_0,@object
+	.size	.LCPI46_0, 4
+.LCPI46_0:
 	.long	100000000
-	.cc_bottom .LCPI42_0.data
+	.cc_bottom .LCPI46_0.data
 	.text
-	.globl	chronodot_ds3231_controller
+	.globl	Chronodot_DS3231_Controller
 	.align	4
-	.type	chronodot_ds3231_controller,@function
-	.cc_top chronodot_ds3231_controller.function,chronodot_ds3231_controller
-chronodot_ds3231_controller:
-.Lfunc_begin42:
-	.loc	1 87 0
+	.type	Chronodot_DS3231_Controller,@function
+	.cc_top Chronodot_DS3231_Controller.function,Chronodot_DS3231_Controller
+Chronodot_DS3231_Controller:
+.Lfunc_begin46:
+	.loc	1 88 0
 	.cfi_startproc
 .Lxtalabel4:
 	entsp 34
-.Ltmp241:
+.Ltmp254:
 	.cfi_def_cfa_offset 136
-.Ltmp242:
+.Ltmp255:
 	.cfi_offset 15, 0
 	stw r4, sp[33]
-.Ltmp243:
+.Ltmp256:
 	.cfi_offset 4, -4
 	stw r5, sp[32]
-.Ltmp244:
+.Ltmp257:
 	.cfi_offset 5, -8
 	stw r6, sp[31]
-.Ltmp245:
+.Ltmp258:
 	.cfi_offset 6, -12
 	stw r7, sp[30]
-.Ltmp246:
+.Ltmp259:
 	.cfi_offset 7, -16
 	stw r8, sp[29]
-.Ltmp247:
+.Ltmp260:
 	.cfi_offset 8, -20
 	stw r9, sp[28]
-.Ltmp248:
+.Ltmp261:
 	.cfi_offset 9, -24
 	stw r10, sp[27]
-.Ltmp249:
+.Ltmp262:
 	.cfi_offset 10, -28
 	stw r1, sp[4]
-.Ltmp250:
+.Ltmp263:
 	stw r0, sp[7]
-.Ltmp251:
-	.loc	1 95 0 prologue_end
+.Ltmp264:
+	.loc	1 96 0 prologue_end
 	ldaw r11, cp[.Lstr14]
 	mov r0, r11
 	bl puts
-	.loc	1 97 0
+	.loc	1 98 0
 	get r11, id
-	.loc	1 97 0
+	.loc	1 98 0
 	ldaw r0, dp[__timers]
-	.loc	1 97 0
+	.loc	1 98 0
 	ldw r5, r0[r11]
-	.loc	1 97 0
+	.loc	1 98 0
 	setc res[r5], 1
-	.loc	1 97 0
+	.loc	1 98 0
 .Lxta.endpoint_labels0:
 	in r10, res[r5]
-.Ltmp252:
+.Ltmp265:
 	ldc r2, 0
 	ldc r0, 14
 	stw r0, sp[9]
@@ -3220,11 +3429,11 @@ chronodot_ds3231_controller:
 	stw r0, sp[6]
 	ldaw r11, sp[22]
 	ldc r0, 2
-	.loc	1 111 0
+	.loc	1 112 0
 	or r0, r11, r0
 	stw r0, sp[3]
 	mkmsk r0, 1
-	.loc	1 112 0
+	.loc	1 113 0
 	or r0, r11, r0
 	stw r0, sp[2]
 	stw r3, sp[8]
@@ -3232,123 +3441,123 @@ chronodot_ds3231_controller:
 	mov r6, r2
 	mov r8, r2
 	mov r7, r2
-	bu .LBB42_1
-.Ltmp253:
-.LBB42_3:
+	bu .LBB46_1
+.Ltmp266:
+.LBB46_3:
 	mov r9, r7
 	ldw r10, sp[5]
-.Ltmp254:
-.LBB42_1:
+.Ltmp267:
+.LBB46_1:
 	ldw r0, sp[7]
 	ldw r0, r0[0]
 	clre
 	setd res[r5], r10
 	setc res[r5], 9
-	ldap r11, .Ltmp255
+	ldap r11, .Ltmp268
 	setv res[r5], r11
 	eeu res[r5]
-	ldap r11, .Ltmp256
+	ldap r11, .Ltmp269
 	setv res[r0], r11
 	eeu res[r0]
 
-	.xtabranch .LBB42_2, .LBB42_6
+	.xtabranch .LBB46_2, .LBB46_6
 	waiteu
-.Ltmp257:
-.Ltmp255:
-.LBB42_2:
+.Ltmp270:
+.Ltmp268:
+.LBB46_2:
 .Lxtalabel5:
-	.loc	1 101 0
+	.loc	1 102 0
 .Lxta.endpoint_labels1:
 	in r0, res[r5]
-	ldw r0, cp[.LCPI42_0]
-.Ltmp258:
-	.loc	1 103 0
+	ldw r0, cp[.LCPI46_0]
+.Ltmp271:
+	.loc	1 104 0
 	add r10, r10, r0
-.Ltmp259:
+.Ltmp272:
 	stw r10, sp[5]
 	ldw r0, sp[4]
-.Ltmp260:
-	.loc	1 105 0
+.Ltmp273:
+	.loc	1 106 0
 	ldw r1, r0[0]
-	.loc	1 105 0
+	.loc	1 106 0
 	ldw r0, r0[1]
-.Ltmp261:
-	.loc	1 105 0
+.Ltmp274:
+	.loc	1 106 0
 	ldw r3, r0[1]
 	ldaw r10, sp[22]
-	.loc	1 105 0
+	.loc	1 106 0
 	mov r0, r10
 	ldc r2, 104
 .Lxta.call_labels19:
 	bla r3
 	mov r9, r0
-.Ltmp262:
-	.loc	1 107 17
-	bf r9, .LBB42_3
-.Ltmp263:
+.Ltmp275:
+	.loc	1 108 17
+	bf r9, .LBB46_3
+.Ltmp276:
 .Lxtalabel6:
 	ldc r0, 6
-	.loc	1 108 0
+	.loc	1 109 0
 	ld8u r0, r10[r0]
 .Lxta.call_labels20:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	ldc r1, 2000
-	.loc	1 108 0
+	.loc	1 109 0
 	add r0, r0, r1
 	stw r0, sp[6]
 	ldc r0, 5
-	.loc	1 109 0
-	ld8u r0, r10[r0]
-.Lxta.call_labels21:
-	bl bcd2bin_8
-	stw r0, sp[8]
-	ldc r0, 4
 	.loc	1 110 0
 	ld8u r0, r10[r0]
-.Lxta.call_labels22:
-	bl bcd2bin_8
-	stw r0, sp[9]
+.Lxta.call_labels21:
+	bl BCD_To_Bin_8
+	stw r0, sp[8]
+	ldc r0, 4
 	.loc	1 111 0
+	ld8u r0, r10[r0]
+.Lxta.call_labels22:
+	bl BCD_To_Bin_8
+	stw r0, sp[9]
+	.loc	1 112 0
 	ldw r0, sp[3]
 	ld8u r0, r0[r7]
 .Lxta.call_labels23:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r4, r0
-	.loc	1 112 0
+	.loc	1 113 0
 	ldw r0, sp[2]
 	ld8u r0, r0[r7]
 .Lxta.call_labels24:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r6, r0
-	.loc	1 113 0
+	.loc	1 114 0
 	ld8u r0, r10[r7]
-	.loc	1 113 0
+	.loc	1 114 0
 	zext r0, 7
-	.loc	1 113 0
+	.loc	1 114 0
 .Lxta.call_labels25:
-	bl bcd2bin_8
+	bl BCD_To_Bin_8
 	mov r8, r0
 	ldw r0, sp[7]
 	ldw r0, r0[0]
 	clre
 	ldw r1, sp[5]
-.Ltmp264:
+.Ltmp277:
 	setd res[r5], r1
 	setc res[r5], 9
-	ldap r11, .Ltmp255
+	ldap r11, .Ltmp268
 	setv res[r5], r11
 	eeu res[r5]
-	ldap r11, .Ltmp256
+	ldap r11, .Ltmp269
 	setv res[r0], r11
 	eeu res[r0]
 	mov r10, r1
-.Ltmp265:
+.Ltmp278:
 
-	.xtabranch .LBB42_2, .LBB42_6
+	.xtabranch .LBB46_2, .LBB46_6
 	waiteu
-.Ltmp266:
-.Ltmp256:
-.LBB42_6:
+.Ltmp279:
+.Ltmp269:
+.LBB46_6:
 .Lxtalabel7:
 	in r1, res[r0]
 	ldc r2, 254
@@ -3356,22 +3565,22 @@ chronodot_ds3231_controller:
 	zext r2, 8
 	sub r1, r1, r2
 	setd res[r0], r1
-	bt r2, .LBB42_5
-.Ltmp267:
-	.loc	1 126 0
+	bt r2, .LBB46_5
+.Ltmp280:
+	.loc	1 127 0
 	ldw r1, sp[6]
 	stw r1, sp[10]
-	.loc	1 126 0
+	.loc	1 127 0
 	ldw r1, sp[8]
 	stw r1, sp[11]
-	.loc	1 126 0
+	.loc	1 127 0
 	ldw r1, sp[9]
 	stw r1, sp[12]
-	.loc	1 126 0
+	.loc	1 127 0
 	stw r4, sp[13]
-	.loc	1 126 0
+	.loc	1 127 0
 	stw r6, sp[14]
-	.loc	1 126 0
+	.loc	1 127 0
 	stw r8, sp[15]
 	out res[r0], r7
 	ldaw r1, sp[10]
@@ -3384,105 +3593,105 @@ chronodot_ds3231_controller:
 	clre
 	setd res[r5], r10
 	setc res[r5], 9
-	ldap r11, .Ltmp255
+	ldap r11, .Ltmp268
 	setv res[r5], r11
 	eeu res[r5]
-	ldap r11, .Ltmp256
+	ldap r11, .Ltmp269
 	setv res[r0], r11
 	eeu res[r0]
 
-	.xtabranch .LBB42_2, .LBB42_6
+	.xtabranch .LBB46_2, .LBB46_6
 	waiteu
-.Ltmp268:
-.LBB42_5:
+.Ltmp281:
+.LBB46_5:
 	outct res[r0], 1
 	ldaw r1, sp[16]
 	ldc r2, 24
 	bl sin_char_array
-	.loc	1 131 0
+	.loc	1 132 0
 	ldw r1, sp[16]
-	.loc	1 131 0
+	.loc	1 132 0
 	stw r1, sp[6]
 	ldw r0, sp[17]
-	.loc	1 131 0
+	.loc	1 132 0
 	stw r0, sp[8]
 	ldw r0, sp[18]
-	.loc	1 131 0
+	.loc	1 132 0
 	stw r0, sp[9]
 	ldw r4, sp[19]
-	.loc	1 131 0
+	.loc	1 132 0
 	ldw r6, sp[20]
-	.loc	1 131 0
+	.loc	1 132 0
 	ldw r8, sp[21]
 	ldc r0, 48
-	.loc	1 133 0
+	.loc	1 134 0
 	add r0, r1, r0
-	.loc	1 133 0
+	.loc	1 134 0
 	zext r0, 8
 .Lxta.call_labels26:
-	bl bin2bcd_8
-.Ltmp269:
+	bl Bin_To_BCD_8
+.Ltmp282:
 	ldc r1, 6
 	ldaw r9, sp[22]
-.Ltmp270:
-	.loc	1 133 0
-	st8 r0, r9[r1]
+.Ltmp283:
 	.loc	1 134 0
+	st8 r0, r9[r1]
+	.loc	1 135 0
 	ldw r0, sp[8]
 	zext r0, 8
 .Lxta.call_labels27:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 5
-	.loc	1 134 0
-	st8 r0, r9[r1]
 	.loc	1 135 0
+	st8 r0, r9[r1]
+	.loc	1 136 0
 	ldw r0, sp[9]
 	zext r0, 8
 .Lxta.call_labels28:
-	bl bin2bcd_8
+	bl Bin_To_BCD_8
 	ldc r1, 4
-	.loc	1 135 0
-	st8 r0, r9[r1]
 	.loc	1 136 0
+	st8 r0, r9[r1]
+	.loc	1 137 0
 	mov r0, r4
 	zext r0, 8
 .Lxta.call_labels29:
-	bl bin2bcd_8
-	.loc	1 136 0
+	bl Bin_To_BCD_8
+	.loc	1 137 0
 	ldw r1, sp[3]
 	st8 r0, r1[r7]
-	.loc	1 137 0
+	.loc	1 138 0
 	mov r0, r6
 	zext r0, 8
 .Lxta.call_labels30:
-	bl bin2bcd_8
-	.loc	1 137 0
+	bl Bin_To_BCD_8
+	.loc	1 138 0
 	ldw r1, sp[2]
 	st8 r0, r1[r7]
-	.loc	1 138 0
+	.loc	1 139 0
 	mov r0, r8
 	zext r0, 8
 .Lxta.call_labels31:
-	bl bin2bcd_8
-	.loc	1 138 0
+	bl Bin_To_BCD_8
+	.loc	1 139 0
 	st8 r0, r9[r7]
 	ldw r1, sp[4]
-.Ltmp271:
-	.loc	1 140 0
+.Ltmp284:
+	.loc	1 141 0
 	ldw r0, r1[0]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r1, r1[1]
-.Ltmp272:
-	.loc	1 140 0
+.Ltmp285:
+	.loc	1 141 0
 	ldw r3, r1[2]
 	ldc r1, 104
-	.loc	1 140 0
+	.loc	1 141 0
 	mov r2, r9
-.Ltmp273:
+.Ltmp286:
 .Lxta.call_labels32:
 	bla r3
 	mov r9, r0
-.Ltmp274:
+.Ltmp287:
 	ldw r0, sp[7]
 	ldw r0, r0[0]
 	out res[r0], r7
@@ -3491,202 +3700,202 @@ chronodot_ds3231_controller:
 	clre
 	setd res[r5], r10
 	setc res[r5], 9
-	ldap r11, .Ltmp255
+	ldap r11, .Ltmp268
 	setv res[r5], r11
 	eeu res[r5]
-	ldap r11, .Ltmp256
+	ldap r11, .Ltmp269
 	setv res[r0], r11
 	eeu res[r0]
 
-	.xtabranch .LBB42_2, .LBB42_6
+	.xtabranch .LBB46_2, .LBB46_6
 	waiteu
-.Ltmp275:
-	.cc_bottom chronodot_ds3231_controller.function
-	.set	chronodot_ds3231_controller.nstackwords,((puts.nstackwords $M _i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M bcd2bin_8.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M bin2bcd_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 34)
-	.globl	chronodot_ds3231_controller.nstackwords
-	.set	chronodot_ds3231_controller.maxcores,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M bcd2bin_8.maxcores $M bin2bcd_8.maxcores $M puts.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.globl	chronodot_ds3231_controller.maxcores
-	.set	chronodot_ds3231_controller.maxtimers,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M bcd2bin_8.maxtimers $M bin2bcd_8.maxtimers $M puts.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.globl	chronodot_ds3231_controller.maxtimers
-	.set	chronodot_ds3231_controller.maxchanends,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M bcd2bin_8.maxchanends $M bin2bcd_8.maxchanends $M puts.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
-	.globl	chronodot_ds3231_controller.maxchanends
-.Ltmp276:
-	.size	chronodot_ds3231_controller, .Ltmp276-chronodot_ds3231_controller
-.Lfunc_end42:
+.Ltmp288:
+	.cc_bottom Chronodot_DS3231_Controller.function
+	.set	Chronodot_DS3231_Controller.nstackwords,((puts.nstackwords $M _i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M BCD_To_Bin_8.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 34)
+	.globl	Chronodot_DS3231_Controller.nstackwords
+	.set	Chronodot_DS3231_Controller.maxcores,BCD_To_Bin_8.maxcores $M Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M puts.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.globl	Chronodot_DS3231_Controller.maxcores
+	.set	Chronodot_DS3231_Controller.maxtimers,BCD_To_Bin_8.maxtimers $M Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M puts.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.globl	Chronodot_DS3231_Controller.maxtimers
+	.set	Chronodot_DS3231_Controller.maxchanends,BCD_To_Bin_8.maxchanends $M Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M puts.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.globl	Chronodot_DS3231_Controller.maxchanends
+.Ltmp289:
+	.size	Chronodot_DS3231_Controller, .Ltmp289-Chronodot_DS3231_Controller
+.Lfunc_end46:
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.select.0.enable
+	.globl	Chronodot_DS3231_Controller.select.0.enable
 	.align	4
-	.type	chronodot_ds3231_controller.select.0.enable,@function
-	.cc_top chronodot_ds3231_controller.select.0.enable.function,chronodot_ds3231_controller.select.0.enable
-chronodot_ds3231_controller.select.0.enable:
+	.type	Chronodot_DS3231_Controller.select.0.enable,@function
+	.cc_top Chronodot_DS3231_Controller.select.0.enable.function,Chronodot_DS3231_Controller.select.0.enable
+Chronodot_DS3231_Controller.select.0.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp277:
+.Ltmp290:
 	.cfi_def_cfa_offset 8
-.Ltmp278:
+.Ltmp291:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp279:
+.Ltmp292:
 	.cfi_offset 4, -4
 	mov r4, r0
-	bl chronodot_ds3231_controller.init.1
+	bl Chronodot_DS3231_Controller.init.1
 	ldw r0, r4[0]
-	bf r0, .LBB43_1
+	bf r0, .LBB47_1
 	ldw r0, r4[2]
 	ldw r1, r0[0]
 	mkmsk r0, 1
-	bf r1, .LBB43_4
-	ldap r11, chronodot_ds3231_controller.select.0.case.0
+	bf r1, .LBB47_4
+	ldap r11, Chronodot_DS3231_Controller.select.0.case.0
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
 	eeu res[r1]
-	bu .LBB43_4
-.LBB43_1:
+	bu .LBB47_4
+.LBB47_1:
 	ldc r0, 0
-.LBB43_4:
+.LBB47_4:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.0.enable.function
-	.set	chronodot_ds3231_controller.select.0.enable.nstackwords,(chronodot_ds3231_controller.init.1.nstackwords + 2)
-	.globl	chronodot_ds3231_controller.select.0.enable.nstackwords
-	.set	chronodot_ds3231_controller.select.0.enable.maxcores,chronodot_ds3231_controller.init.1.maxcores $M 1
-	.globl	chronodot_ds3231_controller.select.0.enable.maxcores
-	.set	chronodot_ds3231_controller.select.0.enable.maxtimers,chronodot_ds3231_controller.init.1.maxtimers $M 0
-	.globl	chronodot_ds3231_controller.select.0.enable.maxtimers
-	.set	chronodot_ds3231_controller.select.0.enable.maxchanends,chronodot_ds3231_controller.init.1.maxchanends $M 0
-	.globl	chronodot_ds3231_controller.select.0.enable.maxchanends
-.Ltmp280:
-	.size	chronodot_ds3231_controller.select.0.enable, .Ltmp280-chronodot_ds3231_controller.select.0.enable
+	.cc_bottom Chronodot_DS3231_Controller.select.0.enable.function
+	.set	Chronodot_DS3231_Controller.select.0.enable.nstackwords,(Chronodot_DS3231_Controller.init.1.nstackwords + 2)
+	.globl	Chronodot_DS3231_Controller.select.0.enable.nstackwords
+	.set	Chronodot_DS3231_Controller.select.0.enable.maxcores,Chronodot_DS3231_Controller.init.1.maxcores $M 1
+	.globl	Chronodot_DS3231_Controller.select.0.enable.maxcores
+	.set	Chronodot_DS3231_Controller.select.0.enable.maxtimers,Chronodot_DS3231_Controller.init.1.maxtimers $M 0
+	.globl	Chronodot_DS3231_Controller.select.0.enable.maxtimers
+	.set	Chronodot_DS3231_Controller.select.0.enable.maxchanends,Chronodot_DS3231_Controller.init.1.maxchanends $M 0
+	.globl	Chronodot_DS3231_Controller.select.0.enable.maxchanends
+.Ltmp293:
+	.size	Chronodot_DS3231_Controller.select.0.enable, .Ltmp293-Chronodot_DS3231_Controller.select.0.enable
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.init.1
+	.globl	Chronodot_DS3231_Controller.init.1
 	.align	4
-	.type	chronodot_ds3231_controller.init.1,@function
-	.cc_top chronodot_ds3231_controller.init.1.function,chronodot_ds3231_controller.init.1
-chronodot_ds3231_controller.init.1:
-.Lfunc_begin44:
+	.type	Chronodot_DS3231_Controller.init.1,@function
+	.cc_top Chronodot_DS3231_Controller.init.1.function,Chronodot_DS3231_Controller.init.1
+Chronodot_DS3231_Controller.init.1:
+.Lfunc_begin48:
 	.file	2 "<synthesized>"
 	.loc	2 0 0
 	.cfi_startproc
 	entsp 2
-.Ltmp281:
+.Ltmp294:
 	.cfi_def_cfa_offset 8
-.Ltmp282:
+.Ltmp295:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp283:
+.Ltmp296:
 	.cfi_offset 4, -4
 	mov r4, r0
-.Ltmp284:
+.Ltmp297:
 	ldw r0, r4[1]
-	bf r0, .LBB44_2
-.Ltmp285:
+	bf r0, .LBB48_2
+.Ltmp298:
 	ldc r0, 0
 	stw r0, r4[1]
-	.loc	1 89 0 prologue_end
-.Ltmp286:
+	.loc	1 90 0 prologue_end
+.Ltmp299:
 	ldaw r0, r4[4]
-	.loc	1 89 0
-	ldaw r11, cp[chronodot_ds3231_controller.init.1.1.init]
+	.loc	1 90 0
+	ldaw r11, cp[Chronodot_DS3231_Controller.init.1.1.init]
 	ldc r2, 24
 	mov r1, r11
 	bl __memcpy_4
-	.loc	1 95 0
-.Ltmp287:
+	.loc	1 96 0
+.Ltmp300:
 	ldaw r11, cp[.Lstr14]
 	mov r0, r11
 	bl puts
-	.loc	1 97 0
+	.loc	1 98 0
 	get r11, id
-	.loc	1 97 0
+	.loc	1 98 0
 	ldaw r0, dp[__timers]
-	.loc	1 97 0
+	.loc	1 98 0
 	ldw r0, r0[r11]
-	.loc	1 97 0
+	.loc	1 98 0
 	setc res[r0], 1
 	ldc r1, 64
-	.loc	1 97 0
+	.loc	1 98 0
 	add r1, r4, r1
-	.loc	1 97 0
+	.loc	1 98 0
 .Lxta.endpoint_labels2:
 	in r0, res[r0]
-	.loc	1 97 0
+	.loc	1 98 0
 	stw r0, r1[0]
 	mkmsk r0, 1
 	stw r0, r4[0]
-.Ltmp288:
-.LBB44_2:
+.Ltmp301:
+.LBB48_2:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.init.1.function
-	.set	chronodot_ds3231_controller.init.1.nstackwords,((__memcpy_4.nstackwords $M puts.nstackwords) + 2)
-	.globl	chronodot_ds3231_controller.init.1.nstackwords
-	.set	chronodot_ds3231_controller.init.1.maxcores,puts.maxcores $M 1
-	.globl	chronodot_ds3231_controller.init.1.maxcores
-	.set	chronodot_ds3231_controller.init.1.maxtimers,puts.maxtimers $M 0
-	.globl	chronodot_ds3231_controller.init.1.maxtimers
-	.set	chronodot_ds3231_controller.init.1.maxchanends,puts.maxchanends $M 0
-	.globl	chronodot_ds3231_controller.init.1.maxchanends
-.Ltmp289:
-	.size	chronodot_ds3231_controller.init.1, .Ltmp289-chronodot_ds3231_controller.init.1
-.Lfunc_end44:
+	.cc_bottom Chronodot_DS3231_Controller.init.1.function
+	.set	Chronodot_DS3231_Controller.init.1.nstackwords,((__memcpy_4.nstackwords $M puts.nstackwords) + 2)
+	.globl	Chronodot_DS3231_Controller.init.1.nstackwords
+	.set	Chronodot_DS3231_Controller.init.1.maxcores,puts.maxcores $M 1
+	.globl	Chronodot_DS3231_Controller.init.1.maxcores
+	.set	Chronodot_DS3231_Controller.init.1.maxtimers,puts.maxtimers $M 0
+	.globl	Chronodot_DS3231_Controller.init.1.maxtimers
+	.set	Chronodot_DS3231_Controller.init.1.maxchanends,puts.maxchanends $M 0
+	.globl	Chronodot_DS3231_Controller.init.1.maxchanends
+.Ltmp302:
+	.size	Chronodot_DS3231_Controller.init.1, .Ltmp302-Chronodot_DS3231_Controller.init.1
+.Lfunc_end48:
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.init.0
+	.globl	Chronodot_DS3231_Controller.init.0
 	.align	4
-	.type	chronodot_ds3231_controller.init.0,@function
-	.cc_top chronodot_ds3231_controller.init.0.function,chronodot_ds3231_controller.init.0
-chronodot_ds3231_controller.init.0:
+	.type	Chronodot_DS3231_Controller.init.0,@function
+	.cc_top Chronodot_DS3231_Controller.init.0.function,Chronodot_DS3231_Controller.init.0
+Chronodot_DS3231_Controller.init.0:
 	.cfi_startproc
 .Lxtalabel8:
 	stw r1, r0[2]
 	stw r2, r0[3]
 	ldc r2, 0
 	stw r2, r0[0]
-	ldap r11, chronodot_ds3231_controller.init.1
+	ldap r11, Chronodot_DS3231_Controller.init.1
 	stw r11, r0[1]
 	ldw r2, r1[0]
-	bt r2, .LBB45_2
+	bt r2, .LBB49_2
 	ldw r1, r1[1]
 	stw r0, r1[0]
-.LBB45_2:
+.LBB49_2:
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.init.0.function
-	.set	chronodot_ds3231_controller.init.0.nstackwords,0
-	.globl	chronodot_ds3231_controller.init.0.nstackwords
-	.set	chronodot_ds3231_controller.init.0.maxcores,1
-	.globl	chronodot_ds3231_controller.init.0.maxcores
-	.set	chronodot_ds3231_controller.init.0.maxtimers,0
-	.globl	chronodot_ds3231_controller.init.0.maxtimers
-	.set	chronodot_ds3231_controller.init.0.maxchanends,0
-	.globl	chronodot_ds3231_controller.init.0.maxchanends
-.Ltmp290:
-	.size	chronodot_ds3231_controller.init.0, .Ltmp290-chronodot_ds3231_controller.init.0
+	.cc_bottom Chronodot_DS3231_Controller.init.0.function
+	.set	Chronodot_DS3231_Controller.init.0.nstackwords,0
+	.globl	Chronodot_DS3231_Controller.init.0.nstackwords
+	.set	Chronodot_DS3231_Controller.init.0.maxcores,1
+	.globl	Chronodot_DS3231_Controller.init.0.maxcores
+	.set	Chronodot_DS3231_Controller.init.0.maxtimers,0
+	.globl	Chronodot_DS3231_Controller.init.0.maxtimers
+	.set	Chronodot_DS3231_Controller.init.0.maxchanends,0
+	.globl	Chronodot_DS3231_Controller.init.0.maxchanends
+.Ltmp303:
+	.size	Chronodot_DS3231_Controller.init.0, .Ltmp303-Chronodot_DS3231_Controller.init.0
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.select.y.enable
+	.globl	Chronodot_DS3231_Controller.select.y.enable
 	.align	4
-	.type	chronodot_ds3231_controller.select.y.enable,@function
-	.cc_top chronodot_ds3231_controller.select.y.enable.function,chronodot_ds3231_controller.select.y.enable
-chronodot_ds3231_controller.select.y.enable:
+	.type	Chronodot_DS3231_Controller.select.y.enable,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.enable.function,Chronodot_DS3231_Controller.select.y.enable
+Chronodot_DS3231_Controller.select.y.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp291:
+.Ltmp304:
 	.cfi_def_cfa_offset 8
-.Ltmp292:
+.Ltmp305:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp293:
+.Ltmp306:
 	.cfi_offset 4, -4
 	mov r4, r0
-	bl chronodot_ds3231_controller.init.1
+	bl Chronodot_DS3231_Controller.init.1
 	ldw r0, r4[0]
-	bf r0, .LBB46_1
+	bf r0, .LBB50_1
 	get r11, id
 	ldaw r0, dp[__timers]
 	ldw r0, r0[r11]
@@ -3699,60 +3908,60 @@ chronodot_ds3231_controller.select.y.enable:
 	ldaw r3, dp[__timer_delta]
 	ldw r11, r3[r11]
 	lss r11, r11, r2
-	bt r11, .LBB46_3
+	bt r11, .LBB50_3
 	get r11, id
 	stw r2, r3[r11]
 	setd res[r0], r1
 	setc res[r0], 9
-	ldap r11, chronodot_ds3231_controller.select.y.case.0
+	ldap r11, Chronodot_DS3231_Controller.select.y.case.0
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
-.LBB46_3:
+.LBB50_3:
 	eeu res[r0]
 	ldw r0, r4[2]
 	ldw r1, r0[0]
 	mkmsk r0, 1
-	bf r1, .LBB46_5
-	ldap r11, chronodot_ds3231_controller.select.y.case.1
+	bf r1, .LBB50_5
+	ldap r11, Chronodot_DS3231_Controller.select.y.case.1
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
 	eeu res[r1]
-	bu .LBB46_5
-.LBB46_1:
+	bu .LBB50_5
+.LBB50_1:
 	ldc r0, 0
-.LBB46_5:
+.LBB50_5:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.y.enable.function
-	.set	chronodot_ds3231_controller.select.y.enable.nstackwords,(chronodot_ds3231_controller.init.1.nstackwords + 2)
-	.globl	chronodot_ds3231_controller.select.y.enable.nstackwords
-	.set	chronodot_ds3231_controller.select.y.enable.maxcores,chronodot_ds3231_controller.init.1.maxcores $M 1
-	.globl	chronodot_ds3231_controller.select.y.enable.maxcores
-	.set	chronodot_ds3231_controller.select.y.enable.maxtimers,chronodot_ds3231_controller.init.1.maxtimers $M 0
-	.globl	chronodot_ds3231_controller.select.y.enable.maxtimers
-	.set	chronodot_ds3231_controller.select.y.enable.maxchanends,chronodot_ds3231_controller.init.1.maxchanends $M 0
-	.globl	chronodot_ds3231_controller.select.y.enable.maxchanends
-.Ltmp294:
-	.size	chronodot_ds3231_controller.select.y.enable, .Ltmp294-chronodot_ds3231_controller.select.y.enable
+	.cc_bottom Chronodot_DS3231_Controller.select.y.enable.function
+	.set	Chronodot_DS3231_Controller.select.y.enable.nstackwords,(Chronodot_DS3231_Controller.init.1.nstackwords + 2)
+	.globl	Chronodot_DS3231_Controller.select.y.enable.nstackwords
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxcores,Chronodot_DS3231_Controller.init.1.maxcores $M 1
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxcores
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxtimers,Chronodot_DS3231_Controller.init.1.maxtimers $M 0
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxtimers
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxchanends,Chronodot_DS3231_Controller.init.1.maxchanends $M 0
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxchanends
+.Ltmp307:
+	.size	Chronodot_DS3231_Controller.select.y.enable, .Ltmp307-Chronodot_DS3231_Controller.select.y.enable
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.select.enable
+	.globl	Chronodot_DS3231_Controller.select.enable
 	.align	4
-	.type	chronodot_ds3231_controller.select.enable,@function
-	.cc_top chronodot_ds3231_controller.select.enable.function,chronodot_ds3231_controller.select.enable
-chronodot_ds3231_controller.select.enable:
+	.type	Chronodot_DS3231_Controller.select.enable,@function
+	.cc_top Chronodot_DS3231_Controller.select.enable.function,Chronodot_DS3231_Controller.select.enable
+Chronodot_DS3231_Controller.select.enable:
 	.cfi_startproc
 	extsp 1
-.Ltmp295:
+.Ltmp308:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp296:
+.Ltmp309:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
-	bf r1, .LBB47_1
+	bf r1, .LBB51_1
 	get r11, id
 	ldaw r1, dp[__timers]
 	ldw r1, r1[r11]
@@ -3765,781 +3974,101 @@ chronodot_ds3231_controller.select.enable:
 	ldaw r4, dp[__timer_delta]
 	ldw r11, r4[r11]
 	lss r11, r11, r3
-	bt r11, .LBB47_3
+	bt r11, .LBB51_3
 	get r11, id
 	stw r3, r4[r11]
 	setd res[r1], r2
 	setc res[r1], 9
-	ldap r11, chronodot_ds3231_controller.select.case.0
+	ldap r11, Chronodot_DS3231_Controller.select.case.0
 	setv res[r1], r11
 	mov r11, r0
 	setev res[r1], r11
-.LBB47_3:
+.LBB51_3:
 	eeu res[r1]
 	ldw r1, r0[2]
 	ldw r2, r1[0]
 	mkmsk r1, 1
-	bf r2, .LBB47_5
-	ldap r11, chronodot_ds3231_controller.select.case.1
+	bf r2, .LBB51_5
+	ldap r11, Chronodot_DS3231_Controller.select.case.1
 	setv res[r2], r11
 	mov r11, r0
 	setev res[r2], r11
 	eeu res[r2]
-	bu .LBB47_5
-.LBB47_1:
+	bu .LBB51_5
+.LBB51_1:
 	ldc r1, 0
-.LBB47_5:
+.LBB51_5:
 	mov r0, r1
 	ldw r4, sp[0]
 	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.enable.function
-	.set	chronodot_ds3231_controller.select.enable.nstackwords,1
-	.globl	chronodot_ds3231_controller.select.enable.nstackwords
-	.set	chronodot_ds3231_controller.select.enable.maxcores,1
-	.globl	chronodot_ds3231_controller.select.enable.maxcores
-	.set	chronodot_ds3231_controller.select.enable.maxtimers,0
-	.globl	chronodot_ds3231_controller.select.enable.maxtimers
-	.set	chronodot_ds3231_controller.select.enable.maxchanends,0
-	.globl	chronodot_ds3231_controller.select.enable.maxchanends
-.Ltmp297:
-	.size	chronodot_ds3231_controller.select.enable, .Ltmp297-chronodot_ds3231_controller.select.enable
+	.cc_bottom Chronodot_DS3231_Controller.select.enable.function
+	.set	Chronodot_DS3231_Controller.select.enable.nstackwords,1
+	.globl	Chronodot_DS3231_Controller.select.enable.nstackwords
+	.set	Chronodot_DS3231_Controller.select.enable.maxcores,1
+	.globl	Chronodot_DS3231_Controller.select.enable.maxcores
+	.set	Chronodot_DS3231_Controller.select.enable.maxtimers,0
+	.globl	Chronodot_DS3231_Controller.select.enable.maxtimers
+	.set	Chronodot_DS3231_Controller.select.enable.maxchanends,0
+	.globl	Chronodot_DS3231_Controller.select.enable.maxchanends
+.Ltmp310:
+	.size	Chronodot_DS3231_Controller.select.enable, .Ltmp310-Chronodot_DS3231_Controller.select.enable
 	.cfi_endproc
 
-	.globl	chronodot_ds3231_controller.fini
+	.globl	Chronodot_DS3231_Controller.fini
 	.align	4
-	.type	chronodot_ds3231_controller.fini,@function
-	.cc_top chronodot_ds3231_controller.fini.function,chronodot_ds3231_controller.fini
-chronodot_ds3231_controller.fini:
+	.type	Chronodot_DS3231_Controller.fini,@function
+	.cc_top Chronodot_DS3231_Controller.fini.function,Chronodot_DS3231_Controller.fini
+Chronodot_DS3231_Controller.fini:
 	.cfi_startproc
 	ldw r0, r0[0]
-	bf r0, .LBB48_2
-.LBB48_1:
-	bu .LBB48_1
-.LBB48_2:
+	bf r0, .LBB52_2
+.LBB52_1:
+	bu .LBB52_1
+.LBB52_2:
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.fini.function
-	.set	chronodot_ds3231_controller.fini.nstackwords,0
-	.globl	chronodot_ds3231_controller.fini.nstackwords
-	.set	chronodot_ds3231_controller.fini.maxcores,1
-	.globl	chronodot_ds3231_controller.fini.maxcores
-	.set	chronodot_ds3231_controller.fini.maxtimers,0
-	.globl	chronodot_ds3231_controller.fini.maxtimers
-	.set	chronodot_ds3231_controller.fini.maxchanends,0
-	.globl	chronodot_ds3231_controller.fini.maxchanends
-.Ltmp298:
-	.size	chronodot_ds3231_controller.fini, .Ltmp298-chronodot_ds3231_controller.fini
+	.cc_bottom Chronodot_DS3231_Controller.fini.function
+	.set	Chronodot_DS3231_Controller.fini.nstackwords,0
+	.globl	Chronodot_DS3231_Controller.fini.nstackwords
+	.set	Chronodot_DS3231_Controller.fini.maxcores,1
+	.globl	Chronodot_DS3231_Controller.fini.maxcores
+	.set	Chronodot_DS3231_Controller.fini.maxtimers,0
+	.globl	Chronodot_DS3231_Controller.fini.maxtimers
+	.set	Chronodot_DS3231_Controller.fini.maxchanends,0
+	.globl	Chronodot_DS3231_Controller.fini.maxchanends
+.Ltmp311:
+	.size	Chronodot_DS3231_Controller.fini, .Ltmp311-Chronodot_DS3231_Controller.fini
 	.cfi_endproc
 
 	.align	4
-	.type	chronodot_ds3231_controller.select.0.case.0,@function
-	.cc_top chronodot_ds3231_controller.select.0.case.0.function,chronodot_ds3231_controller.select.0.case.0
-chronodot_ds3231_controller.select.0.case.0:
-.Lfunc_begin49:
-	.loc	1 125 0
+	.type	Chronodot_DS3231_Controller.select.0.case.0,@function
+	.cc_top Chronodot_DS3231_Controller.select.0.case.0.function,Chronodot_DS3231_Controller.select.0.case.0
+Chronodot_DS3231_Controller.select.0.case.0:
+.Lfunc_begin53:
+	.loc	1 126 0
 	.cfi_startproc
 .Lxtalabel9:
 	entsp 18
-.Ltmp299:
-	.cfi_def_cfa_offset 72
-.Ltmp300:
-	.cfi_offset 15, 0
-	stw r4, sp[17]
-.Ltmp301:
-	.cfi_offset 4, -4
-	stw r5, sp[16]
-.Ltmp302:
-	.cfi_offset 5, -8
-	stw r6, sp[15]
-.Ltmp303:
-	.cfi_offset 6, -12
-	stw r7, sp[14]
-.Ltmp304:
-	.cfi_offset 7, -16
-	stw r8, sp[13]
-.Ltmp305:
-	.cfi_offset 8, -20
-	get r11, ed
-	mov r4, r11
-	ldc r7, 0
-	stw r7, r4[0]
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	in r1, res[r0]
-	ldc r2, 254
-	add r2, r1, r2
-	zext r2, 8
-	sub r1, r1, r2
-	setd res[r0], r1
-	bf r2, .LBB49_2
-	outct res[r0], 1
-	ldaw r5, sp[7]
-	ldc r6, 24
-	mov r1, r5
-	mov r2, r6
-	bl sin_char_array
-	.loc	1 131 0 prologue_end
-.Ltmp306:
-	ldaw r0, r4[4]
-	.loc	1 131 0
-	mov r1, r5
-	mov r2, r6
-	bl __memcpy_4
-	.loc	1 133 0
-	ldaw r5, r4[10]
-	.loc	1 133 0
-	ldw r0, r4[4]
-	ldc r1, 48
-	.loc	1 133 0
-	add r0, r0, r1
-	.loc	1 133 0
-	zext r0, 8
-.Lxta.call_labels33:
-	bl bin2bcd_8
-	ldc r1, 46
-	.loc	1 133 0
-	st8 r0, r4[r1]
-	ldc r0, 20
-	.loc	1 134 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels34:
-	bl bin2bcd_8
-	ldc r1, 45
-	.loc	1 134 0
-	st8 r0, r4[r1]
-	.loc	1 135 0
-	ld8u r0, r4[r6]
-.Lxta.call_labels35:
-	bl bin2bcd_8
-	ldc r1, 44
-	.loc	1 135 0
-	st8 r0, r4[r1]
-	ldc r0, 28
-	.loc	1 136 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels36:
-	bl bin2bcd_8
-	ldc r1, 42
-	.loc	1 136 0
-	st8 r0, r4[r1]
-	ldc r0, 32
-	.loc	1 137 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels37:
-	bl bin2bcd_8
-	ldc r1, 41
-	.loc	1 137 0
-	st8 r0, r4[r1]
-	ldc r0, 36
-	.loc	1 138 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels38:
-	bl bin2bcd_8
-	ldc r1, 40
-	.loc	1 138 0
-	st8 r0, r4[r1]
-	ldc r0, 60
-	.loc	1 140 0
-	add r6, r4, r0
-	.loc	1 140 0
-	ldw r1, r4[3]
-	.loc	1 140 0
-	ldw r0, r1[0]
-	.loc	1 140 0
-	ldw r1, r1[1]
-	.loc	1 140 0
-	ldw r3, r1[2]
-	ldc r1, 104
-	.loc	1 140 0
-	mov r2, r5
-.Lxta.call_labels39:
-	bla r3
-.Ltmp307:
-	.loc	1 140 0
-	stw r0, r6[0]
-	ldw r1, r4[2]
-	ldw r1, r1[0]
-	out res[r1], r7
-	out res[r1], r0
-	outct res[r1], 1
-	bu .LBB49_3
-.Ltmp308:
-.LBB49_2:
-	.loc	1 126 0
-	ldaw r1, r4[4]
-	ldaw r5, sp[1]
-	ldc r6, 24
-	.loc	1 126 0
-	mov r0, r5
-	mov r2, r6
-	bl __memcpy_4
-	ldc r0, 60
-	.loc	1 127 0
-	add r0, r4, r0
-	.loc	1 127 0
-	ldw r8, r0[0]
-.Ltmp309:
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	out res[r0], r7
-	mov r1, r5
-	mov r2, r6
-	bl sout_char_array
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	out res[r0], r8
-	outct res[r0], 1
-.Ltmp310:
-.LBB49_3:
-	mkmsk r0, 1
-	stw r0, r4[0]
-	ldw r8, sp[13]
-	ldw r7, sp[14]
-	ldw r6, sp[15]
-	ldw r5, sp[16]
-	ldw r4, sp[17]
-	retsp 18
-	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.0.case.0.function
-	.set	chronodot_ds3231_controller.select.0.case.0.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M bin2bcd_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
-	.set	chronodot_ds3231_controller.select.0.case.0.maxcores,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M bin2bcd_8.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	chronodot_ds3231_controller.select.0.case.0.maxtimers,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M bin2bcd_8.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	chronodot_ds3231_controller.select.0.case.0.maxchanends,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M bin2bcd_8.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
-.Ltmp311:
-	.size	chronodot_ds3231_controller.select.0.case.0, .Ltmp311-chronodot_ds3231_controller.select.0.case.0
-.Lfunc_end49:
-	.cfi_endproc
-
-	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI50_0.data,.LCPI50_0
-	.align	4
-	.type	.LCPI50_0,@object
-	.size	.LCPI50_0, 4
-.LCPI50_0:
-	.long	100000000
-	.cc_bottom .LCPI50_0.data
-	.text
-	.align	4
-	.type	chronodot_ds3231_controller.select.y.case.0,@function
-	.cc_top chronodot_ds3231_controller.select.y.case.0.function,chronodot_ds3231_controller.select.y.case.0
-chronodot_ds3231_controller.select.y.case.0:
-.Lfunc_begin50:
-	.loc	1 101 0
-	.cfi_startproc
-.Lxtalabel10:
-	entsp 11
 .Ltmp312:
-	.cfi_def_cfa_offset 44
+	.cfi_def_cfa_offset 72
 .Ltmp313:
 	.cfi_offset 15, 0
-	stw r4, sp[10]
+	stw r4, sp[17]
 .Ltmp314:
 	.cfi_offset 4, -4
-	stw r5, sp[9]
+	stw r5, sp[16]
 .Ltmp315:
 	.cfi_offset 5, -8
-	stw r6, sp[8]
+	stw r6, sp[15]
 .Ltmp316:
 	.cfi_offset 6, -12
-	stw r7, sp[7]
+	stw r7, sp[14]
 .Ltmp317:
 	.cfi_offset 7, -16
-	stw r8, sp[6]
+	stw r8, sp[13]
 .Ltmp318:
-	.cfi_offset 8, -20
-	get r11, ed
-	mov r4, r11
-	.loc	1 101 0 prologue_end
-.Ltmp319:
-	get r11, id
-	.loc	1 101 0
-	ldaw r0, dp[__timers]
-	.loc	1 101 0
-	ldw r0, r0[r11]
-	.loc	1 101 0
-.Ltmp320:
-.Lxta.endpoint_labels3:
-	in r0, res[r0]
-	ldc r8, 0
-	stw r8, r4[0]
-	ldc r0, 64
-.Ltmp321:
-	.loc	1 103 0
-	add r0, r4, r0
-	.loc	1 103 0
-	ldw r1, r0[0]
-	ldw r2, cp[.LCPI50_0]
-	.loc	1 103 0
-	add r1, r1, r2
-	.loc	1 103 0
-	stw r1, r0[0]
-	.loc	1 105 0
-	ldw r0, r4[3]
-	.loc	1 105 0
-	ldw r1, r0[0]
-	.loc	1 105 0
-	ldw r0, r0[1]
-	.loc	1 105 0
-	ldw r3, r0[1]
-	ldaw r6, sp[1]
-	ldc r2, 104
-	.loc	1 105 0
-	mov r0, r6
-.Lxta.call_labels40:
-	bla r3
-	mov r7, r0
-	.loc	1 105 0
-	ldaw r5, r4[10]
-	ldc r2, 19
-	.loc	1 105 0
-	mov r0, r5
-	mov r1, r6
-	bl memcpy
-	ldc r0, 60
-	.loc	1 105 0
-	add r0, r4, r0
-	.loc	1 105 0
-	stw r7, r0[0]
-	bf r7, .LBB50_2
-.Lxtalabel11:
-	ldc r0, 46
-	.loc	1 108 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels41:
-	bl bcd2bin_8
-	ldc r1, 2000
-	.loc	1 108 0
-	add r0, r0, r1
-	.loc	1 108 0
-	stw r0, r4[4]
-	ldc r0, 45
-	.loc	1 109 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels42:
-	bl bcd2bin_8
-	.loc	1 109 0
-	stw r0, r4[5]
-	ldc r0, 44
-	.loc	1 110 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels43:
-	bl bcd2bin_8
-	.loc	1 110 0
-	stw r0, r4[6]
-	ldc r0, 42
-	.loc	1 111 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels44:
-	bl bcd2bin_8
-	.loc	1 111 0
-	stw r0, r4[7]
-	ldc r0, 41
-	.loc	1 112 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels45:
-	bl bcd2bin_8
-	.loc	1 112 0
-	stw r0, r4[8]
-	.loc	1 113 0
-	ld8u r0, r5[r8]
-	.loc	1 113 0
-	zext r0, 7
-	.loc	1 113 0
-.Lxta.call_labels46:
-	bl bcd2bin_8
-	.loc	1 113 0
-	stw r0, r4[9]
-.Ltmp322:
-.LBB50_2:
-.Lxtalabel12:
-	mkmsk r0, 1
-	stw r0, r4[0]
-	ldw r8, sp[6]
-	ldw r7, sp[7]
-	ldw r6, sp[8]
-	ldw r5, sp[9]
-	ldw r4, sp[10]
-	retsp 11
-	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.y.case.0.function
-	.set	chronodot_ds3231_controller.select.y.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M bcd2bin_8.nstackwords) + 11)
-	.set	chronodot_ds3231_controller.select.y.case.0.maxcores,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M bcd2bin_8.maxcores $M 1
-	.set	chronodot_ds3231_controller.select.y.case.0.maxtimers,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M bcd2bin_8.maxtimers $M 0
-	.set	chronodot_ds3231_controller.select.y.case.0.maxchanends,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M bcd2bin_8.maxchanends $M 0
-.Ltmp323:
-	.size	chronodot_ds3231_controller.select.y.case.0, .Ltmp323-chronodot_ds3231_controller.select.y.case.0
-.Lfunc_end50:
-	.cfi_endproc
-
-	.align	4
-	.type	chronodot_ds3231_controller.select.y.case.1,@function
-	.cc_top chronodot_ds3231_controller.select.y.case.1.function,chronodot_ds3231_controller.select.y.case.1
-chronodot_ds3231_controller.select.y.case.1:
-.Lfunc_begin51:
-	.loc	1 125 0
-	.cfi_startproc
-.Lxtalabel13:
-	entsp 18
-.Ltmp324:
-	.cfi_def_cfa_offset 72
-.Ltmp325:
-	.cfi_offset 15, 0
-	stw r4, sp[17]
-.Ltmp326:
-	.cfi_offset 4, -4
-	stw r5, sp[16]
-.Ltmp327:
-	.cfi_offset 5, -8
-	stw r6, sp[15]
-.Ltmp328:
-	.cfi_offset 6, -12
-	stw r7, sp[14]
-.Ltmp329:
-	.cfi_offset 7, -16
-	stw r8, sp[13]
-.Ltmp330:
-	.cfi_offset 8, -20
-	get r11, ed
-	mov r4, r11
-	ldc r7, 0
-	stw r7, r4[0]
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	in r1, res[r0]
-	ldc r2, 254
-	add r2, r1, r2
-	zext r2, 8
-	sub r1, r1, r2
-	setd res[r0], r1
-	bf r2, .LBB51_2
-	outct res[r0], 1
-	ldaw r5, sp[7]
-	ldc r6, 24
-	mov r1, r5
-	mov r2, r6
-	bl sin_char_array
-	.loc	1 131 0 prologue_end
-.Ltmp331:
-	ldaw r0, r4[4]
-	.loc	1 131 0
-	mov r1, r5
-	mov r2, r6
-	bl __memcpy_4
-	.loc	1 133 0
-	ldaw r5, r4[10]
-	.loc	1 133 0
-	ldw r0, r4[4]
-	ldc r1, 48
-	.loc	1 133 0
-	add r0, r0, r1
-	.loc	1 133 0
-	zext r0, 8
-.Lxta.call_labels47:
-	bl bin2bcd_8
-	ldc r1, 46
-	.loc	1 133 0
-	st8 r0, r4[r1]
-	ldc r0, 20
-	.loc	1 134 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels48:
-	bl bin2bcd_8
-	ldc r1, 45
-	.loc	1 134 0
-	st8 r0, r4[r1]
-	.loc	1 135 0
-	ld8u r0, r4[r6]
-.Lxta.call_labels49:
-	bl bin2bcd_8
-	ldc r1, 44
-	.loc	1 135 0
-	st8 r0, r4[r1]
-	ldc r0, 28
-	.loc	1 136 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels50:
-	bl bin2bcd_8
-	ldc r1, 42
-	.loc	1 136 0
-	st8 r0, r4[r1]
-	ldc r0, 32
-	.loc	1 137 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels51:
-	bl bin2bcd_8
-	ldc r1, 41
-	.loc	1 137 0
-	st8 r0, r4[r1]
-	ldc r0, 36
-	.loc	1 138 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels52:
-	bl bin2bcd_8
-	ldc r1, 40
-	.loc	1 138 0
-	st8 r0, r4[r1]
-	ldc r0, 60
-	.loc	1 140 0
-	add r6, r4, r0
-	.loc	1 140 0
-	ldw r1, r4[3]
-	.loc	1 140 0
-	ldw r0, r1[0]
-	.loc	1 140 0
-	ldw r1, r1[1]
-	.loc	1 140 0
-	ldw r3, r1[2]
-	ldc r1, 104
-	.loc	1 140 0
-	mov r2, r5
-.Lxta.call_labels53:
-	bla r3
-.Ltmp332:
-	.loc	1 140 0
-	stw r0, r6[0]
-	ldw r1, r4[2]
-	ldw r1, r1[0]
-	out res[r1], r7
-	out res[r1], r0
-	outct res[r1], 1
-	bu .LBB51_3
-.Ltmp333:
-.LBB51_2:
-	.loc	1 126 0
-	ldaw r1, r4[4]
-	ldaw r5, sp[1]
-	ldc r6, 24
-	.loc	1 126 0
-	mov r0, r5
-	mov r2, r6
-	bl __memcpy_4
-	ldc r0, 60
-	.loc	1 127 0
-	add r0, r4, r0
-	.loc	1 127 0
-	ldw r8, r0[0]
-.Ltmp334:
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	out res[r0], r7
-	mov r1, r5
-	mov r2, r6
-	bl sout_char_array
-	ldw r0, r4[2]
-	ldw r0, r0[0]
-	out res[r0], r8
-	outct res[r0], 1
-.Ltmp335:
-.LBB51_3:
-	mkmsk r0, 1
-	stw r0, r4[0]
-	ldw r8, sp[13]
-	ldw r7, sp[14]
-	ldw r6, sp[15]
-	ldw r5, sp[16]
-	ldw r4, sp[17]
-	retsp 18
-	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.y.case.1.function
-	.set	chronodot_ds3231_controller.select.y.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M bin2bcd_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
-	.set	chronodot_ds3231_controller.select.y.case.1.maxcores,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M bin2bcd_8.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	chronodot_ds3231_controller.select.y.case.1.maxtimers,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M bin2bcd_8.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	chronodot_ds3231_controller.select.y.case.1.maxchanends,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M bin2bcd_8.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
-.Ltmp336:
-	.size	chronodot_ds3231_controller.select.y.case.1, .Ltmp336-chronodot_ds3231_controller.select.y.case.1
-.Lfunc_end51:
-	.cfi_endproc
-
-	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI52_0.data,.LCPI52_0
-	.align	4
-	.type	.LCPI52_0,@object
-	.size	.LCPI52_0, 4
-.LCPI52_0:
-	.long	100000000
-	.cc_bottom .LCPI52_0.data
-	.text
-	.align	4
-	.type	chronodot_ds3231_controller.select.case.0,@function
-	.cc_top chronodot_ds3231_controller.select.case.0.function,chronodot_ds3231_controller.select.case.0
-chronodot_ds3231_controller.select.case.0:
-.Lfunc_begin52:
-	.loc	1 101 0
-	.cfi_startproc
-.Lxtalabel14:
-	entsp 11
-.Ltmp337:
-	.cfi_def_cfa_offset 44
-.Ltmp338:
-	.cfi_offset 15, 0
-	stw r4, sp[10]
-.Ltmp339:
-	.cfi_offset 4, -4
-	stw r5, sp[9]
-.Ltmp340:
-	.cfi_offset 5, -8
-	stw r6, sp[8]
-.Ltmp341:
-	.cfi_offset 6, -12
-	stw r7, sp[7]
-.Ltmp342:
-	.cfi_offset 7, -16
-	stw r8, sp[6]
-.Ltmp343:
-	.cfi_offset 8, -20
-	get r11, ed
-	mov r4, r11
-	.loc	1 101 0 prologue_end
-.Ltmp344:
-	get r11, id
-	.loc	1 101 0
-	ldaw r0, dp[__timers]
-	.loc	1 101 0
-	ldw r0, r0[r11]
-	.loc	1 101 0
-.Ltmp345:
-.Lxta.endpoint_labels4:
-	in r0, res[r0]
-	ldc r8, 0
-	stw r8, r4[0]
-	ldc r0, 64
-.Ltmp346:
-	.loc	1 103 0
-	add r0, r4, r0
-	.loc	1 103 0
-	ldw r1, r0[0]
-	ldw r2, cp[.LCPI52_0]
-	.loc	1 103 0
-	add r1, r1, r2
-	.loc	1 103 0
-	stw r1, r0[0]
-	.loc	1 105 0
-	ldw r0, r4[3]
-	.loc	1 105 0
-	ldw r1, r0[0]
-	.loc	1 105 0
-	ldw r0, r0[1]
-	.loc	1 105 0
-	ldw r3, r0[1]
-	ldaw r6, sp[1]
-	ldc r2, 104
-	.loc	1 105 0
-	mov r0, r6
-.Lxta.call_labels54:
-	bla r3
-	mov r7, r0
-	.loc	1 105 0
-	ldaw r5, r4[10]
-	ldc r2, 19
-	.loc	1 105 0
-	mov r0, r5
-	mov r1, r6
-	bl memcpy
-	ldc r0, 60
-	.loc	1 105 0
-	add r0, r4, r0
-	.loc	1 105 0
-	stw r7, r0[0]
-	bf r7, .LBB52_2
-.Lxtalabel15:
-	ldc r0, 46
-	.loc	1 108 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels55:
-	bl bcd2bin_8
-	ldc r1, 2000
-	.loc	1 108 0
-	add r0, r0, r1
-	.loc	1 108 0
-	stw r0, r4[4]
-	ldc r0, 45
-	.loc	1 109 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels56:
-	bl bcd2bin_8
-	.loc	1 109 0
-	stw r0, r4[5]
-	ldc r0, 44
-	.loc	1 110 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels57:
-	bl bcd2bin_8
-	.loc	1 110 0
-	stw r0, r4[6]
-	ldc r0, 42
-	.loc	1 111 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels58:
-	bl bcd2bin_8
-	.loc	1 111 0
-	stw r0, r4[7]
-	ldc r0, 41
-	.loc	1 112 0
-	ld8u r0, r4[r0]
-.Lxta.call_labels59:
-	bl bcd2bin_8
-	.loc	1 112 0
-	stw r0, r4[8]
-	.loc	1 113 0
-	ld8u r0, r5[r8]
-	.loc	1 113 0
-	zext r0, 7
-	.loc	1 113 0
-.Lxta.call_labels60:
-	bl bcd2bin_8
-	.loc	1 113 0
-	stw r0, r4[9]
-.Ltmp347:
-.LBB52_2:
-.Lxtalabel16:
-	mkmsk r0, 1
-	stw r0, r4[0]
-	ldw r8, sp[6]
-	ldw r7, sp[7]
-	ldw r6, sp[8]
-	ldw r5, sp[9]
-	ldw r4, sp[10]
-	retsp 11
-	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.case.0.function
-	.set	chronodot_ds3231_controller.select.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M bcd2bin_8.nstackwords) + 11)
-	.set	chronodot_ds3231_controller.select.case.0.maxcores,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M bcd2bin_8.maxcores $M 1
-	.set	chronodot_ds3231_controller.select.case.0.maxtimers,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M bcd2bin_8.maxtimers $M 0
-	.set	chronodot_ds3231_controller.select.case.0.maxchanends,_i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M bcd2bin_8.maxchanends $M 0
-.Ltmp348:
-	.size	chronodot_ds3231_controller.select.case.0, .Ltmp348-chronodot_ds3231_controller.select.case.0
-.Lfunc_end52:
-	.cfi_endproc
-
-	.align	4
-	.type	chronodot_ds3231_controller.select.case.1,@function
-	.cc_top chronodot_ds3231_controller.select.case.1.function,chronodot_ds3231_controller.select.case.1
-chronodot_ds3231_controller.select.case.1:
-.Lfunc_begin53:
-	.loc	1 125 0
-	.cfi_startproc
-.Lxtalabel17:
-	entsp 18
-.Ltmp349:
-	.cfi_def_cfa_offset 72
-.Ltmp350:
-	.cfi_offset 15, 0
-	stw r4, sp[17]
-.Ltmp351:
-	.cfi_offset 4, -4
-	stw r5, sp[16]
-.Ltmp352:
-	.cfi_offset 5, -8
-	stw r6, sp[15]
-.Ltmp353:
-	.cfi_offset 6, -12
-	stw r7, sp[14]
-.Ltmp354:
-	.cfi_offset 7, -16
-	stw r8, sp[13]
-.Ltmp355:
 	.cfi_offset 8, -20
 	get r11, ed
 	mov r4, r11
@@ -4560,84 +4089,84 @@ chronodot_ds3231_controller.select.case.1:
 	mov r1, r5
 	mov r2, r6
 	bl sin_char_array
-	.loc	1 131 0 prologue_end
-.Ltmp356:
+	.loc	1 132 0 prologue_end
+.Ltmp319:
 	ldaw r0, r4[4]
-	.loc	1 131 0
+	.loc	1 132 0
 	mov r1, r5
 	mov r2, r6
 	bl __memcpy_4
-	.loc	1 133 0
+	.loc	1 134 0
 	ldaw r5, r4[10]
-	.loc	1 133 0
+	.loc	1 134 0
 	ldw r0, r4[4]
 	ldc r1, 48
-	.loc	1 133 0
+	.loc	1 134 0
 	add r0, r0, r1
-	.loc	1 133 0
+	.loc	1 134 0
 	zext r0, 8
-.Lxta.call_labels61:
-	bl bin2bcd_8
+.Lxta.call_labels33:
+	bl Bin_To_BCD_8
 	ldc r1, 46
-	.loc	1 133 0
+	.loc	1 134 0
 	st8 r0, r4[r1]
 	ldc r0, 20
-	.loc	1 134 0
+	.loc	1 135 0
 	ld8u r0, r4[r0]
-.Lxta.call_labels62:
-	bl bin2bcd_8
+.Lxta.call_labels34:
+	bl Bin_To_BCD_8
 	ldc r1, 45
-	.loc	1 134 0
+	.loc	1 135 0
 	st8 r0, r4[r1]
-	.loc	1 135 0
+	.loc	1 136 0
 	ld8u r0, r4[r6]
-.Lxta.call_labels63:
-	bl bin2bcd_8
+.Lxta.call_labels35:
+	bl Bin_To_BCD_8
 	ldc r1, 44
-	.loc	1 135 0
+	.loc	1 136 0
 	st8 r0, r4[r1]
 	ldc r0, 28
-	.loc	1 136 0
+	.loc	1 137 0
 	ld8u r0, r4[r0]
-.Lxta.call_labels64:
-	bl bin2bcd_8
+.Lxta.call_labels36:
+	bl Bin_To_BCD_8
 	ldc r1, 42
-	.loc	1 136 0
+	.loc	1 137 0
 	st8 r0, r4[r1]
 	ldc r0, 32
-	.loc	1 137 0
+	.loc	1 138 0
 	ld8u r0, r4[r0]
-.Lxta.call_labels65:
-	bl bin2bcd_8
+.Lxta.call_labels37:
+	bl Bin_To_BCD_8
 	ldc r1, 41
-	.loc	1 137 0
+	.loc	1 138 0
 	st8 r0, r4[r1]
 	ldc r0, 36
-	.loc	1 138 0
+	.loc	1 139 0
 	ld8u r0, r4[r0]
-.Lxta.call_labels66:
-	bl bin2bcd_8
+.Lxta.call_labels38:
+	bl Bin_To_BCD_8
 	ldc r1, 40
-	.loc	1 138 0
+	.loc	1 139 0
 	st8 r0, r4[r1]
 	ldc r0, 60
-	.loc	1 140 0
+	.loc	1 141 0
 	add r6, r4, r0
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r1, r4[3]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r0, r1[0]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r1, r1[1]
-	.loc	1 140 0
+	.loc	1 141 0
 	ldw r3, r1[2]
 	ldc r1, 104
-	.loc	1 140 0
+	.loc	1 141 0
 	mov r2, r5
-.Lxta.call_labels67:
+.Lxta.call_labels39:
 	bla r3
-.Ltmp357:
-	.loc	1 140 0
+.Ltmp320:
+	.loc	1 141 0
 	stw r0, r6[0]
 	ldw r1, r4[2]
 	ldw r1, r1[0]
@@ -4645,22 +4174,22 @@ chronodot_ds3231_controller.select.case.1:
 	out res[r1], r0
 	outct res[r1], 1
 	bu .LBB53_3
-.Ltmp358:
+.Ltmp321:
 .LBB53_2:
-	.loc	1 126 0
+	.loc	1 127 0
 	ldaw r1, r4[4]
 	ldaw r5, sp[1]
 	ldc r6, 24
-	.loc	1 126 0
+	.loc	1 127 0
 	mov r0, r5
 	mov r2, r6
 	bl __memcpy_4
 	ldc r0, 60
-	.loc	1 127 0
+	.loc	1 128 0
 	add r0, r4, r0
-	.loc	1 127 0
+	.loc	1 128 0
 	ldw r8, r0[0]
-.Ltmp359:
+.Ltmp322:
 	ldw r0, r4[2]
 	ldw r0, r0[0]
 	out res[r0], r7
@@ -4671,7 +4200,7 @@ chronodot_ds3231_controller.select.case.1:
 	ldw r0, r0[0]
 	out res[r0], r8
 	outct res[r0], 1
-.Ltmp360:
+.Ltmp323:
 .LBB53_3:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -4682,43 +4211,723 @@ chronodot_ds3231_controller.select.case.1:
 	ldw r4, sp[17]
 	retsp 18
 	# RETURN_REG_HOLDER
-	.cc_bottom chronodot_ds3231_controller.select.case.1.function
-	.set	chronodot_ds3231_controller.select.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M bin2bcd_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
-	.set	chronodot_ds3231_controller.select.case.1.maxcores,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M bin2bcd_8.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	chronodot_ds3231_controller.select.case.1.maxtimers,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M bin2bcd_8.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	chronodot_ds3231_controller.select.case.1.maxchanends,_i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M bin2bcd_8.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
-.Ltmp361:
-	.size	chronodot_ds3231_controller.select.case.1, .Ltmp361-chronodot_ds3231_controller.select.case.1
+	.cc_bottom Chronodot_DS3231_Controller.select.0.case.0.function
+	.set	Chronodot_DS3231_Controller.select.0.case.0.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
+	.set	Chronodot_DS3231_Controller.select.0.case.0.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.0.case.0.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.0.case.0.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+.Ltmp324:
+	.size	Chronodot_DS3231_Controller.select.0.case.0, .Ltmp324-Chronodot_DS3231_Controller.select.0.case.0
 .Lfunc_end53:
 	.cfi_endproc
 
-	.section	.cp.rodata,"ac",@progbits
-	.cc_top chronodot_ds3231_controller.init.1.1.init.data,chronodot_ds3231_controller.init.1.1.init
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI54_0.data,.LCPI54_0
 	.align	4
-	.type	chronodot_ds3231_controller.init.1.1.init,@object
-	.size	chronodot_ds3231_controller.init.1.1.init, 24
-chronodot_ds3231_controller.init.1.1.init:
+	.type	.LCPI54_0,@object
+	.size	.LCPI54_0, 4
+.LCPI54_0:
+	.long	100000000
+	.cc_bottom .LCPI54_0.data
+	.text
+	.align	4
+	.type	Chronodot_DS3231_Controller.select.y.case.0,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.case.0.function,Chronodot_DS3231_Controller.select.y.case.0
+Chronodot_DS3231_Controller.select.y.case.0:
+.Lfunc_begin54:
+	.loc	1 102 0
+	.cfi_startproc
+.Lxtalabel10:
+	entsp 11
+.Ltmp325:
+	.cfi_def_cfa_offset 44
+.Ltmp326:
+	.cfi_offset 15, 0
+	stw r4, sp[10]
+.Ltmp327:
+	.cfi_offset 4, -4
+	stw r5, sp[9]
+.Ltmp328:
+	.cfi_offset 5, -8
+	stw r6, sp[8]
+.Ltmp329:
+	.cfi_offset 6, -12
+	stw r7, sp[7]
+.Ltmp330:
+	.cfi_offset 7, -16
+	stw r8, sp[6]
+.Ltmp331:
+	.cfi_offset 8, -20
+	get r11, ed
+	mov r4, r11
+	.loc	1 102 0 prologue_end
+.Ltmp332:
+	get r11, id
+	.loc	1 102 0
+	ldaw r0, dp[__timers]
+	.loc	1 102 0
+	ldw r0, r0[r11]
+	.loc	1 102 0
+.Ltmp333:
+.Lxta.endpoint_labels3:
+	in r0, res[r0]
+	ldc r8, 0
+	stw r8, r4[0]
+	ldc r0, 64
+.Ltmp334:
+	.loc	1 104 0
+	add r0, r4, r0
+	.loc	1 104 0
+	ldw r1, r0[0]
+	ldw r2, cp[.LCPI54_0]
+	.loc	1 104 0
+	add r1, r1, r2
+	.loc	1 104 0
+	stw r1, r0[0]
+	.loc	1 106 0
+	ldw r0, r4[3]
+	.loc	1 106 0
+	ldw r1, r0[0]
+	.loc	1 106 0
+	ldw r0, r0[1]
+	.loc	1 106 0
+	ldw r3, r0[1]
+	ldaw r6, sp[1]
+	ldc r2, 104
+	.loc	1 106 0
+	mov r0, r6
+.Lxta.call_labels40:
+	bla r3
+	mov r7, r0
+	.loc	1 106 0
+	ldaw r5, r4[10]
+	ldc r2, 19
+	.loc	1 106 0
+	mov r0, r5
+	mov r1, r6
+	bl memcpy
+	ldc r0, 60
+	.loc	1 106 0
+	add r0, r4, r0
+	.loc	1 106 0
+	stw r7, r0[0]
+	bf r7, .LBB54_2
+.Lxtalabel11:
+	ldc r0, 46
+	.loc	1 109 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels41:
+	bl BCD_To_Bin_8
+	ldc r1, 2000
+	.loc	1 109 0
+	add r0, r0, r1
+	.loc	1 109 0
+	stw r0, r4[4]
+	ldc r0, 45
+	.loc	1 110 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels42:
+	bl BCD_To_Bin_8
+	.loc	1 110 0
+	stw r0, r4[5]
+	ldc r0, 44
+	.loc	1 111 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels43:
+	bl BCD_To_Bin_8
+	.loc	1 111 0
+	stw r0, r4[6]
+	ldc r0, 42
+	.loc	1 112 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels44:
+	bl BCD_To_Bin_8
+	.loc	1 112 0
+	stw r0, r4[7]
+	ldc r0, 41
+	.loc	1 113 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels45:
+	bl BCD_To_Bin_8
+	.loc	1 113 0
+	stw r0, r4[8]
+	.loc	1 114 0
+	ld8u r0, r5[r8]
+	.loc	1 114 0
+	zext r0, 7
+	.loc	1 114 0
+.Lxta.call_labels46:
+	bl BCD_To_Bin_8
+	.loc	1 114 0
+	stw r0, r4[9]
+.Ltmp335:
+.LBB54_2:
+.Lxtalabel12:
+	mkmsk r0, 1
+	stw r0, r4[0]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
+	retsp 11
+	# RETURN_REG_HOLDER
+	.cc_bottom Chronodot_DS3231_Controller.select.y.case.0.function
+	.set	Chronodot_DS3231_Controller.select.y.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M BCD_To_Bin_8.nstackwords) + 11)
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxcores,BCD_To_Bin_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxtimers,BCD_To_Bin_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxchanends,BCD_To_Bin_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M 0
+.Ltmp336:
+	.size	Chronodot_DS3231_Controller.select.y.case.0, .Ltmp336-Chronodot_DS3231_Controller.select.y.case.0
+.Lfunc_end54:
+	.cfi_endproc
+
+	.align	4
+	.type	Chronodot_DS3231_Controller.select.y.case.1,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.case.1.function,Chronodot_DS3231_Controller.select.y.case.1
+Chronodot_DS3231_Controller.select.y.case.1:
+.Lfunc_begin55:
+	.loc	1 126 0
+	.cfi_startproc
+.Lxtalabel13:
+	entsp 18
+.Ltmp337:
+	.cfi_def_cfa_offset 72
+.Ltmp338:
+	.cfi_offset 15, 0
+	stw r4, sp[17]
+.Ltmp339:
+	.cfi_offset 4, -4
+	stw r5, sp[16]
+.Ltmp340:
+	.cfi_offset 5, -8
+	stw r6, sp[15]
+.Ltmp341:
+	.cfi_offset 6, -12
+	stw r7, sp[14]
+.Ltmp342:
+	.cfi_offset 7, -16
+	stw r8, sp[13]
+.Ltmp343:
+	.cfi_offset 8, -20
+	get r11, ed
+	mov r4, r11
+	ldc r7, 0
+	stw r7, r4[0]
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	in r1, res[r0]
+	ldc r2, 254
+	add r2, r1, r2
+	zext r2, 8
+	sub r1, r1, r2
+	setd res[r0], r1
+	bf r2, .LBB55_2
+	outct res[r0], 1
+	ldaw r5, sp[7]
+	ldc r6, 24
+	mov r1, r5
+	mov r2, r6
+	bl sin_char_array
+	.loc	1 132 0 prologue_end
+.Ltmp344:
+	ldaw r0, r4[4]
+	.loc	1 132 0
+	mov r1, r5
+	mov r2, r6
+	bl __memcpy_4
+	.loc	1 134 0
+	ldaw r5, r4[10]
+	.loc	1 134 0
+	ldw r0, r4[4]
+	ldc r1, 48
+	.loc	1 134 0
+	add r0, r0, r1
+	.loc	1 134 0
+	zext r0, 8
+.Lxta.call_labels47:
+	bl Bin_To_BCD_8
+	ldc r1, 46
+	.loc	1 134 0
+	st8 r0, r4[r1]
+	ldc r0, 20
+	.loc	1 135 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels48:
+	bl Bin_To_BCD_8
+	ldc r1, 45
+	.loc	1 135 0
+	st8 r0, r4[r1]
+	.loc	1 136 0
+	ld8u r0, r4[r6]
+.Lxta.call_labels49:
+	bl Bin_To_BCD_8
+	ldc r1, 44
+	.loc	1 136 0
+	st8 r0, r4[r1]
+	ldc r0, 28
+	.loc	1 137 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels50:
+	bl Bin_To_BCD_8
+	ldc r1, 42
+	.loc	1 137 0
+	st8 r0, r4[r1]
+	ldc r0, 32
+	.loc	1 138 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels51:
+	bl Bin_To_BCD_8
+	ldc r1, 41
+	.loc	1 138 0
+	st8 r0, r4[r1]
+	ldc r0, 36
+	.loc	1 139 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels52:
+	bl Bin_To_BCD_8
+	ldc r1, 40
+	.loc	1 139 0
+	st8 r0, r4[r1]
+	ldc r0, 60
+	.loc	1 141 0
+	add r6, r4, r0
+	.loc	1 141 0
+	ldw r1, r4[3]
+	.loc	1 141 0
+	ldw r0, r1[0]
+	.loc	1 141 0
+	ldw r1, r1[1]
+	.loc	1 141 0
+	ldw r3, r1[2]
+	ldc r1, 104
+	.loc	1 141 0
+	mov r2, r5
+.Lxta.call_labels53:
+	bla r3
+.Ltmp345:
+	.loc	1 141 0
+	stw r0, r6[0]
+	ldw r1, r4[2]
+	ldw r1, r1[0]
+	out res[r1], r7
+	out res[r1], r0
+	outct res[r1], 1
+	bu .LBB55_3
+.Ltmp346:
+.LBB55_2:
+	.loc	1 127 0
+	ldaw r1, r4[4]
+	ldaw r5, sp[1]
+	ldc r6, 24
+	.loc	1 127 0
+	mov r0, r5
+	mov r2, r6
+	bl __memcpy_4
+	ldc r0, 60
+	.loc	1 128 0
+	add r0, r4, r0
+	.loc	1 128 0
+	ldw r8, r0[0]
+.Ltmp347:
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	out res[r0], r7
+	mov r1, r5
+	mov r2, r6
+	bl sout_char_array
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	out res[r0], r8
+	outct res[r0], 1
+.Ltmp348:
+.LBB55_3:
+	mkmsk r0, 1
+	stw r0, r4[0]
+	ldw r8, sp[13]
+	ldw r7, sp[14]
+	ldw r6, sp[15]
+	ldw r5, sp[16]
+	ldw r4, sp[17]
+	retsp 18
+	# RETURN_REG_HOLDER
+	.cc_bottom Chronodot_DS3231_Controller.select.y.case.1.function
+	.set	Chronodot_DS3231_Controller.select.y.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+.Ltmp349:
+	.size	Chronodot_DS3231_Controller.select.y.case.1, .Ltmp349-Chronodot_DS3231_Controller.select.y.case.1
+.Lfunc_end55:
+	.cfi_endproc
+
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI56_0.data,.LCPI56_0
+	.align	4
+	.type	.LCPI56_0,@object
+	.size	.LCPI56_0, 4
+.LCPI56_0:
+	.long	100000000
+	.cc_bottom .LCPI56_0.data
+	.text
+	.align	4
+	.type	Chronodot_DS3231_Controller.select.case.0,@function
+	.cc_top Chronodot_DS3231_Controller.select.case.0.function,Chronodot_DS3231_Controller.select.case.0
+Chronodot_DS3231_Controller.select.case.0:
+.Lfunc_begin56:
+	.loc	1 102 0
+	.cfi_startproc
+.Lxtalabel14:
+	entsp 11
+.Ltmp350:
+	.cfi_def_cfa_offset 44
+.Ltmp351:
+	.cfi_offset 15, 0
+	stw r4, sp[10]
+.Ltmp352:
+	.cfi_offset 4, -4
+	stw r5, sp[9]
+.Ltmp353:
+	.cfi_offset 5, -8
+	stw r6, sp[8]
+.Ltmp354:
+	.cfi_offset 6, -12
+	stw r7, sp[7]
+.Ltmp355:
+	.cfi_offset 7, -16
+	stw r8, sp[6]
+.Ltmp356:
+	.cfi_offset 8, -20
+	get r11, ed
+	mov r4, r11
+	.loc	1 102 0 prologue_end
+.Ltmp357:
+	get r11, id
+	.loc	1 102 0
+	ldaw r0, dp[__timers]
+	.loc	1 102 0
+	ldw r0, r0[r11]
+	.loc	1 102 0
+.Ltmp358:
+.Lxta.endpoint_labels4:
+	in r0, res[r0]
+	ldc r8, 0
+	stw r8, r4[0]
+	ldc r0, 64
+.Ltmp359:
+	.loc	1 104 0
+	add r0, r4, r0
+	.loc	1 104 0
+	ldw r1, r0[0]
+	ldw r2, cp[.LCPI56_0]
+	.loc	1 104 0
+	add r1, r1, r2
+	.loc	1 104 0
+	stw r1, r0[0]
+	.loc	1 106 0
+	ldw r0, r4[3]
+	.loc	1 106 0
+	ldw r1, r0[0]
+	.loc	1 106 0
+	ldw r0, r0[1]
+	.loc	1 106 0
+	ldw r3, r0[1]
+	ldaw r6, sp[1]
+	ldc r2, 104
+	.loc	1 106 0
+	mov r0, r6
+.Lxta.call_labels54:
+	bla r3
+	mov r7, r0
+	.loc	1 106 0
+	ldaw r5, r4[10]
+	ldc r2, 19
+	.loc	1 106 0
+	mov r0, r5
+	mov r1, r6
+	bl memcpy
+	ldc r0, 60
+	.loc	1 106 0
+	add r0, r4, r0
+	.loc	1 106 0
+	stw r7, r0[0]
+	bf r7, .LBB56_2
+.Lxtalabel15:
+	ldc r0, 46
+	.loc	1 109 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels55:
+	bl BCD_To_Bin_8
+	ldc r1, 2000
+	.loc	1 109 0
+	add r0, r0, r1
+	.loc	1 109 0
+	stw r0, r4[4]
+	ldc r0, 45
+	.loc	1 110 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels56:
+	bl BCD_To_Bin_8
+	.loc	1 110 0
+	stw r0, r4[5]
+	ldc r0, 44
+	.loc	1 111 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels57:
+	bl BCD_To_Bin_8
+	.loc	1 111 0
+	stw r0, r4[6]
+	ldc r0, 42
+	.loc	1 112 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels58:
+	bl BCD_To_Bin_8
+	.loc	1 112 0
+	stw r0, r4[7]
+	ldc r0, 41
+	.loc	1 113 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels59:
+	bl BCD_To_Bin_8
+	.loc	1 113 0
+	stw r0, r4[8]
+	.loc	1 114 0
+	ld8u r0, r5[r8]
+	.loc	1 114 0
+	zext r0, 7
+	.loc	1 114 0
+.Lxta.call_labels60:
+	bl BCD_To_Bin_8
+	.loc	1 114 0
+	stw r0, r4[9]
+.Ltmp360:
+.LBB56_2:
+.Lxtalabel16:
+	mkmsk r0, 1
+	stw r0, r4[0]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
+	retsp 11
+	# RETURN_REG_HOLDER
+	.cc_bottom Chronodot_DS3231_Controller.select.case.0.function
+	.set	Chronodot_DS3231_Controller.select.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M BCD_To_Bin_8.nstackwords) + 11)
+	.set	Chronodot_DS3231_Controller.select.case.0.maxcores,BCD_To_Bin_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.case.0.maxtimers,BCD_To_Bin_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.case.0.maxchanends,BCD_To_Bin_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M 0
+.Ltmp361:
+	.size	Chronodot_DS3231_Controller.select.case.0, .Ltmp361-Chronodot_DS3231_Controller.select.case.0
+.Lfunc_end56:
+	.cfi_endproc
+
+	.align	4
+	.type	Chronodot_DS3231_Controller.select.case.1,@function
+	.cc_top Chronodot_DS3231_Controller.select.case.1.function,Chronodot_DS3231_Controller.select.case.1
+Chronodot_DS3231_Controller.select.case.1:
+.Lfunc_begin57:
+	.loc	1 126 0
+	.cfi_startproc
+.Lxtalabel17:
+	entsp 18
+.Ltmp362:
+	.cfi_def_cfa_offset 72
+.Ltmp363:
+	.cfi_offset 15, 0
+	stw r4, sp[17]
+.Ltmp364:
+	.cfi_offset 4, -4
+	stw r5, sp[16]
+.Ltmp365:
+	.cfi_offset 5, -8
+	stw r6, sp[15]
+.Ltmp366:
+	.cfi_offset 6, -12
+	stw r7, sp[14]
+.Ltmp367:
+	.cfi_offset 7, -16
+	stw r8, sp[13]
+.Ltmp368:
+	.cfi_offset 8, -20
+	get r11, ed
+	mov r4, r11
+	ldc r7, 0
+	stw r7, r4[0]
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	in r1, res[r0]
+	ldc r2, 254
+	add r2, r1, r2
+	zext r2, 8
+	sub r1, r1, r2
+	setd res[r0], r1
+	bf r2, .LBB57_2
+	outct res[r0], 1
+	ldaw r5, sp[7]
+	ldc r6, 24
+	mov r1, r5
+	mov r2, r6
+	bl sin_char_array
+	.loc	1 132 0 prologue_end
+.Ltmp369:
+	ldaw r0, r4[4]
+	.loc	1 132 0
+	mov r1, r5
+	mov r2, r6
+	bl __memcpy_4
+	.loc	1 134 0
+	ldaw r5, r4[10]
+	.loc	1 134 0
+	ldw r0, r4[4]
+	ldc r1, 48
+	.loc	1 134 0
+	add r0, r0, r1
+	.loc	1 134 0
+	zext r0, 8
+.Lxta.call_labels61:
+	bl Bin_To_BCD_8
+	ldc r1, 46
+	.loc	1 134 0
+	st8 r0, r4[r1]
+	ldc r0, 20
+	.loc	1 135 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels62:
+	bl Bin_To_BCD_8
+	ldc r1, 45
+	.loc	1 135 0
+	st8 r0, r4[r1]
+	.loc	1 136 0
+	ld8u r0, r4[r6]
+.Lxta.call_labels63:
+	bl Bin_To_BCD_8
+	ldc r1, 44
+	.loc	1 136 0
+	st8 r0, r4[r1]
+	ldc r0, 28
+	.loc	1 137 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels64:
+	bl Bin_To_BCD_8
+	ldc r1, 42
+	.loc	1 137 0
+	st8 r0, r4[r1]
+	ldc r0, 32
+	.loc	1 138 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels65:
+	bl Bin_To_BCD_8
+	ldc r1, 41
+	.loc	1 138 0
+	st8 r0, r4[r1]
+	ldc r0, 36
+	.loc	1 139 0
+	ld8u r0, r4[r0]
+.Lxta.call_labels66:
+	bl Bin_To_BCD_8
+	ldc r1, 40
+	.loc	1 139 0
+	st8 r0, r4[r1]
+	ldc r0, 60
+	.loc	1 141 0
+	add r6, r4, r0
+	.loc	1 141 0
+	ldw r1, r4[3]
+	.loc	1 141 0
+	ldw r0, r1[0]
+	.loc	1 141 0
+	ldw r1, r1[1]
+	.loc	1 141 0
+	ldw r3, r1[2]
+	ldc r1, 104
+	.loc	1 141 0
+	mov r2, r5
+.Lxta.call_labels67:
+	bla r3
+.Ltmp370:
+	.loc	1 141 0
+	stw r0, r6[0]
+	ldw r1, r4[2]
+	ldw r1, r1[0]
+	out res[r1], r7
+	out res[r1], r0
+	outct res[r1], 1
+	bu .LBB57_3
+.Ltmp371:
+.LBB57_2:
+	.loc	1 127 0
+	ldaw r1, r4[4]
+	ldaw r5, sp[1]
+	ldc r6, 24
+	.loc	1 127 0
+	mov r0, r5
+	mov r2, r6
+	bl __memcpy_4
+	ldc r0, 60
+	.loc	1 128 0
+	add r0, r4, r0
+	.loc	1 128 0
+	ldw r8, r0[0]
+.Ltmp372:
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	out res[r0], r7
+	mov r1, r5
+	mov r2, r6
+	bl sout_char_array
+	ldw r0, r4[2]
+	ldw r0, r0[0]
+	out res[r0], r8
+	outct res[r0], 1
+.Ltmp373:
+.LBB57_3:
+	mkmsk r0, 1
+	stw r0, r4[0]
+	ldw r8, sp[13]
+	ldw r7, sp[14]
+	ldw r6, sp[15]
+	ldw r5, sp[16]
+	ldw r4, sp[17]
+	retsp 18
+	# RETURN_REG_HOLDER
+	.cc_bottom Chronodot_DS3231_Controller.select.case.1.function
+	.set	Chronodot_DS3231_Controller.select.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
+	.set	Chronodot_DS3231_Controller.select.case.1.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.case.1.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.case.1.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+.Ltmp374:
+	.size	Chronodot_DS3231_Controller.select.case.1, .Ltmp374-Chronodot_DS3231_Controller.select.case.1
+.Lfunc_end57:
+	.cfi_endproc
+
+	.section	.cp.rodata,"ac",@progbits
+	.cc_top Chronodot_DS3231_Controller.init.1.1.init.data,Chronodot_DS3231_Controller.init.1.1.init
+	.align	4
+	.type	Chronodot_DS3231_Controller.init.1.1.init,@object
+	.size	Chronodot_DS3231_Controller.init.1.1.init, 24
+Chronodot_DS3231_Controller.init.1.1.init:
 	.long	1950
 	.long	6
 	.long	14
 	.long	0
 	.long	0
 	.long	0
-	.cc_bottom chronodot_ds3231_controller.init.1.1.init.data
+	.cc_bottom Chronodot_DS3231_Controller.init.1.1.init.data
 	.section	.cp.rodata.string,"aMSc",@progbits
 	.cc_top .Lstr14.data,.Lstr14
 	.align	4
 	.type	.Lstr14,@object
 	.size	.Lstr14, 36
 .Lstr14:
-.asciiz"chronodot_ds3231_controller started"
+.asciiz"Chronodot_DS3231_Controller started"
 	.cc_bottom .Lstr14.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/chronodot_ds3231_controller.xc"
 .Linfo_string2:
@@ -4744,7 +4953,7 @@ chronodot_ds3231_controller.init.1.1.init:
 .Linfo_string12:
 .asciiz"HEAT_CABLES_BOTH_ON"
 .Linfo_string13:
-.asciiz"__TYPE_21"
+.asciiz"__TYPE_23"
 .Linfo_string14:
 .asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
 .Linfo_string15:
@@ -4788,7 +4997,7 @@ chronodot_ds3231_controller.init.1.1.init:
 .Linfo_string34:
 .asciiz"HEATER_WIRES_BOTH_IS_FULL"
 .Linfo_string35:
-.asciiz"__TYPE_22"
+.asciiz"__TYPE_24"
 .Linfo_string36:
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 .Linfo_string37:
@@ -4832,182 +5041,190 @@ chronodot_ds3231_controller.init.1.1.init:
 .Linfo_string56:
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 .Linfo_string57:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 .Linfo_string58:
-.asciiz"_i.port_heat_light_commands_if._chan.light_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 .Linfo_string59:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string60:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string61:
-.asciiz"_i.port_heat_light_commands_if._chan_y.light_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 .Linfo_string62:
-.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 .Linfo_string63:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 .Linfo_string64:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 .Linfo_string65:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 .Linfo_string66:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string67:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
 .Linfo_string68:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string69:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string70:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
 .Linfo_string71:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string72:
-.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
 .Linfo_string73:
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string74:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string75:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
 .Linfo_string76:
-.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 .Linfo_string77:
-.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
 .Linfo_string78:
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 .Linfo_string79:
-.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
 .Linfo_string80:
-.asciiz"delay_seconds"
+.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string81:
-.asciiz"delay_milliseconds"
+.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
 .Linfo_string82:
-.asciiz"delay_microseconds"
+.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 .Linfo_string83:
-.asciiz"chronodot_registers_to_datetime"
+.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 .Linfo_string84:
-.asciiz"year"
+.asciiz"delay_seconds"
 .Linfo_string85:
-.asciiz"unsigned int"
+.asciiz"delay_milliseconds"
 .Linfo_string86:
-.asciiz"month"
+.asciiz"delay_microseconds"
 .Linfo_string87:
-.asciiz"day"
+.asciiz"chronodot_registers_to_datetime"
 .Linfo_string88:
-.asciiz"hour"
+.asciiz"year"
 .Linfo_string89:
-.asciiz"minute"
+.asciiz"unsigned int"
 .Linfo_string90:
-.asciiz"second"
+.asciiz"month"
 .Linfo_string91:
-.asciiz"__TYPE_26"
+.asciiz"day"
 .Linfo_string92:
-.asciiz"datetime_to_chronodot_registers"
+.asciiz"hour"
 .Linfo_string93:
-.asciiz"chronodot_ds3231_controller"
+.asciiz"minute"
 .Linfo_string94:
-.asciiz"chronodot_ds3231_controller.select.0.case.0"
+.asciiz"second"
 .Linfo_string95:
-.asciiz"chronodot_ds3231_controller.select.0.enable"
+.asciiz"__TYPE_28"
 .Linfo_string96:
-.asciiz"chronodot_ds3231_controller.init.1"
+.asciiz"datetime_to_chronodot_registers"
 .Linfo_string97:
-.asciiz"chronodot_ds3231_controller.init.0"
+.asciiz"Chronodot_DS3231_Controller"
 .Linfo_string98:
-.asciiz"chronodot_ds3231_controller.select.y.case.0"
+.asciiz"Chronodot_DS3231_Controller.select.0.case.0"
 .Linfo_string99:
-.asciiz"chronodot_ds3231_controller.select.y.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.0.enable"
 .Linfo_string100:
-.asciiz"chronodot_ds3231_controller.select.y.enable"
+.asciiz"Chronodot_DS3231_Controller.init.1"
 .Linfo_string101:
-.asciiz"chronodot_ds3231_controller.select.case.0"
+.asciiz"Chronodot_DS3231_Controller.init.0"
 .Linfo_string102:
-.asciiz"chronodot_ds3231_controller.select.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 .Linfo_string103:
-.asciiz"chronodot_ds3231_controller.select.enable"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
 .Linfo_string104:
-.asciiz"chronodot_ds3231_controller.fini"
+.asciiz"Chronodot_DS3231_Controller.select.y.enable"
 .Linfo_string105:
-.asciiz"_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok"
+.asciiz"Chronodot_DS3231_Controller.select.case.0"
 .Linfo_string106:
-.asciiz"_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok"
+.asciiz"Chronodot_DS3231_Controller.select.case.1"
 .Linfo_string107:
-.asciiz"p"
+.asciiz"Chronodot_DS3231_Controller.select.enable"
 .Linfo_string108:
-.asciiz"unsigned char"
+.asciiz"Chronodot_DS3231_Controller.fini"
 .Linfo_string109:
-.asciiz"new_datetime"
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok"
 .Linfo_string110:
-.asciiz"chronodot_d3231_registers"
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
 .Linfo_string111:
-.asciiz"registers"
+.asciiz"p"
 .Linfo_string112:
-.asciiz"__TYPE_13"
+.asciiz"unsigned char"
 .Linfo_string113:
-.asciiz"datetime"
+.asciiz"new_datetime"
 .Linfo_string114:
-.asciiz"chronodot_d3231_registers_ptr"
+.asciiz"chronodot_d3231_registers"
 .Linfo_string115:
-.asciiz"i_chronodot_ds3231"
+.asciiz"registers"
 .Linfo_string116:
-.asciiz"interface"
+.asciiz"__TYPE_13"
 .Linfo_string117:
-.asciiz"i_i2c_internal_commands"
+.asciiz"datetime"
 .Linfo_string118:
-.asciiz"time"
+.asciiz"chronodot_d3231_registers_ptr"
 .Linfo_string119:
-.asciiz"ok"
+.asciiz"i_chronodot_ds3231"
 .Linfo_string120:
-.asciiz"return_ok"
+.asciiz"interface"
 .Linfo_string121:
-.asciiz"tmr"
+.asciiz"i_i2c_internal_commands"
 .Linfo_string122:
-.asciiz"timer"
+.asciiz"time"
 .Linfo_string123:
-.asciiz"return_datetime"
+.asciiz"ok"
 .Linfo_string124:
-.asciiz"chronodot_ds3231_controller.init.1.state_ptr"
+.asciiz"return_ok"
 .Linfo_string125:
-.asciiz"enable.flag"
+.asciiz"tmr"
 .Linfo_string126:
-.asciiz"init.flag.or.func"
+.asciiz"timer"
 .Linfo_string127:
-.asciiz"padding"
+.asciiz"return_datetime"
 .Linfo_string128:
-.asciiz"frame.0"
+.asciiz"Chronodot_DS3231_Controller.init.1.state_ptr"
 .Linfo_string129:
-.asciiz"dest"
+.asciiz"enable.flag"
 .Linfo_string130:
-.asciiz"chanend"
+.asciiz"init.flag.or.func"
 .Linfo_string131:
-.asciiz"last_notification_input"
+.asciiz"padding"
 .Linfo_string132:
-.asciiz"param2"
+.asciiz"frame.0"
 .Linfo_string133:
-.asciiz"unsigned short"
+.asciiz"dest"
 .Linfo_string134:
-.asciiz"s"
+.asciiz"chanend"
 .Linfo_string135:
-.asciiz"y"
+.asciiz"last_notification_input"
 .Linfo_string136:
-.asciiz"yarg"
+.asciiz"param2"
 .Linfo_string137:
-.asciiz"param1"
+.asciiz"unsigned short"
 .Linfo_string138:
-.asciiz"param3"
+.asciiz"s"
 .Linfo_string139:
-.asciiz"param4"
+.asciiz"y"
 .Linfo_string140:
-.asciiz"delay"
+.asciiz"yarg"
 .Linfo_string141:
-.asciiz"chronodot_ds3231_controller.select.state_ptr"
+.asciiz"param1"
 .Linfo_string142:
-.asciiz"chronodot_ds3231_controller.init.0.state_ptr"
+.asciiz"param3"
 .Linfo_string143:
-.asciiz"chronodot_ds3231_controller.fini.state_ptr"
+.asciiz"param4"
+.Linfo_string144:
+.asciiz"delay"
+.Linfo_string145:
+.asciiz"Chronodot_DS3231_Controller.select.state_ptr"
+.Linfo_string146:
+.asciiz"Chronodot_DS3231_Controller.init.0.state_ptr"
+.Linfo_string147:
+.asciiz"Chronodot_DS3231_Controller.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	2988
+	.long	3145
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -5127,7 +5344,7 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	91
+	.byte	92
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -5139,7 +5356,7 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	130
+	.byte	131
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -5151,7 +5368,7 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	125
+	.byte	126
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -5164,60 +5381,60 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string105
-	.long	.Linfo_string105
+	.long	.Linfo_string109
+	.long	.Linfo_string109
 	.byte	1
-	.byte	130
+	.byte	131
 	.long	256
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc0
-	.long	.Linfo_string107
-	.long	2655
+	.long	.Linfo_string111
+	.long	2789
 	.byte	7
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
-	.byte	130
-	.long	2667
+	.byte	131
+	.long	2801
 	.byte	0
 	.byte	8
 	.long	.Ldebug_ranges1
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string106
-	.long	.Linfo_string106
+	.long	.Linfo_string110
+	.long	.Linfo_string110
 	.byte	1
-	.byte	125
+	.byte	126
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc1
-	.long	.Linfo_string107
-	.long	2655
+	.long	.Linfo_string111
+	.long	2789
 	.byte	0
 	.byte	5
 	.long	.Ldebug_ranges2
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string83
-	.long	.Linfo_string83
+	.long	.Linfo_string87
+	.long	.Linfo_string87
 	.byte	1
 	.byte	37
-	.long	2445
+	.long	2579
 	.byte	1
 	.byte	7
-	.long	.Linfo_string110
+	.long	.Linfo_string114
 	.byte	1
 	.byte	37
-	.long	2672
+	.long	2806
 	.byte	9
 	.long	.Ldebug_ranges3
 	.byte	10
-	.long	.Linfo_string113
+	.long	.Linfo_string117
 	.byte	1
 	.byte	38
-	.long	2445
+	.long	2579
 	.byte	0
 	.byte	0
 	.byte	8
@@ -5225,103 +5442,103 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string92
-	.long	.Linfo_string92
+	.long	.Linfo_string96
+	.long	.Linfo_string96
 	.byte	1
 	.byte	50
 	.byte	1
 	.byte	7
-	.long	.Linfo_string113
+	.long	.Linfo_string117
 	.byte	1
 	.byte	50
-	.long	2667
+	.long	2801
 	.byte	7
-	.long	.Linfo_string114
+	.long	.Linfo_string118
 	.byte	1
 	.byte	50
-	.long	2707
+	.long	2841
 	.byte	0
 	.byte	8
 	.long	.Ldebug_ranges5
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string93
-	.long	.Linfo_string93
+	.long	.Linfo_string97
+	.long	.Linfo_string97
 	.byte	1
-	.byte	87
+	.byte	88
 	.byte	1
 	.byte	11
 	.long	.Ldebug_loc2
-	.long	.Linfo_string115
-	.byte	1
-	.byte	86
-	.long	2712
-	.byte	11
-	.long	.Ldebug_loc3
-	.long	.Linfo_string117
+	.long	.Linfo_string119
 	.byte	1
 	.byte	87
-	.long	2712
+	.long	2846
+	.byte	11
+	.long	.Ldebug_loc3
+	.long	.Linfo_string121
+	.byte	1
+	.byte	88
+	.long	2846
 	.byte	9
 	.long	.Ldebug_ranges10
 	.byte	10
-	.long	.Linfo_string113
+	.long	.Linfo_string117
 	.byte	1
-	.byte	89
-	.long	2445
+	.byte	90
+	.long	2579
 	.byte	9
 	.long	.Ldebug_ranges9
 	.byte	12
 	.long	.Ldebug_loc6
-	.long	.Linfo_string110
+	.long	.Linfo_string114
 	.byte	1
-	.byte	90
-	.long	2677
+	.byte	91
+	.long	2811
 	.byte	9
 	.long	.Ldebug_ranges8
 	.byte	12
 	.long	.Ldebug_loc5
-	.long	.Linfo_string119
+	.long	.Linfo_string123
 	.byte	1
-	.byte	91
+	.byte	92
 	.long	235
 	.byte	9
 	.long	.Ldebug_ranges7
 	.byte	10
-	.long	.Linfo_string121
+	.long	.Linfo_string125
 	.byte	1
-	.byte	92
-	.long	2719
+	.byte	93
+	.long	2853
 	.byte	9
 	.long	.Ldebug_ranges6
 	.byte	12
 	.long	.Ldebug_loc4
-	.long	.Linfo_string118
+	.long	.Linfo_string122
 	.byte	1
-	.byte	93
+	.byte	94
 	.long	1091
 	.byte	13
 	.byte	1
 	.byte	89
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	130
+	.byte	131
 	.long	256
 	.byte	10
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
-	.byte	130
-	.long	2667
+	.byte	131
+	.long	2801
 	.byte	10
-	.long	.Linfo_string123
+	.long	.Linfo_string127
 	.byte	1
-	.byte	125
-	.long	2445
+	.byte	126
+	.long	2579
 	.byte	10
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	125
+	.byte	126
 	.long	277
 	.byte	0
 	.byte	0
@@ -5334,47 +5551,47 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string96
-	.long	.Linfo_string96
+	.long	.Linfo_string100
+	.long	.Linfo_string100
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc7
-	.long	.Linfo_string124
-	.long	2726
+	.long	.Linfo_string128
+	.long	2860
 	.byte	9
 	.long	.Ldebug_ranges16
 	.byte	10
-	.long	.Linfo_string113
+	.long	.Linfo_string117
 	.byte	1
-	.byte	89
-	.long	2445
+	.byte	90
+	.long	2579
 	.byte	9
 	.long	.Ldebug_ranges15
 	.byte	10
-	.long	.Linfo_string110
+	.long	.Linfo_string114
 	.byte	1
-	.byte	90
-	.long	2677
+	.byte	91
+	.long	2811
 	.byte	9
 	.long	.Ldebug_ranges14
 	.byte	10
-	.long	.Linfo_string119
+	.long	.Linfo_string123
 	.byte	1
-	.byte	91
+	.byte	92
 	.long	235
 	.byte	9
 	.long	.Ldebug_ranges13
 	.byte	10
-	.long	.Linfo_string121
+	.long	.Linfo_string125
 	.byte	1
-	.byte	92
-	.long	2719
+	.byte	93
+	.long	2853
 	.byte	9
 	.long	.Ldebug_ranges12
 	.byte	10
-	.long	.Linfo_string118
+	.long	.Linfo_string122
 	.byte	1
-	.byte	93
+	.byte	94
 	.long	1091
 	.byte	0
 	.byte	0
@@ -5387,34 +5604,34 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string94
-	.long	.Linfo_string94
+	.long	.Linfo_string98
+	.long	.Linfo_string98
 	.byte	1
-	.byte	125
+	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges18
 	.byte	12
 	.long	.Ldebug_loc8
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	130
+	.byte	131
 	.long	256
 	.byte	12
 	.long	.Ldebug_loc9
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	125
+	.byte	126
 	.long	277
 	.byte	10
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
-	.byte	130
-	.long	2667
+	.byte	131
+	.long	2801
 	.byte	10
-	.long	.Linfo_string123
+	.long	.Linfo_string127
 	.byte	1
-	.byte	125
-	.long	2445
+	.byte	126
+	.long	2579
 	.byte	0
 	.byte	0
 	.byte	16
@@ -5422,43 +5639,43 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string98
-	.long	.Linfo_string98
+	.long	.Linfo_string102
+	.long	.Linfo_string102
 	.byte	1
-	.byte	101
+	.byte	102
 	.byte	15
 	.long	.Ldebug_ranges20
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string99
-	.long	.Linfo_string99
+	.long	.Linfo_string103
+	.long	.Linfo_string103
 	.byte	1
-	.byte	125
+	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges21
 	.byte	12
 	.long	.Ldebug_loc10
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	130
+	.byte	131
 	.long	256
 	.byte	12
 	.long	.Ldebug_loc11
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	125
+	.byte	126
 	.long	277
 	.byte	10
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
-	.byte	130
-	.long	2667
+	.byte	131
+	.long	2801
 	.byte	10
-	.long	.Linfo_string123
+	.long	.Linfo_string127
 	.byte	1
-	.byte	125
-	.long	2445
+	.byte	126
+	.long	2579
 	.byte	0
 	.byte	0
 	.byte	16
@@ -5466,43 +5683,43 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string101
-	.long	.Linfo_string101
+	.long	.Linfo_string105
+	.long	.Linfo_string105
 	.byte	1
-	.byte	101
+	.byte	102
 	.byte	15
 	.long	.Ldebug_ranges23
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string102
-	.long	.Linfo_string102
+	.long	.Linfo_string106
+	.long	.Linfo_string106
 	.byte	1
-	.byte	125
+	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges24
 	.byte	12
 	.long	.Ldebug_loc12
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	130
+	.byte	131
 	.long	256
 	.byte	12
 	.long	.Ldebug_loc13
-	.long	.Linfo_string120
+	.long	.Linfo_string124
 	.byte	1
-	.byte	125
+	.byte	126
 	.long	277
 	.byte	10
-	.long	.Linfo_string109
+	.long	.Linfo_string113
 	.byte	1
-	.byte	130
-	.long	2667
+	.byte	131
+	.long	2801
 	.byte	10
-	.long	.Linfo_string123
+	.long	.Linfo_string127
 	.byte	1
-	.byte	125
-	.long	2445
+	.byte	126
+	.long	2579
 	.byte	0
 	.byte	0
 	.byte	17
@@ -5511,14 +5728,14 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	1091
 	.byte	1
 	.byte	18
-	.long	.Linfo_string129
-	.long	2841
+	.long	.Linfo_string133
+	.long	2975
 	.byte	18
-	.long	.Linfo_string131
-	.long	2512
+	.long	.Linfo_string135
+	.long	2646
 	.byte	18
-	.long	.Linfo_string132
-	.long	2848
+	.long	.Linfo_string136
+	.long	2982
 	.byte	0
 	.byte	19
 	.long	.Linfo_string37
@@ -5529,8 +5746,8 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Linfo_string38
 	.byte	1
 	.byte	18
-	.long	.Linfo_string129
-	.long	2841
+	.long	.Linfo_string133
+	.long	2975
 	.byte	0
 	.byte	17
 	.long	.Linfo_string39
@@ -5538,33 +5755,33 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	1091
 	.byte	1
 	.byte	18
-	.long	.Linfo_string134
-	.long	2873
+	.long	.Linfo_string138
+	.long	3007
 	.byte	18
-	.long	.Linfo_string131
-	.long	2512
+	.long	.Linfo_string135
+	.long	2646
 	.byte	18
-	.long	.Linfo_string132
-	.long	2848
+	.long	.Linfo_string136
+	.long	2982
 	.byte	0
 	.byte	20
 	.long	.Linfo_string40
 	.long	.Linfo_string40
 	.byte	1
 	.byte	18
-	.long	.Linfo_string134
-	.long	2873
+	.long	.Linfo_string138
+	.long	3007
 	.byte	0
 	.byte	20
 	.long	.Linfo_string41
 	.long	.Linfo_string41
 	.byte	1
 	.byte	18
-	.long	.Linfo_string129
-	.long	2841
+	.long	.Linfo_string133
+	.long	2975
 	.byte	18
-	.long	.Linfo_string137
-	.long	2905
+	.long	.Linfo_string141
+	.long	3039
 	.byte	0
 	.byte	17
 	.long	.Linfo_string42
@@ -5572,11 +5789,11 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	1242
 	.byte	1
 	.byte	18
-	.long	.Linfo_string129
-	.long	2841
+	.long	.Linfo_string133
+	.long	2975
 	.byte	18
-	.long	.Linfo_string131
-	.long	2512
+	.long	.Linfo_string135
+	.long	2646
 	.byte	0
 	.byte	21
 	.long	.Linfo_string47
@@ -5617,11 +5834,11 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Linfo_string48
 	.byte	1
 	.byte	18
-	.long	.Linfo_string134
-	.long	2873
+	.long	.Linfo_string138
+	.long	3007
 	.byte	18
-	.long	.Linfo_string137
-	.long	2905
+	.long	.Linfo_string141
+	.long	3039
 	.byte	0
 	.byte	17
 	.long	.Linfo_string49
@@ -5629,11 +5846,11 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	1242
 	.byte	1
 	.byte	18
-	.long	.Linfo_string134
-	.long	2873
+	.long	.Linfo_string138
+	.long	3007
 	.byte	18
-	.long	.Linfo_string131
-	.long	2512
+	.long	.Linfo_string135
+	.long	2646
 	.byte	0
 	.byte	17
 	.long	.Linfo_string50
@@ -5641,622 +5858,683 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	50
 	.byte	1
 	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	18
-	.long	.Linfo_string132
-	.long	2672
-	.byte	0
-	.byte	20
-	.long	.Linfo_string51
-	.long	.Linfo_string51
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	0
-	.byte	17
-	.long	.Linfo_string52
-	.long	.Linfo_string52
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	18
-	.long	.Linfo_string132
-	.long	2910
-	.byte	18
-	.long	.Linfo_string138
-	.long	2915
-	.byte	18
-	.long	.Linfo_string139
-	.long	2512
-	.byte	0
-	.byte	17
-	.long	.Linfo_string53
-	.long	.Linfo_string53
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	18
-	.long	.Linfo_string132
-	.long	2672
-	.byte	0
-	.byte	20
-	.long	.Linfo_string54
-	.long	.Linfo_string54
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	0
-	.byte	17
-	.long	.Linfo_string55
-	.long	.Linfo_string55
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2910
-	.byte	18
-	.long	.Linfo_string132
-	.long	2910
-	.byte	18
-	.long	.Linfo_string138
-	.long	2915
-	.byte	18
-	.long	.Linfo_string139
-	.long	2512
-	.byte	0
-	.byte	20
-	.long	.Linfo_string56
-	.long	.Linfo_string56
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2925
-	.byte	0
-	.byte	20
-	.long	.Linfo_string57
-	.long	.Linfo_string57
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2930
-	.byte	0
-	.byte	20
-	.long	.Linfo_string58
-	.long	.Linfo_string58
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2935
-	.byte	0
-	.byte	20
-	.long	.Linfo_string59
-	.long	.Linfo_string59
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2925
-	.byte	0
-	.byte	20
-	.long	.Linfo_string60
-	.long	.Linfo_string60
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2930
-	.byte	0
-	.byte	20
-	.long	.Linfo_string61
-	.long	.Linfo_string61
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2935
-	.byte	0
-	.byte	20
-	.long	.Linfo_string62
-	.long	.Linfo_string62
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string63
-	.long	.Linfo_string63
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2945
-	.byte	18
-	.long	.Linfo_string132
-	.long	2950
-	.byte	0
-	.byte	20
-	.long	.Linfo_string64
-	.long	.Linfo_string64
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2968
-	.byte	0
-	.byte	20
-	.long	.Linfo_string65
-	.long	.Linfo_string65
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2986
-	.byte	18
-	.long	.Linfo_string132
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string66
-	.long	.Linfo_string66
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2986
-	.byte	18
-	.long	.Linfo_string132
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string67
-	.long	.Linfo_string67
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string68
-	.long	.Linfo_string68
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2945
-	.byte	18
-	.long	.Linfo_string132
-	.long	2950
-	.byte	0
-	.byte	20
-	.long	.Linfo_string69
-	.long	.Linfo_string69
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2968
-	.byte	0
-	.byte	20
-	.long	.Linfo_string70
-	.long	.Linfo_string70
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2986
-	.byte	18
-	.long	.Linfo_string132
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string71
-	.long	.Linfo_string71
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2986
-	.byte	18
-	.long	.Linfo_string132
-	.long	2940
-	.byte	0
-	.byte	20
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	0
-	.byte	20
-	.long	.Linfo_string73
-	.long	.Linfo_string73
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2945
-	.byte	18
-	.long	.Linfo_string132
-	.long	2950
-	.byte	0
-	.byte	20
-	.long	.Linfo_string74
-	.long	.Linfo_string74
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	0
-	.byte	20
-	.long	.Linfo_string75
-	.long	.Linfo_string75
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2945
-	.byte	18
-	.long	.Linfo_string132
-	.long	2950
-	.byte	0
-	.byte	17
-	.long	.Linfo_string76
-	.long	.Linfo_string76
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	18
-	.long	.Linfo_string137
-	.long	2667
-	.byte	0
-	.byte	20
-	.long	.Linfo_string77
-	.long	.Linfo_string77
-	.byte	1
-	.byte	18
-	.long	.Linfo_string129
-	.long	2841
-	.byte	0
-	.byte	17
-	.long	.Linfo_string78
-	.long	.Linfo_string78
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	18
-	.long	.Linfo_string137
-	.long	2667
-	.byte	0
-	.byte	20
-	.long	.Linfo_string79
-	.long	.Linfo_string79
-	.byte	1
-	.byte	18
-	.long	.Linfo_string134
-	.long	2873
-	.byte	0
-	.byte	26
-	.long	.Linfo_string80
-	.long	.Linfo_string80
-	.byte	3
-	.byte	46
-	.byte	1
-	.byte	7
-	.long	.Linfo_string140
-	.byte	3
-	.byte	46
-	.long	2512
-	.byte	0
-	.byte	26
-	.long	.Linfo_string81
-	.long	.Linfo_string81
-	.byte	3
-	.byte	54
-	.byte	1
-	.byte	7
-	.long	.Linfo_string140
-	.byte	3
-	.byte	54
-	.long	2512
-	.byte	0
-	.byte	26
-	.long	.Linfo_string82
-	.long	.Linfo_string82
-	.byte	3
-	.byte	62
-	.byte	1
-	.byte	7
-	.long	.Linfo_string140
-	.byte	3
-	.byte	62
-	.long	2512
-	.byte	0
-	.byte	21
-	.long	.Linfo_string91
-	.byte	24
-	.byte	22
-	.long	.Linfo_string84
-	.long	2512
-	.byte	0
-	.byte	22
-	.long	.Linfo_string86
-	.long	2512
-	.byte	4
-	.byte	22
-	.long	.Linfo_string87
-	.long	2512
-	.byte	8
-	.byte	22
-	.long	.Linfo_string88
-	.long	2512
-	.byte	12
-	.byte	22
-	.long	.Linfo_string89
-	.long	2512
-	.byte	16
-	.byte	22
-	.long	.Linfo_string90
-	.long	2512
-	.byte	20
-	.byte	0
-	.byte	19
-	.long	.Linfo_string85
-	.byte	7
-	.byte	4
-	.byte	17
-	.long	.Linfo_string95
-	.long	.Linfo_string95
-	.long	2512
-	.byte	1
+	.long	.Linfo_string133
+	.long	2975
 	.byte	18
 	.long	.Linfo_string141
-	.long	2726
+	.long	3044
+	.byte	18
+	.long	.Linfo_string136
+	.long	2806
 	.byte	0
-	.byte	26
-	.long	.Linfo_string97
-	.long	.Linfo_string97
+	.byte	20
+	.long	.Linfo_string51
+	.long	.Linfo_string51
 	.byte	1
-	.byte	87
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3044
+	.byte	0
+	.byte	17
+	.long	.Linfo_string52
+	.long	.Linfo_string52
+	.long	50
 	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3044
+	.byte	18
+	.long	.Linfo_string136
+	.long	3044
 	.byte	18
 	.long	.Linfo_string142
-	.long	2726
-	.byte	7
-	.long	.Linfo_string115
-	.byte	1
-	.byte	86
-	.long	2712
-	.byte	7
-	.long	.Linfo_string117
-	.byte	1
-	.byte	87
-	.long	2712
-	.byte	0
-	.byte	17
-	.long	.Linfo_string100
-	.long	.Linfo_string100
-	.long	2512
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	2726
-	.byte	0
-	.byte	17
-	.long	.Linfo_string103
-	.long	.Linfo_string103
-	.long	2512
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	2726
-	.byte	0
-	.byte	20
-	.long	.Linfo_string104
-	.long	.Linfo_string104
-	.byte	1
+	.long	3049
 	.byte	18
 	.long	.Linfo_string143
-	.long	2726
+	.long	2646
+	.byte	0
+	.byte	17
+	.long	.Linfo_string53
+	.long	.Linfo_string53
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3044
+	.byte	18
+	.long	.Linfo_string136
+	.long	2806
+	.byte	0
+	.byte	20
+	.long	.Linfo_string54
+	.long	.Linfo_string54
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3044
+	.byte	0
+	.byte	17
+	.long	.Linfo_string55
+	.long	.Linfo_string55
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3044
+	.byte	18
+	.long	.Linfo_string136
+	.long	3044
+	.byte	18
+	.long	.Linfo_string142
+	.long	3049
+	.byte	18
+	.long	.Linfo_string143
+	.long	2646
+	.byte	0
+	.byte	20
+	.long	.Linfo_string56
+	.long	.Linfo_string56
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3059
+	.byte	0
+	.byte	20
+	.long	.Linfo_string57
+	.long	.Linfo_string57
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3064
+	.byte	0
+	.byte	20
+	.long	.Linfo_string58
+	.long	.Linfo_string58
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3069
+	.byte	0
+	.byte	20
+	.long	.Linfo_string59
+	.long	.Linfo_string59
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3074
+	.byte	0
+	.byte	20
+	.long	.Linfo_string60
+	.long	.Linfo_string60
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3092
+	.byte	18
+	.long	.Linfo_string136
+	.long	3064
+	.byte	0
+	.byte	20
+	.long	.Linfo_string61
+	.long	.Linfo_string61
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3059
+	.byte	0
+	.byte	20
+	.long	.Linfo_string62
+	.long	.Linfo_string62
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3064
+	.byte	0
+	.byte	20
+	.long	.Linfo_string63
+	.long	.Linfo_string63
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3069
+	.byte	0
+	.byte	20
+	.long	.Linfo_string64
+	.long	.Linfo_string64
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3074
+	.byte	0
+	.byte	20
+	.long	.Linfo_string65
+	.long	.Linfo_string65
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3092
+	.byte	18
+	.long	.Linfo_string136
+	.long	3064
+	.byte	0
+	.byte	20
+	.long	.Linfo_string66
+	.long	.Linfo_string66
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string67
+	.long	.Linfo_string67
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3102
+	.byte	18
+	.long	.Linfo_string136
+	.long	3107
+	.byte	0
+	.byte	20
+	.long	.Linfo_string68
+	.long	.Linfo_string68
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3125
+	.byte	0
+	.byte	20
+	.long	.Linfo_string69
+	.long	.Linfo_string69
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3143
+	.byte	18
+	.long	.Linfo_string136
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string70
+	.long	.Linfo_string70
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3143
+	.byte	18
+	.long	.Linfo_string136
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string71
+	.long	.Linfo_string71
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string72
+	.long	.Linfo_string72
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3102
+	.byte	18
+	.long	.Linfo_string136
+	.long	3107
+	.byte	0
+	.byte	20
+	.long	.Linfo_string73
+	.long	.Linfo_string73
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3125
+	.byte	0
+	.byte	20
+	.long	.Linfo_string74
+	.long	.Linfo_string74
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3143
+	.byte	18
+	.long	.Linfo_string136
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string75
+	.long	.Linfo_string75
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3143
+	.byte	18
+	.long	.Linfo_string136
+	.long	3097
+	.byte	0
+	.byte	20
+	.long	.Linfo_string76
+	.long	.Linfo_string76
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	0
+	.byte	20
+	.long	.Linfo_string77
+	.long	.Linfo_string77
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	3102
+	.byte	18
+	.long	.Linfo_string136
+	.long	3107
+	.byte	0
+	.byte	20
+	.long	.Linfo_string78
+	.long	.Linfo_string78
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	0
+	.byte	20
+	.long	.Linfo_string79
+	.long	.Linfo_string79
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	3102
+	.byte	18
+	.long	.Linfo_string136
+	.long	3107
+	.byte	0
+	.byte	17
+	.long	.Linfo_string80
+	.long	.Linfo_string80
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	18
+	.long	.Linfo_string141
+	.long	2801
+	.byte	0
+	.byte	20
+	.long	.Linfo_string81
+	.long	.Linfo_string81
+	.byte	1
+	.byte	18
+	.long	.Linfo_string133
+	.long	2975
+	.byte	0
+	.byte	17
+	.long	.Linfo_string82
+	.long	.Linfo_string82
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	18
+	.long	.Linfo_string141
+	.long	2801
+	.byte	0
+	.byte	20
+	.long	.Linfo_string83
+	.long	.Linfo_string83
+	.byte	1
+	.byte	18
+	.long	.Linfo_string138
+	.long	3007
+	.byte	0
+	.byte	26
+	.long	.Linfo_string84
+	.long	.Linfo_string84
+	.byte	3
+	.byte	46
+	.byte	1
+	.byte	7
+	.long	.Linfo_string144
+	.byte	3
+	.byte	46
+	.long	2646
+	.byte	0
+	.byte	26
+	.long	.Linfo_string85
+	.long	.Linfo_string85
+	.byte	3
+	.byte	54
+	.byte	1
+	.byte	7
+	.long	.Linfo_string144
+	.byte	3
+	.byte	54
+	.long	2646
+	.byte	0
+	.byte	26
+	.long	.Linfo_string86
+	.long	.Linfo_string86
+	.byte	3
+	.byte	62
+	.byte	1
+	.byte	7
+	.long	.Linfo_string144
+	.byte	3
+	.byte	62
+	.long	2646
+	.byte	0
+	.byte	21
+	.long	.Linfo_string95
+	.byte	24
+	.byte	22
+	.long	.Linfo_string88
+	.long	2646
+	.byte	0
+	.byte	22
+	.long	.Linfo_string90
+	.long	2646
+	.byte	4
+	.byte	22
+	.long	.Linfo_string91
+	.long	2646
+	.byte	8
+	.byte	22
+	.long	.Linfo_string92
+	.long	2646
+	.byte	12
+	.byte	22
+	.long	.Linfo_string93
+	.long	2646
+	.byte	16
+	.byte	22
+	.long	.Linfo_string94
+	.long	2646
+	.byte	20
+	.byte	0
+	.byte	19
+	.long	.Linfo_string89
+	.byte	7
+	.byte	4
+	.byte	17
+	.long	.Linfo_string99
+	.long	.Linfo_string99
+	.long	2646
+	.byte	1
+	.byte	18
+	.long	.Linfo_string145
+	.long	2860
+	.byte	0
+	.byte	26
+	.long	.Linfo_string101
+	.long	.Linfo_string101
+	.byte	1
+	.byte	88
+	.byte	1
+	.byte	18
+	.long	.Linfo_string146
+	.long	2860
+	.byte	7
+	.long	.Linfo_string119
+	.byte	1
+	.byte	87
+	.long	2846
+	.byte	7
+	.long	.Linfo_string121
+	.byte	1
+	.byte	88
+	.long	2846
+	.byte	0
+	.byte	17
+	.long	.Linfo_string104
+	.long	.Linfo_string104
+	.long	2646
+	.byte	1
+	.byte	18
+	.long	.Linfo_string145
+	.long	2860
+	.byte	0
+	.byte	17
+	.long	.Linfo_string107
+	.long	.Linfo_string107
+	.long	2646
+	.byte	1
+	.byte	18
+	.long	.Linfo_string145
+	.long	2860
+	.byte	0
+	.byte	20
+	.long	.Linfo_string108
+	.long	.Linfo_string108
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	2860
 	.byte	0
 	.byte	27
-	.long	2660
+	.long	2794
 	.byte	19
-	.long	.Linfo_string108
+	.long	.Linfo_string112
 	.byte	8
 	.byte	1
 	.byte	28
-	.long	2445
+	.long	2579
 	.byte	28
-	.long	2677
+	.long	2811
 	.byte	21
-	.long	.Linfo_string112
+	.long	.Linfo_string116
 	.byte	19
 	.byte	22
-	.long	.Linfo_string111
-	.long	2694
+	.long	.Linfo_string115
+	.long	2828
 	.byte	0
 	.byte	0
 	.byte	23
-	.long	2660
+	.long	2794
 	.byte	24
 	.long	1282
 	.byte	0
 	.byte	18
 	.byte	0
 	.byte	27
-	.long	2677
+	.long	2811
 	.byte	19
-	.long	.Linfo_string116
+	.long	.Linfo_string120
 	.byte	7
 	.byte	4
 	.byte	19
-	.long	.Linfo_string122
+	.long	.Linfo_string126
 	.byte	7
 	.byte	4
 	.byte	27
-	.long	2731
+	.long	2865
 	.byte	21
-	.long	.Linfo_string128
+	.long	.Linfo_string132
 	.byte	68
 	.byte	22
-	.long	.Linfo_string125
-	.long	2512
+	.long	.Linfo_string129
+	.long	2646
 	.byte	0
 	.byte	22
-	.long	.Linfo_string126
-	.long	2512
+	.long	.Linfo_string130
+	.long	2646
 	.byte	4
 	.byte	22
-	.long	.Linfo_string115
-	.long	2712
+	.long	.Linfo_string119
+	.long	2846
 	.byte	8
 	.byte	22
-	.long	.Linfo_string117
-	.long	2712
+	.long	.Linfo_string121
+	.long	2846
 	.byte	12
 	.byte	22
-	.long	.Linfo_string113
-	.long	2445
+	.long	.Linfo_string117
+	.long	2579
 	.byte	16
 	.byte	22
-	.long	.Linfo_string110
-	.long	2677
+	.long	.Linfo_string114
+	.long	2811
 	.byte	40
 	.byte	22
-	.long	.Linfo_string127
-	.long	2828
+	.long	.Linfo_string131
+	.long	2962
 	.byte	59
 	.byte	22
-	.long	.Linfo_string119
+	.long	.Linfo_string123
 	.long	50
 	.byte	60
 	.byte	22
-	.long	.Linfo_string118
+	.long	.Linfo_string122
 	.long	1091
 	.byte	64
 	.byte	0
 	.byte	23
-	.long	2660
+	.long	2794
 	.byte	24
 	.long	1282
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	19
-	.long	.Linfo_string130
+	.long	.Linfo_string134
 	.byte	7
 	.byte	4
 	.byte	29
-	.long	2853
+	.long	2987
 	.byte	23
-	.long	2866
+	.long	3000
 	.byte	24
 	.long	1282
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	19
-	.long	.Linfo_string133
+	.long	.Linfo_string137
 	.byte	7
 	.byte	2
 	.byte	29
-	.long	2878
+	.long	3012
 	.byte	21
-	.long	.Linfo_string136
+	.long	.Linfo_string140
 	.byte	8
 	.byte	22
-	.long	.Linfo_string129
-	.long	2841
+	.long	.Linfo_string133
+	.long	2975
 	.byte	0
 	.byte	22
-	.long	.Linfo_string135
-	.long	2512
+	.long	.Linfo_string139
+	.long	2646
 	.byte	4
 	.byte	0
 	.byte	28
 	.long	31
 	.byte	28
-	.long	2660
+	.long	2794
 	.byte	29
-	.long	2920
+	.long	3054
 	.byte	30
-	.long	2660
+	.long	2794
 	.byte	28
 	.long	69
 	.byte	28
+	.long	2646
+	.byte	28
 	.long	50
+	.byte	29
+	.long	3079
+	.byte	23
+	.long	2646
+	.byte	24
+	.long	1282
+	.byte	0
+	.byte	2
+	.byte	0
 	.byte	28
 	.long	100
 	.byte	28
@@ -6264,16 +6542,16 @@ chronodot_ds3231_controller.init.1.1.init:
 	.byte	28
 	.long	185
 	.byte	29
-	.long	2955
+	.long	3112
 	.byte	23
-	.long	2660
+	.long	2794
 	.byte	24
 	.long	1282
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	29
-	.long	2973
+	.long	3130
 	.byte	23
 	.long	1091
 	.byte	24
@@ -6671,372 +6949,372 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	0
 	.long	0
 .Ldebug_ranges2:
-	.long	.Lfunc_begin40
-	.long	.Lfunc_end40
-	.long	0
-	.long	0
-.Ldebug_ranges3:
-	.long	.Ltmp226
-	.long	.Ltmp227
-	.long	0
-	.long	0
-.Ldebug_ranges4:
-	.long	.Lfunc_begin41
-	.long	.Lfunc_end41
-	.long	0
-	.long	0
-.Ldebug_ranges5:
-	.long	.Lfunc_begin42
-	.long	.Lfunc_end42
-	.long	0
-	.long	0
-.Ldebug_ranges6:
-	.long	.Ltmp251
-	.long	.Ltmp275
-	.long	0
-	.long	0
-.Ldebug_ranges7:
-	.long	.Ltmp251
-	.long	.Ltmp275
-	.long	0
-	.long	0
-.Ldebug_ranges8:
-	.long	.Ltmp251
-	.long	.Ltmp275
-	.long	0
-	.long	0
-.Ldebug_ranges9:
-	.long	.Ltmp251
-	.long	.Ltmp275
-	.long	0
-	.long	0
-.Ldebug_ranges10:
-	.long	.Ltmp251
-	.long	.Ltmp275
-	.long	0
-	.long	0
-.Ldebug_ranges11:
 	.long	.Lfunc_begin44
 	.long	.Lfunc_end44
 	.long	0
 	.long	0
-.Ldebug_ranges12:
-	.long	.Ltmp287
+.Ldebug_ranges3:
+	.long	.Ltmp239
+	.long	.Ltmp240
+	.long	0
+	.long	0
+.Ldebug_ranges4:
+	.long	.Lfunc_begin45
+	.long	.Lfunc_end45
+	.long	0
+	.long	0
+.Ldebug_ranges5:
+	.long	.Lfunc_begin46
+	.long	.Lfunc_end46
+	.long	0
+	.long	0
+.Ldebug_ranges6:
+	.long	.Ltmp264
 	.long	.Ltmp288
+	.long	0
+	.long	0
+.Ldebug_ranges7:
+	.long	.Ltmp264
+	.long	.Ltmp288
+	.long	0
+	.long	0
+.Ldebug_ranges8:
+	.long	.Ltmp264
+	.long	.Ltmp288
+	.long	0
+	.long	0
+.Ldebug_ranges9:
+	.long	.Ltmp264
+	.long	.Ltmp288
+	.long	0
+	.long	0
+.Ldebug_ranges10:
+	.long	.Ltmp264
+	.long	.Ltmp288
+	.long	0
+	.long	0
+.Ldebug_ranges11:
+	.long	.Lfunc_begin48
+	.long	.Lfunc_end48
+	.long	0
+	.long	0
+.Ldebug_ranges12:
+	.long	.Ltmp300
+	.long	.Ltmp301
 	.long	0
 	.long	0
 .Ldebug_ranges13:
-	.long	.Ltmp287
-	.long	.Ltmp288
+	.long	.Ltmp300
+	.long	.Ltmp301
 	.long	0
 	.long	0
 .Ldebug_ranges14:
-	.long	.Ltmp287
-	.long	.Ltmp288
+	.long	.Ltmp300
+	.long	.Ltmp301
 	.long	0
 	.long	0
 .Ldebug_ranges15:
-	.long	.Ltmp287
-	.long	.Ltmp288
+	.long	.Ltmp300
+	.long	.Ltmp301
 	.long	0
 	.long	0
 .Ldebug_ranges16:
-	.long	.Ltmp286
-	.long	.Ltmp288
+	.long	.Ltmp299
+	.long	.Ltmp301
 	.long	0
 	.long	0
 .Ldebug_ranges17:
-	.long	.Lfunc_begin49
-	.long	.Lfunc_end49
-	.long	0
-	.long	0
-.Ldebug_ranges18:
-	.long	.Ltmp306
-	.long	.Ltmp310
-	.long	0
-	.long	0
-.Ldebug_ranges19:
-	.long	.Lfunc_begin50
-	.long	.Lfunc_end50
-	.long	0
-	.long	0
-.Ldebug_ranges20:
-	.long	.Lfunc_begin51
-	.long	.Lfunc_end51
-	.long	0
-	.long	0
-.Ldebug_ranges21:
-	.long	.Ltmp331
-	.long	.Ltmp335
-	.long	0
-	.long	0
-.Ldebug_ranges22:
-	.long	.Lfunc_begin52
-	.long	.Lfunc_end52
-	.long	0
-	.long	0
-.Ldebug_ranges23:
 	.long	.Lfunc_begin53
 	.long	.Lfunc_end53
 	.long	0
 	.long	0
+.Ldebug_ranges18:
+	.long	.Ltmp319
+	.long	.Ltmp323
+	.long	0
+	.long	0
+.Ldebug_ranges19:
+	.long	.Lfunc_begin54
+	.long	.Lfunc_end54
+	.long	0
+	.long	0
+.Ldebug_ranges20:
+	.long	.Lfunc_begin55
+	.long	.Lfunc_end55
+	.long	0
+	.long	0
+.Ldebug_ranges21:
+	.long	.Ltmp344
+	.long	.Ltmp348
+	.long	0
+	.long	0
+.Ldebug_ranges22:
+	.long	.Lfunc_begin56
+	.long	.Lfunc_end56
+	.long	0
+	.long	0
+.Ldebug_ranges23:
+	.long	.Lfunc_begin57
+	.long	.Lfunc_end57
+	.long	0
+	.long	0
 .Ldebug_ranges24:
-	.long	.Ltmp356
-	.long	.Ltmp360
+	.long	.Ltmp369
+	.long	.Ltmp373
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin0
 	.long	.Ltmp5
-.Lset0 = .Ltmp363-.Ltmp362
+.Lset0 = .Ltmp376-.Ltmp375
 	.short	.Lset0
-.Ltmp362:
+.Ltmp375:
 	.byte	80
-.Ltmp363:
+.Ltmp376:
 	.long	.Ltmp5
 	.long	.Ltmp9
-.Lset1 = .Ltmp365-.Ltmp364
+.Lset1 = .Ltmp378-.Ltmp377
 	.short	.Lset1
-.Ltmp364:
+.Ltmp377:
 	.byte	84
-.Ltmp365:
+.Ltmp378:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin1
 	.long	.Ltmp16
-.Lset2 = .Ltmp367-.Ltmp366
+.Lset2 = .Ltmp380-.Ltmp379
 	.short	.Lset2
-.Ltmp366:
+.Ltmp379:
 	.byte	81
-.Ltmp367:
+.Ltmp380:
 	.long	0
 	.long	0
 .Ldebug_loc2:
-	.long	.Lfunc_begin42
-	.long	.Ltmp251
-.Lset3 = .Ltmp369-.Ltmp368
+	.long	.Lfunc_begin46
+	.long	.Ltmp264
+.Lset3 = .Ltmp382-.Ltmp381
 	.short	.Lset3
-.Ltmp368:
+.Ltmp381:
 	.byte	80
-.Ltmp369:
-	.long	.Ltmp251
-	.long	.Lfunc_end42
-.Lset4 = .Ltmp371-.Ltmp370
+.Ltmp382:
+	.long	.Ltmp264
+	.long	.Lfunc_end46
+.Lset4 = .Ltmp384-.Ltmp383
 	.short	.Lset4
-.Ltmp370:
+.Ltmp383:
 	.byte	126
 	.byte	28
-.Ltmp371:
+.Ltmp384:
 	.long	0
 	.long	0
 .Ldebug_loc3:
-	.long	.Lfunc_begin42
-	.long	.Ltmp250
-.Lset5 = .Ltmp373-.Ltmp372
+	.long	.Lfunc_begin46
+	.long	.Ltmp263
+.Lset5 = .Ltmp386-.Ltmp385
 	.short	.Lset5
-.Ltmp372:
+.Ltmp385:
 	.byte	81
-.Ltmp373:
-	.long	.Ltmp250
-	.long	.Ltmp260
-.Lset6 = .Ltmp375-.Ltmp374
+.Ltmp386:
+	.long	.Ltmp263
+	.long	.Ltmp273
+.Lset6 = .Ltmp388-.Ltmp387
 	.short	.Lset6
-.Ltmp374:
+.Ltmp387:
 	.byte	126
 	.byte	16
-.Ltmp375:
-	.long	.Ltmp260
-	.long	.Ltmp261
-.Lset7 = .Ltmp377-.Ltmp376
+.Ltmp388:
+	.long	.Ltmp273
+	.long	.Ltmp274
+.Lset7 = .Ltmp390-.Ltmp389
 	.short	.Lset7
-.Ltmp376:
+.Ltmp389:
 	.byte	80
-.Ltmp377:
-	.long	.Ltmp261
-	.long	.Ltmp271
-.Lset8 = .Ltmp379-.Ltmp378
+.Ltmp390:
+	.long	.Ltmp274
+	.long	.Ltmp284
+.Lset8 = .Ltmp392-.Ltmp391
 	.short	.Lset8
-.Ltmp378:
+.Ltmp391:
 	.byte	126
 	.byte	16
-.Ltmp379:
-	.long	.Ltmp271
-	.long	.Ltmp272
-.Lset9 = .Ltmp381-.Ltmp380
+.Ltmp392:
+	.long	.Ltmp284
+	.long	.Ltmp285
+.Lset9 = .Ltmp394-.Ltmp393
 	.short	.Lset9
-.Ltmp380:
+.Ltmp393:
 	.byte	81
-.Ltmp381:
-	.long	.Ltmp272
-	.long	.Lfunc_end42
-.Lset10 = .Ltmp383-.Ltmp382
+.Ltmp394:
+	.long	.Ltmp285
+	.long	.Lfunc_end46
+.Lset10 = .Ltmp396-.Ltmp395
 	.short	.Lset10
-.Ltmp382:
+.Ltmp395:
 	.byte	126
 	.byte	16
-.Ltmp383:
+.Ltmp396:
 	.long	0
 	.long	0
 .Ldebug_loc4:
-	.long	.Ltmp252
-	.long	.Ltmp253
-.Lset11 = .Ltmp385-.Ltmp384
-	.short	.Lset11
-.Ltmp384:
-	.byte	90
-.Ltmp385:
-	.long	.Ltmp259
-	.long	.Ltmp260
-.Lset12 = .Ltmp387-.Ltmp386
-	.short	.Lset12
-.Ltmp386:
-	.byte	90
-.Ltmp387:
-	.long	.Ltmp260
-	.long	.Ltmp264
-.Lset13 = .Ltmp389-.Ltmp388
-	.short	.Lset13
-.Ltmp388:
-	.byte	126
-	.byte	20
-.Ltmp389:
-	.long	.Ltmp264
-	.long	.Ltmp265
-.Lset14 = .Ltmp391-.Ltmp390
-	.short	.Lset14
-.Ltmp390:
-	.byte	81
-.Ltmp391:
 	.long	.Ltmp265
 	.long	.Ltmp266
-.Lset15 = .Ltmp393-.Ltmp392
-	.short	.Lset15
-.Ltmp392:
+.Lset11 = .Ltmp398-.Ltmp397
+	.short	.Lset11
+.Ltmp397:
 	.byte	90
-.Ltmp393:
+.Ltmp398:
+	.long	.Ltmp272
+	.long	.Ltmp273
+.Lset12 = .Ltmp400-.Ltmp399
+	.short	.Lset12
+.Ltmp399:
+	.byte	90
+.Ltmp400:
+	.long	.Ltmp273
+	.long	.Ltmp277
+.Lset13 = .Ltmp402-.Ltmp401
+	.short	.Lset13
+.Ltmp401:
+	.byte	126
+	.byte	20
+.Ltmp402:
+	.long	.Ltmp277
+	.long	.Ltmp278
+.Lset14 = .Ltmp404-.Ltmp403
+	.short	.Lset14
+.Ltmp403:
+	.byte	81
+.Ltmp404:
+	.long	.Ltmp278
+	.long	.Ltmp279
+.Lset15 = .Ltmp406-.Ltmp405
+	.short	.Lset15
+.Ltmp405:
+	.byte	90
+.Ltmp406:
 	.long	0
 	.long	0
 .Ldebug_loc5:
-	.long	.Ltmp262
-	.long	.Ltmp266
-.Lset16 = .Ltmp395-.Ltmp394
+	.long	.Ltmp275
+	.long	.Ltmp279
+.Lset16 = .Ltmp408-.Ltmp407
 	.short	.Lset16
-.Ltmp394:
+.Ltmp407:
 	.byte	89
-.Ltmp395:
-	.long	.Ltmp274
-	.long	.Lfunc_end42
-.Lset17 = .Ltmp397-.Ltmp396
+.Ltmp408:
+	.long	.Ltmp287
+	.long	.Lfunc_end46
+.Lset17 = .Ltmp410-.Ltmp409
 	.short	.Lset17
-.Ltmp396:
+.Ltmp409:
 	.byte	89
-.Ltmp397:
+.Ltmp410:
 	.long	0
 	.long	0
 .Ldebug_loc6:
-	.long	.Ltmp269
-	.long	.Ltmp270
-.Lset18 = .Ltmp399-.Ltmp398
+	.long	.Ltmp282
+	.long	.Ltmp283
+.Lset18 = .Ltmp412-.Ltmp411
 	.short	.Lset18
-.Ltmp398:
+.Ltmp411:
 	.byte	126
 	.byte	4
-.Ltmp399:
-	.long	.Ltmp270
-	.long	.Ltmp273
-.Lset19 = .Ltmp401-.Ltmp400
+.Ltmp412:
+	.long	.Ltmp283
+	.long	.Ltmp286
+.Lset19 = .Ltmp414-.Ltmp413
 	.short	.Lset19
-.Ltmp400:
+.Ltmp413:
 	.byte	121
 	.byte	0
-.Ltmp401:
-	.long	.Ltmp273
-	.long	.Lfunc_end42
-.Lset20 = .Ltmp403-.Ltmp402
+.Ltmp414:
+	.long	.Ltmp286
+	.long	.Lfunc_end46
+.Lset20 = .Ltmp416-.Ltmp415
 	.short	.Lset20
-.Ltmp402:
+.Ltmp415:
 	.byte	126
 	.byte	4
-.Ltmp403:
+.Ltmp416:
 	.long	0
 	.long	0
 .Ldebug_loc7:
-	.long	.Lfunc_begin44
-	.long	.Ltmp284
-.Lset21 = .Ltmp405-.Ltmp404
+	.long	.Lfunc_begin48
+	.long	.Ltmp297
+.Lset21 = .Ltmp418-.Ltmp417
 	.short	.Lset21
-.Ltmp404:
+.Ltmp417:
 	.byte	80
-.Ltmp405:
-	.long	.Ltmp284
-	.long	.Ltmp288
-.Lset22 = .Ltmp407-.Ltmp406
+.Ltmp418:
+	.long	.Ltmp297
+	.long	.Ltmp301
+.Lset22 = .Ltmp420-.Ltmp419
 	.short	.Lset22
-.Ltmp406:
+.Ltmp419:
 	.byte	84
-.Ltmp407:
+.Ltmp420:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Ltmp307
-	.long	.Ltmp308
-.Lset23 = .Ltmp409-.Ltmp408
+	.long	.Ltmp320
+	.long	.Ltmp321
+.Lset23 = .Ltmp422-.Ltmp421
 	.short	.Lset23
-.Ltmp408:
+.Ltmp421:
 	.byte	80
-.Ltmp409:
+.Ltmp422:
 	.long	0
 	.long	0
 .Ldebug_loc9:
-	.long	.Ltmp309
-	.long	.Ltmp310
-.Lset24 = .Ltmp411-.Ltmp410
+	.long	.Ltmp322
+	.long	.Ltmp323
+.Lset24 = .Ltmp424-.Ltmp423
 	.short	.Lset24
-.Ltmp410:
+.Ltmp423:
 	.byte	88
-.Ltmp411:
+.Ltmp424:
 	.long	0
 	.long	0
 .Ldebug_loc10:
-	.long	.Ltmp332
-	.long	.Ltmp333
-.Lset25 = .Ltmp413-.Ltmp412
+	.long	.Ltmp345
+	.long	.Ltmp346
+.Lset25 = .Ltmp426-.Ltmp425
 	.short	.Lset25
-.Ltmp412:
+.Ltmp425:
 	.byte	80
-.Ltmp413:
+.Ltmp426:
 	.long	0
 	.long	0
 .Ldebug_loc11:
-	.long	.Ltmp334
-	.long	.Ltmp335
-.Lset26 = .Ltmp415-.Ltmp414
+	.long	.Ltmp347
+	.long	.Ltmp348
+.Lset26 = .Ltmp428-.Ltmp427
 	.short	.Lset26
-.Ltmp414:
+.Ltmp427:
 	.byte	88
-.Ltmp415:
+.Ltmp428:
 	.long	0
 	.long	0
 .Ldebug_loc12:
-	.long	.Ltmp357
-	.long	.Ltmp358
-.Lset27 = .Ltmp417-.Ltmp416
+	.long	.Ltmp370
+	.long	.Ltmp371
+.Lset27 = .Ltmp430-.Ltmp429
 	.short	.Lset27
-.Ltmp416:
+.Ltmp429:
 	.byte	80
-.Ltmp417:
+.Ltmp430:
 	.long	0
 	.long	0
 .Ldebug_loc13:
-	.long	.Ltmp359
-	.long	.Ltmp360
-.Lset28 = .Ltmp419-.Ltmp418
+	.long	.Ltmp372
+	.long	.Ltmp373
+.Lset28 = .Ltmp432-.Ltmp431
 	.short	.Lset28
-.Ltmp418:
+.Ltmp431:
 	.byte	88
-.Ltmp419:
+.Ltmp432:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -7049,23 +7327,23 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	.Lset30
 	.long	1309
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	2171
+	.long	2305
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
 	.long	1413
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	954
-.asciiz"chronodot_ds3231_controller.select.case.0"
+.asciiz"Chronodot_DS3231_Controller.select.case.0"
 	.long	972
-.asciiz"chronodot_ds3231_controller.select.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.case.1"
 	.long	1160
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
 	.long	1502
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	859
-.asciiz"chronodot_ds3231_controller.select.y.case.0"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 	.long	877
-.asciiz"chronodot_ds3231_controller.select.y.case.1"
-	.long	2151
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
+	.long	2285
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	1098
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
@@ -7073,94 +7351,102 @@ chronodot_ds3231_controller.init.1.1.init:
 .asciiz"chronodot_registers_to_datetime"
 	.long	1442
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-	.long	2008
+	.long	2142
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
 	.long	346
-.asciiz"_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok"
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
 	.long	1209
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	1749
+	.long	1845
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
-	.long	2300
+	.long	2434
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
-	.long	2046
+	.long	2180
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
-	.long	2543
-.asciiz"chronodot_ds3231_controller.init.0"
-	.long	666
-.asciiz"chronodot_ds3231_controller.init.1"
-	.long	1662
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	1778
-.asciiz"_i.port_heat_light_commands_if._chan_y.light_command"
-	.long	2075
+	.long	2677
+.asciiz"Chronodot_DS3231_Controller.init.0"
+	.long	2209
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+	.long	1691
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 	.long	298
-.asciiz"_i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok"
-	.long	2267
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok"
+	.long	1816
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+	.long	666
+.asciiz"Chronodot_DS3231_Controller.init.1"
+	.long	2401
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
-	.long	1941
+	.long	2075
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	2229
+	.long	2363
 .asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
-	.long	1807
+	.long	1941
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+	.long	1662
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 	.long	1544
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
-	.long	1691
-.asciiz"_i.port_heat_light_commands_if._chan.light_command"
-	.long	2635
-.asciiz"chronodot_ds3231_controller.fini"
-	.long	1720
+	.long	2769
+.asciiz"Chronodot_DS3231_Controller.fini"
+	.long	1787
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 	.long	1180
 .asciiz"_i.i2c_external_commands_if._chan.command"
-	.long	2209
+	.long	1874
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+	.long	2343
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 	.long	1633
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	2519
-.asciiz"chronodot_ds3231_controller.select.0.enable"
-	.long	2397
+	.long	1720
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
+	.long	2653
+.asciiz"Chronodot_DS3231_Controller.select.0.enable"
+	.long	2531
 .asciiz"delay_milliseconds"
 	.long	1573
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-	.long	431
-.asciiz"datetime_to_chronodot_registers"
+	.long	1903
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 	.long	1371
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
+	.long	431
+.asciiz"datetime_to_chronodot_registers"
+	.long	1749
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 	.long	1338
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 	.long	782
-.asciiz"chronodot_ds3231_controller.select.0.case.0"
-	.long	2353
+.asciiz"Chronodot_DS3231_Controller.select.0.case.0"
+	.long	2487
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
-	.long	1836
+	.long	1970
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
 	.long	473
-.asciiz"chronodot_ds3231_controller"
-	.long	2320
+.asciiz"Chronodot_DS3231_Controller"
+	.long	2454
 .asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 	.long	1118
 .asciiz"_i.startkit_adc_acquire_if._chan_y.read"
-	.long	1979
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	2611
-.asciiz"chronodot_ds3231_controller.select.enable"
 	.long	2113
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+	.long	2745
+.asciiz"Chronodot_DS3231_Controller.select.enable"
+	.long	2247
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	1874
+	.long	2008
 .asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	2421
+	.long	2555
 .asciiz"delay_microseconds"
-	.long	1903
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 	.long	1049
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
-	.long	2373
+	.long	2037
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+	.long	2507
 .asciiz"delay_seconds"
-	.long	2587
-.asciiz"chronodot_ds3231_controller.select.y.enable"
+	.long	2721
+.asciiz"Chronodot_DS3231_Controller.select.y.enable"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -7175,47 +7461,47 @@ chronodot_ds3231_controller.init.1.1.init:
 .asciiz"__TYPE_10"
 	.long	31
 .asciiz"__TYPE_11"
-	.long	69
-.asciiz"__TYPE_21"
-	.long	216
-.asciiz"__TYPE_22"
 	.long	100
 .asciiz"__TYPE_20"
-	.long	2677
+	.long	2811
 .asciiz"__TYPE_13"
-	.long	2445
-.asciiz"__TYPE_26"
-	.long	2512
+	.long	69
+.asciiz"__TYPE_23"
+	.long	216
+.asciiz"__TYPE_24"
+	.long	2853
+.asciiz"timer"
+	.long	2646
 .asciiz"unsigned int"
-	.long	2731
+	.long	2579
+.asciiz"__TYPE_28"
+	.long	2865
 .asciiz"frame.0"
 	.long	1091
 .asciiz"int"
-	.long	2866
+	.long	3000
 .asciiz"unsigned short"
 	.long	1302
 .asciiz"short"
-	.long	2712
+	.long	2846
 .asciiz"interface"
-	.long	2841
+	.long	2975
 .asciiz"chanend"
-	.long	2878
+	.long	3012
 .asciiz"yarg"
 	.long	1242
 .asciiz"tag_i2c_temps_t"
 	.long	277
 .asciiz"__TYPE_7"
-	.long	2660
+	.long	2794
 .asciiz"unsigned char"
-	.long	2719
-.asciiz"timer"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok, "f{e(){m(false){0},m(true){1}}}(u:q(uc),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
-	.overlay_reference _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.set_time_ok,_i.i2c_internal_commands_if.write_chronodot_ok.fns
-	.typestring _i.chronodot_ds3231_if.chronodot_ds3231_controller._c0.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(u:q(uc))"
+	.typestring _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok, "f{e(){m(false){0},m(true){1}}}(u:q(uc),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
+	.overlay_reference _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.typestring _i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(u:q(uc))"
 	.typestring _i.startkit_adc_acquire_if._chan.read, "l:f{si}(chd,ui,&(a(4:us)))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan.trigger, "f{0}(chd)"
@@ -7240,14 +7526,20 @@ chronodot_ds3231_controller.init.1.1.init:
 	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.light_command, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)"
 	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.light_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}})"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.light_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_string, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
@@ -7281,24 +7573,24 @@ chronodot_ds3231_controller.init.1.1.init:
 	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
 	.typestring puts, "f{si}(u:q(c:uc))"
-	.typestring bcd2bin_8, "f{uc}(uc)"
-	.typestring bin2bcd_8, "f{uc}(uc)"
+	.typestring BCD_To_Bin_8, "f{uc}(uc)"
+	.typestring Bin_To_BCD_8, "f{uc}(uc)"
 	.typestring chronodot_registers_to_datetime, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}}}(:s(){m(registers){a(19:uc)}})"
 	.typestring datetime_to_chronodot_registers, "f{0}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},q(s(){m(registers){a(19:uc)}}))"
-	.typestring chronodot_ds3231_controller, "k:f{0}(is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.overlay_reference chronodot_ds3231_controller,_i.i2c_internal_commands_if.read_chronodot_ok.fns
-	.overlay_reference chronodot_ds3231_controller,_i.i2c_internal_commands_if.write_chronodot_ok.fns
-	.typestring chronodot_ds3231_controller.select.0.enable, "k:fe{0}()"
-	.typestring chronodot_ds3231_controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring chronodot_ds3231_controller.init.0, "k:f{0}(u:q(ui),is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.typestring chronodot_ds3231_controller.select.y.enable, "k:fe{0}()"
-	.typestring chronodot_ds3231_controller.select.enable, "k:fe{0}()"
-	.typestring chronodot_ds3231_controller.fini, "k:f{0}(u:q(ui))"
-	.overlay_reference chronodot_ds3231_controller.select.0.case.0,_i.i2c_internal_commands_if.write_chronodot_ok.fns
-	.overlay_reference chronodot_ds3231_controller.select.y.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
-	.overlay_reference chronodot_ds3231_controller.select.y.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
-	.overlay_reference chronodot_ds3231_controller.select.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
-	.overlay_reference chronodot_ds3231_controller.select.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.typestring Chronodot_DS3231_Controller, "k:f{0}(is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.overlay_reference Chronodot_DS3231_Controller,_i.i2c_internal_commands_if.read_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.typestring Chronodot_DS3231_Controller.select.0.enable, "k:fe{0}()"
+	.typestring Chronodot_DS3231_Controller.init.1, "k:f{0}(u:q(ui))"
+	.typestring Chronodot_DS3231_Controller.init.0, "k:f{0}(u:q(ui),is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring Chronodot_DS3231_Controller.select.y.enable, "k:fe{0}()"
+	.typestring Chronodot_DS3231_Controller.select.enable, "k:fe{0}()"
+	.typestring Chronodot_DS3231_Controller.fini, "k:f{0}(u:q(ui))"
+	.overlay_reference Chronodot_DS3231_Controller.select.0.case.0,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.y.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.y.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
@@ -7380,337 +7672,337 @@ chronodot_ds3231_controller.init.1.1.init:
 .cc_top cc_12,.Lxta.call_labels40
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
+	.long	106
 	.long	.Lxta.call_labels40
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels54
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
+	.long	106
 	.long	.Lxta.call_labels54
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels19
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
+	.long	106
 	.long	.Lxta.call_labels19
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels20
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
+	.long	109
 	.long	.Lxta.call_labels20
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels55
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
+	.long	109
 	.long	.Lxta.call_labels55
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels41
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
+	.long	109
 	.long	.Lxta.call_labels41
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels21
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	110
 	.long	.Lxta.call_labels21
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels56
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	110
 	.long	.Lxta.call_labels56
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels42
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	110
 	.long	.Lxta.call_labels42
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels57
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	111
 	.long	.Lxta.call_labels57
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.call_labels22
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	111
 	.long	.Lxta.call_labels22
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.call_labels43
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	111
 	.long	.Lxta.call_labels43
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels44
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	112
 	.long	.Lxta.call_labels44
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.call_labels23
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	112
 	.long	.Lxta.call_labels23
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels58
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	112
 	.long	.Lxta.call_labels58
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.call_labels24
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	113
 	.long	.Lxta.call_labels24
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.call_labels59
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	113
 	.long	.Lxta.call_labels59
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.call_labels45
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	113
 	.long	.Lxta.call_labels45
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.call_labels46
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	114
 	.long	.Lxta.call_labels46
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.call_labels25
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	114
 	.long	.Lxta.call_labels25
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.call_labels60
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	114
 	.long	.Lxta.call_labels60
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.call_labels33
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	133
+	.long	134
 	.long	.Lxta.call_labels33
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.call_labels47
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	133
+	.long	134
 	.long	.Lxta.call_labels47
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.call_labels61
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	133
+	.long	134
 	.long	.Lxta.call_labels61
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.call_labels26
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	133
+	.long	134
 	.long	.Lxta.call_labels26
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.call_labels0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	133
+	.long	134
 	.long	.Lxta.call_labels0
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.call_labels34
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	134
+	.long	135
 	.long	.Lxta.call_labels34
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.call_labels62
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	134
+	.long	135
 	.long	.Lxta.call_labels62
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.call_labels1
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	134
+	.long	135
 	.long	.Lxta.call_labels1
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.call_labels48
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	134
+	.long	135
 	.long	.Lxta.call_labels48
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.call_labels27
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	134
+	.long	135
 	.long	.Lxta.call_labels27
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.call_labels2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	135
+	.long	136
 	.long	.Lxta.call_labels2
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.call_labels28
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	135
+	.long	136
 	.long	.Lxta.call_labels28
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.call_labels63
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	135
+	.long	136
 	.long	.Lxta.call_labels63
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.call_labels35
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	135
+	.long	136
 	.long	.Lxta.call_labels35
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.call_labels49
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	135
+	.long	136
 	.long	.Lxta.call_labels49
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.call_labels36
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	136
+	.long	137
 	.long	.Lxta.call_labels36
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.call_labels29
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	136
+	.long	137
 	.long	.Lxta.call_labels29
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.call_labels50
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	136
+	.long	137
 	.long	.Lxta.call_labels50
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.call_labels3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	136
+	.long	137
 	.long	.Lxta.call_labels3
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.call_labels64
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	136
+	.long	137
 	.long	.Lxta.call_labels64
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.call_labels51
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	137
+	.long	138
 	.long	.Lxta.call_labels51
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.call_labels4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	137
+	.long	138
 	.long	.Lxta.call_labels4
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.call_labels30
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	137
+	.long	138
 	.long	.Lxta.call_labels30
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.call_labels37
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	137
+	.long	138
 	.long	.Lxta.call_labels37
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.call_labels65
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	137
+	.long	138
 	.long	.Lxta.call_labels65
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.call_labels52
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	138
+	.long	139
 	.long	.Lxta.call_labels52
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.call_labels5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	138
+	.long	139
 	.long	.Lxta.call_labels5
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.call_labels38
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	138
+	.long	139
 	.long	.Lxta.call_labels38
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.call_labels31
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	138
+	.long	139
 	.long	.Lxta.call_labels31
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.call_labels66
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	138
+	.long	139
 	.long	.Lxta.call_labels66
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.call_labels6
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	140
+	.long	141
 	.long	.Lxta.call_labels6
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.call_labels53
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	140
+	.long	141
 	.long	.Lxta.call_labels53
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.call_labels32
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	140
+	.long	141
 	.long	.Lxta.call_labels32
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.call_labels39
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	140
+	.long	141
 	.long	.Lxta.call_labels39
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.call_labels67
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	140
+	.long	141
 	.long	.Lxta.call_labels67
 .cc_bottom cc_67
 .Lentries_end1:
@@ -7723,31 +8015,31 @@ chronodot_ds3231_controller.init.1.1.init:
 .cc_top cc_68,.Lxta.endpoint_labels0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	97
+	.long	98
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.endpoint_labels2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	97
+	.long	98
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.endpoint_labels1
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	100
+	.long	101
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.endpoint_labels3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	101
+	.long	102
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_71
 .cc_top cc_72,.Lxta.endpoint_labels4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	101
+	.long	102
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_72
 .Lentries_end3:
@@ -7802,225 +8094,225 @@ chronodot_ds3231_controller.init.1.1.init:
 .cc_top cc_79,.Lxtalabel4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	89
-	.long	93
+	.long	90
+	.long	94
 	.long	.Lxtalabel4
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel8
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	89
-	.long	93
+	.long	90
+	.long	94
 	.long	.Lxtalabel8
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	95
-	.long	95
+	.long	96
+	.long	96
 	.long	.Lxtalabel4
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel8
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	95
-	.long	95
+	.long	96
+	.long	96
 	.long	.Lxtalabel8
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	97
-	.long	97
+	.long	98
+	.long	98
 	.long	.Lxtalabel4
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel8
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	97
-	.long	97
+	.long	98
+	.long	98
 	.long	.Lxtalabel8
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel8
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	99
-	.long	99
+	.long	100
+	.long	100
 	.long	.Lxtalabel8
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	99
-	.long	99
+	.long	100
+	.long	100
 	.long	.Lxtalabel4
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel10
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	103
-	.long	103
+	.long	104
+	.long	104
 	.long	.Lxtalabel10
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel14
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	103
-	.long	103
+	.long	104
+	.long	104
 	.long	.Lxtalabel14
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	103
-	.long	103
+	.long	104
+	.long	104
 	.long	.Lxtalabel5
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
-	.long	105
+	.long	106
+	.long	106
 	.long	.Lxtalabel5
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel14
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
-	.long	105
+	.long	106
+	.long	106
 	.long	.Lxtalabel14
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel10
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	105
-	.long	105
+	.long	106
+	.long	106
 	.long	.Lxtalabel10
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel10
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	107
-	.long	107
+	.long	108
+	.long	108
 	.long	.Lxtalabel10
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	107
-	.long	107
+	.long	108
+	.long	108
 	.long	.Lxtalabel5
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel14
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	107
-	.long	107
+	.long	108
+	.long	108
 	.long	.Lxtalabel14
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel11
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
-	.long	114
+	.long	109
+	.long	115
 	.long	.Lxtalabel11
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel15
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
-	.long	114
+	.long	109
+	.long	115
 	.long	.Lxtalabel15
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel6
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	108
-	.long	114
+	.long	109
+	.long	115
 	.long	.Lxtalabel6
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel16
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	123
-	.long	123
+	.long	124
+	.long	124
 	.long	.Lxtalabel16
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel12
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	123
-	.long	123
+	.long	124
+	.long	124
 	.long	.Lxtalabel12
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel16
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	125
-	.long	125
+	.long	126
+	.long	126
 	.long	.Lxtalabel16
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel12
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	125
-	.long	125
+	.long	126
+	.long	126
 	.long	.Lxtalabel12
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel7
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	128
+	.long	127
+	.long	129
 	.long	.Lxtalabel7
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel17
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	128
+	.long	127
+	.long	129
 	.long	.Lxtalabel17
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel9
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	128
+	.long	127
+	.long	129
 	.long	.Lxtalabel9
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel13
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	128
+	.long	127
+	.long	129
 	.long	.Lxtalabel13
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel9
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
+	.long	131
+	.long	131
 	.long	.Lxtalabel9
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel13
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
+	.long	131
+	.long	131
 	.long	.Lxtalabel13
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel7
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
+	.long	131
+	.long	131
 	.long	.Lxtalabel7
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel17
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
+	.long	131
+	.long	131
 	.long	.Lxtalabel17
 .cc_bottom cc_110
 .Lentries_end5:
@@ -8030,7 +8322,7 @@ chronodot_ds3231_controller.init.1.1.init:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"../src/chronodot_ds3231_controller.xc:55:5: error: out of bounds array or pointer access\n    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR]       = bin2bcd_8((uint8_t) (datetime.year - DATETIME_YEAR_OFFSET));\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/chronodot_ds3231_controller.xc:55:5: error: out of bounds array or pointer access\n    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR]       = Bin_To_BCD_8((uint8_t) (datetime.year - DATETIME_YEAR_OFFSET));\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0

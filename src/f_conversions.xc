@@ -21,7 +21,7 @@
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "tempchip_mcp9808.h"
-#include "i2c_external_server.h"
+#include "I2C_External_Server.h"
 #include "f_conversions.h"
 
 void installExceptionHandler(void)
@@ -41,14 +41,14 @@ void myExceptionHandler(void)
     asm(" waiteu");  // This stops the thread in its tracks.
 }
 
-// init_arithmetic_mean_temp_onetenthDegC
+// Init_Arithmetic_Mean_Temp_OnetenthDegC
 
 // Arithmetic_mean_value = (xn + xn-1 + xn-2 + xn-3 + ...x) / n_of_temps (or during filling, divide by how many there are)
 // A direct form discrete-time FIR filter of order N. All gains are 1/n_of_temps
 // https://en.wikipedia.org/wiki/Finite_impulse_response
 //
 void
-init_arithmetic_mean_temp_onetenthDegC (
+Init_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
     const unsigned             n_of_temps) {
 
@@ -60,7 +60,7 @@ init_arithmetic_mean_temp_onetenthDegC (
     temps_onetenthDegC_mean_array_ptr->temps_sum_mten_previous = 0;
 }
 
-// do_arithmetic_mean_temp_onetenthDegC
+// Do_Arithmetic_Mean_Temp_OnetenthDegC
 
 // Log from "2017 02 05 A"
 // mean(W)=240 over (8-1) with input 240 changed=0 (dropped 240 240) |Observe dropped only one of them (equal)
@@ -84,7 +84,7 @@ init_arithmetic_mean_temp_onetenthDegC (
 //         239 for some 40 readings, then the same again on 239->238
 //
 temp_onetenthDegC_t
-do_arithmetic_mean_temp_onetenthDegC (
+Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
     const unsigned             n_of_temps,
     const temp_onetenthDegC_t  temps_onetenthDeg,
@@ -183,7 +183,7 @@ do_arithmetic_mean_temp_onetenthDegC (
 // Convert to a signed value with one decimal, seen as an integer
 //
 {temp_onetenthDegC_t, bool}
-temp_onetenthDegC_to_str (
+Temp_OnetenthDegC_To_Str (
     const i2c_temp_onetenthDegC_t degC_dp1,
     char temp_degC_str[]) {
 
@@ -212,7 +212,7 @@ temp_onetenthDegC_to_str (
 }
 
 {temp_onetenthDegC_t, bool}
-TC1047_raw_degC_to_string_ok (
+TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char temp_degC_str[]) {
 
@@ -259,9 +259,9 @@ TC1047_raw_degC_to_string_ok (
 }
 
 {light_range_t, bool}
-ambient_light_sensor_ALS_PDIC243_to_string_ok (
+Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char lux_str[]) {
+    char (&?lux_str)[]) {
 
     // Internal A/D-converter
     // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -270,9 +270,11 @@ ambient_light_sensor_ALS_PDIC243_to_string_ok (
     //
     // Ambient Light Sensor ALS-PDIC243-3B from Everlight is powered from 3.3V and sources 100 to 300 uA
     // at 1000 Lux into 7.5K - gives max about 7.5K * 0.3mA = 2.25V
-    // Let's take full number to 99: 65520 / 661 = 99
+    // Let's take full number to 99: 65520 / 661 = 99 HOWEVER THIS TURNS OUT TO BE MAX 61 when full light
+    // 65520 / 407 should give 99 as max, then
 
-    light_range_t light_range = adc_val_mean_i/661;  // Dark to low light is zero, normal 5-10, max seems to be 61 (measured in box)
+    light_range_t light_range = adc_val_mean_i/407;  // Dark to low light is zero, normal 5-10, max 99
+    if (light_range > INNER_MAX_LUX) light_range = INNER_MAX_LUX; // Error will not be set
 
     int sprintf_return;
     bool error = false;
@@ -292,13 +294,19 @@ ambient_light_sensor_ALS_PDIC243_to_string_ok (
 
     error or_eq ((light_range < INNER_MIN_LUX) or (light_range > INNER_MAX_LUX));
 
-    sprintf_return = sprintf (lux_str, "%02u", light_range);
-    error or_eq (sprintf_return != 2); // "25.0"
-    error or_eq (sprintf_return < 0);
+    if (!isnull(lux_str)) {
+        sprintf_return = sprintf (lux_str, "%02u", light_range);
+        error or_eq (sprintf_return != 2); // "25.0"
+        error or_eq (sprintf_return < 0);
+
+        if (error) {
+            char error_text [] = INNER_LUX_ERROR_TEXT;
+            memcpy (lux_str, error_text, sizeof(error_text));
+            light_range = INNER_MAX_LUX;
+        } else {} // No code: ok
+    }
 
     if (error) {
-        char error_text [] = INNER_LUX_ERROR_TEXT;
-        memcpy (lux_str, error_text, sizeof(error_text));
         light_range = INNER_MAX_LUX;
     } else {} // No code: ok
 
@@ -307,7 +315,7 @@ ambient_light_sensor_ALS_PDIC243_to_string_ok (
 
 
 {voltage_onetenthV_t, bool}
-RR_12V_24V_to_string_ok (
+RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[]) {
 
@@ -357,12 +365,12 @@ RR_12V_24V_to_string_ok (
 // BINARY-CODED DECIMAL - DATA WITH CHRONODOT IS BCD - ONE NIBBLE PER
 // https://en.wikipedia.org/wiki/Binary-coded_decimal
 
-uint8_t bcd2bin_8 (uint8_t val)
+uint8_t BCD_To_Bin_8 (uint8_t val)
 {
     return val - (6 * (val >> 4)); //
 }
 
-uint8_t bin2bcd_8 (uint8_t val)
+uint8_t Bin_To_BCD_8 (uint8_t val)
 {
     return val + (6 * (val / 10));
 }

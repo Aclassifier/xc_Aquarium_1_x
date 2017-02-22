@@ -1,5 +1,5 @@
 /*
- * i2c_external_server.h
+ * I2C_External_Server.h
  *  Created on: 3. okt. 2016
  *      Author: teig
  */
@@ -39,7 +39,7 @@ typedef interface i2c_external_commands_if {
 #define I2C_EXTERNAL_NUM_CLIENTS 2
 
 [[combinable]]
-void i2c_external_server (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]);
+void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]);
 
 #else
     #error Nested include I2C_EXTERNAL_SERVER_H_

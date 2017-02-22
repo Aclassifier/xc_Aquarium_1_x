@@ -8,8 +8,11 @@
 #ifndef TEXTS_AND_CONSTANTS_H_
 #define TEXTS_AND_CONSTANTS_H_
 
-#define DEGC_CIRCLE_STR {247,0}      // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
+#define CHAR_SMILEY_STR {CHAR_SMILEY,0}
+#define DEGC_CIRCLE_STR {247,0} // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
 #define CHAR_AA_STR     {CHAR_AA,0}
+#define CHAR_aa_STR     {CHAR_aa,0}
+#define CHAR_OE_STR     {CHAR_OE,0}
 
 #define GENERIC_TEXT_LEN_DEGC 5 // "25.0" with space for EOS (zero)
 #define GENERIC_TEXT_DEGC          "??.?"
@@ -33,7 +36,7 @@
 #define SSD1306_TS1_DISPLAY_CHAR_LEN     (SSD1306_TS1_LINE_CHAR_LEN * SSD1306_TS1_LINE_NUMS) // 84
 #define SSD1306_TS1_DISPLAY_CHAR_LEN_BIG (SSD1306_TS1_DISPLAY_CHAR_LEN/2)
 
-#define INNER_MAX_LUX         99
+#define INNER_MAX_LUX         99 // Used for both "err" and max light (if max light then "ok==false" is not returned)
 #define INNER_MIN_LUX         0
 #define INNER_LUX_TEXT_LEN    3   // "12" with space for EOS (zero)
 #define INNER_LUX_ERROR_TEXT "??" // INNER_RR_FLUX_ERROR_TEXT also includes NUL at the end

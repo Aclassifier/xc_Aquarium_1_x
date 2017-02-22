@@ -1,5 +1,5 @@
 /*
- * chronodot_ds3231_controller.h
+ * Chronodot_DS3231_Controller.h
  *
  *  Created on: 8. feb. 2017
  *      Author: teig
@@ -84,6 +84,8 @@ typedef struct {
     unsigned second;
 } DateTime_t;
 
+#define DATETIME_INIT(dt) dt.year=1950; dt.month=6; dt.day=14; dt.hour=0; dt.minute=0; dt.second=0;
+
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
 void       datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
@@ -93,10 +95,9 @@ typedef interface chronodot_ds3231_if {
                  bool  set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
 
-// NOT USED!
-//
+// ========================== NOT USED! ==========================
 [[combinable]]
-void chronodot_ds3231_controller (
+void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if      i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 

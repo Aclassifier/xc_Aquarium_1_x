@@ -35,7 +35,7 @@
 	.globl adc_task.select.y.enable.cases.maxchanends
 	.set adc_task.select.y.enable.cases,0
 	.globl adc_task.select.y.enable.cases
-	.set adc_task.select.y.enable.cases.nstackwords, 0 $M (adc_task.select.y.case.1.nstackwords) $M (adc_task.select.y.case.3.nstackwords) $M (adc_task.select.y.case.2.nstackwords) $M (adc_task.select.y.case.0.nstackwords)
+	.set adc_task.select.y.enable.cases.nstackwords, 0 $M (adc_task.select.y.case.0.nstackwords) $M (adc_task.select.y.case.2.nstackwords) $M (adc_task.select.y.case.1.nstackwords) $M (adc_task.select.y.case.3.nstackwords)
 	.globl adc_task.select.y.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate
@@ -47,7 +47,7 @@
 	.globl adc_task.select.enable.cases.maxchanends
 	.set adc_task.select.enable.cases,0
 	.globl adc_task.select.enable.cases
-	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.1.nstackwords) $M (adc_task.select.case.2.nstackwords) $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.3.nstackwords)
+	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.3.nstackwords) $M (adc_task.select.case.1.nstackwords) $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.2.nstackwords)
 	.globl adc_task.select.enable.cases.nstackwords
 	.weak _i.startkit_adc_acquire_if.trigger.maxchanends.group
 	.max_reduce _i.startkit_adc_acquire_if.trigger.max.maxchanends, _i.startkit_adc_acquire_if.trigger.maxchanends.group, 0
@@ -2911,10 +2911,10 @@ adc_sample:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
 .Linfo_string2:

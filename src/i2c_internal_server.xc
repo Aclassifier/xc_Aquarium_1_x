@@ -23,9 +23,9 @@
 #include "defines_adafruit.h"
 #include "core_graphics_adafruit_GFX.h"
 
-#include "i2c_internal_server.h"
+#include "I2C_Internal_Server.h"
 #include "display_ssd1306.h"
-#include "chronodot_ds3231_controller.h"
+#include "Chronodot_DS3231_Controller.h"
 
 // #define DEBUG_PRINT_DISPLAY
 // #define DEBUG_PRINT_CHRONODOT1
@@ -41,7 +41,7 @@ r_i2c i2c_internal_config = { // For display and ChronoDot
 
 // Internal i2c matters (not display matters)
 [[combinable]]
-void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS]) {
+void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS]) {
 
     #ifdef DEBUG_PRINT_DISPLAY
         unsigned long int num_chars = 0;
@@ -50,7 +50,7 @@ void i2c_internal_server (server i2c_internal_commands_if i_i2c_internal_command
     i2c_master_init (i2c_internal_config); // XMOS library
 
     // PRINT
-    printf("i2c_internal_server started\n"); // printf#02
+    printf("I2C_Internal_Server started\n"); // printf#02
 
     while (1) {
         select {

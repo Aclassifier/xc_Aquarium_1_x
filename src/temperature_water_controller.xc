@@ -1,5 +1,5 @@
 /*
- * temperature_water_controller.xc
+ * Temperature_Water_Controller.xc
  *
  *  Created on: 1. feb. 2017
  *      Author: teig
@@ -18,26 +18,26 @@
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "i2c_external_server.h"
+#include "I2C_External_Server.h"
 #include "port_heat_light_server.h"
-#include "temperature_heater_controller.h"
+#include "Temperature_Heater_Controller.h"
 
-#include "temperature_water_controller.h"
+#include "Temperature_Water_Controller.h"
 
 #define RAW_TIMER_INTERVAL_IS_1_SECOND       1000
 #define NUM_TIMER_TICKS_PER_MINUTE           60
 
-#define DEBUG_TEMP_FAST // qwe want this?
+//#define DEBUG_TEMP_FAST
 #ifdef DEBUG_TEMP_FAST
-    #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES 30 // seconds
-    #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE   30 // seconds
+    #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES  (2 * NUM_TIMER_TICKS_PER_MINUTE)
+    #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE    (1 * NUM_TIMER_TICKS_PER_MINUTE)
 #else
     #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES (10 * NUM_TIMER_TICKS_PER_MINUTE)
     #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE    (1 * NUM_TIMER_TICKS_PER_MINUTE)  // First time after power-up
 #endif
 
 [[combinable]]
-void temperature_water_controller (
+void Temperature_Water_Controller (
     server temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands) {
 
@@ -51,7 +51,7 @@ void temperature_water_controller (
     temp_onetenthDegC_t temp_onetenthDegC_water_delta;
     temp_onetenthDegC_t temp_onetenthDegC_water_ambient_diff;
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted_diff;
-    temp_onetenthDegC_t temp_onetenthDegC_water_wanted = TEMP_ONETENTHDEGC_24_0_WATER_FISH_PLANT;
+    temp_onetenthDegC_t temp_onetenthDegC_water_wanted = TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT;
     temp_onetenthDegC_t temp_onetenthDegC_heater_limit = temp_onetenthDegC_water_wanted; // Provided equal degrees in the room
 
     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
@@ -60,7 +60,7 @@ void temperature_water_controller (
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
-    printf ("temperature_water_controller started\n");
+    printf ("Temperature_Water_Controller started\n");
 
     tmr :> time;
 
@@ -70,14 +70,17 @@ void temperature_water_controller (
                 time += (RAW_TIMER_INTERVAL_IS_1_SECOND * XS1_TIMER_KHZ);
                 raw_timer_interval_cntdown--;
 
-                printf ("   WATER: %u\n", raw_timer_interval_cntdown);
+                // printf ("   WATER: %u\n", raw_timer_interval_cntdown);
 
                 if (raw_timer_interval_cntdown == 0) {
                     raw_timer_interval_cntdown = TEMP_MEASURE_INTERVAL_IS_10_MINUTES;
 
-                    printf ("WATER: calling i_temperature_heater_commands.get_temp\n");
-                    i_temperature_heater_commands.get_temps (temps_onetenthDegC);
-                    printf ("WATER: returned i_temperature_heater_commands.get_temp\n");
+                    // printf ("WATER: calling i_temperature_heater_commands.get_temp\n");
+
+                    i_temperature_heater_commands.get_temps (temps_onetenthDegC); // could deadlock on
+                    // call i_temperature_water_commands.get_temp_degC_string_filtered in _Aquarium_1_x
+
+                    // printf ("WATER: returned i_temperature_heater_commands.get_temp\n");
 
                     temp_onetenthDegC_water_delta        = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC_prev[IOF_TEMPC_WATER];
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
@@ -89,7 +92,7 @@ void temperature_water_controller (
                         printf ("above: ");
                         if (temp_onetenthDegC_water_ambient_diff > 0) {
                             // Water hotter than ambient air
-                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_23_5_SLOW_COOLING; // SOME
+                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_24_5_SLOW_COOLING; // SOME
                             now_regulating_at = REGULATING_AT_TEMP_REACHED;
                             printf ("slow cool ");
                         } else {
@@ -147,12 +150,12 @@ void temperature_water_controller (
 
             case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]) : {
 
-                printf ("WATER: get_temp_degC_string_filtered\n");
+                // printf ("WATER: get_temp_degC_string_filtered\n");
                 char temp_degC_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC] = {GENERIC_TEXT_DEGC};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
 
-                {temp_onetenthDegC, ok_degC_convert} = temp_onetenthDegC_to_str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
+                {temp_onetenthDegC, ok_degC_convert} = Temp_OnetenthDegC_To_Str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 
                 for (int iof_char=0; iof_char < GENERIC_TEXT_LEN_DEGC; iof_char++) {
                     return_value_string[iof_char] = temp_degC_str[iof_char];
@@ -160,7 +163,7 @@ void temperature_water_controller (
             } break;
 
             case i_temperature_water_commands.get_now_regulating_at (void) -> {now_regulating_at_t return_now_regulating_at} : {
-                printf ("WATER: get_now_regulating_at\n");
+                // printf ("WATER: get_now_regulating_at\n");
                 return_now_regulating_at = now_regulating_at;
             } break;
         }

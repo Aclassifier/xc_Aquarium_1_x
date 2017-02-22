@@ -102,21 +102,21 @@ outP_display_notReset.info:
 	.globread drawHorisontalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:301:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
 	.globread drawHorisontalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:314:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
 	.globread drawHorisontalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:309:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
-	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:296:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:10:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
-	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:296:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:10:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
+	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:296:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
+	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:296:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
 	.globread writeToDisplay_i2c_all_buffer,usage.anon.6,"../src/display_ssd1306.xc:279:23: note: object used here\n            data[x] = buffer[i];\n                      ^~~~~~~~~"
 	.globread setPixel_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:130:21: note: object used here (bytes 2..4)\n                y = display_param.HEIGHT - y - 1;\n                    ^~~~~~~~~~~~~~~~~~~~"
 	.globread setPixel_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:126:21: note: object used here (bytes 0..2)\n                x = display_param.WIDTH - x - 1;\n                    ^~~~~~~~~~~~~~~~~~~"
 	.globwrite drawVerticalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:429:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
 	.globwrite drawHorisontalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:353:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
-	.globwrite clear_all_pixels_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:291:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:12:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
+	.globwrite Clear_All_Pixels_In_Buffer,usage.anon.6,"../src/display_ssd1306.xc:291:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:12:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
 	.globwrite setPixel_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:141:27: note: object used here\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globwrite Adafruit_SSD1306_i2c_begin,outP_display_notReset,"../src/display_ssd1306.xc:70:5: note: object used here\n    outP_display_notReset <: 1; // High. Didn\'t help remove qwe\n    ^~~~~~~~~~~~~~~~~~~~~"
 	.call drawVerticalLine_in_buffer,drawVerticalLineInternal_in_buffer
 	.call drawVerticalLine_in_buffer,drawHorisontalLineInternal_in_buffer
 	.call drawHorisontalLine_in_buffer,drawVerticalLineInternal_in_buffer
 	.call drawHorisontalLine_in_buffer,drawHorisontalLineInternal_in_buffer
-	.call clear_all_pixels_in_buffer,usage.anon.5
+	.call Clear_All_Pixels_In_Buffer,usage.anon.5
 	.call writeToDisplay_i2c_all_buffer,writeDisplay_i2c_command
 	.call tellDisplay_i2c_stopscroll,writeDisplay_i2c_command
 	.call tellDisplay_i2c_startscrolldiagleft,writeDisplay_i2c_command
@@ -140,13 +140,13 @@ outP_display_notReset.info:
 	.set Adafruit_SSD1306_i2c_begin.locnoside, 0
 	.set setPixel_in_buffer.locnoside, 0
 	.set writeToDisplay_i2c_all_buffer.locnoside, 0
-	.set clear_all_pixels_in_buffer.locnoside, 0
+	.set Clear_All_Pixels_In_Buffer.locnoside, 0
 	.set drawHorisontalLineInternal_in_buffer.locnoside, 0
 	.set drawVerticalLineInternal_in_buffer.locnoside, 0
 	.set Adafruit_SSD1306_i2c_begin.locnoglobalaccess, 0
 	.set setPixel_in_buffer.locnoglobalaccess, 0
 	.set writeToDisplay_i2c_all_buffer.locnoglobalaccess, 0
-	.set clear_all_pixels_in_buffer.locnoglobalaccess, 0
+	.set Clear_All_Pixels_In_Buffer.locnoglobalaccess, 0
 	.set fillSplashScreen_in_buffer.locnoglobalaccess, 0
 	.set drawHorisontalLine_in_buffer.locnoglobalaccess, 0
 	.set drawHorisontalLineInternal_in_buffer.locnoglobalaccess, 0
@@ -155,8 +155,8 @@ outP_display_notReset.info:
 	.set writeDisplay_i2c_command.locnointerfaceaccess, 0
 	.set writeDisplay_i2c_data.locnointerfaceaccess, 0
 	.set writeToDisplay_i2c_all_buffer.locnointerfaceaccess, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -932,7 +932,7 @@ Adafruit_SSD1306_i2c_begin:
 	out res[r7], r5
 .Ltmp83:
 	ldw r0, cp[.LCPI7_0]
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.loc	2 55 0
 .Ltmp84:
 	mov r1, r5
@@ -1283,9 +1283,10 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels19:
 	bla r11
 	stw r0, sp[3]
+	ldc r0, 143
 .Ltmp121:
 	.loc	1 43 0
-	st8 r5, r7[r5]
+	st8 r0, r7[r5]
 .Ltmp122:
 	.loc	1 46 0
 	ldw r0, r6[0]
@@ -3285,11 +3286,11 @@ writeToDisplay_i2c_all_buffer:
 .Lfunc_end16:
 	.cfi_endproc
 
-	.globl	clear_all_pixels_in_buffer
+	.globl	Clear_All_Pixels_In_Buffer
 	.align	4
-	.type	clear_all_pixels_in_buffer,@function
-	.cc_top clear_all_pixels_in_buffer.function,clear_all_pixels_in_buffer
-clear_all_pixels_in_buffer:
+	.type	Clear_All_Pixels_In_Buffer,@function
+	.cc_top Clear_All_Pixels_In_Buffer.function,Clear_All_Pixels_In_Buffer
+Clear_All_Pixels_In_Buffer:
 .Lfunc_begin17:
 	.loc	1 290 0
 	.cfi_startproc
@@ -3300,7 +3301,7 @@ clear_all_pixels_in_buffer:
 .Ltmp414:
 	.cfi_offset 15, 0
 .Ltmp415:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.loc	3 21 0 prologue_end
 	ldaw r0, dp[buffer]
 	ldc r1, 0
@@ -3309,17 +3310,17 @@ clear_all_pixels_in_buffer:
 	retsp 1
 	# RETURN_REG_HOLDER
 .Ltmp416:
-	.cc_bottom clear_all_pixels_in_buffer.function
-	.set	clear_all_pixels_in_buffer.nstackwords,(memset.nstackwords + 1)
-	.globl	clear_all_pixels_in_buffer.nstackwords
-	.set	clear_all_pixels_in_buffer.maxcores,1
-	.globl	clear_all_pixels_in_buffer.maxcores
-	.set	clear_all_pixels_in_buffer.maxtimers,0
-	.globl	clear_all_pixels_in_buffer.maxtimers
-	.set	clear_all_pixels_in_buffer.maxchanends,0
-	.globl	clear_all_pixels_in_buffer.maxchanends
+	.cc_bottom Clear_All_Pixels_In_Buffer.function
+	.set	Clear_All_Pixels_In_Buffer.nstackwords,(memset.nstackwords + 1)
+	.globl	Clear_All_Pixels_In_Buffer.nstackwords
+	.set	Clear_All_Pixels_In_Buffer.maxcores,1
+	.globl	Clear_All_Pixels_In_Buffer.maxcores
+	.set	Clear_All_Pixels_In_Buffer.maxtimers,0
+	.globl	Clear_All_Pixels_In_Buffer.maxtimers
+	.set	Clear_All_Pixels_In_Buffer.maxchanends,0
+	.globl	Clear_All_Pixels_In_Buffer.maxchanends
 .Ltmp417:
-	.size	clear_all_pixels_in_buffer, .Ltmp417-clear_all_pixels_in_buffer
+	.size	Clear_All_Pixels_In_Buffer, .Ltmp417-Clear_All_Pixels_In_Buffer
 .Lfunc_end17:
 	.cfi_endproc
 
@@ -4340,7 +4341,7 @@ postmask.static:
 .Ldebug_end4:
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.3 (build 15642, Oct-17-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/display_ssd1306.xc"
 .Linfo_string2:
@@ -4442,7 +4443,7 @@ postmask.static:
 .Linfo_string50:
 .asciiz"writeToDisplay_i2c_all_buffer"
 .Linfo_string51:
-.asciiz"clear_all_pixels_in_buffer"
+.asciiz"Clear_All_Pixels_In_Buffer"
 .Linfo_string52:
 .asciiz"fillSplashScreen_in_buffer"
 .Linfo_string53:
@@ -4513,7 +4514,7 @@ postmask.static:
 .asciiz"s2"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	7667
+	.long	7676
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -4615,25 +4616,25 @@ postmask.static:
 	.long	.Linfo_string57
 	.byte	1
 	.short	402
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc104
 	.long	.Linfo_string69
 	.byte	1
 	.short	402
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc105
 	.long	.Linfo_string70
 	.byte	1
 	.short	402
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc106
 	.long	.Linfo_string60
 	.byte	1
 	.short	402
-	.long	7546
+	.long	7555
 	.byte	11
 	.long	.Ldebug_ranges323
 	.byte	12
@@ -4654,7 +4655,7 @@ postmask.static:
 	.long	.Linfo_string71
 	.byte	1
 	.short	429
-	.long	6742
+	.long	6751
 	.byte	11
 	.long	.Ldebug_ranges320
 	.byte	12
@@ -4999,19 +5000,19 @@ postmask.static:
 	.long	.Linfo_string57
 	.byte	1
 	.byte	118
-	.long	7539
+	.long	7548
 	.byte	19
 	.long	.Ldebug_loc1
 	.long	.Linfo_string59
 	.byte	1
 	.byte	118
-	.long	7539
+	.long	7548
 	.byte	19
 	.long	.Ldebug_loc2
 	.long	.Linfo_string60
 	.byte	1
 	.byte	118
-	.long	7546
+	.long	7555
 	.byte	0
 	.byte	20
 	.long	.Linfo_string17
@@ -5117,7 +5118,7 @@ postmask.static:
 	.long	.Linfo_string62
 	.byte	1
 	.byte	68
-	.long	7553
+	.long	7562
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges2
@@ -5709,7 +5710,7 @@ postmask.static:
 	.byte	1
 	.byte	100
 	.byte	28
-	.byte	0
+	.ascii	"\217\377\377\377\377\377\377\377\377\001"
 	.long	1006
 	.byte	29
 	.long	.Ldebug_loc11
@@ -7663,7 +7664,7 @@ postmask.static:
 	.long	.Linfo_string63
 	.byte	1
 	.short	268
-	.long	7546
+	.long	7555
 	.byte	11
 	.long	.Ldebug_ranges306
 	.byte	38
@@ -7681,7 +7682,7 @@ postmask.static:
 	.long	.Linfo_string22
 	.byte	1
 	.short	276
-	.long	7558
+	.long	7567
 	.byte	11
 	.long	.Ldebug_ranges304
 	.byte	37
@@ -7701,7 +7702,7 @@ postmask.static:
 	.long	.Linfo_string28
 	.byte	3
 	.byte	18
-	.long	6742
+	.long	6751
 	.byte	1
 	.byte	1
 	.byte	21
@@ -7718,7 +7719,7 @@ postmask.static:
 	.long	.Linfo_string30
 	.byte	3
 	.byte	18
-	.long	6742
+	.long	6751
 	.byte	0
 	.byte	40
 	.long	95
@@ -7733,16 +7734,16 @@ postmask.static:
 	.short	290
 	.byte	1
 	.byte	36
-	.long	6691
+	.long	6700
 	.long	.Ldebug_ranges310
 	.byte	1
 	.short	291
 	.byte	41
 	.byte	0
-	.long	6708
+	.long	6717
 	.byte	28
 	.ascii	"\200\004"
-	.long	6719
+	.long	6728
 	.byte	0
 	.byte	0
 	.byte	8
@@ -7760,25 +7761,25 @@ postmask.static:
 	.long	.Linfo_string57
 	.byte	1
 	.short	369
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc94
 	.long	.Linfo_string59
 	.byte	1
 	.short	369
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc95
 	.long	.Linfo_string66
 	.byte	1
 	.short	369
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc96
 	.long	.Linfo_string60
 	.byte	1
 	.short	369
-	.long	7546
+	.long	7555
 	.byte	11
 	.long	.Ldebug_ranges313
 	.byte	42
@@ -7804,25 +7805,25 @@ postmask.static:
 	.long	.Linfo_string57
 	.byte	1
 	.short	299
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc99
 	.long	.Linfo_string59
 	.byte	1
 	.short	299
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc100
 	.long	.Linfo_string68
 	.byte	1
 	.short	299
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc101
 	.long	.Linfo_string60
 	.byte	1
 	.short	299
-	.long	7546
+	.long	7555
 	.byte	11
 	.long	.Ldebug_ranges315
 	.byte	42
@@ -7848,32 +7849,32 @@ postmask.static:
 	.long	.Linfo_string57
 	.byte	1
 	.short	334
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc108
 	.long	.Linfo_string59
 	.byte	1
 	.short	334
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc109
 	.long	.Linfo_string68
 	.byte	1
 	.short	334
-	.long	7539
+	.long	7548
 	.byte	10
 	.long	.Ldebug_loc110
 	.long	.Linfo_string60
 	.byte	1
 	.short	334
-	.long	7546
+	.long	7555
 	.byte	11
 	.long	.Ldebug_ranges326
 	.byte	12
 	.long	.Linfo_string71
 	.byte	1
 	.short	353
-	.long	6742
+	.long	6751
 	.byte	11
 	.long	.Ldebug_ranges325
 	.byte	12
@@ -7891,13 +7892,13 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7571
+	.long	7580
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string78
-	.long	7583
+	.long	7592
 	.byte	0
 	.byte	45
 	.long	.Linfo_string32
@@ -7905,10 +7906,10 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7571
+	.long	7580
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	0
 	.byte	43
 	.long	.Linfo_string33
@@ -7917,16 +7918,16 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7571
+	.long	7580
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string78
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string81
-	.long	7618
+	.long	7627
 	.byte	44
 	.long	.Linfo_string82
 	.long	1120
@@ -7938,13 +7939,13 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7628
+	.long	7637
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string78
-	.long	7583
+	.long	7592
 	.byte	0
 	.byte	45
 	.long	.Linfo_string35
@@ -7952,10 +7953,10 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7628
+	.long	7637
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	0
 	.byte	43
 	.long	.Linfo_string36
@@ -7964,16 +7965,16 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7628
+	.long	7637
 	.byte	44
 	.long	.Linfo_string77
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string78
-	.long	7578
+	.long	7587
 	.byte	44
 	.long	.Linfo_string81
-	.long	7618
+	.long	7627
 	.byte	44
 	.long	.Linfo_string82
 	.long	1120
@@ -8013,12 +8014,12 @@ postmask.static:
 	.long	.Linfo_string84
 	.byte	3
 	.byte	8
-	.long	7660
+	.long	7669
 	.byte	21
 	.long	.Linfo_string85
 	.byte	3
 	.byte	8
-	.long	7660
+	.long	7669
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8030,18 +8031,18 @@ postmask.static:
 	.long	.Linfo_string40
 	.byte	3
 	.byte	12
-	.long	6742
+	.long	6751
 	.byte	1
 	.byte	21
 	.long	.Linfo_string84
 	.byte	3
 	.byte	12
-	.long	6742
+	.long	6751
 	.byte	21
 	.long	.Linfo_string85
 	.byte	3
 	.byte	12
-	.long	7660
+	.long	7669
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8072,13 +8073,13 @@ postmask.static:
 	.byte	48
 	.long	95
 	.byte	48
-	.long	7588
+	.long	7597
 	.byte	49
 	.long	.Linfo_string80
 	.byte	19
 	.byte	50
 	.long	.Linfo_string79
-	.long	7605
+	.long	7614
 	.byte	0
 	.byte	0
 	.byte	5
@@ -8089,17 +8090,17 @@ postmask.static:
 	.byte	18
 	.byte	0
 	.byte	51
-	.long	7623
+	.long	7632
 	.byte	52
 	.long	95
 	.byte	51
-	.long	7633
+	.long	7642
 	.byte	49
 	.long	.Linfo_string83
 	.byte	8
 	.byte	50
 	.long	.Linfo_string75
-	.long	7571
+	.long	7580
 	.byte	0
 	.byte	50
 	.long	.Linfo_string59
@@ -8107,9 +8108,9 @@ postmask.static:
 	.byte	4
 	.byte	0
 	.byte	51
-	.long	7665
+	.long	7674
 	.byte	52
-	.long	7578
+	.long	7587
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -12004,73 +12005,73 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset170 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset170
-	.long	7302
+	.long	7311
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 	.long	109
 .asciiz"fillSplashScreen_in_buffer"
-	.long	6747
-.asciiz"clear_all_pixels_in_buffer"
-	.long	7391
+	.long	7400
 .asciiz"delay_seconds"
 	.long	1127
 .asciiz"Adafruit_SSD1306_i2c_begin"
-	.long	7008
+	.long	7017
 .asciiz"drawHorisontalLineInternal_in_buffer"
-	.long	7171
+	.long	7180
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-	.long	6901
+	.long	6910
 .asciiz"drawHorisontalLine_in_buffer"
-	.long	7260
+	.long	7269
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	31
 .asciiz"outP_display_notReset"
 	.long	194
 .asciiz"postmask"
-	.long	7489
+	.long	7498
 .asciiz"_safe_memmove"
 	.long	1095
 .asciiz"delay_milliseconds"
-	.long	7331
+	.long	7340
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-	.long	4571
+	.long	4580
 .asciiz"tellDisplay_i2c_startscrolldiagright"
-	.long	3083
+	.long	3092
 .asciiz"writeDisplay_i2c_data"
-	.long	7129
+	.long	7138
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
 	.long	60
 .asciiz"buffer"
-	.long	7439
+	.long	7448
 .asciiz"_safe_memcmp"
-	.long	7200
+	.long	7209
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-	.long	6794
+	.long	6803
 .asciiz"drawVerticalLine_in_buffer"
-	.long	5305
+	.long	5314
 .asciiz"tellDisplay_i2c_startscrolldiagleft"
-	.long	6161
+	.long	6170
 .asciiz"writeToDisplay_i2c_all_buffer"
-	.long	152
-.asciiz"drawVerticalLineInternal_in_buffer"
+	.long	6756
+.asciiz"Clear_All_Pixels_In_Buffer"
 	.long	129
 .asciiz"splash_buffer"
-	.long	6691
+	.long	152
+.asciiz"drawVerticalLineInternal_in_buffer"
+	.long	6700
 .asciiz"_safe_memset"
-	.long	3967
+	.long	3976
 .asciiz"tellDisplay_i2c_startscrollleft"
 	.long	172
 .asciiz"premask"
-	.long	7415
+	.long	7424
 .asciiz"delay_microseconds"
-	.long	6039
+	.long	6048
 .asciiz"tellDisplay_i2c_stopscroll"
-	.long	3193
+	.long	3202
 .asciiz"tellDisplay_i2c_invert"
 	.long	989
 .asciiz"writeDisplay_i2c_command"
 	.long	924
 .asciiz"setPixel_in_buffer"
-	.long	3363
+	.long	3372
 .asciiz"tellDisplay_i2c_startscrollright"
 	.long	0
 .LpubNames_end0:
@@ -12082,13 +12083,13 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset172 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset172
-	.long	7539
+	.long	7548
 .asciiz"short"
 	.long	1068
 .asciiz"interface"
-	.long	7571
+	.long	7580
 .asciiz"chanend"
-	.long	7588
+	.long	7597
 .asciiz"__TYPE_12"
 	.long	565
 .asciiz"__TYPE_14"
@@ -12098,13 +12099,13 @@ postmask.static:
 .asciiz"__TYPE_7"
 	.long	1120
 .asciiz"unsigned int"
-	.long	7633
+	.long	7642
 .asciiz"yarg"
 	.long	95
 .asciiz"unsigned char"
 	.long	1088
 .asciiz"int"
-	.long	7546
+	.long	7555
 .asciiz"unsigned short"
 	.long	0
 .LpubTypes_end0:
@@ -12137,7 +12138,7 @@ postmask.static:
 	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
 	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
 	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring clear_all_pixels_in_buffer, "f{0}(0)"
+	.typestring Clear_All_Pixels_In_Buffer, "f{0}(0)"
 	.typestring fillSplashScreen_in_buffer, "f{0}(0)"
 	.typestring drawVerticalLine_in_buffer, "f{0}(ss,ss,ss,us)"
 	.typestring drawHorisontalLine_in_buffer, "f{0}(ss,ss,ss,us)"
@@ -12620,7 +12621,7 @@ postmask.static:
 	.long	.Lxta.call_labels76
 .cc_bottom cc_77
 .cc_top cc_78,.Lxta.call_labels2
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	55
 	.long	.Lxta.call_labels2
@@ -15899,14 +15900,14 @@ postmask.static:
 	.long	.Lxtalabel78
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel13
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/timer.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	55
 	.long	56
 	.long	.Lxtalabel13
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel30
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include/xc/safe/string.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.byte	0
 	.long	19
 	.long	19

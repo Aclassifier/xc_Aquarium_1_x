@@ -1,5 +1,5 @@
 /*
- * port_heat_light_server.xc
+ * Port_Pins_Heat_Light_Server.xc
  *
  *  Created on: 28. des. 2016
  *      Author: teig
@@ -61,8 +61,9 @@ typedef enum {
 // (*)
 //     ERG        = ElectroRetinoGraphy
 //     Behavioral = Spontaneous or taught behavioural response to flickering light
-//
-#define NUM_PWM_TIME_WINDOWS                3
+
+
+
 #define TIME_PER_PWM_WINDOW_MICROSECONDS 1500 // NUM_PWM_TIME_WINDOWS==3:
                                               //     1000 us per window, 333 Hz no flickering
                                               // =>  1500 us per window  222 Hz no flickering (Should cause no "unperceived neurological effects")
@@ -76,8 +77,9 @@ typedef enum {
 //
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
-
-unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
+// The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
+//
+static unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
 {
    // MONOTONOUS COLOUR AND INTENSITY INCREASE:
    {                                                                 //                       #### mW
@@ -161,7 +163,7 @@ unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_COMPOSI
 // was checked in on 12Jan2017.
 
 [[combinable]]
-void port_heat_light_server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
+void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
 
     uint32_t port_value = UINT32_HIGH_BITS;
     timer tmr;
@@ -172,7 +174,9 @@ void port_heat_light_server (server port_heat_light_commands_if i_port_heat_ligh
                                                                               // (even if the cables are mounted beside each other all the way)
                                                                               // And spread load and temperature increase of plugs and cable
 
-    printf("port_heat_light_server started\n");
+    printf("Port_Pins_Heat_Light_Server started\n");
+
+    unsigned beeper_blip_ticks_cntdown = 0;
 
     #ifdef DUMMY_WIFI
     // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
@@ -213,10 +217,46 @@ void port_heat_light_server (server port_heat_light_commands_if i_port_heat_ligh
 
                 iof_light_pwm_window++;
                 if (iof_light_pwm_window == NUM_PWM_TIME_WINDOWS) {iof_light_pwm_window = 0;}
+
+                if (beeper_blip_ticks_cntdown == 1) {
+                    beeper_blip_ticks_cntdown = 0;
+                    port_value or_eq BIT_BEEPER_LOW; // Set pin high, beeper off
+                    myport_p32 <: port_value;
+                } else {
+                    beeper_blip_ticks_cntdown--;
+                } // Do nothing
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].light_command (const light_composition_t iof_light_composition_level): {
+            case i_port_heat_light_commands[int index_of_client].set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print) : {
+                printf ("i_port_heat_light_commands[%u] ilight %u, called by %u\n", index_of_client, iof_light_composition_level, value_to_print);
                 present_iof_light_composition_level = iof_light_composition_level; // Check not needed, runtime will take it
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]) -> {light_composition_t return_light_composition} : {
+
+                for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
+                    return_thirds[iof_LED_strip] = 0;
+                }
+
+                // Could have picked this out of a table, but I thought this was rather ok:
+                for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
+                    unsigned int mask  = p32_bits_for_light_light_composition_pwm_windows[present_iof_light_composition_level][iof_light_pwm_window];
+                    if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1;
+                    if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
+                    if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1;
+                }
+
+                //#define PRINT_LIGHT_COMPOSITION
+                #ifdef PRINT_LIGHT_COMPOSITION
+                    printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
+                            index_of_client,
+                            return_thirds[IOF_LED_STRIP_FRONT],
+                            return_thirds[IOF_LED_STRIP_CENTER],
+                            return_thirds[IOF_LED_STRIP_BACK],
+                            present_iof_light_composition_level);
+                #endif
+
+                return_light_composition = present_iof_light_composition_level;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {
@@ -226,6 +266,16 @@ void port_heat_light_server (server port_heat_light_commands_if i_port_heat_ligh
                     port_value or_eq BIT_BEEPER_LOW; // Set pin
                 }
                 myport_p32 <: port_value;
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].beeper_blip_command (const unsigned ms): {
+                // Immediate call will simply make it longer, so no need to guard this case
+
+                port_value and_eq compl BIT_BEEPER_LOW; // Clear pin since pull-down for beeper on
+                myport_p32 <: port_value;
+
+                beeper_blip_ticks_cntdown = ( ms * 1000) / TIME_PER_PWM_WINDOW_MICROSECONDS; //  1500 ms per tick
+                //                          (100 * 1000) / 1500 = 66 cnt times 1500us =
             } break;
 
             case i_port_heat_light_commands[int index_of_client].heat_cables_command (const heat_cable_commands_t heat_cable_commands): {

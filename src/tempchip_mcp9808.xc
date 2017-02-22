@@ -20,19 +20,19 @@
 #include "button_press.h"
 
 #include "i2c.h"
-#include "i2c_external_server.h"
+#include "I2C_External_Server.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 
-bool tempchip_mcp9808_begin_ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t address) {
+bool Tempchip_MCP9808_Begin_Ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t address) {
 
     uint16_t read_val;
     i2c_external_params_ptr->_use_dev_address = address;
 
-    read_val = tempchip_mcp9808_read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_MANUF_ID); // updates i2c_external_params_ptr->_result
+    read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_MANUF_ID); // updates i2c_external_params_ptr->_result
     if ((i2c_external_params_ptr->_result == I2C_OK) and (read_val == 0x0054)) {
 
-        read_val = tempchip_mcp9808_read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_DEVICE_ID); // updates i2c_external_params_ptr->_result
+        read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_DEVICE_ID); // updates i2c_external_params_ptr->_result
         if ((i2c_external_params_ptr->_result == I2C_OK) and (read_val == 0x0400)) {
             return true; // Both are fine
         } else {
@@ -48,9 +48,9 @@ bool tempchip_mcp9808_begin_ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config
 // If I2C fails then *ok_ptr is false and value really undefined (but some nice value is returned)
 //
 // float tempchip_mcp9808::readTempC( void )
-i2c_temp_onetenthDegC_t tempchip_mcp9808_readTempC (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr) {
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr) {
 
-    uint16_t read_val = tempchip_mcp9808_read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_AMBIENT_TEMP); // updates i2c_external_params_ptr->_result
+    uint16_t read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_AMBIENT_TEMP); // updates i2c_external_params_ptr->_result
 
     if (i2c_external_params_ptr->_result == I2C_OK) {
         if ((read_val bitand 0x1000) == 0) { // not negative
@@ -82,21 +82,21 @@ i2c_temp_onetenthDegC_t tempchip_mcp9808_readTempC (REFERENCE_PARAM(struct r_i2c
 // Set Sensor to Shutdown-State or wake up (Conf_Register BIT8)
 //
 // int tempchip_mcp9808::shutdown_wake( uint8_t sw_ID )
-bool tempchip_mcp9808_shutdown_wake_ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, bool shutdown) {
+bool Tempchip_MCP9808_Shutdown_Wake_Ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, bool shutdown) {
 
     uint16_t conf_shutdown ;
-    uint16_t conf_reg_address = tempchip_mcp9808_read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG);
+    uint16_t conf_reg_address = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG);
 
     if (i2c_external_params_ptr->_result == I2C_OK) {
         if (shutdown)
         {
            conf_shutdown = conf_reg_address | MCP9808_REG_CONFIG_SHUTDOWN ;
-           tempchip_mcp9808_write16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG, conf_shutdown);
+           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG, conf_shutdown);
         }
         else // wake
         {
            conf_shutdown = conf_reg_address ^ MCP9808_REG_CONFIG_SHUTDOWN ;
-           tempchip_mcp9808_write16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG, conf_shutdown);
+           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params_ptr, MCP9808_REG_CONFIG, conf_shutdown);
         }
         return (i2c_external_params_ptr->_result == I2C_OK);
     }
@@ -105,7 +105,7 @@ bool tempchip_mcp9808_shutdown_wake_ok (REFERENCE_PARAM(struct r_i2c,i2c_externa
     }
 }
 
-void tempchip_mcp9808_write16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val) {
+void Tempchip_MCP9808_Write16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val) {
     int device           = i2c_external_params_ptr->_use_dev_address;
     int reg_addr         = reg;
     unsigned char msb    = (val>>8) bitand 0x00ff;
@@ -118,7 +118,7 @@ void tempchip_mcp9808_write16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config)
     // printf ("I2C:W %u %u\n", device, i2c_external_params_ptr->_result);
 }
 
-uint16_t tempchip_mcp9808_read16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg) {
+uint16_t Tempchip_MCP9808_Read16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg) {
     int device            = i2c_external_params_ptr->_use_dev_address;
     int reg_addr          = reg;
     unsigned char data[2] = {};
@@ -134,7 +134,7 @@ uint16_t tempchip_mcp9808_read16 (REFERENCE_PARAM(struct r_i2c,i2c_external_conf
     uint16_t lsb =  (uint16_t) data[1];
     return_val = msb + lsb;
 
-    // printf ("tempchip_mcp9808_read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params_ptr->_result, device, reg_addr, return_val);
+    // printf ("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params_ptr->_result, device, reg_addr, return_val);
 
     return return_val;
 }
