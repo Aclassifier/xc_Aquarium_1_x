@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAM
 
 #include "param.h"
@@ -49,60 +50,85 @@ void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button
     }
 }
 
+#define DEBOUNCE_TIMEOUT_50_MS 50
+// #define PRINT_BUTTON
+
 [[combinable]]
 void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
-    // From XMOS-Programming-Guide
-    int   current_val = 0;
-    int   is_stable = 1;
-    timer tmr;
-    const unsigned debounce_delay_ms = 50;
-    unsigned       debounce_timeout;
-    bool           initial_released_stopped = false; // Since it woud do BUTTON_ACTION_RELEASED always after start
+    // From XMOS-Programming-Guide.
+    int      current_val = 0;
+    bool     is_stable   = true;
+    timer    tmr;
+    unsigned timeout;
+    int      current_time;
+
+    // ¯yvind's matters:
+    bool initial_released_stopped = false; // Since it would do BUTTON_ACTION_RELEASED always after start
+    bool pressed_but_not_released = false;
 
     printf("inP_Button_Task[%u] started\n", button_n);
 
     while(1) {
         select {
             // If the button is "stable", react when the I/O pin changes value
-            case is_stable => p_button when pinsneq(current_val) :> current_val:
-            {
-                if (current_val == 0) {
-                    // printf(": Button %u pressed\n", button_n);
-                }
-                else {
-                    // printf(": Button %u released\n", button_n);
-                }
-                is_stable = 0;
-                int current_time; // was int, below was XS1_TIMER_HZ
+            case is_stable => p_button when pinsneq(current_val) :> current_val: {
+                #ifdef PRINT_BUTTON
+                    if (current_val == 0) {
+                        printf(": Button %u pressed\n", button_n);
+                    }
+                    else {
+                        printf(": Button %u released\n", button_n);
+                    }
+                #endif
+
+                pressed_but_not_released = false;
+                is_stable = false;
+
                 tmr :> current_time;
                 // Calculate time to event after debounce period
                 // note that XS1_TIMER_HZ is defined in timer.h
-                debounce_timeout = current_time + (debounce_delay_ms * XS1_TIMER_KHZ);
+                timeout = current_time + (DEBOUNCE_TIMEOUT_50_MS * XS1_TIMER_KHZ);
                 // If the button is not stable (i.e. bouncing around) then select
                 // when we the timer reaches the timeout to renter a stable period
-                break;
-            }
-            case !is_stable => tmr when timerafter(debounce_timeout) :> void:
-            {
-                // printf(": Button %u debounced\n", button_n);
-                if (current_val == 0) {
-                    // printf(" Button %u away\n", button_n);
-                    c_button_out <: BUTTON_ACTION_PRESSED; // button down
-                    initial_released_stopped = true; // Not if BUTTON_ACTION_PRESSED was sent first
-                    // printf("3 Button %u sent\n", button_n);
-                }
-                else {
-                    if (initial_released_stopped == false) {
-                        initial_released_stopped = true;
-                    } else {
-                        c_button_out <: BUTTON_ACTION_RELEASED;
-                    }
+            } break;
 
-                    // printf("Button %u away\n", button_n);
+            case (pressed_but_not_released or (is_stable == false)) => tmr when timerafter(timeout) :> void: {
+                if (is_stable == false) {
+                    if (current_val == 0) {
+                        initial_released_stopped = true;       // Not if BUTTON_ACTION_PRESSED was sent first
+                        pressed_but_not_released = true;       // ONLY PLACE IT'S SET
+
+                        c_button_out <: BUTTON_ACTION_PRESSED; // Button down
+                        #ifdef PRINT_BUTTON
+                            printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
+                        #endif
+                        tmr :> current_time;
+                        timeout = current_time + (DEBOUNCE_TIMEOUT_10000_MS * XS1_TIMER_KHZ);
+                    }
+                    else {
+                        if (initial_released_stopped == false) {
+                            initial_released_stopped = true;
+                            #ifdef PRINT_BUTTON
+                                printf(" Button %u filtered away\n", button_n);
+                            #endif
+                        } else {
+                            pressed_but_not_released = false;
+
+                            c_button_out <: BUTTON_ACTION_RELEASED;
+                            #ifdef PRINT_BUTTON
+                                printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
+                            #endif
+                        }
+                    }
+                    is_stable = true;
+                } else { // == pressed_but_not_released (is_stable == true, so pinsneq would have stopped it)
+                    pressed_but_not_released = false;
+
+                    c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
+                    printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
                 }
-                is_stable = 1;
-                break;
-            }
+            } break;
+
         }
     }
 }

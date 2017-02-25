@@ -1464,8 +1464,11 @@ typedef struct tag_startkit_adc_vals {
 # 11 "../src/button_press.h"
 typedef enum {
     BUTTON_ACTION_RELEASED,
-    BUTTON_ACTION_PRESSED
+    BUTTON_ACTION_PRESSED,
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 } button_action_t;
+
+
 
 
 

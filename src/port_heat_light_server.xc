@@ -62,7 +62,7 @@ typedef enum {
 //     ERG        = ElectroRetinoGraphy
 //     Behavioral = Spontaneous or taught behavioural response to flickering light
 
-
+#define NUM_PWM_TIME_WINDOWS 3
 
 #define TIME_PER_PWM_WINDOW_MICROSECONDS 1500 // NUM_PWM_TIME_WINDOWS==3:
                                               //     1000 us per window, 333 Hz no flickering
@@ -78,8 +78,9 @@ typedef enum {
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
+
 //
-static unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
+static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
 {
    // MONOTONOUS COLOUR AND INTENSITY INCREASE:
    {                                                                 //                       #### mW
@@ -139,6 +140,12 @@ static unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_
    }
 };
 
+typedef enum {
+    PIN_SAME_LIGHT,
+    PIN_DARKER,
+    PIN_LIGHTER
+} pin_change_t;
+
 #ifdef DUMMY_WIFI
     // XS1_PORT_4C two lower bits are also BIT28 and BIT29 on XS1_PORT_32A
     // Now those two bits have precedence
@@ -155,31 +162,45 @@ static unsigned int p32_bits_for_light_light_composition_pwm_windows [NUM_LIGHT_
 // when low light, since 1-10 cycles on and 99-90 cycles off still gave some flickering of
 // the LEDs. read articles like http://www.digikey.com/en/articles/techzone/2012/jul/characterizing-and-minimizing-led-flicker-in-lighting-applications
 //
-// Therefore the p32_bits_for_light_light_composition_pwm_windows was invented, where only 3 time windows are used, and I plan
+// Therefore the p32_bits_for_light_composition_pwm_windows was invented, where only 3 time windows are used, and I plan
 // to run one every ms, three ms for a round, 333 Hz should be fine. And then I use wich LED strip to dim also a part of
 // it such that from LIGHT_COMPOSITION_ALL_ALWAYS_ON to LIGHT_COMPOSITION_ALL_ALWAYS_OFF goes from all on for 3 of 3 windows and down.
 // The idea is also that as much as possible some or one LED strip will light in a window when the other starts to be switched off,
 // making the on/off ratio low. The ratio all-full/all-off as we saw, didn't work. This was changed around 13Jan2017, so the old code
 // was checked in on 12Jan2017.
-
+//
+// When the light in a PWN window for every LED-strip is changing from on (light) to off (dark) there is a soft transition. This is done
+// with a counter soft_change_pwm_window_timer_us that makes 1) a darker PWM terminate sooner and sooner until zero and 2) a brighter
+// PWM start late and then start earlier and earlier until full. It took me a _long_ time to invent this. The clue is to to do
+// soft_change_pwm_window_timer_us inside a PWM window. 24Feb2017
+//
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
 
-    uint32_t port_value = UINT32_HIGH_BITS;
-    timer tmr;
-    int   time;
-    unsigned int             present_iof_light_composition_level = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    uint32_t                 port_value = UINT32_HIGH_BITS;
+    timer                    tmr;
+    int                      time;
+    unsigned int             iof_light_composition_level_present = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
     unsigned int             iof_light_pwm_window                = 0; // 0,1,2 if NUM_PWM_TIME_WINDOWS==3
     heat_cable_alternating_t heat_cable_alternating              = HEAT_1_ON; // To wear both heating cables equally much and get optimal spread of heat
                                                                               // (even if the cables are mounted beside each other all the way)
                                                                               // And spread load and temperature increase of plugs and cable
+
+    unsigned     soft_change_pwm_window_timer_us [NUM_PWM_TIME_WINDOWS] = {0,0,0}; // (*1) No need to initialise..
+    pin_change_t pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
+
+    // (*1) Could have had one for all and initialised it to TIME_PER_PWM_WINDOW_MICROSECONDS * 3 and then DIV by 3 when used. However
+    //      I have avoided division here since it takes more than one cycle and the DIVn instruction share a common division unit with the
+    //      other threads. The good point would have been the three PWN windows would have finished once instead of three times.
+    //      So no DIV in the 1500 us timeouts
+    //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
     printf("Port_Pins_Heat_Light_Server started\n");
 
     unsigned beeper_blip_ticks_cntdown = 0;
 
     #ifdef DUMMY_WIFI
-    // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
+        // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
         dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
     #endif
 
@@ -191,28 +212,90 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
         select {
             case tmr when timerafter(time) :> void: {
                 time += (TIME_PER_PWM_WINDOW_MICROSECONDS * XS1_TIMER_MHZ);
+                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
 
-                unsigned int mask  = p32_bits_for_light_light_composition_pwm_windows[present_iof_light_composition_level][iof_light_pwm_window];
+                if (soft_change_pwm_window_timer_us[iof_light_pwm_window] == 0) { // STANDARD STABLE
+                    // I think I can hear high frequency beeping from the LEDs at all pulsing levels - also 100% on! However, I am more certain at full, 100% load.
+                    // I scoped the signals, and at 100% it's DC, no pulsing at the port pin, no pulsing at the drain of the MOSFET. So I have no
+                    // idea where that sound comes from. It's not my tinnitus, because I can hear a difference. Before I scoped I tried to filter with
+                    /// if ((mask bitand BIT_LIGHT_FRONT) != (port_value bitand BIT_LIGHT_FRONT)) to only do it if there was a change in the bit,
+                    // but it made no difference
+                    {
+                        if ((mask bitand BIT_LIGHT_FRONT) != 0)  {port_value or_eq BIT_LIGHT_FRONT;}  else {port_value and_eq compl BIT_LIGHT_FRONT;}
+                        myport_p32 <: port_value;
+                        delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> FRONT: 1 of 3
+                    }
+                    {
+                        if ((mask bitand BIT_LIGHT_CENTER) != 0) {port_value or_eq BIT_LIGHT_CENTER;} else {port_value and_eq compl BIT_LIGHT_CENTER;}
+                        myport_p32 <: port_value;
+                        delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> CENTER: 2 of 3
+                    }
+                    {
+                        if ((mask bitand BIT_LIGHT_BACK)  != 0)  {port_value or_eq BIT_LIGHT_BACK;}   else {port_value and_eq compl BIT_LIGHT_BACK;}
+                        myport_p32 <: port_value;
+                        delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> BACK: 3 of 3
+                    }
 
-                // I think I can hear high frequency beeping from the LEDs at all pulsing levels - also 100% on! However, I am more certain at full, 100% load.
-                // I scoped the signals, and at 100% it's DC, no pulsing at the port pin, no pulsing at the drain of the MOSFET. So I have no
-                // idea where that sound comes from. It's not my tinnitus, because I can hear a difference. Before I scoped I tried to filter with
-                /// if ((mask bitand BIT_LIGHT_FRONT) != (port_value bitand BIT_LIGHT_FRONT)) to only do it if there was a change in the bit,
-                // but it made no difference
-                {
-                    if ((mask bitand BIT_LIGHT_FRONT) != 0)  {port_value or_eq BIT_LIGHT_FRONT;}  else {port_value and_eq compl BIT_LIGHT_FRONT;}
-                    myport_p32 <: port_value;
-                    delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> FRONT: 1 of 3
-                }
-                {
-                    if ((mask bitand BIT_LIGHT_CENTER) != 0) {port_value or_eq BIT_LIGHT_CENTER;} else {port_value and_eq compl BIT_LIGHT_CENTER;}
-                    myport_p32 <: port_value;
-                    delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> CENTER: 2 of 3
-                }
-                {
-                    if ((mask bitand BIT_LIGHT_BACK)  != 0)  {port_value or_eq BIT_LIGHT_BACK;}   else {port_value and_eq compl BIT_LIGHT_BACK;}
-                    myport_p32 <: port_value;
-                    delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> BACK: 3 of 3
+                } else { // Doing soft change
+
+                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value and_eq compl BIT_LIGHT_FRONT; // off at the start of the window
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value or_eq BIT_LIGHT_FRONT; // on at the start of the window
+                    } else { // PIN_SAME_LIGHT
+                        if ((mask bitand BIT_LIGHT_FRONT) != 0) {port_value or_eq BIT_LIGHT_FRONT;} else {port_value and_eq compl BIT_LIGHT_FRONT;}
+                    }
+
+                    if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value and_eq compl BIT_LIGHT_CENTER; // off at the start of the window
+                    } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value or_eq BIT_LIGHT_CENTER; // on at the start of the window
+                    } else { // PIN_SAME_LIGHT
+                        if ((mask bitand BIT_LIGHT_CENTER) != 0) {port_value or_eq BIT_LIGHT_CENTER;} else {port_value and_eq compl BIT_LIGHT_CENTER;}
+                    }
+
+                    if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value and_eq compl BIT_LIGHT_BACK; // off at the start of the window
+                    } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value or_eq BIT_LIGHT_BACK; // on at the start of the window
+                    } else { // PIN_SAME_LIGHT
+                        if ((mask bitand BIT_LIGHT_BACK) != 0) {port_value or_eq BIT_LIGHT_BACK;} else {port_value and_eq compl BIT_LIGHT_BACK;}
+                    }
+
+                    myport_p32 <: port_value; // Let's do all at the same time
+
+                    delay_microseconds (soft_change_pwm_window_timer_us[iof_light_pwm_window]);
+
+                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value or_eq BIT_LIGHT_FRONT; // on from now until next pwm window, longer and longer window
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value and_eq compl BIT_LIGHT_FRONT; // was off from start until off now, for shorter and shorter window
+                    } else {} // PIN_SAME_LIGHT
+
+                    if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
+                            port_value or_eq BIT_LIGHT_CENTER; // on from now until next pwm window, longer and longer window
+                        } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                            port_value and_eq compl BIT_LIGHT_CENTER; // was off from start until off now, for shorter and shorter window
+                        } else {} // PIN_SAME_LIGHT
+
+                    if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
+                            port_value or_eq BIT_LIGHT_BACK; // on from now until next pwm window, longer and longer window
+                        } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                            port_value and_eq compl BIT_LIGHT_BACK; // was off from start until off now, for shorter and shorter window
+                        } else {} // PIN_SAME_LIGHT
+
+                    myport_p32 <: port_value; // Let's do all at the same time
+
+                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0)  {
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window]--; // 1450 down 1 @ 222 Hz takes 6.5 secs
+                    } else {
+                        // No code. Zero, finished. A LED that's all durin all three PWM phases looks a little on when there are
+                        // others that are on. It must be because of some re-glow from the others. I have scoped it, the pulses
+                        // get thinner and thinner and then it's flat out.
+                        // From light to down it goes very slowly at the start and then it appears that the last second or so it goes faster.
+                        // However, this is not noticable through the aquarium, only when I watch the LEDs directly
+                    }
+
                 }
 
                 iof_light_pwm_window++;
@@ -229,10 +312,50 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print) : {
                 printf ("i_port_heat_light_commands[%u] ilight %u, called by %u\n", index_of_client, iof_light_composition_level, value_to_print);
-                present_iof_light_composition_level = iof_light_composition_level; // Check not needed, runtime will take it
+
+                if (iof_light_composition_level_present != iof_light_composition_level) {
+                    for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
+
+                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];
+
+                        uint32_t mask_xor = mask xor mask_new;
+
+                        if ((mask_xor bitand BIT_LIGHT_FRONT) == 0) { // xor is zero then equal
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask bitand BIT_LIGHT_FRONT) == 0) and ((mask_new bitand BIT_LIGHT_FRONT) != 0)) {
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        if ((mask_xor bitand BIT_LIGHT_CENTER) == 0) { // xor is zero then equal
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask bitand BIT_LIGHT_CENTER) == 0) and ((mask_new bitand BIT_LIGHT_CENTER) != 0)) {
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        if ((mask_xor bitand BIT_LIGHT_BACK) == 0) { // xor is zero then equal
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask bitand BIT_LIGHT_BACK) == 0) and ((mask_new bitand BIT_LIGHT_BACK) != 0)) {
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window] = (TIME_PER_PWM_WINDOW_MICROSECONDS); // 1500us = 1.5 ms = 222 Hz (100=qwe?)
+                    }
+
+                } else {}
+
+                iof_light_composition_level_present = iof_light_composition_level; // Check not needed, runtime will take it
+
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]) -> {light_composition_t return_light_composition} : {
+            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]) ->
+                    {light_composition_t return_light_composition, bool return_stable} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
                     return_thirds[iof_LED_strip] = 0;
@@ -240,7 +363,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                 // Could have picked this out of a table, but I thought this was rather ok:
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
-                    unsigned int mask  = p32_bits_for_light_light_composition_pwm_windows[present_iof_light_composition_level][iof_light_pwm_window];
+                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
                     if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1;
                     if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
                     if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1;
@@ -253,10 +376,15 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                             return_thirds[IOF_LED_STRIP_FRONT],
                             return_thirds[IOF_LED_STRIP_CENTER],
                             return_thirds[IOF_LED_STRIP_BACK],
-                            present_iof_light_composition_level);
+                            iof_light_composition_level_present);
                 #endif
 
-                return_light_composition = present_iof_light_composition_level;
+                return_stable = true;
+                for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
+                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) return_stable = false; // one is enough, all muste be zero
+                }
+
+                return_light_composition = iof_light_composition_level_present;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {

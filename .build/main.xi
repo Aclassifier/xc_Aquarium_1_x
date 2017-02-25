@@ -1555,8 +1555,11 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 # 11 "../src/button_press.h"
 typedef enum {
     BUTTON_ACTION_RELEASED,
-    BUTTON_ACTION_PRESSED
+    BUTTON_ACTION_PRESSED,
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 } button_action_t;
+
+
 
 
 
@@ -1623,9 +1626,18 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                             const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 32 "../src/main.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
-# 13 "../src/port_heat_light_server.h"
+# 11 "../src/port_heat_light_server.h"
 typedef enum {
-# 24 "../src/port_heat_light_server.h"
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
+
+
+
+
+typedef enum {
+# 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
     LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
     LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON = 2,
@@ -1645,12 +1657,6 @@ typedef enum {
 
 } light_composition_t;
 
-
-typedef enum {
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
@@ -1674,7 +1680,7 @@ typedef enum {
 typedef interface port_heat_light_commands_if {
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t} get_light_composition (unsigned return_thirds [3]);
+    {light_composition_t, bool} get_light_composition (unsigned return_thirds [3]);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);

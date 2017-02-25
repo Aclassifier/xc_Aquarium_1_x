@@ -1150,9 +1150,18 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 15 "../src/port_heat_light_server.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
-# 13 "../src/port_heat_light_server.h"
+# 11 "../src/port_heat_light_server.h"
 typedef enum {
-# 24 "../src/port_heat_light_server.h"
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
+
+
+
+
+typedef enum {
+# 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
     LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
     LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON = 2,
@@ -1172,12 +1181,6 @@ typedef enum {
 
 } light_composition_t;
 
-
-typedef enum {
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
@@ -1201,7 +1204,7 @@ typedef enum {
 typedef interface port_heat_light_commands_if {
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t} get_light_composition (unsigned return_thirds [3]);
+    {light_composition_t, bool} get_light_composition (unsigned return_thirds [3]);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
@@ -1220,8 +1223,8 @@ typedef enum {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
-# 82 "../src/port_heat_light_server.xc"
-static unsigned int p32_bits_for_light_light_composition_pwm_windows [13][3] =
+# 83 "../src/port_heat_light_server.xc"
+static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
 {
 
    {
@@ -1281,21 +1284,36 @@ static unsigned int p32_bits_for_light_light_composition_pwm_windows [13][3] =
    }
 };
 
+typedef enum {
+    PIN_SAME_LIGHT,
+    PIN_DARKER,
+    PIN_LIGHTER
+} pin_change_t;
+
 
 
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 165 "../src/port_heat_light_server.xc"
+# 177 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
     uint32_t port_value = 0xffffffff;
     timer tmr;
     int time;
-    unsigned int present_iof_light_composition_level = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    unsigned int iof_light_composition_level_present = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
     unsigned int iof_light_pwm_window = 0;
     heat_cable_alternating_t heat_cable_alternating = HEAT_1_ON;
+
+
+
+    unsigned soft_change_pwm_window_timer_us [3] = {0,0,0};
+    pin_change_t pin_change [3][3];
+
+
+
+
 
 
 
@@ -1316,28 +1334,90 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
         select {
             case tmr when __builtin_timer_after(time) :> void: {
                 time += (1500 * 100U);
+                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
 
-                unsigned int mask = p32_bits_for_light_light_composition_pwm_windows[present_iof_light_composition_level][iof_light_pwm_window];
-
-
-
+                if (soft_change_pwm_window_timer_us[iof_light_pwm_window] == 0) {
 
 
 
-                {
-                    if ((mask & (1<<3)) != 0) {port_value |= (1<<3);} else {port_value &= ~ (1<<3);}
+
+
+                    {
+                        if ((mask & (1<<3)) != 0) {port_value |= (1<<3);} else {port_value &= ~ (1<<3);}
+                        myport_p32 <: port_value;
+                        delay_microseconds ((1500 / (1500*3)));
+                    }
+                    {
+                        if ((mask & (1<<4)) != 0) {port_value |= (1<<4);} else {port_value &= ~ (1<<4);}
+                        myport_p32 <: port_value;
+                        delay_microseconds ((1500 / (1500*3)));
+                    }
+                    {
+                        if ((mask & (1<<5)) != 0) {port_value |= (1<<5);} else {port_value &= ~ (1<<5);}
+                        myport_p32 <: port_value;
+                        delay_microseconds ((1500 / (1500*3)));
+                    }
+
+                } else {
+
+                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value &= ~ (1<<3);
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value |= (1<<3);
+                    } else {
+                        if ((mask & (1<<3)) != 0) {port_value |= (1<<3);} else {port_value &= ~ (1<<3);}
+                    }
+
+                    if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value &= ~ (1<<4);
+                    } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value |= (1<<4);
+                    } else {
+                        if ((mask & (1<<4)) != 0) {port_value |= (1<<4);} else {port_value &= ~ (1<<4);}
+                    }
+
+                    if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value &= ~ (1<<5);
+                    } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value |= (1<<5);
+                    } else {
+                        if ((mask & (1<<5)) != 0) {port_value |= (1<<5);} else {port_value &= ~ (1<<5);}
+                    }
+
                     myport_p32 <: port_value;
-                    delay_microseconds ((1500 / (1500*3)));
-                }
-                {
-                    if ((mask & (1<<4)) != 0) {port_value |= (1<<4);} else {port_value &= ~ (1<<4);}
+
+                    delay_microseconds (soft_change_pwm_window_timer_us[iof_light_pwm_window]);
+
+                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
+                        port_value |= (1<<3);
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                        port_value &= ~ (1<<3);
+                    } else {}
+
+                    if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
+                            port_value |= (1<<4);
+                        } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                            port_value &= ~ (1<<4);
+                        } else {}
+
+                    if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
+                            port_value |= (1<<5);
+                        } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                            port_value &= ~ (1<<5);
+                        } else {}
+
                     myport_p32 <: port_value;
-                    delay_microseconds ((1500 / (1500*3)));
-                }
-                {
-                    if ((mask & (1<<5)) != 0) {port_value |= (1<<5);} else {port_value &= ~ (1<<5);}
-                    myport_p32 <: port_value;
-                    delay_microseconds ((1500 / (1500*3)));
+
+                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0) {
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window]--;
+                    } else {
+
+
+
+
+
+                    }
+
                 }
 
                 iof_light_pwm_window++;
@@ -1354,10 +1434,50 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print) : {
                 printf ("i_port_heat_light_commands[%u] ilight %u, called by %u\n", index_of_client, iof_light_composition_level, value_to_print);
-                present_iof_light_composition_level = iof_light_composition_level;
+
+                if (iof_light_composition_level_present != iof_light_composition_level) {
+                    for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < 3; iof_light_pwm_window++) {
+
+                        uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level] [iof_light_pwm_window];
+
+                        uint32_t mask_xor = mask ^ mask_new;
+
+                        if ((mask_xor & (1<<3)) == 0) {
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask & (1<<3)) == 0) && ((mask_new & (1<<3)) != 0)) {
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        if ((mask_xor & (1<<4)) == 0) {
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask & (1<<4)) == 0) && ((mask_new & (1<<4)) != 0)) {
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        if ((mask_xor & (1<<5)) == 0) {
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_SAME_LIGHT;
+                        } else if (((mask & (1<<5)) == 0) && ((mask_new & (1<<5)) != 0)) {
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_LIGHTER;
+                        } else {
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_DARKER;
+                        }
+
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window] = (1500);
+                    }
+
+                } else {}
+
+                iof_light_composition_level_present = iof_light_composition_level;
+
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [3]) -> {light_composition_t return_light_composition} : {
+            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [3]) ->
+                    {light_composition_t return_light_composition, bool return_stable} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < 3; iof_LED_strip++) {
                     return_thirds[iof_LED_strip] = 0;
@@ -1365,13 +1485,18 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
 
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < 3; iof_light_pwm_window++) {
-                    unsigned int mask = p32_bits_for_light_light_composition_pwm_windows[present_iof_light_composition_level][iof_light_pwm_window];
+                    unsigned int mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
                     if ((mask & (1<<3)) != 0) return_thirds[IOF_LED_STRIP_FRONT] += 1;
                     if ((mask & (1<<4)) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
                     if ((mask & (1<<5)) != 0) return_thirds[IOF_LED_STRIP_BACK] += 1;
                 }
-# 259 "../src/port_heat_light_server.xc"
-                return_light_composition = present_iof_light_composition_level;
+# 382 "../src/port_heat_light_server.xc"
+                return_stable = true;
+                for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < 3; iof_light_pwm_window++) {
+                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) return_stable = false;
+                }
+
+                return_light_composition = iof_light_composition_level_present;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {

@@ -5,7 +5,14 @@
  *      Author: teig
  */
 
+
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK
+
+typedef enum {
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
 
 #define NUM_LIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
 #define NUM_LIGHT_COMPOSITION_LEVELS 13
@@ -40,12 +47,6 @@ typedef enum {
     // NUM_LIGHT_COMPOSITION_LEVELS                = 13
 } light_composition_t;
 
-#define NUM_PWM_TIME_WINDOWS 3
-typedef enum {
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W white  3000K, 380 lm)
@@ -68,11 +69,11 @@ typedef enum {
 
 typedef interface port_heat_light_commands_if {
 
-    void                  set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t} get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
-    void                  beeper_on_command     (const bool beeper_on);
-    void                  beeper_blip_command   (const unsigned ms);
-    void                  heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
+    void                        set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
+    {light_composition_t, bool} get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
+    void                        beeper_on_command     (const bool beeper_on);
+    void                        beeper_blip_command   (const unsigned ms);
+    void                        heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
 
 } port_heat_light_commands_if;
 

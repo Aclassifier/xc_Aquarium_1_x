@@ -1637,8 +1637,11 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 # 11 "../src/button_press.h"
 typedef enum {
     BUTTON_ACTION_RELEASED,
-    BUTTON_ACTION_PRESSED
+    BUTTON_ACTION_PRESSED,
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 } button_action_t;
+
+
 
 
 
@@ -1656,9 +1659,18 @@ typedef struct {
 
 
 # 1 "../src/port_heat_light_server.h" 1
-# 13 "../src/port_heat_light_server.h"
+# 11 "../src/port_heat_light_server.h"
 typedef enum {
-# 24 "../src/port_heat_light_server.h"
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
+
+
+
+
+typedef enum {
+# 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
     LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
     LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON = 2,
@@ -1678,12 +1690,6 @@ typedef enum {
 
 } light_composition_t;
 
-
-typedef enum {
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
@@ -1707,7 +1713,7 @@ typedef enum {
 typedef interface port_heat_light_commands_if {
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t} get_light_composition (unsigned return_thirds [3]);
+    {light_composition_t, bool} get_light_composition (unsigned return_thirds [3]);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
@@ -1913,7 +1919,7 @@ void My_startKIT_ADC_Client (
 # 46 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/light_sunrise_sunset.h" 1
-# 11 "../src/light_sunrise_sunset.h"
+# 14 "../src/light_sunrise_sunset.h"
 typedef enum {
     IT_IS_DAY,
     IT_IS_NIGHT
@@ -1935,7 +1941,7 @@ typedef struct {
     unsigned num_random_sequences_left;
     max_light_t max_light;
 }light_sunrise_sunset_context_t;
-# 119 "../src/light_sunrise_sunset.h"
+# 120 "../src/light_sunrise_sunset.h"
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const max_light_t max_light);
 
@@ -1959,7 +1965,6 @@ extern void System_Task (
 # 49 "../src/_Aquarium_1_x.xc" 2
 
 
-
 typedef enum {
     CALLER_IS_BUTTON,
     CALLER_IS_REFRESH
@@ -1968,28 +1973,42 @@ typedef enum {
 
 typedef enum {
 
-    STATIC_DISPLAY_AKVARIETEMPERATURER,
-    STATIC_DISPLAY_VARMEREGULERING,
-    STATIC_DISPLAY_LYSGULERING,
-    STATIC_DISPLAY_BOKSDATA,
-    STATIC_DISPLAY_VERSJON,
-    STATIC_DISPLAY_FASTE_INNSTILLINGER,
-    STATIC_DISPLAY_KLOKKE
-} static_display_state_t;
-
+    SCREEN_AKVARIETEMPERATURER,
+    SCREEN_VARMEREGULERING,
+    SCREEN_LYSGULERING,
+    SCREEN_BOKSDATA,
+    SCREEN_VERSJON,
+    SCREEN_FASTE_INNSTILLINGER,
+    SCREEN_KLOKKE
+} display_screen_name_t;
 
 typedef enum {
-    STATE_IDLE,
-    STATE_ALLOW_REFRESH
-} state_t;
+    SUB_STATE_VOID,
+    SUB_STATE_01,
+    SUB_STATE_02,
+    SUB_STATE_03,
+    SUB_STATE_04,
+    SUB_STATE_05
+} display_sub_state_t;
+
+typedef struct {
+    bool sub_is_editable;
+    display_sub_state_t sub_state;
+} display_sub_context_t;
+
+typedef enum {
+    DISPLAY_APPEAR_BLACK,
+    DISPLAY_APPEAR_BACKROUND_UPDATED
+} display_appear_state_t;
 
 
 
 typedef struct {
-    state_t state;
-    static_display_state_t static_display_state;
+    display_appear_state_t display_appear_state;
+    display_screen_name_t display_screen_name_present;
+    display_sub_context_t display_sub_context [7];
 
-    unsigned since_button_press_seconds_cnt;
+    unsigned silent_any_button_while_display_on_seconds_cnt;
     unsigned display_is_on_seconds_cnt;
     bool display_is_on;
     char display_ts1_chars [(21 * 4)];
@@ -2003,6 +2022,7 @@ typedef struct {
     i2c_temps_t i2c_temps;
     light_composition_t light_composition;
     unsigned light_intensity_thirds [3];
+    bool light_stable;
 
     unsigned int adc_cnt, no_adc_cnt;
     t_startkit_adc_vals adc_vals_for_use;
@@ -2032,9 +2052,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-    switch (context.static_display_state) {
+    switch (context.display_screen_name_present) {
 
-        case STATIC_DISPLAY_AKVARIETEMPERATURER: {
+        case SCREEN_AKVARIETEMPERATURER: {
 
             for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -2077,7 +2097,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         } break;
 
-        case STATIC_DISPLAY_VARMEREGULERING: {
+        case SCREEN_VARMEREGULERING: {
 
             char temp_degC_heater_mean_last_cycle_str [5];
 
@@ -2131,19 +2151,21 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         } break;
 
-        case STATIC_DISPLAY_LYSGULERING: {
+        case SCREEN_LYSGULERING: {
 
-            const char light_strength_full_str [] = "FULL";
+            const char light_strength_full_str [] = "3/3";
             const char light_strength_weak_str [] = "2/3";
             const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL);
             const char fill_1_str [] = " ";
             const char fill_2_str [] = "  ";
+            const char fill_3_stable_str [] = " = ";
+            const char fill_3_unstable_str [] = "<=>";
 
             for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u      NUMMER %u%s             MAKS %s",
+            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u    I TABELL %u%s%s          MAKS %s",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,
                     WATTOF_LED_STRIP_CENTER,
@@ -2153,6 +2175,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.light_intensity_thirds[IOF_LED_STRIP_BACK],
                     context.light_composition,
                     (context.light_composition >= 10) ? fill_1_str : fill_2_str,
+                    (context.light_stable) ? fill_3_stable_str : fill_3_unstable_str,
                     (full_light) ? light_strength_full_str : light_strength_weak_str);
 
 
@@ -2178,7 +2201,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             context.display_is_on = true;
         } break;
 
-        case STATIC_DISPLAY_BOKSDATA: {
+        case SCREEN_BOKSDATA: {
             char temp_degC_str [5];
             char rr_12V_str [5];
             char rr_24V_str [5];
@@ -2226,13 +2249,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         } break;
 
-        case STATIC_DISPLAY_VERSJON: {
+        case SCREEN_VERSJON: {
 
              for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
                  context.display_ts1_chars [index_of_char] = ' ';
              }
 
-             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Feb 22 2017", char_OE_str, char_aa_str);
+             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Feb 25 2017", char_OE_str, char_aa_str);
 
 
 
@@ -2241,7 +2264,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              if (caller == CALLER_IS_BUTTON) {
-                 printf("Version date %s %s\n", "11:26:22", "Feb 22 2017");
+                 printf("Version date %s %s\n", "14:53:14", "Feb 25 2017");
              }
 
              Clear_All_Pixels_In_Buffer();
@@ -2255,7 +2278,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
          } break;
 
-        case STATIC_DISPLAY_FASTE_INNSTILLINGER: {
+        case SCREEN_FASTE_INNSTILLINGER: {
 
             int temp_heater_degc = (400/10);
             int temp_water_degc = (250/10);
@@ -2283,7 +2306,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             context.display_is_on = true;
         } break;
 
-        case STATIC_DISPLAY_KLOKKE: {
+        case SCREEN_KLOKKE: {
 
             for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -2334,61 +2357,90 @@ void Handle_Real_Or_Clocked_Buttons (
 
     switch (iof_button) {
         case 0: {
-            if (button_action == BUTTON_ACTION_PRESSED) {
 
-            } else {
+            switch (button_action) {
+                case BUTTON_ACTION_PRESSED: {
 
-                if (caller == CALLER_IS_BUTTON) {
-                    if (context.state == STATE_IDLE) {
-                        context.state = STATE_ALLOW_REFRESH;
-                    } else {
-                        context.state = STATE_IDLE;
-                        Clear_All_Pixels_In_Buffer();
-                        writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-                        context.display_is_on = false;
-                    }
-                } else {}
+                } break;
 
-                if (context.state == STATE_ALLOW_REFRESH) {
+                case BUTTON_ACTION_RELEASED: {
+                    if (caller == CALLER_IS_BUTTON) {
+                        if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
+                           context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+                        } else {
+                           context.display_appear_state = DISPLAY_APPEAR_BLACK;
+                           Clear_All_Pixels_In_Buffer();
+                           writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+                           context.display_is_on = false;
+                        }
+                    } else {}
 
-                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                    context.iof_button_previous = iof_button;
-                } else {}
+                    if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        context.iof_button_previous = iof_button;
+                    } else {}
+                } break;
+
+                case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
+
+                } break;
+                default: break;
             }
         } break;
 
         case 1: {
-            if (button_action == BUTTON_ACTION_RELEASED) {
-                if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
+            switch (button_action) {
+                case BUTTON_ACTION_PRESSED: {
 
-                    light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
-                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON, 2);
+                } break;
 
-                } else {
+                case BUTTON_ACTION_RELEASED: {
+                    if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
-                    light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
-                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
+                     light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, 2);
 
-                }
-            } else {}
+                    } else {
+
+                     light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
+
+                    }
+                } break;
+
+                case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
+
+                } break;
+                default: break;
+            }
         } break;
 
         case 2: {
-            if (button_action == BUTTON_ACTION_PRESSED) {
+            switch (button_action) {
+                case BUTTON_ACTION_PRESSED: {
 
-            } else {
-                if (context.state == STATE_ALLOW_REFRESH) {
+                } break;
 
-                    if (caller == CALLER_IS_BUTTON) {
-                        context.static_display_state++;
-                        if (context.static_display_state == 7) {
-                            context.static_display_state = STATIC_DISPLAY_AKVARIETEMPERATURER;
-                        } else {}
-                    } else {}
+                case BUTTON_ACTION_RELEASED: {
+                    if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
 
-                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                    context.iof_button_previous = iof_button;
-                } else {}
+                         if (caller == CALLER_IS_BUTTON) {
+                             context.display_screen_name_present++;
+                             if (context.display_screen_name_present == 7) {
+                                 context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
+                             } else {}
+                         } else {}
+
+                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                         context.iof_button_previous = iof_button;
+                     } else {}
+                } break;
+
+                case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
+                    printf ("YESS!\n");
+                } break;
+                default: break;
             }
         } break;
     }
@@ -2414,13 +2466,18 @@ void System_Task (
     handler_context_t context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
 
-    context.state = STATE_IDLE;
-    context.static_display_state = STATIC_DISPLAY_AKVARIETEMPERATURER;
+    context.display_appear_state = DISPLAY_APPEAR_BLACK;
+    context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
     context.display_is_on = false;
-    context.since_button_press_seconds_cnt = 0;
+    context.silent_any_button_while_display_on_seconds_cnt = 0;
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_previous;
     context.full_light = true;
+
+    for (unsigned iof_sub = 0; iof_sub < 7; iof_sub++) {
+        context.display_sub_context[iof_sub].sub_is_editable = false;
+        context.display_sub_context[iof_sub].sub_state = SUB_STATE_VOID;
+    }
 
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed();
     light_sunrise_sunset_context.datetime_previous.year=1950; light_sunrise_sunset_context.datetime_previous.month=6; light_sunrise_sunset_context.datetime_previous.day=14; light_sunrise_sunset_context.datetime_previous.hour=0; light_sunrise_sunset_context.datetime_previous.minute=0; light_sunrise_sunset_context.datetime_previous.second=0;;
@@ -2457,7 +2514,7 @@ void System_Task (
                 i_i2c_external_commands.command (GET_TEMPC_ALL);
                 i_startkit_adc_acquire.trigger();
                 {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
-                {context.light_composition} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
+                {context.light_composition, context.light_stable} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
 
 
 
@@ -2481,14 +2538,14 @@ void System_Task (
                 beeper_blip_now = Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
                 if (context.display_is_on == true) {
-                    if (context.since_button_press_seconds_cnt == (10*60)) {
+                    if (context.silent_any_button_while_display_on_seconds_cnt == (10*60)) {
                         beeper_blip_now = true;
                         Clear_All_Pixels_In_Buffer();
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;
-                        context.state = STATE_IDLE;
+                        context.display_appear_state = DISPLAY_APPEAR_BLACK;
                     } else {
-                        context.since_button_press_seconds_cnt++;
+                        context.silent_any_button_while_display_on_seconds_cnt++;
                     }
                 } else {}
 
@@ -2498,10 +2555,7 @@ void System_Task (
 
                 light_sunrise_sunset_context.datetime_previous = context.datetime;
 
-
-
-                if (context.state == STATE_ALLOW_REFRESH) {
-
+                if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                     Handle_Real_Or_Clocked_Buttons (context,
                         light_sunrise_sunset_context,
                         i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
@@ -2515,7 +2569,7 @@ void System_Task (
                 bool display_is_on_pre = context.display_is_on;
 
                 printf ("Button [%u] with %u\n", iof_button, button_action);
-                context.since_button_press_seconds_cnt = 0;
+                context.silent_any_button_while_display_on_seconds_cnt = 0;
 
                 Handle_Real_Or_Clocked_Buttons (context,
                     light_sunrise_sunset_context,

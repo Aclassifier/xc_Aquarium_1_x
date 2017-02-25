@@ -1289,6 +1289,8 @@ int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
 # 13 "../src/button_press.xc" 2
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 14 "../src/button_press.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1304,7 +1306,7 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 14 "../src/button_press.xc" 2
+# 15 "../src/button_press.xc" 2
 
 # 1 "../src/param.h" 1
 # 18 "../src/param.h"
@@ -1335,13 +1337,16 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 16 "../src/button_press.xc" 2
+# 17 "../src/button_press.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
     BUTTON_ACTION_RELEASED,
-    BUTTON_ACTION_PRESSED
+    BUTTON_ACTION_PRESSED,
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 } button_action_t;
+
+
 
 
 
@@ -1355,8 +1360,8 @@ typedef struct {
 
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 17 "../src/button_press.xc" 2
-# 33 "../src/button_press.xc"
+# 18 "../src/button_press.xc" 2
+# 34 "../src/button_press.xc"
 [[combinable]]
 void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
 
@@ -1376,60 +1381,77 @@ void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
     }
 }
 
+
+
+
 [[combinable]]
 void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
 
     int current_val = 0;
-    int is_stable = 1;
+    bool is_stable = true;
     timer tmr;
-    const unsigned debounce_delay_ms = 50;
-    unsigned debounce_timeout;
+    unsigned timeout;
+    int current_time;
+
+
     bool initial_released_stopped = false;
+    bool pressed_but_not_released = false;
 
     printf("inP_Button_Task[%u] started\n", button_n);
 
     while(1) {
         select {
 
-            case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val:
-            {
-                if (current_val == 0) {
+            case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
+# 84 "../src/button_press.xc"
+                pressed_but_not_released = false;
+                is_stable = false;
 
-                }
-                else {
-
-                }
-                is_stable = 0;
-                int current_time;
                 tmr :> current_time;
 
 
-                debounce_timeout = current_time + (debounce_delay_ms * ((100U) * 1000U));
+                timeout = current_time + (50 * ((100U) * 1000U));
 
 
-                break;
-            }
-            case !is_stable => tmr when __builtin_timer_after(debounce_timeout) :> void:
-            {
+            } break;
 
-                if (current_val == 0) {
-
-                    c_button_out <: BUTTON_ACTION_PRESSED;
-                    initial_released_stopped = true;
-
-                }
-                else {
-                    if (initial_released_stopped == false) {
+            case (pressed_but_not_released || (is_stable == false)) => tmr when __builtin_timer_after(timeout) :> void: {
+                if (is_stable == false) {
+                    if (current_val == 0) {
                         initial_released_stopped = true;
-                    } else {
-                        c_button_out <: BUTTON_ACTION_RELEASED;
+                        pressed_but_not_released = true;
+
+                        c_button_out <: BUTTON_ACTION_PRESSED;
+
+
+
+                        tmr :> current_time;
+                        timeout = current_time + (10000 * ((100U) * 1000U));
                     }
+                    else {
+                        if (initial_released_stopped == false) {
+                            initial_released_stopped = true;
 
 
+
+                        } else {
+                            pressed_but_not_released = false;
+
+                            c_button_out <: BUTTON_ACTION_RELEASED;
+
+
+
+                        }
+                    }
+                    is_stable = true;
+                } else {
+                    pressed_but_not_released = false;
+
+                    c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
+                    printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
                 }
-                is_stable = 1;
-                break;
-            }
+            } break;
+
         }
     }
 }

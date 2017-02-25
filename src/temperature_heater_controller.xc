@@ -95,7 +95,7 @@ void Temperature_Heater_Controller (
                     } else { // off_now
                         off_cnt_secs++;
                     }
-                } else {} // No code, counting to 1 sec
+                } else {} // No code, counting to 1 secd
 
                 if (method_of_on_off == ON_OFF_PROPORTIONAL) {
                     proportional_percent_cnt = (proportional_percent_cnt + 1) % 100; // modulus 100 divison yields [0..99]
