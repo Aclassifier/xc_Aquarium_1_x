@@ -1651,7 +1651,7 @@ typedef struct {
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 29 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 52 "../src/_texts_and_constants.h"
+# 54 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 30 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1733,6 +1733,14 @@ typedef enum {
 
 } light_composition_t;
 
+typedef enum {
+    LIGHT_CONTROL_IS_VOID,
+    LIGHT_CONTROL_IS_DAY,
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY,
+    LIGHT_CONTROL_IS_RANDOM
+} light_control_scheme_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
@@ -1754,9 +1762,10 @@ typedef enum {
 
 
 typedef interface port_heat_light_commands_if {
+    {light_composition_t, bool, light_control_scheme_t}
+         get_light_composition (unsigned return_thirds [3]);
 
-    void set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t, bool} get_light_composition (unsigned return_thirds [3]);
+    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);

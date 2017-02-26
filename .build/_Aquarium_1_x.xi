@@ -1690,6 +1690,14 @@ typedef enum {
 
 } light_composition_t;
 
+typedef enum {
+    LIGHT_CONTROL_IS_VOID,
+    LIGHT_CONTROL_IS_DAY,
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY,
+    LIGHT_CONTROL_IS_RANDOM
+} light_control_scheme_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
@@ -1711,9 +1719,10 @@ typedef enum {
 
 
 typedef interface port_heat_light_commands_if {
+    {light_composition_t, bool, light_control_scheme_t}
+         get_light_composition (unsigned return_thirds [3]);
 
-    void set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t, bool} get_light_composition (unsigned return_thirds [3]);
+    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
@@ -1727,7 +1736,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 # 39 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
-# 52 "../src/_texts_and_constants.h"
+# 54 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 40 "../src/_Aquarium_1_x.xc" 2
 
@@ -2014,6 +2023,7 @@ typedef struct {
     char display_ts1_chars [(21 * 4)];
     int iof_button_previous;
     bool full_light;
+    light_control_scheme_t light_control_scheme;
 
     chronodot_d3231_registers_t chronodot_d3231_registers;
     DateTime_t datetime;
@@ -2156,16 +2166,38 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char light_strength_full_str [] = "3/3";
             const char light_strength_weak_str [] = "2/3";
             const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL);
-            const char fill_1_str [] = " ";
-            const char fill_2_str [] = "  ";
-            const char fill_3_stable_str [] = " = ";
-            const char fill_3_unstable_str [] = "<=>";
+            const char stable_str [] = "=";
+            const char unstable_str [] = {240,0};
+
+            char light_control_scheme_str [5];
+
+            switch (context.light_control_scheme) {
+                case LIGHT_CONTROL_IS_VOID : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", "INIT");
+                } break;
+                case LIGHT_CONTROL_IS_DAY : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " DAG");
+                 } break;
+                case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " NED");
+                 } break;
+                case LIGHT_CONTROL_IS_NIGHT : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", "NATT");
+                 } break;
+                case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " OPP");
+                 } break;
+                case LIGHT_CONTROL_IS_RANDOM : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " SKY");
+                } break;
+                default: break;
+            }
 
             for (int index_of_char = 0; index_of_char < (21 * 4); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u    I TABELL %u%s%s          MAKS %s",
+            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,
                     WATTOF_LED_STRIP_CENTER,
@@ -2173,10 +2205,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
                     context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
                     context.light_intensity_thirds[IOF_LED_STRIP_BACK],
-                    context.light_composition,
-                    (context.light_composition >= 10) ? fill_1_str : fill_2_str,
-                    (context.light_stable) ? fill_3_stable_str : fill_3_unstable_str,
-                    (full_light) ? light_strength_full_str : light_strength_weak_str);
+                    (full_light) ? light_strength_full_str : light_strength_weak_str,
+                    light_control_scheme_str,
+                    (context.light_stable) ? stable_str : unstable_str,
+                    context.light_composition);
 
 
 
@@ -2255,7 +2287,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                  context.display_ts1_chars [index_of_char] = ' ';
              }
 
-             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Feb 25 2017", char_OE_str, char_aa_str);
+             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Feb 26 2017", char_OE_str, char_aa_str);
 
 
 
@@ -2264,7 +2296,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              if (caller == CALLER_IS_BUTTON) {
-                 printf("Version date %s %s\n", "14:53:14", "Feb 25 2017");
+                 printf("Version date %s %s\n", "11:18:26", "Feb 26 2017");
              }
 
              Clear_All_Pixels_In_Buffer();
@@ -2399,12 +2431,12 @@ void Handle_Real_Or_Clocked_Buttons (
                     if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
                      light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, 2);
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2);
 
                     } else {
 
                      light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1);
 
                     }
                 } break;
@@ -2514,7 +2546,7 @@ void System_Task (
                 i_i2c_external_commands.command (GET_TEMPC_ALL);
                 i_startkit_adc_acquire.trigger();
                 {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
-                {context.light_composition, context.light_stable} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
+                {context.light_composition, context.light_stable, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
 
 
 

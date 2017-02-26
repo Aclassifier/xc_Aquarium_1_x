@@ -47,6 +47,14 @@ typedef enum {
     // NUM_LIGHT_COMPOSITION_LEVELS                = 13
 } light_composition_t;
 
+typedef enum {
+    LIGHT_CONTROL_IS_VOID,         // Init and when we, in a call, don't want to modify it
+    LIGHT_CONTROL_IS_DAY,          // dag
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT, // ned
+    LIGHT_CONTROL_IS_NIGHT,        // natt
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY, // opp
+    LIGHT_CONTROL_IS_RANDOM        // sky
+} light_control_scheme_t;
 
 typedef enum {
     WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W white  3000K, 380 lm)
@@ -68,12 +76,13 @@ typedef enum {
 #define SCALE_LIGHTS_ALL_ON_ALWAYS 9
 
 typedef interface port_heat_light_commands_if {
+    {light_composition_t, bool, light_control_scheme_t}
+         get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
 
-    void                        set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print);
-    {light_composition_t, bool} get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
-    void                        beeper_on_command     (const bool beeper_on);
-    void                        beeper_blip_command   (const unsigned ms);
-    void                        heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
+    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
+    void beeper_on_command     (const bool beeper_on);
+    void beeper_blip_command   (const unsigned ms);
+    void heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
 
 } port_heat_light_commands_if;
 

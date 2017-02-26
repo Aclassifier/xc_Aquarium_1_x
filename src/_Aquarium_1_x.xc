@@ -97,6 +97,7 @@ typedef struct {
     char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // ts1 means TextSize 1
     int                         iof_button_previous;
     bool                        full_light;
+    light_control_scheme_t      light_control_scheme;
     // For read_chronodot_ok:
     chronodot_d3231_registers_t chronodot_d3231_registers; // For real use, with also setting, this needs to be filled from chronodot before it's written
     DateTime_t                  datetime;
@@ -201,11 +202,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     char_AA_str,
                     context.on_percent,
                     temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
-                    context.on_watt); // Tight-aligned so no format with fill_1_str is needed
+                    context.on_watt);
             //                                            ..........----------.
             //                                            2 VARMEREGULERING NÅ.
             //                                              PÅ       100%     .
-            //                                              SNITT  39.6oC    ?.
+            //                                              SNITT  39.6oC   [±
             //                                              EFFEKT    48W     .
             if (caller == CALLER_IS_BUTTON) {
                 printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
@@ -239,32 +240,54 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char light_strength_full_str [] = "3/3";
             const char light_strength_weak_str [] = "2/3";
             const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
-            const char fill_1_str [] = " ";
-            const char fill_2_str [] = "  ";
-            const char fill_3_stable_str   [] = " = ";
-            const char fill_3_unstable_str [] = "<=>";
+            const char stable_str   [] = "=";
+            const char unstable_str [] = CHAR_PLUS_MINUS_STR; // ±
+
+            char light_control_scheme_str [5]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
+
+            switch (context.light_control_scheme) {
+                case LIGHT_CONTROL_IS_VOID : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", "INIT");
+                } break;
+                case LIGHT_CONTROL_IS_DAY : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " DAG"); // Leading space
+                 } break;
+                case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " NED"); // Leading space
+                 } break;
+                case LIGHT_CONTROL_IS_NIGHT : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", "NATT");
+                 } break;
+                case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " OPP"); // Leading space
+                 } break;
+                case LIGHT_CONTROL_IS_RANDOM : {
+                    sprintf_return = sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
+                } break;
+                default: break;
+            }
 
             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u    I TABELL %u%s%s          MAKS %s",
+            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
-                    WATTOF_LED_STRIP_FRONT,
-                    WATTOF_LED_STRIP_CENTER,
-                    WATTOF_LED_STRIP_BACK,
-                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
-                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
-                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
-                    context.light_composition,                                   // Format when left-aligned 0..99 number..
-                    (context.light_composition >= 10) ? fill_1_str : fill_2_str, // ..by inserting an extra space when small number
-                    (context.light_stable) ? fill_3_stable_str : fill_3_unstable_str,
-                    (full_light) ? light_strength_full_str : light_strength_weak_str);
+                    WATTOF_LED_STRIP_FRONT,                                           // "5"
+                    WATTOF_LED_STRIP_CENTER,                                          // "2"
+                    WATTOF_LED_STRIP_BACK,                                            // "2"
+                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],              // "1"
+                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],             // "2"
+                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],               // "3"
+                    (full_light) ? light_strength_full_str : light_strength_weak_str, // "3/2" or "3/3
+                    light_control_scheme_str,                                         // "NATT" etc.
+                    (context.light_stable) ? stable_str : unstable_str,               // "=" or "±"
+                    context.light_composition);                                       // 10
             //                                            ..........----------.
             //                                            3 LYS PÅ   5W 2W 2W .
             //                                              TREDELER f1 m2 b3 .
-            //                                              I TABELL xx *     .
-            //                                                  MAKS x/3      .
+            //                                                  MAKS 3/3      .
+            //                                                   DAG ± 10     .
 
             if (caller == CALLER_IS_BUTTON) {
                 printf ("LYS: %u %u %u @ %u, %u\n",
@@ -482,12 +505,12 @@ void Handle_Real_Or_Clocked_Buttons (
                     if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
                      light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, 2); // (LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON, 2);
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2); // (LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON, 2);
 
                     } else { // MAX_LIGHT_IS_TWO_THIRDS
 
                      light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1); // LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
+                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1); // LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, 1);
 
                     }
                 } break;
@@ -597,7 +620,7 @@ void System_Task (
                 i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
                 {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
-                {context.light_composition, context.light_stable} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
+                {context.light_composition, context.light_stable, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition (context.light_intensity_thirds);
 
                 // We now have chronodot_d3231_registers, i2c_temps, adc_vals_for_use and on_percent, on_watt
 

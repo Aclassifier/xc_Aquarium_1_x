@@ -8,11 +8,13 @@
 #ifndef TEXTS_AND_CONSTANTS_H_
 #define TEXTS_AND_CONSTANTS_H_
 
-#define CHAR_SMILEY_STR {CHAR_SMILEY,0}
-#define DEGC_CIRCLE_STR {247,0} // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
-#define CHAR_AA_STR     {CHAR_AA,0}
-#define CHAR_aa_STR     {CHAR_aa,0}
-#define CHAR_OE_STR     {CHAR_OE,0}
+#define CHAR_SMILEY_STR     {CHAR_SMILEY,0}
+#define CHAR_PLUS_MINUS_STR {CHAR_PLUS_MINUS,0} // ±
+#define DEGC_CIRCLE_STR     {CHAR_CIRCLE,0}
+#define CHAR_AA_STR         {CHAR_AA,0}
+#define CHAR_aa_STR         {CHAR_aa,0}
+#define CHAR_OE_STR         {CHAR_OE,0}
+
 
 #define GENERIC_TEXT_LEN_DEGC 5 // "25.0" with space for EOS (zero)
 #define GENERIC_TEXT_DEGC          "??.?"

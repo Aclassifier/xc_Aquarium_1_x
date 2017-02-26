@@ -142,7 +142,7 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOS
 
 typedef enum {
     PIN_SAME_LIGHT,
-    PIN_DARKER,
+    PIN_NIGHTER,
     PIN_LIGHTER
 } pin_change_t;
 
@@ -153,6 +153,12 @@ typedef enum {
     out port dummy_wify_ctrl_port = on tile[0]: XS1_PORT_4C; // CS - Bit0, Power enable - Bit1
 #endif
 
+// ---------------------------------------------------------------------------------------------------
+// DISCRETE LIGHT INTENSITY FOR THREE INDIVIDUAL LED STRIPS WITH DIFFERENT COLOUR RANGE
+// AND CONTINUOUS CHANGE FROM ONE DESCRETE LEVEL TO THE OTHER.
+// INSTEAD OF THREE HW PWMs (THAT I DIDN'T HAVE THE PINS FOR) THIS IS DONE IN A SINGLE XC SERVER TASK
+// ---------------------------------------------------------------------------------------------------
+//
 // A shared PWM here in SW (and not on the ports since we're using the 1-bit ports for something else)
 // Also, having it shared makes lights switch in harmony and this probably avoid interference
 // Also, we want each port to have exclusive timing so that we potentially could avoid doing I2C at the same time as the switching
@@ -188,6 +194,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
     unsigned     soft_change_pwm_window_timer_us [NUM_PWM_TIME_WINDOWS] = {0,0,0}; // (*1) No need to initialise..
     pin_change_t pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
+    light_control_scheme_t       light_control_scheme = LIGHT_CONTROL_IS_VOID;
 
     // (*1) Could have had one for all and initialised it to TIME_PER_PWM_WINDOW_MICROSECONDS * 3 and then DIV by 3 when used. However
     //      I have avoided division here since it takes more than one cycle and the DIVn instruction share a common division unit with the
@@ -240,7 +247,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                     if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
                         port_value and_eq compl BIT_LIGHT_FRONT; // off at the start of the window
-                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_NIGHTER) {
                         port_value or_eq BIT_LIGHT_FRONT; // on at the start of the window
                     } else { // PIN_SAME_LIGHT
                         if ((mask bitand BIT_LIGHT_FRONT) != 0) {port_value or_eq BIT_LIGHT_FRONT;} else {port_value and_eq compl BIT_LIGHT_FRONT;}
@@ -248,7 +255,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                     if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
                         port_value and_eq compl BIT_LIGHT_CENTER; // off at the start of the window
-                    } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                    } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_NIGHTER) {
                         port_value or_eq BIT_LIGHT_CENTER; // on at the start of the window
                     } else { // PIN_SAME_LIGHT
                         if ((mask bitand BIT_LIGHT_CENTER) != 0) {port_value or_eq BIT_LIGHT_CENTER;} else {port_value and_eq compl BIT_LIGHT_CENTER;}
@@ -256,7 +263,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                     if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
                         port_value and_eq compl BIT_LIGHT_BACK; // off at the start of the window
-                    } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                    } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_NIGHTER) {
                         port_value or_eq BIT_LIGHT_BACK; // on at the start of the window
                     } else { // PIN_SAME_LIGHT
                         if ((mask bitand BIT_LIGHT_BACK) != 0) {port_value or_eq BIT_LIGHT_BACK;} else {port_value and_eq compl BIT_LIGHT_BACK;}
@@ -268,19 +275,19 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                     if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {
                         port_value or_eq BIT_LIGHT_FRONT; // on from now until next pwm window, longer and longer window
-                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_DARKER) {
+                    } else if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_NIGHTER) {
                         port_value and_eq compl BIT_LIGHT_FRONT; // was off from start until off now, for shorter and shorter window
                     } else {} // PIN_SAME_LIGHT
 
                     if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_LIGHTER) {
                             port_value or_eq BIT_LIGHT_CENTER; // on from now until next pwm window, longer and longer window
-                        } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_DARKER) {
+                        } else if (pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] == PIN_NIGHTER) {
                             port_value and_eq compl BIT_LIGHT_CENTER; // was off from start until off now, for shorter and shorter window
                         } else {} // PIN_SAME_LIGHT
 
                     if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_LIGHTER) {
                             port_value or_eq BIT_LIGHT_BACK; // on from now until next pwm window, longer and longer window
-                        } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_DARKER) {
+                        } else if (pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] == PIN_NIGHTER) {
                             port_value and_eq compl BIT_LIGHT_BACK; // was off from start until off now, for shorter and shorter window
                         } else {} // PIN_SAME_LIGHT
 
@@ -289,13 +296,12 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0)  {
                         soft_change_pwm_window_timer_us[iof_light_pwm_window]--; // 1450 down 1 @ 222 Hz takes 6.5 secs
                     } else {
-                        // No code. Zero, finished. A LED that's all durin all three PWM phases looks a little on when there are
-                        // others that are on. It must be because of some re-glow from the others. I have scoped it, the pulses
+                        // No code. Zero, finished. A LED that's OFF durin all three PWM phases _looks_ a little ON when there are
+                        // others that are also ON. It must be because of some re-glow from the others. I have scoped it, the pulses
                         // get thinner and thinner and then it's flat out.
                         // From light to down it goes very slowly at the start and then it appears that the last second or so it goes faster.
-                        // However, this is not noticable through the aquarium, only when I watch the LEDs directly
+                        // However, this is not noticable through the aquarium, only when I watch the LEDs directly, where it looks "right"
                     }
-
                 }
 
                 iof_light_pwm_window++;
@@ -310,8 +316,13 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                 } // Do nothing
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].set_light_composition (const light_composition_t iof_light_composition_level, const unsigned value_to_print) : {
-                printf ("i_port_heat_light_commands[%u] ilight %u, called by %u\n", index_of_client, iof_light_composition_level, value_to_print);
+            case i_port_heat_light_commands[int index_of_client].set_light_composition (
+                    const light_composition_t iof_light_composition_level,
+                    const const light_control_scheme_t light_control_scheme_in,
+                    const unsigned value_to_print) : {
+                printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
+
+                if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) light_control_scheme = light_control_scheme_in;
 
                 if (iof_light_composition_level_present != iof_light_composition_level) {
                     for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
@@ -326,7 +337,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         } else if (((mask bitand BIT_LIGHT_FRONT) == 0) and ((mask_new bitand BIT_LIGHT_FRONT) != 0)) {
                             pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_LIGHTER;
                         } else {
-                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_DARKER;
+                            pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_NIGHTER;
                         }
 
                         if ((mask_xor bitand BIT_LIGHT_CENTER) == 0) { // xor is zero then equal
@@ -334,7 +345,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         } else if (((mask bitand BIT_LIGHT_CENTER) == 0) and ((mask_new bitand BIT_LIGHT_CENTER) != 0)) {
                             pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_LIGHTER;
                         } else {
-                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_DARKER;
+                            pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_NIGHTER;
                         }
 
                         if ((mask_xor bitand BIT_LIGHT_BACK) == 0) { // xor is zero then equal
@@ -342,7 +353,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         } else if (((mask bitand BIT_LIGHT_BACK) == 0) and ((mask_new bitand BIT_LIGHT_BACK) != 0)) {
                             pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_LIGHTER;
                         } else {
-                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_DARKER;
+                            pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_NIGHTER;
                         }
 
                         soft_change_pwm_window_timer_us[iof_light_pwm_window] = (TIME_PER_PWM_WINDOW_MICROSECONDS); // 1500us = 1.5 ms = 222 Hz (100=qwe?)
@@ -355,7 +366,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]) ->
-                    {light_composition_t return_light_composition, bool return_stable} : {
+                    {light_composition_t return_light_composition, bool return_stable, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
                     return_thirds[iof_LED_strip] = 0;
@@ -385,6 +396,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                 }
 
                 return_light_composition = iof_light_composition_level_present;
+                return_light_control_scheme = light_control_scheme;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {
