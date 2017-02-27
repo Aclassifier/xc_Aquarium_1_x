@@ -46,7 +46,7 @@
 	.globl Temperature_Heater_Controller.select.enable.cases.maxchanends
 	.set Temperature_Heater_Controller.select.enable.cases,0
 	.globl Temperature_Heater_Controller.select.enable.cases
-	.set Temperature_Heater_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.case.1.nstackwords) $M (Temperature_Heater_Controller.select.case.2.nstackwords) $M (Temperature_Heater_Controller.select.case.0.nstackwords)
+	.set Temperature_Heater_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.case.0.nstackwords) $M (Temperature_Heater_Controller.select.case.2.nstackwords) $M (Temperature_Heater_Controller.select.case.1.nstackwords)
 	.globl Temperature_Heater_Controller.select.enable.cases.nstackwords
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.max.maxchanends, _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, 0

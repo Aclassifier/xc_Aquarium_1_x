@@ -33,10 +33,11 @@
 #define INNER_RR_12V_24V_TEXT_LEN_VOLT 5         // "12.0" with space for EOS (zero)
 #define INNER_RR_12V_24V_ERROR_TEXT   "??.?"     // INNER_12V_24V_ERROR_TEXT also includes NUL at the end
 
-#define SSD1306_TS1_LINE_CHAR_LEN        21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
-#define SSD1306_TS1_LINE_NUMS             4
-#define SSD1306_TS1_DISPLAY_CHAR_LEN     (SSD1306_TS1_LINE_CHAR_LEN * SSD1306_TS1_LINE_NUMS) // 84
-#define SSD1306_TS1_DISPLAY_CHAR_LEN_BIG (SSD1306_TS1_DISPLAY_CHAR_LEN/2)
+#define SSD1306_TS1_LINE_CHAR_LEN              21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
+#define SSD1306_TS1_LINE_NUMS                   4
+#define SSD1306_TS1_DISPLAY_CHAR_LEN          (SSD1306_TS1_LINE_CHAR_LEN * SSD1306_TS1_LINE_NUMS) // 84
+#define SSD1306_TS1_DISPLAY_CHAR_LEN_BIG      (SSD1306_TS1_DISPLAY_CHAR_LEN/2)
+#define SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN  (SSD1306_TS1_DISPLAY_CHAR_LEN + 1) // sprintf overflows flat out without space for NUL
 
 #define INNER_MAX_LUX         99 // Used for both "err" and max light (if max light then "ok==false" is not returned)
 #define INNER_MIN_LUX         0

@@ -81,7 +81,8 @@ typedef struct {
 
 typedef enum {
     DISPLAY_APPEAR_BLACK,
-    DISPLAY_APPEAR_BACKROUND_UPDATED
+    DISPLAY_APPEAR_BACKROUND_UPDATED,
+    DISPLAY_APPEAR_EDITABLE
 } display_appear_state_t;
 
 #define DISPLAY_ON_FOR_SECONDS (10*60) // 10 minutes
@@ -94,8 +95,8 @@ typedef struct {
     unsigned                    silent_any_button_while_display_on_seconds_cnt;
     unsigned                    display_is_on_seconds_cnt;
     bool                        display_is_on;
-    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // ts1 means TextSize 1
-    int                         iof_button_previous;
+    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is used
+    int                         iof_button_last_taken_action; // Since index of channel must(?) be int
     bool                        full_light;
     light_control_scheme_t      light_control_scheme;
     // For read_chronodot_ok:
@@ -127,7 +128,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const  caller_t                        caller)
 {
 
-    int  sprintf_return;
+    int  sprintf_return; // If OK, number of chars excluding \0 written, if < 0 error
 
     char char_degC_circle_str[] = DEGC_CIRCLE_STR;
     char char_AA_str[]          = CHAR_AA_STR; // A
@@ -140,7 +141,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_AKVARIETEMPERATURER: {
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -158,6 +159,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_HEATER,  temp_degC_heater_str);
             // printf("SCREEN_AKVARIETEMPERATURER 4\n");
 
+            // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
                     temp_degC_water_str,   char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
@@ -168,9 +170,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                      LUFT 25.0oC
             //                                              VARMEELEMENT 25.0oC
 
-            if (caller == CALLER_IS_BUTTON) {
-                printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
-            }
+            // printf ("SCREEN_AKVARIETEMPERATURER %d\n", sprintf_return);
 
             setTextSize(1);
             setTextColor(WHITE);
@@ -179,13 +179,18 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+            } else {}
         } break;
 
         case SCREEN_VARMEREGULERING: {
 
             char temp_degC_heater_mean_last_cycle_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -197,6 +202,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             i_temperature_heater_commands.get_temp_degC_string (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str);
             // printf("SCREEN_VARMEREGULERING 2\n");
 
+            // FILLS 78 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
                     char_AA_str,
                     char_AA_str,
@@ -208,11 +214,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                              P       100%     .
             //                                              SNITT  39.6oC   [±
             //                                              EFFEKT    48W     .
-            if (caller == CALLER_IS_BUTTON) {
-                printf ("VARMEREGULERING: P %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
-            }
 
-            // context.now_regulating_at = REGULATING_AT_HOTTER_AMBIENT; // For testing
+            // printf ("SCREEN_VARMEREGULERING %d\n", sprintf_return);
 
             if (context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) {
                 drawRoundRect(106, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
@@ -233,44 +236,50 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                printf ("VARMEREGULERING: P %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
+            } else {}
         } break;
 
         case SCREEN_LYSGULERING: {
 
             const char light_strength_full_str [] = "3/3";
             const char light_strength_weak_str [] = "2/3";
-            const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
-            const char stable_str   [] = "=";
-            const char unstable_str [] = CHAR_PLUS_MINUS_STR; // ±
+            const char stable_str              [] = "=";
+            const char unstable_str            [] = CHAR_PLUS_MINUS_STR; // "±"
+            const bool full_light                 = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
 
             char light_control_scheme_str [5]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
 
             switch (context.light_control_scheme) {
                 case LIGHT_CONTROL_IS_VOID : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", "INIT");
+                    sprintf (light_control_scheme_str, "%s", "INIT");
                 } break;
                 case LIGHT_CONTROL_IS_DAY : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", " DAG"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " DAG"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", " NED"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " NED"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", "NATT");
+                    sprintf (light_control_scheme_str, "%s", "NATT");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", " OPP"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " OPP"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_RANDOM : {
-                    sprintf_return = sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
                 } break;
                 default: break;
             }
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
+            // FILLS 77 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,                                           // "5"
@@ -289,14 +298,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                  MAKS 3/3      .
             //                                                   DAG ± 10     .
 
-            if (caller == CALLER_IS_BUTTON) {
-                printf ("LYS: %u %u %u @ %u, %u\n",
-                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
-                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
-                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
-                    context.light_composition,
-                    full_light);
-            }
+            // printf ("SCREEN_LYSGULERING %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -305,6 +307,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
+
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = true;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                printf ("LYS: %u %u %u @ %u, %u\n",
+                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
+                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
+                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
+                    context.light_composition,
+                    full_light);
+            } else {}
         } break;
 
         case SCREEN_BOKSDATA: {
@@ -317,18 +330,19 @@ void Handle_Real_Or_Clocked_Button_Actions (
             char fill_1_str [] = " ";
             char fill_2_str [] = "  ";
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // function
-            TC1047_Raw_DegC_To_String_Ok                     (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], temp_degC_str);
-            RR_12V_24V_To_String_Ok                          (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V],         rr_12V_str);
-            RR_12V_24V_To_String_Ok                          (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V],         rr_24V_str);
+            TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], temp_degC_str);
+            RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V],         rr_12V_str);
+            RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V],         rr_24V_str);
 
             {light_sensor_intensity, light_sensor_intensity_ok} =
                 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
 
+            // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
@@ -341,9 +355,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                 LYSSTYRKE 65   .
             //                                                TEMPERATUR 25.4oC
             //
-            if (caller == CALLER_IS_BUTTON) {
-                printf ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // qwe lux_str vises ikke!
-            }
+
+            // printf ("SCREEN_BOKSDATA %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -353,14 +366,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                printf ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // qwe lux_str vises ikke!
+            } else {}
         } break;
 
         case SCREEN_VERSJON: {
 
-             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                  context.display_ts1_chars [index_of_char] = ' ';
              }
 
+             // FILLS 84 chars plus \0
              sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", __DATE__, char_OE_str, char_aa_str);
 
              //                                            ..........----------.
@@ -369,9 +388,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
              //                                            = ¯yvind Teig       .
              //                                              XC pŒ XMOS startKIT
 
-             if (caller == CALLER_IS_BUTTON) {
-                 printf("Version date %s %s\n", __TIME__, __DATE__);
-             }
+             // printf ("SCREEN_VERSJON %d\n", sprintf_return);
 
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
@@ -381,7 +398,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
              writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
              context.display_is_on = true;
 
-             //i_port_heat_light_commands.beeper_on_command (true);
+             if (caller == CALLER_IS_BUTTON) {
+                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                 printf("Version date %s %s\n", __TIME__, __DATE__);
+             } else {}
          } break;
 
         case SCREEN_FASTE_INNSTILLINGER: {
@@ -389,12 +409,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
             int temp_heater_degc  = (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING/10);
             int temp_water_degc = (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT/10);
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // Max Watts and requried voltages are technical matters, out of scope here. This is about the fish and plant living environment:
 
+            // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
                 temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
                     //                                            ..........----------.
@@ -403,6 +424,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                                       VANN  25oC
                     //                                              MAX UNDERVARME 25oC
 
+            // printf ("SCREEN_FASTE_INNSTILLINGER %d\n", sprintf_return);
+
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
@@ -410,23 +433,24 @@ void Handle_Real_Or_Clocked_Button_Actions (
             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
+
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                printf("Version date %s %s\n", __TIME__, __DATE__);
+            } else {}
         } break;
 
         case SCREEN_KLOKKE: {
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
+            // FILLS 20 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars, "%04u.%02u.%02u  %02u.%02u.%02u",
                                                          context.datetime.year, context.datetime.month,  context.datetime.day,
                                                          context.datetime.hour, context.datetime.minute, context.datetime.second);
-            if (caller == CALLER_IS_BUTTON) {
-                printf("ChronoDot %04u.%02u.%02u %02u.%02u.%02u\n",
-                        context.datetime.year, context.datetime.month,  context.datetime.day,
-                        context.datetime.hour, context.datetime.minute, context.datetime.second);
-            }
-
             // I did this once by hand, then:
             context.datetime.year   = 2017;
             context.datetime.month  = 2;
@@ -436,6 +460,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             context.datetime.second = 0;
             // bool ok = i_chronodot_ds3231.set_time_ok(datetime);
 
+            // printf ("SCREEN_KLOKKE %d\n", sprintf_return);
+
             Clear_All_Pixels_In_Buffer();
             setTextSize(2);
             setTextColor(WHITE);
@@ -443,7 +469,21 @@ void Handle_Real_Or_Clocked_Button_Actions (
             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
+
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = true;
+                printf("ChronoDot %04u.%02u.%02u %02u.%02u.%02u\n",
+                        context.datetime.year, context.datetime.month,  context.datetime.day,
+                        context.datetime.hour, context.datetime.minute, context.datetime.second);
+            } else {}
         } break;
+    }
+
+    if (sprintf_return < 0) {
+        printf ("ERROR: sprintf_return %d\n", sprintf_return);
+    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
+        printf ("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return);
     }
 }
 
@@ -454,13 +494,10 @@ void Handle_Real_Or_Clocked_Buttons (
     client port_heat_light_commands_if    i_port_heat_light_commands,
     client temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
-    const  unsigned                       iof_button,
+    const  int                            iof_button,
     const  button_action_t                button_action,
     const  caller_t                       caller)
 {
-
-    // printf ("Handle_Real_Or_Clocked_Buttons %u\n", iof_button);
-
     switch (iof_button) {
         case IOF_BUTTON_LEFT: {
 
@@ -473,18 +510,19 @@ void Handle_Real_Or_Clocked_Buttons (
                     if (caller == CALLER_IS_BUTTON) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set only here
-                        } else { // DISPLAY_APPEAR_BACKROUND_UPDATED
+                        } else { // DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE
                            context.display_appear_state = DISPLAY_APPEAR_BLACK;
                            Clear_All_Pixels_In_Buffer();
                            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                            context.display_is_on = false;
+                           context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                         }
                     } else {}
 
                     if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                         // Display what was left last time:
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                        context.iof_button_previous = iof_button;
+                        context.iof_button_last_taken_action = iof_button;
                     } else {}
                 } break;
 
@@ -539,12 +577,45 @@ void Handle_Real_Or_Clocked_Buttons (
                          } else {} // No new screen every second!
 
                          Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                         context.iof_button_previous = iof_button;
-                     } else {} // In DISPLAY_APPEAR_BLACK we only want left IOF_BUTTON_LEFT to go through
+                         context.iof_button_last_taken_action = iof_button;
+                     } else {}
                 } break;
 
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                    printf ("YESS!\n");
+                    printf ("YESS %u\n", iof_button);
+
+                    switch (iof_button) {
+                        case SCREEN_AKVARIETEMPERATURER: { // 0
+                            //
+                        } break;
+                        case SCREEN_VARMEREGULERING: { // 1
+                            //
+                        } break;
+                        case SCREEN_LYSGULERING: { // 2
+                            if ((context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable) and
+                                (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
+                                context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
+                                printf ("  SCREEN_LYSGULERING\n");
+                            } else {}
+                        } break;
+                        case SCREEN_BOKSDATA: { // 3
+                            //
+                        } break;
+                        case SCREEN_VERSJON: { // 4
+                            //
+                        } break;
+                        case SCREEN_FASTE_INNSTILLINGER: { // 5
+                            //
+                        } break;
+                        case SCREEN_KLOKKE: { // 6
+                            if ((context.display_sub_context[SCREEN_KLOKKE].sub_is_editable) and
+                               (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
+                               context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
+                               printf ("  SCREEN_KLOKKE\n");
+                            } else {}
+                        } break;
+                        default: break;
+                    }
                 } break;
                 default: break; // Never
             }
@@ -577,7 +648,7 @@ void System_Task (
     context.display_is_on = false;
     context.silent_any_button_while_display_on_seconds_cnt = 0;
     context.display_is_on_seconds_cnt = 0;
-    context.iof_button_previous; // No init here ok since not read before set
+    context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
 
     for (unsigned iof_sub = 0; iof_sub < SCREEN_NAME_NUMS; iof_sub++) {
@@ -665,7 +736,7 @@ void System_Task (
                     Handle_Real_Or_Clocked_Buttons (context,
                         light_sunrise_sunset_context,
                         i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        context.iof_button_previous, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
+                        context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
                 } else {} // Not now
 
             } break;
@@ -680,12 +751,11 @@ void System_Task (
                 Handle_Real_Or_Clocked_Buttons (context,
                     light_sunrise_sunset_context,
                     i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        iof_button, button_action, CALLER_IS_BUTTON);
+                    iof_button, button_action, CALLER_IS_BUTTON);
 
                 if (display_is_on_pre != context.display_is_on) {
                     i_port_heat_light_commands.beeper_blip_command (50); // Display on or off
                 } else {} // No code
-
             } break;
         }
     }

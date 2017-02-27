@@ -1485,7 +1485,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 28 "../src/i2c_external_server.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 54 "../src/_texts_and_constants.h"
+# 55 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 29 "../src/i2c_external_server.xc" 2
 # 1 "../src/button_press.h" 1
