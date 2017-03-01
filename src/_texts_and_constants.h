@@ -8,15 +8,19 @@
 #ifndef TEXTS_AND_CONSTANTS_H_
 #define TEXTS_AND_CONSTANTS_H_
 
-#define CHAR_SMILEY_STR     {CHAR_SMILEY,0}
-#define CHAR_PLUS_MINUS_STR {CHAR_PLUS_MINUS,0} // ±
-#define DEGC_CIRCLE_STR     {CHAR_CIRCLE,0}
-#define CHAR_AA_STR         {CHAR_AA,0}
-#define CHAR_aa_STR         {CHAR_aa,0}
-#define CHAR_OE_STR         {CHAR_OE,0}
+#define CHAR_RIGHT_ARROW_STR {CHAR_RIGHT_ARROW,0}
+#define CHAR_LEFT_ARROW_STR  {CHAR_LEFT_ARROW,0}
+#define CHAR_SMILEY_STR      {CHAR_SMILEY,0}
+#define CHAR_PLUS_MINUS_STR  {CHAR_PLUS_MINUS,0} // ±
+#define DEGC_CIRCLE_STR      {CHAR_CIRCLE,0}
+#define CHAR_AA_STR          {CHAR_AA,0}
+#define CHAR_aa_STR          {CHAR_aa,0}
+#define CHAR_OE_STR          {CHAR_OE,0}
 
 
-#define GENERIC_DEGC_TEXT_LEN 5 // "25.0" with space for EOS (zero)
+// ALL ..._LEN include terminating NUL (\0) CHAR! I try to call the others .._NUM etc. (NULL is used for void pointer)
+
+#define GENERIC_DEGC_TEXT_LEN 5 // "25.0" with space for NUL
 #define GENERIC_TEXT_DEGC          "??.?"
 #define GENERIC_TEXT_NO_DATA_DEGC  "...."
 
@@ -30,7 +34,7 @@
 
 #define INNER_RR_12V_24V_MAX_VOLTS     99        // Think of it also as "undefined" (read not successful)
 #define INNER_RR_12V_24V_MIN_VOLTS     0
-#define INNER_RR_12V_24V_TEXT_LEN 5         // "12.0" with space for EOS (zero)
+#define INNER_RR_12V_24V_TEXT_LEN 5         // "12.0" with space for NUL
 #define INNER_RR_12V_24V_ERROR_TEXT   "??.?"     // INNER_12V_24V_ERROR_TEXT also includes NUL at the end
 
 #define SSD1306_TS1_LINE_CHAR_NUM     21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
@@ -41,7 +45,7 @@
 
 #define INNER_MAX_LUX         99 // Used for both "err" and max light (if max light then "ok==false" is not returned)
 #define INNER_MIN_LUX         0
-#define INNER_LUX_TEXT_LEN    3   // "12" with space for EOS (zero)
+#define INNER_LUX_TEXT_LEN    3   // "12" with space for NUL
 #define INNER_LUX_ERROR_TEXT "??" // INNER_RR_FLUX_ERROR_TEXT also includes NUL at the end
 
 #define EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC 999    // 99.9 degC Think of it also as "undefined" (read not successful)

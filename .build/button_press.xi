@@ -1389,6 +1389,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
 
     int current_val = 0;
     bool is_stable = true;
+    bool button_pressed_for_10_seconds_sent = false;
     timer tmr;
     unsigned timeout;
     int current_time;
@@ -1403,7 +1404,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
         select {
 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
-# 84 "../src/button_press.xc"
+# 85 "../src/button_press.xc"
                 pressed_but_not_released = false;
                 is_stable = false;
 
@@ -1436,16 +1437,20 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
 
                         } else {
                             pressed_but_not_released = false;
+                            if (button_pressed_for_10_seconds_sent) {
+                                button_pressed_for_10_seconds_sent = false;
+                            } else {
+                                c_button_out <: BUTTON_ACTION_RELEASED;
 
-                            c_button_out <: BUTTON_ACTION_RELEASED;
 
 
-
+                            }
                         }
                     }
                     is_stable = true;
                 } else {
                     pressed_but_not_released = false;
+                    button_pressed_for_10_seconds_sent = true;
 
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
                     printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);

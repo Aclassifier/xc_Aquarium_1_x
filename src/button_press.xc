@@ -58,6 +58,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
     // From XMOS-Programming-Guide.
     int      current_val = 0;
     bool     is_stable   = true;
+    bool     button_pressed_for_10_seconds_sent = false;
     timer    tmr;
     unsigned timeout;
     int      current_time;
@@ -113,16 +114,20 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                             #endif
                         } else {
                             pressed_but_not_released = false;
-
-                            c_button_out <: BUTTON_ACTION_RELEASED;
-                            #ifdef PRINT_BUTTON
-                                printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
-                            #endif
+                            if (button_pressed_for_10_seconds_sent) {
+                                button_pressed_for_10_seconds_sent = false;
+                            } else {
+                                c_button_out <: BUTTON_ACTION_RELEASED;
+                                #ifdef PRINT_BUTTON
+                                    printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
+                                #endif
+                            }
                         }
                     }
                     is_stable = true;
                 } else { // == pressed_but_not_released (is_stable == true, so pinsneq would have stopped it)
                     pressed_but_not_released = false;
+                    button_pressed_for_10_seconds_sent = true;
 
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
                     printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);

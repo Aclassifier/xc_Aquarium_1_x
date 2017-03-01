@@ -1736,7 +1736,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 # 39 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
-# 55 "../src/_texts_and_constants.h"
+# 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 40 "../src/_Aquarium_1_x.xc" 2
 
@@ -1992,13 +1992,27 @@ typedef enum {
 } display_screen_name_t;
 
 typedef enum {
-    SUB_STATE_VOID,
+    SUB_STATE_SHOW,
     SUB_STATE_01,
     SUB_STATE_02,
     SUB_STATE_03,
     SUB_STATE_04,
-    SUB_STATE_05
+    SUB_STATE_05,
+    SUB_STATE_06,
+    SUB_STATE_07,
+    SUB_STATE_08,
+    SUB_STATE_09,
+    SUB_STATE_10,
+    SUB_STATE_11
 } display_sub_state_t;
+
+typedef enum {
+    CURSOR_SCREEN_NONE,
+    CURSOR_POINTING_AT_YEAR,
+    CURSOR_POINTING_AT_MONTH_AND_DAY,
+    CURSOR_POINTING_AT_HOUR,
+    CURSOR_POINTING_AT_MIN,
+} screen_clock_cursor_at_t;
 
 typedef struct {
     bool sub_is_editable;
@@ -2013,10 +2027,12 @@ typedef enum {
 
 
 
+
 typedef struct {
     display_appear_state_t display_appear_state;
     display_screen_name_t display_screen_name_present;
     display_sub_context_t display_sub_context [7];
+    unsigned display_sub_countdown_seconds;
 
     unsigned silent_any_button_while_display_on_seconds_cnt;
     unsigned display_is_on_seconds_cnt;
@@ -2028,6 +2044,7 @@ typedef struct {
 
     chronodot_d3231_registers_t chronodot_d3231_registers;
     DateTime_t datetime;
+    DateTime_t datetime_editable;
     bool read_chronodot_ok;
 
     i2c_temps_t i2c_temps;
@@ -2049,6 +2066,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t &context,
             light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client i2c_internal_commands_if i_i2c_internal_commands,
+    client port_heat_light_commands_if i_port_heat_light_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
     const caller_t caller)
@@ -2056,10 +2074,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     int sprintf_return;
 
-    char char_degC_circle_str[] = {247,0};
-    char char_AA_str[] = {143,0};
-    char char_aa_str[] = {132,0};
-    char char_OE_str[] = {236,0};
+    const char char_degC_circle_str[] = {247,0};
+    const char char_AA_str[] = {143,0};
+    const char char_aa_str[] = {132,0};
+    const char char_OE_str[] = {236,0};
+    const char is_editable_str [] = {240,0};
 
 
 
@@ -2091,7 +2110,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     temp_degC_water_str, char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
                     temp_degC_heater_str, char_degC_circle_str);
-# 176 "../src/_Aquarium_1_x.xc"
+# 195 "../src/_Aquarium_1_x.xc"
             setTextSize(1);
             setTextColor(1);
             setCursor(0,0);
@@ -2130,7 +2149,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.on_percent,
                     temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
                     context.on_watt);
-# 222 "../src/_Aquarium_1_x.xc"
+# 241 "../src/_Aquarium_1_x.xc"
             if (context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) {
                 drawRoundRect(106, 11, 16, 20, 3, 1);
                 fillRoundRect(106, 11, 16, 20, 3, 1);
@@ -2159,74 +2178,119 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_LYSGULERING: {
 
-            const char light_strength_full_str [] = "3/3";
-            const char light_strength_weak_str [] = "2/3";
-            const char stable_str [] = "=";
-            const char unstable_str [] = {240,0};
-            const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL);
+
+            const char light_strength_full_str [(3 +1)] = "3/3";
+            const char light_strength_weak_str [(3 +1)] = "2/3";
+
+            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+              context.display_ts1_chars [index_of_char] = ' ';
+            }
+
+            switch (context.display_sub_context[SCREEN_LYSGULERING].sub_state) {
+                case SUB_STATE_SHOW: {
+
+                    const char stable_str [] = "=";
+                    const char unstable_str [] = {240,0};
+                    const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL);
 
 
-            char light_control_scheme_str [5];
+                    char light_control_scheme_str [5];
 
-            switch (context.light_control_scheme) {
-                case LIGHT_CONTROL_IS_VOID : {
-                    sprintf (light_control_scheme_str, "%s", "INIT");
+                    switch (context.light_control_scheme) {
+                      case LIGHT_CONTROL_IS_VOID : {
+                          sprintf (light_control_scheme_str, "%s", "INIT");
+                      } break;
+                      case LIGHT_CONTROL_IS_DAY : {
+                          sprintf (light_control_scheme_str, "%s", " DAG");
+                       } break;
+                      case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
+                          sprintf (light_control_scheme_str, "%s", " NED");
+                       } break;
+                      case LIGHT_CONTROL_IS_NIGHT : {
+                          sprintf (light_control_scheme_str, "%s", "NATT");
+                       } break;
+                      case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
+                          sprintf (light_control_scheme_str, "%s", " OPP");
+                       } break;
+                      case LIGHT_CONTROL_IS_RANDOM : {
+                          sprintf (light_control_scheme_str, "%s", " SKY");
+                      } break;
+                      default: break;
+                    }
+
+
+                    sprintf_return = sprintf (context.display_ts1_chars,
+                          "%s3 LYS P%s  %uW %uW %uW    TREDELER F%u M%u B%u  %s     MAKS %s             %s %s %u",
+                          is_editable_str,
+                          char_AA_str,
+                          WATTOF_LED_STRIP_FRONT,
+                          WATTOF_LED_STRIP_CENTER,
+                          WATTOF_LED_STRIP_BACK,
+                          context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
+                          context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
+                          context.light_intensity_thirds[IOF_LED_STRIP_BACK],
+                          is_editable_str,
+                          (full_light) ? light_strength_full_str : light_strength_weak_str,
+                          light_control_scheme_str,
+                          (context.light_stable) ? stable_str : is_editable_str,
+                          context.light_composition);
+# 333 "../src/_Aquarium_1_x.xc"
+                    Clear_All_Pixels_In_Buffer();
+                    setTextSize(1);
+                    setTextColor(1);
+                    setCursor(0,0);
+                    display_print (context.display_ts1_chars, (21*4));
+                    writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+                    context.display_is_on = true;
+
+                    if (caller == CALLER_IS_BUTTON) {
+                        context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = true;
+                        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                        printf ("LYS: %u %u %u @ %u, %u\n",
+                            context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
+                            context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
+                            context.light_intensity_thirds[IOF_LED_STRIP_BACK],
+                            context.light_composition,
+                            full_light);
+                    } else {}
                 } break;
-                case LIGHT_CONTROL_IS_DAY : {
-                    sprintf (light_control_scheme_str, "%s", " DAG");
-                 } break;
-                case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                    sprintf (light_control_scheme_str, "%s", " NED");
-                 } break;
-                case LIGHT_CONTROL_IS_NIGHT : {
-                    sprintf (light_control_scheme_str, "%s", "NATT");
-                 } break;
-                case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                    sprintf (light_control_scheme_str, "%s", " OPP");
-                 } break;
-                case LIGHT_CONTROL_IS_RANDOM : {
-                    sprintf (light_control_scheme_str, "%s", " SKY");
+
+                case SUB_STATE_01:
+                case SUB_STATE_02: {
+                    context.display_sub_countdown_seconds = 30;
+                    if (context.display_sub_context[SCREEN_LYSGULERING].sub_state == SUB_STATE_01) {
+                        context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_02;
+                    } else if (context.display_sub_context[SCREEN_LYSGULERING].sub_state == SUB_STATE_02) {
+                        if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
+                          light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
+                          i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2);
+                        } else {
+                          light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
+                          i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1);
+                        }
+                    } else {}
+                    sprintf_return = sprintf (context.display_ts1_chars, "%s3 LYS P%s", is_editable_str, char_AA_str);
+                    Clear_All_Pixels_In_Buffer();
+                    setTextSize(1);
+                    setTextColor(1);
+                    setCursor(0,0);
+                    display_print (context.display_ts1_chars, sprintf_return);
+                    setTextSize(2);
+                    setCursor(0,14);
+
+                    display_print ("MAKS ", 5);
+                    if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
+                        display_print (light_strength_full_str, 3);
+                    } else {
+                        display_print (light_strength_weak_str, 3);
+                    }
+                    writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+
                 } break;
+
                 default: break;
             }
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
-                context.display_ts1_chars [index_of_char] = ' ';
-            }
-
-
-            sprintf_return = sprintf (context.display_ts1_chars,
-                    "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
-                    char_AA_str,
-                    WATTOF_LED_STRIP_FRONT,
-                    WATTOF_LED_STRIP_CENTER,
-                    WATTOF_LED_STRIP_BACK,
-                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
-                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
-                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
-                    (full_light) ? light_strength_full_str : light_strength_weak_str,
-                    light_control_scheme_str,
-                    (context.light_stable) ? stable_str : unstable_str,
-                    context.light_composition);
-# 307 "../src/_Aquarium_1_x.xc"
-            Clear_All_Pixels_In_Buffer();
-            setTextSize(1);
-            setTextColor(1);
-            setCursor(0,0);
-            display_print (context.display_ts1_chars, (21*4));
-            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-            context.display_is_on = true;
-
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = true;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                printf ("LYS: %u %u %u @ %u, %u\n",
-                    context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
-                    context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
-                    context.light_intensity_thirds[IOF_LED_STRIP_BACK],
-                    context.light_composition,
-                    full_light);
-            } else {}
         } break;
 
         case SCREEN_BOKSDATA: {
@@ -2259,7 +2323,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     light_sensor_intensity,
                     (light_sensor_intensity >= 10) ? fill_1_str : fill_2_str,
                     temp_degC_str, char_degC_circle_str);
-# 366 "../src/_Aquarium_1_x.xc"
+# 430 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2283,8 +2347,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Mar  1 2017", char_OE_str, char_aa_str);
-# 399 "../src/_Aquarium_1_x.xc"
+                     "5 AKVARIESTYRING       (C) %s      %syvind Teig          XC p%s XMOS startKIT", "Mar  1 2017", char_OE_str, char_aa_str);
+# 463 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(1);
@@ -2295,7 +2359,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                 printf("Version date %s %s\n", "07:51:23", "Mar  1 2017");
+                 printf("Version date %s %s\n", "21:18:52", "Mar  1 2017");
              } else {}
          } break;
 
@@ -2314,7 +2378,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                     "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
                 temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
-# 436 "../src/_Aquarium_1_x.xc"
+# 500 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2326,29 +2390,157 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                printf("Version date %s %s\n", "07:51:23", "Mar  1 2017");
+                printf("Version date %s %s\n", "21:18:52", "Mar  1 2017");
             } else {}
         } break;
 
         case SCREEN_KLOKKE: {
 
+            DateTime_t datetime_show;
+            const char editable_separator_left_arrow_str[2] = {27,0};
+            const char editable_separator_right_arrow_str[2] = {26,0};
+            const char show_separator_str[2] = ".";
+            const char space_separator_str[2] = " ";
+            screen_clock_cursor_at_t screen_clock_cursor_at = CURSOR_SCREEN_NONE;
+
+            char editable_separator_left_right_arrow_str[2] = ".";
+
             for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
+            printf ("sub_state = %u\n", context.display_sub_context[SCREEN_KLOKKE].sub_state);
+            switch (context.display_sub_context[SCREEN_KLOKKE].sub_state) {
+
+                case SUB_STATE_10: {
+                   context.display_sub_countdown_seconds = 30;
+
+                   if (context.datetime_editable.minute >= 59) {
+                       context.datetime_editable.minute = 0;
+                   } else {
+                       context.datetime_editable.minute++;
+                   }
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MIN;
+                } break;
+
+                case SUB_STATE_09: {
+                   context.display_sub_countdown_seconds = 30;
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MIN;
+                } break;
+
+                case SUB_STATE_08: {
+                   context.display_sub_countdown_seconds = 30;
+
+                   if (context.datetime_editable.hour >= 59) {
+                       context.datetime_editable.hour = 0;
+                   } else {
+                       context.datetime_editable.hour++;
+                   }
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_HOUR;
+                } break;
+
+                case SUB_STATE_07: {
+                   context.display_sub_countdown_seconds = 30;
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_HOUR;
+                } break;
+
+                case SUB_STATE_06: {
+                   context.display_sub_countdown_seconds = 30;
+
+                   if (context.datetime_editable.day >= 31) {
+                       context.datetime_editable.day = 1;
+                   } else {
+                       context.datetime_editable.day++;
+                   }
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
+                   editable_separator_left_right_arrow_str[0] = editable_separator_right_arrow_str[0];
+                } break;
+
+                case SUB_STATE_05: {
+                   context.display_sub_countdown_seconds = 30;
+                   datetime_show = context.datetime_editable;
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
+                   editable_separator_left_right_arrow_str[0] = editable_separator_right_arrow_str[0];
+                } break;
+
+                case SUB_STATE_04: {
+                   context.display_sub_countdown_seconds = 30;
+
+                   if (context.datetime_editable.month >= 12) {
+                       context.datetime_editable.month = 1;
+                   } else {
+                       context.datetime_editable.month++;
+                   }
+                   datetime_show = context.datetime_editable;
+                   editable_separator_left_right_arrow_str[0] = editable_separator_left_arrow_str[0];
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
+                } break;
+
+                case SUB_STATE_03: {
+                   context.display_sub_countdown_seconds = 30;
+                   datetime_show = context.datetime_editable;
+                   editable_separator_left_right_arrow_str[0] = editable_separator_left_arrow_str[0];
+                   screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
+                } break;
+
+                case SUB_STATE_02: {
+                    context.display_sub_countdown_seconds = 30;
+                    if (context.datetime_editable.year == 2000) {
+                        context.datetime_editable.year = 2017;
+                        context.datetime_editable.month = 6;
+                        context.datetime_editable.day = 14;
+                        context.datetime_editable.hour = 0;
+                        context.datetime_editable.minute = 0;
+                        context.datetime_editable.second = 0;
+                    } else if (context.datetime_editable.year >= 2050) {
+                        context.datetime_editable.year = 2017;
+                    } else {
+                        context.datetime_editable.year++;
+                    }
+                    datetime_show = context.datetime_editable;
+                    screen_clock_cursor_at = CURSOR_POINTING_AT_YEAR;
+                } break;
+
+                case SUB_STATE_01: {
+                    context.display_sub_countdown_seconds = 30;
+                    context.datetime_editable = context.datetime;
+                    context.datetime_editable.second = 0;
+                    datetime_show = context.datetime;
+                    screen_clock_cursor_at = CURSOR_POINTING_AT_YEAR;
+                } break;
+
+                case SUB_STATE_SHOW: {
+                    datetime_show = context.datetime;
+                } break;
+
+                default: {
+                    datetime_show = context.datetime;
+                    datetime_show.year = 1950;
+                } break;
+
+            }
+
+
+
 
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "%04u.%02u.%02u  %02u.%02u.%02u",
-                    context.datetime.year, context.datetime.month, context.datetime.day,
-                    context.datetime.hour, context.datetime.minute, context.datetime.second);
+                    "%04u%s%02u%s%02u  %02u%s%02u%s%02u",
+                    datetime_show.year,
+                    (screen_clock_cursor_at == CURSOR_POINTING_AT_YEAR) ? editable_separator_left_arrow_str : show_separator_str,
+                    datetime_show.month,
+                    (screen_clock_cursor_at == CURSOR_POINTING_AT_MONTH_AND_DAY) ? editable_separator_left_right_arrow_str : show_separator_str,
+                    datetime_show.day,
+                    datetime_show.hour,
+                    (screen_clock_cursor_at == CURSOR_POINTING_AT_HOUR) ? editable_separator_left_arrow_str : show_separator_str,
+                    datetime_show.minute,
+                    (screen_clock_cursor_at == CURSOR_POINTING_AT_MIN) ? editable_separator_left_arrow_str : show_separator_str,
+                    datetime_show.second);
 
-
-            context.datetime.year = 2017;
-            context.datetime.month = 2;
-            context.datetime.day = 10;
-            context.datetime.hour = 12;
-            context.datetime.minute = 35;
-            context.datetime.second = 0;
 
 
 
@@ -2368,6 +2560,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.datetime.year, context.datetime.month, context.datetime.day,
                         context.datetime.hour, context.datetime.minute, context.datetime.second);
             } else {}
+
         } break;
     }
 
@@ -2390,6 +2583,7 @@ void Handle_Real_Or_Clocked_Buttons (
     const button_action_t button_action,
     const caller_t caller)
 {
+    bool beeper_blip_now = false;
     switch (iof_button) {
         case 0: {
 
@@ -2408,12 +2602,15 @@ void Handle_Real_Or_Clocked_Buttons (
                            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                            context.display_is_on = false;
                            context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                           context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
+                           context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                           context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
                         }
                     } else {}
 
                     if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
 
-                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         context.iof_button_last_taken_action = iof_button;
                     } else {}
                 } break;
@@ -2432,16 +2629,25 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
-                        light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
-                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2);
+                    if (context.display_sub_context[SCREEN_LYSGULERING].sub_state >= SUB_STATE_01) {
+                        beeper_blip_now = true;
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
-                    } else {
 
-                        light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
-                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1);
+                    } else if (context.display_sub_context[SCREEN_KLOKKE].sub_state >= SUB_STATE_01) {
+                        if ((context.display_sub_context[SCREEN_KLOKKE].sub_state % 2) == 1) {
+                            context.display_sub_context[SCREEN_KLOKKE].sub_state += 1;
+                        } else {
 
+                        }
+                        if (context.display_sub_context[SCREEN_KLOKKE].sub_state > SUB_STATE_10) context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_02;
+
+
+                        beeper_blip_now = true;
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                    } else if (caller == CALLER_IS_REFRESH) {
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     }
                 } break;
 
@@ -2460,21 +2666,44 @@ void Handle_Real_Or_Clocked_Buttons (
 
                 case BUTTON_ACTION_RELEASED: {
                     if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+                        if (caller == CALLER_IS_BUTTON) {
+                            context.display_screen_name_present++;
+                            if (context.display_screen_name_present == 7) {
+                                context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
+                            } else {}
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            context.iof_button_last_taken_action = iof_button;
+                        } else if (caller == CALLER_IS_REFRESH) {
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        } else {}
+                    } else if (context.display_appear_state == DISPLAY_APPEAR_EDITABLE) {
+                        if (caller == CALLER_IS_BUTTON) {
 
-                         if (caller == CALLER_IS_BUTTON) {
-                             context.display_screen_name_present++;
-                             if (context.display_screen_name_present == 7) {
-                                 context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
-                             } else {}
-                         } else {}
+                            if (context.display_sub_context[SCREEN_LYSGULERING].sub_state == SUB_STATE_01) {
+                                 context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_02;
+                                 beeper_blip_now = true;
+                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
-                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                         context.iof_button_last_taken_action = iof_button;
-                     } else {}
+
+                            } else if (context.display_sub_context[SCREEN_KLOKKE].sub_state >= SUB_STATE_01) {
+                                if ((context.display_sub_context[SCREEN_KLOKKE].sub_state % 2) == 0) {
+                                     context.display_sub_context[SCREEN_KLOKKE].sub_state += 1;
+                                } else {
+                                    context.display_sub_context[SCREEN_KLOKKE].sub_state += 2;
+                                }
+
+                                if (context.display_sub_context[SCREEN_KLOKKE].sub_state > SUB_STATE_09) context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_01;
+
+                                beeper_blip_now = true;
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+
+                            } else {}
+                        } else {}
+                    } else {}
                 } break;
 
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                    switch (iof_button) {
+                    switch (context.display_screen_name_present) {
                         case SCREEN_AKVARIETEMPERATURER: {
 
                         } break;
@@ -2485,6 +2714,9 @@ void Handle_Real_Or_Clocked_Buttons (
                             if ((context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable) &&
                                 (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
                                 context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
+                                context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_01;
+                                beeper_blip_now = true;
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 printf ("  SCREEN_LYSGULERING\n");
                             } else {}
                         } break;
@@ -2500,8 +2732,11 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_KLOKKE: {
                             if ((context.display_sub_context[SCREEN_KLOKKE].sub_is_editable) &&
                                (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
-                               context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
-                               printf ("  SCREEN_KLOKKE\n");
+                                context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
+                                context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_01;
+                                beeper_blip_now = true;
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                printf ("  SCREEN_KLOKKE\n");
                             } else {}
                         } break;
                         default: break;
@@ -2511,6 +2746,10 @@ void Handle_Real_Or_Clocked_Buttons (
             }
         } break;
     }
+
+    if (beeper_blip_now) {
+        i_port_heat_light_commands.beeper_blip_command (100);
+    } else {}
 }
 
 
@@ -2543,8 +2782,9 @@ void System_Task (
 
     for (unsigned iof_sub = 0; iof_sub < 7; iof_sub++) {
         context.display_sub_context[iof_sub].sub_is_editable = false;
-        context.display_sub_context[iof_sub].sub_state = SUB_STATE_VOID;
+        context.display_sub_context[iof_sub].sub_state = SUB_STATE_SHOW;
     }
+    context.display_sub_countdown_seconds = 0;
 
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed();
     light_sunrise_sunset_context.datetime_previous.year=1950; light_sunrise_sunset_context.datetime_previous.month=6; light_sunrise_sunset_context.datetime_previous.day=14; light_sunrise_sunset_context.datetime_previous.hour=0; light_sunrise_sunset_context.datetime_previous.minute=0; light_sunrise_sunset_context.datetime_previous.second=0;;
@@ -2611,16 +2851,30 @@ void System_Task (
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;
                         context.display_appear_state = DISPLAY_APPEAR_BLACK;
+                        context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     } else {
                         context.silent_any_button_while_display_on_seconds_cnt++;
                     }
                 } else {}
 
+                light_sunrise_sunset_context.datetime_previous = context.datetime;
+
+                if (context.display_sub_countdown_seconds > 0) {
+
+                    context.display_sub_countdown_seconds--;
+                    if (context.display_sub_countdown_seconds == 0) {
+                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+                        context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                        context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
+                        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                        context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
+                        beeper_blip_now = true;
+                    } else {}
+                } else {}
+
                 if (beeper_blip_now) {
                     i_port_heat_light_commands.beeper_blip_command (100);
                 } else {}
-
-                light_sunrise_sunset_context.datetime_previous = context.datetime;
 
                 if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                     Handle_Real_Or_Clocked_Buttons (context,
