@@ -1769,10 +1769,10 @@ typedef struct {
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
 
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
-{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[5]);
+{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
+{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
@@ -2054,7 +2054,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const caller_t caller)
 {
 
-    int sprintf_return;
+    int snprintf_return;
 
     char char_degC_circle_str[] = {247,0};
     char char_AA_str[] = {143,0};
@@ -2086,11 +2086,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
                     temp_degC_water_str, char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
                     temp_degC_heater_str, char_degC_circle_str);
-# 175 "../src/_Aquarium_1_x.xc"
+# 176 "../src/_Aquarium_1_x.xc"
             setTextSize(1);
             setTextColor(1);
             setCursor(0,0);
@@ -2122,13 +2123,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
                     char_AA_str,
                     char_AA_str,
                     context.on_percent,
                     temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
                     context.on_watt);
-# 220 "../src/_Aquarium_1_x.xc"
+# 222 "../src/_Aquarium_1_x.xc"
             if (context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) {
                 drawRoundRect(106, 11, 16, 20, 3, 1);
                 fillRoundRect(106, 11, 16, 20, 3, 1);
@@ -2163,26 +2165,27 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char unstable_str [] = {240,0};
             const bool full_light = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL);
 
+
             char light_control_scheme_str [5];
 
             switch (context.light_control_scheme) {
                 case LIGHT_CONTROL_IS_VOID : {
-                    sprintf (light_control_scheme_str, "%s", "INIT");
+                    snprintf (light_control_scheme_str, 5, "%s", "INIT");
                 } break;
                 case LIGHT_CONTROL_IS_DAY : {
-                    sprintf (light_control_scheme_str, "%s", " DAG");
+                    snprintf (light_control_scheme_str, 5, "%s", " DAG");
                  } break;
                 case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                    sprintf (light_control_scheme_str, "%s", " NED");
+                    snprintf (light_control_scheme_str, 5, "%s", " NED");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT : {
-                    sprintf (light_control_scheme_str, "%s", "NATT");
+                    snprintf (light_control_scheme_str, 5, "%s", "NATT");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                    sprintf (light_control_scheme_str, "%s", " OPP");
+                    snprintf (light_control_scheme_str, 5, "%s", " OPP");
                  } break;
                 case LIGHT_CONTROL_IS_RANDOM : {
-                    sprintf (light_control_scheme_str, "%s", " SKY");
+                    snprintf (light_control_scheme_str, 5, "%s", " SKY");
                 } break;
                 default: break;
             }
@@ -2192,7 +2195,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,
                     WATTOF_LED_STRIP_CENTER,
@@ -2204,7 +2208,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     light_control_scheme_str,
                     (context.light_stable) ? stable_str : unstable_str,
                     context.light_composition);
-# 303 "../src/_Aquarium_1_x.xc"
+# 307 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2248,13 +2252,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[1], ((void*)0));
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
                     light_sensor_intensity,
                     (light_sensor_intensity >= 10) ? fill_1_str : fill_2_str,
                     temp_degC_str, char_degC_circle_str);
-# 361 "../src/_Aquarium_1_x.xc"
+# 366 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2277,8 +2282,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
              }
 
 
-             sprintf_return = sprintf (context.display_ts1_chars, "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Feb 27 2017", char_OE_str, char_aa_str);
-# 393 "../src/_Aquarium_1_x.xc"
+             snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                     "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Mar  1 2017", char_OE_str, char_aa_str);
+# 399 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(1);
@@ -2289,7 +2295,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                 printf("Version date %s %s\n", "22:01:50", "Feb 27 2017");
+                 printf("Version date %s %s\n", "07:33:25", "Mar  1 2017");
              } else {}
          } break;
 
@@ -2305,9 +2311,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
                 temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
-# 429 "../src/_Aquarium_1_x.xc"
+# 436 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2319,7 +2326,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                printf("Version date %s %s\n", "22:01:50", "Feb 27 2017");
+                printf("Version date %s %s\n", "07:33:25", "Mar  1 2017");
             } else {}
         } break;
 
@@ -2330,9 +2337,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
 
-            sprintf_return = sprintf (context.display_ts1_chars, "%04u.%02u.%02u  %02u.%02u.%02u",
-                                                         context.datetime.year, context.datetime.month, context.datetime.day,
-                                                         context.datetime.hour, context.datetime.minute, context.datetime.second);
+            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+                    "%04u.%02u.%02u  %02u.%02u.%02u",
+                    context.datetime.year, context.datetime.month, context.datetime.day,
+                    context.datetime.hour, context.datetime.minute, context.datetime.second);
+
 
             context.datetime.year = 2017;
             context.datetime.month = 2;
@@ -2362,10 +2371,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
     }
 
-    if (sprintf_return < 0) {
-        printf ("ERROR: sprintf_return %d\n", sprintf_return);
-    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
-        printf ("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return);
+    if (snprintf_return < 0) {
+        printf ("ERROR: snprintf_return %d\n", snprintf_return);
+    } else if ((snprintf_return+1) > sizeof context.display_ts1_chars) {
+        printf ("\nEXCEPTION: MEMORY OVERFLOW: snprintf_return %d\n\n", snprintf_return);
     }
 }
 
@@ -2424,13 +2433,13 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_RELEASED: {
                     if (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL) {
 
-                     light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2);
+                        light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_TWO_THIRDS;
+                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF, LIGHT_CONTROL_IS_VOID, 2);
 
                     } else {
 
-                     light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
-                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1);
+                        light_sunrise_sunset_context.max_light = MAX_LIGHT_IS_FULL;
+                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON, LIGHT_CONTROL_IS_VOID, 1);
 
                     }
                 } break;
@@ -2464,8 +2473,6 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                    printf ("YESS %u\n", iof_button);
-
                     switch (iof_button) {
                         case SCREEN_AKVARIETEMPERATURER: {
 

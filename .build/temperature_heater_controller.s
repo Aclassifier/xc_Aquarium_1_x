@@ -46,7 +46,7 @@
 	.globl Temperature_Heater_Controller.select.enable.cases.maxchanends
 	.set Temperature_Heater_Controller.select.enable.cases,0
 	.globl Temperature_Heater_Controller.select.enable.cases
-	.set Temperature_Heater_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.case.0.nstackwords) $M (Temperature_Heater_Controller.select.case.2.nstackwords) $M (Temperature_Heater_Controller.select.case.1.nstackwords)
+	.set Temperature_Heater_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.case.1.nstackwords) $M (Temperature_Heater_Controller.select.case.2.nstackwords) $M (Temperature_Heater_Controller.select.case.0.nstackwords)
 	.globl Temperature_Heater_Controller.select.enable.cases.nstackwords
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.max.maxchanends, _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, 0
@@ -358,7 +358,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 .Ltmp8:
 .Lxtalabel0:
 	.loc	1 277 0 prologue_end
-	ldaw r11, cp[.Lstr149]
+	ldaw r11, cp[.Lstr155]
 	mov r0, r11
 	bl puts
 .Ltmp9:
@@ -651,7 +651,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .Ltmp52:
 .Lxtalabel10:
 	.loc	1 243 0
-	ldaw r11, cp[.str139]
+	ldaw r11, cp[.str145]
 	mov r0, r11
 .Lxta.call_labels0:
 	bl iprintf
@@ -667,7 +667,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .Ltmp54:
 .Lxtalabel11:
 	.loc	1 245 0
-	ldaw r11, cp[.str140]
+	ldaw r11, cp[.str146]
 	mov r0, r11
 .Lxta.call_labels1:
 	bl iprintf
@@ -682,7 +682,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .Ltmp56:
 .Lxtalabel12:
 	.loc	1 248 0
-	ldaw r11, cp[.str141]
+	ldaw r11, cp[.str147]
 	mov r0, r11
 .Lxta.call_labels2:
 	bl iprintf
@@ -692,7 +692,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .Lxtalabel13:
 .Ltmp57:
 	.loc	1 251 0
-	ldaw r11, cp[.str142]
+	ldaw r11, cp[.str148]
 	mov r0, r11
 .Lxta.call_labels3:
 	bl iprintf
@@ -704,7 +704,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .LBB3_12:
 .Lxtalabel15:
 	.loc	1 254 0
-	ldaw r11, cp[.str143]
+	ldaw r11, cp[.str149]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels4:
@@ -2167,7 +2167,7 @@ Temperature_Heater_Controller:
 	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
 .Ltmp196:
 	.loc	1 79 0
-	ldaw r11, cp[.Lstr146]
+	ldaw r11, cp[.Lstr152]
 	mov r0, r11
 	bl puts
 	.loc	1 81 0
@@ -2412,7 +2412,7 @@ Temperature_Heater_Controller:
 .Ltmp228:
 .Lxtalabel24:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr149]
+	ldaw r11, cp[.Lstr155]
 	mov r0, r11
 	mov r8, r3
 	bl puts
@@ -2496,7 +2496,6 @@ Temperature_Heater_Controller:
 	ld16s r0, r0[r3]
 	mov r8, r3
 	mov r1, r10
-	ldc r2, 5
 .Lxta.call_labels9:
 	bl Temp_OnetenthDegC_To_Str
 	mov r2, r0
@@ -2626,7 +2625,7 @@ Temperature_Heater_Controller:
 .Ltmp261:
 .Lxtalabel39:
 	.loc	1 243 0
-	ldaw r11, cp[.str34]
+	ldaw r11, cp[.str36]
 	mov r0, r11
 .Lxta.call_labels12:
 	bl iprintf
@@ -2803,7 +2802,7 @@ Temperature_Heater_Controller:
 .Ltmp273:
 .Lxtalabel42:
 	.loc	1 245 0
-	ldaw r11, cp[.str35]
+	ldaw r11, cp[.str37]
 	mov r0, r11
 .Lxta.call_labels13:
 	bl iprintf
@@ -2826,7 +2825,7 @@ Temperature_Heater_Controller:
 	add r9, r9, 1
 .Ltmp278:
 	.loc	1 184 0
-	ldaw r11, cp[.str21]
+	ldaw r11, cp[.str23]
 	mov r0, r11
 	mov r5, r3
 .Lxta.call_labels14:
@@ -2845,7 +2844,7 @@ Temperature_Heater_Controller:
 .Ltmp282:
 .Lxtalabel44:
 	.loc	1 248 0
-	ldaw r11, cp[.str36]
+	ldaw r11, cp[.str38]
 	mov r0, r11
 .Lxta.call_labels15:
 	bl iprintf
@@ -3013,7 +3012,7 @@ Temperature_Heater_Controller:
 	.loc	1 196 0
 	stw r9, sp[19]
 	stw r9, sp[1]
-	ldaw r11, cp[.str24]
+	ldaw r11, cp[.str26]
 	mov r0, r11
 	ldaw r1, sp[76]
 	ldw r2, sp[20]
@@ -3055,7 +3054,7 @@ Temperature_Heater_Controller:
 	.loc	1 192 0
 	ldw r0, sp[19]
 	stw r0, sp[1]
-	ldaw r11, cp[.str23]
+	ldaw r11, cp[.str25]
 	mov r0, r11
 	ldaw r1, sp[76]
 	ldw r2, sp[20]
@@ -3111,7 +3110,7 @@ Temperature_Heater_Controller:
 .LBB29_74:
 .Lxtalabel62:
 	.loc	1 251 0
-	ldaw r11, cp[.str37]
+	ldaw r11, cp[.str39]
 	mov r0, r11
 .Lxta.call_labels23:
 	bl iprintf
@@ -3121,7 +3120,7 @@ Temperature_Heater_Controller:
 .Lxtalabel63:
 	.loc	1 254 0
 	stw r5, sp[21]
-	ldaw r11, cp[.str38]
+	ldaw r11, cp[.str40]
 	mov r0, r11
 	mov r1, r5
 .Lxta.call_labels24:
@@ -3139,7 +3138,7 @@ Temperature_Heater_Controller:
 	.loc	1 189 0
 	ldw r0, sp[19]
 	stw r0, sp[1]
-	ldaw r11, cp[.str22]
+	ldaw r11, cp[.str24]
 	mov r0, r11
 	ldaw r1, sp[76]
 	ldw r2, sp[20]
@@ -3194,7 +3193,6 @@ Temperature_Heater_Controller:
 	sext r0, 16
 	ldw r9, sp[12]
 	mov r1, r9
-	ldc r2, 5
 .Lxta.call_labels27:
 	bl Temp_OnetenthDegC_To_Str
 	.loc	1 211 0
@@ -3206,7 +3204,7 @@ Temperature_Heater_Controller:
 	.loc	1 213 0
 	stw r7, sp[1]
 .Ltmp336:
-	ldaw r11, cp[.str25]
+	ldaw r11, cp[.str27]
 	mov r0, r11
 	mov r1, r9
 	mov r2, r8
@@ -3566,7 +3564,7 @@ Temperature_Heater_Controller.init.1:
 	bl Init_Arithmetic_Mean_Temp_OnetenthDegC
 .Ltmp387:
 	.loc	1 79 0
-	ldaw r11, cp[.Lstr146]
+	ldaw r11, cp[.Lstr152]
 	mov r0, r11
 	bl puts
 	.loc	1 81 0
@@ -4070,7 +4068,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp439:
 .Lxtalabel78:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr149]
+	ldaw r11, cp[.Lstr155]
 	mov r0, r11
 	bl puts
 .Ltmp440:
@@ -4215,7 +4213,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp466:
 .Lxtalabel87:
 	.loc	1 243 0
-	ldaw r11, cp[.str46]
+	ldaw r11, cp[.str48]
 	mov r0, r11
 .Lxta.call_labels34:
 	bl iprintf
@@ -4407,7 +4405,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp477:
 .Lxtalabel89:
 	.loc	1 245 0
-	ldaw r11, cp[.str47]
+	ldaw r11, cp[.str49]
 	mov r0, r11
 .Lxta.call_labels35:
 	bl iprintf
@@ -4424,7 +4422,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp479:
 .Lxtalabel90:
 	.loc	1 248 0
-	ldaw r11, cp[.str48]
+	ldaw r11, cp[.str50]
 	mov r0, r11
 .Lxta.call_labels36:
 	bl iprintf
@@ -4436,7 +4434,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .Lxtalabel91:
 .Ltmp480:
 	.loc	1 251 0
-	ldaw r11, cp[.str49]
+	ldaw r11, cp[.str51]
 	mov r0, r11
 .Lxta.call_labels37:
 	bl iprintf
@@ -4446,7 +4444,7 @@ Temperature_Heater_Controller.select.0.case.0:
 .LBB36_17:
 .Lxtalabel92:
 	.loc	1 254 0
-	ldaw r11, cp[.str50]
+	ldaw r11, cp[.str52]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels38:
@@ -4813,58 +4811,57 @@ Temperature_Heater_Controller.select.y.case.1:
 	ldc r0, 128
 .Ltmp503:
 	.loc	1 160 0
-	add r4, r7, r0
-	stw r4, sp[4]
+	add r10, r7, r0
+	stw r10, sp[4]
 	ldc r0, 92
-	add r9, r7, r0
+	add r8, r7, r0
 	ldc r0, 108
 	add r7, r7, r0
-	ldaw r10, sp[15]
-	mov r8, r5
+	ldaw r9, sp[15]
+	mov r4, r5
 .LBB38_1:
 .Lxtalabel113:
 	.loc	1 147 0
-	ldw r0, r6[r8]
+	ldw r0, r6[r4]
 	.loc	1 147 0
-	stw r0, r10[r8]
-	lda16 r0, r6[r8]
+	stw r0, r9[r4]
+	lda16 r0, r6[r4]
 	ldaw r0, r0[3]
 	.loc	1 152 0
 	ld16s r0, r0[r5]
 	mov r1, r7
-	ldc r2, 5
 .Lxta.call_labels45:
 	bl Temp_OnetenthDegC_To_Str
 	.loc	1 152 0
-	stw r0, r9[r8]
+	stw r0, r8[r4]
 	ldaw r0, sp[18]
 	.loc	1 152 0
-	stw r1, r0[r8]
+	stw r1, r0[r4]
 	.loc	1 154 21
-	ldw r0, r10[r8]
+	ldw r0, r9[r4]
 	bf r0, .LBB38_3
 .Lxtalabel114:
 	bf r1, .LBB38_3
 .Lxtalabel115:
 	.loc	1 156 0
-	ldw r2, r9[r8]
+	ldw r2, r8[r4]
 	ldc r0, 132
 	.loc	1 156 0
 	stw r0, sp[2]
 	ldw r0, sp[4]
 	stw r0, sp[1]
-	mov r0, r4
+	mov r0, r10
 	ldc r1, 8
-	mov r3, r8
+	mov r3, r4
 .Lxta.call_labels46:
 	bl Do_Arithmetic_Mean_Temp_OnetenthDegC
 	.loc	1 156 0
-	stw r0, r9[r8]
+	stw r0, r8[r4]
 	bu .LBB38_10
 .LBB38_3:
 .Lxtalabel116:
 	.loc	1 160 0
-	mov r0, r4
+	mov r0, r10
 	ldc r1, 8
 	ldw r2, sp[4]
 	ldc r3, 132
@@ -4873,15 +4870,15 @@ Temperature_Heater_Controller.select.y.case.1:
 .LBB38_10:
 .Lxtalabel117:
 	.loc	1 145 0
-	add r8, r8, 1
+	add r4, r4, 1
 .Ltmp504:
 	.loc	1 145 0
-	ldaw r4, r4[11]
+	ldaw r10, r10[11]
 	.loc	1 145 0
 	add r7, r7, 5
 	mkmsk r0, 2
 	.loc	1 145 0
-	lss r0, r8, r0
+	lss r0, r4, r0
 .Lxta.loop_labels2:
 	# LOOPMARKER 0
 	bt r0, .LBB38_1
@@ -4918,7 +4915,7 @@ Temperature_Heater_Controller.select.y.case.1:
 	.loc	1 169 0
 	add r2, r10, r1
 	.loc	1 169 0
-	ldw r1, r9[0]
+	ldw r1, r8[0]
 	.loc	1 169 0
 	ldw r3, r2[0]
 	.loc	1 169 0
@@ -4968,7 +4965,7 @@ Temperature_Heater_Controller.select.y.case.1:
 	.loc	1 184 0
 	ldw r2, sp[18]
 	.loc	1 184 0
-	ldaw r11, cp[.str72]
+	ldaw r11, cp[.str76]
 	mov r0, r11
 .Lxta.call_labels48:
 	bl iprintf
@@ -5006,7 +5003,7 @@ Temperature_Heater_Controller.select.y.case.1:
 	ldw r0, r0[0]
 	.loc	1 196 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str75]
+	ldaw r11, cp[.str79]
 	mov r0, r11
 .Lxta.call_labels49:
 	bl iprintf
@@ -5051,7 +5048,7 @@ Temperature_Heater_Controller.select.y.case.1:
 .Lxtalabel128:
 	.loc	1 192 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str74]
+	ldaw r11, cp[.str78]
 	mov r0, r11
 .Lxta.call_labels50:
 	bl iprintf
@@ -5069,7 +5066,7 @@ Temperature_Heater_Controller.select.y.case.1:
 .Lxtalabel129:
 	.loc	1 189 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str73]
+	ldaw r11, cp[.str77]
 	mov r0, r11
 .Lxta.call_labels51:
 	bl iprintf
@@ -5145,7 +5142,6 @@ Temperature_Heater_Controller.select.y.case.1:
 	add r4, r10, r1
 	.loc	1 211 0
 	sext r0, 16
-	ldc r2, 5
 	mov r1, r4
 .Lxta.call_labels53:
 	bl Temp_OnetenthDegC_To_Str
@@ -5160,7 +5156,7 @@ Temperature_Heater_Controller.select.y.case.1:
 	ldw r0, r7[0]
 	.loc	1 213 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str76]
+	ldaw r11, cp[.str80]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels54:
@@ -5265,7 +5261,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp523:
 .Lxtalabel135:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr149]
+	ldaw r11, cp[.Lstr155]
 	mov r0, r11
 	bl puts
 .Ltmp524:
@@ -5410,7 +5406,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp550:
 .Lxtalabel144:
 	.loc	1 243 0
-	ldaw r11, cp[.str85]
+	ldaw r11, cp[.str89]
 	mov r0, r11
 .Lxta.call_labels55:
 	bl iprintf
@@ -5602,7 +5598,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp561:
 .Lxtalabel146:
 	.loc	1 245 0
-	ldaw r11, cp[.str86]
+	ldaw r11, cp[.str90]
 	mov r0, r11
 .Lxta.call_labels56:
 	bl iprintf
@@ -5619,7 +5615,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp563:
 .Lxtalabel147:
 	.loc	1 248 0
-	ldaw r11, cp[.str87]
+	ldaw r11, cp[.str91]
 	mov r0, r11
 .Lxta.call_labels57:
 	bl iprintf
@@ -5631,7 +5627,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .Lxtalabel148:
 .Ltmp564:
 	.loc	1 251 0
-	ldaw r11, cp[.str88]
+	ldaw r11, cp[.str92]
 	mov r0, r11
 .Lxta.call_labels58:
 	bl iprintf
@@ -5641,7 +5637,7 @@ Temperature_Heater_Controller.select.y.case.2:
 .LBB39_17:
 .Lxtalabel149:
 	.loc	1 254 0
-	ldaw r11, cp[.str89]
+	ldaw r11, cp[.str93]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels59:
@@ -6008,58 +6004,57 @@ Temperature_Heater_Controller.select.case.1:
 	ldc r0, 128
 .Ltmp587:
 	.loc	1 160 0
-	add r4, r7, r0
-	stw r4, sp[4]
+	add r10, r7, r0
+	stw r10, sp[4]
 	ldc r0, 92
-	add r9, r7, r0
+	add r8, r7, r0
 	ldc r0, 108
 	add r7, r7, r0
-	ldaw r10, sp[15]
-	mov r8, r5
+	ldaw r9, sp[15]
+	mov r4, r5
 .LBB41_1:
 .Lxtalabel170:
 	.loc	1 147 0
-	ldw r0, r6[r8]
+	ldw r0, r6[r4]
 	.loc	1 147 0
-	stw r0, r10[r8]
-	lda16 r0, r6[r8]
+	stw r0, r9[r4]
+	lda16 r0, r6[r4]
 	ldaw r0, r0[3]
 	.loc	1 152 0
 	ld16s r0, r0[r5]
 	mov r1, r7
-	ldc r2, 5
 .Lxta.call_labels66:
 	bl Temp_OnetenthDegC_To_Str
 	.loc	1 152 0
-	stw r0, r9[r8]
+	stw r0, r8[r4]
 	ldaw r0, sp[18]
 	.loc	1 152 0
-	stw r1, r0[r8]
+	stw r1, r0[r4]
 	.loc	1 154 21
-	ldw r0, r10[r8]
+	ldw r0, r9[r4]
 	bf r0, .LBB41_3
 .Lxtalabel171:
 	bf r1, .LBB41_3
 .Lxtalabel172:
 	.loc	1 156 0
-	ldw r2, r9[r8]
+	ldw r2, r8[r4]
 	ldc r0, 132
 	.loc	1 156 0
 	stw r0, sp[2]
 	ldw r0, sp[4]
 	stw r0, sp[1]
-	mov r0, r4
+	mov r0, r10
 	ldc r1, 8
-	mov r3, r8
+	mov r3, r4
 .Lxta.call_labels67:
 	bl Do_Arithmetic_Mean_Temp_OnetenthDegC
 	.loc	1 156 0
-	stw r0, r9[r8]
+	stw r0, r8[r4]
 	bu .LBB41_10
 .LBB41_3:
 .Lxtalabel173:
 	.loc	1 160 0
-	mov r0, r4
+	mov r0, r10
 	ldc r1, 8
 	ldw r2, sp[4]
 	ldc r3, 132
@@ -6068,15 +6063,15 @@ Temperature_Heater_Controller.select.case.1:
 .LBB41_10:
 .Lxtalabel174:
 	.loc	1 145 0
-	add r8, r8, 1
+	add r4, r4, 1
 .Ltmp588:
 	.loc	1 145 0
-	ldaw r4, r4[11]
+	ldaw r10, r10[11]
 	.loc	1 145 0
 	add r7, r7, 5
 	mkmsk r0, 2
 	.loc	1 145 0
-	lss r0, r8, r0
+	lss r0, r4, r0
 .Lxta.loop_labels3:
 	# LOOPMARKER 0
 	bt r0, .LBB41_1
@@ -6113,7 +6108,7 @@ Temperature_Heater_Controller.select.case.1:
 	.loc	1 169 0
 	add r2, r10, r1
 	.loc	1 169 0
-	ldw r1, r9[0]
+	ldw r1, r8[0]
 	.loc	1 169 0
 	ldw r3, r2[0]
 	.loc	1 169 0
@@ -6163,7 +6158,7 @@ Temperature_Heater_Controller.select.case.1:
 	.loc	1 184 0
 	ldw r2, sp[18]
 	.loc	1 184 0
-	ldaw r11, cp[.str110]
+	ldaw r11, cp[.str116]
 	mov r0, r11
 .Lxta.call_labels69:
 	bl iprintf
@@ -6201,7 +6196,7 @@ Temperature_Heater_Controller.select.case.1:
 	ldw r0, r0[0]
 	.loc	1 196 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str113]
+	ldaw r11, cp[.str119]
 	mov r0, r11
 .Lxta.call_labels70:
 	bl iprintf
@@ -6246,7 +6241,7 @@ Temperature_Heater_Controller.select.case.1:
 .Lxtalabel185:
 	.loc	1 192 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str112]
+	ldaw r11, cp[.str118]
 	mov r0, r11
 .Lxta.call_labels71:
 	bl iprintf
@@ -6264,7 +6259,7 @@ Temperature_Heater_Controller.select.case.1:
 .Lxtalabel186:
 	.loc	1 189 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str111]
+	ldaw r11, cp[.str117]
 	mov r0, r11
 .Lxta.call_labels72:
 	bl iprintf
@@ -6340,7 +6335,6 @@ Temperature_Heater_Controller.select.case.1:
 	add r4, r10, r1
 	.loc	1 211 0
 	sext r0, 16
-	ldc r2, 5
 	mov r1, r4
 .Lxta.call_labels74:
 	bl Temp_OnetenthDegC_To_Str
@@ -6355,7 +6349,7 @@ Temperature_Heater_Controller.select.case.1:
 	ldw r0, r7[0]
 	.loc	1 213 0
 	stw r0, sp[1]
-	ldaw r11, cp[.str114]
+	ldaw r11, cp[.str120]
 	mov r0, r11
 	mov r1, r4
 .Lxta.call_labels75:
@@ -6460,7 +6454,7 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp607:
 .Lxtalabel192:
 	.loc	1 277 0
-	ldaw r11, cp[.Lstr149]
+	ldaw r11, cp[.Lstr155]
 	mov r0, r11
 	bl puts
 .Ltmp608:
@@ -6605,7 +6599,7 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp634:
 .Lxtalabel201:
 	.loc	1 243 0
-	ldaw r11, cp[.str123]
+	ldaw r11, cp[.str129]
 	mov r0, r11
 .Lxta.call_labels76:
 	bl iprintf
@@ -6797,7 +6791,7 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp645:
 .Lxtalabel203:
 	.loc	1 245 0
-	ldaw r11, cp[.str124]
+	ldaw r11, cp[.str130]
 	mov r0, r11
 .Lxta.call_labels77:
 	bl iprintf
@@ -6814,7 +6808,7 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp647:
 .Lxtalabel204:
 	.loc	1 248 0
-	ldaw r11, cp[.str125]
+	ldaw r11, cp[.str131]
 	mov r0, r11
 .Lxta.call_labels78:
 	bl iprintf
@@ -6826,7 +6820,7 @@ Temperature_Heater_Controller.select.case.2:
 .Lxtalabel205:
 .Ltmp648:
 	.loc	1 251 0
-	ldaw r11, cp[.str126]
+	ldaw r11, cp[.str132]
 	mov r0, r11
 .Lxta.call_labels79:
 	bl iprintf
@@ -6836,7 +6830,7 @@ Temperature_Heater_Controller.select.case.2:
 .LBB42_17:
 .Lxtalabel206:
 	.loc	1 254 0
-	ldaw r11, cp[.str127]
+	ldaw r11, cp[.str133]
 	mov r0, r11
 	mov r1, r6
 .Lxta.call_labels80:
@@ -6884,111 +6878,111 @@ Temperature_Heater_Controller.select.case.2:
 	.cfi_endproc
 
 	.section	.cp.rodata,"ac",@progbits
-	.cc_top .str21.data,.str21
-	.align	4
-	.type	.str21,@object
-	.size	.str21, 42
-.str21:
-.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str21.data
-	.cc_top .str22.data,.str22
-	.align	4
-	.type	.str22,@object
-	.size	.str22, 45
-.str22:
-.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str22.data
 	.cc_top .str23.data,.str23
 	.align	4
 	.type	.str23,@object
-	.size	.str23, 46
+	.size	.str23, 42
 .str23:
-.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
+.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
 	.cc_bottom .str23.data
 	.cc_top .str24.data,.str24
 	.align	4
 	.type	.str24,@object
-	.size	.str24, 42
+	.size	.str24, 45
 .str24:
-.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
 	.cc_bottom .str24.data
 	.cc_top .str25.data,.str25
 	.align	4
 	.type	.str25,@object
-	.size	.str25, 84
+	.size	.str25, 46
 .str25:
-.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
 	.cc_bottom .str25.data
-	.cc_top .str34.data,.str34
+	.cc_top .str26.data,.str26
 	.align	4
-	.type	.str34,@object
-	.size	.str34, 5
-.str34:
-.asciiz"Same"
-	.cc_bottom .str34.data
-	.cc_top .str35.data,.str35
+	.type	.str26,@object
+	.size	.str26, 42
+.str26:
+.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+	.cc_bottom .str26.data
+	.cc_top .str27.data,.str27
 	.align	4
-	.type	.str35,@object
-	.size	.str35, 5
-.str35:
-.asciiz"High"
-	.cc_bottom .str35.data
+	.type	.str27,@object
+	.size	.str27, 84
+.str27:
+.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+	.cc_bottom .str27.data
 	.cc_top .str36.data,.str36
 	.align	4
 	.type	.str36,@object
-	.size	.str36, 4
+	.size	.str36, 5
 .str36:
-.asciiz"Low"
+.asciiz"Same"
 	.cc_bottom .str36.data
 	.cc_top .str37.data,.str37
 	.align	4
 	.type	.str37,@object
-	.size	.str37, 4
+	.size	.str37, 5
 .str37:
-.asciiz"New"
+.asciiz"High"
 	.cc_bottom .str37.data
 	.cc_top .str38.data,.str38
 	.align	4
 	.type	.str38,@object
-	.size	.str38, 28
+	.size	.str38, 4
 .str38:
-.asciiz" heater lim=%u tenths_degC\n"
+.asciiz"Low"
 	.cc_bottom .str38.data
-	.cc_top .str46.data,.str46
+	.cc_top .str39.data,.str39
 	.align	4
-	.type	.str46,@object
-	.size	.str46, 5
-.str46:
-.asciiz"Same"
-	.cc_bottom .str46.data
-	.cc_top .str47.data,.str47
+	.type	.str39,@object
+	.size	.str39, 4
+.str39:
+.asciiz"New"
+	.cc_bottom .str39.data
+	.cc_top .str40.data,.str40
 	.align	4
-	.type	.str47,@object
-	.size	.str47, 5
-.str47:
-.asciiz"High"
-	.cc_bottom .str47.data
+	.type	.str40,@object
+	.size	.str40, 28
+.str40:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str40.data
 	.cc_top .str48.data,.str48
 	.align	4
 	.type	.str48,@object
-	.size	.str48, 4
+	.size	.str48, 5
 .str48:
-.asciiz"Low"
+.asciiz"Same"
 	.cc_bottom .str48.data
 	.cc_top .str49.data,.str49
 	.align	4
 	.type	.str49,@object
-	.size	.str49, 4
+	.size	.str49, 5
 .str49:
-.asciiz"New"
+.asciiz"High"
 	.cc_bottom .str49.data
 	.cc_top .str50.data,.str50
 	.align	4
 	.type	.str50,@object
-	.size	.str50, 28
+	.size	.str50, 4
 .str50:
-.asciiz" heater lim=%u tenths_degC\n"
+.asciiz"Low"
 	.cc_bottom .str50.data
+	.cc_top .str51.data,.str51
+	.align	4
+	.type	.str51,@object
+	.size	.str51, 4
+.str51:
+.asciiz"New"
+	.cc_bottom .str51.data
+	.cc_top .str52.data,.str52
+	.align	4
+	.type	.str52,@object
+	.size	.str52, 28
+.str52:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str52.data
 	.section	.cp.rodata.cst16,"aMc",@progbits,16
 	.cc_top Temperature_Heater_Controller.init.1.2.init.data,Temperature_Heater_Controller.init.1.2.init
 	.align	4
@@ -7011,196 +7005,196 @@ Temperature_Heater_Controller.init.1.3.init:
 .asciiz"??.?"
 .asciiz"...."
 	.cc_bottom Temperature_Heater_Controller.init.1.3.init.data
-	.cc_top .str72.data,.str72
-	.align	4
-	.type	.str72,@object
-	.size	.str72, 42
-.str72:
-.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str72.data
-	.cc_top .str73.data,.str73
-	.align	4
-	.type	.str73,@object
-	.size	.str73, 45
-.str73:
-.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str73.data
-	.cc_top .str74.data,.str74
-	.align	4
-	.type	.str74,@object
-	.size	.str74, 46
-.str74:
-.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
-	.cc_bottom .str74.data
-	.cc_top .str75.data,.str75
-	.align	4
-	.type	.str75,@object
-	.size	.str75, 42
-.str75:
-.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
-	.cc_bottom .str75.data
 	.cc_top .str76.data,.str76
 	.align	4
 	.type	.str76,@object
-	.size	.str76, 84
+	.size	.str76, 42
 .str76:
-.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+.asciiz"Error heater i2c ok=%d, convert ok=%d :: "
 	.cc_bottom .str76.data
-	.cc_top .str85.data,.str85
+	.cc_top .str77.data,.str77
 	.align	4
-	.type	.str85,@object
-	.size	.str85, 5
-.str85:
-.asciiz"Same"
-	.cc_bottom .str85.data
-	.cc_top .str86.data,.str86
+	.type	.str77,@object
+	.size	.str77, 45
+.str77:
+.asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
+	.cc_bottom .str77.data
+	.cc_top .str78.data,.str78
 	.align	4
-	.type	.str86,@object
-	.size	.str86, 5
-.str86:
-.asciiz"High"
-	.cc_bottom .str86.data
-	.cc_top .str87.data,.str87
+	.type	.str78,@object
+	.size	.str78, 46
+.str78:
+.asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
+	.cc_bottom .str78.data
+	.cc_top .str79.data,.str79
 	.align	4
-	.type	.str87,@object
-	.size	.str87, 4
-.str87:
-.asciiz"Low"
-	.cc_bottom .str87.data
-	.cc_top .str88.data,.str88
+	.type	.str79,@object
+	.size	.str79, 42
+.str79:
+.asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
+	.cc_bottom .str79.data
+	.cc_top .str80.data,.str80
 	.align	4
-	.type	.str88,@object
-	.size	.str88, 4
-.str88:
-.asciiz"New"
-	.cc_bottom .str88.data
+	.type	.str80,@object
+	.size	.str80, 84
+.str80:
+.asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
+	.cc_bottom .str80.data
 	.cc_top .str89.data,.str89
 	.align	4
 	.type	.str89,@object
-	.size	.str89, 28
+	.size	.str89, 5
 .str89:
-.asciiz" heater lim=%u tenths_degC\n"
+.asciiz"Same"
 	.cc_bottom .str89.data
-	.cc_top .str110.data,.str110
+	.cc_top .str90.data,.str90
 	.align	4
-	.type	.str110,@object
-	.size	.str110, 42
-.str110:
+	.type	.str90,@object
+	.size	.str90, 5
+.str90:
+.asciiz"High"
+	.cc_bottom .str90.data
+	.cc_top .str91.data,.str91
+	.align	4
+	.type	.str91,@object
+	.size	.str91, 4
+.str91:
+.asciiz"Low"
+	.cc_bottom .str91.data
+	.cc_top .str92.data,.str92
+	.align	4
+	.type	.str92,@object
+	.size	.str92, 4
+.str92:
+.asciiz"New"
+	.cc_bottom .str92.data
+	.cc_top .str93.data,.str93
+	.align	4
+	.type	.str93,@object
+	.size	.str93, 28
+.str93:
+.asciiz" heater lim=%u tenths_degC\n"
+	.cc_bottom .str93.data
+	.cc_top .str116.data,.str116
+	.align	4
+	.type	.str116,@object
+	.size	.str116, 42
+.str116:
 .asciiz"Error heater i2c ok=%d, convert ok=%d :: "
-	.cc_bottom .str110.data
-	.cc_top .str111.data,.str111
+	.cc_bottom .str116.data
+	.cc_top .str117.data,.str117
 	.align	4
-	.type	.str111,@object
-	.size	.str111, 45
-.str111:
+	.type	.str117,@object
+	.size	.str117, 45
+.str117:
 .asciiz"t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d "
-	.cc_bottom .str111.data
-	.cc_top .str112.data,.str112
+	.cc_bottom .str117.data
+	.cc_top .str118.data,.str118
 	.align	4
-	.type	.str112,@object
-	.size	.str112, 46
-.str112:
+	.type	.str118,@object
+	.size	.str118, 46
+.str118:
 .asciiz"t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d "
-	.cc_bottom .str112.data
-	.cc_top .str113.data,.str113
+	.cc_bottom .str118.data
+	.cc_top .str119.data,.str119
 	.align	4
-	.type	.str113,@object
-	.size	.str113, 42
-.str113:
+	.type	.str119,@object
+	.size	.str119, 42
+.str119:
 .asciiz"t=%s HEAT_CABLES_OFF on=%d off=%d err=%d "
-	.cc_bottom .str113.data
-	.cc_top .str114.data,.str114
+	.cc_bottom .str119.data
+	.cc_top .str120.data,.str120
 	.align	4
-	.type	.str114,@object
-	.size	.str114, 84
-.str114:
+	.type	.str120,@object
+	.size	.str120, 84
+.str120:
 .asciiz"==> T=%s and last round with %d values for %d seconds and on %d percent of the time"
-	.cc_bottom .str114.data
-	.cc_top .str123.data,.str123
+	.cc_bottom .str120.data
+	.cc_top .str129.data,.str129
 	.align	4
-	.type	.str123,@object
-	.size	.str123, 5
-.str123:
+	.type	.str129,@object
+	.size	.str129, 5
+.str129:
 .asciiz"Same"
-	.cc_bottom .str123.data
-	.cc_top .str124.data,.str124
+	.cc_bottom .str129.data
+	.cc_top .str130.data,.str130
 	.align	4
-	.type	.str124,@object
-	.size	.str124, 5
-.str124:
+	.type	.str130,@object
+	.size	.str130, 5
+.str130:
 .asciiz"High"
-	.cc_bottom .str124.data
-	.cc_top .str125.data,.str125
+	.cc_bottom .str130.data
+	.cc_top .str131.data,.str131
 	.align	4
-	.type	.str125,@object
-	.size	.str125, 4
-.str125:
+	.type	.str131,@object
+	.size	.str131, 4
+.str131:
 .asciiz"Low"
-	.cc_bottom .str125.data
-	.cc_top .str126.data,.str126
+	.cc_bottom .str131.data
+	.cc_top .str132.data,.str132
 	.align	4
-	.type	.str126,@object
-	.size	.str126, 4
-.str126:
+	.type	.str132,@object
+	.size	.str132, 4
+.str132:
 .asciiz"New"
-	.cc_bottom .str126.data
-	.cc_top .str127.data,.str127
+	.cc_bottom .str132.data
+	.cc_top .str133.data,.str133
 	.align	4
-	.type	.str127,@object
-	.size	.str127, 28
-.str127:
+	.type	.str133,@object
+	.size	.str133, 28
+.str133:
 .asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str127.data
-	.cc_top .str139.data,.str139
+	.cc_bottom .str133.data
+	.cc_top .str145.data,.str145
 	.align	4
-	.type	.str139,@object
-	.size	.str139, 5
-.str139:
+	.type	.str145,@object
+	.size	.str145, 5
+.str145:
 .asciiz"Same"
-	.cc_bottom .str139.data
-	.cc_top .str140.data,.str140
+	.cc_bottom .str145.data
+	.cc_top .str146.data,.str146
 	.align	4
-	.type	.str140,@object
-	.size	.str140, 5
-.str140:
+	.type	.str146,@object
+	.size	.str146, 5
+.str146:
 .asciiz"High"
-	.cc_bottom .str140.data
-	.cc_top .str141.data,.str141
+	.cc_bottom .str146.data
+	.cc_top .str147.data,.str147
 	.align	4
-	.type	.str141,@object
-	.size	.str141, 4
-.str141:
+	.type	.str147,@object
+	.size	.str147, 4
+.str147:
 .asciiz"Low"
-	.cc_bottom .str141.data
-	.cc_top .str142.data,.str142
+	.cc_bottom .str147.data
+	.cc_top .str148.data,.str148
 	.align	4
-	.type	.str142,@object
-	.size	.str142, 4
-.str142:
+	.type	.str148,@object
+	.size	.str148, 4
+.str148:
 .asciiz"New"
-	.cc_bottom .str142.data
-	.cc_top .str143.data,.str143
+	.cc_bottom .str148.data
+	.cc_top .str149.data,.str149
 	.align	4
-	.type	.str143,@object
-	.size	.str143, 28
-.str143:
+	.type	.str149,@object
+	.size	.str149, 28
+.str149:
 .asciiz" heater lim=%u tenths_degC\n"
-	.cc_bottom .str143.data
+	.cc_bottom .str149.data
 	.section	.cp.rodata.string,"aMSc",@progbits
-	.cc_top .Lstr146.data,.Lstr146
+	.cc_top .Lstr152.data,.Lstr152
 	.align	4
-	.type	.Lstr146,@object
-	.size	.Lstr146, 38
-.Lstr146:
+	.type	.Lstr152,@object
+	.size	.Lstr152, 38
+.Lstr152:
 .asciiz"Temperature_Heater_Controller started"
-	.cc_bottom .Lstr146.data
-	.cc_top .Lstr149.data,.Lstr149
+	.cc_bottom .Lstr152.data
+	.cc_top .Lstr155.data,.Lstr155
 	.align	4
-	.type	.Lstr149,@object
-	.size	.Lstr149, 60
-.Lstr149:
+	.type	.Lstr155,@object
+	.size	.Lstr155, 60
+.Lstr155:
 .asciiz"Zero Watt? V24 may be zero, but always until middle button!"
-	.cc_bottom .Lstr149.data
+	.cc_bottom .Lstr155.data
 	.text
 .Ldebug_end0:
 	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
@@ -12760,7 +12754,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .Lset212 = .Ltmp1077-.Ltmp1076
 	.short	.Lset212
 .Ltmp1076:
-	.byte	88
+	.byte	84
 .Ltmp1077:
 	.long	0
 	.long	0
@@ -13007,7 +13001,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .Lset241 = .Ltmp1135-.Ltmp1134
 	.short	.Lset241
 .Ltmp1134:
-	.byte	88
+	.byte	84
 .Ltmp1135:
 	.long	0
 	.long	0
@@ -13445,7 +13439,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.typestring putchar, "f{si}(si)"
 	.typestring puts, "f{si}(u:q(c:uc))"
 	.typestring iprintf, "f{si}(u:q(c:uc),va)"
-	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(:uc)))"
+	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"
 	.typestring Init_Arithmetic_Mean_Temp_OnetenthDegC, "f{0}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui)"
 	.typestring Do_Arithmetic_Mean_Temp_OnetenthDegC, "f{si}(q(s(){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui,:si,:ui)"
 	.typestring Temperature_Heater_Controller, "k:f{0}(&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"

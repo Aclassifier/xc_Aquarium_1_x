@@ -1619,10 +1619,10 @@ typedef struct {
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
 
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[]);
-{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[5]);
+{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
+{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
@@ -1748,22 +1748,22 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 {temp_onetenthDegC_t, bool}
 Temp_OnetenthDegC_To_Str (
     const i2c_temp_onetenthDegC_t degC_dp1,
-    char temp_degC_str[]) {
+    char temp_degC_str[5]) {
 
     int degC_Unary_Part = degC_dp1/10;
     int degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
     temp_onetenthDegC_t return_degC_dp1 = (temp_onetenthDegC_t) degC_dp1;
 
-    int sprintf_return;
+    int snprintf_return;
     bool error = false;
 
     error |= ((degC_Unary_Part < 0) || (degC_Unary_Part > 999));
     error |= ((degC_Decimal_Part < 0) || (degC_Decimal_Part > 9));
 
-    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error |= (sprintf_return != 4);
-    error |= (sprintf_return < 0);
+    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error |= (snprintf_return != 4);
+    error |= (snprintf_return < 0);
 
     if (error) {
         char error_text [] = "Feil";
@@ -1777,7 +1777,7 @@ Temp_OnetenthDegC_To_Str (
 {temp_onetenthDegC_t, bool}
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char temp_degC_str[]) {
+    char temp_degC_str[5]) {
 # 234 "../src/f_conversions.xc"
     temp_onetenthDegC_t degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
@@ -1787,15 +1787,15 @@ TC1047_Raw_DegC_To_String_Ok (
     int degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
 
-    int sprintf_return;
+    int snprintf_return;
     bool error = false;
 
     error |= ((degC_Unary_Part < 0) || (degC_Unary_Part > 99));
     error |= ((degC_Decimal_Part < 0) || (degC_Decimal_Part > 9));
 
-    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error |= (sprintf_return != 4);
-    error |= (sprintf_return < 0);
+    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error |= (snprintf_return != 4);
+    error |= (snprintf_return < 0);
 
     if (error) {
         char error_text [] = "Feil";
@@ -1809,20 +1809,20 @@ TC1047_Raw_DegC_To_String_Ok (
 {light_range_t, bool}
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?lux_str)[]) {
+    char (&?lux_str)[3]) {
 # 276 "../src/f_conversions.xc"
     light_range_t light_range = adc_val_mean_i/407;
     if (light_range > 99) light_range = 99;
 
-    int sprintf_return;
+    int snprintf_return;
     bool error = false;
 # 295 "../src/f_conversions.xc"
     error |= ((light_range < 0) || (light_range > 99));
 
     if (!isnull(lux_str)) {
-        sprintf_return = sprintf (lux_str, "%02u", light_range);
-        error |= (sprintf_return != 2);
-        error |= (sprintf_return < 0);
+        snprintf_return = snprintf (lux_str, sizeof(lux_str), "%02u", light_range);
+        error |= (snprintf_return != 2);
+        error |= (snprintf_return < 0);
 
         if (error) {
             char error_text [] = "??";
@@ -1842,7 +1842,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 {voltage_onetenthV_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?rr_12V_24V_str)[]) {
+    char (&?rr_12V_24V_str)[5]) {
 # 334 "../src/f_conversions.xc"
     voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
@@ -1851,7 +1851,7 @@ RR_12V_24V_To_String_Ok (
     int volt_Unary_Part = volt_dp1/10;
     int volt_Decimal_Part = volt_dp1 - (volt_Unary_Part*10);
 
-    int sprintf_return;
+    int snprintf_return;
     bool error = false;
 
     error |= ((volt_Unary_Part < 0) || (volt_Unary_Part > 99));
@@ -1862,9 +1862,9 @@ RR_12V_24V_To_String_Ok (
     } else {}
 
     if (!isnull(rr_12V_24V_str)) {
-        sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-        error |= (sprintf_return != 4);
-        error |= (sprintf_return < 0);
+        snprintf_return = snprintf (rr_12V_24V_str, sizeof(rr_12V_24V_str), "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
+        error |= (snprintf_return != 4);
+        error |= (snprintf_return < 0);
 
         if (error) {
             char error_text [] = "??.?";

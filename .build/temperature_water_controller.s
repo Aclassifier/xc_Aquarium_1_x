@@ -435,13 +435,13 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 	.loc	1 154 0 prologue_end
 	ldc r7, 0
 	stw r7, r5[0]
-	ldaw r11, cp[.str100+4]
+	ldaw r11, cp[.str108+4]
 .Ltmp13:
 	ld8u r0, r11[r7]
 	ldc r8, 4
 	ldaw r6, sp[1]
 	st8 r0, r6[r8]
-	ldw r0, cp[.str100]
+	ldw r0, cp[.str108]
 	stw r0, sp[1]
 	.loc	1 158 0
 .Ltmp14:
@@ -454,7 +454,6 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 	ldaw r0, r0[7]
 	.loc	1 158 0
 	ld16s r0, r0[r7]
-	ldc r2, 5
 	mov r1, r6
 .Ltmp15:
 .Lxta.call_labels0:
@@ -2030,7 +2029,7 @@ Temperature_Water_Controller:
 	stw r0, sp[16]
 .Ltmp152:
 	.loc	1 63 0
-	ldaw r11, cp[.Lstr107]
+	ldaw r11, cp[.Lstr117]
 	mov r0, r11
 	bl puts
 	.loc	1 65 0
@@ -2038,19 +2037,19 @@ Temperature_Water_Controller:
 	.loc	1 65 0
 	ldaw r0, dp[__timers]
 	.loc	1 65 0
-	ldw r6, r0[r11]
+	ldw r9, r0[r11]
 	.loc	1 65 0
-	setc res[r6], 1
+	setc res[r9], 1
 	.loc	1 65 0
 .Lxta.endpoint_labels0:
-	in r7, res[r6]
+	in r6, res[r9]
 .Ltmp153:
 	ldc r8, 60
-	ldc r4, 0
+	ldc r7, 0
 	ldc r0, 250
-	ldc r9, 254
+	ldc r4, 254
 	stw r0, sp[5]
-	mov r5, r4
+	mov r5, r7
 	bu .LBB30_1
 .Ltmp154:
 .LBB30_19:
@@ -2101,11 +2100,11 @@ Temperature_Water_Controller:
 .LBB30_2:
 	stw r8, sp[10]
 	clre
-	setd res[r6], r7
-	setc res[r6], 9
+	setd res[r9], r6
+	setc res[r9], 9
 	ldap r11, .Ltmp161
-	setv res[r6], r11
-	eeu res[r6]
+	setv res[r9], r11
+	eeu res[r9]
 	ldap r11, .Ltmp162
 	setv res[r10], r11
 	eeu res[r10]
@@ -2117,21 +2116,21 @@ Temperature_Water_Controller:
 .LBB30_21:
 .Lxtalabel2:
 	in r0, res[r10]
-	add r1, r0, r9
+	add r1, r0, r4
 	zext r1, 8
 	sub r0, r0, r1
 	setd res[r10], r0
 	bf r1, .LBB30_22
 .Ltmp164:
-	out res[r10], r4
+	out res[r10], r7
 	out res[r10], r5
 	outct res[r10], 1
 	clre
-	setd res[r6], r7
-	setc res[r6], 9
+	setd res[r9], r6
+	setc res[r9], 9
 	ldap r11, .Ltmp161
-	setv res[r6], r11
-	eeu res[r6]
+	setv res[r9], r11
+	eeu res[r9]
 	ldap r11, .Ltmp162
 	setv res[r10], r11
 	eeu res[r10]
@@ -2143,13 +2142,13 @@ Temperature_Water_Controller:
 	outct res[r10], 1
 	in r0, res[r10]
 .Ltmp166:
-	ldaw r11, cp[.str100+4]
+	ldaw r11, cp[.str108+4]
 	.loc	1 154 0
 .Ltmp167:
-	ld8u r1, r11[r4]
+	ld8u r1, r11[r7]
 .Ltmp168:
 	st8 r1, r3[r2]
-	ldw r1, cp[.str100]
+	ldw r1, cp[.str108]
 	stw r1, sp[11]
 	.loc	1 158 0
 .Ltmp169:
@@ -2162,24 +2161,23 @@ Temperature_Water_Controller:
 	ldaw r0, r1[r0]
 .Ltmp170:
 	.loc	1 158 0
-	ld16s r0, r0[r4]
+	ld16s r0, r0[r7]
 	mov r1, r3
-	ldc r2, 5
-	mov r9, r3
+	mov r4, r3
 .Ltmp171:
 .Lxta.call_labels3:
 	bl Temp_OnetenthDegC_To_Str
-	mov r3, r9
+	mov r3, r4
 .Ltmp172:
 	.loc	1 161 0
-	ld8u r0, r3[r4]
+	ld8u r0, r3[r7]
 	ldc r2, 8
 	.loc	1 161 0
 	out res[r10], r2
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
 	out res[r10], r0
 	.loc	1 161 0
@@ -2192,11 +2190,11 @@ Temperature_Water_Controller:
 	.loc	1 161 0
 	or r0, r3, r1
 	.loc	1 161 0
-	ld8u r0, r0[r4]
+	ld8u r0, r0[r7]
 	.loc	1 161 0
 	out res[r10], r2
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
 	out res[r10], r1
 	.loc	1 161 0
@@ -2210,11 +2208,11 @@ Temperature_Water_Controller:
 	.loc	1 161 0
 	or r0, r3, r1
 	.loc	1 161 0
-	ld8u r0, r0[r4]
+	ld8u r0, r0[r7]
 	.loc	1 161 0
 	out res[r10], r2
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
 	out res[r10], r1
 	.loc	1 161 0
@@ -2228,11 +2226,11 @@ Temperature_Water_Controller:
 	.loc	1 161 0
 	or r0, r3, r1
 	.loc	1 161 0
-	ld8u r0, r0[r4]
+	ld8u r0, r0[r7]
 	.loc	1 161 0
 	out res[r10], r2
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
 	out res[r10], r1
 	.loc	1 161 0
@@ -2246,7 +2244,7 @@ Temperature_Water_Controller:
 	.loc	1 161 0
 	out res[r10], r2
 	.loc	1 161 0
-	out res[r10], r4
+	out res[r10], r7
 	.loc	1 161 0
 	out res[r10], r8
 	.loc	1 161 0
@@ -2257,19 +2255,19 @@ Temperature_Water_Controller:
 	chkct res[r10], 1
 	ldw r0, sp[9]
 	ldw r10, r0[0]
-	out res[r10], r4
+	out res[r10], r7
 	outct res[r10], 1
 	clre
-	setd res[r6], r7
-	setc res[r6], 9
+	setd res[r9], r6
+	setc res[r9], 9
 	ldap r11, .Ltmp161
-	setv res[r6], r11
-	eeu res[r6]
+	setv res[r9], r11
+	eeu res[r9]
 	ldap r11, .Ltmp162
 	setv res[r10], r11
 	eeu res[r10]
 	mov r2, r8
-	ldc r9, 254
+	ldc r4, 254
 	ldw r8, sp[10]
 
 	.xtabranch .LBB30_3, .LBB30_21
@@ -2280,11 +2278,11 @@ Temperature_Water_Controller:
 .Lxtalabel3:
 	.loc	1 69 0
 .Lxta.endpoint_labels1:
-	in r0, res[r6]
+	in r0, res[r9]
 	ldw r0, cp[.LCPI30_0]
 .Ltmp175:
 	.loc	1 70 0
-	add r7, r7, r0
+	add r6, r6, r0
 	.loc	1 71 0
 	sub r8, r8, 1
 .Ltmp176:
@@ -2343,7 +2341,7 @@ Temperature_Water_Controller:
 	bl iprintf
 .Ltmp184:
 	.loc	1 93 25
-	lss r0, r4, r8
+	lss r0, r7, r8
 	.loc	1 93 25
 	bf r0, .LBB30_7
 .Ltmp185:
@@ -2448,7 +2446,7 @@ Temperature_Water_Controller:
 .Lxta.call_labels13:
 	bl iprintf
 	.loc	1 124 21
-	lss r0, r4, r8
+	lss r0, r7, r8
 	.loc	1 124 21
 	bf r0, .LBB30_15
 .Ltmp203:
@@ -2662,7 +2660,7 @@ Temperature_Water_Controller.init.1:
 	stw r1, r0[0]
 .Ltmp230:
 	.loc	1 63 0
-	ldaw r11, cp[.Lstr107]
+	ldaw r11, cp[.Lstr117]
 	mov r0, r11
 	bl puts
 	.loc	1 65 0
@@ -2947,14 +2945,14 @@ Temperature_Water_Controller.select.0.case.0:
 	outct res[r7], 1
 	in r0, res[r7]
 .Ltmp252:
-	ldaw r11, cp[.str100+4]
+	ldaw r11, cp[.str108+4]
 	.loc	1 154 0
 .Ltmp253:
 	ld8u r1, r11[r6]
 	ldc r8, 4
 	ldaw r5, sp[1]
 	st8 r1, r5[r8]
-	ldw r1, cp[.str100]
+	ldw r1, cp[.str108]
 	stw r1, sp[1]
 	.loc	1 158 0
 .Ltmp254:
@@ -2967,7 +2965,6 @@ Temperature_Water_Controller.select.0.case.0:
 	ldaw r0, r0[7]
 	.loc	1 158 0
 	ld16s r0, r0[r6]
-	ldc r2, 5
 	mov r1, r5
 .Lxta.call_labels18:
 	bl Temp_OnetenthDegC_To_Str
@@ -3204,7 +3201,7 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 87 0
 	stw r3, r10[0]
 	.loc	1 89 0
-	ldaw r11, cp[.str48]
+	ldaw r11, cp[.str52]
 	mov r0, r11
 .Lxta.call_labels20:
 	bl iprintf
@@ -3216,7 +3213,7 @@ Temperature_Water_Controller.select.y.case.0:
 	bf r1, .LBB38_5
 .Lxtalabel24:
 	.loc	1 92 0
-	ldaw r11, cp[.str49]
+	ldaw r11, cp[.str53]
 	mov r0, r11
 .Lxta.call_labels21:
 	bl iprintf
@@ -3237,7 +3234,7 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 96 0
 	stw r0, r4[6]
 	.loc	1 97 0
-	ldaw r11, cp[.str50]
+	ldaw r11, cp[.str54]
 	bu .LBB38_9
 .LBB38_5:
 	.loc	1 104 28
@@ -3245,7 +3242,7 @@ Temperature_Water_Controller.select.y.case.0:
 	bt r0, .LBB38_6
 .Lxtalabel26:
 	.loc	1 119 0
-	ldaw r11, cp[.str55]
+	ldaw r11, cp[.str59]
 	bu .LBB38_9
 .LBB38_4:
 .Lxtalabel27:
@@ -3256,12 +3253,12 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 101 0
 	stw r0, r4[6]
 	.loc	1 102 0
-	ldaw r11, cp[.str51]
+	ldaw r11, cp[.str55]
 	bu .LBB38_9
 .LBB38_6:
 .Lxtalabel28:
 	.loc	1 106 0
-	ldaw r11, cp[.str52]
+	ldaw r11, cp[.str56]
 	mov r0, r11
 .Lxta.call_labels22:
 	bl iprintf
@@ -3283,7 +3280,7 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 110 0
 	stw r0, r4[6]
 	.loc	1 111 0
-	ldaw r11, cp[.str53]
+	ldaw r11, cp[.str57]
 	bu .LBB38_9
 .LBB38_18:
 .Lxtalabel30:
@@ -3301,7 +3298,7 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 115 0
 	stw r0, r4[6]
 	.loc	1 116 0
-	ldaw r11, cp[.str54]
+	ldaw r11, cp[.str58]
 .LBB38_9:
 .Lxtalabel31:
 	.loc	1 119 0
@@ -3318,7 +3315,7 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 123 0
 	ldw r3, r7[0]
 	.loc	1 123 0
-	ldaw r11, cp[.str57]
+	ldaw r11, cp[.str61]
 	mov r0, r11
 .Lxta.call_labels24:
 	bl iprintf
@@ -3330,7 +3327,7 @@ Temperature_Water_Controller.select.y.case.0:
 	bf r1, .LBB38_12
 .Lxtalabel32:
 	.loc	1 126 0
-	ldaw r11, cp[.str58]
+	ldaw r11, cp[.str62]
 	mov r0, r11
 .Lxta.call_labels25:
 	bl iprintf
@@ -3342,7 +3339,7 @@ Temperature_Water_Controller.select.y.case.0:
 	bf r0, .LBB38_16
 .Lxtalabel33:
 	.loc	1 129 0
-	ldaw r11, cp[.str59]
+	ldaw r11, cp[.str63]
 	bu .LBB38_15
 .LBB38_12:
 	.loc	1 131 28
@@ -3350,12 +3347,12 @@ Temperature_Water_Controller.select.y.case.0:
 	bt r0, .LBB38_13
 .Lxtalabel34:
 	.loc	1 139 0
-	ldaw r11, cp[.str62]
+	ldaw r11, cp[.str66]
 	bu .LBB38_15
 .LBB38_13:
 .Lxtalabel35:
 	.loc	1 133 0
-	ldaw r11, cp[.str60]
+	ldaw r11, cp[.str64]
 	mov r0, r11
 .Lxta.call_labels26:
 	bl iprintf
@@ -3367,7 +3364,7 @@ Temperature_Water_Controller.select.y.case.0:
 	bf r0, .LBB38_16
 .Lxtalabel36:
 	.loc	1 136 0
-	ldaw r11, cp[.str61]
+	ldaw r11, cp[.str65]
 .LBB38_15:
 .Lxtalabel37:
 	mov r0, r11
@@ -3497,14 +3494,14 @@ Temperature_Water_Controller.select.y.case.1:
 	outct res[r7], 1
 	in r0, res[r7]
 .Ltmp286:
-	ldaw r11, cp[.str100+4]
+	ldaw r11, cp[.str108+4]
 	.loc	1 154 0
 .Ltmp287:
 	ld8u r1, r11[r6]
 	ldc r8, 4
 	ldaw r5, sp[1]
 	st8 r1, r5[r8]
-	ldw r1, cp[.str100]
+	ldw r1, cp[.str108]
 	stw r1, sp[1]
 	.loc	1 158 0
 .Ltmp288:
@@ -3517,7 +3514,6 @@ Temperature_Water_Controller.select.y.case.1:
 	ldaw r0, r0[7]
 	.loc	1 158 0
 	ld16s r0, r0[r6]
-	ldc r2, 5
 	mov r1, r5
 .Lxta.call_labels29:
 	bl Temp_OnetenthDegC_To_Str
@@ -3754,7 +3750,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 87 0
 	stw r3, r10[0]
 	.loc	1 89 0
-	ldaw r11, cp[.str75]
+	ldaw r11, cp[.str81]
 	mov r0, r11
 .Lxta.call_labels31:
 	bl iprintf
@@ -3766,7 +3762,7 @@ Temperature_Water_Controller.select.case.0:
 	bf r1, .LBB40_5
 .Lxtalabel43:
 	.loc	1 92 0
-	ldaw r11, cp[.str76]
+	ldaw r11, cp[.str82]
 	mov r0, r11
 .Lxta.call_labels32:
 	bl iprintf
@@ -3787,7 +3783,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 96 0
 	stw r0, r4[6]
 	.loc	1 97 0
-	ldaw r11, cp[.str77]
+	ldaw r11, cp[.str83]
 	bu .LBB40_9
 .LBB40_5:
 	.loc	1 104 28
@@ -3795,7 +3791,7 @@ Temperature_Water_Controller.select.case.0:
 	bt r0, .LBB40_6
 .Lxtalabel45:
 	.loc	1 119 0
-	ldaw r11, cp[.str82]
+	ldaw r11, cp[.str88]
 	bu .LBB40_9
 .LBB40_4:
 .Lxtalabel46:
@@ -3806,12 +3802,12 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 101 0
 	stw r0, r4[6]
 	.loc	1 102 0
-	ldaw r11, cp[.str78]
+	ldaw r11, cp[.str84]
 	bu .LBB40_9
 .LBB40_6:
 .Lxtalabel47:
 	.loc	1 106 0
-	ldaw r11, cp[.str79]
+	ldaw r11, cp[.str85]
 	mov r0, r11
 .Lxta.call_labels33:
 	bl iprintf
@@ -3833,7 +3829,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 110 0
 	stw r0, r4[6]
 	.loc	1 111 0
-	ldaw r11, cp[.str80]
+	ldaw r11, cp[.str86]
 	bu .LBB40_9
 .LBB40_18:
 .Lxtalabel49:
@@ -3851,7 +3847,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 115 0
 	stw r0, r4[6]
 	.loc	1 116 0
-	ldaw r11, cp[.str81]
+	ldaw r11, cp[.str87]
 .LBB40_9:
 .Lxtalabel50:
 	.loc	1 119 0
@@ -3868,7 +3864,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 123 0
 	ldw r3, r7[0]
 	.loc	1 123 0
-	ldaw r11, cp[.str84]
+	ldaw r11, cp[.str90]
 	mov r0, r11
 .Lxta.call_labels35:
 	bl iprintf
@@ -3880,7 +3876,7 @@ Temperature_Water_Controller.select.case.0:
 	bf r1, .LBB40_12
 .Lxtalabel51:
 	.loc	1 126 0
-	ldaw r11, cp[.str85]
+	ldaw r11, cp[.str91]
 	mov r0, r11
 .Lxta.call_labels36:
 	bl iprintf
@@ -3892,7 +3888,7 @@ Temperature_Water_Controller.select.case.0:
 	bf r0, .LBB40_16
 .Lxtalabel52:
 	.loc	1 129 0
-	ldaw r11, cp[.str86]
+	ldaw r11, cp[.str92]
 	bu .LBB40_15
 .LBB40_12:
 	.loc	1 131 28
@@ -3900,12 +3896,12 @@ Temperature_Water_Controller.select.case.0:
 	bt r0, .LBB40_13
 .Lxtalabel53:
 	.loc	1 139 0
-	ldaw r11, cp[.str89]
+	ldaw r11, cp[.str95]
 	bu .LBB40_15
 .LBB40_13:
 .Lxtalabel54:
 	.loc	1 133 0
-	ldaw r11, cp[.str87]
+	ldaw r11, cp[.str93]
 	mov r0, r11
 .Lxta.call_labels37:
 	bl iprintf
@@ -3917,7 +3913,7 @@ Temperature_Water_Controller.select.case.0:
 	bf r0, .LBB40_16
 .Lxtalabel55:
 	.loc	1 136 0
-	ldaw r11, cp[.str88]
+	ldaw r11, cp[.str94]
 .LBB40_15:
 .Lxtalabel56:
 	mov r0, r11
@@ -4047,14 +4043,14 @@ Temperature_Water_Controller.select.case.1:
 	outct res[r7], 1
 	in r0, res[r7]
 .Ltmp320:
-	ldaw r11, cp[.str100+4]
+	ldaw r11, cp[.str108+4]
 	.loc	1 154 0
 .Ltmp321:
 	ld8u r1, r11[r6]
 	ldc r8, 4
 	ldaw r5, sp[1]
 	st8 r1, r5[r8]
-	ldw r1, cp[.str100]
+	ldw r1, cp[.str108]
 	stw r1, sp[1]
 	.loc	1 158 0
 .Ltmp322:
@@ -4067,7 +4063,6 @@ Temperature_Water_Controller.select.case.1:
 	ldaw r0, r0[7]
 	.loc	1 158 0
 	ld16s r0, r0[r6]
-	ldc r2, 5
 	mov r1, r5
 .Lxta.call_labels40:
 	bl Temp_OnetenthDegC_To_Str
@@ -4277,217 +4272,217 @@ Temperature_Water_Controller.select.case.1:
 .str23:
 .asciiz"same "
 	.cc_bottom .str23.data
-	.cc_top .str48.data,.str48
-	.align	4
-	.type	.str48,@object
-	.size	.str48, 39
-.str48:
-.asciiz"DIFF with wanted %u-%u=%d tenths_degC "
-	.cc_bottom .str48.data
-	.cc_top .str49.data,.str49
-	.align	4
-	.type	.str49,@object
-	.size	.str49, 8
-.str49:
-.asciiz"above: "
-	.cc_bottom .str49.data
-	.cc_top .str50.data,.str50
-	.align	4
-	.type	.str50,@object
-	.size	.str50, 11
-.str50:
-.asciiz"slow cool "
-	.cc_bottom .str50.data
-	.cc_top .str51.data,.str51
-	.align	4
-	.type	.str51,@object
-	.size	.str51, 11
-.str51:
-.asciiz"fast cool "
-	.cc_bottom .str51.data
 	.cc_top .str52.data,.str52
 	.align	4
 	.type	.str52,@object
-	.size	.str52, 8
+	.size	.str52, 39
 .str52:
-.asciiz"below: "
+.asciiz"DIFF with wanted %u-%u=%d tenths_degC "
 	.cc_bottom .str52.data
 	.cc_top .str53.data,.str53
 	.align	4
 	.type	.str53,@object
-	.size	.str53, 11
+	.size	.str53, 8
 .str53:
-.asciiz" fast heat"
+.asciiz"above: "
 	.cc_bottom .str53.data
 	.cc_top .str54.data,.str54
 	.align	4
 	.type	.str54,@object
 	.size	.str54, 11
 .str54:
-.asciiz" slow heat"
+.asciiz"slow cool "
 	.cc_bottom .str54.data
 	.cc_top .str55.data,.str55
 	.align	4
 	.type	.str55,@object
-	.size	.str55, 6
+	.size	.str55, 11
 .str55:
-.asciiz"same "
+.asciiz"fast cool "
 	.cc_bottom .str55.data
+	.cc_top .str56.data,.str56
+	.align	4
+	.type	.str56,@object
+	.size	.str56, 8
+.str56:
+.asciiz"below: "
+	.cc_bottom .str56.data
 	.cc_top .str57.data,.str57
 	.align	4
 	.type	.str57,@object
-	.size	.str57, 39
+	.size	.str57, 11
 .str57:
-.asciiz"DELTA since last %u-%u=%d tenths_degC "
+.asciiz" fast heat"
 	.cc_bottom .str57.data
 	.cc_top .str58.data,.str58
 	.align	4
 	.type	.str58,@object
-	.size	.str58, 12
+	.size	.str58, 11
 .str58:
-.asciiz"increasing "
+.asciiz" slow heat"
 	.cc_bottom .str58.data
 	.cc_top .str59.data,.str59
 	.align	4
 	.type	.str59,@object
-	.size	.str59, 8
+	.size	.str59, 6
 .str59:
-.asciiz"enough "
+.asciiz"same "
 	.cc_bottom .str59.data
-	.cc_top .str60.data,.str60
-	.align	4
-	.type	.str60,@object
-	.size	.str60, 9
-.str60:
-.asciiz"falling "
-	.cc_bottom .str60.data
 	.cc_top .str61.data,.str61
 	.align	4
 	.type	.str61,@object
-	.size	.str61, 8
+	.size	.str61, 39
 .str61:
-.asciiz"enough "
+.asciiz"DELTA since last %u-%u=%d tenths_degC "
 	.cc_bottom .str61.data
 	.cc_top .str62.data,.str62
 	.align	4
 	.type	.str62,@object
-	.size	.str62, 6
+	.size	.str62, 12
 .str62:
-.asciiz"same "
+.asciiz"increasing "
 	.cc_bottom .str62.data
-	.cc_top .str75.data,.str75
+	.cc_top .str63.data,.str63
 	.align	4
-	.type	.str75,@object
-	.size	.str75, 39
-.str75:
-.asciiz"DIFF with wanted %u-%u=%d tenths_degC "
-	.cc_bottom .str75.data
-	.cc_top .str76.data,.str76
+	.type	.str63,@object
+	.size	.str63, 8
+.str63:
+.asciiz"enough "
+	.cc_bottom .str63.data
+	.cc_top .str64.data,.str64
 	.align	4
-	.type	.str76,@object
-	.size	.str76, 8
-.str76:
-.asciiz"above: "
-	.cc_bottom .str76.data
-	.cc_top .str77.data,.str77
+	.type	.str64,@object
+	.size	.str64, 9
+.str64:
+.asciiz"falling "
+	.cc_bottom .str64.data
+	.cc_top .str65.data,.str65
 	.align	4
-	.type	.str77,@object
-	.size	.str77, 11
-.str77:
-.asciiz"slow cool "
-	.cc_bottom .str77.data
-	.cc_top .str78.data,.str78
+	.type	.str65,@object
+	.size	.str65, 8
+.str65:
+.asciiz"enough "
+	.cc_bottom .str65.data
+	.cc_top .str66.data,.str66
 	.align	4
-	.type	.str78,@object
-	.size	.str78, 11
-.str78:
-.asciiz"fast cool "
-	.cc_bottom .str78.data
-	.cc_top .str79.data,.str79
-	.align	4
-	.type	.str79,@object
-	.size	.str79, 8
-.str79:
-.asciiz"below: "
-	.cc_bottom .str79.data
-	.cc_top .str80.data,.str80
-	.align	4
-	.type	.str80,@object
-	.size	.str80, 11
-.str80:
-.asciiz" fast heat"
-	.cc_bottom .str80.data
+	.type	.str66,@object
+	.size	.str66, 6
+.str66:
+.asciiz"same "
+	.cc_bottom .str66.data
 	.cc_top .str81.data,.str81
 	.align	4
 	.type	.str81,@object
-	.size	.str81, 11
+	.size	.str81, 39
 .str81:
-.asciiz" slow heat"
+.asciiz"DIFF with wanted %u-%u=%d tenths_degC "
 	.cc_bottom .str81.data
 	.cc_top .str82.data,.str82
 	.align	4
 	.type	.str82,@object
-	.size	.str82, 6
+	.size	.str82, 8
 .str82:
-.asciiz"same "
+.asciiz"above: "
 	.cc_bottom .str82.data
+	.cc_top .str83.data,.str83
+	.align	4
+	.type	.str83,@object
+	.size	.str83, 11
+.str83:
+.asciiz"slow cool "
+	.cc_bottom .str83.data
 	.cc_top .str84.data,.str84
 	.align	4
 	.type	.str84,@object
-	.size	.str84, 39
+	.size	.str84, 11
 .str84:
-.asciiz"DELTA since last %u-%u=%d tenths_degC "
+.asciiz"fast cool "
 	.cc_bottom .str84.data
 	.cc_top .str85.data,.str85
 	.align	4
 	.type	.str85,@object
-	.size	.str85, 12
+	.size	.str85, 8
 .str85:
-.asciiz"increasing "
+.asciiz"below: "
 	.cc_bottom .str85.data
 	.cc_top .str86.data,.str86
 	.align	4
 	.type	.str86,@object
-	.size	.str86, 8
+	.size	.str86, 11
 .str86:
-.asciiz"enough "
+.asciiz" fast heat"
 	.cc_bottom .str86.data
 	.cc_top .str87.data,.str87
 	.align	4
 	.type	.str87,@object
-	.size	.str87, 9
+	.size	.str87, 11
 .str87:
-.asciiz"falling "
+.asciiz" slow heat"
 	.cc_bottom .str87.data
 	.cc_top .str88.data,.str88
 	.align	4
 	.type	.str88,@object
-	.size	.str88, 8
+	.size	.str88, 6
 .str88:
-.asciiz"enough "
-	.cc_bottom .str88.data
-	.cc_top .str89.data,.str89
-	.align	4
-	.type	.str89,@object
-	.size	.str89, 6
-.str89:
 .asciiz"same "
-	.cc_bottom .str89.data
+	.cc_bottom .str88.data
+	.cc_top .str90.data,.str90
+	.align	4
+	.type	.str90,@object
+	.size	.str90, 39
+.str90:
+.asciiz"DELTA since last %u-%u=%d tenths_degC "
+	.cc_bottom .str90.data
+	.cc_top .str91.data,.str91
+	.align	4
+	.type	.str91,@object
+	.size	.str91, 12
+.str91:
+.asciiz"increasing "
+	.cc_bottom .str91.data
+	.cc_top .str92.data,.str92
+	.align	4
+	.type	.str92,@object
+	.size	.str92, 8
+.str92:
+.asciiz"enough "
+	.cc_bottom .str92.data
+	.cc_top .str93.data,.str93
+	.align	4
+	.type	.str93,@object
+	.size	.str93, 9
+.str93:
+.asciiz"falling "
+	.cc_bottom .str93.data
+	.cc_top .str94.data,.str94
+	.align	4
+	.type	.str94,@object
+	.size	.str94, 8
+.str94:
+.asciiz"enough "
+	.cc_bottom .str94.data
+	.cc_top .str95.data,.str95
+	.align	4
+	.type	.str95,@object
+	.size	.str95, 6
+.str95:
+.asciiz"same "
+	.cc_bottom .str95.data
 	.section	.cp.rodata.string,"aMSc",@progbits
-	.cc_top .str100.data,.str100
+	.cc_top .str108.data,.str108
 	.align	4
-	.type	.str100,@object
-	.size	.str100, 5
-.str100:
+	.type	.str108,@object
+	.size	.str108, 5
+.str108:
 .asciiz"??.?"
-	.cc_bottom .str100.data
-	.cc_top .Lstr107.data,.Lstr107
+	.cc_bottom .str108.data
+	.cc_top .Lstr117.data,.Lstr117
 	.align	4
-	.type	.Lstr107,@object
-	.size	.Lstr107, 37
-.Lstr107:
+	.type	.Lstr117,@object
+	.size	.Lstr117, 37
+.Lstr117:
 .asciiz"Temperature_Water_Controller started"
-	.cc_bottom .Lstr107.data
+	.cc_bottom .Lstr117.data
 	.text
 .Ldebug_end0:
 	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
@@ -7244,7 +7239,7 @@ Temperature_Water_Controller.select.case.1:
 .Lset42 = .Ltmp413-.Ltmp412
 	.short	.Lset42
 .Ltmp412:
-	.byte	87
+	.byte	86
 .Ltmp413:
 	.long	0
 	.long	0
@@ -7784,14 +7779,14 @@ Temperature_Water_Controller.select.case.1:
 	.typestring putchar, "f{si}(si)"
 	.typestring puts, "f{si}(u:q(c:uc))"
 	.typestring iprintf, "f{si}(u:q(c:uc),va)"
-	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(:uc)))"
+	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"
 	.typestring Temperature_Water_Controller, "k:f{0}(is(temperature_water_commands_if){m(get_temp_degC_string_filtered){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
 	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.get_temps.fns
 	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
 	.typestring Temperature_Water_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
-	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.get_temps.fns
 	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.__interface_init.fns
+	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.get_temps.fns
 	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_string_filtered){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
 	.typestring Temperature_Water_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
