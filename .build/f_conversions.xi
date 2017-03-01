@@ -1755,15 +1755,15 @@ Temp_OnetenthDegC_To_Str (
 
     temp_onetenthDegC_t return_degC_dp1 = (temp_onetenthDegC_t) degC_dp1;
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error |= ((degC_Unary_Part < 0) || (degC_Unary_Part > 999));
     error |= ((degC_Decimal_Part < 0) || (degC_Decimal_Part > 9));
 
-    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error |= (snprintf_return != 4);
-    error |= (snprintf_return < 0);
+    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error |= (sprintf_return != 4);
+    error |= (sprintf_return < 0);
 
     if (error) {
         char error_text [] = "Feil";
@@ -1787,15 +1787,15 @@ TC1047_Raw_DegC_To_String_Ok (
     int degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error |= ((degC_Unary_Part < 0) || (degC_Unary_Part > 99));
     error |= ((degC_Decimal_Part < 0) || (degC_Decimal_Part > 9));
 
-    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error |= (snprintf_return != 4);
-    error |= (snprintf_return < 0);
+    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error |= (sprintf_return != 4);
+    error |= (sprintf_return < 0);
 
     if (error) {
         char error_text [] = "Feil";
@@ -1814,15 +1814,15 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     light_range_t light_range = adc_val_mean_i/407;
     if (light_range > 99) light_range = 99;
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 # 295 "../src/f_conversions.xc"
     error |= ((light_range < 0) || (light_range > 99));
 
     if (!isnull(lux_str)) {
-        snprintf_return = snprintf (lux_str, sizeof(lux_str), "%02u", light_range);
-        error |= (snprintf_return != 2);
-        error |= (snprintf_return < 0);
+        sprintf_return = sprintf (lux_str, "%02u", light_range);
+        error |= (sprintf_return != 2);
+        error |= (sprintf_return < 0);
 
         if (error) {
             char error_text [] = "??";
@@ -1851,7 +1851,7 @@ RR_12V_24V_To_String_Ok (
     int volt_Unary_Part = volt_dp1/10;
     int volt_Decimal_Part = volt_dp1 - (volt_Unary_Part*10);
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error |= ((volt_Unary_Part < 0) || (volt_Unary_Part > 99));
@@ -1862,9 +1862,9 @@ RR_12V_24V_To_String_Ok (
     } else {}
 
     if (!isnull(rr_12V_24V_str)) {
-        snprintf_return = snprintf (rr_12V_24V_str, sizeof(rr_12V_24V_str), "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-        error |= (snprintf_return != 4);
-        error |= (snprintf_return < 0);
+        sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
+        error |= (sprintf_return != 4);
+        error |= (sprintf_return < 0);
 
         if (error) {
             char error_text [] = "??.?";

@@ -95,7 +95,7 @@ typedef struct {
     unsigned                    silent_any_button_while_display_on_seconds_cnt;
     unsigned                    display_is_on_seconds_cnt;
     bool                        display_is_on;
-    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when snprintf is used
+    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is used
     int                         iof_button_last_taken_action; // Since index of channel must(?) be int
     bool                        full_light;
     light_control_scheme_t      light_control_scheme;
@@ -128,7 +128,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const  caller_t                        caller)
 {
 
-    int  snprintf_return; // If OK, number of chars excluding \0 written, if < 0 error
+    int  sprintf_return; // If OK, number of chars excluding \0 written, if < 0 error
 
     char char_degC_circle_str[] = DEGC_CIRCLE_STR;
     char char_AA_str[]          = CHAR_AA_STR; // A
@@ -141,15 +141,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_AKVARIETEMPERATURER: {
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             Clear_All_Pixels_In_Buffer();
 
-            char temp_degC_water_str   [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-            char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-            char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+            char temp_degC_water_str   [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+            char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+            char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
 
             // printf("SCREEN_AKVARIETEMPERATURER 1\n");
             i_temperature_water_commands.get_temp_degC_string_filtered (IOF_TEMPC_WATER,   temp_degC_water_str);
@@ -160,7 +160,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             // printf("SCREEN_AKVARIETEMPERATURER 4\n");
 
             // FILLS 84 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
                     temp_degC_water_str,   char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
@@ -171,12 +171,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                      LUFT 25.0oC
             //                                              VARMEELEMENT 25.0oC
 
-            // printf ("SCREEN_AKVARIETEMPERATURER %d\n", snprintf_return);
+            // printf ("SCREEN_AKVARIETEMPERATURER %d\n", sprintf_return);
 
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -189,9 +189,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_VARMEREGULERING: {
 
-            char temp_degC_heater_mean_last_cycle_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+            char temp_degC_heater_mean_last_cycle_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -204,7 +204,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             // printf("SCREEN_VARMEREGULERING 2\n");
 
             // FILLS 78 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
                     char_AA_str,
                     char_AA_str,
@@ -217,7 +217,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                              SNITT  39.6oC   [±
             //                                              EFFEKT    48W     .
 
-            // printf ("SCREEN_VARMEREGULERING %d\n", snprintf_return);
+            // printf ("SCREEN_VARMEREGULERING %d\n", sprintf_return);
 
             if (context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) {
                 drawRoundRect(106, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
@@ -234,7 +234,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -258,32 +258,32 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             switch (context.light_control_scheme) {
                 case LIGHT_CONTROL_IS_VOID : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", "INIT");
+                    sprintf (light_control_scheme_str, "%s", "INIT");
                 } break;
                 case LIGHT_CONTROL_IS_DAY : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", " DAG"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " DAG"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", " NED"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " NED"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", "NATT");
+                    sprintf (light_control_scheme_str, "%s", "NATT");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", " OPP"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " OPP"); // Leading space
                  } break;
                 case LIGHT_CONTROL_IS_RANDOM : {
-                    snprintf (light_control_scheme_str, CONTROL_SCREEN_TEXT_LEN, "%s", " SKY"); // Leading space
+                    sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
                 } break;
                 default: break;
             }
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // FILLS 77 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,                                           // "5"
@@ -302,13 +302,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                  MAKS 3/3      .
             //                                                   DAG ± 10     .
 
-            // printf ("SCREEN_LYSGULERING %d\n", snprintf_return);
+            // printf ("SCREEN_LYSGULERING %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -325,7 +325,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
 
         case SCREEN_BOKSDATA: {
-            char temp_degC_str [INNER_TEMPERATURE_TEXT_LEN_DEGC];
+            char temp_degC_str [INNER_TEMPERATURE_DEGC_TEXT_LEN];
             char rr_12V_str    [INNER_RR_12V_24V_TEXT_LEN];
             char rr_24V_str    [INNER_RR_12V_24V_TEXT_LEN];
             light_range_t      light_sensor_intensity;
@@ -334,7 +334,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             char fill_1_str [] = " ";
             char fill_2_str [] = "  ";
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -347,7 +347,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
 
             // FILLS 84 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
@@ -361,13 +361,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                                TEMPERATUR 25.4oC
             //
 
-            // printf ("SCREEN_BOKSDATA %d\n", snprintf_return);
+            // printf ("SCREEN_BOKSDATA %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -380,12 +380,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_VERSJON: {
 
-             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                  context.display_ts1_chars [index_of_char] = ' ';
              }
 
              // FILLS 84 chars plus \0
-             snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+             sprintf_return = sprintf (context.display_ts1_chars,
                      "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", __DATE__, char_OE_str, char_aa_str);
 
              //                                            ..........----------.
@@ -394,13 +394,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
              //                                            = ¯yvind Teig       .
              //                                              XC pŒ XMOS startKIT
 
-             // printf ("SCREEN_VERSJON %d\n", snprintf_return);
+             // printf ("SCREEN_VERSJON %d\n", sprintf_return);
 
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(WHITE);
              setCursor(0,0);
-             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
              writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
              context.display_is_on = true;
 
@@ -415,14 +415,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
             int temp_heater_degc  = (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING/10);
             int temp_water_degc = (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT/10);
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // Max Watts and requried voltages are technical matters, out of scope here. This is about the fish and plant living environment:
 
             // FILLS 84 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
                 temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
                     //                                            ..........----------.
@@ -431,13 +431,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                                       VANN  25oC
                     //                                              MAX UNDERVARME 25oC
 
-            // printf ("SCREEN_FASTE_INNSTILLINGER %d\n", snprintf_return);
+            // printf ("SCREEN_FASTE_INNSTILLINGER %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -450,12 +450,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_KLOKKE: {
 
-            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN; index_of_char++) {
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // FILLS 20 chars plus \0
-            snprintf_return = snprintf (context.display_ts1_chars, SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN,
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "%04u.%02u.%02u  %02u.%02u.%02u",
                     context.datetime.year, context.datetime.month,  context.datetime.day,
                     context.datetime.hour, context.datetime.minute, context.datetime.second);
@@ -469,13 +469,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
             context.datetime.second = 0;
             // bool ok = i_chronodot_ds3231.set_time_ok(datetime);
 
-            // printf ("SCREEN_KLOKKE %d\n", snprintf_return);
+            // printf ("SCREEN_KLOKKE %d\n", sprintf_return);
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(2);
             setTextColor(WHITE);
             setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_LEN*4)); // No need for the \0
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -489,10 +489,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
     }
 
-    if (snprintf_return < 0) {
-        printf ("ERROR: snprintf_return %d\n", snprintf_return);
-    } else if ((snprintf_return+1) > sizeof context.display_ts1_chars) {
-        printf ("\nEXCEPTION: MEMORY OVERFLOW: snprintf_return %d\n\n", snprintf_return);
+    // When I replaced all sprintf with snprintf 12.6KB code was the cost! See http://www.xcore.com/viewtopic.php?f=26&t=5636
+    if (sprintf_return < 0) {
+        printf ("ERROR: sprintf_return %d\n", sprintf_return);
+    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
+        printf ("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return);
     }
 }
 

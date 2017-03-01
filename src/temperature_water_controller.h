@@ -19,7 +19,7 @@ typedef enum {
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
-    void                  get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]); // Only for NUM_I2C_TEMPERATURES [0..2]
+    void                  get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]); // Only for NUM_I2C_TEMPERATURES [0..2]
     {now_regulating_at_t} get_now_regulating_at (void);
 } temperature_water_commands_if;
 

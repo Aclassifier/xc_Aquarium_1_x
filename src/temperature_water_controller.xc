@@ -148,16 +148,16 @@ void Temperature_Water_Controller (
                 }
             } break;
 
-            case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]) : {
+            case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
 
                 // printf ("WATER: get_temp_degC_string_filtered\n");
-                char temp_degC_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC] = {GENERIC_TEXT_DEGC};
+                char temp_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_DEGC};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
 
                 {temp_onetenthDegC, ok_degC_convert} = Temp_OnetenthDegC_To_Str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 
-                for (int iof_char=0; iof_char < GENERIC_TEXT_LEN_DEGC; iof_char++) {
+                for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
                     return_value_string[iof_char] = temp_degC_str[iof_char];
                 }
             } break;

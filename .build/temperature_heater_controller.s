@@ -34,7 +34,7 @@
 	.globl Temperature_Heater_Controller.select.y.enable.cases.maxchanends
 	.set Temperature_Heater_Controller.select.y.enable.cases,0
 	.globl Temperature_Heater_Controller.select.y.enable.cases
-	.set Temperature_Heater_Controller.select.y.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.y.case.1.nstackwords) $M (Temperature_Heater_Controller.select.y.case.2.nstackwords) $M (Temperature_Heater_Controller.select.y.case.0.nstackwords)
+	.set Temperature_Heater_Controller.select.y.enable.cases.nstackwords, 0 $M (Temperature_Heater_Controller.select.y.case.2.nstackwords) $M (Temperature_Heater_Controller.select.y.case.0.nstackwords) $M (Temperature_Heater_Controller.select.y.case.1.nstackwords)
 	.globl Temperature_Heater_Controller.select.y.enable.cases.nstackwords
 	.set Temperature_Heater_Controller.select.enable.savedstate,95
 	.globl Temperature_Heater_Controller.select.enable.savedstate

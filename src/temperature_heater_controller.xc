@@ -68,7 +68,7 @@ void Temperature_Heater_Controller (
 
     temp_onetenthDegC_t      temps_onetenthDegC      [NUM_TEMPERATURES] =
                                                      {EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC, EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC};
-    char                     temps_degC_str          [NUM_TEMPERATURES] [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC] =
+    char                     temps_degC_str          [NUM_TEMPERATURES] [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] =
                                                      {{GENERIC_TEXT_DEGC}, {GENERIC_TEXT_DEGC},{GENERIC_TEXT_DEGC},{GENERIC_TEXT_NO_DATA_DEGC}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean [NUM_I2C_TEMPERATURES]; // Not for IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 
@@ -261,9 +261,9 @@ void Temperature_Heater_Controller (
                 }
             } break;
 
-            case i_temperature_heater_commands[int index_of_client].get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[GENERIC_TEXT_LEN_DEGC]) : {
+            case i_temperature_heater_commands[int index_of_client].get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 // printf ("HEATER: get_temp_degC_string\n");
-                for (int iof_char=0; iof_char < GENERIC_TEXT_LEN_DEGC; iof_char++) {
+                for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
                     return_value_string[iof_char] = temps_degC_str[iof_temps][iof_char];
                 }
             } break;

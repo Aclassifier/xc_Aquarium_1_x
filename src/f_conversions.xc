@@ -185,22 +185,22 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 {temp_onetenthDegC_t, bool}
 Temp_OnetenthDegC_To_Str (
     const i2c_temp_onetenthDegC_t degC_dp1,
-    char temp_degC_str[EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC]) {
+    char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) {
 
     int degC_Unary_Part   = degC_dp1/10;
     int degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
     temp_onetenthDegC_t return_degC_dp1 = (temp_onetenthDegC_t) degC_dp1;
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error or_eq ((degC_Unary_Part < EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC) or (degC_Unary_Part > EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC));
     error or_eq ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
 
-    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error or_eq (snprintf_return != 4); // "25.0"
-    error or_eq (snprintf_return < 0);
+    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error or_eq (sprintf_return != 4); // "25.0"
+    error or_eq (sprintf_return < 0);
 
     if (error) {
         char error_text [] = EXTERNAL_TEMPERATURE_ERROR_TEXT;
@@ -214,7 +214,7 @@ Temp_OnetenthDegC_To_Str (
 {temp_onetenthDegC_t, bool}
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char temp_degC_str[EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC]) {
+    char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) {
 
      // Internal A/D-converter
      // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -239,15 +239,15 @@ TC1047_Raw_DegC_To_String_Ok (
     int  degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error or_eq ((degC_Unary_Part < INNER_TEMPERATURE_MIN_DEGC) or (degC_Unary_Part > INNER_TEMPERATURE_MAX_DEGC));
     error or_eq ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
 
-    snprintf_return = snprintf (temp_degC_str, sizeof(temp_degC_str), "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error or_eq (snprintf_return != 4); // "25.0"
-    error or_eq (snprintf_return < 0);
+    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+    error or_eq (sprintf_return != 4); // "25.0"
+    error or_eq (sprintf_return < 0);
 
     if (error) {
         char error_text [] = INNER_TEMPERATURE_ERROR_TEXT;
@@ -276,7 +276,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     light_range_t light_range = adc_val_mean_i/407;  // Dark to low light is zero, normal 5-10, max 99
     if (light_range > INNER_MAX_LUX) light_range = INNER_MAX_LUX; // Error will not be set
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     //int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2);
@@ -295,9 +295,9 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     error or_eq ((light_range < INNER_MIN_LUX) or (light_range > INNER_MAX_LUX));
 
     if (!isnull(lux_str)) {
-        snprintf_return = snprintf (lux_str, sizeof(lux_str), "%02u", light_range);
-        error or_eq (snprintf_return != 2); // "25.0"
-        error or_eq (snprintf_return < 0);
+        sprintf_return = sprintf (lux_str, "%02u", light_range);
+        error or_eq (sprintf_return != 2); // "25.0"
+        error or_eq (sprintf_return < 0);
 
         if (error) {
             char error_text [] = INNER_LUX_ERROR_TEXT;
@@ -338,7 +338,7 @@ RR_12V_24V_To_String_Ok (
     int  volt_Unary_Part   = volt_dp1/10;
     int  volt_Decimal_Part = volt_dp1 - (volt_Unary_Part*10);
 
-    int snprintf_return;
+    int sprintf_return;
     bool error = false;
 
     error or_eq ((volt_Unary_Part < INNER_RR_12V_24V_MIN_VOLTS) or (volt_Unary_Part > INNER_RR_12V_24V_MAX_VOLTS));
@@ -349,9 +349,9 @@ RR_12V_24V_To_String_Ok (
     } else {}
 
     if (!isnull(rr_12V_24V_str)) {
-        snprintf_return = snprintf (rr_12V_24V_str, sizeof(rr_12V_24V_str), "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-        error or_eq (snprintf_return != 4); // "25.0"
-        error or_eq (snprintf_return < 0);
+        sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
+        error or_eq (sprintf_return != 4); // "25.0"
+        error or_eq (sprintf_return < 0);
 
         if (error) {
             char error_text [] = INNER_RR_12V_24V_ERROR_TEXT;

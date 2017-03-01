@@ -16,14 +16,14 @@
 #define CHAR_OE_STR         {CHAR_OE,0}
 
 
-#define GENERIC_TEXT_LEN_DEGC 5 // "25.0" with space for EOS (zero)
+#define GENERIC_DEGC_TEXT_LEN 5 // "25.0" with space for EOS (zero)
 #define GENERIC_TEXT_DEGC          "??.?"
 #define GENERIC_TEXT_NO_DATA_DEGC  "...."
 
 #define INNER_TEMPERATURE_MAX_DEGC        99     // Think of it also as "undefined" (read not successful)
 #define INNER_TEMPERATURE_MIN_DEGC        0
-#define INNER_TEMPERATURE_TEXT_LEN_DEGC   GENERIC_TEXT_LEN_DEGC
-#define INNER_TEMPERATURE_ERROR_TEXT      "Feil" // INNER_TEMPERATURE_TEXT_LEN_DEGC also includes NUL at the end
+#define INNER_TEMPERATURE_DEGC_TEXT_LEN   GENERIC_DEGC_TEXT_LEN
+#define INNER_TEMPERATURE_ERROR_TEXT      "Feil" // INNER_TEMPERATURE_DEGC_TEXT_LEN also includes NUL at the end
 #define INNER_TEMPERATURE_OFFSET_DEGC_DP1 18     // 1.8 degC is 18 mV too high
                                                  // TC1047A data sheet says 25.0 degC is 730-770 mV with 750 mV nominal
                                                  // Observe that we also have subtracted OFFSET_ADC_INPUTS_STARTKIT
@@ -33,11 +33,11 @@
 #define INNER_RR_12V_24V_TEXT_LEN 5         // "12.0" with space for EOS (zero)
 #define INNER_RR_12V_24V_ERROR_TEXT   "??.?"     // INNER_12V_24V_ERROR_TEXT also includes NUL at the end
 
-#define SSD1306_TS1_LINE_CHAR_LEN              21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
-#define SSD1306_TS1_LINE_NUMS                   4
-#define SSD1306_TS1_DISPLAY_CHAR_LEN          (SSD1306_TS1_LINE_CHAR_LEN * SSD1306_TS1_LINE_NUMS) // 84
-#define SSD1306_TS1_DISPLAY_CHAR_LEN_BIG      (SSD1306_TS1_DISPLAY_CHAR_LEN/2)
-#define SSD1306_TS1_DISPLAY_CHAR_SPRINTF_LEN  (SSD1306_TS1_DISPLAY_CHAR_LEN + 1) // snprintf overflows flat out without space for NUL
+#define SSD1306_TS1_LINE_CHAR_NUM     21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
+#define SSD1306_TS1_LINE_NUMS          4
+#define SSD1306_TS1_DISPLAY_CHAR_NUM (SSD1306_TS1_LINE_CHAR_NUM * SSD1306_TS1_LINE_NUMS) // 84
+#define SSD1306_TS2_DISPLAY_CHAR_NUM (SSD1306_TS1_DISPLAY_CHAR_NUM/2)
+#define SSD1306_TS1_DISPLAY_CHAR_LEN (SSD1306_TS1_DISPLAY_CHAR_NUM + 1) // sprintf overflows flat out without space for NUL. But snprintf is too expensive (12.6KB)
 
 #define INNER_MAX_LUX         99 // Used for both "err" and max light (if max light then "ok==false" is not returned)
 #define INNER_MIN_LUX         0
@@ -46,8 +46,8 @@
 
 #define EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC 999    // 99.9 degC Think of it also as "undefined" (read not successful)
 #define EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC 0      // Got below zero temp from chip
-#define EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC    GENERIC_TEXT_LEN_DEGC
-#define EXTERNAL_TEMPERATURE_ERROR_TEXT       "Feil" // EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC also includes NUL at the end
+#define EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN    GENERIC_DEGC_TEXT_LEN
+#define EXTERNAL_TEMPERATURE_ERROR_TEXT       "Feil" // EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN also includes NUL at the end
 
 // Depending of now_regulating_at_t
 #define REGULATING_AT_NUMS          5

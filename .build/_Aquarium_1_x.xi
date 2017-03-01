@@ -2054,7 +2054,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const caller_t caller)
 {
 
-    int snprintf_return;
+    int sprintf_return;
 
     char char_degC_circle_str[] = {247,0};
     char char_AA_str[] = {143,0};
@@ -2086,7 +2086,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "1 AKVARIETEMPERATURER          VANN %s%sC          LUFT %s%sC  VARMEELEMENT %s%sC",
                     temp_degC_water_str, char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
@@ -2123,7 +2123,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
                     char_AA_str,
                     char_AA_str,
@@ -2170,22 +2170,22 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             switch (context.light_control_scheme) {
                 case LIGHT_CONTROL_IS_VOID : {
-                    snprintf (light_control_scheme_str, 5, "%s", "INIT");
+                    sprintf (light_control_scheme_str, "%s", "INIT");
                 } break;
                 case LIGHT_CONTROL_IS_DAY : {
-                    snprintf (light_control_scheme_str, 5, "%s", " DAG");
+                    sprintf (light_control_scheme_str, "%s", " DAG");
                  } break;
                 case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                    snprintf (light_control_scheme_str, 5, "%s", " NED");
+                    sprintf (light_control_scheme_str, "%s", " NED");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT : {
-                    snprintf (light_control_scheme_str, 5, "%s", "NATT");
+                    sprintf (light_control_scheme_str, "%s", "NATT");
                  } break;
                 case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                    snprintf (light_control_scheme_str, 5, "%s", " OPP");
+                    sprintf (light_control_scheme_str, "%s", " OPP");
                  } break;
                 case LIGHT_CONTROL_IS_RANDOM : {
-                    snprintf (light_control_scheme_str, 5, "%s", " SKY");
+                    sprintf (light_control_scheme_str, "%s", " SKY");
                 } break;
                 default: break;
             }
@@ -2195,7 +2195,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "3 LYS P%s   %uW %uW %uW    TREDELER F%u M%u B%u        MAKS %s             %s %s %u",
                     char_AA_str,
                     WATTOF_LED_STRIP_FRONT,
@@ -2252,7 +2252,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[1], ((void*)0));
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
@@ -2282,7 +2282,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
              }
 
 
-             snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+             sprintf_return = sprintf (context.display_ts1_chars,
                      "5 AKVARIESTYRING       (C) %s    = %syvind Teig          XC p%s XMOS startKIT", "Mar  1 2017", char_OE_str, char_aa_str);
 # 399 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
@@ -2295,7 +2295,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                 printf("Version date %s %s\n", "07:33:25", "Mar  1 2017");
+                 printf("Version date %s %s\n", "07:51:23", "Mar  1 2017");
              } else {}
          } break;
 
@@ -2311,7 +2311,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
                 temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
 # 436 "../src/_Aquarium_1_x.xc"
@@ -2326,7 +2326,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                printf("Version date %s %s\n", "07:33:25", "Mar  1 2017");
+                printf("Version date %s %s\n", "07:51:23", "Mar  1 2017");
             } else {}
         } break;
 
@@ -2337,7 +2337,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
 
-            snprintf_return = snprintf (context.display_ts1_chars, ((21 * 4) + 1),
+            sprintf_return = sprintf (context.display_ts1_chars,
                     "%04u.%02u.%02u  %02u.%02u.%02u",
                     context.datetime.year, context.datetime.month, context.datetime.day,
                     context.datetime.hour, context.datetime.minute, context.datetime.second);
@@ -2371,10 +2371,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
     }
 
-    if (snprintf_return < 0) {
-        printf ("ERROR: snprintf_return %d\n", snprintf_return);
-    } else if ((snprintf_return+1) > sizeof context.display_ts1_chars) {
-        printf ("\nEXCEPTION: MEMORY OVERFLOW: snprintf_return %d\n\n", snprintf_return);
+
+    if (sprintf_return < 0) {
+        printf ("ERROR: sprintf_return %d\n", sprintf_return);
+    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
+        printf ("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return);
     }
 }
 

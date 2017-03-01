@@ -37,12 +37,12 @@ typedef int light_range_t; // [00..99]
 // 24.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X 3) = 39.0 almost TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
 //                                                                    #
 
-typedef struct temp_degC_str_t { char string[EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC]; } temp_degC_str_t;
+typedef struct temp_degC_str_t { char string[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]; } temp_degC_str_t;
 
 typedef struct {
-    char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-    char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
-    char temp_degC_water_str   [EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC];
+    char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+    char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+    char temp_degC_water_str   [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
 } temp_degC_strings_t;
 
 #define ARITHMETIC_MEAN_N_OF_TEMPS 8 // Observe TEMP_MEASURE_INTERVAL_IS_10_SECONDS. When we trow away larges and smallet we get 6 to work with
@@ -57,8 +57,8 @@ typedef struct {
     temp_onetenthDegC_t temps_sum_mten_previous;   // 0 (init) or the value
 } temp_onetenthDegC_mean_t;
 
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[EXTERNAL_TEMPERATURE_TEXT_LEN_DEGC]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
 {light_range_t, bool}       Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i,      char (&?lux_str)[INNER_LUX_TEXT_LEN]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]);
 
