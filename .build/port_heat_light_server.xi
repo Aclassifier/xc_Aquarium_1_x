@@ -1210,8 +1210,9 @@ typedef enum {
 
 
 typedef interface port_heat_light_commands_if {
-    {light_composition_t, bool, light_control_scheme_t}
-         get_light_composition (unsigned return_thirds [3]);
+
+    {light_composition_t} get_light_composition (void);
+    {light_composition_t, bool, light_control_scheme_t} get_light_composition_etc (unsigned return_thirds [3]);
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
@@ -1443,7 +1444,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (
                     const light_composition_t iof_light_composition_level,
-                    const const light_control_scheme_t light_control_scheme_in,
+                    const light_control_scheme_t light_control_scheme_in,
                     const unsigned value_to_print) : {
                 printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
 
@@ -1490,7 +1491,13 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [3]) ->
+            case i_port_heat_light_commands[int index_of_client].get_light_composition (void) -> {light_composition_t return_light_composition} : {
+
+                return_light_composition = iof_light_composition_level_present;
+
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc (unsigned return_thirds [3]) ->
                     {light_composition_t return_light_composition, bool return_stable, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < 3; iof_LED_strip++) {
@@ -1504,7 +1511,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if ((mask & (1<<4)) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
                     if ((mask & (1<<5)) != 0) return_thirds[IOF_LED_STRIP_BACK] += 1;
                 }
-# 393 "../src/port_heat_light_server.xc"
+# 399 "../src/port_heat_light_server.xc"
                 return_stable = true;
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < 3; iof_light_pwm_window++) {
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) return_stable = false;

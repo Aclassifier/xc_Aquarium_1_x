@@ -4373,7 +4373,7 @@ postmask.static:
 .Linfo_string15:
 .asciiz"SSD1306_SWITCHCAPVCC"
 .Linfo_string16:
-.asciiz"__TYPE_14"
+.asciiz"__TYPE_15"
 .Linfo_string17:
 .asciiz"writeDisplay_i2c_command"
 .Linfo_string18:
@@ -4501,7 +4501,7 @@ postmask.static:
 .Linfo_string79:
 .asciiz"registers"
 .Linfo_string80:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_13"
 .Linfo_string81:
 .asciiz"param3"
 .Linfo_string82:
@@ -12090,17 +12090,17 @@ postmask.static:
 	.long	7580
 .asciiz"chanend"
 	.long	7597
-.asciiz"__TYPE_12"
-	.long	565
-.asciiz"__TYPE_14"
+.asciiz"__TYPE_13"
+	.long	7642
+.asciiz"yarg"
 	.long	53
 .asciiz"port"
 	.long	902
 .asciiz"__TYPE_7"
+	.long	565
+.asciiz"__TYPE_15"
 	.long	1120
 .asciiz"unsigned int"
-	.long	7642
-.asciiz"yarg"
 	.long	95
 .asciiz"unsigned char"
 	.long	1088

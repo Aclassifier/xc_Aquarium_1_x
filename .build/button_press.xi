@@ -1341,23 +1341,22 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_ACTION_RELEASED,
     BUTTON_ACTION_PRESSED,
-    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
+    BUTTON_ACTION_RELEASED
+
 } button_action_t;
-
-
-
-
-
+# 26 "../src/button_press.h"
+typedef struct {
+    bool button_pressed_now;
+    bool button_pressed_for_10_seconds;
+} button_state_t;
 
 
 typedef struct {
     button_action_t button_action;
     int iof_button;
 } buttons_t;
-
-
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 18 "../src/button_press.xc" 2
@@ -1389,7 +1388,6 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
 
     int current_val = 0;
     bool is_stable = true;
-    bool button_pressed_for_10_seconds_sent = false;
     timer tmr;
     unsigned timeout;
     int current_time;
@@ -1404,7 +1402,15 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
         select {
 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
-# 85 "../src/button_press.xc"
+
+                    if (current_val == 0) {
+                        printf(": Button %u pressed\n", button_n);
+                    }
+                    else {
+                        printf(": Button %u released\n", button_n);
+                    }
+
+
                 pressed_but_not_released = false;
                 is_stable = false;
 
@@ -1424,7 +1430,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
 
                         c_button_out <: BUTTON_ACTION_PRESSED;
 
-
+                            printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
 
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
@@ -1433,25 +1439,19 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
 
-
+                                printf(" Button %u filtered away\n", button_n);
 
                         } else {
                             pressed_but_not_released = false;
-                            if (button_pressed_for_10_seconds_sent) {
-                                button_pressed_for_10_seconds_sent = false;
-                            } else {
-                                c_button_out <: BUTTON_ACTION_RELEASED;
+                            c_button_out <: BUTTON_ACTION_RELEASED;
 
+                                printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
 
-
-                            }
                         }
                     }
                     is_stable = true;
                 } else {
                     pressed_but_not_released = false;
-                    button_pressed_for_10_seconds_sent = true;
-
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
                     printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
                 }

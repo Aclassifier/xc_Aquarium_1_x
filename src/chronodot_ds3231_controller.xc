@@ -47,17 +47,17 @@ DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t ch
     return datetime;
 }
 
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr) {
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers) {
 
     // The other registers are not touched.
     // => This means that they have to be read from chronodot before they are attempted to be written
 
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR]       = Bin_To_BCD_8((uint8_t) (datetime.year - DATETIME_YEAR_OFFSET));
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_MONTH]      = Bin_To_BCD_8((uint8_t)  datetime.month);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_DAYOFMONTH] = Bin_To_BCD_8((uint8_t)  datetime.day);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_HOUR]       = Bin_To_BCD_8((uint8_t)  datetime.hour);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_MINUTE]     = Bin_To_BCD_8((uint8_t)  datetime.minute);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_SECOND]     = Bin_To_BCD_8((uint8_t)  datetime.second);
+    chronodot_d3231_registers.registers[DS3231_REG_YEAR]       = Bin_To_BCD_8((uint8_t) (datetime.year - DATETIME_YEAR_OFFSET));
+    chronodot_d3231_registers.registers[DS3231_REG_MONTH]      = Bin_To_BCD_8((uint8_t)  datetime.month);
+    chronodot_d3231_registers.registers[DS3231_REG_DAYOFMONTH] = Bin_To_BCD_8((uint8_t)  datetime.day);
+    chronodot_d3231_registers.registers[DS3231_REG_HOUR]       = Bin_To_BCD_8((uint8_t)  datetime.hour);
+    chronodot_d3231_registers.registers[DS3231_REG_MINUTE]     = Bin_To_BCD_8((uint8_t)  datetime.minute);
+    chronodot_d3231_registers.registers[DS3231_REG_SECOND]     = Bin_To_BCD_8((uint8_t)  datetime.second);
 }
 
 // When I not made this a separate task, but called I2C_Internal_Server directly from the same client

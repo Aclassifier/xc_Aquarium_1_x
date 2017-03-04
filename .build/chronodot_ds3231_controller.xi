@@ -1630,23 +1630,22 @@ extern display_param_t display_param;
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_ACTION_RELEASED,
     BUTTON_ACTION_PRESSED,
-    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
+    BUTTON_ACTION_RELEASED
+
 } button_action_t;
-
-
-
-
-
+# 26 "../src/button_press.h"
+typedef struct {
+    bool button_pressed_now;
+    bool button_pressed_for_10_seconds;
+} button_state_t;
 
 
 typedef struct {
     button_action_t button_action;
     int iof_button;
 } buttons_t;
-
-
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 29 "../src/chronodot_ds3231_controller.xc" 2
@@ -1762,8 +1761,9 @@ typedef enum {
 
 
 typedef interface port_heat_light_commands_if {
-    {light_composition_t, bool, light_control_scheme_t}
-         get_light_composition (unsigned return_thirds [3]);
+
+    {light_composition_t} get_light_composition (void);
+    {light_composition_t, bool, light_control_scheme_t} get_light_composition_etc (unsigned return_thirds [3]);
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
@@ -1886,7 +1886,7 @@ typedef struct {
 
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers);
 
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
@@ -1913,17 +1913,17 @@ DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t ch
     return datetime;
 }
 
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr) {
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers) {
 
 
 
 
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_YEAR] = Bin_To_BCD_8((uint8_t) (datetime.year - 2000));
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_MONTH] = Bin_To_BCD_8((uint8_t) datetime.month);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_DAYOFMONTH] = Bin_To_BCD_8((uint8_t) datetime.day);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_HOUR] = Bin_To_BCD_8((uint8_t) datetime.hour);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_MINUTE] = Bin_To_BCD_8((uint8_t) datetime.minute);
-    chronodot_d3231_registers_ptr->registers[DS3231_REG_SECOND] = Bin_To_BCD_8((uint8_t) datetime.second);
+    chronodot_d3231_registers.registers[DS3231_REG_YEAR] = Bin_To_BCD_8((uint8_t) (datetime.year - 2000));
+    chronodot_d3231_registers.registers[DS3231_REG_MONTH] = Bin_To_BCD_8((uint8_t) datetime.month);
+    chronodot_d3231_registers.registers[DS3231_REG_DAYOFMONTH] = Bin_To_BCD_8((uint8_t) datetime.day);
+    chronodot_d3231_registers.registers[DS3231_REG_HOUR] = Bin_To_BCD_8((uint8_t) datetime.hour);
+    chronodot_d3231_registers.registers[DS3231_REG_MINUTE] = Bin_To_BCD_8((uint8_t) datetime.minute);
+    chronodot_d3231_registers.registers[DS3231_REG_SECOND] = Bin_To_BCD_8((uint8_t) datetime.second);
 }
 # 85 "../src/chronodot_ds3231_controller.xc"
 [[combinable]]

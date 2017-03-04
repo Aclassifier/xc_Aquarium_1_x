@@ -1554,23 +1554,22 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_ACTION_RELEASED,
     BUTTON_ACTION_PRESSED,
-    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
+    BUTTON_ACTION_RELEASED
+
 } button_action_t;
-
-
-
-
-
+# 26 "../src/button_press.h"
+typedef struct {
+    bool button_pressed_now;
+    bool button_pressed_for_10_seconds;
+} button_state_t;
 
 
 typedef struct {
     button_action_t button_action;
     int iof_button;
 } buttons_t;
-
-
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 30 "../src/main.xc" 2
@@ -1686,8 +1685,9 @@ typedef enum {
 
 
 typedef interface port_heat_light_commands_if {
-    {light_composition_t, bool, light_control_scheme_t}
-         get_light_composition (unsigned return_thirds [3]);
+
+    {light_composition_t} get_light_composition (void);
+    {light_composition_t, bool, light_control_scheme_t} get_light_composition_etc (unsigned return_thirds [3]);
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
@@ -1809,7 +1809,7 @@ typedef struct {
 
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers);
 
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);

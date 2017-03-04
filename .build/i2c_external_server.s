@@ -2508,7 +2508,7 @@ __xcc1_internal_2:
 .Linfo_string11:
 .asciiz"GET_TEMPC_ALL"
 .Linfo_string12:
-.asciiz"__TYPE_13"
+.asciiz"__TYPE_14"
 .Linfo_string13:
 .asciiz"false"
 .Linfo_string14:
@@ -4465,7 +4465,7 @@ __xcc1_internal_2:
 .Lset57 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset57
 	.long	177
-.asciiz"__TYPE_13"
+.asciiz"__TYPE_14"
 	.long	98
 .asciiz"port"
 	.long	1419

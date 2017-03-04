@@ -318,7 +318,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (
                     const light_composition_t iof_light_composition_level,
-                    const const light_control_scheme_t light_control_scheme_in,
+                    const light_control_scheme_t light_control_scheme_in,
                     const unsigned value_to_print) : {
                 printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
 
@@ -365,7 +365,13 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]) ->
+            case i_port_heat_light_commands[int index_of_client].get_light_composition (void) -> {light_composition_t return_light_composition} : {
+
+                return_light_composition = iof_light_composition_level_present;
+
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]) ->
                     {light_composition_t return_light_composition, bool return_stable, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {

@@ -1463,23 +1463,22 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
-    BUTTON_ACTION_RELEASED,
     BUTTON_ACTION_PRESSED,
-    BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
+    BUTTON_ACTION_RELEASED
+
 } button_action_t;
-
-
-
-
-
+# 26 "../src/button_press.h"
+typedef struct {
+    bool button_pressed_now;
+    bool button_pressed_for_10_seconds;
+} button_state_t;
 
 
 typedef struct {
     button_action_t button_action;
     int iof_button;
 } buttons_t;
-
-
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 19 "../src/i2c_internal_server.xc" 2
@@ -1710,7 +1709,7 @@ typedef struct {
 
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t *chronodot_d3231_registers_ptr);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers);
 
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);

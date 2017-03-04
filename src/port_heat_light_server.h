@@ -76,8 +76,9 @@ typedef enum {
 #define SCALE_LIGHTS_ALL_ON_ALWAYS 9
 
 typedef interface port_heat_light_commands_if {
-    {light_composition_t, bool, light_control_scheme_t}
-         get_light_composition (unsigned return_thirds [NUM_LED_STRIPS]);
+
+    {light_composition_t}                               get_light_composition     (void);
+    {light_composition_t, bool, light_control_scheme_t} get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]);
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command     (const bool beeper_on);

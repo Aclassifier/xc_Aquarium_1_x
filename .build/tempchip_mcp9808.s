@@ -938,7 +938,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string4:
 .asciiz"GET_TEMPC_ALL"
 .Linfo_string5:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_13"
 .Linfo_string6:
 .asciiz"false"
 .Linfo_string7:
@@ -2472,7 +2472,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lset20 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset20
 	.long	31
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_13"
 	.long	1303
 .asciiz"port"
 	.long	1322

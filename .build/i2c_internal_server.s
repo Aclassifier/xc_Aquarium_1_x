@@ -3046,7 +3046,7 @@ __xcc1_internal_2:
 .Linfo_string55:
 .asciiz"registers"
 .Linfo_string56:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_13"
 .Linfo_string57:
 .asciiz"receive_data"
 .Linfo_string58:
@@ -3112,7 +3112,7 @@ __xcc1_internal_2:
 .Linfo_string88:
 .asciiz"second"
 .Linfo_string89:
-.asciiz"__TYPE_16"
+.asciiz"__TYPE_17"
 .Linfo_string90:
 .asciiz"delay"
 .Linfo_string91:
@@ -6346,11 +6346,11 @@ __xcc1_internal_2:
 .Lset87 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset87
 	.long	3090
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_13"
 	.long	98
 .asciiz"port"
 	.long	3308
-.asciiz"__TYPE_16"
+.asciiz"__TYPE_17"
 	.long	105
 .asciiz"unsigned int"
 	.long	3160
