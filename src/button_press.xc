@@ -4,7 +4,8 @@
  *  Created on: 18. mars 2015
  *      Author: teig
  */
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -15,6 +16,10 @@
 
 #include "param.h"
 #include "button_press.h"
+#endif
+
+#define DEBUG_PRINT_BUTTON_PRESS 0 // Cost 1.8k
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS) printf(fmt, __VA_ARGS__); } while (0)
 
 // On 10Feb2017 I inserted tis process but it took two extra channel ends, so I let final client do it instead
 // With this process:
@@ -51,7 +56,6 @@ void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button
 }
 
 #define DEBOUNCE_TIMEOUT_50_MS 50
-#define PRINT_BUTTON
 
 [[combinable]]
 void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
@@ -66,20 +70,18 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
     bool initial_released_stopped = false; // Since it would do BUTTON_ACTION_RELEASED always after start
     bool pressed_but_not_released = false;
 
-    printf("inP_Button_Task[%u] started\n", button_n);
+    debug_printf("inP_Button_Task[%u] started\n", button_n);
 
     while(1) {
         select {
             // If the button is "stable", react when the I/O pin changes value
             case is_stable => p_button when pinsneq(current_val) :> current_val: {
-                #ifdef PRINT_BUTTON
-                    if (current_val == 0) {
-                        printf(": Button %u pressed\n", button_n);
-                    }
-                    else {
-                        printf(": Button %u released\n", button_n);
-                    }
-                #endif
+                if (current_val == 0) {
+                    debug_printf(": Button %u pressed\n", button_n);
+                }
+                else {
+                    debug_printf(": Button %u released\n", button_n);
+                }
 
                 pressed_but_not_released = false;
                 is_stable = false;
@@ -99,31 +101,25 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                         pressed_but_not_released = true;       // ONLY PLACE IT'S SET
 
                         c_button_out <: BUTTON_ACTION_PRESSED; // Button down
-                        #ifdef PRINT_BUTTON
-                            printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
-                        #endif
+                        debug_printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
                         tmr :> current_time;
                         timeout = current_time + (DEBOUNCE_TIMEOUT_10000_MS * XS1_TIMER_KHZ);
                     }
                     else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
-                            #ifdef PRINT_BUTTON
-                                printf(" Button %u filtered away\n", button_n);
-                            #endif
+                            debug_printf(" Button %u filtered away\n", button_n);
                         } else {
                             pressed_but_not_released = false;
                             c_button_out <: BUTTON_ACTION_RELEASED;
-                            #ifdef PRINT_BUTTON
-                                printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
-                            #endif
+                            debug_printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
                         }
                     }
                     is_stable = true;
                 } else { // == pressed_but_not_released (is_stable == true, so pinsneq would have stopped it)
                     pressed_but_not_released = false;
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
-                    printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
+                    debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
                 }
             } break;
 

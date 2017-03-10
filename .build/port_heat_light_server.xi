@@ -11,6 +11,8 @@
 
 
 
+
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -419,7 +421,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 8 "../src/port_heat_light_server.xc" 2
+# 10 "../src/port_heat_light_server.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
@@ -1044,7 +1046,7 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 10 "../src/port_heat_light_server.xc" 2
+# 12 "../src/port_heat_light_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -1114,13 +1116,13 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 11 "../src/port_heat_light_server.xc" 2
-
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 13 "../src/port_heat_light_server.xc" 2
 
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 15 "../src/port_heat_light_server.xc" 2
+
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1144,11 +1146,11 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 15 "../src/port_heat_light_server.xc" 2
+# 17 "../src/port_heat_light_server.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
 # 11 "../src/port_heat_light_server.h"
 typedef enum {
@@ -1160,7 +1162,7 @@ typedef enum {
 
 
 
-typedef enum {
+typedef enum light_composition_t {
 # 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
     LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
@@ -1181,7 +1183,7 @@ typedef enum {
 
 } light_composition_t;
 
-typedef enum {
+typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_VOID,
     LIGHT_CONTROL_IS_DAY,
     LIGHT_CONTROL_IS_DAY_TO_NIGHT,
@@ -1196,7 +1198,7 @@ typedef enum {
     WATTOF_LED_STRIP_BACK = 2
 } wattOf_LED_strip_t;
 
-typedef enum {
+typedef enum heat_cable_commands_t {
     HEAT_CABLES_VOID,
     HEAT_CABLES_OFF,
     HEAT_CABLES_ONE_ON,
@@ -1225,15 +1227,19 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 16 "../src/port_heat_light_server.xc" 2
+# 18 "../src/port_heat_light_server.xc" 2
+
+
+
+
 
 port myport_p32 = 0x200000;
-# 43 "../src/port_heat_light_server.xc"
-typedef enum {
+# 49 "../src/port_heat_light_server.xc"
+typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
-# 83 "../src/port_heat_light_server.xc"
+# 88 "../src/port_heat_light_server.xc"
 static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
 {
 
@@ -1294,7 +1300,7 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
    }
 };
 
-typedef enum {
+typedef enum pin_change_t {
     PIN_SAME_LIGHT,
     PIN_NIGHTER,
     PIN_LIGHTER
@@ -1305,7 +1311,7 @@ typedef enum {
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 183 "../src/port_heat_light_server.xc"
+# 188 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
@@ -1328,7 +1334,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
 
 
-    printf("Port_Pins_Heat_Light_Server started\n");
+    do { if(0) printf("%s", "Port_Pins_Heat_Light_Server started\n"); } while (0);
 
     unsigned beeper_blip_ticks_cntdown = 0;
 
@@ -1446,7 +1452,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     const light_composition_t iof_light_composition_level,
                     const light_control_scheme_t light_control_scheme_in,
                     const unsigned value_to_print) : {
-                printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
+
+                do { if(0) printf("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print); } while (0);
 
                 if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) light_control_scheme = light_control_scheme_in;
 
@@ -1511,7 +1518,14 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if ((mask & (1<<4)) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
                     if ((mask & (1<<5)) != 0) return_thirds[IOF_LED_STRIP_BACK] += 1;
                 }
-# 399 "../src/port_heat_light_server.xc"
+
+                do { if(0) printf("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n", index_of_client, return_thirds[IOF_LED_STRIP_FRONT], return_thirds[IOF_LED_STRIP_CENTER], return_thirds[IOF_LED_STRIP_BACK], iof_light_composition_level_present); } while (0);
+
+
+
+
+
+
                 return_stable = true;
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < 3; iof_light_pwm_window++) {
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) return_stable = false;

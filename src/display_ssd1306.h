@@ -8,20 +8,15 @@
 #ifndef DISPLAY_SSD1306_H_
 #define DISPLAY_SSD1306_H_
 
-typedef enum {
+typedef enum i2c_display_reg_address_internal_t {
     DISPLAY_REG_ADDR_COMMAND = 0x00, // Co = 0, D/C = 0 As in writeDisplay_i2c_command
     DISPLAY_REG_ADDR_DATA    = 0x40  // Co = 0, D/C = 1 As in writeDisplay_i2c_data
 } i2c_display_reg_address_internal_t;
 
-typedef enum {
+typedef enum display_vccstate_t {
     SSD1306_EXTERNALVCC  = 0x01,
     SSD1306_SWITCHCAPVCC = 0x02
 } display_vccstate_t;
-
-// --------------------------------------------------------------------
-//                                 class Adafruit_GFX : public Print {
-// HERE: class Adafruit_SSD1306 : public Adafruit_GFX {
-// ====----------------------------------------------------------------
 
 extern bool Adafruit_SSD1306_i2c_begin           (client i2c_internal_commands_if i_i2c_internal_commands);
 

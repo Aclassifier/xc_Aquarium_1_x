@@ -16,6 +16,7 @@ USED_MODULES = lib_startkit_support module_i2c_master module_random
 # XCC_XC_FLAGS, XCC_C_FLAGS, XCC_ASM_FLAGS, XCC_CPP_FLAGS
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
+#ÊDefault is -O2
 XCC_FLAGS = -O2 -g -fxscope -save-temps
 XCC_MAP_FLAGS = -Xmapper --map -Xmapper _Aquarium_map.txt -Xmapper -report
 

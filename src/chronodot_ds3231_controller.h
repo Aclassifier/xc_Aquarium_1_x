@@ -101,6 +101,7 @@ void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if      i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 
+
 #else
     #error Nested include CHRONODOT_DS3231_CONTROLLER_H_
 #endif

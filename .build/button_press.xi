@@ -12,6 +12,7 @@
 
 
 
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -420,7 +421,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 9 "../src/button_press.xc" 2
+# 10 "../src/button_press.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
@@ -831,7 +832,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 11 "../src/button_press.xc" 2
+# 12 "../src/button_press.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -901,7 +902,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 12 "../src/button_press.xc" 2
+# 13 "../src/button_press.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1288,9 +1289,9 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 13 "../src/button_press.xc" 2
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 14 "../src/button_press.xc" 2
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 15 "../src/button_press.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1306,10 +1307,10 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 15 "../src/button_press.xc" 2
+# 16 "../src/button_press.xc" 2
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1333,11 +1334,11 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 17 "../src/button_press.xc" 2
+# 18 "../src/button_press.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1359,8 +1360,8 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 18 "../src/button_press.xc" 2
-# 34 "../src/button_press.xc"
+# 19 "../src/button_press.xc" 2
+# 39 "../src/button_press.xc"
 [[combinable]]
 void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
 
@@ -1382,7 +1383,6 @@ void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
 
 
 
-
 [[combinable]]
 void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
 
@@ -1396,20 +1396,18 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
     bool initial_released_stopped = false;
     bool pressed_but_not_released = false;
 
-    printf("inP_Button_Task[%u] started\n", button_n);
+    do { if(0) printf("inP_Button_Task[%u] started\n", button_n); } while (0);
 
     while(1) {
         select {
 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
-
-                    if (current_val == 0) {
-                        printf(": Button %u pressed\n", button_n);
-                    }
-                    else {
-                        printf(": Button %u released\n", button_n);
-                    }
-
+                if (current_val == 0) {
+                    do { if(0) printf(": Button %u pressed\n", button_n); } while (0);
+                }
+                else {
+                    do { if(0) printf(": Button %u released\n", button_n); } while (0);
+                }
 
                 pressed_but_not_released = false;
                 is_stable = false;
@@ -1429,31 +1427,25 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                         pressed_but_not_released = true;
 
                         c_button_out <: BUTTON_ACTION_PRESSED;
-
-                            printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
-
+                        do { if(0) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
                     }
                     else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
-
-                                printf(" Button %u filtered away\n", button_n);
-
+                            do { if(0) printf(" Button %u filtered away\n", button_n); } while (0);
                         } else {
                             pressed_but_not_released = false;
                             c_button_out <: BUTTON_ACTION_RELEASED;
-
-                                printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
-
+                            do { if(0) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
                         }
                     }
                     is_stable = true;
                 } else {
                     pressed_but_not_released = false;
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
-                    printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
+                    do { if(0) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n); } while (0);
                 }
             } break;
 

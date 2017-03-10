@@ -5,13 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/f_conversions.xc" 2
-
-
-
-
-
-
-
+# 10 "../src/f_conversions.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -420,7 +414,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 9 "../src/f_conversions.xc" 2
+# 11 "../src/f_conversions.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
@@ -831,7 +825,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 11 "../src/f_conversions.xc" 2
+# 13 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -901,7 +895,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 12 "../src/f_conversions.xc" 2
+# 14 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1288,7 +1282,7 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 13 "../src/f_conversions.xc" 2
+# 15 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1304,7 +1298,7 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 14 "../src/f_conversions.xc" 2
+# 16 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 1 3
 
 
@@ -1417,9 +1411,9 @@ char * alias _safe_strstr(const char * alias s1, const char s2[]);
 
 size_t _safe_strnlen(const char s[], size_t n);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 2 3
-# 15 "../src/f_conversions.xc" 2
+# 17 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
-# 16 "../src/f_conversions.xc" 2
+# 18 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 1 3
 
 
@@ -1458,9 +1452,9 @@ extern int *__errno (void);
 
 int * alias _safe_errno_addr(void);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 2 3
-# 17 "../src/f_conversions.xc" 2
+# 19 "../src/f_conversions.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/limits.h" 1 3
-# 18 "../src/f_conversions.xc" 2
+# 20 "../src/f_conversions.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1500,10 +1494,10 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 20 "../src/f_conversions.xc" 2
+# 22 "../src/f_conversions.xc" 2
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1527,18 +1521,18 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 22 "../src/f_conversions.xc" 2
+# 24 "../src/f_conversions.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
-# 23 "../src/f_conversions.xc" 2
+# 25 "../src/f_conversions.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 31 "../src/tempchip_mcp9808.h"
-typedef enum {
+typedef enum i2c_dev_address_external_t {
 
     TEMPC_HEATER = 0x18,
     TEMPC_AMBIENT = (0x18 + 1),
@@ -1550,15 +1544,15 @@ typedef enum {
 
 
 
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr);
-int tempchip_mcp9808_shutdown_wake (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t sw_ID);
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val);
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg);
-# 24 "../src/f_conversions.xc" 2
+bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
+int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
+void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
+uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
+# 26 "../src/f_conversions.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 12 "../src/I2C_External_Server.h"
-typedef enum {
+# 13 "../src/I2C_External_Server.h"
+typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
@@ -1570,7 +1564,7 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum {
+typedef enum i2c_command_external_t {
     VER_TEMPC_CHIPS,
     GET_TEMPC_ALL
 } i2c_command_external_t;
@@ -1589,7 +1583,7 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 25 "../src/f_conversions.xc" 2
+# 27 "../src/f_conversions.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
 void installExceptionHandler(void);
@@ -1601,7 +1595,7 @@ typedef int light_range_t;
 # 40 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
-typedef struct {
+typedef struct temp_degC_strings_t {
     char temp_degC_heater_str [5];
     char temp_degC_ambient_str [5];
     char temp_degC_water_str [5];
@@ -1610,7 +1604,7 @@ typedef struct {
 
 
 
-typedef struct {
+typedef struct temp_onetenthDegC_mean_t {
 
 
     temp_onetenthDegC_t temps_onetenthDegC[8];
@@ -1627,16 +1621,20 @@ typedef struct {
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
 
-void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps);
+void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps);
 
 
 
 
 
 
-temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps,
-                                                            const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 26 "../src/f_conversions.xc" 2
+temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
+                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
+# 28 "../src/f_conversions.xc" 2
+
+
+
+
 
 void installExceptionHandler(void)
 {
@@ -1650,7 +1648,7 @@ void installExceptionHandler(void)
 void myExceptionHandler(void)
 {
 
-    printf ("\nCRASH!\n\n");
+    do { if(0) printf("%s", "\nCRASH!\n\n"); } while (0);
     asm(" clre");
     asm(" waiteu");
 }
@@ -1660,23 +1658,22 @@ void myExceptionHandler(void)
 
 
 
-
 void
 Init_Arithmetic_Mean_Temp_OnetenthDegC (
-    temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
+    temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
     const unsigned n_of_temps) {
 
     for (unsigned index_of_array = 0; index_of_array < n_of_temps; index_of_array++) {
-        temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array] = 0;
+        temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array] = 0;
     }
-    temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write = 0;
-    temps_onetenthDegC_mean_array_ptr->temps_num = 0;
-    temps_onetenthDegC_mean_array_ptr->temps_sum_mten_previous = 0;
+
+    temps_onetenthDegC_mean_array.temps_index_next_to_write = 0;
+    temps_onetenthDegC_mean_array.temps_num = 0;
 }
-# 86 "../src/f_conversions.xc"
+# 89 "../src/f_conversions.xc"
 temp_onetenthDegC_t
 Do_Arithmetic_Mean_Temp_OnetenthDegC (
-    temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
+    temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
     const unsigned n_of_temps,
     const temp_onetenthDegC_t temps_onetenthDeg,
     const unsigned index_for_printf) {
@@ -1691,20 +1688,20 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     int index_of_temp_smallest = (-1);
 
 
-    temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write] = temps_onetenthDeg;
-    temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write = (temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write + 1) % n_of_temps;
+    temps_onetenthDegC_mean_array.temps_onetenthDegC [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;
+    temps_onetenthDegC_mean_array.temps_index_next_to_write = (temps_onetenthDegC_mean_array.temps_index_next_to_write + 1) % n_of_temps;
 
 
-    if (temps_onetenthDegC_mean_array_ptr->temps_num < n_of_temps) {
-        temps_onetenthDegC_mean_array_ptr->temps_num++;
-        use_n_of_temps = temps_onetenthDegC_mean_array_ptr->temps_num;
+    if (temps_onetenthDegC_mean_array.temps_num < n_of_temps) {
+        temps_onetenthDegC_mean_array.temps_num++;
+        use_n_of_temps = temps_onetenthDegC_mean_array.temps_num;
     } else {
         use_n_of_temps = n_of_temps;
 
 
         for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
 
-            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array];
+            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
 
             if (value > temp_largest) {
                 index_of_temp_largest = index_of_array;
@@ -1733,13 +1730,37 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
             remove_n_of_temps++;
         } else {
-            temps_sum += temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array];
+            temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
         }
     }
 
 
-    temp_return = (temps_sum / (use_n_of_temps-remove_n_of_temps));
-# 180 "../src/f_conversions.xc"
+    temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps));
+
+
+    char is2_temps_first_chars [3][2] = {"H","A","W"};;
+
+    do { if(0) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
+
+
+
+
+
+
+    if (index_of_temp_largest == (-1)) {
+        do { if(0) printf("&s", "none "); } while (0);
+    } else {
+        do { if(0) printf("%d ", temp_largest); } while (0);
+    }
+    if (temp_largest != temp_smallest) {
+        if (index_of_temp_smallest == (-1)) {
+            do { if(0) printf("&s", "none "); } while (0);
+        } else {
+            do { if(0) printf("%d ", temp_smallest); } while (0);
+        }
+    } else {}
+    do { if(0) printf("%s", "\n"); } while (0);
+
     return temp_return;
 }
 
@@ -1778,7 +1799,7 @@ Temp_OnetenthDegC_To_Str (
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char temp_degC_str[5]) {
-# 234 "../src/f_conversions.xc"
+# 233 "../src/f_conversions.xc"
     temp_onetenthDegC_t degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
 
@@ -1810,13 +1831,13 @@ TC1047_Raw_DegC_To_String_Ok (
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
-# 276 "../src/f_conversions.xc"
+# 275 "../src/f_conversions.xc"
     light_range_t light_range = adc_val_mean_i/407;
     if (light_range > 99) light_range = 99;
 
     int sprintf_return;
     bool error = false;
-# 295 "../src/f_conversions.xc"
+# 294 "../src/f_conversions.xc"
     error |= ((light_range < 0) || (light_range > 99));
 
     if (!isnull(lux_str)) {
@@ -1838,12 +1859,11 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     return {light_range, ! error};
 }
 
-
 {voltage_onetenthV_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
-# 334 "../src/f_conversions.xc"
+# 332 "../src/f_conversions.xc"
     voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
 
@@ -1877,12 +1897,10 @@ RR_12V_24V_To_String_Ok (
 
 
 
-
 uint8_t BCD_To_Bin_8 (uint8_t val)
 {
     return val - (6 * (val >> 4));
 }
-
 uint8_t Bin_To_BCD_8 (uint8_t val)
 {
     return val + (6 * (val / 10));

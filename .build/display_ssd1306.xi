@@ -12,6 +12,7 @@
 
 
 
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -420,7 +421,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 9 "../src/display_ssd1306.xc" 2
+# 10 "../src/display_ssd1306.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
@@ -831,7 +832,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 11 "../src/display_ssd1306.xc" 2
+# 12 "../src/display_ssd1306.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -901,7 +902,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 12 "../src/display_ssd1306.xc" 2
+# 13 "../src/display_ssd1306.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1288,7 +1289,7 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 13 "../src/display_ssd1306.xc" 2
+# 14 "../src/display_ssd1306.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1304,9 +1305,9 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 14 "../src/display_ssd1306.xc" 2
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 15 "../src/display_ssd1306.xc" 2
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 16 "../src/display_ssd1306.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 1 3
 
 
@@ -1419,11 +1420,11 @@ char * alias _safe_strstr(const char * alias s1, const char s2[]);
 
 size_t _safe_strnlen(const char s[], size_t n);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 2 3
-# 16 "../src/display_ssd1306.xc" 2
+# 17 "../src/display_ssd1306.xc" 2
 
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1447,11 +1448,11 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 19 "../src/display_ssd1306.xc" 2
+# 20 "../src/display_ssd1306.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1473,7 +1474,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 20 "../src/display_ssd1306.xc" 2
+# 21 "../src/display_ssd1306.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1513,13 +1514,13 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 22 "../src/display_ssd1306.xc" 2
+# 23 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 24 "../src/display_ssd1306.xc" 2
+# 25 "../src/display_ssd1306.xc" 2
 # 1 "../src/core_graphics_adafruit_GFX.h" 1
 # 15 "../src/core_graphics_adafruit_GFX.h"
 extern void Adafruit_GFX_constructor (int16_t w, int16_t h);
@@ -1580,17 +1581,17 @@ typedef struct tag_display_param_t {
 
 
 extern display_param_t display_param;
-# 25 "../src/display_ssd1306.xc" 2
+# 26 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
 # 15 "../src/I2C_Internal_Server.h"
-typedef enum {
+typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
 
-typedef struct {
+typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
@@ -1604,23 +1605,18 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 27 "../src/display_ssd1306.xc" 2
+# 28 "../src/display_ssd1306.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
-typedef enum {
+typedef enum i2c_display_reg_address_internal_t {
     DISPLAY_REG_ADDR_COMMAND = 0x00,
     DISPLAY_REG_ADDR_DATA = 0x40
 } i2c_display_reg_address_internal_t;
 
-typedef enum {
+typedef enum display_vccstate_t {
     SSD1306_EXTERNALVCC = 0x01,
     SSD1306_SWITCHCAPVCC = 0x02
 } display_vccstate_t;
-
-
-
-
-
 
 extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
 
@@ -1642,7 +1638,8 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 28 "../src/display_ssd1306.xc" 2
+# 29 "../src/display_ssd1306.xc" 2
+
 
 out port outP_display_notReset =
 
@@ -1676,7 +1673,6 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
 
     return ! error;
 }
-
 
 bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands) {
 

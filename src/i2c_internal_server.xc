@@ -4,7 +4,8 @@
  *  Created on: 27. feb.
  *      Author: Teig
  */
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -26,9 +27,13 @@
 #include "I2C_Internal_Server.h"
 #include "display_ssd1306.h"
 #include "Chronodot_DS3231_Controller.h"
+#endif
 
-// #define DEBUG_PRINT_DISPLAY
-// #define DEBUG_PRINT_CHRONODOT1
+#define DEBUG_PRINT_DISPLAY 0 // Cost 0.3k
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_DISPLAY) printf(fmt, __VA_ARGS__); } while (0)
+
+#define DEBUG_PRINT_CHRONODOT1 0 // Cost 0.1k
+#define c_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_internal_config = { // For display and ChronoDot
     on tile[0]:XS1_PORT_1E, // I_SCL SCL is at startKIT GPIO header (J7.4) port P1E0, processor pin X0D12
@@ -50,7 +55,7 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
     i2c_master_init (i2c_internal_config); // XMOS library
 
     // PRINT
-    printf("I2C_Internal_Server started\n"); // printf#02
+    debug_printf("%s", "I2C_Internal_Server started\n");
 
     while (1) {
         select {
@@ -63,27 +68,25 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                     unsigned      send_nbytes = nbytes;
                     unsigned char send_data[SSD1306_WRITE_CHUNK_SIZE];
 
-                    #ifdef DEBUG_PRINT_DISPLAY
-                        printf ("i2c-i dev:%02x reg:%02x len:%d:", (int)dev_addr, reg_addr, (int)send_nbytes);
-                    #endif
+                    debug_printf ("i2c-i dev:%02x reg:%02x len:%d:", (int)dev_addr, reg_addr, (int)send_nbytes);
 
                     for (uint8_t x=0; x<send_nbytes; x++) {
                         send_data[x] = data[x];
 
-                        #ifdef DEBUG_PRINT_DISPLAY
+                        #ifdef DEBUG_PRINT_DISPLAY // Keep it
                             if (x==(send_nbytes-1)) {
-                                printf("%02x",data[x]); // Last, no comma
+                                debug_printf("%02x",data[x]); // Last, no comma
                             }
                             else {
-                                printf("%02x ",data[x]);
+                                debug_printf("%02x ",data[x]);
                             }
                         #endif
                     }
                     i2c_result = i2c_master_write_reg ((int)dev_addr, reg_addr, send_data, (int)send_nbytes, i2c_internal_config);
 
-                    #ifdef DEBUG_PRINT_DISPLAY
+                    #ifdef DEBUG_PRINT_DISPLAY // Keep it
                         num_chars += send_nbytes;
-                        printf(" #%u\n", num_chars);
+                        debug_printf(" #%u\n", num_chars);
                     #endif
 
                 } else {
@@ -98,19 +101,17 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
 
                 i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);
 
-                #ifdef DEBUG_PRINT_CHRONODOT1
-                    printf("ChronoDot %u: ", i2c_result);
-                #endif
+                c_debug_printf("ChronoDot %u: ", i2c_result);
 
                 for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
                     return_chronodot_d3231_registers.registers[x] = receive_data[x];
 
-                    #ifdef DEBUG_PRINT_CHRONODOT1
+                    #ifdef DEBUG_PRINT_CHRONODOT1 // Keep it
                         if (x==(D3231_NUM_REGISTERS-1)) {
-                            printf("%02x\n",receive_data[x]); // Last, no comma
+                            c_debug_printf("%02x\n",receive_data[x]); // Last, no comma
                         }
                         else {
-                            printf("%02x  ",receive_data[x]); // Two spaces better for setting up names in the log
+                            c_debug_printf("%02x  ",receive_data[x]); // Two spaces better for setting up names in the log
                         }
                      #endif
                  }

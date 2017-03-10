@@ -4,7 +4,8 @@
  *  Created on: 9. feb. 2017
  *      Author: teig
  */
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -25,6 +26,7 @@
 
 #include "I2C_Internal_Server.h"
 #include "display_ssd1306.h"
+#endif
 
 out port outP_display_notReset =
     // on tile[0]:XS1_PORT_1G; // #RES at startKIT GPIO header (J7) port P1G0, processor pin X0D22, socket GPIO 3
@@ -58,7 +60,6 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
 
     return not error;
 }
-
 
 bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands) {
 

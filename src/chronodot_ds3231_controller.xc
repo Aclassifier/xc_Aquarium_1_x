@@ -4,13 +4,13 @@
  *  Created on: 8. feb. 2017
  *      Author: teig
  */
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <iso646.h>
-
 
 #include "param.h"
 #include "i2c.h"
@@ -33,6 +33,10 @@
 #include "Temperature_Water_Controller.h"
 
 #include "Chronodot_DS3231_Controller.h"
+#endif
+
+#define DEBUG_PRINT_CHRONODOT_DS3231 0 // Cost 1.3k
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231) printf(fmt, __VA_ARGS__); } while (0)
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers) {
     DateTime_t datetime;
@@ -93,7 +97,7 @@ void Chronodot_DS3231_Controller (
     timer tmr;
     int   time;
 
-    printf ("Chronodot_DS3231_Controller started\n");  // NOT USED!
+    debug_printf ("%s", "Chronodot_DS3231_Controller started\n");  // NOT USED!
 
     tmr :> time;
 
@@ -114,13 +118,9 @@ void Chronodot_DS3231_Controller (
                     datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);
                 } else {}
 
-                // #define DEBUG_PRINT_CHRONODOT2
-                #ifdef DEBUG_PRINT_CHRONODOT2
-                    printf("ChronoDot %u= %04u.%02u.%02u %02u.%02u.%02u\n", ok,
+                    debug_printf("ChronoDot %u= %04u.%02u.%02u %02u.%02u.%02u\n", ok,
                             datetime.year, datetime.month,  datetime.day,
                             datetime.hour, datetime.minute, datetime.second);
-                #endif
-
             } break;
 
             case i_chronodot_ds3231.get_time_ok (void) -> {DateTime_t return_datetime, bool return_ok} : {

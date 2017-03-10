@@ -34,7 +34,7 @@
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends
 	.set Chronodot_DS3231_Controller.select.y.enable.cases,0
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases
-	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords)
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords)
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords
 	.set Chronodot_DS3231_Controller.select.enable.savedstate,17
 	.globl Chronodot_DS3231_Controller.select.enable.savedstate
@@ -101,18 +101,18 @@
 	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.max.nstackwords, _i.chronodot_ds3231_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.fns, _i.chronodot_ds3231_if._client_call_y.fns.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxcores, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxtimers, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.nstackwords, _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group, 0
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns, _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxcores, _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxtimers, _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.fns.group
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group, 0
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.fns, _i.temperature_water_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group
 	.max_reduce _i.temperature_water_commands_if.get_now_regulating_at.max.maxchanends, _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group, 0
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxcores.group
@@ -190,18 +190,18 @@
 	.globl _i.temperature_heater_commands_if.get_temps.fns.group
 	.max_reduce _i.temperature_heater_commands_if.get_temps.max.nstackwords, _i.temperature_heater_commands_if.get_temps.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.get_temps.fns, _i.temperature_heater_commands_if.get_temps.fns.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxcores, _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxtimers, _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.nstackwords, _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group, 0
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.fns, _i.temperature_heater_commands_if.get_temp_degC_string.fns.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxcores, _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxtimers, _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, 0
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.fns, _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.get_regulator_data.max.maxchanends, _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, 0
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxcores.group
@@ -530,7 +530,8 @@
 	.set Chronodot_DS3231_Controller.locnoside, 0
 	.set Chronodot_DS3231_Controller.locnointerfaceaccess, 0
 	.assert 1,Bin_To_BCD_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:139:78: error: call to function `Bin_To_BCD_8\' which selects on a notification in a combinable function select case\n                chronodot_d3231_registers.registers[DS3231_REG_SECOND]     = Bin_To_BCD_8((uint8_t)  datetime.second);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,BCD_To_Bin_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:114:39: error: call to function `BCD_To_Bin_8\' which selects on a notification in a combinable function select case\n                    datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);\n                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,BCD_To_Bin_8.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:118:39: error: call to function `BCD_To_Bin_8\' which selects on a notification in a combinable function select case\n                    datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);\n                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/chronodot_ds3231_controller.xc:121:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\"ChronoDot %u= %04u.%02u.%02u %02u.%02u.%02u\\n\", ok,\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/chronodot_ds3231_controller.xc:39:70: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231) printf(fmt, __VA_ARGS__); } while (0)\n                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -2160,11 +2161,11 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp135-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan.get_temp_degC_string,@function
-	.cc_top _i.temperature_heater_commands_if._chan.get_temp_degC_string.function,_i.temperature_heater_commands_if._chan.get_temp_degC_string
-_i.temperature_heater_commands_if._chan.get_temp_degC_string:
+	.type	_i.temperature_heater_commands_if._chan.get_temp_degC_str,@function
+	.cc_top _i.temperature_heater_commands_if._chan.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan.get_temp_degC_str
+_i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 5
 .Ltmp136:
@@ -2204,21 +2205,21 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan.get_temp_degC_string.function
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 5)
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan.get_temp_degC_str.function
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 5)
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
 .Ltmp141:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp141-_i.temperature_heater_commands_if._chan.get_temp_degC_string
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp141-_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temps
@@ -2457,11 +2458,11 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp164-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.function,_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
+	.type	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str,@function
+	.cc_top _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+_i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
 .Ltmp165:
@@ -2508,21 +2509,21 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
 .Ltmp171:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp171-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp171-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -2756,11 +2757,11 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp192-_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered,@function
-	.cc_top _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.function,_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
+	.type	_i.temperature_water_commands_if._chan.get_temp_degC_str,@function
+	.cc_top _i.temperature_water_commands_if._chan.get_temp_degC_str.function,_i.temperature_water_commands_if._chan.get_temp_degC_str
+_i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
 .Ltmp193:
@@ -2786,21 +2787,21 @@ _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.function
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords,(__interface_client_call.nstackwords + 3)
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores,__interface_client_call.maxcores $M 1
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers,__interface_client_call.maxtimers $M 0
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan.get_temp_degC_str.function
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords,(__interface_client_call.nstackwords + 3)
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
 .Ltmp196:
-	.size	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, .Ltmp196-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp196-_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
@@ -2850,11 +2851,11 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp200-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered,@function
-	.cc_top _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.function,_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
+	.type	_i.temperature_water_commands_if._chan_y.get_temp_degC_str,@function
+	.cc_top _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+_i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
 .Ltmp201:
@@ -2882,21 +2883,21 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.function
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
 .Ltmp204:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, .Ltmp204-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
+	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp204-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok
@@ -3187,7 +3188,7 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.cc_top chronodot_registers_to_datetime.function,chronodot_registers_to_datetime
 chronodot_registers_to_datetime:
 .Lfunc_begin46:
-	.loc	1 37 0
+	.loc	1 41 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 8
@@ -3218,67 +3219,67 @@ chronodot_registers_to_datetime:
 	.cfi_offset 10, -28
 	mov r4, r0
 	ldc r0, 6
-	.loc	1 40 0 prologue_end
+	.loc	1 44 0 prologue_end
 .Ltmp244:
 	ld8u r0, r1[r0]
 	ldc r2, 5
-	.loc	1 41 0
+	.loc	1 45 0
 	ld8u r7, r1[r2]
 	ldc r2, 4
-	.loc	1 42 0
+	.loc	1 46 0
 	ld8u r8, r1[r2]
 	ldc r2, 2
-	.loc	1 43 0
+	.loc	1 47 0
 	ld8u r9, r1[r2]
 	mkmsk r2, 1
-	.loc	1 44 0
+	.loc	1 48 0
 	ld8u r6, r1[r2]
-	.loc	1 45 0
+	.loc	1 49 0
 	ldc r2, 0
 	ld8u r5, r1[r2]
-	.loc	1 40 0
+	.loc	1 44 0
 .Lxta.call_labels7:
 	bl BCD_To_Bin_8
 	ldc r1, 2000
-	.loc	1 40 0
+	.loc	1 44 0
 	add r10, r0, r1
-	.loc	1 41 0
+	.loc	1 45 0
 	mov r0, r7
 .Lxta.call_labels8:
 	bl BCD_To_Bin_8
 	mov r7, r0
-	.loc	1 42 0
+	.loc	1 46 0
 	mov r0, r8
 .Lxta.call_labels9:
 	bl BCD_To_Bin_8
 	mov r8, r0
-	.loc	1 43 0
+	.loc	1 47 0
 	mov r0, r9
 .Lxta.call_labels10:
 	bl BCD_To_Bin_8
 	mov r9, r0
-	.loc	1 44 0
+	.loc	1 48 0
 	mov r0, r6
 .Lxta.call_labels11:
 	bl BCD_To_Bin_8
 	mov r6, r0
-	.loc	1 45 0
+	.loc	1 49 0
 	zext r5, 7
-	.loc	1 45 0
+	.loc	1 49 0
 	mov r0, r5
 .Lxta.call_labels12:
 	bl BCD_To_Bin_8
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r10, r4[0]
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r7, r4[1]
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r8, r4[2]
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r9, r4[3]
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r6, r4[4]
-	.loc	1 47 5
+	.loc	1 51 5
 	stw r0, r4[5]
 	ldw r10, sp[1]
 	ldw r9, sp[2]
@@ -3310,7 +3311,7 @@ chronodot_registers_to_datetime:
 	.cc_top datetime_to_chronodot_registers.function,datetime_to_chronodot_registers
 datetime_to_chronodot_registers:
 .Lfunc_begin47:
-	.loc	1 50 0
+	.loc	1 54 0
 	.cfi_startproc
 .Lxtalabel1:
 	entsp 8
@@ -3343,65 +3344,65 @@ datetime_to_chronodot_registers:
 .Ltmp256:
 	ldw r1, r0[0]
 	ldc r2, 48
-	.loc	1 55 0 prologue_end
+	.loc	1 59 0 prologue_end
 .Ltmp257:
 	add r1, r1, r2
-	.loc	1 55 0
+	.loc	1 59 0
 	zext r1, 8
 	ldc r10, 4
-	.loc	1 56 0
+	.loc	1 60 0
 	ld8u r8, r0[r10]
 	ldc r2, 8
-	.loc	1 57 0
+	.loc	1 61 0
 	ld8u r9, r0[r2]
 	ldc r2, 12
-	.loc	1 58 0
+	.loc	1 62 0
 	ld8u r7, r0[r2]
 	ldc r2, 16
-	.loc	1 59 0
+	.loc	1 63 0
 	ld8u r6, r0[r2]
 	ldc r2, 20
-	.loc	1 60 0
+	.loc	1 64 0
 	ld8u r5, r0[r2]
-	.loc	1 55 0
+	.loc	1 59 0
 	mov r0, r1
 .Lxta.call_labels13:
 	bl Bin_To_BCD_8
 	ldc r1, 6
-	.loc	1 55 0
+	.loc	1 59 0
 	st8 r0, r4[r1]
-	.loc	1 56 0
+	.loc	1 60 0
 	mov r0, r8
 .Lxta.call_labels14:
 	bl Bin_To_BCD_8
 	ldc r1, 5
-	.loc	1 56 0
+	.loc	1 60 0
 	st8 r0, r4[r1]
-	.loc	1 57 0
+	.loc	1 61 0
 	mov r0, r9
 .Lxta.call_labels15:
 	bl Bin_To_BCD_8
-	.loc	1 57 0
+	.loc	1 61 0
 	st8 r0, r4[r10]
-	.loc	1 58 0
+	.loc	1 62 0
 	mov r0, r7
 .Lxta.call_labels16:
 	bl Bin_To_BCD_8
 	ldc r1, 2
-	.loc	1 58 0
+	.loc	1 62 0
 	st8 r0, r4[r1]
-	.loc	1 59 0
+	.loc	1 63 0
 	mov r0, r6
 .Lxta.call_labels17:
 	bl Bin_To_BCD_8
 	mkmsk r1, 1
-	.loc	1 59 0
+	.loc	1 63 0
 	st8 r0, r4[r1]
-	.loc	1 60 0
+	.loc	1 64 0
 	mov r0, r5
 .Lxta.call_labels18:
 	bl Bin_To_BCD_8
-	.loc	1 60 0
+	.loc	1 64 0
 	ldc r1, 0
 	st8 r0, r4[r1]
 	ldw r10, sp[1]
@@ -3444,7 +3445,7 @@ datetime_to_chronodot_registers:
 	.cc_top Chronodot_DS3231_Controller.function,Chronodot_DS3231_Controller
 Chronodot_DS3231_Controller:
 .Lfunc_begin48:
-	.loc	1 88 0
+	.loc	1 92 0
 	.cfi_startproc
 .Lxtalabel2:
 	entsp 34
@@ -3477,19 +3478,15 @@ Chronodot_DS3231_Controller:
 .Ltmp270:
 	stw r0, sp[7]
 .Ltmp271:
-	.loc	1 96 0 prologue_end
-	ldaw r11, cp[.Lstr2]
-	mov r0, r11
-	bl puts
-	.loc	1 98 0
+	.loc	1 102 0 prologue_end
 	get r11, id
-	.loc	1 98 0
+	.loc	1 102 0
 	ldaw r0, dp[__timers]
-	.loc	1 98 0
+	.loc	1 102 0
 	ldw r5, r0[r11]
-	.loc	1 98 0
+	.loc	1 102 0
 	setc res[r5], 1
-	.loc	1 98 0
+	.loc	1 102 0
 .Lxta.endpoint_labels0:
 	in r10, res[r5]
 .Ltmp272:
@@ -3501,11 +3498,11 @@ Chronodot_DS3231_Controller:
 	stw r0, sp[6]
 	ldaw r11, sp[22]
 	ldc r0, 2
-	.loc	1 112 0
+	.loc	1 116 0
 	or r0, r11, r0
 	stw r0, sp[3]
 	mkmsk r0, 1
-	.loc	1 113 0
+	.loc	1 117 0
 	or r0, r11, r0
 	stw r0, sp[2]
 	stw r3, sp[8]
@@ -3538,74 +3535,74 @@ Chronodot_DS3231_Controller:
 .Ltmp275:
 .LBB48_2:
 .Lxtalabel3:
-	.loc	1 102 0
+	.loc	1 106 0
 .Lxta.endpoint_labels1:
 	in r0, res[r5]
 	ldw r0, cp[.LCPI48_0]
 .Ltmp278:
-	.loc	1 104 0
+	.loc	1 108 0
 	add r10, r10, r0
 .Ltmp279:
 	stw r10, sp[5]
 	ldw r0, sp[4]
 .Ltmp280:
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r1, r0[0]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r0, r0[1]
 .Ltmp281:
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r3, r0[1]
 	ldaw r10, sp[22]
-	.loc	1 106 0
+	.loc	1 110 0
 	mov r0, r10
 	ldc r2, 104
 .Lxta.call_labels19:
 	bla r3
 	mov r9, r0
 .Ltmp282:
-	.loc	1 108 17
+	.loc	1 112 17
 	bf r9, .LBB48_3
 .Ltmp283:
 .Lxtalabel4:
 	ldc r0, 6
-	.loc	1 109 0
+	.loc	1 113 0
 	ld8u r0, r10[r0]
 .Lxta.call_labels20:
 	bl BCD_To_Bin_8
 	ldc r1, 2000
-	.loc	1 109 0
+	.loc	1 113 0
 	add r0, r0, r1
 	stw r0, sp[6]
 	ldc r0, 5
-	.loc	1 110 0
+	.loc	1 114 0
 	ld8u r0, r10[r0]
 .Lxta.call_labels21:
 	bl BCD_To_Bin_8
 	stw r0, sp[8]
 	ldc r0, 4
-	.loc	1 111 0
+	.loc	1 115 0
 	ld8u r0, r10[r0]
 .Lxta.call_labels22:
 	bl BCD_To_Bin_8
 	stw r0, sp[9]
-	.loc	1 112 0
+	.loc	1 116 0
 	ldw r0, sp[3]
 	ld8u r0, r0[r7]
 .Lxta.call_labels23:
 	bl BCD_To_Bin_8
 	mov r4, r0
-	.loc	1 113 0
+	.loc	1 117 0
 	ldw r0, sp[2]
 	ld8u r0, r0[r7]
 .Lxta.call_labels24:
 	bl BCD_To_Bin_8
 	mov r6, r0
-	.loc	1 114 0
+	.loc	1 118 0
 	ld8u r0, r10[r7]
-	.loc	1 114 0
+	.loc	1 118 0
 	zext r0, 7
-	.loc	1 114 0
+	.loc	1 118 0
 .Lxta.call_labels25:
 	bl BCD_To_Bin_8
 	mov r8, r0
@@ -3783,13 +3780,13 @@ Chronodot_DS3231_Controller:
 	waiteu
 .Ltmp295:
 	.cc_bottom Chronodot_DS3231_Controller.function
-	.set	Chronodot_DS3231_Controller.nstackwords,((puts.nstackwords $M _i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M BCD_To_Bin_8.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 34)
+	.set	Chronodot_DS3231_Controller.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M BCD_To_Bin_8.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 34)
 	.globl	Chronodot_DS3231_Controller.nstackwords
-	.set	Chronodot_DS3231_Controller.maxcores,BCD_To_Bin_8.maxcores $M Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M puts.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.maxcores,BCD_To_Bin_8.maxcores $M Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
 	.globl	Chronodot_DS3231_Controller.maxcores
-	.set	Chronodot_DS3231_Controller.maxtimers,BCD_To_Bin_8.maxtimers $M Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M puts.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.maxtimers,BCD_To_Bin_8.maxtimers $M Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
 	.globl	Chronodot_DS3231_Controller.maxtimers
-	.set	Chronodot_DS3231_Controller.maxchanends,BCD_To_Bin_8.maxchanends $M Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M puts.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.set	Chronodot_DS3231_Controller.maxchanends,BCD_To_Bin_8.maxchanends $M Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 	.globl	Chronodot_DS3231_Controller.maxchanends
 .Ltmp296:
 	.size	Chronodot_DS3231_Controller, .Ltmp296-Chronodot_DS3231_Controller
@@ -3865,36 +3862,33 @@ Chronodot_DS3231_Controller.init.1:
 	ldw r0, r4[1]
 	bf r0, .LBB50_2
 .Ltmp305:
+.Lxtalabel6:
 	ldc r0, 0
 	stw r0, r4[1]
-	.loc	1 90 0 prologue_end
+	.loc	1 94 0 prologue_end
 .Ltmp306:
 	ldaw r0, r4[4]
-	.loc	1 90 0
+	.loc	1 94 0
 	ldaw r11, cp[Chronodot_DS3231_Controller.init.1.1.init]
 	ldc r2, 24
 	mov r1, r11
 	bl __memcpy_4
-	.loc	1 96 0
+	.loc	1 102 0
 .Ltmp307:
-	ldaw r11, cp[.Lstr2]
-	mov r0, r11
-	bl puts
-	.loc	1 98 0
 	get r11, id
-	.loc	1 98 0
+	.loc	1 102 0
 	ldaw r0, dp[__timers]
-	.loc	1 98 0
+	.loc	1 102 0
 	ldw r0, r0[r11]
-	.loc	1 98 0
+	.loc	1 102 0
 	setc res[r0], 1
 	ldc r1, 64
-	.loc	1 98 0
+	.loc	1 102 0
 	add r1, r4, r1
-	.loc	1 98 0
+	.loc	1 102 0
 .Lxta.endpoint_labels2:
 	in r0, res[r0]
-	.loc	1 98 0
+	.loc	1 102 0
 	stw r0, r1[0]
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -3904,13 +3898,13 @@ Chronodot_DS3231_Controller.init.1:
 	retsp 2
 	# RETURN_REG_HOLDER
 	.cc_bottom Chronodot_DS3231_Controller.init.1.function
-	.set	Chronodot_DS3231_Controller.init.1.nstackwords,((__memcpy_4.nstackwords $M puts.nstackwords) + 2)
+	.set	Chronodot_DS3231_Controller.init.1.nstackwords,(__memcpy_4.nstackwords + 2)
 	.globl	Chronodot_DS3231_Controller.init.1.nstackwords
-	.set	Chronodot_DS3231_Controller.init.1.maxcores,puts.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.init.1.maxcores,1
 	.globl	Chronodot_DS3231_Controller.init.1.maxcores
-	.set	Chronodot_DS3231_Controller.init.1.maxtimers,puts.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.init.1.maxtimers,0
 	.globl	Chronodot_DS3231_Controller.init.1.maxtimers
-	.set	Chronodot_DS3231_Controller.init.1.maxchanends,puts.maxchanends $M 0
+	.set	Chronodot_DS3231_Controller.init.1.maxchanends,0
 	.globl	Chronodot_DS3231_Controller.init.1.maxchanends
 .Ltmp309:
 	.size	Chronodot_DS3231_Controller.init.1, .Ltmp309-Chronodot_DS3231_Controller.init.1
@@ -3923,7 +3917,7 @@ Chronodot_DS3231_Controller.init.1:
 	.cc_top Chronodot_DS3231_Controller.init.0.function,Chronodot_DS3231_Controller.init.0
 Chronodot_DS3231_Controller.init.0:
 	.cfi_startproc
-.Lxtalabel6:
+.Lxtalabel7:
 	stw r1, r0[2]
 	stw r2, r0[3]
 	ldc r2, 0
@@ -4121,7 +4115,7 @@ Chronodot_DS3231_Controller.select.0.case.0:
 .Lfunc_begin55:
 	.loc	1 126 0
 	.cfi_startproc
-.Lxtalabel7:
+.Lxtalabel8:
 	entsp 18
 .Ltmp319:
 	.cfi_def_cfa_offset 72
@@ -4307,9 +4301,9 @@ Chronodot_DS3231_Controller.select.0.case.0:
 	.cc_top Chronodot_DS3231_Controller.select.y.case.0.function,Chronodot_DS3231_Controller.select.y.case.0
 Chronodot_DS3231_Controller.select.y.case.0:
 .Lfunc_begin56:
-	.loc	1 102 0
+	.loc	1 106 0
 	.cfi_startproc
-.Lxtalabel8:
+.Lxtalabel9:
 	entsp 11
 .Ltmp332:
 	.cfi_def_cfa_offset 44
@@ -4332,14 +4326,14 @@ Chronodot_DS3231_Controller.select.y.case.0:
 	.cfi_offset 8, -20
 	get r11, ed
 	mov r4, r11
-	.loc	1 102 0 prologue_end
+	.loc	1 106 0 prologue_end
 .Ltmp339:
 	get r11, id
-	.loc	1 102 0
+	.loc	1 106 0
 	ldaw r0, dp[__timers]
-	.loc	1 102 0
+	.loc	1 106 0
 	ldw r0, r0[r11]
-	.loc	1 102 0
+	.loc	1 106 0
 .Ltmp340:
 .Lxta.endpoint_labels3:
 	in r0, res[r0]
@@ -4347,94 +4341,94 @@ Chronodot_DS3231_Controller.select.y.case.0:
 	stw r8, r4[0]
 	ldc r0, 64
 .Ltmp341:
-	.loc	1 104 0
+	.loc	1 108 0
 	add r0, r4, r0
-	.loc	1 104 0
+	.loc	1 108 0
 	ldw r1, r0[0]
 	ldw r2, cp[.LCPI56_0]
-	.loc	1 104 0
+	.loc	1 108 0
 	add r1, r1, r2
-	.loc	1 104 0
+	.loc	1 108 0
 	stw r1, r0[0]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r0, r4[3]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r1, r0[0]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r0, r0[1]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r3, r0[1]
 	ldaw r6, sp[1]
 	ldc r2, 104
-	.loc	1 106 0
+	.loc	1 110 0
 	mov r0, r6
 .Lxta.call_labels40:
 	bla r3
 	mov r7, r0
-	.loc	1 106 0
+	.loc	1 110 0
 	ldaw r5, r4[10]
 	ldc r2, 19
-	.loc	1 106 0
+	.loc	1 110 0
 	mov r0, r5
 	mov r1, r6
 	bl memcpy
 	ldc r0, 60
-	.loc	1 106 0
+	.loc	1 110 0
 	add r0, r4, r0
-	.loc	1 106 0
+	.loc	1 110 0
 	stw r7, r0[0]
 	bf r7, .LBB56_2
-.Lxtalabel9:
+.Lxtalabel10:
 	ldc r0, 46
-	.loc	1 109 0
+	.loc	1 113 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels41:
 	bl BCD_To_Bin_8
 	ldc r1, 2000
-	.loc	1 109 0
+	.loc	1 113 0
 	add r0, r0, r1
-	.loc	1 109 0
+	.loc	1 113 0
 	stw r0, r4[4]
 	ldc r0, 45
-	.loc	1 110 0
+	.loc	1 114 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels42:
 	bl BCD_To_Bin_8
-	.loc	1 110 0
+	.loc	1 114 0
 	stw r0, r4[5]
 	ldc r0, 44
-	.loc	1 111 0
+	.loc	1 115 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels43:
 	bl BCD_To_Bin_8
-	.loc	1 111 0
+	.loc	1 115 0
 	stw r0, r4[6]
 	ldc r0, 42
-	.loc	1 112 0
+	.loc	1 116 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels44:
 	bl BCD_To_Bin_8
-	.loc	1 112 0
+	.loc	1 116 0
 	stw r0, r4[7]
 	ldc r0, 41
-	.loc	1 113 0
+	.loc	1 117 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels45:
 	bl BCD_To_Bin_8
-	.loc	1 113 0
+	.loc	1 117 0
 	stw r0, r4[8]
-	.loc	1 114 0
+	.loc	1 118 0
 	ld8u r0, r5[r8]
-	.loc	1 114 0
+	.loc	1 118 0
 	zext r0, 7
-	.loc	1 114 0
+	.loc	1 118 0
 .Lxta.call_labels46:
 	bl BCD_To_Bin_8
-	.loc	1 114 0
+	.loc	1 118 0
 	stw r0, r4[9]
 .Ltmp342:
 .LBB56_2:
-.Lxtalabel10:
+.Lxtalabel11:
 	mkmsk r0, 1
 	stw r0, r4[0]
 	ldw r8, sp[6]
@@ -4461,7 +4455,7 @@ Chronodot_DS3231_Controller.select.y.case.1:
 .Lfunc_begin57:
 	.loc	1 126 0
 	.cfi_startproc
-.Lxtalabel11:
+.Lxtalabel12:
 	entsp 18
 .Ltmp344:
 	.cfi_def_cfa_offset 72
@@ -4647,9 +4641,9 @@ Chronodot_DS3231_Controller.select.y.case.1:
 	.cc_top Chronodot_DS3231_Controller.select.case.0.function,Chronodot_DS3231_Controller.select.case.0
 Chronodot_DS3231_Controller.select.case.0:
 .Lfunc_begin58:
-	.loc	1 102 0
+	.loc	1 106 0
 	.cfi_startproc
-.Lxtalabel12:
+.Lxtalabel13:
 	entsp 11
 .Ltmp357:
 	.cfi_def_cfa_offset 44
@@ -4672,14 +4666,14 @@ Chronodot_DS3231_Controller.select.case.0:
 	.cfi_offset 8, -20
 	get r11, ed
 	mov r4, r11
-	.loc	1 102 0 prologue_end
+	.loc	1 106 0 prologue_end
 .Ltmp364:
 	get r11, id
-	.loc	1 102 0
+	.loc	1 106 0
 	ldaw r0, dp[__timers]
-	.loc	1 102 0
+	.loc	1 106 0
 	ldw r0, r0[r11]
-	.loc	1 102 0
+	.loc	1 106 0
 .Ltmp365:
 .Lxta.endpoint_labels4:
 	in r0, res[r0]
@@ -4687,94 +4681,94 @@ Chronodot_DS3231_Controller.select.case.0:
 	stw r8, r4[0]
 	ldc r0, 64
 .Ltmp366:
-	.loc	1 104 0
+	.loc	1 108 0
 	add r0, r4, r0
-	.loc	1 104 0
+	.loc	1 108 0
 	ldw r1, r0[0]
 	ldw r2, cp[.LCPI58_0]
-	.loc	1 104 0
+	.loc	1 108 0
 	add r1, r1, r2
-	.loc	1 104 0
+	.loc	1 108 0
 	stw r1, r0[0]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r0, r4[3]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r1, r0[0]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r0, r0[1]
-	.loc	1 106 0
+	.loc	1 110 0
 	ldw r3, r0[1]
 	ldaw r6, sp[1]
 	ldc r2, 104
-	.loc	1 106 0
+	.loc	1 110 0
 	mov r0, r6
 .Lxta.call_labels54:
 	bla r3
 	mov r7, r0
-	.loc	1 106 0
+	.loc	1 110 0
 	ldaw r5, r4[10]
 	ldc r2, 19
-	.loc	1 106 0
+	.loc	1 110 0
 	mov r0, r5
 	mov r1, r6
 	bl memcpy
 	ldc r0, 60
-	.loc	1 106 0
+	.loc	1 110 0
 	add r0, r4, r0
-	.loc	1 106 0
+	.loc	1 110 0
 	stw r7, r0[0]
 	bf r7, .LBB58_2
-.Lxtalabel13:
+.Lxtalabel14:
 	ldc r0, 46
-	.loc	1 109 0
+	.loc	1 113 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels55:
 	bl BCD_To_Bin_8
 	ldc r1, 2000
-	.loc	1 109 0
+	.loc	1 113 0
 	add r0, r0, r1
-	.loc	1 109 0
+	.loc	1 113 0
 	stw r0, r4[4]
 	ldc r0, 45
-	.loc	1 110 0
+	.loc	1 114 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels56:
 	bl BCD_To_Bin_8
-	.loc	1 110 0
+	.loc	1 114 0
 	stw r0, r4[5]
 	ldc r0, 44
-	.loc	1 111 0
+	.loc	1 115 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels57:
 	bl BCD_To_Bin_8
-	.loc	1 111 0
+	.loc	1 115 0
 	stw r0, r4[6]
 	ldc r0, 42
-	.loc	1 112 0
+	.loc	1 116 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels58:
 	bl BCD_To_Bin_8
-	.loc	1 112 0
+	.loc	1 116 0
 	stw r0, r4[7]
 	ldc r0, 41
-	.loc	1 113 0
+	.loc	1 117 0
 	ld8u r0, r4[r0]
 .Lxta.call_labels59:
 	bl BCD_To_Bin_8
-	.loc	1 113 0
+	.loc	1 117 0
 	stw r0, r4[8]
-	.loc	1 114 0
+	.loc	1 118 0
 	ld8u r0, r5[r8]
-	.loc	1 114 0
+	.loc	1 118 0
 	zext r0, 7
-	.loc	1 114 0
+	.loc	1 118 0
 .Lxta.call_labels60:
 	bl BCD_To_Bin_8
-	.loc	1 114 0
+	.loc	1 118 0
 	stw r0, r4[9]
 .Ltmp367:
 .LBB58_2:
-.Lxtalabel14:
+.Lxtalabel15:
 	mkmsk r0, 1
 	stw r0, r4[0]
 	ldw r8, sp[6]
@@ -4801,7 +4795,7 @@ Chronodot_DS3231_Controller.select.case.1:
 .Lfunc_begin59:
 	.loc	1 126 0
 	.cfi_startproc
-.Lxtalabel15:
+.Lxtalabel16:
 	entsp 18
 .Ltmp369:
 	.cfi_def_cfa_offset 72
@@ -4986,14 +4980,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	0
 	.long	0
 	.cc_bottom Chronodot_DS3231_Controller.init.1.1.init.data
-	.section	.cp.rodata.string,"aMSc",@progbits
-	.cc_top .Lstr2.data,.Lstr2
-	.align	4
-	.type	.Lstr2,@object
-	.size	.Lstr2, 36
-.Lstr2:
-.asciiz"Chronodot_DS3231_Controller started"
-	.cc_bottom .Lstr2.data
 	.text
 .Ldebug_end0:
 	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
@@ -5009,7 +4995,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string4:
 .asciiz"GET_TEMPC_ALL"
 .Linfo_string5:
-.asciiz"__TYPE_11"
+.asciiz"i2c_command_external_t"
 .Linfo_string6:
 .asciiz"false"
 .Linfo_string7:
@@ -5025,7 +5011,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string12:
 .asciiz"HEAT_CABLES_BOTH_ON"
 .Linfo_string13:
-.asciiz"__TYPE_25"
+.asciiz"heat_cable_commands_t"
 .Linfo_string14:
 .asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
 .Linfo_string15:
@@ -5053,7 +5039,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string26:
 .asciiz"LIGHT_COMPOSITION_5000_FRONT3_ON"
 .Linfo_string27:
-.asciiz"__TYPE_22"
+.asciiz"light_composition_t"
 .Linfo_string28:
 .asciiz"LIGHT_CONTROL_IS_VOID"
 .Linfo_string29:
@@ -5067,7 +5053,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string33:
 .asciiz"LIGHT_CONTROL_IS_RANDOM"
 .Linfo_string34:
-.asciiz"__TYPE_23"
+.asciiz"light_control_scheme_t"
 .Linfo_string35:
 .asciiz"IOF_TEMPC_HEATER"
 .Linfo_string36:
@@ -5077,13 +5063,13 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string38:
 .asciiz"IOF_TEMPC_HEATER_MEAN_LAST_CYCLE"
 .Linfo_string39:
-.asciiz"__TYPE_10"
+.asciiz"iof_temps_t"
 .Linfo_string40:
 .asciiz"HEATER_WIRES_ONE_ALTERNATING_IS_HALF"
 .Linfo_string41:
 .asciiz"HEATER_WIRES_BOTH_IS_FULL"
 .Linfo_string42:
-.asciiz"__TYPE_26"
+.asciiz"heater_wires_t"
 .Linfo_string43:
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 .Linfo_string44:
@@ -5151,7 +5137,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string75:
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string76:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string77:
 .asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string78:
@@ -5161,7 +5147,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string80:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string81:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string82:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string83:
@@ -5171,11 +5157,11 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string85:
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 .Linfo_string86:
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 .Linfo_string87:
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 .Linfo_string88:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string89:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string90:
@@ -5207,7 +5193,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string103:
 .asciiz"second"
 .Linfo_string104:
-.asciiz"__TYPE_30"
+.asciiz"__TYPE_15"
 .Linfo_string105:
 .asciiz"datetime_to_chronodot_registers"
 .Linfo_string106:
@@ -5249,7 +5235,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string124:
 .asciiz"registers"
 .Linfo_string125:
-.asciiz"__TYPE_13"
+.asciiz"chronodot_d3231_registers_t"
 .Linfo_string126:
 .asciiz"datetime"
 .Linfo_string127:
@@ -5454,7 +5440,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	92
+	.byte	96
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -5530,20 +5516,20 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string96
 	.long	.Linfo_string96
 	.byte	1
-	.byte	37
+	.byte	41
 	.long	2684
 	.byte	1
 	.byte	7
 	.long	.Linfo_string123
 	.byte	1
-	.byte	37
+	.byte	41
 	.long	2911
 	.byte	9
 	.long	.Ldebug_ranges3
 	.byte	10
 	.long	.Linfo_string126
 	.byte	1
-	.byte	38
+	.byte	42
 	.long	2684
 	.byte	0
 	.byte	0
@@ -5555,18 +5541,18 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string105
 	.long	.Linfo_string105
 	.byte	1
-	.byte	50
+	.byte	54
 	.byte	1
 	.byte	11
 	.long	.Ldebug_loc2
 	.long	.Linfo_string123
 	.byte	1
-	.byte	50
+	.byte	54
 	.long	2946
 	.byte	7
 	.long	.Linfo_string126
 	.byte	1
-	.byte	50
+	.byte	54
 	.long	2906
 	.byte	0
 	.byte	8
@@ -5577,26 +5563,26 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string106
 	.long	.Linfo_string106
 	.byte	1
-	.byte	88
+	.byte	92
 	.byte	1
 	.byte	11
 	.long	.Ldebug_loc3
 	.long	.Linfo_string127
 	.byte	1
-	.byte	87
+	.byte	91
 	.long	2951
 	.byte	11
 	.long	.Ldebug_loc4
 	.long	.Linfo_string129
 	.byte	1
-	.byte	88
+	.byte	92
 	.long	2951
 	.byte	9
 	.long	.Ldebug_ranges10
 	.byte	10
 	.long	.Linfo_string126
 	.byte	1
-	.byte	90
+	.byte	94
 	.long	2684
 	.byte	9
 	.long	.Ldebug_ranges9
@@ -5604,7 +5590,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Ldebug_loc7
 	.long	.Linfo_string123
 	.byte	1
-	.byte	91
+	.byte	95
 	.long	2916
 	.byte	9
 	.long	.Ldebug_ranges8
@@ -5612,14 +5598,14 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Ldebug_loc6
 	.long	.Linfo_string131
 	.byte	1
-	.byte	92
+	.byte	96
 	.long	278
 	.byte	9
 	.long	.Ldebug_ranges7
 	.byte	10
 	.long	.Linfo_string133
 	.byte	1
-	.byte	93
+	.byte	97
 	.long	2958
 	.byte	9
 	.long	.Ldebug_ranges6
@@ -5627,7 +5613,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Ldebug_loc5
 	.long	.Linfo_string130
 	.byte	1
-	.byte	94
+	.byte	98
 	.long	1138
 	.byte	13
 	.byte	1
@@ -5674,35 +5660,35 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	10
 	.long	.Linfo_string126
 	.byte	1
-	.byte	90
+	.byte	94
 	.long	2684
 	.byte	9
 	.long	.Ldebug_ranges15
 	.byte	10
 	.long	.Linfo_string123
 	.byte	1
-	.byte	91
+	.byte	95
 	.long	2916
 	.byte	9
 	.long	.Ldebug_ranges14
 	.byte	10
 	.long	.Linfo_string131
 	.byte	1
-	.byte	92
+	.byte	96
 	.long	278
 	.byte	9
 	.long	.Ldebug_ranges13
 	.byte	10
 	.long	.Linfo_string133
 	.byte	1
-	.byte	93
+	.byte	97
 	.long	2958
 	.byte	9
 	.long	.Ldebug_ranges12
 	.byte	10
 	.long	.Linfo_string130
 	.byte	1
-	.byte	94
+	.byte	98
 	.long	1138
 	.byte	0
 	.byte	0
@@ -5753,7 +5739,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string111
 	.long	.Linfo_string111
 	.byte	1
-	.byte	102
+	.byte	106
 	.byte	15
 	.long	.Ldebug_ranges20
 	.byte	1
@@ -5797,7 +5783,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string114
 	.long	.Linfo_string114
 	.byte	1
-	.byte	102
+	.byte	106
 	.byte	15
 	.long	.Ldebug_ranges23
 	.byte	1
@@ -6488,7 +6474,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Linfo_string110
 	.long	.Linfo_string110
 	.byte	1
-	.byte	88
+	.byte	92
 	.byte	1
 	.byte	18
 	.long	.Linfo_string154
@@ -6496,12 +6482,12 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	7
 	.long	.Linfo_string127
 	.byte	1
-	.byte	87
+	.byte	91
 	.long	2951
 	.byte	7
 	.long	.Linfo_string129
 	.byte	1
-	.byte	88
+	.byte	92
 	.long	2951
 	.byte	0
 	.byte	17
@@ -7479,8 +7465,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Lset32
 	.long	1356
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	2410
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
 	.long	1460
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	1001
@@ -7491,20 +7475,22 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
 	.long	1549
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
-	.long	906
-.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
-	.long	924
-.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
+	.long	2075
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
+	.long	2468
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 	.long	2390
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	1145
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 	.long	422
 .asciiz"chronodot_registers_to_datetime"
+	.long	924
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
+	.long	906
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 	.long	1489
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-	.long	2247
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
 	.long	389
 .asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
 	.long	1256
@@ -7531,8 +7517,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	2180
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	2468
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
 	.long	2046
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 	.long	1709
@@ -7543,6 +7527,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
 	.long	2874
 .asciiz"Chronodot_DS3231_Controller.fini"
+	.long	2247
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 	.long	1863
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 	.long	1227
@@ -7569,6 +7555,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
 	.long	474
 .asciiz"datetime_to_chronodot_registers"
+	.long	2410
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 	.long	1767
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 	.long	1385
@@ -7577,8 +7565,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"Chronodot_DS3231_Controller.select.0.case.0"
 	.long	2592
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
-	.long	2075
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
 	.long	520
 .asciiz"Chronodot_DS3231_Controller"
 	.long	2559
@@ -7613,24 +7599,14 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.L.debug_info_begin0
 .Lset34 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset34
-	.long	228
-.asciiz"__TYPE_10"
-	.long	31
-.asciiz"__TYPE_11"
+	.long	2958
+.asciiz"timer"
 	.long	2684
-.asciiz"__TYPE_30"
-	.long	100
-.asciiz"__TYPE_22"
-	.long	185
-.asciiz"__TYPE_23"
-	.long	69
-.asciiz"__TYPE_25"
-	.long	259
-.asciiz"__TYPE_26"
+.asciiz"__TYPE_15"
+	.long	2916
+.asciiz"chronodot_d3231_registers_t"
 	.long	2751
 .asciiz"unsigned int"
-	.long	2916
-.asciiz"__TYPE_13"
 	.long	2970
 .asciiz"frame.0"
 	.long	1138
@@ -7639,20 +7615,30 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"unsigned short"
 	.long	1349
 .asciiz"short"
+	.long	31
+.asciiz"i2c_command_external_t"
 	.long	2951
 .asciiz"interface"
-	.long	3080
-.asciiz"chanend"
 	.long	3117
 .asciiz"yarg"
 	.long	1289
 .asciiz"tag_i2c_temps_t"
+	.long	259
+.asciiz"heater_wires_t"
 	.long	320
 .asciiz"__TYPE_7"
+	.long	3080
+.asciiz"chanend"
+	.long	228
+.asciiz"iof_temps_t"
 	.long	2899
 .asciiz"unsigned char"
-	.long	2958
-.asciiz"timer"
+	.long	69
+.asciiz"heat_cable_commands_t"
+	.long	100
+.asciiz"light_composition_t"
+	.long	185
+.asciiz"light_control_scheme_t"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
@@ -7668,82 +7654,81 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(){m(registers){a(19:uc)}})"
-	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
-	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_string, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_string,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temps, "f{0}(chd,&(a(4:si)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_regulator_data, "f{ui,ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_string, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_string,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(4:si)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan.get_now_regulating_at, "f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(chd)"
-	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.temperature_water_commands_if._chan.get_now_regulating_at, "f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(chd)"
+	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.temperature_water_commands_if._chan_y.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered,_i.temperature_water_commands_if._client_call_y.fns
+	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan.set_time_ok, "f{e(){m(false){0},m(true){1}}}(chd,:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.typestring _i.chronodot_ds3231_if._chan.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(chd)"
 	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.set_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
-	.typestring puts, "f{si}(u:q(c:uc))"
 	.typestring BCD_To_Bin_8, "f{uc}(uc)"
 	.typestring Bin_To_BCD_8, "f{uc}(uc)"
-	.typestring chronodot_registers_to_datetime, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}}}(:s(){m(registers){a(19:uc)}})"
-	.typestring datetime_to_chronodot_registers, "f{0}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},&(s(){m(registers){a(19:uc)}}))"
-	.typestring Chronodot_DS3231_Controller, "k:f{0}(is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring chronodot_registers_to_datetime, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}}}(:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring datetime_to_chronodot_registers, "f{0}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},&(s(chronodot_d3231_registers_t){m(registers){a(19:uc)}}))"
+	.typestring Chronodot_DS3231_Controller, "k:f{0}(is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})"
 	.overlay_reference Chronodot_DS3231_Controller,_i.i2c_internal_commands_if.read_chronodot_ok.fns
 	.overlay_reference Chronodot_DS3231_Controller,_i.i2c_internal_commands_if.write_chronodot_ok.fns
 	.typestring Chronodot_DS3231_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring Chronodot_DS3231_Controller.init.0, "k:f{0}(u:q(ui),is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring Chronodot_DS3231_Controller.init.0, "k:f{0}(u:q(ui),is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})"
 	.typestring Chronodot_DS3231_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.select.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.fini, "k:f{0}(u:q(ui))"
@@ -7761,199 +7746,199 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .cc_top cc_0,.Lxta.call_labels7
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	40
+	.long	44
 	.long	.Lxta.call_labels7
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels8
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	41
+	.long	45
 	.long	.Lxta.call_labels8
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels9
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	42
+	.long	46
 	.long	.Lxta.call_labels9
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels10
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	43
+	.long	47
 	.long	.Lxta.call_labels10
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels11
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	44
+	.long	48
 	.long	.Lxta.call_labels11
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels12
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	45
+	.long	49
 	.long	.Lxta.call_labels12
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels13
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	55
+	.long	59
 	.long	.Lxta.call_labels13
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels14
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	56
+	.long	60
 	.long	.Lxta.call_labels14
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels15
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	57
+	.long	61
 	.long	.Lxta.call_labels15
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels16
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	58
+	.long	62
 	.long	.Lxta.call_labels16
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels17
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	59
+	.long	63
 	.long	.Lxta.call_labels17
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels18
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	60
+	.long	64
 	.long	.Lxta.call_labels18
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels40
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	106
+	.long	110
 	.long	.Lxta.call_labels40
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels54
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	106
+	.long	110
 	.long	.Lxta.call_labels54
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels19
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	106
+	.long	110
 	.long	.Lxta.call_labels19
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels20
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	113
 	.long	.Lxta.call_labels20
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels55
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	113
 	.long	.Lxta.call_labels55
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels41
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
+	.long	113
 	.long	.Lxta.call_labels41
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels21
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	114
 	.long	.Lxta.call_labels21
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels56
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	114
 	.long	.Lxta.call_labels56
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels42
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	110
+	.long	114
 	.long	.Lxta.call_labels42
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels57
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	115
 	.long	.Lxta.call_labels57
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.call_labels22
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	115
 	.long	.Lxta.call_labels22
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.call_labels43
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	111
+	.long	115
 	.long	.Lxta.call_labels43
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels44
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	116
 	.long	.Lxta.call_labels44
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.call_labels23
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	116
 	.long	.Lxta.call_labels23
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels58
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	112
+	.long	116
 	.long	.Lxta.call_labels58
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.call_labels24
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	117
 	.long	.Lxta.call_labels24
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.call_labels59
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	117
 	.long	.Lxta.call_labels59
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.call_labels45
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	113
+	.long	117
 	.long	.Lxta.call_labels45
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.call_labels46
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	114
+	.long	118
 	.long	.Lxta.call_labels46
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.call_labels25
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	114
+	.long	118
 	.long	.Lxta.call_labels25
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.call_labels60
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	114
+	.long	118
 	.long	.Lxta.call_labels60
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.call_labels33
@@ -8176,31 +8161,31 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .cc_top cc_68,.Lxta.endpoint_labels0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	98
+	.long	102
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.endpoint_labels2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	98
+	.long	102
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.endpoint_labels1
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	101
+	.long	105
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.endpoint_labels3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	102
+	.long	106
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_71
 .cc_top cc_72,.Lxta.endpoint_labels4
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	102
+	.long	106
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_72
 .Lentries_end3:
@@ -8213,255 +8198,269 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .cc_top cc_73,.Lxtalabel0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	38
-	.long	38
+	.long	42
+	.long	42
 	.long	.Lxtalabel0
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	40
-	.long	45
+	.long	44
+	.long	49
 	.long	.Lxtalabel0
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel0
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	47
-	.long	48
+	.long	51
+	.long	52
 	.long	.Lxtalabel0
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel1
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	55
-	.long	61
+	.long	59
+	.long	65
 	.long	.Lxtalabel1
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	90
 	.long	94
+	.long	98
 	.long	.Lxtalabel2
 .cc_bottom cc_77
-.cc_top cc_78,.Lxtalabel6
+.cc_top cc_78,.Lxtalabel7
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	90
 	.long	94
-	.long	.Lxtalabel6
+	.long	98
+	.long	.Lxtalabel7
 .cc_bottom cc_78
-.cc_top cc_79,.Lxtalabel2
+.cc_top cc_79,.Lxtalabel7
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	96
-	.long	96
-	.long	.Lxtalabel2
+	.long	100
+	.long	100
+	.long	.Lxtalabel7
 .cc_bottom cc_79
-.cc_top cc_80,.Lxtalabel6
+.cc_top cc_80,.Lxtalabel2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	96
-	.long	96
-	.long	.Lxtalabel6
+	.long	100
+	.long	100
+	.long	.Lxtalabel2
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	98
-	.long	98
+	.long	102
+	.long	102
 	.long	.Lxtalabel2
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel6
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	98
-	.long	98
+	.long	102
+	.long	102
 	.long	.Lxtalabel6
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel2
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	100
-	.long	100
+	.long	104
+	.long	104
 	.long	.Lxtalabel2
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel6
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	100
-	.long	100
+	.long	104
+	.long	104
 	.long	.Lxtalabel6
 .cc_bottom cc_84
-.cc_top cc_85,.Lxtalabel3
+.cc_top cc_85,.Lxtalabel9
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	104
-	.long	104
-	.long	.Lxtalabel3
+	.long	108
+	.long	108
+	.long	.Lxtalabel9
 .cc_bottom cc_85
-.cc_top cc_86,.Lxtalabel8
+.cc_top cc_86,.Lxtalabel13
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	104
-	.long	104
-	.long	.Lxtalabel8
+	.long	108
+	.long	108
+	.long	.Lxtalabel13
 .cc_bottom cc_86
-.cc_top cc_87,.Lxtalabel12
+.cc_top cc_87,.Lxtalabel3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	104
-	.long	104
-	.long	.Lxtalabel12
+	.long	108
+	.long	108
+	.long	.Lxtalabel3
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	106
-	.long	106
+	.long	110
+	.long	110
 	.long	.Lxtalabel3
 .cc_bottom cc_88
-.cc_top cc_89,.Lxtalabel12
+.cc_top cc_89,.Lxtalabel9
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	106
-	.long	106
-	.long	.Lxtalabel12
-.cc_bottom cc_89
-.cc_top cc_90,.Lxtalabel8
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	106
-	.long	106
-	.long	.Lxtalabel8
-.cc_bottom cc_90
-.cc_top cc_91,.Lxtalabel12
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	108
-	.long	108
-	.long	.Lxtalabel12
-.cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel8
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	108
-	.long	108
-	.long	.Lxtalabel8
-.cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel3
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	108
-	.long	108
-	.long	.Lxtalabel3
-.cc_bottom cc_93
-.cc_top cc_94,.Lxtalabel9
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	109
-	.long	115
+	.long	110
+	.long	110
 	.long	.Lxtalabel9
-.cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel13
+.cc_bottom cc_89
+.cc_top cc_90,.Lxtalabel13
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
-	.long	115
+	.long	110
+	.long	110
 	.long	.Lxtalabel13
-.cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel4
+.cc_bottom cc_90
+.cc_top cc_91,.Lxtalabel3
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	109
-	.long	115
+	.long	112
+	.long	112
+	.long	.Lxtalabel3
+.cc_bottom cc_91
+.cc_top cc_92,.Lxtalabel9
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	112
+	.long	112
+	.long	.Lxtalabel9
+.cc_bottom cc_92
+.cc_top cc_93,.Lxtalabel13
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	112
+	.long	112
+	.long	.Lxtalabel13
+.cc_bottom cc_93
+.cc_top cc_94,.Lxtalabel10
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	113
+	.long	119
+	.long	.Lxtalabel10
+.cc_bottom cc_94
+.cc_top cc_95,.Lxtalabel4
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	113
+	.long	119
 	.long	.Lxtalabel4
+.cc_bottom cc_95
+.cc_top cc_96,.Lxtalabel14
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	113
+	.long	119
+	.long	.Lxtalabel14
 .cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel10
+.cc_top cc_97,.Lxtalabel11
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	124
-	.long	124
-	.long	.Lxtalabel10
+	.long	121
+	.long	121
+	.long	.Lxtalabel11
 .cc_bottom cc_97
-.cc_top cc_98,.Lxtalabel14
+.cc_top cc_98,.Lxtalabel15
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	124
-	.long	124
-	.long	.Lxtalabel14
+	.long	121
+	.long	121
+	.long	.Lxtalabel15
 .cc_bottom cc_98
-.cc_top cc_99,.Lxtalabel10
+.cc_top cc_99,.Lxtalabel11
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	126
-	.long	.Lxtalabel10
+	.long	124
+	.long	124
+	.long	.Lxtalabel11
 .cc_bottom cc_99
-.cc_top cc_100,.Lxtalabel14
+.cc_top cc_100,.Lxtalabel15
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	126
-	.long	126
-	.long	.Lxtalabel14
+	.long	124
+	.long	124
+	.long	.Lxtalabel15
 .cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel7
+.cc_top cc_101,.Lxtalabel15
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	127
-	.long	129
-	.long	.Lxtalabel7
+	.long	126
+	.long	126
+	.long	.Lxtalabel15
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel11
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
-	.long	127
-	.long	129
+	.long	126
+	.long	126
 	.long	.Lxtalabel11
 .cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel15
+.cc_top cc_103,.Lxtalabel5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
 	.long	127
 	.long	129
-	.long	.Lxtalabel15
+	.long	.Lxtalabel5
 .cc_bottom cc_103
-.cc_top cc_104,.Lxtalabel5
+.cc_top cc_104,.Lxtalabel12
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
 	.long	127
 	.long	129
-	.long	.Lxtalabel5
+	.long	.Lxtalabel12
 .cc_bottom cc_104
-.cc_top cc_105,.Lxtalabel5
+.cc_top cc_105,.Lxtalabel8
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	127
+	.long	129
+	.long	.Lxtalabel8
+.cc_bottom cc_105
+.cc_top cc_106,.Lxtalabel16
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	127
+	.long	129
+	.long	.Lxtalabel16
+.cc_bottom cc_106
+.cc_top cc_107,.Lxtalabel12
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	131
+	.long	131
+	.long	.Lxtalabel12
+.cc_bottom cc_107
+.cc_top cc_108,.Lxtalabel8
+	.ascii	"../src/chronodot_ds3231_controller.xc"
+	.byte	0
+	.long	131
+	.long	131
+	.long	.Lxtalabel8
+.cc_bottom cc_108
+.cc_top cc_109,.Lxtalabel5
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
 	.long	131
 	.long	131
 	.long	.Lxtalabel5
-.cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel11
+.cc_bottom cc_109
+.cc_top cc_110,.Lxtalabel16
 	.ascii	"../src/chronodot_ds3231_controller.xc"
 	.byte	0
 	.long	131
 	.long	131
-	.long	.Lxtalabel11
-.cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel7
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	131
-	.long	131
-	.long	.Lxtalabel7
-.cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel15
-	.ascii	"../src/chronodot_ds3231_controller.xc"
-	.byte	0
-	.long	131
-	.long	131
-	.long	.Lxtalabel15
-.cc_bottom cc_108
+	.long	.Lxtalabel16
+.cc_bottom cc_110
 .Lentries_end5:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

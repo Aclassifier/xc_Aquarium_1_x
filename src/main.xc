@@ -6,7 +6,8 @@
  */
 
 // System files at /Applications/XMOS_xTIMEcomposer_Community_14.2.3/target/include
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -37,6 +38,7 @@
 #include "adc_startkit_client.h"
 
 #include "_Aquarium.h"
+#endif
 
 port inP_button_left   = on tile[0]:XS1_PORT_1N; // P1N0, X0D37 B_Left
 port inP_button_center = on tile[0]:XS1_PORT_1O; // P1O0, X0D38 B_Center
@@ -47,7 +49,7 @@ int main() {
     chan c_analogue;
 
     // The declarations are typedefs of interface types to connect the tasks together (XMOS Programming guide p92)
-    // delay_if                       i_delay;
+    // delay_if                    i_delay;
     i2c_external_commands_if       i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS];
     i2c_internal_commands_if       i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS];
     startkit_adc_acquire_if        i_startkit_adc_acquire;

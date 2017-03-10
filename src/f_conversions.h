@@ -14,7 +14,7 @@ void myExceptionHandler(void);
 
 typedef int temp_onetenthDegC_t; // 25.1 DegC is 251 (as is i2c_temp_onetenthDegC_t)
 typedef int voltage_onetenthV_t; // 12.1 Volt is 121
-typedef int light_range_t; // [00..99]
+typedef int light_range_t;       // [00..99]
 
 #define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400 // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
                                                               //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
@@ -39,7 +39,7 @@ typedef int light_range_t; // [00..99]
 
 typedef struct temp_degC_str_t { char string[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]; } temp_degC_str_t;
 
-typedef struct {
+typedef struct temp_degC_strings_t {
     char temp_degC_heater_str  [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
     char temp_degC_ambient_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
     char temp_degC_water_str   [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
@@ -48,7 +48,7 @@ typedef struct {
 #define ARITHMETIC_MEAN_N_OF_TEMPS 8 // Observe TEMP_MEASURE_INTERVAL_IS_10_SECONDS. When we trow away larges and smallet we get 6 to work with
                                      // 8->6 to work with then a single value won't appear as often
                                      // 6->4 caused some single value sequences that we avoded with 8
-typedef struct {
+typedef struct temp_onetenthDegC_mean_t {
     // About any FILTER using this array to store the value set
     //     temp_onetenthDegC_t is an int with one decimal, but the value itself is an int.
     temp_onetenthDegC_t temps_onetenthDegC[ARITHMETIC_MEAN_N_OF_TEMPS];
@@ -65,16 +65,15 @@ typedef struct {
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
 
-void                Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps);
+void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps);
 
 // The largest and smallest value of the data set are removed once the data set is full of values
 // The whole purpose of this array is to filter out individual non-standard reading and also, during a real gliding of
 // the temperature, to "debounce" the change. I tried to do correct rounding (multiplied with 10 in the set and divided and looked at the
 // modulo 10 rest and pushed up or down), but it didn't look as nice. And then I tried throwing away values, which seems more adequate
 //
-temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC   (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps,
-                                                            const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-
+temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
+                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 #else
     #error Nested include F_CONVERSIONS_H_
 #endif /* F_CONVERSIONS_H_ */

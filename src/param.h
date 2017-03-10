@@ -13,8 +13,7 @@
 #define min(a,b) (((a)<(b))?(a):(b))
 #define max(a,b) (((a)>(b))?(a):(b))
 
-// BOOLEAN
-// #include <stdbool.h> if C99
+// BOOLEAN #include <stdbool.h> if C99
 typedef enum {false,true} bool; // 0,1
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t; // Two first from usage in XMOS module_i2c_master

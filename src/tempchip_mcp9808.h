@@ -28,7 +28,7 @@
 #define MCP9808_REG_MANUF_ID           0x06
 #define MCP9808_REG_DEVICE_ID          0x07
 
-typedef enum {
+typedef enum i2c_dev_address_external_t {
                                 //          A2 A1 A0 MCP9808
     TEMPC_HEATER  =  0x18,      //  24 0x18  0  0  0 (all pull-downs)
     TEMPC_AMBIENT = (0x18 + 1), //  25 0x19  0  0  1 (A0 to 3.3V)
@@ -40,11 +40,11 @@ typedef enum {
 #define I2C_TEMPS_FIRST_CHARS_HAW {"H","A","W"}; // Heater Ambient Water
 
 
-bool                    Tempchip_MCP9808_Begin_Ok        (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC       (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr); // If not ok then result is MCP9808_UNDEFINED_TEMP
-int                     tempchip_mcp9808_shutdown_wake   (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t sw_ID);
-void                    Tempchip_MCP9808_Write16         (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val);
-uint16_t                Tempchip_MCP9808_Read16          (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t * i2c_external_params_ptr, uint8_t reg);
+bool                    Tempchip_MCP9808_Begin_Ok      (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t a);
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC     (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, bool &ok); // If not ok then result is MCP9808_UNDEFINED_TEMP
+int                     Tempchip_MCP9808_Shutdown_Wake (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
+void                    Tempchip_MCP9808_Write16       (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
+uint16_t                Tempchip_MCP9808_Read16        (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t reg);
 
 #else
     #error Nested include TEMPCHIP_MCP9808_H_

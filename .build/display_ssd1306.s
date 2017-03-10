@@ -90,28 +90,28 @@ outP_display_notReset.info:
 	.set usage.anon.7,0
 	.set usage.anon.8,0
 	.set usage.anon.9,0
-	.globread drawVerticalLineInternal_in_buffer,usage.anon.9,"../src/display_ssd1306.xc:507:33: note: object used here\n        register uint8_t mask = postmask[mod];\n                                ^~~~~~~~~~~~~"
-	.globread drawVerticalLineInternal_in_buffer,usage.anon.8,"../src/display_ssd1306.xc:445:33: note: object used here\n        register uint8_t mask = premask[mod];\n                                ^~~~~~~~~~~~"
-	.globread drawVerticalLineInternal_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:415:24: note: object used here (bytes 2..4)\n    if ( (__y + __h) > display_param.HEIGHT) {\n                       ^~~~~~~~~~~~~~~~~~~~"
-	.globread drawVerticalLineInternal_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:405:23: note: object used here (bytes 0..2)\n    if (x < 0 || x >= display_param.WIDTH) { return; }\n                      ^~~~~~~~~~~~~~~~~~~"
-	.globread drawVerticalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:371:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
-	.globread drawVerticalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:384:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
-	.globread drawVerticalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:378:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
-	.globread drawHorisontalLineInternal_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:336:23: note: object used here (bytes 2..4)\n    if (y < 0 || y >= display_param.HEIGHT) { return; }\n                      ^~~~~~~~~~~~~~~~~~~~"
-	.globread drawHorisontalLineInternal_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:345:19: note: object used here (bytes 0..2)\n    if ((x + w) > display_param.WIDTH) {\n                  ^~~~~~~~~~~~~~~~~~~"
-	.globread drawHorisontalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:301:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
-	.globread drawHorisontalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:314:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
-	.globread drawHorisontalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:309:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
-	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:296:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
-	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:296:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
-	.globread writeToDisplay_i2c_all_buffer,usage.anon.6,"../src/display_ssd1306.xc:279:23: note: object used here\n            data[x] = buffer[i];\n                      ^~~~~~~~~"
-	.globread setPixel_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:130:21: note: object used here (bytes 2..4)\n                y = display_param.HEIGHT - y - 1;\n                    ^~~~~~~~~~~~~~~~~~~~"
-	.globread setPixel_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:126:21: note: object used here (bytes 0..2)\n                x = display_param.WIDTH - x - 1;\n                    ^~~~~~~~~~~~~~~~~~~"
-	.globwrite drawVerticalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:429:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
-	.globwrite drawHorisontalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:353:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
-	.globwrite Clear_All_Pixels_In_Buffer,usage.anon.6,"../src/display_ssd1306.xc:291:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:12:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
-	.globwrite setPixel_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:141:27: note: object used here\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globwrite Adafruit_SSD1306_i2c_begin,outP_display_notReset,"../src/display_ssd1306.xc:70:5: note: object used here\n    outP_display_notReset <: 1; // High. Didn\'t help remove qwe\n    ^~~~~~~~~~~~~~~~~~~~~"
+	.globread drawVerticalLineInternal_in_buffer,usage.anon.9,"../src/display_ssd1306.xc:508:33: note: object used here\n        register uint8_t mask = postmask[mod];\n                                ^~~~~~~~~~~~~"
+	.globread drawVerticalLineInternal_in_buffer,usage.anon.8,"../src/display_ssd1306.xc:446:33: note: object used here\n        register uint8_t mask = premask[mod];\n                                ^~~~~~~~~~~~"
+	.globread drawVerticalLineInternal_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:416:24: note: object used here (bytes 2..4)\n    if ( (__y + __h) > display_param.HEIGHT) {\n                       ^~~~~~~~~~~~~~~~~~~~"
+	.globread drawVerticalLineInternal_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:406:23: note: object used here (bytes 0..2)\n    if (x < 0 || x >= display_param.WIDTH) { return; }\n                      ^~~~~~~~~~~~~~~~~~~"
+	.globread drawVerticalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:372:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
+	.globread drawVerticalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:385:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
+	.globread drawVerticalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:379:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
+	.globread drawHorisontalLineInternal_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:337:23: note: object used here (bytes 2..4)\n    if (y < 0 || y >= display_param.HEIGHT) { return; }\n                      ^~~~~~~~~~~~~~~~~~~~"
+	.globread drawHorisontalLineInternal_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:346:19: note: object used here (bytes 0..2)\n    if ((x + w) > display_param.WIDTH) {\n                  ^~~~~~~~~~~~~~~~~~~"
+	.globread drawHorisontalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:302:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
+	.globread drawHorisontalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:315:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
+	.globread drawHorisontalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:310:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
+	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:297:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
+	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:297:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:10:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
+	.globread writeToDisplay_i2c_all_buffer,usage.anon.6,"../src/display_ssd1306.xc:280:23: note: object used here\n            data[x] = buffer[i];\n                      ^~~~~~~~~"
+	.globread setPixel_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:131:21: note: object used here (bytes 2..4)\n                y = display_param.HEIGHT - y - 1;\n                    ^~~~~~~~~~~~~~~~~~~~"
+	.globread setPixel_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:127:21: note: object used here (bytes 0..2)\n                x = display_param.WIDTH - x - 1;\n                    ^~~~~~~~~~~~~~~~~~~"
+	.globwrite drawVerticalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:430:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
+	.globwrite drawHorisontalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:354:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
+	.globwrite Clear_All_Pixels_In_Buffer,usage.anon.6,"../src/display_ssd1306.xc:292:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:12:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
+	.globwrite setPixel_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:142:27: note: object used here\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globwrite Adafruit_SSD1306_i2c_begin,outP_display_notReset,"../src/display_ssd1306.xc:71:5: note: object used here\n    outP_display_notReset <: 1; // High. Didn\'t help remove qwe\n    ^~~~~~~~~~~~~~~~~~~~~"
 	.call drawVerticalLine_in_buffer,drawVerticalLineInternal_in_buffer
 	.call drawVerticalLine_in_buffer,drawHorisontalLineInternal_in_buffer
 	.call drawHorisontalLine_in_buffer,drawVerticalLineInternal_in_buffer
@@ -155,8 +155,8 @@ outP_display_notReset.info:
 	.set writeDisplay_i2c_command.locnointerfaceaccess, 0
 	.set writeDisplay_i2c_data.locnointerfaceaccess, 0
 	.set writeToDisplay_i2c_all_buffer.locnointerfaceaccess, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -614,7 +614,7 @@ _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.cc_top setPixel_in_buffer.function,setPixel_in_buffer
 setPixel_in_buffer:
 .Lfunc_begin6:
-	.loc	1 118 0
+	.loc	1 119 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 4
@@ -637,31 +637,31 @@ setPixel_in_buffer:
 .Ltmp49:
 	mov r6, r0
 .Ltmp50:
-	.loc	1 119 5 prologue_end
+	.loc	1 120 5 prologue_end
 	ashr r0, r6, 32
 	bt r0, .LBB6_17
 .Ltmp51:
-	.loc	1 119 5
+	.loc	1 120 5
 .Lxta.call_labels0:
 	bl width
-	.loc	1 119 5
+	.loc	1 120 5
 	lss r0, r6, r0
 	bf r0, .LBB6_17
 .Ltmp52:
 	ashr r0, r5, 32
 	bt r0, .LBB6_17
 .Ltmp53:
-	.loc	1 119 5
+	.loc	1 120 5
 	bl height
-	.loc	1 119 5
+	.loc	1 120 5
 	lss r0, r5, r0
 	bf r0, .LBB6_17
 .Ltmp54:
 .Lxtalabel1:
-	.loc	1 123 0
+	.loc	1 124 0
 .Lxta.call_labels1:
 	bl getRotation
-	.loc	1 123 0
+	.loc	1 124 0
 	eq r1, r0, 1
 	bt r1, .LBB6_12
 .Ltmp55:
@@ -670,32 +670,32 @@ setPixel_in_buffer:
 	bf r1, .LBB6_6
 .Ltmp56:
 .Lxtalabel3:
-	.loc	1 129 0
+	.loc	1 130 0
 	ldw r0, dp[display_param]
 	mkmsk r2, 16
-	.loc	1 129 0
+	.loc	1 130 0
 	sub r1, r2, r6
-	.loc	1 129 0
+	.loc	1 130 0
 	add r1, r1, r0
 	shr r0, r0, 16
-	.loc	1 130 0
+	.loc	1 131 0
 	andnot r2, r5
-	.loc	1 130 0
+	.loc	1 131 0
 	add r0, r2, r0
 	bu .LBB6_8
 .Ltmp57:
 .LBB6_12:
 .Lxtalabel4:
-	.loc	1 126 0
+	.loc	1 127 0
 	ldaw r0, dp[display_param]
-	.loc	1 126 0
+	.loc	1 127 0
 	ldc r1, 0
 	ld16s r0, r0[r1]
 	zext r0, 16
 	mkmsk r1, 16
-	.loc	1 126 0
+	.loc	1 127 0
 	andnot r1, r5
-	.loc	1 126 0
+	.loc	1 127 0
 	add r1, r1, r0
 	mov r0, r6
 .Ltmp58:
@@ -707,16 +707,16 @@ setPixel_in_buffer:
 	bf r0, .LBB6_7
 .Ltmp60:
 .Lxtalabel6:
-	.loc	1 134 0
+	.loc	1 135 0
 	ldc r0, 0
 	ldaw r1, dp[display_param]
 	add r1, r1, 2
 	ld16s r0, r1[r0]
 	zext r0, 16
 	mkmsk r1, 16
-	.loc	1 134 0
+	.loc	1 135 0
 	sub r1, r1, r6
-	.loc	1 134 0
+	.loc	1 135 0
 	add r0, r1, r0
 	mov r1, r5
 .Ltmp61:
@@ -729,7 +729,7 @@ setPixel_in_buffer:
 .Ltmp64:
 .LBB6_8:
 .Lxtalabel7:
-	.loc	1 139 0
+	.loc	1 140 0
 	bf r4, .LBB6_16
 .Ltmp65:
 .Lxtalabel8:
@@ -737,76 +737,76 @@ setPixel_in_buffer:
 	bf r2, .LBB6_10
 .Ltmp66:
 .Lxtalabel9:
-	.loc	1 141 0
+	.loc	1 142 0
 	sext r0, 16
-	.loc	1 141 0
+	.loc	1 142 0
 	ashr r2, r0, 32
 	ldc r3, 29
 	shr r2, r2, r3
 	add r2, r0, r2
-	.loc	1 141 0
+	.loc	1 142 0
 	shl r2, r2, 4
 	ldw r3, cp[.LCPI6_0]
-	.loc	1 141 0
+	.loc	1 142 0
 	and r2, r2, r3
-	.loc	1 141 0
+	.loc	1 142 0
 	sext r1, 16
-	.loc	1 141 0
+	.loc	1 142 0
 	add r1, r2, r1
 	ldc r2, 9
-	.loc	1 141 0
+	.loc	1 142 0
 	shr r2, r1, r2
 .Ltrap_info0:
 	ecallt r2
-	.loc	1 141 0
+	.loc	1 142 0
 	ldaw r2, dp[buffer]
-	.loc	1 141 0
+	.loc	1 142 0
 	zext r0, 3
 	mkmsk r3, 1
-	.loc	1 141 0
+	.loc	1 142 0
 	shl r0, r3, r0
-	.loc	1 141 0
+	.loc	1 142 0
 	ld8u r3, r2[r1]
-	.loc	1 141 0
+	.loc	1 142 0
 	or r0, r3, r0
-	.loc	1 141 0
+	.loc	1 142 0
 	st8 r0, r2[r1]
 	bu .LBB6_17
 .LBB6_16:
 .Lxtalabel10:
-	.loc	1 142 0
+	.loc	1 143 0
 	sext r0, 16
-	.loc	1 142 0
+	.loc	1 143 0
 	ashr r2, r0, 32
 	ldc r3, 29
 	shr r2, r2, r3
 	add r2, r0, r2
-	.loc	1 142 0
+	.loc	1 143 0
 	shl r2, r2, 4
 	ldw r3, cp[.LCPI6_0]
-	.loc	1 142 0
+	.loc	1 143 0
 	and r2, r2, r3
-	.loc	1 142 0
+	.loc	1 143 0
 	sext r1, 16
-	.loc	1 142 0
+	.loc	1 143 0
 	add r1, r2, r1
 	ldc r2, 9
-	.loc	1 142 0
+	.loc	1 143 0
 	shr r2, r1, r2
 .Ltrap_info1:
 	ecallt r2
-	.loc	1 142 0
+	.loc	1 143 0
 	ldaw r2, dp[buffer]
-	.loc	1 142 0
+	.loc	1 143 0
 	zext r0, 3
 	mkmsk r3, 1
-	.loc	1 142 0
+	.loc	1 143 0
 	shl r0, r3, r0
-	.loc	1 142 0
+	.loc	1 143 0
 	ld8u r3, r2[r1]
-	.loc	1 142 0
+	.loc	1 143 0
 	andnot r3, r0
-	.loc	1 142 0
+	.loc	1 143 0
 	st8 r3, r2[r1]
 	bu .LBB6_17
 .LBB6_10:
@@ -816,39 +816,39 @@ setPixel_in_buffer:
 	bf r2, .LBB6_17
 .Ltmp68:
 .Lxtalabel12:
-	.loc	1 143 0
+	.loc	1 144 0
 	sext r0, 16
-	.loc	1 143 0
+	.loc	1 144 0
 	ashr r2, r0, 32
 	ldc r3, 29
 	shr r2, r2, r3
 	add r2, r0, r2
-	.loc	1 143 0
+	.loc	1 144 0
 	shl r2, r2, 4
 	ldw r3, cp[.LCPI6_0]
-	.loc	1 143 0
+	.loc	1 144 0
 	and r2, r2, r3
-	.loc	1 143 0
+	.loc	1 144 0
 	sext r1, 16
-	.loc	1 143 0
+	.loc	1 144 0
 	add r1, r2, r1
 	ldc r2, 9
-	.loc	1 143 0
+	.loc	1 144 0
 	shr r2, r1, r2
 .Ltrap_info2:
 	ecallt r2
-	.loc	1 143 0
+	.loc	1 144 0
 	ldaw r2, dp[buffer]
-	.loc	1 143 0
+	.loc	1 144 0
 	zext r0, 3
 	mkmsk r3, 1
-	.loc	1 143 0
+	.loc	1 144 0
 	shl r0, r3, r0
-	.loc	1 143 0
+	.loc	1 144 0
 	ld8u r3, r2[r1]
-	.loc	1 143 0
+	.loc	1 144 0
 	xor r0, r3, r0
-	.loc	1 143 0
+	.loc	1 144 0
 	st8 r0, r2[r1]
 .Ltmp69:
 .LBB6_17:
@@ -886,7 +886,7 @@ setPixel_in_buffer:
 	.cc_top Adafruit_SSD1306_i2c_begin.function,Adafruit_SSD1306_i2c_begin
 Adafruit_SSD1306_i2c_begin:
 .Lfunc_begin7:
-	.loc	1 63 0
+	.loc	1 64 0
 	.cfi_startproc
 .Lxtalabel13:
 	entsp 28
@@ -917,17 +917,17 @@ Adafruit_SSD1306_i2c_begin:
 	.cfi_offset 10, -28
 	mov r6, r0
 .Ltmp80:
-	.loc	1 70 31 prologue_end
+	.loc	1 71 31 prologue_end
 	ldw r7, dp[outP_display_notReset]
 	mkmsk r4, 1
-	.loc	1 70 31
+	.loc	1 71 31
 .Lxta.endpoint_labels0:
 	out res[r7], r4
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp81:
 	ldc r5, 0
 .Ltmp82:
-	.loc	1 74 31
+	.loc	1 75 31
 .Lxta.endpoint_labels1:
 	out res[r7], r5
 .Ltmp83:
@@ -939,23 +939,23 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels2:
 	bl delay_ticks_longlong
 .Ltmp85:
-	.loc	1 76 31
+	.loc	1 77 31
 .Lxta.endpoint_labels2:
 	out res[r7], r4
 	ldaw r7, sp[20]
 .Ltmp86:
 	ldc r0, 174
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp87:
 	st8 r0, r7[r5]
 .Ltmp88:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	ldc r8, 60
@@ -967,16 +967,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[19]
 	ldc r0, 213
 .Ltmp89:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp90:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -987,16 +987,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[18]
 	ldc r0, 128
 .Ltmp91:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp92:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1007,16 +1007,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[17]
 	ldc r0, 168
 .Ltmp93:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp94:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1027,16 +1027,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[16]
 	mkmsk r0, 5
 .Ltmp95:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp96:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1047,16 +1047,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[15]
 	ldc r0, 211
 .Ltmp97:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp98:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1066,16 +1066,16 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[14]
 .Ltmp99:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r5, r7[r5]
 .Ltmp100:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1086,16 +1086,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[13]
 	ldc r0, 64
 .Ltmp101:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp102:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1106,16 +1106,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[12]
 	ldc r0, 141
 .Ltmp103:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp104:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1126,16 +1126,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[11]
 	ldc r0, 20
 .Ltmp105:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp106:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1146,16 +1146,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[10]
 	ldc r0, 32
 .Ltmp107:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp108:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1165,16 +1165,16 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[9]
 .Ltmp109:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r5, r7[r5]
 .Ltmp110:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1185,16 +1185,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[8]
 	ldc r0, 161
 .Ltmp111:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp112:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1205,16 +1205,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[7]
 	ldc r0, 200
 .Ltmp113:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp114:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1225,16 +1225,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[6]
 	ldc r0, 218
 .Ltmp115:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp116:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1245,16 +1245,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[5]
 	ldc r0, 2
 .Ltmp117:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp118:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1265,16 +1265,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[4]
 	ldc r0, 129
 .Ltmp119:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp120:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1285,16 +1285,16 @@ Adafruit_SSD1306_i2c_begin:
 	stw r0, sp[3]
 	ldc r0, 143
 .Ltmp121:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp122:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1305,16 +1305,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r10, r0
 	ldc r0, 217
 .Ltmp123:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp124:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1325,16 +1325,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r9, r0
 	ldc r0, 241
 .Ltmp125:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r5]
 .Ltmp126:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1343,113 +1343,113 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels22:
 	bla r11
 .Ltmp127:
-	.loc	1 80 0
+	.loc	1 81 0
 	ldw r1, sp[19]
 	eq r1, r1, 0
-	.loc	1 81 0
+	.loc	1 82 0
 	ldw r2, sp[18]
 	eq r2, r2, 0
-	.loc	1 81 0
-	or r1, r1, r2
 	.loc	1 82 0
+	or r1, r1, r2
+	.loc	1 83 0
 	ldw r2, sp[17]
 	eq r2, r2, 0
-	.loc	1 82 0
-	or r1, r1, r2
 	.loc	1 83 0
+	or r1, r1, r2
+	.loc	1 84 0
 	ldw r2, sp[16]
 	eq r2, r2, 0
-	.loc	1 83 0
-	or r1, r1, r2
 	.loc	1 84 0
+	or r1, r1, r2
+	.loc	1 85 0
 	ldw r2, sp[15]
 	eq r2, r2, 0
-	.loc	1 84 0
-	or r1, r1, r2
 	.loc	1 85 0
+	or r1, r1, r2
+	.loc	1 86 0
 	ldw r2, sp[14]
 	eq r2, r2, 0
-	.loc	1 85 0
-	or r1, r1, r2
 	.loc	1 86 0
+	or r1, r1, r2
+	.loc	1 87 0
 	ldw r2, sp[13]
 	eq r2, r2, 0
-	.loc	1 86 0
-	or r1, r1, r2
 	.loc	1 87 0
+	or r1, r1, r2
+	.loc	1 88 0
 	ldw r2, sp[12]
 	eq r2, r2, 0
-	.loc	1 87 0
-	or r1, r1, r2
 	.loc	1 88 0
+	or r1, r1, r2
+	.loc	1 89 0
 	ldw r2, sp[11]
 	eq r2, r2, 0
-	.loc	1 88 0
+	.loc	1 89 0
 	or r1, r1, r2
-	.loc	1 90 0
+	.loc	1 91 0
 	ldw r2, sp[10]
 	eq r2, r2, 0
-	.loc	1 90 0
+	.loc	1 91 0
 	or r1, r1, r2
-	.loc	1 93 0
+	.loc	1 94 0
 	ldw r2, sp[9]
 	eq r2, r2, 0
-	.loc	1 93 0
-	or r1, r1, r2
 	.loc	1 94 0
+	or r1, r1, r2
+	.loc	1 95 0
 	ldw r2, sp[8]
 	eq r2, r2, 0
-	.loc	1 94 0
-	or r1, r1, r2
 	.loc	1 95 0
+	or r1, r1, r2
+	.loc	1 96 0
 	ldw r2, sp[7]
 	eq r2, r2, 0
-	.loc	1 95 0
-	or r1, r1, r2
 	.loc	1 96 0
+	or r1, r1, r2
+	.loc	1 97 0
 	ldw r2, sp[6]
 	eq r2, r2, 0
-	.loc	1 96 0
-	or r1, r1, r2
 	.loc	1 97 0
+	or r1, r1, r2
+	.loc	1 98 0
 	ldw r2, sp[5]
 	eq r2, r2, 0
-	.loc	1 97 0
-	or r1, r1, r2
 	.loc	1 98 0
+	or r1, r1, r2
+	.loc	1 99 0
 	ldw r2, sp[4]
 	eq r2, r2, 0
-	.loc	1 98 0
-	or r1, r1, r2
 	.loc	1 99 0
+	or r1, r1, r2
+	.loc	1 100 0
 	ldw r2, sp[3]
 	eq r2, r2, 0
-	.loc	1 99 0
-	or r1, r1, r2
 	.loc	1 100 0
+	or r1, r1, r2
+	.loc	1 101 0
 	eq r2, r10, 0
-	.loc	1 100 0
-	or r1, r1, r2
 	.loc	1 101 0
+	or r1, r1, r2
+	.loc	1 102 0
 	eq r2, r9, 0
-	.loc	1 101 0
+	.loc	1 102 0
 	or r1, r1, r2
-	.loc	1 103 0
+	.loc	1 104 0
 	eq r0, r0, 0
-	.loc	1 103 0
+	.loc	1 104 0
 	or r9, r1, r0
 	ldc r0, 219
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp128:
 	st8 r0, r7[r5]
 .Ltmp129:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1458,22 +1458,22 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels23:
 	bla r11
 .Ltmp130:
-	.loc	1 106 0
+	.loc	1 107 0
 	eq r0, r0, 0
-	.loc	1 106 0
+	.loc	1 107 0
 	or r9, r9, r0
 	ldc r0, 64
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp131:
 	st8 r0, r7[r5]
 .Ltmp132:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1482,22 +1482,22 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels24:
 	bla r11
 .Ltmp133:
-	.loc	1 107 0
+	.loc	1 108 0
 	eq r0, r0, 0
-	.loc	1 107 0
+	.loc	1 108 0
 	or r9, r9, r0
 	ldc r0, 164
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp134:
 	st8 r0, r7[r5]
 .Ltmp135:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1506,22 +1506,22 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels25:
 	bla r11
 .Ltmp136:
-	.loc	1 108 0
+	.loc	1 109 0
 	eq r0, r0, 0
-	.loc	1 108 0
+	.loc	1 109 0
 	or r9, r9, r0
 	ldc r0, 166
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp137:
 	st8 r0, r7[r5]
 .Ltmp138:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1530,22 +1530,22 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels26:
 	bla r11
 .Ltmp139:
-	.loc	1 109 0
+	.loc	1 110 0
 	eq r0, r0, 0
-	.loc	1 109 0
+	.loc	1 110 0
 	or r9, r9, r0
 	ldc r0, 175
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp140:
 	st8 r0, r7[r5]
 .Ltmp141:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r6[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r6[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1554,11 +1554,11 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels27:
 	bla r11
 .Ltmp142:
-	.loc	1 112 0
+	.loc	1 113 0
 	eq r0, r0, 0
-	.loc	1 112 0
+	.loc	1 113 0
 	or r0, r9, r0
-	.loc	1 114 5
+	.loc	1 115 5
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[21]
@@ -1593,7 +1593,7 @@ Adafruit_SSD1306_i2c_begin:
 	.cc_top writeDisplay_i2c_command.function,writeDisplay_i2c_command
 writeDisplay_i2c_command:
 .Lfunc_begin8:
-	.loc	1 40 0
+	.loc	1 42 0
 	.cfi_startproc
 .Lxtalabel14:
 	entsp 5
@@ -1605,20 +1605,20 @@ writeDisplay_i2c_command:
 .Ltmp149:
 	.cfi_offset 4, -4
 .Ltmp150:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 	st8 r1, r3[r2]
 .Ltmp151:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r0[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r0[1]
 .Ltmp152:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
@@ -1626,7 +1626,7 @@ writeDisplay_i2c_command:
 	mov r0, r11
 .Lxta.call_labels28:
 	bla r4
-	.loc	1 48 5
+	.loc	1 50 5
 	eq r0, r0, 0
 	eq r0, r0, 0
 	ldw r4, sp[4]
@@ -1653,7 +1653,7 @@ writeDisplay_i2c_command:
 	.cc_top writeDisplay_i2c_data.function,writeDisplay_i2c_data
 writeDisplay_i2c_data:
 .Lfunc_begin9:
-	.loc	1 51 0
+	.loc	1 53 0
 	.cfi_startproc
 .Lxtalabel15:
 	entsp 5
@@ -1665,20 +1665,20 @@ writeDisplay_i2c_data:
 .Ltmp158:
 	.cfi_offset 4, -4
 .Ltmp159:
-	.loc	1 54 0 prologue_end
+	.loc	1 56 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 	st8 r1, r3[r2]
 .Ltmp160:
-	.loc	1 57 0
+	.loc	1 59 0
 	ldw r11, r0[0]
-	.loc	1 57 0
+	.loc	1 59 0
 	ldw r0, r0[1]
 .Ltmp161:
-	.loc	1 57 0
+	.loc	1 59 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
-	.loc	1 57 0
+	.loc	1 59 0
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
@@ -1687,7 +1687,7 @@ writeDisplay_i2c_data:
 	mov r0, r11
 .Lxta.call_labels29:
 	bla r4
-	.loc	1 59 5
+	.loc	1 61 5
 	eq r0, r0, 0
 	eq r0, r0, 0
 	ldw r4, sp[4]
@@ -1714,7 +1714,7 @@ writeDisplay_i2c_data:
 	.cc_top tellDisplay_i2c_invert.function,tellDisplay_i2c_invert
 tellDisplay_i2c_invert:
 .Lfunc_begin10:
-	.loc	1 148 0
+	.loc	1 149 0
 	.cfi_startproc
 .Lxtalabel16:
 	entsp 5
@@ -1726,11 +1726,11 @@ tellDisplay_i2c_invert:
 .Ltmp167:
 	.cfi_offset 4, -4
 .Ltmp168:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 .Ltmp169:
-	.loc	1 151 5
+	.loc	1 152 5
 	bf r1, .LBB10_3
 .Ltmp170:
 .Lxtalabel17:
@@ -1742,24 +1742,24 @@ tellDisplay_i2c_invert:
 .LBB10_2:
 .Lxtalabel19:
 .Ltmp171:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r1, r3[r2]
-	.loc	1 46 0
+	.loc	1 48 0
 .Ltmp172:
 	ldw r11, r0[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r0[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
 	mov r0, r11
 .Lxta.call_labels30:
 	bla r4
-	.loc	1 48 5
+	.loc	1 50 5
 	eq r0, r0, 0
 	eq r0, r0, 0
 .Ltmp173:
@@ -1787,7 +1787,7 @@ tellDisplay_i2c_invert:
 	.cc_top tellDisplay_i2c_startscrollright.function,tellDisplay_i2c_startscrollright
 tellDisplay_i2c_startscrollright:
 .Lfunc_begin11:
-	.loc	1 164 0
+	.loc	1 165 0
 	.cfi_startproc
 .Lxtalabel20:
 	entsp 12
@@ -1822,23 +1822,23 @@ tellDisplay_i2c_startscrollright:
 .Ltmp186:
 	mov r7, r0
 .Ltmp187:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
 .Ltmp188:
 	ldc r0, 38
 .Ltmp189:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r6[r5]
 .Ltmp190:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
 	mkmsk r4, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	ldc r8, 60
@@ -1848,19 +1848,19 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels31:
 	bla r11
 .Ltmp191:
-	.loc	1 167 0
+	.loc	1 168 0
 	eq r9, r0, 0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp192:
 	st8 r5, r6[r5]
 .Ltmp193:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1869,21 +1869,21 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels32:
 	bla r11
 .Ltmp194:
-	.loc	1 168 0
+	.loc	1 169 0
 	eq r0, r0, 0
-	.loc	1 168 0
+	.loc	1 169 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp195:
 	st8 r10, r6[r5]
 .Ltmp196:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1892,21 +1892,21 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels33:
 	bla r11
 .Ltmp197:
-	.loc	1 169 0
+	.loc	1 170 0
 	eq r0, r0, 0
-	.loc	1 169 0
+	.loc	1 170 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp198:
 	st8 r5, r6[r5]
 .Ltmp199:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1915,22 +1915,22 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels34:
 	bla r11
 .Ltmp200:
-	.loc	1 170 0
+	.loc	1 171 0
 	eq r0, r0, 0
-	.loc	1 170 0
+	.loc	1 171 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp201:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
 .Ltmp202:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1939,21 +1939,21 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels35:
 	bla r11
 .Ltmp203:
-	.loc	1 171 0
+	.loc	1 172 0
 	eq r0, r0, 0
-	.loc	1 171 0
+	.loc	1 172 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp204:
 	st8 r5, r6[r5]
 .Ltmp205:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1962,22 +1962,22 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels36:
 	bla r11
 .Ltmp206:
-	.loc	1 172 0
+	.loc	1 173 0
 	eq r0, r0, 0
-	.loc	1 172 0
+	.loc	1 173 0
 	or r9, r9, r0
 	mkmsk r0, 8
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp207:
 	st8 r0, r6[r5]
 .Ltmp208:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -1986,22 +1986,22 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels37:
 	bla r11
 .Ltmp209:
-	.loc	1 173 0
+	.loc	1 174 0
 	eq r0, r0, 0
-	.loc	1 173 0
+	.loc	1 174 0
 	or r9, r9, r0
 	ldc r0, 47
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp210:
 	st8 r0, r6[r5]
 .Ltmp211:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2010,11 +2010,11 @@ tellDisplay_i2c_startscrollright:
 .Lxta.call_labels38:
 	bla r11
 .Ltmp212:
-	.loc	1 174 0
+	.loc	1 175 0
 	eq r0, r0, 0
-	.loc	1 174 0
+	.loc	1 175 0
 	or r0, r9, r0
-	.loc	1 176 5
+	.loc	1 177 5
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
@@ -2051,7 +2051,7 @@ tellDisplay_i2c_startscrollright:
 	.cc_top tellDisplay_i2c_startscrollleft.function,tellDisplay_i2c_startscrollleft
 tellDisplay_i2c_startscrollleft:
 .Lfunc_begin12:
-	.loc	1 183 0
+	.loc	1 184 0
 	.cfi_startproc
 .Lxtalabel21:
 	entsp 12
@@ -2086,23 +2086,23 @@ tellDisplay_i2c_startscrollleft:
 .Ltmp229:
 	mov r7, r0
 .Ltmp230:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
 .Ltmp231:
 	ldc r0, 39
 .Ltmp232:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r6[r5]
 .Ltmp233:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
 	mkmsk r4, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	ldc r8, 60
@@ -2112,19 +2112,19 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels39:
 	bla r11
 .Ltmp234:
-	.loc	1 186 0
+	.loc	1 187 0
 	eq r9, r0, 0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp235:
 	st8 r5, r6[r5]
 .Ltmp236:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2133,21 +2133,21 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels40:
 	bla r11
 .Ltmp237:
-	.loc	1 187 0
+	.loc	1 188 0
 	eq r0, r0, 0
-	.loc	1 187 0
+	.loc	1 188 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp238:
 	st8 r10, r6[r5]
 .Ltmp239:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2156,21 +2156,21 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels41:
 	bla r11
 .Ltmp240:
-	.loc	1 188 0
+	.loc	1 189 0
 	eq r0, r0, 0
-	.loc	1 188 0
+	.loc	1 189 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp241:
 	st8 r5, r6[r5]
 .Ltmp242:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2179,22 +2179,22 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels42:
 	bla r11
 .Ltmp243:
-	.loc	1 189 0
+	.loc	1 190 0
 	eq r0, r0, 0
-	.loc	1 189 0
+	.loc	1 190 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp244:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
 .Ltmp245:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2203,21 +2203,21 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels43:
 	bla r11
 .Ltmp246:
-	.loc	1 190 0
+	.loc	1 191 0
 	eq r0, r0, 0
-	.loc	1 190 0
+	.loc	1 191 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp247:
 	st8 r5, r6[r5]
 .Ltmp248:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2226,22 +2226,22 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels44:
 	bla r11
 .Ltmp249:
-	.loc	1 191 0
+	.loc	1 192 0
 	eq r0, r0, 0
-	.loc	1 191 0
+	.loc	1 192 0
 	or r9, r9, r0
 	mkmsk r0, 8
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp250:
 	st8 r0, r6[r5]
 .Ltmp251:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2250,22 +2250,22 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels45:
 	bla r11
 .Ltmp252:
-	.loc	1 192 0
+	.loc	1 193 0
 	eq r0, r0, 0
-	.loc	1 192 0
+	.loc	1 193 0
 	or r9, r9, r0
 	ldc r0, 47
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp253:
 	st8 r0, r6[r5]
 .Ltmp254:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2274,11 +2274,11 @@ tellDisplay_i2c_startscrollleft:
 .Lxta.call_labels46:
 	bla r11
 .Ltmp255:
-	.loc	1 193 0
+	.loc	1 194 0
 	eq r0, r0, 0
-	.loc	1 193 0
+	.loc	1 194 0
 	or r0, r9, r0
-	.loc	1 195 5
+	.loc	1 196 5
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
@@ -2315,7 +2315,7 @@ tellDisplay_i2c_startscrollleft:
 	.cc_top tellDisplay_i2c_startscrolldiagright.function,tellDisplay_i2c_startscrolldiagright
 tellDisplay_i2c_startscrolldiagright:
 .Lfunc_begin13:
-	.loc	1 202 0
+	.loc	1 203 0
 	.cfi_startproc
 .Lxtalabel22:
 	entsp 12
@@ -2350,23 +2350,23 @@ tellDisplay_i2c_startscrolldiagright:
 .Ltmp272:
 	mov r7, r0
 .Ltmp273:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
 .Ltmp274:
 	ldc r0, 163
 .Ltmp275:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r6[r5]
 .Ltmp276:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
 	mkmsk r4, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	ldc r8, 60
@@ -2376,19 +2376,19 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels47:
 	bla r11
 .Ltmp277:
-	.loc	1 205 0
+	.loc	1 206 0
 	eq r9, r0, 0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp278:
 	st8 r5, r6[r5]
 .Ltmp279:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2397,22 +2397,22 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels48:
 	bla r11
 .Ltmp280:
-	.loc	1 206 0
+	.loc	1 207 0
 	eq r0, r0, 0
-	.loc	1 206 0
+	.loc	1 207 0
 	or r9, r9, r0
 	ldc r0, 32
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp281:
 	st8 r0, r6[r5]
 .Ltmp282:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2421,22 +2421,22 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels49:
 	bla r11
 .Ltmp283:
-	.loc	1 207 0
+	.loc	1 208 0
 	eq r0, r0, 0
-	.loc	1 207 0
+	.loc	1 208 0
 	or r9, r9, r0
 	ldc r0, 41
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp284:
 	st8 r0, r6[r5]
 .Ltmp285:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2445,21 +2445,21 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels50:
 	bla r11
 .Ltmp286:
-	.loc	1 208 0
+	.loc	1 209 0
 	eq r0, r0, 0
-	.loc	1 208 0
+	.loc	1 209 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp287:
 	st8 r5, r6[r5]
 .Ltmp288:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2468,21 +2468,21 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels51:
 	bla r11
 .Ltmp289:
-	.loc	1 209 0
+	.loc	1 210 0
 	eq r0, r0, 0
-	.loc	1 209 0
+	.loc	1 210 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp290:
 	st8 r10, r6[r5]
 .Ltmp291:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2491,21 +2491,21 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels52:
 	bla r11
 .Ltmp292:
-	.loc	1 210 0
+	.loc	1 211 0
 	eq r0, r0, 0
-	.loc	1 210 0
+	.loc	1 211 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp293:
 	st8 r5, r6[r5]
 .Ltmp294:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2514,22 +2514,22 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels53:
 	bla r11
 .Ltmp295:
-	.loc	1 211 0
+	.loc	1 212 0
 	eq r0, r0, 0
-	.loc	1 211 0
+	.loc	1 212 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp296:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
 .Ltmp297:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2538,21 +2538,21 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels54:
 	bla r11
 .Ltmp298:
-	.loc	1 212 0
+	.loc	1 213 0
 	eq r0, r0, 0
-	.loc	1 212 0
+	.loc	1 213 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp299:
 	st8 r4, r6[r5]
 .Ltmp300:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2561,22 +2561,22 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels55:
 	bla r11
 .Ltmp301:
-	.loc	1 213 0
+	.loc	1 214 0
 	eq r0, r0, 0
-	.loc	1 213 0
+	.loc	1 214 0
 	or r9, r9, r0
 	ldc r0, 47
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp302:
 	st8 r0, r6[r5]
 .Ltmp303:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2585,11 +2585,11 @@ tellDisplay_i2c_startscrolldiagright:
 .Lxta.call_labels56:
 	bla r11
 .Ltmp304:
-	.loc	1 214 0
+	.loc	1 215 0
 	eq r0, r0, 0
-	.loc	1 214 0
+	.loc	1 215 0
 	or r0, r9, r0
-	.loc	1 216 5
+	.loc	1 217 5
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
@@ -2626,7 +2626,7 @@ tellDisplay_i2c_startscrolldiagright:
 	.cc_top tellDisplay_i2c_startscrolldiagleft.function,tellDisplay_i2c_startscrolldiagleft
 tellDisplay_i2c_startscrolldiagleft:
 .Lfunc_begin14:
-	.loc	1 223 0
+	.loc	1 224 0
 	.cfi_startproc
 .Lxtalabel23:
 	entsp 12
@@ -2661,23 +2661,23 @@ tellDisplay_i2c_startscrolldiagleft:
 .Ltmp321:
 	mov r7, r0
 .Ltmp322:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
 .Ltmp323:
 	ldc r0, 163
 .Ltmp324:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r6[r5]
 .Ltmp325:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
 	mkmsk r4, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	ldc r8, 60
@@ -2687,19 +2687,19 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels57:
 	bla r11
 .Ltmp326:
-	.loc	1 226 0
+	.loc	1 227 0
 	eq r9, r0, 0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp327:
 	st8 r5, r6[r5]
 .Ltmp328:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2708,22 +2708,22 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels58:
 	bla r11
 .Ltmp329:
-	.loc	1 227 0
+	.loc	1 228 0
 	eq r0, r0, 0
-	.loc	1 227 0
+	.loc	1 228 0
 	or r9, r9, r0
 	ldc r0, 32
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp330:
 	st8 r0, r6[r5]
 .Ltmp331:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2732,22 +2732,22 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels59:
 	bla r11
 .Ltmp332:
-	.loc	1 228 0
+	.loc	1 229 0
 	eq r0, r0, 0
-	.loc	1 228 0
+	.loc	1 229 0
 	or r9, r9, r0
 	ldc r0, 42
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp333:
 	st8 r0, r6[r5]
 .Ltmp334:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2756,21 +2756,21 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels60:
 	bla r11
 .Ltmp335:
-	.loc	1 229 0
+	.loc	1 230 0
 	eq r0, r0, 0
-	.loc	1 229 0
+	.loc	1 230 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp336:
 	st8 r5, r6[r5]
 .Ltmp337:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2779,21 +2779,21 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels61:
 	bla r11
 .Ltmp338:
-	.loc	1 230 0
+	.loc	1 231 0
 	eq r0, r0, 0
-	.loc	1 230 0
+	.loc	1 231 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp339:
 	st8 r10, r6[r5]
 .Ltmp340:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2802,21 +2802,21 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels62:
 	bla r11
 .Ltmp341:
-	.loc	1 231 0
+	.loc	1 232 0
 	eq r0, r0, 0
-	.loc	1 231 0
+	.loc	1 232 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp342:
 	st8 r5, r6[r5]
 .Ltmp343:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2825,22 +2825,22 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels63:
 	bla r11
 .Ltmp344:
-	.loc	1 232 0
+	.loc	1 233 0
 	eq r0, r0, 0
-	.loc	1 232 0
+	.loc	1 233 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp345:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
 .Ltmp346:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2849,21 +2849,21 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels64:
 	bla r11
 .Ltmp347:
-	.loc	1 233 0
+	.loc	1 234 0
 	eq r0, r0, 0
-	.loc	1 233 0
+	.loc	1 234 0
 	or r9, r9, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp348:
 	st8 r4, r6[r5]
 .Ltmp349:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2872,22 +2872,22 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels65:
 	bla r11
 .Ltmp350:
-	.loc	1 234 0
+	.loc	1 235 0
 	eq r0, r0, 0
-	.loc	1 234 0
+	.loc	1 235 0
 	or r9, r9, r0
 	ldc r0, 47
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp351:
 	st8 r0, r6[r5]
 .Ltmp352:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r7[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r7[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r4, sp[2]
 	stw r4, sp[1]
 	mov r1, r8
@@ -2896,11 +2896,11 @@ tellDisplay_i2c_startscrolldiagleft:
 .Lxta.call_labels66:
 	bla r11
 .Ltmp353:
-	.loc	1 235 0
+	.loc	1 236 0
 	eq r0, r0, 0
-	.loc	1 235 0
+	.loc	1 236 0
 	or r0, r9, r0
-	.loc	1 237 5
+	.loc	1 238 5
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
@@ -2937,7 +2937,7 @@ tellDisplay_i2c_startscrolldiagleft:
 	.cc_top tellDisplay_i2c_stopscroll.function,tellDisplay_i2c_stopscroll
 tellDisplay_i2c_stopscroll:
 .Lfunc_begin15:
-	.loc	1 240 0
+	.loc	1 241 0
 	.cfi_startproc
 .Lxtalabel24:
 	entsp 5
@@ -2949,22 +2949,22 @@ tellDisplay_i2c_stopscroll:
 .Ltmp362:
 	.cfi_offset 4, -4
 .Ltmp363:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 .Ltmp364:
 	ldc r1, 46
 	st8 r1, r3[r2]
 .Ltmp365:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r0[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r0[1]
 .Ltmp366:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
@@ -2972,7 +2972,7 @@ tellDisplay_i2c_stopscroll:
 .Lxta.call_labels67:
 	bla r4
 .Ltmp367:
-	.loc	1 48 5
+	.loc	1 50 5
 	eq r0, r0, 0
 	eq r0, r0, 0
 	ldw r4, sp[4]
@@ -2999,7 +2999,7 @@ tellDisplay_i2c_stopscroll:
 	.cc_top writeToDisplay_i2c_all_buffer.function,writeToDisplay_i2c_all_buffer
 writeToDisplay_i2c_all_buffer:
 .Lfunc_begin16:
-	.loc	1 248 0
+	.loc	1 249 0
 	.cfi_startproc
 .Lxtalabel25:
 	entsp 17
@@ -3030,24 +3030,24 @@ writeToDisplay_i2c_all_buffer:
 	.cfi_offset 10, -28
 	mov r5, r0
 .Ltmp379:
-	.loc	1 43 0 prologue_end
+	.loc	1 45 0 prologue_end
 	stw r5, sp[4]
 	ldc r4, 0
 	ldaw r7, sp[9]
 .Ltmp380:
 	ldc r0, 33
 .Ltmp381:
-	.loc	1 43 0
+	.loc	1 45 0
 	st8 r0, r7[r4]
 .Ltmp382:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
 	mkmsk r8, 1
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	ldc r9, 60
@@ -3057,19 +3057,19 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels68:
 	bla r11
 .Ltmp383:
-	.loc	1 251 0
+	.loc	1 252 0
 	eq r6, r0, 0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp384:
 	st8 r4, r7[r4]
 .Ltmp385:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	mov r1, r9
@@ -3078,22 +3078,22 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels69:
 	bla r11
 .Ltmp386:
-	.loc	1 252 0
+	.loc	1 253 0
 	eq r0, r0, 0
-	.loc	1 252 0
+	.loc	1 253 0
 	or r6, r6, r0
 	mkmsk r0, 7
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp387:
 	st8 r0, r7[r4]
 .Ltmp388:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	mov r1, r9
@@ -3102,22 +3102,22 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels70:
 	bla r11
 .Ltmp389:
-	.loc	1 253 0
+	.loc	1 254 0
 	eq r0, r0, 0
-	.loc	1 253 0
+	.loc	1 254 0
 	or r6, r6, r0
 	ldc r0, 34
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp390:
 	st8 r0, r7[r4]
 .Ltmp391:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	mov r1, r9
@@ -3126,21 +3126,21 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels71:
 	bla r11
 .Ltmp392:
-	.loc	1 255 0
+	.loc	1 256 0
 	eq r0, r0, 0
-	.loc	1 255 0
+	.loc	1 256 0
 	or r6, r6, r0
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp393:
 	st8 r4, r7[r4]
 .Ltmp394:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	mov r1, r9
@@ -3149,23 +3149,23 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels72:
 	bla r11
 .Ltmp395:
-	.loc	1 256 0
+	.loc	1 257 0
 	eq r0, r0, 0
-	.loc	1 256 0
+	.loc	1 257 0
 	or r6, r6, r0
 	mkmsk r0, 2
-	.loc	1 43 0
+	.loc	1 45 0
 .Ltmp396:
 	st8 r0, r7[r4]
 .Ltmp397:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r0, r5[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r1, r5[1]
 .Ltmp398:
-	.loc	1 46 0
+	.loc	1 48 0
 	ldw r11, r1[0]
-	.loc	1 46 0
+	.loc	1 48 0
 	stw r8, sp[2]
 	stw r8, sp[1]
 	mov r1, r9
@@ -3174,15 +3174,15 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.call_labels73:
 	bla r11
 .Ltmp399:
-	.loc	1 261 0
+	.loc	1 262 0
 	eq r0, r0, 0
 .Ltmp400:
-	.loc	1 261 0
+	.loc	1 262 0
 	or r9, r6, r0
 	ldc r10, 240
 	ldc r6, 65024
 	ldc r5, 9
-	.loc	1 279 0
+	.loc	1 280 0
 .Ltmp401:
 	ldaw r8, dp[buffer]
 	ldaw r7, sp[5]
@@ -3191,35 +3191,35 @@ writeToDisplay_i2c_all_buffer:
 .Ltmp403:
 .LBB16_1:
 .Lxtalabel26:
-	.loc	1 43 0
+	.loc	1 45 0
 	ldc r1, 0
 .Ltmp404:
 .LBB16_2:
 .Lxtalabel27:
-	.loc	1 279 0
+	.loc	1 280 0
 	and r2, r1, r10
-	.loc	1 279 0
+	.loc	1 280 0
 	shr r2, r2, 4
 .Ltrap_info3:
 	ecallt r2
-	.loc	1 279 0
+	.loc	1 280 0
 	and r2, r0, r6
 	shr r2, r2, r5
 .Ltrap_info4:
 	ecallt r2
-	.loc	1 280 0
+	.loc	1 281 0
 	add r4, r0, 1
-	.loc	1 279 0
+	.loc	1 280 0
 	zext r0, 16
-	.loc	1 279 0
+	.loc	1 280 0
 	ld8u r0, r8[r0]
-	.loc	1 279 0
+	.loc	1 280 0
 	st8 r0, r7[r1]
-	.loc	1 278 0
+	.loc	1 279 0
 	add r1, r1, 1
-	.loc	1 278 0
+	.loc	1 279 0
 	and r0, r1, r10
-	.loc	1 278 0
+	.loc	1 279 0
 	shr r2, r0, 4
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
@@ -3229,15 +3229,15 @@ writeToDisplay_i2c_all_buffer:
 .Lxtalabel28:
 	ldw r1, sp[4]
 .Ltmp406:
-	.loc	1 284 0
+	.loc	1 285 0
 	ldw r0, r1[0]
-	.loc	1 284 0
+	.loc	1 285 0
 	ldw r1, r1[1]
 .Ltmp407:
-	.loc	1 284 0
+	.loc	1 285 0
 	ldw r11, r1[0]
 	ldc r1, 16
-	.loc	1 284 0
+	.loc	1 285 0
 	stw r1, sp[2]
 	stw r1, sp[1]
 	ldc r1, 60
@@ -3245,12 +3245,12 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels74:
 	bla r11
-	.loc	1 284 0
+	.loc	1 285 0
 	eq r0, r0, 0
-	.loc	1 284 0
+	.loc	1 285 0
 	or r9, r0, r9
 .Ltmp408:
-	.loc	1 268 0
+	.loc	1 269 0
 	and r0, r4, r6
 	shr r1, r0, r5
 .Lxta.loop_labels1:
@@ -3259,7 +3259,7 @@ writeToDisplay_i2c_all_buffer:
 	bf r1, .LBB16_1
 .Ltmp409:
 .Lxtalabel29:
-	.loc	1 286 5
+	.loc	1 287 5
 	eq r0, r9, 0
 	ldw r10, sp[10]
 	ldw r9, sp[11]
@@ -3292,7 +3292,7 @@ writeToDisplay_i2c_all_buffer:
 	.cc_top Clear_All_Pixels_In_Buffer.function,Clear_All_Pixels_In_Buffer
 Clear_All_Pixels_In_Buffer:
 .Lfunc_begin17:
-	.loc	1 290 0
+	.loc	1 291 0
 	.cfi_startproc
 .Lxtalabel30:
 	entsp 1
@@ -3330,7 +3330,7 @@ Clear_All_Pixels_In_Buffer:
 	.cc_top fillSplashScreen_in_buffer.function,fillSplashScreen_in_buffer
 fillSplashScreen_in_buffer:
 .Lfunc_begin18:
-	.loc	1 294 0
+	.loc	1 295 0
 	.cfi_startproc
 .Lxtalabel31:
 	entsp 1
@@ -3338,7 +3338,7 @@ fillSplashScreen_in_buffer:
 	.cfi_def_cfa_offset 4
 .Ltmp419:
 	.cfi_offset 15, 0
-	.loc	1 296 0 prologue_end
+	.loc	1 297 0 prologue_end
 .Ltmp420:
 	ldaw r0, dp[buffer]
 	ldaw r11, cp[splash_buffer.static]
@@ -3384,7 +3384,7 @@ fillSplashScreen_in_buffer:
 	.cc_top drawVerticalLine_in_buffer.function,drawVerticalLine_in_buffer
 drawVerticalLine_in_buffer:
 .Lfunc_begin19:
-	.loc	1 369 0
+	.loc	1 370 0
 	.cfi_startproc
 .Lxtalabel32:
 	entsp 2
@@ -3399,12 +3399,12 @@ drawVerticalLine_in_buffer:
 .Ltmp426:
 	mkmsk r0, 1
 	ldaw r4, dp[display_param+16]
-	.loc	1 371 0 prologue_end
+	.loc	1 372 0 prologue_end
 .Ltmp427:
 	ld8u r0, r4[r0]
-	.loc	1 371 0
+	.loc	1 372 0
 	eq r4, r0, 3
-	.loc	1 371 0
+	.loc	1 372 0
 	bt r4, .LBB19_4
 .Ltmp428:
 .Lxtalabel33:
@@ -3412,45 +3412,45 @@ drawVerticalLine_in_buffer:
 	bf r4, .LBB19_2
 .Ltmp429:
 .Lxtalabel34:
-	.loc	1 383 0
+	.loc	1 384 0
 	ldw r0, dp[display_param]
 	mkmsk r4, 16
-	.loc	1 383 0
+	.loc	1 384 0
 	andnot r4, r11
-	.loc	1 383 0
+	.loc	1 384 0
 	add r11, r4, r0
-	.loc	1 385 0
+	.loc	1 386 0
 	mov r4, r2
 	zext r4, 16
-	.loc	1 385 0
+	.loc	1 386 0
 	shl r1, r1, 16
 .Ltmp430:
-	.loc	1 385 0
+	.loc	1 386 0
 	sub r0, r0, r1
 	ldw r1, cp[.LCPI19_0]
-	.loc	1 385 0
+	.loc	1 386 0
 	add r0, r0, r1
-	.loc	1 385 0
+	.loc	1 386 0
 	shr r0, r0, 16
 	ldw r1, cp[.LCPI19_1]
-	.loc	1 385 0
+	.loc	1 386 0
 	sub r1, r1, r4
-	.loc	1 385 0
+	.loc	1 386 0
 	add r1, r1, r0
 	bu .LBB19_7
 .Ltmp431:
 .LBB19_4:
 .Lxtalabel35:
-	.loc	1 391 0
+	.loc	1 392 0
 	ldc r0, 0
 	ldaw r4, dp[display_param]
 	add r4, r4, 2
 	ld16s r0, r4[r0]
 	zext r0, 16
 	mkmsk r4, 16
-	.loc	1 391 0
+	.loc	1 392 0
 	andnot r4, r11
-	.loc	1 391 0
+	.loc	1 392 0
 	add r11, r4, r0
 	bu .LBB19_5
 .Ltmp432:
@@ -3460,32 +3460,32 @@ drawVerticalLine_in_buffer:
 	bf r0, .LBB19_7
 .Ltmp433:
 .Lxtalabel37:
-	.loc	1 378 0
+	.loc	1 379 0
 	ldaw r0, dp[display_param]
-	.loc	1 378 0
+	.loc	1 379 0
 	ldc r4, 0
 	ld16s r0, r0[r4]
-	.loc	1 378 0
-	sub r0, r0, r1
 	.loc	1 379 0
+	sub r0, r0, r1
+	.loc	1 380 0
 	mov r1, r2
 	zext r1, 16
-	.loc	1 379 0
+	.loc	1 380 0
 	shl r0, r0, 16
 	ldw r4, cp[.LCPI19_0]
-	.loc	1 379 0
+	.loc	1 380 0
 	add r0, r0, r4
-	.loc	1 379 0
+	.loc	1 380 0
 	shr r0, r0, 16
 	ldw r4, cp[.LCPI19_1]
-	.loc	1 379 0
+	.loc	1 380 0
 	sub r1, r4, r1
-	.loc	1 379 0
+	.loc	1 380 0
 	add r1, r1, r0
 .Ltmp434:
 .LBB19_5:
 .Lxtalabel38:
-	.loc	1 396 0
+	.loc	1 397 0
 	sext r1, 16
 	sext r11, 16
 	mov r0, r1
@@ -3497,7 +3497,7 @@ drawVerticalLine_in_buffer:
 .LBB19_7:
 .Lxtalabel39:
 .Ltmp436:
-	.loc	1 398 0
+	.loc	1 399 0
 	sext r11, 16
 	sext r1, 16
 	mov r0, r11
@@ -3545,7 +3545,7 @@ drawVerticalLine_in_buffer:
 	.cc_top drawHorisontalLine_in_buffer.function,drawHorisontalLine_in_buffer
 drawHorisontalLine_in_buffer:
 .Lfunc_begin20:
-	.loc	1 299 0
+	.loc	1 300 0
 	.cfi_startproc
 .Lxtalabel41:
 	entsp 2
@@ -3560,12 +3560,12 @@ drawHorisontalLine_in_buffer:
 .Ltmp442:
 	mkmsk r0, 1
 	ldaw r4, dp[display_param+16]
-	.loc	1 301 0 prologue_end
+	.loc	1 302 0 prologue_end
 .Ltmp443:
 	ld8u r0, r4[r0]
-	.loc	1 301 0
+	.loc	1 302 0
 	eq r4, r0, 3
-	.loc	1 301 0
+	.loc	1 302 0
 	bt r4, .LBB20_4
 .Ltmp444:
 .Lxtalabel42:
@@ -3573,57 +3573,57 @@ drawHorisontalLine_in_buffer:
 	bf r4, .LBB20_2
 .Ltmp445:
 .Lxtalabel43:
-	.loc	1 313 0
+	.loc	1 314 0
 	ldw r0, dp[display_param]
-	.loc	1 313 0
+	.loc	1 314 0
 	sub r11, r0, r11
 	shr r0, r0, 16
 	mkmsk r4, 16
-	.loc	1 314 0
+	.loc	1 315 0
 	andnot r4, r1
-	.loc	1 314 0
+	.loc	1 315 0
 	add r1, r4, r0
 .Ltmp446:
-	.loc	1 315 0
+	.loc	1 316 0
 	mov r0, r2
 	zext r0, 16
-	.loc	1 315 0
+	.loc	1 316 0
 	shl r11, r11, 16
 	ldw r4, cp[.LCPI20_0]
-	.loc	1 315 0
+	.loc	1 316 0
 	add r11, r11, r4
-	.loc	1 315 0
+	.loc	1 316 0
 	shr r11, r11, 16
 	ldw r4, cp[.LCPI20_1]
-	.loc	1 315 0
+	.loc	1 316 0
 	sub r0, r4, r0
-	.loc	1 315 0
+	.loc	1 316 0
 	add r11, r0, r11
 	bu .LBB20_7
 .Ltmp447:
 .LBB20_4:
 .Lxtalabel44:
-	.loc	1 322 0
+	.loc	1 323 0
 	ldc r0, 0
 	ldaw r4, dp[display_param]
 	add r4, r4, 2
 	ld16s r0, r4[r0]
-	.loc	1 322 0
-	sub r0, r0, r11
 	.loc	1 323 0
+	sub r0, r0, r11
+	.loc	1 324 0
 	mov r11, r2
 	zext r11, 16
-	.loc	1 323 0
+	.loc	1 324 0
 	shl r0, r0, 16
 	ldw r4, cp[.LCPI20_0]
-	.loc	1 323 0
+	.loc	1 324 0
 	add r0, r0, r4
-	.loc	1 323 0
+	.loc	1 324 0
 	shr r0, r0, 16
 	ldw r4, cp[.LCPI20_1]
-	.loc	1 323 0
+	.loc	1 324 0
 	sub r11, r4, r11
-	.loc	1 323 0
+	.loc	1 324 0
 	add r11, r11, r0
 	bu .LBB20_5
 .Ltmp448:
@@ -3633,21 +3633,21 @@ drawHorisontalLine_in_buffer:
 	bf r0, .LBB20_7
 .Ltmp449:
 .Lxtalabel46:
-	.loc	1 309 0
+	.loc	1 310 0
 	ldaw r0, dp[display_param]
-	.loc	1 309 0
+	.loc	1 310 0
 	ldc r4, 0
 	ld16s r0, r0[r4]
 	zext r0, 16
 	mkmsk r4, 16
-	.loc	1 309 0
+	.loc	1 310 0
 	andnot r4, r1
-	.loc	1 309 0
+	.loc	1 310 0
 	add r1, r4, r0
 .Ltmp450:
 .LBB20_5:
 .Lxtalabel47:
-	.loc	1 328 0
+	.loc	1 329 0
 	sext r1, 16
 	sext r11, 16
 	mov r0, r1
@@ -3659,7 +3659,7 @@ drawHorisontalLine_in_buffer:
 .LBB20_7:
 .Lxtalabel48:
 .Ltmp452:
-	.loc	1 330 0
+	.loc	1 331 0
 	sext r11, 16
 	sext r1, 16
 	mov r0, r11
@@ -3691,7 +3691,7 @@ drawHorisontalLine_in_buffer:
 	.cc_top drawVerticalLineInternal_in_buffer.function,drawVerticalLineInternal_in_buffer
 drawVerticalLineInternal_in_buffer:
 .Lfunc_begin21:
-	.loc	1 402 0
+	.loc	1 403 0
 	.cfi_startproc
 .Lxtalabel50:
 	extsp 6
@@ -3715,7 +3715,7 @@ drawVerticalLineInternal_in_buffer:
 	stw r9, sp[0]
 .Ltmp461:
 	.cfi_offset 9, -24
-	.loc	1 405 5 prologue_end
+	.loc	1 406 5 prologue_end
 .Ltmp462:
 	ashr r11, r0, 32
 	bt r11, .LBB21_35
@@ -3728,42 +3728,42 @@ drawVerticalLineInternal_in_buffer:
 	bf r4, .LBB21_35
 .Ltmp464:
 .Lxtalabel52:
-	.loc	1 408 5
+	.loc	1 409 5
 	ashr r4, r1, 32
 	bf r4, .LBB21_4
 .Ltmp465:
 .Lxtalabel53:
-	.loc	1 408 5
+	.loc	1 409 5
 	zext r1, 16
 .Ltmp466:
-	.loc	1 410 0
+	.loc	1 411 0
 	zext r2, 16
 .Ltmp467:
-	.loc	1 410 0
+	.loc	1 411 0
 	add r2, r2, r1
 .Ltmp468:
 	ldc r1, 0
 .Ltmp469:
 .LBB21_4:
 .Lxtalabel54:
-	.loc	1 415 5
+	.loc	1 416 5
 	mov r4, r2
 	sext r4, 16
-	.loc	1 415 5
+	.loc	1 416 5
 	add r4, r1, r4
-	.loc	1 415 5
+	.loc	1 416 5
 	ashr r11, r11, 16
-	.loc	1 415 5
+	.loc	1 416 5
 	lss r4, r11, r4
 	bf r4, .LBB21_6
 .Ltmp470:
 .Lxtalabel55:
-	.loc	1 416 0
+	.loc	1 417 0
 	sub r2, r11, r1
 .Ltmp471:
 .LBB21_6:
 .Lxtalabel56:
-	.loc	1 420 5
+	.loc	1 421 5
 	mov r11, r2
 	sext r11, 16
 	mkmsk r4, 1
@@ -3771,47 +3771,47 @@ drawVerticalLineInternal_in_buffer:
 	bt r11, .LBB21_35
 .Ltmp472:
 .Lxtalabel57:
-	.loc	1 431 0
+	.loc	1 432 0
 	shl r11, r1, 4
 	ldc r4, 3968
-	.loc	1 431 0
+	.loc	1 432 0
 	and r11, r11, r4
-	.loc	1 433 0
+	.loc	1 434 0
 	add r5, r11, r0
-	.loc	1 433 0
+	.loc	1 434 0
 	ldaw r4, dp[buffer]
 	add r0, r4, r5
 .Ltmp473:
-	.loc	1 436 0
+	.loc	1 437 0
 	zext r1, 3
 	bf r1, .LBB21_15
 .Ltmp474:
 .Lxtalabel58:
 	ldc r11, 8
-	.loc	1 440 0
+	.loc	1 441 0
 	sub r1, r11, r1
-	.loc	1 445 0
+	.loc	1 446 0
 .Ltmp475:
 	lsu r11, r1, r11
 .Ltrap_info5:
 	ecallf r11
-	.loc	1 445 0
+	.loc	1 446 0
 	ldaw r11, cp[premask.static]
-	.loc	1 445 0
+	.loc	1 446 0
 	ld8u r6, r11[r1]
-	.loc	1 448 9
+	.loc	1 449 9
 	zext r2, 8
-	.loc	1 448 9
+	.loc	1 449 9
 	lsu r11, r2, r1
 	bf r11, .LBB21_10
 .Ltmp476:
 .Lxtalabel59:
-	.loc	1 449 0
+	.loc	1 450 0
 	sub r7, r1, r2
 	mkmsk r8, 8
-	.loc	1 449 0
+	.loc	1 450 0
 	shr r7, r8, r7
-	.loc	1 449 0
+	.loc	1 450 0
 	and r6, r6, r7
 .Ltmp477:
 .LBB21_10:
@@ -3824,34 +3824,34 @@ drawVerticalLineInternal_in_buffer:
 .Ltmp479:
 .Lxtalabel62:
 	ldc r7, 9
-	.loc	1 454 0
+	.loc	1 455 0
 	shr r7, r5, r7
 .Ltrap_info6:
 	ecallt r7
-	.loc	1 454 0
+	.loc	1 455 0
 	ldc r7, 0
-	.loc	1 454 0
+	.loc	1 455 0
 	ld8u r8, r0[r7]
-	.loc	1 454 0
+	.loc	1 455 0
 	or r6, r8, r6
-	.loc	1 454 0
+	.loc	1 455 0
 	st8 r6, r0[r7]
 	bu .LBB21_13
 .Ltmp480:
 .LBB21_20:
 .Lxtalabel63:
 	ldc r7, 9
-	.loc	1 455 0
+	.loc	1 456 0
 	shr r7, r5, r7
 .Ltrap_info7:
 	ecallt r7
-	.loc	1 455 0
+	.loc	1 456 0
 	ldc r7, 0
-	.loc	1 455 0
+	.loc	1 456 0
 	ld8u r8, r0[r7]
-	.loc	1 455 0
+	.loc	1 456 0
 	andnot r8, r6
-	.loc	1 455 0
+	.loc	1 456 0
 	st8 r8, r0[r7]
 	bu .LBB21_13
 .Ltmp481:
@@ -3862,17 +3862,17 @@ drawVerticalLineInternal_in_buffer:
 .Ltmp482:
 .Lxtalabel65:
 	ldc r7, 9
-	.loc	1 456 0
+	.loc	1 457 0
 	shr r7, r5, r7
 .Ltrap_info8:
 	ecallt r7
-	.loc	1 456 0
+	.loc	1 457 0
 	ldc r7, 0
-	.loc	1 456 0
+	.loc	1 457 0
 	ld8u r8, r0[r7]
-	.loc	1 456 0
+	.loc	1 457 0
 	xor r6, r8, r6
-	.loc	1 456 0
+	.loc	1 457 0
 	st8 r6, r0[r7]
 .Ltmp483:
 .LBB21_13:
@@ -3880,16 +3880,16 @@ drawVerticalLineInternal_in_buffer:
 	bt r11, .LBB21_35
 .Ltmp484:
 .Lxtalabel67:
-	.loc	1 462 0
+	.loc	1 463 0
 	sub r2, r2, r1
-	.loc	1 464 0
+	.loc	1 465 0
 	add r0, r5, r4
 	ldc r1, 128
 	add r0, r0, r1
 .Ltmp485:
 .LBB21_15:
 .Lxtalabel68:
-	.loc	1 468 5
+	.loc	1 469 5
 	mov r11, r2
 	zext r11, 8
 	mkmsk r1, 3
@@ -3897,39 +3897,39 @@ drawVerticalLineInternal_in_buffer:
 	bf r11, .LBB21_27
 .Ltmp486:
 .Lxtalabel69:
-	.loc	1 469 9
+	.loc	1 470 9
 	eq r11, r3, 2
 	bf r11, .LBB21_22
 .Ltmp487:
 	ldc r5, 9
-	.loc	1 473 0
+	.loc	1 474 0
 	ldc r11, 0
 	ldc r6, 128
 	ldc r7, 248
 .Ltmp488:
 .LBB21_18:
 .Lxtalabel70:
-	.loc	1 473 0
+	.loc	1 474 0
 	sub r8, r0, r4
-	.loc	1 473 0
+	.loc	1 474 0
 	shr r8, r8, r5
 .Ltrap_info9:
 	ecallt r8
-	.loc	1 473 0
+	.loc	1 474 0
 	ld8u r8, r0[r11]
-	.loc	1 473 0
+	.loc	1 474 0
 	not r8, r8
-	.loc	1 473 0
+	.loc	1 474 0
 	st8 r8, r0[r11]
-	.loc	1 476 0
+	.loc	1 477 0
 	add r0, r0, r6
-	.loc	1 480 0
+	.loc	1 481 0
 	zext r2, 8
-	.loc	1 480 0
+	.loc	1 481 0
 	add r2, r2, r7
-	.loc	1 481 17
+	.loc	1 482 17
 	and r8, r2, r7
-	.loc	1 481 17
+	.loc	1 482 17
 	lsu r8, r1, r8
 .Lxta.loop_labels2:
 	# LOOPMARKER 1
@@ -3938,7 +3938,7 @@ drawVerticalLineInternal_in_buffer:
 .Ltmp489:
 .LBB21_22:
 .Lxtalabel71:
-	.loc	1 484 0
+	.loc	1 485 0
 	eq r5, r3, 1
 	ldc r11, 0
 	bt r5, .LBB21_23
@@ -3958,23 +3958,23 @@ drawVerticalLineInternal_in_buffer:
 .Ltmp493:
 .LBB21_26:
 .Lxtalabel74:
-	.loc	1 488 0
+	.loc	1 489 0
 	sub r9, r0, r4
-	.loc	1 488 0
+	.loc	1 489 0
 	shr r9, r9, r6
 .Ltrap_info10:
 	ecallt r9
-	.loc	1 488 0
+	.loc	1 489 0
 	st8 r5, r0[r11]
-	.loc	1 491 0
+	.loc	1 492 0
 	add r0, r0, r7
-	.loc	1 495 0
+	.loc	1 496 0
 	zext r2, 8
-	.loc	1 495 0
+	.loc	1 496 0
 	add r2, r2, r8
-	.loc	1 496 15
+	.loc	1 497 15
 	and r9, r2, r8
-	.loc	1 496 15
+	.loc	1 497 15
 	lsu r9, r1, r9
 .Lxta.loop_labels3:
 	# LOOPMARKER 0
@@ -3982,20 +3982,20 @@ drawVerticalLineInternal_in_buffer:
 .Ltmp494:
 .LBB21_27:
 .Lxtalabel75:
-	.loc	1 501 5
+	.loc	1 502 5
 	mov r1, r2
 	zext r1, 8
 	bf r1, .LBB21_35
 .Ltmp495:
 .Lxtalabel76:
-	.loc	1 502 0
+	.loc	1 503 0
 	zext r2, 3
-	.loc	1 507 0
+	.loc	1 508 0
 .Ltmp496:
 	ldaw r11, cp[postmask.static]
-	.loc	1 507 0
-	ld8u r1, r11[r2]
 	.loc	1 508 0
+	ld8u r1, r11[r2]
+	.loc	1 509 0
 	bf r3, .LBB21_32
 .Ltmp497:
 .Lxtalabel77:
@@ -4003,36 +4003,36 @@ drawVerticalLineInternal_in_buffer:
 	bf r2, .LBB21_30
 .Ltmp498:
 .Lxtalabel78:
-	.loc	1 512 0
+	.loc	1 513 0
 	sub r2, r0, r4
 	ldc r3, 9
-	.loc	1 512 0
+	.loc	1 513 0
 	shr r2, r2, r3
 .Ltrap_info11:
 	ecallt r2
-	.loc	1 512 0
+	.loc	1 513 0
 	ldc r2, 0
-	.loc	1 512 0
+	.loc	1 513 0
 	ld8u r3, r0[r2]
-	.loc	1 512 0
+	.loc	1 513 0
 	xor r1, r3, r1
 	bu .LBB21_34
 .LBB21_32:
 .Lxtalabel79:
-	.loc	1 511 0
+	.loc	1 512 0
 	sub r2, r0, r4
 	ldc r3, 9
-	.loc	1 511 0
+	.loc	1 512 0
 	shr r2, r2, r3
 .Ltrap_info12:
 	ecallt r2
-	.loc	1 511 0
+	.loc	1 512 0
 	ldc r2, 0
-	.loc	1 511 0
+	.loc	1 512 0
 	ld8u r3, r0[r2]
-	.loc	1 511 0
+	.loc	1 512 0
 	andnot r3, r1
-	.loc	1 511 0
+	.loc	1 512 0
 	st8 r3, r0[r2]
 	bu .LBB21_35
 .LBB21_30:
@@ -4042,21 +4042,21 @@ drawVerticalLineInternal_in_buffer:
 	bf r2, .LBB21_35
 .Ltmp500:
 .Lxtalabel81:
-	.loc	1 510 0
+	.loc	1 511 0
 	sub r2, r0, r4
 	ldc r3, 9
-	.loc	1 510 0
+	.loc	1 511 0
 	shr r2, r2, r3
 .Ltrap_info13:
 	ecallt r2
-	.loc	1 510 0
+	.loc	1 511 0
 	ldc r2, 0
-	.loc	1 510 0
+	.loc	1 511 0
 	ld8u r3, r0[r2]
-	.loc	1 510 0
+	.loc	1 511 0
 	or r1, r3, r1
 .LBB21_34:
-	.loc	1 512 0
+	.loc	1 513 0
 	st8 r1, r0[r2]
 .Ltmp501:
 .LBB21_35:
@@ -4098,7 +4098,7 @@ drawVerticalLineInternal_in_buffer:
 	.cc_top drawHorisontalLineInternal_in_buffer.function,drawHorisontalLineInternal_in_buffer
 drawHorisontalLineInternal_in_buffer:
 .Lfunc_begin22:
-	.loc	1 334 0
+	.loc	1 335 0
 	.cfi_startproc
 .Lxtalabel82:
 	extsp 3
@@ -4113,7 +4113,7 @@ drawHorisontalLineInternal_in_buffer:
 	stw r6, sp[0]
 .Ltmp506:
 	.cfi_offset 6, -12
-	.loc	1 336 5 prologue_end
+	.loc	1 337 5 prologue_end
 .Ltmp507:
 	ashr r4, r1, 32
 	bt r4, .LBB22_16
@@ -4127,42 +4127,42 @@ drawHorisontalLineInternal_in_buffer:
 	bf r6, .LBB22_16
 .Ltmp509:
 .Lxtalabel84:
-	.loc	1 339 5
+	.loc	1 340 5
 	ashr r6, r0, 32
 	bf r6, .LBB22_4
 .Ltmp510:
 .Lxtalabel85:
-	.loc	1 339 5
+	.loc	1 340 5
 	zext r0, 16
 .Ltmp511:
-	.loc	1 340 0
+	.loc	1 341 0
 	zext r2, 16
 .Ltmp512:
-	.loc	1 340 0
+	.loc	1 341 0
 	add r2, r2, r0
 .Ltmp513:
 	mov r0, r11
 .Ltmp514:
 .LBB22_4:
 .Lxtalabel86:
-	.loc	1 345 5
+	.loc	1 346 5
 	mov r6, r2
 	sext r6, 16
-	.loc	1 345 5
+	.loc	1 346 5
 	add r6, r0, r6
-	.loc	1 345 5
+	.loc	1 346 5
 	ld16s r5, r5[r11]
-	.loc	1 345 5
+	.loc	1 346 5
 	lss r6, r5, r6
 	bf r6, .LBB22_6
 .Ltmp515:
 .Lxtalabel87:
-	.loc	1 346 0
+	.loc	1 347 0
 	sub r2, r5, r0
 .Ltmp516:
 .LBB22_6:
 .Lxtalabel88:
-	.loc	1 350 5
+	.loc	1 351 5
 	mov r6, r2
 	sext r6, 16
 	mkmsk r5, 1
@@ -4171,27 +4171,27 @@ drawHorisontalLineInternal_in_buffer:
 .Ltmp517:
 .Lxtalabel89:
 	ldc r6, 29
-	.loc	1 355 0
+	.loc	1 356 0
 .Ltmp518:
 	shr r4, r4, r6
 	add r4, r1, r4
-	.loc	1 355 0
+	.loc	1 356 0
 	shl r4, r4, 4
 	ldw r6, cp[.LCPI22_0]
-	.loc	1 355 0
+	.loc	1 356 0
 	and r4, r4, r6
-	.loc	1 357 0
+	.loc	1 358 0
 	add r4, r4, r0
-	.loc	1 357 0
+	.loc	1 358 0
 	ldaw r0, dp[buffer]
 	add r4, r0, r4
-	.loc	1 359 0
+	.loc	1 360 0
 .Ltmp519:
 	zext r1, 3
 .Ltmp520:
-	.loc	1 359 0
+	.loc	1 360 0
 	shl r1, r5, r1
-	.loc	1 361 0
+	.loc	1 362 0
 	eq r5, r3, 2
 	bt r5, .LBB22_8
 .Ltmp521:
@@ -4201,23 +4201,23 @@ drawHorisontalLineInternal_in_buffer:
 .Ltmp522:
 	ldc r3, 9
 .LBB22_12:
-	.loc	1 363 0
+	.loc	1 364 0
 	sub r5, r4, r0
-	.loc	1 363 0
+	.loc	1 364 0
 	shr r5, r5, r3
 .Ltrap_info14:
 	ecallt r5
-	.loc	1 363 35
+	.loc	1 364 35
 	sub r2, r2, 1
-	.loc	1 363 0
+	.loc	1 364 0
 	add r5, r4, 1
-	.loc	1 363 0
+	.loc	1 364 0
 	ld8u r6, r4[r11]
-	.loc	1 363 0
+	.loc	1 364 0
 	or r6, r6, r1
-	.loc	1 363 0
+	.loc	1 364 0
 	st8 r6, r4[r11]
-	.loc	1 363 35
+	.loc	1 364 35
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
@@ -4226,23 +4226,23 @@ drawHorisontalLineInternal_in_buffer:
 .LBB22_8:
 	ldc r3, 9
 .LBB22_9:
-	.loc	1 365 0
+	.loc	1 366 0
 	sub r5, r4, r0
-	.loc	1 365 0
+	.loc	1 366 0
 	shr r5, r5, r3
 .Ltrap_info15:
 	ecallt r5
-	.loc	1 365 35
+	.loc	1 366 35
 	sub r2, r2, 1
-	.loc	1 365 0
+	.loc	1 366 0
 	add r5, r4, 1
-	.loc	1 365 0
+	.loc	1 366 0
 	ld8u r6, r4[r11]
-	.loc	1 365 0
+	.loc	1 366 0
 	xor r6, r6, r1
-	.loc	1 365 0
+	.loc	1 366 0
 	st8 r6, r4[r11]
-	.loc	1 365 35
+	.loc	1 366 35
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
@@ -4254,27 +4254,27 @@ drawHorisontalLineInternal_in_buffer:
 	bt r3, .LBB22_16
 .Ltmp524:
 	mkmsk r3, 8
-	.loc	1 364 0
+	.loc	1 365 0
 	xor r1, r1, r3
 	ldc r3, 9
 .LBB22_15:
-	.loc	1 364 0
+	.loc	1 365 0
 	sub r5, r4, r0
-	.loc	1 364 0
+	.loc	1 365 0
 	shr r5, r5, r3
 .Ltrap_info16:
 	ecallt r5
-	.loc	1 364 35
+	.loc	1 365 35
 	sub r2, r2, 1
-	.loc	1 364 0
+	.loc	1 365 0
 	add r5, r4, 1
-	.loc	1 364 0
+	.loc	1 365 0
 	ld8u r6, r4[r11]
-	.loc	1 364 0
+	.loc	1 365 0
 	and r6, r6, r1
-	.loc	1 364 0
+	.loc	1 365 0
 	st8 r6, r4[r11]
-	.loc	1 364 35
+	.loc	1 365 35
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
@@ -4373,7 +4373,7 @@ postmask.static:
 .Linfo_string15:
 .asciiz"SSD1306_SWITCHCAPVCC"
 .Linfo_string16:
-.asciiz"__TYPE_15"
+.asciiz"display_vccstate_t"
 .Linfo_string17:
 .asciiz"writeDisplay_i2c_command"
 .Linfo_string18:
@@ -4501,7 +4501,7 @@ postmask.static:
 .Linfo_string79:
 .asciiz"registers"
 .Linfo_string80:
-.asciiz"__TYPE_13"
+.asciiz"chronodot_d3231_registers_t"
 .Linfo_string81:
 .asciiz"param3"
 .Linfo_string82:
@@ -4514,7 +4514,7 @@ postmask.static:
 .asciiz"s2"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	7676
+	.long	7677
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -4530,7 +4530,7 @@ postmask.static:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	29
+	.byte	31
 	.byte	5
 	.byte	3
 	.long	outP_display_notReset
@@ -4543,7 +4543,7 @@ postmask.static:
 	.long	.Linfo_string5
 	.long	81
 	.byte	1
-	.byte	38
+	.byte	40
 	.byte	5
 	.byte	3
 	.long	buffer
@@ -4571,13 +4571,13 @@ postmask.static:
 	.long	.Linfo_string52
 	.long	.Linfo_string52
 	.byte	1
-	.short	294
+	.short	295
 	.byte	1
 	.byte	9
 	.long	.Linfo_string8
 	.long	81
 	.byte	1
-	.short	295
+	.short	296
 	.byte	5
 	.byte	3
 	.long	splash_buffer.static
@@ -4591,13 +4591,13 @@ postmask.static:
 	.long	.Linfo_string56
 	.long	.Linfo_string56
 	.byte	1
-	.short	402
+	.short	403
 	.byte	1
 	.byte	9
 	.long	.Linfo_string9
 	.long	407
 	.byte	1
-	.short	444
+	.short	445
 	.byte	5
 	.byte	3
 	.long	premask.static
@@ -4606,7 +4606,7 @@ postmask.static:
 	.long	.Linfo_string10
 	.long	407
 	.byte	1
-	.short	506
+	.short	507
 	.byte	5
 	.byte	3
 	.long	postmask.static
@@ -4615,60 +4615,60 @@ postmask.static:
 	.long	.Ldebug_loc103
 	.long	.Linfo_string57
 	.byte	1
-	.short	402
-	.long	7548
+	.short	403
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc104
 	.long	.Linfo_string69
 	.byte	1
-	.short	402
-	.long	7548
+	.short	403
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc105
 	.long	.Linfo_string70
 	.byte	1
-	.short	402
-	.long	7548
+	.short	403
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc106
 	.long	.Linfo_string60
 	.byte	1
-	.short	402
-	.long	7555
+	.short	403
+	.long	7556
 	.byte	11
 	.long	.Ldebug_ranges323
 	.byte	12
 	.long	.Linfo_string59
 	.byte	1
-	.short	425
+	.short	426
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges322
 	.byte	12
 	.long	.Linfo_string66
 	.byte	1
-	.short	426
+	.short	427
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges321
 	.byte	12
 	.long	.Linfo_string71
 	.byte	1
-	.short	429
-	.long	6751
+	.short	430
+	.long	6752
 	.byte	11
 	.long	.Ldebug_ranges320
 	.byte	12
 	.long	.Linfo_string72
 	.byte	1
-	.short	436
+	.short	437
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges317
 	.byte	12
 	.long	.Linfo_string73
 	.byte	1
-	.short	445
+	.short	446
 	.long	95
 	.byte	0
 	.byte	11
@@ -4676,7 +4676,7 @@ postmask.static:
 	.byte	12
 	.long	.Linfo_string74
 	.byte	1
-	.short	484
+	.short	485
 	.long	95
 	.byte	0
 	.byte	11
@@ -4684,7 +4684,7 @@ postmask.static:
 	.byte	12
 	.long	.Linfo_string73
 	.byte	1
-	.short	507
+	.short	508
 	.long	95
 	.byte	0
 	.byte	0
@@ -4713,7 +4713,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	40
+	.byte	42
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4725,7 +4725,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	41
+	.byte	43
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4737,7 +4737,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	51
+	.byte	53
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4749,7 +4749,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	52
+	.byte	54
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4761,7 +4761,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	63
+	.byte	64
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4773,7 +4773,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	65
+	.byte	66
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4785,25 +4785,13 @@ postmask.static:
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.byte	68
+	.byte	69
 	.byte	15
 	.long	.Linfo_string14
 	.byte	1
 	.byte	15
 	.long	.Linfo_string15
 	.byte	2
-	.byte	0
-	.byte	16
-	.long	.Linfo_string13
-	.byte	4
-	.byte	1
-	.byte	148
-	.byte	15
-	.long	.Linfo_string11
-	.byte	0
-	.byte	15
-	.long	.Linfo_string12
-	.byte	1
 	.byte	0
 	.byte	16
 	.long	.Linfo_string13
@@ -4821,7 +4809,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	164
+	.byte	150
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4845,7 +4833,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	183
+	.byte	166
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4869,7 +4857,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	202
+	.byte	185
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4893,7 +4881,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	223
+	.byte	204
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4917,7 +4905,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	240
+	.byte	225
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4941,7 +4929,7 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.byte	248
+	.byte	242
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4961,11 +4949,11 @@ postmask.static:
 	.long	.Linfo_string12
 	.byte	1
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.short	300
+	.byte	250
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4977,7 +4965,19 @@ postmask.static:
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.short	370
+	.short	301
+	.byte	15
+	.long	.Linfo_string11
+	.byte	0
+	.byte	15
+	.long	.Linfo_string12
+	.byte	1
+	.byte	0
+	.byte	17
+	.long	.Linfo_string13
+	.byte	4
+	.byte	1
+	.short	371
 	.byte	15
 	.long	.Linfo_string11
 	.byte	0
@@ -4993,62 +4993,62 @@ postmask.static:
 	.long	.Linfo_string43
 	.long	.Linfo_string43
 	.byte	1
-	.byte	118
+	.byte	119
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc0
 	.long	.Linfo_string57
 	.byte	1
-	.byte	118
-	.long	7548
+	.byte	119
+	.long	7549
 	.byte	19
 	.long	.Ldebug_loc1
 	.long	.Linfo_string59
 	.byte	1
-	.byte	118
-	.long	7548
+	.byte	119
+	.long	7549
 	.byte	19
 	.long	.Ldebug_loc2
 	.long	.Linfo_string60
 	.byte	1
-	.byte	118
-	.long	7555
+	.byte	119
+	.long	7556
 	.byte	0
 	.byte	20
 	.long	.Linfo_string17
 	.long	.Linfo_string17
 	.byte	1
-	.byte	40
+	.byte	42
 	.long	439
 	.byte	1
 	.byte	1
 	.byte	21
 	.long	.Linfo_string18
 	.byte	1
-	.byte	40
+	.byte	42
 	.long	95
 	.byte	21
 	.long	.Linfo_string19
 	.byte	1
-	.byte	40
+	.byte	42
 	.long	1068
 	.byte	22
 	.byte	23
 	.long	.Linfo_string21
 	.byte	1
-	.byte	41
+	.byte	43
 	.long	460
 	.byte	22
 	.byte	23
 	.long	.Linfo_string22
 	.byte	1
-	.byte	43
+	.byte	45
 	.long	1075
 	.byte	22
 	.byte	23
 	.long	.Linfo_string23
 	.byte	1
-	.byte	44
+	.byte	46
 	.long	1088
 	.byte	0
 	.byte	0
@@ -5094,14 +5094,14 @@ postmask.static:
 	.long	.Linfo_string42
 	.long	.Linfo_string42
 	.byte	1
-	.byte	63
+	.byte	64
 	.long	523
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc3
 	.long	.Linfo_string19
 	.byte	1
-	.byte	63
+	.byte	64
 	.long	1068
 	.byte	11
 	.long	.Ldebug_ranges104
@@ -5109,7 +5109,7 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	65
+	.byte	66
 	.long	544
 	.byte	11
 	.long	.Ldebug_ranges103
@@ -5117,13 +5117,13 @@ postmask.static:
 	.byte	2
 	.long	.Linfo_string62
 	.byte	1
-	.byte	68
-	.long	7562
+	.byte	69
+	.long	7563
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges2
 	.byte	1
-	.byte	112
+	.byte	113
 	.byte	28
 	.ascii	"\257\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5155,7 +5155,7 @@ postmask.static:
 	.long	1095
 	.long	.Ldebug_ranges6
 	.byte	1
-	.byte	75
+	.byte	76
 	.byte	28
 	.byte	10
 	.long	1108
@@ -5164,7 +5164,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges7
 	.byte	1
-	.byte	80
+	.byte	81
 	.byte	28
 	.ascii	"\256\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5196,7 +5196,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges11
 	.byte	1
-	.byte	81
+	.byte	82
 	.byte	28
 	.ascii	"\325\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5228,7 +5228,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges15
 	.byte	1
-	.byte	82
+	.byte	83
 	.byte	28
 	.ascii	"\200\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5260,7 +5260,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges19
 	.byte	1
-	.byte	83
+	.byte	84
 	.byte	28
 	.ascii	"\250\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5292,7 +5292,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges23
 	.byte	1
-	.byte	84
+	.byte	85
 	.byte	28
 	.byte	31
 	.long	1006
@@ -5324,7 +5324,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges27
 	.byte	1
-	.byte	85
+	.byte	86
 	.byte	28
 	.ascii	"\323\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5356,7 +5356,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges31
 	.byte	1
-	.byte	86
+	.byte	87
 	.byte	28
 	.byte	0
 	.long	1006
@@ -5388,7 +5388,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges35
 	.byte	1
-	.byte	87
+	.byte	88
 	.byte	28
 	.byte	64
 	.long	1006
@@ -5420,7 +5420,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges39
 	.byte	1
-	.byte	88
+	.byte	89
 	.byte	28
 	.ascii	"\215\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5452,7 +5452,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges43
 	.byte	1
-	.byte	90
+	.byte	91
 	.byte	28
 	.byte	20
 	.long	1006
@@ -5484,7 +5484,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges47
 	.byte	1
-	.byte	93
+	.byte	94
 	.byte	28
 	.byte	32
 	.long	1006
@@ -5516,7 +5516,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges51
 	.byte	1
-	.byte	94
+	.byte	95
 	.byte	28
 	.byte	0
 	.long	1006
@@ -5548,7 +5548,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges55
 	.byte	1
-	.byte	95
+	.byte	96
 	.byte	28
 	.ascii	"\241\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5580,7 +5580,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges59
 	.byte	1
-	.byte	96
+	.byte	97
 	.byte	28
 	.ascii	"\310\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5612,7 +5612,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges63
 	.byte	1
-	.byte	97
+	.byte	98
 	.byte	28
 	.ascii	"\332\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5644,7 +5644,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges67
 	.byte	1
-	.byte	98
+	.byte	99
 	.byte	28
 	.byte	2
 	.long	1006
@@ -5676,7 +5676,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges71
 	.byte	1
-	.byte	99
+	.byte	100
 	.byte	28
 	.ascii	"\201\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5708,7 +5708,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges75
 	.byte	1
-	.byte	100
+	.byte	101
 	.byte	28
 	.ascii	"\217\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5740,7 +5740,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges79
 	.byte	1
-	.byte	101
+	.byte	102
 	.byte	28
 	.ascii	"\331\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5772,7 +5772,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges83
 	.byte	1
-	.byte	103
+	.byte	104
 	.byte	28
 	.ascii	"\361\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5804,7 +5804,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges87
 	.byte	1
-	.byte	106
+	.byte	107
 	.byte	28
 	.ascii	"\333\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5836,7 +5836,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges91
 	.byte	1
-	.byte	107
+	.byte	108
 	.byte	28
 	.byte	64
 	.long	1006
@@ -5868,7 +5868,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges95
 	.byte	1
-	.byte	108
+	.byte	109
 	.byte	28
 	.ascii	"\244\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5900,7 +5900,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges99
 	.byte	1
-	.byte	109
+	.byte	110
 	.byte	28
 	.ascii	"\246\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -5972,20 +5972,20 @@ postmask.static:
 	.long	.Linfo_string41
 	.long	.Linfo_string41
 	.byte	1
-	.byte	51
+	.byte	53
 	.long	481
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc31
 	.long	.Linfo_string19
 	.byte	1
-	.byte	51
+	.byte	53
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc32
 	.long	.Linfo_string18
 	.byte	1
-	.byte	51
+	.byte	53
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges112
@@ -5993,7 +5993,7 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	52
+	.byte	54
 	.long	502
 	.byte	11
 	.long	.Ldebug_ranges111
@@ -6003,7 +6003,7 @@ postmask.static:
 	.byte	12
 	.long	.Linfo_string22
 	.byte	1
-	.byte	54
+	.byte	56
 	.long	1075
 	.byte	11
 	.long	.Ldebug_ranges110
@@ -6011,7 +6011,7 @@ postmask.static:
 	.byte	1
 	.long	.Linfo_string23
 	.byte	1
-	.byte	55
+	.byte	57
 	.long	1088
 	.byte	0
 	.byte	0
@@ -6025,20 +6025,20 @@ postmask.static:
 	.long	.Linfo_string44
 	.long	.Linfo_string44
 	.byte	1
-	.byte	148
+	.byte	149
 	.long	586
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc33
 	.long	.Linfo_string19
 	.byte	1
-	.byte	148
+	.byte	149
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc34
 	.long	.Linfo_string63
 	.byte	1
-	.byte	148
+	.byte	149
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges120
@@ -6046,13 +6046,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	149
+	.byte	150
 	.long	607
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges114
 	.byte	1
-	.byte	154
+	.byte	155
 	.byte	28
 	.ascii	"\246\377\377\377\377\377\377\377\377\001"
 	.long	1006
@@ -6075,7 +6075,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges117
 	.byte	1
-	.byte	152
+	.byte	153
 	.byte	34
 	.byte	1
 	.byte	80
@@ -6105,26 +6105,26 @@ postmask.static:
 	.long	.Linfo_string45
 	.long	.Linfo_string45
 	.byte	1
-	.byte	164
+	.byte	165
 	.long	628
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc35
 	.long	.Linfo_string19
 	.byte	1
-	.byte	164
+	.byte	165
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc36
 	.long	.Linfo_string64
 	.byte	1
-	.byte	164
+	.byte	165
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc37
 	.long	.Linfo_string65
 	.byte	1
-	.byte	164
+	.byte	165
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges154
@@ -6132,13 +6132,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	165
+	.byte	166
 	.long	649
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges122
 	.byte	1
-	.byte	174
+	.byte	175
 	.byte	29
 	.long	.Ldebug_loc38
 	.long	1017
@@ -6170,7 +6170,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges126
 	.byte	1
-	.byte	167
+	.byte	168
 	.byte	29
 	.long	.Ldebug_loc45
 	.long	1017
@@ -6202,7 +6202,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges130
 	.byte	1
-	.byte	168
+	.byte	169
 	.byte	29
 	.long	.Ldebug_loc44
 	.long	1017
@@ -6234,7 +6234,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges134
 	.byte	1
-	.byte	169
+	.byte	170
 	.byte	29
 	.long	.Ldebug_loc43
 	.long	1017
@@ -6263,7 +6263,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges138
 	.byte	1
-	.byte	170
+	.byte	171
 	.byte	29
 	.long	.Ldebug_loc42
 	.long	1017
@@ -6295,7 +6295,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges142
 	.byte	1
-	.byte	171
+	.byte	172
 	.byte	29
 	.long	.Ldebug_loc41
 	.long	1017
@@ -6324,7 +6324,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges146
 	.byte	1
-	.byte	172
+	.byte	173
 	.byte	29
 	.long	.Ldebug_loc40
 	.long	1017
@@ -6356,7 +6356,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges150
 	.byte	1
-	.byte	173
+	.byte	174
 	.byte	29
 	.long	.Ldebug_loc39
 	.long	1017
@@ -6394,26 +6394,26 @@ postmask.static:
 	.long	.Linfo_string46
 	.long	.Linfo_string46
 	.byte	1
-	.byte	183
+	.byte	184
 	.long	670
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc46
 	.long	.Linfo_string19
 	.byte	1
-	.byte	183
+	.byte	184
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc47
 	.long	.Linfo_string64
 	.byte	1
-	.byte	183
+	.byte	184
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc48
 	.long	.Linfo_string65
 	.byte	1
-	.byte	183
+	.byte	184
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges188
@@ -6421,13 +6421,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	184
+	.byte	185
 	.long	691
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges156
 	.byte	1
-	.byte	193
+	.byte	194
 	.byte	29
 	.long	.Ldebug_loc49
 	.long	1017
@@ -6459,7 +6459,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges160
 	.byte	1
-	.byte	186
+	.byte	187
 	.byte	29
 	.long	.Ldebug_loc56
 	.long	1017
@@ -6491,7 +6491,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges164
 	.byte	1
-	.byte	187
+	.byte	188
 	.byte	29
 	.long	.Ldebug_loc55
 	.long	1017
@@ -6523,7 +6523,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges168
 	.byte	1
-	.byte	188
+	.byte	189
 	.byte	29
 	.long	.Ldebug_loc54
 	.long	1017
@@ -6552,7 +6552,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges172
 	.byte	1
-	.byte	189
+	.byte	190
 	.byte	29
 	.long	.Ldebug_loc53
 	.long	1017
@@ -6584,7 +6584,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges176
 	.byte	1
-	.byte	190
+	.byte	191
 	.byte	29
 	.long	.Ldebug_loc52
 	.long	1017
@@ -6613,7 +6613,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges180
 	.byte	1
-	.byte	191
+	.byte	192
 	.byte	29
 	.long	.Ldebug_loc51
 	.long	1017
@@ -6645,7 +6645,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges184
 	.byte	1
-	.byte	192
+	.byte	193
 	.byte	29
 	.long	.Ldebug_loc50
 	.long	1017
@@ -6683,26 +6683,26 @@ postmask.static:
 	.long	.Linfo_string47
 	.long	.Linfo_string47
 	.byte	1
-	.byte	202
+	.byte	203
 	.long	712
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc57
 	.long	.Linfo_string19
 	.byte	1
-	.byte	202
+	.byte	203
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc58
 	.long	.Linfo_string64
 	.byte	1
-	.byte	202
+	.byte	203
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc59
 	.long	.Linfo_string65
 	.byte	1
-	.byte	202
+	.byte	203
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges230
@@ -6710,13 +6710,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	203
+	.byte	204
 	.long	733
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges190
 	.byte	1
-	.byte	214
+	.byte	215
 	.byte	29
 	.long	.Ldebug_loc60
 	.long	1017
@@ -6748,7 +6748,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges194
 	.byte	1
-	.byte	205
+	.byte	206
 	.byte	29
 	.long	.Ldebug_loc69
 	.long	1017
@@ -6780,7 +6780,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges198
 	.byte	1
-	.byte	206
+	.byte	207
 	.byte	29
 	.long	.Ldebug_loc68
 	.long	1017
@@ -6812,7 +6812,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges202
 	.byte	1
-	.byte	207
+	.byte	208
 	.byte	29
 	.long	.Ldebug_loc67
 	.long	1017
@@ -6844,7 +6844,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges206
 	.byte	1
-	.byte	208
+	.byte	209
 	.byte	29
 	.long	.Ldebug_loc66
 	.long	1017
@@ -6876,7 +6876,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges210
 	.byte	1
-	.byte	209
+	.byte	210
 	.byte	29
 	.long	.Ldebug_loc65
 	.long	1017
@@ -6908,7 +6908,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges214
 	.byte	1
-	.byte	210
+	.byte	211
 	.byte	29
 	.long	.Ldebug_loc64
 	.long	1017
@@ -6937,7 +6937,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges218
 	.byte	1
-	.byte	211
+	.byte	212
 	.byte	29
 	.long	.Ldebug_loc63
 	.long	1017
@@ -6969,7 +6969,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges222
 	.byte	1
-	.byte	212
+	.byte	213
 	.byte	29
 	.long	.Ldebug_loc62
 	.long	1017
@@ -6998,7 +6998,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges226
 	.byte	1
-	.byte	213
+	.byte	214
 	.byte	29
 	.long	.Ldebug_loc61
 	.long	1017
@@ -7036,26 +7036,26 @@ postmask.static:
 	.long	.Linfo_string48
 	.long	.Linfo_string48
 	.byte	1
-	.byte	223
+	.byte	224
 	.long	754
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc70
 	.long	.Linfo_string19
 	.byte	1
-	.byte	223
+	.byte	224
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc71
 	.long	.Linfo_string64
 	.byte	1
-	.byte	223
+	.byte	224
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc72
 	.long	.Linfo_string65
 	.byte	1
-	.byte	223
+	.byte	224
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges272
@@ -7063,13 +7063,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	224
+	.byte	225
 	.long	775
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges232
 	.byte	1
-	.byte	235
+	.byte	236
 	.byte	29
 	.long	.Ldebug_loc73
 	.long	1017
@@ -7101,7 +7101,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges236
 	.byte	1
-	.byte	226
+	.byte	227
 	.byte	29
 	.long	.Ldebug_loc82
 	.long	1017
@@ -7133,7 +7133,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges240
 	.byte	1
-	.byte	227
+	.byte	228
 	.byte	29
 	.long	.Ldebug_loc81
 	.long	1017
@@ -7165,7 +7165,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges244
 	.byte	1
-	.byte	228
+	.byte	229
 	.byte	29
 	.long	.Ldebug_loc80
 	.long	1017
@@ -7197,7 +7197,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges248
 	.byte	1
-	.byte	229
+	.byte	230
 	.byte	29
 	.long	.Ldebug_loc79
 	.long	1017
@@ -7229,7 +7229,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges252
 	.byte	1
-	.byte	230
+	.byte	231
 	.byte	29
 	.long	.Ldebug_loc78
 	.long	1017
@@ -7261,7 +7261,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges256
 	.byte	1
-	.byte	231
+	.byte	232
 	.byte	29
 	.long	.Ldebug_loc77
 	.long	1017
@@ -7290,7 +7290,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges260
 	.byte	1
-	.byte	232
+	.byte	233
 	.byte	29
 	.long	.Ldebug_loc76
 	.long	1017
@@ -7322,7 +7322,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges264
 	.byte	1
-	.byte	233
+	.byte	234
 	.byte	29
 	.long	.Ldebug_loc75
 	.long	1017
@@ -7351,7 +7351,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges268
 	.byte	1
-	.byte	234
+	.byte	235
 	.byte	29
 	.long	.Ldebug_loc74
 	.long	1017
@@ -7389,14 +7389,14 @@ postmask.static:
 	.long	.Linfo_string49
 	.long	.Linfo_string49
 	.byte	1
-	.byte	240
+	.byte	241
 	.long	796
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc83
 	.long	.Linfo_string19
 	.byte	1
-	.byte	240
+	.byte	241
 	.long	1068
 	.byte	11
 	.long	.Ldebug_ranges278
@@ -7404,13 +7404,13 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string21
 	.byte	1
-	.byte	241
+	.byte	242
 	.long	817
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges274
 	.byte	1
-	.byte	243
+	.byte	244
 	.byte	28
 	.byte	46
 	.long	1006
@@ -7448,14 +7448,14 @@ postmask.static:
 	.long	.Linfo_string50
 	.long	.Linfo_string50
 	.byte	1
-	.byte	248
+	.byte	249
 	.long	838
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc85
 	.long	.Linfo_string19
 	.byte	1
-	.byte	248
+	.byte	249
 	.long	1068
 	.byte	11
 	.long	.Ldebug_ranges308
@@ -7463,13 +7463,13 @@ postmask.static:
 	.long	.Ldebug_loc86
 	.long	.Linfo_string21
 	.byte	1
-	.byte	249
+	.byte	250
 	.long	859
 	.byte	36
 	.long	989
 	.long	.Ldebug_ranges280
 	.byte	1
-	.short	261
+	.short	262
 	.byte	28
 	.byte	3
 	.long	1006
@@ -7501,7 +7501,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges284
 	.byte	1
-	.byte	251
+	.byte	252
 	.byte	28
 	.byte	33
 	.long	1006
@@ -7533,7 +7533,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges288
 	.byte	1
-	.byte	252
+	.byte	253
 	.byte	28
 	.byte	0
 	.long	1006
@@ -7565,7 +7565,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges292
 	.byte	1
-	.byte	253
+	.byte	254
 	.byte	28
 	.byte	127
 	.long	1006
@@ -7593,11 +7593,11 @@ postmask.static:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	27
+	.byte	36
 	.long	989
 	.long	.Ldebug_ranges296
 	.byte	1
-	.byte	255
+	.short	256
 	.byte	28
 	.byte	34
 	.long	1006
@@ -7629,7 +7629,7 @@ postmask.static:
 	.long	989
 	.long	.Ldebug_ranges300
 	.byte	1
-	.short	256
+	.short	257
 	.byte	28
 	.byte	0
 	.long	1006
@@ -7663,15 +7663,15 @@ postmask.static:
 	.byte	0
 	.long	.Linfo_string63
 	.byte	1
-	.short	268
-	.long	7555
+	.short	269
+	.long	7556
 	.byte	11
 	.long	.Ldebug_ranges306
 	.byte	38
 	.byte	16
 	.long	.Linfo_string23
 	.byte	1
-	.short	275
+	.short	276
 	.long	1088
 	.byte	11
 	.long	.Ldebug_ranges305
@@ -7681,15 +7681,15 @@ postmask.static:
 	.byte	20
 	.long	.Linfo_string22
 	.byte	1
-	.short	276
-	.long	7567
+	.short	277
+	.long	7568
 	.byte	11
 	.long	.Ldebug_ranges304
 	.byte	37
 	.byte	0
 	.long	.Linfo_string57
 	.byte	1
-	.short	278
+	.short	279
 	.long	95
 	.byte	0
 	.byte	0
@@ -7702,7 +7702,7 @@ postmask.static:
 	.long	.Linfo_string28
 	.byte	3
 	.byte	18
-	.long	6751
+	.long	6752
 	.byte	1
 	.byte	1
 	.byte	21
@@ -7719,7 +7719,7 @@ postmask.static:
 	.long	.Linfo_string30
 	.byte	3
 	.byte	18
-	.long	6751
+	.long	6752
 	.byte	0
 	.byte	40
 	.long	95
@@ -7731,19 +7731,19 @@ postmask.static:
 	.long	.Linfo_string51
 	.long	.Linfo_string51
 	.byte	1
-	.short	290
+	.short	291
 	.byte	1
 	.byte	36
-	.long	6700
+	.long	6701
 	.long	.Ldebug_ranges310
 	.byte	1
-	.short	291
+	.short	292
 	.byte	41
 	.byte	0
-	.long	6717
+	.long	6718
 	.byte	28
 	.ascii	"\200\004"
-	.long	6728
+	.long	6729
 	.byte	0
 	.byte	0
 	.byte	8
@@ -7754,39 +7754,39 @@ postmask.static:
 	.long	.Linfo_string55
 	.long	.Linfo_string55
 	.byte	1
-	.short	369
+	.short	370
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc93
 	.long	.Linfo_string57
 	.byte	1
-	.short	369
-	.long	7548
+	.short	370
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc94
 	.long	.Linfo_string59
 	.byte	1
-	.short	369
-	.long	7548
+	.short	370
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc95
 	.long	.Linfo_string66
 	.byte	1
-	.short	369
-	.long	7548
+	.short	370
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc96
 	.long	.Linfo_string60
 	.byte	1
-	.short	369
-	.long	7555
+	.short	370
+	.long	7556
 	.byte	11
 	.long	.Ldebug_ranges313
 	.byte	42
 	.long	.Ldebug_loc97
 	.long	.Linfo_string67
 	.byte	1
-	.short	370
+	.short	371
 	.long	902
 	.byte	0
 	.byte	0
@@ -7798,39 +7798,39 @@ postmask.static:
 	.long	.Linfo_string53
 	.long	.Linfo_string53
 	.byte	1
-	.short	299
+	.short	300
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc98
 	.long	.Linfo_string57
 	.byte	1
-	.short	299
-	.long	7548
+	.short	300
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc99
 	.long	.Linfo_string59
 	.byte	1
-	.short	299
-	.long	7548
+	.short	300
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc100
 	.long	.Linfo_string68
 	.byte	1
-	.short	299
-	.long	7548
+	.short	300
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc101
 	.long	.Linfo_string60
 	.byte	1
-	.short	299
-	.long	7555
+	.short	300
+	.long	7556
 	.byte	11
 	.long	.Ldebug_ranges315
 	.byte	42
 	.long	.Ldebug_loc102
 	.long	.Linfo_string67
 	.byte	1
-	.short	300
+	.short	301
 	.long	880
 	.byte	0
 	.byte	0
@@ -7842,45 +7842,45 @@ postmask.static:
 	.long	.Linfo_string54
 	.long	.Linfo_string54
 	.byte	1
-	.short	334
+	.short	335
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc107
 	.long	.Linfo_string57
 	.byte	1
-	.short	334
-	.long	7548
+	.short	335
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc108
 	.long	.Linfo_string59
 	.byte	1
-	.short	334
-	.long	7548
+	.short	335
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc109
 	.long	.Linfo_string68
 	.byte	1
-	.short	334
-	.long	7548
+	.short	335
+	.long	7549
 	.byte	10
 	.long	.Ldebug_loc110
 	.long	.Linfo_string60
 	.byte	1
-	.short	334
-	.long	7555
+	.short	335
+	.long	7556
 	.byte	11
 	.long	.Ldebug_ranges326
 	.byte	12
 	.long	.Linfo_string71
 	.byte	1
-	.short	353
-	.long	6751
+	.short	354
+	.long	6752
 	.byte	11
 	.long	.Ldebug_ranges325
 	.byte	12
 	.long	.Linfo_string73
 	.byte	1
-	.short	359
+	.short	360
 	.long	95
 	.byte	0
 	.byte	0
@@ -7892,13 +7892,13 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7580
+	.long	7581
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string78
-	.long	7592
+	.long	7593
 	.byte	0
 	.byte	45
 	.long	.Linfo_string32
@@ -7906,10 +7906,10 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7580
+	.long	7581
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	0
 	.byte	43
 	.long	.Linfo_string33
@@ -7918,16 +7918,16 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string75
-	.long	7580
+	.long	7581
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string78
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string81
-	.long	7627
+	.long	7628
 	.byte	44
 	.long	.Linfo_string82
 	.long	1120
@@ -7939,13 +7939,13 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7637
+	.long	7638
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string78
-	.long	7592
+	.long	7593
 	.byte	0
 	.byte	45
 	.long	.Linfo_string35
@@ -7953,10 +7953,10 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7637
+	.long	7638
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	0
 	.byte	43
 	.long	.Linfo_string36
@@ -7965,16 +7965,16 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7637
+	.long	7638
 	.byte	44
 	.long	.Linfo_string77
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string78
-	.long	7587
+	.long	7588
 	.byte	44
 	.long	.Linfo_string81
-	.long	7627
+	.long	7628
 	.byte	44
 	.long	.Linfo_string82
 	.long	1120
@@ -8014,12 +8014,12 @@ postmask.static:
 	.long	.Linfo_string84
 	.byte	3
 	.byte	8
-	.long	7669
+	.long	7670
 	.byte	21
 	.long	.Linfo_string85
 	.byte	3
 	.byte	8
-	.long	7669
+	.long	7670
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8031,18 +8031,18 @@ postmask.static:
 	.long	.Linfo_string40
 	.byte	3
 	.byte	12
-	.long	6751
+	.long	6752
 	.byte	1
 	.byte	21
 	.long	.Linfo_string84
 	.byte	3
 	.byte	12
-	.long	6751
+	.long	6752
 	.byte	21
 	.long	.Linfo_string85
 	.byte	3
 	.byte	12
-	.long	7669
+	.long	7670
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8073,13 +8073,13 @@ postmask.static:
 	.byte	48
 	.long	95
 	.byte	48
-	.long	7597
+	.long	7598
 	.byte	49
 	.long	.Linfo_string80
 	.byte	19
 	.byte	50
 	.long	.Linfo_string79
-	.long	7614
+	.long	7615
 	.byte	0
 	.byte	0
 	.byte	5
@@ -8090,17 +8090,17 @@ postmask.static:
 	.byte	18
 	.byte	0
 	.byte	51
-	.long	7632
+	.long	7633
 	.byte	52
 	.long	95
 	.byte	51
-	.long	7642
+	.long	7643
 	.byte	49
 	.long	.Linfo_string83
 	.byte	8
 	.byte	50
 	.long	.Linfo_string75
-	.long	7580
+	.long	7581
 	.byte	0
 	.byte	50
 	.long	.Linfo_string59
@@ -8108,9 +8108,9 @@ postmask.static:
 	.byte	4
 	.byte	0
 	.byte	51
-	.long	7674
+	.long	7675
 	.byte	52
-	.long	7587
+	.long	7588
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -12005,63 +12005,63 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset170 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset170
-	.long	7311
+	.long	7312
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 	.long	109
 .asciiz"fillSplashScreen_in_buffer"
-	.long	7400
+	.long	7401
 .asciiz"delay_seconds"
 	.long	1127
 .asciiz"Adafruit_SSD1306_i2c_begin"
-	.long	7017
+	.long	7018
 .asciiz"drawHorisontalLineInternal_in_buffer"
-	.long	7180
+	.long	7181
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-	.long	6910
+	.long	6911
 .asciiz"drawHorisontalLine_in_buffer"
-	.long	7269
+	.long	7270
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	31
 .asciiz"outP_display_notReset"
 	.long	194
 .asciiz"postmask"
-	.long	7498
+	.long	7499
 .asciiz"_safe_memmove"
 	.long	1095
 .asciiz"delay_milliseconds"
-	.long	7340
+	.long	7341
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 	.long	4580
 .asciiz"tellDisplay_i2c_startscrolldiagright"
 	.long	3092
 .asciiz"writeDisplay_i2c_data"
-	.long	7138
+	.long	7139
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
 	.long	60
 .asciiz"buffer"
-	.long	7448
+	.long	7449
 .asciiz"_safe_memcmp"
-	.long	7209
+	.long	7210
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-	.long	6803
+	.long	6804
 .asciiz"drawVerticalLine_in_buffer"
 	.long	5314
 .asciiz"tellDisplay_i2c_startscrolldiagleft"
 	.long	6170
 .asciiz"writeToDisplay_i2c_all_buffer"
-	.long	6756
+	.long	6757
 .asciiz"Clear_All_Pixels_In_Buffer"
 	.long	129
 .asciiz"splash_buffer"
 	.long	152
 .asciiz"drawVerticalLineInternal_in_buffer"
-	.long	6700
+	.long	6701
 .asciiz"_safe_memset"
 	.long	3976
 .asciiz"tellDisplay_i2c_startscrollleft"
 	.long	172
 .asciiz"premask"
-	.long	7424
+	.long	7425
 .asciiz"delay_microseconds"
 	.long	6048
 .asciiz"tellDisplay_i2c_stopscroll"
@@ -12083,40 +12083,40 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset172 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset172
-	.long	7548
+	.long	7549
 .asciiz"short"
 	.long	1068
 .asciiz"interface"
-	.long	7580
+	.long	7581
 .asciiz"chanend"
-	.long	7597
-.asciiz"__TYPE_13"
-	.long	7642
+	.long	7643
 .asciiz"yarg"
 	.long	53
 .asciiz"port"
 	.long	902
 .asciiz"__TYPE_7"
+	.long	7598
+.asciiz"chronodot_d3231_registers_t"
 	.long	565
-.asciiz"__TYPE_15"
+.asciiz"display_vccstate_t"
 	.long	1120
 .asciiz"unsigned int"
 	.long	95
 .asciiz"unsigned char"
 	.long	1088
 .asciiz"int"
-	.long	7555
+	.long	7556
 .asciiz"unsigned short"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(){m(registers){a(19:uc)}})"
-	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
@@ -12125,18 +12125,18 @@ postmask.static:
 	.typestring height, "f{ss}(0)"
 	.typestring width, "f{ss}(0)"
 	.typestring getRotation, "f{uc}(0)"
-	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
+	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})"
+	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc)"
 	.overlay_reference writeDisplay_i2c_command,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
+	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc)"
 	.overlay_reference writeDisplay_i2c_data,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc)"
-	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},uc,uc)"
-	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
-	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})"
+	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc)"
+	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},uc,uc)"
+	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})"
+	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})"
 	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display_ok.fns
 	.typestring Clear_All_Pixels_In_Buffer, "f{0}(0)"
 	.typestring fillSplashScreen_in_buffer, "f{0}(0)"
@@ -12155,469 +12155,469 @@ postmask.static:
 .cc_top cc_0,.Lxta.call_labels39
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels39
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels73
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels73
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels72
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels72
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels3
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels3
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels4
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels4
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels5
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels5
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels6
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels6
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels7
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels7
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels8
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels8
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels9
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels9
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels10
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels10
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels11
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels11
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels12
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels12
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels13
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels14
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels14
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels15
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels15
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels16
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels16
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels17
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels18
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels19
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels19
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels20
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels21
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.call_labels22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels22
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.call_labels23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels23
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels24
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.call_labels25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels25
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels26
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels26
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.call_labels27
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels27
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.call_labels28
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels28
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.call_labels70
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels70
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.call_labels30
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels30
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.call_labels31
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels31
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.call_labels32
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels32
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.call_labels33
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels33
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.call_labels34
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels34
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.call_labels35
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels35
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.call_labels36
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels36
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.call_labels37
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels37
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.call_labels38
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels38
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.call_labels71
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels71
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.call_labels40
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels40
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.call_labels41
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels41
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.call_labels42
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels42
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.call_labels43
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels43
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.call_labels44
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels44
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.call_labels45
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels45
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.call_labels46
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels46
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.call_labels47
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels47
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.call_labels48
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels48
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.call_labels49
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels49
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.call_labels50
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels50
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.call_labels51
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels51
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.call_labels52
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels52
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.call_labels53
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels53
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.call_labels54
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels54
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.call_labels55
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels55
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.call_labels56
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels56
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.call_labels57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels57
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.call_labels58
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels58
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.call_labels59
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels59
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.call_labels60
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels60
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.call_labels61
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels61
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.call_labels62
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels62
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.call_labels63
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels63
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.call_labels64
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels64
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.call_labels65
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels65
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.call_labels66
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels66
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.call_labels67
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels67
 .cc_bottom cc_67
 .cc_top cc_68,.Lxta.call_labels68
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels68
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.call_labels69
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
+	.long	48
 	.long	.Lxta.call_labels69
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.call_labels29
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	57
+	.long	59
 	.long	.Lxta.call_labels29
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.call_labels0
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	119
+	.long	120
 	.long	.Lxta.call_labels0
 .cc_bottom cc_71
 .cc_top cc_72,.Lxta.call_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	123
+	.long	124
 	.long	.Lxta.call_labels1
 .cc_bottom cc_72
 .cc_top cc_73,.Lxta.call_labels74
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	284
+	.long	285
 	.long	.Lxta.call_labels74
 .cc_bottom cc_73
 .cc_top cc_74,.Lxta.call_labels77
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	328
+	.long	329
 	.long	.Lxta.call_labels77
 .cc_bottom cc_74
 .cc_top cc_75,.Lxta.call_labels78
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	330
+	.long	331
 	.long	.Lxta.call_labels78
 .cc_bottom cc_75
 .cc_top cc_76,.Lxta.call_labels75
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	396
+	.long	397
 	.long	.Lxta.call_labels75
 .cc_bottom cc_76
 .cc_top cc_77,.Lxta.call_labels76
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	398
+	.long	399
 	.long	.Lxta.call_labels76
 .cc_bottom cc_77
 .cc_top cc_78,.Lxta.call_labels2
@@ -12636,19 +12636,19 @@ postmask.static:
 .cc_top cc_79,.Lxta.endpoint_labels0
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	70
+	.long	71
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_79
 .cc_top cc_80,.Lxta.endpoint_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	74
+	.long	75
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_80
 .cc_top cc_81,.Lxta.endpoint_labels2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	76
+	.long	77
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_81
 .Lentries_end3:
@@ -12661,3242 +12661,3242 @@ postmask.static:
 .cc_top cc_82,.Lxtalabel17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel17
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel18
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel14
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel14
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel20
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel25
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel23
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel21
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel24
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel22
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	41
-	.long	41
+	.long	43
+	.long	43
 	.long	.Lxtalabel13
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel24
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_170
 .cc_top cc_171,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_171
 .cc_top cc_172,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_172
 .cc_top cc_173,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_173
 .cc_top cc_174,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_174
 .cc_top cc_175,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_175
 .cc_top cc_176,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_176
 .cc_top cc_177,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_178
 .cc_top cc_179,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_179
 .cc_top cc_180,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_181
 .cc_top cc_182,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_182
 .cc_top cc_183,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel22
 .cc_bottom cc_183
 .cc_top cc_184,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_184
 .cc_top cc_185,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_186
 .cc_top cc_187,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_187
 .cc_top cc_188,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_188
 .cc_top cc_189,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_189
 .cc_top cc_190,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_190
 .cc_top cc_191,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_191
 .cc_top cc_192,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_192
 .cc_top cc_193,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_193
 .cc_top cc_194,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel21
 .cc_bottom cc_194
 .cc_top cc_195,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_196
 .cc_top cc_197,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_197
 .cc_top cc_198,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_198
 .cc_top cc_199,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_199
 .cc_top cc_200,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_201
 .cc_top cc_202,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_202
 .cc_top cc_203,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_203
 .cc_top cc_204,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel13
 .cc_bottom cc_204
 .cc_top cc_205,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_206
 .cc_top cc_207,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_207
 .cc_top cc_208,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_208
 .cc_top cc_209,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_209
 .cc_top cc_210,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_211
 .cc_top cc_212,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_212
 .cc_top cc_213,.Lxtalabel14
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel14
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_214
 .cc_top cc_215,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel20
 .cc_bottom cc_215
 .cc_top cc_216,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_216
 .cc_top cc_217,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_217
 .cc_top cc_218,.Lxtalabel18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel18
 .cc_bottom cc_218
 .cc_top cc_219,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_219
 .cc_top cc_220,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel25
 .cc_bottom cc_220
 .cc_top cc_221,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_221
 .cc_top cc_222,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel23
 .cc_bottom cc_222
 .cc_top cc_223,.Lxtalabel17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	43
-	.long	44
+	.long	45
+	.long	46
 	.long	.Lxtalabel17
 .cc_bottom cc_223
 .cc_top cc_224,.Lxtalabel17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel17
 .cc_bottom cc_224
 .cc_top cc_225,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_226
 .cc_top cc_227,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_227
 .cc_top cc_228,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_228
 .cc_top cc_229,.Lxtalabel18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel18
 .cc_bottom cc_229
 .cc_top cc_230,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_231
 .cc_top cc_232,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_232
 .cc_top cc_233,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_233
 .cc_top cc_234,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_234
 .cc_top cc_235,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_235
 .cc_top cc_236,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_236
 .cc_top cc_237,.Lxtalabel14
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel14
 .cc_bottom cc_237
 .cc_top cc_238,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_238
 .cc_top cc_239,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_239
 .cc_top cc_240,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_241
 .cc_top cc_242,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_242
 .cc_top cc_243,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_244
 .cc_top cc_245,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_246
 .cc_top cc_247,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_247
 .cc_top cc_248,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_248
 .cc_top cc_249,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_249
 .cc_top cc_250,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_250
 .cc_top cc_251,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_251
 .cc_top cc_252,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_252
 .cc_top cc_253,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_254
 .cc_top cc_255,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_255
 .cc_top cc_256,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_256
 .cc_top cc_257,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_257
 .cc_top cc_258,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_258
 .cc_top cc_259,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_260
 .cc_top cc_261,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel25
 .cc_bottom cc_261
 .cc_top cc_262,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_262
 .cc_top cc_263,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel20
 .cc_bottom cc_263
 .cc_top cc_264,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_264
 .cc_top cc_265,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_265
 .cc_top cc_266,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel24
 .cc_bottom cc_267
 .cc_top cc_268,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_268
 .cc_top cc_269,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_269
 .cc_top cc_270,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_270
 .cc_top cc_271,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_271
 .cc_top cc_272,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_272
 .cc_top cc_273,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_274
 .cc_top cc_275,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel23
 .cc_bottom cc_275
 .cc_top cc_276,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_276
 .cc_top cc_277,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_277
 .cc_top cc_278,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_279
 .cc_top cc_280,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_280
 .cc_top cc_281,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_281
 .cc_top cc_282,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_282
 .cc_top cc_283,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_283
 .cc_top cc_284,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel22
 .cc_bottom cc_284
 .cc_top cc_285,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_285
 .cc_top cc_286,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_286
 .cc_top cc_287,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_287
 .cc_top cc_288,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_288
 .cc_top cc_289,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_289
 .cc_top cc_290,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_290
 .cc_top cc_291,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_291
 .cc_top cc_292,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_292
 .cc_top cc_293,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel13
 .cc_bottom cc_293
 .cc_top cc_294,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	46
-	.long	46
+	.long	48
+	.long	48
 	.long	.Lxtalabel21
 .cc_bottom cc_294
 .cc_top cc_295,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_295
 .cc_top cc_296,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_296
 .cc_top cc_297,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_297
 .cc_top cc_298,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_298
 .cc_top cc_299,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_300
 .cc_top cc_301,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_302
 .cc_top cc_303,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_303
 .cc_top cc_304,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_304
 .cc_top cc_305,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_305
 .cc_top cc_306,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_306
 .cc_top cc_307,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_308
 .cc_top cc_309,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_310
 .cc_top cc_311,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_311
 .cc_top cc_312,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_312
 .cc_top cc_313,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_313
 .cc_top cc_314,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_314
 .cc_top cc_315,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_315
 .cc_top cc_316,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_316
 .cc_top cc_317,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel21
 .cc_bottom cc_317
 .cc_top cc_318,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_318
 .cc_top cc_319,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_319
 .cc_top cc_320,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_320
 .cc_top cc_321,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel24
 .cc_bottom cc_321
 .cc_top cc_322,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_322
 .cc_top cc_323,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_323
 .cc_top cc_324,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_324
 .cc_top cc_325,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_326
 .cc_top cc_327,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_327
 .cc_top cc_328,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_328
 .cc_top cc_329,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_329
 .cc_top cc_330,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_330
 .cc_top cc_331,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_331
 .cc_top cc_332,.Lxtalabel17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel17
 .cc_bottom cc_332
 .cc_top cc_333,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_334
 .cc_top cc_335,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_336
 .cc_top cc_337,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_337
 .cc_top cc_338,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_338
 .cc_top cc_339,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_339
 .cc_top cc_340,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_340
 .cc_top cc_341,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_341
 .cc_top cc_342,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel22
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_343
 .cc_top cc_344,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_345
 .cc_top cc_346,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_346
 .cc_top cc_347,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_347
 .cc_top cc_348,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_348
 .cc_top cc_349,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_349
 .cc_top cc_350,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel18
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_352
 .cc_top cc_353,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_353
 .cc_top cc_354,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_354
 .cc_top cc_355,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_355
 .cc_top cc_356,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_356
 .cc_top cc_357,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_357
 .cc_top cc_358,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel13
 .cc_bottom cc_358
 .cc_top cc_359,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_359
 .cc_top cc_360,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_360
 .cc_top cc_361,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_361
 .cc_top cc_362,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel25
 .cc_bottom cc_362
 .cc_top cc_363,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel20
 .cc_bottom cc_363
 .cc_top cc_364,.Lxtalabel14
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel14
 .cc_bottom cc_364
 .cc_top cc_365,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	48
-	.long	49
+	.long	50
+	.long	51
 	.long	.Lxtalabel23
 .cc_bottom cc_365
 .cc_top cc_366,.Lxtalabel15
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	52
-	.long	52
+	.long	54
+	.long	54
 	.long	.Lxtalabel15
 .cc_bottom cc_366
 .cc_top cc_367,.Lxtalabel15
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	54
-	.long	55
+	.long	56
+	.long	57
 	.long	.Lxtalabel15
 .cc_bottom cc_367
 .cc_top cc_368,.Lxtalabel15
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	57
-	.long	57
+	.long	59
+	.long	59
 	.long	.Lxtalabel15
 .cc_bottom cc_368
 .cc_top cc_369,.Lxtalabel15
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	59
-	.long	60
+	.long	61
+	.long	62
 	.long	.Lxtalabel15
 .cc_bottom cc_369
 .cc_top cc_370,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	65
-	.long	65
+	.long	66
+	.long	66
 	.long	.Lxtalabel13
 .cc_bottom cc_370
 .cc_top cc_371,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	68
-	.long	68
+	.long	69
+	.long	69
 	.long	.Lxtalabel13
 .cc_bottom cc_371
 .cc_top cc_372,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	70
-	.long	70
+	.long	71
+	.long	71
 	.long	.Lxtalabel13
 .cc_bottom cc_372
 .cc_top cc_373,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	74
-	.long	76
+	.long	75
+	.long	77
 	.long	.Lxtalabel13
 .cc_bottom cc_373
 .cc_top cc_374,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	80
-	.long	89
+	.long	81
+	.long	90
 	.long	.Lxtalabel13
 .cc_bottom cc_374
 .cc_top cc_375,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	90
-	.long	90
+	.long	91
+	.long	91
 	.long	.Lxtalabel13
 .cc_bottom cc_375
 .cc_top cc_376,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	93
-	.long	102
+	.long	94
+	.long	103
 	.long	.Lxtalabel13
 .cc_bottom cc_376
 .cc_top cc_377,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	103
-	.long	103
+	.long	104
+	.long	104
 	.long	.Lxtalabel13
 .cc_bottom cc_377
 .cc_top cc_378,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	106
-	.long	109
+	.long	107
+	.long	110
 	.long	.Lxtalabel13
 .cc_bottom cc_378
 .cc_top cc_379,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	112
-	.long	112
+	.long	113
+	.long	113
 	.long	.Lxtalabel13
 .cc_bottom cc_379
 .cc_top cc_380,.Lxtalabel13
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	114
 	.long	115
+	.long	116
 	.long	.Lxtalabel13
 .cc_bottom cc_380
 .cc_top cc_381,.Lxtalabel0
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	120
+	.long	120
 	.long	.Lxtalabel0
 .cc_bottom cc_381
 .cc_top cc_382,.Lxtalabel2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	120
 	.long	121
+	.long	122
 	.long	.Lxtalabel2
 .cc_bottom cc_382
 .cc_top cc_383,.Lxtalabel5
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	120
 	.long	121
+	.long	122
 	.long	.Lxtalabel5
 .cc_bottom cc_383
 .cc_top cc_384,.Lxtalabel1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	120
 	.long	121
+	.long	122
 	.long	.Lxtalabel1
 .cc_bottom cc_384
 .cc_top cc_385,.Lxtalabel5
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	123
 	.long	124
+	.long	125
 	.long	.Lxtalabel5
 .cc_bottom cc_385
 .cc_top cc_386,.Lxtalabel2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	123
 	.long	124
+	.long	125
 	.long	.Lxtalabel2
 .cc_bottom cc_386
 .cc_top cc_387,.Lxtalabel1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	123
 	.long	124
+	.long	125
 	.long	.Lxtalabel1
 .cc_bottom cc_387
 .cc_top cc_388,.Lxtalabel4
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	125
-	.long	125
+	.long	126
+	.long	126
 	.long	.Lxtalabel4
 .cc_bottom cc_388
 .cc_top cc_389,.Lxtalabel4
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	126
-	.long	128
+	.long	127
+	.long	129
 	.long	.Lxtalabel4
 .cc_bottom cc_389
 .cc_top cc_390,.Lxtalabel3
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	129
-	.long	132
+	.long	130
+	.long	133
 	.long	.Lxtalabel3
 .cc_bottom cc_390
 .cc_top cc_391,.Lxtalabel6
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	133
-	.long	133
+	.long	134
+	.long	134
 	.long	.Lxtalabel6
 .cc_bottom cc_391
 .cc_top cc_392,.Lxtalabel6
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	134
-	.long	136
+	.long	135
+	.long	137
 	.long	.Lxtalabel6
 .cc_bottom cc_392
 .cc_top cc_393,.Lxtalabel7
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	139
-	.long	141
+	.long	140
+	.long	142
 	.long	.Lxtalabel7
 .cc_bottom cc_393
 .cc_top cc_394,.Lxtalabel8
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	139
-	.long	141
+	.long	140
+	.long	142
 	.long	.Lxtalabel8
 .cc_bottom cc_394
 .cc_top cc_395,.Lxtalabel11
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	139
-	.long	141
+	.long	140
+	.long	142
 	.long	.Lxtalabel11
 .cc_bottom cc_395
 .cc_top cc_396,.Lxtalabel9
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	142
-	.long	142
+	.long	143
+	.long	143
 	.long	.Lxtalabel9
 .cc_bottom cc_396
 .cc_top cc_397,.Lxtalabel10
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	143
-	.long	143
+	.long	144
+	.long	144
 	.long	.Lxtalabel10
 .cc_bottom cc_397
 .cc_top cc_398,.Lxtalabel12
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	144
-	.long	144
+	.long	145
+	.long	145
 	.long	.Lxtalabel12
 .cc_bottom cc_398
 .cc_top cc_399,.Lxtalabel16
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	149
-	.long	149
+	.long	150
+	.long	150
 	.long	.Lxtalabel16
 .cc_bottom cc_399
 .cc_top cc_400,.Lxtalabel16
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	151
-	.long	151
+	.long	152
+	.long	152
 	.long	.Lxtalabel16
 .cc_bottom cc_400
 .cc_top cc_401,.Lxtalabel17
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	152
 	.long	153
+	.long	154
 	.long	.Lxtalabel17
 .cc_bottom cc_401
 .cc_top cc_402,.Lxtalabel18
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	154
 	.long	155
+	.long	156
 	.long	.Lxtalabel18
 .cc_bottom cc_402
 .cc_top cc_403,.Lxtalabel19
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	157
 	.long	158
+	.long	159
 	.long	.Lxtalabel19
 .cc_bottom cc_403
 .cc_top cc_404,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	165
-	.long	165
+	.long	166
+	.long	166
 	.long	.Lxtalabel20
 .cc_bottom cc_404
 .cc_top cc_405,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	167
-	.long	174
+	.long	168
+	.long	175
 	.long	.Lxtalabel20
 .cc_bottom cc_405
 .cc_top cc_406,.Lxtalabel20
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	176
 	.long	177
+	.long	178
 	.long	.Lxtalabel20
 .cc_bottom cc_406
 .cc_top cc_407,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	184
-	.long	184
+	.long	185
+	.long	185
 	.long	.Lxtalabel21
 .cc_bottom cc_407
 .cc_top cc_408,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	186
-	.long	193
+	.long	187
+	.long	194
 	.long	.Lxtalabel21
 .cc_bottom cc_408
 .cc_top cc_409,.Lxtalabel21
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	195
 	.long	196
+	.long	197
 	.long	.Lxtalabel21
 .cc_bottom cc_409
 .cc_top cc_410,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	203
-	.long	203
+	.long	204
+	.long	204
 	.long	.Lxtalabel22
 .cc_bottom cc_410
 .cc_top cc_411,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	205
-	.long	214
+	.long	206
+	.long	215
 	.long	.Lxtalabel22
 .cc_bottom cc_411
 .cc_top cc_412,.Lxtalabel22
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	216
 	.long	217
+	.long	218
 	.long	.Lxtalabel22
 .cc_bottom cc_412
 .cc_top cc_413,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	224
-	.long	224
+	.long	225
+	.long	225
 	.long	.Lxtalabel23
 .cc_bottom cc_413
 .cc_top cc_414,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	226
-	.long	235
+	.long	227
+	.long	236
 	.long	.Lxtalabel23
 .cc_bottom cc_414
 .cc_top cc_415,.Lxtalabel23
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	237
 	.long	238
+	.long	239
 	.long	.Lxtalabel23
 .cc_bottom cc_415
 .cc_top cc_416,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	241
-	.long	241
+	.long	242
+	.long	242
 	.long	.Lxtalabel24
 .cc_bottom cc_416
 .cc_top cc_417,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	243
-	.long	243
+	.long	244
+	.long	244
 	.long	.Lxtalabel24
 .cc_bottom cc_417
 .cc_top cc_418,.Lxtalabel24
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	245
 	.long	246
+	.long	247
 	.long	.Lxtalabel24
 .cc_bottom cc_418
 .cc_top cc_419,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	249
-	.long	249
+	.long	250
+	.long	250
 	.long	.Lxtalabel25
 .cc_bottom cc_419
 .cc_top cc_420,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	251
-	.long	253
+	.long	252
+	.long	254
 	.long	.Lxtalabel25
 .cc_bottom cc_420
 .cc_top cc_421,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	255
 	.long	256
+	.long	257
 	.long	.Lxtalabel25
 .cc_bottom cc_421
 .cc_top cc_422,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	262
+	.long	262
 	.long	.Lxtalabel25
 .cc_bottom cc_422
 .cc_top cc_423,.Lxtalabel25
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	268
-	.long	268
+	.long	269
+	.long	269
 	.long	.Lxtalabel25
 .cc_bottom cc_423
 .cc_top cc_424,.Lxtalabel26
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	275
 	.long	276
+	.long	277
 	.long	.Lxtalabel26
 .cc_bottom cc_424
 .cc_top cc_425,.Lxtalabel26
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	278
-	.long	278
+	.long	279
+	.long	279
 	.long	.Lxtalabel26
 .cc_bottom cc_425
 .cc_top cc_426,.Lxtalabel27
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	279
-	.long	281
+	.long	280
+	.long	282
 	.long	.Lxtalabel27
 .cc_bottom cc_426
 .cc_top cc_427,.Lxtalabel28
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	282
-	.long	282
+	.long	283
+	.long	283
 	.long	.Lxtalabel28
 .cc_bottom cc_427
 .cc_top cc_428,.Lxtalabel28
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	284
 	.long	285
+	.long	286
 	.long	.Lxtalabel28
 .cc_bottom cc_428
 .cc_top cc_429,.Lxtalabel29
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	286
 	.long	287
+	.long	288
 	.long	.Lxtalabel29
 .cc_bottom cc_429
 .cc_top cc_430,.Lxtalabel30
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	291
-	.long	291
+	.long	292
+	.long	292
 	.long	.Lxtalabel30
 .cc_bottom cc_430
 .cc_top cc_431,.Lxtalabel30
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	292
-	.long	292
+	.long	293
+	.long	293
 	.long	.Lxtalabel30
 .cc_bottom cc_431
 .cc_top cc_432,.Lxtalabel31
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	295
-	.long	295
+	.long	296
+	.long	296
 	.long	.Lxtalabel31
 .cc_bottom cc_432
 .cc_top cc_433,.Lxtalabel31
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	296
-	.long	296
+	.long	297
+	.long	297
 	.long	.Lxtalabel31
 .cc_bottom cc_433
 .cc_top cc_434,.Lxtalabel31
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	297
-	.long	297
+	.long	298
+	.long	298
 	.long	.Lxtalabel31
 .cc_bottom cc_434
 .cc_top cc_435,.Lxtalabel45
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	300
-	.long	302
+	.long	301
+	.long	303
 	.long	.Lxtalabel45
 .cc_bottom cc_435
 .cc_top cc_436,.Lxtalabel42
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	300
-	.long	302
+	.long	301
+	.long	303
 	.long	.Lxtalabel42
 .cc_bottom cc_436
 .cc_top cc_437,.Lxtalabel41
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	300
-	.long	302
+	.long	301
+	.long	303
 	.long	.Lxtalabel41
 .cc_bottom cc_437
 .cc_top cc_438,.Lxtalabel42
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	304
 	.long	305
+	.long	306
 	.long	.Lxtalabel42
 .cc_bottom cc_438
 .cc_top cc_439,.Lxtalabel41
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	304
 	.long	305
+	.long	306
 	.long	.Lxtalabel41
 .cc_bottom cc_439
 .cc_top cc_440,.Lxtalabel45
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	304
 	.long	305
+	.long	306
 	.long	.Lxtalabel45
 .cc_bottom cc_440
 .cc_top cc_441,.Lxtalabel46
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	307
-	.long	307
+	.long	308
+	.long	308
 	.long	.Lxtalabel46
 .cc_bottom cc_441
 .cc_top cc_442,.Lxtalabel46
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	308
-	.long	308
+	.long	309
+	.long	309
 	.long	.Lxtalabel46
 .cc_bottom cc_442
 .cc_top cc_443,.Lxtalabel46
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	309
-	.long	311
+	.long	310
+	.long	312
 	.long	.Lxtalabel46
 .cc_bottom cc_443
 .cc_top cc_444,.Lxtalabel43
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	313
-	.long	317
+	.long	314
+	.long	318
 	.long	.Lxtalabel43
 .cc_bottom cc_444
 .cc_top cc_445,.Lxtalabel44
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	320
-	.long	320
+	.long	321
+	.long	321
 	.long	.Lxtalabel44
 .cc_bottom cc_445
 .cc_top cc_446,.Lxtalabel44
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	321
-	.long	321
+	.long	322
+	.long	322
 	.long	.Lxtalabel44
 .cc_bottom cc_446
 .cc_top cc_447,.Lxtalabel44
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	322
-	.long	325
+	.long	323
+	.long	326
 	.long	.Lxtalabel44
 .cc_bottom cc_447
 .cc_top cc_448,.Lxtalabel47
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	327
-	.long	327
+	.long	328
+	.long	328
 	.long	.Lxtalabel47
 .cc_bottom cc_448
 .cc_top cc_449,.Lxtalabel48
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	327
-	.long	327
+	.long	328
+	.long	328
 	.long	.Lxtalabel48
 .cc_bottom cc_449
 .cc_top cc_450,.Lxtalabel47
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	328
 	.long	329
+	.long	330
 	.long	.Lxtalabel47
 .cc_bottom cc_450
 .cc_top cc_451,.Lxtalabel48
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	330
 	.long	331
+	.long	332
 	.long	.Lxtalabel48
 .cc_bottom cc_451
 .cc_top cc_452,.Lxtalabel49
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	332
-	.long	332
+	.long	333
+	.long	333
 	.long	.Lxtalabel49
 .cc_bottom cc_452
 .cc_top cc_453,.Lxtalabel82
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	336
-	.long	336
+	.long	337
+	.long	337
 	.long	.Lxtalabel82
 .cc_bottom cc_453
 .cc_top cc_454,.Lxtalabel83
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	336
-	.long	336
+	.long	337
+	.long	337
 	.long	.Lxtalabel83
 .cc_bottom cc_454
 .cc_top cc_455,.Lxtalabel84
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	340
+	.long	340
 	.long	.Lxtalabel84
 .cc_bottom cc_455
 .cc_top cc_456,.Lxtalabel85
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	340
-	.long	342
+	.long	341
+	.long	343
 	.long	.Lxtalabel85
 .cc_bottom cc_456
 .cc_top cc_457,.Lxtalabel86
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	345
-	.long	345
+	.long	346
+	.long	346
 	.long	.Lxtalabel86
 .cc_bottom cc_457
 .cc_top cc_458,.Lxtalabel87
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	346
 	.long	347
+	.long	348
 	.long	.Lxtalabel87
 .cc_bottom cc_458
 .cc_top cc_459,.Lxtalabel88
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	350
-	.long	350
+	.long	351
+	.long	351
 	.long	.Lxtalabel88
 .cc_bottom cc_459
 .cc_top cc_460,.Lxtalabel91
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	353
-	.long	353
+	.long	354
+	.long	354
 	.long	.Lxtalabel91
 .cc_bottom cc_460
 .cc_top cc_461,.Lxtalabel90
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	353
-	.long	353
+	.long	354
+	.long	354
 	.long	.Lxtalabel90
 .cc_bottom cc_461
 .cc_top cc_462,.Lxtalabel89
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	353
-	.long	353
+	.long	354
+	.long	354
 	.long	.Lxtalabel89
 .cc_bottom cc_462
 .cc_top cc_463,.Lxtalabel89
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	355
-	.long	355
+	.long	356
+	.long	356
 	.long	.Lxtalabel89
 .cc_bottom cc_463
 .cc_top cc_464,.Lxtalabel91
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	355
-	.long	355
+	.long	356
+	.long	356
 	.long	.Lxtalabel91
 .cc_bottom cc_464
 .cc_top cc_465,.Lxtalabel90
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	355
-	.long	355
+	.long	356
+	.long	356
 	.long	.Lxtalabel90
 .cc_bottom cc_465
 .cc_top cc_466,.Lxtalabel91
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	358
+	.long	358
 	.long	.Lxtalabel91
 .cc_bottom cc_466
 .cc_top cc_467,.Lxtalabel89
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	358
+	.long	358
 	.long	.Lxtalabel89
 .cc_bottom cc_467
 .cc_top cc_468,.Lxtalabel90
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	358
+	.long	358
 	.long	.Lxtalabel90
 .cc_bottom cc_468
 .cc_top cc_469,.Lxtalabel89
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	360
+	.long	360
 	.long	.Lxtalabel89
 .cc_bottom cc_469
 .cc_top cc_470,.Lxtalabel90
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	360
+	.long	360
 	.long	.Lxtalabel90
 .cc_bottom cc_470
 .cc_top cc_471,.Lxtalabel91
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	360
+	.long	360
 	.long	.Lxtalabel91
 .cc_bottom cc_471
 .cc_top cc_472,.Lxtalabel91
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	361
-	.long	363
+	.long	362
+	.long	364
 	.long	.Lxtalabel91
 .cc_bottom cc_472
 .cc_top cc_473,.Lxtalabel90
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	361
-	.long	363
+	.long	362
+	.long	364
 	.long	.Lxtalabel90
 .cc_bottom cc_473
 .cc_top cc_474,.Lxtalabel89
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	361
-	.long	363
+	.long	362
+	.long	364
 	.long	.Lxtalabel89
 .cc_bottom cc_474
 .cc_top cc_475,.Lxtalabel32
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	370
-	.long	372
+	.long	371
+	.long	373
 	.long	.Lxtalabel32
 .cc_bottom cc_475
 .cc_top cc_476,.Lxtalabel33
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	370
-	.long	372
+	.long	371
+	.long	373
 	.long	.Lxtalabel33
 .cc_bottom cc_476
 .cc_top cc_477,.Lxtalabel36
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	370
-	.long	372
+	.long	371
+	.long	373
 	.long	.Lxtalabel36
 .cc_bottom cc_477
 .cc_top cc_478,.Lxtalabel33
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	373
 	.long	374
+	.long	375
 	.long	.Lxtalabel33
 .cc_bottom cc_478
 .cc_top cc_479,.Lxtalabel32
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	373
 	.long	374
+	.long	375
 	.long	.Lxtalabel32
 .cc_bottom cc_479
 .cc_top cc_480,.Lxtalabel36
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	373
 	.long	374
+	.long	375
 	.long	.Lxtalabel36
 .cc_bottom cc_480
 .cc_top cc_481,.Lxtalabel37
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	376
-	.long	376
+	.long	377
+	.long	377
 	.long	.Lxtalabel37
 .cc_bottom cc_481
 .cc_top cc_482,.Lxtalabel37
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	377
-	.long	377
+	.long	378
+	.long	378
 	.long	.Lxtalabel37
 .cc_bottom cc_482
 .cc_top cc_483,.Lxtalabel37
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	378
-	.long	381
+	.long	379
+	.long	382
 	.long	.Lxtalabel37
 .cc_bottom cc_483
 .cc_top cc_484,.Lxtalabel34
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	383
-	.long	387
+	.long	384
+	.long	388
 	.long	.Lxtalabel34
 .cc_bottom cc_484
 .cc_top cc_485,.Lxtalabel35
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	389
-	.long	389
+	.long	390
+	.long	390
 	.long	.Lxtalabel35
 .cc_bottom cc_485
 .cc_top cc_486,.Lxtalabel35
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	390
-	.long	390
+	.long	391
+	.long	391
 	.long	.Lxtalabel35
 .cc_bottom cc_486
 .cc_top cc_487,.Lxtalabel35
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	391
-	.long	393
+	.long	392
+	.long	394
 	.long	.Lxtalabel35
 .cc_bottom cc_487
 .cc_top cc_488,.Lxtalabel38
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	396
+	.long	396
 	.long	.Lxtalabel38
 .cc_bottom cc_488
 .cc_top cc_489,.Lxtalabel39
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	396
+	.long	396
 	.long	.Lxtalabel39
 .cc_bottom cc_489
 .cc_top cc_490,.Lxtalabel38
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	396
 	.long	397
+	.long	398
 	.long	.Lxtalabel38
 .cc_bottom cc_490
 .cc_top cc_491,.Lxtalabel39
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	398
 	.long	399
+	.long	400
 	.long	.Lxtalabel39
 .cc_bottom cc_491
 .cc_top cc_492,.Lxtalabel40
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	400
-	.long	400
+	.long	401
+	.long	401
 	.long	.Lxtalabel40
 .cc_bottom cc_492
 .cc_top cc_493,.Lxtalabel50
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	406
+	.long	406
 	.long	.Lxtalabel50
 .cc_bottom cc_493
 .cc_top cc_494,.Lxtalabel51
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	406
+	.long	406
 	.long	.Lxtalabel51
 .cc_bottom cc_494
 .cc_top cc_495,.Lxtalabel52
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	409
+	.long	409
 	.long	.Lxtalabel52
 .cc_bottom cc_495
 .cc_top cc_496,.Lxtalabel53
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	410
-	.long	412
+	.long	411
+	.long	413
 	.long	.Lxtalabel53
 .cc_bottom cc_496
 .cc_top cc_497,.Lxtalabel54
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	416
+	.long	416
 	.long	.Lxtalabel54
 .cc_bottom cc_497
 .cc_top cc_498,.Lxtalabel55
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	416
 	.long	417
+	.long	418
 	.long	.Lxtalabel55
 .cc_bottom cc_498
 .cc_top cc_499,.Lxtalabel56
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	421
+	.long	421
 	.long	.Lxtalabel56
 .cc_bottom cc_499
 .cc_top cc_500,.Lxtalabel56
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	421
 	.long	422
+	.long	423
 	.long	.Lxtalabel56
 .cc_bottom cc_500
 .cc_top cc_501,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	425
 	.long	426
+	.long	427
 	.long	.Lxtalabel57
 .cc_bottom cc_501
 .cc_top cc_502,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	429
-	.long	429
+	.long	430
+	.long	430
 	.long	.Lxtalabel57
 .cc_bottom cc_502
 .cc_top cc_503,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	431
-	.long	431
+	.long	432
+	.long	432
 	.long	.Lxtalabel57
 .cc_bottom cc_503
 .cc_top cc_504,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	434
+	.long	434
 	.long	.Lxtalabel57
 .cc_bottom cc_504
 .cc_top cc_505,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	436
-	.long	436
+	.long	437
+	.long	437
 	.long	.Lxtalabel57
 .cc_bottom cc_505
 .cc_top cc_506,.Lxtalabel57
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	438
-	.long	438
+	.long	439
+	.long	439
 	.long	.Lxtalabel57
 .cc_bottom cc_506
 .cc_top cc_507,.Lxtalabel58
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	440
-	.long	440
+	.long	441
+	.long	441
 	.long	.Lxtalabel58
 .cc_bottom cc_507
 .cc_top cc_508,.Lxtalabel58
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	444
 	.long	445
+	.long	446
 	.long	.Lxtalabel58
 .cc_bottom cc_508
 .cc_top cc_509,.Lxtalabel58
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	449
+	.long	449
 	.long	.Lxtalabel58
 .cc_bottom cc_509
 .cc_top cc_510,.Lxtalabel59
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	449
 	.long	450
+	.long	451
 	.long	.Lxtalabel59
 .cc_bottom cc_510
 .cc_top cc_511,.Lxtalabel60
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	452
-	.long	454
+	.long	453
+	.long	455
 	.long	.Lxtalabel60
 .cc_bottom cc_511
 .cc_top cc_512,.Lxtalabel64
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	452
-	.long	454
+	.long	453
+	.long	455
 	.long	.Lxtalabel64
 .cc_bottom cc_512
 .cc_top cc_513,.Lxtalabel61
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	452
-	.long	454
+	.long	453
+	.long	455
 	.long	.Lxtalabel61
 .cc_bottom cc_513
 .cc_top cc_514,.Lxtalabel62
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	456
+	.long	456
 	.long	.Lxtalabel62
 .cc_bottom cc_514
 .cc_top cc_515,.Lxtalabel63
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	456
-	.long	456
+	.long	457
+	.long	457
 	.long	.Lxtalabel63
 .cc_bottom cc_515
 .cc_top cc_516,.Lxtalabel65
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	457
-	.long	457
+	.long	458
+	.long	458
 	.long	.Lxtalabel65
 .cc_bottom cc_516
 .cc_top cc_517,.Lxtalabel66
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	461
+	.long	461
 	.long	.Lxtalabel66
 .cc_bottom cc_517
 .cc_top cc_518,.Lxtalabel67
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	462
-	.long	462
+	.long	463
+	.long	463
 	.long	.Lxtalabel67
 .cc_bottom cc_518
 .cc_top cc_519,.Lxtalabel67
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	464
 	.long	465
+	.long	466
 	.long	.Lxtalabel67
 .cc_bottom cc_519
 .cc_top cc_520,.Lxtalabel68
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	468
-	.long	468
+	.long	469
+	.long	469
 	.long	.Lxtalabel68
 .cc_bottom cc_520
 .cc_top cc_521,.Lxtalabel69
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	469
-	.long	469
+	.long	470
+	.long	470
 	.long	.Lxtalabel69
 .cc_bottom cc_521
 .cc_top cc_522,.Lxtalabel69
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	472
-	.long	472
+	.long	473
+	.long	473
 	.long	.Lxtalabel69
 .cc_bottom cc_522
 .cc_top cc_523,.Lxtalabel70
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	473
-	.long	473
+	.long	474
+	.long	474
 	.long	.Lxtalabel70
 .cc_bottom cc_523
 .cc_top cc_524,.Lxtalabel70
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	476
-	.long	476
+	.long	477
+	.long	477
 	.long	.Lxtalabel70
 .cc_bottom cc_524
 .cc_top cc_525,.Lxtalabel70
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	480
 	.long	481
+	.long	482
 	.long	.Lxtalabel70
 .cc_bottom cc_525
 .cc_top cc_526,.Lxtalabel71
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	485
+	.long	485
 	.long	.Lxtalabel71
 .cc_bottom cc_526
 .cc_top cc_527,.Lxtalabel72
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	485
+	.long	485
 	.long	.Lxtalabel72
 .cc_bottom cc_527
 .cc_top cc_528,.Lxtalabel73
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	485
+	.long	485
 	.long	.Lxtalabel73
 .cc_bottom cc_528
 .cc_top cc_529,.Lxtalabel72
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	486
-	.long	486
+	.long	487
+	.long	487
 	.long	.Lxtalabel72
 .cc_bottom cc_529
 .cc_top cc_530,.Lxtalabel73
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	486
-	.long	486
+	.long	487
+	.long	487
 	.long	.Lxtalabel73
 .cc_bottom cc_530
 .cc_top cc_531,.Lxtalabel71
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	486
-	.long	486
+	.long	487
+	.long	487
 	.long	.Lxtalabel71
 .cc_bottom cc_531
 .cc_top cc_532,.Lxtalabel74
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	489
+	.long	489
 	.long	.Lxtalabel74
 .cc_bottom cc_532
 .cc_top cc_533,.Lxtalabel74
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	491
-	.long	491
+	.long	492
+	.long	492
 	.long	.Lxtalabel74
 .cc_bottom cc_533
 .cc_top cc_534,.Lxtalabel74
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	495
 	.long	496
+	.long	497
 	.long	.Lxtalabel74
 .cc_bottom cc_534
 .cc_top cc_535,.Lxtalabel75
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	501
-	.long	501
+	.long	502
+	.long	502
 	.long	.Lxtalabel75
 .cc_bottom cc_535
 .cc_top cc_536,.Lxtalabel80
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	502
-	.long	502
+	.long	503
+	.long	503
 	.long	.Lxtalabel80
 .cc_bottom cc_536
 .cc_top cc_537,.Lxtalabel76
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	502
-	.long	502
+	.long	503
+	.long	503
 	.long	.Lxtalabel76
 .cc_bottom cc_537
 .cc_top cc_538,.Lxtalabel77
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	502
-	.long	502
+	.long	503
+	.long	503
 	.long	.Lxtalabel77
 .cc_bottom cc_538
 .cc_top cc_539,.Lxtalabel77
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	506
-	.long	510
+	.long	507
+	.long	511
 	.long	.Lxtalabel77
 .cc_bottom cc_539
 .cc_top cc_540,.Lxtalabel80
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	506
-	.long	510
+	.long	507
+	.long	511
 	.long	.Lxtalabel80
 .cc_bottom cc_540
 .cc_top cc_541,.Lxtalabel76
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	506
-	.long	510
+	.long	507
+	.long	511
 	.long	.Lxtalabel76
 .cc_bottom cc_541
 .cc_top cc_542,.Lxtalabel81
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	511
-	.long	511
+	.long	512
+	.long	512
 	.long	.Lxtalabel81
 .cc_bottom cc_542
 .cc_top cc_543,.Lxtalabel79
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	512
-	.long	512
+	.long	513
+	.long	513
 	.long	.Lxtalabel79
 .cc_bottom cc_543
 .cc_top cc_544,.Lxtalabel78
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	513
-	.long	513
+	.long	514
+	.long	514
 	.long	.Lxtalabel78
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel13
@@ -15923,78 +15923,78 @@ postmask.static:
 .cc_top cc_547,.Lxta.loop_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	275
 	.long	276
+	.long	277
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_547
 .cc_top cc_548,.Lxta.loop_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	278
-	.long	278
+	.long	279
+	.long	279
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_548
 .cc_top cc_549,.Lxta.loop_labels0
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	279
-	.long	281
+	.long	280
+	.long	282
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_549
 .cc_top cc_550,.Lxta.loop_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	282
-	.long	282
+	.long	283
+	.long	283
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_550
 .cc_top cc_551,.Lxta.loop_labels1
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	284
 	.long	285
+	.long	286
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_551
 .cc_top cc_552,.Lxta.loop_labels2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	473
-	.long	473
+	.long	474
+	.long	474
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_552
 .cc_top cc_553,.Lxta.loop_labels2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	476
-	.long	476
+	.long	477
+	.long	477
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_553
 .cc_top cc_554,.Lxta.loop_labels2
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	480
 	.long	481
+	.long	482
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_554
 .cc_top cc_555,.Lxta.loop_labels3
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	489
+	.long	489
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_555
 .cc_top cc_556,.Lxta.loop_labels3
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	491
-	.long	491
+	.long	492
+	.long	492
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_556
 .cc_top cc_557,.Lxta.loop_labels3
 	.ascii	"../src/display_ssd1306.xc"
 	.byte	0
-	.long	495
 	.long	496
+	.long	497
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_557
 .Lentries_end7:
@@ -16004,7 +16004,7 @@ postmask.static:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"../src/display_ssd1306.xc:141:27: error: out of bounds array access\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:142:27: error: out of bounds array access\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -16012,7 +16012,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"../src/display_ssd1306.xc:142:27: error: out of bounds array access\n            case BLACK:   buffer[x + (y/8)*SSD1306_LCDWIDTH] &= ~(1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:143:27: error: out of bounds array access\n            case BLACK:   buffer[x + (y/8)*SSD1306_LCDWIDTH] &= ~(1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -16020,7 +16020,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"../src/display_ssd1306.xc:143:27: error: out of bounds array access\n            case INVERSE: buffer[x + (y/8)*SSD1306_LCDWIDTH] ^=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:144:27: error: out of bounds array access\n            case INVERSE: buffer[x + (y/8)*SSD1306_LCDWIDTH] ^=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -16028,7 +16028,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"../src/display_ssd1306.xc:279:13: error: out of bounds array access\n            data[x] = buffer[i];\n            ^~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:280:13: error: out of bounds array access\n            data[x] = buffer[i];\n            ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3
@@ -16036,7 +16036,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_3
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str4:
-.asciiz"../src/display_ssd1306.xc:279:23: error: out of bounds array access\n            data[x] = buffer[i];\n                      ^~~~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:280:23: error: out of bounds array access\n            data[x] = buffer[i];\n                      ^~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_4,.Ltrap_info4
 	.long	.Ltrap_info4
@@ -16044,7 +16044,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_4
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str5:
-.asciiz"../src/display_ssd1306.xc:445:33: error: out of bounds array access\n        register uint8_t mask = premask[mod];\n                                ^~~~~~~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:446:33: error: out of bounds array access\n        register uint8_t mask = premask[mod];\n                                ^~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_5,.Ltrap_info5
 	.long	.Ltrap_info5
@@ -16052,7 +16052,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_5
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str6:
-.asciiz"../src/display_ssd1306.xc:454:27: error: out of bounds array or pointer access\n            case WHITE:   *pBuf |=  mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:455:27: error: out of bounds array or pointer access\n            case WHITE:   *pBuf |=  mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_6,.Ltrap_info6
 	.long	.Ltrap_info6
@@ -16060,7 +16060,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_6
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str7:
-.asciiz"../src/display_ssd1306.xc:455:27: error: out of bounds array or pointer access\n            case BLACK:   *pBuf &= ~mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:456:27: error: out of bounds array or pointer access\n            case BLACK:   *pBuf &= ~mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_7,.Ltrap_info7
 	.long	.Ltrap_info7
@@ -16068,7 +16068,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_7
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str8:
-.asciiz"../src/display_ssd1306.xc:456:27: error: out of bounds array or pointer access\n            case INVERSE: *pBuf ^=  mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:457:27: error: out of bounds array or pointer access\n            case INVERSE: *pBuf ^=  mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_8,.Ltrap_info8
 	.long	.Ltrap_info8
@@ -16076,7 +16076,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_8
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str9:
-.asciiz"../src/display_ssd1306.xc:473:18: error: out of bounds array or pointer access\n                 *pBuf=~(*pBuf);\n                 ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:474:18: error: out of bounds array or pointer access\n                 *pBuf=~(*pBuf);\n                 ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_9,.Ltrap_info9
 	.long	.Ltrap_info9
@@ -16084,7 +16084,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_9
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str10:
-.asciiz"../src/display_ssd1306.xc:488:17: error: out of bounds array or pointer access\n                *pBuf = val;\n                ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:489:17: error: out of bounds array or pointer access\n                *pBuf = val;\n                ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_10,.Ltrap_info10
 	.long	.Ltrap_info10
@@ -16092,7 +16092,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_10
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str11:
-.asciiz"../src/display_ssd1306.xc:512:27: error: out of bounds array or pointer access\n            case INVERSE: *pBuf ^=  mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:513:27: error: out of bounds array or pointer access\n            case INVERSE: *pBuf ^=  mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_11,.Ltrap_info11
 	.long	.Ltrap_info11
@@ -16100,7 +16100,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_11
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str12:
-.asciiz"../src/display_ssd1306.xc:511:27: error: out of bounds array or pointer access\n            case BLACK:   *pBuf &= ~mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:512:27: error: out of bounds array or pointer access\n            case BLACK:   *pBuf &= ~mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_12,.Ltrap_info12
 	.long	.Ltrap_info12
@@ -16108,7 +16108,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_12
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str13:
-.asciiz"../src/display_ssd1306.xc:510:27: error: out of bounds array or pointer access\n            case WHITE:   *pBuf |=  mask;  break;\n                          ^~~~~\n"
+.asciiz"../src/display_ssd1306.xc:511:27: error: out of bounds array or pointer access\n            case WHITE:   *pBuf |=  mask;  break;\n                          ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_13,.Ltrap_info13
 	.long	.Ltrap_info13
@@ -16116,7 +16116,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_13
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str14:
-.asciiz"../src/display_ssd1306.xc:363:49: error: out of bounds array or pointer access\n        case WHITE:               while (w--) { *pBuf++ |= mask; }; break;\n                                                ^~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:364:49: error: out of bounds array or pointer access\n        case WHITE:               while (w--) { *pBuf++ |= mask; }; break;\n                                                ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_14,.Ltrap_info14
 	.long	.Ltrap_info14
@@ -16124,7 +16124,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_14
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str15:
-.asciiz"../src/display_ssd1306.xc:365:49: error: out of bounds array or pointer access\n        case INVERSE:             while (w--) { *pBuf++ ^= mask; }; break;\n                                                ^~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:366:49: error: out of bounds array or pointer access\n        case INVERSE:             while (w--) { *pBuf++ ^= mask; }; break;\n                                                ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_15,.Ltrap_info15
 	.long	.Ltrap_info15
@@ -16132,7 +16132,7 @@ postmask.static:
 .cc_bottom cc_trapinfo_15
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str16:
-.asciiz"../src/display_ssd1306.xc:364:49: error: out of bounds array or pointer access\n        case BLACK: mask = ~mask; while (w--) { *pBuf++ &= mask; }; break;\n                                                ^~~~~~~\n"
+.asciiz"../src/display_ssd1306.xc:365:49: error: out of bounds array or pointer access\n        case BLACK: mask = ~mask; while (w--) { *pBuf++ &= mask; }; break;\n                                                ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_16,.Ltrap_info16
 	.long	.Ltrap_info16

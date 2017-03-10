@@ -5,6 +5,8 @@
  *      Author: Teig
  */
 
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -16,15 +18,11 @@
 //
 #include "core_graphics_font5x8.h"
 #include "core_graphics_adafruit_GFX.h"
+#endif
 
 display_param_t display_param;
 
 unsigned char font[] = {ASCII_FONT5X8};
-
-// ====----------------------------------------------------------------
-// HERE:                           class Adafruit_GFX : public Print {
-//       class Adafruit_SSD1306 : public Adafruit_GFX {
-// ====----------------------------------------------------------------
 
 void Adafruit_GFX_constructor(int16_t w, int16_t h) {
     display_param.WIDTH = w;
@@ -78,8 +76,6 @@ void write (uint8_t c) {
         write_raw (c);
     }
 }
-
-
 
 void display_print_dec_8 (const uint8_t value) {
     uint8_t rest = value;              //                      231

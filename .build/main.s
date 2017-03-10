@@ -594,23 +594,23 @@
 	.add_to_set _i.temperature_heater_commands_if.get_temps.fns.group, _i.temperature_heater_commands_if._chan.get_temps
 	.max_reduce _i.temperature_heater_commands_if.get_temps.max.nstackwords, _i.temperature_heater_commands_if.get_temps.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.get_temps.fns, _i.temperature_heater_commands_if.get_temps.fns.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group, _i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends, _i.temperature_heater_commands_if._chan.get_temp_degC_string
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group, _i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores, _i.temperature_heater_commands_if._chan.get_temp_degC_string
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxcores, _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group, _i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers, _i.temperature_heater_commands_if._chan.get_temp_degC_string
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.maxtimers, _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group, 0
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group, _i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords, _i.temperature_heater_commands_if._chan.get_temp_degC_string
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.fns.group, _i.temperature_heater_commands_if._chan.get_temp_degC_string
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.max.nstackwords, _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group, 0
-	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_string.fns, _i.temperature_heater_commands_if.get_temp_degC_string.fns.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxcores, _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxtimers, _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, 0
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, 0
+	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.fns, _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
 	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends, _i.temperature_heater_commands_if._chan.get_regulator_data
 	.max_reduce _i.temperature_heater_commands_if.get_regulator_data.max.maxchanends, _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, 0
@@ -693,18 +693,18 @@
 	.globl _i.temperature_heater_commands_if.get_temps.fns.group
 	.add_to_set _i.temperature_heater_commands_if.get_temps.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temps.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temps
 	.add_to_set _i.temperature_heater_commands_if.get_temps.fns.group, _i.temperature_heater_commands_if._chan_y.get_temps
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_string.fns.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
 	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends, _i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxcores.group
@@ -724,23 +724,23 @@
 	.globl _i.temperature_heater_commands_if.__interface_init.nstackwords.group
 	.weak _i.temperature_heater_commands_if.__interface_init.fns.group
 	.globl _i.temperature_heater_commands_if.__interface_init.fns.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxcores, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.maxtimers, _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group, _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.max.nstackwords, _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group, 0
-	.max_reduce _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns, _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxcores, _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxtimers, _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group, 0
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.fns.group
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.fns.group, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group, 0
+	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.fns, _i.temperature_water_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group
 	.add_to_set _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group, _i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends, _i.temperature_water_commands_if._chan.get_now_regulating_at
 	.max_reduce _i.temperature_water_commands_if.get_now_regulating_at.max.maxchanends, _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group, 0
@@ -792,7 +792,7 @@
 	main.parinfo.debugstring0:
 	.asciiz "# -1 \"\""
 	main.parinfo.debugstring1:
-	.asciiz "# 78 \"../src/main.xc\""
+	.asciiz "# 80 \"../src/main.xc\""
 	.cc_top main.parinfo.cc, main.parinfo
 	.globl main.parinfo
 	.type main.parinfo, @object
@@ -901,13 +901,13 @@ inP_button_right.info:
 	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.max.nstackwords, _i.chronodot_ds3231_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.fns, _i.chronodot_ds3231_if._client_call_y.fns.group, 0
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxchanends.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxcores.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.maxtimers.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.nstackwords.group
-	.weak _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
-	.globl _i.temperature_water_commands_if.get_temp_degC_string_filtered.fns.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxcores.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxtimers.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_water_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_water_commands_if.get_temp_degC_str.fns.group
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxcores.group
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxtimers.group
@@ -943,13 +943,13 @@ inP_button_right.info:
 	.globl _i.temperature_heater_commands_if.get_temps.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_temps.fns.group
 	.globl _i.temperature_heater_commands_if.get_temps.fns.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxchanends.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxcores.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.maxtimers.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
-	.globl _i.temperature_heater_commands_if.get_temp_degC_string.fns.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
+	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxcores.group
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group
@@ -1090,12 +1090,12 @@ inP_button_right.info:
 	.set usage.anon.4,0
 	.set usage.anon.5,0
 	.set usage.anon.6,0
-	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:70:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:69:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:68:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
-	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:70:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:69:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:68:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:72:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:71:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:70:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:72:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:71:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:70:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
 	.call usage.anon.6,adc_task
 	.call usage.anon.6,Port_Pins_Heat_Light_Server
 	.call usage.anon.6,My_startKIT_ADC_Client
@@ -1124,67 +1124,67 @@ inP_button_right.info:
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,System_Task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,System_Task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.3,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Water_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.3,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.4,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,usage.anon.5,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:59:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,System_Task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,System_Task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.3,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Water_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.3,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.4,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,usage.anon.5,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:61:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.set main.locnoside, 0
 	.set main.locnochandec, 0
 	.set main.locnoglobalaccess, 0
-	.globpassesref Button_Task, inP_button_right,"../src/main.xc:70:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_center,"../src/main.xc:69:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_left,"../src/main.xc:68:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_right,"../src/main.xc:72:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_center,"../src/main.xc:71:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_left,"../src/main.xc:70:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_System_Task_2, __main__main_tile_0_task_My_startKIT_ADC_Client_8
 
 
@@ -2627,11 +2627,11 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp116-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan.get_temp_degC_string,@function
-	.cc_top _i.temperature_heater_commands_if._chan.get_temp_degC_string.function,_i.temperature_heater_commands_if._chan.get_temp_degC_string
-_i.temperature_heater_commands_if._chan.get_temp_degC_string:
+	.type	_i.temperature_heater_commands_if._chan.get_temp_degC_str,@function
+	.cc_top _i.temperature_heater_commands_if._chan.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan.get_temp_degC_str
+_i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 5
 .Ltmp117:
@@ -2671,21 +2671,21 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_string:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan.get_temp_degC_string.function
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 5)
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.nstackwords
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxcores
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxtimers
-	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_string.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan.get_temp_degC_str.function
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 5)
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxcores
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxtimers
+	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
 .Ltmp122:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_string, .Ltmp122-_i.temperature_heater_commands_if._chan.get_temp_degC_string
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp122-_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temps
@@ -2924,11 +2924,11 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp145-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.function,_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
+	.type	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str,@function
+	.cc_top _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+_i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
 .Ltmp146:
@@ -2975,21 +2975,21 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_string:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temp_degC_string.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
 .Ltmp152:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string, .Ltmp152-_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp152-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -3223,11 +3223,11 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp173-_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered,@function
-	.cc_top _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.function,_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
+	.type	_i.temperature_water_commands_if._chan.get_temp_degC_str,@function
+	.cc_top _i.temperature_water_commands_if._chan.get_temp_degC_str.function,_i.temperature_water_commands_if._chan.get_temp_degC_str
+_i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
 .Ltmp174:
@@ -3253,21 +3253,21 @@ _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.function
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords,(__interface_client_call.nstackwords + 3)
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.nstackwords
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores,__interface_client_call.maxcores $M 1
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxcores
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers,__interface_client_call.maxtimers $M 0
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxtimers
-	.set	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
-	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
-	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan.get_temp_degC_str.function
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords,(__interface_client_call.nstackwords + 3)
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxcores
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxtimers
+	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
 .Ltmp177:
-	.size	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, .Ltmp177-_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp177-_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
@@ -3317,11 +3317,11 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp181-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered,@function
-	.cc_top _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.function,_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
+	.type	_i.temperature_water_commands_if._chan_y.get_temp_degC_str,@function
+	.cc_top _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+_i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
 .Ltmp182:
@@ -3349,21 +3349,21 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.function
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.nstackwords
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxcores
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxtimers
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
+	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
 .Ltmp185:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, .Ltmp185-_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered
+	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp185-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok
@@ -5028,7 +5028,7 @@ __main__main_tile_0_combined_tile_0_1:
 	.cc_top __main__main_tile_0_task_System_Task_2.function,__main__main_tile_0_task_System_Task_2
 __main__main_tile_0_task_System_Task_2:
 .Lfunc_begin53:
-	.loc	1 63 0
+	.loc	1 65 0
 	.cfi_startproc
 	entsp 7
 .Ltmp296:
@@ -5045,35 +5045,35 @@ __main__main_tile_0_task_System_Task_2:
 .Ltmp300:
 	.cfi_offset 6, -12
 	ldc r1, 256
-	.loc	1 63 0 prologue_end
+	.loc	1 65 0 prologue_end
 .Ltmp301:
 	add r1, r0, r1
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r11, r1[0]
 	ldc r1, 288
-	.loc	1 63 0
+	.loc	1 65 0
 	add r1, r0, r1
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r1, r1[0]
 	ldc r2, 152
-	.loc	1 63 0
+	.loc	1 65 0
 	add r2, r0, r2
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r2, r2[0]
 	ldc r3, 100
-	.loc	1 63 0
+	.loc	1 65 0
 	add r3, r0, r3
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r3, r3[0]
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r4, r0[9]
-	.loc	1 63 0
+	.loc	1 65 0
 	ldw r5, r0[1]
 	ldc r6, 392
-	.loc	1 63 0
+	.loc	1 65 0
 	add r0, r0, r6
 .Ltmp302:
-	.loc	1 63 0
+	.loc	1 65 0
 	stw r0, sp[3]
 	stw r5, sp[2]
 	stw r4, sp[1]
@@ -5101,7 +5101,7 @@ __main__main_tile_0_task_System_Task_2:
 	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Client_8.function,__main__main_tile_0_task_My_startKIT_ADC_Client_8
 __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 .Lfunc_begin54:
-	.loc	1 71 0
+	.loc	1 73 0
 	.cfi_startproc
 	entsp 1
 .Ltmp305:
@@ -5109,19 +5109,19 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 .Ltmp306:
 	.cfi_offset 15, 0
 	ldc r1, 204
-	.loc	1 71 0 prologue_end
+	.loc	1 73 0 prologue_end
 .Ltmp307:
 	add r1, r0, r1
-	.loc	1 71 0
+	.loc	1 73 0
 	ldw r3, r1[0]
 	ldc r1, 148
-	.loc	1 71 0
+	.loc	1 73 0
 	add r0, r0, r1
 .Ltmp308:
-	.loc	1 71 0
+	.loc	1 73 0
 	ldw r1, r0[0]
 	ldc r2, 1000
-	.loc	1 71 0
+	.loc	1 73 0
 	mov r0, r3
 .Lxta.call_labels10:
 	bl My_startKIT_ADC_Client
@@ -5233,7 +5233,7 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 	.long	_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.long	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.long	_i.temperature_heater_commands_if._chan.get_temps
-	.long	_i.temperature_heater_commands_if._chan.get_temp_degC_string
+	.long	_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.long	_i.temperature_heater_commands_if._chan.get_regulator_data
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
@@ -5247,7 +5247,7 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 	.long	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.long	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.long	_i.temperature_heater_commands_if._chan_y.get_temps
-	.long	_i.temperature_heater_commands_if._chan_y.get_temp_degC_string
+	.long	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.long	_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
@@ -5258,7 +5258,7 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 	.type	.vtable18,@object
 	.size	.vtable18, 20
 .vtable18:
-	.long	_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered
+	.long	_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.long	_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
@@ -5312,7 +5312,7 @@ par.desc.1:
 .Linfo_string11:
 .asciiz"GET_TEMPC_ALL"
 .Linfo_string12:
-.asciiz"__TYPE_15"
+.asciiz"i2c_command_external_t"
 .Linfo_string13:
 .asciiz"HEAT_CABLES_VOID"
 .Linfo_string14:
@@ -5322,7 +5322,7 @@ par.desc.1:
 .Linfo_string16:
 .asciiz"HEAT_CABLES_BOTH_ON"
 .Linfo_string17:
-.asciiz"__TYPE_25"
+.asciiz"heat_cable_commands_t"
 .Linfo_string18:
 .asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
 .Linfo_string19:
@@ -5350,7 +5350,7 @@ par.desc.1:
 .Linfo_string30:
 .asciiz"LIGHT_COMPOSITION_5000_FRONT3_ON"
 .Linfo_string31:
-.asciiz"__TYPE_22"
+.asciiz"light_composition_t"
 .Linfo_string32:
 .asciiz"LIGHT_CONTROL_IS_VOID"
 .Linfo_string33:
@@ -5364,7 +5364,7 @@ par.desc.1:
 .Linfo_string37:
 .asciiz"LIGHT_CONTROL_IS_RANDOM"
 .Linfo_string38:
-.asciiz"__TYPE_23"
+.asciiz"light_control_scheme_t"
 .Linfo_string39:
 .asciiz"IOF_TEMPC_HEATER"
 .Linfo_string40:
@@ -5374,13 +5374,13 @@ par.desc.1:
 .Linfo_string42:
 .asciiz"IOF_TEMPC_HEATER_MEAN_LAST_CYCLE"
 .Linfo_string43:
-.asciiz"__TYPE_14"
+.asciiz"iof_temps_t"
 .Linfo_string44:
 .asciiz"HEATER_WIRES_ONE_ALTERNATING_IS_HALF"
 .Linfo_string45:
 .asciiz"HEATER_WIRES_BOTH_IS_FULL"
 .Linfo_string46:
-.asciiz"__TYPE_26"
+.asciiz"heater_wires_t"
 .Linfo_string47:
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 .Linfo_string48:
@@ -5448,7 +5448,7 @@ par.desc.1:
 .Linfo_string79:
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string80:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string81:
 .asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string82:
@@ -5458,7 +5458,7 @@ par.desc.1:
 .Linfo_string84:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string85:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string86:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string87:
@@ -5468,11 +5468,11 @@ par.desc.1:
 .Linfo_string89:
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 .Linfo_string90:
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 .Linfo_string91:
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 .Linfo_string92:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string93:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string94:
@@ -5526,53 +5526,53 @@ par.desc.1:
 .Linfo_string118:
 .asciiz"client_state"
 .Linfo_string119:
-.asciiz"__TYPE_32"
+.asciiz"__TYPE_17"
 .Linfo_string120:
-.asciiz"__TYPE_31"
+.asciiz"__TYPE_16"
 .Linfo_string121:
 .asciiz"i_temperature_heater_commands"
 .Linfo_string122:
-.asciiz"__TYPE_34"
+.asciiz"__TYPE_19"
 .Linfo_string123:
 .asciiz"state.1"
 .Linfo_string124:
-.asciiz"__TYPE_35"
+.asciiz"__TYPE_20"
 .Linfo_string125:
-.asciiz"__TYPE_33"
+.asciiz"__TYPE_18"
 .Linfo_string126:
 .asciiz"i_port_heat_light_commands"
 .Linfo_string127:
-.asciiz"__TYPE_37"
+.asciiz"__TYPE_22"
 .Linfo_string128:
-.asciiz"__TYPE_38"
+.asciiz"__TYPE_23"
 .Linfo_string129:
-.asciiz"__TYPE_36"
+.asciiz"__TYPE_21"
 .Linfo_string130:
 .asciiz"i_lib_startkit_adc_commands"
 .Linfo_string131:
-.asciiz"__TYPE_40"
+.asciiz"__TYPE_25"
 .Linfo_string132:
-.asciiz"__TYPE_39"
+.asciiz"__TYPE_24"
 .Linfo_string133:
 .asciiz"i_startkit_adc_acquire"
 .Linfo_string134:
-.asciiz"__TYPE_42"
+.asciiz"__TYPE_27"
 .Linfo_string135:
-.asciiz"__TYPE_41"
+.asciiz"__TYPE_26"
 .Linfo_string136:
 .asciiz"i_i2c_internal_commands"
 .Linfo_string137:
-.asciiz"__TYPE_44"
+.asciiz"__TYPE_29"
 .Linfo_string138:
-.asciiz"__TYPE_43"
+.asciiz"__TYPE_28"
 .Linfo_string139:
 .asciiz"i_i2c_external_commands"
 .Linfo_string140:
-.asciiz"__TYPE_46"
+.asciiz"__TYPE_31"
 .Linfo_string141:
-.asciiz"__TYPE_47"
+.asciiz"__TYPE_32"
 .Linfo_string142:
-.asciiz"__TYPE_45"
+.asciiz"__TYPE_30"
 .Linfo_string143:
 .asciiz"c_analogue"
 .Linfo_string144:
@@ -5604,7 +5604,7 @@ par.desc.1:
 .Linfo_string157:
 .asciiz"registers"
 .Linfo_string158:
-.asciiz"__TYPE_11"
+.asciiz"chronodot_d3231_registers_t"
 .Linfo_string159:
 .asciiz"param3"
 .Linfo_string160:
@@ -5622,7 +5622,7 @@ par.desc.1:
 .Linfo_string166:
 .asciiz"second"
 .Linfo_string167:
-.asciiz"__TYPE_30"
+.asciiz"__TYPE_15"
 .Linfo_string168:
 .asciiz"delay"
 .Linfo_string169:
@@ -5645,7 +5645,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	41
+	.byte	43
 	.byte	5
 	.byte	3
 	.long	inP_button_left
@@ -5659,7 +5659,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	42
+	.byte	44
 	.byte	5
 	.byte	3
 	.long	inP_button_center
@@ -5669,7 +5669,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	43
+	.byte	45
 	.byte	5
 	.byte	3
 	.long	inP_button_right
@@ -5809,7 +5809,7 @@ par.desc.1:
 	.long	.Linfo_string108
 	.long	.Linfo_string108
 	.byte	1
-	.byte	63
+	.byte	65
 	.byte	7
 	.long	.Ldebug_loc0
 	.long	.Linfo_string111
@@ -5823,7 +5823,7 @@ par.desc.1:
 	.long	.Linfo_string109
 	.long	.Linfo_string109
 	.byte	1
-	.byte	71
+	.byte	73
 	.byte	7
 	.long	.Ldebug_loc1
 	.long	.Linfo_string111
@@ -7307,8 +7307,6 @@ par.desc.1:
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
 	.long	2195
 .asciiz"__main__main_tile_0"
-	.long	1729
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_string_filtered"
 	.long	588
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	383
@@ -7321,20 +7319,22 @@ par.desc.1:
 .asciiz"__main__main_tile_0_combined_tile_0_1"
 	.long	677
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
-	.long	2138
-.asciiz"__main__main_tile_0_combined_tile_0_4"
+	.long	1394
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
+	.long	1787
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 	.long	1709
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	464
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
+	.long	2138
+.asciiz"__main__main_tile_0_combined_tile_0_4"
 	.long	2157
 .asciiz"__main__main_tile_0_combined_tile_0_5"
 	.long	617
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	82
 .asciiz"inP_button_right"
-	.long	1566
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_string"
 	.long	2027
 .asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
 	.long	837
@@ -7357,8 +7357,6 @@ par.desc.1:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	1499
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	1787
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered"
 	.long	1365
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 	.long	1028
@@ -7371,6 +7369,8 @@ par.desc.1:
 .asciiz"inP_button_center"
 	.long	1316
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+	.long	1566
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 	.long	1182
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 	.long	808
@@ -7395,6 +7395,8 @@ par.desc.1:
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 	.long	546
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
+	.long	1729
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 	.long	1931
 .asciiz"_i.lib_startkit_adc_commands_if._chan.read"
 	.long	1086
@@ -7405,8 +7407,6 @@ par.desc.1:
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 	.long	31
 .asciiz"inP_button_left"
-	.long	1394
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_string"
 	.long	1878
 .asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 	.long	484
@@ -7435,80 +7435,80 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset5 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset5
-	.long	3067
-.asciiz"__TYPE_11"
-	.long	3198
+	.long	2849
 .asciiz"__TYPE_30"
-	.long	2332
+	.long	2886
 .asciiz"__TYPE_31"
-	.long	301
-.asciiz"__TYPE_14"
+	.long	2913
+.asciiz"__TYPE_32"
 	.long	53
 .asciiz"port"
-	.long	123
-.asciiz"__TYPE_15"
-	.long	2496
-.asciiz"__TYPE_34"
-	.long	2439
-.asciiz"__TYPE_33"
-	.long	2220
-.asciiz"frame.0"
+	.long	2332
+.asciiz"__TYPE_16"
 	.long	2379
-.asciiz"__TYPE_32"
-	.long	457
-.asciiz"int"
-	.long	2600
-.asciiz"__TYPE_37"
-	.long	2627
-.asciiz"__TYPE_38"
+.asciiz"__TYPE_17"
 	.long	2419
 .asciiz"unsigned int"
-	.long	2654
-.asciiz"__TYPE_39"
-	.long	2563
-.asciiz"__TYPE_36"
+	.long	2220
+.asciiz"frame.0"
+	.long	2496
+.asciiz"__TYPE_19"
+	.long	457
+.asciiz"int"
+	.long	2439
+.asciiz"__TYPE_18"
+	.long	3198
+.asciiz"__TYPE_15"
+	.long	123
+.asciiz"i2c_command_external_t"
+	.long	2953
+.asciiz"chanend"
 	.long	3023
 .asciiz"yarg"
 	.long	870
 .asciiz"tag_i2c_temps_t"
+	.long	332
+.asciiz"heater_wires_t"
 	.long	104
 .asciiz"__TYPE_7"
-	.long	2953
-.asciiz"chanend"
-	.long	2536
-.asciiz"__TYPE_35"
-	.long	173
-.asciiz"__TYPE_22"
-	.long	2721
-.asciiz"__TYPE_41"
-	.long	258
-.asciiz"__TYPE_23"
+	.long	301
+.asciiz"iof_temps_t"
 	.long	142
+.asciiz"heat_cable_commands_t"
+	.long	2536
+.asciiz"__TYPE_20"
+	.long	2563
+.asciiz"__TYPE_21"
+	.long	2600
+.asciiz"__TYPE_22"
+	.long	2627
+.asciiz"__TYPE_23"
+	.long	2654
+.asciiz"__TYPE_24"
+	.long	2681
 .asciiz"__TYPE_25"
-	.long	332
+	.long	2721
 .asciiz"__TYPE_26"
 	.long	2748
-.asciiz"__TYPE_42"
-	.long	2681
-.asciiz"__TYPE_40"
-	.long	2822
-.asciiz"__TYPE_44"
-	.long	2849
-.asciiz"__TYPE_45"
+.asciiz"__TYPE_27"
 	.long	2775
-.asciiz"__TYPE_43"
-	.long	2913
-.asciiz"__TYPE_47"
+.asciiz"__TYPE_28"
+	.long	2822
+.asciiz"__TYPE_29"
+	.long	3067
+.asciiz"chronodot_d3231_registers_t"
 	.long	3011
 .asciiz"unsigned short"
-	.long	2886
-.asciiz"__TYPE_46"
 	.long	930
 .asciiz"short"
 	.long	2372
 .asciiz"interface"
 	.long	3055
 .asciiz"unsigned char"
+	.long	173
+.asciiz"light_composition_t"
+	.long	258
+.asciiz"light_control_scheme_t"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
@@ -7521,65 +7521,65 @@ par.desc.1:
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(){m(registers){a(19:uc)}})"
-	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
-	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_string, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_string,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temps, "f{0}(chd,&(a(4:si)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_regulator_data, "f{ui,ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_string, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_string,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(4:si)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan.get_now_regulating_at, "f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(chd)"
-	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_string_filtered, "f{0}(chd,:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.temperature_water_commands_if._chan.get_now_regulating_at, "f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(chd)"
+	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.temperature_water_commands_if._chan_y.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_string_filtered,_i.temperature_water_commands_if._client_call_y.fns
+	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan.set_time_ok, "f{e(){m(false){0},m(true){1}}}(chd,:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.typestring _i.chronodot_ds3231_if._chan.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(chd)"
 	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
@@ -7599,11 +7599,11 @@ par.desc.1:
 	.typestring adc_task.select.enable, "k:fe{0}()"
 	.typestring adc_task.fini, "k:f{0}(u:q(ui))"
 	.typestring I2C_Internal_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}})))"
+	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})))"
 	.typestring I2C_Internal_Server.select.enable, "k:fe{0}()"
 	.typestring I2C_Internal_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring I2C_External_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring I2C_External_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}})))"
+	.typestring I2C_External_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}})))"
 	.typestring I2C_External_Server.select.enable, "k:fe{0}()"
 	.typestring I2C_External_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring Button_Task.init.1, "k:f{0}(u:q(ui))"
@@ -7612,23 +7612,23 @@ par.desc.1:
 	.typestring Button_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring Port_Pins_Heat_Light_Server.select.0.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
+	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
 	.typestring Port_Pins_Heat_Light_Server.select.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Heater_Controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
+	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
 	.typestring Temperature_Heater_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_string_filtered){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
+	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
 	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},:ui)"
-	.typestring System_Task, "f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(){m(registers){a(19:uc)}})}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_string){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_string_filtered){f{0}(:e(){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},&(a(3:chd)))"
+	.typestring System_Task, "f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
+	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"
@@ -7641,67 +7641,67 @@ par.desc.1:
 .cc_top cc_0,.Lxta.call_labels0
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	61
+	.long	63
 	.long	.Lxta.call_labels0
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels2
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	62
+	.long	64
 	.long	.Lxta.call_labels2
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels9
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	63
+	.long	65
 	.long	.Lxta.call_labels9
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels1
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	66
+	.long	68
 	.long	.Lxta.call_labels1
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels4
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	67
+	.long	69
 	.long	.Lxta.call_labels4
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels6
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	68
+	.long	70
 	.long	.Lxta.call_labels6
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels7
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	69
+	.long	71
 	.long	.Lxta.call_labels7
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels8
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	70
+	.long	72
 	.long	.Lxta.call_labels8
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels10
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	71
+	.long	73
 	.long	.Lxta.call_labels10
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels5
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	72
+	.long	74
 	.long	.Lxta.call_labels5
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels3
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	73
+	.long	75
 	.long	.Lxta.call_labels3
 .cc_bottom cc_10
 .Lentries_end1:

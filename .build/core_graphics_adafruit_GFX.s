@@ -25,46 +25,46 @@
 	.cc_top Adafruit_GFX_constructor.function,Adafruit_GFX_constructor
 Adafruit_GFX_constructor:
 .Lfunc_begin0:
-	.loc	1 29 0
+	.loc	1 27 0
 	.cfi_startproc
-	.loc	1 37 5 prologue_end
+	.loc	1 35 5 prologue_end
 	ldc r2, 0
 	ldaw r3, dp[display_param]
-	.loc	1 30 5
+	.loc	1 28 5
 	st16 r0, r3[r2]
 	add r3, r3, 2
-	.loc	1 31 5
+	.loc	1 29 5
 	st16 r1, r3[r2]
 	ldaw r3, dp[display_param+4]
-	.loc	1 32 5
+	.loc	1 30 5
 	st16 r0, r3[r2]
 	add r0, r3, 2
 .Ltmp0:
-	.loc	1 33 5
+	.loc	1 31 5
 	st16 r1, r0[r2]
 	mkmsk r0, 1
 	ldaw r1, dp[display_param+16]
 .Ltmp1:
-	.loc	1 34 5
+	.loc	1 32 5
 	st8 r2, r1[r0]
 	ldaw r3, dp[display_param+8]
-	.loc	1 35 5
+	.loc	1 33 5
 	st16 r2, r3[r2]
 	add r3, r3, 2
-	.loc	1 35 5
+	.loc	1 33 5
 	st16 r2, r3[r2]
-	.loc	1 36 5
+	.loc	1 34 5
 	st8 r0, r1[r2]
 	ldaw r1, dp[display_param+12]
 	add r3, r1, 2
 	mkmsk r11, 16
-	.loc	1 37 5
+	.loc	1 35 5
 	st16 r11, r3[r2]
-	.loc	1 37 5
+	.loc	1 35 5
 	st16 r11, r1[r2]
-	.loc	1 38 5
+	.loc	1 36 5
 	stw r0, dp[display_param+20]
-	.loc	1 39 1
+	.loc	1 37 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp2:
@@ -88,7 +88,7 @@ Adafruit_GFX_constructor:
 	.cc_top display_print.function,display_print
 display_print:
 .Lfunc_begin1:
-	.loc	1 43 0
+	.loc	1 41 0
 	.cfi_startproc
 	entsp 7
 .Ltmp4:
@@ -119,7 +119,7 @@ display_print:
 .Ltmp13:
 	bf r4, .LBB1_7
 .Ltmp14:
-	.loc	1 45 9 prologue_end
+	.loc	1 43 9 prologue_end
 	ldc r6, 0
 	ldc r7, 13
 	ldaw r8, dp[display_param+8]
@@ -131,35 +131,35 @@ display_print:
 	bt r1, .LBB1_6
 	eq r1, r0, 10
 	bf r1, .LBB1_5
-	.loc	1 73 9
+	.loc	1 71 9
 .Ltmp16:
 	st16 r6, r8[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r0, r9[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r0, r0, 3
 	add r1, r8, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r2, r1[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r0, r2, r0
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r0, r1[r6]
 	bu .LBB1_6
 .Ltmp17:
 .LBB1_5:
-	.loc	1 78 9
+	.loc	1 76 9
 	bl write_raw
 .Ltmp18:
 .LBB1_6:
-	.loc	1 44 5
+	.loc	1 42 5
 	add r5, r5, 1
-	.loc	1 44 5
+	.loc	1 42 5
 	sub r4, r4, 1
 	bt r4, .LBB1_2
 .Ltmp19:
 .LBB1_7:
-	.loc	1 47 1
+	.loc	1 45 1
 	ldw r9, sp[1]
 	ldw r8, sp[2]
 	ldw r7, sp[3]
@@ -189,7 +189,7 @@ display_print:
 	.cc_top write.function,write
 write:
 .Lfunc_begin2:
-	.loc	1 70 0
+	.loc	1 68 0
 	.cfi_startproc
 	entsp 1
 .Ltmp22:
@@ -197,7 +197,7 @@ write:
 .Ltmp23:
 	.cfi_offset 15, 0
 	ldc r1, 13
-	.loc	1 72 9 prologue_end
+	.loc	1 70 9 prologue_end
 .Ltmp24:
 	eq r1, r0, r1
 	bt r1, .LBB2_4
@@ -206,34 +206,34 @@ write:
 	bf r1, .LBB2_3
 .Ltmp26:
 	ldaw r0, dp[display_param+8]
-	.loc	1 74 9
+	.loc	1 72 9
 .Ltmp27:
 	ldc r1, 0
-	.loc	1 73 9
+	.loc	1 71 9
 	st16 r1, r0[r1]
 	ldaw r2, dp[display_param+16]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r2, r2[r1]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r2, r2, 3
 	add r0, r0, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r3, r0[r1]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r2, r3, r2
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r2, r0[r1]
 .Ltmp28:
-	.loc	1 80 1
+	.loc	1 78 1
 	retsp 1
 	# RETURN_REG_HOLDER
 .LBB2_3:
 .Ltmp29:
-	.loc	1 78 9
+	.loc	1 76 9
 	bl write_raw
 .Ltmp30:
 .LBB2_4:
-	.loc	1 80 1
+	.loc	1 78 1
 	retsp 1
 	# RETURN_REG_HOLDER
 .Ltmp31:
@@ -257,7 +257,7 @@ write:
 	.cc_top display_println.function,display_println
 display_println:
 .Lfunc_begin3:
-	.loc	1 51 0
+	.loc	1 49 0
 	.cfi_startproc
 	entsp 7
 .Ltmp33:
@@ -288,7 +288,7 @@ display_println:
 .Ltmp42:
 	bf r4, .LBB3_7
 .Ltmp43:
-	.loc	1 53 9 prologue_end
+	.loc	1 51 9 prologue_end
 	ldc r6, 0
 	ldc r7, 13
 	ldaw r8, dp[display_param+8]
@@ -300,54 +300,54 @@ display_println:
 	bt r1, .LBB3_6
 	eq r1, r0, 10
 	bf r1, .LBB3_5
-	.loc	1 73 9
+	.loc	1 71 9
 .Ltmp45:
 	st16 r6, r8[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r0, r9[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r0, r0, 3
 	add r1, r8, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r2, r1[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r0, r2, r0
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r0, r1[r6]
 	bu .LBB3_6
 .Ltmp46:
 .LBB3_5:
-	.loc	1 78 9
+	.loc	1 76 9
 	bl write_raw
 .Ltmp47:
 .LBB3_6:
-	.loc	1 52 5
+	.loc	1 50 5
 	add r5, r5, 1
-	.loc	1 52 5
+	.loc	1 50 5
 	sub r4, r4, 1
 	bt r4, .LBB3_2
 .Ltmp48:
 .LBB3_7:
 	ldaw r0, dp[display_param+8]
-	.loc	1 74 9
+	.loc	1 72 9
 .Ltmp49:
 	ldc r1, 0
-	.loc	1 73 9
+	.loc	1 71 9
 	st16 r1, r0[r1]
 	ldaw r2, dp[display_param+16]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r2, r2[r1]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r2, r2, 3
 	add r0, r0, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r3, r0[r1]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r2, r3, r2
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r2, r0[r1]
 .Ltmp50:
-	.loc	1 56 1
+	.loc	1 54 1
 	ldw r9, sp[1]
 	ldw r8, sp[2]
 	ldw r7, sp[3]
@@ -386,7 +386,7 @@ display_println:
 	.cc_top write_raw.function,write_raw
 write_raw:
 .Lfunc_begin4:
-	.loc	1 58 0
+	.loc	1 56 0
 	.cfi_startproc
 	entsp 5
 .Ltmp53:
@@ -401,15 +401,15 @@ write_raw:
 	.cfi_offset 5, -8
 	mov r2, r0
 .Ltmp57:
-	.loc	1 60 5 prologue_end
+	.loc	1 58 5 prologue_end
 	ldw r0, dp[display_param+8]
-	.loc	1 60 5
+	.loc	1 58 5
 	ldw r3, dp[display_param+12]
 	shr r1, r3, 16
-	.loc	1 63 5
+	.loc	1 61 5
 	ldc r4, 0
 	ldaw r5, dp[display_param+16]
-	.loc	1 60 5
+	.loc	1 58 5
 	ld8u r11, r5[r4]
 	stw r11, sp[2]
 	stw r1, sp[1]
@@ -418,52 +418,52 @@ write_raw:
 	zext r3, 16
 	bl drawChar
 .Ltmp58:
-	.loc	1 63 5
+	.loc	1 61 5
 	ld8u r0, r5[r4]
 	ldc r1, 6
-	.loc	1 63 5
+	.loc	1 61 5
 	mul r1, r0, r1
-	.loc	1 63 5
+	.loc	1 61 5
 	ldw r2, dp[display_param+8]
-	.loc	1 63 5
+	.loc	1 61 5
 	mov r3, r2
 	zext r3, 16
-	.loc	1 63 5
+	.loc	1 61 5
 	add r3, r3, r1
 	ldaw r1, dp[display_param+8]
-	.loc	1 63 5
+	.loc	1 61 5
 	st16 r3, r1[r4]
-	.loc	1 64 9
+	.loc	1 62 9
 .Ltmp59:
 	ldw r11, dp[display_param+20]
 	bf r11, .LBB4_3
-	.loc	1 64 9
+	.loc	1 62 9
 	sext r3, 16
 	ldaw r11, dp[display_param+4]
-	.loc	1 64 9
+	.loc	1 62 9
 	ld16s r11, r11[r4]
 	ldw r5, cp[.LCPI4_0]
-	.loc	1 64 9
+	.loc	1 62 9
 	mul r5, r0, r5
-	.loc	1 64 9
+	.loc	1 62 9
 	add r11, r5, r11
-	.loc	1 64 9
+	.loc	1 62 9
 	lss r3, r11, r3
 	bf r3, .LBB4_3
 	shr r2, r2, 16
-	.loc	1 65 9
+	.loc	1 63 9
 .Ltmp60:
 	shl r0, r0, 3
-	.loc	1 65 9
+	.loc	1 63 9
 	add r0, r2, r0
 	add r2, r1, 2
-	.loc	1 65 9
+	.loc	1 63 9
 	st16 r0, r2[r4]
-	.loc	1 66 9
+	.loc	1 64 9
 	st16 r4, r1[r4]
 .Ltmp61:
 .LBB4_3:
-	.loc	1 68 1
+	.loc	1 66 1
 	ldw r5, sp[3]
 	ldw r4, sp[4]
 	retsp 5
@@ -489,7 +489,7 @@ write_raw:
 	.cc_top drawChar.function,drawChar
 drawChar:
 .Lfunc_begin5:
-	.loc	1 457 0
+	.loc	1 453 0
 	.cfi_startproc
 	entsp 17
 .Ltmp64:
@@ -521,117 +521,117 @@ drawChar:
 .Ltmp73:
 	stw r1, sp[9]
 .Ltmp74:
-	.loc	1 459 9 prologue_end
+	.loc	1 455 9 prologue_end
 	stw r0, sp[4]
 	ldw r3, dp[display_param+4]
-	.loc	1 459 9
+	.loc	1 455 9
 	mov r1, r3
 	sext r1, 16
-	.loc	1 459 9
+	.loc	1 455 9
 	lss r1, r0, r1
 .Ltmp75:
 	bf r1, .LBB5_22
 .Ltmp76:
 	ashr r0, r3, 16
-	.loc	1 459 9
+	.loc	1 455 9
 	ldw r1, sp[9]
 	lss r0, r1, r0
 	bf r0, .LBB5_22
 .Ltmp77:
 	ldw r1, sp[19]
 	ldc r0, 6
-	.loc	1 459 9
+	.loc	1 455 9
 	mul r0, r1, r0
 .Ltmp78:
-	.loc	1 459 9
+	.loc	1 455 9
 	ldw r1, sp[4]
 	add r1, r0, r1
 	mkmsk r0, 1
-	.loc	1 459 9
+	.loc	1 455 9
 	lss r1, r1, r0
 	bt r1, .LBB5_22
 .Ltmp79:
 	ldw r1, sp[19]
-	.loc	1 459 9
+	.loc	1 455 9
 	shl r1, r1, 3
-	.loc	1 459 9
+	.loc	1 455 9
 	ldw r3, sp[9]
 	add r1, r1, r3
-	.loc	1 459 9
+	.loc	1 455 9
 	lss r0, r1, r0
 	bt r0, .LBB5_22
 .Ltmp80:
-	.loc	1 471 13
+	.loc	1 467 13
 	ldaw r0, r2[r2]
 	stw r0, sp[3]
 	mkmsk r0, 16
 	ldw r1, sp[19]
 .Ltmp81:
-	.loc	1 264 5
+	.loc	1 260 5
 	add r0, r1, r0
 	stw r0, sp[6]
 	ldc r3, 0
 	mov r11, r3
 .Ltmp82:
 .LBB5_5:
-	.loc	1 468 13
+	.loc	1 464 13
 	mov r0, r11
 	zext r0, 8
-	.loc	1 468 13
+	.loc	1 464 13
 	eq r0, r0, 5
 	mov r10, r3
 	bt r0, .LBB5_7
 .Ltmp83:
-	.loc	1 471 13
+	.loc	1 467 13
 	ldw r0, sp[3]
 	add r0, r11, r0
-	.loc	1 471 13
+	.loc	1 467 13
 	ldaw r1, dp[font]
-	.loc	1 471 13
+	.loc	1 467 13
 	ld8u r10, r1[r0]
 .Ltmp84:
 .LBB5_7:
 	ldw r1, sp[4]
 .Ltmp85:
-	.loc	1 481 21
+	.loc	1 477 21
 	add r0, r11, r1
 	stw r0, sp[8]
 	ldw r0, sp[19]
 	mov r2, r0
 .Ltmp86:
-	.loc	1 483 21
+	.loc	1 479 21
 	mul r0, r11, r2
 	stw r11, sp[5]
-	.loc	1 483 21
+	.loc	1 479 21
 	add r0, r0, r1
-	.loc	1 274 5
+	.loc	1 270 5
 .Ltmp87:
 	stw r0, sp[7]
 .Ltmp88:
 	sext r0, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	add r9, r0, r2
 .Ltmp89:
 	mov r0, r3
 .Ltmp90:
 .LBB5_8:
 	mov r6, r0
-	.loc	1 474 17
+	.loc	1 470 17
 	mov r0, r10
 	zext r0, 1
-	.loc	1 474 17
+	.loc	1 470 17
 	bf r0, .LBB5_14
 .Ltmp91:
 	ldw r1, sp[19]
 .Ltmp92:
-	.loc	1 475 21
+	.loc	1 471 21
 	eq r0, r1, 1
 	bf r0, .LBB5_11
 .Ltmp93:
-	.loc	1 476 21
+	.loc	1 472 21
 	ldw r0, sp[9]
 	add r1, r6, r0
-	.loc	1 476 21
+	.loc	1 472 21
 	sext r1, 16
 	ldw r0, sp[8]
 	sext r0, 16
@@ -646,14 +646,14 @@ drawChar:
 .Ltmp95:
 	ldw r1, sp[19]
 .Ltmp96:
-	.loc	1 480 21
+	.loc	1 476 21
 	eq r0, r1, 1
 	bf r0, .LBB5_17
 .Ltmp97:
-	.loc	1 481 21
+	.loc	1 477 21
 	ldw r0, sp[9]
 	add r1, r6, r0
-	.loc	1 481 21
+	.loc	1 477 21
 	sext r1, 16
 	ldw r0, sp[8]
 	sext r0, 16
@@ -665,22 +665,22 @@ drawChar:
 	bf r1, .LBB5_20
 .Ltmp99:
 	ldw r0, sp[19]
-	.loc	1 478 21
+	.loc	1 474 21
 .Ltmp100:
 	mul r0, r6, r0
-	.loc	1 478 21
+	.loc	1 474 21
 	ldw r1, sp[9]
 	add r5, r0, r1
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp101:
 	ldw r0, sp[6]
 	add r8, r0, r5
 .Ltmp102:
-	.loc	1 478 21
+	.loc	1 474 21
 	ldw r7, sp[7]
 .Ltmp103:
 .LBB5_13:
-	.loc	1 264 5
+	.loc	1 260 5
 	stw r4, sp[1]
 	mov r1, r5
 	sext r1, 16
@@ -691,12 +691,12 @@ drawChar:
 	mov r2, r0
 	bl drawLine
 .Ltmp104:
-	.loc	1 274 36
+	.loc	1 270 36
 	add r7, r7, 1
-	.loc	1 274 5
+	.loc	1 270 5
 	mov r0, r7
 	sext r0, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r0, r0, r9
 	bt r0, .LBB5_13
 	bu .LBB5_20
@@ -705,23 +705,23 @@ drawChar:
 	bf r1, .LBB5_20
 .Ltmp106:
 	ldw r0, sp[19]
-	.loc	1 483 21
+	.loc	1 479 21
 .Ltmp107:
 	mul r0, r6, r0
-	.loc	1 483 21
+	.loc	1 479 21
 	ldw r1, sp[9]
 	add r5, r0, r1
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp108:
 	ldw r0, sp[6]
 	add r8, r0, r5
 .Ltmp109:
-	.loc	1 483 21
+	.loc	1 479 21
 	ldw r7, sp[7]
 .Ltmp110:
 .LBB5_19:
 	ldw r0, sp[18]
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp111:
 	stw r0, sp[1]
 	mov r1, r5
@@ -733,42 +733,42 @@ drawChar:
 	mov r2, r0
 	bl drawLine
 .Ltmp112:
-	.loc	1 274 36
+	.loc	1 270 36
 	add r7, r7, 1
-	.loc	1 274 5
+	.loc	1 270 5
 	mov r0, r7
 	sext r0, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r0, r0, r9
 	bt r0, .LBB5_19
 .Ltmp113:
 .LBB5_20:
 	ldc r0, 254
-	.loc	1 485 13
+	.loc	1 481 13
 	and r0, r10, r0
 	shr r10, r0, 1
 .Ltmp114:
-	.loc	1 473 9
+	.loc	1 469 9
 	add r0, r6, 1
 .xtaloop 8
 	# LOOPMARKER 0
-	.loc	1 473 9
+	.loc	1 469 9
 	eq r1, r6, 7
 	bf r1, .LBB5_8
 .Ltmp115:
 	ldw r1, sp[5]
-	.loc	1 465 5
+	.loc	1 461 5
 	add r0, r1, 1
 .xtaloop 6
 	# LOOPMARKER 1
-	.loc	1 465 5
+	.loc	1 461 5
 	eq r1, r1, 5
 	mov r11, r0
 	ldc r3, 0
 	bf r1, .LBB5_5
 .Ltmp116:
 .LBB5_22:
-	.loc	1 488 1
+	.loc	1 484 1
 	ldw r10, sp[10]
 	ldw r9, sp[11]
 	ldw r8, sp[12]
@@ -829,7 +829,7 @@ drawChar:
 	.cc_top display_print_dec_8.function,display_print_dec_8
 display_print_dec_8:
 .Lfunc_begin6:
-	.loc	1 84 0
+	.loc	1 80 0
 	.cfi_startproc
 	entsp 5
 .Ltmp119:
@@ -851,96 +851,96 @@ display_print_dec_8:
 .Ltmp125:
 	ldc r6, 0
 	ldw r1, cp[.LCPI6_0]
-	.loc	1 86 5 prologue_end
+	.loc	1 82 5 prologue_end
 .Ltmp126:
 	lmul r1, r2, r0, r1, r6, r6
 	shr r1, r1, 5
 	ldw r2, cp[.LCPI6_1]
-	.loc	1 87 5
+	.loc	1 83 5
 	mul r2, r1, r2
-	.loc	1 87 5
+	.loc	1 83 5
 	add r11, r2, r0
-	.loc	1 88 5
+	.loc	1 84 5
 	mov r2, r11
 	zext r2, 8
 	ldw r3, cp[.LCPI6_2]
-	.loc	1 88 5
+	.loc	1 84 5
 	lmul r3, r4, r2, r3, r6, r6
 	shr r4, r3, 3
 	ldw r3, cp[.LCPI6_3]
-	.loc	1 89 5
+	.loc	1 85 5
 	mul r7, r4, r3
 	ldc r3, 48
-	.loc	1 92 5
+	.loc	1 88 5
 	add r5, r4, r3
-	.loc	1 89 5
+	.loc	1 85 5
 	add r11, r7, r11
-	.loc	1 93 5
+	.loc	1 89 5
 	add r4, r11, r3
 	ldc r11, 99
-	.loc	1 95 9
+	.loc	1 91 9
 .Ltmp127:
 	lsu r0, r11, r0
 .Ltmp128:
 	bt r0, .LBB6_9
 	ldc r0, 10
-	.loc	1 96 13
+	.loc	1 92 13
 .Ltmp129:
 	lsu r0, r2, r0
 	bt r0, .LBB6_5
 	zext r5, 8
-	.loc	1 72 9
+	.loc	1 70 9
 .Ltmp130:
 	eq r0, r5, 10
 	bf r0, .LBB6_3
 	ldaw r0, dp[display_param+8]
-	.loc	1 73 9
+	.loc	1 71 9
 .Ltmp131:
 	st16 r6, r0[r6]
 	ldaw r1, dp[display_param+16]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r1, r1[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r1, r1, 3
 	add r0, r0, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r2, r0[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r1, r2, r1
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r1, r0[r6]
 	bu .LBB6_5
 .Ltmp132:
 .LBB6_9:
 	zext r5, 8
-	.loc	1 91 5
+	.loc	1 87 5
 	or r0, r1, r3
-	.loc	1 78 9
+	.loc	1 76 9
 .Ltmp133:
 	zext r0, 8
 	bl write_raw
 	ldc r7, 13
 .Ltmp134:
-	.loc	1 72 9
+	.loc	1 70 9
 	eq r0, r5, r7
 	bt r0, .LBB6_13
 	eq r0, r5, 10
 	bf r0, .LBB6_12
 	ldaw r0, dp[display_param+8]
-	.loc	1 73 9
+	.loc	1 71 9
 .Ltmp135:
 	st16 r6, r0[r6]
 	ldaw r1, dp[display_param+16]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r1, r1[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r1, r1, 3
 	add r0, r0, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r2, r0[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r1, r2, r1
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r1, r0[r6]
 	bu .LBB6_13
 .Ltmp136:
@@ -948,7 +948,7 @@ display_print_dec_8:
 	ldc r0, 13
 	eq r0, r5, r0
 	bt r0, .LBB6_5
-	.loc	1 78 9
+	.loc	1 76 9
 .Ltmp137:
 	mov r0, r5
 	bl write_raw
@@ -956,20 +956,20 @@ display_print_dec_8:
 .LBB6_5:
 	zext r4, 8
 	ldc r0, 13
-	.loc	1 72 9
+	.loc	1 70 9
 .Ltmp139:
 	eq r0, r4, r0
 	bt r0, .LBB6_15
 	bu .LBB6_6
 .Ltmp140:
 .LBB6_12:
-	.loc	1 78 9
+	.loc	1 76 9
 	mov r0, r5
 	bl write_raw
 .Ltmp141:
 .LBB6_13:
 	zext r4, 8
-	.loc	1 72 9
+	.loc	1 70 9
 .Ltmp142:
 	eq r0, r4, r7
 	bt r0, .LBB6_15
@@ -978,30 +978,30 @@ display_print_dec_8:
 	eq r0, r4, 10
 	bf r0, .LBB6_14
 	ldaw r0, dp[display_param+8]
-	.loc	1 73 9
+	.loc	1 71 9
 .Ltmp144:
 	st16 r6, r0[r6]
 	ldaw r1, dp[display_param+16]
-	.loc	1 74 9
+	.loc	1 72 9
 	ld8u r1, r1[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	shl r1, r1, 3
 	add r0, r0, 2
-	.loc	1 74 9
+	.loc	1 72 9
 	ld16s r2, r0[r6]
-	.loc	1 74 9
+	.loc	1 72 9
 	add r1, r2, r1
-	.loc	1 74 9
+	.loc	1 72 9
 	st16 r1, r0[r6]
 	bu .LBB6_15
 .Ltmp145:
 .LBB6_14:
-	.loc	1 78 9
+	.loc	1 76 9
 	mov r0, r4
 	bl write_raw
 .Ltmp146:
 .LBB6_15:
-	.loc	1 107 1
+	.loc	1 103 1
 	ldw r7, sp[1]
 	ldw r6, sp[2]
 	ldw r5, sp[3]
@@ -1039,7 +1039,7 @@ display_print_dec_8:
 	.cc_top drawCircle.function,drawCircle
 drawCircle:
 .Lfunc_begin7:
-	.loc	1 110 0
+	.loc	1 106 0
 	.cfi_startproc
 	entsp 14
 .Ltmp149:
@@ -1077,31 +1077,31 @@ drawCircle:
 	stw r5, sp[6]
 	mov r7, r0
 .Ltmp162:
-	.loc	1 117 5 prologue_end
+	.loc	1 113 5 prologue_end
 	stw r7, sp[5]
 	add r1, r6, r5
-	.loc	1 117 5
+	.loc	1 113 5
 	sext r1, 16
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 118 5
+	.loc	1 114 5
 	sub r1, r5, r6
-	.loc	1 118 5
+	.loc	1 114 5
 	sext r1, 16
 	mov r0, r7
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 119 5
+	.loc	1 115 5
 	add r0, r6, r7
-	.loc	1 119 5
+	.loc	1 115 5
 	sext r0, 16
 	mov r1, r5
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 120 5
+	.loc	1 116 5
 	sub r0, r7, r6
 .Ltmp163:
-	.loc	1 120 5
+	.loc	1 116 5
 	sext r0, 16
 	mov r1, r5
 .Ltmp164:
@@ -1110,7 +1110,7 @@ drawCircle:
 .Ltmp165:
 	bl setPixel_in_buffer
 	mkmsk r0, 1
-	.loc	1 122 5
+	.loc	1 118 5
 	stw r0, sp[4]
 	lss r0, r6, r0
 	mov r1, r6
@@ -1118,37 +1118,37 @@ drawCircle:
 	bt r0, .LBB7_6
 .Ltmp167:
 	ldc r6, 0
-	.loc	1 113 5
+	.loc	1 109 5
 	stw r1, sp[3]
 	lda16 r0, r6[-r1]
 	stw r0, sp[1]
 	mkmsk r0, 1
-	.loc	1 111 5
+	.loc	1 107 5
 	sub r3, r0, r1
 .Ltmp168:
 .LBB7_2:
-	.loc	1 123 13
+	.loc	1 119 13
 	shl r0, r3, 16
 	ldw r1, cp[.LCPI7_0]
-	.loc	1 123 13
+	.loc	1 119 13
 	lss r1, r0, r1
 	bt r1, .LBB7_3
 .Ltmp169:
-	.loc	1 123 13
+	.loc	1 119 13
 	ashr r0, r0, 16
 	ldw r2, sp[3]
-	.loc	1 124 13
+	.loc	1 120 13
 .Ltmp170:
 	sub r2, r2, 1
 	ldw r1, sp[1]
-	.loc	1 125 13
+	.loc	1 121 13
 	zext r1, 16
-	.loc	1 125 13
+	.loc	1 121 13
 	add r1, r1, 2
-	.loc	1 126 13
+	.loc	1 122 13
 	stw r1, sp[1]
 	sext r1, 16
-	.loc	1 126 13
+	.loc	1 122 13
 	add r3, r1, r0
 	bu .LBB7_5
 .Ltmp171:
@@ -1156,48 +1156,48 @@ drawCircle:
 	ldw r2, sp[3]
 .Ltmp172:
 .LBB7_5:
-	.loc	1 128 9
+	.loc	1 124 9
 	stw r2, sp[3]
 	add r6, r6, 1
 	sext r6, 16
 	ldw r0, sp[4]
-	.loc	1 129 9
+	.loc	1 125 9
 	sext r0, 16
-	.loc	1 129 9
+	.loc	1 125 9
 	add r0, r0, 2
-	.loc	1 130 9
+	.loc	1 126 9
 	stw r0, sp[4]
 	sext r0, 16
-	.loc	1 130 9
+	.loc	1 126 9
 	sext r3, 16
-	.loc	1 130 9
+	.loc	1 126 9
 	add r3, r3, r0
 	stw r3, sp[2]
 	ldw r0, sp[5]
 .Ltmp173:
-	.loc	1 132 9
+	.loc	1 128 9
 	add r8, r6, r0
 	mov r4, r0
 .Ltmp174:
-	.loc	1 132 9
+	.loc	1 128 9
 	sext r2, 16
-	.loc	1 132 9
+	.loc	1 128 9
 	ldw r0, sp[6]
 .Ltmp175:
 	add r9, r2, r0
 	mov r7, r2
 .Ltmp176:
-	.loc	1 132 9
+	.loc	1 128 9
 	sext r9, 16
 	sext r8, 16
 	mov r0, r8
 	mov r1, r9
 	mov r2, r5
 	bl setPixel_in_buffer
-	.loc	1 133 9
+	.loc	1 129 9
 	sub r10, r4, r6
 .Ltmp177:
-	.loc	1 133 9
+	.loc	1 129 9
 	sext r10, 16
 	mov r0, r10
 	mov r1, r9
@@ -1205,8 +1205,46 @@ drawCircle:
 	bl setPixel_in_buffer
 	ldw r4, sp[6]
 .Ltmp178:
-	.loc	1 134 9
+	.loc	1 130 9
 	sub r9, r4, r7
+	.loc	1 130 9
+	sext r9, 16
+	mov r0, r8
+	mov r1, r9
+	mov r2, r5
+	bl setPixel_in_buffer
+	.loc	1 131 9
+	mov r0, r10
+	mov r1, r9
+	mov r2, r5
+	bl setPixel_in_buffer
+	ldw r10, sp[5]
+.Ltmp179:
+	.loc	1 132 9
+	add r8, r7, r10
+	.loc	1 132 9
+	add r9, r6, r4
+.Ltmp180:
+	.loc	1 132 9
+	sext r8, 16
+	sext r9, 16
+	mov r0, r8
+	mov r1, r9
+	mov r2, r5
+	bl setPixel_in_buffer
+	mov r4, r7
+	.loc	1 133 9
+	sub r10, r10, r4
+.Ltmp181:
+	.loc	1 133 9
+	sext r10, 16
+	mov r0, r10
+	mov r1, r9
+	mov r2, r5
+	bl setPixel_in_buffer
+	.loc	1 134 9
+	ldw r0, sp[6]
+	sub r9, r0, r6
 	.loc	1 134 9
 	sext r9, 16
 	mov r0, r8
@@ -1218,52 +1256,14 @@ drawCircle:
 	mov r1, r9
 	mov r2, r5
 	bl setPixel_in_buffer
-	ldw r10, sp[5]
-.Ltmp179:
-	.loc	1 136 9
-	add r8, r7, r10
-	.loc	1 136 9
-	add r9, r6, r4
-.Ltmp180:
-	.loc	1 136 9
-	sext r8, 16
-	sext r9, 16
-	mov r0, r8
-	mov r1, r9
-	mov r2, r5
-	bl setPixel_in_buffer
-	mov r4, r7
-	.loc	1 137 9
-	sub r10, r10, r4
-.Ltmp181:
-	.loc	1 137 9
-	sext r10, 16
-	mov r0, r10
-	mov r1, r9
-	mov r2, r5
-	bl setPixel_in_buffer
-	.loc	1 138 9
-	ldw r0, sp[6]
-	sub r9, r0, r6
-	.loc	1 138 9
-	sext r9, 16
-	mov r0, r8
-	mov r1, r9
-	mov r2, r5
-	bl setPixel_in_buffer
-	.loc	1 139 9
-	mov r0, r10
-	mov r1, r9
-	mov r2, r5
-	bl setPixel_in_buffer
 	ldw r3, sp[2]
 .Ltmp182:
-	.loc	1 122 5
+	.loc	1 118 5
 	lss r0, r6, r4
 	bt r0, .LBB7_2
 .Ltmp183:
 .LBB7_6:
-	.loc	1 141 1
+	.loc	1 137 1
 	ldw r10, sp[7]
 	ldw r9, sp[8]
 	ldw r8, sp[9]
@@ -1294,7 +1294,7 @@ drawCircle:
 	.cc_top drawCircleHelper.function,drawCircleHelper
 drawCircleHelper:
 .Lfunc_begin8:
-	.loc	1 144 0
+	.loc	1 140 0
 	.cfi_startproc
 	entsp 14
 .Ltmp186:
@@ -1329,58 +1329,58 @@ drawCircleHelper:
 .Ltmp197:
 	mkmsk r1, 1
 .Ltmp198:
-	.loc	1 151 5 prologue_end
+	.loc	1 147 5 prologue_end
 	lss r0, r2, r1
 	bt r0, .LBB8_14
 .Ltmp199:
 	ldw r4, sp[15]
 	ldc r10, 0
-	.loc	1 147 5
+	.loc	1 143 5
 	lda16 r0, r10[-r2]
-	.loc	1 145 5
+	.loc	1 141 5
 	stw r0, sp[5]
 	sub r8, r1, r2
 	ldc r0, 4
-	.loc	1 160 13
+	.loc	1 156 13
 .Ltmp200:
 	and r0, r3, r0
 	stw r0, sp[3]
 	ldc r0, 2
 .Ltmp201:
-	.loc	1 164 13
+	.loc	1 160 13
 	and r0, r3, r0
 	stw r0, sp[2]
 	ldc r0, 8
 .Ltmp202:
-	.loc	1 168 13
+	.loc	1 164 13
 	and r0, r3, r0
 .Ltmp203:
-	.loc	1 172 13
+	.loc	1 168 13
 	stw r0, sp[1]
 	zext r3, 1
 	stw r3, sp[4]
 .Ltmp204:
 .LBB8_2:
-	.loc	1 145 5
+	.loc	1 141 5
 	mov r0, r8
 	sext r0, 16
-	.loc	1 152 13
+	.loc	1 148 13
 .Ltmp205:
 	ashr r0, r0, 32
 	bt r0, .LBB8_3
 .Ltmp206:
 	stw r1, sp[6]
-	.loc	1 152 13
+	.loc	1 148 13
 	zext r8, 16
-	.loc	1 153 13
+	.loc	1 149 13
 .Ltmp207:
 	sub r2, r2, 1
 	ldw r0, sp[5]
-	.loc	1 154 13
+	.loc	1 150 13
 	zext r0, 16
-	.loc	1 154 13
+	.loc	1 150 13
 	add r0, r0, 2
-	.loc	1 155 13
+	.loc	1 151 13
 	stw r0, sp[5]
 	add r8, r0, r8
 	bu .LBB8_5
@@ -1389,32 +1389,32 @@ drawCircleHelper:
 	stw r1, sp[6]
 .Ltmp209:
 .LBB8_5:
-	.loc	1 157 9
+	.loc	1 153 9
 	add r10, r10, 1
 	sext r10, 16
-	.loc	1 160 13
+	.loc	1 156 13
 .Ltmp210:
 	ldw r0, sp[3]
 	bf r0, .LBB8_7
 .Ltmp211:
-	.loc	1 161 13
+	.loc	1 157 13
 	add r0, r10, r9
-	.loc	1 161 13
+	.loc	1 157 13
 	mov r5, r2
 	sext r5, 16
-	.loc	1 161 13
+	.loc	1 157 13
 	add r1, r5, r7
-	.loc	1 161 13
+	.loc	1 157 13
 	sext r0, 16
 	sext r1, 16
 	mov r6, r2
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 162 13
+	.loc	1 158 13
 	add r0, r5, r9
-	.loc	1 162 13
+	.loc	1 158 13
 	add r1, r10, r7
-	.loc	1 162 13
+	.loc	1 158 13
 	sext r1, 16
 	sext r0, 16
 	mov r2, r4
@@ -1422,28 +1422,28 @@ drawCircleHelper:
 	mov r2, r6
 .Ltmp212:
 .LBB8_7:
-	.loc	1 164 13
+	.loc	1 160 13
 	ldw r0, sp[2]
 	bf r0, .LBB8_9
 .Ltmp213:
-	.loc	1 165 13
+	.loc	1 161 13
 	add r0, r10, r9
-	.loc	1 165 13
+	.loc	1 161 13
 	mov r5, r2
 	sext r5, 16
-	.loc	1 165 13
+	.loc	1 161 13
 	sub r1, r7, r5
-	.loc	1 165 13
+	.loc	1 161 13
 	sext r0, 16
 	sext r1, 16
 	mov r6, r2
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 166 13
+	.loc	1 162 13
 	add r0, r5, r9
-	.loc	1 166 13
+	.loc	1 162 13
 	sub r1, r7, r10
-	.loc	1 166 13
+	.loc	1 162 13
 	sext r1, 16
 	sext r0, 16
 	mov r2, r4
@@ -1452,32 +1452,32 @@ drawCircleHelper:
 .Ltmp214:
 .LBB8_9:
 	ldw r1, sp[6]
-	.loc	1 158 9
+	.loc	1 154 9
 	sext r1, 16
-	.loc	1 168 13
+	.loc	1 164 13
 .Ltmp215:
 	ldw r0, sp[1]
 	bf r0, .LBB8_11
 .Ltmp216:
-	.loc	1 169 13
+	.loc	1 165 13
 	mov r5, r2
 	sext r5, 16
-	.loc	1 169 13
+	.loc	1 165 13
 	sub r0, r9, r5
 	stw r1, sp[6]
-	.loc	1 169 13
+	.loc	1 165 13
 	add r1, r10, r7
-	.loc	1 169 13
+	.loc	1 165 13
 	sext r1, 16
 	sext r0, 16
 	mov r6, r2
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 170 13
+	.loc	1 166 13
 	sub r0, r9, r10
-	.loc	1 170 13
+	.loc	1 166 13
 	add r1, r5, r7
-	.loc	1 170 13
+	.loc	1 166 13
 	sext r0, 16
 	sext r1, 16
 	mov r2, r4
@@ -1486,34 +1486,34 @@ drawCircleHelper:
 	mov r2, r6
 .Ltmp217:
 .LBB8_11:
-	.loc	1 158 9
+	.loc	1 154 9
 	add r1, r1, 2
-	.loc	1 159 9
+	.loc	1 155 9
 	zext r8, 16
-	.loc	1 172 13
+	.loc	1 168 13
 .Ltmp218:
 	ldw r0, sp[4]
 	bf r0, .LBB8_13
 .Ltmp219:
-	.loc	1 173 13
+	.loc	1 169 13
 	mov r5, r2
 	sext r5, 16
-	.loc	1 173 13
+	.loc	1 169 13
 	sub r0, r9, r5
 	stw r1, sp[6]
-	.loc	1 173 13
+	.loc	1 169 13
 	sub r1, r7, r10
-	.loc	1 173 13
+	.loc	1 169 13
 	sext r1, 16
 	sext r0, 16
 	mov r6, r2
 	mov r2, r4
 	bl setPixel_in_buffer
-	.loc	1 174 13
+	.loc	1 170 13
 	sub r0, r9, r10
-	.loc	1 174 13
+	.loc	1 170 13
 	sub r1, r7, r5
-	.loc	1 174 13
+	.loc	1 170 13
 	sext r0, 16
 	sext r1, 16
 	mov r2, r4
@@ -1522,17 +1522,17 @@ drawCircleHelper:
 	mov r2, r6
 .Ltmp220:
 .LBB8_13:
-	.loc	1 159 9
+	.loc	1 155 9
 	add r8, r8, r1
 .Ltmp221:
-	.loc	1 151 5
+	.loc	1 147 5
 	mov r0, r2
 	sext r0, 16
 	lss r0, r10, r0
 	bt r0, .LBB8_2
 .Ltmp222:
 .LBB8_14:
-	.loc	1 177 1
+	.loc	1 173 1
 	ldw r10, sp[7]
 	ldw r9, sp[8]
 	ldw r8, sp[9]
@@ -1563,7 +1563,7 @@ drawCircleHelper:
 	.cc_top fillCircle.function,fillCircle
 fillCircle:
 .Lfunc_begin9:
-	.loc	1 179 0
+	.loc	1 175 0
 	.cfi_startproc
 	entsp 7
 .Ltmp225:
@@ -1590,23 +1590,23 @@ fillCircle:
 .Ltmp233:
 	mov r6, r0
 .Ltmp234:
-	.loc	1 180 5 prologue_end
+	.loc	1 176 5 prologue_end
 	mov r0, r5
 	zext r0, 16
-	.loc	1 180 5
+	.loc	1 176 5
 	sub r1, r0, r4
-	.loc	1 180 5
+	.loc	1 176 5
 	shl r0, r4, 1
 	mkmsk r2, 1
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp235:
 	or r0, r0, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	add r0, r1, r0
 	mkmsk r2, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	add r3, r0, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r3, 16
 	sext r1, 16
 	stw r7, sp[1]
@@ -1614,7 +1614,7 @@ fillCircle:
 	mov r2, r6
 	bl drawLine
 .Ltmp236:
-	.loc	1 181 5
+	.loc	1 177 5
 	stw r7, sp[2]
 	ldc r0, 0
 	stw r0, sp[1]
@@ -1623,7 +1623,7 @@ fillCircle:
 	mov r1, r5
 	mov r2, r4
 	bl fillCircleHelper
-	.loc	1 182 1
+	.loc	1 178 1
 	ldw r7, sp[3]
 .Ltmp237:
 	ldw r6, sp[4]
@@ -1655,21 +1655,21 @@ fillCircle:
 	.cc_top drawVerticalLine.function,drawVerticalLine
 drawVerticalLine:
 .Lfunc_begin10:
-	.loc	1 262 0
+	.loc	1 258 0
 	.cfi_startproc
 	entsp 2
 .Ltmp243:
 	.cfi_def_cfa_offset 8
 .Ltmp244:
 	.cfi_offset 15, 0
-	.loc	1 264 5 prologue_end
+	.loc	1 260 5 prologue_end
 .Ltmp245:
 	add r2, r1, r2
 .Ltmp246:
 	mkmsk r11, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	add r11, r2, r11
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r11, 16
 	stw r3, sp[1]
 	mov r2, r0
@@ -1677,7 +1677,7 @@ drawVerticalLine:
 .Ltmp247:
 	bl drawLine
 .Ltmp248:
-	.loc	1 265 1
+	.loc	1 261 1
 	retsp 2
 	# RETURN_REG_HOLDER
 .Ltmp249:
@@ -1701,7 +1701,7 @@ drawVerticalLine:
 	.cc_top fillCircleHelper.function,fillCircleHelper
 fillCircleHelper:
 .Lfunc_begin11:
-	.loc	1 185 0
+	.loc	1 181 0
 	.cfi_startproc
 	entsp 16
 .Ltmp251:
@@ -1738,30 +1738,30 @@ fillCircleHelper:
 .Ltmp263:
 	mkmsk r1, 1
 .Ltmp264:
-	.loc	1 193 5 prologue_end
+	.loc	1 189 5 prologue_end
 	lss r0, r11, r1
 	bt r0, .LBB11_9
 .Ltmp265:
 	ldw r0, sp[17]
 	ldc r4, 0
-	.loc	1 189 5
+	.loc	1 185 5
 	lda16 r2, r4[-r11]
 	stw r2, sp[5]
 	mov r2, r1
-	.loc	1 187 5
+	.loc	1 183 5
 	sub r9, r2, r11
 	ldc r1, 2
-	.loc	1 207 13
+	.loc	1 203 13
 .Ltmp266:
 	and r1, r3, r1
 .Ltmp267:
-	.loc	1 203 13
+	.loc	1 199 13
 	stw r1, sp[2]
 	zext r3, 1
 	stw r3, sp[3]
 	mkmsk r1, 16
 .Ltmp268:
-	.loc	1 208 13
+	.loc	1 204 13
 	add r0, r0, r1
 .Ltmp269:
 	stw r0, sp[4]
@@ -1769,35 +1769,35 @@ fillCircleHelper:
 	mov r7, r2
 .Ltmp270:
 .LBB11_2:
-	.loc	1 187 5
+	.loc	1 183 5
 	mov r0, r9
 	sext r0, 16
-	.loc	1 194 13
+	.loc	1 190 13
 .Ltmp271:
 	ashr r0, r0, 32
 	bt r0, .LBB11_4
 .Ltmp272:
-	.loc	1 194 13
+	.loc	1 190 13
 	zext r9, 16
-	.loc	1 195 13
+	.loc	1 191 13
 .Ltmp273:
 	sub r11, r11, 1
 	ldw r0, sp[5]
-	.loc	1 196 13
+	.loc	1 192 13
 	zext r0, 16
-	.loc	1 196 13
+	.loc	1 192 13
 	add r0, r0, 2
-	.loc	1 197 13
+	.loc	1 193 13
 	stw r0, sp[5]
 	add r9, r0, r9
 .Ltmp274:
 .LBB11_4:
-	.loc	1 199 9
+	.loc	1 195 9
 	add r4, r4, 1
 	sext r4, 16
-	.loc	1 200 9
+	.loc	1 196 9
 	sext r1, 16
-	.loc	1 203 13
+	.loc	1 199 13
 .Ltmp275:
 	ldw r0, sp[3]
 	bf r0, .LBB11_6
@@ -1805,26 +1805,26 @@ fillCircleHelper:
 	stw r4, sp[8]
 	mov r4, r5
 .Ltmp277:
-	.loc	1 204 13
+	.loc	1 200 13
 	ldw r0, sp[8]
 	add r0, r0, r4
-	.loc	1 204 13
+	.loc	1 200 13
 	mov r5, r11
 	sext r5, 16
 	stw r1, sp[6]
-	.loc	1 204 13
+	.loc	1 200 13
 	sub r1, r8, r5
-	.loc	1 204 13
+	.loc	1 200 13
 	shl r2, r5, 1
-	.loc	1 204 13
+	.loc	1 200 13
 	or r2, r2, r7
 	ldw r10, sp[4]
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp278:
 	add r3, r10, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	add r3, r3, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r3, 16
 	sext r0, 16
 	sext r1, 16
@@ -1836,23 +1836,23 @@ fillCircleHelper:
 	stw r11, sp[7]
 	bl drawLine
 .Ltmp280:
-	.loc	1 205 13
+	.loc	1 201 13
 	add r0, r5, r4
 	mov r5, r4
 .Ltmp281:
 	ldw r4, sp[8]
-	.loc	1 205 13
+	.loc	1 201 13
 	sub r1, r8, r4
-	.loc	1 205 13
+	.loc	1 201 13
 	shl r2, r4, 1
-	.loc	1 205 13
+	.loc	1 201 13
 	or r2, r2, r7
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp282:
 	add r3, r10, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	add r3, r3, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r3, 16
 	sext r1, 16
 	sext r0, 16
@@ -1864,11 +1864,11 @@ fillCircleHelper:
 	ldw r11, sp[7]
 .Ltmp284:
 .LBB11_6:
-	.loc	1 200 9
+	.loc	1 196 9
 	add r1, r1, 2
-	.loc	1 201 9
+	.loc	1 197 9
 	zext r9, 16
-	.loc	1 207 13
+	.loc	1 203 13
 .Ltmp285:
 	ldw r0, sp[2]
 	bf r0, .LBB11_8
@@ -1876,26 +1876,26 @@ fillCircleHelper:
 	stw r4, sp[8]
 	mov r4, r5
 .Ltmp287:
-	.loc	1 208 13
+	.loc	1 204 13
 	ldw r0, sp[8]
 	sub r0, r4, r0
-	.loc	1 208 13
+	.loc	1 204 13
 	mov r5, r11
 	sext r5, 16
 	stw r1, sp[6]
-	.loc	1 208 13
+	.loc	1 204 13
 	sub r1, r8, r5
-	.loc	1 208 13
+	.loc	1 204 13
 	shl r2, r5, 1
-	.loc	1 208 13
+	.loc	1 204 13
 	or r2, r2, r7
 	ldw r10, sp[4]
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp288:
 	add r3, r10, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	add r3, r3, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r3, 16
 	sext r0, 16
 	sext r1, 16
@@ -1907,23 +1907,23 @@ fillCircleHelper:
 	stw r11, sp[7]
 	bl drawLine
 .Ltmp290:
-	.loc	1 209 13
+	.loc	1 205 13
 	sub r0, r4, r5
 	mov r5, r4
 .Ltmp291:
 	ldw r4, sp[8]
-	.loc	1 209 13
+	.loc	1 205 13
 	sub r1, r8, r4
-	.loc	1 209 13
+	.loc	1 205 13
 	shl r2, r4, 1
-	.loc	1 209 13
+	.loc	1 205 13
 	or r2, r2, r7
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp292:
 	add r3, r10, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	add r3, r3, r2
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r3, 16
 	sext r1, 16
 	sext r0, 16
@@ -1935,17 +1935,17 @@ fillCircleHelper:
 	ldw r11, sp[7]
 .Ltmp294:
 .LBB11_8:
-	.loc	1 201 9
+	.loc	1 197 9
 	add r9, r9, r1
 .Ltmp295:
-	.loc	1 193 5
+	.loc	1 189 5
 	mov r0, r11
 	sext r0, 16
 	lss r0, r4, r0
 	bt r0, .LBB11_2
 .Ltmp296:
 .LBB11_9:
-	.loc	1 212 1
+	.loc	1 208 1
 	ldw r10, sp[9]
 	ldw r9, sp[10]
 	ldw r8, sp[11]
@@ -1976,7 +1976,7 @@ fillCircleHelper:
 	.cc_top drawLine.function,drawLine
 drawLine:
 .Lfunc_begin12:
-	.loc	1 215 0
+	.loc	1 211 0
 	.cfi_startproc
 	entsp 10
 .Ltmp299:
@@ -2007,21 +2007,21 @@ drawLine:
 .Ltmp308:
 	mov r4, r3
 .Ltmp309:
-	.loc	1 216 21 prologue_end
+	.loc	1 212 21 prologue_end
 	sub r3, r4, r1
 	ashr r11, r3, 32
 	add r3, r3, r11
-	.loc	1 216 21
+	.loc	1 212 21
 	xor r3, r3, r11
-	.loc	1 216 36
+	.loc	1 212 36
 	sub r11, r2, r0
 	ashr r5, r11, 32
 	add r11, r11, r5
-	.loc	1 216 36
+	.loc	1 212 36
 	xor r11, r11, r5
-	.loc	1 216 36
+	.loc	1 212 36
 	lss r6, r11, r3
-	.loc	1 217 9
+	.loc	1 213 9
 .Ltmp310:
 	mov r7, r2
 	bt r6, .LBB12_2
@@ -2031,11 +2031,11 @@ drawLine:
 .LBB12_2:
 	bt r6, .LBB12_4
 .Ltmp313:
-	.loc	1 217 9
+	.loc	1 213 9
 	mov r4, r2
 .Ltmp314:
 .LBB12_4:
-	.loc	1 217 9
+	.loc	1 213 9
 	mov r2, r0
 	bt r6, .LBB12_6
 .Ltmp315:
@@ -2044,59 +2044,59 @@ drawLine:
 .LBB12_6:
 	bt r6, .LBB12_8
 .Ltmp317:
-	.loc	1 217 9
+	.loc	1 213 9
 	mov r1, r0
 .Ltmp318:
 .LBB12_8:
-	.loc	1 222 9
+	.loc	1 218 9
 	lss r3, r4, r1
-	.loc	1 222 9
+	.loc	1 218 9
 	mov r0, r2
 	bt r3, .LBB12_10
 	mov r0, r7
 .LBB12_10:
-	.loc	1 222 9
+	.loc	1 218 9
 	mov r8, r1
 	bt r3, .LBB12_12
 	mov r8, r4
 .LBB12_12:
 	bt r3, .LBB12_14
-	.loc	1 222 9
+	.loc	1 218 9
 	mov r7, r2
 .LBB12_14:
 	bt r3, .LBB12_16
-	.loc	1 222 9
+	.loc	1 218 9
 	mov r4, r1
 .Ltmp319:
 .LBB12_16:
-	.loc	1 228 5
+	.loc	1 224 5
 	mov r1, r8
 	zext r1, 16
-	.loc	1 228 5
+	.loc	1 224 5
 	mov r2, r4
 	zext r2, 16
-	.loc	1 228 5
+	.loc	1 224 5
 	sub r3, r1, r2
-	.loc	1 229 10
+	.loc	1 225 10
 	sub r1, r0, r7
 	ashr r2, r1, 32
 	add r1, r1, r2
-	.loc	1 229 10
+	.loc	1 225 10
 	xor r10, r1, r2
-	.loc	1 231 5
+	.loc	1 227 5
 	shl r1, r3, 16
-	.loc	1 231 5
+	.loc	1 227 5
 	sext r3, 16
 	stw r3, sp[2]
 	mkmsk r2, 5
-	.loc	1 231 5
+	.loc	1 227 5
 	shr r1, r1, r2
 	add r1, r3, r1
-	.loc	1 234 9
+	.loc	1 230 9
 .Ltmp320:
 	lss r0, r7, r0
 .Ltmp321:
-	.loc	1 248 13
+	.loc	1 244 13
 	bt r0, .LBB12_17
 .Ltmp322:
 	mkmsk r0, 16
@@ -2106,24 +2106,24 @@ drawLine:
 .LBB12_19:
 	stw r0, sp[1]
 	ldw r5, sp[11]
-	.loc	1 231 5
+	.loc	1 227 5
 	ashr r9, r1, 1
-	.loc	1 246 9
+	.loc	1 242 9
 .Ltmp323:
 	sext r10, 16
 .Ltmp324:
 .LBB12_20:
-	.loc	1 241 13
+	.loc	1 237 13
 	bf r6, .LBB12_22
 .Ltmp325:
-	.loc	1 242 13
+	.loc	1 238 13
 	mov r0, r7
 	sext r0, 16
 	mov r1, r4
 	bu .LBB12_23
 .Ltmp326:
 .LBB12_22:
-	.loc	1 244 13
+	.loc	1 240 13
 	mov r0, r4
 	sext r0, 16
 	mov r1, r7
@@ -2133,38 +2133,38 @@ drawLine:
 	mov r2, r5
 	bl setPixel_in_buffer
 .Ltmp328:
-	.loc	1 246 9
+	.loc	1 242 9
 	sext r9, 16
-	.loc	1 246 9
+	.loc	1 242 9
 	sub r9, r9, r10
-	.loc	1 247 13
+	.loc	1 243 13
 .Ltmp329:
 	shl r0, r9, 16
-	.loc	1 247 13
+	.loc	1 243 13
 	ashr r1, r0, 32
 	bf r1, .LBB12_25
 .Ltmp330:
-	.loc	1 247 13
+	.loc	1 243 13
 	ashr r0, r0, 16
-	.loc	1 248 13
+	.loc	1 244 13
 .Ltmp331:
 	zext r7, 16
-	.loc	1 248 13
+	.loc	1 244 13
 	ldw r1, sp[1]
 	add r7, r7, r1
-	.loc	1 249 13
+	.loc	1 245 13
 	ldw r1, sp[2]
 	add r9, r0, r1
 .Ltmp332:
 .LBB12_25:
-	.loc	1 240 22
+	.loc	1 236 22
 	add r4, r4, 1
 	sext r4, 16
-	.loc	1 240 5
+	.loc	1 236 5
 	lss r0, r8, r4
 	bf r0, .LBB12_20
 .Ltmp333:
-	.loc	1 252 1
+	.loc	1 248 1
 	ldw r10, sp[3]
 	ldw r9, sp[4]
 	ldw r8, sp[5]
@@ -2195,7 +2195,7 @@ drawLine:
 	.cc_top drawRect.function,drawRect
 drawRect:
 .Lfunc_begin13:
-	.loc	1 255 0
+	.loc	1 251 0
 	.cfi_startproc
 	entsp 8
 .Ltmp336:
@@ -2227,13 +2227,13 @@ drawRect:
 	mov r6, r0
 .Ltmp346:
 	ldw r8, sp[9]
-	.loc	1 269 5 prologue_end
+	.loc	1 265 5 prologue_end
 .Ltmp347:
 	add r0, r6, r2
 	mkmsk r9, 16
-	.loc	1 269 5
+	.loc	1 265 5
 	add r5, r0, r9
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r5, 16
 	stw r8, sp[1]
 	mov r0, r6
@@ -2242,12 +2242,12 @@ drawRect:
 	mov r3, r4
 	bl drawLine
 .Ltmp349:
-	.loc	1 257 5
+	.loc	1 253 5
 	add r0, r4, r7
-	.loc	1 257 5
+	.loc	1 253 5
 	add r7, r0, r9
 .Ltmp350:
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r7, 16
 	stw r8, sp[1]
 	mov r0, r6
@@ -2256,7 +2256,7 @@ drawRect:
 	mov r3, r7
 	bl drawLine
 .Ltmp351:
-	.loc	1 264 5
+	.loc	1 260 5
 	stw r8, sp[1]
 	mov r0, r6
 	mov r1, r4
@@ -2264,7 +2264,7 @@ drawRect:
 	mov r3, r7
 	bl drawLine
 .Ltmp352:
-	.loc	1 264 5
+	.loc	1 260 5
 	stw r8, sp[1]
 	mov r0, r5
 	mov r1, r4
@@ -2272,7 +2272,7 @@ drawRect:
 	mov r3, r7
 	bl drawLine
 .Ltmp353:
-	.loc	1 260 1
+	.loc	1 256 1
 	ldw r9, sp[2]
 	ldw r8, sp[3]
 	ldw r7, sp[4]
@@ -2304,28 +2304,28 @@ drawRect:
 	.cc_top drawHorisontalLine.function,drawHorisontalLine
 drawHorisontalLine:
 .Lfunc_begin14:
-	.loc	1 267 0
+	.loc	1 263 0
 	.cfi_startproc
 	entsp 2
 .Ltmp358:
 	.cfi_def_cfa_offset 8
 .Ltmp359:
 	.cfi_offset 15, 0
-	.loc	1 269 5 prologue_end
+	.loc	1 265 5 prologue_end
 .Ltmp360:
 	add r2, r0, r2
 .Ltmp361:
 	mkmsk r11, 16
-	.loc	1 269 5
+	.loc	1 265 5
 	add r2, r2, r11
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r2, 16
 	stw r3, sp[1]
 	mov r3, r1
 .Ltmp362:
 	bl drawLine
 .Ltmp363:
-	.loc	1 270 1
+	.loc	1 266 1
 	retsp 2
 	# RETURN_REG_HOLDER
 .Ltmp364:
@@ -2349,7 +2349,7 @@ drawHorisontalLine:
 	.cc_top fillRect.function,fillRect
 fillRect:
 .Lfunc_begin15:
-	.loc	1 272 0
+	.loc	1 268 0
 	.cfi_startproc
 	entsp 7
 .Ltmp366:
@@ -2377,26 +2377,26 @@ fillRect:
 	mov r5, r0
 .Ltmp375:
 	mkmsk r0, 1
-	.loc	1 274 5 prologue_end
+	.loc	1 270 5 prologue_end
 .Ltmp376:
 	lss r0, r2, r0
 	bt r0, .LBB15_3
 .Ltmp377:
 	ldw r7, sp[8]
-	.loc	1 274 5
+	.loc	1 270 5
 	add r8, r2, r5
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp378:
 	mov r0, r4
 	zext r0, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	zext r3, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	add r0, r0, r3
 	mkmsk r1, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	add r6, r0, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r6, 16
 .Ltmp379:
 .LBB15_2:
@@ -2408,17 +2408,17 @@ fillRect:
 	mov r3, r6
 	bl drawLine
 .Ltmp380:
-	.loc	1 274 36
+	.loc	1 270 36
 	add r5, r5, 1
-	.loc	1 274 5
+	.loc	1 270 5
 	mov r0, r5
 	sext r0, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r0, r0, r8
 	bt r0, .LBB15_2
 .Ltmp381:
 .LBB15_3:
-	.loc	1 277 1
+	.loc	1 273 1
 	ldw r8, sp[2]
 	ldw r7, sp[3]
 	ldw r6, sp[4]
@@ -2447,7 +2447,7 @@ fillRect:
 	.cc_top fillScreen.function,fillScreen
 fillScreen:
 .Lfunc_begin16:
-	.loc	1 279 0
+	.loc	1 275 0
 	.cfi_startproc
 	entsp 7
 .Ltmp384:
@@ -2471,31 +2471,31 @@ fillScreen:
 	.cfi_offset 8, -20
 	mov r4, r0
 .Ltmp391:
-	.loc	1 280 5 prologue_end
+	.loc	1 276 5 prologue_end
 	ldw r0, dp[display_param+4]
-	.loc	1 280 5
+	.loc	1 276 5
 	mov r7, r0
 	sext r7, 16
 	mkmsk r1, 1
 .Ltmp392:
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r1, r7, r1
 	bt r1, .LBB16_3
 .Ltmp393:
 	shr r0, r0, 16
 	mkmsk r1, 16
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp394:
 	add r5, r0, r1
 	ldc r6, 0
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r5, 16
 .Ltmp395:
-	.loc	1 280 5
+	.loc	1 276 5
 	mov r8, r6
 .Ltmp396:
 .LBB16_2:
-	.loc	1 264 5
+	.loc	1 260 5
 	stw r4, sp[1]
 	mov r0, r8
 	sext r0, 16
@@ -2504,15 +2504,15 @@ fillScreen:
 	mov r3, r5
 	bl drawLine
 .Ltmp397:
-	.loc	1 274 36
+	.loc	1 270 36
 	add r8, r8, 1
 	sext r8, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r0, r8, r7
 	bt r0, .LBB16_2
 .Ltmp398:
 .LBB16_3:
-	.loc	1 281 1
+	.loc	1 277 1
 	ldw r8, sp[2]
 	ldw r7, sp[3]
 	ldw r6, sp[4]
@@ -2541,7 +2541,7 @@ fillScreen:
 	.cc_top drawRoundRect.function,drawRoundRect
 drawRoundRect:
 .Lfunc_begin17:
-	.loc	1 285 0
+	.loc	1 281 0
 	.cfi_startproc
 	entsp 11
 .Ltmp401:
@@ -2578,19 +2578,19 @@ drawRoundRect:
 .Ltmp412:
 	ldw r6, sp[13]
 	ldw r1, sp[12]
-	.loc	1 287 5 prologue_end
+	.loc	1 283 5 prologue_end
 .Ltmp413:
 	add r5, r1, r7
-	.loc	1 287 5
+	.loc	1 283 5
 	add r0, r2, r5
 .Ltmp414:
 	mkmsk r4, 16
-	.loc	1 269 5
+	.loc	1 265 5
 .Ltmp415:
 	add r0, r0, r4
-	.loc	1 269 5
+	.loc	1 265 5
 	lda16 r10, r0[-r1]
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r5, 16
 	sext r10, 16
 	stw r6, sp[1]
@@ -2600,12 +2600,12 @@ drawRoundRect:
 	mov r3, r8
 	bl drawLine
 .Ltmp416:
-	.loc	1 288 5
+	.loc	1 284 5
 	add r0, r9, r8
-	.loc	1 288 5
+	.loc	1 284 5
 	stw r0, sp[3]
 	add r1, r0, r4
-	.loc	1 269 5
+	.loc	1 265 5
 .Ltmp417:
 	sext r1, 16
 	stw r6, sp[1]
@@ -2615,18 +2615,18 @@ drawRoundRect:
 	bl drawLine
 	ldw r1, sp[12]
 .Ltmp418:
-	.loc	1 289 5
+	.loc	1 285 5
 	add r8, r1, r8
 .Ltmp419:
-	.loc	1 289 5
+	.loc	1 285 5
 	add r0, r9, r8
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp420:
 	add r0, r0, r4
-	.loc	1 264 5
+	.loc	1 260 5
 	lda16 r9, r0[-r1]
 .Ltmp421:
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r8, 16
 	sext r9, 16
 	mov r10, r6
@@ -2637,12 +2637,12 @@ drawRoundRect:
 	mov r3, r9
 	bl drawLine
 .Ltmp422:
-	.loc	1 290 5
+	.loc	1 286 5
 	ldw r0, sp[2]
 	add r0, r0, r7
-	.loc	1 290 5
+	.loc	1 286 5
 	add r6, r0, r4
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp423:
 	mov r0, r6
 	sext r0, 16
@@ -2652,7 +2652,7 @@ drawRoundRect:
 	mov r3, r9
 	bl drawLine
 .Ltmp424:
-	.loc	1 292 5
+	.loc	1 288 5
 	stw r10, sp[1]
 	mov r9, r10
 	mkmsk r3, 1
@@ -2662,9 +2662,9 @@ drawRoundRect:
 .Ltmp425:
 	mov r2, r7
 	bl drawCircleHelper
-	.loc	1 293 5
+	.loc	1 289 5
 	sub r6, r6, r7
-	.loc	1 293 5
+	.loc	1 289 5
 	sext r6, 16
 	stw r9, sp[1]
 	ldc r3, 2
@@ -2672,13 +2672,13 @@ drawRoundRect:
 	mov r1, r8
 	mov r2, r7
 	bl drawCircleHelper
-	.loc	1 294 5
+	.loc	1 290 5
 	sub r0, r4, r7
 	mov r4, r7
-	.loc	1 294 5
+	.loc	1 290 5
 	ldw r1, sp[3]
 	add r7, r0, r1
-	.loc	1 294 5
+	.loc	1 290 5
 	sext r7, 16
 	stw r9, sp[1]
 	ldc r3, 4
@@ -2686,14 +2686,14 @@ drawRoundRect:
 	mov r1, r7
 	mov r2, r4
 	bl drawCircleHelper
-	.loc	1 295 5
+	.loc	1 291 5
 	stw r9, sp[1]
 	ldc r3, 8
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
 	bl drawCircleHelper
-	.loc	1 296 1
+	.loc	1 292 1
 	ldw r10, sp[4]
 	ldw r9, sp[5]
 	ldw r8, sp[6]
@@ -2725,7 +2725,7 @@ drawRoundRect:
 	.cc_top fillRoundRect.function,fillRoundRect
 fillRoundRect:
 .Lfunc_begin18:
-	.loc	1 300 0
+	.loc	1 296 0
 	.cfi_startproc
 	entsp 14
 .Ltmp429:
@@ -2761,45 +2761,45 @@ fillRoundRect:
 	stw r0, sp[3]
 	ldw r4, sp[16]
 	ldw r3, sp[15]
-	.loc	1 302 5 prologue_end
+	.loc	1 298 5 prologue_end
 .Ltmp440:
 	add r7, r3, r0
 .Ltmp441:
-	.loc	1 302 5
+	.loc	1 298 5
 	shl r1, r3, 1
-	.loc	1 302 5
+	.loc	1 298 5
 	stw r1, sp[5]
 	lda16 r0, r2[-r3]
 .Ltmp442:
-	.loc	1 274 5
+	.loc	1 270 5
 	mov r1, r7
 	sext r1, 16
 	stw r1, sp[6]
-	.loc	1 274 5
+	.loc	1 270 5
 	sext r0, 16
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp443:
 	mov r8, r9
 	zext r8, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	zext r6, 16
 .Ltmp444:
 	mkmsk r1, 1
 .Ltmp445:
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r1, r0, r1
 	bt r1, .LBB18_3
 .Ltmp446:
-	.loc	1 274 5
+	.loc	1 270 5
 	ldw r1, sp[6]
 	add r5, r0, r1
-	.loc	1 264 5
+	.loc	1 260 5
 .Ltmp447:
 	add r0, r8, r6
 	mkmsk r1, 16
-	.loc	1 264 5
+	.loc	1 260 5
 	add r10, r0, r1
-	.loc	1 264 5
+	.loc	1 260 5
 	sext r10, 16
 .Ltmp448:
 .LBB18_2:
@@ -2811,35 +2811,35 @@ fillRoundRect:
 	mov r3, r10
 	bl drawLine
 .Ltmp449:
-	.loc	1 274 36
+	.loc	1 270 36
 	add r7, r7, 1
-	.loc	1 274 5
+	.loc	1 270 5
 	mov r0, r7
 	sext r0, 16
-	.loc	1 274 5
+	.loc	1 270 5
 	lss r0, r0, r5
 	bt r0, .LBB18_2
 .Ltmp450:
 .LBB18_3:
-	.loc	1 305 5
+	.loc	1 301 5
 	ldw r0, sp[4]
 	ldw r1, sp[3]
 	add r0, r1, r0
 	mkmsk r1, 16
-	.loc	1 305 5
+	.loc	1 301 5
 	add r0, r0, r1
 	ldw r9, sp[15]
 .Ltmp451:
-	.loc	1 305 5
+	.loc	1 301 5
 	sub r0, r0, r9
-	.loc	1 305 5
+	.loc	1 301 5
 	add r7, r9, r8
-	.loc	1 305 5
+	.loc	1 301 5
 	add r1, r6, r1
-	.loc	1 305 5
+	.loc	1 301 5
 	ldw r2, sp[5]
 	sub r5, r1, r2
-	.loc	1 305 5
+	.loc	1 301 5
 	sext r5, 16
 	stw r5, sp[1]
 	sext r7, 16
@@ -2849,7 +2849,7 @@ fillRoundRect:
 	mov r1, r7
 	mov r2, r9
 	bl fillCircleHelper
-	.loc	1 306 5
+	.loc	1 302 5
 	stw r5, sp[1]
 	stw r4, sp[2]
 	ldc r3, 2
@@ -2857,7 +2857,7 @@ fillRoundRect:
 	mov r1, r7
 	mov r2, r9
 	bl fillCircleHelper
-	.loc	1 307 1
+	.loc	1 303 1
 	ldw r10, sp[7]
 	ldw r9, sp[8]
 .Ltmp452:
@@ -2891,7 +2891,7 @@ fillRoundRect:
 	.cc_top drawTriangle.function,drawTriangle
 drawTriangle:
 .Lfunc_begin19:
-	.loc	1 311 0
+	.loc	1 307 0
 	.cfi_startproc
 	entsp 9
 .Ltmp457:
@@ -2930,25 +2930,25 @@ drawTriangle:
 	ldw r8, sp[10]
 	ldw r9, sp[11]
 	ldw r10, sp[12]
-	.loc	1 312 5 prologue_end
+	.loc	1 308 5 prologue_end
 .Ltmp470:
 	stw r10, sp[1]
 	bl drawLine
-	.loc	1 313 5
+	.loc	1 309 5
 	stw r10, sp[1]
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
 	mov r3, r9
 	bl drawLine
-	.loc	1 314 5
+	.loc	1 310 5
 	stw r10, sp[1]
 	mov r0, r8
 	mov r1, r9
 	mov r2, r7
 	mov r3, r4
 	bl drawLine
-	.loc	1 315 1
+	.loc	1 311 1
 	ldw r10, sp[2]
 	ldw r9, sp[3]
 	ldw r8, sp[4]
@@ -2983,7 +2983,7 @@ drawTriangle:
 	.cc_top fillTriangle.function,fillTriangle
 fillTriangle:
 .Lfunc_begin20:
-	.loc	1 319 0
+	.loc	1 315 0
 	.cfi_startproc
 	entsp 18
 .Ltmp477:
@@ -3012,16 +3012,16 @@ fillTriangle:
 .Ltmp485:
 	.cfi_offset 10, -28
 .Ltmp486:
-	.loc	1 324 9 prologue_end
+	.loc	1 320 9 prologue_end
 	lss r5, r3, r1
-	.loc	1 324 9
+	.loc	1 320 9
 	mov r11, r1
 	bt r5, .LBB20_2
 .Ltmp487:
 	mov r11, r3
 .Ltmp488:
 .LBB20_2:
-	.loc	1 324 9
+	.loc	1 320 9
 	mov r4, r0
 	bt r5, .LBB20_4
 .Ltmp489:
@@ -3030,75 +3030,75 @@ fillTriangle:
 .LBB20_4:
 	bt r5, .LBB20_6
 .Ltmp491:
-	.loc	1 324 9
+	.loc	1 320 9
 	mov r3, r1
 .Ltmp492:
 .LBB20_6:
 	ldw r6, sp[20]
 	bt r5, .LBB20_8
 .Ltmp493:
-	.loc	1 324 9
+	.loc	1 320 9
 	mov r2, r0
 .Ltmp494:
 .LBB20_8:
-	.loc	1 328 9
+	.loc	1 324 9
 	lss r7, r6, r11
-	.loc	1 328 9
+	.loc	1 324 9
 	mov r1, r11
 	bt r7, .LBB20_10
 	mov r1, r6
 .LBB20_10:
 	ldw r5, sp[19]
-	.loc	1 328 9
+	.loc	1 324 9
 	mov r0, r4
 	bt r7, .LBB20_12
 	mov r0, r5
 .LBB20_12:
 	bt r7, .LBB20_14
-	.loc	1 328 9
+	.loc	1 324 9
 	mov r6, r11
 .LBB20_14:
 	bt r7, .LBB20_16
-	.loc	1 328 9
+	.loc	1 324 9
 	mov r5, r4
 .Ltmp495:
 .LBB20_16:
-	.loc	1 332 9
+	.loc	1 328 9
 	lss r4, r6, r3
-	.loc	1 332 9
+	.loc	1 328 9
 	mov r7, r3
 	bt r4, .LBB20_18
 	mov r7, r6
 .LBB20_18:
-	.loc	1 332 9
+	.loc	1 328 9
 	mov r10, r2
 	bt r4, .LBB20_20
 	mov r10, r5
 .LBB20_20:
 	bt r4, .LBB20_22
-	.loc	1 332 9
+	.loc	1 328 9
 	mov r6, r3
 .Ltmp496:
 .LBB20_22:
-	.loc	1 328 9
+	.loc	1 324 9
 	mov r3, r1
 	zext r3, 16
 .Ltmp497:
-	.loc	1 332 9
+	.loc	1 328 9
 	mov r11, r6
 	zext r11, 16
 	bt r4, .LBB20_24
-	.loc	1 332 9
+	.loc	1 328 9
 	mov r5, r2
 .Ltmp498:
 .LBB20_24:
-	.loc	1 337 9
+	.loc	1 333 9
 	eq r2, r3, r11
 	bf r2, .LBB20_36
 .Ltmp499:
-	.loc	1 339 13
+	.loc	1 335 13
 	lss r2, r10, r5
-	.loc	1 339 13
+	.loc	1 335 13
 	bf r2, .LBB20_27
 .Ltmp500:
 	mov r2, r5
@@ -3106,53 +3106,53 @@ fillTriangle:
 	bu .LBB20_30
 .Ltmp501:
 .LBB20_36:
-	.loc	1 363 9
+	.loc	1 359 9
 	eq r2, r1, r7
 	mov r3, r1
 	bt r2, .LBB20_38
 .Ltmp502:
 	mkmsk r2, 16
-	.loc	1 366 9
+	.loc	1 362 9
 	add r3, r7, r2
 .Ltmp503:
 .LBB20_38:
-	.loc	1 353 5
+	.loc	1 349 5
 	sub r8, r0, r5
-	.loc	1 353 5
+	.loc	1 349 5
 	sub r2, r1, r6
-	.loc	1 353 5
+	.loc	1 349 5
 	sub r0, r0, r10
-	.loc	1 353 5
+	.loc	1 349 5
 	stw r0, sp[9]
 	sub r0, r1, r7
-	.loc	1 368 5
+	.loc	1 364 5
 .Ltmp504:
 	stw r0, sp[8]
 	sext r3, 16
-	.loc	1 368 5
+	.loc	1 364 5
 	lss r0, r3, r6
 	bf r0, .LBB20_40
 .Ltmp505:
-	.loc	1 385 5
+	.loc	1 381 5
 	sext r8, 16
 	mov r4, r6
 	bu .LBB20_47
 .Ltmp506:
 .LBB20_27:
-	.loc	1 341 18
+	.loc	1 337 18
 	lss r2, r5, r10
 	bt r2, .LBB20_29
 .Ltmp507:
-	.loc	1 341 18
+	.loc	1 337 18
 	mov r10, r5
 .Ltmp508:
 .LBB20_29:
 	mov r2, r10
 .Ltmp509:
 .LBB20_30:
-	.loc	1 344 13
+	.loc	1 340 13
 	lss r3, r0, r5
-	.loc	1 344 13
+	.loc	1 340 13
 	bf r3, .LBB20_32
 .Ltmp510:
 	mov r5, r0
@@ -3160,66 +3160,66 @@ fillTriangle:
 .Ltmp511:
 .LBB20_40:
 	stw r1, sp[10]
-	.loc	1 353 5
+	.loc	1 349 5
 	sub r1, r10, r5
 	stw r10, sp[5]
 	mov r0, r6
-	.loc	1 353 5
+	.loc	1 349 5
 	stw r0, sp[4]
 	sub r11, r7, r0
 	stw r7, sp[2]
-	.loc	1 369 9
+	.loc	1 365 9
 .Ltmp512:
 	sext r11, 16
 	stw r11, sp[6]
-	.loc	1 370 9
+	.loc	1 366 9
 	mov r10, r2
 	stw r2, sp[3]
 	sext r10, 16
-	.loc	1 371 9
+	.loc	1 367 9
 	sext r1, 16
 	stw r1, sp[7]
-	.loc	1 372 9
+	.loc	1 368 9
 	sext r8, 16
 	ldc r9, 0
 	mov r7, r9
 	mov r4, r0
 .LBB20_41:
 	mov r6, r3
-	.loc	1 369 9
+	.loc	1 365 9
 	ldw r0, sp[6]
 	divs r0, r7, r0
-	.loc	1 369 9
+	.loc	1 365 9
 	add r1, r0, r5
-	.loc	1 370 9
+	.loc	1 366 9
 	divs r0, r9, r10
-	.loc	1 370 9
+	.loc	1 366 9
 	add r0, r0, r5
-	.loc	1 377 13
+	.loc	1 373 13
 .Ltmp513:
 	shl r2, r1, 16
-	.loc	1 377 13
+	.loc	1 373 13
 	shl r3, r0, 16
-	.loc	1 377 13
+	.loc	1 373 13
 	lss r3, r3, r2
-	.loc	1 377 13
+	.loc	1 373 13
 	mov r2, r1
 	bt r3, .LBB20_43
 	mov r2, r0
 .LBB20_43:
 	bt r3, .LBB20_45
-	.loc	1 377 13
+	.loc	1 373 13
 	mov r0, r1
 .Ltmp514:
 .LBB20_45:
-	.loc	1 371 9
+	.loc	1 367 9
 	ldw r1, sp[7]
 	add r7, r7, r1
 .Ltmp515:
-	.loc	1 372 9
+	.loc	1 368 9
 	add r9, r9, r8
 .Ltmp516:
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r0, 16
 	sext r2, 16
 	ldw r1, sp[21]
@@ -3229,11 +3229,11 @@ fillTriangle:
 	mov r3, r1
 	bl drawLine
 .Ltmp517:
-	.loc	1 368 29
+	.loc	1 364 29
 	add r4, r4, 1
 	sext r4, 16
 	mov r3, r6
-	.loc	1 368 5
+	.loc	1 364 5
 	lss r0, r3, r4
 	bf r0, .LBB20_41
 .Ltmp518:
@@ -3245,52 +3245,52 @@ fillTriangle:
 	ldw r7, sp[2]
 .Ltmp520:
 .LBB20_47:
-	.loc	1 386 5
+	.loc	1 382 5
 	stw r1, sp[10]
 	lss r0, r1, r4
 	bt r0, .LBB20_54
 .Ltmp521:
 	ldw r1, sp[9]
-	.loc	1 384 5
+	.loc	1 380 5
 	sext r1, 16
-	.loc	1 385 5
+	.loc	1 381 5
 	stw r1, sp[9]
 	sub r0, r4, r6
-	.loc	1 385 5
+	.loc	1 381 5
 	mul r6, r0, r8
 .Ltmp522:
-	.loc	1 384 5
+	.loc	1 380 5
 	sub r0, r4, r7
-	.loc	1 384 5
+	.loc	1 380 5
 	mul r7, r0, r1
 .Ltmp523:
-	.loc	1 387 9
+	.loc	1 383 9
 	ldw r0, sp[8]
 	sext r0, 16
-	.loc	1 388 9
+	.loc	1 384 9
 	stw r0, sp[8]
 	sext r2, 16
 .Ltmp524:
 .LBB20_49:
-	.loc	1 387 9
+	.loc	1 383 9
 	ldw r0, sp[8]
 	divs r0, r7, r0
-	.loc	1 387 9
+	.loc	1 383 9
 	add r1, r0, r10
 	mov r9, r10
-	.loc	1 388 9
+	.loc	1 384 9
 	divs r0, r6, r2
 	mov r10, r2
-	.loc	1 388 9
+	.loc	1 384 9
 	add r0, r0, r5
-	.loc	1 395 13
+	.loc	1 391 13
 .Ltmp525:
 	shl r2, r1, 16
-	.loc	1 395 13
+	.loc	1 391 13
 	shl r3, r0, 16
-	.loc	1 395 13
+	.loc	1 391 13
 	lss r3, r3, r2
-	.loc	1 395 13
+	.loc	1 391 13
 	mov r2, r1
 	bt r3, .LBB20_51
 .Ltmp526:
@@ -3299,18 +3299,18 @@ fillTriangle:
 .LBB20_51:
 	bt r3, .LBB20_53
 .Ltmp528:
-	.loc	1 395 13
+	.loc	1 391 13
 	mov r0, r1
 .Ltmp529:
 .LBB20_53:
-	.loc	1 389 9
+	.loc	1 385 9
 	ldw r1, sp[9]
 	add r7, r7, r1
 .Ltmp530:
-	.loc	1 390 9
+	.loc	1 386 9
 	add r6, r6, r8
 .Ltmp531:
-	.loc	1 269 5
+	.loc	1 265 5
 	sext r0, 16
 	sext r2, 16
 	ldw r1, sp[21]
@@ -3320,10 +3320,10 @@ fillTriangle:
 	mov r3, r1
 	bl drawLine
 .Ltmp532:
-	.loc	1 386 21
+	.loc	1 382 21
 	add r4, r4, 1
 	sext r4, 16
-	.loc	1 386 5
+	.loc	1 382 5
 	ldw r0, sp[10]
 	lss r0, r0, r4
 	mov r2, r10
@@ -3332,11 +3332,11 @@ fillTriangle:
 	bu .LBB20_54
 .Ltmp533:
 .LBB20_32:
-	.loc	1 346 18
+	.loc	1 342 18
 	lss r3, r2, r0
 	bt r3, .LBB20_34
 .Ltmp534:
-	.loc	1 346 18
+	.loc	1 342 18
 	mov r0, r2
 .Ltmp535:
 .LBB20_34:
@@ -3344,7 +3344,7 @@ fillTriangle:
 .Ltmp536:
 .LBB20_35:
 	ldw r0, sp[21]
-	.loc	1 269 5
+	.loc	1 265 5
 .Ltmp537:
 	stw r0, sp[1]
 	mov r0, r5
@@ -3352,7 +3352,7 @@ fillTriangle:
 	bl drawLine
 .Ltmp538:
 .LBB20_54:
-	.loc	1 399 1
+	.loc	1 395 1
 	ldw r10, sp[11]
 	ldw r9, sp[12]
 	ldw r8, sp[13]
@@ -3383,7 +3383,7 @@ fillTriangle:
 	.cc_top drawBitmap.function,drawBitmap
 drawBitmap:
 .Lfunc_begin21:
-	.loc	1 402 0
+	.loc	1 398 0
 	.cfi_startproc
 	entsp 13
 .Ltmp541:
@@ -3420,85 +3420,85 @@ drawBitmap:
 	ldw r1, sp[14]
 .Ltmp553:
 	mkmsk r0, 1
-	.loc	1 406 5 prologue_end
+	.loc	1 402 5 prologue_end
 .Ltmp554:
 	lss r2, r1, r0
 	bt r2, .LBB21_8
 .Ltmp555:
-	.loc	1 404 5
+	.loc	1 400 5
 	add r2, r3, 7
-	.loc	1 404 5
+	.loc	1 400 5
 	ashr r11, r2, 32
 	ldc r9, 29
 	shr r11, r11, r9
 	add r2, r2, r11
 	ashr r2, r2, 3
-	.loc	1 410 17
+	.loc	1 406 17
 .Ltmp556:
 	stw r2, sp[1]
 	ldw r2, sp[2]
 	zext r2, 16
 .Ltmp557:
-	.loc	1 406 5
+	.loc	1 402 5
 	stw r2, sp[2]
 	sub r10, r3, 1
-	.loc	1 406 5
+	.loc	1 402 5
 	sub r2, r1, 1
 	ldw r1, sp[5]
 .Ltmp558:
 	zext r1, 16
 	stw r1, sp[5]
 	ldc r5, 0
-	.loc	1 407 9
+	.loc	1 403 9
 .Ltmp559:
 	lss r0, r3, r0
 	stw r0, sp[3]
-	.loc	1 407 9
+	.loc	1 403 9
 	zext r10, 16
 .Ltmp560:
-	.loc	1 406 5
+	.loc	1 402 5
 	zext r2, 16
 	stw r2, sp[4]
 .Ltmp561:
 .LBB21_2:
-	.loc	1 407 9
+	.loc	1 403 9
 	ldw r0, sp[3]
 	bt r0, .LBB21_7
 .Ltmp562:
-	.loc	1 408 13
+	.loc	1 404 13
 	ldw r0, sp[1]
 	mul r7, r5, r0
-	.loc	1 410 17
+	.loc	1 406 17
 .Ltmp563:
 	ldw r0, sp[2]
 	add r8, r5, r0
 	ldc r6, 0
 .Ltmp564:
 .LBB21_4:
-	.loc	1 408 13
+	.loc	1 404 13
 	ashr r0, r6, 32
 	shr r0, r0, r9
 	add r0, r6, r0
 	ashr r0, r0, 3
-	.loc	1 408 13
+	.loc	1 404 13
 	add r0, r0, r7
-	.loc	1 409 17
+	.loc	1 405 17
 .Ltmp565:
 	ld8u r0, r4[r0]
-	.loc	1 409 17
+	.loc	1 405 17
 	mov r1, r6
 	zext r1, 3
 	ldc r2, 128
-	.loc	1 409 17
+	.loc	1 405 17
 	shr r1, r2, r1
-	.loc	1 409 17
+	.loc	1 405 17
 	and r0, r0, r1
 	bf r0, .LBB21_6
 .Ltmp566:
-	.loc	1 410 17
+	.loc	1 406 17
 	ldw r0, sp[5]
 	add r0, r0, r6
-	.loc	1 410 17
+	.loc	1 406 17
 	sext r0, 16
 	mov r1, r8
 	sext r1, 16
@@ -3506,28 +3506,28 @@ drawBitmap:
 	bl setPixel_in_buffer
 .Ltmp567:
 .LBB21_6:
-	.loc	1 407 9
+	.loc	1 403 9
 	add r0, r6, 1
-	.loc	1 407 9
+	.loc	1 403 9
 	zext r6, 16
-	.loc	1 407 9
+	.loc	1 403 9
 	eq r1, r6, r10
 	mov r6, r0
 	bf r1, .LBB21_4
 .Ltmp568:
 .LBB21_7:
-	.loc	1 406 5
+	.loc	1 402 5
 	add r0, r5, 1
-	.loc	1 406 5
+	.loc	1 402 5
 	zext r5, 16
-	.loc	1 406 5
+	.loc	1 402 5
 	ldw r1, sp[4]
 	eq r1, r5, r1
 	mov r5, r0
 	bf r1, .LBB21_2
 .Ltmp569:
 .LBB21_8:
-	.loc	1 414 1
+	.loc	1 410 1
 	ldw r10, sp[6]
 	ldw r9, sp[7]
 	ldw r8, sp[8]
@@ -3558,7 +3558,7 @@ drawBitmap:
 	.cc_top drawBitmap_bg.function,drawBitmap_bg
 drawBitmap_bg:
 .Lfunc_begin22:
-	.loc	1 421 0
+	.loc	1 417 0
 	.cfi_startproc
 	entsp 13
 .Ltmp572:
@@ -3595,126 +3595,126 @@ drawBitmap_bg:
 	ldw r1, sp[14]
 .Ltmp584:
 	mkmsk r0, 1
-	.loc	1 425 5 prologue_end
+	.loc	1 421 5 prologue_end
 .Ltmp585:
 	lss r2, r1, r0
 	bt r2, .LBB22_9
 .Ltmp586:
-	.loc	1 423 5
+	.loc	1 419 5
 	add r2, r3, 7
-	.loc	1 423 5
+	.loc	1 419 5
 	ashr r11, r2, 32
 	ldc r7, 29
 	shr r11, r11, r7
 	add r2, r2, r11
 	ashr r2, r2, 3
-	.loc	1 429 17
+	.loc	1 425 17
 .Ltmp587:
 	stw r2, sp[1]
 	ldw r2, sp[2]
 	zext r2, 16
 .Ltmp588:
-	.loc	1 425 5
+	.loc	1 421 5
 	stw r2, sp[2]
 	sub r5, r3, 1
-	.loc	1 425 5
+	.loc	1 421 5
 	sub r1, r1, 1
 .Ltmp589:
 	zext r6, 16
 	ldc r2, 0
-	.loc	1 426 9
+	.loc	1 422 9
 .Ltmp590:
 	lss r0, r3, r0
 	stw r0, sp[3]
-	.loc	1 426 9
+	.loc	1 422 9
 	zext r5, 16
 .Ltmp591:
-	.loc	1 425 5
+	.loc	1 421 5
 	zext r1, 16
 	stw r1, sp[4]
 	stw r2, sp[5]
 .Ltmp592:
 .LBB22_2:
-	.loc	1 426 9
+	.loc	1 422 9
 	ldw r0, sp[3]
 	bt r0, .LBB22_8
 .Ltmp593:
-	.loc	1 427 13
+	.loc	1 423 13
 	ldw r0, sp[1]
 	ldw r1, sp[5]
 	mul r8, r1, r0
-	.loc	1 429 17
+	.loc	1 425 17
 .Ltmp594:
 	ldw r0, sp[2]
 	add r9, r1, r0
 	ldc r10, 0
 .Ltmp595:
 .LBB22_4:
-	.loc	1 427 13
+	.loc	1 423 13
 	ashr r0, r10, 32
 	shr r0, r0, r7
 	add r0, r10, r0
 	ashr r0, r0, 3
-	.loc	1 427 13
+	.loc	1 423 13
 	add r0, r0, r8
-	.loc	1 428 17
+	.loc	1 424 17
 .Ltmp596:
 	ld8u r0, r4[r0]
-	.loc	1 428 17
+	.loc	1 424 17
 	mov r1, r10
 	zext r1, 3
 	ldc r2, 128
-	.loc	1 428 17
+	.loc	1 424 17
 	shr r1, r2, r1
-	.loc	1 428 17
+	.loc	1 424 17
 	and r1, r0, r1
-	.loc	1 429 17
+	.loc	1 425 17
 .Ltmp597:
 	add r0, r6, r10
 .Ltmp598:
-	.loc	1 431 17
+	.loc	1 427 17
 	sext r0, 16
 .Ltmp599:
-	.loc	1 428 17
+	.loc	1 424 17
 	bf r1, .LBB22_6
 .Ltmp600:
-	.loc	1 429 17
+	.loc	1 425 17
 	mov r1, r9
 	sext r1, 16
 	ldw r2, sp[15]
 	bu .LBB22_7
 .Ltmp601:
 .LBB22_6:
-	.loc	1 431 17
+	.loc	1 427 17
 	mov r1, r9
 	sext r1, 16
 	ldw r2, sp[16]
 .LBB22_7:
 	bl setPixel_in_buffer
 .Ltmp602:
-	.loc	1 426 9
+	.loc	1 422 9
 	add r0, r10, 1
-	.loc	1 426 9
+	.loc	1 422 9
 	zext r10, 16
-	.loc	1 426 9
+	.loc	1 422 9
 	eq r1, r10, r5
 	mov r10, r0
 	bf r1, .LBB22_4
 .Ltmp603:
 .LBB22_8:
 	ldw r2, sp[5]
-	.loc	1 425 5
+	.loc	1 421 5
 	add r0, r2, 1
-	.loc	1 425 5
+	.loc	1 421 5
 	zext r2, 16
-	.loc	1 425 5
+	.loc	1 421 5
 	ldw r1, sp[4]
 	eq r1, r2, r1
 	stw r0, sp[5]
 	bf r1, .LBB22_2
 .Ltmp604:
 .LBB22_9:
-	.loc	1 435 1
+	.loc	1 431 1
 	ldw r10, sp[6]
 	ldw r9, sp[7]
 	ldw r8, sp[8]
@@ -3745,7 +3745,7 @@ drawBitmap_bg:
 	.cc_top drawXBitmap.function,drawXBitmap
 drawXBitmap:
 .Lfunc_begin23:
-	.loc	1 441 0
+	.loc	1 437 0
 	.cfi_startproc
 	entsp 14
 .Ltmp607:
@@ -3782,86 +3782,86 @@ drawXBitmap:
 	ldw r0, sp[15]
 .Ltmp619:
 	mkmsk r6, 1
-	.loc	1 445 5 prologue_end
+	.loc	1 441 5 prologue_end
 .Ltmp620:
 	lss r1, r0, r6
 	bt r1, .LBB23_8
 .Ltmp621:
-	.loc	1 443 5
+	.loc	1 439 5
 	add r1, r3, 7
-	.loc	1 443 5
+	.loc	1 439 5
 	ashr r2, r1, 32
 	ldc r10, 29
 	shr r2, r2, r10
 	add r1, r1, r2
 	ashr r1, r1, 3
-	.loc	1 449 17
+	.loc	1 445 17
 .Ltmp622:
 	stw r1, sp[1]
 	ldw r1, sp[2]
 	zext r1, 16
 .Ltmp623:
-	.loc	1 445 5
+	.loc	1 441 5
 	stw r1, sp[2]
 	sub r5, r3, 1
-	.loc	1 445 5
+	.loc	1 441 5
 	sub r1, r0, 1
 	ldw r0, sp[6]
 .Ltmp624:
 	zext r0, 16
 	stw r0, sp[6]
 	ldc r0, 0
-	.loc	1 446 9
+	.loc	1 442 9
 .Ltmp625:
 	lss r2, r3, r6
-	.loc	1 446 9
+	.loc	1 442 9
 	stw r2, sp[3]
 	zext r5, 16
 .Ltmp626:
-	.loc	1 445 5
+	.loc	1 441 5
 	zext r1, 16
 	stw r1, sp[4]
 	stw r0, sp[5]
 .Ltmp627:
 .LBB23_2:
-	.loc	1 446 9
+	.loc	1 442 9
 	ldw r0, sp[3]
 	bt r0, .LBB23_7
 .Ltmp628:
-	.loc	1 447 13
+	.loc	1 443 13
 	ldw r0, sp[1]
 	ldw r1, sp[5]
 	mul r7, r1, r0
-	.loc	1 449 17
+	.loc	1 445 17
 .Ltmp629:
 	ldw r0, sp[2]
 	add r8, r1, r0
 	ldc r9, 0
 .Ltmp630:
 .LBB23_4:
-	.loc	1 447 13
+	.loc	1 443 13
 	ashr r0, r9, 32
 	shr r0, r0, r10
 	add r0, r9, r0
 	ashr r0, r0, 3
-	.loc	1 447 13
+	.loc	1 443 13
 	add r0, r0, r7
-	.loc	1 448 17
+	.loc	1 444 17
 .Ltmp631:
 	ld8u r0, r4[r0]
-	.loc	1 448 17
+	.loc	1 444 17
 	mov r1, r9
 	zext r1, 3
-	.loc	1 448 17
+	.loc	1 444 17
 	shl r1, r6, r1
-	.loc	1 448 17
+	.loc	1 444 17
 	and r0, r0, r1
 	bf r0, .LBB23_6
 .Ltmp632:
-	.loc	1 449 17
+	.loc	1 445 17
 	ldw r0, sp[6]
 	add r0, r0, r9
-	.loc	1 449 17
+	.loc	1 445 17
 	sext r0, 16
 	mov r1, r8
 	sext r1, 16
@@ -3869,29 +3869,29 @@ drawXBitmap:
 	bl setPixel_in_buffer
 .Ltmp633:
 .LBB23_6:
-	.loc	1 446 9
+	.loc	1 442 9
 	add r0, r9, 1
-	.loc	1 446 9
+	.loc	1 442 9
 	zext r9, 16
-	.loc	1 446 9
+	.loc	1 442 9
 	eq r1, r9, r5
 	mov r9, r0
 	bf r1, .LBB23_4
 .Ltmp634:
 .LBB23_7:
 	ldw r2, sp[5]
-	.loc	1 445 5
+	.loc	1 441 5
 	add r0, r2, 1
-	.loc	1 445 5
+	.loc	1 441 5
 	zext r2, 16
-	.loc	1 445 5
+	.loc	1 441 5
 	ldw r1, sp[4]
 	eq r1, r2, r1
 	stw r0, sp[5]
 	bf r1, .LBB23_2
 .Ltmp635:
 .LBB23_8:
-	.loc	1 453 1
+	.loc	1 449 1
 	ldw r10, sp[7]
 	ldw r9, sp[8]
 	ldw r8, sp[9]
@@ -3922,18 +3922,18 @@ drawXBitmap:
 	.cc_top setCursor.function,setCursor
 setCursor:
 .Lfunc_begin24:
-	.loc	1 490 0
+	.loc	1 486 0
 	.cfi_startproc
-	.loc	1 492 5 prologue_end
+	.loc	1 488 5 prologue_end
 	ldc r2, 0
 	ldaw r3, dp[display_param+8]
-	.loc	1 491 5
+	.loc	1 487 5
 	st16 r0, r3[r2]
 	add r0, r3, 2
 .Ltmp638:
-	.loc	1 492 5
+	.loc	1 488 5
 	st16 r1, r0[r2]
-	.loc	1 493 1
+	.loc	1 489 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp639:
@@ -3957,18 +3957,18 @@ setCursor:
 	.cc_top setTextSize.function,setTextSize
 setTextSize:
 .Lfunc_begin25:
-	.loc	1 495 0
+	.loc	1 491 0
 	.cfi_startproc
 	bt r0, .LBB25_2
 .Ltmp641:
 	mkmsk r0, 1
 .LBB25_2:
-	.loc	1 496 5 prologue_end
+	.loc	1 492 5 prologue_end
 .Ltmp642:
 	ldc r1, 0
 	ldaw r2, dp[display_param+16]
 	st8 r0, r2[r1]
-	.loc	1 497 1
+	.loc	1 493 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp643:
@@ -3992,17 +3992,17 @@ setTextSize:
 	.cc_top setTextColor.function,setTextColor
 setTextColor:
 .Lfunc_begin26:
-	.loc	1 499 0
+	.loc	1 495 0
 	.cfi_startproc
-	.loc	1 502 5 prologue_end
+	.loc	1 498 5 prologue_end
 	ldc r1, 0
 	ldaw r2, dp[display_param+12]
 	add r3, r2, 2
-	.loc	1 502 5
+	.loc	1 498 5
 	st16 r0, r3[r1]
-	.loc	1 502 5
+	.loc	1 498 5
 	st16 r0, r2[r1]
-	.loc	1 503 1
+	.loc	1 499 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp645:
@@ -4026,18 +4026,18 @@ setTextColor:
 	.cc_top setTextColor_bg.function,setTextColor_bg
 setTextColor_bg:
 .Lfunc_begin27:
-	.loc	1 505 0
+	.loc	1 501 0
 	.cfi_startproc
-	.loc	1 507 5 prologue_end
+	.loc	1 503 5 prologue_end
 	ldc r2, 0
 	ldaw r3, dp[display_param+12]
-	.loc	1 506 5
+	.loc	1 502 5
 	st16 r0, r3[r2]
 	add r0, r3, 2
 .Ltmp647:
-	.loc	1 507 5
+	.loc	1 503 5
 	st16 r1, r0[r2]
-	.loc	1 508 1
+	.loc	1 504 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp648:
@@ -4061,11 +4061,11 @@ setTextColor_bg:
 	.cc_top setTextWrap.function,setTextWrap
 setTextWrap:
 .Lfunc_begin28:
-	.loc	1 510 0
+	.loc	1 506 0
 	.cfi_startproc
-	.loc	1 511 5 prologue_end
+	.loc	1 507 5 prologue_end
 	stw r0, dp[display_param+20]
-	.loc	1 512 1
+	.loc	1 508 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp650:
@@ -4089,11 +4089,11 @@ setTextWrap:
 	.cc_top getRotation.function,getRotation
 getRotation:
 .Lfunc_begin29:
-	.loc	1 514 0
+	.loc	1 510 0
 	.cfi_startproc
 	mkmsk r0, 1
 	ldaw r1, dp[display_param+16]
-	.loc	1 515 5 prologue_end
+	.loc	1 511 5 prologue_end
 .Ltmp652:
 	ld8u r0, r1[r0]
 	retsp 0
@@ -4119,17 +4119,17 @@ getRotation:
 	.cc_top setRotation.function,setRotation
 setRotation:
 .Lfunc_begin30:
-	.loc	1 518 0
+	.loc	1 514 0
 	.cfi_startproc
-	.loc	1 519 5 prologue_end
+	.loc	1 515 5 prologue_end
 	zext r0, 2
 .Ltmp655:
 	mkmsk r1, 1
 	ldaw r2, dp[display_param+16]
-	.loc	1 519 5
+	.loc	1 515 5
 	st8 r0, r2[r1]
 	mkmsk r1, 2
-	.loc	1 520 5
+	.loc	1 516 5
 	lsu r1, r1, r0
 	bt r1, .LBB30_4
 
@@ -4139,41 +4139,41 @@ setRotation:
 	bru r0
 	.jmptable .LBB30_2,.LBB30_3,.LBB30_2,.LBB30_3
 .LBB30_2:
-	.loc	1 523 9
+	.loc	1 519 9
 .Ltmp656:
 	ldw r0, dp[display_param]
-	.loc	1 524 9
+	.loc	1 520 9
 	ldc r1, 0
 	ldaw r2, dp[display_param+4]
-	.loc	1 523 9
+	.loc	1 519 9
 	st16 r0, r2[r1]
 	shr r0, r0, 16
 	add r2, r2, 2
-	.loc	1 524 9
+	.loc	1 520 9
 	st16 r0, r2[r1]
 .Ltmp657:
-	.loc	1 532 1
+	.loc	1 528 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .LBB30_3:
-	.loc	1 529 9
+	.loc	1 525 9
 .Ltmp658:
 	ldc r0, 0
 	ldaw r1, dp[display_param]
 	add r2, r1, 2
-	.loc	1 528 9
+	.loc	1 524 9
 	ld16s r2, r2[r0]
 	ldaw r3, dp[display_param+4]
-	.loc	1 528 9
+	.loc	1 524 9
 	st16 r2, r3[r0]
-	.loc	1 529 9
+	.loc	1 525 9
 	ld16s r1, r1[r0]
 	add r2, r3, 2
-	.loc	1 529 9
+	.loc	1 525 9
 	st16 r1, r2[r0]
 .Ltmp659:
 .LBB30_4:
-	.loc	1 532 1
+	.loc	1 528 1
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp660:
@@ -4197,9 +4197,9 @@ setRotation:
 	.cc_top width.function,width
 width:
 .Lfunc_begin31:
-	.loc	1 535 0
+	.loc	1 531 0
 	.cfi_startproc
-	.loc	1 536 5 prologue_end
+	.loc	1 532 5 prologue_end
 	ldc r0, 0
 	ldaw r1, dp[display_param+4]
 	ld16s r0, r1[r0]
@@ -4226,9 +4226,9 @@ width:
 	.cc_top heigh.function,heigh
 heigh:
 .Lfunc_begin32:
-	.loc	1 539 0
+	.loc	1 535 0
 	.cfi_startproc
-	.loc	1 540 5 prologue_end
+	.loc	1 536 5 prologue_end
 	ldc r0, 0
 	ldaw r1, dp[display_param+4]
 	add r1, r1, 2
@@ -4256,9 +4256,9 @@ heigh:
 	.cc_top height.function,height
 height:
 .Lfunc_begin33:
-	.loc	1 544 0
+	.loc	1 540 0
 	.cfi_startproc
-	.loc	1 545 5 prologue_end
+	.loc	1 541 5 prologue_end
 	ldc r0, 0
 	ldaw r1, dp[display_param+4]
 	add r1, r1, 2
@@ -4552,7 +4552,7 @@ display_param:
 .asciiz"s"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	4063
+	.long	4059
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -4568,7 +4568,7 @@ display_param:
 	.long	49
 	.byte	1
 	.byte	1
-	.byte	22
+	.byte	25
 	.byte	5
 	.byte	3
 	.long	font
@@ -4591,7 +4591,7 @@ display_param:
 	.long	94
 	.byte	1
 	.byte	1
-	.byte	20
+	.byte	23
 	.byte	5
 	.byte	3
 	.long	display_param
@@ -4699,11 +4699,11 @@ display_param:
 	.long	304
 	.long	.Linfo_string25
 	.byte	4
-	.byte	18
+	.byte	17
 	.byte	10
 	.byte	4
 	.byte	4
-	.byte	18
+	.byte	17
 	.byte	11
 	.long	.Linfo_string23
 	.byte	0
@@ -4718,33 +4718,33 @@ display_param:
 	.byte	1
 	.long	.Linfo_string45
 	.byte	1
-	.byte	29
+	.byte	27
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc0
 	.long	.Linfo_string36
 	.byte	1
-	.byte	29
+	.byte	27
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc1
 	.long	.Linfo_string33
 	.byte	1
-	.byte	29
+	.byte	27
 	.long	246
 	.byte	0
 	.byte	14
 	.long	.Linfo_string28
 	.byte	1
-	.byte	70
+	.byte	68
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	15
 	.long	.Linfo_string29
 	.byte	1
-	.byte	70
+	.byte	68
 	.long	282
 	.byte	0
 	.byte	16
@@ -4768,7 +4768,7 @@ display_param:
 	.long	368
 	.long	.Ldebug_ranges2
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	0
 	.byte	16
@@ -4788,20 +4788,20 @@ display_param:
 	.byte	1
 	.long	.Linfo_string46
 	.byte	1
-	.byte	51
+	.byte	49
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc5
 	.long	.Linfo_string39
 	.byte	1
-	.byte	51
+	.byte	49
 	.long	998
 	.byte	13
 	.long	.Ldebug_loc6
 	.long	.Linfo_string41
 	.byte	1
-	.byte	51
+	.byte	49
 	.long	1015
 	.byte	18
 	.long	.Ldebug_ranges7
@@ -4809,19 +4809,19 @@ display_param:
 	.byte	0
 	.long	.Linfo_string37
 	.byte	1
-	.byte	52
+	.byte	50
 	.long	1015
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges6
 	.byte	1
-	.byte	53
+	.byte	51
 	.byte	0
 	.byte	22
 	.long	368
 	.long	.Ldebug_ranges8
 	.byte	1
-	.byte	55
+	.byte	53
 	.byte	23
 	.byte	10
 	.long	378
@@ -4834,81 +4834,81 @@ display_param:
 	.byte	1
 	.long	.Linfo_string47
 	.byte	1
-	.byte	58
+	.byte	56
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc7
 	.long	.Linfo_string29
 	.byte	1
-	.byte	58
+	.byte	56
 	.long	282
 	.byte	0
 	.byte	24
 	.long	.Linfo_string30
 	.byte	1
-	.short	262
+	.short	258
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	25
 	.long	.Linfo_string31
 	.byte	1
-	.short	262
+	.short	258
 	.long	246
 	.byte	25
 	.long	.Linfo_string32
 	.byte	1
-	.short	262
+	.short	258
 	.long	246
 	.byte	25
 	.long	.Linfo_string33
 	.byte	1
-	.short	262
+	.short	258
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	262
+	.short	258
 	.long	264
 	.byte	0
 	.byte	24
 	.long	.Linfo_string35
 	.byte	1
-	.short	272
+	.short	268
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	25
 	.long	.Linfo_string31
 	.byte	1
-	.short	272
+	.short	268
 	.long	246
 	.byte	25
 	.long	.Linfo_string32
 	.byte	1
-	.short	272
+	.short	268
 	.long	246
 	.byte	25
 	.long	.Linfo_string36
 	.byte	1
-	.short	272
+	.short	268
 	.long	246
 	.byte	25
 	.long	.Linfo_string33
 	.byte	1
-	.short	272
+	.short	268
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	272
+	.short	268
 	.long	264
 	.byte	26
 	.byte	27
 	.long	.Linfo_string37
 	.byte	1
-	.short	274
+	.short	270
 	.long	246
 	.byte	0
 	.byte	0
@@ -4919,86 +4919,86 @@ display_param:
 	.byte	1
 	.long	.Linfo_string63
 	.byte	1
-	.short	456
+	.short	452
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc8
 	.long	.Linfo_string31
 	.byte	1
-	.short	456
+	.short	452
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc9
 	.long	.Linfo_string32
 	.byte	1
-	.short	456
+	.short	452
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc10
 	.long	.Linfo_string29
 	.byte	1
-	.short	456
+	.short	452
 	.long	62
 	.byte	29
 	.long	.Ldebug_loc11
 	.long	.Linfo_string34
 	.byte	1
-	.short	456
+	.short	452
 	.long	264
 	.byte	25
 	.long	.Linfo_string75
 	.byte	1
-	.short	457
+	.short	453
 	.long	264
 	.byte	29
 	.long	.Ldebug_loc12
 	.long	.Linfo_string74
 	.byte	1
-	.short	457
+	.short	453
 	.long	282
 	.byte	18
 	.long	.Ldebug_ranges17
 	.byte	27
 	.long	.Linfo_string37
 	.byte	1
-	.short	465
-	.long	4008
+	.short	461
+	.long	4004
 	.byte	18
 	.long	.Ldebug_ranges16
 	.byte	27
 	.long	.Linfo_string78
 	.byte	1
-	.short	466
+	.short	462
 	.long	282
 	.byte	18
 	.long	.Ldebug_ranges15
 	.byte	27
 	.long	.Linfo_string79
 	.byte	1
-	.short	473
-	.long	4008
+	.short	469
+	.long	4004
 	.byte	30
 	.long	652
 	.long	.Ldebug_ranges11
 	.byte	1
-	.short	483
+	.short	479
 	.byte	31
 	.long	592
 	.long	.Ldebug_ranges12
 	.byte	1
-	.short	275
+	.short	271
 	.byte	0
 	.byte	30
 	.long	652
 	.long	.Ldebug_ranges13
 	.byte	1
-	.short	478
+	.short	474
 	.byte	31
 	.long	592
 	.long	.Ldebug_ranges14
 	.byte	1
-	.short	275
+	.short	271
 	.byte	0
 	.byte	0
 	.byte	0
@@ -5007,25 +5007,25 @@ display_param:
 	.byte	14
 	.long	.Linfo_string38
 	.byte	1
-	.byte	43
+	.byte	41
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	15
 	.long	.Linfo_string39
 	.byte	1
-	.byte	43
+	.byte	41
 	.long	998
 	.byte	15
 	.long	.Linfo_string41
 	.byte	1
-	.byte	43
+	.byte	41
 	.long	1015
 	.byte	26
 	.byte	32
 	.long	.Linfo_string37
 	.byte	1
-	.byte	44
+	.byte	42
 	.long	1015
 	.byte	0
 	.byte	0
@@ -5053,105 +5053,105 @@ display_param:
 	.byte	1
 	.long	.Linfo_string48
 	.byte	1
-	.byte	84
+	.byte	80
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc13
 	.long	.Linfo_string80
 	.byte	1
-	.byte	84
-	.long	4026
+	.byte	80
+	.long	4022
 	.byte	35
 	.long	.Ldebug_loc14
 	.long	.Linfo_string81
 	.byte	1
-	.byte	85
+	.byte	81
 	.long	282
 	.byte	32
 	.long	.Linfo_string82
 	.byte	1
-	.byte	86
+	.byte	82
 	.long	282
 	.byte	32
 	.long	.Linfo_string83
 	.byte	1
-	.byte	88
+	.byte	84
 	.long	282
 	.byte	32
 	.long	.Linfo_string84
 	.byte	1
-	.byte	89
+	.byte	85
 	.long	282
 	.byte	32
 	.long	.Linfo_string85
 	.byte	1
-	.byte	91
-	.long	4031
+	.byte	87
+	.long	4027
 	.byte	32
 	.long	.Linfo_string86
 	.byte	1
-	.byte	92
-	.long	4031
+	.byte	88
+	.long	4027
 	.byte	32
 	.long	.Linfo_string87
 	.byte	1
-	.byte	93
-	.long	4031
+	.byte	89
+	.long	4027
 	.byte	22
 	.long	952
 	.long	.Ldebug_ranges19
 	.byte	1
-	.byte	99
+	.byte	95
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges20
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	22
 	.long	952
 	.long	.Ldebug_ranges21
 	.byte	1
-	.byte	97
+	.byte	93
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges22
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	22
 	.long	952
 	.long	.Ldebug_ranges23
 	.byte	1
-	.byte	103
+	.byte	99
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges24
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	22
 	.long	952
 	.long	.Ldebug_ranges25
 	.byte	1
-	.byte	104
+	.byte	100
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges26
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	22
 	.long	952
 	.long	.Ldebug_ranges27
 	.byte	1
-	.byte	105
+	.byte	101
 	.byte	20
 	.long	368
 	.long	.Ldebug_ranges28
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	0
 	.byte	0
 	.byte	12
@@ -5161,60 +5161,60 @@ display_param:
 	.byte	1
 	.long	.Linfo_string49
 	.byte	1
-	.byte	110
+	.byte	106
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc15
 	.long	.Linfo_string88
 	.byte	1
-	.byte	110
+	.byte	106
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc16
 	.long	.Linfo_string89
 	.byte	1
-	.byte	110
+	.byte	106
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc17
 	.long	.Linfo_string90
 	.byte	1
-	.byte	110
+	.byte	106
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc18
 	.long	.Linfo_string34
 	.byte	1
-	.byte	110
+	.byte	106
 	.long	264
 	.byte	35
 	.long	.Ldebug_loc19
 	.long	.Linfo_string32
 	.byte	1
-	.byte	115
+	.byte	111
 	.long	246
 	.byte	36
 	.byte	0
 	.long	.Linfo_string31
 	.byte	1
-	.byte	114
+	.byte	110
 	.long	246
 	.byte	36
 	.byte	1
 	.long	.Linfo_string91
 	.byte	1
-	.byte	112
+	.byte	108
 	.long	246
 	.byte	32
 	.long	.Linfo_string92
 	.byte	1
-	.byte	111
+	.byte	107
 	.long	246
 	.byte	32
 	.long	.Linfo_string93
 	.byte	1
-	.byte	113
+	.byte	109
 	.long	246
 	.byte	0
 	.byte	12
@@ -5224,66 +5224,66 @@ display_param:
 	.byte	1
 	.long	.Linfo_string50
 	.byte	1
-	.byte	143
+	.byte	139
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc20
 	.long	.Linfo_string88
 	.byte	1
-	.byte	143
+	.byte	139
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc21
 	.long	.Linfo_string89
 	.byte	1
-	.byte	143
+	.byte	139
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc22
 	.long	.Linfo_string90
 	.byte	1
-	.byte	143
+	.byte	139
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc23
 	.long	.Linfo_string94
 	.byte	1
-	.byte	143
+	.byte	139
 	.long	282
 	.byte	13
 	.long	.Ldebug_loc25
 	.long	.Linfo_string34
 	.byte	1
-	.byte	144
+	.byte	140
 	.long	264
 	.byte	35
 	.long	.Ldebug_loc24
 	.long	.Linfo_string32
 	.byte	1
-	.byte	149
+	.byte	145
 	.long	246
 	.byte	36
 	.byte	0
 	.long	.Linfo_string31
 	.byte	1
-	.byte	148
+	.byte	144
 	.long	246
 	.byte	36
 	.byte	1
 	.long	.Linfo_string91
 	.byte	1
-	.byte	146
+	.byte	142
 	.long	246
 	.byte	32
 	.long	.Linfo_string92
 	.byte	1
-	.byte	145
+	.byte	141
 	.long	246
 	.byte	32
 	.long	.Linfo_string93
 	.byte	1
-	.byte	147
+	.byte	143
 	.long	246
 	.byte	0
 	.byte	12
@@ -5293,38 +5293,38 @@ display_param:
 	.byte	1
 	.long	.Linfo_string51
 	.byte	1
-	.byte	179
+	.byte	175
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc26
 	.long	.Linfo_string88
 	.byte	1
-	.byte	179
+	.byte	175
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc27
 	.long	.Linfo_string89
 	.byte	1
-	.byte	179
+	.byte	175
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc28
 	.long	.Linfo_string90
 	.byte	1
-	.byte	179
+	.byte	175
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc29
 	.long	.Linfo_string34
 	.byte	1
-	.byte	179
+	.byte	175
 	.long	264
 	.byte	20
 	.long	592
 	.long	.Ldebug_ranges32
 	.byte	1
-	.byte	180
+	.byte	176
 	.byte	0
 	.byte	16
 	.long	.Ldebug_ranges33
@@ -5352,93 +5352,93 @@ display_param:
 	.byte	1
 	.long	.Linfo_string52
 	.byte	1
-	.byte	184
+	.byte	180
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc34
 	.long	.Linfo_string88
 	.byte	1
-	.byte	184
+	.byte	180
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc35
 	.long	.Linfo_string89
 	.byte	1
-	.byte	184
+	.byte	180
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc36
 	.long	.Linfo_string90
 	.byte	1
-	.byte	184
+	.byte	180
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc37
 	.long	.Linfo_string94
 	.byte	1
-	.byte	184
+	.byte	180
 	.long	282
 	.byte	13
 	.long	.Ldebug_loc40
 	.long	.Linfo_string95
 	.byte	1
-	.byte	185
+	.byte	181
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc39
 	.long	.Linfo_string34
 	.byte	1
-	.byte	185
+	.byte	181
 	.long	264
 	.byte	35
 	.long	.Ldebug_loc38
 	.long	.Linfo_string32
 	.byte	1
-	.byte	191
+	.byte	187
 	.long	246
 	.byte	36
 	.byte	0
 	.long	.Linfo_string31
 	.byte	1
-	.byte	190
+	.byte	186
 	.long	246
 	.byte	36
 	.byte	1
 	.long	.Linfo_string91
 	.byte	1
-	.byte	188
+	.byte	184
 	.long	246
 	.byte	32
 	.long	.Linfo_string92
 	.byte	1
-	.byte	187
+	.byte	183
 	.long	246
 	.byte	32
 	.long	.Linfo_string93
 	.byte	1
-	.byte	189
+	.byte	185
 	.long	246
 	.byte	20
 	.long	592
 	.long	.Ldebug_ranges35
 	.byte	1
-	.byte	208
+	.byte	204
 	.byte	20
 	.long	592
 	.long	.Ldebug_ranges36
 	.byte	1
-	.byte	209
+	.byte	205
 	.byte	20
 	.long	592
 	.long	.Ldebug_ranges37
 	.byte	1
-	.byte	204
+	.byte	200
 	.byte	20
 	.long	592
 	.long	.Ldebug_ranges38
 	.byte	1
-	.byte	205
+	.byte	201
 	.byte	0
 	.byte	12
 	.long	.Ldebug_ranges39
@@ -5447,91 +5447,91 @@ display_param:
 	.byte	1
 	.long	.Linfo_string53
 	.byte	1
-	.byte	215
+	.byte	211
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc41
 	.long	.Linfo_string88
 	.byte	1
-	.byte	215
+	.byte	211
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc42
 	.long	.Linfo_string89
 	.byte	1
-	.byte	215
+	.byte	211
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc43
 	.long	.Linfo_string96
 	.byte	1
-	.byte	215
+	.byte	211
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc44
 	.long	.Linfo_string97
 	.byte	1
-	.byte	215
+	.byte	211
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc45
 	.long	.Linfo_string34
 	.byte	1
-	.byte	215
+	.byte	211
 	.long	264
 	.byte	32
 	.long	.Linfo_string98
 	.byte	1
-	.byte	216
+	.byte	212
 	.long	246
 	.byte	32
 	.long	.Linfo_string99
 	.byte	1
-	.byte	227
+	.byte	223
 	.long	246
 	.byte	32
 	.long	.Linfo_string100
 	.byte	1
-	.byte	227
+	.byte	223
 	.long	246
 	.byte	32
 	.long	.Linfo_string101
 	.byte	1
-	.byte	231
+	.byte	227
 	.long	246
 	.byte	32
 	.long	.Linfo_string102
 	.byte	1
-	.byte	232
+	.byte	228
 	.long	246
 	.byte	0
 	.byte	24
 	.long	.Linfo_string44
 	.byte	1
-	.short	267
+	.short	263
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	25
 	.long	.Linfo_string31
 	.byte	1
-	.short	267
+	.short	263
 	.long	246
 	.byte	25
 	.long	.Linfo_string32
 	.byte	1
-	.short	267
+	.short	263
 	.long	246
 	.byte	25
 	.long	.Linfo_string36
 	.byte	1
-	.short	267
+	.short	263
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	267
+	.short	263
 	.long	264
 	.byte	0
 	.byte	12
@@ -5541,58 +5541,58 @@ display_param:
 	.byte	1
 	.long	.Linfo_string54
 	.byte	1
-	.byte	255
+	.byte	251
 	.byte	1
 	.byte	1
 	.byte	13
 	.long	.Ldebug_loc46
 	.long	.Linfo_string31
 	.byte	1
-	.byte	255
+	.byte	251
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc47
 	.long	.Linfo_string32
 	.byte	1
-	.byte	255
+	.byte	251
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc48
 	.long	.Linfo_string36
 	.byte	1
-	.byte	255
+	.byte	251
 	.long	246
 	.byte	13
 	.long	.Ldebug_loc49
 	.long	.Linfo_string33
 	.byte	1
-	.byte	255
+	.byte	251
 	.long	246
 	.byte	15
 	.long	.Linfo_string34
 	.byte	1
-	.byte	255
+	.byte	251
 	.long	264
-	.byte	31
+	.byte	20
 	.long	2048
 	.long	.Ldebug_ranges41
 	.byte	1
-	.short	256
-	.byte	31
+	.byte	252
+	.byte	20
 	.long	2048
 	.long	.Ldebug_ranges42
 	.byte	1
-	.short	257
-	.byte	31
+	.byte	253
+	.byte	20
 	.long	592
 	.long	.Ldebug_ranges43
 	.byte	1
-	.short	258
-	.byte	31
+	.byte	254
+	.byte	20
 	.long	592
 	.long	.Ldebug_ranges44
 	.byte	1
-	.short	259
+	.byte	255
 	.byte	0
 	.byte	16
 	.long	.Ldebug_ranges45
@@ -5643,7 +5643,7 @@ display_param:
 	.long	592
 	.long	.Ldebug_ranges47
 	.byte	1
-	.short	275
+	.short	271
 	.byte	0
 	.byte	0
 	.byte	28
@@ -5653,20 +5653,20 @@ display_param:
 	.byte	1
 	.long	.Linfo_string55
 	.byte	1
-	.short	279
+	.short	275
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc60
 	.long	.Linfo_string34
 	.byte	1
-	.short	279
+	.short	275
 	.long	264
 	.byte	30
 	.long	652
 	.long	.Ldebug_ranges50
 	.byte	1
-	.short	280
+	.short	276
 	.byte	38
 	.byte	0
 	.long	663
@@ -5682,7 +5682,7 @@ display_param:
 	.long	592
 	.long	.Ldebug_ranges51
 	.byte	1
-	.short	275
+	.short	271
 	.byte	38
 	.byte	0
 	.long	615
@@ -5697,63 +5697,63 @@ display_param:
 	.byte	1
 	.long	.Linfo_string56
 	.byte	1
-	.short	284
+	.short	280
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc61
 	.long	.Linfo_string31
 	.byte	1
-	.short	284
+	.short	280
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc62
 	.long	.Linfo_string32
 	.byte	1
-	.short	284
+	.short	280
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc63
 	.long	.Linfo_string36
 	.byte	1
-	.short	284
+	.short	280
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc64
 	.long	.Linfo_string33
 	.byte	1
-	.short	284
+	.short	280
 	.long	246
 	.byte	25
 	.long	.Linfo_string90
 	.byte	1
-	.short	284
+	.short	280
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	285
+	.short	281
 	.long	264
 	.byte	31
 	.long	2048
 	.long	.Ldebug_ranges54
 	.byte	1
-	.short	287
+	.short	283
 	.byte	31
 	.long	2048
 	.long	.Ldebug_ranges55
 	.byte	1
-	.short	288
+	.short	284
 	.byte	31
 	.long	592
 	.long	.Ldebug_ranges56
 	.byte	1
-	.short	289
+	.short	285
 	.byte	31
 	.long	592
 	.long	.Ldebug_ranges57
 	.byte	1
-	.short	290
+	.short	286
 	.byte	0
 	.byte	28
 	.long	.Ldebug_ranges58
@@ -5762,55 +5762,55 @@ display_param:
 	.byte	1
 	.long	.Linfo_string57
 	.byte	1
-	.short	299
+	.short	295
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc65
 	.long	.Linfo_string31
 	.byte	1
-	.short	299
+	.short	295
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc66
 	.long	.Linfo_string32
 	.byte	1
-	.short	299
+	.short	295
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc67
 	.long	.Linfo_string36
 	.byte	1
-	.short	299
+	.short	295
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc68
 	.long	.Linfo_string33
 	.byte	1
-	.short	299
+	.short	295
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc70
 	.long	.Linfo_string90
 	.byte	1
-	.short	299
+	.short	295
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc69
 	.long	.Linfo_string34
 	.byte	1
-	.short	300
+	.short	296
 	.long	264
 	.byte	30
 	.long	652
 	.long	.Ldebug_ranges59
 	.byte	1
-	.short	302
+	.short	298
 	.byte	31
 	.long	592
 	.long	.Ldebug_ranges60
 	.byte	1
-	.short	275
+	.short	271
 	.byte	0
 	.byte	0
 	.byte	28
@@ -5820,47 +5820,47 @@ display_param:
 	.byte	1
 	.long	.Linfo_string58
 	.byte	1
-	.short	310
+	.short	306
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc71
 	.long	.Linfo_string88
 	.byte	1
-	.short	310
+	.short	306
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc72
 	.long	.Linfo_string89
 	.byte	1
-	.short	310
+	.short	306
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc73
 	.long	.Linfo_string96
 	.byte	1
-	.short	310
+	.short	306
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc74
 	.long	.Linfo_string97
 	.byte	1
-	.short	310
+	.short	306
 	.long	246
 	.byte	25
 	.long	.Linfo_string103
 	.byte	1
-	.short	310
+	.short	306
 	.long	246
 	.byte	25
 	.long	.Linfo_string104
 	.byte	1
-	.short	311
+	.short	307
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	311
+	.short	307
 	.long	264
 	.byte	0
 	.byte	28
@@ -5870,126 +5870,126 @@ display_param:
 	.byte	1
 	.long	.Linfo_string59
 	.byte	1
-	.short	318
+	.short	314
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc75
 	.long	.Linfo_string88
 	.byte	1
-	.short	318
+	.short	314
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc76
 	.long	.Linfo_string89
 	.byte	1
-	.short	318
+	.short	314
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc77
 	.long	.Linfo_string96
 	.byte	1
-	.short	318
+	.short	314
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc78
 	.long	.Linfo_string97
 	.byte	1
-	.short	318
+	.short	314
 	.long	246
 	.byte	25
 	.long	.Linfo_string103
 	.byte	1
-	.short	318
+	.short	314
 	.long	246
 	.byte	25
 	.long	.Linfo_string104
 	.byte	1
-	.short	319
+	.short	315
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc79
 	.long	.Linfo_string34
 	.byte	1
-	.short	319
+	.short	315
 	.long	264
 	.byte	40
 	.long	.Ldebug_loc80
 	.long	.Linfo_string105
 	.byte	1
-	.short	355
-	.long	4043
+	.short	351
+	.long	4039
 	.byte	40
 	.long	.Ldebug_loc81
 	.long	.Linfo_string108
 	.byte	1
-	.short	355
-	.long	4043
+	.short	351
+	.long	4039
 	.byte	27
 	.long	.Linfo_string109
 	.byte	1
-	.short	321
+	.short	317
 	.long	246
 	.byte	27
 	.long	.Linfo_string110
 	.byte	1
-	.short	321
+	.short	317
 	.long	246
 	.byte	27
 	.long	.Linfo_string32
 	.byte	1
-	.short	321
+	.short	317
 	.long	246
 	.byte	27
 	.long	.Linfo_string111
 	.byte	1
-	.short	321
+	.short	317
 	.long	246
 	.byte	27
 	.long	.Linfo_string112
 	.byte	1
-	.short	353
+	.short	349
 	.long	246
 	.byte	27
 	.long	.Linfo_string113
 	.byte	1
-	.short	353
+	.short	349
 	.long	246
 	.byte	27
 	.long	.Linfo_string114
 	.byte	1
-	.short	353
+	.short	349
 	.long	246
 	.byte	27
 	.long	.Linfo_string115
 	.byte	1
-	.short	353
+	.short	349
 	.long	246
 	.byte	27
 	.long	.Linfo_string116
 	.byte	1
-	.short	354
+	.short	350
 	.long	246
 	.byte	27
 	.long	.Linfo_string117
 	.byte	1
-	.short	354
+	.short	350
 	.long	246
 	.byte	31
 	.long	2048
 	.long	.Ldebug_ranges63
 	.byte	1
-	.short	349
+	.short	345
 	.byte	31
 	.long	2048
 	.long	.Ldebug_ranges64
 	.byte	1
-	.short	379
+	.short	375
 	.byte	31
 	.long	2048
 	.long	.Ldebug_ranges65
 	.byte	1
-	.short	397
+	.short	393
 	.byte	0
 	.byte	28
 	.long	.Ldebug_ranges66
@@ -5998,66 +5998,66 @@ display_param:
 	.byte	1
 	.long	.Linfo_string60
 	.byte	1
-	.short	401
+	.short	397
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc82
 	.long	.Linfo_string31
 	.byte	1
-	.short	401
+	.short	397
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc83
 	.long	.Linfo_string32
 	.byte	1
-	.short	401
+	.short	397
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc84
 	.long	.Linfo_string118
 	.byte	1
-	.short	401
-	.long	4061
+	.short	397
+	.long	4057
 	.byte	29
 	.long	.Ldebug_loc85
 	.long	.Linfo_string36
 	.byte	1
-	.short	401
+	.short	397
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc86
 	.long	.Linfo_string33
 	.byte	1
-	.short	402
+	.short	398
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	402
+	.short	398
 	.long	264
 	.byte	41
 	.byte	0
 	.long	.Linfo_string79
 	.byte	1
-	.short	404
+	.short	400
 	.long	246
 	.byte	27
 	.long	.Linfo_string37
 	.byte	1
-	.short	404
+	.short	400
 	.long	246
 	.byte	27
 	.long	.Linfo_string119
 	.byte	1
-	.short	404
+	.short	400
 	.long	246
 	.byte	18
 	.long	.Ldebug_ranges67
 	.byte	27
 	.long	.Linfo_string120
 	.byte	1
-	.short	408
+	.short	404
 	.long	282
 	.byte	0
 	.byte	0
@@ -6068,71 +6068,71 @@ display_param:
 	.byte	1
 	.long	.Linfo_string61
 	.byte	1
-	.short	420
+	.short	416
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc87
 	.long	.Linfo_string31
 	.byte	1
-	.short	420
+	.short	416
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc88
 	.long	.Linfo_string32
 	.byte	1
-	.short	420
+	.short	416
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc89
 	.long	.Linfo_string118
 	.byte	1
-	.short	420
-	.long	4061
+	.short	416
+	.long	4057
 	.byte	29
 	.long	.Ldebug_loc90
 	.long	.Linfo_string36
 	.byte	1
-	.short	420
+	.short	416
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc91
 	.long	.Linfo_string33
 	.byte	1
-	.short	421
+	.short	417
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	421
+	.short	417
 	.long	264
 	.byte	25
 	.long	.Linfo_string75
 	.byte	1
-	.short	421
+	.short	417
 	.long	264
 	.byte	41
 	.byte	0
 	.long	.Linfo_string79
 	.byte	1
-	.short	423
+	.short	419
 	.long	246
 	.byte	27
 	.long	.Linfo_string37
 	.byte	1
-	.short	423
+	.short	419
 	.long	246
 	.byte	27
 	.long	.Linfo_string119
 	.byte	1
-	.short	423
+	.short	419
 	.long	246
 	.byte	18
 	.long	.Ldebug_ranges69
 	.byte	27
 	.long	.Linfo_string120
 	.byte	1
-	.short	427
+	.short	423
 	.long	282
 	.byte	0
 	.byte	0
@@ -6143,66 +6143,66 @@ display_param:
 	.byte	1
 	.long	.Linfo_string62
 	.byte	1
-	.short	440
+	.short	436
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc92
 	.long	.Linfo_string31
 	.byte	1
-	.short	440
+	.short	436
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc93
 	.long	.Linfo_string32
 	.byte	1
-	.short	440
+	.short	436
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc94
 	.long	.Linfo_string118
 	.byte	1
-	.short	440
-	.long	4061
+	.short	436
+	.long	4057
 	.byte	29
 	.long	.Ldebug_loc95
 	.long	.Linfo_string36
 	.byte	1
-	.short	440
+	.short	436
 	.long	246
 	.byte	29
 	.long	.Ldebug_loc96
 	.long	.Linfo_string33
 	.byte	1
-	.short	441
+	.short	437
 	.long	246
 	.byte	25
 	.long	.Linfo_string34
 	.byte	1
-	.short	441
+	.short	437
 	.long	264
 	.byte	41
 	.byte	0
 	.long	.Linfo_string79
 	.byte	1
-	.short	443
+	.short	439
 	.long	246
 	.byte	27
 	.long	.Linfo_string37
 	.byte	1
-	.short	443
+	.short	439
 	.long	246
 	.byte	27
 	.long	.Linfo_string119
 	.byte	1
-	.short	443
+	.short	439
 	.long	246
 	.byte	18
 	.long	.Ldebug_ranges71
 	.byte	27
 	.long	.Linfo_string120
 	.byte	1
-	.short	447
+	.short	443
 	.long	282
 	.byte	0
 	.byte	0
@@ -6213,21 +6213,21 @@ display_param:
 	.byte	1
 	.long	.Linfo_string64
 	.byte	1
-	.short	490
+	.short	486
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc97
 	.long	.Linfo_string31
 	.byte	1
-	.short	490
+	.short	486
 	.long	246
 	.byte	42
 	.byte	1
 	.byte	81
 	.long	.Linfo_string32
 	.byte	1
-	.short	490
+	.short	486
 	.long	246
 	.byte	0
 	.byte	28
@@ -6237,14 +6237,14 @@ display_param:
 	.byte	1
 	.long	.Linfo_string65
 	.byte	1
-	.short	495
+	.short	491
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc98
 	.long	.Linfo_string121
 	.byte	1
-	.short	495
+	.short	491
 	.long	282
 	.byte	0
 	.byte	28
@@ -6254,7 +6254,7 @@ display_param:
 	.byte	1
 	.long	.Linfo_string66
 	.byte	1
-	.short	499
+	.short	495
 	.byte	1
 	.byte	1
 	.byte	42
@@ -6262,7 +6262,7 @@ display_param:
 	.byte	80
 	.long	.Linfo_string29
 	.byte	1
-	.short	499
+	.short	495
 	.long	264
 	.byte	0
 	.byte	28
@@ -6272,21 +6272,21 @@ display_param:
 	.byte	1
 	.long	.Linfo_string67
 	.byte	1
-	.short	505
+	.short	501
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc99
 	.long	.Linfo_string29
 	.byte	1
-	.short	505
+	.short	501
 	.long	264
 	.byte	42
 	.byte	1
 	.byte	81
 	.long	.Linfo_string75
 	.byte	1
-	.short	505
+	.short	501
 	.long	264
 	.byte	0
 	.byte	28
@@ -6296,7 +6296,7 @@ display_param:
 	.byte	1
 	.long	.Linfo_string68
 	.byte	1
-	.short	510
+	.short	506
 	.byte	1
 	.byte	1
 	.byte	42
@@ -6304,7 +6304,7 @@ display_param:
 	.byte	80
 	.long	.Linfo_string36
 	.byte	1
-	.short	510
+	.short	506
 	.long	293
 	.byte	0
 	.byte	43
@@ -6314,7 +6314,7 @@ display_param:
 	.byte	1
 	.long	.Linfo_string69
 	.byte	1
-	.short	514
+	.short	510
 	.byte	1
 	.long	282
 	.byte	1
@@ -6325,14 +6325,14 @@ display_param:
 	.byte	1
 	.long	.Linfo_string70
 	.byte	1
-	.short	518
+	.short	514
 	.byte	1
 	.byte	1
 	.byte	29
 	.long	.Ldebug_loc100
 	.long	.Linfo_string31
 	.byte	1
-	.short	518
+	.short	514
 	.long	282
 	.byte	0
 	.byte	43
@@ -6342,7 +6342,7 @@ display_param:
 	.byte	1
 	.long	.Linfo_string71
 	.byte	1
-	.short	535
+	.short	531
 	.byte	1
 	.long	246
 	.byte	1
@@ -6353,7 +6353,7 @@ display_param:
 	.byte	1
 	.long	.Linfo_string72
 	.byte	1
-	.short	539
+	.short	535
 	.byte	1
 	.long	246
 	.byte	1
@@ -6364,12 +6364,12 @@ display_param:
 	.byte	1
 	.long	.Linfo_string73
 	.byte	1
-	.short	544
+	.short	540
 	.byte	1
 	.long	246
 	.byte	1
 	.byte	7
-	.long	4019
+	.long	4015
 	.long	.Linfo_string77
 	.byte	2
 	.byte	45
@@ -6386,7 +6386,7 @@ display_param:
 	.byte	0
 	.byte	0
 	.byte	7
-	.long	4054
+	.long	4050
 	.long	.Linfo_string107
 	.byte	2
 	.byte	83
@@ -6395,7 +6395,7 @@ display_param:
 	.byte	5
 	.byte	4
 	.byte	33
-	.long	4026
+	.long	4022
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -9326,25 +9326,25 @@ display_param:
 .asciiz"drawCircle"
 	.long	1399
 .asciiz"drawCircleHelper"
-	.long	3945
+	.long	3941
 .asciiz"width"
-	.long	3966
+	.long	3962
 .asciiz"heigh"
 	.long	76
 .asciiz"display_param"
-	.long	2378
+	.long	2374
 .asciiz"fillScreen"
-	.long	3189
+	.long	3185
 .asciiz"drawBitmap"
 	.long	738
 .asciiz"drawChar"
-	.long	3744
+	.long	3740
 .asciiz"setTextSize"
 	.long	592
 .asciiz"drawVerticalLine"
-	.long	3890
+	.long	3886
 .asciiz"getRotation"
-	.long	3354
+	.long	3350
 .asciiz"drawBitmap_bg"
 	.long	560
 .asciiz"write_raw"
@@ -9352,35 +9352,35 @@ display_param:
 .asciiz"fillRect"
 	.long	1901
 .asciiz"drawLine"
-	.long	3810
+	.long	3806
 .asciiz"setTextColor_bg"
 	.long	1689
 .asciiz"fillCircleHelper"
 	.long	1552
 .asciiz"fillCircle"
-	.long	3911
+	.long	3907
 .asciiz"setRotation"
-	.long	2622
+	.long	2618
 .asciiz"fillRoundRect"
-	.long	3987
+	.long	3983
 .asciiz"height"
 	.long	952
 .asciiz"display_print"
-	.long	3531
+	.long	3527
 .asciiz"drawXBitmap"
 	.long	1033
 .asciiz"display_print_dec_8"
-	.long	2468
+	.long	2464
 .asciiz"drawRoundRect"
-	.long	2761
+	.long	2757
 .asciiz"drawTriangle"
-	.long	3696
+	.long	3692
 .asciiz"setCursor"
 	.long	368
 .asciiz"write"
-	.long	3858
+	.long	3854
 .asciiz"setTextWrap"
-	.long	3778
+	.long	3774
 .asciiz"setTextColor"
 	.long	31
 .asciiz"font"
@@ -9390,7 +9390,7 @@ display_param:
 .asciiz"Adafruit_GFX_constructor"
 	.long	466
 .asciiz"display_println"
-	.long	2879
+	.long	2875
 .asciiz"fillTriangle"
 	.long	2108
 .asciiz"drawRect"
@@ -9404,7 +9404,7 @@ display_param:
 	.long	.L.debug_info_begin0
 .Lset226 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset226
-	.long	4043
+	.long	4039
 .asciiz"int32_t"
 	.long	246
 .asciiz"int16_t"
@@ -9422,9 +9422,9 @@ display_param:
 .asciiz"short"
 	.long	105
 .asciiz"tag_display_param_t"
-	.long	4008
+	.long	4004
 .asciiz"int8_t"
-	.long	4019
+	.long	4015
 .asciiz"signed char"
 	.long	94
 .asciiz"display_param_t"
@@ -9432,7 +9432,7 @@ display_param:
 .asciiz"uint16_t"
 	.long	62
 .asciiz"unsigned char"
-	.long	4054
+	.long	4050
 .asciiz"long int"
 	.long	1008
 .asciiz"char"

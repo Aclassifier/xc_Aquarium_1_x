@@ -12,6 +12,7 @@
 
 
 
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -420,7 +421,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 9 "../src/chronodot_ds3231_controller.xc" 2
+# 10 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
 
@@ -830,7 +831,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 10 "../src/chronodot_ds3231_controller.xc" 2
+# 11 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -900,7 +901,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 11 "../src/chronodot_ds3231_controller.xc" 2
+# 12 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1287,13 +1288,12 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 12 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 13 "../src/chronodot_ds3231_controller.xc" 2
-
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 14 "../src/chronodot_ds3231_controller.xc" 2
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1317,7 +1317,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1449,7 +1449,7 @@ typedef uint8_t i2c_PortMask_t;
 # 22 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 31 "../src/tempchip_mcp9808.h"
-typedef enum {
+typedef enum i2c_dev_address_external_t {
 
     TEMPC_HEATER = 0x18,
     TEMPC_AMBIENT = (0x18 + 1),
@@ -1461,15 +1461,15 @@ typedef enum {
 
 
 
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr);
-int tempchip_mcp9808_shutdown_wake (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t sw_ID);
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val);
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg);
+bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
+int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
+void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
+uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 23 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 12 "../src/I2C_External_Server.h"
-typedef enum {
+# 13 "../src/I2C_External_Server.h"
+typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
@@ -1481,7 +1481,7 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum {
+typedef enum i2c_command_external_t {
     VER_TEMPC_CHIPS,
     GET_TEMPC_ALL
 } i2c_command_external_t;
@@ -1503,13 +1503,13 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 # 24 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/I2C_Internal_Server.h" 1
 # 15 "../src/I2C_Internal_Server.h"
-typedef enum {
+typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
 
-typedef struct {
+typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
@@ -1526,20 +1526,15 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
 # 25 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
-typedef enum {
+typedef enum i2c_display_reg_address_internal_t {
     DISPLAY_REG_ADDR_COMMAND = 0x00,
     DISPLAY_REG_ADDR_DATA = 0x40
 } i2c_display_reg_address_internal_t;
 
-typedef enum {
+typedef enum display_vccstate_t {
     SSD1306_EXTERNALVCC = 0x01,
     SSD1306_SWITCHCAPVCC = 0x02
 } display_vccstate_t;
-
-
-
-
-
 
 extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
 
@@ -1664,7 +1659,7 @@ typedef int light_range_t;
 # 40 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
-typedef struct {
+typedef struct temp_degC_strings_t {
     char temp_degC_heater_str [5];
     char temp_degC_ambient_str [5];
     char temp_degC_water_str [5];
@@ -1673,7 +1668,7 @@ typedef struct {
 
 
 
-typedef struct {
+typedef struct temp_onetenthDegC_mean_t {
 
 
     temp_onetenthDegC_t temps_onetenthDegC[8];
@@ -1690,15 +1685,15 @@ typedef struct {
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
 
-void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps);
+void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps);
 
 
 
 
 
 
-temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr, const unsigned n_of_temps,
-                                                            const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
+temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
+                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 31 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
 # 11 "../src/port_heat_light_server.h"
@@ -1711,7 +1706,7 @@ typedef enum {
 
 
 
-typedef enum {
+typedef enum light_composition_t {
 # 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
     LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
@@ -1732,7 +1727,7 @@ typedef enum {
 
 } light_composition_t;
 
-typedef enum {
+typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_VOID,
     LIGHT_CONTROL_IS_DAY,
     LIGHT_CONTROL_IS_DAY_TO_NIGHT,
@@ -1747,7 +1742,7 @@ typedef enum {
     WATTOF_LED_STRIP_BACK = 2
 } wattOf_LED_strip_t;
 
-typedef enum {
+typedef enum heat_cable_commands_t {
     HEAT_CABLES_VOID,
     HEAT_CABLES_OFF,
     HEAT_CABLES_ONE_ON,
@@ -1779,18 +1774,18 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 # 32 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
-typedef enum {
+typedef enum heater_wires_t {
     HEATER_WIRES_ONE_ALTERNATING_IS_HALF,
     HEATER_WIRES_BOTH_IS_FULL
 } heater_wires_t;
 
-typedef enum {
+typedef enum regulate_by_t{
      REGULATE_BY_ONLY_HEATER_MAX_TEMP,
      REGULATE_BY_WATER_TEMP,
      REGULATE_BY_WATER_AND_AIR_TEMP
 } regulate_by_t;
 
-typedef struct tag_temps_t {
+typedef struct temps_t {
     bool temp_ok [3];
     i2c_temp_onetenthDegC_t temp_onetenthDegC [3];
 } temps_t;
@@ -1799,7 +1794,7 @@ typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
-                void get_temp_degC_string (const iof_temps_t iof_temps, char return_value_string[5]);
+                void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
@@ -1814,7 +1809,7 @@ void Temperature_Heater_Controller (
 # 33 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/Temperature_Water_Controller.h" 1
 # 12 "../src/Temperature_Water_Controller.h"
-typedef enum {
+typedef enum now_regulating_at_t {
 
     REGULATING_AT_INIT,
     REGULATING_AT_BOILING,
@@ -1824,7 +1819,7 @@ typedef enum {
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
-    void get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
+    void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
     {now_regulating_at_t} get_now_regulating_at (void);
 } temperature_water_commands_if;
 
@@ -1900,6 +1895,10 @@ void Chronodot_DS3231_Controller (
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 36 "../src/chronodot_ds3231_controller.xc" 2
 
+
+
+
+
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers) {
     DateTime_t datetime;
 
@@ -1925,7 +1924,7 @@ void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231
     chronodot_d3231_registers.registers[DS3231_REG_MINUTE] = Bin_To_BCD_8((uint8_t) datetime.minute);
     chronodot_d3231_registers.registers[DS3231_REG_SECOND] = Bin_To_BCD_8((uint8_t) datetime.second);
 }
-# 85 "../src/chronodot_ds3231_controller.xc"
+# 89 "../src/chronodot_ds3231_controller.xc"
 [[combinable]]
 void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
@@ -1937,7 +1936,7 @@ void Chronodot_DS3231_Controller (
     timer tmr;
     int time;
 
-    printf ("Chronodot_DS3231_Controller started\n");
+    do { if(0) printf("%s", "Chronodot_DS3231_Controller started\n"); } while (0);
 
     tmr :> time;
 
@@ -1957,7 +1956,10 @@ void Chronodot_DS3231_Controller (
                     datetime.minute = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_MINUTE]);
                     datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] & 0x7F);
                 } else {}
-# 124 "../src/chronodot_ds3231_controller.xc"
+
+                    do { if(0) printf("ChronoDot %u= %04u.%02u.%02u %02u.%02u.%02u\n", ok, datetime.year, datetime.month, datetime.day, datetime.hour, datetime.minute, datetime.second); } while (0);
+
+
             } break;
 
             case i_chronodot_ds3231.get_time_ok (void) -> {DateTime_t return_datetime, bool return_ok} : {

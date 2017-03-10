@@ -4,6 +4,8 @@
  *  Created on: 28. des. 2016
  *      Author: teig
  */
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdio.h>
@@ -13,6 +15,10 @@
 
 #include "param.h"
 #include "port_heat_light_server.h"
+#endif
+
+#define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)
 
 port myport_p32 = XS1_PORT_32A;
 
@@ -40,7 +46,7 @@ port myport_p32 = XS1_PORT_32A;
 
 #define BITS_HEAT_BOTH (BIT_HEAT_1 bitor BIT_HEAT_2)
 
-typedef enum {
+typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
@@ -78,7 +84,6 @@ typedef enum {
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
-
 //
 static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
 {
@@ -140,7 +145,7 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOS
    }
 };
 
-typedef enum {
+typedef enum pin_change_t {
     PIN_SAME_LIGHT,
     PIN_NIGHTER,
     PIN_LIGHTER
@@ -202,7 +207,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     //      So no DIV in the 1500 us timeouts
     //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
-    printf("Port_Pins_Heat_Light_Server started\n");
+    debug_printf("%s", "Port_Pins_Heat_Light_Server started\n");
 
     unsigned beeper_blip_ticks_cntdown = 0;
 
@@ -225,7 +230,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     // I think I can hear high frequency beeping from the LEDs at all pulsing levels - also 100% on! However, I am more certain at full, 100% load.
                     // I scoped the signals, and at 100% it's DC, no pulsing at the port pin, no pulsing at the drain of the MOSFET. So I have no
                     // idea where that sound comes from. It's not my tinnitus, because I can hear a difference. Before I scoped I tried to filter with
-                    /// if ((mask bitand BIT_LIGHT_FRONT) != (port_value bitand BIT_LIGHT_FRONT)) to only do it if there was a change in the bit,
+                    // if ((mask bitand BIT_LIGHT_FRONT) != (port_value bitand BIT_LIGHT_FRONT)) to only do it if there was a change in the bit,
                     // but it made no difference
                     {
                         if ((mask bitand BIT_LIGHT_FRONT) != 0)  {port_value or_eq BIT_LIGHT_FRONT;}  else {port_value and_eq compl BIT_LIGHT_FRONT;}
@@ -320,7 +325,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     const light_composition_t iof_light_composition_level,
                     const light_control_scheme_t light_control_scheme_in,
                     const unsigned value_to_print) : {
-                printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
+
+                debug_printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
 
                 if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) light_control_scheme = light_control_scheme_in;
 
@@ -386,15 +392,12 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1;
                 }
 
-                //#define PRINT_LIGHT_COMPOSITION
-                #ifdef PRINT_LIGHT_COMPOSITION
-                    printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
-                            index_of_client,
-                            return_thirds[IOF_LED_STRIP_FRONT],
-                            return_thirds[IOF_LED_STRIP_CENTER],
-                            return_thirds[IOF_LED_STRIP_BACK],
-                            iof_light_composition_level_present);
-                #endif
+                debug_printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
+                    index_of_client,
+                    return_thirds[IOF_LED_STRIP_FRONT],
+                    return_thirds[IOF_LED_STRIP_CENTER],
+                    return_thirds[IOF_LED_STRIP_BACK],
+                    iof_light_composition_level_present);
 
                 return_stable = true;
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {

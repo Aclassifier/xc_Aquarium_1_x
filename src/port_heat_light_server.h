@@ -17,7 +17,7 @@ typedef enum {
 #define NUM_LIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
 #define NUM_LIGHT_COMPOSITION_LEVELS 13
 
-typedef enum {
+typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
     // (where all off in any time window is avoided as much as possible)
     // So I found that any 0-100% (in any number of steps except 3) scheme is more "boring", with blue, white and whiter not visible
@@ -47,7 +47,7 @@ typedef enum {
     // NUM_LIGHT_COMPOSITION_LEVELS                = 13
 } light_composition_t;
 
-typedef enum {
+typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_VOID,         // Init and when we, in a call, don't want to modify it
     LIGHT_CONTROL_IS_DAY,          // dag
     LIGHT_CONTROL_IS_DAY_TO_NIGHT, // ned
@@ -62,7 +62,7 @@ typedef enum {
     WATTOF_LED_STRIP_BACK   = 2  // BACK   (2W blue   465nm)
 } wattOf_LED_strip_t;
 
-typedef enum {
+typedef enum heat_cable_commands_t {
     HEAT_CABLES_VOID, // Just to trigger a change on first call on heat_cables_command
     HEAT_CABLES_OFF,
     HEAT_CABLES_ONE_ON, // ONE 24 OHM ALONE          Both cables are cabled..

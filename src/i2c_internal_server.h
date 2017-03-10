@@ -12,13 +12,13 @@
 // Either Ò0111100Ó or Ò0111101Ó, can be selected as the slave address of SSD1306.
 // D/C# pin acts as SA0 for slave address selection
 
-typedef enum {
+typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY   = 0x3C, // 011110+SA0+RW - 0x3C or 0x3D
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t; // i2c_dev_address_t
 
 #define D3231_NUM_REGISTERS 19 // 0x[0..12]
-typedef struct {
+typedef struct chronodot_d3231_registers_t {
     uint8_t registers [D3231_NUM_REGISTERS];
 } chronodot_d3231_registers_t;
 

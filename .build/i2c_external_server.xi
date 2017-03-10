@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/i2c_external_server.xc" 2
-# 17 "../src/i2c_external_server.xc"
+# 18 "../src/i2c_external_server.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -414,7 +414,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 18 "../src/i2c_external_server.xc" 2
+# 19 "../src/i2c_external_server.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
@@ -825,7 +825,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 20 "../src/i2c_external_server.xc" 2
+# 21 "../src/i2c_external_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -895,7 +895,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 21 "../src/i2c_external_server.xc" 2
+# 22 "../src/i2c_external_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1282,7 +1282,7 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 22 "../src/i2c_external_server.xc" 2
+# 23 "../src/i2c_external_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1298,7 +1298,7 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 23 "../src/i2c_external_server.xc" 2
+# 24 "../src/i2c_external_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 1 3
 
 
@@ -1411,9 +1411,9 @@ char * alias _safe_strstr(const char * alias s1, const char s2[]);
 
 size_t _safe_strnlen(const char s[], size_t n);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 2 3
-# 24 "../src/i2c_external_server.xc" 2
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 25 "../src/i2c_external_server.xc" 2
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 26 "../src/i2c_external_server.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 1 3
 
 
@@ -1452,10 +1452,10 @@ extern int *__errno (void);
 
 int * alias _safe_errno_addr(void);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 2 3
-# 26 "../src/i2c_external_server.xc" 2
+# 27 "../src/i2c_external_server.xc" 2
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1479,15 +1479,15 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 28 "../src/i2c_external_server.xc" 2
+# 29 "../src/i2c_external_server.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
-# 29 "../src/i2c_external_server.xc" 2
+# 30 "../src/i2c_external_server.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1509,7 +1509,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 30 "../src/i2c_external_server.xc" 2
+# 31 "../src/i2c_external_server.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1549,16 +1549,16 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 32 "../src/i2c_external_server.xc" 2
+# 33 "../src/i2c_external_server.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 34 "../src/i2c_external_server.xc" 2
+# 35 "../src/i2c_external_server.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 31 "../src/tempchip_mcp9808.h"
-typedef enum {
+typedef enum i2c_dev_address_external_t {
 
     TEMPC_HEATER = 0x18,
     TEMPC_AMBIENT = (0x18 + 1),
@@ -1570,15 +1570,15 @@ typedef enum {
 
 
 
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr);
-int tempchip_mcp9808_shutdown_wake (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t sw_ID);
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val);
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg);
-# 35 "../src/i2c_external_server.xc" 2
+bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
+int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
+void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
+uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
+# 36 "../src/i2c_external_server.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 12 "../src/I2C_External_Server.h"
-typedef enum {
+# 13 "../src/I2C_External_Server.h"
+typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
@@ -1590,7 +1590,7 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum {
+typedef enum i2c_command_external_t {
     VER_TEMPC_CHIPS,
     GET_TEMPC_ALL
 } i2c_command_external_t;
@@ -1609,7 +1609,11 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 36 "../src/i2c_external_server.xc" 2
+# 37 "../src/i2c_external_server.xc" 2
+
+
+
+
 
 r_i2c i2c_external_config = {
     on tile[0]:0x10500,
@@ -1634,27 +1638,27 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
                     case VER_TEMPC_CHIPS: {
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_HEATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, &i2c_external_params,TEMPC_HEATER);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params,TEMPC_HEATER);
 
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_AMBIENT;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, &i2c_external_params, TEMPC_AMBIENT);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, TEMPC_AMBIENT);
 
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_WATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, &i2c_external_params, TEMPC_WATER);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, TEMPC_WATER);
                     } break;
 
                     case GET_TEMPC_ALL: {
-
+                        do { if(0) printf("I2C: GET_TEMPC_ALL A %u\n", index_of_client); } while (0);
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_HEATER;
-                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_AMBIENT;
-                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_ReadTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);
 
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_WATER;
-                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, &i2c_external_params, &i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
+                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
                     } break;
 
                     default: {
@@ -1665,17 +1669,17 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
                     } break;
                 }
 
-
+                do { if(0) printf("I2C: GET_TEMPC_ALL R %u\n", index_of_client); } while (0);
                 i_i2c_external_commands[index_of_client].notify();
-
+                do { if(0) printf("I2C: GET_TEMPC_ALL S %u\n", index_of_client); } while (0);
             } break;
 
 
             case i_i2c_external_commands[int index_of_client].read_temperature_ok (void) -> i2c_temps_t return_i2c_temps: {
-
-
+                do { if(0) printf("%s", "i2c-x read_temperature_ok\n"); } while (0);
+                do { if(0) printf("I2C: GET_TEMPC_ALL X %u\n", index_of_client); } while (0);
                 return_i2c_temps = i2c_temps;
-
+                do { if(0) printf("I2C: GET_TEMPC_ALL Y %u\n", index_of_client); } while (0);
             } break;
         }
     }

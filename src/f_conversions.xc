@@ -5,6 +5,8 @@
  *      Author: teig
  */
 
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
@@ -23,6 +25,10 @@
 #include "tempchip_mcp9808.h"
 #include "I2C_External_Server.h"
 #include "f_conversions.h"
+#endif
+
+#define DEBUG_PRINT_F_CONVERSIONS_MEAN 0 // Cost 1.3k
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN) printf(fmt, __VA_ARGS__); } while (0)
 
 void installExceptionHandler(void)
 {
@@ -36,33 +42,30 @@ void installExceptionHandler(void)
 void myExceptionHandler(void)
 {
     // ... do whatever you like here
-    printf ("\nCRASH!\n\n");
+    debug_printf ("%s", "\nCRASH!\n\n");
     asm(" clre");
     asm(" waiteu");  // This stops the thread in its tracks.
 }
 
 // Init_Arithmetic_Mean_Temp_OnetenthDegC
-
 // Arithmetic_mean_value = (xn + xn-1 + xn-2 + xn-3 + ...x) / n_of_temps (or during filling, divide by how many there are)
 // A direct form discrete-time FIR filter of order N. All gains are 1/n_of_temps
 // https://en.wikipedia.org/wiki/Finite_impulse_response
 //
 void
 Init_Arithmetic_Mean_Temp_OnetenthDegC (
-    temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
-    const unsigned             n_of_temps) {
+    temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
+    const unsigned            n_of_temps) {
 
     for (unsigned index_of_array = 0; index_of_array < n_of_temps; index_of_array++) {
-        temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array] = 0;
+        temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array] = 0;
     }
-    temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write = 0;
-    temps_onetenthDegC_mean_array_ptr->temps_num = 0;
-    temps_onetenthDegC_mean_array_ptr->temps_sum_mten_previous = 0;
+
+    temps_onetenthDegC_mean_array.temps_index_next_to_write = 0;
+    temps_onetenthDegC_mean_array.temps_num = 0;
 }
 
-// Do_Arithmetic_Mean_Temp_OnetenthDegC
-
-// Log from "2017 02 05 A"
+// Do_Arithmetic_Mean_Temp_OnetenthDegC log from "2017 02 05 A"
 // mean(W)=240 over (8-1) with input 240 changed=0 (dropped 240 240) |Observe dropped only one of them (equal)
 // mean(W)=240 over (8-1) with input 240 changed=0 (dropped 240 240) |
 // mean(W)=240 over (8-1) with input 240 changed=0 (dropped 240 240) |
@@ -85,35 +88,35 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC (
 //
 temp_onetenthDegC_t
 Do_Arithmetic_Mean_Temp_OnetenthDegC (
-    temp_onetenthDegC_mean_t * temps_onetenthDegC_mean_array_ptr,
+    temp_onetenthDegC_mean_t   &temps_onetenthDegC_mean_array, // i/o
     const unsigned             n_of_temps,
-    const temp_onetenthDegC_t  temps_onetenthDeg,
+    const temp_onetenthDegC_t  temps_onetenthDeg, // next value
     const unsigned             index_for_printf) {
 
-    unsigned            use_n_of_temps;
-    unsigned            remove_n_of_temps = 0;
-    temp_onetenthDegC_t temp_return;
-    temp_onetenthDegC_t temps_sum = 0;
-    temp_onetenthDegC_t temp_largest = INT_MIN;
-    int                 index_of_temp_largest = UNDEFINED_INDEX;
-    temp_onetenthDegC_t temp_smallest = INT_MAX;
+    unsigned            use_n_of_temps;        // Init ok
+    unsigned            remove_n_of_temps      = 0;
+    temp_onetenthDegC_t temp_return;           // Always set
+    temp_onetenthDegC_t temps_sum              = 0;
+    temp_onetenthDegC_t temp_largest           = INT_MIN;
+    int                 index_of_temp_largest  = UNDEFINED_INDEX;
+    temp_onetenthDegC_t temp_smallest          = INT_MAX;
     int                 index_of_temp_smallest = UNDEFINED_INDEX;
 
     // Store new data and set where to write the next
-    temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write] = temps_onetenthDeg;
-    temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write = (temps_onetenthDegC_mean_array_ptr->temps_index_next_to_write + 1) % n_of_temps;
+    temps_onetenthDegC_mean_array.temps_onetenthDegC          [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;
+    temps_onetenthDegC_mean_array.temps_index_next_to_write = (temps_onetenthDegC_mean_array.temps_index_next_to_write + 1) % n_of_temps;
 
     // Find how many values are in the set right now
-    if (temps_onetenthDegC_mean_array_ptr->temps_num < n_of_temps) { // Filling, and NOT full
-        temps_onetenthDegC_mean_array_ptr->temps_num++;
-        use_n_of_temps = temps_onetenthDegC_mean_array_ptr->temps_num;
+    if (temps_onetenthDegC_mean_array.temps_num < n_of_temps) { // Filling, and NOT full
+        temps_onetenthDegC_mean_array.temps_num++;
+        use_n_of_temps = temps_onetenthDegC_mean_array.temps_num;
     } else { // FULL, use = n_of_temps
         use_n_of_temps = n_of_temps;
 
         // Find largest and smallest
         for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
 
-            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array];
+            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
 
             if (value > temp_largest) {
                 index_of_temp_largest = index_of_array;
@@ -142,40 +145,36 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
             // Smallest not part of mean
             remove_n_of_temps++;
         } else { // Use, or both UNDEFINED_INDEX while set is being filled up
-            temps_sum += temps_onetenthDegC_mean_array_ptr->temps_onetenthDegC[index_of_array];
+            temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
         }
     }
 
     // Calculate arithmetic mean of data set
-    temp_return = (temps_sum / (use_n_of_temps-remove_n_of_temps)); // arithmetic mean
+    temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps)); // arithmetic mean
 
-    #ifdef DEBUG_PRINT_F_CONVERSIONS_MEAN
-    {
-        char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW;
+    // --- Debug only code, trying debug_printf here too, instead of #fdef block
+    char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW;
 
-        printf ("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ",
-                is2_temps_first_chars[index_for_printf],
-                temp_return,
-                temps_onetenthDegC_mean_array_ptr->temps_num,
-                remove_n_of_temps,
-                temps_onetenthDeg,
-                (temps_onetenthDeg!=temp_return));
-        if (index_of_temp_largest == UNDEFINED_INDEX) {
-            printf ("none ");
-        } else {
-            printf ("%d ", temp_largest);
-        }
-        if (temp_largest != temp_smallest) {
-            if (index_of_temp_smallest == UNDEFINED_INDEX) {
-                printf ("none ");
-            } else {
-                printf ("%d ", temp_smallest);
-            }
-        } else {}
-
-        printf ("\n");
+    debug_printf ("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ",
+            is2_temps_first_chars[index_for_printf],
+            temp_return,
+            temps_onetenthDegC_mean_array.temps_num,
+            remove_n_of_temps,
+            temps_onetenthDeg,
+           (temps_onetenthDeg!=temp_return));
+    if (index_of_temp_largest == UNDEFINED_INDEX) {
+        debug_printf ("&s", "none ");
+    } else {
+        debug_printf ("%d ", temp_largest);
     }
-    #endif
+    if (temp_largest != temp_smallest) {
+        if (index_of_temp_smallest == UNDEFINED_INDEX) {
+            debug_printf ("&s", "none ");
+        } else {
+            debug_printf ("%d ", temp_smallest);
+        }
+    } else {}
+    debug_printf ("%s", "\n");
 
     return temp_return;
 }
@@ -190,7 +189,7 @@ Temp_OnetenthDegC_To_Str (
     int degC_Unary_Part   = degC_dp1/10;
     int degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
-    temp_onetenthDegC_t return_degC_dp1 = (temp_onetenthDegC_t) degC_dp1;
+    temp_onetenthDegC_t return_degC_dp1 = (temp_onetenthDegC_t) degC_dp1; // int on both sides
 
     int sprintf_return;
     bool error = false;
@@ -313,7 +312,6 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     return {light_range, not error};
 }
 
-
 {voltage_onetenthV_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
@@ -364,14 +362,11 @@ RR_12V_24V_To_String_Ok (
 
 // BINARY-CODED DECIMAL - DATA WITH CHRONODOT IS BCD - ONE NIBBLE PER
 // https://en.wikipedia.org/wiki/Binary-coded_decimal
-
 uint8_t BCD_To_Bin_8 (uint8_t val)
 {
     return val - (6 * (val >> 4)); //
 }
-
 uint8_t Bin_To_BCD_8 (uint8_t val)
 {
     return val + (6 * (val / 10));
 }
-

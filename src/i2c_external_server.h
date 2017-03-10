@@ -8,8 +8,9 @@
 #define I2C_EXTERNAL_SERVER_H_
 
 #define NUM_I2C_TEMPERATURES 3
-#define NUM_TEMPERATURES (NUM_I2C_TEMPERATURES+1)
-typedef enum {
+#define NUM_TEMPERATURES    (NUM_I2C_TEMPERATURES+1)
+
+typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
@@ -21,7 +22,7 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [NUM_I2C_TEMPERATURES]; // Possibly valid value only if GET_TEMPC_ALL
 } i2c_temps_t;
 
-typedef enum {
+typedef enum i2c_command_external_t {
     VER_TEMPC_CHIPS, // Only returns i2c_temp_ok as valid (always EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC in i2c_temp_onetenthDegC_t)
     GET_TEMPC_ALL
 } i2c_command_external_t;

@@ -12,6 +12,7 @@
 
 
 
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -420,7 +421,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 9 "../src/tempchip_mcp9808.xc" 2
+# 10 "../src/tempchip_mcp9808.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
 
@@ -831,7 +832,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 11 "../src/tempchip_mcp9808.xc" 2
+# 12 "../src/tempchip_mcp9808.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -901,7 +902,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 12 "../src/tempchip_mcp9808.xc" 2
+# 13 "../src/tempchip_mcp9808.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
 
@@ -1288,7 +1289,7 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 13 "../src/tempchip_mcp9808.xc" 2
+# 14 "../src/tempchip_mcp9808.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1304,7 +1305,7 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 14 "../src/tempchip_mcp9808.xc" 2
+# 15 "../src/tempchip_mcp9808.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 1 3
 
 
@@ -1417,9 +1418,9 @@ char * alias _safe_strstr(const char * alias s1, const char s2[]);
 
 size_t _safe_strnlen(const char s[], size_t n);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h" 2 3
-# 15 "../src/tempchip_mcp9808.xc" 2
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 16 "../src/tempchip_mcp9808.xc" 2
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
+# 17 "../src/tempchip_mcp9808.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 1 3
 
 
@@ -1458,10 +1459,10 @@ extern int *__errno (void);
 
 int * alias _safe_errno_addr(void);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/errno.h" 2 3
-# 17 "../src/tempchip_mcp9808.xc" 2
+# 18 "../src/tempchip_mcp9808.xc" 2
 
 # 1 "../src/param.h" 1
-# 18 "../src/param.h"
+# 17 "../src/param.h"
 typedef enum {false,true} bool;
 
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1485,15 +1486,15 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 53 "../src/param.h"
+# 52 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 19 "../src/tempchip_mcp9808.xc" 2
+# 20 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
-# 20 "../src/tempchip_mcp9808.xc" 2
+# 21 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1515,7 +1516,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 21 "../src/tempchip_mcp9808.xc" 2
+# 22 "../src/tempchip_mcp9808.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1555,10 +1556,10 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 23 "../src/tempchip_mcp9808.xc" 2
+# 24 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 12 "../src/I2C_External_Server.h"
-typedef enum {
+# 13 "../src/I2C_External_Server.h"
+typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
@@ -1570,7 +1571,7 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum {
+typedef enum i2c_command_external_t {
     VER_TEMPC_CHIPS,
     GET_TEMPC_ALL
 } i2c_command_external_t;
@@ -1589,15 +1590,15 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 24 "../src/tempchip_mcp9808.xc" 2
+# 25 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 25 "../src/tempchip_mcp9808.xc" 2
+# 26 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 31 "../src/tempchip_mcp9808.h"
-typedef enum {
+typedef enum i2c_dev_address_external_t {
 
     TEMPC_HEATER = 0x18,
     TEMPC_AMBIENT = (0x18 + 1),
@@ -1609,23 +1610,27 @@ typedef enum {
 
 
 
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr);
-int tempchip_mcp9808_shutdown_wake (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t sw_ID);
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val);
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg);
-# 26 "../src/tempchip_mcp9808.xc" 2
+bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
+int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
+void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
+uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
+# 27 "../src/tempchip_mcp9808.xc" 2
 
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t address) {
+
+
+
+
+bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t address) {
 
     uint16_t read_val;
-    i2c_external_params_ptr->_use_dev_address = address;
+    i2c_external_params._use_dev_address = address;
 
-    read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, 0x06);
-    if ((i2c_external_params_ptr->_result == I2C_OK) && (read_val == 0x0054)) {
+    read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params, 0x06);
+    if ((i2c_external_params._result == I2C_OK) && (read_val == 0x0054)) {
 
-        read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, 0x07);
-        if ((i2c_external_params_ptr->_result == I2C_OK) && (read_val == 0x0400)) {
+        read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params, 0x07);
+        if ((i2c_external_params._result == I2C_OK) && (read_val == 0x0400)) {
             return true;
         } else {
             return false;
@@ -1640,11 +1645,11 @@ bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_pa
 
 
 
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool* ok_ptr) {
+i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok) {
 
-    uint16_t read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, 0x05);
+    uint16_t read_val = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params, 0x05);
 
-    if (i2c_external_params_ptr->_result == I2C_OK) {
+    if (i2c_external_params._result == I2C_OK) {
         if ((read_val & 0x1000) == 0) {
 
             int32_t math_i32 = (int32_t) read_val & 0x0FFF;
@@ -1657,16 +1662,15 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
             math_i32 *= 100;
             math_i32 /= 160;
 
-            *ok_ptr = true;
+            ok = true;
             return (i2c_temp_onetenthDegC_t) (math_i32 & 0xFFFF);
-        }
-        else {
-            *ok_ptr = false;
+        } else {
+            ok = false;
             return 0;
         }
     }
     else {
-        *ok_ptr = false;
+        ok = false;
         return 999;
     }
 }
@@ -1674,59 +1678,55 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 
 
 
-bool Tempchip_MCP9808_Shutdown_Wake_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, bool shutdown) {
+bool Tempchip_MCP9808_Shutdown_Wake_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool shutdown) {
 
     uint16_t conf_shutdown ;
-    uint16_t conf_reg_address = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params_ptr, 0x01);
+    uint16_t conf_reg_address = Tempchip_MCP9808_Read16(i2c_external_config, i2c_external_params, 0x01);
 
-    if (i2c_external_params_ptr->_result == I2C_OK) {
-        if (shutdown)
-        {
+    if (i2c_external_params._result == I2C_OK) {
+        if (shutdown) {
            conf_shutdown = conf_reg_address | 0x0100 ;
-           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params_ptr, 0x01, conf_shutdown);
-        }
-        else
-        {
+           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params, 0x01, conf_shutdown);
+        } else {
            conf_shutdown = conf_reg_address ^ 0x0100 ;
-           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params_ptr, 0x01, conf_shutdown);
+           Tempchip_MCP9808_Write16(i2c_external_config, i2c_external_params, 0x01, conf_shutdown);
         }
-        return (i2c_external_params_ptr->_result == I2C_OK);
-    }
-    else {
+        return (i2c_external_params._result == I2C_OK);
+    } else {
         return false;
     }
 }
 
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg, uint16_t val) {
-    int device = i2c_external_params_ptr->_use_dev_address;
+void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val) {
+    int device = i2c_external_params._use_dev_address;
     int reg_addr = reg;
     unsigned char msb = (val>>8) & 0x00ff;
     unsigned char lsb = val & 0x00ff;
     unsigned char data[] = {msb,lsb};
     int nbytes = 2;
 
-    i2c_external_params_ptr->_result =
+    i2c_external_params._result =
         i2c_master_write_reg (device, reg_addr, data, nbytes, i2c_external_config);
-
+    do { if(0) printf("I2C:W %u %u\n", device, i2c_external_params._result); } while (0);
 }
 
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t * i2c_external_params_ptr, uint8_t reg) {
-    int device = i2c_external_params_ptr->_use_dev_address;
+uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg) {
+    int device = i2c_external_params._use_dev_address;
     int reg_addr = reg;
     unsigned char data[2] = {};
     int nbytes = 2;
     uint16_t return_val;
 
-    i2c_external_params_ptr->_result =
+    i2c_external_params._result =
         i2c_master_read_reg (device, reg_addr, data, nbytes, i2c_external_config);
-
+    do { if(0) printf("I2C:R %u %u\n", device, i2c_external_params._result); } while (0);
 
 
     uint16_t msb = ((uint16_t) data[0]) << 8;
     uint16_t lsb = (uint16_t) data[1];
     return_val = msb + lsb;
 
-
+    do { if(0) printf("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params._result, device, reg_addr, return_val); } while (0);
 
     return return_val;
 }

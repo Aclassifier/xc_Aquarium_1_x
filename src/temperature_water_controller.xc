@@ -4,7 +4,8 @@
  *  Created on: 1. feb. 2017
  *      Author: teig
  */
-
+#define INCLUDES
+#ifdef INCLUDES
 #include <platform.h>
 #include <xs1.h>
 #include <stdio.h>
@@ -23,9 +24,13 @@
 #include "Temperature_Heater_Controller.h"
 
 #include "Temperature_Water_Controller.h"
+#endif
 
-#define RAW_TIMER_INTERVAL_IS_1_SECOND       1000
-#define NUM_TIMER_TICKS_PER_MINUTE           60
+#define DEBUG_PRINT_WATER_CONTROLLER 1 // Cost 2K
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_WATER_CONTROLLER) printf(fmt, __VA_ARGS__); } while (0)
+
+#define RAW_TIMER_INTERVAL_IS_1_SECOND 1000
+#define NUM_TIMER_TICKS_PER_MINUTE       60
 
 //#define DEBUG_TEMP_FAST
 #ifdef DEBUG_TEMP_FAST
@@ -60,7 +65,7 @@ void Temperature_Water_Controller (
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
-    printf ("Temperature_Water_Controller started\n");
+    debug_printf ("%s", "Temperature_Water_Controller started\n");
 
     tmr :> time;
 
@@ -70,75 +75,67 @@ void Temperature_Water_Controller (
                 time += (RAW_TIMER_INTERVAL_IS_1_SECOND * XS1_TIMER_KHZ);
                 raw_timer_interval_cntdown--;
 
-                // printf ("   WATER: %u\n", raw_timer_interval_cntdown);
-
                 if (raw_timer_interval_cntdown == 0) {
                     raw_timer_interval_cntdown = TEMP_MEASURE_INTERVAL_IS_10_MINUTES;
 
-                    // printf ("WATER: calling i_temperature_heater_commands.get_temp\n");
-
-                    i_temperature_heater_commands.get_temps (temps_onetenthDegC); // could deadlock on
-                    // call i_temperature_water_commands.get_temp_degC_string_filtered in _Aquarium_1_x
-
-                    // printf ("WATER: returned i_temperature_heater_commands.get_temp\n");
+                    i_temperature_heater_commands.get_temps (temps_onetenthDegC); // Filtered inÊTemperature_Heater_Controller
+                    // Could deadlock on call i_temperature_water_commands.get_temp_degC_str in _Aquarium_1_x (fixed)
 
                     temp_onetenthDegC_water_delta        = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC_prev[IOF_TEMPC_WATER];
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
                     temp_onetenthDegC_water_wanted_diff  = temps_onetenthDegC[IOF_TEMPC_WATER] - temp_onetenthDegC_water_wanted;
 
-                    printf ("DIFF with wanted %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temp_onetenthDegC_water_wanted, temp_onetenthDegC_water_wanted_diff);
+                    debug_printf ("DIFF with wanted %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temp_onetenthDegC_water_wanted, temp_onetenthDegC_water_wanted_diff);
+
                     if (temp_onetenthDegC_water_wanted_diff > 0) {
                         // Above
-                        printf ("above: ");
+                        debug_printf ("%s", "above: ");
                         if (temp_onetenthDegC_water_ambient_diff > 0) {
                             // Water hotter than ambient air
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_24_5_SLOW_COOLING; // SOME
                             now_regulating_at = REGULATING_AT_TEMP_REACHED;
-                            printf ("slow cool ");
+                            debug_printf ("%s", "slow cool ");
                         } else {
                             // Water colder than ambient air
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // OFF
                             now_regulating_at = REGULATING_AT_HOTTER_AMBIENT;
-                            printf ("fast cool ");
+                            debug_printf ("%s", "fast cool ");
                         }
                     } else if (temp_onetenthDegC_water_wanted_diff < 0) {
                         // Below
-                        printf ("below: ");
+                        debug_printf ("%s"," below: ");
                         if (temp_onetenthDegC_water_wanted_diff <= (-TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
                             // Below much
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
                             now_regulating_at = REGULATING_AT_BOILING;
-                            printf (" fast heat");
+                            debug_printf ("%s", " fast heat");
                         } else {
                             // Below
                            temp_onetenthDegC_heater_limit = temp_onetenthDegC_water_wanted + (temp_onetenthDegC_water_ambient_diff * AMBIENT_WATER_FACTOR_SLOW_HEATING_3);
                            now_regulating_at = REGULATING_AT_SIMMERING;
-                           printf (" slow heat");
+                           debug_printf ("%s", " slow heat");
                         }
                     } else {
-                        printf ("same "); // Equal, don't touch temp_onetenthDegC_heater_limit
+                        debug_printf ("%s", "same "); // Equal, don't touch temp_onetenthDegC_heater_limit
                     }
-                    printf ("\n");
 
-                    printf ("DELTA since last %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temps_onetenthDegC_prev[IOF_TEMPC_WATER], temp_onetenthDegC_water_delta);
+                    debug_printf ("%s", "\n");
+                    debug_printf ("DELTA since last %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temps_onetenthDegC_prev[IOF_TEMPC_WATER], temp_onetenthDegC_water_delta);
+
                     if (temp_onetenthDegC_water_delta > 0) {
-                        // Increasing
-                        printf ("increasing ");
+                        debug_printf ("%s", "increasing ");
                         if (temp_onetenthDegC_water_delta >= TEMP_ONETENTHDEGC_00_2_HYSTERESIS) {
-                            // Increasing enough
-                            printf ("enough ");
+                            debug_printf ("%s", "enough ");
                         } else {} // Not increasing enough
                     } else if (temp_onetenthDegC_water_delta < 0) {
-                        // Falling
-                        printf ("falling ");
+                        debug_printf ("%s", "falling ");
                         if (temp_onetenthDegC_water_delta <= (-TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
-                            // Falling enough
-                            printf ("enough ");
+                            debug_printf ("%s", "enough ");
                         } else {} // Not falling enough
                     } else {
-                        printf ("same "); // Equal
+                        debug_printf ("%s", "same "); // Equal
                     }
-                    printf ("\n");
+                    debug_printf ("%s", "\n");
 
                     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
 
@@ -148,9 +145,10 @@ void Temperature_Water_Controller (
                 }
             } break;
 
-            case i_temperature_water_commands.get_temp_degC_string_filtered (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
+            case i_temperature_water_commands.get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
 
-                // printf ("WATER: get_temp_degC_string_filtered\n");
+                // Not filtered here, but inÊTemperature_Heater_Controller
+
                 char temp_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_DEGC};
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert;
@@ -163,7 +161,6 @@ void Temperature_Water_Controller (
             } break;
 
             case i_temperature_water_commands.get_now_regulating_at (void) -> {now_regulating_at_t return_now_regulating_at} : {
-                // printf ("WATER: get_now_regulating_at\n");
                 return_now_regulating_at = now_regulating_at;
             } break;
         }
