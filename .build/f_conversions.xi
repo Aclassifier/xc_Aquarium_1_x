@@ -1591,8 +1591,8 @@ void myExceptionHandler(void);
 
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
-typedef int light_range_t;
-# 40 "../src/f_conversions.h"
+typedef int light_sensor_range_t;
+# 42 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1615,7 +1615,7 @@ typedef struct temp_onetenthDegC_mean_t {
 
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[5]);
-{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
+{light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
@@ -1827,36 +1827,36 @@ TC1047_Raw_DegC_To_String_Ok (
     return {degC_dp1, ! error};
 }
 
-{light_range_t, bool}
+{light_sensor_range_t, bool}
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
 # 275 "../src/f_conversions.xc"
-    light_range_t light_range = adc_val_mean_i/407;
-    if (light_range > 99) light_range = 99;
+    light_sensor_range_t light_sensor_range = adc_val_mean_i/407;
+    if (light_sensor_range > 99) light_sensor_range = 99;
 
     int sprintf_return;
     bool error = false;
 # 294 "../src/f_conversions.xc"
-    error |= ((light_range < 0) || (light_range > 99));
+    error |= ((light_sensor_range < 0) || (light_sensor_range > 99));
 
     if (!isnull(lux_str)) {
-        sprintf_return = sprintf (lux_str, "%02u", light_range);
+        sprintf_return = sprintf (lux_str, "%02u", light_sensor_range);
         error |= (sprintf_return != 2);
         error |= (sprintf_return < 0);
 
         if (error) {
             char error_text [] = "??";
             __builtin_memcpy_xc(lux_str, error_text, sizeof(error_text));
-            light_range = 99;
+            light_sensor_range = 99;
         } else {}
     }
 
     if (error) {
-        light_range = 99;
+        light_sensor_range = 99;
     } else {}
 
-    return {light_range, ! error};
+    return {light_sensor_range, ! error};
 }
 
 {voltage_onetenthV_t, bool}

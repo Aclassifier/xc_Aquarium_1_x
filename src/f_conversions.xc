@@ -257,7 +257,7 @@ TC1047_Raw_DegC_To_String_Ok (
     return {degC_dp1, not error};
 }
 
-{light_range_t, bool}
+{light_sensor_range_t, bool}
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[INNER_LUX_TEXT_LEN]) {
@@ -272,8 +272,8 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     // Let's take full number to 99: 65520 / 661 = 99 HOWEVER THIS TURNS OUT TO BE MAX 61 when full light
     // 65520 / 407 should give 99 as max, then
 
-    light_range_t light_range = adc_val_mean_i/407;  // Dark to low light is zero, normal 5-10, max 99
-    if (light_range > INNER_MAX_LUX) light_range = INNER_MAX_LUX; // Error will not be set
+    light_sensor_range_t light_sensor_range = adc_val_mean_i/407;  // Dark to low light is zero, normal 5-10, max 99
+    if (light_sensor_range > INNER_MAX_LUX) light_sensor_range = INNER_MAX_LUX; // Error will not be set
 
     int sprintf_return;
     bool error = false;
@@ -282,34 +282,34 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 
     // if (!boot_from_jtag) { /* stuff that is only done when flashed */ }
 
-    // if (light_range > 50) {myExceptionHandler();}
-    // if (light_range > 50) {
+    // if (light_sensor_range > 50) {myExceptionHandler();}
+    // if (light_sensor_range > 50) {
         // int value = 0;
-        // light_range = light_range / value;
+        // light_sensor_range = light_sensor_range / value;
     // }
-    // if (light_range > 50) {
+    // if (light_sensor_range > 50) {
     //     asm(" ecallf %0" :: "r" (0));
     // }
 
-    error or_eq ((light_range < INNER_MIN_LUX) or (light_range > INNER_MAX_LUX));
+    error or_eq ((light_sensor_range < INNER_MIN_LUX) or (light_sensor_range > INNER_MAX_LUX));
 
     if (!isnull(lux_str)) {
-        sprintf_return = sprintf (lux_str, "%02u", light_range);
+        sprintf_return = sprintf (lux_str, "%02u", light_sensor_range);
         error or_eq (sprintf_return != 2); // "25.0"
         error or_eq (sprintf_return < 0);
 
         if (error) {
             char error_text [] = INNER_LUX_ERROR_TEXT;
             memcpy (lux_str, error_text, sizeof(error_text));
-            light_range = INNER_MAX_LUX;
+            light_sensor_range = INNER_MAX_LUX;
         } else {} // No code: ok
     }
 
     if (error) {
-        light_range = INNER_MAX_LUX;
+        light_sensor_range = INNER_MAX_LUX;
     } else {} // No code: ok
 
-    return {light_range, not error};
+    return {light_sensor_range, not error};
 }
 
 {voltage_onetenthV_t, bool}

@@ -1576,7 +1576,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string46:
 .asciiz"lux_str"
 .Linfo_string47:
-.asciiz"light_range"
+.asciiz"light_sensor_range"
 .Linfo_string48:
 .asciiz"rr_12V_24V_str"
 .Linfo_string49:

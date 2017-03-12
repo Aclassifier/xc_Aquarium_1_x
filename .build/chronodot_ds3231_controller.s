@@ -34,7 +34,7 @@
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends
 	.set Chronodot_DS3231_Controller.select.y.enable.cases,0
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases
-	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords)
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords)
 	.globl Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords
 	.set Chronodot_DS3231_Controller.select.enable.savedstate,17
 	.globl Chronodot_DS3231_Controller.select.enable.savedstate
@@ -46,7 +46,7 @@
 	.globl Chronodot_DS3231_Controller.select.enable.cases.maxchanends
 	.set Chronodot_DS3231_Controller.select.enable.cases,0
 	.globl Chronodot_DS3231_Controller.select.enable.cases
-	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.case.1.nstackwords)
+	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.case.0.nstackwords)
 	.globl Chronodot_DS3231_Controller.select.enable.cases.nstackwords
 	.weak _i.chronodot_ds3231_if.get_time_ok.maxchanends.group
 	.max_reduce _i.chronodot_ds3231_if.get_time_ok.max.maxchanends, _i.chronodot_ds3231_if.get_time_ok.maxchanends.group, 0
@@ -5013,31 +5013,31 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string13:
 .asciiz"heat_cable_commands_t"
 .Linfo_string14:
-.asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
+.asciiz"LIGHT_COMPOSITION_0000_mW_OFF"
 .Linfo_string15:
-.asciiz"LIGHT_COMPOSITION_0666_BACK1_ON"
+.asciiz"LIGHT_COMPOSITION_0666_mW_ON"
 .Linfo_string16:
-.asciiz"LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON"
+.asciiz"LIGHT_COMPOSITION_2000_mW_ON_MIXED"
 .Linfo_string17:
-.asciiz"LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON"
+.asciiz"LIGHT_COMPOSITION_2666_mW_ON"
 .Linfo_string18:
-.asciiz"LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON"
+.asciiz"LIGHT_COMPOSITION_3333_mW_ON"
 .Linfo_string19:
-.asciiz"LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON"
+.asciiz"LIGHT_COMPOSITION_4000_mW_ON"
 .Linfo_string20:
-.asciiz"LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON"
+.asciiz"LIGHT_COMPOSITION_5666_mW_ON"
 .Linfo_string21:
-.asciiz"LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON"
+.asciiz"LIGHT_COMPOSITION_8333_mW_ON"
 .Linfo_string22:
-.asciiz"LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON"
+.asciiz"LIGHT_COMPOSITION_9000_mW_ON"
 .Linfo_string23:
-.asciiz"LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON"
+.asciiz"LIGHT_COMPOSITION_6000_mW_ON"
 .Linfo_string24:
-.asciiz"LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON"
+.asciiz"LIGHT_COMPOSITION_3000_mW_ON"
 .Linfo_string25:
-.asciiz"LIGHT_COMPOSITION_2000_CENTER3_ON"
+.asciiz"LIGHT_COMPOSITION_2000_mW_ON_WHITE"
 .Linfo_string26:
-.asciiz"LIGHT_COMPOSITION_5000_FRONT3_ON"
+.asciiz"LIGHT_COMPOSITION_5000_mW_ON"
 .Linfo_string27:
 .asciiz"light_composition_t"
 .Linfo_string28:
@@ -5053,252 +5053,254 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string33:
 .asciiz"LIGHT_CONTROL_IS_RANDOM"
 .Linfo_string34:
-.asciiz"light_control_scheme_t"
+.asciiz"LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE"
 .Linfo_string35:
-.asciiz"IOF_TEMPC_HEATER"
+.asciiz"light_control_scheme_t"
 .Linfo_string36:
-.asciiz"IOF_TEMPC_AMBIENT"
+.asciiz"IOF_TEMPC_HEATER"
 .Linfo_string37:
-.asciiz"IOF_TEMPC_WATER"
+.asciiz"IOF_TEMPC_AMBIENT"
 .Linfo_string38:
-.asciiz"IOF_TEMPC_HEATER_MEAN_LAST_CYCLE"
+.asciiz"IOF_TEMPC_WATER"
 .Linfo_string39:
-.asciiz"iof_temps_t"
+.asciiz"IOF_TEMPC_HEATER_MEAN_LAST_CYCLE"
 .Linfo_string40:
-.asciiz"HEATER_WIRES_ONE_ALTERNATING_IS_HALF"
+.asciiz"iof_temps_t"
 .Linfo_string41:
-.asciiz"HEATER_WIRES_BOTH_IS_FULL"
+.asciiz"HEATER_WIRES_ONE_ALTERNATING_IS_HALF"
 .Linfo_string42:
-.asciiz"heater_wires_t"
+.asciiz"HEATER_WIRES_BOTH_IS_FULL"
 .Linfo_string43:
-.asciiz"_i.startkit_adc_acquire_if._chan.read"
+.asciiz"heater_wires_t"
 .Linfo_string44:
-.asciiz"int"
+.asciiz"_i.startkit_adc_acquire_if._chan.read"
 .Linfo_string45:
-.asciiz"_i.startkit_adc_acquire_if._chan.trigger"
+.asciiz"int"
 .Linfo_string46:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
+.asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 .Linfo_string47:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
+.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
 .Linfo_string48:
-.asciiz"_i.i2c_external_commands_if._chan.command"
+.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
 .Linfo_string49:
-.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
+.asciiz"_i.i2c_external_commands_if._chan.command"
 .Linfo_string50:
-.asciiz"i2c_temp_ok"
+.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 .Linfo_string51:
-.asciiz"sizetype"
+.asciiz"i2c_temp_ok"
 .Linfo_string52:
-.asciiz"i2c_temp_onetenthDegC"
+.asciiz"sizetype"
 .Linfo_string53:
-.asciiz"short"
+.asciiz"i2c_temp_onetenthDegC"
 .Linfo_string54:
-.asciiz"tag_i2c_temps_t"
+.asciiz"short"
 .Linfo_string55:
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
+.asciiz"tag_i2c_temps_t"
 .Linfo_string56:
-.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
+.asciiz"_i.i2c_external_commands_if._chan_y.command"
 .Linfo_string57:
-.asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
+.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 .Linfo_string58:
-.asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
 .Linfo_string59:
-.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 .Linfo_string60:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 .Linfo_string61:
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 .Linfo_string62:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 .Linfo_string63:
-.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 .Linfo_string64:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 .Linfo_string65:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 .Linfo_string66:
-.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 .Linfo_string67:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string68:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
 .Linfo_string69:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string70:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 .Linfo_string71:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 .Linfo_string72:
-.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 .Linfo_string73:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 .Linfo_string74:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
 .Linfo_string75:
-.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 .Linfo_string76:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string77:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string78:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string79:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string80:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
 .Linfo_string81:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string82:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string83:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string84:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string85:
-.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
 .Linfo_string86:
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
+.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 .Linfo_string87:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 .Linfo_string88:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 .Linfo_string89:
-.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string90:
-.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
+.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string91:
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
 .Linfo_string92:
-.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
+.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 .Linfo_string93:
-.asciiz"delay_seconds"
+.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 .Linfo_string94:
-.asciiz"delay_milliseconds"
+.asciiz"delay_seconds"
 .Linfo_string95:
-.asciiz"delay_microseconds"
+.asciiz"delay_milliseconds"
 .Linfo_string96:
-.asciiz"chronodot_registers_to_datetime"
+.asciiz"delay_microseconds"
 .Linfo_string97:
-.asciiz"year"
+.asciiz"chronodot_registers_to_datetime"
 .Linfo_string98:
-.asciiz"unsigned int"
+.asciiz"year"
 .Linfo_string99:
-.asciiz"month"
+.asciiz"unsigned int"
 .Linfo_string100:
-.asciiz"day"
+.asciiz"month"
 .Linfo_string101:
-.asciiz"hour"
+.asciiz"day"
 .Linfo_string102:
-.asciiz"minute"
+.asciiz"hour"
 .Linfo_string103:
-.asciiz"second"
+.asciiz"minute"
 .Linfo_string104:
-.asciiz"__TYPE_15"
+.asciiz"second"
 .Linfo_string105:
-.asciiz"datetime_to_chronodot_registers"
+.asciiz"__TYPE_14"
 .Linfo_string106:
-.asciiz"Chronodot_DS3231_Controller"
+.asciiz"datetime_to_chronodot_registers"
 .Linfo_string107:
-.asciiz"Chronodot_DS3231_Controller.select.0.case.0"
+.asciiz"Chronodot_DS3231_Controller"
 .Linfo_string108:
-.asciiz"Chronodot_DS3231_Controller.select.0.enable"
+.asciiz"Chronodot_DS3231_Controller.select.0.case.0"
 .Linfo_string109:
-.asciiz"Chronodot_DS3231_Controller.init.1"
+.asciiz"Chronodot_DS3231_Controller.select.0.enable"
 .Linfo_string110:
-.asciiz"Chronodot_DS3231_Controller.init.0"
+.asciiz"Chronodot_DS3231_Controller.init.1"
 .Linfo_string111:
-.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
+.asciiz"Chronodot_DS3231_Controller.init.0"
 .Linfo_string112:
-.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 .Linfo_string113:
-.asciiz"Chronodot_DS3231_Controller.select.y.enable"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
 .Linfo_string114:
-.asciiz"Chronodot_DS3231_Controller.select.case.0"
+.asciiz"Chronodot_DS3231_Controller.select.y.enable"
 .Linfo_string115:
-.asciiz"Chronodot_DS3231_Controller.select.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.case.0"
 .Linfo_string116:
-.asciiz"Chronodot_DS3231_Controller.select.enable"
+.asciiz"Chronodot_DS3231_Controller.select.case.1"
 .Linfo_string117:
-.asciiz"Chronodot_DS3231_Controller.fini"
+.asciiz"Chronodot_DS3231_Controller.select.enable"
 .Linfo_string118:
-.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok"
+.asciiz"Chronodot_DS3231_Controller.fini"
 .Linfo_string119:
-.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok"
 .Linfo_string120:
-.asciiz"p"
+.asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
 .Linfo_string121:
-.asciiz"unsigned char"
+.asciiz"p"
 .Linfo_string122:
-.asciiz"new_datetime"
+.asciiz"unsigned char"
 .Linfo_string123:
-.asciiz"chronodot_d3231_registers"
+.asciiz"new_datetime"
 .Linfo_string124:
-.asciiz"registers"
+.asciiz"chronodot_d3231_registers"
 .Linfo_string125:
-.asciiz"chronodot_d3231_registers_t"
+.asciiz"registers"
 .Linfo_string126:
-.asciiz"datetime"
+.asciiz"chronodot_d3231_registers_t"
 .Linfo_string127:
-.asciiz"i_chronodot_ds3231"
+.asciiz"datetime"
 .Linfo_string128:
-.asciiz"interface"
+.asciiz"i_chronodot_ds3231"
 .Linfo_string129:
-.asciiz"i_i2c_internal_commands"
+.asciiz"interface"
 .Linfo_string130:
-.asciiz"time"
+.asciiz"i_i2c_internal_commands"
 .Linfo_string131:
-.asciiz"ok"
+.asciiz"time"
 .Linfo_string132:
-.asciiz"return_ok"
+.asciiz"ok"
 .Linfo_string133:
-.asciiz"tmr"
+.asciiz"return_ok"
 .Linfo_string134:
-.asciiz"timer"
+.asciiz"tmr"
 .Linfo_string135:
-.asciiz"return_datetime"
+.asciiz"timer"
 .Linfo_string136:
-.asciiz"Chronodot_DS3231_Controller.init.1.state_ptr"
+.asciiz"return_datetime"
 .Linfo_string137:
-.asciiz"enable.flag"
+.asciiz"Chronodot_DS3231_Controller.init.1.state_ptr"
 .Linfo_string138:
-.asciiz"init.flag.or.func"
+.asciiz"enable.flag"
 .Linfo_string139:
-.asciiz"padding"
+.asciiz"init.flag.or.func"
 .Linfo_string140:
-.asciiz"frame.0"
+.asciiz"padding"
 .Linfo_string141:
-.asciiz"dest"
+.asciiz"frame.0"
 .Linfo_string142:
-.asciiz"chanend"
+.asciiz"dest"
 .Linfo_string143:
-.asciiz"last_notification_input"
+.asciiz"chanend"
 .Linfo_string144:
-.asciiz"param2"
+.asciiz"last_notification_input"
 .Linfo_string145:
-.asciiz"unsigned short"
+.asciiz"param2"
 .Linfo_string146:
-.asciiz"s"
+.asciiz"unsigned short"
 .Linfo_string147:
-.asciiz"y"
+.asciiz"s"
 .Linfo_string148:
-.asciiz"yarg"
+.asciiz"y"
 .Linfo_string149:
-.asciiz"param1"
+.asciiz"yarg"
 .Linfo_string150:
-.asciiz"param3"
+.asciiz"param1"
 .Linfo_string151:
-.asciiz"param4"
+.asciiz"param3"
 .Linfo_string152:
-.asciiz"delay"
+.asciiz"param4"
 .Linfo_string153:
-.asciiz"Chronodot_DS3231_Controller.select.state_ptr"
+.asciiz"delay"
 .Linfo_string154:
-.asciiz"Chronodot_DS3231_Controller.init.0.state_ptr"
+.asciiz"Chronodot_DS3231_Controller.select.state_ptr"
 .Linfo_string155:
+.asciiz"Chronodot_DS3231_Controller.init.0.state_ptr"
+.Linfo_string156:
 .asciiz"Chronodot_DS3231_Controller.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3255
+	.long	3261
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -5389,7 +5391,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	12
 	.byte	0
 	.byte	2
-	.long	.Linfo_string34
+	.long	.Linfo_string35
 	.byte	4
 	.byte	3
 	.long	.Linfo_string28
@@ -5409,31 +5411,34 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	3
 	.long	.Linfo_string33
 	.byte	5
+	.byte	3
+	.long	.Linfo_string34
+	.byte	6
 	.byte	0
 	.byte	2
-	.long	.Linfo_string39
+	.long	.Linfo_string40
 	.byte	4
-	.byte	3
-	.long	.Linfo_string35
-	.byte	0
 	.byte	3
 	.long	.Linfo_string36
-	.byte	1
+	.byte	0
 	.byte	3
 	.long	.Linfo_string37
-	.byte	2
+	.byte	1
 	.byte	3
 	.long	.Linfo_string38
+	.byte	2
+	.byte	3
+	.long	.Linfo_string39
 	.byte	3
 	.byte	0
 	.byte	2
-	.long	.Linfo_string42
+	.long	.Linfo_string43
 	.byte	4
 	.byte	3
-	.long	.Linfo_string40
+	.long	.Linfo_string41
 	.byte	0
 	.byte	3
-	.long	.Linfo_string41
+	.long	.Linfo_string42
 	.byte	1
 	.byte	0
 	.byte	4
@@ -5477,60 +5482,60 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string118
-	.long	.Linfo_string118
+	.long	.Linfo_string119
+	.long	.Linfo_string119
 	.byte	1
 	.byte	131
-	.long	299
+	.long	305
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc0
-	.long	.Linfo_string120
-	.long	2894
+	.long	.Linfo_string121
+	.long	2900
 	.byte	7
-	.long	.Linfo_string122
+	.long	.Linfo_string123
 	.byte	1
 	.byte	131
-	.long	2906
+	.long	2912
 	.byte	0
 	.byte	8
 	.long	.Ldebug_ranges1
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string119
-	.long	.Linfo_string119
+	.long	.Linfo_string120
+	.long	.Linfo_string120
 	.byte	1
 	.byte	126
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc1
-	.long	.Linfo_string120
-	.long	2894
+	.long	.Linfo_string121
+	.long	2900
 	.byte	0
 	.byte	5
 	.long	.Ldebug_ranges2
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string96
-	.long	.Linfo_string96
+	.long	.Linfo_string97
+	.long	.Linfo_string97
 	.byte	1
 	.byte	41
-	.long	2684
+	.long	2690
 	.byte	1
 	.byte	7
-	.long	.Linfo_string123
+	.long	.Linfo_string124
 	.byte	1
 	.byte	41
-	.long	2911
+	.long	2917
 	.byte	9
 	.long	.Ldebug_ranges3
 	.byte	10
-	.long	.Linfo_string126
+	.long	.Linfo_string127
 	.byte	1
 	.byte	42
-	.long	2684
+	.long	2690
 	.byte	0
 	.byte	0
 	.byte	8
@@ -5538,105 +5543,105 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string105
-	.long	.Linfo_string105
+	.long	.Linfo_string106
+	.long	.Linfo_string106
 	.byte	1
 	.byte	54
 	.byte	1
 	.byte	11
 	.long	.Ldebug_loc2
-	.long	.Linfo_string123
+	.long	.Linfo_string124
 	.byte	1
 	.byte	54
-	.long	2946
+	.long	2952
 	.byte	7
-	.long	.Linfo_string126
+	.long	.Linfo_string127
 	.byte	1
 	.byte	54
-	.long	2906
+	.long	2912
 	.byte	0
 	.byte	8
 	.long	.Ldebug_ranges5
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string106
-	.long	.Linfo_string106
+	.long	.Linfo_string107
+	.long	.Linfo_string107
 	.byte	1
 	.byte	92
 	.byte	1
 	.byte	11
 	.long	.Ldebug_loc3
-	.long	.Linfo_string127
+	.long	.Linfo_string128
 	.byte	1
 	.byte	91
-	.long	2951
+	.long	2957
 	.byte	11
 	.long	.Ldebug_loc4
-	.long	.Linfo_string129
+	.long	.Linfo_string130
 	.byte	1
 	.byte	92
-	.long	2951
+	.long	2957
 	.byte	9
 	.long	.Ldebug_ranges10
 	.byte	10
-	.long	.Linfo_string126
+	.long	.Linfo_string127
 	.byte	1
 	.byte	94
-	.long	2684
+	.long	2690
 	.byte	9
 	.long	.Ldebug_ranges9
 	.byte	12
 	.long	.Ldebug_loc7
-	.long	.Linfo_string123
+	.long	.Linfo_string124
 	.byte	1
 	.byte	95
-	.long	2916
+	.long	2922
 	.byte	9
 	.long	.Ldebug_ranges8
 	.byte	12
 	.long	.Ldebug_loc6
-	.long	.Linfo_string131
+	.long	.Linfo_string132
 	.byte	1
 	.byte	96
-	.long	278
+	.long	284
 	.byte	9
 	.long	.Ldebug_ranges7
 	.byte	10
-	.long	.Linfo_string133
+	.long	.Linfo_string134
 	.byte	1
 	.byte	97
-	.long	2958
+	.long	2964
 	.byte	9
 	.long	.Ldebug_ranges6
 	.byte	12
 	.long	.Ldebug_loc5
-	.long	.Linfo_string130
+	.long	.Linfo_string131
 	.byte	1
 	.byte	98
-	.long	1138
+	.long	1144
 	.byte	13
 	.byte	1
 	.byte	89
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	131
-	.long	299
+	.long	305
 	.byte	10
-	.long	.Linfo_string122
+	.long	.Linfo_string123
 	.byte	1
 	.byte	131
-	.long	2906
+	.long	2912
 	.byte	10
-	.long	.Linfo_string135
+	.long	.Linfo_string136
 	.byte	1
 	.byte	126
-	.long	2684
+	.long	2690
 	.byte	10
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	126
-	.long	320
+	.long	326
 	.byte	0
 	.byte	0
 	.byte	0
@@ -5648,48 +5653,48 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string109
-	.long	.Linfo_string109
+	.long	.Linfo_string110
+	.long	.Linfo_string110
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc8
-	.long	.Linfo_string136
-	.long	2965
+	.long	.Linfo_string137
+	.long	2971
 	.byte	9
 	.long	.Ldebug_ranges16
 	.byte	10
-	.long	.Linfo_string126
+	.long	.Linfo_string127
 	.byte	1
 	.byte	94
-	.long	2684
+	.long	2690
 	.byte	9
 	.long	.Ldebug_ranges15
 	.byte	10
-	.long	.Linfo_string123
+	.long	.Linfo_string124
 	.byte	1
 	.byte	95
-	.long	2916
+	.long	2922
 	.byte	9
 	.long	.Ldebug_ranges14
 	.byte	10
-	.long	.Linfo_string131
+	.long	.Linfo_string132
 	.byte	1
 	.byte	96
-	.long	278
+	.long	284
 	.byte	9
 	.long	.Ldebug_ranges13
 	.byte	10
-	.long	.Linfo_string133
+	.long	.Linfo_string134
 	.byte	1
 	.byte	97
-	.long	2958
+	.long	2964
 	.byte	9
 	.long	.Ldebug_ranges12
 	.byte	10
-	.long	.Linfo_string130
+	.long	.Linfo_string131
 	.byte	1
 	.byte	98
-	.long	1138
+	.long	1144
 	.byte	0
 	.byte	0
 	.byte	0
@@ -5701,34 +5706,34 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string107
-	.long	.Linfo_string107
+	.long	.Linfo_string108
+	.long	.Linfo_string108
 	.byte	1
 	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges18
 	.byte	12
 	.long	.Ldebug_loc9
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	131
-	.long	299
+	.long	305
 	.byte	12
 	.long	.Ldebug_loc10
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	126
-	.long	320
+	.long	326
 	.byte	10
-	.long	.Linfo_string122
+	.long	.Linfo_string123
 	.byte	1
 	.byte	131
-	.long	2906
+	.long	2912
 	.byte	10
-	.long	.Linfo_string135
+	.long	.Linfo_string136
 	.byte	1
 	.byte	126
-	.long	2684
+	.long	2690
 	.byte	0
 	.byte	0
 	.byte	16
@@ -5736,8 +5741,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string111
-	.long	.Linfo_string111
+	.long	.Linfo_string112
+	.long	.Linfo_string112
 	.byte	1
 	.byte	106
 	.byte	15
@@ -5745,34 +5750,34 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string112
-	.long	.Linfo_string112
+	.long	.Linfo_string113
+	.long	.Linfo_string113
 	.byte	1
 	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges21
 	.byte	12
 	.long	.Ldebug_loc11
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	131
-	.long	299
+	.long	305
 	.byte	12
 	.long	.Ldebug_loc12
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	126
-	.long	320
+	.long	326
 	.byte	10
-	.long	.Linfo_string122
+	.long	.Linfo_string123
 	.byte	1
 	.byte	131
-	.long	2906
+	.long	2912
 	.byte	10
-	.long	.Linfo_string135
+	.long	.Linfo_string136
 	.byte	1
 	.byte	126
-	.long	2684
+	.long	2690
 	.byte	0
 	.byte	0
 	.byte	16
@@ -5780,8 +5785,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string114
-	.long	.Linfo_string114
+	.long	.Linfo_string115
+	.long	.Linfo_string115
 	.byte	1
 	.byte	106
 	.byte	15
@@ -5789,212 +5794,191 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string115
-	.long	.Linfo_string115
+	.long	.Linfo_string116
+	.long	.Linfo_string116
 	.byte	1
 	.byte	126
 	.byte	9
 	.long	.Ldebug_ranges24
 	.byte	12
 	.long	.Ldebug_loc13
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	131
-	.long	299
+	.long	305
 	.byte	12
 	.long	.Ldebug_loc14
-	.long	.Linfo_string132
+	.long	.Linfo_string133
 	.byte	1
 	.byte	126
-	.long	320
+	.long	326
 	.byte	10
-	.long	.Linfo_string122
+	.long	.Linfo_string123
 	.byte	1
 	.byte	131
-	.long	2906
+	.long	2912
 	.byte	10
-	.long	.Linfo_string135
+	.long	.Linfo_string136
 	.byte	1
 	.byte	126
-	.long	2684
+	.long	2690
 	.byte	0
 	.byte	0
 	.byte	17
-	.long	.Linfo_string43
-	.long	.Linfo_string43
-	.long	1138
+	.long	.Linfo_string44
+	.long	.Linfo_string44
+	.long	1144
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string143
-	.long	2751
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
 	.long	.Linfo_string144
-	.long	3087
+	.long	2757
+	.byte	18
+	.long	.Linfo_string145
+	.long	3093
 	.byte	0
 	.byte	19
-	.long	.Linfo_string44
+	.long	.Linfo_string45
 	.byte	5
 	.byte	4
 	.byte	20
-	.long	.Linfo_string45
-	.long	.Linfo_string45
+	.long	.Linfo_string46
+	.long	.Linfo_string46
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	0
 	.byte	17
-	.long	.Linfo_string46
-	.long	.Linfo_string46
-	.long	1138
+	.long	.Linfo_string47
+	.long	.Linfo_string47
+	.long	1144
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string143
-	.long	2751
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
 	.long	.Linfo_string144
-	.long	3087
-	.byte	0
-	.byte	20
-	.long	.Linfo_string47
-	.long	.Linfo_string47
-	.byte	1
+	.long	2757
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string145
+	.long	3093
 	.byte	0
 	.byte	20
 	.long	.Linfo_string48
 	.long	.Linfo_string48
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string147
+	.long	3118
+	.byte	0
+	.byte	20
+	.long	.Linfo_string49
+	.long	.Linfo_string49
+	.byte	1
 	.byte	18
-	.long	.Linfo_string149
-	.long	3144
+	.long	.Linfo_string142
+	.long	3086
+	.byte	18
+	.long	.Linfo_string150
+	.long	3150
 	.byte	0
 	.byte	17
-	.long	.Linfo_string49
-	.long	.Linfo_string49
-	.long	1289
+	.long	.Linfo_string50
+	.long	.Linfo_string50
+	.long	1295
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string143
-	.long	2751
+	.long	.Linfo_string144
+	.long	2757
 	.byte	0
 	.byte	21
-	.long	.Linfo_string54
+	.long	.Linfo_string55
 	.byte	20
 	.byte	22
-	.long	.Linfo_string50
-	.long	1316
+	.long	.Linfo_string51
+	.long	1322
 	.byte	0
 	.byte	22
-	.long	.Linfo_string52
-	.long	1336
+	.long	.Linfo_string53
+	.long	1342
 	.byte	12
 	.byte	0
 	.byte	23
 	.long	50
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	25
-	.long	.Linfo_string51
+	.long	.Linfo_string52
 	.byte	8
 	.byte	7
 	.byte	23
-	.long	1349
+	.long	1355
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	19
-	.long	.Linfo_string53
+	.long	.Linfo_string54
 	.byte	5
 	.byte	2
 	.byte	20
-	.long	.Linfo_string55
-	.long	.Linfo_string55
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3144
-	.byte	0
-	.byte	17
 	.long	.Linfo_string56
 	.long	.Linfo_string56
-	.long	1289
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string143
-	.long	2751
-	.byte	0
-	.byte	17
-	.long	.Linfo_string57
-	.long	.Linfo_string57
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	18
-	.long	.Linfo_string144
-	.long	2911
-	.byte	0
-	.byte	20
-	.long	.Linfo_string58
-	.long	.Linfo_string58
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	0
-	.byte	17
-	.long	.Linfo_string59
-	.long	.Linfo_string59
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	18
-	.long	.Linfo_string144
-	.long	3149
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
 	.long	.Linfo_string150
-	.long	3154
+	.long	3150
+	.byte	0
+	.byte	17
+	.long	.Linfo_string57
+	.long	.Linfo_string57
+	.long	1295
+	.byte	1
 	.byte	18
-	.long	.Linfo_string151
-	.long	2751
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string144
+	.long	2757
+	.byte	0
+	.byte	17
+	.long	.Linfo_string58
+	.long	.Linfo_string58
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string142
+	.long	3086
+	.byte	18
+	.long	.Linfo_string150
+	.long	3155
+	.byte	18
+	.long	.Linfo_string145
+	.long	2917
+	.byte	0
+	.byte	20
+	.long	.Linfo_string59
+	.long	.Linfo_string59
+	.byte	1
+	.byte	18
+	.long	.Linfo_string142
+	.long	3086
+	.byte	18
+	.long	.Linfo_string150
+	.long	3155
 	.byte	0
 	.byte	17
 	.long	.Linfo_string60
@@ -6002,647 +5986,668 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	50
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	18
-	.long	.Linfo_string144
-	.long	2911
-	.byte	0
-	.byte	20
-	.long	.Linfo_string61
-	.long	.Linfo_string61
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	0
-	.byte	17
-	.long	.Linfo_string62
-	.long	.Linfo_string62
-	.long	50
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3149
-	.byte	18
-	.long	.Linfo_string144
-	.long	3149
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
 	.long	.Linfo_string150
-	.long	3154
+	.long	3155
+	.byte	18
+	.long	.Linfo_string145
+	.long	3155
 	.byte	18
 	.long	.Linfo_string151
-	.long	2751
+	.long	3160
+	.byte	18
+	.long	.Linfo_string152
+	.long	2757
 	.byte	0
-	.byte	20
-	.long	.Linfo_string63
-	.long	.Linfo_string63
+	.byte	17
+	.long	.Linfo_string61
+	.long	.Linfo_string61
+	.long	50
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3164
+	.long	.Linfo_string150
+	.long	3155
+	.byte	18
+	.long	.Linfo_string145
+	.long	2917
+	.byte	0
+	.byte	20
+	.long	.Linfo_string62
+	.long	.Linfo_string62
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3155
+	.byte	0
+	.byte	17
+	.long	.Linfo_string63
+	.long	.Linfo_string63
+	.long	50
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3155
+	.byte	18
+	.long	.Linfo_string145
+	.long	3155
+	.byte	18
+	.long	.Linfo_string151
+	.long	3160
+	.byte	18
+	.long	.Linfo_string152
+	.long	2757
 	.byte	0
 	.byte	20
 	.long	.Linfo_string64
 	.long	.Linfo_string64
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3169
+	.long	.Linfo_string150
+	.long	3170
 	.byte	0
 	.byte	20
 	.long	.Linfo_string65
 	.long	.Linfo_string65
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3174
+	.long	.Linfo_string150
+	.long	3175
 	.byte	0
 	.byte	20
 	.long	.Linfo_string66
 	.long	.Linfo_string66
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3179
-	.byte	18
-	.long	.Linfo_string144
-	.long	3184
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
 	.long	.Linfo_string150
-	.long	3169
+	.long	3180
 	.byte	0
 	.byte	20
 	.long	.Linfo_string67
 	.long	.Linfo_string67
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3189
-	.byte	0
-	.byte	20
-	.long	.Linfo_string68
-	.long	.Linfo_string68
-	.byte	1
-	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	0
-	.byte	20
-	.long	.Linfo_string69
-	.long	.Linfo_string69
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3164
-	.byte	0
-	.byte	20
-	.long	.Linfo_string70
-	.long	.Linfo_string70
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3169
-	.byte	0
-	.byte	20
-	.long	.Linfo_string71
-	.long	.Linfo_string71
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3174
-	.byte	0
-	.byte	20
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.byte	1
-	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	18
-	.long	.Linfo_string149
-	.long	3179
-	.byte	18
-	.long	.Linfo_string144
-	.long	3184
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
 	.long	.Linfo_string150
-	.long	3169
+	.long	3185
+	.byte	18
+	.long	.Linfo_string145
+	.long	3190
+	.byte	18
+	.long	.Linfo_string151
+	.long	3175
+	.byte	0
+	.byte	20
+	.long	.Linfo_string68
+	.long	.Linfo_string68
+	.byte	1
+	.byte	18
+	.long	.Linfo_string142
+	.long	3086
+	.byte	18
+	.long	.Linfo_string150
+	.long	3195
+	.byte	0
+	.byte	20
+	.long	.Linfo_string69
+	.long	.Linfo_string69
+	.byte	1
+	.byte	18
+	.long	.Linfo_string142
+	.long	3086
+	.byte	0
+	.byte	20
+	.long	.Linfo_string70
+	.long	.Linfo_string70
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3170
+	.byte	0
+	.byte	20
+	.long	.Linfo_string71
+	.long	.Linfo_string71
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3175
+	.byte	0
+	.byte	20
+	.long	.Linfo_string72
+	.long	.Linfo_string72
+	.byte	1
+	.byte	18
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3180
 	.byte	0
 	.byte	20
 	.long	.Linfo_string73
 	.long	.Linfo_string73
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3189
+	.long	.Linfo_string150
+	.long	3185
+	.byte	18
+	.long	.Linfo_string145
+	.long	3190
+	.byte	18
+	.long	.Linfo_string151
+	.long	3175
 	.byte	0
 	.byte	20
 	.long	.Linfo_string74
 	.long	.Linfo_string74
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3195
 	.byte	0
 	.byte	20
 	.long	.Linfo_string75
 	.long	.Linfo_string75
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3207
+	.long	.Linfo_string147
+	.long	3118
 	.byte	0
 	.byte	20
 	.long	.Linfo_string76
 	.long	.Linfo_string76
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3212
-	.byte	18
-	.long	.Linfo_string144
-	.long	3217
+	.long	.Linfo_string150
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string77
 	.long	.Linfo_string77
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3235
+	.long	.Linfo_string150
+	.long	3218
+	.byte	18
+	.long	.Linfo_string145
+	.long	3223
 	.byte	0
 	.byte	20
 	.long	.Linfo_string78
 	.long	.Linfo_string78
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3253
-	.byte	18
-	.long	.Linfo_string144
-	.long	3207
+	.long	.Linfo_string150
+	.long	3241
 	.byte	0
 	.byte	20
 	.long	.Linfo_string79
 	.long	.Linfo_string79
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3253
+	.long	.Linfo_string150
+	.long	3259
 	.byte	18
-	.long	.Linfo_string144
-	.long	3207
+	.long	.Linfo_string145
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string80
 	.long	.Linfo_string80
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	3207
+	.long	.Linfo_string150
+	.long	3259
+	.byte	18
+	.long	.Linfo_string145
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string81
 	.long	.Linfo_string81
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3212
-	.byte	18
-	.long	.Linfo_string144
-	.long	3217
+	.long	.Linfo_string150
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string82
 	.long	.Linfo_string82
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3235
+	.long	.Linfo_string150
+	.long	3218
+	.byte	18
+	.long	.Linfo_string145
+	.long	3223
 	.byte	0
 	.byte	20
 	.long	.Linfo_string83
 	.long	.Linfo_string83
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3253
-	.byte	18
-	.long	.Linfo_string144
-	.long	3207
+	.long	.Linfo_string150
+	.long	3241
 	.byte	0
 	.byte	20
 	.long	.Linfo_string84
 	.long	.Linfo_string84
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	3253
+	.long	.Linfo_string150
+	.long	3259
 	.byte	18
-	.long	.Linfo_string144
-	.long	3207
+	.long	.Linfo_string145
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string85
 	.long	.Linfo_string85
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string147
+	.long	3118
+	.byte	18
+	.long	.Linfo_string150
+	.long	3259
+	.byte	18
+	.long	.Linfo_string145
+	.long	3213
 	.byte	0
 	.byte	20
 	.long	.Linfo_string86
 	.long	.Linfo_string86
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
-	.byte	18
-	.long	.Linfo_string149
-	.long	3212
-	.byte	18
-	.long	.Linfo_string144
-	.long	3217
+	.long	.Linfo_string142
+	.long	3086
 	.byte	0
 	.byte	20
 	.long	.Linfo_string87
 	.long	.Linfo_string87
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string142
+	.long	3086
+	.byte	18
+	.long	.Linfo_string150
+	.long	3218
+	.byte	18
+	.long	.Linfo_string145
+	.long	3223
 	.byte	0
 	.byte	20
 	.long	.Linfo_string88
 	.long	.Linfo_string88
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
+	.byte	0
+	.byte	20
+	.long	.Linfo_string89
+	.long	.Linfo_string89
+	.byte	1
 	.byte	18
-	.long	.Linfo_string149
-	.long	3212
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string144
-	.long	3217
+	.long	.Linfo_string150
+	.long	3218
+	.byte	18
+	.long	.Linfo_string145
+	.long	3223
 	.byte	0
 	.byte	17
-	.long	.Linfo_string89
-	.long	.Linfo_string89
+	.long	.Linfo_string90
+	.long	.Linfo_string90
 	.long	50
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	18
-	.long	.Linfo_string149
-	.long	2906
+	.long	.Linfo_string150
+	.long	2912
 	.byte	0
 	.byte	20
-	.long	.Linfo_string90
-	.long	.Linfo_string90
+	.long	.Linfo_string91
+	.long	.Linfo_string91
 	.byte	1
 	.byte	18
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	0
 	.byte	17
-	.long	.Linfo_string91
-	.long	.Linfo_string91
+	.long	.Linfo_string92
+	.long	.Linfo_string92
 	.long	50
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
+	.long	.Linfo_string147
+	.long	3118
 	.byte	18
-	.long	.Linfo_string149
-	.long	2906
+	.long	.Linfo_string150
+	.long	2912
 	.byte	0
 	.byte	20
-	.long	.Linfo_string92
-	.long	.Linfo_string92
+	.long	.Linfo_string93
+	.long	.Linfo_string93
 	.byte	1
 	.byte	18
-	.long	.Linfo_string146
-	.long	3112
-	.byte	0
-	.byte	26
-	.long	.Linfo_string93
-	.long	.Linfo_string93
-	.byte	3
-	.byte	46
-	.byte	1
-	.byte	7
-	.long	.Linfo_string152
-	.byte	3
-	.byte	46
-	.long	2751
+	.long	.Linfo_string147
+	.long	3118
 	.byte	0
 	.byte	26
 	.long	.Linfo_string94
 	.long	.Linfo_string94
 	.byte	3
-	.byte	54
+	.byte	46
 	.byte	1
 	.byte	7
-	.long	.Linfo_string152
+	.long	.Linfo_string153
 	.byte	3
-	.byte	54
-	.long	2751
+	.byte	46
+	.long	2757
 	.byte	0
 	.byte	26
 	.long	.Linfo_string95
 	.long	.Linfo_string95
 	.byte	3
+	.byte	54
+	.byte	1
+	.byte	7
+	.long	.Linfo_string153
+	.byte	3
+	.byte	54
+	.long	2757
+	.byte	0
+	.byte	26
+	.long	.Linfo_string96
+	.long	.Linfo_string96
+	.byte	3
 	.byte	62
 	.byte	1
 	.byte	7
-	.long	.Linfo_string152
+	.long	.Linfo_string153
 	.byte	3
 	.byte	62
-	.long	2751
+	.long	2757
 	.byte	0
 	.byte	21
-	.long	.Linfo_string104
+	.long	.Linfo_string105
 	.byte	24
 	.byte	22
-	.long	.Linfo_string97
-	.long	2751
+	.long	.Linfo_string98
+	.long	2757
 	.byte	0
 	.byte	22
-	.long	.Linfo_string99
-	.long	2751
+	.long	.Linfo_string100
+	.long	2757
 	.byte	4
 	.byte	22
-	.long	.Linfo_string100
-	.long	2751
+	.long	.Linfo_string101
+	.long	2757
 	.byte	8
 	.byte	22
-	.long	.Linfo_string101
-	.long	2751
+	.long	.Linfo_string102
+	.long	2757
 	.byte	12
 	.byte	22
-	.long	.Linfo_string102
-	.long	2751
+	.long	.Linfo_string103
+	.long	2757
 	.byte	16
 	.byte	22
-	.long	.Linfo_string103
-	.long	2751
+	.long	.Linfo_string104
+	.long	2757
 	.byte	20
 	.byte	0
 	.byte	19
-	.long	.Linfo_string98
+	.long	.Linfo_string99
 	.byte	7
 	.byte	4
 	.byte	17
-	.long	.Linfo_string108
-	.long	.Linfo_string108
-	.long	2751
-	.byte	1
-	.byte	18
-	.long	.Linfo_string153
-	.long	2965
-	.byte	0
-	.byte	26
-	.long	.Linfo_string110
-	.long	.Linfo_string110
-	.byte	1
-	.byte	92
+	.long	.Linfo_string109
+	.long	.Linfo_string109
+	.long	2757
 	.byte	1
 	.byte	18
 	.long	.Linfo_string154
-	.long	2965
-	.byte	7
-	.long	.Linfo_string127
-	.byte	1
-	.byte	91
-	.long	2951
-	.byte	7
-	.long	.Linfo_string129
+	.long	2971
+	.byte	0
+	.byte	26
+	.long	.Linfo_string111
+	.long	.Linfo_string111
 	.byte	1
 	.byte	92
-	.long	2951
-	.byte	0
-	.byte	17
-	.long	.Linfo_string113
-	.long	.Linfo_string113
-	.long	2751
-	.byte	1
-	.byte	18
-	.long	.Linfo_string153
-	.long	2965
-	.byte	0
-	.byte	17
-	.long	.Linfo_string116
-	.long	.Linfo_string116
-	.long	2751
-	.byte	1
-	.byte	18
-	.long	.Linfo_string153
-	.long	2965
-	.byte	0
-	.byte	20
-	.long	.Linfo_string117
-	.long	.Linfo_string117
 	.byte	1
 	.byte	18
 	.long	.Linfo_string155
-	.long	2965
+	.long	2971
+	.byte	7
+	.long	.Linfo_string128
+	.byte	1
+	.byte	91
+	.long	2957
+	.byte	7
+	.long	.Linfo_string130
+	.byte	1
+	.byte	92
+	.long	2957
+	.byte	0
+	.byte	17
+	.long	.Linfo_string114
+	.long	.Linfo_string114
+	.long	2757
+	.byte	1
+	.byte	18
+	.long	.Linfo_string154
+	.long	2971
+	.byte	0
+	.byte	17
+	.long	.Linfo_string117
+	.long	.Linfo_string117
+	.long	2757
+	.byte	1
+	.byte	18
+	.long	.Linfo_string154
+	.long	2971
+	.byte	0
+	.byte	20
+	.long	.Linfo_string118
+	.long	.Linfo_string118
+	.byte	1
+	.byte	18
+	.long	.Linfo_string156
+	.long	2971
 	.byte	0
 	.byte	27
-	.long	2899
+	.long	2905
 	.byte	19
-	.long	.Linfo_string121
+	.long	.Linfo_string122
 	.byte	8
 	.byte	1
 	.byte	28
-	.long	2684
+	.long	2690
 	.byte	28
-	.long	2916
+	.long	2922
 	.byte	21
-	.long	.Linfo_string125
+	.long	.Linfo_string126
 	.byte	19
 	.byte	22
-	.long	.Linfo_string124
-	.long	2933
+	.long	.Linfo_string125
+	.long	2939
 	.byte	0
 	.byte	0
 	.byte	23
-	.long	2899
+	.long	2905
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	18
 	.byte	0
 	.byte	29
-	.long	2916
+	.long	2922
 	.byte	19
-	.long	.Linfo_string128
+	.long	.Linfo_string129
 	.byte	7
 	.byte	4
 	.byte	19
-	.long	.Linfo_string134
+	.long	.Linfo_string135
 	.byte	7
 	.byte	4
 	.byte	27
-	.long	2970
+	.long	2976
 	.byte	21
-	.long	.Linfo_string140
+	.long	.Linfo_string141
 	.byte	68
 	.byte	22
-	.long	.Linfo_string137
-	.long	2751
+	.long	.Linfo_string138
+	.long	2757
 	.byte	0
 	.byte	22
-	.long	.Linfo_string138
-	.long	2751
+	.long	.Linfo_string139
+	.long	2757
 	.byte	4
 	.byte	22
-	.long	.Linfo_string127
-	.long	2951
+	.long	.Linfo_string128
+	.long	2957
 	.byte	8
 	.byte	22
-	.long	.Linfo_string129
-	.long	2951
+	.long	.Linfo_string130
+	.long	2957
 	.byte	12
 	.byte	22
-	.long	.Linfo_string126
-	.long	2684
+	.long	.Linfo_string127
+	.long	2690
 	.byte	16
 	.byte	22
-	.long	.Linfo_string123
-	.long	2916
+	.long	.Linfo_string124
+	.long	2922
 	.byte	40
 	.byte	22
-	.long	.Linfo_string139
-	.long	3067
+	.long	.Linfo_string140
+	.long	3073
 	.byte	59
 	.byte	22
-	.long	.Linfo_string131
+	.long	.Linfo_string132
 	.long	50
 	.byte	60
 	.byte	22
-	.long	.Linfo_string130
-	.long	1138
+	.long	.Linfo_string131
+	.long	1144
 	.byte	64
 	.byte	0
 	.byte	23
-	.long	2899
+	.long	2905
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	19
-	.long	.Linfo_string142
+	.long	.Linfo_string143
 	.byte	7
 	.byte	4
 	.byte	29
-	.long	3092
+	.long	3098
 	.byte	23
-	.long	3105
+	.long	3111
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	19
-	.long	.Linfo_string145
+	.long	.Linfo_string146
 	.byte	7
 	.byte	2
 	.byte	29
-	.long	3117
+	.long	3123
 	.byte	21
-	.long	.Linfo_string148
+	.long	.Linfo_string149
 	.byte	8
 	.byte	22
-	.long	.Linfo_string141
-	.long	3080
+	.long	.Linfo_string142
+	.long	3086
 	.byte	0
 	.byte	22
-	.long	.Linfo_string147
-	.long	2751
+	.long	.Linfo_string148
+	.long	2757
 	.byte	4
 	.byte	0
 	.byte	28
 	.long	31
 	.byte	28
-	.long	2899
+	.long	2905
 	.byte	29
-	.long	3159
+	.long	3165
 	.byte	30
-	.long	2899
+	.long	2905
 	.byte	28
 	.long	69
 	.byte	28
-	.long	2751
+	.long	2757
 	.byte	28
 	.long	50
 	.byte	28
@@ -6650,38 +6655,38 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	28
 	.long	185
 	.byte	29
-	.long	3194
+	.long	3200
 	.byte	23
-	.long	2751
+	.long	2757
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	28
-	.long	1138
+	.long	1144
 	.byte	28
-	.long	228
+	.long	234
 	.byte	29
-	.long	3222
+	.long	3228
 	.byte	23
-	.long	2899
+	.long	2905
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	29
-	.long	3240
+	.long	3246
 	.byte	23
-	.long	1138
+	.long	1144
 	.byte	24
-	.long	1329
+	.long	1335
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	28
-	.long	259
+	.long	265
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -7463,131 +7468,131 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.L.debug_info_begin0
 .Lset32 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset32
-	.long	1356
+	.long	1362
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	1460
+	.long	1466
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-	.long	1001
+	.long	1007
 .asciiz"Chronodot_DS3231_Controller.select.case.0"
-	.long	1019
+	.long	1025
 .asciiz"Chronodot_DS3231_Controller.select.case.1"
-	.long	1207
+	.long	1213
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
-	.long	1549
+	.long	1555
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
-	.long	2075
+	.long	2081
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
-	.long	2468
+	.long	2474
 .asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
-	.long	2390
+	.long	2396
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
-	.long	1145
+	.long	1151
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
-	.long	422
+	.long	428
 .asciiz"chronodot_registers_to_datetime"
-	.long	924
+	.long	930
 .asciiz"Chronodot_DS3231_Controller.select.y.case.1"
-	.long	906
+	.long	912
 .asciiz"Chronodot_DS3231_Controller.select.y.case.0"
-	.long	1489
+	.long	1495
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-	.long	389
+	.long	395
 .asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.get_time_ok"
-	.long	1256
+	.long	1262
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	1921
+	.long	1927
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
-	.long	2539
+	.long	2545
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
-	.long	2285
+	.long	2291
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
-	.long	2782
+	.long	2788
 .asciiz"Chronodot_DS3231_Controller.init.0"
-	.long	2314
+	.long	2320
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
-	.long	1738
+	.long	1744
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	341
+	.long	347
 .asciiz"_i.chronodot_ds3231_if.Chronodot_DS3231_Controller._c0.set_time_ok"
-	.long	1892
+	.long	1898
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
-	.long	713
+	.long	719
 .asciiz"Chronodot_DS3231_Controller.init.1"
-	.long	2506
+	.long	2512
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
-	.long	2180
+	.long	2186
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	2046
+	.long	2052
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
-	.long	1709
+	.long	1715
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
-	.long	1591
+	.long	1597
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
-	.long	1997
+	.long	2003
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
-	.long	2874
+	.long	2880
 .asciiz"Chronodot_DS3231_Controller.fini"
-	.long	2247
+	.long	2253
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
-	.long	1863
+	.long	1869
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	1227
+	.long	1233
 .asciiz"_i.i2c_external_commands_if._chan.command"
-	.long	2026
+	.long	2032
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
-	.long	2448
+	.long	2454
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
-	.long	1814
+	.long	1820
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
-	.long	1680
+	.long	1686
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	1843
+	.long	1849
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
-	.long	2758
+	.long	2764
 .asciiz"Chronodot_DS3231_Controller.select.0.enable"
-	.long	2636
+	.long	2642
 .asciiz"delay_milliseconds"
-	.long	1620
+	.long	1626
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-	.long	1950
+	.long	1956
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
-	.long	1418
+	.long	1424
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	474
+	.long	480
 .asciiz"datetime_to_chronodot_registers"
-	.long	2410
+	.long	2416
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
-	.long	1767
+	.long	1773
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
-	.long	1385
+	.long	1391
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
-	.long	829
+	.long	835
 .asciiz"Chronodot_DS3231_Controller.select.0.case.0"
-	.long	2592
+	.long	2598
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
-	.long	520
+	.long	526
 .asciiz"Chronodot_DS3231_Controller"
-	.long	2559
+	.long	2565
 .asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
-	.long	1165
+	.long	1171
 .asciiz"_i.startkit_adc_acquire_if._chan_y.read"
-	.long	2218
+	.long	2224
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	2850
+	.long	2856
 .asciiz"Chronodot_DS3231_Controller.select.enable"
-	.long	2352
+	.long	2358
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	2113
+	.long	2119
 .asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	2660
+	.long	2666
 .asciiz"delay_microseconds"
-	.long	1096
+	.long	1102
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
-	.long	2142
+	.long	2148
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
-	.long	2612
+	.long	2618
 .asciiz"delay_seconds"
-	.long	2826
+	.long	2832
 .asciiz"Chronodot_DS3231_Controller.select.y.enable"
 	.long	0
 .LpubNames_end0:
@@ -7599,39 +7604,39 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.L.debug_info_begin0
 .Lset34 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset34
-	.long	2958
+	.long	2964
 .asciiz"timer"
-	.long	2684
-.asciiz"__TYPE_15"
-	.long	2916
+	.long	2690
+.asciiz"__TYPE_14"
+	.long	2922
 .asciiz"chronodot_d3231_registers_t"
-	.long	2751
+	.long	2757
 .asciiz"unsigned int"
-	.long	2970
+	.long	2976
 .asciiz"frame.0"
-	.long	1138
+	.long	1144
 .asciiz"int"
-	.long	3105
+	.long	3111
 .asciiz"unsigned short"
-	.long	1349
+	.long	1355
 .asciiz"short"
 	.long	31
 .asciiz"i2c_command_external_t"
-	.long	2951
+	.long	2957
 .asciiz"interface"
-	.long	3117
+	.long	3123
 .asciiz"yarg"
-	.long	1289
+	.long	1295
 .asciiz"tag_i2c_temps_t"
-	.long	259
+	.long	265
 .asciiz"heater_wires_t"
-	.long	320
+	.long	326
 .asciiz"__TYPE_7"
-	.long	3080
+	.long	3086
 .asciiz"chanend"
-	.long	228
+	.long	234
 .asciiz"iof_temps_t"
-	.long	2899
+	.long	2905
 .asciiz"unsigned char"
 	.long	69
 .asciiz"heat_cable_commands_t"
@@ -7672,20 +7677,20 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns

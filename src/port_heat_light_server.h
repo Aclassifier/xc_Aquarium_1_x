@@ -5,10 +5,9 @@
  *      Author: teig
  */
 
-
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK
 
-typedef enum {
+typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_FRONT,
     IOF_LED_STRIP_CENTER,
     IOF_LED_STRIP_BACK
@@ -28,32 +27,33 @@ typedef enum light_composition_t {
     // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
     //
     //                #### mW
-    LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF          =  0,  // All windows dark, of course
-    LIGHT_COMPOSITION_0666_BACK1_ON                =  1 , // Two time windows are fully dark
-    LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON        =  2,
-    LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON        =  3,
-    LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON        =  4,
-    LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON        =  5,
-    LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON =  6,
-    LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON =  7,
-    LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON           =  8, // All = 9W qwe I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_0000_mW_OFF      =  0,  // All windows dark, of course
+    LIGHT_COMPOSITION_0666_mW_ON       =  1 , // Two time windows are fully dark
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED =  2,
+    LIGHT_COMPOSITION_2666_mW_ON       =  3,
+    LIGHT_COMPOSITION_3333_mW_ON       =  4,
+    LIGHT_COMPOSITION_4000_mW_ON       =  5,
+    LIGHT_COMPOSITION_5666_mW_ON       =  6,
+    LIGHT_COMPOSITION_8333_mW_ON       =  7,
+    LIGHT_COMPOSITION_9000_mW_ON       =  8, // All = 9W qwe I can hear a sound from the LEDs!
     //
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
 
-    LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_2000_CENTER3_ON              = 11,
-    LIGHT_COMPOSITION_5000_FRONT3_ON               = 12
-    // NUM_LIGHT_COMPOSITION_LEVELS                = 13
+    LIGHT_COMPOSITION_6000_mW_ON       =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_3000_mW_ON       = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_2000_mW_ON_WHITE = 11,
+    LIGHT_COMPOSITION_5000_mW_ON       = 12
+    // NUM_LIGHT_COMPOSITION_LEVELS    = 13
 } light_composition_t;
 
 typedef enum light_control_scheme_t {
-    LIGHT_CONTROL_IS_VOID,         // Init and when we, in a call, don't want to modify it
-    LIGHT_CONTROL_IS_DAY,          // dag
-    LIGHT_CONTROL_IS_DAY_TO_NIGHT, // ned
-    LIGHT_CONTROL_IS_NIGHT,        // natt
-    LIGHT_CONTROL_IS_NIGHT_TO_DAY, // opp
-    LIGHT_CONTROL_IS_RANDOM        // sky
+    LIGHT_CONTROL_IS_VOID,               // "INIT" and when we, in a call, don't want to modify it
+    LIGHT_CONTROL_IS_DAY,                // " DAG"
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT,       // " NED"
+    LIGHT_CONTROL_IS_NIGHT,              // "NATT"
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY,       // " OPP"
+    LIGHT_CONTROL_IS_RANDOM,             // " SKY" Starting every hour
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // " LYS" Conditional and random (i.e. limited)
 } light_control_scheme_t;
 
 typedef enum {

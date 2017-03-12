@@ -36,7 +36,7 @@
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases.maxchanends
 	.set Port_Pins_Heat_Light_Server.select.y.enable.cases,0
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases
-	.set Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.y.case.0.nstackwords) $M (Port_Pins_Heat_Light_Server.select.y.case.1.nstackwords)
+	.set Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.y.case.1.nstackwords) $M (Port_Pins_Heat_Light_Server.select.y.case.0.nstackwords)
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords
 	.set Port_Pins_Heat_Light_Server.select.enable.savedstate,58
 	.globl Port_Pins_Heat_Light_Server.select.enable.savedstate
@@ -48,7 +48,7 @@
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends
 	.set Port_Pins_Heat_Light_Server.select.enable.cases,0
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases
-	.set Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.case.1.nstackwords) $M (Port_Pins_Heat_Light_Server.select.case.0.nstackwords)
+	.set Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.case.0.nstackwords) $M (Port_Pins_Heat_Light_Server.select.case.1.nstackwords)
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords
 	.pushsection .netinfo, "", @netinfo
 	.int      0x1eaba15c
@@ -162,9 +162,9 @@ dummy_wify_ctrl_port.info:
 	.set usage.anon.1,0
 	.set usage.anon.2,0
 	.set usage.anon.3,0
-	.globread Port_Pins_Heat_Light_Server,usage.anon.3,"../src/port_heat_light_server.xc:227:33: note: object used here\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globwrite Port_Pins_Heat_Light_Server,dummy_wify_ctrl_port,"../src/port_heat_light_server.xc:216:9: note: object used here\n        dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)\n        ^~~~~~~~~~~~~~~~~~~~"
-	.globwrite Port_Pins_Heat_Light_Server,myport_p32,"../src/port_heat_light_server.xc:219:5: note: object used here\n    myport_p32 <: port_value;\n    ^~~~~~~~~~"
+	.globread Port_Pins_Heat_Light_Server,usage.anon.3,"../src/port_heat_light_server.xc:294:33: note: object used here\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globwrite Port_Pins_Heat_Light_Server,dummy_wify_ctrl_port,"../src/port_heat_light_server.xc:283:9: note: object used here\n        dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)\n        ^~~~~~~~~~~~~~~~~~~~"
+	.globwrite Port_Pins_Heat_Light_Server,myport_p32,"../src/port_heat_light_server.xc:286:5: note: object used here\n    myport_p32 <: port_value;\n    ^~~~~~~~~~"
 	.call Port_Pins_Heat_Light_Server,usage.anon.2
 	.call Port_Pins_Heat_Light_Server,printf
 	.call usage.anon.2,delay_ticks_longlong
@@ -173,8 +173,8 @@ dummy_wify_ctrl_port.info:
 	.set Port_Pins_Heat_Light_Server.locnoside, 0
 	.set Port_Pins_Heat_Light_Server.locnoglobalaccess, 0
 	.set Port_Pins_Heat_Light_Server.locnointerfaceaccess, 0
-	.assert 1,printf.actnonotificationselect,"../src/port_heat_light_server.xc:395:17: error: call to function `printf\' which selects on a notification in a combinable function select case\n                debug_printf (\"i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\\n\",\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/port_heat_light_server.xc:21:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,usage.anon.2.actnonotificationselect,"../src/port_heat_light_server.xc:477:29: error: call to function `delay_microseconds\' which selects on a notification in a combinable function select case\n                            delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/port_heat_light_server.xc:462:17: error: call to function `printf\' which selects on a notification in a combinable function select case\n                debug_printf (\"i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\\n\",\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/port_heat_light_server.xc:21:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,usage.anon.2.actnonotificationselect,"../src/port_heat_light_server.xc:544:29: error: call to function `delay_microseconds\' which selects on a notification in a combinable function select case\n                            delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -214,7 +214,7 @@ dummy_wify_ctrl_port.info:
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command:
 .Lfunc_begin0:
-	.loc	1 430 0
+	.loc	1 497 0
 	.cfi_startproc
 	entsp 5
 .Ltmp0:
@@ -242,11 +242,11 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 .Ltmp7:
 	ldc r4, 0
 	stw r4, r5[0]
-	.loc	1 432 0 prologue_end
+	.loc	1 499 0 prologue_end
 .Ltmp8:
 	ldw r0, r5[3]
 .Ltmp9:
-	.loc	1 434 0
+	.loc	1 501 0
 	eq r2, r1, 1
 	bt r2, .LBB0_6
 .Ltmp10:
@@ -255,18 +255,18 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 	bf r2, .LBB0_4
 .Ltmp11:
 .Lxtalabel2:
-	.loc	1 439 25
+	.loc	1 506 25
 	ldw r1, r5[7]
-	.loc	1 439 25
+	.loc	1 506 25
 	bf r1, .LBB0_14
 .Lxtalabel3:
-	.loc	1 444 0
+	.loc	1 511 0
 	stw r4, r5[7]
 	ldw r1, cp[.LCPI0_0]
-	.loc	1 446 0
+	.loc	1 513 0
 	and r1, r0, r1
 	ldc r2, 64
-	.loc	1 446 0
+	.loc	1 513 0
 	or r1, r1, r2
 .Ltmp12:
 	bu .LBB0_7
@@ -274,7 +274,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 .LBB0_6:
 .Lxtalabel4:
 	ldw r1, cp[.LCPI0_0]
-	.loc	1 436 0
+	.loc	1 503 0
 	and r1, r0, r1
 .Ltmp14:
 	bu .LBB0_7
@@ -286,7 +286,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 	bf r1, .LBB0_12
 .Lxtalabel6:
 	ldc r1, 8256
-	.loc	1 451 0
+	.loc	1 518 0
 	or r1, r0, r1
 .Ltmp17:
 	bu .LBB0_7
@@ -294,47 +294,47 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 .LBB0_14:
 .Lxtalabel7:
 	mkmsk r1, 1
-	.loc	1 440 0
+	.loc	1 507 0
 	stw r1, r5[7]
 	ldw r1, cp[.LCPI0_0]
-	.loc	1 442 0
+	.loc	1 509 0
 	and r1, r0, r1
 	ldc r2, 8192
-	.loc	1 442 0
+	.loc	1 509 0
 	or r1, r1, r2
 .Ltmp19:
 .LBB0_7:
 .Lxtalabel8:
-	.loc	1 455 17
+	.loc	1 522 17
 	eq r2, r1, r0
 	bt r2, .LBB0_12
 .Ltmp20:
 .Lxtalabel9:
 	ldc r2, 64
-	.loc	1 457 0
+	.loc	1 524 0
 .Ltmp21:
 	and r3, r0, r2
 .Ltmp22:
 	ldc r11, 8192
-	.loc	1 458 0
+	.loc	1 525 0
 .Ltmp23:
 	and r7, r0, r11
 .Ltmp24:
-	.loc	1 459 0
+	.loc	1 526 0
 	and r0, r1, r2
 .Ltmp25:
-	.loc	1 460 0
+	.loc	1 527 0
 	and r6, r1, r11
 .Ltmp26:
-	.loc	1 463 0
+	.loc	1 530 0
 	stw r1, r5[3]
-	.loc	1 465 21
+	.loc	1 532 21
 	eq r2, r3, r0
 	bt r2, .LBB0_11
 .Ltmp27:
 .Lxtalabel10:
 	ldw r2, cp[.LCPI0_1]
-	.loc	1 466 49
+	.loc	1 533 49
 .Lxta.endpoint_labels0:
 	out res[r2], r1
 	bf r0, .LBB0_10
@@ -355,18 +355,18 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 .LBB0_11:
 .Lxtalabel12:
 .Ltmp31:
-	.loc	1 474 21
+	.loc	1 541 21
 	eq r0, r7, r6
 	bt r0, .LBB0_12
 .Ltmp32:
 .Lxtalabel13:
-	.loc	1 475 49
+	.loc	1 542 49
 	ldw r0, r5[3]
 	ldw r1, cp[.LCPI0_1]
-	.loc	1 475 49
+	.loc	1 542 49
 .Lxta.endpoint_labels1:
 	out res[r1], r0
-	.loc	1 476 25
+	.loc	1 543 25
 	or r0, r4, r6
 	bf r0, .LBB0_12
 .Ltmp33:
@@ -431,7 +431,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command:
 .Lfunc_begin1:
-	.loc	1 420 0
+	.loc	1 487 0
 	.cfi_startproc
 	ldw r0, r0[0]
 .Ltmp37:
@@ -439,30 +439,30 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_comma
 	ldw r2, r0[0]
 	bf r2, .LBB1_1
 .Ltmp38:
-	.loc	1 423 0 prologue_end
+	.loc	1 490 0 prologue_end
 	ldw r2, r0[3]
 	ldw r3, cp[.LCPI1_0]
-	.loc	1 423 0
+	.loc	1 490 0
 	and r2, r2, r3
-	.loc	1 423 0
+	.loc	1 490 0
 	stw r2, r0[3]
 	ldw r3, cp[.LCPI1_1]
-	.loc	1 424 41
+	.loc	1 491 41
 .Lxta.endpoint_labels2:
 	out res[r3], r2
 	ldc r2, 84
-	.loc	1 426 0
+	.loc	1 493 0
 	add r2, r0, r2
 	ldc r3, 1000
-	.loc	1 426 0
+	.loc	1 493 0
 	mul r1, r1, r3
 .Ltmp39:
 	ldc r3, 0
 	ldw r11, cp[.LCPI1_2]
-	.loc	1 426 0
+	.loc	1 493 0
 	lmul r1, r3, r1, r11, r3, r3
 	shr r1, r1, 5
-	.loc	1 426 0
+	.loc	1 493 0
 	stw r1, r2[0]
 	mkmsk r1, 1
 	stw r1, r0[0]
@@ -505,7 +505,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_comma
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command:
 .Lfunc_begin2:
-	.loc	1 411 0
+	.loc	1 478 0
 	.cfi_startproc
 	ldw r0, r0[0]
 .Ltmp42:
@@ -514,26 +514,26 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	bf r2, .LBB2_1
 .Lxtalabel16:
 .Ltmp43:
-	.loc	1 413 0 prologue_end
+	.loc	1 480 0 prologue_end
 	ldw r2, r0[3]
-	.loc	1 412 17
+	.loc	1 479 17
 	bt r1, .LBB2_3
 .Ltmp44:
 .Lxtalabel17:
 	ldc r1, 16384
-	.loc	1 415 0
+	.loc	1 482 0
 	or r1, r2, r1
 	bu .LBB2_5
 .LBB2_3:
 	ldw r1, cp[.LCPI2_0]
-	.loc	1 413 0
+	.loc	1 480 0
 	and r1, r2, r1
 .LBB2_5:
 .Lxtalabel18:
-	.loc	1 415 0
+	.loc	1 482 0
 	stw r1, r0[3]
 	ldw r2, cp[.LCPI2_1]
-	.loc	1 417 41
+	.loc	1 484 41
 .Lxta.endpoint_labels3:
 	out res[r2], r1
 	mkmsk r1, 1
@@ -561,7 +561,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition:
 .Lfunc_begin3:
-	.loc	1 324 0
+	.loc	1 391 0
 	.cfi_startproc
 	entsp 8
 .Ltmp47:
@@ -603,16 +603,16 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp59:
 	ldc r3, 80
 .Ltmp60:
-	.loc	1 331 0 prologue_end
+	.loc	1 398 0 prologue_end
 	add r3, r0, r3
-	.loc	1 331 0
+	.loc	1 398 0
 	stw r2, r3[0]
 .Ltmp61:
 .LBB3_4:
 .Lxtalabel20:
-	.loc	1 333 17
+	.loc	1 400 17
 	ldw r9, r0[5]
-	.loc	1 333 17
+	.loc	1 400 17
 	eq r2, r9, r1
 	stw r1, sp[0]
 .Ltmp62:
@@ -620,7 +620,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp63:
 	ldc r3, 12
 .Ltmp64:
-	.loc	1 336 0
+	.loc	1 403 0
 	lsu r2, r3, r9
 .Ltrap_info0:
 	ecallt r2
@@ -630,7 +630,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 	lsu r2, r3, r1
 .Ltrap_info1:
 	ecallt r2
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r2, r1, r3
 .Ltmp67:
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
@@ -646,36 +646,36 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp69:
 .LBB3_6:
 .Lxtalabel21:
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r9, r0[5]
 	ldc r1, 13
-	.loc	1 336 0
+	.loc	1 403 0
 	lsu r2, r9, r1
-	.loc	1 336 0
+	.loc	1 403 0
 	add r5, r5, 4
 .Ltrap_info2:
 	ecallf r2
 .Ltmp70:
 .LBB3_7:
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r1, r9, r4
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r1, r11, r1
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r2, r1[r3]
 .Ltmp71:
-	.loc	1 337 0
+	.loc	1 404 0
 	ldw r11, r10[r3]
 .Ltmp72:
-	.loc	1 339 0
+	.loc	1 406 0
 	xor r1, r11, r2
 .Ltmp73:
-	.loc	1 341 25
+	.loc	1 408 25
 	and r9, r1, r6
-	.loc	1 341 25
+	.loc	1 408 25
 	bf r9, .LBB3_24
 .Ltmp74:
-	.loc	1 343 32
+	.loc	1 410 32
 	and r9, r2, r6
 	bt r9, .LBB3_15
 .Ltmp75:
@@ -697,15 +697,15 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp79:
 .LBB3_11:
 .Lxtalabel25:
-	.loc	1 344 0
+	.loc	1 411 0
 	stw r9, r5[0]
 .Ltmp80:
-	.loc	1 349 25
+	.loc	1 416 25
 	and r9, r1, r7
-	.loc	1 349 25
+	.loc	1 416 25
 	bf r9, .LBB3_16
 .Ltmp81:
-	.loc	1 351 32
+	.loc	1 418 32
 	and r9, r2, r7
 	bt r9, .LBB3_25
 .Ltmp82:
@@ -727,16 +727,16 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp86:
 .LBB3_17:
 .Lxtalabel29:
-	.loc	1 350 0
+	.loc	1 417 0
 	stw r9, r5[3]
 .Ltmp87:
-	.loc	1 357 25
+	.loc	1 424 25
 	and r1, r1, r8
 .Ltmp88:
-	.loc	1 357 25
+	.loc	1 424 25
 	bf r1, .LBB3_26
 .Ltmp89:
-	.loc	1 359 32
+	.loc	1 426 32
 	and r1, r2, r8
 	bt r1, .LBB3_21
 .Ltmp90:
@@ -758,19 +758,19 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp94:
 .LBB3_22:
 .Lxtalabel33:
-	.loc	1 362 0
+	.loc	1 429 0
 	stw r1, r5[6]
 .Ltmp95:
 	ldaw r1, r5[-3]
 	ldc r2, 1500
-	.loc	1 365 0
+	.loc	1 432 0
 	stw r2, r1[0]
 .Ltmp96:
-	.loc	1 334 0
+	.loc	1 401 0
 	add r3, r3, 1
 .Ltmp97:
 	mkmsk r1, 2
-	.loc	1 334 0
+	.loc	1 401 0
 	lsu r1, r3, r1
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
@@ -778,7 +778,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 .Ltmp98:
 .LBB3_23:
 .Lxtalabel34:
-	.loc	1 370 0
+	.loc	1 437 0
 	ldw r1, sp[0]
 	stw r1, r0[5]
 	mkmsk r1, 1
@@ -814,7 +814,7 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composi
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc:
 .Lfunc_begin4:
-	.loc	1 380 0
+	.loc	1 447 0
 	.cfi_startproc
 	extsp 6
 .Ltmp102:
@@ -847,13 +847,13 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composi
 	ldc r0, 0
 .Ltmp111:
 	stw r0, r3[0]
-	.loc	1 384 0 prologue_end
+	.loc	1 451 0 prologue_end
 .Ltmp112:
 	stw r0, r1[0]
 .Ltmp113:
-	.loc	1 384 0
+	.loc	1 451 0
 	stw r0, r1[1]
-	.loc	1 384 0
+	.loc	1 451 0
 	stw r0, r1[2]
 	ldc r2, 13
 	ldc r4, 12
@@ -864,97 +864,97 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composi
 .Ltmp114:
 .LBB4_3:
 .Lxtalabel36:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r11, r3[5]
-	.loc	1 389 0
+	.loc	1 456 0
 	lsu r9, r11, r2
 .Ltrap_info3:
 	ecallf r9
-	.loc	1 389 0
+	.loc	1 456 0
 	mul r9, r11, r4
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r11, r11, r9
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r11, r11[r0]
 .Ltmp115:
-	.loc	1 390 21
+	.loc	1 457 21
 	and r9, r11, r5
 	bf r9, .LBB4_5
 .Ltmp116:
-	.loc	1 390 0
+	.loc	1 457 0
 	ldw r9, r1[0]
-	.loc	1 390 0
+	.loc	1 457 0
 	add r9, r9, 1
-	.loc	1 390 0
+	.loc	1 457 0
 	stw r9, r1[0]
 .Ltmp117:
 .LBB4_5:
 .Lxtalabel37:
-	.loc	1 391 21
+	.loc	1 458 21
 	and r9, r11, r6
 	bf r9, .LBB4_7
 .Ltmp118:
-	.loc	1 391 0
+	.loc	1 458 0
 	ldw r9, r1[1]
-	.loc	1 391 0
+	.loc	1 458 0
 	add r9, r9, 1
-	.loc	1 391 0
+	.loc	1 458 0
 	stw r9, r1[1]
 .Ltmp119:
 .LBB4_7:
 .Lxtalabel38:
-	.loc	1 392 21
+	.loc	1 459 21
 	and r11, r11, r7
 .Ltmp120:
 	bf r11, .LBB4_9
 .Ltmp121:
-	.loc	1 392 0
+	.loc	1 459 0
 	ldw r11, r1[2]
-	.loc	1 392 0
+	.loc	1 459 0
 	add r11, r11, 1
-	.loc	1 392 0
+	.loc	1 459 0
 	stw r11, r1[2]
 .Ltmp122:
 .LBB4_9:
 .Lxtalabel39:
-	.loc	1 388 0
+	.loc	1 455 0
 	add r0, r0, 1
 .Ltmp123:
-	.loc	1 388 0
+	.loc	1 455 0
 	lsu r11, r0, r8
 .Lxta.loop_labels1:
 	# LOOPMARKER 0
 	bt r11, .LBB4_3
 .Ltmp124:
 .Lxtalabel40:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, r3[9]
 	ldc r1, 0
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r0, r1
 	bt r2, .LBB4_12
 .Lxtalabel41:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r0, r3[8]
-	.loc	1 404 21
+	.loc	1 471 21
 	eq r0, r0, 0
 .LBB4_12:
 .Lxtalabel42:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, r3[10]
 	bt r2, .LBB4_14
 .Lxtalabel43:
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r1, r0
 .Ltmp125:
 .LBB4_14:
 .Lxtalabel44:
-	.loc	1 407 0
+	.loc	1 474 0
 	ldw r0, r3[5]
 	ldc r2, 80
-	.loc	1 408 0
+	.loc	1 475 0
 	add r2, r3, r2
-	.loc	1 408 0
+	.loc	1 475 0
 	ldw r2, r2[0]
 	mkmsk r11, 1
 	stw r11, r3[0]
@@ -988,14 +988,14 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composi
 	.cc_top _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition.function,_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
 _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition:
 .Lfunc_begin5:
-	.loc	1 374 0
+	.loc	1 441 0
 	.cfi_startproc
 	ldw r1, r0[0]
 .Ltmp128:
 .LBB5_1:
 	ldw r0, r1[0]
 	bf r0, .LBB5_1
-	.loc	1 376 0 prologue_end
+	.loc	1 443 0 prologue_end
 .Ltmp129:
 	ldw r0, r1[5]
 	mkmsk r2, 1
@@ -1606,7 +1606,7 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.cc_top Port_Pins_Heat_Light_Server.function,Port_Pins_Heat_Light_Server
 Port_Pins_Heat_Light_Server:
 .Lfunc_begin18:
-	.loc	1 189 0
+	.loc	1 256 0
 	.cfi_startproc
 .Lxtalabel45:
 	entsp 40
@@ -1639,34 +1639,34 @@ Port_Pins_Heat_Light_Server:
 .Ltmp174:
 	stw r6, sp[13]
 	ldc r5, 0
-	.loc	1 200 0 prologue_end
+	.loc	1 267 0 prologue_end
 .Ltmp175:
 	stw r5, sp[32]
 	stw r5, sp[31]
 	stw r5, sp[30]
 .Ltmp176:
-	.loc	1 216 37
+	.loc	1 283 37
 	ldw r0, dp[dummy_wify_ctrl_port]
 	mkmsk r10, 1
-	.loc	1 216 37
+	.loc	1 283 37
 .Lxta.endpoint_labels4:
 	out res[r0], r10
 	mkmsk r1, 32
 	stw r1, sp[20]
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 219 29
+	.loc	1 286 29
 .Lxta.endpoint_labels5:
 	out res[r0], r1
-	.loc	1 221 0
+	.loc	1 288 0
 	get r11, id
-	.loc	1 221 0
+	.loc	1 288 0
 	ldaw r0, dp[__timers]
-	.loc	1 221 0
+	.loc	1 288 0
 	ldw r3, r0[r11]
-	.loc	1 221 0
+	.loc	1 288 0
 	stw r3, sp[10]
 	setc res[r3], 1
-	.loc	1 221 0
+	.loc	1 288 0
 .Lxta.endpoint_labels6:
 	in r4, res[r3]
 .Ltmp177:
@@ -1693,32 +1693,32 @@ Port_Pins_Heat_Light_Server:
 	setv res[r3], r11
 .Ltmp181:
 	eeu res[r3]
-	.loc	1 324 0
+	.loc	1 391 0
 .Ltmp182:
 	ldw r0, r6[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r0[0]
 	ldap r11, .Ltmp183
 	mov r0, r11
-	.loc	1 324 0
+	.loc	1 391 0
 	setv res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r5
 	setev res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r1]
 .Ltmp184:
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r6[1]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r1[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setv res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r10
 	setev res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r1]
 
 	.xtabranch .LBB18_4, .LBB18_2
@@ -1727,55 +1727,55 @@ Port_Pins_Heat_Light_Server:
 .Ltmp180:
 .LBB18_4:
 .Lxtalabel48:
-	.loc	1 225 0
+	.loc	1 292 0
 .Lxta.endpoint_labels7:
 	in r0, res[r3]
 	ldc r0, 13
 	ldw r11, sp[14]
 .Ltmp186:
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r0, r11, r0
 	ldc r1, 12
 .Ltrap_info4:
 	ecallf r0
 	ldw r2, sp[19]
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r0, r2, r9
 .Ltrap_info5:
 	ecallf r0
 	ldw r0, cp[.LCPI18_4]
 .Ltmp187:
-	.loc	1 226 0
+	.loc	1 293 0
 	add r4, r4, r0
 .Ltmp188:
 	stw r4, sp[18]
 .Ltmp189:
-	.loc	1 227 0
+	.loc	1 294 0
 	mul r0, r11, r1
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r0, r11, r0
-	.loc	1 227 0
+	.loc	1 294 0
 	ldw r4, r0[r2]
 .Ltmp190:
 	ldaw r0, sp[30]
-	.loc	1 229 17
+	.loc	1 296 17
 	ldw r7, r0[r2]
 .Ltmp191:
-	.loc	1 229 17
+	.loc	1 296 17
 	bf r7, .LBB18_5
 .Ltmp192:
 .Lxtalabel49:
 	ldaw r0, sp[21]
-	.loc	1 253 21
+	.loc	1 320 21
 	ldw r6, r0[r2]
 .Ltmp193:
-	.loc	1 253 21
+	.loc	1 320 21
 	eq r9, r6, 2
 	bf r9, .LBB18_20
 .Ltmp194:
 .Lxtalabel50:
 	ldw r0, cp[.LCPI18_5]
-	.loc	1 254 0
+	.loc	1 321 0
 	ldw r1, sp[20]
 .Ltmp195:
 .LBB18_26:
@@ -1787,10 +1787,10 @@ Port_Pins_Heat_Light_Server:
 .Ltmp183:
 .LBB18_2:
 .Lxtalabel52:
-	.loc	1 324 0
+	.loc	1 391 0
 	get r11, ed
 	mov r7, r11
-	.loc	1 324 0
+	.loc	1 391 0
 	zext r7, 16
 .Ltmp198:
 	ldw r0, r6[r7]
@@ -1809,7 +1809,7 @@ Port_Pins_Heat_Light_Server:
 	outct res[r0], 1
 	in r0, res[r0]
 .Ltmp200:
-	.loc	1 434 0
+	.loc	1 501 0
 	eq r1, r0, 1
 	bt r1, .LBB18_59
 .Ltmp201:
@@ -1819,17 +1819,17 @@ Port_Pins_Heat_Light_Server:
 .Ltmp202:
 .Lxtalabel55:
 	ldw r0, cp[.LCPI18_3]
-	.loc	1 442 0
+	.loc	1 509 0
 	ldw r1, sp[20]
 	and r0, r1, r0
-	.loc	1 439 25
+	.loc	1 506 25
 	ldw r1, sp[12]
 	bf r1, .LBB18_65
 .Ltmp203:
 .Lxtalabel56:
 	mov r9, r4
 	ldc r1, 64
-	.loc	1 446 0
+	.loc	1 513 0
 	or r4, r0, r1
 .Ltmp204:
 	stw r5, sp[12]
@@ -1857,17 +1857,17 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel58:
 	mov r2, r5
 .Ltmp209:
-	.loc	1 236 25
+	.loc	1 303 25
 	and r0, r4, r8
 	mov r1, r8
-	.loc	1 236 25
+	.loc	1 303 25
 	bt r0, .LBB18_6
 .Ltmp210:
 .Lxtalabel59:
 	mov r5, r1
 	mov r8, r3
 	ldw r0, cp[.LCPI18_5]
-	.loc	1 236 0
+	.loc	1 303 0
 	ldw r1, sp[20]
 	and r6, r1, r0
 .Ltmp211:
@@ -1880,14 +1880,14 @@ Port_Pins_Heat_Light_Server:
 	bf r0, .LBB18_22
 .Ltmp213:
 .Lxtalabel61:
-	.loc	1 256 0
+	.loc	1 323 0
 	or r1, r1, r8
 .Ltmp214:
 	bu .LBB18_27
 .Ltmp215:
 .LBB18_6:
 	mov r8, r3
-	.loc	1 236 0
+	.loc	1 303 0
 	ldw r0, sp[20]
 	or r6, r0, r1
 .Ltmp216:
@@ -1896,7 +1896,7 @@ Port_Pins_Heat_Light_Server:
 .LBB18_8:
 .Lxtalabel62:
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 237 49
+	.loc	1 304 49
 .Lxta.endpoint_labels8:
 	out res[r0], r6
 .Ltmp218:
@@ -1909,26 +1909,26 @@ Port_Pins_Heat_Light_Server:
 	bl delay_ticks_longlong
 	ldc r1, 16
 .Ltmp220:
-	.loc	1 241 25
+	.loc	1 308 25
 	and r0, r4, r1
-	.loc	1 241 25
+	.loc	1 308 25
 	bt r0, .LBB18_9
 .Ltmp221:
 .Lxtalabel63:
 	ldw r0, cp[.LCPI18_6]
-	.loc	1 241 0
+	.loc	1 308 0
 	and r6, r6, r0
 .Ltmp222:
 	bu .LBB18_11
 .Ltmp223:
 .LBB18_9:
-	.loc	1 241 0
+	.loc	1 308 0
 	or r6, r6, r1
 .Ltmp224:
 .LBB18_11:
 .Lxtalabel64:
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 242 49
+	.loc	1 309 49
 .Lxta.endpoint_labels9:
 	out res[r0], r6
 .Ltmp225:
@@ -1940,19 +1940,19 @@ Port_Pins_Heat_Light_Server:
 	bl delay_ticks_longlong
 	ldc r1, 32
 .Ltmp227:
-	.loc	1 246 25
+	.loc	1 313 25
 	and r0, r4, r1
-	.loc	1 246 25
+	.loc	1 313 25
 	bt r0, .LBB18_12
 .Ltmp228:
 .Lxtalabel65:
 	ldw r0, cp[.LCPI18_7]
-	.loc	1 246 0
+	.loc	1 313 0
 	and r1, r6, r0
 	bu .LBB18_14
 .Ltmp229:
 .LBB18_12:
-	.loc	1 246 0
+	.loc	1 313 0
 	or r1, r6, r1
 .Ltmp230:
 .LBB18_14:
@@ -1961,7 +1961,7 @@ Port_Pins_Heat_Light_Server:
 .Ltmp231:
 	stw r1, sp[20]
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 247 49
+	.loc	1 314 49
 .Lxta.endpoint_labels10:
 	out res[r0], r1
 .Ltmp232:
@@ -1984,7 +1984,7 @@ Port_Pins_Heat_Light_Server:
 	mov r9, r4
 	ldw r0, cp[.LCPI18_3]
 	ldw r1, sp[20]
-	.loc	1 436 0
+	.loc	1 503 0
 .Ltmp235:
 	and r4, r1, r0
 .Ltmp236:
@@ -1999,29 +1999,29 @@ Port_Pins_Heat_Light_Server:
 	mov r9, r4
 	ldc r0, 8256
 	ldw r1, sp[20]
-	.loc	1 451 0
+	.loc	1 518 0
 	or r4, r1, r0
 .Ltmp239:
 	bu .LBB18_60
 .Ltmp240:
 .LBB18_22:
 .Lxtalabel70:
-	.loc	1 258 25
+	.loc	1 325 25
 	and r0, r4, r8
-	.loc	1 258 25
+	.loc	1 325 25
 	bf r0, .LBB18_24
 .Ltmp241:
-	.loc	1 258 0
+	.loc	1 325 0
 	or r1, r1, r8
 .Ltmp242:
 .LBB18_27:
 .Lxtalabel71:
 	ldaw r0, sp[21]
-	.loc	1 261 21
+	.loc	1 328 21
 	ldaw r0, r0[r2]
-	.loc	1 261 21
+	.loc	1 328 21
 	ldw r8, r0[3]
-	.loc	1 261 21
+	.loc	1 328 21
 	eq r10, r8, 2
 	bt r10, .LBB18_32
 .Ltmp243:
@@ -2035,7 +2035,7 @@ Port_Pins_Heat_Light_Server:
 	stw r6, sp[16]
 	ldc r2, 16
 .Ltmp245:
-	.loc	1 264 0
+	.loc	1 331 0
 	or r1, r1, r2
 .Ltmp246:
 	bu .LBB18_33
@@ -2043,7 +2043,7 @@ Port_Pins_Heat_Light_Server:
 .LBB18_30:
 .Lxtalabel74:
 	ldc r11, 16
-	.loc	1 266 25
+	.loc	1 333 25
 	and r2, r4, r11
 	bf r2, .LBB18_32
 .Ltmp248:
@@ -2051,7 +2051,7 @@ Port_Pins_Heat_Light_Server:
 	stw r8, sp[15]
 	stw r6, sp[16]
 .Ltmp249:
-	.loc	1 266 0
+	.loc	1 333 0
 	or r1, r1, r11
 .Ltmp250:
 	bu .LBB18_33
@@ -2063,14 +2063,14 @@ Port_Pins_Heat_Light_Server:
 	stw r6, sp[16]
 	ldw r2, cp[.LCPI18_6]
 .Ltmp252:
-	.loc	1 262 0
+	.loc	1 329 0
 	and r1, r1, r2
 .Ltmp253:
 .LBB18_33:
 .Lxtalabel76:
-	.loc	1 269 21
+	.loc	1 336 21
 	ldw r10, r0[6]
-	.loc	1 269 21
+	.loc	1 336 21
 	eq r6, r10, 2
 	bt r6, .LBB18_38
 .Ltmp254:
@@ -2082,7 +2082,7 @@ Port_Pins_Heat_Light_Server:
 	mov r8, r9
 	mov r4, r3
 	ldc r0, 32
-	.loc	1 272 0
+	.loc	1 339 0
 	or r1, r1, r0
 .Ltmp256:
 	bu .LBB18_39
@@ -2090,13 +2090,13 @@ Port_Pins_Heat_Light_Server:
 .LBB18_36:
 .Lxtalabel79:
 	ldc r2, 32
-	.loc	1 274 25
+	.loc	1 341 25
 	and r0, r4, r2
 	bf r0, .LBB18_38
 .Ltmp258:
 	mov r8, r9
 	mov r4, r3
-	.loc	1 274 0
+	.loc	1 341 0
 	or r1, r1, r2
 .Ltmp259:
 	bu .LBB18_39
@@ -2105,13 +2105,13 @@ Port_Pins_Heat_Light_Server:
 	mov r8, r9
 	mov r4, r3
 	ldw r0, cp[.LCPI18_7]
-	.loc	1 274 0
+	.loc	1 341 0
 	and r1, r1, r0
 .Ltmp261:
 .LBB18_39:
 .Lxtalabel80:
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 277 45
+	.loc	1 344 45
 .Lxta.endpoint_labels11:
 	out res[r0], r1
 	ldc r0, 100
@@ -2123,12 +2123,12 @@ Port_Pins_Heat_Light_Server:
 .Lxta.call_labels5:
 	bl delay_ticks_longlong
 .Ltmp263:
-	.loc	1 281 21
+	.loc	1 348 21
 	bf r8, .LBB18_42
 .Ltmp264:
 .Lxtalabel81:
 	ldc r0, 8
-	.loc	1 282 0
+	.loc	1 349 0
 	or r9, r9, r0
 .Ltmp265:
 	mov r3, r4
@@ -2136,7 +2136,7 @@ Port_Pins_Heat_Light_Server:
 .Ltmp266:
 .LBB18_42:
 .Lxtalabel82:
-	.loc	1 283 28
+	.loc	1 350 28
 	ldw r0, sp[16]
 	eq r0, r0, 1
 	mov r3, r4
@@ -2153,7 +2153,7 @@ Port_Pins_Heat_Light_Server:
 .LBB18_43:
 	ldw r0, cp[.LCPI18_5]
 	mov r1, r9
-	.loc	1 284 0
+	.loc	1 351 0
 	and r1, r1, r0
 .Ltmp269:
 	ldw r4, sp[18]
@@ -2163,25 +2163,25 @@ Port_Pins_Heat_Light_Server:
 .Ltmp271:
 .LBB18_44:
 .Lxtalabel84:
-	.loc	1 287 21
+	.loc	1 354 21
 	ldw r0, sp[20]
 	bf r0, .LBB18_45
 .Ltmp272:
 .Lxtalabel85:
 	ldc r0, 16
-	.loc	1 288 0
+	.loc	1 355 0
 	or r1, r1, r0
 	bu .LBB18_49
 .Ltmp273:
 .LBB18_45:
 .Lxtalabel86:
-	.loc	1 289 32
+	.loc	1 356 32
 	ldw r0, sp[15]
 	eq r0, r0, 1
 	bf r0, .LBB18_49
 .Ltmp274:
 	ldw r0, cp[.LCPI18_6]
-	.loc	1 290 0
+	.loc	1 357 0
 	and r1, r1, r0
 .Ltmp275:
 .LBB18_49:
@@ -2189,23 +2189,23 @@ Port_Pins_Heat_Light_Server:
 	mkmsk r9, 2
 	ldc r8, 8
 .Ltmp276:
-	.loc	1 293 21
+	.loc	1 360 21
 	bf r6, .LBB18_50
 .Ltmp277:
 .Lxtalabel88:
 	ldc r0, 32
-	.loc	1 294 0
+	.loc	1 361 0
 	or r1, r1, r0
 	bu .LBB18_52
 .Ltmp278:
 .LBB18_50:
 .Lxtalabel89:
-	.loc	1 295 32
+	.loc	1 362 32
 	eq r0, r10, 1
 	bf r0, .LBB18_52
 .Ltmp279:
 	ldw r0, cp[.LCPI18_7]
-	.loc	1 296 0
+	.loc	1 363 0
 	and r1, r1, r0
 .Ltmp280:
 .LBB18_52:
@@ -2216,23 +2216,23 @@ Port_Pins_Heat_Light_Server:
 .Ltmp282:
 	stw r1, sp[20]
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 299 45
+	.loc	1 366 45
 .Lxta.endpoint_labels12:
 	out res[r0], r1
-	.loc	1 302 0
+	.loc	1 369 0
 	sub r0, r7, 1
 	ldaw r1, sp[30]
-	.loc	1 302 0
+	.loc	1 369 0
 	stw r0, r1[r2]
 .Ltmp283:
 .LBB18_15:
 .Lxtalabel91:
-	.loc	1 312 0
+	.loc	1 379 0
 	add r0, r2, 1
 .Ltmp284:
-	.loc	1 313 17
+	.loc	1 380 17
 	eq r1, r0, 3
-	.loc	1 313 17
+	.loc	1 380 17
 	mov r2, r5
 	bt r1, .LBB18_17
 .Ltmp285:
@@ -2241,9 +2241,9 @@ Port_Pins_Heat_Light_Server:
 .Ltmp286:
 .LBB18_17:
 .Lxtalabel93:
-	.loc	1 315 17
+	.loc	1 382 17
 	eq r0, r11, 1
-	.loc	1 315 17
+	.loc	1 382 17
 	bf r0, .LBB18_53
 .Ltmp287:
 .Lxtalabel94:
@@ -2251,12 +2251,12 @@ Port_Pins_Heat_Light_Server:
 .Ltmp288:
 	ldc r0, 16384
 	ldw r1, sp[20]
-	.loc	1 317 0
+	.loc	1 384 0
 	or r1, r1, r0
 .Ltmp289:
 	stw r1, sp[20]
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 318 45
+	.loc	1 385 45
 .Lxta.endpoint_labels13:
 	out res[r0], r1
 .Ltmp290:
@@ -2267,7 +2267,7 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel95:
 	stw r2, sp[19]
 .Ltmp292:
-	.loc	1 320 0
+	.loc	1 387 0
 	sub r11, r11, 1
 .Ltmp293:
 	stw r11, sp[17]
@@ -2281,44 +2281,44 @@ Port_Pins_Heat_Light_Server:
 	outct res[r0], 1
 .Ltmp296:
 	ldc r1, 6
-	.loc	1 384 0
+	.loc	1 451 0
 .Ltmp297:
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp298:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r10
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
 	ldc r1, 2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 	ldc r2, 12
 	ldw r3, sp[14]
@@ -2332,142 +2332,142 @@ Port_Pins_Heat_Light_Server:
 .Ltmp299:
 .LBB18_81:
 .Lxtalabel97:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r3, r1[r2]
 .Ltmp300:
-	.loc	1 390 21
+	.loc	1 457 21
 	and r11, r3, r8
 	bf r11, .LBB18_83
 .Ltmp301:
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r9
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r5
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r5
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	in r11, res[r0]
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
-	.loc	1 390 0
+	.loc	1 457 0
 	add r11, r11, 1
 	ldc r7, 6
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r7
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r5
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r5
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r11
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
 .Ltmp302:
 .LBB18_83:
 .Lxtalabel98:
 	ldc r11, 16
-	.loc	1 391 21
+	.loc	1 458 21
 	and r11, r3, r11
 	bf r11, .LBB18_85
 .Ltmp303:
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r9
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r10
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	in r11, res[r0]
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
-	.loc	1 391 0
+	.loc	1 458 0
 	add r11, r11, 1
 	ldc r7, 6
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r7
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r10
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r11
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
 .Ltmp304:
 .LBB18_85:
 .Lxtalabel99:
 	ldc r11, 32
-	.loc	1 392 21
+	.loc	1 459 21
 	and r3, r3, r11
 .Ltmp305:
 	bf r3, .LBB18_87
 .Ltmp306:
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r9
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r5
 	ldc r3, 2
 	mov r7, r3
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r7
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	in r3, res[r0]
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
-	.loc	1 392 0
+	.loc	1 459 0
 	add r3, r3, 1
 	ldc r11, 6
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r11
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r5
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r7
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r3
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
 .Ltmp307:
 .LBB18_87:
 .Lxtalabel100:
-	.loc	1 388 0
+	.loc	1 455 0
 	add r2, r2, 1
-	.loc	1 388 0
+	.loc	1 455 0
 	lsu r3, r2, r9
 .Lxta.loop_labels2:
 	# LOOPMARKER 0
 	bt r3, .LBB18_81
 .Ltmp308:
 .Lxtalabel101:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, sp[31]
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r1, r5
 	bt r2, .LBB18_90
 .Ltmp309:
 .Lxtalabel102:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r1, sp[30]
-	.loc	1 404 21
+	.loc	1 471 21
 	eq r1, r1, 0
 .Ltmp310:
 .LBB18_90:
 .Lxtalabel103:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r3, sp[32]
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r2, r5
 	ldw r11, sp[14]
 	bt r3, .LBB18_92
@@ -2504,14 +2504,14 @@ Port_Pins_Heat_Light_Server:
 	bt r1, .LBB18_96
 .Ltmp319:
 .Lxtalabel107:
-	.loc	1 331 17
+	.loc	1 398 17
 	ldw r1, sp[11]
 .Ltmp320:
 .LBB18_96:
 .Lxtalabel108:
 	stw r1, sp[11]
 	ldw r2, sp[14]
-	.loc	1 333 17
+	.loc	1 400 17
 	ldw r1, sp[16]
 	eq r3, r2, r1
 	bt r3, .LBB18_115
@@ -2537,23 +2537,23 @@ Port_Pins_Heat_Light_Server:
 .Ltrap_info8:
 	ecallf r6
 	mov r1, r9
-	.loc	1 336 0
+	.loc	1 403 0
 .Ltmp323:
 	ldw r7, r11[r4]
 .Ltmp324:
-	.loc	1 337 0
+	.loc	1 404 0
 	ldw r2, sp[15]
 	ldw r6, r2[r4]
 .Ltmp325:
-	.loc	1 339 0
+	.loc	1 406 0
 	xor r8, r6, r7
 .Ltmp326:
-	.loc	1 341 25
+	.loc	1 408 25
 	and r9, r8, r5
-	.loc	1 341 25
+	.loc	1 408 25
 	bf r9, .LBB18_116
 .Ltmp327:
-	.loc	1 343 32
+	.loc	1 410 32
 	and r9, r7, r5
 	bt r9, .LBB18_106
 .Ltmp328:
@@ -2563,7 +2563,7 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel110:
 	ldaw r2, sp[21]
 	ldc r3, 2
-	.loc	1 344 0
+	.loc	1 411 0
 	stw r3, r2[r4]
 	bu .LBB18_102
 .Ltmp330:
@@ -2571,26 +2571,26 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel111:
 	ldc r2, 0
 	ldaw r3, sp[21]
-	.loc	1 342 0
+	.loc	1 409 0
 	stw r2, r3[r4]
 	bu .LBB18_102
 .Ltmp331:
 .LBB18_106:
 .Lxtalabel112:
 	ldaw r2, sp[21]
-	.loc	1 346 0
+	.loc	1 413 0
 	stw r10, r2[r4]
 .Ltmp332:
 .LBB18_102:
 .Lxtalabel113:
 	ldc r3, 16
-	.loc	1 349 25
+	.loc	1 416 25
 	and r9, r8, r3
-	.loc	1 349 25
+	.loc	1 416 25
 	bf r9, .LBB18_107
 .Ltmp333:
 	mov r2, r10
-	.loc	1 351 32
+	.loc	1 418 32
 	and r10, r7, r3
 	ldaw r9, sp[21]
 	ldaw r9, r9[r4]
@@ -2601,7 +2601,7 @@ Port_Pins_Heat_Light_Server:
 .Ltmp335:
 .Lxtalabel114:
 	ldc r3, 2
-	.loc	1 352 0
+	.loc	1 419 0
 	stw r3, r9[3]
 	mov r10, r2
 	bu .LBB18_109
@@ -2611,14 +2611,14 @@ Port_Pins_Heat_Light_Server:
 	ldaw r2, sp[21]
 	ldaw r9, r2[r4]
 	ldc r2, 0
-	.loc	1 350 0
+	.loc	1 417 0
 	stw r2, r9[3]
 	bu .LBB18_109
 .Ltmp337:
 .LBB18_108:
 .Lxtalabel116:
 	mov r10, r2
-	.loc	1 354 0
+	.loc	1 421 0
 	stw r10, r9[3]
 .Ltmp338:
 .LBB18_109:
@@ -2626,13 +2626,13 @@ Port_Pins_Heat_Light_Server:
 	mov r9, r1
 	ldc r1, 32
 .Ltmp339:
-	.loc	1 357 25
+	.loc	1 424 25
 	and r8, r8, r1
 .Ltmp340:
-	.loc	1 357 25
+	.loc	1 424 25
 	bf r8, .LBB18_117
 .Ltmp341:
-	.loc	1 359 32
+	.loc	1 426 32
 	and r8, r7, r1
 	ldaw r2, sp[21]
 	ldaw r7, r2[r4]
@@ -2644,7 +2644,7 @@ Port_Pins_Heat_Light_Server:
 .Ltmp344:
 .Lxtalabel118:
 	ldc r1, 2
-	.loc	1 360 0
+	.loc	1 427 0
 	stw r1, r7[6]
 	bu .LBB18_114
 .Ltmp345:
@@ -2653,26 +2653,26 @@ Port_Pins_Heat_Light_Server:
 	ldaw r1, sp[21]
 	ldaw r6, r1[r4]
 	ldc r1, 0
-	.loc	1 358 0
+	.loc	1 425 0
 	stw r1, r6[6]
 	bu .LBB18_114
 .Ltmp346:
 .LBB18_113:
 .Lxtalabel120:
-	.loc	1 362 0
+	.loc	1 429 0
 	stw r10, r7[6]
 .Ltmp347:
 .LBB18_114:
 .Lxtalabel121:
 	ldaw r1, sp[30]
 	ldc r2, 1500
-	.loc	1 365 0
+	.loc	1 432 0
 	stw r2, r1[r4]
 .Ltmp348:
-	.loc	1 334 0
+	.loc	1 401 0
 	add r4, r4, 1
 .Ltmp349:
-	.loc	1 334 0
+	.loc	1 401 0
 	lsu r6, r4, r9
 .Lxta.loop_labels3:
 	# LOOPMARKER 1
@@ -2699,13 +2699,13 @@ Port_Pins_Heat_Light_Server:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp354:
-	.loc	1 412 17
+	.loc	1 479 17
 	bt r1, .LBB18_77
 .Ltmp355:
 .Lxtalabel124:
 	ldc r1, 16384
 	ldw r2, sp[20]
-	.loc	1 415 0
+	.loc	1 482 0
 	or r2, r2, r1
 .Ltmp356:
 	bu .LBB18_79
@@ -2716,21 +2716,21 @@ Port_Pins_Heat_Light_Server:
 .Ltmp358:
 	ldw r2, cp[.LCPI18_1]
 	ldw r11, sp[20]
-	.loc	1 423 0
+	.loc	1 490 0
 	and r11, r11, r2
 .Ltmp359:
 	stw r11, sp[20]
 	ldw r2, cp[.LCPI18_0]
-	.loc	1 424 41
+	.loc	1 491 41
 .Lxta.endpoint_labels14:
 	out res[r2], r11
 .Ltmp360:
 	ldc r2, 1000
-	.loc	1 426 0
+	.loc	1 493 0
 	mul r1, r1, r2
 .Ltmp361:
 	ldw r2, cp[.LCPI18_2]
-	.loc	1 426 0
+	.loc	1 493 0
 	lmul r1, r2, r1, r2, r5, r5
 	shr r1, r1, 5
 .Ltmp362:
@@ -2741,7 +2741,7 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel125:
 	mov r9, r4
 	ldc r1, 8192
-	.loc	1 442 0
+	.loc	1 509 0
 .Ltmp364:
 	or r4, r0, r1
 .Ltmp365:
@@ -2750,9 +2750,9 @@ Port_Pins_Heat_Light_Server:
 .Ltmp366:
 .LBB18_60:
 .Lxtalabel126:
-	.loc	1 455 17
+	.loc	1 522 17
 	eq r0, r4, r1
-	.loc	1 455 17
+	.loc	1 522 17
 	bf r0, .LBB18_67
 .Ltmp367:
 	stw r1, sp[20]
@@ -2766,22 +2766,22 @@ Port_Pins_Heat_Light_Server:
 .Ltmp369:
 	mov r11, r1
 	mov r1, r0
-	.loc	1 457 0
+	.loc	1 524 0
 .Ltmp370:
 	and r0, r11, r1
 .Ltmp371:
 	ldc r2, 8192
-	.loc	1 458 0
+	.loc	1 525 0
 .Ltmp372:
 	and r8, r11, r2
 .Ltmp373:
-	.loc	1 459 0
+	.loc	1 526 0
 	and r1, r4, r1
 .Ltmp374:
-	.loc	1 460 0
+	.loc	1 527 0
 	and r6, r4, r2
 .Ltmp375:
-	.loc	1 465 21
+	.loc	1 532 21
 	eq r2, r0, r1
 	mov r0, r5
 .Ltmp376:
@@ -2789,7 +2789,7 @@ Port_Pins_Heat_Light_Server:
 .Ltmp377:
 .Lxtalabel128:
 	ldw r0, cp[.LCPI18_0]
-	.loc	1 466 49
+	.loc	1 533 49
 .Lxta.endpoint_labels15:
 	out res[r0], r4
 	mov r0, r10
@@ -2806,9 +2806,9 @@ Port_Pins_Heat_Light_Server:
 .Ltmp379:
 .LBB18_69:
 .Lxtalabel130:
-	.loc	1 474 21
+	.loc	1 541 21
 	eq r1, r8, r6
-	.loc	1 474 21
+	.loc	1 541 21
 	bf r1, .LBB18_73
 .Ltmp380:
 	stw r4, sp[20]
@@ -2819,12 +2819,12 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel131:
 	mov r8, r3
 	ldw r1, cp[.LCPI18_0]
-	.loc	1 475 49
+	.loc	1 542 49
 .Lxta.endpoint_labels16:
 	out res[r1], r4
-	.loc	1 476 25
+	.loc	1 543 25
 	or r0, r0, r6
-	.loc	1 476 25
+	.loc	1 543 25
 	bf r0, .LBB18_74
 .Ltmp382:
 .Lxtalabel132:
@@ -2859,14 +2859,14 @@ Port_Pins_Heat_Light_Server:
 .LBB18_77:
 	ldw r1, cp[.LCPI18_1]
 	ldw r2, sp[20]
-	.loc	1 413 0
+	.loc	1 480 0
 	and r2, r2, r1
 .Ltmp389:
 .LBB18_79:
 .Lxtalabel135:
 	stw r2, sp[20]
 	ldw r1, cp[.LCPI18_0]
-	.loc	1 417 41
+	.loc	1 484 41
 .Lxta.endpoint_labels17:
 	out res[r1], r2
 	bu .LBB18_63
@@ -2951,38 +2951,38 @@ Port_Pins_Heat_Light_Server.select.0.enable:
 	ldw r1, cp[.LCPI19_2]
 	stw r1, r0[0]
 .Ltmp397:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	ldw r1, r4[2]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r1[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r2[0]
 	bf r2, .LBB19_3
 .Ltmp398:
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 324 0
+	.loc	1 391 0
 	setev res[r2], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r2]
 .LBB19_3:
 .Ltmp399:
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r1[1]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r1[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	bf r1, .LBB19_4
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setv res[r1], r11
 	mkmsk r0, 1
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setev res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r1]
 	bu .LBB19_5
 .Ltmp400:
@@ -3046,51 +3046,51 @@ Port_Pins_Heat_Light_Server.init.1:
 	ldc r1, 0
 	stw r1, r4[1]
 	mkmsk r5, 32
-	.loc	1 191 0 prologue_end
+	.loc	1 258 0 prologue_end
 .Ltmp408:
 	stw r5, r4[3]
-	.loc	1 194 0
+	.loc	1 261 0
 .Ltmp409:
 	ldaw r0, r4[5]
 	ldc r2, 80
-	.loc	1 202 0
+	.loc	1 269 0
 .Ltmp410:
 	add r2, r4, r2
-	.loc	1 202 0
+	.loc	1 269 0
 	stw r1, r2[0]
 	ldc r2, 84
-	.loc	1 212 0
+	.loc	1 279 0
 .Ltmp411:
 	add r2, r4, r2
-	.loc	1 212 0
+	.loc	1 279 0
 	stw r1, r2[0]
 	ldc r2, 24
 .Ltmp412:
-	.loc	1 195 0
+	.loc	1 262 0
 	bl memset
-	.loc	1 216 37
+	.loc	1 283 37
 .Ltmp413:
 	ldw r0, dp[dummy_wify_ctrl_port]
 	mkmsk r1, 1
-	.loc	1 216 37
+	.loc	1 283 37
 .Lxta.endpoint_labels18:
 	out res[r0], r1
 	ldw r0, cp[.LCPI20_0]
-	.loc	1 219 29
+	.loc	1 286 29
 .Lxta.endpoint_labels19:
 	out res[r0], r5
-	.loc	1 221 0
+	.loc	1 288 0
 	get r11, id
-	.loc	1 221 0
+	.loc	1 288 0
 	ldaw r0, dp[__timers]
-	.loc	1 221 0
+	.loc	1 288 0
 	ldw r0, r0[r11]
-	.loc	1 221 0
+	.loc	1 288 0
 	setc res[r0], 1
-	.loc	1 221 0
+	.loc	1 288 0
 .Lxta.endpoint_labels20:
 	in r0, res[r0]
-	.loc	1 221 0
+	.loc	1 288 0
 	stw r0, r4[4]
 	stw r1, r4[0]
 .Ltmp414:
@@ -3240,37 +3240,37 @@ Port_Pins_Heat_Light_Server.select.y.enable:
 	ldw r1, cp[.LCPI22_2]
 	stw r1, r0[0]
 .Ltmp424:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	ldw r1, r4[2]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r1[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r2[0]
 	bf r2, .LBB22_4
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 324 0
+	.loc	1 391 0
 	setev res[r2], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r2]
 .LBB22_4:
 .Ltmp425:
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r1[1]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r1, r1[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	bf r1, .LBB22_5
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setv res[r1], r11
 	mkmsk r0, 1
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setev res[r1], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r1]
 	bu .LBB22_6
 .Ltmp426:
@@ -3380,37 +3380,37 @@ Port_Pins_Heat_Light_Server.select.enable:
 	ldw r2, cp[.LCPI23_2]
 	stw r2, r1[0]
 .Ltmp433:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	ldw r0, r0[2]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r0[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r2[0]
 	bf r2, .LBB23_4
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r1
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 324 0
+	.loc	1 391 0
 	setev res[r2], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r2]
 .LBB23_4:
 .Ltmp434:
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r0, r0[1]
-	.loc	1 324 0
+	.loc	1 391 0
 	ldw r2, r0[0]
-	.loc	1 324 0
+	.loc	1 391 0
 	bf r2, .LBB23_5
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r1
 	setv res[r2], r11
 	mkmsk r0, 1
-	.loc	1 324 0
+	.loc	1 391 0
 	mov r11, r0
 	setev res[r2], r11
-	.loc	1 324 0
+	.loc	1 391 0
 	eeu res[r2]
 	bu .LBB23_6
 .Ltmp435:
@@ -3557,7 +3557,7 @@ myport_p32.dtor:
 	.cc_top Port_Pins_Heat_Light_Server.select.0.case.0.function,Port_Pins_Heat_Light_Server.select.0.case.0
 Port_Pins_Heat_Light_Server.select.0.case.0:
 .Lfunc_begin27:
-	.loc	1 324 0
+	.loc	1 391 0
 	.cfi_startproc
 .Lxtalabel138:
 	ldw r11, sp[0]
@@ -3589,7 +3589,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	.cfi_offset 10, -28
 	mov r9, r11
 .Ltmp449:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	get r11, ed
 	mov r5, r11
 .Ltmp450:
@@ -3612,10 +3612,10 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp453:
-	.loc	1 432 0
+	.loc	1 499 0
 	ldw r0, r9[3]
 .Ltmp454:
-	.loc	1 434 0
+	.loc	1 501 0
 	eq r2, r1, 1
 	bt r2, .LBB27_6
 .Ltmp455:
@@ -3624,20 +3624,20 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	bf r2, .LBB27_4
 .Ltmp456:
 .Lxtalabel141:
-	.loc	1 439 25
+	.loc	1 506 25
 	ldw r1, r9[7]
-	.loc	1 439 25
+	.loc	1 506 25
 	bf r1, .LBB27_11
 .Ltmp457:
 .Lxtalabel142:
 	ldc r1, 0
-	.loc	1 444 0
+	.loc	1 511 0
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI27_3]
-	.loc	1 446 0
+	.loc	1 513 0
 	and r1, r0, r1
 	ldc r2, 64
-	.loc	1 446 0
+	.loc	1 513 0
 	or r1, r1, r2
 .Ltmp458:
 	bu .LBB27_7
@@ -3652,7 +3652,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	.jmptable .LBB27_38,.LBB27_25,.LBB27_39,.LBB27_21,.LBB27_64
 .Ltmp460:
 .LBB27_38:
-	.loc	1 376 0
+	.loc	1 443 0
 	ldw r1, r9[5]
 .Ltmp461:
 	ldc r2, 0
@@ -3663,7 +3663,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .LBB27_6:
 .Lxtalabel144:
 	ldw r1, cp[.LCPI27_3]
-	.loc	1 436 0
+	.loc	1 503 0
 .Ltmp463:
 	and r1, r0, r1
 .Ltmp464:
@@ -3676,7 +3676,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp466:
 .Lxtalabel146:
 	ldc r1, 8256
-	.loc	1 451 0
+	.loc	1 518 0
 	or r1, r0, r1
 .Ltmp467:
 	bu .LBB27_7
@@ -3686,48 +3686,48 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	outct res[r0], 1
 	ldc r2, 6
 .Ltmp469:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
 	ldc r1, 0
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp470:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	mkmsk r5, 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	ldc r6, 2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r6
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp471:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r9[5]
 .Ltmp472:
 	stw r9, sp[3]
@@ -3748,114 +3748,114 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp475:
 .LBB27_26:
 .Lxtalabel148:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r11[r3]
 .Ltmp476:
 	ldc r7, 8
-	.loc	1 390 21
+	.loc	1 457 21
 	and r7, r4, r7
 	bf r7, .LBB27_28
 .Ltmp477:
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r10
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	in r7, res[r0]
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
-	.loc	1 390 0
+	.loc	1 457 0
 	add r7, r7, 1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r2
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r7
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
 .Ltmp478:
 .LBB27_28:
 .Lxtalabel149:
-	.loc	1 391 21
+	.loc	1 458 21
 	and r7, r4, r8
 	bf r7, .LBB27_30
 .Ltmp479:
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r10
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	in r7, res[r0]
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
-	.loc	1 391 0
+	.loc	1 458 0
 	add r7, r7, 1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r2
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r7
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
 .Ltmp480:
 .LBB27_30:
 .Lxtalabel150:
-	.loc	1 392 21
+	.loc	1 459 21
 	and r4, r4, r9
 .Ltmp481:
 	bf r4, .LBB27_32
 .Ltmp482:
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r10
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	in r4, res[r0]
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
-	.loc	1 392 0
+	.loc	1 459 0
 	add r4, r4, 1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r2
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r4
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
 .Ltmp483:
 .LBB27_32:
 .Lxtalabel151:
-	.loc	1 388 0
+	.loc	1 455 0
 	add r3, r3, 1
 .Ltmp484:
-	.loc	1 388 0
+	.loc	1 455 0
 	lsu r4, r3, r10
 .Lxta.loop_labels4:
 	# LOOPMARKER 0
@@ -3864,24 +3864,24 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Lxtalabel152:
 	ldw r4, sp[3]
 .Ltmp486:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r3, r4[9]
 	ldc r1, 0
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r2, r1
 	bt r3, .LBB27_35
 .Ltmp487:
 .Lxtalabel153:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, r4[8]
-	.loc	1 404 21
+	.loc	1 471 21
 	eq r2, r2, 0
 .Ltmp488:
 .LBB27_35:
 .Lxtalabel154:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r11, r4[10]
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r3, r1
 	bt r11, .LBB27_37
 .Ltmp489:
@@ -3891,9 +3891,9 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .LBB27_37:
 .Lxtalabel156:
 	ldc r2, 80
-	.loc	1 408 0
+	.loc	1 475 0
 	add r2, r4, r2
-	.loc	1 408 0
+	.loc	1 475 0
 	ldw r2, r2[0]
 .Ltmp491:
 	out res[r0], r1
@@ -3915,23 +3915,23 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	bf r1, .LBB27_41
 .Ltmp496:
 	ldc r0, 80
-	.loc	1 331 0
+	.loc	1 398 0
 	add r0, r9, r0
-	.loc	1 331 0
+	.loc	1 398 0
 	stw r1, r0[0]
 .Ltmp497:
 .LBB27_41:
 .Lxtalabel158:
-	.loc	1 333 17
+	.loc	1 400 17
 	ldw r10, r9[5]
-	.loc	1 333 17
+	.loc	1 400 17
 	eq r0, r10, r2
 	bt r0, .LBB27_44
 .Ltmp498:
 	stw r9, sp[3]
 .Ltmp499:
 	ldc r4, 12
-	.loc	1 336 0
+	.loc	1 403 0
 .Ltmp500:
 	lsu r0, r4, r10
 .Ltrap_info10:
@@ -3939,7 +3939,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	lsu r0, r4, r2
 .Ltrap_info11:
 	ecallt r0
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r0, r2, r4
 	stw r2, sp[1]
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
@@ -3958,39 +3958,39 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp502:
 .LBB27_59:
 .Lxtalabel159:
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r1, sp[3]
 	ldw r10, r1[5]
 	ldc r0, 13
-	.loc	1 336 0
+	.loc	1 403 0
 	lsu r1, r10, r0
-	.loc	1 336 0
+	.loc	1 403 0
 	add r3, r3, 4
 .Ltrap_info12:
 	ecallf r1
 .Ltmp503:
 .LBB27_60:
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r1, r10, r4
 	mov r0, r4
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r1, r11, r1
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r10, r1[r6]
 .Ltmp504:
-	.loc	1 337 0
+	.loc	1 404 0
 	ldw r1, sp[2]
 	ldw r11, r1[r6]
 .Ltmp505:
-	.loc	1 339 0
+	.loc	1 406 0
 	xor r1, r11, r10
 .Ltmp506:
-	.loc	1 341 25
+	.loc	1 408 25
 	and r4, r1, r7
-	.loc	1 341 25
+	.loc	1 408 25
 	bf r4, .LBB27_45
 .Ltmp507:
-	.loc	1 343 32
+	.loc	1 410 32
 	and r4, r10, r7
 	bt r4, .LBB27_50
 .Ltmp508:
@@ -3999,30 +3999,30 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp509:
 .Lxtalabel160:
 	ldc r4, 2
-	.loc	1 344 0
+	.loc	1 411 0
 	stw r4, r3[0]
 	bu .LBB27_46
 .Ltmp510:
 .LBB27_45:
 .Lxtalabel161:
-	.loc	1 342 0
+	.loc	1 409 0
 	stw r2, r3[0]
 	bu .LBB27_46
 .Ltmp511:
 .LBB27_50:
 .Lxtalabel162:
 	mkmsk r4, 1
-	.loc	1 346 0
+	.loc	1 413 0
 	stw r4, r3[0]
 .Ltmp512:
 .LBB27_46:
 .Lxtalabel163:
-	.loc	1 349 25
+	.loc	1 416 25
 	and r4, r1, r8
-	.loc	1 349 25
+	.loc	1 416 25
 	bf r4, .LBB27_51
 .Ltmp513:
-	.loc	1 351 32
+	.loc	1 418 32
 	and r4, r10, r8
 	bt r4, .LBB27_67
 .Ltmp514:
@@ -4031,32 +4031,32 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp515:
 .Lxtalabel164:
 	ldc r4, 2
-	.loc	1 352 0
+	.loc	1 419 0
 	stw r4, r3[3]
 	bu .LBB27_52
 .Ltmp516:
 .LBB27_51:
 .Lxtalabel165:
-	.loc	1 350 0
+	.loc	1 417 0
 	stw r2, r3[3]
 	bu .LBB27_52
 .Ltmp517:
 .LBB27_67:
 .Lxtalabel166:
 	mkmsk r4, 1
-	.loc	1 354 0
+	.loc	1 421 0
 	stw r4, r3[3]
 .Ltmp518:
 .LBB27_52:
 .Lxtalabel167:
-	.loc	1 357 25
+	.loc	1 424 25
 	and r1, r1, r9
 .Ltmp519:
 	mov r4, r0
-	.loc	1 357 25
+	.loc	1 424 25
 	bf r1, .LBB27_68
 .Ltmp520:
-	.loc	1 359 32
+	.loc	1 426 32
 	and r1, r10, r9
 	bt r1, .LBB27_56
 .Ltmp521:
@@ -4069,7 +4069,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp523:
 .LBB27_68:
 .Lxtalabel169:
-	.loc	1 358 0
+	.loc	1 425 0
 	stw r2, r3[6]
 	bu .LBB27_58
 .Ltmp524:
@@ -4079,25 +4079,25 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp525:
 .LBB27_57:
 .Lxtalabel171:
-	.loc	1 362 0
+	.loc	1 429 0
 	stw r0, r3[6]
 .LBB27_58:
 .Lxtalabel172:
 .Ltmp526:
 	ldaw r1, r3[-3]
 	ldc r0, 1500
-	.loc	1 365 0
+	.loc	1 432 0
 	stw r0, r1[0]
 .Ltmp527:
-	.loc	1 334 0
+	.loc	1 401 0
 	add r6, r6, 1
 .Ltmp528:
 	mkmsk r0, 2
-	.loc	1 334 0
+	.loc	1 401 0
 	lsu r1, r6, r0
 .Lxta.loop_labels5:
 	# LOOPMARKER 1
-	.loc	1 334 0
+	.loc	1 401 0
 	bt r1, .LBB27_59
 .Ltmp529:
 	ldw r9, sp[3]
@@ -4107,7 +4107,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp531:
 .LBB27_44:
 .Lxtalabel173:
-	.loc	1 370 0
+	.loc	1 437 0
 	stw r2, r9[5]
 	bu .LBB27_13
 .Ltmp532:
@@ -4116,14 +4116,14 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	outct res[r0], 1
 	in r2, res[r0]
 .Ltmp533:
-	.loc	1 413 0
+	.loc	1 480 0
 	ldw r1, r9[3]
-	.loc	1 412 17
+	.loc	1 479 17
 	bt r2, .LBB27_22
 .Ltmp534:
 .Lxtalabel175:
 	ldc r2, 16384
-	.loc	1 415 0
+	.loc	1 482 0
 	or r1, r1, r2
 	bu .LBB27_24
 .Ltmp535:
@@ -4131,30 +4131,30 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp536:
-	.loc	1 423 0
+	.loc	1 490 0
 	ldw r2, r9[3]
 	ldw r3, cp[.LCPI27_0]
-	.loc	1 423 0
+	.loc	1 490 0
 	and r2, r2, r3
-	.loc	1 423 0
+	.loc	1 490 0
 	stw r2, r9[3]
 	ldw r3, cp[.LCPI27_1]
-	.loc	1 424 41
+	.loc	1 491 41
 .Lxta.endpoint_labels21:
 	out res[r3], r2
 	ldc r2, 84
-	.loc	1 426 0
+	.loc	1 493 0
 	add r2, r9, r2
 	ldc r3, 1000
-	.loc	1 426 0
+	.loc	1 493 0
 	mul r1, r1, r3
 .Ltmp537:
 	ldc r3, 0
 	ldw r11, cp[.LCPI27_2]
-	.loc	1 426 0
+	.loc	1 493 0
 	lmul r1, r11, r1, r11, r3, r3
 	shr r1, r1, 5
-	.loc	1 426 0
+	.loc	1 493 0
 	stw r1, r2[0]
 	out res[r0], r3
 	bu .LBB27_65
@@ -4162,42 +4162,42 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .LBB27_11:
 .Lxtalabel176:
 	mkmsk r1, 1
-	.loc	1 440 0
+	.loc	1 507 0
 .Ltmp539:
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI27_3]
-	.loc	1 442 0
+	.loc	1 509 0
 	and r1, r0, r1
 	ldc r2, 8192
-	.loc	1 442 0
+	.loc	1 509 0
 	or r1, r1, r2
 .Ltmp540:
 .LBB27_7:
 .Lxtalabel177:
-	.loc	1 455 17
+	.loc	1 522 17
 	eq r2, r1, r0
 	bt r2, .LBB27_13
 .Ltmp541:
 .Lxtalabel178:
 	ldc r2, 64
-	.loc	1 457 0
+	.loc	1 524 0
 .Ltmp542:
 	and r3, r0, r2
 .Ltmp543:
 	ldc r11, 8192
-	.loc	1 458 0
+	.loc	1 525 0
 .Ltmp544:
 	and r8, r0, r11
 .Ltmp545:
-	.loc	1 459 0
+	.loc	1 526 0
 	and r0, r1, r2
 .Ltmp546:
-	.loc	1 460 0
+	.loc	1 527 0
 	and r4, r1, r11
 .Ltmp547:
-	.loc	1 463 0
+	.loc	1 530 0
 	stw r1, r9[3]
-	.loc	1 465 21
+	.loc	1 532 21
 	eq r2, r3, r0
 	bf r2, .LBB27_16
 .Ltmp548:
@@ -4207,10 +4207,10 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .LBB27_16:
 .Lxtalabel179:
 	ldw r2, cp[.LCPI27_1]
-	.loc	1 466 49
+	.loc	1 533 49
 .Lxta.endpoint_labels22:
 	out res[r2], r1
-	.loc	1 467 25
+	.loc	1 534 25
 	bf r0, .LBB27_17
 .Ltmp550:
 .Lxtalabel180:
@@ -4225,15 +4225,15 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp552:
 .LBB27_22:
 	ldw r2, cp[.LCPI27_0]
-	.loc	1 413 0
+	.loc	1 480 0
 	and r1, r1, r2
 .Ltmp553:
 .LBB27_24:
 .Lxtalabel181:
-	.loc	1 415 0
+	.loc	1 482 0
 	stw r1, r9[3]
 	ldw r2, cp[.LCPI27_1]
-	.loc	1 417 41
+	.loc	1 484 41
 .Lxta.endpoint_labels23:
 	out res[r2], r1
 	bu .LBB27_14
@@ -4243,18 +4243,18 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp555:
 .LBB27_18:
 .Lxtalabel182:
-	.loc	1 474 21
+	.loc	1 541 21
 	eq r0, r8, r4
 	bt r0, .LBB27_13
 .Ltmp556:
 .Lxtalabel183:
-	.loc	1 475 49
+	.loc	1 542 49
 	ldw r0, r9[3]
 	ldw r1, cp[.LCPI27_1]
-	.loc	1 475 49
+	.loc	1 542 49
 .Lxta.endpoint_labels24:
 	out res[r1], r0
-	.loc	1 476 25
+	.loc	1 543 25
 	or r0, r6, r4
 	bf r0, .LBB27_13
 .Ltmp557:
@@ -4337,7 +4337,7 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	.cc_top Port_Pins_Heat_Light_Server.select.y.case.0.function,Port_Pins_Heat_Light_Server.select.y.case.0
 Port_Pins_Heat_Light_Server.select.y.case.0:
 .Lfunc_begin28:
-	.loc	1 225 0
+	.loc	1 292 0
 	.cfi_startproc
 .Lxtalabel186:
 	entsp 7
@@ -4365,86 +4365,86 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	.cfi_offset 9, -24
 	get r11, ed
 	mov r4, r11
-	.loc	1 225 0 prologue_end
+	.loc	1 292 0 prologue_end
 .Ltmp570:
 	get r11, id
-	.loc	1 225 0
+	.loc	1 292 0
 	ldaw r0, dp[__timers]
-	.loc	1 225 0
+	.loc	1 292 0
 	ldw r0, r0[r11]
-	.loc	1 225 0
+	.loc	1 292 0
 .Ltmp571:
 .Lxta.endpoint_labels25:
 	in r0, res[r0]
 .Ltmp572:
-	.loc	1 226 0
+	.loc	1 293 0
 	ldw r0, r4[4]
 	ldw r1, cp[.LCPI28_0]
-	.loc	1 226 0
+	.loc	1 293 0
 	add r0, r0, r1
-	.loc	1 226 0
+	.loc	1 293 0
 	stw r0, r4[4]
-	.loc	1 227 0
+	.loc	1 294 0
 .Ltmp573:
 	ldw r0, r4[5]
 	ldc r1, 12
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r2, r1, r0
 .Ltrap_info13:
 	ecallt r2
-	.loc	1 227 0
+	.loc	1 294 0
 	ldw r2, r4[6]
 	mkmsk r5, 2
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r3, r2, r5
 .Ltrap_info14:
 	ecallf r3
-	.loc	1 227 0
+	.loc	1 294 0
 	mul r0, r0, r1
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r0, r11, r0
-	.loc	1 227 0
+	.loc	1 294 0
 	ldw r6, r0[r2]
 .Ltmp574:
-	.loc	1 229 17
+	.loc	1 296 17
 	ldaw r1, r4[r2]
-	.loc	1 229 17
+	.loc	1 296 17
 	ldw r0, r1[8]
-	.loc	1 229 17
+	.loc	1 296 17
 	bf r0, .LBB28_1
 .Ltmp575:
 .Lxtalabel187:
-	.loc	1 229 17
+	.loc	1 296 17
 	ldaw r0, r1[8]
-	.loc	1 253 21
+	.loc	1 320 21
 	ldw r2, r1[11]
-	.loc	1 253 21
+	.loc	1 320 21
 	eq r3, r2, 2
 	bf r3, .LBB28_16
 .Ltmp576:
 .Lxtalabel188:
-	.loc	1 254 0
+	.loc	1 321 0
 	ldw r2, r4[3]
 .Ltmp577:
 .LBB28_21:
 	ldw r3, cp[.LCPI28_1]
-	.loc	1 258 0
+	.loc	1 325 0
 	and r2, r2, r3
 	bu .LBB28_22
 .LBB28_1:
 .Lxtalabel189:
 .Ltmp578:
 	ldc r1, 8
-	.loc	1 236 25
+	.loc	1 303 25
 	and r2, r6, r1
-	.loc	1 236 0
+	.loc	1 303 0
 	ldw r0, r4[3]
-	.loc	1 236 25
+	.loc	1 303 25
 	bt r2, .LBB28_2
 .Ltmp579:
 .Lxtalabel190:
 	ldw r1, cp[.LCPI28_1]
-	.loc	1 236 0
+	.loc	1 303 0
 	and r0, r0, r1
 	bu .LBB28_4
 .Ltmp580:
@@ -4453,23 +4453,23 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	eq r2, r2, 1
 	bf r2, .LBB28_18
 .Lxtalabel192:
-	.loc	1 256 0
+	.loc	1 323 0
 	ldw r2, r4[3]
 	ldc r3, 8
-	.loc	1 258 0
+	.loc	1 325 0
 	or r2, r2, r3
 	bu .LBB28_22
 .LBB28_2:
 .Ltmp581:
-	.loc	1 236 0
+	.loc	1 303 0
 	or r0, r0, r1
 .Ltmp582:
 .LBB28_4:
 .Lxtalabel193:
-	.loc	1 236 0
+	.loc	1 303 0
 	stw r0, r4[3]
 	ldw r7, cp[.LCPI28_4]
-	.loc	1 237 49
+	.loc	1 304 49
 .Lxta.endpoint_labels26:
 	out res[r7], r0
 .Ltmp583:
@@ -4482,28 +4482,28 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	bl delay_ticks_longlong
 	ldc r1, 16
 .Ltmp585:
-	.loc	1 241 25
+	.loc	1 308 25
 	and r2, r6, r1
-	.loc	1 241 0
+	.loc	1 308 0
 	ldw r0, r4[3]
-	.loc	1 241 25
+	.loc	1 308 25
 	bt r2, .LBB28_5
 .Ltmp586:
 .Lxtalabel194:
 	ldw r1, cp[.LCPI28_2]
-	.loc	1 241 0
+	.loc	1 308 0
 	and r0, r0, r1
 	bu .LBB28_7
 .Ltmp587:
 .LBB28_5:
-	.loc	1 241 0
+	.loc	1 308 0
 	or r0, r0, r1
 .Ltmp588:
 .LBB28_7:
 .Lxtalabel195:
-	.loc	1 241 0
+	.loc	1 308 0
 	stw r0, r4[3]
-	.loc	1 242 49
+	.loc	1 309 49
 .Lxta.endpoint_labels27:
 	out res[r7], r0
 .Ltmp589:
@@ -4514,26 +4514,26 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	bl delay_ticks_longlong
 	ldc r1, 32
 .Ltmp590:
-	.loc	1 246 25
+	.loc	1 313 25
 	and r2, r6, r1
-	.loc	1 246 0
+	.loc	1 313 0
 	ldw r0, r4[3]
-	.loc	1 246 25
+	.loc	1 313 25
 	bt r2, .LBB28_8
 .Ltmp591:
 .Lxtalabel196:
 	ldw r1, cp[.LCPI28_3]
-	.loc	1 246 0
+	.loc	1 313 0
 	and r0, r0, r1
 	bu .LBB28_10
 .LBB28_8:
-	.loc	1 246 0
+	.loc	1 313 0
 	or r0, r0, r1
 .LBB28_10:
 .Lxtalabel197:
-	.loc	1 246 0
+	.loc	1 313 0
 	stw r0, r4[3]
-	.loc	1 247 49
+	.loc	1 314 49
 .Lxta.endpoint_labels28:
 	out res[r7], r0
 .Ltmp592:
@@ -4547,24 +4547,24 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 .LBB28_18:
 .Lxtalabel198:
 	ldc r3, 8
-	.loc	1 258 25
+	.loc	1 325 25
 	and r11, r6, r3
-	.loc	1 258 0
+	.loc	1 325 0
 	ldw r2, r4[3]
 	bf r11, .LBB28_21
-	.loc	1 258 0
+	.loc	1 325 0
 	or r2, r2, r3
 .LBB28_22:
 .Lxtalabel199:
-	.loc	1 258 0
+	.loc	1 325 0
 	stw r2, r4[3]
 .Ltmp594:
 	ldc r7, 56
-	.loc	1 261 21
+	.loc	1 328 21
 	add r3, r1, r7
-	.loc	1 261 21
+	.loc	1 328 21
 	ldw r3, r3[0]
-	.loc	1 261 21
+	.loc	1 328 21
 	eq r11, r3, 2
 	bt r11, .LBB28_27
 .Ltmp595:
@@ -4573,36 +4573,36 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	bf r3, .LBB28_25
 .Lxtalabel201:
 	ldc r3, 16
-	.loc	1 266 0
+	.loc	1 333 0
 	or r2, r2, r3
 	bu .LBB28_28
 .LBB28_25:
 .Lxtalabel202:
 	ldc r3, 16
-	.loc	1 266 25
+	.loc	1 333 25
 	and r11, r6, r3
 	bf r11, .LBB28_27
-	.loc	1 266 0
+	.loc	1 333 0
 	or r2, r2, r3
 	bu .LBB28_28
 .LBB28_27:
 .Lxtalabel203:
 .Ltmp596:
 	ldw r3, cp[.LCPI28_2]
-	.loc	1 262 0
+	.loc	1 329 0
 	and r2, r2, r3
 .Ltmp597:
 .LBB28_28:
 .Lxtalabel204:
-	.loc	1 262 0
+	.loc	1 329 0
 	stw r2, r4[3]
 .Ltmp598:
 	ldc r8, 68
-	.loc	1 269 21
+	.loc	1 336 21
 	add r1, r1, r8
-	.loc	1 269 21
+	.loc	1 336 21
 	ldw r1, r1[0]
-	.loc	1 269 21
+	.loc	1 336 21
 	eq r3, r1, 2
 	bt r3, .LBB28_33
 .Ltmp599:
@@ -4611,28 +4611,28 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	bf r1, .LBB28_31
 .Lxtalabel206:
 	ldc r1, 32
-	.loc	1 274 0
+	.loc	1 341 0
 	or r1, r2, r1
 	bu .LBB28_34
 .LBB28_31:
 .Lxtalabel207:
 	ldc r1, 32
-	.loc	1 274 25
+	.loc	1 341 25
 	and r3, r6, r1
 	bf r3, .LBB28_33
-	.loc	1 274 0
+	.loc	1 341 0
 	or r1, r2, r1
 	bu .LBB28_34
 .LBB28_33:
 	ldw r1, cp[.LCPI28_3]
-	.loc	1 274 0
+	.loc	1 341 0
 	and r1, r2, r1
 .LBB28_34:
 .Lxtalabel208:
-	.loc	1 274 0
+	.loc	1 341 0
 	stw r1, r4[3]
 	ldw r6, cp[.LCPI28_4]
-	.loc	1 277 45
+	.loc	1 344 45
 .Lxta.endpoint_labels29:
 	out res[r6], r1
 	.loc	2 63 0
@@ -4646,53 +4646,53 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 .Lxta.call_labels13:
 	bl delay_ticks_longlong
 .Ltmp601:
-	.loc	1 281 21
+	.loc	1 348 21
 	ldw r0, r4[6]
-	.loc	1 281 21
+	.loc	1 348 21
 	lsu r1, r0, r5
 .Ltrap_info15:
 	ecallf r1
-	.loc	1 281 21
+	.loc	1 348 21
 	ldaw r0, r4[r0]
-	.loc	1 281 21
+	.loc	1 348 21
 	ldw r1, r0[11]
-	.loc	1 281 21
+	.loc	1 348 21
 	eq r2, r1, 1
 	bf r2, .LBB28_35
 .Lxtalabel209:
-	.loc	1 284 0
+	.loc	1 351 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI28_1]
-	.loc	1 284 0
+	.loc	1 351 0
 	and r1, r1, r2
 	bu .LBB28_38
 .LBB28_35:
 	eq r1, r1, 2
 	bf r1, .LBB28_39
 .Lxtalabel210:
-	.loc	1 282 0
+	.loc	1 349 0
 	ldw r1, r4[3]
 	ldc r2, 8
-	.loc	1 282 0
+	.loc	1 349 0
 	or r1, r1, r2
 .LBB28_38:
 .Lxtalabel211:
-	.loc	1 284 0
+	.loc	1 351 0
 	stw r1, r4[3]
 .LBB28_39:
 .Lxtalabel212:
-	.loc	1 287 21
+	.loc	1 354 21
 	add r1, r0, r7
-	.loc	1 287 21
+	.loc	1 354 21
 	ldw r1, r1[0]
-	.loc	1 287 21
+	.loc	1 354 21
 	eq r2, r1, 2
 	bf r2, .LBB28_40
 .Lxtalabel213:
-	.loc	1 288 0
+	.loc	1 355 0
 	ldw r1, r4[3]
 	ldc r2, 16
-	.loc	1 288 0
+	.loc	1 355 0
 	or r1, r1, r2
 	bu .LBB28_44
 .LBB28_40:
@@ -4700,29 +4700,29 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	eq r1, r1, 1
 	bf r1, .LBB28_45
 .Lxtalabel215:
-	.loc	1 290 0
+	.loc	1 357 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI28_2]
-	.loc	1 290 0
+	.loc	1 357 0
 	and r1, r1, r2
 .LBB28_44:
 .Lxtalabel216:
-	.loc	1 288 0
+	.loc	1 355 0
 	stw r1, r4[3]
 .LBB28_45:
 .Lxtalabel217:
-	.loc	1 293 21
+	.loc	1 360 21
 	add r1, r0, r8
-	.loc	1 293 21
+	.loc	1 360 21
 	ldw r1, r1[0]
-	.loc	1 293 21
+	.loc	1 360 21
 	eq r2, r1, 1
 	bf r2, .LBB28_46
 .Lxtalabel218:
-	.loc	1 296 0
+	.loc	1 363 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI28_3]
-	.loc	1 296 0
+	.loc	1 363 0
 	and r1, r1, r2
 	bu .LBB28_49
 .LBB28_46:
@@ -4730,78 +4730,78 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	eq r1, r1, 2
 	bf r1, .LBB28_47
 .Lxtalabel220:
-	.loc	1 294 0
+	.loc	1 361 0
 	ldw r1, r4[3]
 	ldc r2, 32
-	.loc	1 294 0
+	.loc	1 361 0
 	or r1, r1, r2
 .LBB28_49:
 .Lxtalabel221:
-	.loc	1 296 0
+	.loc	1 363 0
 	stw r1, r4[3]
 	bu .LBB28_50
 .LBB28_47:
-	.loc	1 299 45
+	.loc	1 366 45
 	ldw r1, r4[3]
 .LBB28_50:
 .Lxtalabel222:
-	.loc	1 299 45
+	.loc	1 366 45
 .Lxta.endpoint_labels30:
 	out res[r6], r1
-	.loc	1 301 21
+	.loc	1 368 21
 	ldw r1, r0[8]
 	bf r1, .LBB28_11
 .Lxtalabel223:
-	.loc	1 301 21
+	.loc	1 368 21
 	ldaw r0, r0[8]
-	.loc	1 302 0
+	.loc	1 369 0
 	sub r1, r1, 1
-	.loc	1 302 0
+	.loc	1 369 0
 	stw r1, r0[0]
 .LBB28_11:
 .Lxtalabel224:
-	.loc	1 312 0
+	.loc	1 379 0
 	ldw r0, r4[6]
-	.loc	1 312 0
+	.loc	1 379 0
 	add r0, r0, 1
-	.loc	1 313 17
+	.loc	1 380 17
 	eq r1, r0, 3
 	bf r1, .LBB28_13
 	ldc r0, 0
 .LBB28_13:
 .Lxtalabel225:
-	.loc	1 312 0
+	.loc	1 379 0
 	stw r0, r4[6]
 	ldc r0, 84
-	.loc	1 315 17
+	.loc	1 382 17
 	add r0, r4, r0
-	.loc	1 315 17
+	.loc	1 382 17
 	ldw r1, r0[0]
-	.loc	1 315 17
+	.loc	1 382 17
 	eq r2, r1, 1
-	.loc	1 315 17
+	.loc	1 382 17
 	bf r2, .LBB28_52
 .Lxtalabel226:
 	ldc r1, 0
-	.loc	1 316 0
+	.loc	1 383 0
 	stw r1, r0[0]
-	.loc	1 317 0
+	.loc	1 384 0
 	ldw r0, r4[3]
 	ldc r1, 16384
-	.loc	1 317 0
+	.loc	1 384 0
 	or r0, r0, r1
-	.loc	1 317 0
+	.loc	1 384 0
 	stw r0, r4[3]
 	ldw r1, cp[.LCPI28_4]
-	.loc	1 318 45
+	.loc	1 385 45
 .Lxta.endpoint_labels31:
 	out res[r1], r0
 	bu .LBB28_53
 .LBB28_52:
 .Lxtalabel227:
-	.loc	1 320 0
+	.loc	1 387 0
 	sub r1, r1, 1
-	.loc	1 320 0
+	.loc	1 387 0
 	stw r1, r0[0]
 .Ltmp602:
 .LBB28_53:
@@ -4859,7 +4859,7 @@ Port_Pins_Heat_Light_Server.select.y.case.0:
 	.cc_top Port_Pins_Heat_Light_Server.select.y.case.1.function,Port_Pins_Heat_Light_Server.select.y.case.1
 Port_Pins_Heat_Light_Server.select.y.case.1:
 .Lfunc_begin29:
-	.loc	1 324 0
+	.loc	1 391 0
 	.cfi_startproc
 .Lxtalabel229:
 	ldw r11, sp[0]
@@ -4891,7 +4891,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	.cfi_offset 10, -28
 	mov r9, r11
 .Ltmp613:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	get r11, ed
 	mov r5, r11
 .Ltmp614:
@@ -4914,10 +4914,10 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp617:
-	.loc	1 432 0
+	.loc	1 499 0
 	ldw r0, r9[3]
 .Ltmp618:
-	.loc	1 434 0
+	.loc	1 501 0
 	eq r2, r1, 1
 	bt r2, .LBB29_6
 .Ltmp619:
@@ -4926,20 +4926,20 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	bf r2, .LBB29_4
 .Ltmp620:
 .Lxtalabel232:
-	.loc	1 439 25
+	.loc	1 506 25
 	ldw r1, r9[7]
-	.loc	1 439 25
+	.loc	1 506 25
 	bf r1, .LBB29_11
 .Ltmp621:
 .Lxtalabel233:
 	ldc r1, 0
-	.loc	1 444 0
+	.loc	1 511 0
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI29_3]
-	.loc	1 446 0
+	.loc	1 513 0
 	and r1, r0, r1
 	ldc r2, 64
-	.loc	1 446 0
+	.loc	1 513 0
 	or r1, r1, r2
 .Ltmp622:
 	bu .LBB29_7
@@ -4954,7 +4954,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	.jmptable .LBB29_38,.LBB29_25,.LBB29_39,.LBB29_21,.LBB29_64
 .Ltmp624:
 .LBB29_38:
-	.loc	1 376 0
+	.loc	1 443 0
 	ldw r1, r9[5]
 .Ltmp625:
 	ldc r2, 0
@@ -4965,7 +4965,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .LBB29_6:
 .Lxtalabel235:
 	ldw r1, cp[.LCPI29_3]
-	.loc	1 436 0
+	.loc	1 503 0
 .Ltmp627:
 	and r1, r0, r1
 .Ltmp628:
@@ -4978,7 +4978,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp630:
 .Lxtalabel237:
 	ldc r1, 8256
-	.loc	1 451 0
+	.loc	1 518 0
 	or r1, r0, r1
 .Ltmp631:
 	bu .LBB29_7
@@ -4988,48 +4988,48 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	outct res[r0], 1
 	ldc r2, 6
 .Ltmp633:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
 	ldc r1, 0
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp634:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	mkmsk r5, 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	ldc r6, 2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r6
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp635:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r9[5]
 .Ltmp636:
 	stw r9, sp[3]
@@ -5050,114 +5050,114 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp639:
 .LBB29_26:
 .Lxtalabel239:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r11[r3]
 .Ltmp640:
 	ldc r7, 8
-	.loc	1 390 21
+	.loc	1 457 21
 	and r7, r4, r7
 	bf r7, .LBB29_28
 .Ltmp641:
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r10
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	in r7, res[r0]
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
-	.loc	1 390 0
+	.loc	1 457 0
 	add r7, r7, 1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r2
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r7
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
 .Ltmp642:
 .LBB29_28:
 .Lxtalabel240:
-	.loc	1 391 21
+	.loc	1 458 21
 	and r7, r4, r8
 	bf r7, .LBB29_30
 .Ltmp643:
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r10
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	in r7, res[r0]
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
-	.loc	1 391 0
+	.loc	1 458 0
 	add r7, r7, 1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r2
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r7
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
 .Ltmp644:
 .LBB29_30:
 .Lxtalabel241:
-	.loc	1 392 21
+	.loc	1 459 21
 	and r4, r4, r9
 .Ltmp645:
 	bf r4, .LBB29_32
 .Ltmp646:
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r10
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	in r4, res[r0]
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
-	.loc	1 392 0
+	.loc	1 459 0
 	add r4, r4, 1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r2
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r4
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
 .Ltmp647:
 .LBB29_32:
 .Lxtalabel242:
-	.loc	1 388 0
+	.loc	1 455 0
 	add r3, r3, 1
 .Ltmp648:
-	.loc	1 388 0
+	.loc	1 455 0
 	lsu r4, r3, r10
 .Lxta.loop_labels6:
 	# LOOPMARKER 0
@@ -5166,24 +5166,24 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Lxtalabel243:
 	ldw r4, sp[3]
 .Ltmp650:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r3, r4[9]
 	ldc r1, 0
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r2, r1
 	bt r3, .LBB29_35
 .Ltmp651:
 .Lxtalabel244:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, r4[8]
-	.loc	1 404 21
+	.loc	1 471 21
 	eq r2, r2, 0
 .Ltmp652:
 .LBB29_35:
 .Lxtalabel245:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r11, r4[10]
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r3, r1
 	bt r11, .LBB29_37
 .Ltmp653:
@@ -5193,9 +5193,9 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .LBB29_37:
 .Lxtalabel247:
 	ldc r2, 80
-	.loc	1 408 0
+	.loc	1 475 0
 	add r2, r4, r2
-	.loc	1 408 0
+	.loc	1 475 0
 	ldw r2, r2[0]
 .Ltmp655:
 	out res[r0], r1
@@ -5217,23 +5217,23 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	bf r1, .LBB29_41
 .Ltmp660:
 	ldc r0, 80
-	.loc	1 331 0
+	.loc	1 398 0
 	add r0, r9, r0
-	.loc	1 331 0
+	.loc	1 398 0
 	stw r1, r0[0]
 .Ltmp661:
 .LBB29_41:
 .Lxtalabel249:
-	.loc	1 333 17
+	.loc	1 400 17
 	ldw r10, r9[5]
-	.loc	1 333 17
+	.loc	1 400 17
 	eq r0, r10, r2
 	bt r0, .LBB29_44
 .Ltmp662:
 	stw r9, sp[3]
 .Ltmp663:
 	ldc r4, 12
-	.loc	1 336 0
+	.loc	1 403 0
 .Ltmp664:
 	lsu r0, r4, r10
 .Ltrap_info17:
@@ -5241,7 +5241,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	lsu r0, r4, r2
 .Ltrap_info18:
 	ecallt r0
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r0, r2, r4
 	stw r2, sp[1]
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
@@ -5260,39 +5260,39 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp666:
 .LBB29_59:
 .Lxtalabel250:
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r1, sp[3]
 	ldw r10, r1[5]
 	ldc r0, 13
-	.loc	1 336 0
+	.loc	1 403 0
 	lsu r1, r10, r0
-	.loc	1 336 0
+	.loc	1 403 0
 	add r3, r3, 4
 .Ltrap_info19:
 	ecallf r1
 .Ltmp667:
 .LBB29_60:
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r1, r10, r4
 	mov r0, r4
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r1, r11, r1
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r10, r1[r6]
 .Ltmp668:
-	.loc	1 337 0
+	.loc	1 404 0
 	ldw r1, sp[2]
 	ldw r11, r1[r6]
 .Ltmp669:
-	.loc	1 339 0
+	.loc	1 406 0
 	xor r1, r11, r10
 .Ltmp670:
-	.loc	1 341 25
+	.loc	1 408 25
 	and r4, r1, r7
-	.loc	1 341 25
+	.loc	1 408 25
 	bf r4, .LBB29_45
 .Ltmp671:
-	.loc	1 343 32
+	.loc	1 410 32
 	and r4, r10, r7
 	bt r4, .LBB29_50
 .Ltmp672:
@@ -5301,30 +5301,30 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp673:
 .Lxtalabel251:
 	ldc r4, 2
-	.loc	1 344 0
+	.loc	1 411 0
 	stw r4, r3[0]
 	bu .LBB29_46
 .Ltmp674:
 .LBB29_45:
 .Lxtalabel252:
-	.loc	1 342 0
+	.loc	1 409 0
 	stw r2, r3[0]
 	bu .LBB29_46
 .Ltmp675:
 .LBB29_50:
 .Lxtalabel253:
 	mkmsk r4, 1
-	.loc	1 346 0
+	.loc	1 413 0
 	stw r4, r3[0]
 .Ltmp676:
 .LBB29_46:
 .Lxtalabel254:
-	.loc	1 349 25
+	.loc	1 416 25
 	and r4, r1, r8
-	.loc	1 349 25
+	.loc	1 416 25
 	bf r4, .LBB29_51
 .Ltmp677:
-	.loc	1 351 32
+	.loc	1 418 32
 	and r4, r10, r8
 	bt r4, .LBB29_67
 .Ltmp678:
@@ -5333,32 +5333,32 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp679:
 .Lxtalabel255:
 	ldc r4, 2
-	.loc	1 352 0
+	.loc	1 419 0
 	stw r4, r3[3]
 	bu .LBB29_52
 .Ltmp680:
 .LBB29_51:
 .Lxtalabel256:
-	.loc	1 350 0
+	.loc	1 417 0
 	stw r2, r3[3]
 	bu .LBB29_52
 .Ltmp681:
 .LBB29_67:
 .Lxtalabel257:
 	mkmsk r4, 1
-	.loc	1 354 0
+	.loc	1 421 0
 	stw r4, r3[3]
 .Ltmp682:
 .LBB29_52:
 .Lxtalabel258:
-	.loc	1 357 25
+	.loc	1 424 25
 	and r1, r1, r9
 .Ltmp683:
 	mov r4, r0
-	.loc	1 357 25
+	.loc	1 424 25
 	bf r1, .LBB29_68
 .Ltmp684:
-	.loc	1 359 32
+	.loc	1 426 32
 	and r1, r10, r9
 	bt r1, .LBB29_56
 .Ltmp685:
@@ -5371,7 +5371,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp687:
 .LBB29_68:
 .Lxtalabel260:
-	.loc	1 358 0
+	.loc	1 425 0
 	stw r2, r3[6]
 	bu .LBB29_58
 .Ltmp688:
@@ -5381,25 +5381,25 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp689:
 .LBB29_57:
 .Lxtalabel262:
-	.loc	1 362 0
+	.loc	1 429 0
 	stw r0, r3[6]
 .LBB29_58:
 .Lxtalabel263:
 .Ltmp690:
 	ldaw r1, r3[-3]
 	ldc r0, 1500
-	.loc	1 365 0
+	.loc	1 432 0
 	stw r0, r1[0]
 .Ltmp691:
-	.loc	1 334 0
+	.loc	1 401 0
 	add r6, r6, 1
 .Ltmp692:
 	mkmsk r0, 2
-	.loc	1 334 0
+	.loc	1 401 0
 	lsu r1, r6, r0
 .Lxta.loop_labels7:
 	# LOOPMARKER 1
-	.loc	1 334 0
+	.loc	1 401 0
 	bt r1, .LBB29_59
 .Ltmp693:
 	ldw r9, sp[3]
@@ -5409,7 +5409,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp695:
 .LBB29_44:
 .Lxtalabel264:
-	.loc	1 370 0
+	.loc	1 437 0
 	stw r2, r9[5]
 	bu .LBB29_13
 .Ltmp696:
@@ -5418,14 +5418,14 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	outct res[r0], 1
 	in r2, res[r0]
 .Ltmp697:
-	.loc	1 413 0
+	.loc	1 480 0
 	ldw r1, r9[3]
-	.loc	1 412 17
+	.loc	1 479 17
 	bt r2, .LBB29_22
 .Ltmp698:
 .Lxtalabel266:
 	ldc r2, 16384
-	.loc	1 415 0
+	.loc	1 482 0
 	or r1, r1, r2
 	bu .LBB29_24
 .Ltmp699:
@@ -5433,30 +5433,30 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp700:
-	.loc	1 423 0
+	.loc	1 490 0
 	ldw r2, r9[3]
 	ldw r3, cp[.LCPI29_0]
-	.loc	1 423 0
+	.loc	1 490 0
 	and r2, r2, r3
-	.loc	1 423 0
+	.loc	1 490 0
 	stw r2, r9[3]
 	ldw r3, cp[.LCPI29_1]
-	.loc	1 424 41
+	.loc	1 491 41
 .Lxta.endpoint_labels32:
 	out res[r3], r2
 	ldc r2, 84
-	.loc	1 426 0
+	.loc	1 493 0
 	add r2, r9, r2
 	ldc r3, 1000
-	.loc	1 426 0
+	.loc	1 493 0
 	mul r1, r1, r3
 .Ltmp701:
 	ldc r3, 0
 	ldw r11, cp[.LCPI29_2]
-	.loc	1 426 0
+	.loc	1 493 0
 	lmul r1, r11, r1, r11, r3, r3
 	shr r1, r1, 5
-	.loc	1 426 0
+	.loc	1 493 0
 	stw r1, r2[0]
 	out res[r0], r3
 	bu .LBB29_65
@@ -5464,42 +5464,42 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .LBB29_11:
 .Lxtalabel267:
 	mkmsk r1, 1
-	.loc	1 440 0
+	.loc	1 507 0
 .Ltmp703:
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI29_3]
-	.loc	1 442 0
+	.loc	1 509 0
 	and r1, r0, r1
 	ldc r2, 8192
-	.loc	1 442 0
+	.loc	1 509 0
 	or r1, r1, r2
 .Ltmp704:
 .LBB29_7:
 .Lxtalabel268:
-	.loc	1 455 17
+	.loc	1 522 17
 	eq r2, r1, r0
 	bt r2, .LBB29_13
 .Ltmp705:
 .Lxtalabel269:
 	ldc r2, 64
-	.loc	1 457 0
+	.loc	1 524 0
 .Ltmp706:
 	and r3, r0, r2
 .Ltmp707:
 	ldc r11, 8192
-	.loc	1 458 0
+	.loc	1 525 0
 .Ltmp708:
 	and r8, r0, r11
 .Ltmp709:
-	.loc	1 459 0
+	.loc	1 526 0
 	and r0, r1, r2
 .Ltmp710:
-	.loc	1 460 0
+	.loc	1 527 0
 	and r4, r1, r11
 .Ltmp711:
-	.loc	1 463 0
+	.loc	1 530 0
 	stw r1, r9[3]
-	.loc	1 465 21
+	.loc	1 532 21
 	eq r2, r3, r0
 	bf r2, .LBB29_16
 .Ltmp712:
@@ -5509,10 +5509,10 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .LBB29_16:
 .Lxtalabel270:
 	ldw r2, cp[.LCPI29_1]
-	.loc	1 466 49
+	.loc	1 533 49
 .Lxta.endpoint_labels33:
 	out res[r2], r1
-	.loc	1 467 25
+	.loc	1 534 25
 	bf r0, .LBB29_17
 .Ltmp714:
 .Lxtalabel271:
@@ -5527,15 +5527,15 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp716:
 .LBB29_22:
 	ldw r2, cp[.LCPI29_0]
-	.loc	1 413 0
+	.loc	1 480 0
 	and r1, r1, r2
 .Ltmp717:
 .LBB29_24:
 .Lxtalabel272:
-	.loc	1 415 0
+	.loc	1 482 0
 	stw r1, r9[3]
 	ldw r2, cp[.LCPI29_1]
-	.loc	1 417 41
+	.loc	1 484 41
 .Lxta.endpoint_labels34:
 	out res[r2], r1
 	bu .LBB29_14
@@ -5545,18 +5545,18 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp719:
 .LBB29_18:
 .Lxtalabel273:
-	.loc	1 474 21
+	.loc	1 541 21
 	eq r0, r8, r4
 	bt r0, .LBB29_13
 .Ltmp720:
 .Lxtalabel274:
-	.loc	1 475 49
+	.loc	1 542 49
 	ldw r0, r9[3]
 	ldw r1, cp[.LCPI29_1]
-	.loc	1 475 49
+	.loc	1 542 49
 .Lxta.endpoint_labels35:
 	out res[r1], r0
-	.loc	1 476 25
+	.loc	1 543 25
 	or r0, r6, r4
 	bf r0, .LBB29_13
 .Ltmp721:
@@ -5639,7 +5639,7 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	.cc_top Port_Pins_Heat_Light_Server.select.case.0.function,Port_Pins_Heat_Light_Server.select.case.0
 Port_Pins_Heat_Light_Server.select.case.0:
 .Lfunc_begin30:
-	.loc	1 225 0
+	.loc	1 292 0
 	.cfi_startproc
 .Lxtalabel277:
 	entsp 7
@@ -5667,86 +5667,86 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	.cfi_offset 9, -24
 	get r11, ed
 	mov r4, r11
-	.loc	1 225 0 prologue_end
+	.loc	1 292 0 prologue_end
 .Ltmp734:
 	get r11, id
-	.loc	1 225 0
+	.loc	1 292 0
 	ldaw r0, dp[__timers]
-	.loc	1 225 0
+	.loc	1 292 0
 	ldw r0, r0[r11]
-	.loc	1 225 0
+	.loc	1 292 0
 .Ltmp735:
 .Lxta.endpoint_labels36:
 	in r0, res[r0]
 .Ltmp736:
-	.loc	1 226 0
+	.loc	1 293 0
 	ldw r0, r4[4]
 	ldw r1, cp[.LCPI30_0]
-	.loc	1 226 0
+	.loc	1 293 0
 	add r0, r0, r1
-	.loc	1 226 0
+	.loc	1 293 0
 	stw r0, r4[4]
-	.loc	1 227 0
+	.loc	1 294 0
 .Ltmp737:
 	ldw r0, r4[5]
 	ldc r1, 12
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r2, r1, r0
 .Ltrap_info20:
 	ecallt r2
-	.loc	1 227 0
+	.loc	1 294 0
 	ldw r2, r4[6]
 	mkmsk r5, 2
-	.loc	1 227 0
+	.loc	1 294 0
 	lsu r3, r2, r5
 .Ltrap_info21:
 	ecallf r3
-	.loc	1 227 0
+	.loc	1 294 0
 	mul r0, r0, r1
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r0, r11, r0
-	.loc	1 227 0
+	.loc	1 294 0
 	ldw r6, r0[r2]
 .Ltmp738:
-	.loc	1 229 17
+	.loc	1 296 17
 	ldaw r1, r4[r2]
-	.loc	1 229 17
+	.loc	1 296 17
 	ldw r0, r1[8]
-	.loc	1 229 17
+	.loc	1 296 17
 	bf r0, .LBB30_1
 .Ltmp739:
 .Lxtalabel278:
-	.loc	1 229 17
+	.loc	1 296 17
 	ldaw r0, r1[8]
-	.loc	1 253 21
+	.loc	1 320 21
 	ldw r2, r1[11]
-	.loc	1 253 21
+	.loc	1 320 21
 	eq r3, r2, 2
 	bf r3, .LBB30_16
 .Ltmp740:
 .Lxtalabel279:
-	.loc	1 254 0
+	.loc	1 321 0
 	ldw r2, r4[3]
 .Ltmp741:
 .LBB30_21:
 	ldw r3, cp[.LCPI30_1]
-	.loc	1 258 0
+	.loc	1 325 0
 	and r2, r2, r3
 	bu .LBB30_22
 .LBB30_1:
 .Lxtalabel280:
 .Ltmp742:
 	ldc r1, 8
-	.loc	1 236 25
+	.loc	1 303 25
 	and r2, r6, r1
-	.loc	1 236 0
+	.loc	1 303 0
 	ldw r0, r4[3]
-	.loc	1 236 25
+	.loc	1 303 25
 	bt r2, .LBB30_2
 .Ltmp743:
 .Lxtalabel281:
 	ldw r1, cp[.LCPI30_1]
-	.loc	1 236 0
+	.loc	1 303 0
 	and r0, r0, r1
 	bu .LBB30_4
 .Ltmp744:
@@ -5755,23 +5755,23 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	eq r2, r2, 1
 	bf r2, .LBB30_18
 .Lxtalabel283:
-	.loc	1 256 0
+	.loc	1 323 0
 	ldw r2, r4[3]
 	ldc r3, 8
-	.loc	1 258 0
+	.loc	1 325 0
 	or r2, r2, r3
 	bu .LBB30_22
 .LBB30_2:
 .Ltmp745:
-	.loc	1 236 0
+	.loc	1 303 0
 	or r0, r0, r1
 .Ltmp746:
 .LBB30_4:
 .Lxtalabel284:
-	.loc	1 236 0
+	.loc	1 303 0
 	stw r0, r4[3]
 	ldw r7, cp[.LCPI30_4]
-	.loc	1 237 49
+	.loc	1 304 49
 .Lxta.endpoint_labels37:
 	out res[r7], r0
 .Ltmp747:
@@ -5784,28 +5784,28 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	bl delay_ticks_longlong
 	ldc r1, 16
 .Ltmp749:
-	.loc	1 241 25
+	.loc	1 308 25
 	and r2, r6, r1
-	.loc	1 241 0
+	.loc	1 308 0
 	ldw r0, r4[3]
-	.loc	1 241 25
+	.loc	1 308 25
 	bt r2, .LBB30_5
 .Ltmp750:
 .Lxtalabel285:
 	ldw r1, cp[.LCPI30_2]
-	.loc	1 241 0
+	.loc	1 308 0
 	and r0, r0, r1
 	bu .LBB30_7
 .Ltmp751:
 .LBB30_5:
-	.loc	1 241 0
+	.loc	1 308 0
 	or r0, r0, r1
 .Ltmp752:
 .LBB30_7:
 .Lxtalabel286:
-	.loc	1 241 0
+	.loc	1 308 0
 	stw r0, r4[3]
-	.loc	1 242 49
+	.loc	1 309 49
 .Lxta.endpoint_labels38:
 	out res[r7], r0
 .Ltmp753:
@@ -5816,26 +5816,26 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	bl delay_ticks_longlong
 	ldc r1, 32
 .Ltmp754:
-	.loc	1 246 25
+	.loc	1 313 25
 	and r2, r6, r1
-	.loc	1 246 0
+	.loc	1 313 0
 	ldw r0, r4[3]
-	.loc	1 246 25
+	.loc	1 313 25
 	bt r2, .LBB30_8
 .Ltmp755:
 .Lxtalabel287:
 	ldw r1, cp[.LCPI30_3]
-	.loc	1 246 0
+	.loc	1 313 0
 	and r0, r0, r1
 	bu .LBB30_10
 .LBB30_8:
-	.loc	1 246 0
+	.loc	1 313 0
 	or r0, r0, r1
 .LBB30_10:
 .Lxtalabel288:
-	.loc	1 246 0
+	.loc	1 313 0
 	stw r0, r4[3]
-	.loc	1 247 49
+	.loc	1 314 49
 .Lxta.endpoint_labels39:
 	out res[r7], r0
 .Ltmp756:
@@ -5849,24 +5849,24 @@ Port_Pins_Heat_Light_Server.select.case.0:
 .LBB30_18:
 .Lxtalabel289:
 	ldc r3, 8
-	.loc	1 258 25
+	.loc	1 325 25
 	and r11, r6, r3
-	.loc	1 258 0
+	.loc	1 325 0
 	ldw r2, r4[3]
 	bf r11, .LBB30_21
-	.loc	1 258 0
+	.loc	1 325 0
 	or r2, r2, r3
 .LBB30_22:
 .Lxtalabel290:
-	.loc	1 258 0
+	.loc	1 325 0
 	stw r2, r4[3]
 .Ltmp758:
 	ldc r7, 56
-	.loc	1 261 21
+	.loc	1 328 21
 	add r3, r1, r7
-	.loc	1 261 21
+	.loc	1 328 21
 	ldw r3, r3[0]
-	.loc	1 261 21
+	.loc	1 328 21
 	eq r11, r3, 2
 	bt r11, .LBB30_27
 .Ltmp759:
@@ -5875,36 +5875,36 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	bf r3, .LBB30_25
 .Lxtalabel292:
 	ldc r3, 16
-	.loc	1 266 0
+	.loc	1 333 0
 	or r2, r2, r3
 	bu .LBB30_28
 .LBB30_25:
 .Lxtalabel293:
 	ldc r3, 16
-	.loc	1 266 25
+	.loc	1 333 25
 	and r11, r6, r3
 	bf r11, .LBB30_27
-	.loc	1 266 0
+	.loc	1 333 0
 	or r2, r2, r3
 	bu .LBB30_28
 .LBB30_27:
 .Lxtalabel294:
 .Ltmp760:
 	ldw r3, cp[.LCPI30_2]
-	.loc	1 262 0
+	.loc	1 329 0
 	and r2, r2, r3
 .Ltmp761:
 .LBB30_28:
 .Lxtalabel295:
-	.loc	1 262 0
+	.loc	1 329 0
 	stw r2, r4[3]
 .Ltmp762:
 	ldc r8, 68
-	.loc	1 269 21
+	.loc	1 336 21
 	add r1, r1, r8
-	.loc	1 269 21
+	.loc	1 336 21
 	ldw r1, r1[0]
-	.loc	1 269 21
+	.loc	1 336 21
 	eq r3, r1, 2
 	bt r3, .LBB30_33
 .Ltmp763:
@@ -5913,28 +5913,28 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	bf r1, .LBB30_31
 .Lxtalabel297:
 	ldc r1, 32
-	.loc	1 274 0
+	.loc	1 341 0
 	or r1, r2, r1
 	bu .LBB30_34
 .LBB30_31:
 .Lxtalabel298:
 	ldc r1, 32
-	.loc	1 274 25
+	.loc	1 341 25
 	and r3, r6, r1
 	bf r3, .LBB30_33
-	.loc	1 274 0
+	.loc	1 341 0
 	or r1, r2, r1
 	bu .LBB30_34
 .LBB30_33:
 	ldw r1, cp[.LCPI30_3]
-	.loc	1 274 0
+	.loc	1 341 0
 	and r1, r2, r1
 .LBB30_34:
 .Lxtalabel299:
-	.loc	1 274 0
+	.loc	1 341 0
 	stw r1, r4[3]
 	ldw r6, cp[.LCPI30_4]
-	.loc	1 277 45
+	.loc	1 344 45
 .Lxta.endpoint_labels40:
 	out res[r6], r1
 	.loc	2 63 0
@@ -5948,53 +5948,53 @@ Port_Pins_Heat_Light_Server.select.case.0:
 .Lxta.call_labels19:
 	bl delay_ticks_longlong
 .Ltmp765:
-	.loc	1 281 21
+	.loc	1 348 21
 	ldw r0, r4[6]
-	.loc	1 281 21
+	.loc	1 348 21
 	lsu r1, r0, r5
 .Ltrap_info22:
 	ecallf r1
-	.loc	1 281 21
+	.loc	1 348 21
 	ldaw r0, r4[r0]
-	.loc	1 281 21
+	.loc	1 348 21
 	ldw r1, r0[11]
-	.loc	1 281 21
+	.loc	1 348 21
 	eq r2, r1, 1
 	bf r2, .LBB30_35
 .Lxtalabel300:
-	.loc	1 284 0
+	.loc	1 351 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI30_1]
-	.loc	1 284 0
+	.loc	1 351 0
 	and r1, r1, r2
 	bu .LBB30_38
 .LBB30_35:
 	eq r1, r1, 2
 	bf r1, .LBB30_39
 .Lxtalabel301:
-	.loc	1 282 0
+	.loc	1 349 0
 	ldw r1, r4[3]
 	ldc r2, 8
-	.loc	1 282 0
+	.loc	1 349 0
 	or r1, r1, r2
 .LBB30_38:
 .Lxtalabel302:
-	.loc	1 284 0
+	.loc	1 351 0
 	stw r1, r4[3]
 .LBB30_39:
 .Lxtalabel303:
-	.loc	1 287 21
+	.loc	1 354 21
 	add r1, r0, r7
-	.loc	1 287 21
+	.loc	1 354 21
 	ldw r1, r1[0]
-	.loc	1 287 21
+	.loc	1 354 21
 	eq r2, r1, 2
 	bf r2, .LBB30_40
 .Lxtalabel304:
-	.loc	1 288 0
+	.loc	1 355 0
 	ldw r1, r4[3]
 	ldc r2, 16
-	.loc	1 288 0
+	.loc	1 355 0
 	or r1, r1, r2
 	bu .LBB30_44
 .LBB30_40:
@@ -6002,29 +6002,29 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	eq r1, r1, 1
 	bf r1, .LBB30_45
 .Lxtalabel306:
-	.loc	1 290 0
+	.loc	1 357 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI30_2]
-	.loc	1 290 0
+	.loc	1 357 0
 	and r1, r1, r2
 .LBB30_44:
 .Lxtalabel307:
-	.loc	1 288 0
+	.loc	1 355 0
 	stw r1, r4[3]
 .LBB30_45:
 .Lxtalabel308:
-	.loc	1 293 21
+	.loc	1 360 21
 	add r1, r0, r8
-	.loc	1 293 21
+	.loc	1 360 21
 	ldw r1, r1[0]
-	.loc	1 293 21
+	.loc	1 360 21
 	eq r2, r1, 1
 	bf r2, .LBB30_46
 .Lxtalabel309:
-	.loc	1 296 0
+	.loc	1 363 0
 	ldw r1, r4[3]
 	ldw r2, cp[.LCPI30_3]
-	.loc	1 296 0
+	.loc	1 363 0
 	and r1, r1, r2
 	bu .LBB30_49
 .LBB30_46:
@@ -6032,78 +6032,78 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	eq r1, r1, 2
 	bf r1, .LBB30_47
 .Lxtalabel311:
-	.loc	1 294 0
+	.loc	1 361 0
 	ldw r1, r4[3]
 	ldc r2, 32
-	.loc	1 294 0
+	.loc	1 361 0
 	or r1, r1, r2
 .LBB30_49:
 .Lxtalabel312:
-	.loc	1 296 0
+	.loc	1 363 0
 	stw r1, r4[3]
 	bu .LBB30_50
 .LBB30_47:
-	.loc	1 299 45
+	.loc	1 366 45
 	ldw r1, r4[3]
 .LBB30_50:
 .Lxtalabel313:
-	.loc	1 299 45
+	.loc	1 366 45
 .Lxta.endpoint_labels41:
 	out res[r6], r1
-	.loc	1 301 21
+	.loc	1 368 21
 	ldw r1, r0[8]
 	bf r1, .LBB30_11
 .Lxtalabel314:
-	.loc	1 301 21
+	.loc	1 368 21
 	ldaw r0, r0[8]
-	.loc	1 302 0
+	.loc	1 369 0
 	sub r1, r1, 1
-	.loc	1 302 0
+	.loc	1 369 0
 	stw r1, r0[0]
 .LBB30_11:
 .Lxtalabel315:
-	.loc	1 312 0
+	.loc	1 379 0
 	ldw r0, r4[6]
-	.loc	1 312 0
+	.loc	1 379 0
 	add r0, r0, 1
-	.loc	1 313 17
+	.loc	1 380 17
 	eq r1, r0, 3
 	bf r1, .LBB30_13
 	ldc r0, 0
 .LBB30_13:
 .Lxtalabel316:
-	.loc	1 312 0
+	.loc	1 379 0
 	stw r0, r4[6]
 	ldc r0, 84
-	.loc	1 315 17
+	.loc	1 382 17
 	add r0, r4, r0
-	.loc	1 315 17
+	.loc	1 382 17
 	ldw r1, r0[0]
-	.loc	1 315 17
+	.loc	1 382 17
 	eq r2, r1, 1
-	.loc	1 315 17
+	.loc	1 382 17
 	bf r2, .LBB30_52
 .Lxtalabel317:
 	ldc r1, 0
-	.loc	1 316 0
+	.loc	1 383 0
 	stw r1, r0[0]
-	.loc	1 317 0
+	.loc	1 384 0
 	ldw r0, r4[3]
 	ldc r1, 16384
-	.loc	1 317 0
+	.loc	1 384 0
 	or r0, r0, r1
-	.loc	1 317 0
+	.loc	1 384 0
 	stw r0, r4[3]
 	ldw r1, cp[.LCPI30_4]
-	.loc	1 318 45
+	.loc	1 385 45
 .Lxta.endpoint_labels42:
 	out res[r1], r0
 	bu .LBB30_53
 .LBB30_52:
 .Lxtalabel318:
-	.loc	1 320 0
+	.loc	1 387 0
 	sub r1, r1, 1
-	.loc	1 320 0
+	.loc	1 387 0
 	stw r1, r0[0]
 .Ltmp766:
 .LBB30_53:
@@ -6161,7 +6161,7 @@ Port_Pins_Heat_Light_Server.select.case.0:
 	.cc_top Port_Pins_Heat_Light_Server.select.case.1.function,Port_Pins_Heat_Light_Server.select.case.1
 Port_Pins_Heat_Light_Server.select.case.1:
 .Lfunc_begin31:
-	.loc	1 324 0
+	.loc	1 391 0
 	.cfi_startproc
 .Lxtalabel320:
 	ldw r11, sp[0]
@@ -6193,7 +6193,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	.cfi_offset 10, -28
 	mov r9, r11
 .Ltmp777:
-	.loc	1 324 0 prologue_end
+	.loc	1 391 0 prologue_end
 	get r11, ed
 	mov r5, r11
 .Ltmp778:
@@ -6216,10 +6216,10 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp781:
-	.loc	1 432 0
+	.loc	1 499 0
 	ldw r0, r9[3]
 .Ltmp782:
-	.loc	1 434 0
+	.loc	1 501 0
 	eq r2, r1, 1
 	bt r2, .LBB31_6
 .Ltmp783:
@@ -6228,20 +6228,20 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	bf r2, .LBB31_4
 .Ltmp784:
 .Lxtalabel323:
-	.loc	1 439 25
+	.loc	1 506 25
 	ldw r1, r9[7]
-	.loc	1 439 25
+	.loc	1 506 25
 	bf r1, .LBB31_11
 .Ltmp785:
 .Lxtalabel324:
 	ldc r1, 0
-	.loc	1 444 0
+	.loc	1 511 0
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI31_3]
-	.loc	1 446 0
+	.loc	1 513 0
 	and r1, r0, r1
 	ldc r2, 64
-	.loc	1 446 0
+	.loc	1 513 0
 	or r1, r1, r2
 .Ltmp786:
 	bu .LBB31_7
@@ -6256,7 +6256,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	.jmptable .LBB31_38,.LBB31_25,.LBB31_39,.LBB31_21,.LBB31_64
 .Ltmp788:
 .LBB31_38:
-	.loc	1 376 0
+	.loc	1 443 0
 	ldw r1, r9[5]
 .Ltmp789:
 	ldc r2, 0
@@ -6267,7 +6267,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .LBB31_6:
 .Lxtalabel326:
 	ldw r1, cp[.LCPI31_3]
-	.loc	1 436 0
+	.loc	1 503 0
 .Ltmp791:
 	and r1, r0, r1
 .Ltmp792:
@@ -6280,7 +6280,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp794:
 .Lxtalabel328:
 	ldc r1, 8256
-	.loc	1 451 0
+	.loc	1 518 0
 	or r1, r0, r1
 .Ltmp795:
 	bu .LBB31_7
@@ -6290,48 +6290,48 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	outct res[r0], 1
 	ldc r2, 6
 .Ltmp797:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
 	ldc r1, 0
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp798:
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	mkmsk r5, 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r5
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
 	ldc r6, 2
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r6
-	.loc	1 384 0
+	.loc	1 451 0
 	out res[r0], r1
-	.loc	1 384 0
+	.loc	1 451 0
 	outct res[r0], 2
-	.loc	1 384 0
+	.loc	1 451 0
 	chkct res[r0], 1
 .Ltmp799:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r9[5]
 .Ltmp800:
 	stw r9, sp[3]
@@ -6352,114 +6352,114 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp803:
 .LBB31_26:
 .Lxtalabel330:
-	.loc	1 389 0
+	.loc	1 456 0
 	ldw r4, r11[r3]
 .Ltmp804:
 	ldc r7, 8
-	.loc	1 390 21
+	.loc	1 457 21
 	and r7, r4, r7
 	bf r7, .LBB31_28
 .Ltmp805:
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r10
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	in r7, res[r0]
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
-	.loc	1 390 0
+	.loc	1 457 0
 	add r7, r7, 1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r2
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r1
-	.loc	1 390 0
+	.loc	1 457 0
 	out res[r0], r7
-	.loc	1 390 0
+	.loc	1 457 0
 	outct res[r0], 2
-	.loc	1 390 0
+	.loc	1 457 0
 	chkct res[r0], 1
 .Ltmp806:
 .LBB31_28:
 .Lxtalabel331:
-	.loc	1 391 21
+	.loc	1 458 21
 	and r7, r4, r8
 	bf r7, .LBB31_30
 .Ltmp807:
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r10
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	in r7, res[r0]
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
-	.loc	1 391 0
+	.loc	1 458 0
 	add r7, r7, 1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r2
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r1
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r5
-	.loc	1 391 0
+	.loc	1 458 0
 	out res[r0], r7
-	.loc	1 391 0
+	.loc	1 458 0
 	outct res[r0], 2
-	.loc	1 391 0
+	.loc	1 458 0
 	chkct res[r0], 1
 .Ltmp808:
 .LBB31_30:
 .Lxtalabel332:
-	.loc	1 392 21
+	.loc	1 459 21
 	and r4, r4, r9
 .Ltmp809:
 	bf r4, .LBB31_32
 .Ltmp810:
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r10
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	in r4, res[r0]
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
-	.loc	1 392 0
+	.loc	1 459 0
 	add r4, r4, 1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r2
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r1
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r6
-	.loc	1 392 0
+	.loc	1 459 0
 	out res[r0], r4
-	.loc	1 392 0
+	.loc	1 459 0
 	outct res[r0], 2
-	.loc	1 392 0
+	.loc	1 459 0
 	chkct res[r0], 1
 .Ltmp811:
 .LBB31_32:
 .Lxtalabel333:
-	.loc	1 388 0
+	.loc	1 455 0
 	add r3, r3, 1
 .Ltmp812:
-	.loc	1 388 0
+	.loc	1 455 0
 	lsu r4, r3, r10
 .Lxta.loop_labels8:
 	# LOOPMARKER 0
@@ -6468,24 +6468,24 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Lxtalabel334:
 	ldw r4, sp[3]
 .Ltmp814:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r3, r4[9]
 	ldc r1, 0
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r2, r1
 	bt r3, .LBB31_35
 .Ltmp815:
 .Lxtalabel335:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r2, r4[8]
-	.loc	1 404 21
+	.loc	1 471 21
 	eq r2, r2, 0
 .Ltmp816:
 .LBB31_35:
 .Lxtalabel336:
-	.loc	1 404 21
+	.loc	1 471 21
 	ldw r11, r4[10]
-	.loc	1 404 21
+	.loc	1 471 21
 	mov r3, r1
 	bt r11, .LBB31_37
 .Ltmp817:
@@ -6495,9 +6495,9 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .LBB31_37:
 .Lxtalabel338:
 	ldc r2, 80
-	.loc	1 408 0
+	.loc	1 475 0
 	add r2, r4, r2
-	.loc	1 408 0
+	.loc	1 475 0
 	ldw r2, r2[0]
 .Ltmp819:
 	out res[r0], r1
@@ -6519,23 +6519,23 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	bf r1, .LBB31_41
 .Ltmp824:
 	ldc r0, 80
-	.loc	1 331 0
+	.loc	1 398 0
 	add r0, r9, r0
-	.loc	1 331 0
+	.loc	1 398 0
 	stw r1, r0[0]
 .Ltmp825:
 .LBB31_41:
 .Lxtalabel340:
-	.loc	1 333 17
+	.loc	1 400 17
 	ldw r10, r9[5]
-	.loc	1 333 17
+	.loc	1 400 17
 	eq r0, r10, r2
 	bt r0, .LBB31_44
 .Ltmp826:
 	stw r9, sp[3]
 .Ltmp827:
 	ldc r4, 12
-	.loc	1 336 0
+	.loc	1 403 0
 .Ltmp828:
 	lsu r0, r4, r10
 .Ltrap_info24:
@@ -6543,7 +6543,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	lsu r0, r4, r2
 .Ltrap_info25:
 	ecallt r0
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r0, r2, r4
 	stw r2, sp[1]
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
@@ -6562,39 +6562,39 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp830:
 .LBB31_59:
 .Lxtalabel341:
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r1, sp[3]
 	ldw r10, r1[5]
 	ldc r0, 13
-	.loc	1 336 0
+	.loc	1 403 0
 	lsu r1, r10, r0
-	.loc	1 336 0
+	.loc	1 403 0
 	add r3, r3, 4
 .Ltrap_info26:
 	ecallf r1
 .Ltmp831:
 .LBB31_60:
-	.loc	1 336 0
+	.loc	1 403 0
 	mul r1, r10, r4
 	mov r0, r4
 	ldaw r11, cp[p32_bits_for_light_composition_pwm_windows]
 	add r1, r11, r1
-	.loc	1 336 0
+	.loc	1 403 0
 	ldw r10, r1[r6]
 .Ltmp832:
-	.loc	1 337 0
+	.loc	1 404 0
 	ldw r1, sp[2]
 	ldw r11, r1[r6]
 .Ltmp833:
-	.loc	1 339 0
+	.loc	1 406 0
 	xor r1, r11, r10
 .Ltmp834:
-	.loc	1 341 25
+	.loc	1 408 25
 	and r4, r1, r7
-	.loc	1 341 25
+	.loc	1 408 25
 	bf r4, .LBB31_45
 .Ltmp835:
-	.loc	1 343 32
+	.loc	1 410 32
 	and r4, r10, r7
 	bt r4, .LBB31_50
 .Ltmp836:
@@ -6603,30 +6603,30 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp837:
 .Lxtalabel342:
 	ldc r4, 2
-	.loc	1 344 0
+	.loc	1 411 0
 	stw r4, r3[0]
 	bu .LBB31_46
 .Ltmp838:
 .LBB31_45:
 .Lxtalabel343:
-	.loc	1 342 0
+	.loc	1 409 0
 	stw r2, r3[0]
 	bu .LBB31_46
 .Ltmp839:
 .LBB31_50:
 .Lxtalabel344:
 	mkmsk r4, 1
-	.loc	1 346 0
+	.loc	1 413 0
 	stw r4, r3[0]
 .Ltmp840:
 .LBB31_46:
 .Lxtalabel345:
-	.loc	1 349 25
+	.loc	1 416 25
 	and r4, r1, r8
-	.loc	1 349 25
+	.loc	1 416 25
 	bf r4, .LBB31_51
 .Ltmp841:
-	.loc	1 351 32
+	.loc	1 418 32
 	and r4, r10, r8
 	bt r4, .LBB31_67
 .Ltmp842:
@@ -6635,32 +6635,32 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp843:
 .Lxtalabel346:
 	ldc r4, 2
-	.loc	1 352 0
+	.loc	1 419 0
 	stw r4, r3[3]
 	bu .LBB31_52
 .Ltmp844:
 .LBB31_51:
 .Lxtalabel347:
-	.loc	1 350 0
+	.loc	1 417 0
 	stw r2, r3[3]
 	bu .LBB31_52
 .Ltmp845:
 .LBB31_67:
 .Lxtalabel348:
 	mkmsk r4, 1
-	.loc	1 354 0
+	.loc	1 421 0
 	stw r4, r3[3]
 .Ltmp846:
 .LBB31_52:
 .Lxtalabel349:
-	.loc	1 357 25
+	.loc	1 424 25
 	and r1, r1, r9
 .Ltmp847:
 	mov r4, r0
-	.loc	1 357 25
+	.loc	1 424 25
 	bf r1, .LBB31_68
 .Ltmp848:
-	.loc	1 359 32
+	.loc	1 426 32
 	and r1, r10, r9
 	bt r1, .LBB31_56
 .Ltmp849:
@@ -6673,7 +6673,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp851:
 .LBB31_68:
 .Lxtalabel351:
-	.loc	1 358 0
+	.loc	1 425 0
 	stw r2, r3[6]
 	bu .LBB31_58
 .Ltmp852:
@@ -6683,25 +6683,25 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp853:
 .LBB31_57:
 .Lxtalabel353:
-	.loc	1 362 0
+	.loc	1 429 0
 	stw r0, r3[6]
 .LBB31_58:
 .Lxtalabel354:
 .Ltmp854:
 	ldaw r1, r3[-3]
 	ldc r0, 1500
-	.loc	1 365 0
+	.loc	1 432 0
 	stw r0, r1[0]
 .Ltmp855:
-	.loc	1 334 0
+	.loc	1 401 0
 	add r6, r6, 1
 .Ltmp856:
 	mkmsk r0, 2
-	.loc	1 334 0
+	.loc	1 401 0
 	lsu r1, r6, r0
 .Lxta.loop_labels9:
 	# LOOPMARKER 1
-	.loc	1 334 0
+	.loc	1 401 0
 	bt r1, .LBB31_59
 .Ltmp857:
 	ldw r9, sp[3]
@@ -6711,7 +6711,7 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp859:
 .LBB31_44:
 .Lxtalabel355:
-	.loc	1 370 0
+	.loc	1 437 0
 	stw r2, r9[5]
 	bu .LBB31_13
 .Ltmp860:
@@ -6720,14 +6720,14 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	outct res[r0], 1
 	in r2, res[r0]
 .Ltmp861:
-	.loc	1 413 0
+	.loc	1 480 0
 	ldw r1, r9[3]
-	.loc	1 412 17
+	.loc	1 479 17
 	bt r2, .LBB31_22
 .Ltmp862:
 .Lxtalabel357:
 	ldc r2, 16384
-	.loc	1 415 0
+	.loc	1 482 0
 	or r1, r1, r2
 	bu .LBB31_24
 .Ltmp863:
@@ -6735,30 +6735,30 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	outct res[r0], 1
 	in r1, res[r0]
 .Ltmp864:
-	.loc	1 423 0
+	.loc	1 490 0
 	ldw r2, r9[3]
 	ldw r3, cp[.LCPI31_0]
-	.loc	1 423 0
+	.loc	1 490 0
 	and r2, r2, r3
-	.loc	1 423 0
+	.loc	1 490 0
 	stw r2, r9[3]
 	ldw r3, cp[.LCPI31_1]
-	.loc	1 424 41
+	.loc	1 491 41
 .Lxta.endpoint_labels43:
 	out res[r3], r2
 	ldc r2, 84
-	.loc	1 426 0
+	.loc	1 493 0
 	add r2, r9, r2
 	ldc r3, 1000
-	.loc	1 426 0
+	.loc	1 493 0
 	mul r1, r1, r3
 .Ltmp865:
 	ldc r3, 0
 	ldw r11, cp[.LCPI31_2]
-	.loc	1 426 0
+	.loc	1 493 0
 	lmul r1, r11, r1, r11, r3, r3
 	shr r1, r1, 5
-	.loc	1 426 0
+	.loc	1 493 0
 	stw r1, r2[0]
 	out res[r0], r3
 	bu .LBB31_65
@@ -6766,42 +6766,42 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .LBB31_11:
 .Lxtalabel358:
 	mkmsk r1, 1
-	.loc	1 440 0
+	.loc	1 507 0
 .Ltmp867:
 	stw r1, r9[7]
 	ldw r1, cp[.LCPI31_3]
-	.loc	1 442 0
+	.loc	1 509 0
 	and r1, r0, r1
 	ldc r2, 8192
-	.loc	1 442 0
+	.loc	1 509 0
 	or r1, r1, r2
 .Ltmp868:
 .LBB31_7:
 .Lxtalabel359:
-	.loc	1 455 17
+	.loc	1 522 17
 	eq r2, r1, r0
 	bt r2, .LBB31_13
 .Ltmp869:
 .Lxtalabel360:
 	ldc r2, 64
-	.loc	1 457 0
+	.loc	1 524 0
 .Ltmp870:
 	and r3, r0, r2
 .Ltmp871:
 	ldc r11, 8192
-	.loc	1 458 0
+	.loc	1 525 0
 .Ltmp872:
 	and r8, r0, r11
 .Ltmp873:
-	.loc	1 459 0
+	.loc	1 526 0
 	and r0, r1, r2
 .Ltmp874:
-	.loc	1 460 0
+	.loc	1 527 0
 	and r4, r1, r11
 .Ltmp875:
-	.loc	1 463 0
+	.loc	1 530 0
 	stw r1, r9[3]
-	.loc	1 465 21
+	.loc	1 532 21
 	eq r2, r3, r0
 	bf r2, .LBB31_16
 .Ltmp876:
@@ -6811,10 +6811,10 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .LBB31_16:
 .Lxtalabel361:
 	ldw r2, cp[.LCPI31_1]
-	.loc	1 466 49
+	.loc	1 533 49
 .Lxta.endpoint_labels44:
 	out res[r2], r1
-	.loc	1 467 25
+	.loc	1 534 25
 	bf r0, .LBB31_17
 .Ltmp878:
 .Lxtalabel362:
@@ -6829,15 +6829,15 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp880:
 .LBB31_22:
 	ldw r2, cp[.LCPI31_0]
-	.loc	1 413 0
+	.loc	1 480 0
 	and r1, r1, r2
 .Ltmp881:
 .LBB31_24:
 .Lxtalabel363:
-	.loc	1 415 0
+	.loc	1 482 0
 	stw r1, r9[3]
 	ldw r2, cp[.LCPI31_1]
-	.loc	1 417 41
+	.loc	1 484 41
 .Lxta.endpoint_labels45:
 	out res[r2], r1
 	bu .LBB31_14
@@ -6847,18 +6847,18 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp883:
 .LBB31_18:
 .Lxtalabel364:
-	.loc	1 474 21
+	.loc	1 541 21
 	eq r0, r8, r4
 	bt r0, .LBB31_13
 .Ltmp884:
 .Lxtalabel365:
-	.loc	1 475 49
+	.loc	1 542 49
 	ldw r0, r9[3]
 	ldw r1, cp[.LCPI31_1]
-	.loc	1 475 49
+	.loc	1 542 49
 .Lxta.endpoint_labels46:
 	out res[r1], r0
-	.loc	1 476 25
+	.loc	1 543 25
 	or r0, r6, r4
 	bf r0, .LBB31_13
 .Ltmp885:
@@ -6917,14 +6917,14 @@ p32_bits_for_light_composition_pwm_windows:
 	.space	12
 	.long	0
 	.long	0
-	.long	32
 	.long	16
 	.long	32
-	.long	32
-	.long	32
-	.long	32
+	.long	16
+	.long	16
+	.long	16
+	.long	16
 	.long	48
-	.long	32
+	.long	16
 	.long	48
 	.long	48
 	.long	48
@@ -7000,31 +7000,31 @@ p32_bits_for_light_composition_pwm_windows:
 .Linfo_string16:
 .asciiz"__TYPE_4"
 .Linfo_string17:
-.asciiz"LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF"
+.asciiz"LIGHT_COMPOSITION_0000_mW_OFF"
 .Linfo_string18:
-.asciiz"LIGHT_COMPOSITION_0666_BACK1_ON"
+.asciiz"LIGHT_COMPOSITION_0666_mW_ON"
 .Linfo_string19:
-.asciiz"LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON"
+.asciiz"LIGHT_COMPOSITION_2000_mW_ON_MIXED"
 .Linfo_string20:
-.asciiz"LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON"
+.asciiz"LIGHT_COMPOSITION_2666_mW_ON"
 .Linfo_string21:
-.asciiz"LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON"
+.asciiz"LIGHT_COMPOSITION_3333_mW_ON"
 .Linfo_string22:
-.asciiz"LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON"
+.asciiz"LIGHT_COMPOSITION_4000_mW_ON"
 .Linfo_string23:
-.asciiz"LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON"
+.asciiz"LIGHT_COMPOSITION_5666_mW_ON"
 .Linfo_string24:
-.asciiz"LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON"
+.asciiz"LIGHT_COMPOSITION_8333_mW_ON"
 .Linfo_string25:
-.asciiz"LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON"
+.asciiz"LIGHT_COMPOSITION_9000_mW_ON"
 .Linfo_string26:
-.asciiz"LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON"
+.asciiz"LIGHT_COMPOSITION_6000_mW_ON"
 .Linfo_string27:
-.asciiz"LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON"
+.asciiz"LIGHT_COMPOSITION_3000_mW_ON"
 .Linfo_string28:
-.asciiz"LIGHT_COMPOSITION_2000_CENTER3_ON"
+.asciiz"LIGHT_COMPOSITION_2000_mW_ON_WHITE"
 .Linfo_string29:
-.asciiz"LIGHT_COMPOSITION_5000_FRONT3_ON"
+.asciiz"LIGHT_COMPOSITION_5000_mW_ON"
 .Linfo_string30:
 .asciiz"light_composition_t"
 .Linfo_string31:
@@ -7040,200 +7040,202 @@ p32_bits_for_light_composition_pwm_windows:
 .Linfo_string36:
 .asciiz"LIGHT_CONTROL_IS_RANDOM"
 .Linfo_string37:
-.asciiz"light_control_scheme_t"
+.asciiz"LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE"
 .Linfo_string38:
-.asciiz"HEAT_1_ON"
+.asciiz"light_control_scheme_t"
 .Linfo_string39:
-.asciiz"HEAT_2_ON"
+.asciiz"HEAT_1_ON"
 .Linfo_string40:
-.asciiz"heat_cable_alternating_t"
+.asciiz"HEAT_2_ON"
 .Linfo_string41:
-.asciiz"PIN_SAME_LIGHT"
+.asciiz"heat_cable_alternating_t"
 .Linfo_string42:
-.asciiz"PIN_NIGHTER"
+.asciiz"PIN_SAME_LIGHT"
 .Linfo_string43:
-.asciiz"PIN_LIGHTER"
+.asciiz"PIN_NIGHTER"
 .Linfo_string44:
-.asciiz"pin_change_t"
+.asciiz"PIN_LIGHTER"
 .Linfo_string45:
-.asciiz"delay_microseconds"
+.asciiz"pin_change_t"
 .Linfo_string46:
-.asciiz"delay"
+.asciiz"delay_microseconds"
 .Linfo_string47:
-.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
+.asciiz"delay"
 .Linfo_string48:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 .Linfo_string49:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 .Linfo_string50:
-.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 .Linfo_string51:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string52:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
 .Linfo_string53:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string54:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 .Linfo_string55:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 .Linfo_string56:
-.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 .Linfo_string57:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 .Linfo_string58:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
 .Linfo_string59:
-.asciiz"delay_seconds"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 .Linfo_string60:
-.asciiz"delay_milliseconds"
+.asciiz"delay_seconds"
 .Linfo_string61:
-.asciiz"Port_Pins_Heat_Light_Server"
+.asciiz"delay_milliseconds"
 .Linfo_string62:
-.asciiz"Port_Pins_Heat_Light_Server.select.0.case.0"
+.asciiz"Port_Pins_Heat_Light_Server"
 .Linfo_string63:
-.asciiz"Port_Pins_Heat_Light_Server.select.0.enable"
+.asciiz"Port_Pins_Heat_Light_Server.select.0.case.0"
 .Linfo_string64:
-.asciiz"Port_Pins_Heat_Light_Server.init.1"
+.asciiz"Port_Pins_Heat_Light_Server.select.0.enable"
 .Linfo_string65:
-.asciiz"Port_Pins_Heat_Light_Server.init.0"
+.asciiz"Port_Pins_Heat_Light_Server.init.1"
 .Linfo_string66:
-.asciiz"Port_Pins_Heat_Light_Server.select.y.case.0"
+.asciiz"Port_Pins_Heat_Light_Server.init.0"
 .Linfo_string67:
-.asciiz"Port_Pins_Heat_Light_Server.select.y.case.1"
+.asciiz"Port_Pins_Heat_Light_Server.select.y.case.0"
 .Linfo_string68:
-.asciiz"Port_Pins_Heat_Light_Server.select.y.enable"
+.asciiz"Port_Pins_Heat_Light_Server.select.y.case.1"
 .Linfo_string69:
-.asciiz"Port_Pins_Heat_Light_Server.select.case.0"
+.asciiz"Port_Pins_Heat_Light_Server.select.y.enable"
 .Linfo_string70:
-.asciiz"Port_Pins_Heat_Light_Server.select.case.1"
+.asciiz"Port_Pins_Heat_Light_Server.select.case.0"
 .Linfo_string71:
-.asciiz"Port_Pins_Heat_Light_Server.select.enable"
+.asciiz"Port_Pins_Heat_Light_Server.select.case.1"
 .Linfo_string72:
-.asciiz"Port_Pins_Heat_Light_Server.fini"
+.asciiz"Port_Pins_Heat_Light_Server.select.enable"
 .Linfo_string73:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command"
+.asciiz"Port_Pins_Heat_Light_Server.fini"
 .Linfo_string74:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command"
 .Linfo_string75:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command"
 .Linfo_string76:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command"
 .Linfo_string77:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc"
 .Linfo_string78:
-.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition"
 .Linfo_string79:
-.asciiz"p"
+.asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition"
 .Linfo_string80:
-.asciiz"heat_cable_commands"
+.asciiz"p"
 .Linfo_string81:
-.asciiz"port_value_next"
+.asciiz"heat_cable_commands"
 .Linfo_string82:
-.asciiz"unsigned long"
+.asciiz"port_value_next"
 .Linfo_string83:
-.asciiz"heat_1"
+.asciiz"unsigned long"
 .Linfo_string84:
-.asciiz"heat_2"
+.asciiz"heat_1"
 .Linfo_string85:
-.asciiz"heat_1_next"
+.asciiz"heat_2"
 .Linfo_string86:
-.asciiz"heat_2_next"
+.asciiz"heat_1_next"
 .Linfo_string87:
-.asciiz"heat_1_no_delay"
+.asciiz"heat_2_next"
 .Linfo_string88:
-.asciiz"ms"
+.asciiz"heat_1_no_delay"
 .Linfo_string89:
-.asciiz"beeper_on"
+.asciiz"ms"
 .Linfo_string90:
-.asciiz"iof_light_composition_level"
+.asciiz"beeper_on"
 .Linfo_string91:
-.asciiz"light_control_scheme_in"
+.asciiz"iof_light_composition_level"
 .Linfo_string92:
-.asciiz"value_to_print"
+.asciiz"light_control_scheme_in"
 .Linfo_string93:
-.asciiz"iof_light_pwm_window"
+.asciiz"value_to_print"
 .Linfo_string94:
-.asciiz"mask"
+.asciiz"iof_light_pwm_window"
 .Linfo_string95:
-.asciiz"mask_new"
+.asciiz"mask"
 .Linfo_string96:
-.asciiz"mask_xor"
+.asciiz"mask_new"
 .Linfo_string97:
-.asciiz"return_thirds"
+.asciiz"mask_xor"
 .Linfo_string98:
-.asciiz"iof_LED_strip"
+.asciiz"return_thirds"
 .Linfo_string99:
-.asciiz"soft_change_pwm_window_timer_us"
+.asciiz"iof_LED_strip"
 .Linfo_string100:
-.asciiz"pin_change"
+.asciiz"soft_change_pwm_window_timer_us"
 .Linfo_string101:
-.asciiz"i_port_heat_light_commands"
+.asciiz"pin_change"
 .Linfo_string102:
-.asciiz"interface"
+.asciiz"i_port_heat_light_commands"
 .Linfo_string103:
-.asciiz"heat_cable_alternating"
+.asciiz"interface"
 .Linfo_string104:
-.asciiz"iof_light_composition_level_present"
+.asciiz"heat_cable_alternating"
 .Linfo_string105:
-.asciiz"port_value"
+.asciiz"iof_light_composition_level_present"
 .Linfo_string106:
-.asciiz"beeper_blip_ticks_cntdown"
+.asciiz"port_value"
 .Linfo_string107:
-.asciiz"light_control_scheme"
+.asciiz"beeper_blip_ticks_cntdown"
 .Linfo_string108:
-.asciiz"time"
+.asciiz"light_control_scheme"
 .Linfo_string109:
-.asciiz"int"
+.asciiz"time"
 .Linfo_string110:
-.asciiz"index_of_client"
+.asciiz"int"
 .Linfo_string111:
-.asciiz"return_light_composition"
+.asciiz"index_of_client"
 .Linfo_string112:
-.asciiz"return_stable"
+.asciiz"return_light_composition"
 .Linfo_string113:
-.asciiz"return_light_control_scheme"
+.asciiz"return_stable"
 .Linfo_string114:
-.asciiz"tmr"
+.asciiz"return_light_control_scheme"
 .Linfo_string115:
-.asciiz"timer"
+.asciiz"tmr"
 .Linfo_string116:
-.asciiz"Port_Pins_Heat_Light_Server.select.state_ptr"
+.asciiz"timer"
 .Linfo_string117:
-.asciiz"enable.flag"
+.asciiz"Port_Pins_Heat_Light_Server.select.state_ptr"
 .Linfo_string118:
-.asciiz"init.flag.or.func"
+.asciiz"enable.flag"
 .Linfo_string119:
-.asciiz"trampoline"
+.asciiz"init.flag.or.func"
 .Linfo_string120:
-.asciiz"frame.0"
+.asciiz"trampoline"
 .Linfo_string121:
-.asciiz"Port_Pins_Heat_Light_Server.init.1.state_ptr"
+.asciiz"frame.0"
 .Linfo_string122:
-.asciiz"saved.state"
+.asciiz"Port_Pins_Heat_Light_Server.init.1.state_ptr"
 .Linfo_string123:
-.asciiz"dest"
+.asciiz"saved.state"
 .Linfo_string124:
-.asciiz"chanend"
+.asciiz"dest"
 .Linfo_string125:
-.asciiz"param1"
+.asciiz"chanend"
 .Linfo_string126:
-.asciiz"param2"
+.asciiz"param1"
 .Linfo_string127:
-.asciiz"param3"
+.asciiz"param2"
 .Linfo_string128:
-.asciiz"s"
+.asciiz"param3"
 .Linfo_string129:
-.asciiz"y"
+.asciiz"s"
 .Linfo_string130:
-.asciiz"yarg"
+.asciiz"y"
 .Linfo_string131:
-.asciiz"Port_Pins_Heat_Light_Server.init.0.state_ptr"
+.asciiz"yarg"
 .Linfo_string132:
+.asciiz"Port_Pins_Heat_Light_Server.init.0.state_ptr"
+.Linfo_string133:
 .asciiz"Port_Pins_Heat_Light_Server.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	5896
+	.long	5967
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -7262,7 +7264,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string5
 	.long	81
 	.byte	1
-	.byte	88
+	.byte	152
 	.byte	5
 	.byte	3
 	.long	p32_bits_for_light_composition_pwm_windows
@@ -7291,7 +7293,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	158
+	.byte	225
 	.byte	5
 	.byte	3
 	.long	dummy_wify_ctrl_port
@@ -7366,7 +7368,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	12
 	.byte	0
 	.byte	8
-	.long	.Linfo_string37
+	.long	.Linfo_string38
 	.byte	4
 	.byte	9
 	.long	.Linfo_string31
@@ -7386,39 +7388,42 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	9
 	.long	.Linfo_string36
 	.byte	5
+	.byte	9
+	.long	.Linfo_string37
+	.byte	6
 	.byte	0
 	.byte	10
-	.long	.Linfo_string40
+	.long	.Linfo_string41
 	.byte	4
 	.byte	1
-	.byte	196
-	.byte	9
-	.long	.Linfo_string38
-	.byte	0
+	.short	263
 	.byte	9
 	.long	.Linfo_string39
+	.byte	0
+	.byte	9
+	.long	.Linfo_string40
 	.byte	1
 	.byte	0
 	.byte	10
-	.long	.Linfo_string44
+	.long	.Linfo_string45
 	.byte	4
 	.byte	1
-	.byte	201
-	.byte	9
-	.long	.Linfo_string41
-	.byte	0
+	.short	268
 	.byte	9
 	.long	.Linfo_string42
-	.byte	1
+	.byte	0
 	.byte	9
 	.long	.Linfo_string43
+	.byte	1
+	.byte	9
+	.long	.Linfo_string44
 	.byte	2
 	.byte	0
 	.byte	10
-	.long	.Linfo_string37
+	.long	.Linfo_string38
 	.byte	4
 	.byte	1
-	.byte	202
+	.short	269
 	.byte	9
 	.long	.Linfo_string31
 	.byte	0
@@ -7437,12 +7442,15 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	9
 	.long	.Linfo_string36
 	.byte	5
+	.byte	9
+	.long	.Linfo_string37
+	.byte	6
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string13
 	.byte	4
 	.byte	1
-	.short	430
+	.short	497
 	.byte	9
 	.long	.Linfo_string9
 	.byte	0
@@ -7456,11 +7464,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string12
 	.byte	3
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	457
+	.short	524
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7468,11 +7476,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	458
+	.short	525
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7480,11 +7488,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	459
+	.short	526
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7492,11 +7500,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	460
+	.short	527
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7504,11 +7512,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	461
+	.short	528
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7516,11 +7524,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	411
+	.short	478
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7528,11 +7536,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string30
 	.byte	4
 	.byte	1
-	.short	381
+	.short	448
 	.byte	9
 	.long	.Linfo_string17
 	.byte	0
@@ -7573,11 +7581,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string29
 	.byte	12
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string16
 	.byte	4
 	.byte	1
-	.short	381
+	.short	448
 	.byte	9
 	.long	.Linfo_string14
 	.byte	0
@@ -7585,176 +7593,182 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string15
 	.byte	1
 	.byte	0
-	.byte	11
-	.long	.Linfo_string37
-	.byte	4
-	.byte	1
-	.short	381
-	.byte	9
-	.long	.Linfo_string31
-	.byte	0
-	.byte	9
-	.long	.Linfo_string32
-	.byte	1
-	.byte	9
-	.long	.Linfo_string33
-	.byte	2
-	.byte	9
-	.long	.Linfo_string34
-	.byte	3
-	.byte	9
-	.long	.Linfo_string35
-	.byte	4
-	.byte	9
-	.long	.Linfo_string36
-	.byte	5
-	.byte	0
-	.byte	11
-	.long	.Linfo_string30
-	.byte	4
-	.byte	1
-	.short	374
-	.byte	9
-	.long	.Linfo_string17
-	.byte	0
-	.byte	9
-	.long	.Linfo_string18
-	.byte	1
-	.byte	9
-	.long	.Linfo_string19
-	.byte	2
-	.byte	9
-	.long	.Linfo_string20
-	.byte	3
-	.byte	9
-	.long	.Linfo_string21
-	.byte	4
-	.byte	9
-	.long	.Linfo_string22
-	.byte	5
-	.byte	9
-	.long	.Linfo_string23
-	.byte	6
-	.byte	9
-	.long	.Linfo_string24
-	.byte	7
-	.byte	9
-	.long	.Linfo_string25
-	.byte	8
-	.byte	9
-	.long	.Linfo_string26
-	.byte	9
-	.byte	9
-	.long	.Linfo_string27
 	.byte	10
-	.byte	9
-	.long	.Linfo_string28
-	.byte	11
-	.byte	9
-	.long	.Linfo_string29
-	.byte	12
-	.byte	0
-	.byte	11
-	.long	.Linfo_string30
-	.byte	4
-	.byte	1
-	.short	325
-	.byte	9
-	.long	.Linfo_string17
-	.byte	0
-	.byte	9
-	.long	.Linfo_string18
-	.byte	1
-	.byte	9
-	.long	.Linfo_string19
-	.byte	2
-	.byte	9
-	.long	.Linfo_string20
-	.byte	3
-	.byte	9
-	.long	.Linfo_string21
-	.byte	4
-	.byte	9
-	.long	.Linfo_string22
-	.byte	5
-	.byte	9
-	.long	.Linfo_string23
-	.byte	6
-	.byte	9
-	.long	.Linfo_string24
-	.byte	7
-	.byte	9
-	.long	.Linfo_string25
-	.byte	8
-	.byte	9
-	.long	.Linfo_string26
-	.byte	9
-	.byte	9
-	.long	.Linfo_string27
-	.byte	10
-	.byte	9
-	.long	.Linfo_string28
-	.byte	11
-	.byte	9
-	.long	.Linfo_string29
-	.byte	12
-	.byte	0
-	.byte	11
-	.long	.Linfo_string37
-	.byte	4
-	.byte	1
-	.short	326
-	.byte	9
-	.long	.Linfo_string31
-	.byte	0
-	.byte	9
-	.long	.Linfo_string32
-	.byte	1
-	.byte	9
-	.long	.Linfo_string33
-	.byte	2
-	.byte	9
-	.long	.Linfo_string34
-	.byte	3
-	.byte	9
-	.long	.Linfo_string35
-	.byte	4
-	.byte	9
-	.long	.Linfo_string36
-	.byte	5
-	.byte	0
-	.byte	11
-	.long	.Linfo_string40
-	.byte	4
-	.byte	1
-	.short	324
-	.byte	9
 	.long	.Linfo_string38
+	.byte	4
+	.byte	1
+	.short	448
+	.byte	9
+	.long	.Linfo_string31
 	.byte	0
+	.byte	9
+	.long	.Linfo_string32
+	.byte	1
+	.byte	9
+	.long	.Linfo_string33
+	.byte	2
+	.byte	9
+	.long	.Linfo_string34
+	.byte	3
+	.byte	9
+	.long	.Linfo_string35
+	.byte	4
+	.byte	9
+	.long	.Linfo_string36
+	.byte	5
+	.byte	9
+	.long	.Linfo_string37
+	.byte	6
+	.byte	0
+	.byte	10
+	.long	.Linfo_string30
+	.byte	4
+	.byte	1
+	.short	441
+	.byte	9
+	.long	.Linfo_string17
+	.byte	0
+	.byte	9
+	.long	.Linfo_string18
+	.byte	1
+	.byte	9
+	.long	.Linfo_string19
+	.byte	2
+	.byte	9
+	.long	.Linfo_string20
+	.byte	3
+	.byte	9
+	.long	.Linfo_string21
+	.byte	4
+	.byte	9
+	.long	.Linfo_string22
+	.byte	5
+	.byte	9
+	.long	.Linfo_string23
+	.byte	6
+	.byte	9
+	.long	.Linfo_string24
+	.byte	7
+	.byte	9
+	.long	.Linfo_string25
+	.byte	8
+	.byte	9
+	.long	.Linfo_string26
+	.byte	9
+	.byte	9
+	.long	.Linfo_string27
+	.byte	10
+	.byte	9
+	.long	.Linfo_string28
+	.byte	11
+	.byte	9
+	.long	.Linfo_string29
+	.byte	12
+	.byte	0
+	.byte	10
+	.long	.Linfo_string30
+	.byte	4
+	.byte	1
+	.short	392
+	.byte	9
+	.long	.Linfo_string17
+	.byte	0
+	.byte	9
+	.long	.Linfo_string18
+	.byte	1
+	.byte	9
+	.long	.Linfo_string19
+	.byte	2
+	.byte	9
+	.long	.Linfo_string20
+	.byte	3
+	.byte	9
+	.long	.Linfo_string21
+	.byte	4
+	.byte	9
+	.long	.Linfo_string22
+	.byte	5
+	.byte	9
+	.long	.Linfo_string23
+	.byte	6
+	.byte	9
+	.long	.Linfo_string24
+	.byte	7
+	.byte	9
+	.long	.Linfo_string25
+	.byte	8
+	.byte	9
+	.long	.Linfo_string26
+	.byte	9
+	.byte	9
+	.long	.Linfo_string27
+	.byte	10
+	.byte	9
+	.long	.Linfo_string28
+	.byte	11
+	.byte	9
+	.long	.Linfo_string29
+	.byte	12
+	.byte	0
+	.byte	10
+	.long	.Linfo_string38
+	.byte	4
+	.byte	1
+	.short	393
+	.byte	9
+	.long	.Linfo_string31
+	.byte	0
+	.byte	9
+	.long	.Linfo_string32
+	.byte	1
+	.byte	9
+	.long	.Linfo_string33
+	.byte	2
+	.byte	9
+	.long	.Linfo_string34
+	.byte	3
+	.byte	9
+	.long	.Linfo_string35
+	.byte	4
+	.byte	9
+	.long	.Linfo_string36
+	.byte	5
+	.byte	9
+	.long	.Linfo_string37
+	.byte	6
+	.byte	0
+	.byte	10
+	.long	.Linfo_string41
+	.byte	4
+	.byte	1
+	.short	391
 	.byte	9
 	.long	.Linfo_string39
+	.byte	0
+	.byte	9
+	.long	.Linfo_string40
 	.byte	1
 	.byte	0
-	.byte	11
-	.long	.Linfo_string44
+	.byte	10
+	.long	.Linfo_string45
 	.byte	4
 	.byte	1
-	.short	324
-	.byte	9
-	.long	.Linfo_string41
-	.byte	0
+	.short	391
 	.byte	9
 	.long	.Linfo_string42
-	.byte	1
+	.byte	0
 	.byte	9
 	.long	.Linfo_string43
+	.byte	1
+	.byte	9
+	.long	.Linfo_string44
 	.byte	2
 	.byte	0
-	.byte	11
-	.long	.Linfo_string37
+	.byte	10
+	.long	.Linfo_string38
 	.byte	4
 	.byte	1
-	.short	324
+	.short	391
 	.byte	9
 	.long	.Linfo_string31
 	.byte	0
@@ -7773,12 +7787,15 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	9
 	.long	.Linfo_string36
 	.byte	5
+	.byte	9
+	.long	.Linfo_string37
+	.byte	6
 	.byte	0
-	.byte	11
+	.byte	10
 	.long	.Linfo_string30
 	.byte	4
 	.byte	1
-	.short	324
+	.short	391
 	.byte	9
 	.long	.Linfo_string17
 	.byte	0
@@ -7819,653 +7836,653 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string29
 	.byte	12
 	.byte	0
-	.byte	12
-	.long	.Linfo_string45
-	.long	.Linfo_string45
+	.byte	11
+	.long	.Linfo_string46
+	.long	.Linfo_string46
 	.byte	2
 	.byte	62
 	.byte	1
 	.byte	1
-	.byte	13
-	.long	.Linfo_string46
+	.byte	12
+	.long	.Linfo_string47
 	.byte	2
 	.byte	62
 	.long	101
 	.byte	0
-	.byte	14
+	.byte	13
 	.long	.Ldebug_ranges0
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string73
-	.long	.Linfo_string73
+	.long	.Linfo_string74
+	.long	.Linfo_string74
 	.byte	1
-	.short	430
+	.short	497
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc0
-	.long	.Linfo_string79
-	.long	5421
-	.byte	16
-	.long	.Ldebug_loc1
 	.long	.Linfo_string80
-	.byte	1
-	.short	430
-	.long	5439
-	.byte	17
-	.long	.Ldebug_ranges8
-	.byte	18
-	.long	.Ldebug_loc2
+	.long	5492
+	.byte	15
+	.long	.Ldebug_loc1
 	.long	.Linfo_string81
 	.byte	1
-	.short	432
-	.long	5444
+	.short	497
+	.long	5510
+	.byte	16
+	.long	.Ldebug_ranges8
 	.byte	17
-	.long	.Ldebug_ranges7
-	.byte	18
-	.long	.Ldebug_loc3
-	.long	.Linfo_string83
+	.long	.Ldebug_loc2
+	.long	.Linfo_string82
 	.byte	1
-	.short	457
-	.long	442
+	.short	499
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges7
 	.byte	17
-	.long	.Ldebug_ranges6
-	.byte	18
-	.long	.Ldebug_loc4
+	.long	.Ldebug_loc3
 	.long	.Linfo_string84
 	.byte	1
-	.short	458
-	.long	464
+	.short	524
+	.long	457
+	.byte	16
+	.long	.Ldebug_ranges6
 	.byte	17
-	.long	.Ldebug_ranges5
-	.byte	18
-	.long	.Ldebug_loc5
+	.long	.Ldebug_loc4
 	.long	.Linfo_string85
 	.byte	1
-	.short	459
-	.long	486
+	.short	525
+	.long	479
+	.byte	16
+	.long	.Ldebug_ranges5
 	.byte	17
-	.long	.Ldebug_ranges4
-	.byte	18
-	.long	.Ldebug_loc6
+	.long	.Ldebug_loc5
 	.long	.Linfo_string86
 	.byte	1
-	.short	460
-	.long	508
+	.short	526
+	.long	501
+	.byte	16
+	.long	.Ldebug_ranges4
 	.byte	17
-	.long	.Ldebug_ranges3
-	.byte	19
-	.byte	0
+	.long	.Ldebug_loc6
 	.long	.Linfo_string87
 	.byte	1
-	.short	461
-	.long	530
-	.byte	20
-	.long	1136
+	.short	527
+	.long	523
+	.byte	16
+	.long	.Ldebug_ranges3
+	.byte	18
+	.byte	0
+	.long	.Linfo_string88
+	.byte	1
+	.short	528
+	.long	545
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges1
 	.byte	1
-	.short	468
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
+	.short	535
 	.byte	20
-	.long	1136
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges2
 	.byte	1
-	.short	477
-	.byte	21
+	.short	544
+	.byte	20
 	.byte	0
-	.long	1149
-	.byte	0
-	.byte	0
+	.long	1182
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	14
+	.byte	0
+	.byte	0
+	.byte	13
 	.long	.Ldebug_ranges9
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string74
-	.long	.Linfo_string74
+	.long	.Linfo_string75
+	.long	.Linfo_string75
 	.byte	1
-	.short	420
+	.short	487
 	.byte	1
-	.byte	15
-	.long	.Ldebug_loc7
-	.long	.Linfo_string79
-	.long	5421
-	.byte	16
-	.long	.Ldebug_loc8
-	.long	.Linfo_string88
-	.byte	1
-	.short	420
-	.long	5451
-	.byte	0
 	.byte	14
+	.long	.Ldebug_loc7
+	.long	.Linfo_string80
+	.long	5492
+	.byte	15
+	.long	.Ldebug_loc8
+	.long	.Linfo_string89
+	.byte	1
+	.short	487
+	.long	5522
+	.byte	0
+	.byte	13
 	.long	.Ldebug_ranges10
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string75
-	.long	.Linfo_string75
+	.long	.Linfo_string76
+	.long	.Linfo_string76
 	.byte	1
-	.short	411
+	.short	478
 	.byte	1
-	.byte	15
-	.long	.Ldebug_loc9
-	.long	.Linfo_string79
-	.long	5421
-	.byte	16
-	.long	.Ldebug_loc10
-	.long	.Linfo_string89
-	.byte	1
-	.short	411
-	.long	5456
-	.byte	0
 	.byte	14
+	.long	.Ldebug_loc9
+	.long	.Linfo_string80
+	.long	5492
+	.byte	15
+	.long	.Ldebug_loc10
+	.long	.Linfo_string90
+	.byte	1
+	.short	478
+	.long	5527
+	.byte	0
+	.byte	13
 	.long	.Ldebug_ranges11
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string78
-	.long	.Linfo_string78
-	.byte	1
-	.short	324
-	.byte	1
-	.byte	15
-	.long	.Ldebug_loc11
 	.long	.Linfo_string79
-	.long	5421
-	.byte	16
-	.long	.Ldebug_loc12
-	.long	.Linfo_string90
+	.long	.Linfo_string79
 	.byte	1
-	.short	325
-	.long	5461
-	.byte	16
-	.long	.Ldebug_loc13
+	.short	391
+	.byte	1
+	.byte	14
+	.long	.Ldebug_loc11
+	.long	.Linfo_string80
+	.long	5492
+	.byte	15
+	.long	.Ldebug_loc12
 	.long	.Linfo_string91
 	.byte	1
-	.short	326
-	.long	5466
-	.byte	16
-	.long	.Ldebug_loc14
+	.short	392
+	.long	5532
+	.byte	15
+	.long	.Ldebug_loc13
 	.long	.Linfo_string92
 	.byte	1
-	.short	327
-	.long	5451
-	.byte	17
-	.long	.Ldebug_ranges15
-	.byte	18
-	.long	.Ldebug_loc15
+	.short	393
+	.long	5537
+	.byte	15
+	.long	.Ldebug_loc14
 	.long	.Linfo_string93
 	.byte	1
-	.short	334
-	.long	101
+	.short	394
+	.long	5522
+	.byte	16
+	.long	.Ldebug_ranges15
 	.byte	17
-	.long	.Ldebug_ranges14
-	.byte	18
-	.long	.Ldebug_loc16
+	.long	.Ldebug_loc15
 	.long	.Linfo_string94
 	.byte	1
-	.short	336
-	.long	5444
+	.short	401
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges14
 	.byte	17
-	.long	.Ldebug_ranges13
-	.byte	18
-	.long	.Ldebug_loc17
+	.long	.Ldebug_loc16
 	.long	.Linfo_string95
 	.byte	1
-	.short	337
-	.long	5444
+	.short	403
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges13
 	.byte	17
-	.long	.Ldebug_ranges12
-	.byte	18
-	.long	.Ldebug_loc18
+	.long	.Ldebug_loc17
 	.long	.Linfo_string96
 	.byte	1
-	.short	339
-	.long	5444
+	.short	404
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges12
+	.byte	17
+	.long	.Ldebug_loc18
+	.long	.Linfo_string97
+	.byte	1
+	.short	406
+	.long	5515
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	14
+	.byte	13
 	.long	.Ldebug_ranges16
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string76
-	.long	.Linfo_string76
+	.long	.Linfo_string77
+	.long	.Linfo_string77
 	.byte	1
-	.short	380
+	.short	447
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc19
-	.long	.Linfo_string79
-	.long	5421
-	.byte	16
+	.long	.Linfo_string80
+	.long	5492
+	.byte	15
 	.long	.Ldebug_loc20
-	.long	.Linfo_string97
-	.byte	1
-	.short	380
-	.long	5471
-	.byte	17
-	.long	.Ldebug_ranges17
-	.byte	18
-	.long	.Ldebug_loc21
 	.long	.Linfo_string98
 	.byte	1
-	.short	383
+	.short	447
+	.long	5542
+	.byte	16
+	.long	.Ldebug_ranges17
+	.byte	17
+	.long	.Ldebug_loc21
+	.long	.Linfo_string99
+	.byte	1
+	.short	450
 	.long	101
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges19
-	.byte	18
-	.long	.Ldebug_loc23
-	.long	.Linfo_string93
-	.byte	1
-	.short	388
-	.long	101
 	.byte	17
-	.long	.Ldebug_ranges18
-	.byte	18
-	.long	.Ldebug_loc22
+	.long	.Ldebug_loc23
 	.long	.Linfo_string94
 	.byte	1
-	.short	389
+	.short	455
 	.long	101
-	.byte	0
-	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges18
 	.byte	17
-	.long	.Ldebug_ranges20
-	.byte	22
+	.long	.Ldebug_loc22
+	.long	.Linfo_string95
 	.byte	1
-	.long	.Linfo_string93
-	.byte	1
-	.short	403
+	.short	456
 	.long	101
 	.byte	0
 	.byte	0
-	.byte	14
+	.byte	16
+	.long	.Ldebug_ranges20
+	.byte	21
+	.byte	1
+	.long	.Linfo_string94
+	.byte	1
+	.short	470
+	.long	101
+	.byte	0
+	.byte	0
+	.byte	13
 	.long	.Ldebug_ranges21
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string77
-	.long	.Linfo_string77
+	.long	.Linfo_string78
+	.long	.Linfo_string78
 	.byte	1
-	.short	374
+	.short	441
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc24
-	.long	.Linfo_string79
-	.long	5421
+	.long	.Linfo_string80
+	.long	5492
 	.byte	0
-	.byte	23
+	.byte	13
 	.long	.Ldebug_ranges22
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string61
-	.long	.Linfo_string61
+	.long	.Linfo_string62
+	.long	.Linfo_string62
 	.byte	1
-	.byte	189
+	.short	256
 	.byte	1
-	.byte	24
+	.byte	15
 	.long	.Ldebug_loc25
-	.long	.Linfo_string101
+	.long	.Linfo_string102
 	.byte	1
-	.byte	189
-	.long	5509
-	.byte	17
+	.short	256
+	.long	5580
+	.byte	16
 	.long	.Ldebug_ranges54
-	.byte	25
+	.byte	17
 	.long	.Ldebug_loc29
+	.long	.Linfo_string106
+	.byte	1
+	.short	258
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges53
+	.byte	22
+	.long	.Linfo_string115
+	.byte	1
+	.short	259
+	.long	5612
+	.byte	16
+	.long	.Ldebug_ranges52
+	.byte	17
+	.long	.Ldebug_loc32
+	.long	.Linfo_string109
+	.byte	1
+	.short	260
+	.long	5605
+	.byte	16
+	.long	.Ldebug_ranges51
+	.byte	17
+	.long	.Ldebug_loc28
 	.long	.Linfo_string105
 	.byte	1
-	.byte	191
-	.long	5444
+	.short	261
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges50
 	.byte	17
-	.long	.Ldebug_ranges53
-	.byte	26
-	.long	.Linfo_string114
+	.long	.Ldebug_loc27
+	.long	.Linfo_string94
 	.byte	1
-	.byte	192
-	.long	5541
+	.short	262
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges49
 	.byte	17
-	.long	.Ldebug_ranges52
-	.byte	25
-	.long	.Ldebug_loc32
-	.long	.Linfo_string108
-	.byte	1
-	.byte	193
-	.long	5534
-	.byte	17
-	.long	.Ldebug_ranges51
-	.byte	25
-	.long	.Ldebug_loc28
+	.long	.Ldebug_loc26
 	.long	.Linfo_string104
 	.byte	1
-	.byte	194
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges50
-	.byte	25
-	.long	.Ldebug_loc27
-	.long	.Linfo_string93
-	.byte	1
-	.byte	195
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges49
-	.byte	25
-	.long	.Ldebug_loc26
-	.long	.Linfo_string103
-	.byte	1
-	.byte	196
-	.long	315
-	.byte	17
+	.short	263
+	.long	321
+	.byte	16
 	.long	.Ldebug_ranges48
-	.byte	27
+	.byte	23
 	.byte	3
 	.byte	145
 .asciiz"\370"
-	.long	.Linfo_string99
+	.long	.Linfo_string100
 	.byte	1
-	.byte	200
-	.long	5476
-	.byte	17
+	.short	267
+	.long	5547
+	.byte	16
 	.long	.Ldebug_ranges47
-	.byte	27
+	.byte	23
 	.byte	3
 	.byte	145
 .asciiz"\324"
-	.long	.Linfo_string100
+	.long	.Linfo_string101
 	.byte	1
-	.byte	201
-	.long	5489
-	.byte	17
+	.short	268
+	.long	5560
+	.byte	16
 	.long	.Ldebug_ranges46
-	.byte	25
+	.byte	17
 	.long	.Ldebug_loc31
+	.long	.Linfo_string108
+	.byte	1
+	.short	269
+	.long	371
+	.byte	16
+	.long	.Ldebug_ranges45
+	.byte	17
+	.long	.Ldebug_loc30
 	.long	.Linfo_string107
 	.byte	1
-	.byte	202
-	.long	363
-	.byte	17
-	.long	.Ldebug_ranges45
-	.byte	25
-	.long	.Ldebug_loc30
-	.long	.Linfo_string106
-	.byte	1
-	.byte	212
+	.short	279
 	.long	101
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges39
-	.byte	18
-	.long	.Ldebug_loc33
-	.long	.Linfo_string110
-	.byte	1
-	.short	324
-	.long	5534
-	.byte	18
-	.long	.Ldebug_loc36
-	.long	.Linfo_string80
-	.byte	1
-	.short	430
-	.long	5439
-	.byte	18
-	.long	.Ldebug_loc38
-	.long	.Linfo_string111
-	.byte	1
-	.short	374
-	.long	730
-	.byte	19
-	.byte	0
-	.long	.Linfo_string112
-	.byte	1
-	.short	381
-	.long	662
-	.byte	18
-	.long	.Ldebug_loc41
-	.long	.Linfo_string113
-	.byte	1
-	.short	381
-	.long	684
-	.byte	18
-	.long	.Ldebug_loc42
-	.long	.Linfo_string90
-	.byte	1
-	.short	325
-	.long	5461
-	.byte	18
-	.long	.Ldebug_loc43
-	.long	.Linfo_string91
-	.byte	1
-	.short	326
-	.long	5466
-	.byte	18
-	.long	.Ldebug_loc44
-	.long	.Linfo_string92
-	.byte	1
-	.short	327
-	.long	5451
-	.byte	18
-	.long	.Ldebug_loc49
-	.long	.Linfo_string89
-	.byte	1
-	.short	411
-	.long	5456
-	.byte	18
-	.long	.Ldebug_loc50
-	.long	.Linfo_string88
-	.byte	1
-	.short	420
-	.long	5451
-	.byte	28
-	.long	.Linfo_string111
-	.byte	1
-	.short	381
-	.long	574
-	.byte	28
-	.long	.Linfo_string97
-	.byte	1
-	.short	380
-	.long	5471
 	.byte	17
-	.long	.Ldebug_ranges30
-	.byte	18
-	.long	.Ldebug_loc37
+	.long	.Ldebug_loc33
+	.long	.Linfo_string111
+	.byte	1
+	.short	391
+	.long	5605
+	.byte	17
+	.long	.Ldebug_loc36
 	.long	.Linfo_string81
 	.byte	1
-	.short	432
-	.long	5444
+	.short	497
+	.long	5510
 	.byte	17
-	.long	.Ldebug_ranges29
+	.long	.Ldebug_loc38
+	.long	.Linfo_string112
+	.byte	1
+	.short	441
+	.long	751
 	.byte	18
-	.long	.Ldebug_loc51
-	.long	.Linfo_string83
+	.byte	0
+	.long	.Linfo_string113
 	.byte	1
-	.short	457
-	.long	442
+	.short	448
+	.long	677
 	.byte	17
-	.long	.Ldebug_ranges28
-	.byte	18
-	.long	.Ldebug_loc52
-	.long	.Linfo_string84
+	.long	.Ldebug_loc41
+	.long	.Linfo_string114
 	.byte	1
-	.short	458
-	.long	464
+	.short	448
+	.long	699
 	.byte	17
-	.long	.Ldebug_ranges27
-	.byte	18
-	.long	.Ldebug_loc53
-	.long	.Linfo_string85
+	.long	.Ldebug_loc42
+	.long	.Linfo_string91
 	.byte	1
-	.short	459
-	.long	486
+	.short	392
+	.long	5532
 	.byte	17
-	.long	.Ldebug_ranges26
-	.byte	18
-	.long	.Ldebug_loc54
-	.long	.Linfo_string86
+	.long	.Ldebug_loc43
+	.long	.Linfo_string92
 	.byte	1
-	.short	460
-	.long	508
+	.short	393
+	.long	5537
 	.byte	17
-	.long	.Ldebug_ranges25
-	.byte	19
-	.byte	0
-	.long	.Linfo_string87
+	.long	.Ldebug_loc44
+	.long	.Linfo_string93
 	.byte	1
-	.short	461
-	.long	530
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges23
-	.byte	1
-	.short	468
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges24
-	.byte	1
-	.short	477
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.short	394
+	.long	5522
 	.byte	17
-	.long	.Ldebug_ranges31
-	.byte	18
-	.long	.Ldebug_loc39
+	.long	.Ldebug_loc49
+	.long	.Linfo_string90
+	.byte	1
+	.short	478
+	.long	5527
+	.byte	17
+	.long	.Ldebug_loc50
+	.long	.Linfo_string89
+	.byte	1
+	.short	487
+	.long	5522
+	.byte	22
+	.long	.Linfo_string112
+	.byte	1
+	.short	448
+	.long	589
+	.byte	22
 	.long	.Linfo_string98
 	.byte	1
-	.short	383
+	.short	447
+	.long	5542
+	.byte	16
+	.long	.Ldebug_ranges30
+	.byte	17
+	.long	.Ldebug_loc37
+	.long	.Linfo_string82
+	.byte	1
+	.short	499
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges29
+	.byte	17
+	.long	.Ldebug_loc51
+	.long	.Linfo_string84
+	.byte	1
+	.short	524
+	.long	457
+	.byte	16
+	.long	.Ldebug_ranges28
+	.byte	17
+	.long	.Ldebug_loc52
+	.long	.Linfo_string85
+	.byte	1
+	.short	525
+	.long	479
+	.byte	16
+	.long	.Ldebug_ranges27
+	.byte	17
+	.long	.Ldebug_loc53
+	.long	.Linfo_string86
+	.byte	1
+	.short	526
+	.long	501
+	.byte	16
+	.long	.Ldebug_ranges26
+	.byte	17
+	.long	.Ldebug_loc54
+	.long	.Linfo_string87
+	.byte	1
+	.short	527
+	.long	523
+	.byte	16
+	.long	.Ldebug_ranges25
+	.byte	18
+	.byte	0
+	.long	.Linfo_string88
+	.byte	1
+	.short	528
+	.long	545
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges23
+	.byte	1
+	.short	535
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges24
+	.byte	1
+	.short	544
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges31
+	.byte	17
+	.long	.Ldebug_loc39
+	.long	.Linfo_string99
+	.byte	1
+	.short	450
 	.long	101
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges33
-	.byte	28
-	.long	.Linfo_string93
-	.byte	1
-	.short	388
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges32
-	.byte	18
-	.long	.Ldebug_loc40
-	.long	.Linfo_string94
-	.byte	1
-	.short	389
-	.long	101
-	.byte	0
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges34
 	.byte	22
-	.byte	1
-	.long	.Linfo_string93
-	.byte	1
-	.short	403
-	.long	101
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges38
-	.byte	18
-	.long	.Ldebug_loc48
-	.long	.Linfo_string93
-	.byte	1
-	.short	334
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges37
-	.byte	18
-	.long	.Ldebug_loc45
 	.long	.Linfo_string94
 	.byte	1
-	.short	336
-	.long	5444
+	.short	455
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges32
 	.byte	17
-	.long	.Ldebug_ranges36
-	.byte	18
-	.long	.Ldebug_loc46
+	.long	.Ldebug_loc40
 	.long	.Linfo_string95
 	.byte	1
-	.short	337
-	.long	5444
-	.byte	17
-	.long	.Ldebug_ranges35
-	.byte	18
-	.long	.Ldebug_loc47
-	.long	.Linfo_string96
+	.short	456
+	.long	101
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges34
+	.byte	21
 	.byte	1
-	.short	339
-	.long	5444
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges44
-	.byte	25
-	.long	.Ldebug_loc34
 	.long	.Linfo_string94
 	.byte	1
-	.byte	227
-	.long	5444
-	.byte	29
-	.long	1136
+	.short	470
+	.long	101
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges38
+	.byte	17
+	.long	.Ldebug_loc48
+	.long	.Linfo_string94
+	.byte	1
+	.short	401
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges37
+	.byte	17
+	.long	.Ldebug_loc45
+	.long	.Linfo_string95
+	.byte	1
+	.short	403
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges36
+	.byte	17
+	.long	.Ldebug_loc46
+	.long	.Linfo_string96
+	.byte	1
+	.short	404
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges35
+	.byte	17
+	.long	.Ldebug_loc47
+	.long	.Linfo_string97
+	.byte	1
+	.short	406
+	.long	5515
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges44
+	.byte	17
+	.long	.Ldebug_loc34
+	.long	.Linfo_string95
+	.byte	1
+	.short	294
+	.long	5515
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges40
 	.byte	1
-	.byte	238
-	.byte	21
+	.short	305
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges41
 	.byte	1
-	.byte	243
-	.byte	21
+	.short	310
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges42
 	.byte	1
-	.byte	248
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
+	.short	315
 	.byte	20
-	.long	1136
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges43
 	.byte	1
-	.short	279
-	.byte	30
+	.short	346
+	.byte	24
 	.long	.Ldebug_loc35
-	.long	1149
+	.long	1182
 	.byte	0
 	.byte	0
 	.byte	0
@@ -8479,110 +8496,110 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	31
+	.byte	25
 	.long	.Ldebug_ranges55
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string63
-	.long	.Linfo_string63
+	.long	.Linfo_string64
+	.long	.Linfo_string64
 	.long	101
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc55
-	.long	.Linfo_string116
-	.long	5548
-	.byte	17
+	.long	.Linfo_string117
+	.long	5619
+	.byte	16
 	.long	.Ldebug_ranges56
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc56
-	.long	.Linfo_string110
+	.long	.Linfo_string111
 	.byte	1
-	.short	324
-	.long	5534
+	.short	391
+	.long	5605
 	.byte	0
 	.byte	0
-	.byte	32
+	.byte	26
 	.long	.Ldebug_ranges57
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string64
-	.long	.Linfo_string64
+	.long	.Linfo_string65
+	.long	.Linfo_string65
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc57
-	.long	.Linfo_string121
-	.long	5548
-	.byte	17
+	.long	.Linfo_string122
+	.long	5619
+	.byte	16
 	.long	.Ldebug_ranges67
-	.byte	26
-	.long	.Linfo_string105
-	.byte	1
-	.byte	191
-	.long	5444
-	.byte	17
-	.long	.Ldebug_ranges66
-	.byte	26
-	.long	.Linfo_string114
-	.byte	1
-	.byte	192
-	.long	5541
-	.byte	17
-	.long	.Ldebug_ranges65
-	.byte	26
-	.long	.Linfo_string108
-	.byte	1
-	.byte	193
-	.long	5534
-	.byte	17
-	.long	.Ldebug_ranges64
-	.byte	26
-	.long	.Linfo_string104
-	.byte	1
-	.byte	194
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges63
-	.byte	26
-	.long	.Linfo_string93
-	.byte	1
-	.byte	195
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges62
-	.byte	26
-	.long	.Linfo_string103
-	.byte	1
-	.byte	196
-	.long	315
-	.byte	17
-	.long	.Ldebug_ranges61
-	.byte	26
-	.long	.Linfo_string99
-	.byte	1
-	.byte	200
-	.long	5476
-	.byte	17
-	.long	.Ldebug_ranges60
-	.byte	26
-	.long	.Linfo_string100
-	.byte	1
-	.byte	201
-	.long	5489
-	.byte	17
-	.long	.Ldebug_ranges59
-	.byte	26
-	.long	.Linfo_string107
-	.byte	1
-	.byte	202
-	.long	363
-	.byte	17
-	.long	.Ldebug_ranges58
-	.byte	26
+	.byte	22
 	.long	.Linfo_string106
 	.byte	1
-	.byte	212
+	.short	258
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges66
+	.byte	22
+	.long	.Linfo_string115
+	.byte	1
+	.short	259
+	.long	5612
+	.byte	16
+	.long	.Ldebug_ranges65
+	.byte	22
+	.long	.Linfo_string109
+	.byte	1
+	.short	260
+	.long	5605
+	.byte	16
+	.long	.Ldebug_ranges64
+	.byte	22
+	.long	.Linfo_string105
+	.byte	1
+	.short	261
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges63
+	.byte	22
+	.long	.Linfo_string94
+	.byte	1
+	.short	262
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges62
+	.byte	22
+	.long	.Linfo_string104
+	.byte	1
+	.short	263
+	.long	321
+	.byte	16
+	.long	.Ldebug_ranges61
+	.byte	22
+	.long	.Linfo_string100
+	.byte	1
+	.short	267
+	.long	5547
+	.byte	16
+	.long	.Ldebug_ranges60
+	.byte	22
+	.long	.Linfo_string101
+	.byte	1
+	.short	268
+	.long	5560
+	.byte	16
+	.long	.Ldebug_ranges59
+	.byte	22
+	.long	.Linfo_string108
+	.byte	1
+	.short	269
+	.long	371
+	.byte	16
+	.long	.Ldebug_ranges58
+	.byte	22
+	.long	.Linfo_string107
+	.byte	1
+	.short	279
 	.long	101
 	.byte	0
 	.byte	0
@@ -8595,1219 +8612,1219 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	31
+	.byte	25
 	.long	.Ldebug_ranges68
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string68
-	.long	.Linfo_string68
+	.long	.Linfo_string69
+	.long	.Linfo_string69
 	.long	101
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc58
-	.long	.Linfo_string116
-	.long	5548
-	.byte	17
+	.long	.Linfo_string117
+	.long	5619
+	.byte	16
 	.long	.Ldebug_ranges69
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc59
-	.long	.Linfo_string110
+	.long	.Linfo_string111
 	.byte	1
-	.short	324
-	.long	5534
+	.short	391
+	.long	5605
 	.byte	0
 	.byte	0
-	.byte	31
+	.byte	25
 	.long	.Ldebug_ranges70
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string71
-	.long	.Linfo_string71
+	.long	.Linfo_string72
+	.long	.Linfo_string72
 	.long	101
 	.byte	1
-	.byte	15
+	.byte	14
 	.long	.Ldebug_loc60
-	.long	.Linfo_string116
-	.long	5548
-	.byte	17
+	.long	.Linfo_string117
+	.long	5619
+	.byte	16
 	.long	.Ldebug_ranges71
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc61
-	.long	.Linfo_string110
+	.long	.Linfo_string111
 	.byte	1
-	.short	324
-	.long	5534
+	.short	391
+	.long	5605
 	.byte	0
 	.byte	0
-	.byte	33
+	.byte	27
 	.long	.Ldebug_ranges72
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string62
-	.long	.Linfo_string62
+	.long	.Linfo_string63
+	.long	.Linfo_string63
 	.byte	1
-	.short	324
-	.byte	15
+	.short	391
+	.byte	14
 	.long	.Ldebug_loc62
-	.long	.Linfo_string122
-	.long	5835
-	.byte	17
+	.long	.Linfo_string123
+	.long	5906
+	.byte	16
 	.long	.Ldebug_ranges89
-	.byte	18
-	.long	.Ldebug_loc63
-	.long	.Linfo_string110
-	.byte	1
-	.short	324
-	.long	5534
-	.byte	18
-	.long	.Ldebug_loc64
-	.long	.Linfo_string80
-	.byte	1
-	.short	430
-	.long	5439
-	.byte	18
-	.long	.Ldebug_loc66
-	.long	.Linfo_string111
-	.byte	1
-	.short	374
-	.long	730
-	.byte	18
-	.long	.Ldebug_loc68
-	.long	.Linfo_string111
-	.byte	1
-	.short	381
-	.long	574
-	.byte	19
-	.byte	0
-	.long	.Linfo_string112
-	.byte	1
-	.short	381
-	.long	662
-	.byte	18
-	.long	.Ldebug_loc71
-	.long	.Linfo_string113
-	.byte	1
-	.short	381
-	.long	684
-	.byte	18
-	.long	.Ldebug_loc72
-	.long	.Linfo_string90
-	.byte	1
-	.short	325
-	.long	5461
-	.byte	18
-	.long	.Ldebug_loc73
-	.long	.Linfo_string91
-	.byte	1
-	.short	326
-	.long	5466
-	.byte	18
-	.long	.Ldebug_loc74
-	.long	.Linfo_string92
-	.byte	1
-	.short	327
-	.long	5451
-	.byte	18
-	.long	.Ldebug_loc79
-	.long	.Linfo_string89
-	.byte	1
-	.short	411
-	.long	5456
-	.byte	18
-	.long	.Ldebug_loc80
-	.long	.Linfo_string88
-	.byte	1
-	.short	420
-	.long	5451
-	.byte	28
-	.long	.Linfo_string97
-	.byte	1
-	.short	380
-	.long	5471
 	.byte	17
-	.long	.Ldebug_ranges80
-	.byte	18
-	.long	.Ldebug_loc65
+	.long	.Ldebug_loc63
+	.long	.Linfo_string111
+	.byte	1
+	.short	391
+	.long	5605
+	.byte	17
+	.long	.Ldebug_loc64
 	.long	.Linfo_string81
 	.byte	1
-	.short	432
-	.long	5444
+	.short	497
+	.long	5510
 	.byte	17
-	.long	.Ldebug_ranges79
+	.long	.Ldebug_loc66
+	.long	.Linfo_string112
+	.byte	1
+	.short	441
+	.long	751
+	.byte	17
+	.long	.Ldebug_loc68
+	.long	.Linfo_string112
+	.byte	1
+	.short	448
+	.long	589
 	.byte	18
-	.long	.Ldebug_loc81
-	.long	.Linfo_string83
+	.byte	0
+	.long	.Linfo_string113
 	.byte	1
-	.short	457
-	.long	442
+	.short	448
+	.long	677
 	.byte	17
-	.long	.Ldebug_ranges78
-	.byte	18
-	.long	.Ldebug_loc82
-	.long	.Linfo_string84
+	.long	.Ldebug_loc71
+	.long	.Linfo_string114
 	.byte	1
-	.short	458
-	.long	464
+	.short	448
+	.long	699
 	.byte	17
-	.long	.Ldebug_ranges77
-	.byte	18
-	.long	.Ldebug_loc83
-	.long	.Linfo_string85
+	.long	.Ldebug_loc72
+	.long	.Linfo_string91
 	.byte	1
-	.short	459
-	.long	486
+	.short	392
+	.long	5532
 	.byte	17
-	.long	.Ldebug_ranges76
-	.byte	18
-	.long	.Ldebug_loc84
-	.long	.Linfo_string86
+	.long	.Ldebug_loc73
+	.long	.Linfo_string92
 	.byte	1
-	.short	460
-	.long	508
+	.short	393
+	.long	5537
 	.byte	17
-	.long	.Ldebug_ranges75
-	.byte	19
-	.byte	0
-	.long	.Linfo_string87
+	.long	.Ldebug_loc74
+	.long	.Linfo_string93
 	.byte	1
-	.short	461
-	.long	530
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges73
-	.byte	1
-	.short	468
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges74
-	.byte	1
-	.short	477
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.short	394
+	.long	5522
 	.byte	17
-	.long	.Ldebug_ranges81
-	.byte	18
-	.long	.Ldebug_loc67
+	.long	.Ldebug_loc79
+	.long	.Linfo_string90
+	.byte	1
+	.short	478
+	.long	5527
+	.byte	17
+	.long	.Ldebug_loc80
+	.long	.Linfo_string89
+	.byte	1
+	.short	487
+	.long	5522
+	.byte	22
 	.long	.Linfo_string98
 	.byte	1
-	.short	383
+	.short	447
+	.long	5542
+	.byte	16
+	.long	.Ldebug_ranges80
+	.byte	17
+	.long	.Ldebug_loc65
+	.long	.Linfo_string82
+	.byte	1
+	.short	499
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges79
+	.byte	17
+	.long	.Ldebug_loc81
+	.long	.Linfo_string84
+	.byte	1
+	.short	524
+	.long	457
+	.byte	16
+	.long	.Ldebug_ranges78
+	.byte	17
+	.long	.Ldebug_loc82
+	.long	.Linfo_string85
+	.byte	1
+	.short	525
+	.long	479
+	.byte	16
+	.long	.Ldebug_ranges77
+	.byte	17
+	.long	.Ldebug_loc83
+	.long	.Linfo_string86
+	.byte	1
+	.short	526
+	.long	501
+	.byte	16
+	.long	.Ldebug_ranges76
+	.byte	17
+	.long	.Ldebug_loc84
+	.long	.Linfo_string87
+	.byte	1
+	.short	527
+	.long	523
+	.byte	16
+	.long	.Ldebug_ranges75
+	.byte	18
+	.byte	0
+	.long	.Linfo_string88
+	.byte	1
+	.short	528
+	.long	545
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges73
+	.byte	1
+	.short	535
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges74
+	.byte	1
+	.short	544
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges81
+	.byte	17
+	.long	.Ldebug_loc67
+	.long	.Linfo_string99
+	.byte	1
+	.short	450
 	.long	101
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges83
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc70
-	.long	.Linfo_string93
+	.long	.Linfo_string94
 	.byte	1
-	.short	388
+	.short	455
 	.long	101
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges82
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc69
-	.long	.Linfo_string94
-	.byte	1
-	.short	389
-	.long	101
-	.byte	0
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges84
-	.byte	22
-	.byte	1
-	.long	.Linfo_string93
-	.byte	1
-	.short	403
-	.long	101
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges88
-	.byte	18
-	.long	.Ldebug_loc75
-	.long	.Linfo_string93
-	.byte	1
-	.short	334
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges87
-	.byte	18
-	.long	.Ldebug_loc76
-	.long	.Linfo_string94
-	.byte	1
-	.short	336
-	.long	5444
-	.byte	17
-	.long	.Ldebug_ranges86
-	.byte	18
-	.long	.Ldebug_loc77
 	.long	.Linfo_string95
 	.byte	1
-	.short	337
-	.long	5444
+	.short	456
+	.long	101
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges84
+	.byte	21
+	.byte	1
+	.long	.Linfo_string94
+	.byte	1
+	.short	470
+	.long	101
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges88
 	.byte	17
-	.long	.Ldebug_ranges85
-	.byte	18
-	.long	.Ldebug_loc78
+	.long	.Ldebug_loc75
+	.long	.Linfo_string94
+	.byte	1
+	.short	401
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges87
+	.byte	17
+	.long	.Ldebug_loc76
+	.long	.Linfo_string95
+	.byte	1
+	.short	403
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges86
+	.byte	17
+	.long	.Ldebug_loc77
 	.long	.Linfo_string96
 	.byte	1
-	.short	339
-	.long	5444
+	.short	404
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges85
+	.byte	17
+	.long	.Ldebug_loc78
+	.long	.Linfo_string97
+	.byte	1
+	.short	406
+	.long	5515
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	34
+	.byte	27
 	.long	.Ldebug_ranges90
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string66
-	.long	.Linfo_string66
+	.long	.Linfo_string67
+	.long	.Linfo_string67
 	.byte	1
-	.byte	225
-	.byte	17
+	.short	292
+	.byte	16
 	.long	.Ldebug_ranges95
-	.byte	25
+	.byte	17
 	.long	.Ldebug_loc85
-	.long	.Linfo_string94
+	.long	.Linfo_string95
 	.byte	1
-	.byte	227
-	.long	5444
-	.byte	29
-	.long	1136
+	.short	294
+	.long	5515
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges91
 	.byte	1
-	.byte	238
-	.byte	21
+	.short	305
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges92
 	.byte	1
-	.byte	243
-	.byte	21
+	.short	310
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges93
 	.byte	1
-	.byte	248
-	.byte	21
+	.short	315
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	35
-	.long	1136
+	.byte	28
+	.long	1169
 	.long	.Ldebug_ranges94
 	.byte	1
-	.short	279
+	.short	346
 	.byte	0
 	.byte	0
-	.byte	33
+	.byte	27
 	.long	.Ldebug_ranges96
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string67
-	.long	.Linfo_string67
+	.long	.Linfo_string68
+	.long	.Linfo_string68
 	.byte	1
-	.short	324
-	.byte	15
+	.short	391
+	.byte	14
 	.long	.Ldebug_loc86
-	.long	.Linfo_string122
-	.long	5835
-	.byte	17
+	.long	.Linfo_string123
+	.long	5906
+	.byte	16
 	.long	.Ldebug_ranges113
-	.byte	18
-	.long	.Ldebug_loc87
-	.long	.Linfo_string110
-	.byte	1
-	.short	324
-	.long	5534
-	.byte	18
-	.long	.Ldebug_loc88
-	.long	.Linfo_string80
-	.byte	1
-	.short	430
-	.long	5439
-	.byte	18
-	.long	.Ldebug_loc90
-	.long	.Linfo_string111
-	.byte	1
-	.short	374
-	.long	730
-	.byte	18
-	.long	.Ldebug_loc92
-	.long	.Linfo_string111
-	.byte	1
-	.short	381
-	.long	574
-	.byte	19
-	.byte	0
-	.long	.Linfo_string112
-	.byte	1
-	.short	381
-	.long	662
-	.byte	18
-	.long	.Ldebug_loc95
-	.long	.Linfo_string113
-	.byte	1
-	.short	381
-	.long	684
-	.byte	18
-	.long	.Ldebug_loc96
-	.long	.Linfo_string90
-	.byte	1
-	.short	325
-	.long	5461
-	.byte	18
-	.long	.Ldebug_loc97
-	.long	.Linfo_string91
-	.byte	1
-	.short	326
-	.long	5466
-	.byte	18
-	.long	.Ldebug_loc98
-	.long	.Linfo_string92
-	.byte	1
-	.short	327
-	.long	5451
-	.byte	18
-	.long	.Ldebug_loc103
-	.long	.Linfo_string89
-	.byte	1
-	.short	411
-	.long	5456
-	.byte	18
-	.long	.Ldebug_loc104
-	.long	.Linfo_string88
-	.byte	1
-	.short	420
-	.long	5451
-	.byte	28
-	.long	.Linfo_string97
-	.byte	1
-	.short	380
-	.long	5471
 	.byte	17
-	.long	.Ldebug_ranges104
-	.byte	18
-	.long	.Ldebug_loc89
+	.long	.Ldebug_loc87
+	.long	.Linfo_string111
+	.byte	1
+	.short	391
+	.long	5605
+	.byte	17
+	.long	.Ldebug_loc88
 	.long	.Linfo_string81
 	.byte	1
-	.short	432
-	.long	5444
+	.short	497
+	.long	5510
 	.byte	17
-	.long	.Ldebug_ranges103
+	.long	.Ldebug_loc90
+	.long	.Linfo_string112
+	.byte	1
+	.short	441
+	.long	751
+	.byte	17
+	.long	.Ldebug_loc92
+	.long	.Linfo_string112
+	.byte	1
+	.short	448
+	.long	589
 	.byte	18
-	.long	.Ldebug_loc105
-	.long	.Linfo_string83
+	.byte	0
+	.long	.Linfo_string113
 	.byte	1
-	.short	457
-	.long	442
+	.short	448
+	.long	677
 	.byte	17
-	.long	.Ldebug_ranges102
-	.byte	18
-	.long	.Ldebug_loc106
-	.long	.Linfo_string84
+	.long	.Ldebug_loc95
+	.long	.Linfo_string114
 	.byte	1
-	.short	458
-	.long	464
+	.short	448
+	.long	699
 	.byte	17
-	.long	.Ldebug_ranges101
-	.byte	18
-	.long	.Ldebug_loc107
-	.long	.Linfo_string85
+	.long	.Ldebug_loc96
+	.long	.Linfo_string91
 	.byte	1
-	.short	459
-	.long	486
+	.short	392
+	.long	5532
 	.byte	17
-	.long	.Ldebug_ranges100
-	.byte	18
-	.long	.Ldebug_loc108
-	.long	.Linfo_string86
+	.long	.Ldebug_loc97
+	.long	.Linfo_string92
 	.byte	1
-	.short	460
-	.long	508
+	.short	393
+	.long	5537
 	.byte	17
-	.long	.Ldebug_ranges99
-	.byte	19
-	.byte	0
-	.long	.Linfo_string87
+	.long	.Ldebug_loc98
+	.long	.Linfo_string93
 	.byte	1
-	.short	461
-	.long	530
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges97
-	.byte	1
-	.short	468
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges98
-	.byte	1
-	.short	477
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.short	394
+	.long	5522
 	.byte	17
-	.long	.Ldebug_ranges105
-	.byte	18
-	.long	.Ldebug_loc91
+	.long	.Ldebug_loc103
+	.long	.Linfo_string90
+	.byte	1
+	.short	478
+	.long	5527
+	.byte	17
+	.long	.Ldebug_loc104
+	.long	.Linfo_string89
+	.byte	1
+	.short	487
+	.long	5522
+	.byte	22
 	.long	.Linfo_string98
 	.byte	1
-	.short	383
+	.short	447
+	.long	5542
+	.byte	16
+	.long	.Ldebug_ranges104
+	.byte	17
+	.long	.Ldebug_loc89
+	.long	.Linfo_string82
+	.byte	1
+	.short	499
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges103
+	.byte	17
+	.long	.Ldebug_loc105
+	.long	.Linfo_string84
+	.byte	1
+	.short	524
+	.long	457
+	.byte	16
+	.long	.Ldebug_ranges102
+	.byte	17
+	.long	.Ldebug_loc106
+	.long	.Linfo_string85
+	.byte	1
+	.short	525
+	.long	479
+	.byte	16
+	.long	.Ldebug_ranges101
+	.byte	17
+	.long	.Ldebug_loc107
+	.long	.Linfo_string86
+	.byte	1
+	.short	526
+	.long	501
+	.byte	16
+	.long	.Ldebug_ranges100
+	.byte	17
+	.long	.Ldebug_loc108
+	.long	.Linfo_string87
+	.byte	1
+	.short	527
+	.long	523
+	.byte	16
+	.long	.Ldebug_ranges99
+	.byte	18
+	.byte	0
+	.long	.Linfo_string88
+	.byte	1
+	.short	528
+	.long	545
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges97
+	.byte	1
+	.short	535
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges98
+	.byte	1
+	.short	544
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges105
+	.byte	17
+	.long	.Ldebug_loc91
+	.long	.Linfo_string99
+	.byte	1
+	.short	450
 	.long	101
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges107
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc94
-	.long	.Linfo_string93
+	.long	.Linfo_string94
 	.byte	1
-	.short	388
+	.short	455
 	.long	101
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges106
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc93
-	.long	.Linfo_string94
-	.byte	1
-	.short	389
-	.long	101
-	.byte	0
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges108
-	.byte	22
-	.byte	1
-	.long	.Linfo_string93
-	.byte	1
-	.short	403
-	.long	101
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges112
-	.byte	18
-	.long	.Ldebug_loc99
-	.long	.Linfo_string93
-	.byte	1
-	.short	334
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges111
-	.byte	18
-	.long	.Ldebug_loc100
-	.long	.Linfo_string94
-	.byte	1
-	.short	336
-	.long	5444
-	.byte	17
-	.long	.Ldebug_ranges110
-	.byte	18
-	.long	.Ldebug_loc101
 	.long	.Linfo_string95
 	.byte	1
-	.short	337
-	.long	5444
+	.short	456
+	.long	101
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges108
+	.byte	21
+	.byte	1
+	.long	.Linfo_string94
+	.byte	1
+	.short	470
+	.long	101
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges112
 	.byte	17
-	.long	.Ldebug_ranges109
-	.byte	18
-	.long	.Ldebug_loc102
+	.long	.Ldebug_loc99
+	.long	.Linfo_string94
+	.byte	1
+	.short	401
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges111
+	.byte	17
+	.long	.Ldebug_loc100
+	.long	.Linfo_string95
+	.byte	1
+	.short	403
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges110
+	.byte	17
+	.long	.Ldebug_loc101
 	.long	.Linfo_string96
 	.byte	1
-	.short	339
-	.long	5444
+	.short	404
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges109
+	.byte	17
+	.long	.Ldebug_loc102
+	.long	.Linfo_string97
+	.byte	1
+	.short	406
+	.long	5515
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	34
+	.byte	27
 	.long	.Ldebug_ranges114
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string69
-	.long	.Linfo_string69
+	.long	.Linfo_string70
+	.long	.Linfo_string70
 	.byte	1
-	.byte	225
-	.byte	17
+	.short	292
+	.byte	16
 	.long	.Ldebug_ranges119
-	.byte	25
+	.byte	17
 	.long	.Ldebug_loc109
-	.long	.Linfo_string94
+	.long	.Linfo_string95
 	.byte	1
-	.byte	227
-	.long	5444
-	.byte	29
-	.long	1136
+	.short	294
+	.long	5515
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges115
 	.byte	1
-	.byte	238
-	.byte	21
+	.short	305
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges116
 	.byte	1
-	.byte	243
-	.byte	21
+	.short	310
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	29
-	.long	1136
+	.byte	19
+	.long	1169
 	.long	.Ldebug_ranges117
 	.byte	1
-	.byte	248
-	.byte	21
+	.short	315
+	.byte	20
 	.byte	0
-	.long	1149
+	.long	1182
 	.byte	0
-	.byte	35
-	.long	1136
+	.byte	28
+	.long	1169
 	.long	.Ldebug_ranges118
 	.byte	1
-	.short	279
+	.short	346
 	.byte	0
 	.byte	0
-	.byte	33
+	.byte	27
 	.long	.Ldebug_ranges120
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string70
-	.long	.Linfo_string70
+	.long	.Linfo_string71
+	.long	.Linfo_string71
 	.byte	1
-	.short	324
-	.byte	15
+	.short	391
+	.byte	14
 	.long	.Ldebug_loc110
-	.long	.Linfo_string122
-	.long	5835
-	.byte	17
+	.long	.Linfo_string123
+	.long	5906
+	.byte	16
 	.long	.Ldebug_ranges137
-	.byte	18
-	.long	.Ldebug_loc111
-	.long	.Linfo_string110
-	.byte	1
-	.short	324
-	.long	5534
-	.byte	18
-	.long	.Ldebug_loc112
-	.long	.Linfo_string80
-	.byte	1
-	.short	430
-	.long	5439
-	.byte	18
-	.long	.Ldebug_loc114
-	.long	.Linfo_string111
-	.byte	1
-	.short	374
-	.long	730
-	.byte	18
-	.long	.Ldebug_loc116
-	.long	.Linfo_string111
-	.byte	1
-	.short	381
-	.long	574
-	.byte	19
-	.byte	0
-	.long	.Linfo_string112
-	.byte	1
-	.short	381
-	.long	662
-	.byte	18
-	.long	.Ldebug_loc119
-	.long	.Linfo_string113
-	.byte	1
-	.short	381
-	.long	684
-	.byte	18
-	.long	.Ldebug_loc120
-	.long	.Linfo_string90
-	.byte	1
-	.short	325
-	.long	5461
-	.byte	18
-	.long	.Ldebug_loc121
-	.long	.Linfo_string91
-	.byte	1
-	.short	326
-	.long	5466
-	.byte	18
-	.long	.Ldebug_loc122
-	.long	.Linfo_string92
-	.byte	1
-	.short	327
-	.long	5451
-	.byte	18
-	.long	.Ldebug_loc127
-	.long	.Linfo_string89
-	.byte	1
-	.short	411
-	.long	5456
-	.byte	18
-	.long	.Ldebug_loc128
-	.long	.Linfo_string88
-	.byte	1
-	.short	420
-	.long	5451
-	.byte	28
-	.long	.Linfo_string97
-	.byte	1
-	.short	380
-	.long	5471
 	.byte	17
-	.long	.Ldebug_ranges128
-	.byte	18
-	.long	.Ldebug_loc113
+	.long	.Ldebug_loc111
+	.long	.Linfo_string111
+	.byte	1
+	.short	391
+	.long	5605
+	.byte	17
+	.long	.Ldebug_loc112
 	.long	.Linfo_string81
 	.byte	1
-	.short	432
-	.long	5444
+	.short	497
+	.long	5510
 	.byte	17
-	.long	.Ldebug_ranges127
+	.long	.Ldebug_loc114
+	.long	.Linfo_string112
+	.byte	1
+	.short	441
+	.long	751
+	.byte	17
+	.long	.Ldebug_loc116
+	.long	.Linfo_string112
+	.byte	1
+	.short	448
+	.long	589
 	.byte	18
-	.long	.Ldebug_loc129
-	.long	.Linfo_string83
+	.byte	0
+	.long	.Linfo_string113
 	.byte	1
-	.short	457
-	.long	442
+	.short	448
+	.long	677
 	.byte	17
-	.long	.Ldebug_ranges126
-	.byte	18
-	.long	.Ldebug_loc130
-	.long	.Linfo_string84
+	.long	.Ldebug_loc119
+	.long	.Linfo_string114
 	.byte	1
-	.short	458
-	.long	464
+	.short	448
+	.long	699
 	.byte	17
-	.long	.Ldebug_ranges125
-	.byte	18
-	.long	.Ldebug_loc131
-	.long	.Linfo_string85
+	.long	.Ldebug_loc120
+	.long	.Linfo_string91
 	.byte	1
-	.short	459
-	.long	486
+	.short	392
+	.long	5532
 	.byte	17
-	.long	.Ldebug_ranges124
-	.byte	18
-	.long	.Ldebug_loc132
-	.long	.Linfo_string86
+	.long	.Ldebug_loc121
+	.long	.Linfo_string92
 	.byte	1
-	.short	460
-	.long	508
+	.short	393
+	.long	5537
 	.byte	17
-	.long	.Ldebug_ranges123
-	.byte	19
-	.byte	0
-	.long	.Linfo_string87
+	.long	.Ldebug_loc122
+	.long	.Linfo_string93
 	.byte	1
-	.short	461
-	.long	530
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges121
-	.byte	1
-	.short	468
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	20
-	.long	1136
-	.long	.Ldebug_ranges122
-	.byte	1
-	.short	477
-	.byte	21
-	.byte	0
-	.long	1149
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.short	394
+	.long	5522
 	.byte	17
-	.long	.Ldebug_ranges129
-	.byte	18
-	.long	.Ldebug_loc115
+	.long	.Ldebug_loc127
+	.long	.Linfo_string90
+	.byte	1
+	.short	478
+	.long	5527
+	.byte	17
+	.long	.Ldebug_loc128
+	.long	.Linfo_string89
+	.byte	1
+	.short	487
+	.long	5522
+	.byte	22
 	.long	.Linfo_string98
 	.byte	1
-	.short	383
+	.short	447
+	.long	5542
+	.byte	16
+	.long	.Ldebug_ranges128
+	.byte	17
+	.long	.Ldebug_loc113
+	.long	.Linfo_string82
+	.byte	1
+	.short	499
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges127
+	.byte	17
+	.long	.Ldebug_loc129
+	.long	.Linfo_string84
+	.byte	1
+	.short	524
+	.long	457
+	.byte	16
+	.long	.Ldebug_ranges126
+	.byte	17
+	.long	.Ldebug_loc130
+	.long	.Linfo_string85
+	.byte	1
+	.short	525
+	.long	479
+	.byte	16
+	.long	.Ldebug_ranges125
+	.byte	17
+	.long	.Ldebug_loc131
+	.long	.Linfo_string86
+	.byte	1
+	.short	526
+	.long	501
+	.byte	16
+	.long	.Ldebug_ranges124
+	.byte	17
+	.long	.Ldebug_loc132
+	.long	.Linfo_string87
+	.byte	1
+	.short	527
+	.long	523
+	.byte	16
+	.long	.Ldebug_ranges123
+	.byte	18
+	.byte	0
+	.long	.Linfo_string88
+	.byte	1
+	.short	528
+	.long	545
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges121
+	.byte	1
+	.short	535
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	19
+	.long	1169
+	.long	.Ldebug_ranges122
+	.byte	1
+	.short	544
+	.byte	20
+	.byte	0
+	.long	1182
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges129
+	.byte	17
+	.long	.Ldebug_loc115
+	.long	.Linfo_string99
+	.byte	1
+	.short	450
 	.long	101
 	.byte	0
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges131
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc118
-	.long	.Linfo_string93
+	.long	.Linfo_string94
 	.byte	1
-	.short	388
+	.short	455
 	.long	101
-	.byte	17
+	.byte	16
 	.long	.Ldebug_ranges130
-	.byte	18
+	.byte	17
 	.long	.Ldebug_loc117
-	.long	.Linfo_string94
-	.byte	1
-	.short	389
-	.long	101
-	.byte	0
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges132
-	.byte	22
-	.byte	1
-	.long	.Linfo_string93
-	.byte	1
-	.short	403
-	.long	101
-	.byte	0
-	.byte	17
-	.long	.Ldebug_ranges136
-	.byte	18
-	.long	.Ldebug_loc123
-	.long	.Linfo_string93
-	.byte	1
-	.short	334
-	.long	101
-	.byte	17
-	.long	.Ldebug_ranges135
-	.byte	18
-	.long	.Ldebug_loc124
-	.long	.Linfo_string94
-	.byte	1
-	.short	336
-	.long	5444
-	.byte	17
-	.long	.Ldebug_ranges134
-	.byte	18
-	.long	.Ldebug_loc125
 	.long	.Linfo_string95
 	.byte	1
-	.short	337
-	.long	5444
+	.short	456
+	.long	101
+	.byte	0
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges132
+	.byte	21
+	.byte	1
+	.long	.Linfo_string94
+	.byte	1
+	.short	470
+	.long	101
+	.byte	0
+	.byte	16
+	.long	.Ldebug_ranges136
 	.byte	17
-	.long	.Ldebug_ranges133
-	.byte	18
-	.long	.Ldebug_loc126
+	.long	.Ldebug_loc123
+	.long	.Linfo_string94
+	.byte	1
+	.short	401
+	.long	101
+	.byte	16
+	.long	.Ldebug_ranges135
+	.byte	17
+	.long	.Ldebug_loc124
+	.long	.Linfo_string95
+	.byte	1
+	.short	403
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges134
+	.byte	17
+	.long	.Ldebug_loc125
 	.long	.Linfo_string96
 	.byte	1
-	.short	339
-	.long	5444
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	36
-	.long	.Linfo_string47
-	.long	.Linfo_string47
+	.short	404
+	.long	5515
+	.byte	16
+	.long	.Ldebug_ranges133
+	.byte	17
+	.long	.Ldebug_loc126
+	.long	.Linfo_string97
 	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	37
-	.long	.Linfo_string125
-	.long	5847
+	.short	406
+	.long	5515
 	.byte	0
-	.byte	36
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	29
 	.long	.Linfo_string48
 	.long	.Linfo_string48
 	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	37
-	.long	.Linfo_string125
-	.long	5451
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	30
+	.long	.Linfo_string126
+	.long	5918
 	.byte	0
-	.byte	36
+	.byte	29
 	.long	.Linfo_string49
 	.long	.Linfo_string49
 	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	37
-	.long	.Linfo_string125
-	.long	5852
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	30
+	.long	.Linfo_string126
+	.long	5522
 	.byte	0
-	.byte	36
+	.byte	29
 	.long	.Linfo_string50
 	.long	.Linfo_string50
 	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	37
-	.long	.Linfo_string125
-	.long	5857
-	.byte	37
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	30
 	.long	.Linfo_string126
-	.long	5862
-	.byte	37
-	.long	.Linfo_string127
-	.long	5451
+	.long	5923
 	.byte	0
-	.byte	36
+	.byte	29
 	.long	.Linfo_string51
 	.long	.Linfo_string51
 	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	37
-	.long	.Linfo_string125
-	.long	5471
-	.byte	0
-	.byte	36
-	.long	.Linfo_string52
-	.long	.Linfo_string52
-	.byte	1
-	.byte	37
-	.long	.Linfo_string123
-	.long	5840
-	.byte	0
-	.byte	36
-	.long	.Linfo_string53
-	.long	.Linfo_string53
-	.byte	1
-	.byte	37
-	.long	.Linfo_string128
-	.long	5867
-	.byte	37
-	.long	.Linfo_string125
-	.long	5847
-	.byte	0
-	.byte	36
-	.long	.Linfo_string54
-	.long	.Linfo_string54
-	.byte	1
-	.byte	37
-	.long	.Linfo_string128
-	.long	5867
-	.byte	37
-	.long	.Linfo_string125
-	.long	5451
-	.byte	0
-	.byte	36
-	.long	.Linfo_string55
-	.long	.Linfo_string55
-	.byte	1
-	.byte	37
-	.long	.Linfo_string128
-	.long	5867
-	.byte	37
-	.long	.Linfo_string125
-	.long	5852
-	.byte	0
-	.byte	36
-	.long	.Linfo_string56
-	.long	.Linfo_string56
-	.byte	1
-	.byte	37
-	.long	.Linfo_string128
-	.long	5867
-	.byte	37
-	.long	.Linfo_string125
-	.long	5857
-	.byte	37
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	30
 	.long	.Linfo_string126
-	.long	5862
-	.byte	37
+	.long	5928
+	.byte	30
 	.long	.Linfo_string127
-	.long	5451
+	.long	5933
+	.byte	30
+	.long	.Linfo_string128
+	.long	5522
 	.byte	0
-	.byte	36
+	.byte	29
+	.long	.Linfo_string52
+	.long	.Linfo_string52
+	.byte	1
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	30
+	.long	.Linfo_string126
+	.long	5542
+	.byte	0
+	.byte	29
+	.long	.Linfo_string53
+	.long	.Linfo_string53
+	.byte	1
+	.byte	30
+	.long	.Linfo_string124
+	.long	5911
+	.byte	0
+	.byte	29
+	.long	.Linfo_string54
+	.long	.Linfo_string54
+	.byte	1
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	30
+	.long	.Linfo_string126
+	.long	5918
+	.byte	0
+	.byte	29
+	.long	.Linfo_string55
+	.long	.Linfo_string55
+	.byte	1
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	30
+	.long	.Linfo_string126
+	.long	5522
+	.byte	0
+	.byte	29
+	.long	.Linfo_string56
+	.long	.Linfo_string56
+	.byte	1
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	30
+	.long	.Linfo_string126
+	.long	5923
+	.byte	0
+	.byte	29
 	.long	.Linfo_string57
 	.long	.Linfo_string57
 	.byte	1
-	.byte	37
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	30
+	.long	.Linfo_string126
+	.long	5928
+	.byte	30
+	.long	.Linfo_string127
+	.long	5933
+	.byte	30
 	.long	.Linfo_string128
-	.long	5867
-	.byte	37
-	.long	.Linfo_string125
-	.long	5471
+	.long	5522
 	.byte	0
-	.byte	36
+	.byte	29
 	.long	.Linfo_string58
 	.long	.Linfo_string58
 	.byte	1
-	.byte	37
-	.long	.Linfo_string128
-	.long	5867
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	30
+	.long	.Linfo_string126
+	.long	5542
 	.byte	0
-	.byte	38
+	.byte	29
 	.long	.Linfo_string59
 	.long	.Linfo_string59
+	.byte	1
+	.byte	30
+	.long	.Linfo_string129
+	.long	5938
+	.byte	0
+	.byte	31
+	.long	.Linfo_string60
+	.long	.Linfo_string60
 	.byte	2
 	.byte	46
 	.byte	1
-	.byte	13
-	.long	.Linfo_string46
+	.byte	12
+	.long	.Linfo_string47
 	.byte	2
 	.byte	46
 	.long	101
 	.byte	0
-	.byte	38
-	.long	.Linfo_string60
-	.long	.Linfo_string60
+	.byte	31
+	.long	.Linfo_string61
+	.long	.Linfo_string61
 	.byte	2
 	.byte	54
 	.byte	1
-	.byte	13
-	.long	.Linfo_string46
+	.byte	12
+	.long	.Linfo_string47
 	.byte	2
 	.byte	54
 	.long	101
 	.byte	0
-	.byte	38
-	.long	.Linfo_string65
-	.long	.Linfo_string65
+	.byte	32
+	.long	.Linfo_string66
+	.long	.Linfo_string66
 	.byte	1
-	.byte	189
+	.short	256
 	.byte	1
-	.byte	37
-	.long	.Linfo_string131
-	.long	5548
-	.byte	13
-	.long	.Linfo_string101
-	.byte	1
-	.byte	189
-	.long	5509
-	.byte	0
-	.byte	36
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.byte	1
-	.byte	37
+	.byte	30
 	.long	.Linfo_string132
-	.long	5548
-	.byte	0
-	.byte	39
-	.long	5426
-	.byte	5
-	.long	101
-	.byte	6
-	.long	108
-	.byte	0
-	.byte	1
-	.byte	0
-	.byte	40
-	.long	408
-	.byte	3
-	.long	.Linfo_string82
-	.byte	7
-	.byte	4
-	.byte	40
-	.long	101
-	.byte	40
-	.long	552
-	.byte	40
-	.long	818
-	.byte	40
-	.long	906
-	.byte	39
-	.long	5476
-	.byte	5
-	.long	101
-	.byte	6
-	.long	108
-	.byte	0
-	.byte	2
-	.byte	0
-	.byte	5
-	.long	336
-	.byte	6
-	.long	108
-	.byte	0
-	.byte	2
-	.byte	6
-	.long	108
-	.byte	0
-	.byte	2
-	.byte	0
-	.byte	39
-	.long	5514
-	.byte	5
-	.long	5527
-	.byte	6
-	.long	108
-	.byte	0
-	.byte	1
-	.byte	0
-	.byte	3
+	.long	5619
+	.byte	33
 	.long	.Linfo_string102
+	.byte	1
+	.short	256
+	.long	5580
+	.byte	0
+	.byte	29
+	.long	.Linfo_string73
+	.long	.Linfo_string73
+	.byte	1
+	.byte	30
+	.long	.Linfo_string133
+	.long	5619
+	.byte	0
+	.byte	34
+	.long	5497
+	.byte	5
+	.long	101
+	.byte	6
+	.long	108
+	.byte	0
+	.byte	1
+	.byte	0
+	.byte	35
+	.long	423
+	.byte	3
+	.long	.Linfo_string83
+	.byte	7
+	.byte	4
+	.byte	35
+	.long	101
+	.byte	35
+	.long	567
+	.byte	35
+	.long	839
+	.byte	35
+	.long	927
+	.byte	34
+	.long	5547
+	.byte	5
+	.long	101
+	.byte	6
+	.long	108
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	5
+	.long	343
+	.byte	6
+	.long	108
+	.byte	0
+	.byte	2
+	.byte	6
+	.long	108
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	34
+	.long	5585
+	.byte	5
+	.long	5598
+	.byte	6
+	.long	108
+	.byte	0
+	.byte	1
+	.byte	0
+	.byte	3
+	.long	.Linfo_string103
 	.byte	7
 	.byte	4
 	.byte	3
-	.long	.Linfo_string109
+	.long	.Linfo_string110
 	.byte	5
 	.byte	4
 	.byte	3
-	.long	.Linfo_string115
+	.long	.Linfo_string116
 	.byte	7
 	.byte	4
-	.byte	41
-	.long	5553
-	.byte	42
-	.long	.Linfo_string120
+	.byte	36
+	.long	5624
+	.byte	37
+	.long	.Linfo_string121
 	.byte	232
 	.byte	1
-	.short	324
-	.byte	43
-	.long	.Linfo_string117
-	.long	101
-	.byte	1
-	.short	324
-	.byte	0
-	.byte	43
+	.short	391
+	.byte	38
 	.long	.Linfo_string118
 	.long	101
 	.byte	1
-	.short	324
+	.short	391
+	.byte	0
+	.byte	38
+	.long	.Linfo_string119
+	.long	101
+	.byte	1
+	.short	391
 	.byte	4
-	.byte	43
-	.long	.Linfo_string101
-	.long	5797
+	.byte	38
+	.long	.Linfo_string102
+	.long	5868
 	.byte	1
-	.short	324
+	.short	391
 	.byte	8
-	.byte	43
-	.long	.Linfo_string105
-	.long	5444
-	.byte	1
-	.short	324
-	.byte	12
-	.byte	43
-	.long	.Linfo_string108
-	.long	5534
-	.byte	1
-	.short	324
-	.byte	16
-	.byte	43
-	.long	.Linfo_string104
-	.long	101
-	.byte	1
-	.short	324
-	.byte	20
-	.byte	43
-	.long	.Linfo_string93
-	.long	101
-	.byte	1
-	.short	324
-	.byte	24
-	.byte	43
-	.long	.Linfo_string103
-	.long	952
-	.byte	1
-	.short	324
-	.byte	28
-	.byte	43
-	.long	.Linfo_string99
-	.long	5476
-	.byte	1
-	.short	324
-	.byte	32
-	.byte	43
-	.long	.Linfo_string100
-	.long	5802
-	.byte	1
-	.short	324
-	.byte	44
-	.byte	43
-	.long	.Linfo_string107
-	.long	1002
-	.byte	1
-	.short	324
-	.byte	80
-	.byte	43
+	.byte	38
 	.long	.Linfo_string106
+	.long	5515
+	.byte	1
+	.short	391
+	.byte	12
+	.byte	38
+	.long	.Linfo_string109
+	.long	5605
+	.byte	1
+	.short	391
+	.byte	16
+	.byte	38
+	.long	.Linfo_string105
 	.long	101
 	.byte	1
-	.short	324
+	.short	391
+	.byte	20
+	.byte	38
+	.long	.Linfo_string94
+	.long	101
+	.byte	1
+	.short	391
+	.byte	24
+	.byte	38
+	.long	.Linfo_string104
+	.long	979
+	.byte	1
+	.short	391
+	.byte	28
+	.byte	38
+	.long	.Linfo_string100
+	.long	5547
+	.byte	1
+	.short	391
+	.byte	32
+	.byte	38
+	.long	.Linfo_string101
+	.long	5873
+	.byte	1
+	.short	391
+	.byte	44
+	.byte	38
+	.long	.Linfo_string108
+	.long	1029
+	.byte	1
+	.short	391
+	.byte	80
+	.byte	38
+	.long	.Linfo_string107
+	.long	101
+	.byte	1
+	.short	391
 	.byte	84
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	88
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	112
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	136
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	160
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	184
-	.byte	43
-	.long	.Linfo_string119
-	.long	5822
+	.byte	38
+	.long	.Linfo_string120
+	.long	5893
 	.byte	1
-	.short	324
+	.short	391
 	.byte	208
 	.byte	0
-	.byte	41
-	.long	5514
+	.byte	36
+	.long	5585
 	.byte	5
-	.long	974
+	.long	1001
 	.byte	6
 	.long	108
 	.byte	0
@@ -9824,31 +9841,31 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.byte	5
 	.byte	0
-	.byte	39
-	.long	5553
+	.byte	34
+	.long	5624
 	.byte	3
-	.long	.Linfo_string124
+	.long	.Linfo_string125
 	.byte	7
 	.byte	4
-	.byte	40
+	.byte	35
 	.long	137
-	.byte	40
+	.byte	35
 	.long	168
-	.byte	40
+	.byte	35
 	.long	187
-	.byte	40
+	.byte	35
 	.long	272
+	.byte	34
+	.long	5943
 	.byte	39
-	.long	5872
-	.byte	44
-	.long	.Linfo_string130
+	.long	.Linfo_string131
 	.byte	8
-	.byte	45
-	.long	.Linfo_string123
-	.long	5840
+	.byte	40
+	.long	.Linfo_string124
+	.long	5911
 	.byte	0
-	.byte	45
-	.long	.Linfo_string129
+	.byte	40
+	.long	.Linfo_string130
 	.long	101
 	.byte	4
 	.byte	0
@@ -9976,23 +9993,10 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	58
 	.byte	11
 	.byte	59
-	.byte	11
-	.byte	0
-	.byte	0
-	.byte	11
-	.byte	4
-	.byte	1
-	.byte	3
-	.byte	14
-	.byte	11
-	.byte	11
-	.byte	58
-	.byte	11
-	.byte	59
 	.byte	5
 	.byte	0
 	.byte	0
-	.byte	12
+	.byte	11
 	.byte	46
 	.byte	1
 	.ascii	"\207@"
@@ -10009,7 +10013,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	13
+	.byte	12
 	.byte	5
 	.byte	0
 	.byte	3
@@ -10022,7 +10026,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	14
+	.byte	13
 	.byte	46
 	.byte	1
 	.byte	85
@@ -10043,7 +10047,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	15
+	.byte	14
 	.byte	5
 	.byte	0
 	.byte	2
@@ -10054,7 +10058,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	16
+	.byte	15
 	.byte	5
 	.byte	0
 	.byte	2
@@ -10069,14 +10073,14 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	17
+	.byte	16
 	.byte	11
 	.byte	1
 	.byte	85
 	.byte	6
 	.byte	0
 	.byte	0
-	.byte	18
+	.byte	17
 	.byte	52
 	.byte	0
 	.byte	2
@@ -10091,7 +10095,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	19
+	.byte	18
 	.byte	52
 	.byte	0
 	.byte	28
@@ -10106,7 +10110,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	20
+	.byte	19
 	.byte	29
 	.byte	1
 	.byte	49
@@ -10119,7 +10123,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	5
 	.byte	0
 	.byte	0
-	.byte	21
+	.byte	20
 	.byte	5
 	.byte	0
 	.byte	28
@@ -10128,11 +10132,24 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	22
+	.byte	21
 	.byte	52
 	.byte	0
 	.byte	28
 	.byte	15
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
+	.byte	73
+	.byte	19
+	.byte	0
+	.byte	0
+	.byte	22
+	.byte	52
+	.byte	0
 	.byte	3
 	.byte	14
 	.byte	58
@@ -10144,24 +10161,18 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.byte	0
 	.byte	23
-	.byte	46
-	.byte	1
-	.byte	85
-	.byte	6
-	.byte	64
+	.byte	52
+	.byte	0
+	.byte	2
 	.byte	10
-	.ascii	"\347\177"
-	.byte	12
-	.ascii	"\207@"
-	.byte	14
 	.byte	3
 	.byte	14
 	.byte	58
 	.byte	11
 	.byte	59
-	.byte	11
-	.byte	63
-	.byte	12
+	.byte	5
+	.byte	73
+	.byte	19
 	.byte	0
 	.byte	0
 	.byte	24
@@ -10169,95 +10180,11 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.byte	2
 	.byte	6
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	73
+	.byte	49
 	.byte	19
 	.byte	0
 	.byte	0
 	.byte	25
-	.byte	52
-	.byte	0
-	.byte	2
-	.byte	6
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	26
-	.byte	52
-	.byte	0
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	27
-	.byte	52
-	.byte	0
-	.byte	2
-	.byte	10
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	28
-	.byte	52
-	.byte	0
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	5
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	29
-	.byte	29
-	.byte	1
-	.byte	49
-	.byte	19
-	.byte	85
-	.byte	6
-	.byte	88
-	.byte	11
-	.byte	89
-	.byte	11
-	.byte	0
-	.byte	0
-	.byte	30
-	.byte	5
-	.byte	0
-	.byte	2
-	.byte	6
-	.byte	49
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	31
 	.byte	46
 	.byte	1
 	.byte	85
@@ -10272,6 +10199,90 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	14
 	.byte	73
 	.byte	19
+	.byte	63
+	.byte	12
+	.byte	0
+	.byte	0
+	.byte	26
+	.byte	46
+	.byte	1
+	.byte	85
+	.byte	6
+	.byte	64
+	.byte	10
+	.ascii	"\347\177"
+	.byte	12
+	.ascii	"\207@"
+	.byte	14
+	.byte	3
+	.byte	14
+	.byte	63
+	.byte	12
+	.byte	0
+	.byte	0
+	.byte	27
+	.byte	46
+	.byte	1
+	.byte	85
+	.byte	6
+	.byte	64
+	.byte	10
+	.ascii	"\347\177"
+	.byte	12
+	.ascii	"\207@"
+	.byte	14
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
+	.byte	0
+	.byte	0
+	.byte	28
+	.byte	29
+	.byte	0
+	.byte	49
+	.byte	19
+	.byte	85
+	.byte	6
+	.byte	88
+	.byte	11
+	.byte	89
+	.byte	5
+	.byte	0
+	.byte	0
+	.byte	29
+	.byte	46
+	.byte	1
+	.ascii	"\207@"
+	.byte	14
+	.byte	3
+	.byte	14
+	.byte	63
+	.byte	12
+	.byte	0
+	.byte	0
+	.byte	30
+	.byte	5
+	.byte	0
+	.byte	3
+	.byte	14
+	.byte	73
+	.byte	19
+	.byte	0
+	.byte	0
+	.byte	31
+	.byte	46
+	.byte	1
+	.ascii	"\207@"
+	.byte	14
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	11
 	.byte	63
 	.byte	12
 	.byte	0
@@ -10279,128 +10290,53 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	32
 	.byte	46
 	.byte	1
-	.byte	85
-	.byte	6
-	.byte	64
-	.byte	10
-	.ascii	"\347\177"
-	.byte	12
 	.ascii	"\207@"
 	.byte	14
 	.byte	3
 	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
 	.byte	63
 	.byte	12
 	.byte	0
 	.byte	0
 	.byte	33
-	.byte	46
-	.byte	1
-	.byte	85
-	.byte	6
-	.byte	64
-	.byte	10
-	.ascii	"\347\177"
-	.byte	12
-	.ascii	"\207@"
-	.byte	14
+	.byte	5
+	.byte	0
 	.byte	3
 	.byte	14
 	.byte	58
 	.byte	11
 	.byte	59
 	.byte	5
-	.byte	0
-	.byte	0
-	.byte	34
-	.byte	46
-	.byte	1
-	.byte	85
-	.byte	6
-	.byte	64
-	.byte	10
-	.ascii	"\347\177"
-	.byte	12
-	.ascii	"\207@"
-	.byte	14
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	0
-	.byte	0
-	.byte	35
-	.byte	29
-	.byte	0
-	.byte	49
-	.byte	19
-	.byte	85
-	.byte	6
-	.byte	88
-	.byte	11
-	.byte	89
-	.byte	5
-	.byte	0
-	.byte	0
-	.byte	36
-	.byte	46
-	.byte	1
-	.ascii	"\207@"
-	.byte	14
-	.byte	3
-	.byte	14
-	.byte	63
-	.byte	12
-	.byte	0
-	.byte	0
-	.byte	37
-	.byte	5
-	.byte	0
-	.byte	3
-	.byte	14
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	38
-	.byte	46
-	.byte	1
-	.ascii	"\207@"
-	.byte	14
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	11
-	.byte	63
-	.byte	12
-	.byte	0
-	.byte	0
-	.byte	39
+	.byte	34
 	.byte	16
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	40
+	.byte	35
 	.byte	38
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	41
+	.byte	36
 	.byte	15
 	.byte	0
 	.byte	73
 	.byte	19
 	.byte	0
 	.byte	0
-	.byte	42
+	.byte	37
 	.byte	19
 	.byte	1
 	.byte	3
@@ -10413,7 +10349,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	5
 	.byte	0
 	.byte	0
-	.byte	43
+	.byte	38
 	.byte	13
 	.byte	0
 	.byte	3
@@ -10428,7 +10364,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	44
+	.byte	39
 	.byte	19
 	.byte	1
 	.byte	3
@@ -10437,7 +10373,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	11
 	.byte	0
 	.byte	0
-	.byte	45
+	.byte	40
 	.byte	13
 	.byte	0
 	.byte	3
@@ -14586,75 +14522,75 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.L.debug_info_begin0
 .Lset411 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset411
-	.long	5401
+	.long	5472
 .asciiz"Port_Pins_Heat_Light_Server.fini"
 	.long	115
 .asciiz"dummy_wify_ctrl_port"
-	.long	4284
+	.long	4348
 .asciiz"Port_Pins_Heat_Light_Server.select.case.0"
-	.long	5271
+	.long	5340
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
-	.long	1648
+	.long	1681
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc"
-	.long	4390
+	.long	4459
 .asciiz"Port_Pins_Heat_Light_Server.select.case.1"
-	.long	1783
+	.long	1816
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition"
-	.long	5137
+	.long	5206
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	5300
+	.long	5369
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
-	.long	3614
+	.long	3673
 .asciiz"Port_Pins_Heat_Light_Server.select.y.case.0"
-	.long	3720
+	.long	3784
 .asciiz"Port_Pins_Heat_Light_Server.select.y.case.1"
-	.long	5088
+	.long	5157
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
-	.long	2678
+	.long	2727
 .asciiz"Port_Pins_Heat_Light_Server.select.0.enable"
-	.long	4954
+	.long	5023
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	5117
+	.long	5186
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
-	.long	1161
+	.long	1194
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command"
 	.long	60
 .asciiz"p32_bits_for_light_composition_pwm_windows"
-	.long	5344
+	.long	5413
 .asciiz"delay_milliseconds"
-	.long	5224
+	.long	5293
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
-	.long	1478
+	.long	1511
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition"
-	.long	5041
+	.long	5110
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
-	.long	3050
+	.long	3109
 .asciiz"Port_Pins_Heat_Light_Server.select.0.case.0"
-	.long	1428
+	.long	1461
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command"
-	.long	5195
+	.long	5264
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
-	.long	1817
+	.long	1850
 .asciiz"Port_Pins_Heat_Light_Server"
-	.long	2735
+	.long	2784
 .asciiz"Port_Pins_Heat_Light_Server.init.1"
-	.long	5368
+	.long	5437
 .asciiz"Port_Pins_Heat_Light_Server.init.0"
-	.long	2993
+	.long	3052
 .asciiz"Port_Pins_Heat_Light_Server.select.enable"
-	.long	1378
+	.long	1411
 .asciiz"_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command"
-	.long	5012
+	.long	5081
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	5166
+	.long	5235
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
-	.long	1136
+	.long	1169
 .asciiz"delay_microseconds"
-	.long	2936
+	.long	2995
 .asciiz"Port_Pins_Heat_Light_Server.select.y.enable"
-	.long	5320
+	.long	5389
 .asciiz"delay_seconds"
-	.long	4983
+	.long	5052
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 	.long	31
 .asciiz"myport_p32"
@@ -14668,35 +14604,35 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.L.debug_info_begin0
 .Lset413 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset413
-	.long	1002
+	.long	1029
 .asciiz"light_control_scheme_t"
-	.long	5541
+	.long	5612
 .asciiz"timer"
-	.long	952
+	.long	979
 .asciiz"heat_cable_alternating_t"
 	.long	53
 .asciiz"port"
 	.long	101
 .asciiz"unsigned int"
-	.long	5553
+	.long	5624
 .asciiz"frame.0"
-	.long	5534
+	.long	5605
 .asciiz"int"
-	.long	5444
+	.long	5515
 .asciiz"unsigned long"
-	.long	5527
+	.long	5598
 .asciiz"interface"
-	.long	5840
+	.long	5911
 .asciiz"chanend"
-	.long	662
+	.long	677
 .asciiz"__TYPE_4"
-	.long	5872
+	.long	5943
 .asciiz"yarg"
-	.long	408
+	.long	423
 .asciiz"heat_cable_commands_t"
-	.long	1048
+	.long	1081
 .asciiz"light_composition_t"
-	.long	974
+	.long	1001
 .asciiz"pin_change_t"
 	.long	0
 .LpubTypes_end0:
@@ -14705,32 +14641,32 @@ p32_bits_for_light_composition_pwm_windows:
 	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command, "f{0}(&(a(2:ui)),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command, "f{0}(&(a(2:ui)),:ui)"
 	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command, "f{0}(&(a(2:ui)),:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition, "f{0}(&(a(2:ui)),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(2:ui)),&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(a(2:ui)))"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition, "f{0}(&(a(2:ui)),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(2:ui)),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(a(2:ui)))"
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring delay_ticks_longlong, "f{0}(ull)"
-	.typestring Port_Pins_Heat_Light_Server, "k:f{0}(&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
+	.typestring Port_Pins_Heat_Light_Server, "k:f{0}(&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
 	.typestring Port_Pins_Heat_Light_Server.select.0.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF){0},m(LIGHT_COMPOSITION_0666_BACK1_ON){1},m(LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON){2},m(LIGHT_COMPOSITION_2000_CENTER3_ON){11},m(LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON){3},m(LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON){10},m(LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON){4},m(LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON){5},m(LIGHT_COMPOSITION_5000_FRONT3_ON){12},m(LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON){6},m(LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON){9},m(LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON){7},m(LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
+	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
 	.typestring Port_Pins_Heat_Light_Server.select.y.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.select.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.fini, "k:f{0}(u:q(ui))"
@@ -14884,283 +14820,283 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_top cc_22,.Lxta.endpoint_labels18
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	216
+	.long	283
 	.long	.Lxta.endpoint_labels18
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.endpoint_labels4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	216
+	.long	283
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.endpoint_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	219
+	.long	286
 	.long	.Lxta.endpoint_labels5
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.endpoint_labels19
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	219
+	.long	286
 	.long	.Lxta.endpoint_labels19
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.endpoint_labels6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	221
+	.long	288
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.endpoint_labels20
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	221
+	.long	288
 	.long	.Lxta.endpoint_labels20
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.endpoint_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	224
+	.long	291
 	.long	.Lxta.endpoint_labels7
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.endpoint_labels36
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	225
+	.long	292
 	.long	.Lxta.endpoint_labels36
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.endpoint_labels25
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	225
+	.long	292
 	.long	.Lxta.endpoint_labels25
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.endpoint_labels26
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
+	.long	304
 	.long	.Lxta.endpoint_labels26
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.endpoint_labels8
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
+	.long	304
 	.long	.Lxta.endpoint_labels8
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.endpoint_labels37
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
+	.long	304
 	.long	.Lxta.endpoint_labels37
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.endpoint_labels38
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
+	.long	309
 	.long	.Lxta.endpoint_labels38
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.endpoint_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
+	.long	309
 	.long	.Lxta.endpoint_labels9
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.endpoint_labels27
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
+	.long	309
 	.long	.Lxta.endpoint_labels27
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.endpoint_labels39
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
+	.long	314
 	.long	.Lxta.endpoint_labels39
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.endpoint_labels28
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
+	.long	314
 	.long	.Lxta.endpoint_labels28
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.endpoint_labels10
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
+	.long	314
 	.long	.Lxta.endpoint_labels10
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.endpoint_labels29
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
+	.long	344
 	.long	.Lxta.endpoint_labels29
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.endpoint_labels11
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
+	.long	344
 	.long	.Lxta.endpoint_labels11
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.endpoint_labels40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
+	.long	344
 	.long	.Lxta.endpoint_labels40
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.endpoint_labels41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
+	.long	366
 	.long	.Lxta.endpoint_labels41
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.endpoint_labels30
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
+	.long	366
 	.long	.Lxta.endpoint_labels30
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.endpoint_labels12
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
+	.long	366
 	.long	.Lxta.endpoint_labels12
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.endpoint_labels31
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	318
+	.long	385
 	.long	.Lxta.endpoint_labels31
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.endpoint_labels42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	318
+	.long	385
 	.long	.Lxta.endpoint_labels42
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.endpoint_labels13
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	318
+	.long	385
 	.long	.Lxta.endpoint_labels13
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.endpoint_labels45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
+	.long	484
 	.long	.Lxta.endpoint_labels45
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.endpoint_labels34
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
+	.long	484
 	.long	.Lxta.endpoint_labels34
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.endpoint_labels17
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
+	.long	484
 	.long	.Lxta.endpoint_labels17
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.endpoint_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
+	.long	484
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.endpoint_labels23
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
+	.long	484
 	.long	.Lxta.endpoint_labels23
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.endpoint_labels32
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	424
+	.long	491
 	.long	.Lxta.endpoint_labels32
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.endpoint_labels21
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	424
+	.long	491
 	.long	.Lxta.endpoint_labels21
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.endpoint_labels43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	424
+	.long	491
 	.long	.Lxta.endpoint_labels43
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.endpoint_labels2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	424
+	.long	491
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.endpoint_labels14
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	424
+	.long	491
 	.long	.Lxta.endpoint_labels14
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.endpoint_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
+	.long	533
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.endpoint_labels33
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
+	.long	533
 	.long	.Lxta.endpoint_labels33
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.endpoint_labels44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
+	.long	533
 	.long	.Lxta.endpoint_labels44
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.endpoint_labels15
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
+	.long	533
 	.long	.Lxta.endpoint_labels15
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.endpoint_labels22
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
+	.long	533
 	.long	.Lxta.endpoint_labels22
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.endpoint_labels16
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
+	.long	542
 	.long	.Lxta.endpoint_labels16
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.endpoint_labels35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
+	.long	542
 	.long	.Lxta.endpoint_labels35
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.endpoint_labels24
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
+	.long	542
 	.long	.Lxta.endpoint_labels24
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.endpoint_labels1
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
+	.long	542
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_67
 .cc_top cc_68,.Lxta.endpoint_labels46
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
+	.long	542
 	.long	.Lxta.endpoint_labels46
 .cc_bottom cc_68
 .Lentries_end3:
@@ -15173,5328 +15109,5328 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_top cc_69,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	191
-	.long	196
+	.long	258
+	.long	263
 	.long	.Lxtalabel137
 .cc_bottom cc_69
 .cc_top cc_70,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	191
-	.long	196
+	.long	258
+	.long	263
 	.long	.Lxtalabel45
 .cc_bottom cc_70
 .cc_top cc_71,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	200
-	.long	202
+	.long	267
+	.long	269
 	.long	.Lxtalabel45
 .cc_bottom cc_71
 .cc_top cc_72,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	200
-	.long	202
+	.long	267
+	.long	269
 	.long	.Lxtalabel137
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	210
-	.long	210
+	.long	277
+	.long	277
 	.long	.Lxtalabel137
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	210
-	.long	210
+	.long	277
+	.long	277
 	.long	.Lxtalabel45
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	212
-	.long	212
+	.long	279
+	.long	279
 	.long	.Lxtalabel136
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	212
-	.long	212
+	.long	279
+	.long	279
 	.long	.Lxtalabel45
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	216
-	.long	216
+	.long	283
+	.long	283
 	.long	.Lxtalabel45
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	216
-	.long	216
+	.long	283
+	.long	283
 	.long	.Lxtalabel136
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	219
-	.long	219
+	.long	286
+	.long	286
 	.long	.Lxtalabel45
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	219
-	.long	219
+	.long	286
+	.long	286
 	.long	.Lxtalabel136
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	221
-	.long	221
+	.long	288
+	.long	288
 	.long	.Lxtalabel136
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	221
-	.long	221
+	.long	288
+	.long	288
 	.long	.Lxtalabel45
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	223
-	.long	223
+	.long	290
+	.long	290
 	.long	.Lxtalabel45
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	223
-	.long	223
+	.long	290
+	.long	290
 	.long	.Lxtalabel136
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel46
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	224
-	.long	225
+	.long	291
+	.long	292
 	.long	.Lxtalabel46
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel47
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	224
-	.long	225
+	.long	291
+	.long	292
 	.long	.Lxtalabel47
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel277
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	226
-	.long	227
+	.long	293
+	.long	294
 	.long	.Lxtalabel277
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel48
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	226
-	.long	227
+	.long	293
+	.long	294
 	.long	.Lxtalabel48
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel186
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	226
-	.long	227
+	.long	293
+	.long	294
 	.long	.Lxtalabel186
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel48
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	229
-	.long	229
+	.long	296
+	.long	296
 	.long	.Lxtalabel48
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel186
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	229
-	.long	229
+	.long	296
+	.long	296
 	.long	.Lxtalabel186
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel277
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	229
-	.long	229
+	.long	296
+	.long	296
 	.long	.Lxtalabel277
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel195
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel195
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel286
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel196
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel194
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel280
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel193
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel287
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel66
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel281
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel284
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel190
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel64
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel197
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel63
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel189
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel189
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel62
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel285
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel59
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel288
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel58
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel65
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	235
-	.long	236
+	.long	302
+	.long	303
 	.long	.Lxtalabel65
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel58
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel59
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel62
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel63
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel64
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel288
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel65
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel65
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel66
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel286
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel197
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel196
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel195
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel195
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel194
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel193
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel280
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel287
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel281
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel190
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel284
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel189
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel189
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	237
-	.long	241
+	.long	304
+	.long	308
 	.long	.Lxtalabel285
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel285
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel64
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel65
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel65
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel286
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel63
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel194
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel284
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel62
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel66
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel59
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel58
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel193
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel197
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel196
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel195
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel195
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel190
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel281
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel287
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel288
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel280
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel189
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	242
-	.long	246
+	.long	309
+	.long	313
 	.long	.Lxtalabel189
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel193
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel284
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel280
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel59
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel64
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel288
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel66
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel58
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel197
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel285
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel62
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel63
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel196
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel65
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel65
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel194
 .cc_bottom cc_170
 .cc_top cc_171,.Lxtalabel189
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel189
 .cc_bottom cc_171
 .cc_top cc_172,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel286
 .cc_bottom cc_172
 .cc_top cc_173,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel287
 .cc_bottom cc_173
 .cc_top cc_174,.Lxtalabel195
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel195
 .cc_bottom cc_174
 .cc_top cc_175,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel281
 .cc_bottom cc_175
 .cc_top cc_176,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	247
-	.long	249
+	.long	314
+	.long	316
 	.long	.Lxtalabel190
 .cc_bottom cc_176
 .cc_top cc_177,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel281
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel284
 .cc_bottom cc_178
 .cc_top cc_179,.Lxtalabel195
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel195
 .cc_bottom cc_179
 .cc_top cc_180,.Lxtalabel189
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel189
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel280
 .cc_bottom cc_181
 .cc_top cc_182,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel287
 .cc_bottom cc_182
 .cc_top cc_183,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel194
 .cc_bottom cc_183
 .cc_top cc_184,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel288
 .cc_bottom cc_184
 .cc_top cc_185,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel193
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel59
 .cc_bottom cc_186
 .cc_top cc_187,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel62
 .cc_bottom cc_187
 .cc_top cc_188,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel64
 .cc_bottom cc_188
 .cc_top cc_189,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel196
 .cc_bottom cc_189
 .cc_top cc_190,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel63
 .cc_bottom cc_190
 .cc_top cc_191,.Lxtalabel65
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel65
 .cc_bottom cc_191
 .cc_top cc_192,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel66
 .cc_bottom cc_192
 .cc_top cc_193,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel285
 .cc_bottom cc_193
 .cc_top cc_194,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel190
 .cc_bottom cc_194
 .cc_top cc_195,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel286
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel197
 .cc_bottom cc_196
 .cc_top cc_197,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	251
-	.long	251
+	.long	318
+	.long	318
 	.long	.Lxtalabel58
 .cc_bottom cc_197
 .cc_top cc_198,.Lxtalabel191
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel191
 .cc_bottom cc_198
 .cc_top cc_199,.Lxtalabel278
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel278
 .cc_bottom cc_199
 .cc_top cc_200,.Lxtalabel60
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel60
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel187
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel187
 .cc_bottom cc_201
 .cc_top cc_202,.Lxtalabel282
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel282
 .cc_bottom cc_202
 .cc_top cc_203,.Lxtalabel49
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	253
-	.long	253
+	.long	320
+	.long	320
 	.long	.Lxtalabel49
 .cc_bottom cc_203
 .cc_top cc_204,.Lxtalabel50
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	254
-	.long	255
+	.long	321
+	.long	322
 	.long	.Lxtalabel50
 .cc_bottom cc_204
 .cc_top cc_205,.Lxtalabel188
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	254
-	.long	255
+	.long	321
+	.long	322
 	.long	.Lxtalabel188
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel279
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	254
-	.long	255
+	.long	321
+	.long	322
 	.long	.Lxtalabel279
 .cc_bottom cc_206
 .cc_top cc_207,.Lxtalabel61
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	256
-	.long	257
+	.long	323
+	.long	324
 	.long	.Lxtalabel61
 .cc_bottom cc_207
 .cc_top cc_208,.Lxtalabel192
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	256
-	.long	257
+	.long	323
+	.long	324
 	.long	.Lxtalabel192
 .cc_bottom cc_208
 .cc_top cc_209,.Lxtalabel283
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	256
-	.long	257
+	.long	323
+	.long	324
 	.long	.Lxtalabel283
 .cc_bottom cc_209
 .cc_top cc_210,.Lxtalabel198
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	258
-	.long	258
+	.long	325
+	.long	325
 	.long	.Lxtalabel198
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel289
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	258
-	.long	258
+	.long	325
+	.long	325
 	.long	.Lxtalabel289
 .cc_bottom cc_211
 .cc_top cc_212,.Lxtalabel70
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	258
-	.long	258
+	.long	325
+	.long	325
 	.long	.Lxtalabel70
 .cc_bottom cc_212
 .cc_top cc_213,.Lxtalabel71
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel71
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel72
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel72
 .cc_bottom cc_214
 .cc_top cc_215,.Lxtalabel290
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel290
 .cc_bottom cc_215
 .cc_top cc_216,.Lxtalabel199
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel199
 .cc_bottom cc_216
 .cc_top cc_217,.Lxtalabel200
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel200
 .cc_bottom cc_217
 .cc_top cc_218,.Lxtalabel51
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel51
 .cc_bottom cc_218
 .cc_top cc_219,.Lxtalabel291
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	261
-	.long	261
+	.long	328
+	.long	328
 	.long	.Lxtalabel291
 .cc_bottom cc_219
 .cc_top cc_220,.Lxtalabel75
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	262
-	.long	263
+	.long	329
+	.long	330
 	.long	.Lxtalabel75
 .cc_bottom cc_220
 .cc_top cc_221,.Lxtalabel294
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	262
-	.long	263
+	.long	329
+	.long	330
 	.long	.Lxtalabel294
 .cc_bottom cc_221
 .cc_top cc_222,.Lxtalabel203
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	262
-	.long	263
+	.long	329
+	.long	330
 	.long	.Lxtalabel203
 .cc_bottom cc_222
 .cc_top cc_223,.Lxtalabel201
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	264
-	.long	265
+	.long	331
+	.long	332
 	.long	.Lxtalabel201
 .cc_bottom cc_223
 .cc_top cc_224,.Lxtalabel73
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	264
-	.long	265
+	.long	331
+	.long	332
 	.long	.Lxtalabel73
 .cc_bottom cc_224
 .cc_top cc_225,.Lxtalabel292
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	264
-	.long	265
+	.long	331
+	.long	332
 	.long	.Lxtalabel292
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel202
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	266
-	.long	266
+	.long	333
+	.long	333
 	.long	.Lxtalabel202
 .cc_bottom cc_226
 .cc_top cc_227,.Lxtalabel74
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	266
-	.long	266
+	.long	333
+	.long	333
 	.long	.Lxtalabel74
 .cc_bottom cc_227
 .cc_top cc_228,.Lxtalabel293
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	266
-	.long	266
+	.long	333
+	.long	333
 	.long	.Lxtalabel293
 .cc_bottom cc_228
 .cc_top cc_229,.Lxtalabel295
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel295
 .cc_bottom cc_229
 .cc_top cc_230,.Lxtalabel77
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel77
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel204
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel204
 .cc_bottom cc_231
 .cc_top cc_232,.Lxtalabel296
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel296
 .cc_bottom cc_232
 .cc_top cc_233,.Lxtalabel76
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel76
 .cc_bottom cc_233
 .cc_top cc_234,.Lxtalabel205
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	269
-	.long	269
+	.long	336
+	.long	336
 	.long	.Lxtalabel205
 .cc_bottom cc_234
 .cc_top cc_235,.Lxtalabel78
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	272
-	.long	273
+	.long	339
+	.long	340
 	.long	.Lxtalabel78
 .cc_bottom cc_235
 .cc_top cc_236,.Lxtalabel297
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	272
-	.long	273
+	.long	339
+	.long	340
 	.long	.Lxtalabel297
 .cc_bottom cc_236
 .cc_top cc_237,.Lxtalabel206
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	272
-	.long	273
+	.long	339
+	.long	340
 	.long	.Lxtalabel206
 .cc_bottom cc_237
 .cc_top cc_238,.Lxtalabel79
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	341
+	.long	341
 	.long	.Lxtalabel79
 .cc_bottom cc_238
 .cc_top cc_239,.Lxtalabel207
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	341
+	.long	341
 	.long	.Lxtalabel207
 .cc_bottom cc_239
 .cc_top cc_240,.Lxtalabel298
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	341
+	.long	341
 	.long	.Lxtalabel298
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel299
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
-	.long	277
+	.long	344
+	.long	344
 	.long	.Lxtalabel299
 .cc_bottom cc_241
 .cc_top cc_242,.Lxtalabel208
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
-	.long	277
+	.long	344
+	.long	344
 	.long	.Lxtalabel208
 .cc_bottom cc_242
 .cc_top cc_243,.Lxtalabel80
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	277
-	.long	277
+	.long	344
+	.long	344
 	.long	.Lxtalabel80
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel208
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	279
-	.long	279
+	.long	346
+	.long	346
 	.long	.Lxtalabel208
 .cc_bottom cc_244
 .cc_top cc_245,.Lxtalabel299
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	279
-	.long	279
+	.long	346
+	.long	346
 	.long	.Lxtalabel299
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel80
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	279
-	.long	279
+	.long	346
+	.long	346
 	.long	.Lxtalabel80
 .cc_bottom cc_246
 .cc_top cc_247,.Lxtalabel208
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	281
-	.long	281
+	.long	348
+	.long	348
 	.long	.Lxtalabel208
 .cc_bottom cc_247
 .cc_top cc_248,.Lxtalabel299
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	281
-	.long	281
+	.long	348
+	.long	348
 	.long	.Lxtalabel299
 .cc_bottom cc_248
 .cc_top cc_249,.Lxtalabel80
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	281
-	.long	281
+	.long	348
+	.long	348
 	.long	.Lxtalabel80
 .cc_bottom cc_249
 .cc_top cc_250,.Lxtalabel301
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	282
-	.long	283
+	.long	349
+	.long	350
 	.long	.Lxtalabel301
 .cc_bottom cc_250
 .cc_top cc_251,.Lxtalabel81
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	282
-	.long	283
+	.long	349
+	.long	350
 	.long	.Lxtalabel81
 .cc_bottom cc_251
 .cc_top cc_252,.Lxtalabel210
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	282
-	.long	283
+	.long	349
+	.long	350
 	.long	.Lxtalabel210
 .cc_bottom cc_252
 .cc_top cc_253,.Lxtalabel209
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	284
-	.long	285
+	.long	351
+	.long	352
 	.long	.Lxtalabel209
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel300
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	284
-	.long	285
+	.long	351
+	.long	352
 	.long	.Lxtalabel300
 .cc_bottom cc_254
 .cc_top cc_255,.Lxtalabel82
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	284
-	.long	285
+	.long	351
+	.long	352
 	.long	.Lxtalabel82
 .cc_bottom cc_255
 .cc_top cc_256,.Lxtalabel83
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	284
-	.long	285
+	.long	351
+	.long	352
 	.long	.Lxtalabel83
 .cc_bottom cc_256
 .cc_top cc_257,.Lxtalabel212
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel212
 .cc_bottom cc_257
 .cc_top cc_258,.Lxtalabel302
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel302
 .cc_bottom cc_258
 .cc_top cc_259,.Lxtalabel303
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel303
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel214
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel214
 .cc_bottom cc_260
 .cc_top cc_261,.Lxtalabel84
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel84
 .cc_bottom cc_261
 .cc_top cc_262,.Lxtalabel305
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel305
 .cc_bottom cc_262
 .cc_top cc_263,.Lxtalabel211
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	287
-	.long	287
+	.long	354
+	.long	354
 	.long	.Lxtalabel211
 .cc_bottom cc_263
 .cc_top cc_264,.Lxtalabel85
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	288
-	.long	289
+	.long	355
+	.long	356
 	.long	.Lxtalabel85
 .cc_bottom cc_264
 .cc_top cc_265,.Lxtalabel304
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	288
-	.long	289
+	.long	355
+	.long	356
 	.long	.Lxtalabel304
 .cc_bottom cc_265
 .cc_top cc_266,.Lxtalabel213
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	288
-	.long	289
+	.long	355
+	.long	356
 	.long	.Lxtalabel213
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel306
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	357
+	.long	358
 	.long	.Lxtalabel306
 .cc_bottom cc_267
 .cc_top cc_268,.Lxtalabel215
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	357
+	.long	358
 	.long	.Lxtalabel215
 .cc_bottom cc_268
 .cc_top cc_269,.Lxtalabel86
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	357
+	.long	358
 	.long	.Lxtalabel86
 .cc_bottom cc_269
 .cc_top cc_270,.Lxtalabel219
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel219
 .cc_bottom cc_270
 .cc_top cc_271,.Lxtalabel217
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel217
 .cc_bottom cc_271
 .cc_top cc_272,.Lxtalabel307
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel307
 .cc_bottom cc_272
 .cc_top cc_273,.Lxtalabel308
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel308
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel310
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel310
 .cc_bottom cc_274
 .cc_top cc_275,.Lxtalabel216
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel216
 .cc_bottom cc_275
 .cc_top cc_276,.Lxtalabel87
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	293
-	.long	293
+	.long	360
+	.long	360
 	.long	.Lxtalabel87
 .cc_bottom cc_276
 .cc_top cc_277,.Lxtalabel311
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	294
-	.long	295
+	.long	361
+	.long	362
 	.long	.Lxtalabel311
 .cc_bottom cc_277
 .cc_top cc_278,.Lxtalabel220
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	294
-	.long	295
+	.long	361
+	.long	362
 	.long	.Lxtalabel220
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel88
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	294
-	.long	295
+	.long	361
+	.long	362
 	.long	.Lxtalabel88
 .cc_bottom cc_279
 .cc_top cc_280,.Lxtalabel90
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	296
-	.long	297
+	.long	363
+	.long	364
 	.long	.Lxtalabel90
 .cc_bottom cc_280
 .cc_top cc_281,.Lxtalabel89
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	296
-	.long	297
+	.long	363
+	.long	364
 	.long	.Lxtalabel89
 .cc_bottom cc_281
 .cc_top cc_282,.Lxtalabel309
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	296
-	.long	297
+	.long	363
+	.long	364
 	.long	.Lxtalabel309
 .cc_bottom cc_282
 .cc_top cc_283,.Lxtalabel218
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	296
-	.long	297
+	.long	363
+	.long	364
 	.long	.Lxtalabel218
 .cc_bottom cc_283
 .cc_top cc_284,.Lxtalabel312
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
-	.long	299
+	.long	366
+	.long	366
 	.long	.Lxtalabel312
 .cc_bottom cc_284
 .cc_top cc_285,.Lxtalabel313
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
-	.long	299
+	.long	366
+	.long	366
 	.long	.Lxtalabel313
 .cc_bottom cc_285
 .cc_top cc_286,.Lxtalabel221
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
-	.long	299
+	.long	366
+	.long	366
 	.long	.Lxtalabel221
 .cc_bottom cc_286
 .cc_top cc_287,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	299
-	.long	299
+	.long	366
+	.long	366
 	.long	.Lxtalabel222
 .cc_bottom cc_287
 .cc_top cc_288,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	301
-	.long	301
+	.long	368
+	.long	368
 	.long	.Lxtalabel222
 .cc_bottom cc_288
 .cc_top cc_289,.Lxtalabel312
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	301
-	.long	301
+	.long	368
+	.long	368
 	.long	.Lxtalabel312
 .cc_bottom cc_289
 .cc_top cc_290,.Lxtalabel313
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	301
-	.long	301
+	.long	368
+	.long	368
 	.long	.Lxtalabel313
 .cc_bottom cc_290
 .cc_top cc_291,.Lxtalabel221
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	301
-	.long	301
+	.long	368
+	.long	368
 	.long	.Lxtalabel221
 .cc_bottom cc_291
 .cc_top cc_292,.Lxtalabel314
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	302
-	.long	303
+	.long	369
+	.long	370
 	.long	.Lxtalabel314
 .cc_bottom cc_292
 .cc_top cc_293,.Lxtalabel223
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	302
-	.long	303
+	.long	369
+	.long	370
 	.long	.Lxtalabel223
 .cc_bottom cc_293
 .cc_top cc_294,.Lxtalabel313
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	309
-	.long	309
+	.long	376
+	.long	376
 	.long	.Lxtalabel313
 .cc_bottom cc_294
 .cc_top cc_295,.Lxtalabel221
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	309
-	.long	309
+	.long	376
+	.long	376
 	.long	.Lxtalabel221
 .cc_bottom cc_295
 .cc_top cc_296,.Lxtalabel312
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	309
-	.long	309
+	.long	376
+	.long	376
 	.long	.Lxtalabel312
 .cc_bottom cc_296
 .cc_top cc_297,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	309
-	.long	309
+	.long	376
+	.long	376
 	.long	.Lxtalabel222
 .cc_bottom cc_297
 .cc_top cc_298,.Lxtalabel224
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel224
 .cc_bottom cc_298
 .cc_top cc_299,.Lxtalabel316
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel316
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel92
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel92
 .cc_bottom cc_300
 .cc_top cc_301,.Lxtalabel225
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel225
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel93
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel93
 .cc_bottom cc_302
 .cc_top cc_303,.Lxtalabel315
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel315
 .cc_bottom cc_303
 .cc_top cc_304,.Lxtalabel91
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	312
-	.long	313
+	.long	379
+	.long	380
 	.long	.Lxtalabel91
 .cc_bottom cc_304
 .cc_top cc_305,.Lxtalabel316
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel316
 .cc_bottom cc_305
 .cc_top cc_306,.Lxtalabel225
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel225
 .cc_bottom cc_306
 .cc_top cc_307,.Lxtalabel91
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel91
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel93
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel93
 .cc_bottom cc_308
 .cc_top cc_309,.Lxtalabel315
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel315
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel92
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel92
 .cc_bottom cc_310
 .cc_top cc_311,.Lxtalabel224
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	315
-	.long	315
+	.long	382
+	.long	382
 	.long	.Lxtalabel224
 .cc_bottom cc_311
 .cc_top cc_312,.Lxtalabel317
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	316
-	.long	319
+	.long	383
+	.long	386
 	.long	.Lxtalabel317
 .cc_bottom cc_312
 .cc_top cc_313,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	316
-	.long	319
+	.long	383
+	.long	386
 	.long	.Lxtalabel94
 .cc_bottom cc_313
 .cc_top cc_314,.Lxtalabel226
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	316
-	.long	319
+	.long	383
+	.long	386
 	.long	.Lxtalabel226
 .cc_bottom cc_314
 .cc_top cc_315,.Lxtalabel95
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	387
+	.long	388
 	.long	.Lxtalabel95
 .cc_bottom cc_315
 .cc_top cc_316,.Lxtalabel227
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	387
+	.long	388
 	.long	.Lxtalabel227
 .cc_bottom cc_316
 .cc_top cc_317,.Lxtalabel318
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	387
+	.long	388
 	.long	.Lxtalabel318
 .cc_bottom cc_317
 .cc_top cc_318,.Lxtalabel228
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	322
-	.long	322
+	.long	389
+	.long	389
 	.long	.Lxtalabel228
 .cc_bottom cc_318
 .cc_top cc_319,.Lxtalabel319
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	322
-	.long	322
+	.long	389
+	.long	389
 	.long	.Lxtalabel319
 .cc_bottom cc_319
 .cc_top cc_320,.Lxtalabel228
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	324
-	.long	327
+	.long	391
+	.long	394
 	.long	.Lxtalabel228
 .cc_bottom cc_320
 .cc_top cc_321,.Lxtalabel319
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	324
-	.long	327
+	.long	391
+	.long	394
 	.long	.Lxtalabel319
 .cc_bottom cc_321
 .cc_top cc_322,.Lxtalabel325
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel325
 .cc_bottom cc_322
 .cc_top cc_323,.Lxtalabel57
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel57
 .cc_bottom cc_323
 .cc_top cc_324,.Lxtalabel229
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel229
 .cc_bottom cc_324
 .cc_top cc_325,.Lxtalabel138
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel138
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel143
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel143
 .cc_bottom cc_326
 .cc_top cc_327,.Lxtalabel320
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel320
 .cc_bottom cc_327
 .cc_top cc_328,.Lxtalabel234
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel234
 .cc_bottom cc_328
 .cc_top cc_329,.Lxtalabel52
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	329
-	.long	329
+	.long	396
+	.long	396
 	.long	.Lxtalabel52
 .cc_bottom cc_329
 .cc_top cc_330,.Lxtalabel248
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel248
 .cc_bottom cc_330
 .cc_top cc_331,.Lxtalabel19
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel19
 .cc_bottom cc_331
 .cc_top cc_332,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel108
 .cc_bottom cc_332
 .cc_top cc_333,.Lxtalabel107
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel107
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel339
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel339
 .cc_bottom cc_334
 .cc_top cc_335,.Lxtalabel157
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel157
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel106
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	331
-	.long	331
+	.long	398
+	.long	398
 	.long	.Lxtalabel106
 .cc_bottom cc_336
 .cc_top cc_337,.Lxtalabel106
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel106
 .cc_bottom cc_337
 .cc_top cc_338,.Lxtalabel158
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel158
 .cc_bottom cc_338
 .cc_top cc_339,.Lxtalabel20
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel20
 .cc_bottom cc_339
 .cc_top cc_340,.Lxtalabel107
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel107
 .cc_bottom cc_340
 .cc_top cc_341,.Lxtalabel340
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel340
 .cc_bottom cc_341
 .cc_top cc_342,.Lxtalabel249
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel249
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	400
+	.long	400
 	.long	.Lxtalabel108
 .cc_bottom cc_343
 .cc_top cc_344,.Lxtalabel20
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel20
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel106
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel106
 .cc_bottom cc_345
 .cc_top cc_346,.Lxtalabel158
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel158
 .cc_bottom cc_346
 .cc_top cc_347,.Lxtalabel249
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel249
 .cc_bottom cc_347
 .cc_top cc_348,.Lxtalabel107
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel107
 .cc_bottom cc_348
 .cc_top cc_349,.Lxtalabel340
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel340
 .cc_bottom cc_349
 .cc_top cc_350,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	401
+	.long	401
 	.long	.Lxtalabel108
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel21
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxtalabel21
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxtalabel109
 .cc_bottom cc_352
 .cc_top cc_353,.Lxtalabel159
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxtalabel159
 .cc_bottom cc_353
 .cc_top cc_354,.Lxtalabel250
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxtalabel250
 .cc_bottom cc_354
 .cc_top cc_355,.Lxtalabel341
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxtalabel341
 .cc_bottom cc_355
 .cc_top cc_356,.Lxtalabel341
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxtalabel341
 .cc_bottom cc_356
 .cc_top cc_357,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxtalabel109
 .cc_bottom cc_357
 .cc_top cc_358,.Lxtalabel250
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxtalabel250
 .cc_bottom cc_358
 .cc_top cc_359,.Lxtalabel159
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxtalabel159
 .cc_bottom cc_359
 .cc_top cc_360,.Lxtalabel21
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxtalabel21
 .cc_bottom cc_360
 .cc_top cc_361,.Lxtalabel21
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
+	.long	408
+	.long	408
 	.long	.Lxtalabel21
 .cc_bottom cc_361
 .cc_top cc_362,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
+	.long	408
+	.long	408
 	.long	.Lxtalabel109
 .cc_bottom cc_362
 .cc_top cc_363,.Lxtalabel159
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
+	.long	408
+	.long	408
 	.long	.Lxtalabel159
 .cc_bottom cc_363
 .cc_top cc_364,.Lxtalabel341
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
+	.long	408
+	.long	408
 	.long	.Lxtalabel341
 .cc_bottom cc_364
 .cc_top cc_365,.Lxtalabel250
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
+	.long	408
+	.long	408
 	.long	.Lxtalabel250
 .cc_bottom cc_365
 .cc_top cc_366,.Lxtalabel23
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	342
-	.long	343
+	.long	409
+	.long	410
 	.long	.Lxtalabel23
 .cc_bottom cc_366
 .cc_top cc_367,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	342
-	.long	343
+	.long	409
+	.long	410
 	.long	.Lxtalabel111
 .cc_bottom cc_367
 .cc_top cc_368,.Lxtalabel343
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	342
-	.long	343
+	.long	409
+	.long	410
 	.long	.Lxtalabel343
 .cc_bottom cc_368
 .cc_top cc_369,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	342
-	.long	343
+	.long	409
+	.long	410
 	.long	.Lxtalabel161
 .cc_bottom cc_369
 .cc_top cc_370,.Lxtalabel252
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	342
-	.long	343
+	.long	409
+	.long	410
 	.long	.Lxtalabel252
 .cc_bottom cc_370
 .cc_top cc_371,.Lxtalabel251
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	344
-	.long	345
+	.long	411
+	.long	412
 	.long	.Lxtalabel251
 .cc_bottom cc_371
 .cc_top cc_372,.Lxtalabel110
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	344
-	.long	345
+	.long	411
+	.long	412
 	.long	.Lxtalabel110
 .cc_bottom cc_372
 .cc_top cc_373,.Lxtalabel160
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	344
-	.long	345
+	.long	411
+	.long	412
 	.long	.Lxtalabel160
 .cc_bottom cc_373
 .cc_top cc_374,.Lxtalabel342
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	344
-	.long	345
+	.long	411
+	.long	412
 	.long	.Lxtalabel342
 .cc_bottom cc_374
 .cc_top cc_375,.Lxtalabel22
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	344
-	.long	345
+	.long	411
+	.long	412
 	.long	.Lxtalabel22
 .cc_bottom cc_375
 .cc_top cc_376,.Lxtalabel162
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	346
-	.long	347
+	.long	413
+	.long	414
 	.long	.Lxtalabel162
 .cc_bottom cc_376
 .cc_top cc_377,.Lxtalabel344
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	346
-	.long	347
+	.long	413
+	.long	414
 	.long	.Lxtalabel344
 .cc_bottom cc_377
 .cc_top cc_378,.Lxtalabel253
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	346
-	.long	347
+	.long	413
+	.long	414
 	.long	.Lxtalabel253
 .cc_bottom cc_378
 .cc_top cc_379,.Lxtalabel24
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	346
-	.long	347
+	.long	413
+	.long	414
 	.long	.Lxtalabel24
 .cc_bottom cc_379
 .cc_top cc_380,.Lxtalabel112
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	346
-	.long	347
+	.long	413
+	.long	414
 	.long	.Lxtalabel112
 .cc_bottom cc_380
 .cc_top cc_381,.Lxtalabel113
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	349
+	.long	416
+	.long	416
 	.long	.Lxtalabel113
 .cc_bottom cc_381
 .cc_top cc_382,.Lxtalabel25
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	349
+	.long	416
+	.long	416
 	.long	.Lxtalabel25
 .cc_bottom cc_382
 .cc_top cc_383,.Lxtalabel254
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	349
+	.long	416
+	.long	416
 	.long	.Lxtalabel254
 .cc_bottom cc_383
 .cc_top cc_384,.Lxtalabel163
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	349
+	.long	416
+	.long	416
 	.long	.Lxtalabel163
 .cc_bottom cc_384
 .cc_top cc_385,.Lxtalabel345
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	349
+	.long	416
+	.long	416
 	.long	.Lxtalabel345
 .cc_bottom cc_385
 .cc_top cc_386,.Lxtalabel115
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	350
-	.long	351
+	.long	417
+	.long	418
 	.long	.Lxtalabel115
 .cc_bottom cc_386
 .cc_top cc_387,.Lxtalabel347
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	350
-	.long	351
+	.long	417
+	.long	418
 	.long	.Lxtalabel347
 .cc_bottom cc_387
 .cc_top cc_388,.Lxtalabel27
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	350
-	.long	351
+	.long	417
+	.long	418
 	.long	.Lxtalabel27
 .cc_bottom cc_388
 .cc_top cc_389,.Lxtalabel256
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	350
-	.long	351
+	.long	417
+	.long	418
 	.long	.Lxtalabel256
 .cc_bottom cc_389
 .cc_top cc_390,.Lxtalabel165
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	350
-	.long	351
+	.long	417
+	.long	418
 	.long	.Lxtalabel165
 .cc_bottom cc_390
 .cc_top cc_391,.Lxtalabel26
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
+	.long	419
+	.long	420
 	.long	.Lxtalabel26
 .cc_bottom cc_391
 .cc_top cc_392,.Lxtalabel114
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
+	.long	419
+	.long	420
 	.long	.Lxtalabel114
 .cc_bottom cc_392
 .cc_top cc_393,.Lxtalabel164
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
+	.long	419
+	.long	420
 	.long	.Lxtalabel164
 .cc_bottom cc_393
 .cc_top cc_394,.Lxtalabel346
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
+	.long	419
+	.long	420
 	.long	.Lxtalabel346
 .cc_bottom cc_394
 .cc_top cc_395,.Lxtalabel255
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
+	.long	419
+	.long	420
 	.long	.Lxtalabel255
 .cc_bottom cc_395
 .cc_top cc_396,.Lxtalabel348
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	354
-	.long	355
+	.long	421
+	.long	422
 	.long	.Lxtalabel348
 .cc_bottom cc_396
 .cc_top cc_397,.Lxtalabel166
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	354
-	.long	355
+	.long	421
+	.long	422
 	.long	.Lxtalabel166
 .cc_bottom cc_397
 .cc_top cc_398,.Lxtalabel257
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	354
-	.long	355
+	.long	421
+	.long	422
 	.long	.Lxtalabel257
 .cc_bottom cc_398
 .cc_top cc_399,.Lxtalabel116
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	354
-	.long	355
+	.long	421
+	.long	422
 	.long	.Lxtalabel116
 .cc_bottom cc_399
 .cc_top cc_400,.Lxtalabel28
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	354
-	.long	355
+	.long	421
+	.long	422
 	.long	.Lxtalabel28
 .cc_bottom cc_400
 .cc_top cc_401,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	424
+	.long	424
 	.long	.Lxtalabel258
 .cc_bottom cc_401
 .cc_top cc_402,.Lxtalabel349
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	424
+	.long	424
 	.long	.Lxtalabel349
 .cc_bottom cc_402
 .cc_top cc_403,.Lxtalabel29
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	424
+	.long	424
 	.long	.Lxtalabel29
 .cc_bottom cc_403
 .cc_top cc_404,.Lxtalabel167
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	424
+	.long	424
 	.long	.Lxtalabel167
 .cc_bottom cc_404
 .cc_top cc_405,.Lxtalabel117
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	357
+	.long	424
+	.long	424
 	.long	.Lxtalabel117
 .cc_bottom cc_405
 .cc_top cc_406,.Lxtalabel31
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	358
-	.long	359
+	.long	425
+	.long	426
 	.long	.Lxtalabel31
 .cc_bottom cc_406
 .cc_top cc_407,.Lxtalabel260
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	358
-	.long	359
+	.long	425
+	.long	426
 	.long	.Lxtalabel260
 .cc_bottom cc_407
 .cc_top cc_408,.Lxtalabel119
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	358
-	.long	359
+	.long	425
+	.long	426
 	.long	.Lxtalabel119
 .cc_bottom cc_408
 .cc_top cc_409,.Lxtalabel351
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	358
-	.long	359
+	.long	425
+	.long	426
 	.long	.Lxtalabel351
 .cc_bottom cc_409
 .cc_top cc_410,.Lxtalabel169
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	358
-	.long	359
+	.long	425
+	.long	426
 	.long	.Lxtalabel169
 .cc_bottom cc_410
 .cc_top cc_411,.Lxtalabel259
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	360
-	.long	361
+	.long	427
+	.long	428
 	.long	.Lxtalabel259
 .cc_bottom cc_411
 .cc_top cc_412,.Lxtalabel350
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	360
-	.long	361
+	.long	427
+	.long	428
 	.long	.Lxtalabel350
 .cc_bottom cc_412
 .cc_top cc_413,.Lxtalabel118
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	360
-	.long	361
+	.long	427
+	.long	428
 	.long	.Lxtalabel118
 .cc_bottom cc_413
 .cc_top cc_414,.Lxtalabel168
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	360
-	.long	361
+	.long	427
+	.long	428
 	.long	.Lxtalabel168
 .cc_bottom cc_414
 .cc_top cc_415,.Lxtalabel30
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	360
-	.long	361
+	.long	427
+	.long	428
 	.long	.Lxtalabel30
 .cc_bottom cc_415
 .cc_top cc_416,.Lxtalabel261
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	362
-	.long	363
+	.long	429
+	.long	430
 	.long	.Lxtalabel261
 .cc_bottom cc_416
 .cc_top cc_417,.Lxtalabel352
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	362
-	.long	363
+	.long	429
+	.long	430
 	.long	.Lxtalabel352
 .cc_bottom cc_417
 .cc_top cc_418,.Lxtalabel32
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	362
-	.long	363
+	.long	429
+	.long	430
 	.long	.Lxtalabel32
 .cc_bottom cc_418
 .cc_top cc_419,.Lxtalabel170
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	362
-	.long	363
+	.long	429
+	.long	430
 	.long	.Lxtalabel170
 .cc_bottom cc_419
 .cc_top cc_420,.Lxtalabel120
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	362
-	.long	363
+	.long	429
+	.long	430
 	.long	.Lxtalabel120
 .cc_bottom cc_420
 .cc_top cc_421,.Lxtalabel121
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel121
 .cc_bottom cc_421
 .cc_top cc_422,.Lxtalabel354
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel354
 .cc_bottom cc_422
 .cc_top cc_423,.Lxtalabel353
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel353
 .cc_bottom cc_423
 .cc_top cc_424,.Lxtalabel262
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel262
 .cc_bottom cc_424
 .cc_top cc_425,.Lxtalabel263
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel263
 .cc_bottom cc_425
 .cc_top cc_426,.Lxtalabel33
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel33
 .cc_bottom cc_426
 .cc_top cc_427,.Lxtalabel171
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel171
 .cc_bottom cc_427
 .cc_top cc_428,.Lxtalabel172
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxtalabel172
 .cc_bottom cc_428
 .cc_top cc_429,.Lxtalabel173
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	370
-	.long	370
+	.long	437
+	.long	437
 	.long	.Lxtalabel173
 .cc_bottom cc_429
 .cc_top cc_430,.Lxtalabel355
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	370
-	.long	370
+	.long	437
+	.long	437
 	.long	.Lxtalabel355
 .cc_bottom cc_430
 .cc_top cc_431,.Lxtalabel264
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	370
-	.long	370
+	.long	437
+	.long	437
 	.long	.Lxtalabel264
 .cc_bottom cc_431
 .cc_top cc_432,.Lxtalabel122
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	370
-	.long	370
+	.long	437
+	.long	437
 	.long	.Lxtalabel122
 .cc_bottom cc_432
 .cc_top cc_433,.Lxtalabel34
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	370
-	.long	370
+	.long	437
+	.long	437
 	.long	.Lxtalabel34
 .cc_bottom cc_433
 .cc_top cc_434,.Lxtalabel264
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	372
-	.long	372
+	.long	439
+	.long	439
 	.long	.Lxtalabel264
 .cc_bottom cc_434
 .cc_top cc_435,.Lxtalabel355
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	372
-	.long	372
+	.long	439
+	.long	439
 	.long	.Lxtalabel355
 .cc_bottom cc_435
 .cc_top cc_436,.Lxtalabel122
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	372
-	.long	372
+	.long	439
+	.long	439
 	.long	.Lxtalabel122
 .cc_bottom cc_436
 .cc_top cc_437,.Lxtalabel34
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	372
-	.long	372
+	.long	439
+	.long	439
 	.long	.Lxtalabel34
 .cc_bottom cc_437
 .cc_top cc_438,.Lxtalabel173
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	372
-	.long	372
+	.long	439
+	.long	439
 	.long	.Lxtalabel173
 .cc_bottom cc_438
 .cc_top cc_439,.Lxtalabel355
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	374
-	.long	374
+	.long	441
+	.long	441
 	.long	.Lxtalabel355
 .cc_bottom cc_439
 .cc_top cc_440,.Lxtalabel34
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	374
-	.long	374
+	.long	441
+	.long	441
 	.long	.Lxtalabel34
 .cc_bottom cc_440
 .cc_top cc_441,.Lxtalabel264
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	374
-	.long	374
+	.long	441
+	.long	441
 	.long	.Lxtalabel264
 .cc_bottom cc_441
 .cc_top cc_442,.Lxtalabel122
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	374
-	.long	374
+	.long	441
+	.long	441
 	.long	.Lxtalabel122
 .cc_bottom cc_442
 .cc_top cc_443,.Lxtalabel173
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	374
-	.long	374
+	.long	441
+	.long	441
 	.long	.Lxtalabel173
 .cc_bottom cc_443
 .cc_top cc_444,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel96
 .cc_bottom cc_444
 .cc_top cc_445,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel96
 .cc_bottom cc_445
 .cc_top cc_446,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel35
 .cc_bottom cc_446
 .cc_top cc_447,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel329
 .cc_bottom cc_447
 .cc_top cc_448,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel329
 .cc_bottom cc_448
 .cc_top cc_449,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel329
 .cc_bottom cc_449
 .cc_top cc_450,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel96
 .cc_bottom cc_450
 .cc_top cc_451,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel147
 .cc_bottom cc_451
 .cc_top cc_452,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel35
 .cc_bottom cc_452
 .cc_top cc_453,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel147
 .cc_bottom cc_453
 .cc_top cc_454,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel35
 .cc_bottom cc_454
 .cc_top cc_455,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel147
 .cc_bottom cc_455
 .cc_top cc_456,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel238
 .cc_bottom cc_456
 .cc_top cc_457,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel238
 .cc_bottom cc_457
 .cc_top cc_458,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	384
-	.long	385
+	.long	451
+	.long	452
 	.long	.Lxtalabel238
 .cc_bottom cc_458
 .cc_top cc_459,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel35
 .cc_bottom cc_459
 .cc_top cc_460,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel238
 .cc_bottom cc_460
 .cc_top cc_461,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel238
 .cc_bottom cc_461
 .cc_top cc_462,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel147
 .cc_bottom cc_462
 .cc_top cc_463,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel147
 .cc_bottom cc_463
 .cc_top cc_464,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel35
 .cc_bottom cc_464
 .cc_top cc_465,.Lxtalabel147
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel147
 .cc_bottom cc_465
 .cc_top cc_466,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel96
 .cc_bottom cc_466
 .cc_top cc_467,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel35
 .cc_bottom cc_467
 .cc_top cc_468,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel96
 .cc_bottom cc_468
 .cc_top cc_469,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel329
 .cc_bottom cc_469
 .cc_top cc_470,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel329
 .cc_bottom cc_470
 .cc_top cc_471,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel329
 .cc_bottom cc_471
 .cc_top cc_472,.Lxtalabel96
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel96
 .cc_bottom cc_472
 .cc_top cc_473,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	388
-	.long	388
+	.long	455
+	.long	455
 	.long	.Lxtalabel238
 .cc_bottom cc_473
 .cc_top cc_474,.Lxtalabel239
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	390
+	.long	456
+	.long	457
 	.long	.Lxtalabel239
 .cc_bottom cc_474
 .cc_top cc_475,.Lxtalabel330
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	390
+	.long	456
+	.long	457
 	.long	.Lxtalabel330
 .cc_bottom cc_475
 .cc_top cc_476,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	390
+	.long	456
+	.long	457
 	.long	.Lxtalabel36
 .cc_bottom cc_476
 .cc_top cc_477,.Lxtalabel97
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	390
+	.long	456
+	.long	457
 	.long	.Lxtalabel97
 .cc_bottom cc_477
 .cc_top cc_478,.Lxtalabel148
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	390
+	.long	456
+	.long	457
 	.long	.Lxtalabel148
 .cc_bottom cc_478
 .cc_top cc_479,.Lxtalabel98
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	391
-	.long	391
+	.long	458
+	.long	458
 	.long	.Lxtalabel98
 .cc_bottom cc_479
 .cc_top cc_480,.Lxtalabel331
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	391
-	.long	391
+	.long	458
+	.long	458
 	.long	.Lxtalabel331
 .cc_bottom cc_480
 .cc_top cc_481,.Lxtalabel149
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	391
-	.long	391
+	.long	458
+	.long	458
 	.long	.Lxtalabel149
 .cc_bottom cc_481
 .cc_top cc_482,.Lxtalabel37
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	391
-	.long	391
+	.long	458
+	.long	458
 	.long	.Lxtalabel37
 .cc_bottom cc_482
 .cc_top cc_483,.Lxtalabel240
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	391
-	.long	391
+	.long	458
+	.long	458
 	.long	.Lxtalabel240
 .cc_bottom cc_483
 .cc_top cc_484,.Lxtalabel241
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	459
+	.long	459
 	.long	.Lxtalabel241
 .cc_bottom cc_484
 .cc_top cc_485,.Lxtalabel38
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	459
+	.long	459
 	.long	.Lxtalabel38
 .cc_bottom cc_485
 .cc_top cc_486,.Lxtalabel99
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	459
+	.long	459
 	.long	.Lxtalabel99
 .cc_bottom cc_486
 .cc_top cc_487,.Lxtalabel332
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	459
+	.long	459
 	.long	.Lxtalabel332
 .cc_bottom cc_487
 .cc_top cc_488,.Lxtalabel150
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	459
+	.long	459
 	.long	.Lxtalabel150
 .cc_bottom cc_488
 .cc_top cc_489,.Lxtalabel100
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	393
-	.long	393
+	.long	460
+	.long	460
 	.long	.Lxtalabel100
 .cc_bottom cc_489
 .cc_top cc_490,.Lxtalabel39
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	393
-	.long	393
+	.long	460
+	.long	460
 	.long	.Lxtalabel39
 .cc_bottom cc_490
 .cc_top cc_491,.Lxtalabel242
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	393
-	.long	393
+	.long	460
+	.long	460
 	.long	.Lxtalabel242
 .cc_bottom cc_491
 .cc_top cc_492,.Lxtalabel333
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	393
-	.long	393
+	.long	460
+	.long	460
 	.long	.Lxtalabel333
 .cc_bottom cc_492
 .cc_top cc_493,.Lxtalabel151
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	393
-	.long	393
+	.long	460
+	.long	460
 	.long	.Lxtalabel151
 .cc_bottom cc_493
 .cc_top cc_494,.Lxtalabel39
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	462
+	.long	462
 	.long	.Lxtalabel39
 .cc_bottom cc_494
 .cc_top cc_495,.Lxtalabel151
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	462
+	.long	462
 	.long	.Lxtalabel151
 .cc_bottom cc_495
 .cc_top cc_496,.Lxtalabel242
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	462
+	.long	462
 	.long	.Lxtalabel242
 .cc_bottom cc_496
 .cc_top cc_497,.Lxtalabel100
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	462
+	.long	462
 	.long	.Lxtalabel100
 .cc_bottom cc_497
 .cc_top cc_498,.Lxtalabel333
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	395
-	.long	395
+	.long	462
+	.long	462
 	.long	.Lxtalabel333
 .cc_bottom cc_498
 .cc_top cc_499,.Lxtalabel242
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	402
-	.long	403
+	.long	469
+	.long	470
 	.long	.Lxtalabel242
 .cc_bottom cc_499
 .cc_top cc_500,.Lxtalabel100
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	402
-	.long	403
+	.long	469
+	.long	470
 	.long	.Lxtalabel100
 .cc_bottom cc_500
 .cc_top cc_501,.Lxtalabel39
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	402
-	.long	403
+	.long	469
+	.long	470
 	.long	.Lxtalabel39
 .cc_bottom cc_501
 .cc_top cc_502,.Lxtalabel333
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	402
-	.long	403
+	.long	469
+	.long	470
 	.long	.Lxtalabel333
 .cc_bottom cc_502
 .cc_top cc_503,.Lxtalabel151
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	402
-	.long	403
+	.long	469
+	.long	470
 	.long	.Lxtalabel151
 .cc_bottom cc_503
 .cc_top cc_504,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel334
 .cc_bottom cc_504
 .cc_top cc_505,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel247
 .cc_bottom cc_505
 .cc_top cc_506,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel334
 .cc_bottom cc_506
 .cc_top cc_507,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel40
 .cc_bottom cc_507
 .cc_top cc_508,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel247
 .cc_bottom cc_508
 .cc_top cc_509,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel334
 .cc_bottom cc_509
 .cc_top cc_510,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel247
 .cc_bottom cc_510
 .cc_top cc_511,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel246
 .cc_bottom cc_511
 .cc_top cc_512,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel40
 .cc_bottom cc_512
 .cc_top cc_513,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel335
 .cc_bottom cc_513
 .cc_top cc_514,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel246
 .cc_bottom cc_514
 .cc_top cc_515,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel335
 .cc_bottom cc_515
 .cc_top cc_516,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel246
 .cc_bottom cc_516
 .cc_top cc_517,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel103
 .cc_bottom cc_517
 .cc_top cc_518,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel40
 .cc_bottom cc_518
 .cc_top cc_519,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel245
 .cc_bottom cc_519
 .cc_top cc_520,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel41
 .cc_bottom cc_520
 .cc_top cc_521,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel245
 .cc_bottom cc_521
 .cc_top cc_522,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel41
 .cc_bottom cc_522
 .cc_top cc_523,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel245
 .cc_bottom cc_523
 .cc_top cc_524,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel103
 .cc_bottom cc_524
 .cc_top cc_525,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel41
 .cc_bottom cc_525
 .cc_top cc_526,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel244
 .cc_bottom cc_526
 .cc_top cc_527,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel156
 .cc_bottom cc_527
 .cc_top cc_528,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel244
 .cc_bottom cc_528
 .cc_top cc_529,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel156
 .cc_bottom cc_529
 .cc_top cc_530,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel244
 .cc_bottom cc_530
 .cc_top cc_531,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel156
 .cc_bottom cc_531
 .cc_top cc_532,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel42
 .cc_bottom cc_532
 .cc_top cc_533,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel102
 .cc_bottom cc_533
 .cc_top cc_534,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel42
 .cc_bottom cc_534
 .cc_top cc_535,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel243
 .cc_bottom cc_535
 .cc_top cc_536,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel243
 .cc_bottom cc_536
 .cc_top cc_537,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel155
 .cc_bottom cc_537
 .cc_top cc_538,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel243
 .cc_bottom cc_538
 .cc_top cc_539,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel155
 .cc_bottom cc_539
 .cc_top cc_540,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel103
 .cc_bottom cc_540
 .cc_top cc_541,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel155
 .cc_bottom cc_541
 .cc_top cc_542,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel42
 .cc_bottom cc_542
 .cc_top cc_543,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel102
 .cc_bottom cc_543
 .cc_top cc_544,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel104
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel154
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel104
 .cc_bottom cc_546
 .cc_top cc_547,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel154
 .cc_bottom cc_547
 .cc_top cc_548,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel104
 .cc_bottom cc_548
 .cc_top cc_549,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel154
 .cc_bottom cc_549
 .cc_top cc_550,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel43
 .cc_bottom cc_550
 .cc_top cc_551,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel102
 .cc_bottom cc_551
 .cc_top cc_552,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel105
 .cc_bottom cc_552
 .cc_top cc_553,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel153
 .cc_bottom cc_553
 .cc_top cc_554,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel101
 .cc_bottom cc_554
 .cc_top cc_555,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel153
 .cc_bottom cc_555
 .cc_top cc_556,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel101
 .cc_bottom cc_556
 .cc_top cc_557,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel153
 .cc_bottom cc_557
 .cc_top cc_558,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel43
 .cc_bottom cc_558
 .cc_top cc_559,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel105
 .cc_bottom cc_559
 .cc_top cc_560,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel105
 .cc_bottom cc_560
 .cc_top cc_561,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel152
 .cc_bottom cc_561
 .cc_top cc_562,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel101
 .cc_bottom cc_562
 .cc_top cc_563,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel152
 .cc_bottom cc_563
 .cc_top cc_564,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel338
 .cc_bottom cc_564
 .cc_top cc_565,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel152
 .cc_bottom cc_565
 .cc_top cc_566,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel43
 .cc_bottom cc_566
 .cc_top cc_567,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel335
 .cc_bottom cc_567
 .cc_top cc_568,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel338
 .cc_bottom cc_568
 .cc_top cc_569,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel44
 .cc_bottom cc_569
 .cc_top cc_570,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel337
 .cc_bottom cc_570
 .cc_top cc_571,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel337
 .cc_bottom cc_571
 .cc_top cc_572,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel44
 .cc_bottom cc_572
 .cc_top cc_573,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel337
 .cc_bottom cc_573
 .cc_top cc_574,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel44
 .cc_bottom cc_574
 .cc_top cc_575,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel338
 .cc_bottom cc_575
 .cc_top cc_576,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel336
 .cc_bottom cc_576
 .cc_top cc_577,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel336
 .cc_bottom cc_577
 .cc_top cc_578,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	404
-	.long	404
+	.long	471
+	.long	471
 	.long	.Lxtalabel336
 .cc_bottom cc_578
 .cc_top cc_579,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel336
 .cc_bottom cc_579
 .cc_top cc_580,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel336
 .cc_bottom cc_580
 .cc_top cc_581,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel336
 .cc_bottom cc_581
 .cc_top cc_582,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel338
 .cc_bottom cc_582
 .cc_top cc_583,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel44
 .cc_bottom cc_583
 .cc_top cc_584,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel44
 .cc_bottom cc_584
 .cc_top cc_585,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel337
 .cc_bottom cc_585
 .cc_top cc_586,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel335
 .cc_bottom cc_586
 .cc_top cc_587,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel337
 .cc_bottom cc_587
 .cc_top cc_588,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel44
 .cc_bottom cc_588
 .cc_top cc_589,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel338
 .cc_bottom cc_589
 .cc_top cc_590,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel43
 .cc_bottom cc_590
 .cc_top cc_591,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel338
 .cc_bottom cc_591
 .cc_top cc_592,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel152
 .cc_bottom cc_592
 .cc_top cc_593,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel337
 .cc_bottom cc_593
 .cc_top cc_594,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel152
 .cc_bottom cc_594
 .cc_top cc_595,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel101
 .cc_bottom cc_595
 .cc_top cc_596,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel105
 .cc_bottom cc_596
 .cc_top cc_597,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel152
 .cc_bottom cc_597
 .cc_top cc_598,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel105
 .cc_bottom cc_598
 .cc_top cc_599,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel43
 .cc_bottom cc_599
 .cc_top cc_600,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel153
 .cc_bottom cc_600
 .cc_top cc_601,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel101
 .cc_bottom cc_601
 .cc_top cc_602,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel105
 .cc_bottom cc_602
 .cc_top cc_603,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel153
 .cc_bottom cc_603
 .cc_top cc_604,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel153
 .cc_bottom cc_604
 .cc_top cc_605,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel101
 .cc_bottom cc_605
 .cc_top cc_606,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel43
 .cc_bottom cc_606
 .cc_top cc_607,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel102
 .cc_bottom cc_607
 .cc_top cc_608,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel104
 .cc_bottom cc_608
 .cc_top cc_609,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel154
 .cc_bottom cc_609
 .cc_top cc_610,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel104
 .cc_bottom cc_610
 .cc_top cc_611,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel154
 .cc_bottom cc_611
 .cc_top cc_612,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel104
 .cc_bottom cc_612
 .cc_top cc_613,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel154
 .cc_bottom cc_613
 .cc_top cc_614,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel42
 .cc_bottom cc_614
 .cc_top cc_615,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel102
 .cc_bottom cc_615
 .cc_top cc_616,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel103
 .cc_bottom cc_616
 .cc_top cc_617,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel155
 .cc_bottom cc_617
 .cc_top cc_618,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel155
 .cc_bottom cc_618
 .cc_top cc_619,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel243
 .cc_bottom cc_619
 .cc_top cc_620,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel155
 .cc_bottom cc_620
 .cc_top cc_621,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel243
 .cc_bottom cc_621
 .cc_top cc_622,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel42
 .cc_bottom cc_622
 .cc_top cc_623,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel243
 .cc_bottom cc_623
 .cc_top cc_624,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel42
 .cc_bottom cc_624
 .cc_top cc_625,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel102
 .cc_bottom cc_625
 .cc_top cc_626,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel156
 .cc_bottom cc_626
 .cc_top cc_627,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel244
 .cc_bottom cc_627
 .cc_top cc_628,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel156
 .cc_bottom cc_628
 .cc_top cc_629,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel244
 .cc_bottom cc_629
 .cc_top cc_630,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel41
 .cc_bottom cc_630
 .cc_top cc_631,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel244
 .cc_bottom cc_631
 .cc_top cc_632,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel156
 .cc_bottom cc_632
 .cc_top cc_633,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel103
 .cc_bottom cc_633
 .cc_top cc_634,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel41
 .cc_bottom cc_634
 .cc_top cc_635,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel245
 .cc_bottom cc_635
 .cc_top cc_636,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel41
 .cc_bottom cc_636
 .cc_top cc_637,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel245
 .cc_bottom cc_637
 .cc_top cc_638,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel40
 .cc_bottom cc_638
 .cc_top cc_639,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel245
 .cc_bottom cc_639
 .cc_top cc_640,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel40
 .cc_bottom cc_640
 .cc_top cc_641,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel103
 .cc_bottom cc_641
 .cc_top cc_642,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel335
 .cc_bottom cc_642
 .cc_top cc_643,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel246
 .cc_bottom cc_643
 .cc_top cc_644,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel335
 .cc_bottom cc_644
 .cc_top cc_645,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel246
 .cc_bottom cc_645
 .cc_top cc_646,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel40
 .cc_bottom cc_646
 .cc_top cc_647,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel246
 .cc_bottom cc_647
 .cc_top cc_648,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel247
 .cc_bottom cc_648
 .cc_top cc_649,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel334
 .cc_bottom cc_649
 .cc_top cc_650,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel334
 .cc_bottom cc_650
 .cc_top cc_651,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel247
 .cc_bottom cc_651
 .cc_top cc_652,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel334
 .cc_bottom cc_652
 .cc_top cc_653,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	405
-	.long	405
+	.long	472
+	.long	472
 	.long	.Lxtalabel247
 .cc_bottom cc_653
 .cc_top cc_654,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel244
 .cc_bottom cc_654
 .cc_top cc_655,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel246
 .cc_bottom cc_655
 .cc_top cc_656,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel247
 .cc_bottom cc_656
 .cc_top cc_657,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel335
 .cc_bottom cc_657
 .cc_top cc_658,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel44
 .cc_bottom cc_658
 .cc_top cc_659,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel245
 .cc_bottom cc_659
 .cc_top cc_660,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel43
 .cc_bottom cc_660
 .cc_top cc_661,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel338
 .cc_bottom cc_661
 .cc_top cc_662,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel336
 .cc_bottom cc_662
 .cc_top cc_663,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel102
 .cc_bottom cc_663
 .cc_top cc_664,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel152
 .cc_bottom cc_664
 .cc_top cc_665,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel243
 .cc_bottom cc_665
 .cc_top cc_666,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel103
 .cc_bottom cc_666
 .cc_top cc_667,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel153
 .cc_bottom cc_667
 .cc_top cc_668,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel104
 .cc_bottom cc_668
 .cc_top cc_669,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel42
 .cc_bottom cc_669
 .cc_top cc_670,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel154
 .cc_bottom cc_670
 .cc_top cc_671,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel101
 .cc_bottom cc_671
 .cc_top cc_672,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel334
 .cc_bottom cc_672
 .cc_top cc_673,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel337
 .cc_bottom cc_673
 .cc_top cc_674,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel40
 .cc_bottom cc_674
 .cc_top cc_675,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel155
 .cc_bottom cc_675
 .cc_top cc_676,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel105
 .cc_bottom cc_676
 .cc_top cc_677,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel41
 .cc_bottom cc_677
 .cc_top cc_678,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	407
-	.long	409
+	.long	474
+	.long	476
 	.long	.Lxtalabel156
 .cc_bottom cc_678
 .cc_top cc_679,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel156
 .cc_bottom cc_679
 .cc_top cc_680,.Lxtalabel105
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel105
 .cc_bottom cc_680
 .cc_top cc_681,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel41
 .cc_bottom cc_681
 .cc_top cc_682,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel155
 .cc_bottom cc_682
 .cc_top cc_683,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel40
 .cc_bottom cc_683
 .cc_top cc_684,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel154
 .cc_bottom cc_684
 .cc_top cc_685,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel334
 .cc_bottom cc_685
 .cc_top cc_686,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel101
 .cc_bottom cc_686
 .cc_top cc_687,.Lxtalabel337
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel337
 .cc_bottom cc_687
 .cc_top cc_688,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel104
 .cc_bottom cc_688
 .cc_top cc_689,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel42
 .cc_bottom cc_689
 .cc_top cc_690,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel153
 .cc_bottom cc_690
 .cc_top cc_691,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel103
 .cc_bottom cc_691
 .cc_top cc_692,.Lxtalabel336
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel336
 .cc_bottom cc_692
 .cc_top cc_693,.Lxtalabel152
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel152
 .cc_bottom cc_693
 .cc_top cc_694,.Lxtalabel243
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel243
 .cc_bottom cc_694
 .cc_top cc_695,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel102
 .cc_bottom cc_695
 .cc_top cc_696,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel246
 .cc_bottom cc_696
 .cc_top cc_697,.Lxtalabel338
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel338
 .cc_bottom cc_697
 .cc_top cc_698,.Lxtalabel244
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel244
 .cc_bottom cc_698
 .cc_top cc_699,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel43
 .cc_bottom cc_699
 .cc_top cc_700,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel44
 .cc_bottom cc_700
 .cc_top cc_701,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel245
 .cc_bottom cc_701
 .cc_top cc_702,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel335
 .cc_bottom cc_702
 .cc_top cc_703,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	411
-	.long	411
+	.long	478
+	.long	478
 	.long	.Lxtalabel247
 .cc_bottom cc_703
 .cc_top cc_704,.Lxtalabel181
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel181
 .cc_bottom cc_704
 .cc_top cc_705,.Lxtalabel135
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel135
 .cc_bottom cc_705
 .cc_top cc_706,.Lxtalabel175
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel175
 .cc_bottom cc_706
 .cc_top cc_707,.Lxtalabel18
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel18
 .cc_bottom cc_707
 .cc_top cc_708,.Lxtalabel174
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel174
 .cc_bottom cc_708
 .cc_top cc_709,.Lxtalabel363
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel363
 .cc_bottom cc_709
 .cc_top cc_710,.Lxtalabel123
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel123
 .cc_bottom cc_710
 .cc_top cc_711,.Lxtalabel17
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel17
 .cc_bottom cc_711
 .cc_top cc_712,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel265
 .cc_bottom cc_712
 .cc_top cc_713,.Lxtalabel272
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel272
 .cc_bottom cc_713
 .cc_top cc_714,.Lxtalabel357
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel357
 .cc_bottom cc_714
 .cc_top cc_715,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel266
 .cc_bottom cc_715
 .cc_top cc_716,.Lxtalabel124
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel124
 .cc_bottom cc_716
 .cc_top cc_717,.Lxtalabel16
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel16
 .cc_bottom cc_717
 .cc_top cc_718,.Lxtalabel356
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	417
-	.long	418
+	.long	484
+	.long	485
 	.long	.Lxtalabel356
 .cc_bottom cc_718
 .cc_top cc_719,.Lxtalabel356
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel356
 .cc_bottom cc_719
 .cc_top cc_720,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel266
 .cc_bottom cc_720
 .cc_top cc_721,.Lxtalabel18
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel18
 .cc_bottom cc_721
 .cc_top cc_722,.Lxtalabel123
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel123
 .cc_bottom cc_722
 .cc_top cc_723,.Lxtalabel124
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel124
 .cc_bottom cc_723
 .cc_top cc_724,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel265
 .cc_bottom cc_724
 .cc_top cc_725,.Lxtalabel272
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel272
 .cc_bottom cc_725
 .cc_top cc_726,.Lxtalabel175
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel175
 .cc_bottom cc_726
 .cc_top cc_727,.Lxtalabel16
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel16
 .cc_bottom cc_727
 .cc_top cc_728,.Lxtalabel357
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel357
 .cc_bottom cc_728
 .cc_top cc_729,.Lxtalabel181
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel181
 .cc_bottom cc_729
 .cc_top cc_730,.Lxtalabel363
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel363
 .cc_bottom cc_730
 .cc_top cc_731,.Lxtalabel174
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel174
 .cc_bottom cc_731
 .cc_top cc_732,.Lxtalabel17
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel17
 .cc_bottom cc_732
 .cc_top cc_733,.Lxtalabel135
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	420
-	.long	420
+	.long	487
+	.long	487
 	.long	.Lxtalabel135
 .cc_bottom cc_733
 .cc_top cc_734,.Lxtalabel4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	436
-	.long	438
+	.long	503
+	.long	505
 	.long	.Lxtalabel4
 .cc_bottom cc_734
 .cc_top cc_735,.Lxtalabel326
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	436
-	.long	438
+	.long	503
+	.long	505
 	.long	.Lxtalabel326
 .cc_bottom cc_735
 .cc_top cc_736,.Lxtalabel67
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	436
-	.long	438
+	.long	503
+	.long	505
 	.long	.Lxtalabel67
 .cc_bottom cc_736
 .cc_top cc_737,.Lxtalabel235
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	436
-	.long	438
+	.long	503
+	.long	505
 	.long	.Lxtalabel235
 .cc_bottom cc_737
 .cc_top cc_738,.Lxtalabel144
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	436
-	.long	438
+	.long	503
+	.long	505
 	.long	.Lxtalabel144
 .cc_bottom cc_738
 .cc_top cc_739,.Lxtalabel232
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	439
-	.long	439
+	.long	506
+	.long	506
 	.long	.Lxtalabel232
 .cc_bottom cc_739
 .cc_top cc_740,.Lxtalabel323
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	439
-	.long	439
+	.long	506
+	.long	506
 	.long	.Lxtalabel323
 .cc_bottom cc_740
 .cc_top cc_741,.Lxtalabel141
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	439
-	.long	439
+	.long	506
+	.long	506
 	.long	.Lxtalabel141
 .cc_bottom cc_741
 .cc_top cc_742,.Lxtalabel2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	439
-	.long	439
+	.long	506
+	.long	506
 	.long	.Lxtalabel2
 .cc_bottom cc_742
 .cc_top cc_743,.Lxtalabel55
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	439
-	.long	439
+	.long	506
+	.long	506
 	.long	.Lxtalabel55
 .cc_bottom cc_743
 .cc_top cc_744,.Lxtalabel7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	440
-	.long	443
+	.long	507
+	.long	510
 	.long	.Lxtalabel7
 .cc_bottom cc_744
 .cc_top cc_745,.Lxtalabel358
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	440
-	.long	443
+	.long	507
+	.long	510
 	.long	.Lxtalabel358
 .cc_bottom cc_745
 .cc_top cc_746,.Lxtalabel176
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	440
-	.long	443
+	.long	507
+	.long	510
 	.long	.Lxtalabel176
 .cc_bottom cc_746
 .cc_top cc_747,.Lxtalabel267
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	440
-	.long	443
+	.long	507
+	.long	510
 	.long	.Lxtalabel267
 .cc_bottom cc_747
 .cc_top cc_748,.Lxtalabel125
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	440
-	.long	443
+	.long	507
+	.long	510
 	.long	.Lxtalabel125
 .cc_bottom cc_748
 .cc_top cc_749,.Lxtalabel142
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	444
-	.long	447
+	.long	511
+	.long	514
 	.long	.Lxtalabel142
 .cc_bottom cc_749
 .cc_top cc_750,.Lxtalabel324
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	444
-	.long	447
+	.long	511
+	.long	514
 	.long	.Lxtalabel324
 .cc_bottom cc_750
 .cc_top cc_751,.Lxtalabel233
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	444
-	.long	447
+	.long	511
+	.long	514
 	.long	.Lxtalabel233
 .cc_bottom cc_751
 .cc_top cc_752,.Lxtalabel3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	444
-	.long	447
+	.long	511
+	.long	514
 	.long	.Lxtalabel3
 .cc_bottom cc_752
 .cc_top cc_753,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	444
-	.long	447
+	.long	511
+	.long	514
 	.long	.Lxtalabel56
 .cc_bottom cc_753
 .cc_top cc_754,.Lxtalabel69
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	453
+	.long	518
+	.long	520
 	.long	.Lxtalabel69
 .cc_bottom cc_754
 .cc_top cc_755,.Lxtalabel6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	453
+	.long	518
+	.long	520
 	.long	.Lxtalabel6
 .cc_bottom cc_755
 .cc_top cc_756,.Lxtalabel237
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	453
+	.long	518
+	.long	520
 	.long	.Lxtalabel237
 .cc_bottom cc_756
 .cc_top cc_757,.Lxtalabel328
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	453
+	.long	518
+	.long	520
 	.long	.Lxtalabel328
 .cc_bottom cc_757
 .cc_top cc_758,.Lxtalabel146
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	453
+	.long	518
+	.long	520
 	.long	.Lxtalabel146
 .cc_bottom cc_758
 .cc_top cc_759,.Lxtalabel0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel0
 .cc_bottom cc_759
 .cc_top cc_760,.Lxtalabel359
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel359
 .cc_bottom cc_760
 .cc_top cc_761,.Lxtalabel268
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel268
 .cc_bottom cc_761
 .cc_top cc_762,.Lxtalabel177
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel177
 .cc_bottom cc_762
 .cc_top cc_763,.Lxtalabel145
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel145
 .cc_bottom cc_763
 .cc_top cc_764,.Lxtalabel1
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel1
 .cc_bottom cc_764
 .cc_top cc_765,.Lxtalabel5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel5
 .cc_bottom cc_765
 .cc_top cc_766,.Lxtalabel140
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel140
 .cc_bottom cc_766
 .cc_top cc_767,.Lxtalabel139
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel139
 .cc_bottom cc_767
 .cc_top cc_768,.Lxtalabel327
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel327
 .cc_bottom cc_768
 .cc_top cc_769,.Lxtalabel322
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel322
 .cc_bottom cc_769
 .cc_top cc_770,.Lxtalabel321
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel321
 .cc_bottom cc_770
 .cc_top cc_771,.Lxtalabel236
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel236
 .cc_bottom cc_771
 .cc_top cc_772,.Lxtalabel53
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel53
 .cc_bottom cc_772
 .cc_top cc_773,.Lxtalabel8
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel8
 .cc_bottom cc_773
 .cc_top cc_774,.Lxtalabel231
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel231
 .cc_bottom cc_774
 .cc_top cc_775,.Lxtalabel230
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel230
 .cc_bottom cc_775
 .cc_top cc_776,.Lxtalabel126
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel126
 .cc_bottom cc_776
 .cc_top cc_777,.Lxtalabel68
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel68
 .cc_bottom cc_777
 .cc_top cc_778,.Lxtalabel54
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	455
+	.long	522
+	.long	522
 	.long	.Lxtalabel54
 .cc_bottom cc_778
 .cc_top cc_779,.Lxtalabel127
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	461
+	.long	524
+	.long	528
 	.long	.Lxtalabel127
 .cc_bottom cc_779
 .cc_top cc_780,.Lxtalabel9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	461
+	.long	524
+	.long	528
 	.long	.Lxtalabel9
 .cc_bottom cc_780
 .cc_top cc_781,.Lxtalabel360
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	461
+	.long	524
+	.long	528
 	.long	.Lxtalabel360
 .cc_bottom cc_781
 .cc_top cc_782,.Lxtalabel178
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	461
+	.long	524
+	.long	528
 	.long	.Lxtalabel178
 .cc_bottom cc_782
 .cc_top cc_783,.Lxtalabel269
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	461
+	.long	524
+	.long	528
 	.long	.Lxtalabel269
 .cc_bottom cc_783
 .cc_top cc_784,.Lxtalabel178
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	463
-	.long	463
+	.long	530
+	.long	530
 	.long	.Lxtalabel178
 .cc_bottom cc_784
 .cc_top cc_785,.Lxtalabel360
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	463
-	.long	463
+	.long	530
+	.long	530
 	.long	.Lxtalabel360
 .cc_bottom cc_785
 .cc_top cc_786,.Lxtalabel269
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	463
-	.long	463
+	.long	530
+	.long	530
 	.long	.Lxtalabel269
 .cc_bottom cc_786
 .cc_top cc_787,.Lxtalabel9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	463
-	.long	463
+	.long	530
+	.long	530
 	.long	.Lxtalabel9
 .cc_bottom cc_787
 .cc_top cc_788,.Lxtalabel127
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	463
-	.long	463
+	.long	530
+	.long	530
 	.long	.Lxtalabel127
 .cc_bottom cc_788
 .cc_top cc_789,.Lxtalabel127
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	465
-	.long	465
+	.long	532
+	.long	532
 	.long	.Lxtalabel127
 .cc_bottom cc_789
 .cc_top cc_790,.Lxtalabel269
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	465
-	.long	465
+	.long	532
+	.long	532
 	.long	.Lxtalabel269
 .cc_bottom cc_790
 .cc_top cc_791,.Lxtalabel360
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	465
-	.long	465
+	.long	532
+	.long	532
 	.long	.Lxtalabel360
 .cc_bottom cc_791
 .cc_top cc_792,.Lxtalabel9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	465
-	.long	465
+	.long	532
+	.long	532
 	.long	.Lxtalabel9
 .cc_bottom cc_792
 .cc_top cc_793,.Lxtalabel178
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	465
-	.long	465
+	.long	532
+	.long	532
 	.long	.Lxtalabel178
 .cc_bottom cc_793
 .cc_top cc_794,.Lxtalabel10
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
-	.long	467
+	.long	533
+	.long	534
 	.long	.Lxtalabel10
 .cc_bottom cc_794
 .cc_top cc_795,.Lxtalabel128
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
-	.long	467
+	.long	533
+	.long	534
 	.long	.Lxtalabel128
 .cc_bottom cc_795
 .cc_top cc_796,.Lxtalabel361
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
-	.long	467
+	.long	533
+	.long	534
 	.long	.Lxtalabel361
 .cc_bottom cc_796
 .cc_top cc_797,.Lxtalabel270
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
-	.long	467
+	.long	533
+	.long	534
 	.long	.Lxtalabel270
 .cc_bottom cc_797
 .cc_top cc_798,.Lxtalabel179
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	466
-	.long	467
+	.long	533
+	.long	534
 	.long	.Lxtalabel179
 .cc_bottom cc_798
 .cc_top cc_799,.Lxtalabel180
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	468
-	.long	469
+	.long	535
+	.long	536
 	.long	.Lxtalabel180
 .cc_bottom cc_799
 .cc_top cc_800,.Lxtalabel11
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	468
-	.long	469
+	.long	535
+	.long	536
 	.long	.Lxtalabel11
 .cc_bottom cc_800
 .cc_top cc_801,.Lxtalabel129
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	468
-	.long	469
+	.long	535
+	.long	536
 	.long	.Lxtalabel129
 .cc_bottom cc_801
 .cc_top cc_802,.Lxtalabel362
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	468
-	.long	469
+	.long	535
+	.long	536
 	.long	.Lxtalabel362
 .cc_bottom cc_802
 .cc_top cc_803,.Lxtalabel271
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	468
-	.long	469
+	.long	535
+	.long	536
 	.long	.Lxtalabel271
 .cc_bottom cc_803
 .cc_top cc_804,.Lxtalabel270
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	470
-	.long	471
+	.long	537
+	.long	538
 	.long	.Lxtalabel270
 .cc_bottom cc_804
 .cc_top cc_805,.Lxtalabel128
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	470
-	.long	471
+	.long	537
+	.long	538
 	.long	.Lxtalabel128
 .cc_bottom cc_805
 .cc_top cc_806,.Lxtalabel10
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	470
-	.long	471
+	.long	537
+	.long	538
 	.long	.Lxtalabel10
 .cc_bottom cc_806
 .cc_top cc_807,.Lxtalabel179
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	470
-	.long	471
+	.long	537
+	.long	538
 	.long	.Lxtalabel179
 .cc_bottom cc_807
 .cc_top cc_808,.Lxtalabel361
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	470
-	.long	471
+	.long	537
+	.long	538
 	.long	.Lxtalabel361
 .cc_bottom cc_808
 .cc_top cc_809,.Lxtalabel273
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
+	.long	541
+	.long	541
 	.long	.Lxtalabel273
 .cc_bottom cc_809
 .cc_top cc_810,.Lxtalabel130
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
+	.long	541
+	.long	541
 	.long	.Lxtalabel130
 .cc_bottom cc_810
 .cc_top cc_811,.Lxtalabel182
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
+	.long	541
+	.long	541
 	.long	.Lxtalabel182
 .cc_bottom cc_811
 .cc_top cc_812,.Lxtalabel364
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
+	.long	541
+	.long	541
 	.long	.Lxtalabel364
 .cc_bottom cc_812
 .cc_top cc_813,.Lxtalabel12
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
+	.long	541
+	.long	541
 	.long	.Lxtalabel12
 .cc_bottom cc_813
 .cc_top cc_814,.Lxtalabel131
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
-	.long	476
+	.long	542
+	.long	543
 	.long	.Lxtalabel131
 .cc_bottom cc_814
 .cc_top cc_815,.Lxtalabel365
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
-	.long	476
+	.long	542
+	.long	543
 	.long	.Lxtalabel365
 .cc_bottom cc_815
 .cc_top cc_816,.Lxtalabel183
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
-	.long	476
+	.long	542
+	.long	543
 	.long	.Lxtalabel183
 .cc_bottom cc_816
 .cc_top cc_817,.Lxtalabel13
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
-	.long	476
+	.long	542
+	.long	543
 	.long	.Lxtalabel13
 .cc_bottom cc_817
 .cc_top cc_818,.Lxtalabel274
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	475
-	.long	476
+	.long	542
+	.long	543
 	.long	.Lxtalabel274
 .cc_bottom cc_818
 .cc_top cc_819,.Lxtalabel275
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	477
-	.long	478
+	.long	544
+	.long	545
 	.long	.Lxtalabel275
 .cc_bottom cc_819
 .cc_top cc_820,.Lxtalabel14
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	477
-	.long	478
+	.long	544
+	.long	545
 	.long	.Lxtalabel14
 .cc_bottom cc_820
 .cc_top cc_821,.Lxtalabel132
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	477
-	.long	478
+	.long	544
+	.long	545
 	.long	.Lxtalabel132
 .cc_bottom cc_821
 .cc_top cc_822,.Lxtalabel366
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	477
-	.long	478
+	.long	544
+	.long	545
 	.long	.Lxtalabel366
 .cc_bottom cc_822
 .cc_top cc_823,.Lxtalabel184
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	477
-	.long	478
+	.long	544
+	.long	545
 	.long	.Lxtalabel184
 .cc_bottom cc_823
 .cc_top cc_824,.Lxtalabel367
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel367
 .cc_bottom cc_824
 .cc_top cc_825,.Lxtalabel185
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel185
 .cc_bottom cc_825
 .cc_top cc_826,.Lxtalabel276
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel276
 .cc_bottom cc_826
 .cc_top cc_827,.Lxtalabel15
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel15
 .cc_bottom cc_827
 .cc_top cc_828,.Lxtalabel133
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel133
 .cc_bottom cc_828
 .cc_top cc_829,.Lxtalabel134
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	482
-	.long	483
+	.long	549
+	.long	550
 	.long	.Lxtalabel134
 .cc_bottom cc_829
 .cc_top cc_830,.Lxtalabel189
@@ -21039,246 +20975,246 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_top cc_906,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_906
 .cc_top cc_907,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_907
 .cc_top cc_908,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_908
 .cc_top cc_909,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_909
 .cc_top cc_910,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	336
-	.long	337
+	.long	403
+	.long	404
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_910
 .cc_top cc_911,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_911
 .cc_top cc_912,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_912
 .cc_top cc_913,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_913
 .cc_top cc_914,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_914
 .cc_top cc_915,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	406
+	.long	406
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_915
 .cc_top cc_916,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	347
+	.long	408
+	.long	414
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_916
 .cc_top cc_917,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	347
+	.long	408
+	.long	414
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_917
 .cc_top cc_918,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	347
+	.long	408
+	.long	414
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_918
 .cc_top cc_919,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	347
+	.long	408
+	.long	414
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_919
 .cc_top cc_920,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	347
+	.long	408
+	.long	414
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_920
 .cc_top cc_921,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	355
+	.long	416
+	.long	422
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_921
 .cc_top cc_922,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	355
+	.long	416
+	.long	422
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_922
 .cc_top cc_923,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	355
+	.long	416
+	.long	422
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_923
 .cc_top cc_924,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	355
+	.long	416
+	.long	422
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_924
 .cc_top cc_925,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	349
-	.long	355
+	.long	416
+	.long	422
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_925
 .cc_top cc_926,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	363
+	.long	424
+	.long	430
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_926
 .cc_top cc_927,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	363
+	.long	424
+	.long	430
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_927
 .cc_top cc_928,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	363
+	.long	424
+	.long	430
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_928
 .cc_top cc_929,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	363
+	.long	424
+	.long	430
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_929
 .cc_top cc_930,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	357
-	.long	363
+	.long	424
+	.long	430
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_930
 .cc_top cc_931,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_931
 .cc_top cc_932,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_932
 .cc_top cc_933,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_933
 .cc_top cc_934,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_934
 .cc_top cc_935,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	365
-	.long	366
+	.long	432
+	.long	433
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_935
 .cc_top cc_936,.Lxta.loop_labels4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	393
+	.long	456
+	.long	460
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_936
 .cc_top cc_937,.Lxta.loop_labels2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	393
+	.long	456
+	.long	460
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_937
 .cc_top cc_938,.Lxta.loop_labels6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	393
+	.long	456
+	.long	460
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_938
 .cc_top cc_939,.Lxta.loop_labels1
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	393
+	.long	456
+	.long	460
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_939
 .cc_top cc_940,.Lxta.loop_labels8
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	389
-	.long	393
+	.long	456
+	.long	460
 	.long	.Lxta.loop_labels8
 .cc_bottom cc_940
 .Lentries_end7:
@@ -21288,7 +21224,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -21296,7 +21232,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"../src/port_heat_light_server.xc:337:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:404:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -21304,7 +21240,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -21312,7 +21248,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"../src/port_heat_light_server.xc:389:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:456:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3
@@ -21320,7 +21256,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_3
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str4:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_4,.Ltrap_info4
 	.long	.Ltrap_info4
@@ -21328,7 +21264,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_4
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str5:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_5,.Ltrap_info5
 	.long	.Ltrap_info5
@@ -21336,7 +21272,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_5
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str6:
-.asciiz"../src/port_heat_light_server.xc:389:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:456:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_6,.Ltrap_info6
 	.long	.Ltrap_info6
@@ -21344,7 +21280,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_6
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str7:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_7,.Ltrap_info7
 	.long	.Ltrap_info7
@@ -21352,7 +21288,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_7
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str8:
-.asciiz"../src/port_heat_light_server.xc:337:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:404:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_8,.Ltrap_info8
 	.long	.Ltrap_info8
@@ -21360,7 +21296,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_8
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str9:
-.asciiz"../src/port_heat_light_server.xc:389:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:456:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_9,.Ltrap_info9
 	.long	.Ltrap_info9
@@ -21368,7 +21304,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_9
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str10:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_10,.Ltrap_info10
 	.long	.Ltrap_info10
@@ -21376,7 +21312,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_10
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str11:
-.asciiz"../src/port_heat_light_server.xc:337:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:404:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_11,.Ltrap_info11
 	.long	.Ltrap_info11
@@ -21384,7 +21320,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_11
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str12:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_12,.Ltrap_info12
 	.long	.Ltrap_info12
@@ -21392,7 +21328,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_12
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str13:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_13,.Ltrap_info13
 	.long	.Ltrap_info13
@@ -21400,7 +21336,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_13
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str14:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_14,.Ltrap_info14
 	.long	.Ltrap_info14
@@ -21408,7 +21344,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_14
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str15:
-.asciiz"../src/port_heat_light_server.xc:281:25: error: out of bounds array access\n                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:348:25: error: out of bounds array access\n                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_15,.Ltrap_info15
 	.long	.Ltrap_info15
@@ -21416,7 +21352,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_15
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str16:
-.asciiz"../src/port_heat_light_server.xc:389:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:456:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_16,.Ltrap_info16
 	.long	.Ltrap_info16
@@ -21424,7 +21360,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_16
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str17:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_17,.Ltrap_info17
 	.long	.Ltrap_info17
@@ -21432,7 +21368,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_17
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str18:
-.asciiz"../src/port_heat_light_server.xc:337:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:404:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_18,.Ltrap_info18
 	.long	.Ltrap_info18
@@ -21440,7 +21376,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_18
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str19:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_19,.Ltrap_info19
 	.long	.Ltrap_info19
@@ -21448,7 +21384,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_19
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str20:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_20,.Ltrap_info20
 	.long	.Ltrap_info20
@@ -21456,7 +21392,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_20
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str21:
-.asciiz"../src/port_heat_light_server.xc:227:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:294:33: error: out of bounds array access\n                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_21,.Ltrap_info21
 	.long	.Ltrap_info21
@@ -21464,7 +21400,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_21
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str22:
-.asciiz"../src/port_heat_light_server.xc:281:25: error: out of bounds array access\n                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:348:25: error: out of bounds array access\n                    if (pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] == PIN_LIGHTER) {\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_22,.Ltrap_info22
 	.long	.Ltrap_info22
@@ -21472,7 +21408,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_22
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str23:
-.asciiz"../src/port_heat_light_server.xc:389:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:456:42: error: out of bounds array access\n                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_23,.Ltrap_info23
 	.long	.Ltrap_info23
@@ -21480,7 +21416,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_23
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str24:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_24,.Ltrap_info24
 	.long	.Ltrap_info24
@@ -21488,7 +21424,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_24
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str25:
-.asciiz"../src/port_heat_light_server.xc:337:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:404:45: error: out of bounds array access\n                        uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_25,.Ltrap_info25
 	.long	.Ltrap_info25
@@ -21496,7 +21432,7 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_bottom cc_trapinfo_25
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str26:
-.asciiz"../src/port_heat_light_server.xc:336:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/port_heat_light_server.xc:403:45: error: out of bounds array access\n                        uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];\n                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_26,.Ltrap_info26
 	.long	.Ltrap_info26

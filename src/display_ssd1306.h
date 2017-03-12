@@ -78,6 +78,10 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 
 //      Contrast 0..255 appearantly doesn't work on the monochrome
 //      https://forums.adafruit.com/viewtopic.php?f=47&t=30322&hilit=+oled+contrast#p172367
+// Usage:
+//     writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);
+//     writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
+//
 #define CONTRAST_VALUE_DIMMED            0x00 // Only dims to low level, not dark!
 #define CONTRAST_VALUE_BRIGHT_IS_DEFAULT 0x8F // The Adafruit code used 0xCF and 0x9F but they are virtually equal to this
 #define CONTRAST_VALUE_READ_EXTERNALVCC  0x9F // Not used here since 3.3V not connected

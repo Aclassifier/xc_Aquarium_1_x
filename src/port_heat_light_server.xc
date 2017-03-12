@@ -84,66 +84,133 @@ typedef enum heat_cable_alternating_t {
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
-//
-static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
-{
-   // MONOTONOUS COLOUR AND INTENSITY INCREASE:
-   {                                                                 //                       #### mW
-                                                                  0, //  0 [LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF][0]
-                                                                  0, //  0 [LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF][1]
-                                                                  0  //  0 [LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF][2]
-   }, {
-                                                                  0, //  1 [LIGHT_COMPOSITION_0666_BACK1_ON][0]
-                                                                  0, //  1 [LIGHT_COMPOSITION_0666_BACK1_ON][1]
-                                                     BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_0666_BACK1_ON][2]
-   }, {
-                              BIT_LIGHT_CENTER                     , //  2 [LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON][0]
-                                                     BIT_LIGHT_BACK, //  2 [LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON][1]
-                                                     BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON][2]
-   }, {
-                                                     BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON][0]
-                                                     BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON][1]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  3 [LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON][2]
-   }, {
-                                                     BIT_LIGHT_BACK, //  4 [LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON][0]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  4 [LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON][1]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  4 [LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON][2]
-   }, {
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON][0]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON][1]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  5 [LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON][2]
-   },  {
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON][0]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON][1]
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON][2]
-   }, {
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON][0]
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON][1]
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON][2]
-   }, {
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON][0]
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON][1]
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON][2]
-   },
-   // NON-MONOTONOUS COLOUR AND INTENSITY:
-   {
-        BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  9 [LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON][0]
-        BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON][1]
-                              BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON][2]
-   }, {
-        BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON][0]
-                              BIT_LIGHT_CENTER                     , // 10 [LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON][1]
-                                                     BIT_LIGHT_BACK  // 10 [LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON][2]
-   }, {
-                              BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_CENTER3_ON][0]
-                              BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_CENTER3_ON][1]
-                              BIT_LIGHT_CENTER                       // 11 [LIGHT_COMPOSITION_2000_CENTER3_ON][2]
-   }, {
-        BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_FRONT3_ON][0]
-        BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_FRONT3_ON][1]
-        BIT_LIGHT_FRONT                                              // 12 [LIGHT_COMPOSITION_5000_FRONT3_ON][2]
-   }
-};
+
+//#define SEQUENCE_BLUE_LAST // if not define then SEQUENCE_WHITE_LAST
+#ifdef SEQUENCE_BLUE_LAST
+    static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
+    {
+       //   MONOTONOUS COLOUR AND INTENSITY INCREASE:
+       //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       {                                                                 //                       #### mW              Concise but less general name
+                                                                      0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+                                                                      0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+                                                                      0  //  0 [LIGHT_COMPOSITION_0000_mW_OFF][2]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+       }, {
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][0]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][1]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+                                                         BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_0666_mW_ON][2]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+       }, {
+                                  BIT_LIGHT_CENTER                     , //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][0] LIGHT_COMPOSITION_2000_mW_BACK2_CENTER1_ON
+                                                         BIT_LIGHT_BACK, //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][1] LIGHT_COMPOSITION_2000_mW_BACK2_CENTER1_ON
+                                                         BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][2] LIGHT_COMPOSITION_2000_mW_BACK2_CENTER1_ON
+       }, {
+                                                         BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_2666_mW_ON][0]       LIGHT_COMPOSITION_2666_mW_BACK3_CENTER1_ON
+                                                         BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_2666_mW_ON][1]       LIGHT_COMPOSITION_2666_mW_BACK3_CENTER1_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  3 [LIGHT_COMPOSITION_2666_mW_ON][2]       LIGHT_COMPOSITION_2666_mW_BACK3_CENTER1_ON
+       }, {
+                                                         BIT_LIGHT_BACK, //  4 [LIGHT_COMPOSITION_3333_mW_ON][0]       LIGHT_COMPOSITION_3333_mW_BACK3_CENTER2_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  4 [LIGHT_COMPOSITION_3333_mW_ON][1]       LIGHT_COMPOSITION_3333_mW_BACK3_CENTER2_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  4 [LIGHT_COMPOSITION_3333_mW_ON][2]       LIGHT_COMPOSITION_3333_mW_BACK3_CENTER2_ON
+       }, {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_mW_ON][0]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_mW_ON][1]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  5 [LIGHT_COMPOSITION_4000_mW_ON][2]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+       },  {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_mW_ON][0]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_mW_ON][1]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_5666_mW_ON][2]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+       }, {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_mW_ON][0]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_mW_ON][1]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_8333_mW_ON][2]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+       }, {
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_mW_ON][0]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_mW_ON][1]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_9000_mW_ON][2]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+       },
+       //   NON-MONOTONOUS COLOUR AND INTENSITY:
+       //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       {                                                                 //                       #### mW              Concise but less general name
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  9 [LIGHT_COMPOSITION_6000_mW_ON][0]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+            BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_6000_mW_ON][1]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_6000_mW_ON][2]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+       }, {
+            BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_3000_mW_ON][0]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                  BIT_LIGHT_CENTER                     , // 10 [LIGHT_COMPOSITION_3000_mW_ON][1]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                                         BIT_LIGHT_BACK  // 10 [LIGHT_COMPOSITION_3000_mW_ON][2]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+       }, {
+                                  BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][0] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                  BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][1] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                  BIT_LIGHT_CENTER                       // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][2] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+       }, {
+            BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_mW_ON][0]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+            BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_mW_ON][1]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+            BIT_LIGHT_FRONT                                              // 12 [LIGHT_COMPOSITION_5000_mW_ON][2]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+       }
+    };
+#else
+    static unsigned int p32_bits_for_light_composition_pwm_windows [NUM_LIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
+    {
+       //   MONOTONOUS COLOUR AND INTENSITY INCREASE:
+       //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       {                                                                 //                       #### mW              Concise but less general name
+                                                                      0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+                                                                      0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+                                                                      0  //  0 [LIGHT_COMPOSITION_0000_mW_OFF][2]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+       }, {
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][0]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][1]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+                                  BIT_LIGHT_CENTER                       //  1 [LIGHT_COMPOSITION_0666_mW_ON][2]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+       }, {
+                                                         BIT_LIGHT_BACK, //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][0] LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
+                                  BIT_LIGHT_CENTER,                      //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][1] LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
+                                  BIT_LIGHT_CENTER                       //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][2] LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
+       }, {
+                                  BIT_LIGHT_CENTER,                      //  3 [LIGHT_COMPOSITION_2666_mW_ON][0]       LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
+                                  BIT_LIGHT_CENTER,                      //  3 [LIGHT_COMPOSITION_2666_mW_ON][1]       LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  3 [LIGHT_COMPOSITION_2666_mW_ON][2]       LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
+       }, {
+                                  BIT_LIGHT_CENTER,                      //  4 [LIGHT_COMPOSITION_3333_mW_ON][0]       LIGHT_COMPOSITION_3333_mW_BACK2_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  4 [LIGHT_COMPOSITION_3333_mW_ON][1]       LIGHT_COMPOSITION_3333_mW_BACK2_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  4 [LIGHT_COMPOSITION_3333_mW_ON][2]       LIGHT_COMPOSITION_3333v_BACK2_CENTER3_ON
+       }, {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_mW_ON][0]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_4000_mW_ON][1]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  5 [LIGHT_COMPOSITION_4000_mW_ON][2]       LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+       },  {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_mW_ON][0]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_5666_mW_ON][1]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_5666_mW_ON][2]       LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+       }, {
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_mW_ON][0]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8333_mW_ON][1]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_8333_mW_ON][2]       LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+       }, {
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_mW_ON][0]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9000_mW_ON][1]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_9000_mW_ON][2]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+       },
+       //   NON-MONOTONOUS COLOUR AND INTENSITY:
+       //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       {                                                                 //                       #### mW              Concise but less general name
+            BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  9 [LIGHT_COMPOSITION_6000_mW_ON][0]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+            BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_6000_mW_ON][1]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+                                  BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_6000_mW_ON][2]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON
+       }, {
+            BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_3000_mW_ON][0]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                  BIT_LIGHT_CENTER                     , // 10 [LIGHT_COMPOSITION_3000_mW_ON][1]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                                         BIT_LIGHT_BACK  // 10 [LIGHT_COMPOSITION_3000_mW_ON][2]       LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+       }, {
+                                  BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][0] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                  BIT_LIGHT_CENTER,                      // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][1] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                  BIT_LIGHT_CENTER                       // 11 [LIGHT_COMPOSITION_2000_mW_ON_WHITE][2] LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+       }, {
+            BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_mW_ON][0]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+            BIT_LIGHT_FRONT,                                             // 12 [LIGHT_COMPOSITION_5000_mW_ON][1]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+            BIT_LIGHT_FRONT                                              // 12 [LIGHT_COMPOSITION_5000_mW_ON][2]       LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+       }
+    };
+#endif
 
 typedef enum pin_change_t {
     PIN_SAME_LIGHT,
@@ -191,7 +258,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     uint32_t                 port_value = UINT32_HIGH_BITS;
     timer                    tmr;
     int                      time;
-    unsigned int             iof_light_composition_level_present = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    unsigned int             iof_light_composition_level_present = LIGHT_COMPOSITION_0000_mW_OFF;
     unsigned int             iof_light_pwm_window                = 0; // 0,1,2 if NUM_PWM_TIME_WINDOWS==3
     heat_cable_alternating_t heat_cable_alternating              = HEAT_1_ON; // To wear both heating cables equally much and get optimal spread of heat
                                                                               // (even if the cables are mounted beside each other all the way)

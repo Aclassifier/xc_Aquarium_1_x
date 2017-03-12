@@ -33,7 +33,7 @@
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_DISPLAY) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_CHRONODOT1 0 // Cost 0.1k
-#define c_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1) printf(fmt, __VA_ARGS__); } while (0)
+#define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_internal_config = { // For display and ChronoDot
     on tile[0]:XS1_PORT_1E, // I_SCL SCL is at startKIT GPIO header (J7.4) port P1E0, processor pin X0D12
@@ -101,17 +101,17 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
 
                 i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);
 
-                c_debug_printf("ChronoDot %u: ", i2c_result);
+                x_debug_printf("ChronoDot %u: ", i2c_result);
 
                 for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
                     return_chronodot_d3231_registers.registers[x] = receive_data[x];
 
                     #ifdef DEBUG_PRINT_CHRONODOT1 // Keep it
                         if (x==(D3231_NUM_REGISTERS-1)) {
-                            c_debug_printf("%02x\n",receive_data[x]); // Last, no comma
+                            x_debug_printf("%02x\n",receive_data[x]); // Last, no comma
                         }
                         else {
-                            c_debug_printf("%02x  ",receive_data[x]); // Two spaces better for setting up names in the log
+                            x_debug_printf("%02x  ",receive_data[x]); // Two spaces better for setting up names in the log
                         }
                      #endif
                  }

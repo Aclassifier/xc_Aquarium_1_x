@@ -1655,8 +1655,8 @@ void myExceptionHandler(void);
 
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
-typedef int light_range_t;
-# 40 "../src/f_conversions.h"
+typedef int light_sensor_range_t;
+# 42 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1679,7 +1679,7 @@ typedef struct temp_onetenthDegC_mean_t {
 
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[5]);
-{light_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
+{light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
@@ -1696,8 +1696,8 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 31 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
-# 11 "../src/port_heat_light_server.h"
-typedef enum {
+# 10 "../src/port_heat_light_server.h"
+typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_FRONT,
     IOF_LED_STRIP_CENTER,
     IOF_LED_STRIP_BACK
@@ -1707,23 +1707,23 @@ typedef enum {
 
 
 typedef enum light_composition_t {
-# 31 "../src/port_heat_light_server.h"
-    LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
-    LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
-    LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON = 2,
-    LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON = 3,
-    LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON = 4,
-    LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON = 5,
-    LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON = 6,
-    LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON = 7,
-    LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON = 8,
+# 30 "../src/port_heat_light_server.h"
+    LIGHT_COMPOSITION_0000_mW_OFF = 0,
+    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
+    LIGHT_COMPOSITION_2666_mW_ON = 3,
+    LIGHT_COMPOSITION_3333_mW_ON = 4,
+    LIGHT_COMPOSITION_4000_mW_ON = 5,
+    LIGHT_COMPOSITION_5666_mW_ON = 6,
+    LIGHT_COMPOSITION_8333_mW_ON = 7,
+    LIGHT_COMPOSITION_9000_mW_ON = 8,
 
 
 
-    LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON = 9,
-    LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON = 10,
-    LIGHT_COMPOSITION_2000_CENTER3_ON = 11,
-    LIGHT_COMPOSITION_5000_FRONT3_ON = 12
+    LIGHT_COMPOSITION_6000_mW_ON = 9,
+    LIGHT_COMPOSITION_3000_mW_ON = 10,
+    LIGHT_COMPOSITION_2000_mW_ON_WHITE = 11,
+    LIGHT_COMPOSITION_5000_mW_ON = 12
 
 } light_composition_t;
 
@@ -1733,7 +1733,8 @@ typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_DAY_TO_NIGHT,
     LIGHT_CONTROL_IS_NIGHT,
     LIGHT_CONTROL_IS_NIGHT_TO_DAY,
-    LIGHT_CONTROL_IS_RANDOM
+    LIGHT_CONTROL_IS_RANDOM,
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE
 } light_control_scheme_t;
 
 typedef enum {

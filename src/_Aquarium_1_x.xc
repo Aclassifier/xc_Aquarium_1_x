@@ -45,8 +45,11 @@
 #endif
 
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
-#define DEBUG_PRINT_AQUARIUM 1 // Cost 1.3k
+#define DEBUG_PRINT_AQUARIUM 1 // Cost 1.2k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+
+#define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
+#define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 typedef enum {
     CALLER_IS_BUTTON,
@@ -58,7 +61,7 @@ typedef enum {
 
 typedef enum display_screen_name_t {
     // English-Norwegian here bacause the screens are in Norwegian
-    SCREEN_LOGG, // screen_debug_t
+    SCREEN_LOGG, // screen_logg_t
     SCREEN_AKVARIETEMPERATURER, // SCREEN_NORMALLY_FIRST
     SCREEN_VARMEREGULERING,
     SCREEN_LYSGULERING,
@@ -91,10 +94,14 @@ typedef enum display_sub_state_t {
     SUB_STATE_DARK  // Special state
 } display_sub_state_t;
 
-typedef struct screen_debug_t {
+#define SCREEN_LOGG_EXISTS 1  // DEBUG purpose: If 1 then any one of these are defined:
+#define SCREEN_LOGG_RAW_TEMPS // The only
+
+typedef struct screen_logg_t {
+    bool     exists; // Is SCREEN_LOGG_EXISTS value
     unsigned display_ts1_chars_num;
     char     display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN + 10];
-} screen_debug_t;
+} screen_logg_t;
 
 typedef enum screen_clock_cursor_at_t {
     CURSOR_SCREEN_NONE,
@@ -127,7 +134,7 @@ typedef struct handler_context_t {
     unsigned                    display_is_on_seconds_cnt;
     bool                        display_is_on;
     char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is use
-    screen_debug_t              screen_debug;
+    screen_logg_t               screen_logg;
     bool                        beeper_blip_now;
 
     button_state_t              buttons_state [BUTTONS_NUM_CLIENTS];
@@ -148,7 +155,8 @@ typedef struct handler_context_t {
     unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
     bool                        light_stable;
                                 // For get_adc_vals:
-    unsigned int                adc_cnt, no_adc_cnt;
+    unsigned int                adc_cnt;
+    unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
                                 // For get_regulator_data
     unsigned                    on_percent;
@@ -176,27 +184,27 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_aa_str[]          = CHAR_aa_STR; // å
     const char char_OE_str[]          = CHAR_OE_STR; // Ø
 
-    // debug_printf ("Handle_Real_Or_Clocked_Button_Actions %u\n", context.display_screen_name_present);
+    x_debug_printf ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
     switch (context.display_screen_name_present) {
 
         case SCREEN_LOGG: {
             Clear_All_Pixels_In_Buffer();
-            if (context.screen_debug.display_ts1_chars_num > 0) {
+            if (context.screen_logg.display_ts1_chars_num > 0) {
                 context.silent_any_button_while_display_on_seconds_cnt = 0; // Forever when it's on
 
-                if (context.screen_debug.display_ts1_chars_num > ((sizeof context.screen_debug.display_ts1_chars)-1)) {
-                    context.screen_debug.display_ts1_chars_num = ((sizeof context.screen_debug.display_ts1_chars)-1); // Space for NUL
+                if (context.screen_logg.display_ts1_chars_num > ((sizeof context.screen_logg.display_ts1_chars)-1)) {
+                    context.screen_logg.display_ts1_chars_num = ((sizeof context.screen_logg.display_ts1_chars)-1); // Space for NUL
                 } else {}
 
                 setTextSize(1);
                 setTextColor(WHITE);
                 setCursor(0,0);
-                display_print (context.screen_debug.display_ts1_chars, context.screen_debug.display_ts1_chars_num); // No need for the \0
+                display_print (context.screen_logg.display_ts1_chars, context.screen_logg.display_ts1_chars_num); // No need for the \0
 
                 if (caller == CALLER_IS_BUTTON) {
-                    context.screen_debug.display_ts1_chars[context.screen_debug.display_ts1_chars_num] = 0; // NUL
-                    debug_printf("SCREEN_LOGG: %s%s", context.screen_debug.display_ts1_chars, "/n");
+                    context.screen_logg.display_ts1_chars[context.screen_logg.display_ts1_chars_num] = 0; // NUL
+                    debug_printf("SCREEN_LOGG: %s%s", context.screen_logg.display_ts1_chars, "/n");
                 } else {}
             } else {}
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -220,13 +228,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "1%s AKVARIETERMOMETERE          VANN %s%sC          LUFT %s%sC   VARME UNDER %s%sC",
-                    takes_press_for_10_seconds_right_button_str,
+                    "1%s AKVARIETERMOMETERE%s          VANN %s%sC          LUFT %s%sC   VARME UNDER %s%sC",
+                    context.screen_logg.exists ? takes_press_for_10_seconds_right_button_str : "",
+                    context.screen_logg.exists ? "" : " ",
                     temp_degC_water_str,   char_degC_circle_str,
                     temp_degC_ambient_str, char_degC_circle_str,
                     temp_degC_heater_str,  char_degC_circle_str);
             //                                            ..........----------.
-            //                                            1± AKVARIETERMOMETERE
+            //                                            1± AKVARIETERMOMETERE or
+            //                                            1 AKVARIETERMOMETERE
             //                                                      VANN 25.0oC
             //                                                      LUFT 25.0oC
             //                                               VARME UNDER 25.0oC
@@ -309,8 +319,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
               context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            debug_printf ("SCREEN_LYSGULERING = %u\n", context.display_sub_context[SCREEN_LYSGULERING].sub_state);
-
             switch (context.display_sub_context[SCREEN_LYSGULERING].sub_state) {
                 case SUB_STATE_SHOW: {
 
@@ -340,12 +348,23 @@ void Handle_Real_Or_Clocked_Button_Actions (
                       case LIGHT_CONTROL_IS_RANDOM : {
                           sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
                       } break;
+                      case LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE : {
+                          sprintf (light_control_scheme_str, "%s", " LYS"); // Leading space
+                      } break;
                       default: break;
                     }
 
+                    #define LEFT_OF_RANDOM_TEXT_LEN 5
+                    char left_of_random_str [LEFT_OF_RANDOM_TEXT_LEN] = "    "; // "M12" or none
+                    //
+                    if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
+                        sprintf (left_of_random_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
+                    } else {} // Keep white space
+
+
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS P%s  %uW %uW %uW    TREDELER F%u M%u B%u  %s     MAKS %s             %s %s %u",
+                          "%s3 LYS P%s  %uW %uW %uW    TREDELER F%u M%u B%u  %s     MAKS %s             %s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                       // "±"
                           char_AA_str,                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                            // "5"
@@ -358,12 +377,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                  // "3/3" or "2/3
                           light_control_scheme_str,                                                          // "NATT" etc.
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
-                          context.light_composition);                                                        // 10
+                          context.light_composition,                                                         // 10
+                          left_of_random_str);                                                               // M12
                     //                                            ..........----------.
                     //                                            ±3 LYS PÅ  5W 2W 2W .
                     //                                              TREDELER f1 m2 b3 .
                     //                                            ±     MAKS 3/3      .
-                    //                                                   DAG ± 10     .
+                    //                                                   DAG ± 10 M:12.
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -442,7 +462,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             char temp_degC_str [INNER_TEMPERATURE_DEGC_TEXT_LEN];
             char rr_12V_str    [INNER_RR_12V_24V_TEXT_LEN];
             char rr_24V_str    [INNER_RR_12V_24V_TEXT_LEN];
-            light_range_t      light_sensor_intensity;
+            light_sensor_range_t      light_sensor_intensity;
             bool               light_sensor_intensity_ok;
 
             char fill_1_str [] = " ";
@@ -572,8 +592,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-
-            debug_printf ("SCREEN_KLOKKE = %u\n", context.display_sub_context[SCREEN_KLOKKE].sub_state);
 
             switch (context.display_sub_context[SCREEN_KLOKKE].sub_state) {
 
@@ -796,6 +814,10 @@ void Handle_Real_Or_Clocked_Buttons (
                     if (caller == CALLER_IS_BUTTON) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
+
+                           writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);
+                           writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
+
                         } else { // DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE
                            context.display_appear_state = DISPLAY_APPEAR_BLACK;
                            Clear_All_Pixels_In_Buffer();
@@ -940,22 +962,26 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
                     switch (context.display_screen_name_present) {
                         case SCREEN_LOGG: { // 0
-                            if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
-                                context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
-                                context.beeper_blip_now = true;
-                                context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                            } else {} // On below
+                            if (context.screen_logg.exists) {
+                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
+                                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
+                                    context.beeper_blip_now = true;
+                                    context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
+                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                } else {} // On below
+                            } else {}
                         } break;
                         case SCREEN_AKVARIETEMPERATURER: { // 1
-                            if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_DARK) {
-                                context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_SHOW;
-                                context.beeper_blip_now = true;
-                                context.display_screen_name_present = SCREEN_LOGG;
-                                if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
-                                    context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
+                            if (context.screen_logg.exists) {
+                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_DARK) {
+                                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_SHOW;
+                                    context.beeper_blip_now = true;
+                                    context.display_screen_name_present = SCREEN_LOGG;
+                                    if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
+                                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
+                                    } else {}
+                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {}
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                             } else {}
                         } break;
                         case SCREEN_VARMEREGULERING: { // 2
@@ -1044,7 +1070,8 @@ void System_Task (
 
     context.display_sub_countdown_seconds = 0;
 
-    context.screen_debug.display_ts1_chars_num = 0;;
+    context.screen_logg.display_ts1_chars_num = 0;
+    context.screen_logg.exists = SCREEN_LOGG_EXISTS;
 
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
@@ -1098,24 +1125,40 @@ void System_Task (
                      }
                 }
 
-                if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
-                    (context.display_screen_name_present == SCREEN_LOGG)) {
+                if (context.screen_logg.exists) {
+                    #ifdef SCREEN_LOGG_RAW_TEMPS
+                        if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
+                            (context.display_screen_name_present == SCREEN_LOGG)) {
 
-                    context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
+                            context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
 
-                    sprintf_return = sprintf (context.screen_debug.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
-                            takes_press_for_10_seconds_right_button_str,
-                            context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER],   context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER],
-                            context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
-                            context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
+                            sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
+                                    takes_press_for_10_seconds_right_button_str,
+                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER],   context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER],
+                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
+                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
-                    if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
-                        sprintf (context.screen_debug.display_ts1_chars, "%s","Feil");
-                        context.screen_debug.display_ts1_chars_num = 4;
-                    } else {
-                        context.screen_debug.display_ts1_chars_num = sprintf_return;
-                    }
+                            if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
+                                sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
+                                context.screen_logg.display_ts1_chars_num = 4;
+                            } else {
+                                context.screen_logg.display_ts1_chars_num = sprintf_return;
+                            }
+                        } else {}
+                    #else
+                        // Other screens
+                    #endif
                 } else {}
+
+                // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+                {
+                    bool light_sensor_intensity_ok;
+                    {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
+                        Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
+                    if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.do_init) {
+                        light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
+                    } else {} // Fine
+                }
 
                 light_sunrise_sunset_context.datetime_now = context.datetime; // qwe to just above here?
 
@@ -1124,9 +1167,11 @@ void System_Task (
                     light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
                 } else {}
 
+                // HANDLE LIGHT INTENSITY
                 context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
 
-                light_sunrise_sunset_context.datetime_previous = context.datetime;
+                light_sunrise_sunset_context.datetime_previous               = context.datetime;
+                light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
 
                 {context.light_composition, context.light_stable, context.light_control_scheme} = // .. then this, to get the result as soon as possible
                         i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);

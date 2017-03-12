@@ -1152,8 +1152,8 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 17 "../src/port_heat_light_server.xc" 2
 # 1 "../src/port_heat_light_server.h" 1
-# 11 "../src/port_heat_light_server.h"
-typedef enum {
+# 10 "../src/port_heat_light_server.h"
+typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_FRONT,
     IOF_LED_STRIP_CENTER,
     IOF_LED_STRIP_BACK
@@ -1163,23 +1163,23 @@ typedef enum {
 
 
 typedef enum light_composition_t {
-# 31 "../src/port_heat_light_server.h"
-    LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF = 0,
-    LIGHT_COMPOSITION_0666_BACK1_ON = 1 ,
-    LIGHT_COMPOSITION_2000_BACK2_CENTER1_ON = 2,
-    LIGHT_COMPOSITION_2666_BACK3_CENTER1_ON = 3,
-    LIGHT_COMPOSITION_3333_BACK3_CENTER2_ON = 4,
-    LIGHT_COMPOSITION_4000_BACK3_CENTER3_ON = 5,
-    LIGHT_COMPOSITION_5666_BACK3_CENTER3_FRONT1_ON = 6,
-    LIGHT_COMPOSITION_8333_BACK3_CENTER3_FRONT2_ON = 7,
-    LIGHT_COMPOSITION_9000_ALL_ALWAYS_ON = 8,
+# 30 "../src/port_heat_light_server.h"
+    LIGHT_COMPOSITION_0000_mW_OFF = 0,
+    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
+    LIGHT_COMPOSITION_2666_mW_ON = 3,
+    LIGHT_COMPOSITION_3333_mW_ON = 4,
+    LIGHT_COMPOSITION_4000_mW_ON = 5,
+    LIGHT_COMPOSITION_5666_mW_ON = 6,
+    LIGHT_COMPOSITION_8333_mW_ON = 7,
+    LIGHT_COMPOSITION_9000_mW_ON = 8,
 
 
 
-    LIGHT_COMPOSITION_6000_BACK2_CENTER2_FRONT2_ON = 9,
-    LIGHT_COMPOSITION_3000_BACK1_CENTER1_FRONT1_ON = 10,
-    LIGHT_COMPOSITION_2000_CENTER3_ON = 11,
-    LIGHT_COMPOSITION_5000_FRONT3_ON = 12
+    LIGHT_COMPOSITION_6000_mW_ON = 9,
+    LIGHT_COMPOSITION_3000_mW_ON = 10,
+    LIGHT_COMPOSITION_2000_mW_ON_WHITE = 11,
+    LIGHT_COMPOSITION_5000_mW_ON = 12
 
 } light_composition_t;
 
@@ -1189,7 +1189,8 @@ typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_DAY_TO_NIGHT,
     LIGHT_CONTROL_IS_NIGHT,
     LIGHT_CONTROL_IS_NIGHT_TO_DAY,
-    LIGHT_CONTROL_IS_RANDOM
+    LIGHT_CONTROL_IS_RANDOM,
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE
 } light_control_scheme_t;
 
 typedef enum {
@@ -1239,66 +1240,69 @@ typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
-# 88 "../src/port_heat_light_server.xc"
-static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
-{
+# 152 "../src/port_heat_light_server.xc"
+    static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
+    {
 
-   {
-                                                                  0,
-                                                                  0,
-                                                                  0
-   }, {
-                                                                  0,
-                                                                  0,
-                                                     (1<<5)
-   }, {
-                              (1<<4) ,
-                                                     (1<<5),
-                                                     (1<<5)
-   }, {
-                                                     (1<<5),
-                                                     (1<<5),
-                              (1<<4) | (1<<5)
-   }, {
-                                                     (1<<5),
-                              (1<<4) | (1<<5),
-                              (1<<4) | (1<<5)
-   }, {
-                              (1<<4) | (1<<5),
-                              (1<<4) | (1<<5),
-                              (1<<4) | (1<<5)
-   }, {
-                              (1<<4) | (1<<5),
-                              (1<<4) | (1<<5),
-        (1<<3) | (1<<4) | (1<<5)
-   }, {
-                              (1<<4) | (1<<5),
-        (1<<3) | (1<<4) | (1<<5),
-        (1<<3) | (1<<4) | (1<<5)
-   }, {
-        (1<<3) | (1<<4) | (1<<5),
-        (1<<3) | (1<<4) | (1<<5),
-        (1<<3) | (1<<4) | (1<<5)
-   },
 
-   {
-        (1<<3) | (1<<4) ,
-        (1<<3) | (1<<5),
-                              (1<<4) | (1<<5)
-   }, {
-        (1<<3) ,
-                              (1<<4) ,
-                                                     (1<<5)
-   }, {
-                              (1<<4),
-                              (1<<4),
-                              (1<<4)
-   }, {
-        (1<<3),
-        (1<<3),
-        (1<<3)
-   }
-};
+       {
+                                                                      0,
+                                                                      0,
+                                                                      0
+       }, {
+                                                                      0,
+                                                                      0,
+                                  (1<<4)
+       }, {
+                                                         (1<<5),
+                                  (1<<4),
+                                  (1<<4)
+       }, {
+                                  (1<<4),
+                                  (1<<4),
+                                  (1<<4) | (1<<5)
+       }, {
+                                  (1<<4),
+                                  (1<<4) | (1<<5),
+                                  (1<<4) | (1<<5)
+       }, {
+                                  (1<<4) | (1<<5),
+                                  (1<<4) | (1<<5),
+                                  (1<<4) | (1<<5)
+       }, {
+                                  (1<<4) | (1<<5),
+                                  (1<<4) | (1<<5),
+            (1<<3) | (1<<4) | (1<<5)
+       }, {
+                                  (1<<4) | (1<<5),
+            (1<<3) | (1<<4) | (1<<5),
+            (1<<3) | (1<<4) | (1<<5)
+       }, {
+            (1<<3) | (1<<4) | (1<<5),
+            (1<<3) | (1<<4) | (1<<5),
+            (1<<3) | (1<<4) | (1<<5)
+       },
+
+
+       {
+            (1<<3) | (1<<4) ,
+            (1<<3) | (1<<5),
+                                  (1<<4) | (1<<5)
+       }, {
+            (1<<3) ,
+                                  (1<<4) ,
+                                                         (1<<5)
+       }, {
+                                  (1<<4),
+                                  (1<<4),
+                                  (1<<4)
+       }, {
+            (1<<3),
+            (1<<3),
+            (1<<3)
+       }
+    };
+
 
 typedef enum pin_change_t {
     PIN_SAME_LIGHT,
@@ -1311,14 +1315,14 @@ typedef enum pin_change_t {
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 188 "../src/port_heat_light_server.xc"
+# 255 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
     uint32_t port_value = 0xffffffff;
     timer tmr;
     int time;
-    unsigned int iof_light_composition_level_present = LIGHT_COMPOSITION_0000_ALL_ALWAYS_OFF;
+    unsigned int iof_light_composition_level_present = LIGHT_COMPOSITION_0000_mW_OFF;
     unsigned int iof_light_pwm_window = 0;
     heat_cable_alternating_t heat_cable_alternating = HEAT_1_ON;
 
