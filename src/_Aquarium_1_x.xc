@@ -67,7 +67,7 @@ typedef enum display_screen_name_t {
     SCREEN_LYSGULERING,
     SCREEN_BOKSDATA,
     SCREEN_VERSJON,
-    SCREEN_FASTE_INNSTILLINGER,
+    SCREEN_KONSTANTER,
     SCREEN_KLOKKE
 } display_screen_name_t;
 
@@ -148,6 +148,7 @@ typedef struct handler_context_t {
     chronodot_d3231_registers_t chronodot_d3231_registers; // For real use, with also setting, this needs to be filled from chronodot before it's written
     DateTime_t                  datetime;
     DateTime_t                  datetime_editable;
+    DateTime_t                  datetime_at_startup;
     bool                        read_chronodot_ok;
     // For read_temperatures_ok:
     i2c_temps_t                 i2c_temps; // qwe NOT USED IN SCREENS, JUST HERE!
@@ -364,9 +365,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS P%s  %uW %uW %uW    TREDELER F%u M%u B%u  %s     MAKS %s             %s %s %u %s",
-                          takes_press_for_10_seconds_right_button_str,                                       // "±"
-                          char_AA_str,                                                                       //  
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s %s %u %s",
+                          takes_press_for_10_seconds_right_button_str,                                       // "±"                                                                       //  
                           WATTOF_LED_STRIP_FRONT,                                                            // "5"
                           WATTOF_LED_STRIP_CENTER,                                                           // "2"
                           WATTOF_LED_STRIP_BACK,                                                             // "2"
@@ -380,10 +380,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           context.light_composition,                                                         // 10
                           left_of_random_str);                                                               // M12
                     //                                            ..........----------.
-                    //                                            ±3 LYS P  5W 2W 2W .
-                    //                                              TREDELER f1 m2 b3 .
-                    //                                            ±     MAKS 3/3      .
-                    //                                                   DAG ± 10 M:12.
+                    //                                            ±3 LYS F:5W M:2W B:2W
+                    //                                                   1/3  2/3  3/3.
+                    //                                            ±      MAKS 3/3
+                    //                                                   NATT ± 10 M:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -482,14 +482,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
+                    "4 BOKS     LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
                     light_sensor_intensity,                                    // Format when left-aligned 0..99 number..
                     (light_sensor_intensity >= 10) ? fill_1_str : fill_2_str,  // ..by inserting an extra space when small number
                     temp_degC_str, char_degC_circle_str);
             //                                            ..........----------.
-            //                                            4 STYRING  LYS 12.1V.
+            //                                            4 BOKS     LYS 12.1V.
             //                                                     VARME 25.0V.
             //                                                 LYSSTYRKE 65   .
             //                                                TEMPERATUR 25.4oC
@@ -518,13 +518,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
              // FILLS 84 chars plus \0
              sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 AKVARIESTYRING       (C) %s      %syvind Teig          XC p%s XMOS startKIT", __DATE__, char_OE_str, char_aa_str);
+                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", __DATE__, char_aa_str, char_OE_str);
 
              //                                            ..........----------.
-             //                                            5 AKVARIESTYRING    .
-             //                                              (C) Sep 22 2013   .
-             //                                              ¯yvind Teig       .
+             //                                            5 BOKS              .
+             //                                              KODE Sep 22 2013  .
              //                                              XC pŒ XMOS startKIT
+             //                                              ¯yvind Teig       .
+
 
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
@@ -541,7 +542,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
              } else {}
          } break;
 
-        case SCREEN_FASTE_INNSTILLINGER: {
+        case SCREEN_KONSTANTER: {
 
             int temp_heater_degc  = (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING/10);
             int temp_water_degc = (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT/10);
@@ -554,13 +555,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
-                temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
+                    "6 KONSTANTER           %d%sC VANN            %d%sC MAX UNDERVARME  BOKS P%s %04u.%02u.%02u",
+                    temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str,
+                    char_AA_str,
+                    context.datetime_at_startup.year,
+                    context.datetime_at_startup.month,
+                    context.datetime_at_startup.day);
                     //                                            ..........----------.
-                    //                                            5 FASTE INNSTILLINGER
-                    //
-                    //                                                       VANN  25oC
-                    //                                              MAX UNDERVARME 25oC
+                    //                                            6 KONSTANTER
+                    //                                              25oC VANN
+                    //                                              40oC MAX UNDERVARME
+                    //                                              BOKS P 2017.03.14
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -711,7 +716,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.datetime_editable.hour   =    0;
                         context.datetime_editable.minute =    0;
                         context.datetime_editable.second =    0;
-                    } else if (context.datetime_editable.year >= 2050) { // If I'm 100 years old!
+                    } else if (context.datetime_editable.year >= 2050) { // I'll have to get some new fishes by then!
                         context.datetime_editable.year = 2017;
                     } else {
                         context.datetime_editable.year++;
@@ -1004,7 +1009,7 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_VERSJON: { // 5
                             // No code
                         } break;
-                        case SCREEN_FASTE_INNSTILLINGER: { // 6
+                        case SCREEN_KONSTANTER: { // 6
                             // No code
                         } break;
                         case SCREEN_KLOKKE: { // 7
@@ -1164,7 +1169,9 @@ void System_Task (
 
                 if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
                     light_sunrise_sunset_context.datetime_previous_not_initialised = false;
+
                     light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
+                    context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
                 } else {}
 
                 // HANDLE LIGHT INTENSITY

@@ -1994,7 +1994,7 @@ typedef enum display_screen_name_t {
     SCREEN_LYSGULERING,
     SCREEN_BOKSDATA,
     SCREEN_VERSJON,
-    SCREEN_FASTE_INNSTILLINGER,
+    SCREEN_KONSTANTER,
     SCREEN_KLOKKE
 } display_screen_name_t;
 
@@ -2075,6 +2075,7 @@ typedef struct handler_context_t {
     chronodot_d3231_registers_t chronodot_d3231_registers;
     DateTime_t datetime;
     DateTime_t datetime_editable;
+    DateTime_t datetime_at_startup;
     bool read_chronodot_ok;
 
     i2c_temps_t i2c_temps;
@@ -2291,9 +2292,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS P%s  %uW %uW %uW    TREDELER F%u M%u B%u  %s     MAKS %s             %s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,
-                          char_AA_str,
                           WATTOF_LED_STRIP_FRONT,
                           WATTOF_LED_STRIP_CENTER,
                           WATTOF_LED_STRIP_BACK,
@@ -2409,7 +2409,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "4 STYRING  LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
+                    "4 BOKS     LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
                     light_sensor_intensity,
@@ -2445,14 +2445,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 AKVARIESTYRING       (C) %s      %syvind Teig          XC p%s XMOS startKIT", "Mar 12 2017", char_OE_str, char_aa_str);
-
-
-
-
-
-
-
+                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", "Mar 14 2017", char_aa_str, char_OE_str);
+# 530 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(1);
@@ -2464,11 +2458,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                  context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                 do { if(1) printf("Version date %s %s\n", "22:34:19", "Mar 12 2017"); } while (0);
+                 do { if(1) printf("Version date %s %s\n", "21:01:35", "Mar 14 2017"); } while (0);
              } else {}
          } break;
 
-        case SCREEN_FASTE_INNSTILLINGER: {
+        case SCREEN_KONSTANTER: {
 
             int temp_heater_degc = (400/10);
             int temp_water_degc = (250/10);
@@ -2481,8 +2475,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "6 FASTE INNSTILLINGER                                 VANN %d%sC  MAX UNDERVARME %d%sC",
-                temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str);
+                    "6 KONSTANTER           %d%sC VANN            %d%sC MAX UNDERVARME  BOKS P%s %04u.%02u.%02u",
+                    temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str,
+                    char_AA_str,
+                    context.datetime_at_startup.year,
+                    context.datetime_at_startup.month,
+                    context.datetime_at_startup.day);
 
 
 
@@ -2500,7 +2498,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "22:34:19", "Mar 12 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "21:01:35", "Mar 14 2017"); } while (0);
             } else {}
         } break;
 
@@ -2931,7 +2929,7 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_VERSJON: {
 
                         } break;
-                        case SCREEN_FASTE_INNSTILLINGER: {
+                        case SCREEN_KONSTANTER: {
 
                         } break;
                         case SCREEN_KLOKKE: {
@@ -3091,7 +3089,9 @@ void System_Task (
 
                 if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
                     light_sunrise_sunset_context.datetime_previous_not_initialised = false;
+
                     light_sunrise_sunset_context.datetime_previous = context.datetime;
+                    context.datetime_at_startup = context.datetime;
                 } else {}
 
 
