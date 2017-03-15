@@ -1523,6 +1523,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 22 "../src/i2c_internal_server.xc" 2
 
 
@@ -1596,9 +1602,12 @@ extern display_param_t display_param;
 
 
 # 1 "../src/I2C_Internal_Server.h" 1
-# 15 "../src/I2C_Internal_Server.h"
+# 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
+    I2C_ADDRESS_OF_FRAM = 0x50,
+    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
+    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
@@ -1607,10 +1616,16 @@ typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
+
+    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
 } i2c_internal_commands_if;
 
 
@@ -1718,7 +1733,7 @@ void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 29 "../src/i2c_internal_server.xc" 2
-# 38 "../src/i2c_internal_server.xc"
+# 41 "../src/i2c_internal_server.xc"
 r_i2c i2c_internal_config = {
     on tile[0]:0x10600,
     on tile[0]:0x10400,
@@ -1814,6 +1829,35 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                 i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, 19, i2c_internal_config);
                 ok = (i2c_result == I2C_OK);
             } break;
+
+            case i_i2c_internal_commands[int index_of_client].read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address) -> {uint8_t return_data, bool ok} : {
+                uint8_t receive_data_array [1];
+                i2c_result_t i2c_result;
+                i2c_result = i2c_master_16bit_read_reg ((int)dev_addr, address, receive_data_array, 1, i2c_internal_config);
+                return_data = receive_data_array[0];
+                ok = (i2c_result == I2C_OK);
+            } break;
+
+            case i_i2c_internal_commands[int index_of_client].write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data) -> {bool ok} : {
+                uint8_t send_data_array [1] = {send_data};
+                i2c_result_t i2c_result;
+                i2c_result = i2c_master_16bit_write_reg ((int)dev_addr, address, send_data_array, 1, i2c_internal_config);
+                ok = (i2c_result == I2C_OK);
+            } break;
+
+            case i_i2c_internal_commands[int index_of_client].read_fram_device_id_ok (const i2c_dev_address_t dev_addr) -> bool ok : {
+                i2c_result_t i2c_result;
+                unsigned char receive_data_manufacturer_id [3] = {0xFF, 0xFF, 0xFF};
+
+                i2c_result = i2c_master_read_fram_id(I2C_ADDRESS_OF_FRAM, receive_data_manufacturer_id, 3, i2c_internal_config);
+# 171 "../src/i2c_internal_server.xc"
+                ok = (i2c_result == I2C_OK);
+                do { if(1) printf("FRAM = %02x %02x %02x\n", receive_data_manufacturer_id[2], receive_data_manufacturer_id[1], receive_data_manufacturer_id[0]); } while (0);
+
+
+
+            } break;
+
         }
     }
 }

@@ -1485,7 +1485,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 29 "../src/i2c_external_server.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 30 "../src/i2c_external_server.xc" 2
 # 1 "../src/button_press.h" 1
@@ -1549,6 +1549,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 33 "../src/i2c_external_server.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
@@ -1557,19 +1563,7 @@ typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
 # 35 "../src/i2c_external_server.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
-# 31 "../src/tempchip_mcp9808.h"
-typedef enum i2c_dev_address_external_t {
-
-    TEMPC_HEATER = 0x18,
-    TEMPC_AMBIENT = (0x18 + 1),
-    TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
-
-
-
-
-
-
+# 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
 i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
@@ -1577,13 +1571,25 @@ void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_par
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 36 "../src/i2c_external_server.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 13 "../src/I2C_External_Server.h"
+# 10 "../src/I2C_External_Server.h"
+typedef enum i2c_dev_address_external_t {
+
+
+    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
+    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
+} i2c_dev_address_external_t;
+
+
+
+
 typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 } iof_temps_t;
+
 
 typedef struct tag_i2c_temps_t {
     bool i2c_temp_ok [3];
@@ -1636,28 +1642,28 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
             case i_i2c_external_commands[int index_of_client].command (const i2c_command_external_t command): {
                 switch (command) {
                     case VER_TEMPC_CHIPS: {
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_HEATER;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_HEATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params,TEMPC_HEATER);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params,I2C_ADDRESS_OF_TEMPC_HEATER);
 
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_AMBIENT;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_AMBIENT;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, TEMPC_AMBIENT);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, I2C_ADDRESS_OF_TEMPC_AMBIENT);
 
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_WATER;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_WATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] = 999;
-                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, TEMPC_WATER);
+                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER] = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, I2C_ADDRESS_OF_TEMPC_WATER);
                     } break;
 
                     case GET_TEMPC_ALL: {
                         do { if(0) printf("I2C: GET_TEMPC_ALL A %u\n", index_of_client); } while (0);
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_HEATER;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_HEATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_AMBIENT;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_AMBIENT;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);
 
-                        i2c_external_params._use_dev_address = (i2c_dev_address_t) TEMPC_WATER;
+                        i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_WATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
                     } break;
 

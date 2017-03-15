@@ -681,6 +681,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c *i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c *i2c_master);
 # 15 "../src/core_graphics_adafruit_GFX.c" 2
 
 # 1 ".././src/param.h" 1

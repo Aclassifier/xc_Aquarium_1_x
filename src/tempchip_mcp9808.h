@@ -28,13 +28,6 @@
 #define MCP9808_REG_MANUF_ID           0x06
 #define MCP9808_REG_DEVICE_ID          0x07
 
-typedef enum i2c_dev_address_external_t {
-                                //          A2 A1 A0 MCP9808
-    TEMPC_HEATER  =  0x18,      //  24 0x18  0  0  0 (all pull-downs)
-    TEMPC_AMBIENT = (0x18 + 1), //  25 0x19  0  0  1 (A0 to 3.3V)
-    TEMPC_WATER   = (0x18 + 2)  //  26 0x1a  0  1  0 (A1 to 3.3V) On the glass, outside
-} i2c_dev_address_external_t;
-
 // Use as
 // char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW; // Heater, Ambient, Water ([2] since /0 after each letter)
 #define I2C_TEMPS_FIRST_CHARS_HAW {"H","A","W"}; // Heater Ambient Water

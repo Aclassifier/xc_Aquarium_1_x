@@ -1346,6 +1346,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 18 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/param.h" 1
@@ -1447,19 +1453,7 @@ typedef uint8_t i2c_PortMask_t;
 # 24 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/tempchip_mcp9808.h" 1
-# 31 "../src/tempchip_mcp9808.h"
-typedef enum i2c_dev_address_external_t {
-
-    TEMPC_HEATER = 0x18,
-    TEMPC_AMBIENT = (0x18 + 1),
-    TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
-
-
-
-
-
-
+# 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
 i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
@@ -1468,9 +1462,12 @@ uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_
 # 25 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
-# 15 "../src/I2C_Internal_Server.h"
+# 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
+    I2C_ADDRESS_OF_FRAM = 0x50,
+    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
+    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
@@ -1479,10 +1476,16 @@ typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
+
+    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
 } i2c_internal_commands_if;
 
 
@@ -1594,13 +1597,25 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 
 
 # 1 "../src/I2C_External_Server.h" 1
-# 13 "../src/I2C_External_Server.h"
+# 10 "../src/I2C_External_Server.h"
+typedef enum i2c_dev_address_external_t {
+
+
+    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
+    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
+} i2c_dev_address_external_t;
+
+
+
+
 typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 } iof_temps_t;
+
 
 typedef struct tag_i2c_temps_t {
     bool i2c_temp_ok [3];
@@ -1732,7 +1747,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 # 34 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 35 "../src/_Aquarium_1_x.xc" 2
 
@@ -1932,7 +1947,8 @@ typedef enum it_is_day_or_night_t {
 
 typedef enum max_light_t {
     MAX_LIGHT_IS_FULL,
-    MAX_LIGHT_IS_TWO_THIRDS
+    MAX_LIGHT_IS_TWO_THIRDS,
+    MAX_LIGHT_IS_VOID
 } max_light_t;
 
 typedef struct light_sunrise_sunset_context_t {
@@ -1946,14 +1962,16 @@ typedef struct light_sunrise_sunset_context_t {
     unsigned num_minutes_left_of_random;
     unsigned num_random_sequences_left;
     max_light_t max_light;
+    max_light_t max_light_in_FRAM_memory;
     max_light_t max_light_next;
     bool max_light_changed;
     light_sensor_range_t light_sensor_intensity;
     light_sensor_range_t light_sensor_intensity_previous;
     bool trigger_light_sensor_range_diff;
     unsigned print_value_previous;
+    bool do_FRAM_write;
 } light_sunrise_sunset_context_t;
-# 130 "../src/light_sunrise_sunset.h"
+# 133 "../src/light_sunrise_sunset.h"
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const max_light_t max_light);
 
@@ -1997,6 +2015,10 @@ typedef enum display_screen_name_t {
     SCREEN_KONSTANTER,
     SCREEN_KLOKKE
 } display_screen_name_t;
+
+typedef enum fram_byte_array_index_t {
+    FRAM_BYTE_MAX_LIGHT
+} fram_byte_array_index_t ;
 
 typedef enum display_sub_state_t {
 
@@ -2256,10 +2278,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
                     char light_control_scheme_str [5];
+                    bool control_scheme_add_leading_space = false;
 
                     switch (context.light_control_scheme) {
                       case LIGHT_CONTROL_IS_VOID : {
                           sprintf (light_control_scheme_str, "%s", "INIT");
+                          control_scheme_add_leading_space = true;
                       } break;
                       case LIGHT_CONTROL_IS_DAY : {
                           sprintf (light_control_scheme_str, "%s", " DAG");
@@ -2269,6 +2293,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                        } break;
                       case LIGHT_CONTROL_IS_NIGHT : {
                           sprintf (light_control_scheme_str, "%s", "NATT");
+                          control_scheme_add_leading_space = true;
                        } break;
                       case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
                           sprintf (light_control_scheme_str, "%s", " OPP");
@@ -2277,7 +2302,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           sprintf (light_control_scheme_str, "%s", " SKY");
                       } break;
                       case LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE : {
-                          sprintf (light_control_scheme_str, "%s", " LYS");
+                          sprintf (light_control_scheme_str, "%s", "LYKT");
+                          control_scheme_add_leading_space = true;
                       } break;
                       default: break;
                     }
@@ -2292,7 +2318,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,
                           WATTOF_LED_STRIP_FRONT,
                           WATTOF_LED_STRIP_CENTER,
@@ -2302,10 +2328,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           context.light_intensity_thirds[IOF_LED_STRIP_BACK],
                           takes_press_for_10_seconds_right_button_str,
                           (full_light) ? light_strength_full_str : light_strength_weak_str,
+                          (control_scheme_add_leading_space) ? " " : "",
                           light_control_scheme_str,
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_random_str);
+
 
 
 
@@ -2337,6 +2365,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     light_sunrise_sunset_context.max_light_changed = (light_sunrise_sunset_context.max_light != light_sunrise_sunset_context.max_light_next);
                     light_sunrise_sunset_context.max_light = light_sunrise_sunset_context.max_light_next;
+
+                    if (light_sunrise_sunset_context.max_light_changed) {
+                        light_sunrise_sunset_context.do_FRAM_write = true;
+                        light_sunrise_sunset_context.max_light_in_FRAM_memory = light_sunrise_sunset_context.max_light;
+                    } else {}
 
                     context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
 
@@ -2445,8 +2478,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", "Mar 14 2017", char_aa_str, char_OE_str);
-# 530 "../src/_Aquarium_1_x.xc"
+                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", "Mar 15 2017", char_aa_str, char_OE_str);
+# 545 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(1);
@@ -2458,7 +2491,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                  context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                 do { if(1) printf("Version date %s %s\n", "21:01:35", "Mar 14 2017"); } while (0);
+                 do { if(1) printf("Version date %s %s\n", "21:28:46", "Mar 15 2017"); } while (0);
              } else {}
          } break;
 
@@ -2498,7 +2531,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "21:01:35", "Mar 14 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "21:28:46", "Mar 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -3001,8 +3034,9 @@ void System_Task (
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed();
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
     light_sunrise_sunset_context.do_init = true;
+    light_sunrise_sunset_context.do_FRAM_write = false;
 
-    printf("%s", "System_Task started\n");
+    do { if(1) printf("%s", "System_Task started\n"); } while (0);
 
 
     Adafruit_GFX_constructor (128, 32);
@@ -3010,6 +3044,21 @@ void System_Task (
 
     Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+
+    {
+        bool read_ok;
+        uint8_t read_fram_data;
+
+        {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT);
+
+        if (! read_ok) {
+            light_sunrise_sunset_context.max_light_in_FRAM_memory = MAX_LIGHT_IS_VOID;
+        } else {
+            light_sunrise_sunset_context.max_light_in_FRAM_memory = (max_light_t) read_fram_data;
+        }
+
+        do { if(1) printf("FRAM max_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.max_light_in_FRAM_memory); } while (0);
+    }
 
     tmr :> time;
 
@@ -3096,6 +3145,15 @@ void System_Task (
 
 
                 context.beeper_blip_now |= Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
+
+                if (light_sunrise_sunset_context.do_FRAM_write) {
+                    bool write_ok;
+                    uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
+
+                    light_sunrise_sunset_context.do_FRAM_write = false;
+                    write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
+                    do { if(1) printf("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data); } while (0);
+                } else {}
 
                 light_sunrise_sunset_context.datetime_previous = context.datetime;
                 light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;

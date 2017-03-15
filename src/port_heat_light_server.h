@@ -53,7 +53,7 @@ typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_NIGHT,              // "NATT"
     LIGHT_CONTROL_IS_NIGHT_TO_DAY,       // " OPP"
     LIGHT_CONTROL_IS_RANDOM,             // " SKY" Starting every hour
-    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // " LYS" Conditional and random (i.e. limited)
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // "LYKT" Conditional and random (i.e. limited)
 } light_control_scheme_t;
 
 typedef enum {

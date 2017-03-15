@@ -1514,6 +1514,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 23 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
@@ -1584,9 +1590,12 @@ extern display_param_t display_param;
 # 26 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
-# 15 "../src/I2C_Internal_Server.h"
+# 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
+    I2C_ADDRESS_OF_FRAM = 0x50,
+    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
+    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
@@ -1595,10 +1604,16 @@ typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
+
+    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
 } i2c_internal_commands_if;
 
 

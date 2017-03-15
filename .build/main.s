@@ -178,6 +178,57 @@
 	.add_to_set _i.i2c_internal_commands_if.write_chronodot_ok.fns.group, _i.i2c_internal_commands_if._chan.write_chronodot_ok
 	.max_reduce _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords, _i.i2c_internal_commands_if.write_chronodot_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.write_chronodot_ok.fns, _i.i2c_internal_commands_if.write_chronodot_ok.fns.group, 0
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxchanends.group
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.maxchanends.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.max.maxchanends, _i.i2c_internal_commands_if.read_byte_fram_ok.maxchanends.group, 0
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxcores.group
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.maxcores.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxcores, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.max.maxcores, _i.i2c_internal_commands_if.read_byte_fram_ok.maxcores.group, 0
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxtimers.group
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.maxtimers.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxtimers, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.max.maxtimers, _i.i2c_internal_commands_if.read_byte_fram_ok.maxtimers.group, 0
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
+	.globl _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok.nstackwords, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.max.nstackwords, _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group, 0
+	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.fns, _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group, 0
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxchanends.group
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.maxchanends.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.maxchanends, _i.i2c_internal_commands_if.write_byte_fram_ok.maxchanends.group, 0
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxcores.group
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.maxcores.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxcores, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.maxcores, _i.i2c_internal_commands_if.write_byte_fram_ok.maxcores.group, 0
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxtimers.group
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.maxtimers.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxtimers, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.maxtimers, _i.i2c_internal_commands_if.write_byte_fram_ok.maxtimers.group, 0
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
+	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok.nstackwords, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.nstackwords, _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group, 0
+	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.fns, _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, 0
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group
+	.add_to_set _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxchanends, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group, 0
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group
+	.add_to_set _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxcores, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group, 0
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group
+	.add_to_set _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxtimers, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group, 0
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
+	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
+	.add_to_set _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.add_to_set _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group, _i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.nstackwords, _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group, 0
+	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.fns, _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.__interface_init.maxchanends.group
 	.max_reduce _i.i2c_internal_commands_if.__interface_init.max.maxchanends, _i.i2c_internal_commands_if.__interface_init.maxchanends.group, 0
 	.weak _i.i2c_internal_commands_if.__interface_init.maxcores.group
@@ -1055,6 +1106,27 @@ inP_button_right.info:
 	.globl _i.i2c_internal_commands_if.write_chronodot_ok.nstackwords.group
 	.weak _i.i2c_internal_commands_if.write_chronodot_ok.fns.group
 	.globl _i.i2c_internal_commands_if.write_chronodot_ok.fns.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxchanends.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxcores.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxtimers.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
+	.globl _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxchanends.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxcores.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxtimers.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
+	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
+	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
+	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
+	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
 	.weak _i.i2c_internal_commands_if.__interface_init.maxchanends.group
 	.weak _i.i2c_internal_commands_if.__interface_init.maxcores.group
 	.weak _i.i2c_internal_commands_if.__interface_init.maxtimers.group
@@ -1432,6 +1504,125 @@ _i.startkit_adc_acquire_if._chan_y.trigger:
 	.size	_i.startkit_adc_acquire_if._chan_y.trigger, .Ltmp21-_i.startkit_adc_acquire_if._chan_y.trigger
 	.cfi_endproc
 
+	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.function,_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+_i.i2c_internal_commands_if._chan.read_fram_device_id_ok:
+	.cfi_startproc
+	getr r2, 2
+	setd res[r2], r0
+	add r0, r2, 5
+	out res[r2], r0
+	outct res[r2], 2
+	chkct res[r2], 1
+	outt res[r2], r1
+	outct res[r2], 2
+	in r0, res[r2]
+	in r0, res[r2]
+	chkct res[r2], 1
+	freer res[r2]
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.function
+	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords,0
+	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores,1
+	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers,0
+	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends,1
+	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends
+.Ltmp22:
+	.size	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok, .Ltmp22-_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
+	.cfi_endproc
+
+	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan.write_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan.write_byte_fram_ok.function,_i.i2c_internal_commands_if._chan.write_byte_fram_ok
+_i.i2c_internal_commands_if._chan.write_byte_fram_ok:
+	.cfi_startproc
+	getr r11, 2
+	setd res[r11], r0
+	add r0, r11, 4
+	out res[r11], r0
+	outct res[r11], 2
+	chkct res[r11], 1
+	outt res[r11], r1
+	shr r0, r2, 8
+	outt res[r11], r0
+	outt res[r11], r2
+	outt res[r11], r3
+	outct res[r11], 2
+	in r0, res[r11]
+	in r0, res[r11]
+	chkct res[r11], 1
+	freer res[r11]
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan.write_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.nstackwords,0
+	.globl	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxcores,1
+	.globl	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxtimers,0
+	.globl	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends,1
+	.globl	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends
+.Ltmp23:
+	.size	_i.i2c_internal_commands_if._chan.write_byte_fram_ok, .Ltmp23-_i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.cfi_endproc
+
+	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan.read_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan.read_byte_fram_ok.function,_i.i2c_internal_commands_if._chan.read_byte_fram_ok
+_i.i2c_internal_commands_if._chan.read_byte_fram_ok:
+	.cfi_startproc
+	getr r3, 2
+	setd res[r3], r0
+	add r0, r3, 3
+	out res[r3], r0
+	outct res[r3], 2
+	chkct res[r3], 1
+	outt res[r3], r1
+	shr r0, r2, 8
+	outt res[r3], r0
+	outt res[r3], r2
+	outct res[r3], 2
+	in r0, res[r3]
+	int r0, res[r3]
+	in r1, res[r3]
+	chkct res[r3], 1
+	freer res[r3]
+	retsp 0
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan.read_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.nstackwords,0
+	.globl	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxcores,1
+	.globl	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxtimers,0
+	.globl	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends,1
+	.globl	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends
+.Ltmp24:
+	.size	_i.i2c_internal_commands_if._chan.read_byte_fram_ok, .Ltmp24-_i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.cfi_endproc
+
 	.weak	_i.i2c_internal_commands_if._chan.write_chronodot_ok
 	.align	4
 	.type	_i.i2c_internal_commands_if._chan.write_chronodot_ok,@function
@@ -1439,24 +1630,24 @@ _i.startkit_adc_acquire_if._chan_y.trigger:
 _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp22:
+.Ltmp25:
 	.cfi_def_cfa_offset 44
-.Ltmp23:
+.Ltmp26:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp24:
+.Ltmp27:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp25:
+.Ltmp28:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp26:
+.Ltmp29:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp27:
+.Ltmp30:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp28:
+.Ltmp31:
 	.cfi_offset 8, -20
 	mov r4, r1
 	mov r5, r0
@@ -1502,8 +1693,8 @@ _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends,(1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends
-.Ltmp29:
-	.size	_i.i2c_internal_commands_if._chan.write_chronodot_ok, .Ltmp29-_i.i2c_internal_commands_if._chan.write_chronodot_ok
+.Ltmp32:
+	.size	_i.i2c_internal_commands_if._chan.write_chronodot_ok, .Ltmp32-_i.i2c_internal_commands_if._chan.write_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.read_chronodot_ok
@@ -1513,24 +1704,24 @@ _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp30:
+.Ltmp33:
 	.cfi_def_cfa_offset 44
-.Ltmp31:
+.Ltmp34:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp32:
+.Ltmp35:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp33:
+.Ltmp36:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp34:
+.Ltmp37:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp35:
+.Ltmp38:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp36:
+.Ltmp39:
 	.cfi_offset 8, -20
 	mov r5, r0
 	getr r4, 2
@@ -1576,8 +1767,8 @@ _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends
-.Ltmp37:
-	.size	_i.i2c_internal_commands_if._chan.read_chronodot_ok, .Ltmp37-_i.i2c_internal_commands_if._chan.read_chronodot_ok
+.Ltmp40:
+	.size	_i.i2c_internal_commands_if._chan.read_chronodot_ok, .Ltmp40-_i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.write_display_ok
@@ -1587,15 +1778,15 @@ _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 _i.i2c_internal_commands_if._chan.write_display_ok:
 	.cfi_startproc
 	entsp 4
-.Ltmp38:
+.Ltmp41:
 	.cfi_def_cfa_offset 16
-.Ltmp39:
+.Ltmp42:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp40:
+.Ltmp43:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp41:
+.Ltmp44:
 	.cfi_offset 5, -8
 	ldw r11, sp[5]
 	ldw r5, sp[6]
@@ -1633,8 +1824,166 @@ _i.i2c_internal_commands_if._chan.write_display_ok:
 	.set	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
-.Ltmp42:
-	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp42-_i.i2c_internal_commands_if._chan.write_display_ok
+.Ltmp45:
+	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp45-_i.i2c_internal_commands_if._chan.write_display_ok
+	.cfi_endproc
+
+	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.function,_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
+_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok:
+	.cfi_startproc
+	entsp 2
+.Ltmp46:
+	.cfi_def_cfa_offset 8
+.Ltmp47:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp48:
+	.cfi_offset 4, -4
+	ldw r2, r0[0]
+	getr r4, 2
+	setd res[r4], r2
+	add r2, r4, 5
+	out res[r4], r2
+	outct res[r4], 2
+	chkct res[r4], 1
+	outt res[r4], r1
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldc r1, 0
+	mov r0, r4
+	bl __interface_client_call_y
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.function
+	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends
+.Ltmp49:
+	.size	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok, .Ltmp49-_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
+	.cfi_endproc
+
+	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
+	.cfi_startproc
+	entsp 2
+.Ltmp50:
+	.cfi_def_cfa_offset 8
+.Ltmp51:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp52:
+	.cfi_offset 4, -4
+	ldw r11, r0[0]
+	getr r4, 2
+	setd res[r4], r11
+	add r11, r4, 4
+	out res[r4], r11
+	outct res[r4], 2
+	chkct res[r4], 1
+	outt res[r4], r1
+	shr r1, r2, 8
+	outt res[r4], r1
+	outt res[r4], r2
+	outt res[r4], r3
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldc r1, 0
+	mov r0, r4
+	bl __interface_client_call_y
+	in r0, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
+.Ltmp53:
+	.size	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, .Ltmp53-_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+	.cfi_endproc
+
+	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
+	.align	4
+	.type	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
+_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
+	.cfi_startproc
+	entsp 2
+.Ltmp54:
+	.cfi_def_cfa_offset 8
+.Ltmp55:
+	.cfi_offset 15, 0
+	stw r4, sp[1]
+.Ltmp56:
+	.cfi_offset 4, -4
+	ldw r3, r0[0]
+	getr r4, 2
+	setd res[r4], r3
+	add r3, r4, 3
+	out res[r4], r3
+	outct res[r4], 2
+	chkct res[r4], 1
+	outt res[r4], r1
+	shr r1, r2, 8
+	outt res[r4], r1
+	outt res[r4], r2
+	outct res[r4], 2
+	ldw r2, r0[1]
+	ldc r1, 0
+	mov r0, r4
+	bl __interface_client_call_y
+	int r0, res[r4]
+	in r1, res[r4]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
+	# RETURN_REG_HOLDER
+	.cc_bottom _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
+.Ltmp57:
+	.size	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, .Ltmp57-_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
@@ -1644,24 +1993,24 @@ _i.i2c_internal_commands_if._chan.write_display_ok:
 _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp43:
+.Ltmp58:
 	.cfi_def_cfa_offset 44
-.Ltmp44:
+.Ltmp59:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp45:
+.Ltmp60:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp46:
+.Ltmp61:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp47:
+.Ltmp62:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp48:
+.Ltmp63:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp49:
+.Ltmp64:
 	.cfi_offset 8, -20
 	mov r4, r1
 	mov r5, r0
@@ -1711,8 +2060,8 @@ _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
-.Ltmp50:
-	.size	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok, .Ltmp50-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
+.Ltmp65:
+	.size	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok, .Ltmp65-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
@@ -1722,24 +2071,24 @@ _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp51:
+.Ltmp66:
 	.cfi_def_cfa_offset 44
-.Ltmp52:
+.Ltmp67:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp53:
+.Ltmp68:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp54:
+.Ltmp69:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp55:
+.Ltmp70:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp56:
+.Ltmp71:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp57:
+.Ltmp72:
 	.cfi_offset 8, -20
 	mov r5, r0
 	ldw r0, r1[0]
@@ -1789,8 +2138,8 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
-.Ltmp58:
-	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp58-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
+.Ltmp73:
+	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp73-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok
@@ -1800,18 +2149,18 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.cfi_startproc
 	entsp 5
-.Ltmp59:
+.Ltmp74:
 	.cfi_def_cfa_offset 20
-.Ltmp60:
+.Ltmp75:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp61:
+.Ltmp76:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp62:
+.Ltmp77:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp63:
+.Ltmp78:
 	.cfi_offset 6, -12
 	ldw r11, sp[6]
 	ldw r5, sp[7]
@@ -1852,8 +2201,8 @@ _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
-.Ltmp64:
-	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp64-_i.i2c_internal_commands_if._chan_y.write_display_ok
+.Ltmp79:
+	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp79-_i.i2c_internal_commands_if._chan_y.write_display_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.command
@@ -1888,8 +2237,8 @@ _i.i2c_external_commands_if._chan.command:
 	.set	_i.i2c_external_commands_if._chan.command.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.command.maxchanends
-.Ltmp65:
-	.size	_i.i2c_external_commands_if._chan.command, .Ltmp65-_i.i2c_external_commands_if._chan.command
+.Ltmp80:
+	.size	_i.i2c_external_commands_if._chan.command, .Ltmp80-_i.i2c_external_commands_if._chan.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -1899,12 +2248,12 @@ _i.i2c_external_commands_if._chan.command:
 _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp66:
+.Ltmp81:
 	.cfi_def_cfa_offset 8
-.Ltmp67:
+.Ltmp82:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp68:
+.Ltmp83:
 	.cfi_offset 4, -4
 	mov r3, r0
 	getr r4, 2
@@ -1937,8 +2286,8 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
-.Ltmp69:
-	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp69-_i.i2c_external_commands_if._chan.read_temperature_ok
+.Ltmp84:
+	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp84-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.command
@@ -1948,12 +2297,12 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 _i.i2c_external_commands_if._chan_y.command:
 	.cfi_startproc
 	entsp 2
-.Ltmp70:
+.Ltmp85:
 	.cfi_def_cfa_offset 8
-.Ltmp71:
+.Ltmp86:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp72:
+.Ltmp87:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1986,8 +2335,8 @@ _i.i2c_external_commands_if._chan_y.command:
 	.set	_i.i2c_external_commands_if._chan_y.command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.command.maxchanends
-.Ltmp73:
-	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp73-_i.i2c_external_commands_if._chan_y.command
+.Ltmp88:
+	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp88-_i.i2c_external_commands_if._chan_y.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
@@ -1997,15 +2346,15 @@ _i.i2c_external_commands_if._chan_y.command:
 _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
-.Ltmp74:
+.Ltmp89:
 	.cfi_def_cfa_offset 12
-.Ltmp75:
+.Ltmp90:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp76:
+.Ltmp91:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp77:
+.Ltmp92:
 	.cfi_offset 5, -8
 	mov r4, r0
 	ldw r0, r1[0]
@@ -2043,8 +2392,8 @@ _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
-.Ltmp78:
-	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp78-_i.i2c_external_commands_if._chan_y.read_temperature_ok
+.Ltmp93:
+	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp93-_i.i2c_external_commands_if._chan_y.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command
@@ -2079,8 +2428,8 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
-.Ltmp79:
-	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp79-_i.port_heat_light_commands_if._chan.heat_cables_command
+.Ltmp94:
+	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp94-_i.port_heat_light_commands_if._chan.heat_cables_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command
@@ -2115,8 +2464,8 @@ _i.port_heat_light_commands_if._chan.beeper_blip_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
-.Ltmp80:
-	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp80-_i.port_heat_light_commands_if._chan.beeper_blip_command
+.Ltmp95:
+	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp95-_i.port_heat_light_commands_if._chan.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command
@@ -2151,8 +2500,8 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
-.Ltmp81:
-	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp81-_i.port_heat_light_commands_if._chan.beeper_on_command
+.Ltmp96:
+	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp96-_i.port_heat_light_commands_if._chan.beeper_on_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.set_light_composition
@@ -2189,8 +2538,8 @@ _i.port_heat_light_commands_if._chan.set_light_composition:
 	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
-.Ltmp82:
-	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp82-_i.port_heat_light_commands_if._chan.set_light_composition
+.Ltmp97:
+	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp97-_i.port_heat_light_commands_if._chan.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc
@@ -2200,12 +2549,12 @@ _i.port_heat_light_commands_if._chan.set_light_composition:
 _i.port_heat_light_commands_if._chan.get_light_composition_etc:
 	.cfi_startproc
 	entsp 3
-.Ltmp83:
+.Ltmp98:
 	.cfi_def_cfa_offset 12
-.Ltmp84:
+.Ltmp99:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp85:
+.Ltmp100:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -2239,8 +2588,8 @@ _i.port_heat_light_commands_if._chan.get_light_composition_etc:
 	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
-.Ltmp86:
-	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc, .Ltmp86-_i.port_heat_light_commands_if._chan.get_light_composition_etc
+.Ltmp101:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc, .Ltmp101-_i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition
@@ -2272,8 +2621,8 @@ _i.port_heat_light_commands_if._chan.get_light_composition:
 	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
-.Ltmp87:
-	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp87-_i.port_heat_light_commands_if._chan.get_light_composition
+.Ltmp102:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp102-_i.port_heat_light_commands_if._chan.get_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command
@@ -2283,12 +2632,12 @@ _i.port_heat_light_commands_if._chan.get_light_composition:
 _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp88:
+.Ltmp103:
 	.cfi_def_cfa_offset 8
-.Ltmp89:
+.Ltmp104:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp90:
+.Ltmp105:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -2321,8 +2670,8 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
-.Ltmp91:
-	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp91-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+.Ltmp106:
+	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp106-_i.port_heat_light_commands_if._chan_y.heat_cables_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command
@@ -2332,12 +2681,12 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp92:
+.Ltmp107:
 	.cfi_def_cfa_offset 8
-.Ltmp93:
+.Ltmp108:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp94:
+.Ltmp109:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -2370,8 +2719,8 @@ _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
-.Ltmp95:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp95-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+.Ltmp110:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp110-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command
@@ -2381,12 +2730,12 @@ _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp96:
+.Ltmp111:
 	.cfi_def_cfa_offset 8
-.Ltmp97:
+.Ltmp112:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp98:
+.Ltmp113:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -2419,8 +2768,8 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
-.Ltmp99:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp99-_i.port_heat_light_commands_if._chan_y.beeper_on_command
+.Ltmp114:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp114-_i.port_heat_light_commands_if._chan_y.beeper_on_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition
@@ -2430,12 +2779,12 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 _i.port_heat_light_commands_if._chan_y.set_light_composition:
 	.cfi_startproc
 	entsp 2
-.Ltmp100:
+.Ltmp115:
 	.cfi_def_cfa_offset 8
-.Ltmp101:
+.Ltmp116:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp102:
+.Ltmp117:
 	.cfi_offset 4, -4
 	ldw r11, r0[0]
 	getr r4, 2
@@ -2470,8 +2819,8 @@ _i.port_heat_light_commands_if._chan_y.set_light_composition:
 	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
-.Ltmp103:
-	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp103-_i.port_heat_light_commands_if._chan_y.set_light_composition
+.Ltmp118:
+	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp118-_i.port_heat_light_commands_if._chan_y.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
@@ -2481,12 +2830,12 @@ _i.port_heat_light_commands_if._chan_y.set_light_composition:
 _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 	.cfi_startproc
 	entsp 3
-.Ltmp104:
+.Ltmp119:
 	.cfi_def_cfa_offset 12
-.Ltmp105:
+.Ltmp120:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp106:
+.Ltmp121:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -2522,8 +2871,8 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
-.Ltmp107:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc, .Ltmp107-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
+.Ltmp122:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc, .Ltmp122-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition
@@ -2533,12 +2882,12 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.cfi_startproc
 	entsp 2
-.Ltmp108:
+.Ltmp123:
 	.cfi_def_cfa_offset 8
-.Ltmp109:
+.Ltmp124:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp110:
+.Ltmp125:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	getr r4, 2
@@ -2568,8 +2917,8 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
-.Ltmp111:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp111-_i.port_heat_light_commands_if._chan_y.get_light_composition
+.Ltmp126:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp126-_i.port_heat_light_commands_if._chan_y.get_light_composition
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data
@@ -2579,15 +2928,15 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.cfi_startproc
 	entsp 3
-.Ltmp112:
+.Ltmp127:
 	.cfi_def_cfa_offset 12
-.Ltmp113:
+.Ltmp128:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp114:
+.Ltmp129:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp115:
+.Ltmp130:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -2623,8 +2972,8 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
-.Ltmp116:
-	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp116-_i.temperature_heater_commands_if._chan.get_regulator_data
+.Ltmp131:
+	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp131-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str
@@ -2634,18 +2983,18 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 5
-.Ltmp117:
+.Ltmp132:
 	.cfi_def_cfa_offset 20
-.Ltmp118:
+.Ltmp133:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp119:
+.Ltmp134:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp120:
+.Ltmp135:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp121:
+.Ltmp136:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2684,8 +3033,8 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
-.Ltmp122:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp122-_i.temperature_heater_commands_if._chan.get_temp_degC_str
+.Ltmp137:
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp137-_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temps
@@ -2695,15 +3044,15 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 _i.temperature_heater_commands_if._chan.get_temps:
 	.cfi_startproc
 	entsp 4
-.Ltmp123:
+.Ltmp138:
 	.cfi_def_cfa_offset 16
-.Ltmp124:
+.Ltmp139:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp125:
+.Ltmp140:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp126:
+.Ltmp141:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -2739,8 +3088,8 @@ _i.temperature_heater_commands_if._chan.get_temps:
 	.set	_i.temperature_heater_commands_if._chan.get_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-.Ltmp127:
-	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp127-_i.temperature_heater_commands_if._chan.get_temps
+.Ltmp142:
+	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp142-_i.temperature_heater_commands_if._chan.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
@@ -2750,18 +3099,18 @@ _i.temperature_heater_commands_if._chan.get_temps:
 _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 4
-.Ltmp128:
+.Ltmp143:
 	.cfi_def_cfa_offset 16
-.Ltmp129:
+.Ltmp144:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp130:
+.Ltmp145:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp131:
+.Ltmp146:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp132:
+.Ltmp147:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2798,8 +3147,8 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
-.Ltmp133:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp133-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
+.Ltmp148:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp148-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional
@@ -2809,18 +3158,18 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.cfi_startproc
 	entsp 4
-.Ltmp134:
+.Ltmp149:
 	.cfi_def_cfa_offset 16
-.Ltmp135:
+.Ltmp150:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp136:
+.Ltmp151:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp137:
+.Ltmp152:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp138:
+.Ltmp153:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2856,8 +3205,8 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
-.Ltmp139:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp139-_i.temperature_heater_commands_if._chan.heater_set_proportional
+.Ltmp154:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp154-_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data
@@ -2867,18 +3216,18 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.cfi_startproc
 	entsp 4
-.Ltmp140:
+.Ltmp155:
 	.cfi_def_cfa_offset 16
-.Ltmp141:
+.Ltmp156:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp142:
+.Ltmp157:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp143:
+.Ltmp158:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp144:
+.Ltmp159:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -2920,8 +3269,8 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
-.Ltmp145:
-	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp145-_i.temperature_heater_commands_if._chan_y.get_regulator_data
+.Ltmp160:
+	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp160-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
@@ -2931,21 +3280,21 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
-.Ltmp146:
+.Ltmp161:
 	.cfi_def_cfa_offset 24
-.Ltmp147:
+.Ltmp162:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp148:
+.Ltmp163:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp149:
+.Ltmp164:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp150:
+.Ltmp165:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp151:
+.Ltmp166:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2988,8 +3337,8 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
-.Ltmp152:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp152-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+.Ltmp167:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp167-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -2999,18 +3348,18 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 _i.temperature_heater_commands_if._chan_y.get_temps:
 	.cfi_startproc
 	entsp 5
-.Ltmp153:
+.Ltmp168:
 	.cfi_def_cfa_offset 20
-.Ltmp154:
+.Ltmp169:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp155:
+.Ltmp170:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp156:
+.Ltmp171:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp157:
+.Ltmp172:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -3050,8 +3399,8 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-.Ltmp158:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp158-_i.temperature_heater_commands_if._chan_y.get_temps
+.Ltmp173:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp173-_i.temperature_heater_commands_if._chan_y.get_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
@@ -3061,21 +3410,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 5
-.Ltmp159:
+.Ltmp174:
 	.cfi_def_cfa_offset 20
-.Ltmp160:
+.Ltmp175:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp161:
+.Ltmp176:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp162:
+.Ltmp177:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp163:
+.Ltmp178:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp164:
+.Ltmp179:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -3118,8 +3467,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
-.Ltmp165:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp165-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+.Ltmp180:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp180-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
@@ -3129,21 +3478,21 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.cfi_startproc
 	entsp 5
-.Ltmp166:
+.Ltmp181:
 	.cfi_def_cfa_offset 20
-.Ltmp167:
+.Ltmp182:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp168:
+.Ltmp183:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp169:
+.Ltmp184:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp170:
+.Ltmp185:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp171:
+.Ltmp186:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -3185,8 +3534,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
-.Ltmp172:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp172-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+.Ltmp187:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp187-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at
@@ -3219,8 +3568,8 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends,1
 	.globl	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
-.Ltmp173:
-	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp173-_i.temperature_water_commands_if._chan.get_now_regulating_at
+.Ltmp188:
+	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp188-_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str
@@ -3230,12 +3579,12 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 _i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
-.Ltmp174:
+.Ltmp189:
 	.cfi_def_cfa_offset 12
-.Ltmp175:
+.Ltmp190:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp176:
+.Ltmp191:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -3266,8 +3615,8 @@ _i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
-.Ltmp177:
-	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp177-_i.temperature_water_commands_if._chan.get_temp_degC_str
+.Ltmp192:
+	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp192-_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
@@ -3277,12 +3626,12 @@ _i.temperature_water_commands_if._chan.get_temp_degC_str:
 _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.cfi_startproc
 	entsp 2
-.Ltmp178:
+.Ltmp193:
 	.cfi_def_cfa_offset 8
-.Ltmp179:
+.Ltmp194:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp180:
+.Ltmp195:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	getr r4, 2
@@ -3313,8 +3662,8 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
-.Ltmp181:
-	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp181-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
+.Ltmp196:
+	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp196-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str
@@ -3324,12 +3673,12 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 3
-.Ltmp182:
+.Ltmp197:
 	.cfi_def_cfa_offset 12
-.Ltmp183:
+.Ltmp198:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp184:
+.Ltmp199:
 	.cfi_offset 4, -4
 	ldw r3, r0[0]
 	getr r4, 2
@@ -3362,8 +3711,8 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
-.Ltmp185:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp185-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+.Ltmp200:
+	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp200-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok
@@ -3373,21 +3722,21 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 _i.chronodot_ds3231_if._chan.set_time_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp186:
+.Ltmp201:
 	.cfi_def_cfa_offset 44
-.Ltmp187:
+.Ltmp202:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp188:
+.Ltmp203:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp189:
+.Ltmp204:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp190:
+.Ltmp205:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp191:
+.Ltmp206:
 	.cfi_offset 7, -16
 	mov r4, r0
 	ldaw r5, sp[1]
@@ -3429,8 +3778,8 @@ _i.chronodot_ds3231_if._chan.set_time_ok:
 	.set	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends,(1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok.maxchanends
-.Ltmp192:
-	.size	_i.chronodot_ds3231_if._chan.set_time_ok, .Ltmp192-_i.chronodot_ds3231_if._chan.set_time_ok
+.Ltmp207:
+	.size	_i.chronodot_ds3231_if._chan.set_time_ok, .Ltmp207-_i.chronodot_ds3231_if._chan.set_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.get_time_ok
@@ -3440,24 +3789,24 @@ _i.chronodot_ds3231_if._chan.set_time_ok:
 _i.chronodot_ds3231_if._chan.get_time_ok:
 	.cfi_startproc
 	entsp 12
-.Ltmp193:
+.Ltmp208:
 	.cfi_def_cfa_offset 48
-.Ltmp194:
+.Ltmp209:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp195:
+.Ltmp210:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp196:
+.Ltmp211:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp197:
+.Ltmp212:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp198:
+.Ltmp213:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp199:
+.Ltmp214:
 	.cfi_offset 8, -20
 	mov r4, r0
 	getr r5, 2
@@ -3499,8 +3848,8 @@ _i.chronodot_ds3231_if._chan.get_time_ok:
 	.set	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan.get_time_ok.maxchanends
-.Ltmp200:
-	.size	_i.chronodot_ds3231_if._chan.get_time_ok, .Ltmp200-_i.chronodot_ds3231_if._chan.get_time_ok
+.Ltmp215:
+	.size	_i.chronodot_ds3231_if._chan.get_time_ok, .Ltmp215-_i.chronodot_ds3231_if._chan.get_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok
@@ -3510,21 +3859,21 @@ _i.chronodot_ds3231_if._chan.get_time_ok:
 _i.chronodot_ds3231_if._chan_y.set_time_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp201:
+.Ltmp216:
 	.cfi_def_cfa_offset 44
-.Ltmp202:
+.Ltmp217:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp203:
+.Ltmp218:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp204:
+.Ltmp219:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp205:
+.Ltmp220:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp206:
+.Ltmp221:
 	.cfi_offset 7, -16
 	mov r4, r0
 	ldaw r5, sp[1]
@@ -3570,8 +3919,8 @@ _i.chronodot_ds3231_if._chan_y.set_time_ok:
 	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
-.Ltmp207:
-	.size	_i.chronodot_ds3231_if._chan_y.set_time_ok, .Ltmp207-_i.chronodot_ds3231_if._chan_y.set_time_ok
+.Ltmp222:
+	.size	_i.chronodot_ds3231_if._chan_y.set_time_ok, .Ltmp222-_i.chronodot_ds3231_if._chan_y.set_time_ok
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok
@@ -3581,24 +3930,24 @@ _i.chronodot_ds3231_if._chan_y.set_time_ok:
 _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.cfi_startproc
 	entsp 12
-.Ltmp208:
+.Ltmp223:
 	.cfi_def_cfa_offset 48
-.Ltmp209:
+.Ltmp224:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp210:
+.Ltmp225:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp211:
+.Ltmp226:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp212:
+.Ltmp227:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp213:
+.Ltmp228:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp214:
+.Ltmp229:
 	.cfi_offset 8, -20
 	mov r5, r0
 	ldw r0, r1[0]
@@ -3644,8 +3993,8 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
 	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
-.Ltmp215:
-	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp215-_i.chronodot_ds3231_if._chan_y.get_time_ok
+.Ltmp230:
+	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp230-_i.chronodot_ds3231_if._chan_y.get_time_ok
 	.cfi_endproc
 
 	.weak	_i.lib_startkit_adc_commands_if._chan.read
@@ -3655,18 +4004,18 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 _i.lib_startkit_adc_commands_if._chan.read:
 	.cfi_startproc
 	entsp 5
-.Ltmp216:
+.Ltmp231:
 	.cfi_def_cfa_offset 20
-.Ltmp217:
+.Ltmp232:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp218:
+.Ltmp233:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp219:
+.Ltmp234:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp220:
+.Ltmp235:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -3707,8 +4056,8 @@ _i.lib_startkit_adc_commands_if._chan.read:
 	.set	_i.lib_startkit_adc_commands_if._chan.read.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.lib_startkit_adc_commands_if._chan.read.maxchanends
 	.weak	_i.lib_startkit_adc_commands_if._chan.read.maxchanends
-.Ltmp221:
-	.size	_i.lib_startkit_adc_commands_if._chan.read, .Ltmp221-_i.lib_startkit_adc_commands_if._chan.read
+.Ltmp236:
+	.size	_i.lib_startkit_adc_commands_if._chan.read, .Ltmp236-_i.lib_startkit_adc_commands_if._chan.read
 	.cfi_endproc
 
 	.weak	_i.lib_startkit_adc_commands_if._chan.trigger
@@ -3718,12 +4067,12 @@ _i.lib_startkit_adc_commands_if._chan.read:
 _i.lib_startkit_adc_commands_if._chan.trigger:
 	.cfi_startproc
 	entsp 2
-.Ltmp222:
+.Ltmp237:
 	.cfi_def_cfa_offset 8
-.Ltmp223:
+.Ltmp238:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp224:
+.Ltmp239:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -3751,8 +4100,8 @@ _i.lib_startkit_adc_commands_if._chan.trigger:
 	.set	_i.lib_startkit_adc_commands_if._chan.trigger.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.lib_startkit_adc_commands_if._chan.trigger.maxchanends
 	.weak	_i.lib_startkit_adc_commands_if._chan.trigger.maxchanends
-.Ltmp225:
-	.size	_i.lib_startkit_adc_commands_if._chan.trigger, .Ltmp225-_i.lib_startkit_adc_commands_if._chan.trigger
+.Ltmp240:
+	.size	_i.lib_startkit_adc_commands_if._chan.trigger, .Ltmp240-_i.lib_startkit_adc_commands_if._chan.trigger
 	.cfi_endproc
 
 	.weak	_i.lib_startkit_adc_commands_if._chan_y.read
@@ -3762,21 +4111,21 @@ _i.lib_startkit_adc_commands_if._chan.trigger:
 _i.lib_startkit_adc_commands_if._chan_y.read:
 	.cfi_startproc
 	entsp 6
-.Ltmp226:
+.Ltmp241:
 	.cfi_def_cfa_offset 24
-.Ltmp227:
+.Ltmp242:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp228:
+.Ltmp243:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp229:
+.Ltmp244:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp230:
+.Ltmp245:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp231:
+.Ltmp246:
 	.cfi_offset 7, -16
 	mov r5, r2
 	mov r6, r1
@@ -3821,8 +4170,8 @@ _i.lib_startkit_adc_commands_if._chan_y.read:
 	.set	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends
 	.weak	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends
-.Ltmp232:
-	.size	_i.lib_startkit_adc_commands_if._chan_y.read, .Ltmp232-_i.lib_startkit_adc_commands_if._chan_y.read
+.Ltmp247:
+	.size	_i.lib_startkit_adc_commands_if._chan_y.read, .Ltmp247-_i.lib_startkit_adc_commands_if._chan_y.read
 	.cfi_endproc
 
 	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger
@@ -3832,15 +4181,15 @@ _i.lib_startkit_adc_commands_if._chan_y.read:
 _i.lib_startkit_adc_commands_if._chan_y.trigger:
 	.cfi_startproc
 	entsp 3
-.Ltmp233:
+.Ltmp248:
 	.cfi_def_cfa_offset 12
-.Ltmp234:
+.Ltmp249:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp235:
+.Ltmp250:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp236:
+.Ltmp251:
 	.cfi_offset 5, -8
 	ldw r1, r0[0]
 	getr r4, 2
@@ -3874,8 +4223,8 @@ _i.lib_startkit_adc_commands_if._chan_y.trigger:
 	.set	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends
 	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends
-.Ltmp237:
-	.size	_i.lib_startkit_adc_commands_if._chan_y.trigger, .Ltmp237-_i.lib_startkit_adc_commands_if._chan_y.trigger
+.Ltmp252:
+	.size	_i.lib_startkit_adc_commands_if._chan_y.trigger, .Ltmp252-_i.lib_startkit_adc_commands_if._chan_y.trigger
 	.cfi_endproc
 
 	.globl	__main__main_tile_0
@@ -3885,30 +4234,30 @@ _i.lib_startkit_adc_commands_if._chan_y.trigger:
 __main__main_tile_0:
 	.cfi_startproc
 	ENTSP_lu6 173
-.Ltmp238:
+.Ltmp253:
 	.cfi_def_cfa_offset 692
-.Ltmp239:
+.Ltmp254:
 	.cfi_offset 15, 0
 	stw r4, sp[172]
-.Ltmp240:
+.Ltmp255:
 	.cfi_offset 4, -4
 	stw r5, sp[171]
-.Ltmp241:
+.Ltmp256:
 	.cfi_offset 5, -8
 	stw r6, sp[170]
-.Ltmp242:
+.Ltmp257:
 	.cfi_offset 6, -12
 	stw r7, sp[169]
-.Ltmp243:
+.Ltmp258:
 	.cfi_offset 7, -16
 	stw r8, sp[168]
-.Ltmp244:
+.Ltmp259:
 	.cfi_offset 8, -20
 	stw r9, sp[167]
-.Ltmp245:
+.Ltmp260:
 	.cfi_offset 9, -24
 	stw r10, sp[166]
-.Ltmp246:
+.Ltmp261:
 	.cfi_offset 10, -28
 	getr r5, 2
 	getr r6, 2
@@ -4067,7 +4416,7 @@ __main__main_tile_0:
 	freer res[r10]
 	ldw r0, sp[56]
 	ldw r1, sp[54]
-	bf r1, .LBB48_1
+	bf r1, .LBB54_1
 	ldw r1, sp[52]
 	ldw r2, sp[53]
 	#APP
@@ -4077,14 +4426,14 @@ __main__main_tile_0:
 	outct res[r1], 1
 	setd res[r1], r3
 	stw r4, sp[54]
-.LBB48_1:
+.LBB54_1:
 	chkct res[r0], 1
 	freer res[r0]
 	ldw r0, sp[50]
 	freer res[r0]
 	ldw r0, sp[47]
 	ldw r1, sp[45]
-	bf r1, .LBB48_2
+	bf r1, .LBB54_2
 	ldw r1, sp[43]
 	ldw r2, sp[44]
 	#APP
@@ -4094,7 +4443,7 @@ __main__main_tile_0:
 	outct res[r1], 1
 	setd res[r1], r3
 	stw r4, sp[45]
-.LBB48_2:
+.LBB54_2:
 	chkct res[r0], 1
 	freer res[r0]
 	ldw r0, sp[41]
@@ -4103,7 +4452,7 @@ __main__main_tile_0:
 	freer res[r0]
 	ldw r0, sp[35]
 	ldw r1, sp[33]
-	bf r1, .LBB48_3
+	bf r1, .LBB54_3
 	ldw r1, sp[31]
 	ldw r2, sp[32]
 	#APP
@@ -4113,14 +4462,14 @@ __main__main_tile_0:
 	outct res[r1], 1
 	setd res[r1], r3
 	stw r4, sp[33]
-.LBB48_3:
+.LBB54_3:
 	chkct res[r0], 1
 	freer res[r0]
 	ldw r0, sp[29]
 	freer res[r0]
 	ldw r0, sp[26]
 	ldw r1, sp[24]
-	bf r1, .LBB48_5
+	bf r1, .LBB54_5
 	ldw r1, sp[22]
 	ldw r2, sp[23]
 	#APP
@@ -4130,7 +4479,7 @@ __main__main_tile_0:
 	outct res[r1], 1
 	setd res[r1], r3
 	stw r4, sp[24]
-.LBB48_5:
+.LBB54_5:
 	chkct res[r0], 1
 	freer res[r0]
 	ldw r0, sp[20]
@@ -4163,18 +4512,18 @@ __main__main_tile_0:
 	.globl	__main__main_tile_0.maxtimers
 	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_5.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_System_Task_2.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Client_8.maxchanends)) $M 20
 	.globl	__main__main_tile_0.maxchanends
-.Ltmp247:
-	.size	__main__main_tile_0, .Ltmp247-__main__main_tile_0
+.Ltmp262:
+	.size	__main__main_tile_0, .Ltmp262-__main__main_tile_0
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI49_0.data,.LCPI49_0
+	.cc_top .LCPI55_0.data,.LCPI55_0
 	.align	4
-	.type	.LCPI49_0,@object
-	.size	.LCPI49_0, 4
-.LCPI49_0:
+	.type	.LCPI55_0,@object
+	.size	.LCPI55_0, 4
+.LCPI55_0:
 	.long	2147483647
-	.cc_bottom .LCPI49_0.data
+	.cc_bottom .LCPI55_0.data
 	.text
 	.align	4
 	.type	__main__main_tile_0_combined_tile_0_0,@function
@@ -4182,33 +4531,33 @@ __main__main_tile_0:
 __main__main_tile_0_combined_tile_0_0:
 	.cfi_startproc
 	entsp 11
-.Ltmp248:
+.Ltmp263:
 	.cfi_def_cfa_offset 44
-.Ltmp249:
+.Ltmp264:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
-.Ltmp250:
+.Ltmp265:
 	.cfi_offset 10, -40
 	ldaw r10, sp[0]
-.Ltmp251:
+.Ltmp266:
 	.cfi_def_cfa_register 10
 	stw r4, r10[10]
-.Ltmp252:
+.Ltmp267:
 	.cfi_offset 4, -4
 	stw r5, r10[9]
-.Ltmp253:
+.Ltmp268:
 	.cfi_offset 5, -8
 	stw r6, r10[8]
-.Ltmp254:
+.Ltmp269:
 	.cfi_offset 6, -12
 	stw r7, r10[7]
-.Ltmp255:
+.Ltmp270:
 	.cfi_offset 7, -16
 	stw r8, r10[6]
-.Ltmp256:
+.Ltmp271:
 	.cfi_offset 8, -20
 	stw r9, r10[5]
-.Ltmp257:
+.Ltmp272:
 	.cfi_offset 9, -24
 	mov r6, r0
 	ldc r0, I2C_Internal_Server.init.0.savedstate
@@ -4277,7 +4626,7 @@ __main__main_tile_0_combined_tile_0_0:
 	clre
 	get r11, id
 	ldaw r7, dp[__timer_delta]
-	ldw r0, cp[.LCPI49_0]
+	ldw r0, cp[.LCPI55_0]
 	stw r0, r7[r11]
 	ldaw r0, dp[__timers]
 	ldw r8, r0[r11]
@@ -4299,15 +4648,15 @@ __main__main_tile_0_combined_tile_0_0:
 	extsp 1
 	ldw r0, r10[2]
 	mov r5, r0
-	bu .LBB49_1
-.LBB49_4:
+	bu .LBB55_1
+.LBB55_4:
 	bl __wait_nonlocal
-	bu .Ltmp258
-.Ltmp258:
-.LBB49_3:
+	bu .Ltmp273
+.Ltmp273:
+.LBB55_3:
 	clre
 	get r11, id
-	ldw r0, cp[.LCPI49_0]
+	ldw r0, cp[.LCPI55_0]
 	stw r0, r7[r11]
 	setc res[r8], 1
 	in r0, res[r8]
@@ -4324,12 +4673,12 @@ __main__main_tile_0_combined_tile_0_0:
 	# ALLOCA 11
 	extsp 1
 	mov r0, r5
-.LBB49_1:
+.LBB55_1:
 	bl Temperature_Heater_Controller.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r0, r6
-	bt r0, .LBB49_4
+	bt r0, .LBB55_4
 	# STACKUP 
 	# ALLOCA 8
 	extsp 1
@@ -4359,22 +4708,22 @@ __main__main_tile_0_combined_tile_0_0:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_0.function
-	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M I2C_Internal_Server.select.enable.cases.nstackwords $M Temperature_Heater_Controller.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M Temperature_Heater_Controller.select.enable.cases.nstackwords $M I2C_Internal_Server.select.enable.cases.nstackwords)) + 11)
 	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + 0))
-.Ltmp259:
-	.size	__main__main_tile_0_combined_tile_0_0, .Ltmp259-__main__main_tile_0_combined_tile_0_0
+.Ltmp274:
+	.size	__main__main_tile_0_combined_tile_0_0, .Ltmp274-__main__main_tile_0_combined_tile_0_0
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI50_0.data,.LCPI50_0
+	.cc_top .LCPI56_0.data,.LCPI56_0
 	.align	4
-	.type	.LCPI50_0,@object
-	.size	.LCPI50_0, 4
-.LCPI50_0:
+	.type	.LCPI56_0,@object
+	.size	.LCPI56_0, 4
+.LCPI56_0:
 	.long	2147483647
-	.cc_bottom .LCPI50_0.data
+	.cc_bottom .LCPI56_0.data
 	.text
 	.align	4
 	.type	__main__main_tile_0_combined_tile_0_4,@function
@@ -4382,33 +4731,33 @@ __main__main_tile_0_combined_tile_0_0:
 __main__main_tile_0_combined_tile_0_4:
 	.cfi_startproc
 	entsp 11
-.Ltmp260:
+.Ltmp275:
 	.cfi_def_cfa_offset 44
-.Ltmp261:
+.Ltmp276:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
-.Ltmp262:
+.Ltmp277:
 	.cfi_offset 10, -40
 	ldaw r10, sp[0]
-.Ltmp263:
+.Ltmp278:
 	.cfi_def_cfa_register 10
 	stw r4, r10[10]
-.Ltmp264:
+.Ltmp279:
 	.cfi_offset 4, -4
 	stw r5, r10[9]
-.Ltmp265:
+.Ltmp280:
 	.cfi_offset 5, -8
 	stw r6, r10[8]
-.Ltmp266:
+.Ltmp281:
 	.cfi_offset 6, -12
 	stw r7, r10[7]
-.Ltmp267:
+.Ltmp282:
 	.cfi_offset 7, -16
 	stw r8, r10[6]
-.Ltmp268:
+.Ltmp283:
 	.cfi_offset 8, -20
 	stw r9, r10[5]
-.Ltmp269:
+.Ltmp284:
 	.cfi_offset 9, -24
 	mov r4, r0
 	ldc r0, I2C_External_Server.init.0.savedstate
@@ -4476,7 +4825,7 @@ __main__main_tile_0_combined_tile_0_4:
 	clre
 	get r11, id
 	ldaw r7, dp[__timer_delta]
-	ldw r0, cp[.LCPI50_0]
+	ldw r0, cp[.LCPI56_0]
 	stw r0, r7[r11]
 	ldaw r0, dp[__timers]
 	ldw r8, r0[r11]
@@ -4503,15 +4852,15 @@ __main__main_tile_0_combined_tile_0_4:
 	# STACKDOWN
 	ldw r1, r10[2]
 	or r0, r0, r1
-	bf r0, .LBB50_1
-.LBB50_3:
+	bf r0, .LBB56_1
+.LBB56_3:
 	bl __wait_nonlocal
-	bu .Ltmp270
-.Ltmp270:
-.LBB50_2:
+	bu .Ltmp285
+.Ltmp285:
+.LBB56_2:
 	clre
 	get r11, id
-	ldw r0, cp[.LCPI50_0]
+	ldw r0, cp[.LCPI56_0]
 	stw r0, r7[r11]
 	setc res[r8], 1
 	in r0, res[r8]
@@ -4532,8 +4881,8 @@ __main__main_tile_0_combined_tile_0_4:
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r0, r6
-	bt r0, .LBB50_3
-.LBB50_1:
+	bt r0, .LBB56_3
+.LBB56_1:
 	# STACKUP 
 	# ALLOCA 8
 	extsp 1
@@ -4563,22 +4912,22 @@ __main__main_tile_0_combined_tile_0_4:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_4.function
-	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Server.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M I2C_External_Server.select.enable.cases.nstackwords $M adc_task.select.enable.cases.nstackwords)) + 11)
 	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
-.Ltmp271:
-	.size	__main__main_tile_0_combined_tile_0_4, .Ltmp271-__main__main_tile_0_combined_tile_0_4
+.Ltmp286:
+	.size	__main__main_tile_0_combined_tile_0_4, .Ltmp286-__main__main_tile_0_combined_tile_0_4
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI51_0.data,.LCPI51_0
+	.cc_top .LCPI57_0.data,.LCPI57_0
 	.align	4
-	.type	.LCPI51_0,@object
-	.size	.LCPI51_0, 4
-.LCPI51_0:
+	.type	.LCPI57_0,@object
+	.size	.LCPI57_0, 4
+.LCPI57_0:
 	.long	2147483647
-	.cc_bottom .LCPI51_0.data
+	.cc_bottom .LCPI57_0.data
 	.text
 	.align	4
 	.type	__main__main_tile_0_combined_tile_0_5,@function
@@ -4586,33 +4935,33 @@ __main__main_tile_0_combined_tile_0_4:
 __main__main_tile_0_combined_tile_0_5:
 	.cfi_startproc
 	entsp 12
-.Ltmp272:
+.Ltmp287:
 	.cfi_def_cfa_offset 48
-.Ltmp273:
+.Ltmp288:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
-.Ltmp274:
+.Ltmp289:
 	.cfi_offset 10, -44
 	ldaw r10, sp[0]
-.Ltmp275:
+.Ltmp290:
 	.cfi_def_cfa_register 10
 	stw r4, r10[11]
-.Ltmp276:
+.Ltmp291:
 	.cfi_offset 4, -4
 	stw r5, r10[10]
-.Ltmp277:
+.Ltmp292:
 	.cfi_offset 5, -8
 	stw r6, r10[9]
-.Ltmp278:
+.Ltmp293:
 	.cfi_offset 6, -12
 	stw r7, r10[8]
-.Ltmp279:
+.Ltmp294:
 	.cfi_offset 7, -16
 	stw r8, r10[7]
-.Ltmp280:
+.Ltmp295:
 	.cfi_offset 8, -20
 	stw r9, r10[6]
-.Ltmp281:
+.Ltmp296:
 	.cfi_offset 9, -24
 	mov r4, r0
 	stw r4, r10[3]
@@ -4693,7 +5042,7 @@ __main__main_tile_0_combined_tile_0_5:
 	clre
 	get r11, id
 	ldaw r9, dp[__timer_delta]
-	ldw r0, cp[.LCPI51_0]
+	ldw r0, cp[.LCPI57_0]
 	stw r0, r9[r11]
 	ldaw r0, dp[__timers]
 	ldw r4, r0[r11]
@@ -4720,15 +5069,15 @@ __main__main_tile_0_combined_tile_0_5:
 	# STACKDOWN
 	ldw r1, r10[2]
 	or r0, r0, r1
-	bf r0, .LBB51_1
-.LBB51_3:
+	bf r0, .LBB57_1
+.LBB57_3:
 	bl __wait_nonlocal
-	bu .Ltmp282
-.Ltmp282:
-.LBB51_2:
+	bu .Ltmp297
+.Ltmp297:
+.LBB57_2:
 	clre
 	get r11, id
-	ldw r0, cp[.LCPI51_0]
+	ldw r0, cp[.LCPI57_0]
 	stw r0, r9[r11]
 	setc res[r4], 1
 	in r0, res[r4]
@@ -4749,8 +5098,8 @@ __main__main_tile_0_combined_tile_0_5:
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r0, r7
-	bt r0, .LBB51_3
-.LBB51_1:
+	bt r0, .LBB57_3
+.LBB57_1:
 	# STACKUP 
 	# ALLOCA 9
 	extsp 1
@@ -4796,18 +5145,18 @@ __main__main_tile_0_combined_tile_0_5:
 	.set	__main__main_tile_0_combined_tile_0_5.maxcores,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_5.maxtimers,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_5.maxchanends,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + 0))
-.Ltmp283:
-	.size	__main__main_tile_0_combined_tile_0_5, .Ltmp283-__main__main_tile_0_combined_tile_0_5
+.Ltmp298:
+	.size	__main__main_tile_0_combined_tile_0_5, .Ltmp298-__main__main_tile_0_combined_tile_0_5
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI52_0.data,.LCPI52_0
+	.cc_top .LCPI58_0.data,.LCPI58_0
 	.align	4
-	.type	.LCPI52_0,@object
-	.size	.LCPI52_0, 4
-.LCPI52_0:
+	.type	.LCPI58_0,@object
+	.size	.LCPI58_0, 4
+.LCPI58_0:
 	.long	2147483647
-	.cc_bottom .LCPI52_0.data
+	.cc_bottom .LCPI58_0.data
 	.text
 	.align	4
 	.type	__main__main_tile_0_combined_tile_0_1,@function
@@ -4815,33 +5164,33 @@ __main__main_tile_0_combined_tile_0_5:
 __main__main_tile_0_combined_tile_0_1:
 	.cfi_startproc
 	entsp 11
-.Ltmp284:
+.Ltmp299:
 	.cfi_def_cfa_offset 44
-.Ltmp285:
+.Ltmp300:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
-.Ltmp286:
+.Ltmp301:
 	.cfi_offset 10, -40
 	ldaw r10, sp[0]
-.Ltmp287:
+.Ltmp302:
 	.cfi_def_cfa_register 10
 	stw r4, r10[10]
-.Ltmp288:
+.Ltmp303:
 	.cfi_offset 4, -4
 	stw r5, r10[9]
-.Ltmp289:
+.Ltmp304:
 	.cfi_offset 5, -8
 	stw r6, r10[8]
-.Ltmp290:
+.Ltmp305:
 	.cfi_offset 6, -12
 	stw r7, r10[7]
-.Ltmp291:
+.Ltmp306:
 	.cfi_offset 7, -16
 	stw r8, r10[6]
-.Ltmp292:
+.Ltmp307:
 	.cfi_offset 8, -20
 	stw r9, r10[5]
-.Ltmp293:
+.Ltmp308:
 	.cfi_offset 9, -24
 	mov r7, r0
 	ldc r0, Button_Task.init.0.savedstate
@@ -4938,16 +5287,16 @@ __main__main_tile_0_combined_tile_0_1:
 	ldaw r0, dp[__timers]
 	ldw r9, r0[r11]
 	ldaw r8, dp[__timer_base]
-	bu .LBB52_1
-.LBB52_2:
+	bu .LBB58_1
+.LBB58_2:
 	bl __wait_nonlocal
-	bu .Ltmp294
-.Ltmp294:
-.LBB52_1:
+	bu .Ltmp309
+.Ltmp309:
+.LBB58_1:
 	clre
 	get r11, id
 	ldaw r0, dp[__timer_delta]
-	ldw r1, cp[.LCPI52_0]
+	ldw r1, cp[.LCPI58_0]
 	stw r1, r0[r11]
 	setc res[r9], 1
 	in r0, res[r9]
@@ -4976,7 +5325,7 @@ __main__main_tile_0_combined_tile_0_1:
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r7, r0
-	bt r0, .LBB52_2
+	bt r0, .LBB58_2
 	# STACKUP 
 	# ALLOCA 9
 	extsp 1
@@ -5019,34 +5368,34 @@ __main__main_tile_0_combined_tile_0_1:
 	.set	__main__main_tile_0_combined_tile_0_1.maxcores,((3 * Button_Task.dynalloc_maxcores) + Button_Task.fini.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.0.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.1.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.cases.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + 1)
 	.set	__main__main_tile_0_combined_tile_0_1.maxtimers,((3 * Button_Task.dynalloc_maxtimers) + Button_Task.fini.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.0.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.1.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.cases.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + 0)
 	.set	__main__main_tile_0_combined_tile_0_1.maxchanends,((3 * Button_Task.dynalloc_maxchanends) + Button_Task.fini.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.0.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.1.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.cases.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + 0)
-.Ltmp295:
-	.size	__main__main_tile_0_combined_tile_0_1, .Ltmp295-__main__main_tile_0_combined_tile_0_1
+.Ltmp310:
+	.size	__main__main_tile_0_combined_tile_0_1, .Ltmp310-__main__main_tile_0_combined_tile_0_1
 	.cfi_endproc
 
 	.align	4
 	.type	__main__main_tile_0_task_System_Task_2,@function
 	.cc_top __main__main_tile_0_task_System_Task_2.function,__main__main_tile_0_task_System_Task_2
 __main__main_tile_0_task_System_Task_2:
-.Lfunc_begin53:
+.Lfunc_begin59:
 	.loc	1 65 0
 	.cfi_startproc
 	entsp 7
-.Ltmp296:
+.Ltmp311:
 	.cfi_def_cfa_offset 28
-.Ltmp297:
+.Ltmp312:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp298:
+.Ltmp313:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp299:
+.Ltmp314:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp300:
+.Ltmp315:
 	.cfi_offset 6, -12
 	ldc r1, 256
 	.loc	1 65 0 prologue_end
-.Ltmp301:
+.Ltmp316:
 	add r1, r0, r1
 	.loc	1 65 0
 	ldw r11, r1[0]
@@ -5072,7 +5421,7 @@ __main__main_tile_0_task_System_Task_2:
 	ldc r6, 392
 	.loc	1 65 0
 	add r0, r0, r6
-.Ltmp302:
+.Ltmp317:
 	.loc	1 65 0
 	stw r0, sp[3]
 	stw r5, sp[2]
@@ -5085,39 +5434,39 @@ __main__main_tile_0_task_System_Task_2:
 	ldw r4, sp[6]
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp303:
+.Ltmp318:
 	.cc_bottom __main__main_tile_0_task_System_Task_2.function
 	.set	__main__main_tile_0_task_System_Task_2.nstackwords,(System_Task.nstackwords + 7)
 	.set	__main__main_tile_0_task_System_Task_2.maxcores,System_Task.maxcores $M 1
 	.set	__main__main_tile_0_task_System_Task_2.maxtimers,System_Task.maxtimers $M 0
 	.set	__main__main_tile_0_task_System_Task_2.maxchanends,System_Task.maxchanends $M 0
-.Ltmp304:
-	.size	__main__main_tile_0_task_System_Task_2, .Ltmp304-__main__main_tile_0_task_System_Task_2
-.Lfunc_end53:
+.Ltmp319:
+	.size	__main__main_tile_0_task_System_Task_2, .Ltmp319-__main__main_tile_0_task_System_Task_2
+.Lfunc_end59:
 	.cfi_endproc
 
 	.align	4
 	.type	__main__main_tile_0_task_My_startKIT_ADC_Client_8,@function
 	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Client_8.function,__main__main_tile_0_task_My_startKIT_ADC_Client_8
 __main__main_tile_0_task_My_startKIT_ADC_Client_8:
-.Lfunc_begin54:
+.Lfunc_begin60:
 	.loc	1 73 0
 	.cfi_startproc
 	entsp 1
-.Ltmp305:
+.Ltmp320:
 	.cfi_def_cfa_offset 4
-.Ltmp306:
+.Ltmp321:
 	.cfi_offset 15, 0
 	ldc r1, 204
 	.loc	1 73 0 prologue_end
-.Ltmp307:
+.Ltmp322:
 	add r1, r0, r1
 	.loc	1 73 0
 	ldw r3, r1[0]
 	ldc r1, 148
 	.loc	1 73 0
 	add r0, r0, r1
-.Ltmp308:
+.Ltmp323:
 	.loc	1 73 0
 	ldw r1, r0[0]
 	ldc r2, 1000
@@ -5127,15 +5476,15 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 	bl My_startKIT_ADC_Client
 	retsp 1
 	# RETURN_REG_HOLDER
-.Ltmp309:
+.Ltmp324:
 	.cc_bottom __main__main_tile_0_task_My_startKIT_ADC_Client_8.function
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_8.nstackwords,(My_startKIT_ADC_Client.nstackwords + 1)
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_8.maxcores,My_startKIT_ADC_Client.maxcores $M 1
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_8.maxtimers,My_startKIT_ADC_Client.maxtimers $M 0
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_8.maxchanends,My_startKIT_ADC_Client.maxchanends $M 0
-.Ltmp310:
-	.size	__main__main_tile_0_task_My_startKIT_ADC_Client_8, .Ltmp310-__main__main_tile_0_task_My_startKIT_ADC_Client_8
-.Lfunc_end54:
+.Ltmp325:
+	.size	__main__main_tile_0_task_My_startKIT_ADC_Client_8, .Ltmp325-__main__main_tile_0_task_My_startKIT_ADC_Client_8
+.Lfunc_end60:
 	.cfi_endproc
 
 	.section	.cp.rodata,"ac",@progbits
@@ -5164,11 +5513,14 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_8:
 	.cc_top .vtable11.data,.vtable11
 	.align	4
 	.type	.vtable11,@object
-	.size	.vtable11, 24
+	.size	.vtable11, 36
 .vtable11:
 	.long	_i.i2c_internal_commands_if._chan.write_display_ok
 	.long	_i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.long	_i.i2c_internal_commands_if._chan.write_chronodot_ok
+	.long	_i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.long	_i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.long	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
@@ -5394,244 +5746,256 @@ par.desc.1:
 .Linfo_string52:
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
 .Linfo_string53:
-.asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.read_fram_device_id_ok"
 .Linfo_string54:
-.asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
 .Linfo_string55:
-.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
 .Linfo_string56:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
 .Linfo_string57:
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 .Linfo_string58:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 .Linfo_string59:
-.asciiz"_i.i2c_external_commands_if._chan.command"
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok"
 .Linfo_string60:
-.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
 .Linfo_string61:
-.asciiz"i2c_temp_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
 .Linfo_string62:
-.asciiz"sizetype"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 .Linfo_string63:
-.asciiz"i2c_temp_onetenthDegC"
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 .Linfo_string64:
-.asciiz"short"
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 .Linfo_string65:
-.asciiz"tag_i2c_temps_t"
+.asciiz"_i.i2c_external_commands_if._chan.command"
 .Linfo_string66:
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
+.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 .Linfo_string67:
-.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
+.asciiz"i2c_temp_ok"
 .Linfo_string68:
-.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
+.asciiz"sizetype"
 .Linfo_string69:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
+.asciiz"i2c_temp_onetenthDegC"
 .Linfo_string70:
-.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
+.asciiz"short"
 .Linfo_string71:
-.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
+.asciiz"tag_i2c_temps_t"
 .Linfo_string72:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
+.asciiz"_i.i2c_external_commands_if._chan_y.command"
 .Linfo_string73:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
+.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 .Linfo_string74:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 .Linfo_string75:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
 .Linfo_string76:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 .Linfo_string77:
-.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string78:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
 .Linfo_string79:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string80:
-.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
+.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
 .Linfo_string81:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 .Linfo_string82:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 .Linfo_string83:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
+.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 .Linfo_string84:
-.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
 .Linfo_string85:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 .Linfo_string86:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string87:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string88:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 .Linfo_string89:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string90:
-.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
+.asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
 .Linfo_string91:
-.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
 .Linfo_string92:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string93:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 .Linfo_string94:
-.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string95:
-.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
+.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
 .Linfo_string96:
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 .Linfo_string97:
-.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
+.asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 .Linfo_string98:
-.asciiz"_i.lib_startkit_adc_commands_if._chan.read"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 .Linfo_string99:
-.asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
+.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string100:
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.read"
+.asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string101:
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
+.asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
 .Linfo_string102:
-.asciiz"delay_seconds"
+.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 .Linfo_string103:
-.asciiz"delay_milliseconds"
+.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 .Linfo_string104:
-.asciiz"delay_microseconds"
+.asciiz"_i.lib_startkit_adc_commands_if._chan.read"
 .Linfo_string105:
-.asciiz"__main__main_tile_0_combined_tile_0_0"
+.asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
 .Linfo_string106:
-.asciiz"__main__main_tile_0_combined_tile_0_4"
+.asciiz"_i.lib_startkit_adc_commands_if._chan_y.read"
 .Linfo_string107:
-.asciiz"__main__main_tile_0_combined_tile_0_5"
+.asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
 .Linfo_string108:
-.asciiz"__main__main_tile_0_combined_tile_0_1"
+.asciiz"delay_seconds"
 .Linfo_string109:
-.asciiz"__main__main_tile_0_task_System_Task_2"
+.asciiz"delay_milliseconds"
 .Linfo_string110:
-.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_8"
+.asciiz"delay_microseconds"
 .Linfo_string111:
-.asciiz"__main__main_tile_0"
+.asciiz"__main__main_tile_0_combined_tile_0_0"
 .Linfo_string112:
-.asciiz"frame"
+.asciiz"__main__main_tile_0_combined_tile_0_4"
 .Linfo_string113:
-.asciiz"i_temperature_water_commands"
+.asciiz"__main__main_tile_0_combined_tile_0_5"
 .Linfo_string114:
-.asciiz"x"
+.asciiz"__main__main_tile_0_combined_tile_0_1"
 .Linfo_string115:
-.asciiz"interface"
+.asciiz"__main__main_tile_0_task_System_Task_2"
 .Linfo_string116:
-.asciiz"state.0"
+.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_8"
 .Linfo_string117:
-.asciiz"server_state"
+.asciiz"__main__main_tile_0"
 .Linfo_string118:
-.asciiz"unsigned int"
+.asciiz"frame"
 .Linfo_string119:
-.asciiz"client_state"
+.asciiz"i_temperature_water_commands"
 .Linfo_string120:
-.asciiz"__TYPE_16"
+.asciiz"x"
 .Linfo_string121:
-.asciiz"__TYPE_15"
+.asciiz"interface"
 .Linfo_string122:
-.asciiz"i_temperature_heater_commands"
+.asciiz"state.0"
 .Linfo_string123:
-.asciiz"__TYPE_18"
+.asciiz"server_state"
 .Linfo_string124:
-.asciiz"state.1"
+.asciiz"unsigned int"
 .Linfo_string125:
-.asciiz"__TYPE_19"
+.asciiz"client_state"
 .Linfo_string126:
-.asciiz"__TYPE_17"
+.asciiz"__TYPE_16"
 .Linfo_string127:
-.asciiz"i_port_heat_light_commands"
+.asciiz"__TYPE_15"
 .Linfo_string128:
-.asciiz"__TYPE_21"
+.asciiz"i_temperature_heater_commands"
 .Linfo_string129:
-.asciiz"__TYPE_22"
+.asciiz"__TYPE_18"
 .Linfo_string130:
-.asciiz"__TYPE_20"
+.asciiz"state.1"
 .Linfo_string131:
-.asciiz"i_lib_startkit_adc_commands"
+.asciiz"__TYPE_19"
 .Linfo_string132:
-.asciiz"__TYPE_24"
+.asciiz"__TYPE_17"
 .Linfo_string133:
-.asciiz"__TYPE_23"
+.asciiz"i_port_heat_light_commands"
 .Linfo_string134:
-.asciiz"i_startkit_adc_acquire"
+.asciiz"__TYPE_21"
 .Linfo_string135:
-.asciiz"__TYPE_26"
+.asciiz"__TYPE_22"
 .Linfo_string136:
-.asciiz"__TYPE_25"
+.asciiz"__TYPE_20"
 .Linfo_string137:
-.asciiz"i_i2c_internal_commands"
+.asciiz"i_lib_startkit_adc_commands"
 .Linfo_string138:
-.asciiz"__TYPE_28"
+.asciiz"__TYPE_24"
 .Linfo_string139:
-.asciiz"__TYPE_27"
+.asciiz"__TYPE_23"
 .Linfo_string140:
-.asciiz"i_i2c_external_commands"
+.asciiz"i_startkit_adc_acquire"
 .Linfo_string141:
-.asciiz"__TYPE_30"
+.asciiz"__TYPE_26"
 .Linfo_string142:
-.asciiz"__TYPE_31"
+.asciiz"__TYPE_25"
 .Linfo_string143:
-.asciiz"__TYPE_29"
+.asciiz"i_i2c_internal_commands"
 .Linfo_string144:
-.asciiz"c_analogue"
+.asciiz"__TYPE_28"
 .Linfo_string145:
-.asciiz"chanend"
+.asciiz"__TYPE_27"
 .Linfo_string146:
-.asciiz"c_buttons"
+.asciiz"i_i2c_external_commands"
 .Linfo_string147:
-.asciiz"yieldInfoState"
+.asciiz"__TYPE_30"
 .Linfo_string148:
-.asciiz"frame.0"
+.asciiz"__TYPE_31"
 .Linfo_string149:
-.asciiz"dest"
+.asciiz"__TYPE_29"
 .Linfo_string150:
-.asciiz"last_notification_input"
+.asciiz"c_analogue"
 .Linfo_string151:
-.asciiz"param2"
+.asciiz"chanend"
 .Linfo_string152:
-.asciiz"unsigned short"
+.asciiz"c_buttons"
 .Linfo_string153:
-.asciiz"s"
+.asciiz"yieldInfoState"
 .Linfo_string154:
-.asciiz"y"
+.asciiz"frame.0"
 .Linfo_string155:
-.asciiz"yarg"
+.asciiz"dest"
 .Linfo_string156:
-.asciiz"param1"
+.asciiz"last_notification_input"
 .Linfo_string157:
-.asciiz"unsigned char"
+.asciiz"param2"
 .Linfo_string158:
-.asciiz"registers"
+.asciiz"unsigned short"
 .Linfo_string159:
-.asciiz"chronodot_d3231_registers_t"
+.asciiz"s"
 .Linfo_string160:
-.asciiz"param3"
+.asciiz"y"
 .Linfo_string161:
-.asciiz"param4"
+.asciiz"yarg"
 .Linfo_string162:
-.asciiz"year"
+.asciiz"param1"
 .Linfo_string163:
-.asciiz"month"
+.asciiz"unsigned char"
 .Linfo_string164:
-.asciiz"day"
+.asciiz"param3"
 .Linfo_string165:
-.asciiz"hour"
+.asciiz"registers"
 .Linfo_string166:
-.asciiz"minute"
+.asciiz"chronodot_d3231_registers_t"
 .Linfo_string167:
-.asciiz"second"
+.asciiz"param4"
 .Linfo_string168:
-.asciiz"__TYPE_14"
+.asciiz"year"
 .Linfo_string169:
-.asciiz"delay"
+.asciiz"month"
 .Linfo_string170:
+.asciiz"day"
+.Linfo_string171:
+.asciiz"hour"
+.Linfo_string172:
+.asciiz"minute"
+.Linfo_string173:
+.asciiz"second"
+.Linfo_string174:
+.asciiz"__TYPE_14"
+.Linfo_string175:
+.asciiz"delay"
+.Linfo_string176:
 .asciiz"formal.c_analogue1"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3268
+	.long	3517
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -5811,28 +6175,28 @@ par.desc.1:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string109
-	.long	.Linfo_string109
+	.long	.Linfo_string115
+	.long	.Linfo_string115
 	.byte	1
 	.byte	65
 	.byte	7
 	.long	.Ldebug_loc0
-	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	6
 	.long	.Ldebug_ranges1
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string110
-	.long	.Linfo_string110
+	.long	.Linfo_string116
+	.long	.Linfo_string116
 	.byte	1
 	.byte	73
 	.byte	7
 	.long	.Ldebug_loc1
-	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	8
 	.long	.Linfo_string48
@@ -5840,14 +6204,14 @@ par.desc.1:
 	.long	463
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string150
-	.long	2425
+	.long	.Linfo_string156
+	.long	2669
 	.byte	9
-	.long	.Linfo_string151
-	.long	2999
+	.long	.Linfo_string157
+	.long	3243
 	.byte	0
 	.byte	3
 	.long	.Linfo_string49
@@ -5858,8 +6222,8 @@ par.desc.1:
 	.long	.Linfo_string50
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string155
+	.long	3203
 	.byte	0
 	.byte	8
 	.long	.Linfo_string51
@@ -5867,22 +6231,22 @@ par.desc.1:
 	.long	463
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string150
-	.long	2425
+	.long	.Linfo_string156
+	.long	2669
 	.byte	9
-	.long	.Linfo_string151
-	.long	2999
+	.long	.Linfo_string157
+	.long	3243
 	.byte	0
 	.byte	10
 	.long	.Linfo_string52
 	.long	.Linfo_string52
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
 	.byte	0
 	.byte	8
 	.long	.Linfo_string53
@@ -5890,46 +6254,43 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3056
-	.byte	9
-	.long	.Linfo_string151
-	.long	3068
-	.byte	0
-	.byte	10
-	.long	.Linfo_string54
-	.long	.Linfo_string54
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3056
+	.long	.Linfo_string162
+	.long	3300
 	.byte	0
 	.byte	8
-	.long	.Linfo_string55
-	.long	.Linfo_string55
+	.long	.Linfo_string54
+	.long	.Linfo_string54
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3056
+	.long	.Linfo_string162
+	.long	3300
 	.byte	9
-	.long	.Linfo_string151
-	.long	3056
+	.long	.Linfo_string157
+	.long	3312
 	.byte	9
-	.long	.Linfo_string160
-	.long	3103
+	.long	.Linfo_string164
+	.long	3300
+	.byte	0
+	.byte	10
+	.long	.Linfo_string55
+	.long	.Linfo_string55
+	.byte	1
 	.byte	9
-	.long	.Linfo_string161
-	.long	2425
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string162
+	.long	3300
+	.byte	9
+	.long	.Linfo_string157
+	.long	3312
 	.byte	0
 	.byte	8
 	.long	.Linfo_string56
@@ -5937,25 +6298,25 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3056
+	.long	.Linfo_string162
+	.long	3300
 	.byte	9
-	.long	.Linfo_string151
-	.long	3068
+	.long	.Linfo_string157
+	.long	3317
 	.byte	0
 	.byte	10
 	.long	.Linfo_string57
 	.long	.Linfo_string57
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3056
+	.long	.Linfo_string162
+	.long	3300
 	.byte	0
 	.byte	8
 	.long	.Linfo_string58
@@ -5963,983 +6324,1076 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3056
+	.long	.Linfo_string162
+	.long	3300
 	.byte	9
-	.long	.Linfo_string151
-	.long	3056
+	.long	.Linfo_string157
+	.long	3300
 	.byte	9
-	.long	.Linfo_string160
-	.long	3103
+	.long	.Linfo_string164
+	.long	3352
 	.byte	9
-	.long	.Linfo_string161
-	.long	2425
+	.long	.Linfo_string167
+	.long	2669
 	.byte	0
-	.byte	10
+	.byte	8
 	.long	.Linfo_string59
 	.long	.Linfo_string59
+	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3113
+	.long	.Linfo_string162
+	.long	3300
 	.byte	0
 	.byte	8
 	.long	.Linfo_string60
 	.long	.Linfo_string60
-	.long	876
+	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string150
-	.long	2425
+	.long	.Linfo_string162
+	.long	3300
+	.byte	9
+	.long	.Linfo_string157
+	.long	3312
+	.byte	9
+	.long	.Linfo_string164
+	.long	3300
+	.byte	0
+	.byte	10
+	.long	.Linfo_string61
+	.long	.Linfo_string61
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3300
+	.byte	9
+	.long	.Linfo_string157
+	.long	3312
+	.byte	0
+	.byte	8
+	.long	.Linfo_string62
+	.long	.Linfo_string62
+	.long	104
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3300
+	.byte	9
+	.long	.Linfo_string157
+	.long	3317
+	.byte	0
+	.byte	10
+	.long	.Linfo_string63
+	.long	.Linfo_string63
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3300
+	.byte	0
+	.byte	8
+	.long	.Linfo_string64
+	.long	.Linfo_string64
+	.long	104
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3300
+	.byte	9
+	.long	.Linfo_string157
+	.long	3300
+	.byte	9
+	.long	.Linfo_string164
+	.long	3352
+	.byte	9
+	.long	.Linfo_string167
+	.long	2669
+	.byte	0
+	.byte	10
+	.long	.Linfo_string65
+	.long	.Linfo_string65
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string162
+	.long	3362
+	.byte	0
+	.byte	8
+	.long	.Linfo_string66
+	.long	.Linfo_string66
+	.long	1120
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string156
+	.long	2669
 	.byte	0
 	.byte	11
-	.long	.Linfo_string65
+	.long	.Linfo_string71
 	.byte	20
 	.byte	12
-	.long	.Linfo_string61
-	.long	903
+	.long	.Linfo_string67
+	.long	1147
 	.byte	0
 	.byte	12
-	.long	.Linfo_string63
-	.long	923
+	.long	.Linfo_string69
+	.long	1167
 	.byte	12
 	.byte	0
 	.byte	13
 	.long	104
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	15
-	.long	.Linfo_string62
+	.long	.Linfo_string68
 	.byte	8
 	.byte	7
 	.byte	13
-	.long	936
+	.long	1180
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	3
-	.long	.Linfo_string64
+	.long	.Linfo_string70
 	.byte	5
 	.byte	2
 	.byte	10
-	.long	.Linfo_string66
-	.long	.Linfo_string66
+	.long	.Linfo_string72
+	.long	.Linfo_string72
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3113
+	.long	.Linfo_string162
+	.long	3362
 	.byte	0
 	.byte	8
-	.long	.Linfo_string67
-	.long	.Linfo_string67
-	.long	876
-	.byte	1
-	.byte	9
-	.long	.Linfo_string153
-	.long	3024
-	.byte	9
-	.long	.Linfo_string150
-	.long	2425
-	.byte	0
-	.byte	10
-	.long	.Linfo_string68
-	.long	.Linfo_string68
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3118
-	.byte	0
-	.byte	10
-	.long	.Linfo_string69
-	.long	.Linfo_string69
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3123
-	.byte	0
-	.byte	10
-	.long	.Linfo_string70
-	.long	.Linfo_string70
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3128
-	.byte	0
-	.byte	10
-	.long	.Linfo_string71
-	.long	.Linfo_string71
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3133
-	.byte	9
-	.long	.Linfo_string151
-	.long	3138
-	.byte	9
-	.long	.Linfo_string160
-	.long	3123
-	.byte	0
-	.byte	10
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.byte	1
-	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	9
-	.long	.Linfo_string156
-	.long	3143
-	.byte	0
-	.byte	10
 	.long	.Linfo_string73
 	.long	.Linfo_string73
+	.long	1120
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string156
+	.long	2669
 	.byte	0
 	.byte	10
 	.long	.Linfo_string74
 	.long	.Linfo_string74
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3118
+	.long	.Linfo_string162
+	.long	3367
 	.byte	0
 	.byte	10
 	.long	.Linfo_string75
 	.long	.Linfo_string75
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3123
+	.long	.Linfo_string162
+	.long	3372
 	.byte	0
 	.byte	10
 	.long	.Linfo_string76
 	.long	.Linfo_string76
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3128
+	.long	.Linfo_string162
+	.long	3377
 	.byte	0
 	.byte	10
 	.long	.Linfo_string77
 	.long	.Linfo_string77
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3133
+	.long	.Linfo_string162
+	.long	3382
 	.byte	9
-	.long	.Linfo_string151
-	.long	3138
+	.long	.Linfo_string157
+	.long	3387
 	.byte	9
-	.long	.Linfo_string160
-	.long	3123
+	.long	.Linfo_string164
+	.long	3372
 	.byte	0
 	.byte	10
 	.long	.Linfo_string78
 	.long	.Linfo_string78
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3143
+	.long	.Linfo_string162
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string79
 	.long	.Linfo_string79
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	0
 	.byte	10
 	.long	.Linfo_string80
 	.long	.Linfo_string80
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3148
+	.long	.Linfo_string162
+	.long	3367
 	.byte	0
 	.byte	10
 	.long	.Linfo_string81
 	.long	.Linfo_string81
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3153
-	.byte	9
-	.long	.Linfo_string151
-	.long	3158
+	.long	.Linfo_string162
+	.long	3372
 	.byte	0
 	.byte	10
 	.long	.Linfo_string82
 	.long	.Linfo_string82
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3176
+	.long	.Linfo_string162
+	.long	3377
 	.byte	0
 	.byte	10
 	.long	.Linfo_string83
 	.long	.Linfo_string83
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3194
+	.long	.Linfo_string162
+	.long	3382
 	.byte	9
-	.long	.Linfo_string151
-	.long	3148
+	.long	.Linfo_string157
+	.long	3387
+	.byte	9
+	.long	.Linfo_string164
+	.long	3372
 	.byte	0
 	.byte	10
 	.long	.Linfo_string84
 	.long	.Linfo_string84
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3194
-	.byte	9
-	.long	.Linfo_string151
-	.long	3148
+	.long	.Linfo_string162
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string85
 	.long	.Linfo_string85
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
-	.byte	9
-	.long	.Linfo_string156
-	.long	3148
+	.long	.Linfo_string159
+	.long	3268
 	.byte	0
 	.byte	10
 	.long	.Linfo_string86
 	.long	.Linfo_string86
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3153
-	.byte	9
-	.long	.Linfo_string151
-	.long	3158
+	.long	.Linfo_string162
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string87
 	.long	.Linfo_string87
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3176
+	.long	.Linfo_string162
+	.long	3402
+	.byte	9
+	.long	.Linfo_string157
+	.long	3407
 	.byte	0
 	.byte	10
 	.long	.Linfo_string88
 	.long	.Linfo_string88
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3194
-	.byte	9
-	.long	.Linfo_string151
-	.long	3148
+	.long	.Linfo_string162
+	.long	3425
 	.byte	0
 	.byte	10
 	.long	.Linfo_string89
 	.long	.Linfo_string89
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
-	.long	.Linfo_string156
-	.long	3194
+	.long	.Linfo_string162
+	.long	3443
 	.byte	9
-	.long	.Linfo_string151
-	.long	3148
+	.long	.Linfo_string157
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string90
 	.long	.Linfo_string90
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string162
+	.long	3443
+	.byte	9
+	.long	.Linfo_string157
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string91
 	.long	.Linfo_string91
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3153
-	.byte	9
-	.long	.Linfo_string151
-	.long	3158
+	.long	.Linfo_string162
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string92
 	.long	.Linfo_string92
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3402
+	.byte	9
+	.long	.Linfo_string157
+	.long	3407
 	.byte	0
 	.byte	10
 	.long	.Linfo_string93
 	.long	.Linfo_string93
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3153
-	.byte	9
-	.long	.Linfo_string151
-	.long	3158
+	.long	.Linfo_string162
+	.long	3425
 	.byte	0
-	.byte	8
+	.byte	10
 	.long	.Linfo_string94
 	.long	.Linfo_string94
-	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string156
-	.long	3199
+	.long	.Linfo_string162
+	.long	3443
+	.byte	9
+	.long	.Linfo_string157
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string95
 	.long	.Linfo_string95
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3443
+	.byte	9
+	.long	.Linfo_string157
+	.long	3397
+	.byte	0
+	.byte	10
+	.long	.Linfo_string96
+	.long	.Linfo_string96
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
+	.byte	0
+	.byte	10
+	.long	.Linfo_string97
+	.long	.Linfo_string97
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string162
+	.long	3402
+	.byte	9
+	.long	.Linfo_string157
+	.long	3407
+	.byte	0
+	.byte	10
+	.long	.Linfo_string98
+	.long	.Linfo_string98
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	0
+	.byte	10
+	.long	.Linfo_string99
+	.long	.Linfo_string99
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3402
+	.byte	9
+	.long	.Linfo_string157
+	.long	3407
 	.byte	0
 	.byte	8
-	.long	.Linfo_string96
-	.long	.Linfo_string96
+	.long	.Linfo_string100
+	.long	.Linfo_string100
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
+	.byte	9
+	.long	.Linfo_string162
+	.long	3448
+	.byte	0
+	.byte	10
+	.long	.Linfo_string101
+	.long	.Linfo_string101
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
+	.byte	0
+	.byte	8
+	.long	.Linfo_string102
+	.long	.Linfo_string102
+	.long	104
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	9
+	.long	.Linfo_string162
+	.long	3448
+	.byte	0
+	.byte	10
+	.long	.Linfo_string103
+	.long	.Linfo_string103
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3268
+	.byte	0
+	.byte	10
+	.long	.Linfo_string104
+	.long	.Linfo_string104
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3203
 	.byte	9
 	.long	.Linfo_string156
-	.long	3199
+	.long	2669
+	.byte	9
+	.long	.Linfo_string157
+	.long	3243
 	.byte	0
 	.byte	10
-	.long	.Linfo_string97
-	.long	.Linfo_string97
+	.long	.Linfo_string105
+	.long	.Linfo_string105
 	.byte	1
 	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string155
+	.long	3203
 	.byte	0
 	.byte	10
-	.long	.Linfo_string98
-	.long	.Linfo_string98
+	.long	.Linfo_string106
+	.long	.Linfo_string106
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
+	.long	.Linfo_string159
+	.long	3268
 	.byte	9
-	.long	.Linfo_string150
-	.long	2425
+	.long	.Linfo_string156
+	.long	2669
 	.byte	9
-	.long	.Linfo_string151
-	.long	2999
+	.long	.Linfo_string157
+	.long	3243
 	.byte	0
 	.byte	10
-	.long	.Linfo_string99
-	.long	.Linfo_string99
+	.long	.Linfo_string107
+	.long	.Linfo_string107
 	.byte	1
 	.byte	9
-	.long	.Linfo_string149
-	.long	2959
-	.byte	0
-	.byte	10
-	.long	.Linfo_string100
-	.long	.Linfo_string100
-	.byte	1
-	.byte	9
-	.long	.Linfo_string153
-	.long	3024
-	.byte	9
-	.long	.Linfo_string150
-	.long	2425
-	.byte	9
-	.long	.Linfo_string151
-	.long	2999
-	.byte	0
-	.byte	10
-	.long	.Linfo_string101
-	.long	.Linfo_string101
-	.byte	1
-	.byte	9
-	.long	.Linfo_string153
-	.long	3024
+	.long	.Linfo_string159
+	.long	3268
 	.byte	0
 	.byte	16
-	.long	.Linfo_string102
-	.long	.Linfo_string102
+	.long	.Linfo_string108
+	.long	.Linfo_string108
 	.byte	2
 	.byte	46
 	.byte	1
 	.byte	17
-	.long	.Linfo_string169
+	.long	.Linfo_string175
 	.byte	2
 	.byte	46
-	.long	2425
+	.long	2669
 	.byte	0
 	.byte	16
-	.long	.Linfo_string103
-	.long	.Linfo_string103
+	.long	.Linfo_string109
+	.long	.Linfo_string109
 	.byte	2
 	.byte	54
 	.byte	1
 	.byte	17
-	.long	.Linfo_string169
+	.long	.Linfo_string175
 	.byte	2
 	.byte	54
-	.long	2425
+	.long	2669
 	.byte	0
 	.byte	16
-	.long	.Linfo_string104
-	.long	.Linfo_string104
+	.long	.Linfo_string110
+	.long	.Linfo_string110
 	.byte	2
 	.byte	62
 	.byte	1
 	.byte	17
-	.long	.Linfo_string169
+	.long	.Linfo_string175
 	.byte	2
 	.byte	62
-	.long	2425
+	.long	2669
 	.byte	0
 	.byte	18
-	.long	.Linfo_string105
-	.long	.Linfo_string105
+	.long	.Linfo_string111
+	.long	.Linfo_string111
 	.byte	9
-	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	18
-	.long	.Linfo_string106
-	.long	.Linfo_string106
-	.byte	9
 	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string112
+	.byte	9
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	18
-	.long	.Linfo_string107
-	.long	.Linfo_string107
+	.long	.Linfo_string113
+	.long	.Linfo_string113
 	.byte	9
-	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	18
-	.long	.Linfo_string108
-	.long	.Linfo_string108
+	.long	.Linfo_string114
+	.long	.Linfo_string114
 	.byte	9
-	.long	.Linfo_string112
-	.long	2221
+	.long	.Linfo_string118
+	.long	2465
 	.byte	0
 	.byte	10
-	.long	.Linfo_string111
-	.long	.Linfo_string111
+	.long	.Linfo_string117
+	.long	.Linfo_string117
 	.byte	1
 	.byte	9
-	.long	.Linfo_string170
-	.long	2959
+	.long	.Linfo_string176
+	.long	3203
 	.byte	0
 	.byte	19
-	.long	2226
+	.long	2470
 	.byte	20
-	.long	.Linfo_string148
+	.long	.Linfo_string154
 	.short	428
 	.byte	12
-	.long	.Linfo_string113
-	.long	2338
+	.long	.Linfo_string119
+	.long	2582
 	.byte	0
 	.byte	12
-	.long	.Linfo_string122
-	.long	2445
+	.long	.Linfo_string128
+	.long	2689
 	.byte	28
 	.byte	12
-	.long	.Linfo_string127
-	.long	2569
+	.long	.Linfo_string133
+	.long	2813
 	.byte	92
 	.byte	12
-	.long	.Linfo_string131
-	.long	2660
+	.long	.Linfo_string137
+	.long	2904
 	.byte	148
 	.byte	12
-	.long	.Linfo_string134
-	.long	2727
+	.long	.Linfo_string140
+	.long	2971
 	.byte	200
 	.byte	12
-	.long	.Linfo_string137
-	.long	2781
+	.long	.Linfo_string143
+	.long	3025
 	.byte	252
 	.byte	21
-	.long	.Linfo_string140
-	.long	2855
+	.long	.Linfo_string146
+	.long	3099
 	.short	280
 	.byte	21
-	.long	.Linfo_string144
-	.long	2946
+	.long	.Linfo_string150
+	.long	3190
 	.short	384
 	.byte	21
-	.long	.Linfo_string146
-	.long	2966
+	.long	.Linfo_string152
+	.long	3210
 	.short	392
 	.byte	21
-	.long	.Linfo_string147
-	.long	2986
+	.long	.Linfo_string153
+	.long	3230
 	.short	416
 	.byte	0
 	.byte	11
-	.long	.Linfo_string121
+	.long	.Linfo_string127
 	.byte	28
 	.byte	12
-	.long	.Linfo_string114
-	.long	2365
+	.long	.Linfo_string120
+	.long	2609
 	.byte	0
 	.byte	12
-	.long	.Linfo_string116
-	.long	2385
+	.long	.Linfo_string122
+	.long	2629
 	.byte	8
 	.byte	0
 	.byte	13
-	.long	2378
+	.long	2622
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	3
-	.long	.Linfo_string115
+	.long	.Linfo_string121
 	.byte	7
 	.byte	4
-	.byte	11
-	.long	.Linfo_string120
-	.byte	20
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
-	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2432
-	.byte	4
-	.byte	0
-	.byte	13
-	.long	2425
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	3
-	.long	.Linfo_string118
-	.byte	7
-	.byte	4
-	.byte	13
-	.long	2425
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	3
-	.byte	0
 	.byte	11
 	.long	.Linfo_string126
-	.byte	64
+	.byte	20
 	.byte	12
-	.long	.Linfo_string114
-	.long	2482
-	.byte	0
-	.byte	12
-	.long	.Linfo_string116
-	.long	2502
-	.byte	16
-	.byte	12
-	.long	.Linfo_string124
-	.long	2542
-	.byte	40
-	.byte	0
-	.byte	13
-	.long	2378
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	1
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	1
-	.byte	0
-	.byte	11
 	.long	.Linfo_string123
-	.byte	24
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
+	.long	2656
 	.byte	0
 	.byte	12
-	.long	.Linfo_string119
-	.long	2529
+	.long	.Linfo_string125
+	.long	2676
 	.byte	4
 	.byte	0
 	.byte	13
-	.long	2425
+	.long	2669
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
-	.byte	4
 	.byte	0
-	.byte	11
-	.long	.Linfo_string125
-	.byte	24
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
 	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2529
-	.byte	4
-	.byte	0
-	.byte	11
-	.long	.Linfo_string130
-	.byte	56
-	.byte	12
-	.long	.Linfo_string114
-	.long	2482
-	.byte	0
-	.byte	12
-	.long	.Linfo_string116
-	.long	2606
-	.byte	16
-	.byte	12
+	.byte	3
 	.long	.Linfo_string124
-	.long	2633
-	.byte	36
-	.byte	0
-	.byte	11
-	.long	.Linfo_string128
-	.byte	20
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
-	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2432
+	.byte	7
 	.byte	4
+	.byte	13
+	.long	2669
+	.byte	14
+	.long	1160
 	.byte	0
-	.byte	11
-	.long	.Linfo_string129
-	.byte	20
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
-	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2432
-	.byte	4
-	.byte	0
-	.byte	11
-	.long	.Linfo_string133
-	.byte	52
-	.byte	12
-	.long	.Linfo_string114
-	.long	2365
-	.byte	0
-	.byte	12
-	.long	.Linfo_string116
-	.long	2687
-	.byte	8
+	.byte	3
 	.byte	0
 	.byte	11
 	.long	.Linfo_string132
-	.byte	44
+	.byte	64
 	.byte	12
-	.long	.Linfo_string117
-	.long	2529
+	.long	.Linfo_string120
+	.long	2726
 	.byte	0
 	.byte	12
-	.long	.Linfo_string119
-	.long	2714
+	.long	.Linfo_string122
+	.long	2746
+	.byte	16
+	.byte	12
+	.long	.Linfo_string130
+	.long	2786
+	.byte	40
+	.byte	0
+	.byte	13
+	.long	2622
+	.byte	14
+	.long	1160
+	.byte	0
+	.byte	1
+	.byte	14
+	.long	1160
+	.byte	0
+	.byte	1
+	.byte	0
+	.byte	11
+	.long	.Linfo_string129
+	.byte	24
+	.byte	12
+	.long	.Linfo_string123
+	.long	2656
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2773
+	.byte	4
+	.byte	0
+	.byte	13
+	.long	2669
+	.byte	14
+	.long	1160
+	.byte	0
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string131
+	.byte	24
+	.byte	12
+	.long	.Linfo_string123
+	.long	2656
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2773
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string136
+	.byte	56
+	.byte	12
+	.long	.Linfo_string120
+	.long	2726
+	.byte	0
+	.byte	12
+	.long	.Linfo_string122
+	.long	2850
+	.byte	16
+	.byte	12
+	.long	.Linfo_string130
+	.long	2877
+	.byte	36
+	.byte	0
+	.byte	11
+	.long	.Linfo_string134
+	.byte	20
+	.byte	12
+	.long	.Linfo_string123
+	.long	2656
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2676
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string135
+	.byte	20
+	.byte	12
+	.long	.Linfo_string123
+	.long	2656
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2676
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string139
+	.byte	52
+	.byte	12
+	.long	.Linfo_string120
+	.long	2609
+	.byte	0
+	.byte	12
+	.long	.Linfo_string122
+	.long	2931
+	.byte	8
+	.byte	0
+	.byte	11
+	.long	.Linfo_string138
+	.byte	44
+	.byte	12
+	.long	.Linfo_string123
+	.long	2773
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2958
 	.byte	20
 	.byte	0
 	.byte	13
-	.long	2425
+	.long	2669
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	5
 	.byte	0
 	.byte	11
-	.long	.Linfo_string136
+	.long	.Linfo_string142
 	.byte	52
 	.byte	12
-	.long	.Linfo_string114
-	.long	2365
+	.long	.Linfo_string120
+	.long	2609
 	.byte	0
 	.byte	12
-	.long	.Linfo_string116
-	.long	2754
+	.long	.Linfo_string122
+	.long	2998
 	.byte	8
-	.byte	0
-	.byte	11
-	.long	.Linfo_string135
-	.byte	44
-	.byte	12
-	.long	.Linfo_string117
-	.long	2529
-	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2714
-	.byte	20
-	.byte	0
-	.byte	11
-	.long	.Linfo_string139
-	.byte	28
-	.byte	12
-	.long	.Linfo_string114
-	.long	2808
-	.byte	0
-	.byte	12
-	.long	.Linfo_string116
-	.long	2828
-	.byte	8
-	.byte	0
-	.byte	13
-	.long	2378
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	1
-	.byte	14
-	.long	916
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	11
-	.long	.Linfo_string138
-	.byte	20
-	.byte	12
-	.long	.Linfo_string117
-	.long	2412
-	.byte	0
-	.byte	12
-	.long	.Linfo_string119
-	.long	2432
-	.byte	4
-	.byte	0
-	.byte	11
-	.long	.Linfo_string143
-	.byte	104
-	.byte	12
-	.long	.Linfo_string114
-	.long	2482
-	.byte	0
-	.byte	12
-	.long	.Linfo_string116
-	.long	2892
-	.byte	16
-	.byte	12
-	.long	.Linfo_string124
-	.long	2919
-	.byte	60
 	.byte	0
 	.byte	11
 	.long	.Linfo_string141
 	.byte	44
 	.byte	12
-	.long	.Linfo_string117
-	.long	2529
+	.long	.Linfo_string123
+	.long	2773
 	.byte	0
 	.byte	12
-	.long	.Linfo_string119
-	.long	2714
+	.long	.Linfo_string125
+	.long	2958
 	.byte	20
 	.byte	0
 	.byte	11
-	.long	.Linfo_string142
+	.long	.Linfo_string145
+	.byte	28
+	.byte	12
+	.long	.Linfo_string120
+	.long	3052
+	.byte	0
+	.byte	12
+	.long	.Linfo_string122
+	.long	3072
+	.byte	8
+	.byte	0
+	.byte	13
+	.long	2622
+	.byte	14
+	.long	1160
+	.byte	0
+	.byte	1
+	.byte	14
+	.long	1160
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	11
+	.long	.Linfo_string144
+	.byte	20
+	.byte	12
+	.long	.Linfo_string123
+	.long	2656
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2676
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string149
+	.byte	104
+	.byte	12
+	.long	.Linfo_string120
+	.long	2726
+	.byte	0
+	.byte	12
+	.long	.Linfo_string122
+	.long	3136
+	.byte	16
+	.byte	12
+	.long	.Linfo_string130
+	.long	3163
+	.byte	60
+	.byte	0
+	.byte	11
+	.long	.Linfo_string147
 	.byte	44
 	.byte	12
-	.long	.Linfo_string117
-	.long	2529
+	.long	.Linfo_string123
+	.long	2773
 	.byte	0
 	.byte	12
-	.long	.Linfo_string119
-	.long	2714
+	.long	.Linfo_string125
+	.long	2958
+	.byte	20
+	.byte	0
+	.byte	11
+	.long	.Linfo_string148
+	.byte	44
+	.byte	12
+	.long	.Linfo_string123
+	.long	2773
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2958
 	.byte	20
 	.byte	0
 	.byte	13
-	.long	2959
+	.long	3203
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	3
-	.long	.Linfo_string145
+	.long	.Linfo_string151
 	.byte	7
 	.byte	4
 	.byte	13
-	.long	2959
+	.long	3203
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	1
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	13
-	.long	2425
+	.long	2669
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	22
-	.long	3004
+	.long	3248
 	.byte	13
-	.long	3017
+	.long	3261
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	3
-	.long	.Linfo_string152
+	.long	.Linfo_string158
 	.byte	7
 	.byte	2
 	.byte	22
-	.long	3029
+	.long	3273
 	.byte	11
+	.long	.Linfo_string161
+	.byte	8
+	.byte	12
 	.long	.Linfo_string155
-	.byte	8
-	.byte	12
-	.long	.Linfo_string149
-	.long	2959
+	.long	3203
 	.byte	0
 	.byte	12
-	.long	.Linfo_string154
-	.long	2425
+	.long	.Linfo_string160
+	.long	2669
 	.byte	4
 	.byte	0
 	.byte	23
-	.long	3061
+	.long	3305
 	.byte	3
-	.long	.Linfo_string157
+	.long	.Linfo_string163
 	.byte	8
 	.byte	1
 	.byte	23
-	.long	3073
+	.long	3261
+	.byte	23
+	.long	3322
 	.byte	11
-	.long	.Linfo_string159
+	.long	.Linfo_string166
 	.byte	19
 	.byte	12
-	.long	.Linfo_string158
-	.long	3090
+	.long	.Linfo_string165
+	.long	3339
 	.byte	0
 	.byte	0
 	.byte	13
-	.long	3061
+	.long	3305
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	18
 	.byte	0
 	.byte	22
-	.long	3108
+	.long	3357
 	.byte	24
-	.long	3061
+	.long	3305
 	.byte	23
 	.long	123
 	.byte	23
 	.long	142
 	.byte	23
-	.long	2425
+	.long	2669
 	.byte	23
 	.long	104
 	.byte	23
@@ -6947,59 +7401,59 @@ par.desc.1:
 	.byte	23
 	.long	258
 	.byte	22
-	.long	2986
+	.long	3230
 	.byte	23
 	.long	463
 	.byte	23
 	.long	307
 	.byte	22
-	.long	3163
+	.long	3412
 	.byte	13
-	.long	3061
+	.long	3305
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	22
-	.long	3181
+	.long	3430
 	.byte	13
 	.long	463
 	.byte	14
-	.long	916
+	.long	1160
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	23
 	.long	338
 	.byte	23
-	.long	3204
+	.long	3453
 	.byte	11
-	.long	.Linfo_string168
+	.long	.Linfo_string174
 	.byte	24
 	.byte	12
-	.long	.Linfo_string162
-	.long	2425
+	.long	.Linfo_string168
+	.long	2669
 	.byte	0
 	.byte	12
-	.long	.Linfo_string163
-	.long	2425
+	.long	.Linfo_string169
+	.long	2669
 	.byte	4
 	.byte	12
-	.long	.Linfo_string164
-	.long	2425
+	.long	.Linfo_string170
+	.long	2669
 	.byte	8
 	.byte	12
-	.long	.Linfo_string165
-	.long	2425
+	.long	.Linfo_string171
+	.long	2669
 	.byte	12
 	.byte	12
-	.long	.Linfo_string166
-	.long	2425
+	.long	.Linfo_string172
+	.long	2669
 	.byte	16
 	.byte	12
-	.long	.Linfo_string167
-	.long	2425
+	.long	.Linfo_string173
+	.long	2669
 	.byte	20
 	.byte	0
 	.byte	0
@@ -7270,34 +7724,34 @@ par.desc.1:
 	.byte	0
 	.section	.debug_ranges,"",@progbits
 .Ldebug_ranges0:
-	.long	.Lfunc_begin53
-	.long	.Lfunc_end53
+	.long	.Lfunc_begin59
+	.long	.Lfunc_end59
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Lfunc_begin54
-	.long	.Lfunc_end54
+	.long	.Lfunc_begin60
+	.long	.Lfunc_end60
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
-	.long	.Lfunc_begin53
-	.long	.Ltmp302
-.Lset0 = .Ltmp312-.Ltmp311
+	.long	.Lfunc_begin59
+	.long	.Ltmp317
+.Lset0 = .Ltmp327-.Ltmp326
 	.short	.Lset0
-.Ltmp311:
+.Ltmp326:
 	.byte	80
-.Ltmp312:
+.Ltmp327:
 	.long	0
 	.long	0
 .Ldebug_loc1:
-	.long	.Lfunc_begin54
-	.long	.Ltmp308
-.Lset1 = .Ltmp314-.Ltmp313
+	.long	.Lfunc_begin60
+	.long	.Ltmp323
+.Lset1 = .Ltmp329-.Ltmp328
 	.short	.Lset1
-.Ltmp313:
+.Ltmp328:
 	.byte	80
-.Ltmp314:
+.Ltmp329:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -7308,127 +7762,139 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset3 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset3
-	.long	943
+	.long	1187
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	2201
+	.long	2445
 .asciiz"__main__main_tile_0"
-	.long	594
+	.long	716
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
+	.long	889
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
 	.long	389
 .asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_8"
 	.long	532
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
-	.long	2125
+	.long	2369
 .asciiz"__main__main_tile_0_combined_tile_0_0"
-	.long	2182
+	.long	2426
 .asciiz"__main__main_tile_0_combined_tile_0_1"
-	.long	683
+	.long	927
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
-	.long	1400
+	.long	1644
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
-	.long	1793
+	.long	2037
 .asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
-	.long	1715
+	.long	1959
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	470
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
-	.long	2144
+	.long	2388
 .asciiz"__main__main_tile_0_combined_tile_0_4"
-	.long	2163
+	.long	2407
 .asciiz"__main__main_tile_0_combined_tile_0_5"
-	.long	623
+	.long	745
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	82
 .asciiz"inP_button_right"
-	.long	2033
+	.long	585
+.asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
+	.long	2277
 .asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
-	.long	843
+	.long	1087
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	1246
+	.long	1490
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
-	.long	1864
+	.long	2108
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
-	.long	1610
+	.long	1854
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
-	.long	1975
+	.long	2219
 .asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
-	.long	1639
+	.long	1883
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
-	.long	1063
+	.long	1307
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	1217
+	.long	1461
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
-	.long	1831
+	.long	552
+.asciiz"_i.i2c_internal_commands_if._chan.read_fram_device_id_ok"
+	.long	2075
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
-	.long	1505
+	.long	1749
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	1371
+	.long	1615
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
-	.long	1034
+	.long	1278
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
-	.long	725
+	.long	969
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 	.long	357
 .asciiz"__main__main_tile_0_task_System_Task_2"
 	.long	60
 .asciiz"inP_button_center"
-	.long	1322
+	.long	1566
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
-	.long	1572
+	.long	1816
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
-	.long	1188
+	.long	1432
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	814
+	.long	1058
 .asciiz"_i.i2c_external_commands_if._chan.command"
-	.long	1351
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
-	.long	1773
+	.long	2017
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
-	.long	1139
+	.long	1383
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
-	.long	1005
+	.long	1595
+.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+	.long	1249
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	1168
+	.long	636
+.asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
+	.long	1412
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
-	.long	1995
+	.long	2239
 .asciiz"_i.lib_startkit_adc_commands_if._chan_y.read"
-	.long	2077
-.asciiz"delay_milliseconds"
-	.long	754
+	.long	998
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-	.long	1275
+	.long	1519
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
-	.long	552
+	.long	674
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	1735
+	.long	838
+.asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
+	.long	1979
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
-	.long	1937
+	.long	2181
 .asciiz"_i.lib_startkit_adc_commands_if._chan.read"
-	.long	1092
+	.long	1336
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
-	.long	972
+	.long	2321
+.asciiz"delay_milliseconds"
+	.long	1216
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
-	.long	1917
+	.long	2161
 .asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
 	.long	31
 .asciiz"inP_button_left"
-	.long	1884
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+	.long	805
+.asciiz"_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok"
 	.long	490
 .asciiz"_i.startkit_adc_acquire_if._chan_y.read"
-	.long	1543
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	1677
+	.long	1921
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	1438
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	2101
+	.long	1787
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+	.long	2128
+.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+	.long	2345
 .asciiz"delay_microseconds"
+	.long	1682
+.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
 	.long	421
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
-	.long	1467
+	.long	1711
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
-	.long	2053
+	.long	2297
 .asciiz"delay_seconds"
 	.long	0
 .LpubNames_end0:
@@ -7440,37 +7906,37 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset5 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset5
-	.long	2892
+	.long	3136
 .asciiz"__TYPE_30"
-	.long	2919
+	.long	3163
 .asciiz"__TYPE_31"
-	.long	3204
+	.long	3453
 .asciiz"__TYPE_14"
-	.long	2338
+	.long	2582
 .asciiz"__TYPE_15"
 	.long	53
 .asciiz"port"
-	.long	2385
+	.long	2629
 .asciiz"__TYPE_16"
-	.long	2425
+	.long	2669
 .asciiz"unsigned int"
-	.long	2226
+	.long	2470
 .asciiz"frame.0"
-	.long	2445
+	.long	2689
 .asciiz"__TYPE_17"
 	.long	463
 .asciiz"int"
-	.long	2542
+	.long	2786
 .asciiz"__TYPE_19"
-	.long	2502
+	.long	2746
 .asciiz"__TYPE_18"
 	.long	123
 .asciiz"i2c_command_external_t"
-	.long	2959
+	.long	3203
 .asciiz"chanend"
-	.long	3029
+	.long	3273
 .asciiz"yarg"
-	.long	876
+	.long	1120
 .asciiz"tag_i2c_temps_t"
 	.long	338
 .asciiz"heater_wires_t"
@@ -7480,35 +7946,35 @@ par.desc.1:
 .asciiz"iof_temps_t"
 	.long	142
 .asciiz"heat_cable_commands_t"
-	.long	2569
+	.long	2813
 .asciiz"__TYPE_20"
-	.long	2606
+	.long	2850
 .asciiz"__TYPE_21"
-	.long	2633
+	.long	2877
 .asciiz"__TYPE_22"
-	.long	2660
+	.long	2904
 .asciiz"__TYPE_23"
-	.long	2687
+	.long	2931
 .asciiz"__TYPE_24"
-	.long	2727
+	.long	2971
 .asciiz"__TYPE_25"
-	.long	2754
+	.long	2998
 .asciiz"__TYPE_26"
-	.long	2781
+	.long	3025
 .asciiz"__TYPE_27"
-	.long	2828
+	.long	3072
 .asciiz"__TYPE_28"
-	.long	2855
+	.long	3099
 .asciiz"__TYPE_29"
-	.long	3073
+	.long	3322
 .asciiz"chronodot_d3231_registers_t"
-	.long	3017
+	.long	3261
 .asciiz"unsigned short"
-	.long	936
+	.long	1180
 .asciiz"short"
-	.long	2378
+	.long	2622
 .asciiz"interface"
-	.long	3061
+	.long	3305
 .asciiz"unsigned char"
 	.long	173
 .asciiz"light_composition_t"
@@ -7526,9 +7992,18 @@ par.desc.1:
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan.read_fram_device_id_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:us,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(chd,:uc,:us)"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us,:uc)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
@@ -7604,7 +8079,7 @@ par.desc.1:
 	.typestring adc_task.select.enable, "k:fe{0}()"
 	.typestring adc_task.fini, "k:f{0}(u:q(ui))"
 	.typestring I2C_Internal_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}})))"
+	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}})))"
 	.typestring I2C_Internal_Server.select.enable, "k:fe{0}()"
 	.typestring I2C_Internal_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring I2C_External_Server.init.1, "k:f{0}(u:q(ui))"
@@ -7629,11 +8104,11 @@ par.desc.1:
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
 	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},:ui)"
-	.typestring System_Task, "f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},&(a(3:chd)))"
+	.typestring System_Task, "f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(complete){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}}}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
+	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
+	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"

@@ -1381,6 +1381,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 17 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
 # 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
@@ -1448,19 +1454,7 @@ typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
 # 22 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
-# 31 "../src/tempchip_mcp9808.h"
-typedef enum i2c_dev_address_external_t {
-
-    TEMPC_HEATER = 0x18,
-    TEMPC_AMBIENT = (0x18 + 1),
-    TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
-
-
-
-
-
-
+# 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
 i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
@@ -1468,13 +1462,25 @@ void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_par
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 23 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 13 "../src/I2C_External_Server.h"
+# 10 "../src/I2C_External_Server.h"
+typedef enum i2c_dev_address_external_t {
+
+
+    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
+    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
+} i2c_dev_address_external_t;
+
+
+
+
 typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 } iof_temps_t;
+
 
 typedef struct tag_i2c_temps_t {
     bool i2c_temp_ok [3];
@@ -1502,9 +1508,12 @@ typedef interface i2c_external_commands_if {
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 24 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/I2C_Internal_Server.h" 1
-# 15 "../src/I2C_Internal_Server.h"
+# 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
+    I2C_ADDRESS_OF_FRAM = 0x50,
+    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
+    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
 
@@ -1513,10 +1522,16 @@ typedef struct chronodot_d3231_registers_t {
     uint8_t registers [19];
 } chronodot_d3231_registers_t;
 
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
+
+    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
 } i2c_internal_commands_if;
 
 
@@ -1645,7 +1660,7 @@ typedef struct {
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
 # 29 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 30 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/f_conversions.h" 1

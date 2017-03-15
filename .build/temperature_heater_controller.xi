@@ -1280,6 +1280,12 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
+
+
+int i2c_master_read_fram_id(int device,
+                         unsigned char data[],
+                         int nbytes,
+                         struct r_i2c &i2c_master);
 # 19 "../src/temperature_heater_controller.xc" 2
 
 # 1 "../src/param.h" 1
@@ -1313,7 +1319,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 21 "../src/temperature_heater_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
 # 22 "../src/temperature_heater_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
@@ -1364,13 +1370,25 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 23 "../src/temperature_heater_controller.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
-# 13 "../src/I2C_External_Server.h"
+# 10 "../src/I2C_External_Server.h"
+typedef enum i2c_dev_address_external_t {
+
+
+    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
+    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
+} i2c_dev_address_external_t;
+
+
+
+
 typedef enum iof_temps_t {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 } iof_temps_t;
+
 
 typedef struct tag_i2c_temps_t {
     bool i2c_temp_ok [3];

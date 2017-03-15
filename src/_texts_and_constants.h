@@ -17,7 +17,6 @@
 #define CHAR_aa_STR          {CHAR_aa,0}
 #define CHAR_OE_STR          {CHAR_OE,0}
 
-
 // ALL ..._LEN include terminating NUL (\0) CHAR! I try to call the others .._NUM etc. (NULL is used for void pointer)
 
 #define GENERIC_DEGC_TEXT_LEN 5 // "25.0" with space for NUL

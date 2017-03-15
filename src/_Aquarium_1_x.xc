@@ -71,6 +71,10 @@ typedef enum display_screen_name_t {
     SCREEN_KLOKKE
 } display_screen_name_t;
 
+typedef enum fram_byte_array_index_t {
+    FRAM_BYTE_MAX_LIGHT
+} fram_byte_array_index_t ;
+
 typedef enum display_sub_state_t {
     // -------------------------
     // DON'T ADD ANY STATE HERE!
@@ -329,28 +333,32 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     #define CONTROL_SCREEN_TEXT_LEN  5
                     char light_control_scheme_str [CONTROL_SCREEN_TEXT_LEN]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
+                    bool  control_scheme_add_leading_space = false; // When light_control_scheme_str has 4 visible chars like "INIT"
 
                     switch (context.light_control_scheme) {
                       case LIGHT_CONTROL_IS_VOID : {
                           sprintf (light_control_scheme_str, "%s", "INIT");
+                          control_scheme_add_leading_space = true;
                       } break;
                       case LIGHT_CONTROL_IS_DAY : {
-                          sprintf (light_control_scheme_str, "%s", " DAG"); // Leading space
+                          sprintf (light_control_scheme_str, "%s", " DAG");
                        } break;
                       case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                          sprintf (light_control_scheme_str, "%s", " NED"); // Leading space
+                          sprintf (light_control_scheme_str, "%s", " NED");
                        } break;
                       case LIGHT_CONTROL_IS_NIGHT : {
                           sprintf (light_control_scheme_str, "%s", "NATT");
+                          control_scheme_add_leading_space = true;
                        } break;
                       case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                          sprintf (light_control_scheme_str, "%s", " OPP"); // Leading space
+                          sprintf (light_control_scheme_str, "%s", " OPP");
                        } break;
                       case LIGHT_CONTROL_IS_RANDOM : {
-                          sprintf (light_control_scheme_str, "%s", " SKY"); // Leading space
+                          sprintf (light_control_scheme_str, "%s", " SKY");
                       } break;
                       case LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE : {
-                          sprintf (light_control_scheme_str, "%s", " LYS"); // Leading space
+                          sprintf (light_control_scheme_str, "%s", "LYKT");
+                          control_scheme_add_leading_space = true;
                       } break;
                       default: break;
                     }
@@ -365,7 +373,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                       // "±"                                                                       //  
                           WATTOF_LED_STRIP_FRONT,                                                            // "5"
                           WATTOF_LED_STRIP_CENTER,                                                           // "2"
@@ -375,6 +383,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                // "3"
                           takes_press_for_10_seconds_right_button_str,                                       // "±"
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                  // "3/3" or "2/3
+                          (control_scheme_add_leading_space) ? " " : "",                                     // So that " INIT" and "  DAG" will be left aligned first visible char
                           light_control_scheme_str,                                                          // "NATT" etc.
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
                           context.light_composition,                                                         // 10
@@ -383,7 +392,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                            ±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
                     //                                            ±      MAKS 3/3
-                    //                                                   NATT ± 10 M:12
+                    //                                                   INIT ± 10 M:12
+                    //                                                   DAG ± 10 M:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -410,6 +420,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     // called at least once per minute, in practice once per second
                     light_sunrise_sunset_context.max_light_changed = (light_sunrise_sunset_context.max_light != light_sunrise_sunset_context.max_light_next);
                     light_sunrise_sunset_context.max_light         =  light_sunrise_sunset_context.max_light_next;
+
+                    if (light_sunrise_sunset_context.max_light_changed) {
+                        light_sunrise_sunset_context.do_FRAM_write = true;
+                        light_sunrise_sunset_context.max_light_in_FRAM_memory = light_sunrise_sunset_context.max_light;
+                    } else {}
 
                     context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     // context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false; // We want to do it again from same screen
@@ -1081,8 +1096,9 @@ void System_Task (
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
     light_sunrise_sunset_context.do_init = true;
+    light_sunrise_sunset_context.do_FRAM_write = false;
 
-    printf("%s", "System_Task started\n");
+    debug_printf("%s", "System_Task started\n");
 
     // Display matters (not internal i2c matters)
     Adafruit_GFX_constructor (SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT);
@@ -1090,6 +1106,21 @@ void System_Task (
 
     Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+
+    {
+        bool read_ok;
+        uint8_t read_fram_data;
+
+        {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT);
+
+        if (not read_ok) {
+            light_sunrise_sunset_context.max_light_in_FRAM_memory = MAX_LIGHT_IS_VOID;
+        } else {
+            light_sunrise_sunset_context.max_light_in_FRAM_memory = (max_light_t) read_fram_data;
+        }
+
+        debug_printf ("FRAM max_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.max_light_in_FRAM_memory);
+    }
 
     tmr :> time;
 
@@ -1176,6 +1207,15 @@ void System_Task (
 
                 // HANDLE LIGHT INTENSITY
                 context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
+
+                if (light_sunrise_sunset_context.do_FRAM_write) {
+                    bool write_ok;
+                    uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
+
+                    light_sunrise_sunset_context.do_FRAM_write = false;
+                    write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
+                    debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+                } else {}
 
                 light_sunrise_sunset_context.datetime_previous               = context.datetime;
                 light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
