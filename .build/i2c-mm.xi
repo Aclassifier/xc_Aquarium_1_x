@@ -1087,12 +1087,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
 # 12 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
 
 void i2c_master_init(struct r_i2c &i2c_master) {
@@ -1279,17 +1273,4 @@ int i2c_master_16bit_write_reg(int device, unsigned int addr, unsigned char s_da
    }
    stopBit(i2c);
    return 1;
-}
-
-
-int i2c_master_read_fram_id(int device, unsigned char data[], int nbytes, struct r_i2c &i2c) {
-    startBit(i2c, 1);
-    if (!tx8(i2c, 0xF8)) return floatWires(i2c);
-    if (!tx8(i2c, device<<1)) return floatWires(i2c);
-    i2c.sda :> void;
-    waitQuarter(i2c);
-    i2c.scl :> void;
-    waitQuarter(i2c);
-    startBit(i2c, 0);
-    return i2c_master_do_rx(0xF9, data, nbytes, i2c);
 }

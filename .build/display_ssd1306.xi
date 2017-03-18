@@ -1514,12 +1514,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
 # 23 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
@@ -1611,9 +1605,13 @@ typedef interface i2c_internal_commands_if {
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 
+
+
     {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
-    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
+
+
+
 } i2c_internal_commands_if;
 
 

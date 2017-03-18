@@ -149,32 +149,6 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
             } break;
 
-            case i_i2c_internal_commands[int index_of_client].read_fram_device_id_ok  (const i2c_dev_address_t dev_addr) -> bool ok : {
-                i2c_result_t i2c_result;
-                unsigned char receive_data_manufacturer_id [FRAM_NUM_REGISTERS] = {0xFF, 0xFF, 0xFF};
-
-                i2c_result = i2c_master_read_fram_id(I2C_ADDRESS_OF_FRAM, receive_data_manufacturer_id, FRAM_NUM_REGISTERS, i2c_internal_config);
-
-                //unsigned char send_data [1];
-
-                //send_data[0] = I2C_ADDRESS_OF_FRAM_F8;
-
-                // a. The master sends the Reserved Slave ID F8H after the START condition.
-                // b. The master sends the device address word after the ACK response from the slave.
-                //    In this device address word, R/W code are ÒDon't careÓ value.
-                //
-                //i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_FRAM_F8>>1, I2C_ADDRESS_OF_FRAM, send_data, 0, i2c_internal_config);
-
-                // c. The master re-sends the START condition followed by the Reserved Slave ID F9H after the ACK response from the slave.
-                //i2c_result = i2c_master_rx (I2C_ADDRESS_OF_FRAM_F8>>1, receive_data_manufacturer_id, FRAM_NUM_REGISTERS, i2c_internal_config);
-
-                ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                y_debug_printf ("FRAM = %02x %02x %02x\n",
-                        receive_data_manufacturer_id[2],
-                        receive_data_manufacturer_id[1],
-                        receive_data_manufacturer_id[0]);
-            } break;
-
         }
     }
 }

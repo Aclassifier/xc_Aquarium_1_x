@@ -1523,12 +1523,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
 # 22 "../src/i2c_internal_server.xc" 2
 
 
@@ -1623,9 +1617,13 @@ typedef interface i2c_internal_commands_if {
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 
+
+
     {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
-    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
+
+
+
 } i2c_internal_commands_if;
 
 
@@ -1843,19 +1841,6 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                 i2c_result_t i2c_result;
                 i2c_result = i2c_master_16bit_write_reg ((int)dev_addr, address, send_data_array, 1, i2c_internal_config);
                 ok = (i2c_result == I2C_OK);
-            } break;
-
-            case i_i2c_internal_commands[int index_of_client].read_fram_device_id_ok (const i2c_dev_address_t dev_addr) -> bool ok : {
-                i2c_result_t i2c_result;
-                unsigned char receive_data_manufacturer_id [3] = {0xFF, 0xFF, 0xFF};
-
-                i2c_result = i2c_master_read_fram_id(I2C_ADDRESS_OF_FRAM, receive_data_manufacturer_id, 3, i2c_internal_config);
-# 171 "../src/i2c_internal_server.xc"
-                ok = (i2c_result == I2C_OK);
-                do { if(1) printf("FRAM = %02x %02x %02x\n", receive_data_manufacturer_id[2], receive_data_manufacturer_id[1], receive_data_manufacturer_id[0]); } while (0);
-
-
-
             } break;
 
         }

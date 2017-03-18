@@ -1556,12 +1556,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
 # 24 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/I2C_External_Server.h" 1
 # 10 "../src/I2C_External_Server.h"

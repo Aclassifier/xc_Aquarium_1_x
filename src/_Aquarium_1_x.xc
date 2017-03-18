@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
+#include "xassert.h"
 
 #include "i2c.h"
 #include "param.h"
@@ -801,14 +802,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
 
         } break;
+
+        default: {
+            unreachable("display_screen_name_present");
+        } break;
     }
 
-    // When I replaced all sprintf with snprintf 12.6KB code was the cost! See http://www.xcore.com/viewtopic.php?f=26&t=5636
-    if (sprintf_return < 0) {
-        debug_printf ("ERROR: sprintf_return %d\n", sprintf_return);
-    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
-        debug_printf ("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return);
-    } else {} // Not touched
+    // When I replaced all sprintf with the safe version snprintf 12.6KB code was the cost! See http://www.xcore.com/viewtopic.php?f=26&t=563
+
+    // By switchin -DXASSERT_ENABLE_ASSERTIONS=0 or 1 I saw that these two cost 100 bytes
+    assert((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
+    assert((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
 }
 
 void Handle_Real_Or_Clocked_Buttons (
@@ -861,7 +865,10 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
                     //
                 } break;
-                default: break; // Never
+
+                default: {
+                    unreachable("button_action");
+                } break;
             }
         } break;
 
@@ -911,7 +918,10 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
                     //
                 } break;
-                default: break; // Never
+
+                default: {
+                    unreachable("button_action");
+                } break;
             }
         } break;
 
@@ -1041,7 +1051,10 @@ void Handle_Real_Or_Clocked_Buttons (
                         default: break;
                     }
                 } break;
-                default: break; // Never
+
+                default: {
+                    unreachable("button_action");
+                } break;
             }
         } break;
     }

@@ -1287,12 +1287,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
 # 18 "../src/temperature_water_controller.xc" 2
 
 # 1 "../src/param.h" 1

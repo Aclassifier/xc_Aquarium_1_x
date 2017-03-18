@@ -1,4 +1,5 @@
 .build/src/_Aquarium_1_x.xc.d .build/src/_Aquarium_1_x.xc.o .build/src/_Aquarium_1_x.xc.pca.xml: ./src/_Aquarium_1_x.xc \
+  ../../workspace/lib_xassert/api/xassert.h \
   ../../workspace/module_i2c_master/src/i2c.h \
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/lib_startkit_support/api/startkit_adc.h \

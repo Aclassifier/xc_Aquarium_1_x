@@ -188,6 +188,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_random/doc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc/pdf}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/api}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.1503879819" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -502,6 +507,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_random/doc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc/pdf}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/api}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.494518744" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -821,6 +831,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_random/doc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_startkit_support/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc/pdf}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/doc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_xassert/api}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.256198653" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>

@@ -75,18 +75,6 @@ outP_display_notReset.info:
 	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
 	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.nstackwords, _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.fns, _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, 0
-	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group
-	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxchanends, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxchanends.group, 0
-	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group
-	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxcores, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxcores.group, 0
-	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group
-	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.maxtimers, _i.i2c_internal_commands_if.read_fram_device_id_ok.maxtimers.group, 0
-	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
-	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group
-	.weak _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
-	.globl _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group
-	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.max.nstackwords, _i.i2c_internal_commands_if.read_fram_device_id_ok.nstackwords.group, 0
-	.max_reduce _i.i2c_internal_commands_if.read_fram_device_id_ok.fns, _i.i2c_internal_commands_if.read_fram_device_id_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.__interface_init.maxchanends.group
 	.max_reduce _i.i2c_internal_commands_if.__interface_init.max.maxchanends, _i.i2c_internal_commands_if.__interface_init.maxchanends.group, 0
 	.weak _i.i2c_internal_commands_if.__interface_init.maxcores.group
@@ -211,43 +199,6 @@ outP_display_notReset.info:
 .Ldebug_range:
 	.file	1 "../src/display_ssd1306.xc"
 	.text
-	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
-	.align	4
-	.type	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.function,_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
-_i.i2c_internal_commands_if._chan.read_fram_device_id_ok:
-	.cfi_startproc
-	getr r2, 2
-	setd res[r2], r0
-	add r0, r2, 5
-	out res[r2], r0
-	outct res[r2], 2
-	chkct res[r2], 1
-	outt res[r2], r1
-	outct res[r2], 2
-	in r0, res[r2]
-	in r0, res[r2]
-	chkct res[r2], 1
-	freer res[r2]
-	retsp 0
-	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan.read_fram_device_id_ok.function
-	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords,0
-	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores,1
-	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers,0
-	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends,1
-	.globl	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok.maxchanends
-.Ltmp0:
-	.size	_i.i2c_internal_commands_if._chan.read_fram_device_id_ok, .Ltmp0-_i.i2c_internal_commands_if._chan.read_fram_device_id_ok
-	.cfi_endproc
-
 	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok
 	.align	4
 	.type	_i.i2c_internal_commands_if._chan.write_byte_fram_ok,@function
@@ -285,8 +236,8 @@ _i.i2c_internal_commands_if._chan.write_byte_fram_ok:
 	.set	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends,1
 	.globl	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok.maxchanends
-.Ltmp1:
-	.size	_i.i2c_internal_commands_if._chan.write_byte_fram_ok, .Ltmp1-_i.i2c_internal_commands_if._chan.write_byte_fram_ok
+.Ltmp0:
+	.size	_i.i2c_internal_commands_if._chan.write_byte_fram_ok, .Ltmp0-_i.i2c_internal_commands_if._chan.write_byte_fram_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok
@@ -326,8 +277,8 @@ _i.i2c_internal_commands_if._chan.read_byte_fram_ok:
 	.set	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends,1
 	.globl	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.read_byte_fram_ok.maxchanends
-.Ltmp2:
-	.size	_i.i2c_internal_commands_if._chan.read_byte_fram_ok, .Ltmp2-_i.i2c_internal_commands_if._chan.read_byte_fram_ok
+.Ltmp1:
+	.size	_i.i2c_internal_commands_if._chan.read_byte_fram_ok, .Ltmp1-_i.i2c_internal_commands_if._chan.read_byte_fram_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.write_chronodot_ok
@@ -337,24 +288,24 @@ _i.i2c_internal_commands_if._chan.read_byte_fram_ok:
 _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp3:
+.Ltmp2:
 	.cfi_def_cfa_offset 44
-.Ltmp4:
+.Ltmp3:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp5:
+.Ltmp4:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp6:
+.Ltmp5:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp7:
+.Ltmp6:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp8:
+.Ltmp7:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp9:
+.Ltmp8:
 	.cfi_offset 8, -20
 	mov r4, r1
 	mov r5, r0
@@ -400,8 +351,8 @@ _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends,(1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.write_chronodot_ok.maxchanends
-.Ltmp10:
-	.size	_i.i2c_internal_commands_if._chan.write_chronodot_ok, .Ltmp10-_i.i2c_internal_commands_if._chan.write_chronodot_ok
+.Ltmp9:
+	.size	_i.i2c_internal_commands_if._chan.write_chronodot_ok, .Ltmp9-_i.i2c_internal_commands_if._chan.write_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.read_chronodot_ok
@@ -411,24 +362,24 @@ _i.i2c_internal_commands_if._chan.write_chronodot_ok:
 _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp11:
+.Ltmp10:
 	.cfi_def_cfa_offset 44
-.Ltmp12:
+.Ltmp11:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp13:
+.Ltmp12:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp14:
+.Ltmp13:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp15:
+.Ltmp14:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp16:
+.Ltmp15:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp17:
+.Ltmp16:
 	.cfi_offset 8, -20
 	mov r5, r0
 	getr r4, 2
@@ -474,8 +425,8 @@ _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.read_chronodot_ok.maxchanends
-.Ltmp18:
-	.size	_i.i2c_internal_commands_if._chan.read_chronodot_ok, .Ltmp18-_i.i2c_internal_commands_if._chan.read_chronodot_ok
+.Ltmp17:
+	.size	_i.i2c_internal_commands_if._chan.read_chronodot_ok, .Ltmp17-_i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.write_display_ok
@@ -485,15 +436,15 @@ _i.i2c_internal_commands_if._chan.read_chronodot_ok:
 _i.i2c_internal_commands_if._chan.write_display_ok:
 	.cfi_startproc
 	entsp 4
-.Ltmp19:
+.Ltmp18:
 	.cfi_def_cfa_offset 16
-.Ltmp20:
+.Ltmp19:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp21:
+.Ltmp20:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp22:
+.Ltmp21:
 	.cfi_offset 5, -8
 	ldw r11, sp[5]
 	ldw r5, sp[6]
@@ -531,58 +482,8 @@ _i.i2c_internal_commands_if._chan.write_display_ok:
 	.set	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan.write_display_ok.maxchanends
-.Ltmp23:
-	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp23-_i.i2c_internal_commands_if._chan.write_display_ok
-	.cfi_endproc
-
-	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
-	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.function,_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
-_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok:
-	.cfi_startproc
-	entsp 2
-.Ltmp24:
-	.cfi_def_cfa_offset 8
-.Ltmp25:
-	.cfi_offset 15, 0
-	stw r4, sp[1]
-.Ltmp26:
-	.cfi_offset 4, -4
-	ldw r2, r0[0]
-	getr r4, 2
-	setd res[r4], r2
-	add r2, r4, 5
-	out res[r4], r2
-	outct res[r4], 2
-	chkct res[r4], 1
-	outt res[r4], r1
-	outct res[r4], 2
-	ldw r2, r0[1]
-	ldc r1, 0
-	mov r0, r4
-	bl __interface_client_call_y
-	in r0, res[r4]
-	chkct res[r4], 1
-	freer res[r4]
-	ldw r4, sp[1]
-	retsp 2
-	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok.maxchanends
-.Ltmp27:
-	.size	_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok, .Ltmp27-_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok
+.Ltmp22:
+	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp22-_i.i2c_internal_commands_if._chan.write_display_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
@@ -592,12 +493,12 @@ _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok:
 _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp28:
+.Ltmp23:
 	.cfi_def_cfa_offset 8
-.Ltmp29:
+.Ltmp24:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp30:
+.Ltmp25:
 	.cfi_offset 4, -4
 	ldw r11, r0[0]
 	getr r4, 2
@@ -635,8 +536,8 @@ _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
-.Ltmp31:
-	.size	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, .Ltmp31-_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+.Ltmp26:
+	.size	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, .Ltmp26-_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
@@ -646,12 +547,12 @@ _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
 _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp32:
+.Ltmp27:
 	.cfi_def_cfa_offset 8
-.Ltmp33:
+.Ltmp28:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp34:
+.Ltmp29:
 	.cfi_offset 4, -4
 	ldw r3, r0[0]
 	getr r4, 2
@@ -689,8 +590,8 @@ _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
-.Ltmp35:
-	.size	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, .Ltmp35-_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
+.Ltmp30:
+	.size	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, .Ltmp30-_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
@@ -700,24 +601,24 @@ _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
 _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp36:
+.Ltmp31:
 	.cfi_def_cfa_offset 44
-.Ltmp37:
+.Ltmp32:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp38:
+.Ltmp33:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp39:
+.Ltmp34:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp40:
+.Ltmp35:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp41:
+.Ltmp36:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp42:
+.Ltmp37:
 	.cfi_offset 8, -20
 	mov r4, r1
 	mov r5, r0
@@ -767,8 +668,8 @@ _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
-.Ltmp43:
-	.size	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok, .Ltmp43-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
+.Ltmp38:
+	.size	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok, .Ltmp38-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
@@ -778,24 +679,24 @@ _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	.cfi_startproc
 	entsp 11
-.Ltmp44:
+.Ltmp39:
 	.cfi_def_cfa_offset 44
-.Ltmp45:
+.Ltmp40:
 	.cfi_offset 15, 0
 	stw r4, sp[10]
-.Ltmp46:
+.Ltmp41:
 	.cfi_offset 4, -4
 	stw r5, sp[9]
-.Ltmp47:
+.Ltmp42:
 	.cfi_offset 5, -8
 	stw r6, sp[8]
-.Ltmp48:
+.Ltmp43:
 	.cfi_offset 6, -12
 	stw r7, sp[7]
-.Ltmp49:
+.Ltmp44:
 	.cfi_offset 7, -16
 	stw r8, sp[6]
-.Ltmp50:
+.Ltmp45:
 	.cfi_offset 8, -20
 	mov r5, r0
 	ldw r0, r1[0]
@@ -845,8 +746,8 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
-.Ltmp51:
-	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp51-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
+.Ltmp46:
+	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp46-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok
@@ -856,18 +757,18 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.cfi_startproc
 	entsp 5
-.Ltmp52:
+.Ltmp47:
 	.cfi_def_cfa_offset 20
-.Ltmp53:
+.Ltmp48:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp54:
+.Ltmp49:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp55:
+.Ltmp50:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp56:
+.Ltmp51:
 	.cfi_offset 6, -12
 	ldw r11, sp[6]
 	ldw r5, sp[7]
@@ -908,80 +809,80 @@ _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
 	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
-.Ltmp57:
-	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp57-_i.i2c_internal_commands_if._chan_y.write_display_ok
+.Ltmp52:
+	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp52-_i.i2c_internal_commands_if._chan_y.write_display_ok
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI12_0.data,.LCPI12_0
+	.cc_top .LCPI10_0.data,.LCPI10_0
 	.align	4
-	.type	.LCPI12_0,@object
-	.size	.LCPI12_0, 4
-.LCPI12_0:
+	.type	.LCPI10_0,@object
+	.size	.LCPI10_0, 4
+.LCPI10_0:
 	.long	4294967168
-	.cc_bottom .LCPI12_0.data
+	.cc_bottom .LCPI10_0.data
 	.text
 	.globl	setPixel_in_buffer
 	.align	4
 	.type	setPixel_in_buffer,@function
 	.cc_top setPixel_in_buffer.function,setPixel_in_buffer
 setPixel_in_buffer:
-.Lfunc_begin12:
+.Lfunc_begin10:
 	.loc	1 119 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 4
-.Ltmp58:
+.Ltmp53:
 	.cfi_def_cfa_offset 16
-.Ltmp59:
+.Ltmp54:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp60:
+.Ltmp55:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp61:
+.Ltmp56:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp62:
+.Ltmp57:
 	.cfi_offset 6, -12
 	mov r4, r2
-.Ltmp63:
+.Ltmp58:
 	mov r5, r1
-.Ltmp64:
+.Ltmp59:
 	mov r6, r0
-.Ltmp65:
+.Ltmp60:
 	.loc	1 120 5 prologue_end
 	ashr r0, r6, 32
-	bt r0, .LBB12_17
-.Ltmp66:
+	bt r0, .LBB10_17
+.Ltmp61:
 	.loc	1 120 5
 .Lxta.call_labels0:
 	bl width
 	.loc	1 120 5
 	lss r0, r6, r0
-	bf r0, .LBB12_17
-.Ltmp67:
+	bf r0, .LBB10_17
+.Ltmp62:
 	ashr r0, r5, 32
-	bt r0, .LBB12_17
-.Ltmp68:
+	bt r0, .LBB10_17
+.Ltmp63:
 	.loc	1 120 5
 	bl height
 	.loc	1 120 5
 	lss r0, r5, r0
-	bf r0, .LBB12_17
-.Ltmp69:
+	bf r0, .LBB10_17
+.Ltmp64:
 .Lxtalabel1:
 	.loc	1 124 0
 .Lxta.call_labels1:
 	bl getRotation
 	.loc	1 124 0
 	eq r1, r0, 1
-	bt r1, .LBB12_12
-.Ltmp70:
+	bt r1, .LBB10_12
+.Ltmp65:
 .Lxtalabel2:
 	eq r1, r0, 2
-	bf r1, .LBB12_6
-.Ltmp71:
+	bf r1, .LBB10_6
+.Ltmp66:
 .Lxtalabel3:
 	.loc	1 130 0
 	ldw r0, dp[display_param]
@@ -995,9 +896,9 @@ setPixel_in_buffer:
 	andnot r2, r5
 	.loc	1 131 0
 	add r0, r2, r0
-	bu .LBB12_8
-.Ltmp72:
-.LBB12_12:
+	bu .LBB10_8
+.Ltmp67:
+.LBB10_12:
 .Lxtalabel4:
 	.loc	1 127 0
 	ldaw r0, dp[display_param]
@@ -1011,14 +912,14 @@ setPixel_in_buffer:
 	.loc	1 127 0
 	add r1, r1, r0
 	mov r0, r6
-.Ltmp73:
-	bu .LBB12_8
-.Ltmp74:
-.LBB12_6:
+.Ltmp68:
+	bu .LBB10_8
+.Ltmp69:
+.LBB10_6:
 .Lxtalabel5:
 	eq r0, r0, 3
-	bf r0, .LBB12_7
-.Ltmp75:
+	bf r0, .LBB10_7
+.Ltmp70:
 .Lxtalabel6:
 	.loc	1 135 0
 	ldc r0, 0
@@ -1032,23 +933,23 @@ setPixel_in_buffer:
 	.loc	1 135 0
 	add r0, r1, r0
 	mov r1, r5
-.Ltmp76:
-	bu .LBB12_8
-.Ltmp77:
-.LBB12_7:
+.Ltmp71:
+	bu .LBB10_8
+.Ltmp72:
+.LBB10_7:
 	mov r0, r5
-.Ltmp78:
+.Ltmp73:
 	mov r1, r6
-.Ltmp79:
-.LBB12_8:
+.Ltmp74:
+.LBB10_8:
 .Lxtalabel7:
 	.loc	1 140 0
-	bf r4, .LBB12_16
-.Ltmp80:
+	bf r4, .LBB10_16
+.Ltmp75:
 .Lxtalabel8:
 	eq r2, r4, 1
-	bf r2, .LBB12_10
-.Ltmp81:
+	bf r2, .LBB10_10
+.Ltmp76:
 .Lxtalabel9:
 	.loc	1 142 0
 	sext r0, 16
@@ -1059,7 +960,7 @@ setPixel_in_buffer:
 	add r2, r0, r2
 	.loc	1 142 0
 	shl r2, r2, 4
-	ldw r3, cp[.LCPI12_0]
+	ldw r3, cp[.LCPI10_0]
 	.loc	1 142 0
 	and r2, r2, r3
 	.loc	1 142 0
@@ -1084,8 +985,8 @@ setPixel_in_buffer:
 	or r0, r3, r0
 	.loc	1 142 0
 	st8 r0, r2[r1]
-	bu .LBB12_17
-.LBB12_16:
+	bu .LBB10_17
+.LBB10_16:
 .Lxtalabel10:
 	.loc	1 143 0
 	sext r0, 16
@@ -1096,7 +997,7 @@ setPixel_in_buffer:
 	add r2, r0, r2
 	.loc	1 143 0
 	shl r2, r2, 4
-	ldw r3, cp[.LCPI12_0]
+	ldw r3, cp[.LCPI10_0]
 	.loc	1 143 0
 	and r2, r2, r3
 	.loc	1 143 0
@@ -1121,13 +1022,13 @@ setPixel_in_buffer:
 	andnot r3, r0
 	.loc	1 143 0
 	st8 r3, r2[r1]
-	bu .LBB12_17
-.LBB12_10:
+	bu .LBB10_17
+.LBB10_10:
 .Lxtalabel11:
-.Ltmp82:
+.Ltmp77:
 	eq r2, r4, 2
-	bf r2, .LBB12_17
-.Ltmp83:
+	bf r2, .LBB10_17
+.Ltmp78:
 .Lxtalabel12:
 	.loc	1 144 0
 	sext r0, 16
@@ -1138,7 +1039,7 @@ setPixel_in_buffer:
 	add r2, r0, r2
 	.loc	1 144 0
 	shl r2, r2, 4
-	ldw r3, cp[.LCPI12_0]
+	ldw r3, cp[.LCPI10_0]
 	.loc	1 144 0
 	and r2, r2, r3
 	.loc	1 144 0
@@ -1163,8 +1064,8 @@ setPixel_in_buffer:
 	xor r0, r3, r0
 	.loc	1 144 0
 	st8 r0, r2[r1]
-.Ltmp84:
-.LBB12_17:
+.Ltmp79:
+.LBB10_17:
 	ldw r6, sp[1]
 	ldw r5, sp[2]
 	ldw r4, sp[3]
@@ -1179,57 +1080,57 @@ setPixel_in_buffer:
 	.globl	setPixel_in_buffer.maxtimers
 	.set	setPixel_in_buffer.maxchanends,getRotation.maxchanends $M height.maxchanends $M width.maxchanends $M 0
 	.globl	setPixel_in_buffer.maxchanends
-.Ltmp85:
-	.size	setPixel_in_buffer, .Ltmp85-setPixel_in_buffer
-.Lfunc_end12:
+.Ltmp80:
+	.size	setPixel_in_buffer, .Ltmp80-setPixel_in_buffer
+.Lfunc_end10:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI13_0.data,.LCPI13_0
+	.cc_top .LCPI11_0.data,.LCPI11_0
 	.align	4
-	.type	.LCPI13_0,@object
-	.size	.LCPI13_0, 4
-.LCPI13_0:
+	.type	.LCPI11_0,@object
+	.size	.LCPI11_0, 4
+.LCPI11_0:
 	.long	1000000
-	.cc_bottom .LCPI13_0.data
+	.cc_bottom .LCPI11_0.data
 	.text
 	.globl	Adafruit_SSD1306_i2c_begin
 	.align	4
 	.type	Adafruit_SSD1306_i2c_begin,@function
 	.cc_top Adafruit_SSD1306_i2c_begin.function,Adafruit_SSD1306_i2c_begin
 Adafruit_SSD1306_i2c_begin:
-.Lfunc_begin13:
+.Lfunc_begin11:
 	.loc	1 64 0
 	.cfi_startproc
 .Lxtalabel13:
 	entsp 28
-.Ltmp86:
+.Ltmp81:
 	.cfi_def_cfa_offset 112
-.Ltmp87:
+.Ltmp82:
 	.cfi_offset 15, 0
 	stw r4, sp[27]
-.Ltmp88:
+.Ltmp83:
 	.cfi_offset 4, -4
 	stw r5, sp[26]
-.Ltmp89:
+.Ltmp84:
 	.cfi_offset 5, -8
 	stw r6, sp[25]
-.Ltmp90:
+.Ltmp85:
 	.cfi_offset 6, -12
 	stw r7, sp[24]
-.Ltmp91:
+.Ltmp86:
 	.cfi_offset 7, -16
 	stw r8, sp[23]
-.Ltmp92:
+.Ltmp87:
 	.cfi_offset 8, -20
 	stw r9, sp[22]
-.Ltmp93:
+.Ltmp88:
 	.cfi_offset 9, -24
 	stw r10, sp[21]
-.Ltmp94:
+.Ltmp89:
 	.cfi_offset 10, -28
 	mov r6, r0
-.Ltmp95:
+.Ltmp90:
 	.loc	1 71 31 prologue_end
 	ldw r7, dp[outP_display_notReset]
 	mkmsk r4, 1
@@ -1237,31 +1138,31 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.endpoint_labels0:
 	out res[r7], r4
 	.loc	1 45 0
-.Ltmp96:
+.Ltmp91:
 	ldc r5, 0
-.Ltmp97:
+.Ltmp92:
 	.loc	1 75 31
 .Lxta.endpoint_labels1:
 	out res[r7], r5
-.Ltmp98:
-	ldw r0, cp[.LCPI13_0]
+.Ltmp93:
+	ldw r0, cp[.LCPI11_0]
 	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.loc	2 55 0
-.Ltmp99:
+.Ltmp94:
 	mov r1, r5
 .Lxta.call_labels2:
 	bl delay_ticks_longlong
-.Ltmp100:
+.Ltmp95:
 	.loc	1 77 31
 .Lxta.endpoint_labels2:
 	out res[r7], r4
 	ldaw r7, sp[20]
-.Ltmp101:
+.Ltmp96:
 	ldc r0, 174
 	.loc	1 45 0
-.Ltmp102:
+.Ltmp97:
 	st8 r0, r7[r5]
-.Ltmp103:
+.Ltmp98:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1279,10 +1180,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[19]
 	ldc r0, 213
-.Ltmp104:
+.Ltmp99:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp105:
+.Ltmp100:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1299,10 +1200,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[18]
 	ldc r0, 128
-.Ltmp106:
+.Ltmp101:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp107:
+.Ltmp102:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1319,10 +1220,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[17]
 	ldc r0, 168
-.Ltmp108:
+.Ltmp103:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp109:
+.Ltmp104:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1339,10 +1240,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[16]
 	mkmsk r0, 5
-.Ltmp110:
+.Ltmp105:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp111:
+.Ltmp106:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1359,10 +1260,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[15]
 	ldc r0, 211
-.Ltmp112:
+.Ltmp107:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp113:
+.Ltmp108:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1378,10 +1279,10 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels8:
 	bla r11
 	stw r0, sp[14]
-.Ltmp114:
+.Ltmp109:
 	.loc	1 45 0
 	st8 r5, r7[r5]
-.Ltmp115:
+.Ltmp110:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1398,10 +1299,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[13]
 	ldc r0, 64
-.Ltmp116:
+.Ltmp111:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp117:
+.Ltmp112:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1418,10 +1319,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[12]
 	ldc r0, 141
-.Ltmp118:
+.Ltmp113:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp119:
+.Ltmp114:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1438,10 +1339,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[11]
 	ldc r0, 20
-.Ltmp120:
+.Ltmp115:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp121:
+.Ltmp116:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1458,10 +1359,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[10]
 	ldc r0, 32
-.Ltmp122:
+.Ltmp117:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp123:
+.Ltmp118:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1477,10 +1378,10 @@ Adafruit_SSD1306_i2c_begin:
 .Lxta.call_labels13:
 	bla r11
 	stw r0, sp[9]
-.Ltmp124:
+.Ltmp119:
 	.loc	1 45 0
 	st8 r5, r7[r5]
-.Ltmp125:
+.Ltmp120:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1497,10 +1398,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[8]
 	ldc r0, 161
-.Ltmp126:
+.Ltmp121:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp127:
+.Ltmp122:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1517,10 +1418,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[7]
 	ldc r0, 200
-.Ltmp128:
+.Ltmp123:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp129:
+.Ltmp124:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1537,10 +1438,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[6]
 	ldc r0, 218
-.Ltmp130:
+.Ltmp125:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp131:
+.Ltmp126:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1557,10 +1458,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[5]
 	ldc r0, 2
-.Ltmp132:
+.Ltmp127:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp133:
+.Ltmp128:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1577,10 +1478,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[4]
 	ldc r0, 129
-.Ltmp134:
+.Ltmp129:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp135:
+.Ltmp130:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1597,10 +1498,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	stw r0, sp[3]
 	ldc r0, 143
-.Ltmp136:
+.Ltmp131:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp137:
+.Ltmp132:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1617,10 +1518,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	mov r10, r0
 	ldc r0, 217
-.Ltmp138:
+.Ltmp133:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp139:
+.Ltmp134:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1637,10 +1538,10 @@ Adafruit_SSD1306_i2c_begin:
 	bla r11
 	mov r9, r0
 	ldc r0, 241
-.Ltmp140:
+.Ltmp135:
 	.loc	1 45 0
 	st8 r0, r7[r5]
-.Ltmp141:
+.Ltmp136:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1655,7 +1556,7 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels22:
 	bla r11
-.Ltmp142:
+.Ltmp137:
 	.loc	1 81 0
 	ldw r1, sp[19]
 	eq r1, r1, 0
@@ -1753,9 +1654,9 @@ Adafruit_SSD1306_i2c_begin:
 	or r9, r1, r0
 	ldc r0, 219
 	.loc	1 45 0
-.Ltmp143:
+.Ltmp138:
 	st8 r0, r7[r5]
-.Ltmp144:
+.Ltmp139:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1770,16 +1671,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels23:
 	bla r11
-.Ltmp145:
+.Ltmp140:
 	.loc	1 107 0
 	eq r0, r0, 0
 	.loc	1 107 0
 	or r9, r9, r0
 	ldc r0, 64
 	.loc	1 45 0
-.Ltmp146:
+.Ltmp141:
 	st8 r0, r7[r5]
-.Ltmp147:
+.Ltmp142:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1794,16 +1695,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels24:
 	bla r11
-.Ltmp148:
+.Ltmp143:
 	.loc	1 108 0
 	eq r0, r0, 0
 	.loc	1 108 0
 	or r9, r9, r0
 	ldc r0, 164
 	.loc	1 45 0
-.Ltmp149:
+.Ltmp144:
 	st8 r0, r7[r5]
-.Ltmp150:
+.Ltmp145:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1818,16 +1719,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels25:
 	bla r11
-.Ltmp151:
+.Ltmp146:
 	.loc	1 109 0
 	eq r0, r0, 0
 	.loc	1 109 0
 	or r9, r9, r0
 	ldc r0, 166
 	.loc	1 45 0
-.Ltmp152:
+.Ltmp147:
 	st8 r0, r7[r5]
-.Ltmp153:
+.Ltmp148:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1842,16 +1743,16 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels26:
 	bla r11
-.Ltmp154:
+.Ltmp149:
 	.loc	1 110 0
 	eq r0, r0, 0
 	.loc	1 110 0
 	or r9, r9, r0
 	ldc r0, 175
 	.loc	1 45 0
-.Ltmp155:
+.Ltmp150:
 	st8 r0, r7[r5]
-.Ltmp156:
+.Ltmp151:
 	.loc	1 48 0
 	ldw r0, r6[0]
 	.loc	1 48 0
@@ -1866,7 +1767,7 @@ Adafruit_SSD1306_i2c_begin:
 	mov r3, r7
 .Lxta.call_labels27:
 	bla r11
-.Ltmp157:
+.Ltmp152:
 	.loc	1 113 0
 	eq r0, r0, 0
 	.loc	1 113 0
@@ -1878,14 +1779,14 @@ Adafruit_SSD1306_i2c_begin:
 	ldw r9, sp[22]
 	ldw r8, sp[23]
 	ldw r7, sp[24]
-.Ltmp158:
+.Ltmp153:
 	ldw r6, sp[25]
-.Ltmp159:
+.Ltmp154:
 	ldw r5, sp[26]
 	ldw r4, sp[27]
 	retsp 28
 	# RETURN_REG_HOLDER
-.Ltmp160:
+.Ltmp155:
 	.cc_bottom Adafruit_SSD1306_i2c_begin.function
 	.set	Adafruit_SSD1306_i2c_begin.nstackwords,((delay_ticks_longlong.nstackwords $M _i.i2c_internal_commands_if.write_display_ok.max.nstackwords) + 28)
 	.globl	Adafruit_SSD1306_i2c_begin.nstackwords
@@ -1895,9 +1796,9 @@ Adafruit_SSD1306_i2c_begin:
 	.globl	Adafruit_SSD1306_i2c_begin.maxtimers
 	.set	Adafruit_SSD1306_i2c_begin.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M delay_ticks_longlong.maxchanends $M 0
 	.globl	Adafruit_SSD1306_i2c_begin.maxchanends
-.Ltmp161:
-	.size	Adafruit_SSD1306_i2c_begin, .Ltmp161-Adafruit_SSD1306_i2c_begin
-.Lfunc_end13:
+.Ltmp156:
+	.size	Adafruit_SSD1306_i2c_begin, .Ltmp156-Adafruit_SSD1306_i2c_begin
+.Lfunc_end11:
 	.cfi_endproc
 
 	.globl	writeDisplay_i2c_command
@@ -1905,29 +1806,29 @@ Adafruit_SSD1306_i2c_begin:
 	.type	writeDisplay_i2c_command,@function
 	.cc_top writeDisplay_i2c_command.function,writeDisplay_i2c_command
 writeDisplay_i2c_command:
-.Lfunc_begin14:
+.Lfunc_begin12:
 	.loc	1 42 0
 	.cfi_startproc
 .Lxtalabel14:
 	entsp 5
-.Ltmp162:
+.Ltmp157:
 	.cfi_def_cfa_offset 20
-.Ltmp163:
+.Ltmp158:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp164:
+.Ltmp159:
 	.cfi_offset 4, -4
-.Ltmp165:
+.Ltmp160:
 	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 	st8 r1, r3[r2]
-.Ltmp166:
+.Ltmp161:
 	.loc	1 48 0
 	ldw r11, r0[0]
 	.loc	1 48 0
 	ldw r0, r0[1]
-.Ltmp167:
+.Ltmp162:
 	.loc	1 48 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
@@ -1935,7 +1836,7 @@ writeDisplay_i2c_command:
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
-.Ltmp168:
+.Ltmp163:
 	mov r0, r11
 .Lxta.call_labels28:
 	bla r4
@@ -1945,7 +1846,7 @@ writeDisplay_i2c_command:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp169:
+.Ltmp164:
 	.cc_bottom writeDisplay_i2c_command.function
 	.set	writeDisplay_i2c_command.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	writeDisplay_i2c_command.nstackwords
@@ -1955,9 +1856,9 @@ writeDisplay_i2c_command:
 	.globl	writeDisplay_i2c_command.maxtimers
 	.set	writeDisplay_i2c_command.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeDisplay_i2c_command.maxchanends
-.Ltmp170:
-	.size	writeDisplay_i2c_command, .Ltmp170-writeDisplay_i2c_command
-.Lfunc_end14:
+.Ltmp165:
+	.size	writeDisplay_i2c_command, .Ltmp165-writeDisplay_i2c_command
+.Lfunc_end12:
 	.cfi_endproc
 
 	.globl	writeDisplay_i2c_data
@@ -1965,29 +1866,29 @@ writeDisplay_i2c_command:
 	.type	writeDisplay_i2c_data,@function
 	.cc_top writeDisplay_i2c_data.function,writeDisplay_i2c_data
 writeDisplay_i2c_data:
-.Lfunc_begin15:
+.Lfunc_begin13:
 	.loc	1 53 0
 	.cfi_startproc
 .Lxtalabel15:
 	entsp 5
-.Ltmp171:
+.Ltmp166:
 	.cfi_def_cfa_offset 20
-.Ltmp172:
+.Ltmp167:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp173:
+.Ltmp168:
 	.cfi_offset 4, -4
-.Ltmp174:
+.Ltmp169:
 	.loc	1 56 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
 	st8 r1, r3[r2]
-.Ltmp175:
+.Ltmp170:
 	.loc	1 59 0
 	ldw r11, r0[0]
 	.loc	1 59 0
 	ldw r0, r0[1]
-.Ltmp176:
+.Ltmp171:
 	.loc	1 59 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
@@ -1995,7 +1896,7 @@ writeDisplay_i2c_data:
 	stw r0, sp[2]
 	stw r0, sp[1]
 	ldc r1, 60
-.Ltmp177:
+.Ltmp172:
 	ldc r2, 64
 	mov r0, r11
 .Lxta.call_labels29:
@@ -2006,7 +1907,7 @@ writeDisplay_i2c_data:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp178:
+.Ltmp173:
 	.cc_bottom writeDisplay_i2c_data.function
 	.set	writeDisplay_i2c_data.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	writeDisplay_i2c_data.nstackwords
@@ -2016,9 +1917,9 @@ writeDisplay_i2c_data:
 	.globl	writeDisplay_i2c_data.maxtimers
 	.set	writeDisplay_i2c_data.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeDisplay_i2c_data.maxchanends
-.Ltmp179:
-	.size	writeDisplay_i2c_data, .Ltmp179-writeDisplay_i2c_data
-.Lfunc_end15:
+.Ltmp174:
+	.size	writeDisplay_i2c_data, .Ltmp174-writeDisplay_i2c_data
+.Lfunc_end13:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_invert
@@ -2026,39 +1927,39 @@ writeDisplay_i2c_data:
 	.type	tellDisplay_i2c_invert,@function
 	.cc_top tellDisplay_i2c_invert.function,tellDisplay_i2c_invert
 tellDisplay_i2c_invert:
-.Lfunc_begin16:
+.Lfunc_begin14:
 	.loc	1 149 0
 	.cfi_startproc
 .Lxtalabel16:
 	entsp 5
-.Ltmp180:
+.Ltmp175:
 	.cfi_def_cfa_offset 20
-.Ltmp181:
+.Ltmp176:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp182:
+.Ltmp177:
 	.cfi_offset 4, -4
-.Ltmp183:
+.Ltmp178:
 	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
-.Ltmp184:
+.Ltmp179:
 	.loc	1 152 5
-	bf r1, .LBB16_3
-.Ltmp185:
+	bf r1, .LBB14_3
+.Ltmp180:
 .Lxtalabel17:
 	ldc r1, 167
-	bu .LBB16_2
-.LBB16_3:
+	bu .LBB14_2
+.LBB14_3:
 .Lxtalabel18:
 	ldc r1, 166
-.LBB16_2:
+.LBB14_2:
 .Lxtalabel19:
-.Ltmp186:
+.Ltmp181:
 	.loc	1 45 0
 	st8 r1, r3[r2]
 	.loc	1 48 0
-.Ltmp187:
+.Ltmp182:
 	ldw r11, r0[0]
 	.loc	1 48 0
 	ldw r0, r0[1]
@@ -2075,11 +1976,11 @@ tellDisplay_i2c_invert:
 	.loc	1 50 5
 	eq r0, r0, 0
 	eq r0, r0, 0
-.Ltmp188:
+.Ltmp183:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp189:
+.Ltmp184:
 	.cc_bottom tellDisplay_i2c_invert.function
 	.set	tellDisplay_i2c_invert.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	tellDisplay_i2c_invert.nstackwords
@@ -2089,9 +1990,9 @@ tellDisplay_i2c_invert:
 	.globl	tellDisplay_i2c_invert.maxtimers
 	.set	tellDisplay_i2c_invert.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_invert.maxchanends
-.Ltmp190:
-	.size	tellDisplay_i2c_invert, .Ltmp190-tellDisplay_i2c_invert
-.Lfunc_end16:
+.Ltmp185:
+	.size	tellDisplay_i2c_invert, .Ltmp185-tellDisplay_i2c_invert
+.Lfunc_end14:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_startscrollright
@@ -2099,51 +2000,51 @@ tellDisplay_i2c_invert:
 	.type	tellDisplay_i2c_startscrollright,@function
 	.cc_top tellDisplay_i2c_startscrollright.function,tellDisplay_i2c_startscrollright
 tellDisplay_i2c_startscrollright:
-.Lfunc_begin17:
+.Lfunc_begin15:
 	.loc	1 165 0
 	.cfi_startproc
 .Lxtalabel20:
 	entsp 12
-.Ltmp191:
+.Ltmp186:
 	.cfi_def_cfa_offset 48
-.Ltmp192:
+.Ltmp187:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp193:
+.Ltmp188:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp194:
+.Ltmp189:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp195:
+.Ltmp190:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp196:
+.Ltmp191:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp197:
+.Ltmp192:
 	.cfi_offset 8, -20
 	stw r9, sp[6]
-.Ltmp198:
+.Ltmp193:
 	.cfi_offset 9, -24
 	stw r10, sp[5]
-.Ltmp199:
+.Ltmp194:
 	.cfi_offset 10, -28
 	stw r2, sp[3]
-.Ltmp200:
+.Ltmp195:
 	mov r10, r1
-.Ltmp201:
+.Ltmp196:
 	mov r7, r0
-.Ltmp202:
+.Ltmp197:
 	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
-.Ltmp203:
+.Ltmp198:
 	ldc r0, 38
-.Ltmp204:
+.Ltmp199:
 	.loc	1 45 0
 	st8 r0, r6[r5]
-.Ltmp205:
+.Ltmp200:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2160,13 +2061,13 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels31:
 	bla r11
-.Ltmp206:
+.Ltmp201:
 	.loc	1 168 0
 	eq r9, r0, 0
 	.loc	1 45 0
-.Ltmp207:
+.Ltmp202:
 	st8 r5, r6[r5]
-.Ltmp208:
+.Ltmp203:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2181,15 +2082,15 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels32:
 	bla r11
-.Ltmp209:
+.Ltmp204:
 	.loc	1 169 0
 	eq r0, r0, 0
 	.loc	1 169 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp210:
+.Ltmp205:
 	st8 r10, r6[r5]
-.Ltmp211:
+.Ltmp206:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2204,15 +2105,15 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels33:
 	bla r11
-.Ltmp212:
+.Ltmp207:
 	.loc	1 170 0
 	eq r0, r0, 0
 	.loc	1 170 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp213:
+.Ltmp208:
 	st8 r5, r6[r5]
-.Ltmp214:
+.Ltmp209:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2227,16 +2128,16 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels34:
 	bla r11
-.Ltmp215:
+.Ltmp210:
 	.loc	1 171 0
 	eq r0, r0, 0
 	.loc	1 171 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp216:
+.Ltmp211:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
-.Ltmp217:
+.Ltmp212:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2251,15 +2152,15 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels35:
 	bla r11
-.Ltmp218:
+.Ltmp213:
 	.loc	1 172 0
 	eq r0, r0, 0
 	.loc	1 172 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp219:
+.Ltmp214:
 	st8 r5, r6[r5]
-.Ltmp220:
+.Ltmp215:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2274,16 +2175,16 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels36:
 	bla r11
-.Ltmp221:
+.Ltmp216:
 	.loc	1 173 0
 	eq r0, r0, 0
 	.loc	1 173 0
 	or r9, r9, r0
 	mkmsk r0, 8
 	.loc	1 45 0
-.Ltmp222:
+.Ltmp217:
 	st8 r0, r6[r5]
-.Ltmp223:
+.Ltmp218:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2298,16 +2199,16 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels37:
 	bla r11
-.Ltmp224:
+.Ltmp219:
 	.loc	1 174 0
 	eq r0, r0, 0
 	.loc	1 174 0
 	or r9, r9, r0
 	ldc r0, 47
 	.loc	1 45 0
-.Ltmp225:
+.Ltmp220:
 	st8 r0, r6[r5]
-.Ltmp226:
+.Ltmp221:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2322,7 +2223,7 @@ tellDisplay_i2c_startscrollright:
 	mov r3, r6
 .Lxta.call_labels38:
 	bla r11
-.Ltmp227:
+.Ltmp222:
 	.loc	1 175 0
 	eq r0, r0, 0
 	.loc	1 175 0
@@ -2331,19 +2232,19 @@ tellDisplay_i2c_startscrollright:
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
-.Ltmp228:
+.Ltmp223:
 	ldw r9, sp[6]
 	ldw r8, sp[7]
 	ldw r7, sp[8]
-.Ltmp229:
+.Ltmp224:
 	ldw r6, sp[9]
-.Ltmp230:
+.Ltmp225:
 	ldw r5, sp[10]
 	ldw r4, sp[11]
 	retsp 12
-.Ltmp231:
+.Ltmp226:
 	# RETURN_REG_HOLDER
-.Ltmp232:
+.Ltmp227:
 	.cc_bottom tellDisplay_i2c_startscrollright.function
 	.set	tellDisplay_i2c_startscrollright.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrollright.nstackwords
@@ -2353,9 +2254,9 @@ tellDisplay_i2c_startscrollright:
 	.globl	tellDisplay_i2c_startscrollright.maxtimers
 	.set	tellDisplay_i2c_startscrollright.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrollright.maxchanends
-.Ltmp233:
-	.size	tellDisplay_i2c_startscrollright, .Ltmp233-tellDisplay_i2c_startscrollright
-.Lfunc_end17:
+.Ltmp228:
+	.size	tellDisplay_i2c_startscrollright, .Ltmp228-tellDisplay_i2c_startscrollright
+.Lfunc_end15:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_startscrollleft
@@ -2363,51 +2264,51 @@ tellDisplay_i2c_startscrollright:
 	.type	tellDisplay_i2c_startscrollleft,@function
 	.cc_top tellDisplay_i2c_startscrollleft.function,tellDisplay_i2c_startscrollleft
 tellDisplay_i2c_startscrollleft:
-.Lfunc_begin18:
+.Lfunc_begin16:
 	.loc	1 184 0
 	.cfi_startproc
 .Lxtalabel21:
 	entsp 12
-.Ltmp234:
+.Ltmp229:
 	.cfi_def_cfa_offset 48
-.Ltmp235:
+.Ltmp230:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp236:
+.Ltmp231:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp237:
+.Ltmp232:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp238:
+.Ltmp233:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp239:
+.Ltmp234:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp240:
+.Ltmp235:
 	.cfi_offset 8, -20
 	stw r9, sp[6]
-.Ltmp241:
+.Ltmp236:
 	.cfi_offset 9, -24
 	stw r10, sp[5]
-.Ltmp242:
+.Ltmp237:
 	.cfi_offset 10, -28
 	stw r2, sp[3]
-.Ltmp243:
+.Ltmp238:
 	mov r10, r1
-.Ltmp244:
+.Ltmp239:
 	mov r7, r0
-.Ltmp245:
+.Ltmp240:
 	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
-.Ltmp246:
+.Ltmp241:
 	ldc r0, 39
-.Ltmp247:
+.Ltmp242:
 	.loc	1 45 0
 	st8 r0, r6[r5]
-.Ltmp248:
+.Ltmp243:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2424,13 +2325,13 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels39:
 	bla r11
-.Ltmp249:
+.Ltmp244:
 	.loc	1 187 0
 	eq r9, r0, 0
 	.loc	1 45 0
-.Ltmp250:
+.Ltmp245:
 	st8 r5, r6[r5]
-.Ltmp251:
+.Ltmp246:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2445,15 +2346,15 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels40:
 	bla r11
-.Ltmp252:
+.Ltmp247:
 	.loc	1 188 0
 	eq r0, r0, 0
 	.loc	1 188 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp253:
+.Ltmp248:
 	st8 r10, r6[r5]
-.Ltmp254:
+.Ltmp249:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2468,15 +2369,15 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels41:
 	bla r11
-.Ltmp255:
+.Ltmp250:
 	.loc	1 189 0
 	eq r0, r0, 0
 	.loc	1 189 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp256:
+.Ltmp251:
 	st8 r5, r6[r5]
-.Ltmp257:
+.Ltmp252:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2491,16 +2392,16 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels42:
 	bla r11
-.Ltmp258:
+.Ltmp253:
 	.loc	1 190 0
 	eq r0, r0, 0
 	.loc	1 190 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp259:
+.Ltmp254:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
-.Ltmp260:
+.Ltmp255:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2515,15 +2416,15 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels43:
 	bla r11
-.Ltmp261:
+.Ltmp256:
 	.loc	1 191 0
 	eq r0, r0, 0
 	.loc	1 191 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp262:
+.Ltmp257:
 	st8 r5, r6[r5]
-.Ltmp263:
+.Ltmp258:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2538,16 +2439,16 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels44:
 	bla r11
-.Ltmp264:
+.Ltmp259:
 	.loc	1 192 0
 	eq r0, r0, 0
 	.loc	1 192 0
 	or r9, r9, r0
 	mkmsk r0, 8
 	.loc	1 45 0
-.Ltmp265:
+.Ltmp260:
 	st8 r0, r6[r5]
-.Ltmp266:
+.Ltmp261:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2562,16 +2463,16 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels45:
 	bla r11
-.Ltmp267:
+.Ltmp262:
 	.loc	1 193 0
 	eq r0, r0, 0
 	.loc	1 193 0
 	or r9, r9, r0
 	ldc r0, 47
 	.loc	1 45 0
-.Ltmp268:
+.Ltmp263:
 	st8 r0, r6[r5]
-.Ltmp269:
+.Ltmp264:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2586,7 +2487,7 @@ tellDisplay_i2c_startscrollleft:
 	mov r3, r6
 .Lxta.call_labels46:
 	bla r11
-.Ltmp270:
+.Ltmp265:
 	.loc	1 194 0
 	eq r0, r0, 0
 	.loc	1 194 0
@@ -2595,19 +2496,19 @@ tellDisplay_i2c_startscrollleft:
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
-.Ltmp271:
+.Ltmp266:
 	ldw r9, sp[6]
 	ldw r8, sp[7]
 	ldw r7, sp[8]
-.Ltmp272:
+.Ltmp267:
 	ldw r6, sp[9]
-.Ltmp273:
+.Ltmp268:
 	ldw r5, sp[10]
 	ldw r4, sp[11]
 	retsp 12
-.Ltmp274:
+.Ltmp269:
 	# RETURN_REG_HOLDER
-.Ltmp275:
+.Ltmp270:
 	.cc_bottom tellDisplay_i2c_startscrollleft.function
 	.set	tellDisplay_i2c_startscrollleft.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrollleft.nstackwords
@@ -2617,9 +2518,9 @@ tellDisplay_i2c_startscrollleft:
 	.globl	tellDisplay_i2c_startscrollleft.maxtimers
 	.set	tellDisplay_i2c_startscrollleft.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrollleft.maxchanends
-.Ltmp276:
-	.size	tellDisplay_i2c_startscrollleft, .Ltmp276-tellDisplay_i2c_startscrollleft
-.Lfunc_end18:
+.Ltmp271:
+	.size	tellDisplay_i2c_startscrollleft, .Ltmp271-tellDisplay_i2c_startscrollleft
+.Lfunc_end16:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_startscrolldiagright
@@ -2627,51 +2528,51 @@ tellDisplay_i2c_startscrollleft:
 	.type	tellDisplay_i2c_startscrolldiagright,@function
 	.cc_top tellDisplay_i2c_startscrolldiagright.function,tellDisplay_i2c_startscrolldiagright
 tellDisplay_i2c_startscrolldiagright:
-.Lfunc_begin19:
+.Lfunc_begin17:
 	.loc	1 203 0
 	.cfi_startproc
 .Lxtalabel22:
 	entsp 12
-.Ltmp277:
+.Ltmp272:
 	.cfi_def_cfa_offset 48
-.Ltmp278:
+.Ltmp273:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp279:
+.Ltmp274:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp280:
+.Ltmp275:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp281:
+.Ltmp276:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp282:
+.Ltmp277:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp283:
+.Ltmp278:
 	.cfi_offset 8, -20
 	stw r9, sp[6]
-.Ltmp284:
+.Ltmp279:
 	.cfi_offset 9, -24
 	stw r10, sp[5]
-.Ltmp285:
+.Ltmp280:
 	.cfi_offset 10, -28
 	stw r2, sp[3]
-.Ltmp286:
+.Ltmp281:
 	mov r10, r1
-.Ltmp287:
+.Ltmp282:
 	mov r7, r0
-.Ltmp288:
+.Ltmp283:
 	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
-.Ltmp289:
+.Ltmp284:
 	ldc r0, 163
-.Ltmp290:
+.Ltmp285:
 	.loc	1 45 0
 	st8 r0, r6[r5]
-.Ltmp291:
+.Ltmp286:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2688,13 +2589,13 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels47:
 	bla r11
-.Ltmp292:
+.Ltmp287:
 	.loc	1 206 0
 	eq r9, r0, 0
 	.loc	1 45 0
-.Ltmp293:
+.Ltmp288:
 	st8 r5, r6[r5]
-.Ltmp294:
+.Ltmp289:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2709,16 +2610,16 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels48:
 	bla r11
-.Ltmp295:
+.Ltmp290:
 	.loc	1 207 0
 	eq r0, r0, 0
 	.loc	1 207 0
 	or r9, r9, r0
 	ldc r0, 32
 	.loc	1 45 0
-.Ltmp296:
+.Ltmp291:
 	st8 r0, r6[r5]
-.Ltmp297:
+.Ltmp292:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2733,16 +2634,16 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels49:
 	bla r11
-.Ltmp298:
+.Ltmp293:
 	.loc	1 208 0
 	eq r0, r0, 0
 	.loc	1 208 0
 	or r9, r9, r0
 	ldc r0, 41
 	.loc	1 45 0
-.Ltmp299:
+.Ltmp294:
 	st8 r0, r6[r5]
-.Ltmp300:
+.Ltmp295:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2757,15 +2658,15 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels50:
 	bla r11
-.Ltmp301:
+.Ltmp296:
 	.loc	1 209 0
 	eq r0, r0, 0
 	.loc	1 209 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp302:
+.Ltmp297:
 	st8 r5, r6[r5]
-.Ltmp303:
+.Ltmp298:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2780,15 +2681,15 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels51:
 	bla r11
-.Ltmp304:
+.Ltmp299:
 	.loc	1 210 0
 	eq r0, r0, 0
 	.loc	1 210 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp305:
+.Ltmp300:
 	st8 r10, r6[r5]
-.Ltmp306:
+.Ltmp301:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2803,15 +2704,15 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels52:
 	bla r11
-.Ltmp307:
+.Ltmp302:
 	.loc	1 211 0
 	eq r0, r0, 0
 	.loc	1 211 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp308:
+.Ltmp303:
 	st8 r5, r6[r5]
-.Ltmp309:
+.Ltmp304:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2826,16 +2727,16 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels53:
 	bla r11
-.Ltmp310:
+.Ltmp305:
 	.loc	1 212 0
 	eq r0, r0, 0
 	.loc	1 212 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp311:
+.Ltmp306:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
-.Ltmp312:
+.Ltmp307:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2850,15 +2751,15 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels54:
 	bla r11
-.Ltmp313:
+.Ltmp308:
 	.loc	1 213 0
 	eq r0, r0, 0
 	.loc	1 213 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp314:
+.Ltmp309:
 	st8 r4, r6[r5]
-.Ltmp315:
+.Ltmp310:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2873,16 +2774,16 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels55:
 	bla r11
-.Ltmp316:
+.Ltmp311:
 	.loc	1 214 0
 	eq r0, r0, 0
 	.loc	1 214 0
 	or r9, r9, r0
 	ldc r0, 47
 	.loc	1 45 0
-.Ltmp317:
+.Ltmp312:
 	st8 r0, r6[r5]
-.Ltmp318:
+.Ltmp313:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2897,7 +2798,7 @@ tellDisplay_i2c_startscrolldiagright:
 	mov r3, r6
 .Lxta.call_labels56:
 	bla r11
-.Ltmp319:
+.Ltmp314:
 	.loc	1 215 0
 	eq r0, r0, 0
 	.loc	1 215 0
@@ -2906,19 +2807,19 @@ tellDisplay_i2c_startscrolldiagright:
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
-.Ltmp320:
+.Ltmp315:
 	ldw r9, sp[6]
 	ldw r8, sp[7]
 	ldw r7, sp[8]
-.Ltmp321:
+.Ltmp316:
 	ldw r6, sp[9]
-.Ltmp322:
+.Ltmp317:
 	ldw r5, sp[10]
 	ldw r4, sp[11]
 	retsp 12
-.Ltmp323:
+.Ltmp318:
 	# RETURN_REG_HOLDER
-.Ltmp324:
+.Ltmp319:
 	.cc_bottom tellDisplay_i2c_startscrolldiagright.function
 	.set	tellDisplay_i2c_startscrolldiagright.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrolldiagright.nstackwords
@@ -2928,9 +2829,9 @@ tellDisplay_i2c_startscrolldiagright:
 	.globl	tellDisplay_i2c_startscrolldiagright.maxtimers
 	.set	tellDisplay_i2c_startscrolldiagright.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrolldiagright.maxchanends
-.Ltmp325:
-	.size	tellDisplay_i2c_startscrolldiagright, .Ltmp325-tellDisplay_i2c_startscrolldiagright
-.Lfunc_end19:
+.Ltmp320:
+	.size	tellDisplay_i2c_startscrolldiagright, .Ltmp320-tellDisplay_i2c_startscrolldiagright
+.Lfunc_end17:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_startscrolldiagleft
@@ -2938,51 +2839,51 @@ tellDisplay_i2c_startscrolldiagright:
 	.type	tellDisplay_i2c_startscrolldiagleft,@function
 	.cc_top tellDisplay_i2c_startscrolldiagleft.function,tellDisplay_i2c_startscrolldiagleft
 tellDisplay_i2c_startscrolldiagleft:
-.Lfunc_begin20:
+.Lfunc_begin18:
 	.loc	1 224 0
 	.cfi_startproc
 .Lxtalabel23:
 	entsp 12
-.Ltmp326:
+.Ltmp321:
 	.cfi_def_cfa_offset 48
-.Ltmp327:
+.Ltmp322:
 	.cfi_offset 15, 0
 	stw r4, sp[11]
-.Ltmp328:
+.Ltmp323:
 	.cfi_offset 4, -4
 	stw r5, sp[10]
-.Ltmp329:
+.Ltmp324:
 	.cfi_offset 5, -8
 	stw r6, sp[9]
-.Ltmp330:
+.Ltmp325:
 	.cfi_offset 6, -12
 	stw r7, sp[8]
-.Ltmp331:
+.Ltmp326:
 	.cfi_offset 7, -16
 	stw r8, sp[7]
-.Ltmp332:
+.Ltmp327:
 	.cfi_offset 8, -20
 	stw r9, sp[6]
-.Ltmp333:
+.Ltmp328:
 	.cfi_offset 9, -24
 	stw r10, sp[5]
-.Ltmp334:
+.Ltmp329:
 	.cfi_offset 10, -28
 	stw r2, sp[3]
-.Ltmp335:
+.Ltmp330:
 	mov r10, r1
-.Ltmp336:
+.Ltmp331:
 	mov r7, r0
-.Ltmp337:
+.Ltmp332:
 	.loc	1 45 0 prologue_end
 	ldc r5, 0
 	ldaw r6, sp[4]
-.Ltmp338:
+.Ltmp333:
 	ldc r0, 163
-.Ltmp339:
+.Ltmp334:
 	.loc	1 45 0
 	st8 r0, r6[r5]
-.Ltmp340:
+.Ltmp335:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -2999,13 +2900,13 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels57:
 	bla r11
-.Ltmp341:
+.Ltmp336:
 	.loc	1 227 0
 	eq r9, r0, 0
 	.loc	1 45 0
-.Ltmp342:
+.Ltmp337:
 	st8 r5, r6[r5]
-.Ltmp343:
+.Ltmp338:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3020,16 +2921,16 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels58:
 	bla r11
-.Ltmp344:
+.Ltmp339:
 	.loc	1 228 0
 	eq r0, r0, 0
 	.loc	1 228 0
 	or r9, r9, r0
 	ldc r0, 32
 	.loc	1 45 0
-.Ltmp345:
+.Ltmp340:
 	st8 r0, r6[r5]
-.Ltmp346:
+.Ltmp341:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3044,16 +2945,16 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels59:
 	bla r11
-.Ltmp347:
+.Ltmp342:
 	.loc	1 229 0
 	eq r0, r0, 0
 	.loc	1 229 0
 	or r9, r9, r0
 	ldc r0, 42
 	.loc	1 45 0
-.Ltmp348:
+.Ltmp343:
 	st8 r0, r6[r5]
-.Ltmp349:
+.Ltmp344:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3068,15 +2969,15 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels60:
 	bla r11
-.Ltmp350:
+.Ltmp345:
 	.loc	1 230 0
 	eq r0, r0, 0
 	.loc	1 230 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp351:
+.Ltmp346:
 	st8 r5, r6[r5]
-.Ltmp352:
+.Ltmp347:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3091,15 +2992,15 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels61:
 	bla r11
-.Ltmp353:
+.Ltmp348:
 	.loc	1 231 0
 	eq r0, r0, 0
 	.loc	1 231 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp354:
+.Ltmp349:
 	st8 r10, r6[r5]
-.Ltmp355:
+.Ltmp350:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3114,15 +3015,15 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels62:
 	bla r11
-.Ltmp356:
+.Ltmp351:
 	.loc	1 232 0
 	eq r0, r0, 0
 	.loc	1 232 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp357:
+.Ltmp352:
 	st8 r5, r6[r5]
-.Ltmp358:
+.Ltmp353:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3137,16 +3038,16 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels63:
 	bla r11
-.Ltmp359:
+.Ltmp354:
 	.loc	1 233 0
 	eq r0, r0, 0
 	.loc	1 233 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp360:
+.Ltmp355:
 	ldw r0, sp[3]
 	st8 r0, r6[r5]
-.Ltmp361:
+.Ltmp356:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3161,15 +3062,15 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels64:
 	bla r11
-.Ltmp362:
+.Ltmp357:
 	.loc	1 234 0
 	eq r0, r0, 0
 	.loc	1 234 0
 	or r9, r9, r0
 	.loc	1 45 0
-.Ltmp363:
+.Ltmp358:
 	st8 r4, r6[r5]
-.Ltmp364:
+.Ltmp359:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3184,16 +3085,16 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels65:
 	bla r11
-.Ltmp365:
+.Ltmp360:
 	.loc	1 235 0
 	eq r0, r0, 0
 	.loc	1 235 0
 	or r9, r9, r0
 	ldc r0, 47
 	.loc	1 45 0
-.Ltmp366:
+.Ltmp361:
 	st8 r0, r6[r5]
-.Ltmp367:
+.Ltmp362:
 	.loc	1 48 0
 	ldw r0, r7[0]
 	.loc	1 48 0
@@ -3208,7 +3109,7 @@ tellDisplay_i2c_startscrolldiagleft:
 	mov r3, r6
 .Lxta.call_labels66:
 	bla r11
-.Ltmp368:
+.Ltmp363:
 	.loc	1 236 0
 	eq r0, r0, 0
 	.loc	1 236 0
@@ -3217,19 +3118,19 @@ tellDisplay_i2c_startscrolldiagleft:
 	andnot r4, r0
 	mov r0, r4
 	ldw r10, sp[5]
-.Ltmp369:
+.Ltmp364:
 	ldw r9, sp[6]
 	ldw r8, sp[7]
 	ldw r7, sp[8]
-.Ltmp370:
+.Ltmp365:
 	ldw r6, sp[9]
-.Ltmp371:
+.Ltmp366:
 	ldw r5, sp[10]
 	ldw r4, sp[11]
 	retsp 12
-.Ltmp372:
+.Ltmp367:
 	# RETURN_REG_HOLDER
-.Ltmp373:
+.Ltmp368:
 	.cc_bottom tellDisplay_i2c_startscrolldiagleft.function
 	.set	tellDisplay_i2c_startscrolldiagleft.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 12)
 	.globl	tellDisplay_i2c_startscrolldiagleft.nstackwords
@@ -3239,9 +3140,9 @@ tellDisplay_i2c_startscrolldiagleft:
 	.globl	tellDisplay_i2c_startscrolldiagleft.maxtimers
 	.set	tellDisplay_i2c_startscrolldiagleft.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_startscrolldiagleft.maxchanends
-.Ltmp374:
-	.size	tellDisplay_i2c_startscrolldiagleft, .Ltmp374-tellDisplay_i2c_startscrolldiagleft
-.Lfunc_end20:
+.Ltmp369:
+	.size	tellDisplay_i2c_startscrolldiagleft, .Ltmp369-tellDisplay_i2c_startscrolldiagleft
+.Lfunc_end18:
 	.cfi_endproc
 
 	.globl	tellDisplay_i2c_stopscroll
@@ -3249,31 +3150,31 @@ tellDisplay_i2c_startscrolldiagleft:
 	.type	tellDisplay_i2c_stopscroll,@function
 	.cc_top tellDisplay_i2c_stopscroll.function,tellDisplay_i2c_stopscroll
 tellDisplay_i2c_stopscroll:
-.Lfunc_begin21:
+.Lfunc_begin19:
 	.loc	1 241 0
 	.cfi_startproc
 .Lxtalabel24:
 	entsp 5
-.Ltmp375:
+.Ltmp370:
 	.cfi_def_cfa_offset 20
-.Ltmp376:
+.Ltmp371:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp377:
+.Ltmp372:
 	.cfi_offset 4, -4
-.Ltmp378:
+.Ltmp373:
 	.loc	1 45 0 prologue_end
 	ldc r2, 0
 	ldaw r3, sp[3]
-.Ltmp379:
+.Ltmp374:
 	ldc r1, 46
 	st8 r1, r3[r2]
-.Ltmp380:
+.Ltmp375:
 	.loc	1 48 0
 	ldw r11, r0[0]
 	.loc	1 48 0
 	ldw r0, r0[1]
-.Ltmp381:
+.Ltmp376:
 	.loc	1 48 0
 	ldw r4, r0[0]
 	mkmsk r0, 1
@@ -3284,14 +3185,14 @@ tellDisplay_i2c_stopscroll:
 	mov r0, r11
 .Lxta.call_labels67:
 	bla r4
-.Ltmp382:
+.Ltmp377:
 	.loc	1 50 5
 	eq r0, r0, 0
 	eq r0, r0, 0
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-.Ltmp383:
+.Ltmp378:
 	.cc_bottom tellDisplay_i2c_stopscroll.function
 	.set	tellDisplay_i2c_stopscroll.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 5)
 	.globl	tellDisplay_i2c_stopscroll.nstackwords
@@ -3301,9 +3202,9 @@ tellDisplay_i2c_stopscroll:
 	.globl	tellDisplay_i2c_stopscroll.maxtimers
 	.set	tellDisplay_i2c_stopscroll.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	tellDisplay_i2c_stopscroll.maxchanends
-.Ltmp384:
-	.size	tellDisplay_i2c_stopscroll, .Ltmp384-tellDisplay_i2c_stopscroll
-.Lfunc_end21:
+.Ltmp379:
+	.size	tellDisplay_i2c_stopscroll, .Ltmp379-tellDisplay_i2c_stopscroll
+.Lfunc_end19:
 	.cfi_endproc
 
 	.globl	writeToDisplay_i2c_all_buffer
@@ -3311,48 +3212,48 @@ tellDisplay_i2c_stopscroll:
 	.type	writeToDisplay_i2c_all_buffer,@function
 	.cc_top writeToDisplay_i2c_all_buffer.function,writeToDisplay_i2c_all_buffer
 writeToDisplay_i2c_all_buffer:
-.Lfunc_begin22:
+.Lfunc_begin20:
 	.loc	1 249 0
 	.cfi_startproc
 .Lxtalabel25:
 	entsp 17
-.Ltmp385:
+.Ltmp380:
 	.cfi_def_cfa_offset 68
-.Ltmp386:
+.Ltmp381:
 	.cfi_offset 15, 0
 	stw r4, sp[16]
-.Ltmp387:
+.Ltmp382:
 	.cfi_offset 4, -4
 	stw r5, sp[15]
-.Ltmp388:
+.Ltmp383:
 	.cfi_offset 5, -8
 	stw r6, sp[14]
-.Ltmp389:
+.Ltmp384:
 	.cfi_offset 6, -12
 	stw r7, sp[13]
-.Ltmp390:
+.Ltmp385:
 	.cfi_offset 7, -16
 	stw r8, sp[12]
-.Ltmp391:
+.Ltmp386:
 	.cfi_offset 8, -20
 	stw r9, sp[11]
-.Ltmp392:
+.Ltmp387:
 	.cfi_offset 9, -24
 	stw r10, sp[10]
-.Ltmp393:
+.Ltmp388:
 	.cfi_offset 10, -28
 	mov r5, r0
-.Ltmp394:
+.Ltmp389:
 	.loc	1 45 0 prologue_end
 	stw r5, sp[4]
 	ldc r4, 0
 	ldaw r7, sp[9]
-.Ltmp395:
+.Ltmp390:
 	ldc r0, 33
-.Ltmp396:
+.Ltmp391:
 	.loc	1 45 0
 	st8 r0, r7[r4]
-.Ltmp397:
+.Ltmp392:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
@@ -3369,13 +3270,13 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels68:
 	bla r11
-.Ltmp398:
+.Ltmp393:
 	.loc	1 252 0
 	eq r6, r0, 0
 	.loc	1 45 0
-.Ltmp399:
+.Ltmp394:
 	st8 r4, r7[r4]
-.Ltmp400:
+.Ltmp395:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
@@ -3390,16 +3291,16 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels69:
 	bla r11
-.Ltmp401:
+.Ltmp396:
 	.loc	1 253 0
 	eq r0, r0, 0
 	.loc	1 253 0
 	or r6, r6, r0
 	mkmsk r0, 7
 	.loc	1 45 0
-.Ltmp402:
+.Ltmp397:
 	st8 r0, r7[r4]
-.Ltmp403:
+.Ltmp398:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
@@ -3414,16 +3315,16 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels70:
 	bla r11
-.Ltmp404:
+.Ltmp399:
 	.loc	1 254 0
 	eq r0, r0, 0
 	.loc	1 254 0
 	or r6, r6, r0
 	ldc r0, 34
 	.loc	1 45 0
-.Ltmp405:
+.Ltmp400:
 	st8 r0, r7[r4]
-.Ltmp406:
+.Ltmp401:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
@@ -3438,15 +3339,15 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels71:
 	bla r11
-.Ltmp407:
+.Ltmp402:
 	.loc	1 256 0
 	eq r0, r0, 0
 	.loc	1 256 0
 	or r6, r6, r0
 	.loc	1 45 0
-.Ltmp408:
+.Ltmp403:
 	st8 r4, r7[r4]
-.Ltmp409:
+.Ltmp404:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
@@ -3461,21 +3362,21 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels72:
 	bla r11
-.Ltmp410:
+.Ltmp405:
 	.loc	1 257 0
 	eq r0, r0, 0
 	.loc	1 257 0
 	or r6, r6, r0
 	mkmsk r0, 2
 	.loc	1 45 0
-.Ltmp411:
+.Ltmp406:
 	st8 r0, r7[r4]
-.Ltmp412:
+.Ltmp407:
 	.loc	1 48 0
 	ldw r0, r5[0]
 	.loc	1 48 0
 	ldw r1, r5[1]
-.Ltmp413:
+.Ltmp408:
 	.loc	1 48 0
 	ldw r11, r1[0]
 	.loc	1 48 0
@@ -3486,28 +3387,28 @@ writeToDisplay_i2c_all_buffer:
 	mov r3, r7
 .Lxta.call_labels73:
 	bla r11
-.Ltmp414:
+.Ltmp409:
 	.loc	1 262 0
 	eq r0, r0, 0
-.Ltmp415:
+.Ltmp410:
 	.loc	1 262 0
 	or r9, r6, r0
 	ldc r10, 240
 	ldc r6, 65024
 	ldc r5, 9
 	.loc	1 280 0
-.Ltmp416:
+.Ltmp411:
 	ldaw r8, dp[buffer]
 	ldaw r7, sp[5]
-.Ltmp417:
+.Ltmp412:
 	mov r0, r4
-.Ltmp418:
-.LBB22_1:
+.Ltmp413:
+.LBB20_1:
 .Lxtalabel26:
 	.loc	1 45 0
 	ldc r1, 0
-.Ltmp419:
-.LBB22_2:
+.Ltmp414:
+.LBB20_2:
 .Lxtalabel27:
 	.loc	1 280 0
 	and r2, r1, r10
@@ -3537,16 +3438,16 @@ writeToDisplay_i2c_all_buffer:
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
 	mov r0, r4
-	bf r2, .LBB22_2
-.Ltmp420:
+	bf r2, .LBB20_2
+.Ltmp415:
 .Lxtalabel28:
 	ldw r1, sp[4]
-.Ltmp421:
+.Ltmp416:
 	.loc	1 285 0
 	ldw r0, r1[0]
 	.loc	1 285 0
 	ldw r1, r1[1]
-.Ltmp422:
+.Ltmp417:
 	.loc	1 285 0
 	ldw r11, r1[0]
 	ldc r1, 16
@@ -3562,21 +3463,21 @@ writeToDisplay_i2c_all_buffer:
 	eq r0, r0, 0
 	.loc	1 285 0
 	or r9, r0, r9
-.Ltmp423:
+.Ltmp418:
 	.loc	1 269 0
 	and r0, r4, r6
 	shr r1, r0, r5
 .Lxta.loop_labels1:
 	# LOOPMARKER 1
 	mov r0, r4
-	bf r1, .LBB22_1
-.Ltmp424:
+	bf r1, .LBB20_1
+.Ltmp419:
 .Lxtalabel29:
 	.loc	1 287 5
 	eq r0, r9, 0
 	ldw r10, sp[10]
 	ldw r9, sp[11]
-.Ltmp425:
+.Ltmp420:
 	ldw r8, sp[12]
 	ldw r7, sp[13]
 	ldw r6, sp[14]
@@ -3584,7 +3485,7 @@ writeToDisplay_i2c_all_buffer:
 	ldw r4, sp[16]
 	retsp 17
 	# RETURN_REG_HOLDER
-.Ltmp426:
+.Ltmp421:
 	.cc_bottom writeToDisplay_i2c_all_buffer.function
 	.set	writeToDisplay_i2c_all_buffer.nstackwords,(_i.i2c_internal_commands_if.write_display_ok.max.nstackwords + 17)
 	.globl	writeToDisplay_i2c_all_buffer.nstackwords
@@ -3594,9 +3495,9 @@ writeToDisplay_i2c_all_buffer:
 	.globl	writeToDisplay_i2c_all_buffer.maxtimers
 	.set	writeToDisplay_i2c_all_buffer.maxchanends,_i.i2c_internal_commands_if.write_display_ok.max.maxchanends $M 0
 	.globl	writeToDisplay_i2c_all_buffer.maxchanends
-.Ltmp427:
-	.size	writeToDisplay_i2c_all_buffer, .Ltmp427-writeToDisplay_i2c_all_buffer
-.Lfunc_end22:
+.Ltmp422:
+	.size	writeToDisplay_i2c_all_buffer, .Ltmp422-writeToDisplay_i2c_all_buffer
+.Lfunc_end20:
 	.cfi_endproc
 
 	.globl	Clear_All_Pixels_In_Buffer
@@ -3604,16 +3505,16 @@ writeToDisplay_i2c_all_buffer:
 	.type	Clear_All_Pixels_In_Buffer,@function
 	.cc_top Clear_All_Pixels_In_Buffer.function,Clear_All_Pixels_In_Buffer
 Clear_All_Pixels_In_Buffer:
-.Lfunc_begin23:
+.Lfunc_begin21:
 	.loc	1 291 0
 	.cfi_startproc
 .Lxtalabel30:
 	entsp 1
-.Ltmp428:
+.Ltmp423:
 	.cfi_def_cfa_offset 4
-.Ltmp429:
+.Ltmp424:
 	.cfi_offset 15, 0
-.Ltmp430:
+.Ltmp425:
 	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.loc	3 21 0 prologue_end
 	ldaw r0, dp[buffer]
@@ -3622,7 +3523,7 @@ Clear_All_Pixels_In_Buffer:
 	bl memset
 	retsp 1
 	# RETURN_REG_HOLDER
-.Ltmp431:
+.Ltmp426:
 	.cc_bottom Clear_All_Pixels_In_Buffer.function
 	.set	Clear_All_Pixels_In_Buffer.nstackwords,(memset.nstackwords + 1)
 	.globl	Clear_All_Pixels_In_Buffer.nstackwords
@@ -3632,9 +3533,9 @@ Clear_All_Pixels_In_Buffer:
 	.globl	Clear_All_Pixels_In_Buffer.maxtimers
 	.set	Clear_All_Pixels_In_Buffer.maxchanends,0
 	.globl	Clear_All_Pixels_In_Buffer.maxchanends
-.Ltmp432:
-	.size	Clear_All_Pixels_In_Buffer, .Ltmp432-Clear_All_Pixels_In_Buffer
-.Lfunc_end23:
+.Ltmp427:
+	.size	Clear_All_Pixels_In_Buffer, .Ltmp427-Clear_All_Pixels_In_Buffer
+.Lfunc_end21:
 	.cfi_endproc
 
 	.globl	fillSplashScreen_in_buffer
@@ -3642,17 +3543,17 @@ Clear_All_Pixels_In_Buffer:
 	.type	fillSplashScreen_in_buffer,@function
 	.cc_top fillSplashScreen_in_buffer.function,fillSplashScreen_in_buffer
 fillSplashScreen_in_buffer:
-.Lfunc_begin24:
+.Lfunc_begin22:
 	.loc	1 295 0
 	.cfi_startproc
 .Lxtalabel31:
 	entsp 1
-.Ltmp433:
+.Ltmp428:
 	.cfi_def_cfa_offset 4
-.Ltmp434:
+.Ltmp429:
 	.cfi_offset 15, 0
 	.loc	1 297 0 prologue_end
-.Ltmp435:
+.Ltmp430:
 	ldaw r0, dp[buffer]
 	ldaw r11, cp[splash_buffer.static]
 	ldc r2, 512
@@ -3660,7 +3561,7 @@ fillSplashScreen_in_buffer:
 	bl __memcpy_4
 	retsp 1
 	# RETURN_REG_HOLDER
-.Ltmp436:
+.Ltmp431:
 	.cc_bottom fillSplashScreen_in_buffer.function
 	.set	fillSplashScreen_in_buffer.nstackwords,(__memcpy_4.nstackwords + 1)
 	.globl	fillSplashScreen_in_buffer.nstackwords
@@ -3670,60 +3571,60 @@ fillSplashScreen_in_buffer:
 	.globl	fillSplashScreen_in_buffer.maxtimers
 	.set	fillSplashScreen_in_buffer.maxchanends,0
 	.globl	fillSplashScreen_in_buffer.maxchanends
-.Ltmp437:
-	.size	fillSplashScreen_in_buffer, .Ltmp437-fillSplashScreen_in_buffer
-.Lfunc_end24:
+.Ltmp432:
+	.size	fillSplashScreen_in_buffer, .Ltmp432-fillSplashScreen_in_buffer
+.Lfunc_end22:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI25_0.data,.LCPI25_0
+	.cc_top .LCPI23_0.data,.LCPI23_0
 	.align	4
-	.type	.LCPI25_0,@object
-	.size	.LCPI25_0, 4
-.LCPI25_0:
+	.type	.LCPI23_0,@object
+	.size	.LCPI23_0, 4
+.LCPI23_0:
 	.long	4294901760
-	.cc_bottom .LCPI25_0.data
-	.cc_top .LCPI25_1.data,.LCPI25_1
+	.cc_bottom .LCPI23_0.data
+	.cc_top .LCPI23_1.data,.LCPI23_1
 	.align	4
-	.type	.LCPI25_1,@object
-	.size	.LCPI25_1, 4
-.LCPI25_1:
+	.type	.LCPI23_1,@object
+	.size	.LCPI23_1, 4
+.LCPI23_1:
 	.long	4294901761
-	.cc_bottom .LCPI25_1.data
+	.cc_bottom .LCPI23_1.data
 	.text
 	.globl	drawVerticalLine_in_buffer
 	.align	4
 	.type	drawVerticalLine_in_buffer,@function
 	.cc_top drawVerticalLine_in_buffer.function,drawVerticalLine_in_buffer
 drawVerticalLine_in_buffer:
-.Lfunc_begin25:
+.Lfunc_begin23:
 	.loc	1 370 0
 	.cfi_startproc
 .Lxtalabel32:
 	entsp 2
-.Ltmp438:
+.Ltmp433:
 	.cfi_def_cfa_offset 8
-.Ltmp439:
+.Ltmp434:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp440:
+.Ltmp435:
 	.cfi_offset 4, -4
 	mov r11, r0
-.Ltmp441:
+.Ltmp436:
 	mkmsk r0, 1
 	ldaw r4, dp[display_param+16]
 	.loc	1 372 0 prologue_end
-.Ltmp442:
+.Ltmp437:
 	ld8u r0, r4[r0]
 	.loc	1 372 0
 	eq r4, r0, 3
 	.loc	1 372 0
-	bt r4, .LBB25_4
-.Ltmp443:
+	bt r4, .LBB23_4
+.Ltmp438:
 .Lxtalabel33:
 	eq r4, r0, 2
-	bf r4, .LBB25_2
-.Ltmp444:
+	bf r4, .LBB23_2
+.Ltmp439:
 .Lxtalabel34:
 	.loc	1 384 0
 	ldw r0, dp[display_param]
@@ -3737,22 +3638,22 @@ drawVerticalLine_in_buffer:
 	zext r4, 16
 	.loc	1 386 0
 	shl r1, r1, 16
-.Ltmp445:
+.Ltmp440:
 	.loc	1 386 0
 	sub r0, r0, r1
-	ldw r1, cp[.LCPI25_0]
+	ldw r1, cp[.LCPI23_0]
 	.loc	1 386 0
 	add r0, r0, r1
 	.loc	1 386 0
 	shr r0, r0, 16
-	ldw r1, cp[.LCPI25_1]
+	ldw r1, cp[.LCPI23_1]
 	.loc	1 386 0
 	sub r1, r1, r4
 	.loc	1 386 0
 	add r1, r1, r0
-	bu .LBB25_7
-.Ltmp446:
-.LBB25_4:
+	bu .LBB23_7
+.Ltmp441:
+.LBB23_4:
 .Lxtalabel35:
 	.loc	1 392 0
 	ldc r0, 0
@@ -3765,13 +3666,13 @@ drawVerticalLine_in_buffer:
 	andnot r4, r11
 	.loc	1 392 0
 	add r11, r4, r0
-	bu .LBB25_5
-.Ltmp447:
-.LBB25_2:
+	bu .LBB23_5
+.Ltmp442:
+.LBB23_2:
 .Lxtalabel36:
 	eq r0, r0, 1
-	bf r0, .LBB25_7
-.Ltmp448:
+	bf r0, .LBB23_7
+.Ltmp443:
 .Lxtalabel37:
 	.loc	1 379 0
 	ldaw r0, dp[display_param]
@@ -3785,18 +3686,18 @@ drawVerticalLine_in_buffer:
 	zext r1, 16
 	.loc	1 380 0
 	shl r0, r0, 16
-	ldw r4, cp[.LCPI25_0]
+	ldw r4, cp[.LCPI23_0]
 	.loc	1 380 0
 	add r0, r0, r4
 	.loc	1 380 0
 	shr r0, r0, 16
-	ldw r4, cp[.LCPI25_1]
+	ldw r4, cp[.LCPI23_1]
 	.loc	1 380 0
 	sub r1, r4, r1
 	.loc	1 380 0
 	add r1, r1, r0
-.Ltmp449:
-.LBB25_5:
+.Ltmp444:
+.LBB23_5:
 .Lxtalabel38:
 	.loc	1 397 0
 	sext r1, 16
@@ -3805,19 +3706,19 @@ drawVerticalLine_in_buffer:
 	mov r1, r11
 .Lxta.call_labels75:
 	bl drawHorisontalLineInternal_in_buffer
-.Ltmp450:
-	bu .LBB25_8
-.LBB25_7:
+.Ltmp445:
+	bu .LBB23_8
+.LBB23_7:
 .Lxtalabel39:
-.Ltmp451:
+.Ltmp446:
 	.loc	1 399 0
 	sext r11, 16
 	sext r1, 16
 	mov r0, r11
 .Lxta.call_labels76:
 	bl drawVerticalLineInternal_in_buffer
-.Ltmp452:
-.LBB25_8:
+.Ltmp447:
+.LBB23_8:
 .Lxtalabel40:
 	ldw r4, sp[1]
 	retsp 2
@@ -3831,60 +3732,60 @@ drawVerticalLine_in_buffer:
 	.globl	drawVerticalLine_in_buffer.maxtimers
 	.set	drawVerticalLine_in_buffer.maxchanends,drawHorisontalLineInternal_in_buffer.maxchanends $M drawVerticalLineInternal_in_buffer.maxchanends $M 0
 	.globl	drawVerticalLine_in_buffer.maxchanends
-.Ltmp453:
-	.size	drawVerticalLine_in_buffer, .Ltmp453-drawVerticalLine_in_buffer
-.Lfunc_end25:
+.Ltmp448:
+	.size	drawVerticalLine_in_buffer, .Ltmp448-drawVerticalLine_in_buffer
+.Lfunc_end23:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI26_0.data,.LCPI26_0
+	.cc_top .LCPI24_0.data,.LCPI24_0
 	.align	4
-	.type	.LCPI26_0,@object
-	.size	.LCPI26_0, 4
-.LCPI26_0:
+	.type	.LCPI24_0,@object
+	.size	.LCPI24_0, 4
+.LCPI24_0:
 	.long	4294901760
-	.cc_bottom .LCPI26_0.data
-	.cc_top .LCPI26_1.data,.LCPI26_1
+	.cc_bottom .LCPI24_0.data
+	.cc_top .LCPI24_1.data,.LCPI24_1
 	.align	4
-	.type	.LCPI26_1,@object
-	.size	.LCPI26_1, 4
-.LCPI26_1:
+	.type	.LCPI24_1,@object
+	.size	.LCPI24_1, 4
+.LCPI24_1:
 	.long	4294901761
-	.cc_bottom .LCPI26_1.data
+	.cc_bottom .LCPI24_1.data
 	.text
 	.globl	drawHorisontalLine_in_buffer
 	.align	4
 	.type	drawHorisontalLine_in_buffer,@function
 	.cc_top drawHorisontalLine_in_buffer.function,drawHorisontalLine_in_buffer
 drawHorisontalLine_in_buffer:
-.Lfunc_begin26:
+.Lfunc_begin24:
 	.loc	1 300 0
 	.cfi_startproc
 .Lxtalabel41:
 	entsp 2
-.Ltmp454:
+.Ltmp449:
 	.cfi_def_cfa_offset 8
-.Ltmp455:
+.Ltmp450:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp456:
+.Ltmp451:
 	.cfi_offset 4, -4
 	mov r11, r0
-.Ltmp457:
+.Ltmp452:
 	mkmsk r0, 1
 	ldaw r4, dp[display_param+16]
 	.loc	1 302 0 prologue_end
-.Ltmp458:
+.Ltmp453:
 	ld8u r0, r4[r0]
 	.loc	1 302 0
 	eq r4, r0, 3
 	.loc	1 302 0
-	bt r4, .LBB26_4
-.Ltmp459:
+	bt r4, .LBB24_4
+.Ltmp454:
 .Lxtalabel42:
 	eq r4, r0, 2
-	bf r4, .LBB26_2
-.Ltmp460:
+	bf r4, .LBB24_2
+.Ltmp455:
 .Lxtalabel43:
 	.loc	1 314 0
 	ldw r0, dp[display_param]
@@ -3896,25 +3797,25 @@ drawHorisontalLine_in_buffer:
 	andnot r4, r1
 	.loc	1 315 0
 	add r1, r4, r0
-.Ltmp461:
+.Ltmp456:
 	.loc	1 316 0
 	mov r0, r2
 	zext r0, 16
 	.loc	1 316 0
 	shl r11, r11, 16
-	ldw r4, cp[.LCPI26_0]
+	ldw r4, cp[.LCPI24_0]
 	.loc	1 316 0
 	add r11, r11, r4
 	.loc	1 316 0
 	shr r11, r11, 16
-	ldw r4, cp[.LCPI26_1]
+	ldw r4, cp[.LCPI24_1]
 	.loc	1 316 0
 	sub r0, r4, r0
 	.loc	1 316 0
 	add r11, r0, r11
-	bu .LBB26_7
-.Ltmp462:
-.LBB26_4:
+	bu .LBB24_7
+.Ltmp457:
+.LBB24_4:
 .Lxtalabel44:
 	.loc	1 323 0
 	ldc r0, 0
@@ -3928,23 +3829,23 @@ drawHorisontalLine_in_buffer:
 	zext r11, 16
 	.loc	1 324 0
 	shl r0, r0, 16
-	ldw r4, cp[.LCPI26_0]
+	ldw r4, cp[.LCPI24_0]
 	.loc	1 324 0
 	add r0, r0, r4
 	.loc	1 324 0
 	shr r0, r0, 16
-	ldw r4, cp[.LCPI26_1]
+	ldw r4, cp[.LCPI24_1]
 	.loc	1 324 0
 	sub r11, r4, r11
 	.loc	1 324 0
 	add r11, r11, r0
-	bu .LBB26_5
-.Ltmp463:
-.LBB26_2:
+	bu .LBB24_5
+.Ltmp458:
+.LBB24_2:
 .Lxtalabel45:
 	eq r0, r0, 1
-	bf r0, .LBB26_7
-.Ltmp464:
+	bf r0, .LBB24_7
+.Ltmp459:
 .Lxtalabel46:
 	.loc	1 310 0
 	ldaw r0, dp[display_param]
@@ -3957,8 +3858,8 @@ drawHorisontalLine_in_buffer:
 	andnot r4, r1
 	.loc	1 310 0
 	add r1, r4, r0
-.Ltmp465:
-.LBB26_5:
+.Ltmp460:
+.LBB24_5:
 .Lxtalabel47:
 	.loc	1 329 0
 	sext r1, 16
@@ -3967,19 +3868,19 @@ drawHorisontalLine_in_buffer:
 	mov r1, r11
 .Lxta.call_labels77:
 	bl drawVerticalLineInternal_in_buffer
-.Ltmp466:
-	bu .LBB26_8
-.LBB26_7:
+.Ltmp461:
+	bu .LBB24_8
+.LBB24_7:
 .Lxtalabel48:
-.Ltmp467:
+.Ltmp462:
 	.loc	1 331 0
 	sext r11, 16
 	sext r1, 16
 	mov r0, r11
 .Lxta.call_labels78:
 	bl drawHorisontalLineInternal_in_buffer
-.Ltmp468:
-.LBB26_8:
+.Ltmp463:
+.LBB24_8:
 .Lxtalabel49:
 	ldw r4, sp[1]
 	retsp 2
@@ -3993,9 +3894,9 @@ drawHorisontalLine_in_buffer:
 	.globl	drawHorisontalLine_in_buffer.maxtimers
 	.set	drawHorisontalLine_in_buffer.maxchanends,drawHorisontalLineInternal_in_buffer.maxchanends $M drawVerticalLineInternal_in_buffer.maxchanends $M 0
 	.globl	drawHorisontalLine_in_buffer.maxchanends
-.Ltmp469:
-	.size	drawHorisontalLine_in_buffer, .Ltmp469-drawHorisontalLine_in_buffer
-.Lfunc_end26:
+.Ltmp464:
+	.size	drawHorisontalLine_in_buffer, .Ltmp464-drawHorisontalLine_in_buffer
+.Lfunc_end24:
 	.cfi_endproc
 
 	.globl	drawVerticalLineInternal_in_buffer
@@ -4003,61 +3904,61 @@ drawHorisontalLine_in_buffer:
 	.type	drawVerticalLineInternal_in_buffer,@function
 	.cc_top drawVerticalLineInternal_in_buffer.function,drawVerticalLineInternal_in_buffer
 drawVerticalLineInternal_in_buffer:
-.Lfunc_begin27:
+.Lfunc_begin25:
 	.loc	1 403 0
 	.cfi_startproc
 .Lxtalabel50:
 	extsp 6
-.Ltmp470:
+.Ltmp465:
 	.cfi_def_cfa_offset 24
 	stw r4, sp[5]
-.Ltmp471:
+.Ltmp466:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp472:
+.Ltmp467:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp473:
+.Ltmp468:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp474:
+.Ltmp469:
 	.cfi_offset 7, -16
 	stw r8, sp[1]
-.Ltmp475:
+.Ltmp470:
 	.cfi_offset 8, -20
 	stw r9, sp[0]
-.Ltmp476:
+.Ltmp471:
 	.cfi_offset 9, -24
 	.loc	1 406 5 prologue_end
-.Ltmp477:
+.Ltmp472:
 	ashr r11, r0, 32
-	bt r11, .LBB27_35
-.Ltmp478:
+	bt r11, .LBB25_35
+.Ltmp473:
 .Lxtalabel51:
 	ldw r11, dp[display_param]
 	mov r4, r11
 	sext r4, 16
 	lss r4, r0, r4
-	bf r4, .LBB27_35
-.Ltmp479:
+	bf r4, .LBB25_35
+.Ltmp474:
 .Lxtalabel52:
 	.loc	1 409 5
 	ashr r4, r1, 32
-	bf r4, .LBB27_4
-.Ltmp480:
+	bf r4, .LBB25_4
+.Ltmp475:
 .Lxtalabel53:
 	.loc	1 409 5
 	zext r1, 16
-.Ltmp481:
+.Ltmp476:
 	.loc	1 411 0
 	zext r2, 16
-.Ltmp482:
+.Ltmp477:
 	.loc	1 411 0
 	add r2, r2, r1
-.Ltmp483:
+.Ltmp478:
 	ldc r1, 0
-.Ltmp484:
-.LBB27_4:
+.Ltmp479:
+.LBB25_4:
 .Lxtalabel54:
 	.loc	1 416 5
 	mov r4, r2
@@ -4068,21 +3969,21 @@ drawVerticalLineInternal_in_buffer:
 	ashr r11, r11, 16
 	.loc	1 416 5
 	lss r4, r11, r4
-	bf r4, .LBB27_6
-.Ltmp485:
+	bf r4, .LBB25_6
+.Ltmp480:
 .Lxtalabel55:
 	.loc	1 417 0
 	sub r2, r11, r1
-.Ltmp486:
-.LBB27_6:
+.Ltmp481:
+.LBB25_6:
 .Lxtalabel56:
 	.loc	1 421 5
 	mov r11, r2
 	sext r11, 16
 	mkmsk r4, 1
 	lss r11, r11, r4
-	bt r11, .LBB27_35
-.Ltmp487:
+	bt r11, .LBB25_35
+.Ltmp482:
 .Lxtalabel57:
 	.loc	1 432 0
 	shl r11, r1, 4
@@ -4094,17 +3995,17 @@ drawVerticalLineInternal_in_buffer:
 	.loc	1 434 0
 	ldaw r4, dp[buffer]
 	add r0, r4, r5
-.Ltmp488:
+.Ltmp483:
 	.loc	1 437 0
 	zext r1, 3
-	bf r1, .LBB27_15
-.Ltmp489:
+	bf r1, .LBB25_15
+.Ltmp484:
 .Lxtalabel58:
 	ldc r11, 8
 	.loc	1 441 0
 	sub r1, r11, r1
 	.loc	1 446 0
-.Ltmp490:
+.Ltmp485:
 	lsu r11, r1, r11
 .Ltrap_info5:
 	ecallf r11
@@ -4116,8 +4017,8 @@ drawVerticalLineInternal_in_buffer:
 	zext r2, 8
 	.loc	1 449 9
 	lsu r11, r2, r1
-	bf r11, .LBB27_10
-.Ltmp491:
+	bf r11, .LBB25_10
+.Ltmp486:
 .Lxtalabel59:
 	.loc	1 450 0
 	sub r7, r1, r2
@@ -4126,15 +4027,15 @@ drawVerticalLineInternal_in_buffer:
 	shr r7, r8, r7
 	.loc	1 450 0
 	and r6, r6, r7
-.Ltmp492:
-.LBB27_10:
+.Ltmp487:
+.LBB25_10:
 .Lxtalabel60:
-	bf r3, .LBB27_20
-.Ltmp493:
+	bf r3, .LBB25_20
+.Ltmp488:
 .Lxtalabel61:
 	eq r7, r3, 1
-	bf r7, .LBB27_12
-.Ltmp494:
+	bf r7, .LBB25_12
+.Ltmp489:
 .Lxtalabel62:
 	ldc r7, 9
 	.loc	1 455 0
@@ -4149,9 +4050,9 @@ drawVerticalLineInternal_in_buffer:
 	or r6, r8, r6
 	.loc	1 455 0
 	st8 r6, r0[r7]
-	bu .LBB27_13
-.Ltmp495:
-.LBB27_20:
+	bu .LBB25_13
+.Ltmp490:
+.LBB25_20:
 .Lxtalabel63:
 	ldc r7, 9
 	.loc	1 456 0
@@ -4166,13 +4067,13 @@ drawVerticalLineInternal_in_buffer:
 	andnot r8, r6
 	.loc	1 456 0
 	st8 r8, r0[r7]
-	bu .LBB27_13
-.Ltmp496:
-.LBB27_12:
+	bu .LBB25_13
+.Ltmp491:
+.LBB25_12:
 .Lxtalabel64:
 	eq r7, r3, 2
-	bf r7, .LBB27_13
-.Ltmp497:
+	bf r7, .LBB25_13
+.Ltmp492:
 .Lxtalabel65:
 	ldc r7, 9
 	.loc	1 457 0
@@ -4187,11 +4088,11 @@ drawVerticalLineInternal_in_buffer:
 	xor r6, r8, r6
 	.loc	1 457 0
 	st8 r6, r0[r7]
-.Ltmp498:
-.LBB27_13:
+.Ltmp493:
+.LBB25_13:
 .Lxtalabel66:
-	bt r11, .LBB27_35
-.Ltmp499:
+	bt r11, .LBB25_35
+.Ltmp494:
 .Lxtalabel67:
 	.loc	1 463 0
 	sub r2, r2, r1
@@ -4199,28 +4100,28 @@ drawVerticalLineInternal_in_buffer:
 	add r0, r5, r4
 	ldc r1, 128
 	add r0, r0, r1
-.Ltmp500:
-.LBB27_15:
+.Ltmp495:
+.LBB25_15:
 .Lxtalabel68:
 	.loc	1 469 5
 	mov r11, r2
 	zext r11, 8
 	mkmsk r1, 3
 	lsu r11, r1, r11
-	bf r11, .LBB27_27
-.Ltmp501:
+	bf r11, .LBB25_27
+.Ltmp496:
 .Lxtalabel69:
 	.loc	1 470 9
 	eq r11, r3, 2
-	bf r11, .LBB27_22
-.Ltmp502:
+	bf r11, .LBB25_22
+.Ltmp497:
 	ldc r5, 9
 	.loc	1 474 0
 	ldc r11, 0
 	ldc r6, 128
 	ldc r7, 248
-.Ltmp503:
-.LBB27_18:
+.Ltmp498:
+.LBB25_18:
 .Lxtalabel70:
 	.loc	1 474 0
 	sub r8, r0, r4
@@ -4246,30 +4147,30 @@ drawVerticalLineInternal_in_buffer:
 	lsu r8, r1, r8
 .Lxta.loop_labels2:
 	# LOOPMARKER 1
-	bt r8, .LBB27_18
-	bu .LBB27_27
-.Ltmp504:
-.LBB27_22:
+	bt r8, .LBB25_18
+	bu .LBB25_27
+.Ltmp499:
+.LBB25_22:
 .Lxtalabel71:
 	.loc	1 485 0
 	eq r5, r3, 1
 	ldc r11, 0
-	bt r5, .LBB27_23
-.Ltmp505:
+	bt r5, .LBB25_23
+.Ltmp500:
 .Lxtalabel72:
 	mov r5, r11
-	bu .LBB27_25
-.Ltmp506:
-.LBB27_23:
+	bu .LBB25_25
+.Ltmp501:
+.LBB25_23:
 	mkmsk r5, 32
-.Ltmp507:
-.LBB27_25:
+.Ltmp502:
+.LBB25_25:
 .Lxtalabel73:
 	ldc r6, 9
 	ldc r7, 128
 	ldc r8, 248
-.Ltmp508:
-.LBB27_26:
+.Ltmp503:
+.LBB25_26:
 .Lxtalabel74:
 	.loc	1 489 0
 	sub r9, r0, r4
@@ -4291,30 +4192,30 @@ drawVerticalLineInternal_in_buffer:
 	lsu r9, r1, r9
 .Lxta.loop_labels3:
 	# LOOPMARKER 0
-	bt r9, .LBB27_26
-.Ltmp509:
-.LBB27_27:
+	bt r9, .LBB25_26
+.Ltmp504:
+.LBB25_27:
 .Lxtalabel75:
 	.loc	1 502 5
 	mov r1, r2
 	zext r1, 8
-	bf r1, .LBB27_35
-.Ltmp510:
+	bf r1, .LBB25_35
+.Ltmp505:
 .Lxtalabel76:
 	.loc	1 503 0
 	zext r2, 3
 	.loc	1 508 0
-.Ltmp511:
+.Ltmp506:
 	ldaw r11, cp[postmask.static]
 	.loc	1 508 0
 	ld8u r1, r11[r2]
 	.loc	1 509 0
-	bf r3, .LBB27_32
-.Ltmp512:
+	bf r3, .LBB25_32
+.Ltmp507:
 .Lxtalabel77:
 	eq r2, r3, 2
-	bf r2, .LBB27_30
-.Ltmp513:
+	bf r2, .LBB25_30
+.Ltmp508:
 .Lxtalabel78:
 	.loc	1 513 0
 	sub r2, r0, r4
@@ -4329,8 +4230,8 @@ drawVerticalLineInternal_in_buffer:
 	ld8u r3, r0[r2]
 	.loc	1 513 0
 	xor r1, r3, r1
-	bu .LBB27_34
-.LBB27_32:
+	bu .LBB25_34
+.LBB25_32:
 .Lxtalabel79:
 	.loc	1 512 0
 	sub r2, r0, r4
@@ -4347,13 +4248,13 @@ drawVerticalLineInternal_in_buffer:
 	andnot r3, r1
 	.loc	1 512 0
 	st8 r3, r0[r2]
-	bu .LBB27_35
-.LBB27_30:
+	bu .LBB25_35
+.LBB25_30:
 .Lxtalabel80:
-.Ltmp514:
+.Ltmp509:
 	eq r2, r3, 1
-	bf r2, .LBB27_35
-.Ltmp515:
+	bf r2, .LBB25_35
+.Ltmp510:
 .Lxtalabel81:
 	.loc	1 511 0
 	sub r2, r0, r4
@@ -4368,11 +4269,11 @@ drawVerticalLineInternal_in_buffer:
 	ld8u r3, r0[r2]
 	.loc	1 511 0
 	or r1, r3, r1
-.LBB27_34:
+.LBB25_34:
 	.loc	1 513 0
 	st8 r1, r0[r2]
-.Ltmp516:
-.LBB27_35:
+.Ltmp511:
+.LBB25_35:
 	ldw r9, sp[0]
 	ldw r8, sp[1]
 	ldw r7, sp[2]
@@ -4391,72 +4292,72 @@ drawVerticalLineInternal_in_buffer:
 	.globl	drawVerticalLineInternal_in_buffer.maxtimers
 	.set	drawVerticalLineInternal_in_buffer.maxchanends,0
 	.globl	drawVerticalLineInternal_in_buffer.maxchanends
-.Ltmp517:
-	.size	drawVerticalLineInternal_in_buffer, .Ltmp517-drawVerticalLineInternal_in_buffer
-.Lfunc_end27:
+.Ltmp512:
+	.size	drawVerticalLineInternal_in_buffer, .Ltmp512-drawVerticalLineInternal_in_buffer
+.Lfunc_end25:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI28_0.data,.LCPI28_0
+	.cc_top .LCPI26_0.data,.LCPI26_0
 	.align	4
-	.type	.LCPI28_0,@object
-	.size	.LCPI28_0, 4
-.LCPI28_0:
+	.type	.LCPI26_0,@object
+	.size	.LCPI26_0, 4
+.LCPI26_0:
 	.long	4294967168
-	.cc_bottom .LCPI28_0.data
+	.cc_bottom .LCPI26_0.data
 	.text
 	.globl	drawHorisontalLineInternal_in_buffer
 	.align	4
 	.type	drawHorisontalLineInternal_in_buffer,@function
 	.cc_top drawHorisontalLineInternal_in_buffer.function,drawHorisontalLineInternal_in_buffer
 drawHorisontalLineInternal_in_buffer:
-.Lfunc_begin28:
+.Lfunc_begin26:
 	.loc	1 335 0
 	.cfi_startproc
 .Lxtalabel82:
 	extsp 3
-.Ltmp518:
+.Ltmp513:
 	.cfi_def_cfa_offset 12
 	stw r4, sp[2]
-.Ltmp519:
+.Ltmp514:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp520:
+.Ltmp515:
 	.cfi_offset 5, -8
 	stw r6, sp[0]
-.Ltmp521:
+.Ltmp516:
 	.cfi_offset 6, -12
 	.loc	1 337 5 prologue_end
-.Ltmp522:
+.Ltmp517:
 	ashr r4, r1, 32
-	bt r4, .LBB28_16
-.Ltmp523:
+	bt r4, .LBB26_16
+.Ltmp518:
 .Lxtalabel83:
 	ldc r11, 0
 	ldaw r5, dp[display_param]
 	add r6, r5, 2
 	ld16s r6, r6[r11]
 	lss r6, r1, r6
-	bf r6, .LBB28_16
-.Ltmp524:
+	bf r6, .LBB26_16
+.Ltmp519:
 .Lxtalabel84:
 	.loc	1 340 5
 	ashr r6, r0, 32
-	bf r6, .LBB28_4
-.Ltmp525:
+	bf r6, .LBB26_4
+.Ltmp520:
 .Lxtalabel85:
 	.loc	1 340 5
 	zext r0, 16
-.Ltmp526:
+.Ltmp521:
 	.loc	1 341 0
 	zext r2, 16
-.Ltmp527:
+.Ltmp522:
 	.loc	1 341 0
 	add r2, r2, r0
-.Ltmp528:
+.Ltmp523:
 	mov r0, r11
-.Ltmp529:
-.LBB28_4:
+.Ltmp524:
+.LBB26_4:
 .Lxtalabel86:
 	.loc	1 346 5
 	mov r6, r2
@@ -4467,30 +4368,30 @@ drawHorisontalLineInternal_in_buffer:
 	ld16s r5, r5[r11]
 	.loc	1 346 5
 	lss r6, r5, r6
-	bf r6, .LBB28_6
-.Ltmp530:
+	bf r6, .LBB26_6
+.Ltmp525:
 .Lxtalabel87:
 	.loc	1 347 0
 	sub r2, r5, r0
-.Ltmp531:
-.LBB28_6:
+.Ltmp526:
+.LBB26_6:
 .Lxtalabel88:
 	.loc	1 351 5
 	mov r6, r2
 	sext r6, 16
 	mkmsk r5, 1
 	lss r6, r6, r5
-	bt r6, .LBB28_16
-.Ltmp532:
+	bt r6, .LBB26_16
+.Ltmp527:
 .Lxtalabel89:
 	ldc r6, 29
 	.loc	1 356 0
-.Ltmp533:
+.Ltmp528:
 	shr r4, r4, r6
 	add r4, r1, r4
 	.loc	1 356 0
 	shl r4, r4, 4
-	ldw r6, cp[.LCPI28_0]
+	ldw r6, cp[.LCPI26_0]
 	.loc	1 356 0
 	and r4, r4, r6
 	.loc	1 358 0
@@ -4499,21 +4400,21 @@ drawHorisontalLineInternal_in_buffer:
 	ldaw r0, dp[buffer]
 	add r4, r0, r4
 	.loc	1 360 0
-.Ltmp534:
+.Ltmp529:
 	zext r1, 3
-.Ltmp535:
+.Ltmp530:
 	.loc	1 360 0
 	shl r1, r5, r1
 	.loc	1 362 0
 	eq r5, r3, 2
-	bt r5, .LBB28_8
-.Ltmp536:
+	bt r5, .LBB26_8
+.Ltmp531:
 .Lxtalabel90:
 	eq r5, r3, 1
-	bf r5, .LBB28_13
-.Ltmp537:
+	bf r5, .LBB26_13
+.Ltmp532:
 	ldc r3, 9
-.LBB28_12:
+.LBB26_12:
 	.loc	1 364 0
 	sub r5, r4, r0
 	.loc	1 364 0
@@ -4534,11 +4435,11 @@ drawHorisontalLineInternal_in_buffer:
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
-	bt r6, .LBB28_12
-	bu .LBB28_16
-.LBB28_8:
+	bt r6, .LBB26_12
+	bu .LBB26_16
+.LBB26_8:
 	ldc r3, 9
-.LBB28_9:
+.LBB26_9:
 	.loc	1 366 0
 	sub r5, r4, r0
 	.loc	1 366 0
@@ -4559,18 +4460,18 @@ drawHorisontalLineInternal_in_buffer:
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
-	bt r6, .LBB28_9
-	bu .LBB28_16
-.LBB28_13:
+	bt r6, .LBB26_9
+	bu .LBB26_16
+.LBB26_13:
 .Lxtalabel91:
-.Ltmp538:
-	bt r3, .LBB28_16
-.Ltmp539:
+.Ltmp533:
+	bt r3, .LBB26_16
+.Ltmp534:
 	mkmsk r3, 8
 	.loc	1 365 0
 	xor r1, r1, r3
 	ldc r3, 9
-.LBB28_15:
+.LBB26_15:
 	.loc	1 365 0
 	sub r5, r4, r0
 	.loc	1 365 0
@@ -4591,9 +4492,9 @@ drawHorisontalLineInternal_in_buffer:
 	mov r6, r2
 	zext r6, 16
 	mov r4, r5
-	bt r6, .LBB28_15
-.Ltmp540:
-.LBB28_16:
+	bt r6, .LBB26_15
+.Ltmp535:
+.LBB26_16:
 	ldw r6, sp[0]
 	ldw r5, sp[1]
 	ldw r4, sp[2]
@@ -4609,9 +4510,9 @@ drawHorisontalLineInternal_in_buffer:
 	.globl	drawHorisontalLineInternal_in_buffer.maxtimers
 	.set	drawHorisontalLineInternal_in_buffer.maxchanends,0
 	.globl	drawHorisontalLineInternal_in_buffer.maxchanends
-.Ltmp541:
-	.size	drawHorisontalLineInternal_in_buffer, .Ltmp541-drawHorisontalLineInternal_in_buffer
-.Lfunc_end28:
+.Ltmp536:
+	.size	drawHorisontalLineInternal_in_buffer, .Ltmp536-drawHorisontalLineInternal_in_buffer
+.Lfunc_end26:
 	.cfi_endproc
 
 	.section	.dp.bss,"awd",@nobits
@@ -4716,130 +4617,126 @@ postmask.static:
 .Linfo_string30:
 .asciiz"s"
 .Linfo_string31:
-.asciiz"_i.i2c_internal_commands_if._chan.read_fram_device_id_ok"
-.Linfo_string32:
 .asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
-.Linfo_string33:
+.Linfo_string32:
 .asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
-.Linfo_string34:
+.Linfo_string33:
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-.Linfo_string35:
+.Linfo_string34:
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-.Linfo_string36:
+.Linfo_string35:
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
-.Linfo_string37:
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok"
-.Linfo_string38:
+.Linfo_string36:
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
-.Linfo_string39:
+.Linfo_string37:
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
-.Linfo_string40:
+.Linfo_string38:
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
-.Linfo_string41:
+.Linfo_string39:
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
-.Linfo_string42:
+.Linfo_string40:
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-.Linfo_string43:
+.Linfo_string41:
 .asciiz"delay_seconds"
-.Linfo_string44:
+.Linfo_string42:
 .asciiz"delay_microseconds"
-.Linfo_string45:
+.Linfo_string43:
 .asciiz"_safe_memcmp"
-.Linfo_string46:
+.Linfo_string44:
 .asciiz"_safe_memmove"
-.Linfo_string47:
+.Linfo_string45:
 .asciiz"writeDisplay_i2c_data"
-.Linfo_string48:
+.Linfo_string46:
 .asciiz"Adafruit_SSD1306_i2c_begin"
-.Linfo_string49:
+.Linfo_string47:
 .asciiz"setPixel_in_buffer"
-.Linfo_string50:
+.Linfo_string48:
 .asciiz"tellDisplay_i2c_invert"
-.Linfo_string51:
+.Linfo_string49:
 .asciiz"tellDisplay_i2c_startscrollright"
-.Linfo_string52:
+.Linfo_string50:
 .asciiz"tellDisplay_i2c_startscrollleft"
-.Linfo_string53:
+.Linfo_string51:
 .asciiz"tellDisplay_i2c_startscrolldiagright"
-.Linfo_string54:
+.Linfo_string52:
 .asciiz"tellDisplay_i2c_startscrolldiagleft"
-.Linfo_string55:
+.Linfo_string53:
 .asciiz"tellDisplay_i2c_stopscroll"
-.Linfo_string56:
+.Linfo_string54:
 .asciiz"writeToDisplay_i2c_all_buffer"
-.Linfo_string57:
+.Linfo_string55:
 .asciiz"Clear_All_Pixels_In_Buffer"
-.Linfo_string58:
+.Linfo_string56:
 .asciiz"fillSplashScreen_in_buffer"
-.Linfo_string59:
+.Linfo_string57:
 .asciiz"drawHorisontalLine_in_buffer"
-.Linfo_string60:
+.Linfo_string58:
 .asciiz"drawHorisontalLineInternal_in_buffer"
-.Linfo_string61:
+.Linfo_string59:
 .asciiz"drawVerticalLine_in_buffer"
-.Linfo_string62:
+.Linfo_string60:
 .asciiz"drawVerticalLineInternal_in_buffer"
-.Linfo_string63:
+.Linfo_string61:
 .asciiz"x"
-.Linfo_string64:
+.Linfo_string62:
 .asciiz"short"
-.Linfo_string65:
+.Linfo_string63:
 .asciiz"y"
-.Linfo_string66:
+.Linfo_string64:
 .asciiz"color"
-.Linfo_string67:
+.Linfo_string65:
 .asciiz"unsigned short"
-.Linfo_string68:
+.Linfo_string66:
 .asciiz"vccstate"
-.Linfo_string69:
+.Linfo_string67:
 .asciiz"i"
-.Linfo_string70:
+.Linfo_string68:
 .asciiz"start"
-.Linfo_string71:
+.Linfo_string69:
 .asciiz"stop"
-.Linfo_string72:
+.Linfo_string70:
 .asciiz"h"
-.Linfo_string73:
+.Linfo_string71:
 .asciiz"bSwap"
-.Linfo_string74:
+.Linfo_string72:
 .asciiz"w"
-.Linfo_string75:
+.Linfo_string73:
 .asciiz"__y"
-.Linfo_string76:
+.Linfo_string74:
 .asciiz"__h"
-.Linfo_string77:
+.Linfo_string75:
 .asciiz"pBuf"
-.Linfo_string78:
+.Linfo_string76:
 .asciiz"mod"
-.Linfo_string79:
+.Linfo_string77:
 .asciiz"mask"
-.Linfo_string80:
+.Linfo_string78:
 .asciiz"val"
-.Linfo_string81:
+.Linfo_string79:
 .asciiz"dest"
-.Linfo_string82:
+.Linfo_string80:
 .asciiz"chanend"
-.Linfo_string83:
+.Linfo_string81:
 .asciiz"param1"
-.Linfo_string84:
+.Linfo_string82:
 .asciiz"param2"
-.Linfo_string85:
+.Linfo_string83:
 .asciiz"param3"
-.Linfo_string86:
+.Linfo_string84:
 .asciiz"registers"
-.Linfo_string87:
+.Linfo_string85:
 .asciiz"chronodot_d3231_registers_t"
-.Linfo_string88:
+.Linfo_string86:
 .asciiz"param4"
-.Linfo_string89:
+.Linfo_string87:
 .asciiz"yarg"
-.Linfo_string90:
+.Linfo_string88:
 .asciiz"s1"
-.Linfo_string91:
+.Linfo_string89:
 .asciiz"s2"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	7926
+	.long	7860
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -4893,8 +4790,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string58
-	.long	.Linfo_string58
+	.long	.Linfo_string56
+	.long	.Linfo_string56
 	.byte	1
 	.short	295
 	.byte	1
@@ -4913,8 +4810,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string62
-	.long	.Linfo_string62
+	.long	.Linfo_string60
+	.long	.Linfo_string60
 	.byte	1
 	.short	403
 	.byte	1
@@ -4938,60 +4835,60 @@ postmask.static:
 	.long	.Linfo_string10
 	.byte	10
 	.long	.Ldebug_loc103
-	.long	.Linfo_string63
+	.long	.Linfo_string61
 	.byte	1
 	.short	403
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc104
-	.long	.Linfo_string75
+	.long	.Linfo_string73
 	.byte	1
 	.short	403
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc105
-	.long	.Linfo_string76
+	.long	.Linfo_string74
 	.byte	1
 	.short	403
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc106
-	.long	.Linfo_string66
+	.long	.Linfo_string64
 	.byte	1
 	.short	403
-	.long	7800
+	.long	7734
 	.byte	11
 	.long	.Ldebug_ranges323
 	.byte	12
-	.long	.Linfo_string65
+	.long	.Linfo_string63
 	.byte	1
 	.short	426
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges322
 	.byte	12
-	.long	.Linfo_string72
+	.long	.Linfo_string70
 	.byte	1
 	.short	427
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges321
 	.byte	12
-	.long	.Linfo_string77
+	.long	.Linfo_string75
 	.byte	1
 	.short	430
 	.long	6752
 	.byte	11
 	.long	.Ldebug_ranges320
 	.byte	12
-	.long	.Linfo_string78
+	.long	.Linfo_string76
 	.byte	1
 	.short	437
 	.long	95
 	.byte	11
 	.long	.Ldebug_ranges317
 	.byte	12
-	.long	.Linfo_string79
+	.long	.Linfo_string77
 	.byte	1
 	.short	446
 	.long	95
@@ -4999,7 +4896,7 @@ postmask.static:
 	.byte	11
 	.long	.Ldebug_ranges318
 	.byte	12
-	.long	.Linfo_string80
+	.long	.Linfo_string78
 	.byte	1
 	.short	485
 	.long	95
@@ -5007,7 +4904,7 @@ postmask.static:
 	.byte	11
 	.long	.Ldebug_ranges319
 	.byte	12
-	.long	.Linfo_string79
+	.long	.Linfo_string77
 	.byte	1
 	.short	508
 	.long	95
@@ -5315,29 +5212,29 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string49
-	.long	.Linfo_string49
+	.long	.Linfo_string47
+	.long	.Linfo_string47
 	.byte	1
 	.byte	119
 	.byte	1
 	.byte	19
 	.long	.Ldebug_loc0
+	.long	.Linfo_string61
+	.byte	1
+	.byte	119
+	.long	7727
+	.byte	19
+	.long	.Ldebug_loc1
 	.long	.Linfo_string63
 	.byte	1
 	.byte	119
-	.long	7793
-	.byte	19
-	.long	.Ldebug_loc1
-	.long	.Linfo_string65
-	.byte	1
-	.byte	119
-	.long	7793
+	.long	7727
 	.byte	19
 	.long	.Ldebug_loc2
-	.long	.Linfo_string66
+	.long	.Linfo_string64
 	.byte	1
 	.byte	119
-	.long	7800
+	.long	7734
 	.byte	0
 	.byte	20
 	.long	.Linfo_string17
@@ -5416,8 +5313,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string48
-	.long	.Linfo_string48
+	.long	.Linfo_string46
+	.long	.Linfo_string46
 	.byte	1
 	.byte	64
 	.long	523
@@ -5440,10 +5337,10 @@ postmask.static:
 	.long	.Ldebug_ranges103
 	.byte	26
 	.byte	2
-	.long	.Linfo_string68
+	.long	.Linfo_string66
 	.byte	1
 	.byte	69
-	.long	7807
+	.long	7741
 	.byte	27
 	.long	989
 	.long	.Ldebug_ranges2
@@ -6294,8 +6191,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string47
-	.long	.Linfo_string47
+	.long	.Linfo_string45
+	.long	.Linfo_string45
 	.byte	1
 	.byte	53
 	.long	481
@@ -6347,8 +6244,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string50
-	.long	.Linfo_string50
+	.long	.Linfo_string48
+	.long	.Linfo_string48
 	.byte	1
 	.byte	149
 	.long	586
@@ -6361,7 +6258,7 @@ postmask.static:
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc34
-	.long	.Linfo_string69
+	.long	.Linfo_string67
 	.byte	1
 	.byte	149
 	.long	95
@@ -6427,8 +6324,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string51
-	.long	.Linfo_string51
+	.long	.Linfo_string49
+	.long	.Linfo_string49
 	.byte	1
 	.byte	165
 	.long	628
@@ -6441,13 +6338,13 @@ postmask.static:
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc36
-	.long	.Linfo_string70
+	.long	.Linfo_string68
 	.byte	1
 	.byte	165
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc37
-	.long	.Linfo_string71
+	.long	.Linfo_string69
 	.byte	1
 	.byte	165
 	.long	95
@@ -6716,8 +6613,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string52
-	.long	.Linfo_string52
+	.long	.Linfo_string50
+	.long	.Linfo_string50
 	.byte	1
 	.byte	184
 	.long	670
@@ -6730,13 +6627,13 @@ postmask.static:
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc47
-	.long	.Linfo_string70
+	.long	.Linfo_string68
 	.byte	1
 	.byte	184
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc48
-	.long	.Linfo_string71
+	.long	.Linfo_string69
 	.byte	1
 	.byte	184
 	.long	95
@@ -7005,8 +6902,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string53
-	.long	.Linfo_string53
+	.long	.Linfo_string51
+	.long	.Linfo_string51
 	.byte	1
 	.byte	203
 	.long	712
@@ -7019,13 +6916,13 @@ postmask.static:
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc58
-	.long	.Linfo_string70
+	.long	.Linfo_string68
 	.byte	1
 	.byte	203
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc59
-	.long	.Linfo_string71
+	.long	.Linfo_string69
 	.byte	1
 	.byte	203
 	.long	95
@@ -7358,8 +7255,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string54
-	.long	.Linfo_string54
+	.long	.Linfo_string52
+	.long	.Linfo_string52
 	.byte	1
 	.byte	224
 	.long	754
@@ -7372,13 +7269,13 @@ postmask.static:
 	.long	1068
 	.byte	19
 	.long	.Ldebug_loc71
-	.long	.Linfo_string70
+	.long	.Linfo_string68
 	.byte	1
 	.byte	224
 	.long	95
 	.byte	19
 	.long	.Ldebug_loc72
-	.long	.Linfo_string71
+	.long	.Linfo_string69
 	.byte	1
 	.byte	224
 	.long	95
@@ -7711,8 +7608,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string55
-	.long	.Linfo_string55
+	.long	.Linfo_string53
+	.long	.Linfo_string53
 	.byte	1
 	.byte	241
 	.long	796
@@ -7770,8 +7667,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string56
-	.long	.Linfo_string56
+	.long	.Linfo_string54
+	.long	.Linfo_string54
 	.byte	1
 	.byte	249
 	.long	838
@@ -7986,10 +7883,10 @@ postmask.static:
 	.long	.Ldebug_ranges307
 	.byte	37
 	.byte	0
-	.long	.Linfo_string69
+	.long	.Linfo_string67
 	.byte	1
 	.short	269
-	.long	7800
+	.long	7734
 	.byte	11
 	.long	.Ldebug_ranges306
 	.byte	38
@@ -8007,12 +7904,12 @@ postmask.static:
 	.long	.Linfo_string22
 	.byte	1
 	.short	277
-	.long	7812
+	.long	7746
 	.byte	11
 	.long	.Ldebug_ranges304
 	.byte	37
 	.byte	0
-	.long	.Linfo_string63
+	.long	.Linfo_string61
 	.byte	1
 	.short	279
 	.long	95
@@ -8053,8 +7950,8 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string57
-	.long	.Linfo_string57
+	.long	.Linfo_string55
+	.long	.Linfo_string55
 	.byte	1
 	.short	291
 	.byte	1
@@ -8076,40 +7973,40 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string61
-	.long	.Linfo_string61
+	.long	.Linfo_string59
+	.long	.Linfo_string59
 	.byte	1
 	.short	370
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc93
+	.long	.Linfo_string61
+	.byte	1
+	.short	370
+	.long	7727
+	.byte	10
+	.long	.Ldebug_loc94
 	.long	.Linfo_string63
 	.byte	1
 	.short	370
-	.long	7793
-	.byte	10
-	.long	.Ldebug_loc94
-	.long	.Linfo_string65
-	.byte	1
-	.short	370
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc95
-	.long	.Linfo_string72
+	.long	.Linfo_string70
 	.byte	1
 	.short	370
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc96
-	.long	.Linfo_string66
+	.long	.Linfo_string64
 	.byte	1
 	.short	370
-	.long	7800
+	.long	7734
 	.byte	11
 	.long	.Ldebug_ranges313
 	.byte	42
 	.long	.Ldebug_loc97
-	.long	.Linfo_string73
+	.long	.Linfo_string71
 	.byte	1
 	.short	371
 	.long	902
@@ -8120,40 +8017,40 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string59
-	.long	.Linfo_string59
+	.long	.Linfo_string57
+	.long	.Linfo_string57
 	.byte	1
 	.short	300
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc98
+	.long	.Linfo_string61
+	.byte	1
+	.short	300
+	.long	7727
+	.byte	10
+	.long	.Ldebug_loc99
 	.long	.Linfo_string63
 	.byte	1
 	.short	300
-	.long	7793
-	.byte	10
-	.long	.Ldebug_loc99
-	.long	.Linfo_string65
-	.byte	1
-	.short	300
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc100
-	.long	.Linfo_string74
+	.long	.Linfo_string72
 	.byte	1
 	.short	300
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc101
-	.long	.Linfo_string66
+	.long	.Linfo_string64
 	.byte	1
 	.short	300
-	.long	7800
+	.long	7734
 	.byte	11
 	.long	.Ldebug_ranges315
 	.byte	42
 	.long	.Ldebug_loc102
-	.long	.Linfo_string73
+	.long	.Linfo_string71
 	.byte	1
 	.short	301
 	.long	880
@@ -8164,46 +8061,46 @@ postmask.static:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string60
-	.long	.Linfo_string60
+	.long	.Linfo_string58
+	.long	.Linfo_string58
 	.byte	1
 	.short	335
 	.byte	1
 	.byte	10
 	.long	.Ldebug_loc107
+	.long	.Linfo_string61
+	.byte	1
+	.short	335
+	.long	7727
+	.byte	10
+	.long	.Ldebug_loc108
 	.long	.Linfo_string63
 	.byte	1
 	.short	335
-	.long	7793
-	.byte	10
-	.long	.Ldebug_loc108
-	.long	.Linfo_string65
-	.byte	1
-	.short	335
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc109
-	.long	.Linfo_string74
+	.long	.Linfo_string72
 	.byte	1
 	.short	335
-	.long	7793
+	.long	7727
 	.byte	10
 	.long	.Ldebug_loc110
-	.long	.Linfo_string66
+	.long	.Linfo_string64
 	.byte	1
 	.short	335
-	.long	7800
+	.long	7734
 	.byte	11
 	.long	.Ldebug_ranges326
 	.byte	12
-	.long	.Linfo_string77
+	.long	.Linfo_string75
 	.byte	1
 	.short	354
 	.long	6752
 	.byte	11
 	.long	.Ldebug_ranges325
 	.byte	12
-	.long	.Linfo_string79
+	.long	.Linfo_string77
 	.byte	1
 	.short	360
 	.long	95
@@ -8216,102 +8113,110 @@ postmask.static:
 	.long	420
 	.byte	1
 	.byte	44
-	.long	.Linfo_string81
-	.long	7825
-	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	0
-	.byte	43
-	.long	.Linfo_string32
-	.long	.Linfo_string32
-	.long	420
-	.byte	1
+	.long	.Linfo_string79
+	.long	7759
 	.byte	44
 	.long	.Linfo_string81
-	.long	7825
+	.long	7766
+	.byte	44
+	.long	.Linfo_string82
+	.long	7771
 	.byte	44
 	.long	.Linfo_string83
-	.long	7832
-	.byte	44
-	.long	.Linfo_string84
-	.long	7837
-	.byte	44
-	.long	.Linfo_string85
-	.long	7832
+	.long	7766
 	.byte	0
 	.byte	45
-	.long	.Linfo_string33
-	.long	.Linfo_string33
+	.long	.Linfo_string32
+	.long	.Linfo_string32
 	.byte	1
 	.byte	44
+	.long	.Linfo_string79
+	.long	7759
+	.byte	44
 	.long	.Linfo_string81
-	.long	7825
+	.long	7766
 	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	44
-	.long	.Linfo_string84
-	.long	7837
+	.long	.Linfo_string82
+	.long	7771
 	.byte	0
 	.byte	43
-	.long	.Linfo_string34
-	.long	.Linfo_string34
+	.long	.Linfo_string33
+	.long	.Linfo_string33
 	.long	420
 	.byte	1
 	.byte	44
+	.long	.Linfo_string79
+	.long	7759
+	.byte	44
 	.long	.Linfo_string81
-	.long	7825
+	.long	7766
 	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	44
-	.long	.Linfo_string84
-	.long	7842
+	.long	.Linfo_string82
+	.long	7776
 	.byte	0
 	.byte	45
-	.long	.Linfo_string35
-	.long	.Linfo_string35
+	.long	.Linfo_string34
+	.long	.Linfo_string34
 	.byte	1
 	.byte	44
-	.long	.Linfo_string81
-	.long	7825
+	.long	.Linfo_string79
+	.long	7759
 	.byte	44
-	.long	.Linfo_string83
-	.long	7832
+	.long	.Linfo_string81
+	.long	7766
 	.byte	0
 	.byte	43
-	.long	.Linfo_string36
-	.long	.Linfo_string36
+	.long	.Linfo_string35
+	.long	.Linfo_string35
 	.long	420
 	.byte	1
 	.byte	44
+	.long	.Linfo_string79
+	.long	7759
+	.byte	44
 	.long	.Linfo_string81
-	.long	7825
+	.long	7766
+	.byte	44
+	.long	.Linfo_string82
+	.long	7766
 	.byte	44
 	.long	.Linfo_string83
-	.long	7832
+	.long	7811
 	.byte	44
-	.long	.Linfo_string84
-	.long	7832
-	.byte	44
-	.long	.Linfo_string85
-	.long	7877
-	.byte	44
-	.long	.Linfo_string88
+	.long	.Linfo_string86
 	.long	1120
 	.byte	0
 	.byte	43
-	.long	.Linfo_string37
-	.long	.Linfo_string37
+	.long	.Linfo_string36
+	.long	.Linfo_string36
 	.long	420
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7887
+	.long	7821
+	.byte	44
+	.long	.Linfo_string81
+	.long	7766
+	.byte	44
+	.long	.Linfo_string82
+	.long	7771
 	.byte	44
 	.long	.Linfo_string83
-	.long	7832
+	.long	7766
+	.byte	0
+	.byte	45
+	.long	.Linfo_string37
+	.long	.Linfo_string37
+	.byte	1
+	.byte	44
+	.long	.Linfo_string30
+	.long	7821
+	.byte	44
+	.long	.Linfo_string81
+	.long	7766
+	.byte	44
+	.long	.Linfo_string82
+	.long	7771
 	.byte	0
 	.byte	43
 	.long	.Linfo_string38
@@ -8320,16 +8225,13 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7887
+	.long	7821
 	.byte	44
-	.long	.Linfo_string83
-	.long	7832
+	.long	.Linfo_string81
+	.long	7766
 	.byte	44
-	.long	.Linfo_string84
-	.long	7837
-	.byte	44
-	.long	.Linfo_string85
-	.long	7832
+	.long	.Linfo_string82
+	.long	7776
 	.byte	0
 	.byte	45
 	.long	.Linfo_string39
@@ -8337,13 +8239,10 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7887
+	.long	7821
 	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	44
-	.long	.Linfo_string84
-	.long	7837
+	.long	.Linfo_string81
+	.long	7766
 	.byte	0
 	.byte	43
 	.long	.Linfo_string40
@@ -8352,49 +8251,23 @@ postmask.static:
 	.byte	1
 	.byte	44
 	.long	.Linfo_string30
-	.long	7887
+	.long	7821
+	.byte	44
+	.long	.Linfo_string81
+	.long	7766
+	.byte	44
+	.long	.Linfo_string82
+	.long	7766
 	.byte	44
 	.long	.Linfo_string83
-	.long	7832
+	.long	7811
 	.byte	44
-	.long	.Linfo_string84
-	.long	7842
-	.byte	0
-	.byte	45
-	.long	.Linfo_string41
-	.long	.Linfo_string41
-	.byte	1
-	.byte	44
-	.long	.Linfo_string30
-	.long	7887
-	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	0
-	.byte	43
-	.long	.Linfo_string42
-	.long	.Linfo_string42
-	.long	420
-	.byte	1
-	.byte	44
-	.long	.Linfo_string30
-	.long	7887
-	.byte	44
-	.long	.Linfo_string83
-	.long	7832
-	.byte	44
-	.long	.Linfo_string84
-	.long	7832
-	.byte	44
-	.long	.Linfo_string85
-	.long	7877
-	.byte	44
-	.long	.Linfo_string88
+	.long	.Linfo_string86
 	.long	1120
 	.byte	0
 	.byte	46
-	.long	.Linfo_string43
-	.long	.Linfo_string43
+	.long	.Linfo_string41
+	.long	.Linfo_string41
 	.byte	2
 	.byte	46
 	.byte	1
@@ -8405,8 +8278,8 @@ postmask.static:
 	.long	1120
 	.byte	0
 	.byte	46
-	.long	.Linfo_string44
-	.long	.Linfo_string44
+	.long	.Linfo_string42
+	.long	.Linfo_string42
 	.byte	2
 	.byte	62
 	.byte	1
@@ -8417,22 +8290,22 @@ postmask.static:
 	.long	1120
 	.byte	0
 	.byte	47
-	.long	.Linfo_string45
-	.long	.Linfo_string45
+	.long	.Linfo_string43
+	.long	.Linfo_string43
 	.byte	3
 	.byte	8
 	.long	1088
 	.byte	1
 	.byte	21
-	.long	.Linfo_string90
+	.long	.Linfo_string88
 	.byte	3
 	.byte	8
-	.long	7919
+	.long	7853
 	.byte	21
-	.long	.Linfo_string91
+	.long	.Linfo_string89
 	.byte	3
 	.byte	8
-	.long	7919
+	.long	7853
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8440,22 +8313,22 @@ postmask.static:
 	.long	1120
 	.byte	0
 	.byte	47
-	.long	.Linfo_string46
-	.long	.Linfo_string46
+	.long	.Linfo_string44
+	.long	.Linfo_string44
 	.byte	3
 	.byte	12
 	.long	6752
 	.byte	1
 	.byte	21
-	.long	.Linfo_string90
+	.long	.Linfo_string88
 	.byte	3
 	.byte	12
 	.long	6752
 	.byte	21
-	.long	.Linfo_string91
+	.long	.Linfo_string89
 	.byte	3
 	.byte	12
-	.long	7919
+	.long	7853
 	.byte	21
 	.long	.Linfo_string29
 	.byte	3
@@ -8463,11 +8336,11 @@ postmask.static:
 	.long	1120
 	.byte	0
 	.byte	3
-	.long	.Linfo_string64
+	.long	.Linfo_string62
 	.byte	5
 	.byte	2
 	.byte	3
-	.long	.Linfo_string67
+	.long	.Linfo_string65
 	.byte	7
 	.byte	2
 	.byte	48
@@ -8480,21 +8353,21 @@ postmask.static:
 	.byte	15
 	.byte	0
 	.byte	3
-	.long	.Linfo_string82
+	.long	.Linfo_string80
 	.byte	7
 	.byte	4
 	.byte	48
 	.long	95
 	.byte	48
-	.long	7800
+	.long	7734
 	.byte	48
-	.long	7847
+	.long	7781
 	.byte	49
-	.long	.Linfo_string87
+	.long	.Linfo_string85
 	.byte	19
 	.byte	50
-	.long	.Linfo_string86
-	.long	7864
+	.long	.Linfo_string84
+	.long	7798
 	.byte	0
 	.byte	0
 	.byte	5
@@ -8505,27 +8378,27 @@ postmask.static:
 	.byte	18
 	.byte	0
 	.byte	51
-	.long	7882
+	.long	7816
 	.byte	52
 	.long	95
 	.byte	51
-	.long	7892
+	.long	7826
 	.byte	49
-	.long	.Linfo_string89
+	.long	.Linfo_string87
 	.byte	8
 	.byte	50
-	.long	.Linfo_string81
-	.long	7825
+	.long	.Linfo_string79
+	.long	7759
 	.byte	0
 	.byte	50
-	.long	.Linfo_string65
+	.long	.Linfo_string63
 	.long	1120
 	.byte	4
 	.byte	0
 	.byte	51
-	.long	7924
+	.long	7858
 	.byte	52
-	.long	7832
+	.long	7766
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -9190,3226 +9063,3226 @@ postmask.static:
 	.byte	0
 	.section	.debug_ranges,"",@progbits
 .Ldebug_ranges0:
-	.long	.Lfunc_begin12
-	.long	.Lfunc_end12
+	.long	.Lfunc_begin10
+	.long	.Lfunc_end10
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Lfunc_begin13
-	.long	.Lfunc_end13
+	.long	.Lfunc_begin11
+	.long	.Lfunc_end11
 	.long	0
 	.long	0
 .Ldebug_ranges2:
-	.long	.Ltmp96
-	.long	.Ltmp97
-	.long	.Ltmp155
-	.long	.Ltmp157
+	.long	.Ltmp91
+	.long	.Ltmp92
+	.long	.Ltmp150
+	.long	.Ltmp152
 	.long	0
 	.long	0
 .Ldebug_ranges3:
-	.long	.Ltmp156
-	.long	.Ltmp157
+	.long	.Ltmp151
+	.long	.Ltmp152
 	.long	0
 	.long	0
 .Ldebug_ranges4:
-	.long	.Ltmp96
-	.long	.Ltmp97
-	.long	.Ltmp155
-	.long	.Ltmp157
+	.long	.Ltmp91
+	.long	.Ltmp92
+	.long	.Ltmp150
+	.long	.Ltmp152
 	.long	0
 	.long	0
 .Ldebug_ranges5:
-	.long	.Ltmp96
-	.long	.Ltmp97
-	.long	.Ltmp155
-	.long	.Ltmp157
+	.long	.Ltmp91
+	.long	.Ltmp92
+	.long	.Ltmp150
+	.long	.Ltmp152
 	.long	0
 	.long	0
 .Ldebug_ranges6:
-	.long	.Ltmp99
-	.long	.Ltmp100
+	.long	.Ltmp94
+	.long	.Ltmp95
 	.long	0
 	.long	0
 .Ldebug_ranges7:
-	.long	.Ltmp102
-	.long	.Ltmp104
+	.long	.Ltmp97
+	.long	.Ltmp99
 	.long	0
 	.long	0
 .Ldebug_ranges8:
-	.long	.Ltmp103
-	.long	.Ltmp104
+	.long	.Ltmp98
+	.long	.Ltmp99
 	.long	0
 	.long	0
 .Ldebug_ranges9:
-	.long	.Ltmp102
-	.long	.Ltmp104
+	.long	.Ltmp97
+	.long	.Ltmp99
 	.long	0
 	.long	0
 .Ldebug_ranges10:
-	.long	.Ltmp102
-	.long	.Ltmp104
+	.long	.Ltmp97
+	.long	.Ltmp99
 	.long	0
 	.long	0
 .Ldebug_ranges11:
-	.long	.Ltmp104
-	.long	.Ltmp106
+	.long	.Ltmp99
+	.long	.Ltmp101
 	.long	0
 	.long	0
 .Ldebug_ranges12:
-	.long	.Ltmp105
-	.long	.Ltmp106
+	.long	.Ltmp100
+	.long	.Ltmp101
 	.long	0
 	.long	0
 .Ldebug_ranges13:
-	.long	.Ltmp104
-	.long	.Ltmp106
+	.long	.Ltmp99
+	.long	.Ltmp101
 	.long	0
 	.long	0
 .Ldebug_ranges14:
-	.long	.Ltmp104
-	.long	.Ltmp106
+	.long	.Ltmp99
+	.long	.Ltmp101
 	.long	0
 	.long	0
 .Ldebug_ranges15:
-	.long	.Ltmp106
-	.long	.Ltmp108
+	.long	.Ltmp101
+	.long	.Ltmp103
 	.long	0
 	.long	0
 .Ldebug_ranges16:
-	.long	.Ltmp107
-	.long	.Ltmp108
+	.long	.Ltmp102
+	.long	.Ltmp103
 	.long	0
 	.long	0
 .Ldebug_ranges17:
-	.long	.Ltmp106
-	.long	.Ltmp108
+	.long	.Ltmp101
+	.long	.Ltmp103
 	.long	0
 	.long	0
 .Ldebug_ranges18:
-	.long	.Ltmp106
-	.long	.Ltmp108
+	.long	.Ltmp101
+	.long	.Ltmp103
 	.long	0
 	.long	0
 .Ldebug_ranges19:
-	.long	.Ltmp108
-	.long	.Ltmp110
+	.long	.Ltmp103
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges20:
-	.long	.Ltmp109
-	.long	.Ltmp110
+	.long	.Ltmp104
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges21:
-	.long	.Ltmp108
-	.long	.Ltmp110
+	.long	.Ltmp103
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges22:
-	.long	.Ltmp108
-	.long	.Ltmp110
+	.long	.Ltmp103
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges23:
-	.long	.Ltmp110
-	.long	.Ltmp112
+	.long	.Ltmp105
+	.long	.Ltmp107
 	.long	0
 	.long	0
 .Ldebug_ranges24:
-	.long	.Ltmp111
-	.long	.Ltmp112
+	.long	.Ltmp106
+	.long	.Ltmp107
 	.long	0
 	.long	0
 .Ldebug_ranges25:
-	.long	.Ltmp110
-	.long	.Ltmp112
+	.long	.Ltmp105
+	.long	.Ltmp107
 	.long	0
 	.long	0
 .Ldebug_ranges26:
-	.long	.Ltmp110
-	.long	.Ltmp112
+	.long	.Ltmp105
+	.long	.Ltmp107
 	.long	0
 	.long	0
 .Ldebug_ranges27:
-	.long	.Ltmp112
-	.long	.Ltmp114
+	.long	.Ltmp107
+	.long	.Ltmp109
 	.long	0
 	.long	0
 .Ldebug_ranges28:
-	.long	.Ltmp113
-	.long	.Ltmp114
+	.long	.Ltmp108
+	.long	.Ltmp109
 	.long	0
 	.long	0
 .Ldebug_ranges29:
-	.long	.Ltmp112
-	.long	.Ltmp114
+	.long	.Ltmp107
+	.long	.Ltmp109
 	.long	0
 	.long	0
 .Ldebug_ranges30:
-	.long	.Ltmp112
-	.long	.Ltmp114
+	.long	.Ltmp107
+	.long	.Ltmp109
 	.long	0
 	.long	0
 .Ldebug_ranges31:
-	.long	.Ltmp114
-	.long	.Ltmp116
+	.long	.Ltmp109
+	.long	.Ltmp111
 	.long	0
 	.long	0
 .Ldebug_ranges32:
-	.long	.Ltmp115
-	.long	.Ltmp116
+	.long	.Ltmp110
+	.long	.Ltmp111
 	.long	0
 	.long	0
 .Ldebug_ranges33:
-	.long	.Ltmp114
-	.long	.Ltmp116
+	.long	.Ltmp109
+	.long	.Ltmp111
 	.long	0
 	.long	0
 .Ldebug_ranges34:
-	.long	.Ltmp114
-	.long	.Ltmp116
+	.long	.Ltmp109
+	.long	.Ltmp111
 	.long	0
 	.long	0
 .Ldebug_ranges35:
-	.long	.Ltmp116
-	.long	.Ltmp118
+	.long	.Ltmp111
+	.long	.Ltmp113
 	.long	0
 	.long	0
 .Ldebug_ranges36:
-	.long	.Ltmp117
-	.long	.Ltmp118
+	.long	.Ltmp112
+	.long	.Ltmp113
 	.long	0
 	.long	0
 .Ldebug_ranges37:
-	.long	.Ltmp116
-	.long	.Ltmp118
+	.long	.Ltmp111
+	.long	.Ltmp113
 	.long	0
 	.long	0
 .Ldebug_ranges38:
-	.long	.Ltmp116
-	.long	.Ltmp118
+	.long	.Ltmp111
+	.long	.Ltmp113
 	.long	0
 	.long	0
 .Ldebug_ranges39:
-	.long	.Ltmp118
-	.long	.Ltmp120
+	.long	.Ltmp113
+	.long	.Ltmp115
 	.long	0
 	.long	0
 .Ldebug_ranges40:
-	.long	.Ltmp119
-	.long	.Ltmp120
+	.long	.Ltmp114
+	.long	.Ltmp115
 	.long	0
 	.long	0
 .Ldebug_ranges41:
-	.long	.Ltmp118
-	.long	.Ltmp120
+	.long	.Ltmp113
+	.long	.Ltmp115
 	.long	0
 	.long	0
 .Ldebug_ranges42:
-	.long	.Ltmp118
-	.long	.Ltmp120
+	.long	.Ltmp113
+	.long	.Ltmp115
 	.long	0
 	.long	0
 .Ldebug_ranges43:
-	.long	.Ltmp120
-	.long	.Ltmp122
+	.long	.Ltmp115
+	.long	.Ltmp117
 	.long	0
 	.long	0
 .Ldebug_ranges44:
-	.long	.Ltmp121
-	.long	.Ltmp122
+	.long	.Ltmp116
+	.long	.Ltmp117
 	.long	0
 	.long	0
 .Ldebug_ranges45:
-	.long	.Ltmp120
-	.long	.Ltmp122
+	.long	.Ltmp115
+	.long	.Ltmp117
 	.long	0
 	.long	0
 .Ldebug_ranges46:
-	.long	.Ltmp120
-	.long	.Ltmp122
+	.long	.Ltmp115
+	.long	.Ltmp117
 	.long	0
 	.long	0
 .Ldebug_ranges47:
-	.long	.Ltmp122
-	.long	.Ltmp124
+	.long	.Ltmp117
+	.long	.Ltmp119
 	.long	0
 	.long	0
 .Ldebug_ranges48:
-	.long	.Ltmp123
-	.long	.Ltmp124
+	.long	.Ltmp118
+	.long	.Ltmp119
 	.long	0
 	.long	0
 .Ldebug_ranges49:
-	.long	.Ltmp122
-	.long	.Ltmp124
+	.long	.Ltmp117
+	.long	.Ltmp119
 	.long	0
 	.long	0
 .Ldebug_ranges50:
-	.long	.Ltmp122
-	.long	.Ltmp124
+	.long	.Ltmp117
+	.long	.Ltmp119
 	.long	0
 	.long	0
 .Ldebug_ranges51:
-	.long	.Ltmp124
-	.long	.Ltmp126
+	.long	.Ltmp119
+	.long	.Ltmp121
 	.long	0
 	.long	0
 .Ldebug_ranges52:
-	.long	.Ltmp125
-	.long	.Ltmp126
+	.long	.Ltmp120
+	.long	.Ltmp121
 	.long	0
 	.long	0
 .Ldebug_ranges53:
-	.long	.Ltmp124
-	.long	.Ltmp126
+	.long	.Ltmp119
+	.long	.Ltmp121
 	.long	0
 	.long	0
 .Ldebug_ranges54:
-	.long	.Ltmp124
-	.long	.Ltmp126
+	.long	.Ltmp119
+	.long	.Ltmp121
 	.long	0
 	.long	0
 .Ldebug_ranges55:
-	.long	.Ltmp126
-	.long	.Ltmp128
+	.long	.Ltmp121
+	.long	.Ltmp123
 	.long	0
 	.long	0
 .Ldebug_ranges56:
-	.long	.Ltmp127
-	.long	.Ltmp128
+	.long	.Ltmp122
+	.long	.Ltmp123
 	.long	0
 	.long	0
 .Ldebug_ranges57:
-	.long	.Ltmp126
-	.long	.Ltmp128
+	.long	.Ltmp121
+	.long	.Ltmp123
 	.long	0
 	.long	0
 .Ldebug_ranges58:
-	.long	.Ltmp126
-	.long	.Ltmp128
+	.long	.Ltmp121
+	.long	.Ltmp123
 	.long	0
 	.long	0
 .Ldebug_ranges59:
-	.long	.Ltmp128
-	.long	.Ltmp130
+	.long	.Ltmp123
+	.long	.Ltmp125
 	.long	0
 	.long	0
 .Ldebug_ranges60:
-	.long	.Ltmp129
-	.long	.Ltmp130
+	.long	.Ltmp124
+	.long	.Ltmp125
 	.long	0
 	.long	0
 .Ldebug_ranges61:
-	.long	.Ltmp128
-	.long	.Ltmp130
+	.long	.Ltmp123
+	.long	.Ltmp125
 	.long	0
 	.long	0
 .Ldebug_ranges62:
-	.long	.Ltmp128
-	.long	.Ltmp130
+	.long	.Ltmp123
+	.long	.Ltmp125
 	.long	0
 	.long	0
 .Ldebug_ranges63:
-	.long	.Ltmp130
-	.long	.Ltmp132
+	.long	.Ltmp125
+	.long	.Ltmp127
 	.long	0
 	.long	0
 .Ldebug_ranges64:
-	.long	.Ltmp131
-	.long	.Ltmp132
+	.long	.Ltmp126
+	.long	.Ltmp127
 	.long	0
 	.long	0
 .Ldebug_ranges65:
-	.long	.Ltmp130
-	.long	.Ltmp132
+	.long	.Ltmp125
+	.long	.Ltmp127
 	.long	0
 	.long	0
 .Ldebug_ranges66:
-	.long	.Ltmp130
-	.long	.Ltmp132
+	.long	.Ltmp125
+	.long	.Ltmp127
 	.long	0
 	.long	0
 .Ldebug_ranges67:
-	.long	.Ltmp132
-	.long	.Ltmp134
+	.long	.Ltmp127
+	.long	.Ltmp129
 	.long	0
 	.long	0
 .Ldebug_ranges68:
-	.long	.Ltmp133
-	.long	.Ltmp134
+	.long	.Ltmp128
+	.long	.Ltmp129
 	.long	0
 	.long	0
 .Ldebug_ranges69:
-	.long	.Ltmp132
-	.long	.Ltmp134
+	.long	.Ltmp127
+	.long	.Ltmp129
 	.long	0
 	.long	0
 .Ldebug_ranges70:
-	.long	.Ltmp132
-	.long	.Ltmp134
+	.long	.Ltmp127
+	.long	.Ltmp129
 	.long	0
 	.long	0
 .Ldebug_ranges71:
-	.long	.Ltmp134
-	.long	.Ltmp136
+	.long	.Ltmp129
+	.long	.Ltmp131
 	.long	0
 	.long	0
 .Ldebug_ranges72:
-	.long	.Ltmp135
-	.long	.Ltmp136
+	.long	.Ltmp130
+	.long	.Ltmp131
 	.long	0
 	.long	0
 .Ldebug_ranges73:
-	.long	.Ltmp134
-	.long	.Ltmp136
+	.long	.Ltmp129
+	.long	.Ltmp131
 	.long	0
 	.long	0
 .Ldebug_ranges74:
-	.long	.Ltmp134
-	.long	.Ltmp136
+	.long	.Ltmp129
+	.long	.Ltmp131
 	.long	0
 	.long	0
 .Ldebug_ranges75:
-	.long	.Ltmp136
-	.long	.Ltmp138
+	.long	.Ltmp131
+	.long	.Ltmp133
 	.long	0
 	.long	0
 .Ldebug_ranges76:
-	.long	.Ltmp137
-	.long	.Ltmp138
+	.long	.Ltmp132
+	.long	.Ltmp133
 	.long	0
 	.long	0
 .Ldebug_ranges77:
-	.long	.Ltmp136
-	.long	.Ltmp138
+	.long	.Ltmp131
+	.long	.Ltmp133
 	.long	0
 	.long	0
 .Ldebug_ranges78:
-	.long	.Ltmp136
-	.long	.Ltmp138
+	.long	.Ltmp131
+	.long	.Ltmp133
 	.long	0
 	.long	0
 .Ldebug_ranges79:
+	.long	.Ltmp133
+	.long	.Ltmp135
+	.long	0
+	.long	0
+.Ldebug_ranges80:
+	.long	.Ltmp134
+	.long	.Ltmp135
+	.long	0
+	.long	0
+.Ldebug_ranges81:
+	.long	.Ltmp133
+	.long	.Ltmp135
+	.long	0
+	.long	0
+.Ldebug_ranges82:
+	.long	.Ltmp133
+	.long	.Ltmp135
+	.long	0
+	.long	0
+.Ldebug_ranges83:
+	.long	.Ltmp135
+	.long	.Ltmp137
+	.long	0
+	.long	0
+.Ldebug_ranges84:
+	.long	.Ltmp136
+	.long	.Ltmp137
+	.long	0
+	.long	0
+.Ldebug_ranges85:
+	.long	.Ltmp135
+	.long	.Ltmp137
+	.long	0
+	.long	0
+.Ldebug_ranges86:
+	.long	.Ltmp135
+	.long	.Ltmp137
+	.long	0
+	.long	0
+.Ldebug_ranges87:
 	.long	.Ltmp138
 	.long	.Ltmp140
 	.long	0
 	.long	0
-.Ldebug_ranges80:
+.Ldebug_ranges88:
 	.long	.Ltmp139
 	.long	.Ltmp140
 	.long	0
 	.long	0
-.Ldebug_ranges81:
-	.long	.Ltmp138
-	.long	.Ltmp140
-	.long	0
-	.long	0
-.Ldebug_ranges82:
-	.long	.Ltmp138
-	.long	.Ltmp140
-	.long	0
-	.long	0
-.Ldebug_ranges83:
-	.long	.Ltmp140
-	.long	.Ltmp142
-	.long	0
-	.long	0
-.Ldebug_ranges84:
-	.long	.Ltmp141
-	.long	.Ltmp142
-	.long	0
-	.long	0
-.Ldebug_ranges85:
-	.long	.Ltmp140
-	.long	.Ltmp142
-	.long	0
-	.long	0
-.Ldebug_ranges86:
-	.long	.Ltmp140
-	.long	.Ltmp142
-	.long	0
-	.long	0
-.Ldebug_ranges87:
-	.long	.Ltmp143
-	.long	.Ltmp145
-	.long	0
-	.long	0
-.Ldebug_ranges88:
-	.long	.Ltmp144
-	.long	.Ltmp145
-	.long	0
-	.long	0
 .Ldebug_ranges89:
-	.long	.Ltmp143
-	.long	.Ltmp145
+	.long	.Ltmp138
+	.long	.Ltmp140
 	.long	0
 	.long	0
 .Ldebug_ranges90:
-	.long	.Ltmp143
-	.long	.Ltmp145
+	.long	.Ltmp138
+	.long	.Ltmp140
 	.long	0
 	.long	0
 .Ldebug_ranges91:
-	.long	.Ltmp146
-	.long	.Ltmp148
+	.long	.Ltmp141
+	.long	.Ltmp143
 	.long	0
 	.long	0
 .Ldebug_ranges92:
-	.long	.Ltmp147
-	.long	.Ltmp148
+	.long	.Ltmp142
+	.long	.Ltmp143
 	.long	0
 	.long	0
 .Ldebug_ranges93:
-	.long	.Ltmp146
-	.long	.Ltmp148
+	.long	.Ltmp141
+	.long	.Ltmp143
 	.long	0
 	.long	0
 .Ldebug_ranges94:
-	.long	.Ltmp146
-	.long	.Ltmp148
+	.long	.Ltmp141
+	.long	.Ltmp143
 	.long	0
 	.long	0
 .Ldebug_ranges95:
-	.long	.Ltmp149
-	.long	.Ltmp151
+	.long	.Ltmp144
+	.long	.Ltmp146
 	.long	0
 	.long	0
 .Ldebug_ranges96:
-	.long	.Ltmp150
-	.long	.Ltmp151
+	.long	.Ltmp145
+	.long	.Ltmp146
 	.long	0
 	.long	0
 .Ldebug_ranges97:
-	.long	.Ltmp149
-	.long	.Ltmp151
+	.long	.Ltmp144
+	.long	.Ltmp146
 	.long	0
 	.long	0
 .Ldebug_ranges98:
-	.long	.Ltmp149
-	.long	.Ltmp151
+	.long	.Ltmp144
+	.long	.Ltmp146
 	.long	0
 	.long	0
 .Ldebug_ranges99:
-	.long	.Ltmp152
-	.long	.Ltmp154
+	.long	.Ltmp147
+	.long	.Ltmp149
 	.long	0
 	.long	0
 .Ldebug_ranges100:
-	.long	.Ltmp153
-	.long	.Ltmp154
+	.long	.Ltmp148
+	.long	.Ltmp149
 	.long	0
 	.long	0
 .Ldebug_ranges101:
-	.long	.Ltmp152
-	.long	.Ltmp154
+	.long	.Ltmp147
+	.long	.Ltmp149
 	.long	0
 	.long	0
 .Ldebug_ranges102:
-	.long	.Ltmp152
-	.long	.Ltmp154
+	.long	.Ltmp147
+	.long	.Ltmp149
 	.long	0
 	.long	0
 .Ldebug_ranges103:
-	.long	.Ltmp95
-	.long	.Ltmp160
+	.long	.Ltmp90
+	.long	.Ltmp155
 	.long	0
 	.long	0
 .Ldebug_ranges104:
-	.long	.Ltmp95
-	.long	.Ltmp160
+	.long	.Ltmp90
+	.long	.Ltmp155
 	.long	0
 	.long	0
 .Ldebug_ranges105:
+	.long	.Lfunc_begin12
+	.long	.Lfunc_end12
+	.long	0
+	.long	0
+.Ldebug_ranges106:
+	.long	.Ltmp161
+	.long	.Ltmp164
+	.long	0
+	.long	0
+.Ldebug_ranges107:
+	.long	.Ltmp160
+	.long	.Ltmp164
+	.long	0
+	.long	0
+.Ldebug_ranges108:
+	.long	.Ltmp160
+	.long	.Ltmp164
+	.long	0
+	.long	0
+.Ldebug_ranges109:
+	.long	.Lfunc_begin13
+	.long	.Lfunc_end13
+	.long	0
+	.long	0
+.Ldebug_ranges110:
+	.long	.Ltmp170
+	.long	.Ltmp173
+	.long	0
+	.long	0
+.Ldebug_ranges111:
+	.long	.Ltmp169
+	.long	.Ltmp173
+	.long	0
+	.long	0
+.Ldebug_ranges112:
+	.long	.Ltmp169
+	.long	.Ltmp173
+	.long	0
+	.long	0
+.Ldebug_ranges113:
 	.long	.Lfunc_begin14
 	.long	.Lfunc_end14
 	.long	0
 	.long	0
-.Ldebug_ranges106:
-	.long	.Ltmp166
-	.long	.Ltmp169
+.Ldebug_ranges114:
+	.long	.Ltmp178
+	.long	.Ltmp179
 	.long	0
 	.long	0
-.Ldebug_ranges107:
-	.long	.Ltmp165
-	.long	.Ltmp169
+.Ldebug_ranges115:
+	.long	.Ltmp178
+	.long	.Ltmp179
 	.long	0
 	.long	0
-.Ldebug_ranges108:
-	.long	.Ltmp165
-	.long	.Ltmp169
+.Ldebug_ranges116:
+	.long	.Ltmp178
+	.long	.Ltmp179
 	.long	0
 	.long	0
-.Ldebug_ranges109:
+.Ldebug_ranges117:
+	.long	.Ltmp181
+	.long	.Ltmp184
+	.long	0
+	.long	0
+.Ldebug_ranges118:
+	.long	.Ltmp182
+	.long	.Ltmp184
+	.long	0
+	.long	0
+.Ldebug_ranges119:
+	.long	.Ltmp181
+	.long	.Ltmp184
+	.long	0
+	.long	0
+.Ldebug_ranges120:
+	.long	.Ltmp178
+	.long	.Ltmp184
+	.long	0
+	.long	0
+.Ldebug_ranges121:
 	.long	.Lfunc_begin15
 	.long	.Lfunc_end15
 	.long	0
 	.long	0
-.Ldebug_ranges110:
-	.long	.Ltmp175
-	.long	.Ltmp178
+.Ldebug_ranges122:
+	.long	.Ltmp197
+	.long	.Ltmp199
+	.long	.Ltmp220
+	.long	.Ltmp222
 	.long	0
 	.long	0
-.Ldebug_ranges111:
-	.long	.Ltmp174
-	.long	.Ltmp178
+.Ldebug_ranges123:
+	.long	.Ltmp221
+	.long	.Ltmp222
 	.long	0
 	.long	0
-.Ldebug_ranges112:
-	.long	.Ltmp174
-	.long	.Ltmp178
+.Ldebug_ranges124:
+	.long	.Ltmp197
+	.long	.Ltmp199
+	.long	.Ltmp220
+	.long	.Ltmp222
 	.long	0
 	.long	0
-.Ldebug_ranges113:
+.Ldebug_ranges125:
+	.long	.Ltmp197
+	.long	.Ltmp199
+	.long	.Ltmp220
+	.long	.Ltmp222
+	.long	0
+	.long	0
+.Ldebug_ranges126:
+	.long	.Ltmp199
+	.long	.Ltmp201
+	.long	0
+	.long	0
+.Ldebug_ranges127:
+	.long	.Ltmp200
+	.long	.Ltmp201
+	.long	0
+	.long	0
+.Ldebug_ranges128:
+	.long	.Ltmp199
+	.long	.Ltmp201
+	.long	0
+	.long	0
+.Ldebug_ranges129:
+	.long	.Ltmp199
+	.long	.Ltmp201
+	.long	0
+	.long	0
+.Ldebug_ranges130:
+	.long	.Ltmp202
+	.long	.Ltmp204
+	.long	0
+	.long	0
+.Ldebug_ranges131:
+	.long	.Ltmp203
+	.long	.Ltmp204
+	.long	0
+	.long	0
+.Ldebug_ranges132:
+	.long	.Ltmp202
+	.long	.Ltmp204
+	.long	0
+	.long	0
+.Ldebug_ranges133:
+	.long	.Ltmp202
+	.long	.Ltmp204
+	.long	0
+	.long	0
+.Ldebug_ranges134:
+	.long	.Ltmp205
+	.long	.Ltmp207
+	.long	0
+	.long	0
+.Ldebug_ranges135:
+	.long	.Ltmp206
+	.long	.Ltmp207
+	.long	0
+	.long	0
+.Ldebug_ranges136:
+	.long	.Ltmp205
+	.long	.Ltmp207
+	.long	0
+	.long	0
+.Ldebug_ranges137:
+	.long	.Ltmp205
+	.long	.Ltmp207
+	.long	0
+	.long	0
+.Ldebug_ranges138:
+	.long	.Ltmp208
+	.long	.Ltmp210
+	.long	0
+	.long	0
+.Ldebug_ranges139:
+	.long	.Ltmp209
+	.long	.Ltmp210
+	.long	0
+	.long	0
+.Ldebug_ranges140:
+	.long	.Ltmp208
+	.long	.Ltmp210
+	.long	0
+	.long	0
+.Ldebug_ranges141:
+	.long	.Ltmp208
+	.long	.Ltmp210
+	.long	0
+	.long	0
+.Ldebug_ranges142:
+	.long	.Ltmp211
+	.long	.Ltmp213
+	.long	0
+	.long	0
+.Ldebug_ranges143:
+	.long	.Ltmp212
+	.long	.Ltmp213
+	.long	0
+	.long	0
+.Ldebug_ranges144:
+	.long	.Ltmp211
+	.long	.Ltmp213
+	.long	0
+	.long	0
+.Ldebug_ranges145:
+	.long	.Ltmp211
+	.long	.Ltmp213
+	.long	0
+	.long	0
+.Ldebug_ranges146:
+	.long	.Ltmp214
+	.long	.Ltmp216
+	.long	0
+	.long	0
+.Ldebug_ranges147:
+	.long	.Ltmp215
+	.long	.Ltmp216
+	.long	0
+	.long	0
+.Ldebug_ranges148:
+	.long	.Ltmp214
+	.long	.Ltmp216
+	.long	0
+	.long	0
+.Ldebug_ranges149:
+	.long	.Ltmp214
+	.long	.Ltmp216
+	.long	0
+	.long	0
+.Ldebug_ranges150:
+	.long	.Ltmp217
+	.long	.Ltmp219
+	.long	0
+	.long	0
+.Ldebug_ranges151:
+	.long	.Ltmp218
+	.long	.Ltmp219
+	.long	0
+	.long	0
+.Ldebug_ranges152:
+	.long	.Ltmp217
+	.long	.Ltmp219
+	.long	0
+	.long	0
+.Ldebug_ranges153:
+	.long	.Ltmp217
+	.long	.Ltmp219
+	.long	0
+	.long	0
+.Ldebug_ranges154:
+	.long	.Ltmp197
+	.long	.Ltmp227
+	.long	0
+	.long	0
+.Ldebug_ranges155:
 	.long	.Lfunc_begin16
 	.long	.Lfunc_end16
 	.long	0
 	.long	0
-.Ldebug_ranges114:
-	.long	.Ltmp183
-	.long	.Ltmp184
+.Ldebug_ranges156:
+	.long	.Ltmp240
+	.long	.Ltmp242
+	.long	.Ltmp263
+	.long	.Ltmp265
 	.long	0
 	.long	0
-.Ldebug_ranges115:
-	.long	.Ltmp183
-	.long	.Ltmp184
+.Ldebug_ranges157:
+	.long	.Ltmp264
+	.long	.Ltmp265
 	.long	0
 	.long	0
-.Ldebug_ranges116:
-	.long	.Ltmp183
-	.long	.Ltmp184
+.Ldebug_ranges158:
+	.long	.Ltmp240
+	.long	.Ltmp242
+	.long	.Ltmp263
+	.long	.Ltmp265
 	.long	0
 	.long	0
-.Ldebug_ranges117:
-	.long	.Ltmp186
-	.long	.Ltmp189
+.Ldebug_ranges159:
+	.long	.Ltmp240
+	.long	.Ltmp242
+	.long	.Ltmp263
+	.long	.Ltmp265
 	.long	0
 	.long	0
-.Ldebug_ranges118:
-	.long	.Ltmp187
-	.long	.Ltmp189
+.Ldebug_ranges160:
+	.long	.Ltmp242
+	.long	.Ltmp244
 	.long	0
 	.long	0
-.Ldebug_ranges119:
-	.long	.Ltmp186
-	.long	.Ltmp189
+.Ldebug_ranges161:
+	.long	.Ltmp243
+	.long	.Ltmp244
 	.long	0
 	.long	0
-.Ldebug_ranges120:
-	.long	.Ltmp183
-	.long	.Ltmp189
+.Ldebug_ranges162:
+	.long	.Ltmp242
+	.long	.Ltmp244
 	.long	0
 	.long	0
-.Ldebug_ranges121:
+.Ldebug_ranges163:
+	.long	.Ltmp242
+	.long	.Ltmp244
+	.long	0
+	.long	0
+.Ldebug_ranges164:
+	.long	.Ltmp245
+	.long	.Ltmp247
+	.long	0
+	.long	0
+.Ldebug_ranges165:
+	.long	.Ltmp246
+	.long	.Ltmp247
+	.long	0
+	.long	0
+.Ldebug_ranges166:
+	.long	.Ltmp245
+	.long	.Ltmp247
+	.long	0
+	.long	0
+.Ldebug_ranges167:
+	.long	.Ltmp245
+	.long	.Ltmp247
+	.long	0
+	.long	0
+.Ldebug_ranges168:
+	.long	.Ltmp248
+	.long	.Ltmp250
+	.long	0
+	.long	0
+.Ldebug_ranges169:
+	.long	.Ltmp249
+	.long	.Ltmp250
+	.long	0
+	.long	0
+.Ldebug_ranges170:
+	.long	.Ltmp248
+	.long	.Ltmp250
+	.long	0
+	.long	0
+.Ldebug_ranges171:
+	.long	.Ltmp248
+	.long	.Ltmp250
+	.long	0
+	.long	0
+.Ldebug_ranges172:
+	.long	.Ltmp251
+	.long	.Ltmp253
+	.long	0
+	.long	0
+.Ldebug_ranges173:
+	.long	.Ltmp252
+	.long	.Ltmp253
+	.long	0
+	.long	0
+.Ldebug_ranges174:
+	.long	.Ltmp251
+	.long	.Ltmp253
+	.long	0
+	.long	0
+.Ldebug_ranges175:
+	.long	.Ltmp251
+	.long	.Ltmp253
+	.long	0
+	.long	0
+.Ldebug_ranges176:
+	.long	.Ltmp254
+	.long	.Ltmp256
+	.long	0
+	.long	0
+.Ldebug_ranges177:
+	.long	.Ltmp255
+	.long	.Ltmp256
+	.long	0
+	.long	0
+.Ldebug_ranges178:
+	.long	.Ltmp254
+	.long	.Ltmp256
+	.long	0
+	.long	0
+.Ldebug_ranges179:
+	.long	.Ltmp254
+	.long	.Ltmp256
+	.long	0
+	.long	0
+.Ldebug_ranges180:
+	.long	.Ltmp257
+	.long	.Ltmp259
+	.long	0
+	.long	0
+.Ldebug_ranges181:
+	.long	.Ltmp258
+	.long	.Ltmp259
+	.long	0
+	.long	0
+.Ldebug_ranges182:
+	.long	.Ltmp257
+	.long	.Ltmp259
+	.long	0
+	.long	0
+.Ldebug_ranges183:
+	.long	.Ltmp257
+	.long	.Ltmp259
+	.long	0
+	.long	0
+.Ldebug_ranges184:
+	.long	.Ltmp260
+	.long	.Ltmp262
+	.long	0
+	.long	0
+.Ldebug_ranges185:
+	.long	.Ltmp261
+	.long	.Ltmp262
+	.long	0
+	.long	0
+.Ldebug_ranges186:
+	.long	.Ltmp260
+	.long	.Ltmp262
+	.long	0
+	.long	0
+.Ldebug_ranges187:
+	.long	.Ltmp260
+	.long	.Ltmp262
+	.long	0
+	.long	0
+.Ldebug_ranges188:
+	.long	.Ltmp240
+	.long	.Ltmp270
+	.long	0
+	.long	0
+.Ldebug_ranges189:
 	.long	.Lfunc_begin17
 	.long	.Lfunc_end17
 	.long	0
 	.long	0
-.Ldebug_ranges122:
-	.long	.Ltmp202
-	.long	.Ltmp204
-	.long	.Ltmp225
-	.long	.Ltmp227
+.Ldebug_ranges190:
+	.long	.Ltmp283
+	.long	.Ltmp285
+	.long	.Ltmp312
+	.long	.Ltmp314
 	.long	0
 	.long	0
-.Ldebug_ranges123:
-	.long	.Ltmp226
-	.long	.Ltmp227
+.Ldebug_ranges191:
+	.long	.Ltmp313
+	.long	.Ltmp314
 	.long	0
 	.long	0
-.Ldebug_ranges124:
-	.long	.Ltmp202
-	.long	.Ltmp204
-	.long	.Ltmp225
-	.long	.Ltmp227
+.Ldebug_ranges192:
+	.long	.Ltmp283
+	.long	.Ltmp285
+	.long	.Ltmp312
+	.long	.Ltmp314
 	.long	0
 	.long	0
-.Ldebug_ranges125:
-	.long	.Ltmp202
-	.long	.Ltmp204
-	.long	.Ltmp225
-	.long	.Ltmp227
+.Ldebug_ranges193:
+	.long	.Ltmp283
+	.long	.Ltmp285
+	.long	.Ltmp312
+	.long	.Ltmp314
 	.long	0
 	.long	0
-.Ldebug_ranges126:
-	.long	.Ltmp204
-	.long	.Ltmp206
+.Ldebug_ranges194:
+	.long	.Ltmp285
+	.long	.Ltmp287
 	.long	0
 	.long	0
-.Ldebug_ranges127:
-	.long	.Ltmp205
-	.long	.Ltmp206
+.Ldebug_ranges195:
+	.long	.Ltmp286
+	.long	.Ltmp287
 	.long	0
 	.long	0
-.Ldebug_ranges128:
-	.long	.Ltmp204
-	.long	.Ltmp206
+.Ldebug_ranges196:
+	.long	.Ltmp285
+	.long	.Ltmp287
 	.long	0
 	.long	0
-.Ldebug_ranges129:
-	.long	.Ltmp204
-	.long	.Ltmp206
+.Ldebug_ranges197:
+	.long	.Ltmp285
+	.long	.Ltmp287
 	.long	0
 	.long	0
-.Ldebug_ranges130:
-	.long	.Ltmp207
-	.long	.Ltmp209
+.Ldebug_ranges198:
+	.long	.Ltmp288
+	.long	.Ltmp290
 	.long	0
 	.long	0
-.Ldebug_ranges131:
-	.long	.Ltmp208
-	.long	.Ltmp209
+.Ldebug_ranges199:
+	.long	.Ltmp289
+	.long	.Ltmp290
 	.long	0
 	.long	0
-.Ldebug_ranges132:
-	.long	.Ltmp207
-	.long	.Ltmp209
+.Ldebug_ranges200:
+	.long	.Ltmp288
+	.long	.Ltmp290
 	.long	0
 	.long	0
-.Ldebug_ranges133:
-	.long	.Ltmp207
-	.long	.Ltmp209
+.Ldebug_ranges201:
+	.long	.Ltmp288
+	.long	.Ltmp290
 	.long	0
 	.long	0
-.Ldebug_ranges134:
-	.long	.Ltmp210
-	.long	.Ltmp212
+.Ldebug_ranges202:
+	.long	.Ltmp291
+	.long	.Ltmp293
 	.long	0
 	.long	0
-.Ldebug_ranges135:
-	.long	.Ltmp211
-	.long	.Ltmp212
+.Ldebug_ranges203:
+	.long	.Ltmp292
+	.long	.Ltmp293
 	.long	0
 	.long	0
-.Ldebug_ranges136:
-	.long	.Ltmp210
-	.long	.Ltmp212
+.Ldebug_ranges204:
+	.long	.Ltmp291
+	.long	.Ltmp293
 	.long	0
 	.long	0
-.Ldebug_ranges137:
-	.long	.Ltmp210
-	.long	.Ltmp212
+.Ldebug_ranges205:
+	.long	.Ltmp291
+	.long	.Ltmp293
 	.long	0
 	.long	0
-.Ldebug_ranges138:
-	.long	.Ltmp213
-	.long	.Ltmp215
+.Ldebug_ranges206:
+	.long	.Ltmp294
+	.long	.Ltmp296
 	.long	0
 	.long	0
-.Ldebug_ranges139:
-	.long	.Ltmp214
-	.long	.Ltmp215
+.Ldebug_ranges207:
+	.long	.Ltmp295
+	.long	.Ltmp296
 	.long	0
 	.long	0
-.Ldebug_ranges140:
-	.long	.Ltmp213
-	.long	.Ltmp215
+.Ldebug_ranges208:
+	.long	.Ltmp294
+	.long	.Ltmp296
 	.long	0
 	.long	0
-.Ldebug_ranges141:
-	.long	.Ltmp213
-	.long	.Ltmp215
+.Ldebug_ranges209:
+	.long	.Ltmp294
+	.long	.Ltmp296
 	.long	0
 	.long	0
-.Ldebug_ranges142:
-	.long	.Ltmp216
-	.long	.Ltmp218
+.Ldebug_ranges210:
+	.long	.Ltmp297
+	.long	.Ltmp299
 	.long	0
 	.long	0
-.Ldebug_ranges143:
-	.long	.Ltmp217
-	.long	.Ltmp218
+.Ldebug_ranges211:
+	.long	.Ltmp298
+	.long	.Ltmp299
 	.long	0
 	.long	0
-.Ldebug_ranges144:
-	.long	.Ltmp216
-	.long	.Ltmp218
+.Ldebug_ranges212:
+	.long	.Ltmp297
+	.long	.Ltmp299
 	.long	0
 	.long	0
-.Ldebug_ranges145:
-	.long	.Ltmp216
-	.long	.Ltmp218
+.Ldebug_ranges213:
+	.long	.Ltmp297
+	.long	.Ltmp299
 	.long	0
 	.long	0
-.Ldebug_ranges146:
-	.long	.Ltmp219
-	.long	.Ltmp221
+.Ldebug_ranges214:
+	.long	.Ltmp300
+	.long	.Ltmp302
 	.long	0
 	.long	0
-.Ldebug_ranges147:
-	.long	.Ltmp220
-	.long	.Ltmp221
+.Ldebug_ranges215:
+	.long	.Ltmp301
+	.long	.Ltmp302
 	.long	0
 	.long	0
-.Ldebug_ranges148:
-	.long	.Ltmp219
-	.long	.Ltmp221
+.Ldebug_ranges216:
+	.long	.Ltmp300
+	.long	.Ltmp302
 	.long	0
 	.long	0
-.Ldebug_ranges149:
-	.long	.Ltmp219
-	.long	.Ltmp221
+.Ldebug_ranges217:
+	.long	.Ltmp300
+	.long	.Ltmp302
 	.long	0
 	.long	0
-.Ldebug_ranges150:
-	.long	.Ltmp222
-	.long	.Ltmp224
+.Ldebug_ranges218:
+	.long	.Ltmp303
+	.long	.Ltmp305
 	.long	0
 	.long	0
-.Ldebug_ranges151:
-	.long	.Ltmp223
-	.long	.Ltmp224
+.Ldebug_ranges219:
+	.long	.Ltmp304
+	.long	.Ltmp305
 	.long	0
 	.long	0
-.Ldebug_ranges152:
-	.long	.Ltmp222
-	.long	.Ltmp224
+.Ldebug_ranges220:
+	.long	.Ltmp303
+	.long	.Ltmp305
 	.long	0
 	.long	0
-.Ldebug_ranges153:
-	.long	.Ltmp222
-	.long	.Ltmp224
+.Ldebug_ranges221:
+	.long	.Ltmp303
+	.long	.Ltmp305
 	.long	0
 	.long	0
-.Ldebug_ranges154:
-	.long	.Ltmp202
-	.long	.Ltmp232
+.Ldebug_ranges222:
+	.long	.Ltmp306
+	.long	.Ltmp308
 	.long	0
 	.long	0
-.Ldebug_ranges155:
+.Ldebug_ranges223:
+	.long	.Ltmp307
+	.long	.Ltmp308
+	.long	0
+	.long	0
+.Ldebug_ranges224:
+	.long	.Ltmp306
+	.long	.Ltmp308
+	.long	0
+	.long	0
+.Ldebug_ranges225:
+	.long	.Ltmp306
+	.long	.Ltmp308
+	.long	0
+	.long	0
+.Ldebug_ranges226:
+	.long	.Ltmp309
+	.long	.Ltmp311
+	.long	0
+	.long	0
+.Ldebug_ranges227:
+	.long	.Ltmp310
+	.long	.Ltmp311
+	.long	0
+	.long	0
+.Ldebug_ranges228:
+	.long	.Ltmp309
+	.long	.Ltmp311
+	.long	0
+	.long	0
+.Ldebug_ranges229:
+	.long	.Ltmp309
+	.long	.Ltmp311
+	.long	0
+	.long	0
+.Ldebug_ranges230:
+	.long	.Ltmp283
+	.long	.Ltmp319
+	.long	0
+	.long	0
+.Ldebug_ranges231:
 	.long	.Lfunc_begin18
 	.long	.Lfunc_end18
 	.long	0
 	.long	0
-.Ldebug_ranges156:
-	.long	.Ltmp245
-	.long	.Ltmp247
-	.long	.Ltmp268
-	.long	.Ltmp270
+.Ldebug_ranges232:
+	.long	.Ltmp332
+	.long	.Ltmp334
+	.long	.Ltmp361
+	.long	.Ltmp363
 	.long	0
 	.long	0
-.Ldebug_ranges157:
-	.long	.Ltmp269
-	.long	.Ltmp270
+.Ldebug_ranges233:
+	.long	.Ltmp362
+	.long	.Ltmp363
 	.long	0
 	.long	0
-.Ldebug_ranges158:
-	.long	.Ltmp245
-	.long	.Ltmp247
-	.long	.Ltmp268
-	.long	.Ltmp270
+.Ldebug_ranges234:
+	.long	.Ltmp332
+	.long	.Ltmp334
+	.long	.Ltmp361
+	.long	.Ltmp363
 	.long	0
 	.long	0
-.Ldebug_ranges159:
-	.long	.Ltmp245
-	.long	.Ltmp247
-	.long	.Ltmp268
-	.long	.Ltmp270
+.Ldebug_ranges235:
+	.long	.Ltmp332
+	.long	.Ltmp334
+	.long	.Ltmp361
+	.long	.Ltmp363
 	.long	0
 	.long	0
-.Ldebug_ranges160:
-	.long	.Ltmp247
-	.long	.Ltmp249
+.Ldebug_ranges236:
+	.long	.Ltmp334
+	.long	.Ltmp336
 	.long	0
 	.long	0
-.Ldebug_ranges161:
-	.long	.Ltmp248
-	.long	.Ltmp249
+.Ldebug_ranges237:
+	.long	.Ltmp335
+	.long	.Ltmp336
 	.long	0
 	.long	0
-.Ldebug_ranges162:
-	.long	.Ltmp247
-	.long	.Ltmp249
+.Ldebug_ranges238:
+	.long	.Ltmp334
+	.long	.Ltmp336
 	.long	0
 	.long	0
-.Ldebug_ranges163:
-	.long	.Ltmp247
-	.long	.Ltmp249
+.Ldebug_ranges239:
+	.long	.Ltmp334
+	.long	.Ltmp336
 	.long	0
 	.long	0
-.Ldebug_ranges164:
-	.long	.Ltmp250
-	.long	.Ltmp252
+.Ldebug_ranges240:
+	.long	.Ltmp337
+	.long	.Ltmp339
 	.long	0
 	.long	0
-.Ldebug_ranges165:
-	.long	.Ltmp251
-	.long	.Ltmp252
+.Ldebug_ranges241:
+	.long	.Ltmp338
+	.long	.Ltmp339
 	.long	0
 	.long	0
-.Ldebug_ranges166:
-	.long	.Ltmp250
-	.long	.Ltmp252
+.Ldebug_ranges242:
+	.long	.Ltmp337
+	.long	.Ltmp339
 	.long	0
 	.long	0
-.Ldebug_ranges167:
-	.long	.Ltmp250
-	.long	.Ltmp252
+.Ldebug_ranges243:
+	.long	.Ltmp337
+	.long	.Ltmp339
 	.long	0
 	.long	0
-.Ldebug_ranges168:
-	.long	.Ltmp253
-	.long	.Ltmp255
+.Ldebug_ranges244:
+	.long	.Ltmp340
+	.long	.Ltmp342
 	.long	0
 	.long	0
-.Ldebug_ranges169:
-	.long	.Ltmp254
-	.long	.Ltmp255
+.Ldebug_ranges245:
+	.long	.Ltmp341
+	.long	.Ltmp342
 	.long	0
 	.long	0
-.Ldebug_ranges170:
-	.long	.Ltmp253
-	.long	.Ltmp255
+.Ldebug_ranges246:
+	.long	.Ltmp340
+	.long	.Ltmp342
 	.long	0
 	.long	0
-.Ldebug_ranges171:
-	.long	.Ltmp253
-	.long	.Ltmp255
+.Ldebug_ranges247:
+	.long	.Ltmp340
+	.long	.Ltmp342
 	.long	0
 	.long	0
-.Ldebug_ranges172:
-	.long	.Ltmp256
-	.long	.Ltmp258
+.Ldebug_ranges248:
+	.long	.Ltmp343
+	.long	.Ltmp345
 	.long	0
 	.long	0
-.Ldebug_ranges173:
-	.long	.Ltmp257
-	.long	.Ltmp258
+.Ldebug_ranges249:
+	.long	.Ltmp344
+	.long	.Ltmp345
 	.long	0
 	.long	0
-.Ldebug_ranges174:
-	.long	.Ltmp256
-	.long	.Ltmp258
+.Ldebug_ranges250:
+	.long	.Ltmp343
+	.long	.Ltmp345
 	.long	0
 	.long	0
-.Ldebug_ranges175:
-	.long	.Ltmp256
-	.long	.Ltmp258
+.Ldebug_ranges251:
+	.long	.Ltmp343
+	.long	.Ltmp345
 	.long	0
 	.long	0
-.Ldebug_ranges176:
-	.long	.Ltmp259
-	.long	.Ltmp261
+.Ldebug_ranges252:
+	.long	.Ltmp346
+	.long	.Ltmp348
 	.long	0
 	.long	0
-.Ldebug_ranges177:
-	.long	.Ltmp260
-	.long	.Ltmp261
+.Ldebug_ranges253:
+	.long	.Ltmp347
+	.long	.Ltmp348
 	.long	0
 	.long	0
-.Ldebug_ranges178:
-	.long	.Ltmp259
-	.long	.Ltmp261
+.Ldebug_ranges254:
+	.long	.Ltmp346
+	.long	.Ltmp348
 	.long	0
 	.long	0
-.Ldebug_ranges179:
-	.long	.Ltmp259
-	.long	.Ltmp261
+.Ldebug_ranges255:
+	.long	.Ltmp346
+	.long	.Ltmp348
 	.long	0
 	.long	0
-.Ldebug_ranges180:
-	.long	.Ltmp262
-	.long	.Ltmp264
+.Ldebug_ranges256:
+	.long	.Ltmp349
+	.long	.Ltmp351
 	.long	0
 	.long	0
-.Ldebug_ranges181:
-	.long	.Ltmp263
-	.long	.Ltmp264
+.Ldebug_ranges257:
+	.long	.Ltmp350
+	.long	.Ltmp351
 	.long	0
 	.long	0
-.Ldebug_ranges182:
-	.long	.Ltmp262
-	.long	.Ltmp264
+.Ldebug_ranges258:
+	.long	.Ltmp349
+	.long	.Ltmp351
 	.long	0
 	.long	0
-.Ldebug_ranges183:
-	.long	.Ltmp262
-	.long	.Ltmp264
+.Ldebug_ranges259:
+	.long	.Ltmp349
+	.long	.Ltmp351
 	.long	0
 	.long	0
-.Ldebug_ranges184:
-	.long	.Ltmp265
-	.long	.Ltmp267
+.Ldebug_ranges260:
+	.long	.Ltmp352
+	.long	.Ltmp354
 	.long	0
 	.long	0
-.Ldebug_ranges185:
-	.long	.Ltmp266
-	.long	.Ltmp267
+.Ldebug_ranges261:
+	.long	.Ltmp353
+	.long	.Ltmp354
 	.long	0
 	.long	0
-.Ldebug_ranges186:
-	.long	.Ltmp265
-	.long	.Ltmp267
+.Ldebug_ranges262:
+	.long	.Ltmp352
+	.long	.Ltmp354
 	.long	0
 	.long	0
-.Ldebug_ranges187:
-	.long	.Ltmp265
-	.long	.Ltmp267
+.Ldebug_ranges263:
+	.long	.Ltmp352
+	.long	.Ltmp354
 	.long	0
 	.long	0
-.Ldebug_ranges188:
-	.long	.Ltmp245
-	.long	.Ltmp275
+.Ldebug_ranges264:
+	.long	.Ltmp355
+	.long	.Ltmp357
 	.long	0
 	.long	0
-.Ldebug_ranges189:
+.Ldebug_ranges265:
+	.long	.Ltmp356
+	.long	.Ltmp357
+	.long	0
+	.long	0
+.Ldebug_ranges266:
+	.long	.Ltmp355
+	.long	.Ltmp357
+	.long	0
+	.long	0
+.Ldebug_ranges267:
+	.long	.Ltmp355
+	.long	.Ltmp357
+	.long	0
+	.long	0
+.Ldebug_ranges268:
+	.long	.Ltmp358
+	.long	.Ltmp360
+	.long	0
+	.long	0
+.Ldebug_ranges269:
+	.long	.Ltmp359
+	.long	.Ltmp360
+	.long	0
+	.long	0
+.Ldebug_ranges270:
+	.long	.Ltmp358
+	.long	.Ltmp360
+	.long	0
+	.long	0
+.Ldebug_ranges271:
+	.long	.Ltmp358
+	.long	.Ltmp360
+	.long	0
+	.long	0
+.Ldebug_ranges272:
+	.long	.Ltmp332
+	.long	.Ltmp368
+	.long	0
+	.long	0
+.Ldebug_ranges273:
 	.long	.Lfunc_begin19
 	.long	.Lfunc_end19
 	.long	0
 	.long	0
-.Ldebug_ranges190:
-	.long	.Ltmp288
-	.long	.Ltmp290
-	.long	.Ltmp317
-	.long	.Ltmp319
+.Ldebug_ranges274:
+	.long	.Ltmp373
+	.long	.Ltmp378
 	.long	0
 	.long	0
-.Ldebug_ranges191:
-	.long	.Ltmp318
-	.long	.Ltmp319
+.Ldebug_ranges275:
+	.long	.Ltmp375
+	.long	.Ltmp378
 	.long	0
 	.long	0
-.Ldebug_ranges192:
-	.long	.Ltmp288
-	.long	.Ltmp290
-	.long	.Ltmp317
-	.long	.Ltmp319
+.Ldebug_ranges276:
+	.long	.Ltmp373
+	.long	.Ltmp378
 	.long	0
 	.long	0
-.Ldebug_ranges193:
-	.long	.Ltmp288
-	.long	.Ltmp290
-	.long	.Ltmp317
-	.long	.Ltmp319
+.Ldebug_ranges277:
+	.long	.Ltmp373
+	.long	.Ltmp378
 	.long	0
 	.long	0
-.Ldebug_ranges194:
-	.long	.Ltmp290
-	.long	.Ltmp292
+.Ldebug_ranges278:
+	.long	.Ltmp373
+	.long	.Ltmp378
 	.long	0
 	.long	0
-.Ldebug_ranges195:
-	.long	.Ltmp291
-	.long	.Ltmp292
-	.long	0
-	.long	0
-.Ldebug_ranges196:
-	.long	.Ltmp290
-	.long	.Ltmp292
-	.long	0
-	.long	0
-.Ldebug_ranges197:
-	.long	.Ltmp290
-	.long	.Ltmp292
-	.long	0
-	.long	0
-.Ldebug_ranges198:
-	.long	.Ltmp293
-	.long	.Ltmp295
-	.long	0
-	.long	0
-.Ldebug_ranges199:
-	.long	.Ltmp294
-	.long	.Ltmp295
-	.long	0
-	.long	0
-.Ldebug_ranges200:
-	.long	.Ltmp293
-	.long	.Ltmp295
-	.long	0
-	.long	0
-.Ldebug_ranges201:
-	.long	.Ltmp293
-	.long	.Ltmp295
-	.long	0
-	.long	0
-.Ldebug_ranges202:
-	.long	.Ltmp296
-	.long	.Ltmp298
-	.long	0
-	.long	0
-.Ldebug_ranges203:
-	.long	.Ltmp297
-	.long	.Ltmp298
-	.long	0
-	.long	0
-.Ldebug_ranges204:
-	.long	.Ltmp296
-	.long	.Ltmp298
-	.long	0
-	.long	0
-.Ldebug_ranges205:
-	.long	.Ltmp296
-	.long	.Ltmp298
-	.long	0
-	.long	0
-.Ldebug_ranges206:
-	.long	.Ltmp299
-	.long	.Ltmp301
-	.long	0
-	.long	0
-.Ldebug_ranges207:
-	.long	.Ltmp300
-	.long	.Ltmp301
-	.long	0
-	.long	0
-.Ldebug_ranges208:
-	.long	.Ltmp299
-	.long	.Ltmp301
-	.long	0
-	.long	0
-.Ldebug_ranges209:
-	.long	.Ltmp299
-	.long	.Ltmp301
-	.long	0
-	.long	0
-.Ldebug_ranges210:
-	.long	.Ltmp302
-	.long	.Ltmp304
-	.long	0
-	.long	0
-.Ldebug_ranges211:
-	.long	.Ltmp303
-	.long	.Ltmp304
-	.long	0
-	.long	0
-.Ldebug_ranges212:
-	.long	.Ltmp302
-	.long	.Ltmp304
-	.long	0
-	.long	0
-.Ldebug_ranges213:
-	.long	.Ltmp302
-	.long	.Ltmp304
-	.long	0
-	.long	0
-.Ldebug_ranges214:
-	.long	.Ltmp305
-	.long	.Ltmp307
-	.long	0
-	.long	0
-.Ldebug_ranges215:
-	.long	.Ltmp306
-	.long	.Ltmp307
-	.long	0
-	.long	0
-.Ldebug_ranges216:
-	.long	.Ltmp305
-	.long	.Ltmp307
-	.long	0
-	.long	0
-.Ldebug_ranges217:
-	.long	.Ltmp305
-	.long	.Ltmp307
-	.long	0
-	.long	0
-.Ldebug_ranges218:
-	.long	.Ltmp308
-	.long	.Ltmp310
-	.long	0
-	.long	0
-.Ldebug_ranges219:
-	.long	.Ltmp309
-	.long	.Ltmp310
-	.long	0
-	.long	0
-.Ldebug_ranges220:
-	.long	.Ltmp308
-	.long	.Ltmp310
-	.long	0
-	.long	0
-.Ldebug_ranges221:
-	.long	.Ltmp308
-	.long	.Ltmp310
-	.long	0
-	.long	0
-.Ldebug_ranges222:
-	.long	.Ltmp311
-	.long	.Ltmp313
-	.long	0
-	.long	0
-.Ldebug_ranges223:
-	.long	.Ltmp312
-	.long	.Ltmp313
-	.long	0
-	.long	0
-.Ldebug_ranges224:
-	.long	.Ltmp311
-	.long	.Ltmp313
-	.long	0
-	.long	0
-.Ldebug_ranges225:
-	.long	.Ltmp311
-	.long	.Ltmp313
-	.long	0
-	.long	0
-.Ldebug_ranges226:
-	.long	.Ltmp314
-	.long	.Ltmp316
-	.long	0
-	.long	0
-.Ldebug_ranges227:
-	.long	.Ltmp315
-	.long	.Ltmp316
-	.long	0
-	.long	0
-.Ldebug_ranges228:
-	.long	.Ltmp314
-	.long	.Ltmp316
-	.long	0
-	.long	0
-.Ldebug_ranges229:
-	.long	.Ltmp314
-	.long	.Ltmp316
-	.long	0
-	.long	0
-.Ldebug_ranges230:
-	.long	.Ltmp288
-	.long	.Ltmp324
-	.long	0
-	.long	0
-.Ldebug_ranges231:
+.Ldebug_ranges279:
 	.long	.Lfunc_begin20
 	.long	.Lfunc_end20
 	.long	0
 	.long	0
-.Ldebug_ranges232:
-	.long	.Ltmp337
-	.long	.Ltmp339
-	.long	.Ltmp366
-	.long	.Ltmp368
+.Ldebug_ranges280:
+	.long	.Ltmp389
+	.long	.Ltmp391
+	.long	.Ltmp406
+	.long	.Ltmp409
+	.long	.Ltmp413
+	.long	.Ltmp414
 	.long	0
 	.long	0
-.Ldebug_ranges233:
-	.long	.Ltmp367
-	.long	.Ltmp368
+.Ldebug_ranges281:
+	.long	.Ltmp407
+	.long	.Ltmp409
 	.long	0
 	.long	0
-.Ldebug_ranges234:
-	.long	.Ltmp337
-	.long	.Ltmp339
-	.long	.Ltmp366
-	.long	.Ltmp368
+.Ldebug_ranges282:
+	.long	.Ltmp389
+	.long	.Ltmp391
+	.long	.Ltmp406
+	.long	.Ltmp409
+	.long	.Ltmp413
+	.long	.Ltmp414
 	.long	0
 	.long	0
-.Ldebug_ranges235:
-	.long	.Ltmp337
-	.long	.Ltmp339
-	.long	.Ltmp366
-	.long	.Ltmp368
+.Ldebug_ranges283:
+	.long	.Ltmp389
+	.long	.Ltmp391
+	.long	.Ltmp406
+	.long	.Ltmp409
+	.long	.Ltmp413
+	.long	.Ltmp414
 	.long	0
 	.long	0
-.Ldebug_ranges236:
-	.long	.Ltmp339
-	.long	.Ltmp341
+.Ldebug_ranges284:
+	.long	.Ltmp391
+	.long	.Ltmp393
 	.long	0
 	.long	0
-.Ldebug_ranges237:
-	.long	.Ltmp340
-	.long	.Ltmp341
+.Ldebug_ranges285:
+	.long	.Ltmp392
+	.long	.Ltmp393
 	.long	0
 	.long	0
-.Ldebug_ranges238:
-	.long	.Ltmp339
-	.long	.Ltmp341
+.Ldebug_ranges286:
+	.long	.Ltmp391
+	.long	.Ltmp393
 	.long	0
 	.long	0
-.Ldebug_ranges239:
-	.long	.Ltmp339
-	.long	.Ltmp341
+.Ldebug_ranges287:
+	.long	.Ltmp391
+	.long	.Ltmp393
 	.long	0
 	.long	0
-.Ldebug_ranges240:
-	.long	.Ltmp342
-	.long	.Ltmp344
+.Ldebug_ranges288:
+	.long	.Ltmp394
+	.long	.Ltmp396
 	.long	0
 	.long	0
-.Ldebug_ranges241:
-	.long	.Ltmp343
-	.long	.Ltmp344
+.Ldebug_ranges289:
+	.long	.Ltmp395
+	.long	.Ltmp396
 	.long	0
 	.long	0
-.Ldebug_ranges242:
-	.long	.Ltmp342
-	.long	.Ltmp344
+.Ldebug_ranges290:
+	.long	.Ltmp394
+	.long	.Ltmp396
 	.long	0
 	.long	0
-.Ldebug_ranges243:
-	.long	.Ltmp342
-	.long	.Ltmp344
+.Ldebug_ranges291:
+	.long	.Ltmp394
+	.long	.Ltmp396
 	.long	0
 	.long	0
-.Ldebug_ranges244:
-	.long	.Ltmp345
-	.long	.Ltmp347
+.Ldebug_ranges292:
+	.long	.Ltmp397
+	.long	.Ltmp399
 	.long	0
 	.long	0
-.Ldebug_ranges245:
-	.long	.Ltmp346
-	.long	.Ltmp347
+.Ldebug_ranges293:
+	.long	.Ltmp398
+	.long	.Ltmp399
 	.long	0
 	.long	0
-.Ldebug_ranges246:
-	.long	.Ltmp345
-	.long	.Ltmp347
+.Ldebug_ranges294:
+	.long	.Ltmp397
+	.long	.Ltmp399
 	.long	0
 	.long	0
-.Ldebug_ranges247:
-	.long	.Ltmp345
-	.long	.Ltmp347
+.Ldebug_ranges295:
+	.long	.Ltmp397
+	.long	.Ltmp399
 	.long	0
 	.long	0
-.Ldebug_ranges248:
-	.long	.Ltmp348
-	.long	.Ltmp350
+.Ldebug_ranges296:
+	.long	.Ltmp400
+	.long	.Ltmp402
 	.long	0
 	.long	0
-.Ldebug_ranges249:
-	.long	.Ltmp349
-	.long	.Ltmp350
+.Ldebug_ranges297:
+	.long	.Ltmp401
+	.long	.Ltmp402
 	.long	0
 	.long	0
-.Ldebug_ranges250:
-	.long	.Ltmp348
-	.long	.Ltmp350
+.Ldebug_ranges298:
+	.long	.Ltmp400
+	.long	.Ltmp402
 	.long	0
 	.long	0
-.Ldebug_ranges251:
-	.long	.Ltmp348
-	.long	.Ltmp350
+.Ldebug_ranges299:
+	.long	.Ltmp400
+	.long	.Ltmp402
 	.long	0
 	.long	0
-.Ldebug_ranges252:
-	.long	.Ltmp351
-	.long	.Ltmp353
+.Ldebug_ranges300:
+	.long	.Ltmp403
+	.long	.Ltmp405
 	.long	0
 	.long	0
-.Ldebug_ranges253:
-	.long	.Ltmp352
-	.long	.Ltmp353
+.Ldebug_ranges301:
+	.long	.Ltmp404
+	.long	.Ltmp405
 	.long	0
 	.long	0
-.Ldebug_ranges254:
-	.long	.Ltmp351
-	.long	.Ltmp353
+.Ldebug_ranges302:
+	.long	.Ltmp403
+	.long	.Ltmp405
 	.long	0
 	.long	0
-.Ldebug_ranges255:
-	.long	.Ltmp351
-	.long	.Ltmp353
+.Ldebug_ranges303:
+	.long	.Ltmp403
+	.long	.Ltmp405
 	.long	0
 	.long	0
-.Ldebug_ranges256:
-	.long	.Ltmp354
-	.long	.Ltmp356
+.Ldebug_ranges304:
+	.long	.Ltmp411
+	.long	.Ltmp413
+	.long	.Ltmp414
+	.long	.Ltmp415
 	.long	0
 	.long	0
-.Ldebug_ranges257:
-	.long	.Ltmp355
-	.long	.Ltmp356
+.Ldebug_ranges305:
+	.long	.Ltmp411
+	.long	.Ltmp413
+	.long	.Ltmp414
+	.long	.Ltmp418
 	.long	0
 	.long	0
-.Ldebug_ranges258:
-	.long	.Ltmp354
-	.long	.Ltmp356
+.Ldebug_ranges306:
+	.long	.Ltmp411
+	.long	.Ltmp413
+	.long	.Ltmp414
+	.long	.Ltmp418
 	.long	0
 	.long	0
-.Ldebug_ranges259:
-	.long	.Ltmp354
-	.long	.Ltmp356
+.Ldebug_ranges307:
+	.long	.Ltmp411
+	.long	.Ltmp413
+	.long	.Ltmp414
+	.long	.Ltmp419
 	.long	0
 	.long	0
-.Ldebug_ranges260:
-	.long	.Ltmp357
-	.long	.Ltmp359
+.Ldebug_ranges308:
+	.long	.Ltmp389
+	.long	.Ltmp421
 	.long	0
 	.long	0
-.Ldebug_ranges261:
-	.long	.Ltmp358
-	.long	.Ltmp359
-	.long	0
-	.long	0
-.Ldebug_ranges262:
-	.long	.Ltmp357
-	.long	.Ltmp359
-	.long	0
-	.long	0
-.Ldebug_ranges263:
-	.long	.Ltmp357
-	.long	.Ltmp359
-	.long	0
-	.long	0
-.Ldebug_ranges264:
-	.long	.Ltmp360
-	.long	.Ltmp362
-	.long	0
-	.long	0
-.Ldebug_ranges265:
-	.long	.Ltmp361
-	.long	.Ltmp362
-	.long	0
-	.long	0
-.Ldebug_ranges266:
-	.long	.Ltmp360
-	.long	.Ltmp362
-	.long	0
-	.long	0
-.Ldebug_ranges267:
-	.long	.Ltmp360
-	.long	.Ltmp362
-	.long	0
-	.long	0
-.Ldebug_ranges268:
-	.long	.Ltmp363
-	.long	.Ltmp365
-	.long	0
-	.long	0
-.Ldebug_ranges269:
-	.long	.Ltmp364
-	.long	.Ltmp365
-	.long	0
-	.long	0
-.Ldebug_ranges270:
-	.long	.Ltmp363
-	.long	.Ltmp365
-	.long	0
-	.long	0
-.Ldebug_ranges271:
-	.long	.Ltmp363
-	.long	.Ltmp365
-	.long	0
-	.long	0
-.Ldebug_ranges272:
-	.long	.Ltmp337
-	.long	.Ltmp373
-	.long	0
-	.long	0
-.Ldebug_ranges273:
+.Ldebug_ranges309:
 	.long	.Lfunc_begin21
 	.long	.Lfunc_end21
 	.long	0
 	.long	0
-.Ldebug_ranges274:
-	.long	.Ltmp378
-	.long	.Ltmp383
+.Ldebug_ranges310:
+	.long	.Ltmp425
+	.long	.Ltmp426
 	.long	0
 	.long	0
-.Ldebug_ranges275:
-	.long	.Ltmp380
-	.long	.Ltmp383
-	.long	0
-	.long	0
-.Ldebug_ranges276:
-	.long	.Ltmp378
-	.long	.Ltmp383
-	.long	0
-	.long	0
-.Ldebug_ranges277:
-	.long	.Ltmp378
-	.long	.Ltmp383
-	.long	0
-	.long	0
-.Ldebug_ranges278:
-	.long	.Ltmp378
-	.long	.Ltmp383
-	.long	0
-	.long	0
-.Ldebug_ranges279:
+.Ldebug_ranges311:
 	.long	.Lfunc_begin22
 	.long	.Lfunc_end22
 	.long	0
 	.long	0
-.Ldebug_ranges280:
-	.long	.Ltmp394
-	.long	.Ltmp396
-	.long	.Ltmp411
-	.long	.Ltmp414
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	0
-	.long	0
-.Ldebug_ranges281:
-	.long	.Ltmp412
-	.long	.Ltmp414
-	.long	0
-	.long	0
-.Ldebug_ranges282:
-	.long	.Ltmp394
-	.long	.Ltmp396
-	.long	.Ltmp411
-	.long	.Ltmp414
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	0
-	.long	0
-.Ldebug_ranges283:
-	.long	.Ltmp394
-	.long	.Ltmp396
-	.long	.Ltmp411
-	.long	.Ltmp414
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	0
-	.long	0
-.Ldebug_ranges284:
-	.long	.Ltmp396
-	.long	.Ltmp398
-	.long	0
-	.long	0
-.Ldebug_ranges285:
-	.long	.Ltmp397
-	.long	.Ltmp398
-	.long	0
-	.long	0
-.Ldebug_ranges286:
-	.long	.Ltmp396
-	.long	.Ltmp398
-	.long	0
-	.long	0
-.Ldebug_ranges287:
-	.long	.Ltmp396
-	.long	.Ltmp398
-	.long	0
-	.long	0
-.Ldebug_ranges288:
-	.long	.Ltmp399
-	.long	.Ltmp401
-	.long	0
-	.long	0
-.Ldebug_ranges289:
-	.long	.Ltmp400
-	.long	.Ltmp401
-	.long	0
-	.long	0
-.Ldebug_ranges290:
-	.long	.Ltmp399
-	.long	.Ltmp401
-	.long	0
-	.long	0
-.Ldebug_ranges291:
-	.long	.Ltmp399
-	.long	.Ltmp401
-	.long	0
-	.long	0
-.Ldebug_ranges292:
-	.long	.Ltmp402
-	.long	.Ltmp404
-	.long	0
-	.long	0
-.Ldebug_ranges293:
-	.long	.Ltmp403
-	.long	.Ltmp404
-	.long	0
-	.long	0
-.Ldebug_ranges294:
-	.long	.Ltmp402
-	.long	.Ltmp404
-	.long	0
-	.long	0
-.Ldebug_ranges295:
-	.long	.Ltmp402
-	.long	.Ltmp404
-	.long	0
-	.long	0
-.Ldebug_ranges296:
-	.long	.Ltmp405
-	.long	.Ltmp407
-	.long	0
-	.long	0
-.Ldebug_ranges297:
-	.long	.Ltmp406
-	.long	.Ltmp407
-	.long	0
-	.long	0
-.Ldebug_ranges298:
-	.long	.Ltmp405
-	.long	.Ltmp407
-	.long	0
-	.long	0
-.Ldebug_ranges299:
-	.long	.Ltmp405
-	.long	.Ltmp407
-	.long	0
-	.long	0
-.Ldebug_ranges300:
-	.long	.Ltmp408
-	.long	.Ltmp410
-	.long	0
-	.long	0
-.Ldebug_ranges301:
-	.long	.Ltmp409
-	.long	.Ltmp410
-	.long	0
-	.long	0
-.Ldebug_ranges302:
-	.long	.Ltmp408
-	.long	.Ltmp410
-	.long	0
-	.long	0
-.Ldebug_ranges303:
-	.long	.Ltmp408
-	.long	.Ltmp410
-	.long	0
-	.long	0
-.Ldebug_ranges304:
-	.long	.Ltmp416
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	.Ltmp420
-	.long	0
-	.long	0
-.Ldebug_ranges305:
-	.long	.Ltmp416
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	.Ltmp423
-	.long	0
-	.long	0
-.Ldebug_ranges306:
-	.long	.Ltmp416
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	.Ltmp423
-	.long	0
-	.long	0
-.Ldebug_ranges307:
-	.long	.Ltmp416
-	.long	.Ltmp418
-	.long	.Ltmp419
-	.long	.Ltmp424
-	.long	0
-	.long	0
-.Ldebug_ranges308:
-	.long	.Ltmp394
-	.long	.Ltmp426
-	.long	0
-	.long	0
-.Ldebug_ranges309:
+.Ldebug_ranges312:
 	.long	.Lfunc_begin23
 	.long	.Lfunc_end23
 	.long	0
 	.long	0
-.Ldebug_ranges310:
-	.long	.Ltmp430
-	.long	.Ltmp431
+.Ldebug_ranges313:
+	.long	.Ltmp437
+	.long	.Ltmp447
 	.long	0
 	.long	0
-.Ldebug_ranges311:
+.Ldebug_ranges314:
 	.long	.Lfunc_begin24
 	.long	.Lfunc_end24
 	.long	0
 	.long	0
-.Ldebug_ranges312:
+.Ldebug_ranges315:
+	.long	.Ltmp453
+	.long	.Ltmp463
+	.long	0
+	.long	0
+.Ldebug_ranges316:
 	.long	.Lfunc_begin25
 	.long	.Lfunc_end25
 	.long	0
 	.long	0
-.Ldebug_ranges313:
-	.long	.Ltmp442
-	.long	.Ltmp452
+.Ldebug_ranges317:
+	.long	.Ltmp485
+	.long	.Ltmp495
 	.long	0
 	.long	0
-.Ldebug_ranges314:
+.Ldebug_ranges318:
+	.long	.Ltmp499
+	.long	.Ltmp504
+	.long	0
+	.long	0
+.Ldebug_ranges319:
+	.long	.Ltmp506
+	.long	.Ltmp511
+	.long	0
+	.long	0
+.Ldebug_ranges320:
+	.long	.Ltmp483
+	.long	.Ltmp511
+	.long	0
+	.long	0
+.Ldebug_ranges321:
+	.long	.Ltmp482
+	.long	.Ltmp511
+	.long	0
+	.long	0
+.Ldebug_ranges322:
+	.long	.Ltmp482
+	.long	.Ltmp511
+	.long	0
+	.long	0
+.Ldebug_ranges323:
+	.long	.Ltmp482
+	.long	.Ltmp511
+	.long	0
+	.long	0
+.Ldebug_ranges324:
 	.long	.Lfunc_begin26
 	.long	.Lfunc_end26
 	.long	0
 	.long	0
-.Ldebug_ranges315:
-	.long	.Ltmp458
-	.long	.Ltmp468
-	.long	0
-	.long	0
-.Ldebug_ranges316:
-	.long	.Lfunc_begin27
-	.long	.Lfunc_end27
-	.long	0
-	.long	0
-.Ldebug_ranges317:
-	.long	.Ltmp490
-	.long	.Ltmp500
-	.long	0
-	.long	0
-.Ldebug_ranges318:
-	.long	.Ltmp504
-	.long	.Ltmp509
-	.long	0
-	.long	0
-.Ldebug_ranges319:
-	.long	.Ltmp511
-	.long	.Ltmp516
-	.long	0
-	.long	0
-.Ldebug_ranges320:
-	.long	.Ltmp488
-	.long	.Ltmp516
-	.long	0
-	.long	0
-.Ldebug_ranges321:
-	.long	.Ltmp487
-	.long	.Ltmp516
-	.long	0
-	.long	0
-.Ldebug_ranges322:
-	.long	.Ltmp487
-	.long	.Ltmp516
-	.long	0
-	.long	0
-.Ldebug_ranges323:
-	.long	.Ltmp487
-	.long	.Ltmp516
-	.long	0
-	.long	0
-.Ldebug_ranges324:
-	.long	.Lfunc_begin28
-	.long	.Lfunc_end28
-	.long	0
-	.long	0
 .Ldebug_ranges325:
-	.long	.Ltmp534
-	.long	.Ltmp540
+	.long	.Ltmp529
+	.long	.Ltmp535
 	.long	0
 	.long	0
 .Ldebug_ranges326:
-	.long	.Ltmp533
-	.long	.Ltmp540
+	.long	.Ltmp528
+	.long	.Ltmp535
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
-	.long	.Lfunc_begin12
-	.long	.Ltmp65
-.Lset0 = .Ltmp543-.Ltmp542
+	.long	.Lfunc_begin10
+	.long	.Ltmp60
+.Lset0 = .Ltmp538-.Ltmp537
 	.short	.Lset0
-.Ltmp542:
+.Ltmp537:
 	.byte	80
-.Ltmp543:
-	.long	.Ltmp65
-	.long	.Ltmp73
-.Lset1 = .Ltmp545-.Ltmp544
+.Ltmp538:
+	.long	.Ltmp60
+	.long	.Ltmp68
+.Lset1 = .Ltmp540-.Ltmp539
 	.short	.Lset1
-.Ltmp544:
+.Ltmp539:
 	.byte	86
+.Ltmp540:
+	.long	.Ltmp68
+	.long	.Ltmp69
+.Lset2 = .Ltmp542-.Ltmp541
+	.short	.Lset2
+.Ltmp541:
+	.byte	80
+.Ltmp542:
+	.long	.Ltmp69
+	.long	.Ltmp71
+.Lset3 = .Ltmp544-.Ltmp543
+	.short	.Lset3
+.Ltmp543:
+	.byte	85
+.Ltmp544:
+	.long	.Ltmp71
+	.long	.Ltmp72
+.Lset4 = .Ltmp546-.Ltmp545
+	.short	.Lset4
 .Ltmp545:
+	.byte	81
+.Ltmp546:
+	.long	.Ltmp72
+	.long	.Ltmp73
+.Lset5 = .Ltmp548-.Ltmp547
+	.short	.Lset5
+.Ltmp547:
+	.byte	85
+.Ltmp548:
 	.long	.Ltmp73
 	.long	.Ltmp74
-.Lset2 = .Ltmp547-.Ltmp546
-	.short	.Lset2
-.Ltmp546:
-	.byte	80
-.Ltmp547:
-	.long	.Ltmp74
-	.long	.Ltmp76
-.Lset3 = .Ltmp549-.Ltmp548
-	.short	.Lset3
-.Ltmp548:
-	.byte	85
-.Ltmp549:
-	.long	.Ltmp76
-	.long	.Ltmp77
-.Lset4 = .Ltmp551-.Ltmp550
-	.short	.Lset4
-.Ltmp550:
-	.byte	81
-.Ltmp551:
-	.long	.Ltmp77
-	.long	.Ltmp78
-.Lset5 = .Ltmp553-.Ltmp552
-	.short	.Lset5
-.Ltmp552:
-	.byte	85
-.Ltmp553:
-	.long	.Ltmp78
-	.long	.Ltmp79
-.Lset6 = .Ltmp555-.Ltmp554
+.Lset6 = .Ltmp550-.Ltmp549
 	.short	.Lset6
-.Ltmp554:
+.Ltmp549:
 	.byte	80
-.Ltmp555:
+.Ltmp550:
 	.long	0
 	.long	0
 .Ldebug_loc1:
-	.long	.Lfunc_begin12
-	.long	.Ltmp64
-.Lset7 = .Ltmp557-.Ltmp556
+	.long	.Lfunc_begin10
+	.long	.Ltmp59
+.Lset7 = .Ltmp552-.Ltmp551
 	.short	.Lset7
-.Ltmp556:
+.Ltmp551:
 	.byte	81
-.Ltmp557:
-	.long	.Ltmp64
-	.long	.Ltmp76
-.Lset8 = .Ltmp559-.Ltmp558
+.Ltmp552:
+	.long	.Ltmp59
+	.long	.Ltmp71
+.Lset8 = .Ltmp554-.Ltmp553
 	.short	.Lset8
-.Ltmp558:
+.Ltmp553:
 	.byte	85
-.Ltmp559:
-	.long	.Ltmp76
-	.long	.Ltmp77
-.Lset9 = .Ltmp561-.Ltmp560
+.Ltmp554:
+	.long	.Ltmp71
+	.long	.Ltmp72
+.Lset9 = .Ltmp556-.Ltmp555
 	.short	.Lset9
-.Ltmp560:
+.Ltmp555:
 	.byte	81
-.Ltmp561:
-	.long	.Ltmp77
-	.long	.Ltmp78
-.Lset10 = .Ltmp563-.Ltmp562
+.Ltmp556:
+	.long	.Ltmp72
+	.long	.Ltmp73
+.Lset10 = .Ltmp558-.Ltmp557
 	.short	.Lset10
-.Ltmp562:
+.Ltmp557:
 	.byte	85
-.Ltmp563:
-	.long	.Ltmp78
-	.long	.Ltmp79
-.Lset11 = .Ltmp565-.Ltmp564
+.Ltmp558:
+	.long	.Ltmp73
+	.long	.Ltmp74
+.Lset11 = .Ltmp560-.Ltmp559
 	.short	.Lset11
-.Ltmp564:
+.Ltmp559:
 	.byte	80
-.Ltmp565:
+.Ltmp560:
 	.long	0
 	.long	0
 .Ldebug_loc2:
-	.long	.Lfunc_begin12
-	.long	.Ltmp63
-.Lset12 = .Ltmp567-.Ltmp566
+	.long	.Lfunc_begin10
+	.long	.Ltmp58
+.Lset12 = .Ltmp562-.Ltmp561
 	.short	.Lset12
-.Ltmp566:
+.Ltmp561:
 	.byte	82
-.Ltmp567:
-	.long	.Ltmp63
-	.long	.Ltmp81
-.Lset13 = .Ltmp569-.Ltmp568
+.Ltmp562:
+	.long	.Ltmp58
+	.long	.Ltmp76
+.Lset13 = .Ltmp564-.Ltmp563
 	.short	.Lset13
-.Ltmp568:
+.Ltmp563:
 	.byte	84
-.Ltmp569:
-	.long	.Ltmp82
-	.long	.Ltmp83
-.Lset14 = .Ltmp571-.Ltmp570
+.Ltmp564:
+	.long	.Ltmp77
+	.long	.Ltmp78
+.Lset14 = .Ltmp566-.Ltmp565
 	.short	.Lset14
-.Ltmp570:
+.Ltmp565:
 	.byte	84
-.Ltmp571:
+.Ltmp566:
 	.long	0
 	.long	0
 .Ldebug_loc3:
-	.long	.Lfunc_begin13
-	.long	.Ltmp95
-.Lset15 = .Ltmp573-.Ltmp572
+	.long	.Lfunc_begin11
+	.long	.Ltmp90
+.Lset15 = .Ltmp568-.Ltmp567
 	.short	.Lset15
-.Ltmp572:
+.Ltmp567:
 	.byte	80
-.Ltmp573:
-	.long	.Ltmp95
-	.long	.Ltmp159
-.Lset16 = .Ltmp575-.Ltmp574
+.Ltmp568:
+	.long	.Ltmp90
+	.long	.Ltmp154
+.Lset16 = .Ltmp570-.Ltmp569
 	.short	.Lset16
-.Ltmp574:
+.Ltmp569:
 	.byte	86
-.Ltmp575:
+.Ltmp570:
 	.long	0
 	.long	0
 .Ldebug_loc4:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset17 = .Ltmp577-.Ltmp576
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset17 = .Ltmp572-.Ltmp571
 	.short	.Lset17
-.Ltmp576:
+.Ltmp571:
 	.byte	86
-.Ltmp577:
+.Ltmp572:
 	.long	0
 	.long	0
 .Ldebug_loc5:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset18 = .Ltmp579-.Ltmp578
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset18 = .Ltmp574-.Ltmp573
 	.short	.Lset18
-.Ltmp578:
+.Ltmp573:
 	.byte	86
-.Ltmp579:
+.Ltmp574:
 	.long	0
 	.long	0
 .Ldebug_loc6:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset19 = .Ltmp581-.Ltmp580
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset19 = .Ltmp576-.Ltmp575
 	.short	.Lset19
-.Ltmp580:
+.Ltmp575:
 	.byte	86
-.Ltmp581:
+.Ltmp576:
 	.long	0
 	.long	0
 .Ldebug_loc7:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset20 = .Ltmp583-.Ltmp582
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset20 = .Ltmp578-.Ltmp577
 	.short	.Lset20
-.Ltmp582:
+.Ltmp577:
 	.byte	86
-.Ltmp583:
+.Ltmp578:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset21 = .Ltmp585-.Ltmp584
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset21 = .Ltmp580-.Ltmp579
 	.short	.Lset21
-.Ltmp584:
+.Ltmp579:
 	.byte	86
-.Ltmp585:
+.Ltmp580:
 	.long	0
 	.long	0
 .Ldebug_loc9:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset22 = .Ltmp587-.Ltmp586
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset22 = .Ltmp582-.Ltmp581
 	.short	.Lset22
-.Ltmp586:
+.Ltmp581:
 	.byte	86
-.Ltmp587:
+.Ltmp582:
 	.long	0
 	.long	0
 .Ldebug_loc10:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset23 = .Ltmp589-.Ltmp588
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset23 = .Ltmp584-.Ltmp583
 	.short	.Lset23
-.Ltmp588:
+.Ltmp583:
 	.byte	86
-.Ltmp589:
+.Ltmp584:
 	.long	0
 	.long	0
 .Ldebug_loc11:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset24 = .Ltmp591-.Ltmp590
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset24 = .Ltmp586-.Ltmp585
 	.short	.Lset24
-.Ltmp590:
+.Ltmp585:
 	.byte	86
-.Ltmp591:
+.Ltmp586:
 	.long	0
 	.long	0
 .Ldebug_loc12:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset25 = .Ltmp593-.Ltmp592
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset25 = .Ltmp588-.Ltmp587
 	.short	.Lset25
-.Ltmp592:
+.Ltmp587:
 	.byte	86
-.Ltmp593:
+.Ltmp588:
 	.long	0
 	.long	0
 .Ldebug_loc13:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset26 = .Ltmp595-.Ltmp594
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset26 = .Ltmp590-.Ltmp589
 	.short	.Lset26
-.Ltmp594:
+.Ltmp589:
 	.byte	86
-.Ltmp595:
+.Ltmp590:
 	.long	0
 	.long	0
 .Ldebug_loc14:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset27 = .Ltmp597-.Ltmp596
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset27 = .Ltmp592-.Ltmp591
 	.short	.Lset27
-.Ltmp596:
+.Ltmp591:
 	.byte	86
-.Ltmp597:
+.Ltmp592:
 	.long	0
 	.long	0
 .Ldebug_loc15:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset28 = .Ltmp599-.Ltmp598
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset28 = .Ltmp594-.Ltmp593
 	.short	.Lset28
-.Ltmp598:
+.Ltmp593:
 	.byte	86
-.Ltmp599:
+.Ltmp594:
 	.long	0
 	.long	0
 .Ldebug_loc16:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset29 = .Ltmp601-.Ltmp600
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset29 = .Ltmp596-.Ltmp595
 	.short	.Lset29
-.Ltmp600:
+.Ltmp595:
 	.byte	86
-.Ltmp601:
+.Ltmp596:
 	.long	0
 	.long	0
 .Ldebug_loc17:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset30 = .Ltmp603-.Ltmp602
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset30 = .Ltmp598-.Ltmp597
 	.short	.Lset30
-.Ltmp602:
+.Ltmp597:
 	.byte	86
-.Ltmp603:
+.Ltmp598:
 	.long	0
 	.long	0
 .Ldebug_loc18:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset31 = .Ltmp605-.Ltmp604
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset31 = .Ltmp600-.Ltmp599
 	.short	.Lset31
-.Ltmp604:
+.Ltmp599:
 	.byte	86
-.Ltmp605:
+.Ltmp600:
 	.long	0
 	.long	0
 .Ldebug_loc19:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset32 = .Ltmp607-.Ltmp606
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset32 = .Ltmp602-.Ltmp601
 	.short	.Lset32
-.Ltmp606:
+.Ltmp601:
 	.byte	86
-.Ltmp607:
+.Ltmp602:
 	.long	0
 	.long	0
 .Ldebug_loc20:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset33 = .Ltmp609-.Ltmp608
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset33 = .Ltmp604-.Ltmp603
 	.short	.Lset33
-.Ltmp608:
+.Ltmp603:
 	.byte	86
-.Ltmp609:
+.Ltmp604:
 	.long	0
 	.long	0
 .Ldebug_loc21:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset34 = .Ltmp611-.Ltmp610
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset34 = .Ltmp606-.Ltmp605
 	.short	.Lset34
-.Ltmp610:
+.Ltmp605:
 	.byte	86
-.Ltmp611:
+.Ltmp606:
 	.long	0
 	.long	0
 .Ldebug_loc22:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset35 = .Ltmp613-.Ltmp612
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset35 = .Ltmp608-.Ltmp607
 	.short	.Lset35
-.Ltmp612:
+.Ltmp607:
 	.byte	86
-.Ltmp613:
+.Ltmp608:
 	.long	0
 	.long	0
 .Ldebug_loc23:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset36 = .Ltmp615-.Ltmp614
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset36 = .Ltmp610-.Ltmp609
 	.short	.Lset36
-.Ltmp614:
+.Ltmp609:
 	.byte	86
-.Ltmp615:
+.Ltmp610:
 	.long	0
 	.long	0
 .Ldebug_loc24:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset37 = .Ltmp617-.Ltmp616
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset37 = .Ltmp612-.Ltmp611
 	.short	.Lset37
-.Ltmp616:
+.Ltmp611:
 	.byte	86
-.Ltmp617:
+.Ltmp612:
 	.long	0
 	.long	0
 .Ldebug_loc25:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset38 = .Ltmp619-.Ltmp618
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset38 = .Ltmp614-.Ltmp613
 	.short	.Lset38
-.Ltmp618:
+.Ltmp613:
 	.byte	86
-.Ltmp619:
+.Ltmp614:
 	.long	0
 	.long	0
 .Ldebug_loc26:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset39 = .Ltmp621-.Ltmp620
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset39 = .Ltmp616-.Ltmp615
 	.short	.Lset39
-.Ltmp620:
+.Ltmp615:
 	.byte	86
-.Ltmp621:
+.Ltmp616:
 	.long	0
 	.long	0
 .Ldebug_loc27:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset40 = .Ltmp623-.Ltmp622
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset40 = .Ltmp618-.Ltmp617
 	.short	.Lset40
-.Ltmp622:
+.Ltmp617:
 	.byte	86
-.Ltmp623:
+.Ltmp618:
 	.long	0
 	.long	0
 .Ldebug_loc28:
-	.long	.Ltmp101
-	.long	.Ltmp159
-.Lset41 = .Ltmp625-.Ltmp624
+	.long	.Ltmp96
+	.long	.Ltmp154
+.Lset41 = .Ltmp620-.Ltmp619
 	.short	.Lset41
-.Ltmp624:
+.Ltmp619:
 	.byte	86
-.Ltmp625:
+.Ltmp620:
 	.long	0
 	.long	0
 .Ldebug_loc29:
-	.long	.Lfunc_begin14
-	.long	.Ltmp167
-.Lset42 = .Ltmp627-.Ltmp626
+	.long	.Lfunc_begin12
+	.long	.Ltmp162
+.Lset42 = .Ltmp622-.Ltmp621
 	.short	.Lset42
-.Ltmp626:
+.Ltmp621:
 	.byte	80
-.Ltmp627:
+.Ltmp622:
 	.long	0
 	.long	0
 .Ldebug_loc30:
-	.long	.Lfunc_begin14
-	.long	.Ltmp168
-.Lset43 = .Ltmp629-.Ltmp628
+	.long	.Lfunc_begin12
+	.long	.Ltmp163
+.Lset43 = .Ltmp624-.Ltmp623
 	.short	.Lset43
-.Ltmp628:
+.Ltmp623:
 	.byte	81
-.Ltmp629:
+.Ltmp624:
 	.long	0
 	.long	0
 .Ldebug_loc31:
-	.long	.Lfunc_begin15
-	.long	.Ltmp176
-.Lset44 = .Ltmp631-.Ltmp630
+	.long	.Lfunc_begin13
+	.long	.Ltmp171
+.Lset44 = .Ltmp626-.Ltmp625
 	.short	.Lset44
-.Ltmp630:
+.Ltmp625:
 	.byte	80
-.Ltmp631:
+.Ltmp626:
 	.long	0
 	.long	0
 .Ldebug_loc32:
-	.long	.Lfunc_begin15
-	.long	.Ltmp177
-.Lset45 = .Ltmp633-.Ltmp632
+	.long	.Lfunc_begin13
+	.long	.Ltmp172
+.Lset45 = .Ltmp628-.Ltmp627
 	.short	.Lset45
-.Ltmp632:
+.Ltmp627:
 	.byte	81
-.Ltmp633:
+.Ltmp628:
 	.long	0
 	.long	0
 .Ldebug_loc33:
-	.long	.Lfunc_begin16
-	.long	.Ltmp185
-.Lset46 = .Ltmp635-.Ltmp634
+	.long	.Lfunc_begin14
+	.long	.Ltmp180
+.Lset46 = .Ltmp630-.Ltmp629
 	.short	.Lset46
-.Ltmp634:
+.Ltmp629:
 	.byte	80
-.Ltmp635:
+.Ltmp630:
 	.long	0
 	.long	0
 .Ldebug_loc34:
-	.long	.Lfunc_begin16
-	.long	.Ltmp185
-.Lset47 = .Ltmp637-.Ltmp636
+	.long	.Lfunc_begin14
+	.long	.Ltmp180
+.Lset47 = .Ltmp632-.Ltmp631
 	.short	.Lset47
-.Ltmp636:
+.Ltmp631:
 	.byte	81
-.Ltmp637:
+.Ltmp632:
 	.long	0
 	.long	0
 .Ldebug_loc35:
-	.long	.Lfunc_begin17
-	.long	.Ltmp202
-.Lset48 = .Ltmp639-.Ltmp638
+	.long	.Lfunc_begin15
+	.long	.Ltmp197
+.Lset48 = .Ltmp634-.Ltmp633
 	.short	.Lset48
-.Ltmp638:
+.Ltmp633:
 	.byte	80
-.Ltmp639:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset49 = .Ltmp641-.Ltmp640
+.Ltmp634:
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset49 = .Ltmp636-.Ltmp635
 	.short	.Lset49
-.Ltmp640:
+.Ltmp635:
 	.byte	87
-.Ltmp641:
+.Ltmp636:
 	.long	0
 	.long	0
 .Ldebug_loc36:
-	.long	.Lfunc_begin17
-	.long	.Ltmp201
-.Lset50 = .Ltmp643-.Ltmp642
+	.long	.Lfunc_begin15
+	.long	.Ltmp196
+.Lset50 = .Ltmp638-.Ltmp637
 	.short	.Lset50
-.Ltmp642:
+.Ltmp637:
 	.byte	81
-.Ltmp643:
-	.long	.Ltmp201
-	.long	.Ltmp228
-.Lset51 = .Ltmp645-.Ltmp644
+.Ltmp638:
+	.long	.Ltmp196
+	.long	.Ltmp223
+.Lset51 = .Ltmp640-.Ltmp639
 	.short	.Lset51
-.Ltmp644:
+.Ltmp639:
 	.byte	90
-.Ltmp645:
+.Ltmp640:
 	.long	0
 	.long	0
 .Ldebug_loc37:
-	.long	.Lfunc_begin17
-	.long	.Ltmp200
-.Lset52 = .Ltmp647-.Ltmp646
+	.long	.Lfunc_begin15
+	.long	.Ltmp195
+.Lset52 = .Ltmp642-.Ltmp641
 	.short	.Lset52
-.Ltmp646:
+.Ltmp641:
 	.byte	82
-.Ltmp647:
-	.long	.Ltmp200
-	.long	.Ltmp231
-.Lset53 = .Ltmp649-.Ltmp648
+.Ltmp642:
+	.long	.Ltmp195
+	.long	.Ltmp226
+.Lset53 = .Ltmp644-.Ltmp643
 	.short	.Lset53
-.Ltmp648:
+.Ltmp643:
 	.byte	126
 	.byte	12
-.Ltmp649:
+.Ltmp644:
 	.long	0
 	.long	0
 .Ldebug_loc38:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset54 = .Ltmp651-.Ltmp650
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset54 = .Ltmp646-.Ltmp645
 	.short	.Lset54
-.Ltmp650:
+.Ltmp645:
 	.byte	87
-.Ltmp651:
+.Ltmp646:
 	.long	0
 	.long	0
 .Ldebug_loc39:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset55 = .Ltmp653-.Ltmp652
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset55 = .Ltmp648-.Ltmp647
 	.short	.Lset55
-.Ltmp652:
+.Ltmp647:
 	.byte	87
-.Ltmp653:
+.Ltmp648:
 	.long	0
 	.long	0
 .Ldebug_loc40:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset56 = .Ltmp655-.Ltmp654
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset56 = .Ltmp650-.Ltmp649
 	.short	.Lset56
-.Ltmp654:
+.Ltmp649:
 	.byte	87
-.Ltmp655:
+.Ltmp650:
 	.long	0
 	.long	0
 .Ldebug_loc41:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset57 = .Ltmp657-.Ltmp656
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset57 = .Ltmp652-.Ltmp651
 	.short	.Lset57
-.Ltmp656:
+.Ltmp651:
 	.byte	87
-.Ltmp657:
+.Ltmp652:
 	.long	0
 	.long	0
 .Ldebug_loc42:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset58 = .Ltmp659-.Ltmp658
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset58 = .Ltmp654-.Ltmp653
 	.short	.Lset58
-.Ltmp658:
+.Ltmp653:
 	.byte	87
-.Ltmp659:
+.Ltmp654:
 	.long	0
 	.long	0
 .Ldebug_loc43:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset59 = .Ltmp661-.Ltmp660
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset59 = .Ltmp656-.Ltmp655
 	.short	.Lset59
-.Ltmp660:
+.Ltmp655:
 	.byte	87
-.Ltmp661:
+.Ltmp656:
 	.long	0
 	.long	0
 .Ldebug_loc44:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset60 = .Ltmp663-.Ltmp662
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset60 = .Ltmp658-.Ltmp657
 	.short	.Lset60
-.Ltmp662:
+.Ltmp657:
 	.byte	87
-.Ltmp663:
+.Ltmp658:
 	.long	0
 	.long	0
 .Ldebug_loc45:
-	.long	.Ltmp202
-	.long	.Ltmp229
-.Lset61 = .Ltmp665-.Ltmp664
+	.long	.Ltmp197
+	.long	.Ltmp224
+.Lset61 = .Ltmp660-.Ltmp659
 	.short	.Lset61
-.Ltmp664:
+.Ltmp659:
 	.byte	87
-.Ltmp665:
+.Ltmp660:
 	.long	0
 	.long	0
 .Ldebug_loc46:
-	.long	.Lfunc_begin18
-	.long	.Ltmp245
-.Lset62 = .Ltmp667-.Ltmp666
+	.long	.Lfunc_begin16
+	.long	.Ltmp240
+.Lset62 = .Ltmp662-.Ltmp661
 	.short	.Lset62
-.Ltmp666:
+.Ltmp661:
 	.byte	80
-.Ltmp667:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset63 = .Ltmp669-.Ltmp668
+.Ltmp662:
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset63 = .Ltmp664-.Ltmp663
 	.short	.Lset63
-.Ltmp668:
+.Ltmp663:
 	.byte	87
-.Ltmp669:
+.Ltmp664:
 	.long	0
 	.long	0
 .Ldebug_loc47:
-	.long	.Lfunc_begin18
-	.long	.Ltmp244
-.Lset64 = .Ltmp671-.Ltmp670
+	.long	.Lfunc_begin16
+	.long	.Ltmp239
+.Lset64 = .Ltmp666-.Ltmp665
 	.short	.Lset64
-.Ltmp670:
+.Ltmp665:
 	.byte	81
-.Ltmp671:
-	.long	.Ltmp244
-	.long	.Ltmp271
-.Lset65 = .Ltmp673-.Ltmp672
+.Ltmp666:
+	.long	.Ltmp239
+	.long	.Ltmp266
+.Lset65 = .Ltmp668-.Ltmp667
 	.short	.Lset65
-.Ltmp672:
+.Ltmp667:
 	.byte	90
-.Ltmp673:
+.Ltmp668:
 	.long	0
 	.long	0
 .Ldebug_loc48:
-	.long	.Lfunc_begin18
-	.long	.Ltmp243
-.Lset66 = .Ltmp675-.Ltmp674
+	.long	.Lfunc_begin16
+	.long	.Ltmp238
+.Lset66 = .Ltmp670-.Ltmp669
 	.short	.Lset66
-.Ltmp674:
+.Ltmp669:
 	.byte	82
-.Ltmp675:
-	.long	.Ltmp243
-	.long	.Ltmp274
-.Lset67 = .Ltmp677-.Ltmp676
+.Ltmp670:
+	.long	.Ltmp238
+	.long	.Ltmp269
+.Lset67 = .Ltmp672-.Ltmp671
 	.short	.Lset67
-.Ltmp676:
+.Ltmp671:
 	.byte	126
 	.byte	12
-.Ltmp677:
+.Ltmp672:
 	.long	0
 	.long	0
 .Ldebug_loc49:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset68 = .Ltmp679-.Ltmp678
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset68 = .Ltmp674-.Ltmp673
 	.short	.Lset68
-.Ltmp678:
+.Ltmp673:
 	.byte	87
-.Ltmp679:
+.Ltmp674:
 	.long	0
 	.long	0
 .Ldebug_loc50:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset69 = .Ltmp681-.Ltmp680
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset69 = .Ltmp676-.Ltmp675
 	.short	.Lset69
-.Ltmp680:
+.Ltmp675:
 	.byte	87
-.Ltmp681:
+.Ltmp676:
 	.long	0
 	.long	0
 .Ldebug_loc51:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset70 = .Ltmp683-.Ltmp682
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset70 = .Ltmp678-.Ltmp677
 	.short	.Lset70
-.Ltmp682:
+.Ltmp677:
 	.byte	87
-.Ltmp683:
+.Ltmp678:
 	.long	0
 	.long	0
 .Ldebug_loc52:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset71 = .Ltmp685-.Ltmp684
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset71 = .Ltmp680-.Ltmp679
 	.short	.Lset71
-.Ltmp684:
+.Ltmp679:
 	.byte	87
-.Ltmp685:
+.Ltmp680:
 	.long	0
 	.long	0
 .Ldebug_loc53:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset72 = .Ltmp687-.Ltmp686
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset72 = .Ltmp682-.Ltmp681
 	.short	.Lset72
-.Ltmp686:
+.Ltmp681:
 	.byte	87
-.Ltmp687:
+.Ltmp682:
 	.long	0
 	.long	0
 .Ldebug_loc54:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset73 = .Ltmp689-.Ltmp688
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset73 = .Ltmp684-.Ltmp683
 	.short	.Lset73
-.Ltmp688:
+.Ltmp683:
 	.byte	87
-.Ltmp689:
+.Ltmp684:
 	.long	0
 	.long	0
 .Ldebug_loc55:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset74 = .Ltmp691-.Ltmp690
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset74 = .Ltmp686-.Ltmp685
 	.short	.Lset74
-.Ltmp690:
+.Ltmp685:
 	.byte	87
-.Ltmp691:
+.Ltmp686:
 	.long	0
 	.long	0
 .Ldebug_loc56:
-	.long	.Ltmp245
-	.long	.Ltmp272
-.Lset75 = .Ltmp693-.Ltmp692
+	.long	.Ltmp240
+	.long	.Ltmp267
+.Lset75 = .Ltmp688-.Ltmp687
 	.short	.Lset75
-.Ltmp692:
+.Ltmp687:
 	.byte	87
-.Ltmp693:
+.Ltmp688:
 	.long	0
 	.long	0
 .Ldebug_loc57:
-	.long	.Lfunc_begin19
-	.long	.Ltmp288
-.Lset76 = .Ltmp695-.Ltmp694
+	.long	.Lfunc_begin17
+	.long	.Ltmp283
+.Lset76 = .Ltmp690-.Ltmp689
 	.short	.Lset76
-.Ltmp694:
+.Ltmp689:
 	.byte	80
-.Ltmp695:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset77 = .Ltmp697-.Ltmp696
+.Ltmp690:
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset77 = .Ltmp692-.Ltmp691
 	.short	.Lset77
-.Ltmp696:
+.Ltmp691:
 	.byte	87
-.Ltmp697:
+.Ltmp692:
 	.long	0
 	.long	0
 .Ldebug_loc58:
-	.long	.Lfunc_begin19
-	.long	.Ltmp287
-.Lset78 = .Ltmp699-.Ltmp698
+	.long	.Lfunc_begin17
+	.long	.Ltmp282
+.Lset78 = .Ltmp694-.Ltmp693
 	.short	.Lset78
-.Ltmp698:
+.Ltmp693:
 	.byte	81
-.Ltmp699:
-	.long	.Ltmp287
-	.long	.Ltmp320
-.Lset79 = .Ltmp701-.Ltmp700
+.Ltmp694:
+	.long	.Ltmp282
+	.long	.Ltmp315
+.Lset79 = .Ltmp696-.Ltmp695
 	.short	.Lset79
-.Ltmp700:
+.Ltmp695:
 	.byte	90
-.Ltmp701:
+.Ltmp696:
 	.long	0
 	.long	0
 .Ldebug_loc59:
-	.long	.Lfunc_begin19
-	.long	.Ltmp286
-.Lset80 = .Ltmp703-.Ltmp702
+	.long	.Lfunc_begin17
+	.long	.Ltmp281
+.Lset80 = .Ltmp698-.Ltmp697
 	.short	.Lset80
-.Ltmp702:
+.Ltmp697:
 	.byte	82
-.Ltmp703:
-	.long	.Ltmp286
-	.long	.Ltmp323
-.Lset81 = .Ltmp705-.Ltmp704
+.Ltmp698:
+	.long	.Ltmp281
+	.long	.Ltmp318
+.Lset81 = .Ltmp700-.Ltmp699
 	.short	.Lset81
-.Ltmp704:
+.Ltmp699:
 	.byte	126
 	.byte	12
-.Ltmp705:
+.Ltmp700:
 	.long	0
 	.long	0
 .Ldebug_loc60:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset82 = .Ltmp707-.Ltmp706
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset82 = .Ltmp702-.Ltmp701
 	.short	.Lset82
-.Ltmp706:
+.Ltmp701:
 	.byte	87
-.Ltmp707:
+.Ltmp702:
 	.long	0
 	.long	0
 .Ldebug_loc61:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset83 = .Ltmp709-.Ltmp708
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset83 = .Ltmp704-.Ltmp703
 	.short	.Lset83
-.Ltmp708:
+.Ltmp703:
 	.byte	87
-.Ltmp709:
+.Ltmp704:
 	.long	0
 	.long	0
 .Ldebug_loc62:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset84 = .Ltmp711-.Ltmp710
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset84 = .Ltmp706-.Ltmp705
 	.short	.Lset84
-.Ltmp710:
+.Ltmp705:
 	.byte	87
-.Ltmp711:
+.Ltmp706:
 	.long	0
 	.long	0
 .Ldebug_loc63:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset85 = .Ltmp713-.Ltmp712
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset85 = .Ltmp708-.Ltmp707
 	.short	.Lset85
-.Ltmp712:
+.Ltmp707:
 	.byte	87
-.Ltmp713:
+.Ltmp708:
 	.long	0
 	.long	0
 .Ldebug_loc64:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset86 = .Ltmp715-.Ltmp714
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset86 = .Ltmp710-.Ltmp709
 	.short	.Lset86
-.Ltmp714:
+.Ltmp709:
 	.byte	87
-.Ltmp715:
+.Ltmp710:
 	.long	0
 	.long	0
 .Ldebug_loc65:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset87 = .Ltmp717-.Ltmp716
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset87 = .Ltmp712-.Ltmp711
 	.short	.Lset87
-.Ltmp716:
+.Ltmp711:
 	.byte	87
-.Ltmp717:
+.Ltmp712:
 	.long	0
 	.long	0
 .Ldebug_loc66:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset88 = .Ltmp719-.Ltmp718
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset88 = .Ltmp714-.Ltmp713
 	.short	.Lset88
-.Ltmp718:
+.Ltmp713:
 	.byte	87
-.Ltmp719:
+.Ltmp714:
 	.long	0
 	.long	0
 .Ldebug_loc67:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset89 = .Ltmp721-.Ltmp720
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset89 = .Ltmp716-.Ltmp715
 	.short	.Lset89
-.Ltmp720:
+.Ltmp715:
 	.byte	87
-.Ltmp721:
+.Ltmp716:
 	.long	0
 	.long	0
 .Ldebug_loc68:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset90 = .Ltmp723-.Ltmp722
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset90 = .Ltmp718-.Ltmp717
 	.short	.Lset90
-.Ltmp722:
+.Ltmp717:
 	.byte	87
-.Ltmp723:
+.Ltmp718:
 	.long	0
 	.long	0
 .Ldebug_loc69:
-	.long	.Ltmp288
-	.long	.Ltmp321
-.Lset91 = .Ltmp725-.Ltmp724
+	.long	.Ltmp283
+	.long	.Ltmp316
+.Lset91 = .Ltmp720-.Ltmp719
 	.short	.Lset91
-.Ltmp724:
+.Ltmp719:
 	.byte	87
-.Ltmp725:
+.Ltmp720:
 	.long	0
 	.long	0
 .Ldebug_loc70:
-	.long	.Lfunc_begin20
-	.long	.Ltmp337
-.Lset92 = .Ltmp727-.Ltmp726
+	.long	.Lfunc_begin18
+	.long	.Ltmp332
+.Lset92 = .Ltmp722-.Ltmp721
 	.short	.Lset92
-.Ltmp726:
+.Ltmp721:
 	.byte	80
-.Ltmp727:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset93 = .Ltmp729-.Ltmp728
+.Ltmp722:
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset93 = .Ltmp724-.Ltmp723
 	.short	.Lset93
-.Ltmp728:
+.Ltmp723:
 	.byte	87
-.Ltmp729:
+.Ltmp724:
 	.long	0
 	.long	0
 .Ldebug_loc71:
-	.long	.Lfunc_begin20
-	.long	.Ltmp336
-.Lset94 = .Ltmp731-.Ltmp730
+	.long	.Lfunc_begin18
+	.long	.Ltmp331
+.Lset94 = .Ltmp726-.Ltmp725
 	.short	.Lset94
-.Ltmp730:
+.Ltmp725:
 	.byte	81
-.Ltmp731:
-	.long	.Ltmp336
-	.long	.Ltmp369
-.Lset95 = .Ltmp733-.Ltmp732
+.Ltmp726:
+	.long	.Ltmp331
+	.long	.Ltmp364
+.Lset95 = .Ltmp728-.Ltmp727
 	.short	.Lset95
-.Ltmp732:
+.Ltmp727:
 	.byte	90
-.Ltmp733:
+.Ltmp728:
 	.long	0
 	.long	0
 .Ldebug_loc72:
-	.long	.Lfunc_begin20
-	.long	.Ltmp335
-.Lset96 = .Ltmp735-.Ltmp734
+	.long	.Lfunc_begin18
+	.long	.Ltmp330
+.Lset96 = .Ltmp730-.Ltmp729
 	.short	.Lset96
-.Ltmp734:
+.Ltmp729:
 	.byte	82
-.Ltmp735:
-	.long	.Ltmp335
-	.long	.Ltmp372
-.Lset97 = .Ltmp737-.Ltmp736
+.Ltmp730:
+	.long	.Ltmp330
+	.long	.Ltmp367
+.Lset97 = .Ltmp732-.Ltmp731
 	.short	.Lset97
-.Ltmp736:
+.Ltmp731:
 	.byte	126
 	.byte	12
-.Ltmp737:
+.Ltmp732:
 	.long	0
 	.long	0
 .Ldebug_loc73:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset98 = .Ltmp739-.Ltmp738
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset98 = .Ltmp734-.Ltmp733
 	.short	.Lset98
-.Ltmp738:
+.Ltmp733:
 	.byte	87
-.Ltmp739:
+.Ltmp734:
 	.long	0
 	.long	0
 .Ldebug_loc74:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset99 = .Ltmp741-.Ltmp740
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset99 = .Ltmp736-.Ltmp735
 	.short	.Lset99
-.Ltmp740:
+.Ltmp735:
 	.byte	87
-.Ltmp741:
+.Ltmp736:
 	.long	0
 	.long	0
 .Ldebug_loc75:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset100 = .Ltmp743-.Ltmp742
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset100 = .Ltmp738-.Ltmp737
 	.short	.Lset100
-.Ltmp742:
+.Ltmp737:
 	.byte	87
-.Ltmp743:
+.Ltmp738:
 	.long	0
 	.long	0
 .Ldebug_loc76:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset101 = .Ltmp745-.Ltmp744
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset101 = .Ltmp740-.Ltmp739
 	.short	.Lset101
-.Ltmp744:
+.Ltmp739:
 	.byte	87
-.Ltmp745:
+.Ltmp740:
 	.long	0
 	.long	0
 .Ldebug_loc77:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset102 = .Ltmp747-.Ltmp746
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset102 = .Ltmp742-.Ltmp741
 	.short	.Lset102
-.Ltmp746:
+.Ltmp741:
 	.byte	87
-.Ltmp747:
+.Ltmp742:
 	.long	0
 	.long	0
 .Ldebug_loc78:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset103 = .Ltmp749-.Ltmp748
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset103 = .Ltmp744-.Ltmp743
 	.short	.Lset103
-.Ltmp748:
+.Ltmp743:
 	.byte	87
-.Ltmp749:
+.Ltmp744:
 	.long	0
 	.long	0
 .Ldebug_loc79:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset104 = .Ltmp751-.Ltmp750
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset104 = .Ltmp746-.Ltmp745
 	.short	.Lset104
-.Ltmp750:
+.Ltmp745:
 	.byte	87
-.Ltmp751:
+.Ltmp746:
 	.long	0
 	.long	0
 .Ldebug_loc80:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset105 = .Ltmp753-.Ltmp752
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset105 = .Ltmp748-.Ltmp747
 	.short	.Lset105
-.Ltmp752:
+.Ltmp747:
 	.byte	87
-.Ltmp753:
+.Ltmp748:
 	.long	0
 	.long	0
 .Ldebug_loc81:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset106 = .Ltmp755-.Ltmp754
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset106 = .Ltmp750-.Ltmp749
 	.short	.Lset106
-.Ltmp754:
+.Ltmp749:
 	.byte	87
-.Ltmp755:
+.Ltmp750:
 	.long	0
 	.long	0
 .Ldebug_loc82:
-	.long	.Ltmp337
-	.long	.Ltmp370
-.Lset107 = .Ltmp757-.Ltmp756
+	.long	.Ltmp332
+	.long	.Ltmp365
+.Lset107 = .Ltmp752-.Ltmp751
 	.short	.Lset107
-.Ltmp756:
+.Ltmp751:
 	.byte	87
-.Ltmp757:
+.Ltmp752:
 	.long	0
 	.long	0
 .Ldebug_loc83:
-	.long	.Lfunc_begin21
-	.long	.Ltmp381
-.Lset108 = .Ltmp759-.Ltmp758
+	.long	.Lfunc_begin19
+	.long	.Ltmp376
+.Lset108 = .Ltmp754-.Ltmp753
 	.short	.Lset108
-.Ltmp758:
+.Ltmp753:
 	.byte	80
-.Ltmp759:
+.Ltmp754:
 	.long	0
 	.long	0
 .Ldebug_loc84:
-	.long	.Ltmp379
-	.long	.Ltmp381
-.Lset109 = .Ltmp761-.Ltmp760
+	.long	.Ltmp374
+	.long	.Ltmp376
+.Lset109 = .Ltmp756-.Ltmp755
 	.short	.Lset109
-.Ltmp760:
+.Ltmp755:
 	.byte	80
-.Ltmp761:
+.Ltmp756:
 	.long	0
 	.long	0
 .Ldebug_loc85:
-	.long	.Lfunc_begin22
-	.long	.Ltmp394
-.Lset110 = .Ltmp763-.Ltmp762
+	.long	.Lfunc_begin20
+	.long	.Ltmp389
+.Lset110 = .Ltmp758-.Ltmp757
 	.short	.Lset110
-.Ltmp762:
+.Ltmp757:
 	.byte	80
-.Ltmp763:
-	.long	.Ltmp394
-	.long	.Ltmp413
-.Lset111 = .Ltmp765-.Ltmp764
+.Ltmp758:
+	.long	.Ltmp389
+	.long	.Ltmp408
+.Lset111 = .Ltmp760-.Ltmp759
 	.short	.Lset111
-.Ltmp764:
+.Ltmp759:
 	.byte	85
-.Ltmp765:
-	.long	.Ltmp413
-	.long	.Ltmp421
-.Lset112 = .Ltmp767-.Ltmp766
+.Ltmp760:
+	.long	.Ltmp408
+	.long	.Ltmp416
+.Lset112 = .Ltmp762-.Ltmp761
 	.short	.Lset112
-.Ltmp766:
+.Ltmp761:
 	.byte	126
 	.byte	16
-.Ltmp767:
-	.long	.Ltmp421
-	.long	.Ltmp422
-.Lset113 = .Ltmp769-.Ltmp768
+.Ltmp762:
+	.long	.Ltmp416
+	.long	.Ltmp417
+.Lset113 = .Ltmp764-.Ltmp763
 	.short	.Lset113
-.Ltmp768:
+.Ltmp763:
 	.byte	81
-.Ltmp769:
-	.long	.Ltmp422
-	.long	.Ltmp424
-.Lset114 = .Ltmp771-.Ltmp770
+.Ltmp764:
+	.long	.Ltmp417
+	.long	.Ltmp419
+.Lset114 = .Ltmp766-.Ltmp765
 	.short	.Lset114
-.Ltmp770:
+.Ltmp765:
 	.byte	126
 	.byte	16
-.Ltmp771:
+.Ltmp766:
 	.long	0
 	.long	0
 .Ldebug_loc86:
-	.long	.Ltmp394
-	.long	.Ltmp424
-.Lset115 = .Ltmp773-.Ltmp772
+	.long	.Ltmp389
+	.long	.Ltmp419
+.Lset115 = .Ltmp768-.Ltmp767
 	.short	.Lset115
-.Ltmp772:
+.Ltmp767:
 	.byte	16
 	.byte	0
-.Ltmp773:
-	.long	.Ltmp424
-	.long	.Ltmp425
-.Lset116 = .Ltmp775-.Ltmp774
+.Ltmp768:
+	.long	.Ltmp419
+	.long	.Ltmp420
+.Lset116 = .Ltmp770-.Ltmp769
 	.short	.Lset116
-.Ltmp774:
+.Ltmp769:
 	.byte	89
-.Ltmp775:
+.Ltmp770:
 	.long	0
 	.long	0
 .Ldebug_loc87:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset117 = .Ltmp777-.Ltmp776
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset117 = .Ltmp772-.Ltmp771
 	.short	.Lset117
-.Ltmp776:
+.Ltmp771:
 	.byte	85
-.Ltmp777:
+.Ltmp772:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset118 = .Ltmp779-.Ltmp778
+.Lset118 = .Ltmp774-.Ltmp773
 	.short	.Lset118
-.Ltmp778:
+.Ltmp773:
 	.byte	126
 	.byte	16
-.Ltmp779:
+.Ltmp774:
 	.long	0
 	.long	0
 .Ldebug_loc88:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset119 = .Ltmp781-.Ltmp780
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset119 = .Ltmp776-.Ltmp775
 	.short	.Lset119
-.Ltmp780:
+.Ltmp775:
 	.byte	85
-.Ltmp781:
+.Ltmp776:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset120 = .Ltmp783-.Ltmp782
+.Lset120 = .Ltmp778-.Ltmp777
 	.short	.Lset120
-.Ltmp782:
+.Ltmp777:
 	.byte	126
 	.byte	16
-.Ltmp783:
+.Ltmp778:
 	.long	0
 	.long	0
 .Ldebug_loc89:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset121 = .Ltmp785-.Ltmp784
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset121 = .Ltmp780-.Ltmp779
 	.short	.Lset121
-.Ltmp784:
+.Ltmp779:
 	.byte	85
-.Ltmp785:
+.Ltmp780:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset122 = .Ltmp787-.Ltmp786
+.Lset122 = .Ltmp782-.Ltmp781
 	.short	.Lset122
-.Ltmp786:
+.Ltmp781:
 	.byte	126
 	.byte	16
-.Ltmp787:
+.Ltmp782:
 	.long	0
 	.long	0
 .Ldebug_loc90:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset123 = .Ltmp789-.Ltmp788
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset123 = .Ltmp784-.Ltmp783
 	.short	.Lset123
-.Ltmp788:
+.Ltmp783:
 	.byte	85
-.Ltmp789:
+.Ltmp784:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset124 = .Ltmp791-.Ltmp790
+.Lset124 = .Ltmp786-.Ltmp785
 	.short	.Lset124
-.Ltmp790:
+.Ltmp785:
 	.byte	126
 	.byte	16
-.Ltmp791:
+.Ltmp786:
 	.long	0
 	.long	0
 .Ldebug_loc91:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset125 = .Ltmp793-.Ltmp792
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset125 = .Ltmp788-.Ltmp787
 	.short	.Lset125
-.Ltmp792:
+.Ltmp787:
 	.byte	85
-.Ltmp793:
+.Ltmp788:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset126 = .Ltmp795-.Ltmp794
+.Lset126 = .Ltmp790-.Ltmp789
 	.short	.Lset126
-.Ltmp794:
+.Ltmp789:
 	.byte	126
 	.byte	16
-.Ltmp795:
+.Ltmp790:
 	.long	0
 	.long	0
 .Ldebug_loc92:
-	.long	.Ltmp395
-	.long	.Ltmp413
-.Lset127 = .Ltmp797-.Ltmp796
+	.long	.Ltmp390
+	.long	.Ltmp408
+.Lset127 = .Ltmp792-.Ltmp791
 	.short	.Lset127
-.Ltmp796:
+.Ltmp791:
 	.byte	85
-.Ltmp797:
+.Ltmp792:
+	.long	.Ltmp408
 	.long	.Ltmp413
-	.long	.Ltmp418
-.Lset128 = .Ltmp799-.Ltmp798
+.Lset128 = .Ltmp794-.Ltmp793
 	.short	.Lset128
-.Ltmp798:
+.Ltmp793:
 	.byte	126
 	.byte	16
-.Ltmp799:
+.Ltmp794:
 	.long	0
 	.long	0
 .Ldebug_loc93:
-	.long	.Lfunc_begin25
-	.long	.Ltmp441
-.Lset129 = .Ltmp801-.Ltmp800
+	.long	.Lfunc_begin23
+	.long	.Ltmp436
+.Lset129 = .Ltmp796-.Ltmp795
 	.short	.Lset129
-.Ltmp800:
+.Ltmp795:
 	.byte	80
-.Ltmp801:
-	.long	.Ltmp441
-	.long	.Ltmp445
-.Lset130 = .Ltmp803-.Ltmp802
+.Ltmp796:
+	.long	.Ltmp436
+	.long	.Ltmp440
+.Lset130 = .Ltmp798-.Ltmp797
 	.short	.Lset130
-.Ltmp802:
+.Ltmp797:
 	.byte	81
-.Ltmp803:
-	.long	.Ltmp446
-	.long	.Ltmp447
-.Lset131 = .Ltmp805-.Ltmp804
+.Ltmp798:
+	.long	.Ltmp441
+	.long	.Ltmp442
+.Lset131 = .Ltmp800-.Ltmp799
 	.short	.Lset131
-.Ltmp804:
+.Ltmp799:
 	.byte	81
-.Ltmp805:
-	.long	.Ltmp447
-	.long	.Ltmp449
-.Lset132 = .Ltmp807-.Ltmp806
+.Ltmp800:
+	.long	.Ltmp442
+	.long	.Ltmp444
+.Lset132 = .Ltmp802-.Ltmp801
 	.short	.Lset132
-.Ltmp806:
+.Ltmp801:
 	.byte	91
-.Ltmp807:
+.Ltmp802:
 	.long	0
 	.long	0
 .Ldebug_loc94:
-	.long	.Lfunc_begin25
-	.long	.Ltmp445
-.Lset133 = .Ltmp809-.Ltmp808
+	.long	.Lfunc_begin23
+	.long	.Ltmp440
+.Lset133 = .Ltmp804-.Ltmp803
 	.short	.Lset133
-.Ltmp808:
+.Ltmp803:
 	.byte	81
-.Ltmp809:
-	.long	.Ltmp446
-	.long	.Ltmp447
-.Lset134 = .Ltmp811-.Ltmp810
+.Ltmp804:
+	.long	.Ltmp441
+	.long	.Ltmp442
+.Lset134 = .Ltmp806-.Ltmp805
 	.short	.Lset134
-.Ltmp810:
+.Ltmp805:
 	.byte	81
-.Ltmp811:
-	.long	.Ltmp447
-	.long	.Ltmp449
-.Lset135 = .Ltmp813-.Ltmp812
+.Ltmp806:
+	.long	.Ltmp442
+	.long	.Ltmp444
+.Lset135 = .Ltmp808-.Ltmp807
 	.short	.Lset135
-.Ltmp812:
+.Ltmp807:
 	.byte	91
-.Ltmp813:
+.Ltmp808:
 	.long	0
 	.long	0
 .Ldebug_loc95:
-	.long	.Lfunc_begin25
-	.long	.Ltmp450
-.Lset136 = .Ltmp815-.Ltmp814
+	.long	.Lfunc_begin23
+	.long	.Ltmp445
+.Lset136 = .Ltmp810-.Ltmp809
 	.short	.Lset136
-.Ltmp814:
+.Ltmp809:
 	.byte	82
-.Ltmp815:
-	.long	.Ltmp451
-	.long	.Ltmp452
-.Lset137 = .Ltmp817-.Ltmp816
+.Ltmp810:
+	.long	.Ltmp446
+	.long	.Ltmp447
+.Lset137 = .Ltmp812-.Ltmp811
 	.short	.Lset137
-.Ltmp816:
+.Ltmp811:
 	.byte	82
-.Ltmp817:
+.Ltmp812:
 	.long	0
 	.long	0
 .Ldebug_loc96:
-	.long	.Lfunc_begin25
-	.long	.Ltmp450
-.Lset138 = .Ltmp819-.Ltmp818
+	.long	.Lfunc_begin23
+	.long	.Ltmp445
+.Lset138 = .Ltmp814-.Ltmp813
 	.short	.Lset138
-.Ltmp818:
+.Ltmp813:
 	.byte	83
-.Ltmp819:
-	.long	.Ltmp451
-	.long	.Ltmp452
-.Lset139 = .Ltmp821-.Ltmp820
+.Ltmp814:
+	.long	.Ltmp446
+	.long	.Ltmp447
+.Lset139 = .Ltmp816-.Ltmp815
 	.short	.Lset139
-.Ltmp820:
+.Ltmp815:
 	.byte	83
-.Ltmp821:
+.Ltmp816:
 	.long	0
 	.long	0
 .Ldebug_loc97:
+	.long	.Ltmp436
 	.long	.Ltmp441
-	.long	.Ltmp446
-.Lset140 = .Ltmp823-.Ltmp822
+.Lset140 = .Ltmp818-.Ltmp817
 	.short	.Lset140
-.Ltmp822:
+.Ltmp817:
 	.byte	16
 	.byte	0
-.Ltmp823:
-	.long	.Ltmp446
-	.long	.Ltmp449
-.Lset141 = .Ltmp825-.Ltmp824
+.Ltmp818:
+	.long	.Ltmp441
+	.long	.Ltmp444
+.Lset141 = .Ltmp820-.Ltmp819
 	.short	.Lset141
-.Ltmp824:
+.Ltmp819:
 	.byte	16
 	.byte	1
-.Ltmp825:
-	.long	.Ltmp449
-	.long	.Lfunc_end25
-.Lset142 = .Ltmp827-.Ltmp826
+.Ltmp820:
+	.long	.Ltmp444
+	.long	.Lfunc_end23
+.Lset142 = .Ltmp822-.Ltmp821
 	.short	.Lset142
-.Ltmp826:
+.Ltmp821:
 	.byte	16
 	.byte	0
-.Ltmp827:
+.Ltmp822:
 	.long	0
 	.long	0
 .Ldebug_loc98:
-	.long	.Lfunc_begin26
-	.long	.Ltmp457
-.Lset143 = .Ltmp829-.Ltmp828
+	.long	.Lfunc_begin24
+	.long	.Ltmp452
+.Lset143 = .Ltmp824-.Ltmp823
 	.short	.Lset143
-.Ltmp828:
+.Ltmp823:
 	.byte	80
-.Ltmp829:
-	.long	.Ltmp457
-	.long	.Ltmp461
-.Lset144 = .Ltmp831-.Ltmp830
+.Ltmp824:
+	.long	.Ltmp452
+	.long	.Ltmp456
+.Lset144 = .Ltmp826-.Ltmp825
 	.short	.Lset144
-.Ltmp830:
+.Ltmp825:
 	.byte	81
-.Ltmp831:
-	.long	.Ltmp462
-	.long	.Ltmp463
-.Lset145 = .Ltmp833-.Ltmp832
+.Ltmp826:
+	.long	.Ltmp457
+	.long	.Ltmp458
+.Lset145 = .Ltmp828-.Ltmp827
 	.short	.Lset145
-.Ltmp832:
+.Ltmp827:
 	.byte	81
-.Ltmp833:
-	.long	.Ltmp463
-	.long	.Ltmp465
-.Lset146 = .Ltmp835-.Ltmp834
+.Ltmp828:
+	.long	.Ltmp458
+	.long	.Ltmp460
+.Lset146 = .Ltmp830-.Ltmp829
 	.short	.Lset146
-.Ltmp834:
+.Ltmp829:
 	.byte	91
-.Ltmp835:
+.Ltmp830:
 	.long	0
 	.long	0
 .Ldebug_loc99:
-	.long	.Lfunc_begin26
-	.long	.Ltmp461
-.Lset147 = .Ltmp837-.Ltmp836
+	.long	.Lfunc_begin24
+	.long	.Ltmp456
+.Lset147 = .Ltmp832-.Ltmp831
 	.short	.Lset147
-.Ltmp836:
+.Ltmp831:
 	.byte	81
-.Ltmp837:
-	.long	.Ltmp462
-	.long	.Ltmp463
-.Lset148 = .Ltmp839-.Ltmp838
+.Ltmp832:
+	.long	.Ltmp457
+	.long	.Ltmp458
+.Lset148 = .Ltmp834-.Ltmp833
 	.short	.Lset148
-.Ltmp838:
+.Ltmp833:
 	.byte	81
-.Ltmp839:
-	.long	.Ltmp463
-	.long	.Ltmp465
-.Lset149 = .Ltmp841-.Ltmp840
+.Ltmp834:
+	.long	.Ltmp458
+	.long	.Ltmp460
+.Lset149 = .Ltmp836-.Ltmp835
 	.short	.Lset149
-.Ltmp840:
+.Ltmp835:
 	.byte	91
-.Ltmp841:
+.Ltmp836:
 	.long	0
 	.long	0
 .Ldebug_loc100:
-	.long	.Lfunc_begin26
-	.long	.Ltmp466
-.Lset150 = .Ltmp843-.Ltmp842
+	.long	.Lfunc_begin24
+	.long	.Ltmp461
+.Lset150 = .Ltmp838-.Ltmp837
 	.short	.Lset150
-.Ltmp842:
+.Ltmp837:
 	.byte	82
-.Ltmp843:
-	.long	.Ltmp467
-	.long	.Ltmp468
-.Lset151 = .Ltmp845-.Ltmp844
+.Ltmp838:
+	.long	.Ltmp462
+	.long	.Ltmp463
+.Lset151 = .Ltmp840-.Ltmp839
 	.short	.Lset151
-.Ltmp844:
+.Ltmp839:
 	.byte	82
-.Ltmp845:
+.Ltmp840:
 	.long	0
 	.long	0
 .Ldebug_loc101:
-	.long	.Lfunc_begin26
-	.long	.Ltmp466
-.Lset152 = .Ltmp847-.Ltmp846
+	.long	.Lfunc_begin24
+	.long	.Ltmp461
+.Lset152 = .Ltmp842-.Ltmp841
 	.short	.Lset152
-.Ltmp846:
+.Ltmp841:
 	.byte	83
-.Ltmp847:
-	.long	.Ltmp467
-	.long	.Ltmp468
-.Lset153 = .Ltmp849-.Ltmp848
+.Ltmp842:
+	.long	.Ltmp462
+	.long	.Ltmp463
+.Lset153 = .Ltmp844-.Ltmp843
 	.short	.Lset153
-.Ltmp848:
+.Ltmp843:
 	.byte	83
-.Ltmp849:
+.Ltmp844:
 	.long	0
 	.long	0
 .Ldebug_loc102:
+	.long	.Ltmp452
 	.long	.Ltmp457
-	.long	.Ltmp462
-.Lset154 = .Ltmp851-.Ltmp850
+.Lset154 = .Ltmp846-.Ltmp845
 	.short	.Lset154
-.Ltmp850:
+.Ltmp845:
 	.byte	16
 	.byte	0
-.Ltmp851:
-	.long	.Ltmp462
-	.long	.Ltmp465
-.Lset155 = .Ltmp853-.Ltmp852
+.Ltmp846:
+	.long	.Ltmp457
+	.long	.Ltmp460
+.Lset155 = .Ltmp848-.Ltmp847
 	.short	.Lset155
-.Ltmp852:
+.Ltmp847:
 	.byte	16
 	.byte	1
-.Ltmp853:
-	.long	.Ltmp465
-	.long	.Lfunc_end26
-.Lset156 = .Ltmp855-.Ltmp854
+.Ltmp848:
+	.long	.Ltmp460
+	.long	.Lfunc_end24
+.Lset156 = .Ltmp850-.Ltmp849
 	.short	.Lset156
-.Ltmp854:
+.Ltmp849:
 	.byte	16
 	.byte	0
-.Ltmp855:
+.Ltmp850:
 	.long	0
 	.long	0
 .Ldebug_loc103:
-	.long	.Lfunc_begin27
-	.long	.Ltmp488
-.Lset157 = .Ltmp857-.Ltmp856
+	.long	.Lfunc_begin25
+	.long	.Ltmp483
+.Lset157 = .Ltmp852-.Ltmp851
 	.short	.Lset157
-.Ltmp856:
+.Ltmp851:
 	.byte	80
-.Ltmp857:
+.Ltmp852:
 	.long	0
 	.long	0
 .Ldebug_loc104:
-	.long	.Lfunc_begin27
-	.long	.Ltmp481
-.Lset158 = .Ltmp859-.Ltmp858
+	.long	.Lfunc_begin25
+	.long	.Ltmp476
+.Lset158 = .Ltmp854-.Ltmp853
 	.short	.Lset158
-.Ltmp858:
+.Ltmp853:
 	.byte	81
-.Ltmp859:
-	.long	.Ltmp483
-	.long	.Lfunc_end27
-.Lset159 = .Ltmp861-.Ltmp860
+.Ltmp854:
+	.long	.Ltmp478
+	.long	.Lfunc_end25
+.Lset159 = .Ltmp856-.Ltmp855
 	.short	.Lset159
-.Ltmp860:
+.Ltmp855:
 	.byte	17
 	.byte	0
-.Ltmp861:
+.Ltmp856:
 	.long	0
 	.long	0
 .Ldebug_loc105:
-	.long	.Lfunc_begin27
-	.long	.Ltmp482
-.Lset160 = .Ltmp863-.Ltmp862
+	.long	.Lfunc_begin25
+	.long	.Ltmp477
+.Lset160 = .Ltmp858-.Ltmp857
 	.short	.Lset160
-.Ltmp862:
+.Ltmp857:
 	.byte	82
-.Ltmp863:
+.Ltmp858:
 	.long	0
 	.long	0
 .Ldebug_loc106:
-	.long	.Lfunc_begin27
-	.long	.Ltmp513
-.Lset161 = .Ltmp865-.Ltmp864
+	.long	.Lfunc_begin25
+	.long	.Ltmp508
+.Lset161 = .Ltmp860-.Ltmp859
 	.short	.Lset161
-.Ltmp864:
+.Ltmp859:
 	.byte	83
-.Ltmp865:
-	.long	.Ltmp514
-	.long	.Ltmp515
-.Lset162 = .Ltmp867-.Ltmp866
+.Ltmp860:
+	.long	.Ltmp509
+	.long	.Ltmp510
+.Lset162 = .Ltmp862-.Ltmp861
 	.short	.Lset162
-.Ltmp866:
+.Ltmp861:
 	.byte	83
-.Ltmp867:
+.Ltmp862:
 	.long	0
 	.long	0
 .Ldebug_loc107:
-	.long	.Lfunc_begin28
-	.long	.Ltmp526
-.Lset163 = .Ltmp869-.Ltmp868
+	.long	.Lfunc_begin26
+	.long	.Ltmp521
+.Lset163 = .Ltmp864-.Ltmp863
 	.short	.Lset163
-.Ltmp868:
+.Ltmp863:
 	.byte	80
-.Ltmp869:
-	.long	.Ltmp528
-	.long	.Lfunc_end28
-.Lset164 = .Ltmp871-.Ltmp870
+.Ltmp864:
+	.long	.Ltmp523
+	.long	.Lfunc_end26
+.Lset164 = .Ltmp866-.Ltmp865
 	.short	.Lset164
-.Ltmp870:
+.Ltmp865:
 	.byte	17
 	.byte	0
-.Ltmp871:
+.Ltmp866:
 	.long	0
 	.long	0
 .Ldebug_loc108:
-	.long	.Lfunc_begin28
-	.long	.Ltmp535
-.Lset165 = .Ltmp873-.Ltmp872
+	.long	.Lfunc_begin26
+	.long	.Ltmp530
+.Lset165 = .Ltmp868-.Ltmp867
 	.short	.Lset165
-.Ltmp872:
+.Ltmp867:
 	.byte	81
-.Ltmp873:
+.Ltmp868:
 	.long	0
 	.long	0
 .Ldebug_loc109:
-	.long	.Lfunc_begin28
-	.long	.Ltmp527
-.Lset166 = .Ltmp875-.Ltmp874
+	.long	.Lfunc_begin26
+	.long	.Ltmp522
+.Lset166 = .Ltmp870-.Ltmp869
 	.short	.Lset166
-.Ltmp874:
+.Ltmp869:
 	.byte	82
-.Ltmp875:
+.Ltmp870:
 	.long	0
 	.long	0
 .Ldebug_loc110:
-	.long	.Lfunc_begin28
-	.long	.Ltmp537
-.Lset167 = .Ltmp877-.Ltmp876
+	.long	.Lfunc_begin26
+	.long	.Ltmp532
+.Lset167 = .Ltmp872-.Ltmp871
 	.short	.Lset167
-.Ltmp876:
+.Ltmp871:
 	.byte	83
-.Ltmp877:
-	.long	.Ltmp538
-	.long	.Ltmp539
-.Lset168 = .Ltmp879-.Ltmp878
+.Ltmp872:
+	.long	.Ltmp533
+	.long	.Ltmp534
+.Lset168 = .Ltmp874-.Ltmp873
 	.short	.Lset168
-.Ltmp878:
+.Ltmp873:
 	.byte	83
-.Ltmp879:
+.Ltmp874:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -12420,7 +12293,7 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset170 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset170
-	.long	7556
+	.long	7490
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
 	.long	109
 .asciiz"fillSplashScreen_in_buffer"
@@ -12428,43 +12301,43 @@ postmask.static:
 .asciiz"Adafruit_SSD1306_i2c_begin"
 	.long	7018
 .asciiz"drawHorisontalLineInternal_in_buffer"
-	.long	7303
+	.long	7270
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-	.long	7476
+	.long	7410
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
 	.long	6911
 .asciiz"drawHorisontalLine_in_buffer"
-	.long	7514
+	.long	7448
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	31
 .asciiz"outP_display_notReset"
-	.long	7223
+	.long	7190
 .asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
 	.long	194
 .asciiz"postmask"
-	.long	7743
+	.long	7677
 .asciiz"_safe_memmove"
 	.long	1095
 .asciiz"delay_milliseconds"
-	.long	7585
+	.long	7519
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
 	.long	4580
 .asciiz"tellDisplay_i2c_startscrolldiagright"
 	.long	3092
 .asciiz"writeDisplay_i2c_data"
-	.long	7261
+	.long	7228
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	7425
+	.long	7359
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
 	.long	60
 .asciiz"buffer"
-	.long	7693
+	.long	7627
 .asciiz"_safe_memcmp"
-	.long	7332
+	.long	7299
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	6804
 .asciiz"drawVerticalLine_in_buffer"
-	.long	7172
+	.long	7139
 .asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
 	.long	5314
 .asciiz"tellDisplay_i2c_startscrolldiagleft"
@@ -12480,24 +12353,20 @@ postmask.static:
 .asciiz"_safe_memset"
 	.long	3976
 .asciiz"tellDisplay_i2c_startscrollleft"
-	.long	7392
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok"
 	.long	172
 .asciiz"premask"
-	.long	7669
+	.long	7603
 .asciiz"delay_microseconds"
 	.long	6048
 .asciiz"tellDisplay_i2c_stopscroll"
-	.long	7139
-.asciiz"_i.i2c_internal_commands_if._chan.read_fram_device_id_ok"
 	.long	3202
 .asciiz"tellDisplay_i2c_invert"
 	.long	989
 .asciiz"writeDisplay_i2c_command"
-	.long	7645
-.asciiz"delay_seconds"
 	.long	924
 .asciiz"setPixel_in_buffer"
+	.long	7579
+.asciiz"delay_seconds"
 	.long	3372
 .asciiz"tellDisplay_i2c_startscrollright"
 	.long	0
@@ -12510,19 +12379,19 @@ postmask.static:
 	.long	.L.debug_info_begin0
 .Lset172 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset172
-	.long	7793
+	.long	7727
 .asciiz"short"
 	.long	1068
 .asciiz"interface"
-	.long	7825
+	.long	7759
 .asciiz"chanend"
-	.long	7892
+	.long	7826
 .asciiz"yarg"
 	.long	53
 .asciiz"port"
 	.long	902
 .asciiz"__TYPE_7"
-	.long	7847
+	.long	7781
 .asciiz"chronodot_d3231_registers_t"
 	.long	565
 .asciiz"display_vccstate_t"
@@ -12532,20 +12401,17 @@ postmask.static:
 .asciiz"unsigned char"
 	.long	1088
 .asciiz"int"
-	.long	7800
+	.long	7734
 .asciiz"unsigned short"
 	.long	0
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.i2c_internal_commands_if._chan.read_fram_device_id_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:us,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(chd,:uc,:us)"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_fram_device_id_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us,:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us)"
@@ -12561,18 +12427,18 @@ postmask.static:
 	.typestring height, "f{ss}(0)"
 	.typestring width, "f{ss}(0)"
 	.typestring getRotation, "f{uc}(0)"
-	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}})"
-	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc)"
+	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})"
+	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc)"
 	.overlay_reference writeDisplay_i2c_command,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc)"
+	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc)"
 	.overlay_reference writeDisplay_i2c_data,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc)"
-	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}},uc,uc)"
-	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}})"
-	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)},m(read_fram_device_id_ok){f{e(){m(false){0},m(true){1}}}(:uc)}})"
+	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc)"
+	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},uc,uc)"
+	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})"
+	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})"
 	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display_ok.fns
 	.typestring Clear_All_Pixels_In_Buffer, "f{0}(0)"
 	.typestring fillSplashScreen_in_buffer, "f{0}(0)"

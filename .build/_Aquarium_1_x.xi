@@ -1307,6 +1307,11 @@ typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
 # 16 "../src/_Aquarium_1_x.xc" 2
 
+# 1 "/Users/teig/workspace/lib_xassert/api/xassert.h" 1
+# 99 "/Users/teig/workspace/lib_xassert/api/xassert.h"
+inline int xassert_msg(const char msg[]) { return 1; }
+# 17 "../src/_Aquarium_1_x.xc" 2
+
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1346,13 +1351,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-
-
-int i2c_master_read_fram_id(int device,
-                         unsigned char data[],
-                         int nbytes,
-                         struct r_i2c &i2c_master);
-# 18 "../src/_Aquarium_1_x.xc" 2
+# 19 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/param.h" 1
 # 17 "../src/param.h"
@@ -1383,7 +1382,7 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 19 "../src/_Aquarium_1_x.xc" 2
+# 20 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
 # 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
@@ -1417,7 +1416,7 @@ typedef interface startkit_adc_acquire_if {
 
 [[combinable]]
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
-# 20 "../src/_Aquarium_1_x.xc" 2
+# 21 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Users/teig/workspace/module_random/src/random.h" 1
@@ -1444,13 +1443,13 @@ random_generator_t random_create_generator_from_hw_seed(void);
 # 49 "/Users/teig/workspace/module_random/src/random.h"
 unsigned
 random_get_random_number(random_generator_t &g);
-# 23 "../src/_Aquarium_1_x.xc" 2
+# 24 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 24 "../src/_Aquarium_1_x.xc" 2
+# 25 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
@@ -1459,7 +1458,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 25 "../src/_Aquarium_1_x.xc" 2
+# 26 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
 # 11 "../src/I2C_Internal_Server.h"
@@ -1483,16 +1482,20 @@ typedef interface i2c_internal_commands_if {
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
     bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 
+
+
     {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
-    bool read_fram_device_id_ok (const i2c_dev_address_t dev_addr);
+
+
+
 } i2c_internal_commands_if;
 
 
 
 [[combinable]]
 void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 26 "../src/_Aquarium_1_x.xc" 2
+# 27 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Chronodot_DS3231_Controller.h" 1
 # 41 "../src/Chronodot_DS3231_Controller.h"
@@ -1558,7 +1561,7 @@ typedef interface chronodot_ds3231_if {
 void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 27 "../src/_Aquarium_1_x.xc" 2
+# 28 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/display_ssd1306.h" 1
@@ -1593,7 +1596,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 29 "../src/_Aquarium_1_x.xc" 2
+# 30 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/I2C_External_Server.h" 1
@@ -1641,7 +1644,7 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 31 "../src/_Aquarium_1_x.xc" 2
+# 32 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
@@ -1664,7 +1667,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 32 "../src/_Aquarium_1_x.xc" 2
+# 33 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/port_heat_light_server.h" 1
@@ -1744,12 +1747,12 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 34 "../src/_Aquarium_1_x.xc" 2
+# 35 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
 # 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
-# 35 "../src/_Aquarium_1_x.xc" 2
+# 36 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
@@ -1797,7 +1800,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 36 "../src/_Aquarium_1_x.xc" 2
+# 37 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
@@ -1833,7 +1836,7 @@ void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 37 "../src/_Aquarium_1_x.xc" 2
+# 38 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Water_Controller.h" 1
 # 12 "../src/Temperature_Water_Controller.h"
@@ -1855,7 +1858,7 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 38 "../src/_Aquarium_1_x.xc" 2
+# 39 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_adafruit_GFX.h" 1
 # 15 "../src/core_graphics_adafruit_GFX.h"
@@ -1917,12 +1920,12 @@ typedef struct tag_display_param_t {
 
 
 extern display_param_t display_param;
-# 39 "../src/_Aquarium_1_x.xc" 2
+# 40 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_font5x8.h" 1
 # 12 "../src/core_graphics_font5x8.h"
 extern unsigned char font[];
-# 40 "../src/_Aquarium_1_x.xc" 2
+# 41 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
@@ -1936,7 +1939,7 @@ void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
    const unsigned int Num_of_data_sets);
-# 41 "../src/_Aquarium_1_x.xc" 2
+# 42 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/light_sunrise_sunset.h" 1
 # 13 "../src/light_sunrise_sunset.h"
@@ -1981,7 +1984,7 @@ bool
 Handle_Light_Sunrise_Sunset_Etc(
     light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 42 "../src/_Aquarium_1_x.xc" 2
+# 43 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/_Aquarium.h" 1
@@ -1994,8 +1997,8 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 44 "../src/_Aquarium_1_x.xc" 2
-# 54 "../src/_Aquarium_1_x.xc"
+# 45 "../src/_Aquarium_1_x.xc" 2
+# 55 "../src/_Aquarium_1_x.xc"
 typedef enum {
     CALLER_IS_BUTTON,
     CALLER_IS_REFRESH
@@ -2478,8 +2481,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
              sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", "Mar 15 2017", char_aa_str, char_OE_str);
-# 545 "../src/_Aquarium_1_x.xc"
+                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", "Mar 18 2017", char_aa_str, char_OE_str);
+# 546 "../src/_Aquarium_1_x.xc"
              Clear_All_Pixels_In_Buffer();
              setTextSize(1);
              setTextColor(1);
@@ -2491,7 +2494,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
              if (caller == CALLER_IS_BUTTON) {
                  context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                  context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                 do { if(1) printf("Version date %s %s\n", "21:28:46", "Mar 15 2017"); } while (0);
+                 do { if(1) printf("Version date %s %s\n", "20:48:28", "Mar 18 2017"); } while (0);
              } else {}
          } break;
 
@@ -2531,7 +2534,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "21:28:46", "Mar 15 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:48:28", "Mar 18 2017"); } while (0);
             } else {}
         } break;
 
@@ -2739,14 +2742,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
 
         } break;
+
+        default: {
+            do { __builtin_trap();} while(0);
+        } break;
     }
 
 
-    if (sprintf_return < 0) {
-        do { if(1) printf("ERROR: sprintf_return %d\n", sprintf_return); } while (0);
-    } else if ((sprintf_return+1) > sizeof context.display_ts1_chars) {
-        do { if(1) printf("\nEXCEPTION: MEMORY OVERFLOW: sprintf_return %d\n\n", sprintf_return); } while (0);
-    } else {}
+
+
+    do { if (!((!(sprintf_return < 0)) && xassert_msg("sprintf parse error"))) __builtin_trap();} while(0);
+    do { if (!((!((sprintf_return+1) > sizeof context.display_ts1_chars)) && xassert_msg("sprint memory overflow"))) __builtin_trap();} while(0);
 }
 
 void Handle_Real_Or_Clocked_Buttons (
@@ -2799,7 +2805,10 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
 
                 } break;
-                default: break;
+
+                default: {
+                    do { __builtin_trap();} while(0);
+                } break;
             }
         } break;
 
@@ -2849,7 +2858,10 @@ void Handle_Real_Or_Clocked_Buttons (
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
 
                 } break;
-                default: break;
+
+                default: {
+                    do { __builtin_trap();} while(0);
+                } break;
             }
         } break;
 
@@ -2979,7 +2991,10 @@ void Handle_Real_Or_Clocked_Buttons (
                         default: break;
                     }
                 } break;
-                default: break;
+
+                default: {
+                    do { __builtin_trap();} while(0);
+                } break;
             }
         } break;
     }
