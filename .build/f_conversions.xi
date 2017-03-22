@@ -1592,7 +1592,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 42 "../src/f_conversions.h"
+# 46 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1631,33 +1631,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 28 "../src/f_conversions.xc" 2
-
-
-
-
-
-void installExceptionHandler(void)
-{
-    asm(" ldap r11, exception");
-    asm(" set kep, r11");
-    asm(" retsp 0");
-    asm(".align 128");
-    asm("exception: bl myExceptionHandler");
-}
-
-void myExceptionHandler(void)
-{
-
-    do { if(0) printf("%s", "\nCRASH!\n\n"); } while (0);
-    asm(" clre");
-    asm(" waiteu");
-}
-
-
-
-
-
-
+# 38 "../src/f_conversions.xc"
 void
 Init_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
@@ -1670,7 +1644,7 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC (
     temps_onetenthDegC_mean_array.temps_index_next_to_write = 0;
     temps_onetenthDegC_mean_array.temps_num = 0;
 }
-# 89 "../src/f_conversions.xc"
+# 72 "../src/f_conversions.xc"
 temp_onetenthDegC_t
 Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
@@ -1680,6 +1654,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
     unsigned use_n_of_temps;
     unsigned remove_n_of_temps = 0;
+    bool not_full = (temps_onetenthDegC_mean_array.temps_num < n_of_temps);
     temp_onetenthDegC_t temp_return;
     temp_onetenthDegC_t temps_sum = 0;
     temp_onetenthDegC_t temp_largest = (-2147483647 -1);
@@ -1692,7 +1667,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temps_onetenthDegC_mean_array.temps_index_next_to_write = (temps_onetenthDegC_mean_array.temps_index_next_to_write + 1) % n_of_temps;
 
 
-    if (temps_onetenthDegC_mean_array.temps_num < n_of_temps) {
+    if (not_full) {
         temps_onetenthDegC_mean_array.temps_num++;
         use_n_of_temps = temps_onetenthDegC_mean_array.temps_num;
     } else {
@@ -1715,27 +1690,30 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
         }
     }
 
+    if (not_full) {
+        temp_return = temps_onetenthDeg;
+    } else {
 
 
 
 
 
 
-    for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
+        for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
 
-        if (index_of_array == index_of_temp_largest) {
+            if (index_of_array == index_of_temp_largest) {
 
-            remove_n_of_temps++;
-        } else if (index_of_array == index_of_temp_smallest) {
+                remove_n_of_temps++;
+            } else if (index_of_array == index_of_temp_smallest) {
 
-            remove_n_of_temps++;
-        } else {
-            temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
+                remove_n_of_temps++;
+            } else {
+                temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
+            }
         }
+
+        temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps));
     }
-
-
-    temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps));
 
 
     char is2_temps_first_chars [3][2] = {"H","A","W"};;
@@ -1799,7 +1777,7 @@ Temp_OnetenthDegC_To_Str (
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char temp_degC_str[5]) {
-# 233 "../src/f_conversions.xc"
+# 220 "../src/f_conversions.xc"
     temp_onetenthDegC_t degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
 
@@ -1831,13 +1809,13 @@ TC1047_Raw_DegC_To_String_Ok (
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
-# 275 "../src/f_conversions.xc"
+# 262 "../src/f_conversions.xc"
     light_sensor_range_t light_sensor_range = adc_val_mean_i/407;
     if (light_sensor_range > 99) light_sensor_range = 99;
 
     int sprintf_return;
     bool error = false;
-# 294 "../src/f_conversions.xc"
+
     error |= ((light_sensor_range < 0) || (light_sensor_range > 99));
 
     if (!isnull(lux_str)) {
@@ -1863,7 +1841,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
-# 332 "../src/f_conversions.xc"
+# 306 "../src/f_conversions.xc"
     voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
 

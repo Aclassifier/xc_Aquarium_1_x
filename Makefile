@@ -16,9 +16,11 @@ USED_MODULES = lib_startkit_support lib_xassert module_i2c_master module_random
 # XCC_XC_FLAGS, XCC_C_FLAGS, XCC_ASM_FLAGS, XCC_CPP_FLAGS
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
-#?Default is -O2
-XCC_FLAGS = -O2 -g -fxscope -save-temps -DXASSERT_ENABLE_ASSERTIONS=1
-# -DXASSERT_ENABLE_LINE_NUMBERS=1 -DXASSERT_ENABLE_DEBUG=1
+# -02 is default
+XCC_FLAGS = -O2 -g -fxscope -save-temps
+# -DXASSERT_ENABLE_ASSERTIONS=1   is default
+# -DXASSERT_ENABLE_LINE_NUMBERS=1 very expensive
+# -DXASSERT_ENABLE_DEBUG=1        very expensive
 XCC_MAP_FLAGS = -Xmapper --map -Xmapper _Aquarium_map.txt -Xmapper -report
 
 # The XCORE_ARM_PROJECT variable, if set to 1, configures this

@@ -1593,7 +1593,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 42 "../src/f_conversions.h"
+# 46 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1757,8 +1757,9 @@ typedef enum now_regulating_at_t {
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
-    void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
-    {now_regulating_at_t} get_now_regulating_at (void);
+    [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
+    [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
+    [[guarded]] void clear_debug_log (void);
 } temperature_water_commands_if;
 
 [[combinable]]
@@ -1831,6 +1832,12 @@ void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 37 "../src/main.xc" 2
+# 1 "../src/exception_handler.h" 1
+# 15 "../src/exception_handler.h"
+void assert_exception (bool assert_this);
+void installExceptionHandler(void);
+void myExceptionHandler(void);
+# 38 "../src/main.xc" 2
 
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
@@ -1844,7 +1851,7 @@ void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
    const unsigned int Num_of_data_sets);
-# 39 "../src/main.xc" 2
+# 40 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
@@ -1856,7 +1863,7 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 41 "../src/main.xc" 2
+# 42 "../src/main.xc" 2
 
 
 port inP_button_left = on tile[0]:0x10d00;
@@ -1878,6 +1885,7 @@ int main() {
     temperature_water_commands_if i_temperature_water_commands;
 
     par {
+        on tile[0]: installExceptionHandler();
 
         on tile[0].core[0]: I2C_Internal_Server (i_i2c_internal_commands);
         on tile[0].core[4]: I2C_External_Server (i_i2c_external_commands);

@@ -34,6 +34,7 @@
 #include "Temperature_Heater_Controller.h"
 #include "Temperature_Water_Controller.h"
 #include "Chronodot_DS3231_Controller.h"
+#include "exception_handler.h"
 //
 #include "adc_startkit_client.h"
 
@@ -59,7 +60,8 @@ int main() {
     temperature_water_commands_if  i_temperature_water_commands;
 
     par {
-        // on tile[0]:      installExceptionHandler       ();
+        on tile[0]: installExceptionHandler();
+
         on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
         on tile[0].core[4]: I2C_External_Server           (i_i2c_external_commands);
         on tile[0]:         System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,

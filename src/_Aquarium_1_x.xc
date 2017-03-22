@@ -8,7 +8,7 @@
 #ifdef INCLUDES
 
 #include <platform.h>
-//#include <xs1.h>
+#include <xs1.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -41,9 +41,12 @@
 #include "core_graphics_font5x8.h"
 #include "adc_startkit_client.h"
 #include "light_sunrise_sunset.h"
+#include "exception_handler.h"
 
 #include "_Aquarium.h"
 #endif
+
+//#define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
 #define DEBUG_PRINT_AQUARIUM 1 // Cost 1.2k
@@ -64,7 +67,7 @@ typedef enum display_screen_name_t {
     // English-Norwegian here bacause the screens are in Norwegian
     SCREEN_LOGG, // screen_logg_t
     SCREEN_AKVARIETEMPERATURER, // SCREEN_NORMALLY_FIRST
-    SCREEN_VARMEREGULERING,
+    SCREEN_VANNTEMP_REG,
     SCREEN_LYSGULERING,
     SCREEN_BOKSDATA,
     SCREEN_VERSJON,
@@ -156,7 +159,7 @@ typedef struct handler_context_t {
     DateTime_t                  datetime_at_startup;
     bool                        read_chronodot_ok;
     // For read_temperatures_ok:
-    i2c_temps_t                 i2c_temps; // qwe NOT USED IN SCREENS, JUST HERE!
+    i2c_temps_t                 i2c_temps; // NOT USED IN SCREENS, JUST HERE!
     light_composition_t         light_composition;
     unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
     bool                        light_stable;
@@ -170,6 +173,7 @@ typedef struct handler_context_t {
     voltage_onetenthV_t         rr_24V_voltage_onetenthV;
     bool                        rr_24_voltage_ok;
     now_regulating_at_t         now_regulating_at;
+    unsigned int                temperature_water_controller_debug_log;
 } handler_context_t;
 
 static const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
@@ -180,7 +184,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     client i2c_internal_commands_if        i_i2c_internal_commands,
     client port_heat_light_commands_if     i_port_heat_light_commands,
     client temperature_water_commands_if   i_temperature_water_commands,  // SCREEN_AKVARIETEMPERATURER
-    client temperature_heater_commands_if  i_temperature_heater_commands, // SCREEN_VARMEREGULERING
+    client temperature_heater_commands_if  i_temperature_heater_commands, // SCREEN_VANNTEMP_REG
     const  caller_t                        caller)
 {
     int  sprintf_return = 0; // If OK, number of chars excluding \0 written, if < 0 error
@@ -261,9 +265,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
         } break;
 
-        case SCREEN_VARMEREGULERING: {
+        case SCREEN_VANNTEMP_REG: {
 
             char temp_degC_heater_mean_last_cycle_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+
+            char temp_degC_water_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+            // Alternatively display context.temperature_water_controller_debug_log as %3u or %03X
+            i_temperature_water_commands.get_temp_degC_str (IOF_TEMPC_WATER, temp_degC_water_str); // As used by Temperature_Water_Controller
 
             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -277,28 +285,29 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 78 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "2 VARMEREGULERING N%s   P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
-                    char_AA_str,
+                    "2 VANNTEMP-REG %s%sC  P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
+                    temp_degC_water_str,
+                    char_degC_circle_str,
                     char_AA_str,
                     context.on_percent,
                     temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
                     context.on_watt);
             //                                            ..........----------.
-            //                                            2 VARMEREGULERING N.
+            //                                            2 VANNTEMP-REG 24.0oC
             //                                              P       100%     .
             //                                              SNITT  39.6oC   [±]
             //                                              EFFEKT    48W     .
 
             if (context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) {
-                drawRoundRect(106, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
-                fillRoundRect(106, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top FILL ONLY
+                drawRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
+                fillRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top FILL ONLY
                 setTextColor(BLACK);
             } else {
-                drawRoundRect(106, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top
+                drawRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top
                 setTextColor(WHITE);
             }
             setTextSize(2);
-            setCursor(109,14);
+            setCursor(101,14);
             display_print (now_regulating_at_char[context.now_regulating_at],REGULATING_AT_NUMS_TEXT_LEN);
 
             setTextSize(1);
@@ -478,11 +487,16 @@ void Handle_Real_Or_Clocked_Button_Actions (
             char temp_degC_str [INNER_TEMPERATURE_DEGC_TEXT_LEN];
             char rr_12V_str    [INNER_RR_12V_24V_TEXT_LEN];
             char rr_24V_str    [INNER_RR_12V_24V_TEXT_LEN];
-            light_sensor_range_t      light_sensor_intensity;
-            bool               light_sensor_intensity_ok;
+            light_sensor_range_t light_sensor_intensity;
+            bool                 light_sensor_intensity_ok;
 
             char fill_1_str [] = " ";
-            char fill_2_str [] = "  ";
+
+            #ifdef DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
+            char fill_2_str [] = "   "; // Add an extra char when light_sensor_intensity < 10. Will cause a crash in the test at the end of this function
+            #else
+            char fill_2_str [] = "  "; // Standard is two spaces
+            #endif
 
             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -527,41 +541,64 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
 
         case SCREEN_VERSJON: {
+            int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
+            int reg_value      =   getps(XS1_PS_BOOT_CONFIG); // Is XS1_G_PS_BOOT_CONFIG 0x30b
 
-             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
-                 context.display_ts1_chars [index_of_char] = ' ';
-             }
+            for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
 
-             // FILLS 84 chars plus \0
-             sprintf_return = sprintf (context.display_ts1_chars,
-                     "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ", __DATE__, char_aa_str, char_OE_str);
+            // FILLS 84 chars plus \0
+            sprintf_return = sprintf (context.display_ts1_chars,
+                               "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                               reg_value,
+                               __DATE__,
+                               char_aa_str,
+                               char_OE_str);
 
-             //                                            ..........----------.
-             //                                            5 BOKS              .
-             //                                              KODE Sep 22 2013  .
-             //                                              XC pŒ XMOS startKIT
-             //                                              ¯yvind Teig       .
+            //                                            ..........----------.
+            //                                            5 BOKS FFFFFFFF     .
+            //                                              KODE Sep 22 2013  .
+            //                                              XC pŒ XMOS startKIT
+            //                                              ¯yvind Teig
+
+            /*sprintf_return = sprintf (context.display_ts1_chars,
+                    "5 BOKS       %sKODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                    (boot_from_jtag) ? "(DEBUG) " : "(FLASHED)",
+                    __DATE__,
+                    char_aa_str,
+                    char_OE_str); */
+
+            //                                            ..........----------.
+            //                                            5 BOKS       (DEBUG).
+            //                                              KODE Sep 22 2013  .
+            //                                              XC pŒ XMOS startKIT
+            //                                              ¯yvind Teig       .
 
 
-             Clear_All_Pixels_In_Buffer();
-             setTextSize(1);
-             setTextColor(WHITE);
-             setCursor(0,0);
-             display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
-             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-             context.display_is_on = true;
+            Clear_All_Pixels_In_Buffer();
+            setTextSize(1);
+            setTextColor(WHITE);
+            setCursor(0,0);
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
 
-             if (caller == CALLER_IS_BUTTON) {
-                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                 debug_printf("Version date %s %s\n", __TIME__, __DATE__);
-             } else {}
-         } break;
+            if (caller == CALLER_IS_BUTTON) {
+                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                debug_printf("Version date %s %s\n", __TIME__, __DATE__);
+            } else {}
+        } break;
 
         case SCREEN_KONSTANTER: {
+            char temp_water_degc_str  [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+            char temp_heater_degc_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
+            bool ok;
+            i2c_temp_onetenthDegC_t value;
 
-            int temp_heater_degc  = (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING/10);
-            int temp_water_degc = (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT/10);
+            {value, ok} = Temp_OnetenthDegC_To_Str (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT, temp_water_degc_str);
+            {value, ok} = Temp_OnetenthDegC_To_Str (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, temp_heater_degc_str);
 
             for (int index_of_char = 0; index_of_char < SSD1306_TS1_DISPLAY_CHAR_LEN; index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -571,17 +608,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "6 KONSTANTER           %d%sC VANN            %d%sC MAX UNDERVARME  BOKS P%s %04u.%02u.%02u",
-                    temp_water_degc, char_degC_circle_str, temp_heater_degc, char_degC_circle_str,
-                    char_AA_str,
+                    "6 KONSTANTER           %s%sC VANN OG MAX   %s%sC UNDERVARME    %04u.%02u.%02u BOKS P%s",
+                    temp_water_degc_str,
+                    char_degC_circle_str,
+                    temp_heater_degc_str,
+                    char_degC_circle_str,
                     context.datetime_at_startup.year,
                     context.datetime_at_startup.month,
-                    context.datetime_at_startup.day);
+                    context.datetime_at_startup.day,
+                    char_AA_str);
                     //                                            ..........----------.
                     //                                            6 KONSTANTER
-                    //                                              25oC VANN
-                    //                                              40oC MAX UNDERVARME
-                    //                                              BOKS P 2017.03.14
+                    //                                              25.0oC VANN OG MAX
+                    //                                              40.0oC UNDERVARME
+                    //                                              2017.03.14 BOKS P
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -810,9 +850,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     // When I replaced all sprintf with the safe version snprintf 12.6KB code was the cost! See http://www.xcore.com/viewtopic.php?f=26&t=563
 
-    // By switchin -DXASSERT_ENABLE_ASSERTIONS=0 or 1 I saw that these two cost 100 bytes
-    assert((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
-    assert((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
+    // By switching -DXASSERT_ENABLE_ASSERTIONS=0 or 1 I saw that these two assert cost 100 bytes
+    assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
+    assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
 }
 
 void Handle_Real_Or_Clocked_Buttons (
@@ -838,10 +878,8 @@ void Handle_Real_Or_Clocked_Buttons (
                     if (caller == CALLER_IS_BUTTON) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
-
                            writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);
                            writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
-
                         } else { // DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE
                            context.display_appear_state = DISPLAY_APPEAR_BLACK;
                            Clear_All_Pixels_In_Buffer();
@@ -852,6 +890,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
                            context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
                            context.display_sub_context[SCREEN_LOGG].sub_state              = SUB_STATE_DARK;
+                           i_temperature_water_commands.clear_debug_log(); // Not when we turn dislay on because it also gets off at timeout
                         }
                     } else {}
 
@@ -1014,7 +1053,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 } else {}
                             } else {}
                         } break;
-                        case SCREEN_VARMEREGULERING: { // 2
+                        case SCREEN_VANNTEMP_REG: { // 2
                             // No code
                         } break;
                         case SCREEN_LYSGULERING: { // 3
@@ -1152,27 +1191,32 @@ void System_Task (
 
                 time += BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND;
 
-                {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-                context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers); // qwe move down?
-                i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
+                // Fetch data (1)
                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
-                {context.now_regulating_at} = i_temperature_water_commands.get_now_regulating_at ();
+                i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
 
                 while ((i_i2c_external_commands_notify == false) or (i_startkit_adc_acquire_complete == false)) {
                      select {
                          case i_i2c_external_commands.notify() : {
-                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok (); // qwe NOT USED IN SCREENS, JUST HERE!
+                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok (); // NOT USED IN SCREENS, JUST HERE!
                              i_i2c_external_commands_notify = true;
                          } break;
 
                          case i_startkit_adc_acquire.complete(): {
-                             {context.adc_cnt, context.no_adc_cnt}                        = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
-                             {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok  (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);   // Second
-                             {context.on_percent, context.on_watt}                        = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV); // Third
+                             {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
                              i_startkit_adc_acquire_complete = true;
                          } break;
                      }
                 }
+
+                // Fetch data (2)
+                {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
+                {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
+                {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+
+                // Convert some
+                context.datetime                                             = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+                {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
 
                 if (context.screen_logg.exists) {
                     #ifdef SCREEN_LOGG_RAW_TEMPS

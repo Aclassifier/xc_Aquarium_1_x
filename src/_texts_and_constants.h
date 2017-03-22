@@ -61,7 +61,7 @@ typedef char now_regulating_at_char_t [REGULATING_AT_NUMS][REGULATING_AT_NUMS_TE
 // 1 REGULATING_AT_SIMMERING
 // = REGULATING_AT_TEMP_REACHED
 // H REGULATING_AT_HOTTER_AMBIENT ("H" means "hot" for kitchen stoves, i.e. "Het" in Norwegian)
-#define NOW_REGULATING_AT_CHAR_TEXTS {"?", "2", "1", "=", "H"}
+#define NOW_REGULATING_AT_CHAR_TEXTS {"#", "2", "1", "=", "H"}
 
 #else
     #error Nested include TEXTS_AND_CONSTANTS_H_

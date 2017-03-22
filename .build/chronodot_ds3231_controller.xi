@@ -1669,7 +1669,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 42 "../src/f_conversions.h"
+# 46 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1833,8 +1833,9 @@ typedef enum now_regulating_at_t {
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
-    void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
-    {now_regulating_at_t} get_now_regulating_at (void);
+    [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
+    [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
+    [[guarded]] void clear_debug_log (void);
 } temperature_water_commands_if;
 
 [[combinable]]

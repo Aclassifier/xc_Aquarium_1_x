@@ -30,23 +30,6 @@
 #define DEBUG_PRINT_F_CONVERSIONS_MEAN 0 // Cost 1.3k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN) printf(fmt, __VA_ARGS__); } while (0)
 
-void installExceptionHandler(void)
-{
-    asm(" ldap r11, exception");
-    asm(" set kep, r11");
-    asm(" retsp 0");
-    asm(".align 128");
-    asm("exception: bl myExceptionHandler");
-}
-
-void myExceptionHandler(void)
-{
-    // ... do whatever you like here
-    debug_printf ("%s", "\nCRASH!\n\n");
-    asm(" clre");
-    asm(" waiteu");  // This stops the thread in its tracks.
-}
-
 // Init_Arithmetic_Mean_Temp_OnetenthDegC
 // Arithmetic_mean_value = (xn + xn-1 + xn-2 + xn-3 + ...x) / n_of_temps (or during filling, divide by how many there are)
 // A direct form discrete-time FIR filter of order N. All gains are 1/n_of_temps
@@ -95,6 +78,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
     unsigned            use_n_of_temps;        // Init ok
     unsigned            remove_n_of_temps      = 0;
+    bool                not_full               = (temps_onetenthDegC_mean_array.temps_num < n_of_temps);
     temp_onetenthDegC_t temp_return;           // Always set
     temp_onetenthDegC_t temps_sum              = 0;
     temp_onetenthDegC_t temp_largest           = INT_MIN;
@@ -107,9 +91,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temps_onetenthDegC_mean_array.temps_index_next_to_write = (temps_onetenthDegC_mean_array.temps_index_next_to_write + 1) % n_of_temps;
 
     // Find how many values are in the set right now
-    if (temps_onetenthDegC_mean_array.temps_num < n_of_temps) { // Filling, and NOT full
+    if (not_full) {
         temps_onetenthDegC_mean_array.temps_num++;
-        use_n_of_temps = temps_onetenthDegC_mean_array.temps_num;
+        use_n_of_temps = temps_onetenthDegC_mean_array.temps_num; // For log
     } else { // FULL, use = n_of_temps
         use_n_of_temps = n_of_temps;
 
@@ -130,27 +114,30 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
         }
     }
 
-    // If both indices have a value and
-    // index_of_temp_largest === index_of_temp_smallest then that's because
-    //          temp_largest === temp_smallest          then that's because
-    //                   ALL ARE EQUAL!
+    if (not_full) {
+        temp_return = temps_onetenthDeg; // TODO Find out why: I needed to do this for the FLASHED code!
+    } else {
+        // If both indices have a value and
+        // index_of_temp_largest === index_of_temp_smallest then that's because
+        //          temp_largest === temp_smallest          then that's because
+        //                   ALL ARE EQUAL!
 
-    // Calculate sum of data set not including largest and smallest
-    for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
+        // Calculate sum of data set not including largest and smallest
+        for (unsigned index_of_array = 0; index_of_array < use_n_of_temps; index_of_array++) {
 
-        if (index_of_array == index_of_temp_largest) {
-            // Largest not part of mean
-            remove_n_of_temps++;
-        } else if (index_of_array == index_of_temp_smallest) {
-            // Smallest not part of mean
-            remove_n_of_temps++;
-        } else { // Use, or both UNDEFINED_INDEX while set is being filled up
-            temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
+            if (index_of_array == index_of_temp_largest) {
+                // Largest not part of mean
+                remove_n_of_temps++;
+            } else if (index_of_array == index_of_temp_smallest) {
+                // Smallest not part of mean
+                remove_n_of_temps++;
+            } else { // Use
+                temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];
+            }
         }
+        // Calculate arithmetic mean of data set
+        temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps)); // arithmetic mean
     }
-
-    // Calculate arithmetic mean of data set
-    temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps)); // arithmetic mean
 
     // --- Debug only code, trying debug_printf here too, instead of #fdef block
     char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW;
@@ -277,19 +264,6 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 
     int sprintf_return;
     bool error = false;
-
-    //int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2);
-
-    // if (!boot_from_jtag) { /* stuff that is only done when flashed */ }
-
-    // if (light_sensor_range > 50) {myExceptionHandler();}
-    // if (light_sensor_range > 50) {
-        // int value = 0;
-        // light_sensor_range = light_sensor_range / value;
-    // }
-    // if (light_sensor_range > 50) {
-    //     asm(" ecallf %0" :: "r" (0));
-    // }
 
     error or_eq ((light_sensor_range < INNER_MIN_LUX) or (light_sensor_range > INNER_MAX_LUX));
 

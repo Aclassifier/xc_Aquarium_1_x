@@ -21,5 +21,6 @@
   ../../workspace/_Aquarium_1_x/src/core_graphics_font5x8.h \
   ../../workspace/_Aquarium_1_x/src/adc_startkit_client.h \
   ../../workspace/_Aquarium_1_x/src/light_sunrise_sunset.h \
+  ../../workspace/_Aquarium_1_x/src/exception_handler.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

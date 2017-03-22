@@ -39,7 +39,7 @@ typedef enum is_doing_t {
 } is_doing_t;
 
 #define RAW_TIMER_INTERVAL_IS_100_MILLISECONDS 100 // Times 100 yields 10 seconds round trip when ON_OFF_PROPORTIONAL
-#define NUM_TIMER_TICKS_PER_SECOND             10  // 10 seconds seem to give 0.2 degC some times. Try with 5
+#define NUM_TIMER_TICKS_PER_SECOND             10  // 10 seconds
 #define TEMP_MEASURE_INTERVAL_IS_10_SECONDS    ((NUM_TIMER_TICKS_PER_SECOND * 1000) / RAW_TIMER_INTERVAL_IS_100_MILLISECONDS)
                                                // 100 yields 10 seconds
                                                // Observe ARITHMETIC_MEAN_N_OF_TEMPS
@@ -124,7 +124,7 @@ void Temperature_Heater_Controller (
                 } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) {
                     if (temp_measurement_ticks_cnt == 0) {
 
-                        i_i2c_external_commands.command (GET_TEMPC_ALL);
+                        i_i2c_external_commands.command (GET_TEMPC_ALL); // Trigger
 
                         is_doing = IS_READING_TEMPS;
                     } else {}
@@ -135,7 +135,7 @@ void Temperature_Heater_Controller (
 
             } break;
 
-            case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): {
+            case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): { // Triggered and valus ready
 
                 bool ok_degC_converts[NUM_I2C_TEMPERATURES];
                 bool ok_degC_i2cs    [NUM_I2C_TEMPERATURES];
@@ -145,12 +145,13 @@ void Temperature_Heater_Controller (
                 i2c_temps_t i2c_temps = i_i2c_external_commands.read_temperature_ok();
 
                 for (int iof_i2c_temp = 0; iof_i2c_temp < NUM_I2C_TEMPERATURES; iof_i2c_temp++) {
+                    temp_onetenthDegC_t temps_onetenthDegC_converted;
 
                     ok_degC_i2cs[iof_i2c_temp] = i2c_temps.i2c_temp_ok[iof_i2c_temp]; // Return i2c ok
 
                     // -- CONVERT TO temps_onetenthDegC and temps_degC_str ---
                     //
-                    {temps_onetenthDegC[iof_i2c_temp], ok_degC_converts[iof_i2c_temp]} =
+                    {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} =
                         Temp_OnetenthDegC_To_Str (
                                 i2c_temps.i2c_temp_onetenthDegC[iof_i2c_temp],
                                 temps_degC_str[iof_i2c_temp]);
@@ -160,14 +161,15 @@ void Temperature_Heater_Controller (
                         temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
-                                temps_onetenthDegC[iof_i2c_temp],
+                                temps_onetenthDegC_converted,
                                 iof_i2c_temp);
                     } else {
-                        // Error with data, init filter but keep temps_onetenthDegC[iof_i2c_temp] etc. that would have error values
+                        // Error with data, init filter
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS);
                         // xcore-5662 comment: Will not add anything to temp_onetenthDegC_heater_sum and temp_onetenthDegC_heater_num for IOF_TEMPC_HEATER
+                        temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted; // Would have error values
                     }
                 }
 
@@ -264,9 +266,9 @@ void Temperature_Heater_Controller (
                 } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
                     debug_printf ("%s", "High");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
-                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_24_5_SLOW_COOLING) {
+                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
                     debug_printf ("%s", "Low");
-                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_24_5_SLOW_COOLING;
+                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
                 } else {
                     debug_printf ("%s", "New");
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;

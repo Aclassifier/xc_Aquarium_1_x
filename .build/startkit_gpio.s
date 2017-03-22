@@ -114,7 +114,7 @@
 	.globl startkit_gpio_driver_aux.select.y.enable.cases.maxchanends
 	.set startkit_gpio_driver_aux.select.y.enable.cases,0
 	.globl startkit_gpio_driver_aux.select.y.enable.cases
-	.set startkit_gpio_driver_aux.select.y.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.y.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.0.nstackwords)
+	.set startkit_gpio_driver_aux.select.y.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.y.case.0.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.4.nstackwords)
 	.globl startkit_gpio_driver_aux.select.y.enable.cases.nstackwords
 	.set startkit_gpio_driver_aux.select.enable.savedstate,29
 	.globl startkit_gpio_driver_aux.select.enable.savedstate

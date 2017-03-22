@@ -18,14 +18,18 @@ typedef int light_sensor_range_t;       // [0..99] = [00..INNER_MAX_LUX]
 #define LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL ((INNER_MAX_LUX+1) / 5) // 20
 #define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF    2
 
-#define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400 // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
-                                                              //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
-                                                              //           holding temp of 60 degC and max temp should then be 84-30=54 degC
-#define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           250 // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
-#define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               245 // 24.5 degC half a degree below limit. Bad econmics to let i cool completely
-#define TEMP_ONETENTHDEGC_15_0_FAST_COOLING               150 // 15.0 degC But if ambient is above water limit, off completely
-#define TEMP_ONETENTHDEGC_00_2_HYSTERESIS                   2 //  0.2 degC switching when >= or <= gives of course mean value that's most like LIMIT
-#define TEMP_ONETENTHDEGC_00_1_HYSTERESIS                   1 //  0.1 degC So small since it's very slow and because of filter ARITHMETIC_MEAN_N_OF_TEMPS
+//efine TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT (+5) // Like 25.5 DegC Test init with this
+#define TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT ( 0) // Like 25.0 DegC
+//efine TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT (-5) // Like 24.5 DegC Test init with this
+
+#define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400                                                // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
+                                                                                                             //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
+                                                                                                             //           holding temp of 60 degC and max temp should then be 84-30=54 degC
+#define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT          (250 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
+#define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING              (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 24.5 degC half a degree below limit. Bad econmics to let i cool completely
+#define TEMP_ONETENTHDEGC_15_0_FAST_COOLING               150                                                // 15.0 degC But if ambient is above water limit, off completely
+#define TEMP_ONETENTHDEGC_00_2_HYSTERESIS                   2                                                //  0.2 degC switching when >= or <= gives of course mean value that's most like LIMIT
+#define TEMP_ONETENTHDEGC_00_1_HYSTERESIS                   1                                                //  0.1 degC So small since it's very slow and because of filter ARITHMETIC_MEAN_N_OF_TEMPS
 //
 // About hysteresis: With on/off or bang-bang regulation we always get
 // overshoot (it continues to become hotter for a while after it's been switched off) and
@@ -59,10 +63,10 @@ typedef struct temp_onetenthDegC_mean_t {
     temp_onetenthDegC_t temps_sum_mten_previous;   // 0 (init) or the value
 } temp_onetenthDegC_mean_t;
 
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
-{light_sensor_range_t, bool}       Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i,      char (&?lux_str)[INNER_LUX_TEXT_LEN]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]);
+{temp_onetenthDegC_t, bool}  Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
+{temp_onetenthDegC_t, bool}  TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
+{light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i,      char (&?lux_str)[INNER_LUX_TEXT_LEN]);
+{voltage_onetenthV_t, bool}  RR_12V_24V_To_String_Ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
