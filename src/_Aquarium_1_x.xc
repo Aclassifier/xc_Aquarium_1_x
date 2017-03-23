@@ -146,7 +146,7 @@ typedef struct handler_context_t {
     bool                        beeper_blip_now;
 
     button_state_t              buttons_state [BUTTONS_NUM_CLIENTS];
-    bool                        buttons_inhibit_released_once [BUTTONS_NUM_CLIENTS]; // qwe only IOF_BUTTON_RIGHT used
+    bool                        buttons_inhibit_released_once [BUTTONS_NUM_CLIENTS]; // Only IOF_BUTTON_RIGHT used, since it's the only that takes long pushes
     unsigned                    silent_any_button_while_display_on_seconds_cnt;
 
     int                         iof_button_last_taken_action; // Since index of channel must(?) be int
@@ -173,7 +173,7 @@ typedef struct handler_context_t {
     voltage_onetenthV_t         rr_24V_voltage_onetenthV;
     bool                        rr_24_voltage_ok;
     now_regulating_at_t         now_regulating_at;
-    unsigned int                temperature_water_controller_debug_log;
+    unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
 } handler_context_t;
 
 static const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
@@ -951,6 +951,23 @@ void Handle_Real_Or_Clocked_Buttons (
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     } else if (caller == CALLER_IS_REFRESH) {
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                    } else if (caller == CALLER_IS_BUTTON) {
+                        // -------- GO TO PREVIOUS SCREEN --------
+                        if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+                            if (context.display_screen_name_present == SCREEN_LOGG) {
+                                context.display_screen_name_present = (SCREEN_NAME_NUMS - 1); // Wrap around
+                            } else if (context.display_screen_name_present == SCREEN_NORMALLY_FIRST) {
+                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
+                                    context.display_screen_name_present = SCREEN_LOGG; // Show
+                                } else {
+                                   context.display_screen_name_present = (SCREEN_NAME_NUMS - 1); // Wrap around
+                                }
+                            } else {
+                                context.display_screen_name_present--; // Previous "screen"
+                            }
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            context.iof_button_last_taken_action = iof_button;
+                        } else {}
                     }
                 } break;
 
@@ -975,6 +992,7 @@ void Handle_Real_Or_Clocked_Buttons (
                         context.buttons_inhibit_released_once[IOF_BUTTON_RIGHT] = false;
                     } else if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                         if (caller == CALLER_IS_BUTTON) {
+                            // -------- GO TO NEXT SCREEN --------
                             context.display_screen_name_present++; // Next "screen"
                             if (context.display_screen_name_present == SCREEN_NAME_NUMS) {
                                 if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {

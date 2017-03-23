@@ -2504,7 +2504,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Mar 22 2017",
+                               "Mar 23 2017",
                                char_aa_str,
                                char_OE_str);
 # 579 "../src/_Aquarium_1_x.xc"
@@ -2519,7 +2519,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "18:38:36", "Mar 22 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:53:00", "Mar 23 2017"); } while (0);
             } else {}
         } break;
 
@@ -2566,7 +2566,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "18:38:36", "Mar 22 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:53:00", "Mar 23 2017"); } while (0);
             } else {}
         } break;
 
@@ -2883,6 +2883,23 @@ void Handle_Real_Or_Clocked_Buttons (
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     } else if (caller == CALLER_IS_REFRESH) {
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                    } else if (caller == CALLER_IS_BUTTON) {
+
+                        if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+                            if (context.display_screen_name_present == SCREEN_LOGG) {
+                                context.display_screen_name_present = (8 - 1);
+                            } else if (context.display_screen_name_present == SCREEN_AKVARIETEMPERATURER) {
+                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
+                                    context.display_screen_name_present = SCREEN_LOGG;
+                                } else {
+                                   context.display_screen_name_present = (8 - 1);
+                                }
+                            } else {
+                                context.display_screen_name_present--;
+                            }
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            context.iof_button_last_taken_action = iof_button;
+                        } else {}
                     }
                 } break;
 
@@ -2907,6 +2924,7 @@ void Handle_Real_Or_Clocked_Buttons (
                         context.buttons_inhibit_released_once[2] = false;
                     } else if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                         if (caller == CALLER_IS_BUTTON) {
+
                             context.display_screen_name_present++;
                             if (context.display_screen_name_present == 8) {
                                 if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
