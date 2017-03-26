@@ -154,7 +154,7 @@ void Temperature_Heater_Controller (
                     {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} =
                         Temp_OnetenthDegC_To_Str (
                                 i2c_temps.i2c_temp_onetenthDegC[iof_i2c_temp],
-                                temps_degC_str[iof_i2c_temp]);
+                                temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. May be overwritten with mean value below
 
                     if (ok_degC_i2cs[iof_i2c_temp] and ok_degC_converts[iof_i2c_temp]) {
                         // qwe should we not include IOF_TEMPC_HEATER
@@ -163,13 +163,17 @@ void Temperature_Heater_Controller (
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
                                 temps_onetenthDegC_converted,
                                 iof_i2c_temp);
+                        {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} = // Don't care about OK here
+                            Temp_OnetenthDegC_To_Str (
+                                    temps_onetenthDegC[iof_i2c_temp],
+                                    temps_degC_str[iof_i2c_temp]); // // For get_temp_degC_str. Overvwritten
                     } else {
                         // Error with data, init filter
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS);
                         // xcore-5662 comment: Will not add anything to temp_onetenthDegC_heater_sum and temp_onetenthDegC_heater_num for IOF_TEMPC_HEATER
-                        temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted; // Would have error values
+                        // temps_degC_str[iof_i2c_temp] is ok with error texts
                     }
                 }
 
@@ -284,7 +288,7 @@ void Temperature_Heater_Controller (
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
-                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char];
+                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; /// Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
             } break;
 

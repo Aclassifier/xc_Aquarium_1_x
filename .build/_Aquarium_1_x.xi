@@ -1975,7 +1975,7 @@ typedef struct light_sunrise_sunset_context_t {
     unsigned print_value_previous;
     bool do_FRAM_write;
 } light_sunrise_sunset_context_t;
-# 133 "../src/light_sunrise_sunset.h"
+# 155 "../src/light_sunrise_sunset.h"
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const max_light_t max_light);
 
@@ -2151,6 +2151,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     switch (context.display_screen_name_present) {
 
         case SCREEN_LOGG: {
+
             Clear_All_Pixels_In_Buffer();
             if (context.screen_logg.display_ts1_chars_num > 0) {
                 context.silent_any_button_while_display_on_seconds_cnt = 0;
@@ -2504,10 +2505,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Mar 23 2017",
+                               "Mar 26 2017",
                                char_aa_str,
                                char_OE_str);
-# 579 "../src/_Aquarium_1_x.xc"
+# 580 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2519,7 +2520,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "15:53:00", "Mar 23 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:26:56", "Mar 26 2017"); } while (0);
             } else {}
         } break;
 
@@ -2566,7 +2567,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "15:53:00", "Mar 23 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:26:56", "Mar 26 2017"); } while (0);
             } else {}
         } break;
 
@@ -2578,7 +2579,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char show_separator_str[2] = ".";
             const char space_separator_str[2] = " ";
             screen_clock_cursor_at_t screen_clock_cursor_at = CURSOR_SCREEN_NONE;
-            bool display_result = false;
+            bool displayed_result = false;
 
             char editable_separator_left_right_arrow_str[2] = ".";
 
@@ -2596,7 +2597,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-                        display_result = true;
+                        displayed_result = true;
 
                         datetime_to_chronodot_registers (context.datetime_editable, context.chronodot_d3231_registers);
                         bool ok = i_i2c_internal_commands.write_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT, context.chronodot_d3231_registers);
@@ -2730,15 +2731,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     datetime_show = context.datetime;
                     datetime_show.year = 1950;
                 } break;
-
             }
 
             Clear_All_Pixels_In_Buffer();
 
-            if (display_result) {
+            if (displayed_result) {
                 setTextSize(1);
+                setTextColor(1);
+                setCursor(0,0);
+                display_print (context.display_ts1_chars, (21*4));
             } else {
-
+                setTextSize(1);
+                setTextColor(1);
+                setCursor(0,0);
+                display_print ("\n\n\nNT", 7);
 
 
 
@@ -2756,11 +2762,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         datetime_show.second);
 
                 setTextSize(2);
+                setTextColor(1);
+                setCursor(0,0);
+                display_print (context.display_ts1_chars, (21*4));
             }
 
-            setTextColor(1);
-            setCursor(0,0);
-            display_print (context.display_ts1_chars, (21*4));
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -3232,7 +3238,7 @@ void System_Task (
 
                 if (context.display_is_on == true) {
                     if (context.silent_any_button_while_display_on_seconds_cnt == (10*60)) {
-                        context.beeper_blip_now = true;
+
                         Clear_All_Pixels_In_Buffer();
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;

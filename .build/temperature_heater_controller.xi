@@ -1662,13 +1662,17 @@ void Temperature_Heater_Controller (
                                 8,
                                 temps_onetenthDegC_converted,
                                 iof_i2c_temp);
+                        {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} =
+                            Temp_OnetenthDegC_To_Str (
+                                    temps_onetenthDegC[iof_i2c_temp],
+                                    temps_degC_str[iof_i2c_temp]);
                     } else {
 
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 8);
 
-                        temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted;
+
                     }
                 }
 
@@ -1810,7 +1814,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 327 "../src/temperature_heater_controller.xc"
+# 331 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

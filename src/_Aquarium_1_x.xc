@@ -199,6 +199,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     switch (context.display_screen_name_present) {
 
         case SCREEN_LOGG: {
+            // NOT NORMALLY DISPLAYED. HOLD RIGHT BUTTON FOR 10 SECONDS WHILESCREEN_AKVARIETEMPERATURER TO ACTIVATE
             Clear_All_Pixels_In_Buffer();
             if (context.screen_logg.display_ts1_chars_num > 0) {
                 context.silent_any_button_while_display_on_seconds_cnt = 0; // Forever when it's on
@@ -646,7 +647,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char               show_separator_str[SINGLE_CHAR_STRL_LEN]     = ".";
             const char               space_separator_str[SINGLE_CHAR_STRL_LEN]    = " ";
             screen_clock_cursor_at_t screen_clock_cursor_at = CURSOR_SCREEN_NONE;
-            bool                     display_result = false;
+            bool                     displayed_result = false;
 
             char editable_separator_left_right_arrow_str[SINGLE_CHAR_STRL_LEN] = ".";
 
@@ -664,7 +665,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         //                                                     . Det runde kortet:
                         //                                                     . ChronoDot V2.1    .
                         //                                                     . Batteri: CR1632   .
-                        display_result = true;
+                        displayed_result = true;
 
                         datetime_to_chronodot_registers (context.datetime_editable, context.chronodot_d3231_registers);
                         bool ok = i_i2c_internal_commands.write_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT, context.chronodot_d3231_registers);
@@ -798,15 +799,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     datetime_show = context.datetime;
                     datetime_show.year = 1950;
                 } break; // Error, not used
-
             }
 
             Clear_All_Pixels_In_Buffer();
 
-            if (display_result) {
+            if (displayed_result) {
                 setTextSize(1);
+                setTextColor(WHITE);
+                setCursor(0,0);
+                display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             } else {
-
+                setTextSize(1);
+                setTextColor(WHITE);
+                setCursor(0,0);
+                display_print ("\n\n\nNT", 7); // "Normaltid/vintertid" is always normal time/winter time (no need to set to summer time "sommertid", fishes won't need it!)
                 // FILLS 20 chars plus \0
                 //       2017.03.01 11.49.01
                 //       2018<03.01 11.49.01
@@ -824,11 +830,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         datetime_show.second);
 
                 setTextSize(2);
+                setTextColor(WHITE);
+                setCursor(0,0);
+                display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             }
 
-            setTextColor(WHITE);
-            setCursor(0,0);
-            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
@@ -1300,7 +1306,7 @@ void System_Task (
 
                 if (context.display_is_on == true) {
                     if (context.silent_any_button_while_display_on_seconds_cnt == DISPLAY_ON_FOR_SECONDS) { // Counted up
-                        context.beeper_blip_now = true;
+                        // context.beeper_blip_now = true; Not necessary, sounds strange here
                         Clear_All_Pixels_In_Buffer();
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                         context.display_is_on = false;

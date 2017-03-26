@@ -21,7 +21,7 @@
 #define DEBUG_PRINT_BUTTON_PRESS 0 // Cost 1.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS) printf(fmt, __VA_ARGS__); } while (0)
 
-// On 10Feb2017 I inserted tis process but it took two extra channel ends, so I let final client do it instead
+// On 10Feb2017 I inserted this process but it took two extra channel ends, so I let final client do it instead
 // With this process:
 //     Constraint check for tile[0]:
 //       Chanends available:        32,   used:         33 .  FAILED
