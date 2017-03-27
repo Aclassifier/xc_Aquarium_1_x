@@ -114,9 +114,9 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     bool return_beeper_blip = false;
 
-    const    bool          trigger_minute_changed = (context.datetime_now.minute != context.datetime_previous.minute);
-    const    bool          trigger_hour_changed   = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
-    const    light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
+    const bool                 trigger_minute_changed  = (context.datetime_now.minute != context.datetime_previous.minute);
+    const bool                 trigger_hour_changed    = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
+    const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
 
     unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 

@@ -2516,7 +2516,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "17:38:08", "Mar 27 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:04:26", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 
@@ -2563,7 +2563,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "17:38:08", "Mar 27 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:04:26", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 
