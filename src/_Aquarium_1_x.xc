@@ -1128,6 +1128,12 @@ void Handle_Real_Or_Clocked_Buttons (
 
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
 
+typedef enum system_state_t {
+    SYSTEM_STATE_ONE_SECONDS_TICS,
+    SYSTEM_STATE_AWAIT_TWO_NOTIFY,
+    SYSTEM_STATE_DATA_READY
+} system_state_t;
+
 // [[combinable]] not since nested select
 void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
@@ -1219,7 +1225,7 @@ void System_Task (
                 time += BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND;
 
                 // Fetch data (1)
-                i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.complete
+                i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.notify
                 i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
 
                 while ((i_i2c_external_commands_notify == false) or (i_startkit_adc_acquire_complete == false)) {
@@ -1229,7 +1235,7 @@ void System_Task (
                              i_i2c_external_commands_notify = true;
                          } break;
 
-                         case i_startkit_adc_acquire.complete(): {
+                         case i_startkit_adc_acquire.notify(): {
                              {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
                              i_startkit_adc_acquire_complete = true;
                          } break;

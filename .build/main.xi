@@ -1844,7 +1844,7 @@ void myExceptionHandler(void);
 typedef interface lib_startkit_adc_commands_if {
     [[guarded]] void trigger (void);
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
-    [[notification]] slave void complete (void);
+    [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
 # 26 "../src/adc_startkit_client.h"
 void My_startKIT_ADC_Client (
@@ -1884,6 +1884,8 @@ int main() {
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
 
+
+
     par {
         on tile[0]: installExceptionHandler();
 
@@ -1902,6 +1904,6 @@ int main() {
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
-
+# 216 "../src/main.xc"
     return 0;
 }

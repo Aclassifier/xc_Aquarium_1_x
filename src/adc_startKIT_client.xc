@@ -35,6 +35,7 @@ typedef enum t_client_state {
     ADC_AWAIT_READ_FROM_UP
 } t_client_state;
 
+// [[combinable]] NO, since nested select
 void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if    i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
@@ -80,7 +81,7 @@ void My_startKIT_ADC_Client (
 
                            if (data_set_cnt == Num_of_data_sets) {
                                debug_printf ("ADC %d values ready\n", Num_of_data_sets);
-                               i_startkit_adc_up.complete();
+                               i_startkit_adc_up.notify();
                            } else {
                                // No code: get next data with i_startkit_adc_down.trigger above
                            }

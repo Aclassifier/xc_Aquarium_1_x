@@ -1933,7 +1933,7 @@ extern unsigned char font[];
 typedef interface lib_startkit_adc_commands_if {
     [[guarded]] void trigger (void);
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
-    [[notification]] slave void complete (void);
+    [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
 # 26 "../src/adc_startkit_client.h"
 void My_startKIT_ADC_Client (
@@ -2516,7 +2516,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "18:04:26", "Mar 27 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:47:28", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 
@@ -2563,7 +2563,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "18:04:26", "Mar 27 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:47:28", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 
@@ -3053,6 +3053,12 @@ void Handle_Real_Or_Clocked_Buttons (
 
 
 
+typedef enum system_state_t {
+    SYSTEM_STATE_ONE_SECONDS_TICS,
+    SYSTEM_STATE_AWAIT_TWO_NOTIFY,
+    SYSTEM_STATE_DATA_READY
+} system_state_t;
+
 
 void System_Task (
     client i2c_internal_commands_if i_i2c_internal_commands,
@@ -3154,7 +3160,7 @@ void System_Task (
                              i_i2c_external_commands_notify = true;
                          } break;
 
-                         case i_startkit_adc_acquire.complete(): {
+                         case i_startkit_adc_acquire.notify(): {
                              {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
                              i_startkit_adc_acquire_complete = true;
                          } break;

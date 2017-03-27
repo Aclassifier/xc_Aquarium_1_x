@@ -13,7 +13,7 @@
 typedef interface lib_startkit_adc_commands_if {
     [[guarded]] void trigger (void);
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[NUM_STARTKIT_ADC_INPUTS]);
-    [[notification]] slave void complete (void);
+    [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
 
 // Reads a number of samples from the startKIT adc and takes the necessary mean value over them
