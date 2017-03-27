@@ -2331,6 +2331,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
                         sprintf (left_of_random_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
+                    } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
+                        sprintf (left_of_random_str, "L:%u", light_sunrise_sunset_context.num_random_sequences_left);
                     } else {}
 
 
@@ -2351,13 +2353,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_random_str);
-
-
-
-
-
-
-
+# 412 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2505,10 +2501,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Mar 26 2017",
+                               "Mar 27 2017",
                                char_aa_str,
                                char_OE_str);
-# 580 "../src/_Aquarium_1_x.xc"
+# 583 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2520,7 +2516,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "22:26:56", "Mar 26 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "17:38:08", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 
@@ -2567,7 +2563,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "22:26:56", "Mar 26 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "17:38:08", "Mar 27 2017"); } while (0);
             } else {}
         } break;
 

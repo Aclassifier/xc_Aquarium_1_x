@@ -379,6 +379,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //
                     if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
                         sprintf (left_of_random_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
+                    } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
+                        sprintf (left_of_random_str, "L:%u", light_sunrise_sunset_context.num_random_sequences_left);
                     } else {} // Keep white space
 
 
@@ -405,6 +407,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                            ±      MAKS 3/3
                     //                                                   INIT ± 10 M:12
                     //                                                   DAG ± 10 M:12
+                    //                                                   LYKT ± 10 L:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
