@@ -8,30 +8,30 @@
 	.globalresource 0x10e00,"inP_button_center","tile[0]"
 	.globalresource 0x10f00,"inP_button_right","tile[0]"
 	.weak _i.temperature_heater_commands_if._client_call_y.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Temperature_Heater_Controller.select.y.enable.maxchanends + __interface_client_call_y_extra.maxchanends), Temperature_Heater_Controller.select.y.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Temperature_Heater_Controller.select.y.enable.maxcores + __interface_client_call_y_extra.maxcores), Temperature_Heater_Controller.select.y.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Temperature_Heater_Controller.select.y.enable.maxtimers + __interface_client_call_y_extra.maxtimers), Temperature_Heater_Controller.select.y.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.globl _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Server.select.0.enable.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Server.select.0.enable
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Temperature_Heater_Controller.select.y.enable.nstackwords + __interface_client_call_y_extra.nstackwords), Temperature_Heater_Controller.select.y.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Temperature_Heater_Controller.select.y.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Temperature_Heater_Controller.select.y.enable.cases.maxchanends + __interface_client_call_y_extra.maxchanends), Temperature_Heater_Controller.select.y.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Temperature_Heater_Controller.select.y.enable.cases.maxcores + __interface_client_call_y_extra.maxcores), Temperature_Heater_Controller.select.y.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Temperature_Heater_Controller.select.y.enable.cases.maxtimers + __interface_client_call_y_extra.maxtimers), Temperature_Heater_Controller.select.y.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.globl _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Server.select.0.enable.cases
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Server.select.0.enable.cases
-	.set __main__main_tile_0.savedstate,104
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Temperature_Heater_Controller.select.y.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Temperature_Heater_Controller.select.y.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Temperature_Heater_Controller.select.y.enable.cases
+	.set __main__main_tile_0.savedstate,106
 	.globl __main__main_tile_0.savedstate
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
 	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group, _i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends, _i.i2c_external_commands_if._chan.read_temperature_ok
@@ -499,84 +499,89 @@
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.max.nstackwords, _i.port_heat_light_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.fns, _i.port_heat_light_commands_if._client_call_y.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
 	.weak _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
 	.globl _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
 	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
 	.globl _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxchanends, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxcores.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxcores, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxtimers.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxtimers, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
 	.weak _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
 	.globl _i.port_heat_light_commands_if.set_light_composition.nstackwords.group
 	.weak _i.port_heat_light_commands_if.set_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.set_light_composition.fns.group
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.set_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.set_light_composition
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group, _i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxcores.group, _i.port_heat_light_commands_if._chan.beeper_on_command.maxcores, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxtimers.group, _i.port_heat_light_commands_if._chan.beeper_on_command.maxtimers, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group
 	.globl _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group
 	.weak _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_on_command.fns.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_on_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_on_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.maxcores, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.maxtimers, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
 	.globl _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_blip_command.fns.group
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_blip_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group, _i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command.maxchanends, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxcores.group, _i.port_heat_light_commands_if._chan.heat_cables_command.maxcores, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxcores.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command.maxcores, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxtimers.group, _i.port_heat_light_commands_if._chan.heat_cables_command.maxtimers, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxtimers.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command.maxtimers, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group
 	.globl _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group
 	.weak _i.port_heat_light_commands_if.heat_cables_command.fns.group
 	.globl _i.port_heat_light_commands_if.heat_cables_command.fns.group
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group, _i.port_heat_light_commands_if._chan.heat_cables_command.nstackwords, _i.port_heat_light_commands_if._chan.heat_cables_command
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command.nstackwords, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 	.weak _i.port_heat_light_commands_if.__interface_init.maxchanends.group
+	.add_to_set _i.port_heat_light_commands_if.__interface_init.maxchanends.group, (Port_Pins_Heat_Light_Server.init.0.maxchanends + __interface_init_task_extra.maxchanends), Port_Pins_Heat_Light_Server.init.0
 	.weak _i.port_heat_light_commands_if.__interface_init.maxcores.group
+	.add_to_set _i.port_heat_light_commands_if.__interface_init.maxcores.group, (Port_Pins_Heat_Light_Server.init.0.maxcores + __interface_init_task_extra.maxcores), Port_Pins_Heat_Light_Server.init.0
 	.weak _i.port_heat_light_commands_if.__interface_init.maxtimers.group
+	.add_to_set _i.port_heat_light_commands_if.__interface_init.maxtimers.group, (Port_Pins_Heat_Light_Server.init.0.maxtimers + __interface_init_task_extra.maxtimers), Port_Pins_Heat_Light_Server.init.0
 	.weak _i.port_heat_light_commands_if.__interface_init.nstackwords.group
 	.globl _i.port_heat_light_commands_if.__interface_init.nstackwords.group
 	.weak _i.port_heat_light_commands_if.__interface_init.fns.group
 	.globl _i.port_heat_light_commands_if.__interface_init.fns.group
+	.add_to_set _i.port_heat_light_commands_if.__interface_init.nstackwords.group, (Port_Pins_Heat_Light_Server.init.0.nstackwords + __interface_init_task_extra.nstackwords), Port_Pins_Heat_Light_Server.init.0
+	.add_to_set _i.port_heat_light_commands_if.__interface_init.fns.group, Port_Pins_Heat_Light_Server.init.0
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
 	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, _i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends, _i.temperature_heater_commands_if._chan.heater_set_proportional
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.max.maxchanends, _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, 0
@@ -692,72 +697,77 @@
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.max.nstackwords, _i.temperature_heater_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.fns, _i.temperature_heater_commands_if._client_call_y.fns.group, 0
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxchanends, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxcores, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxcores, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxtimers, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.maxtimers, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group
 	.globl _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_proportional.fns.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.nstackwords, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.nstackwords, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxchanends, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxcores, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxcores, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxtimers, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.maxtimers, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.nstackwords, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.nstackwords, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.get_temps.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_temps.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_temps.maxchanends, _i.temperature_heater_commands_if._chan_y.get_temps
+	.add_to_set _i.temperature_heater_commands_if.get_temps.maxchanends.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxchanends, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 	.weak _i.temperature_heater_commands_if.get_temps.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_temps.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_temps.maxcores, _i.temperature_heater_commands_if._chan_y.get_temps
+	.add_to_set _i.temperature_heater_commands_if.get_temps.maxcores.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxcores, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 	.weak _i.temperature_heater_commands_if.get_temps.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_temps.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_temps.maxtimers, _i.temperature_heater_commands_if._chan_y.get_temps
+	.add_to_set _i.temperature_heater_commands_if.get_temps.maxtimers.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.maxtimers, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 	.weak _i.temperature_heater_commands_if.get_temps.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_temps.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_temps.fns.group
 	.globl _i.temperature_heater_commands_if.get_temps.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_temps.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temps.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temps
-	.add_to_set _i.temperature_heater_commands_if.get_temps.fns.group, _i.temperature_heater_commands_if._chan_y.get_temps
+	.add_to_set _i.temperature_heater_commands_if.get_temps.nstackwords.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.nstackwords, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
+	.add_to_set _i.temperature_heater_commands_if.get_temps.fns.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
 	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxchanends, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxcores, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxcores.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxcores, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxtimers, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.maxtimers, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_regulator_data.fns.group
 	.globl _i.temperature_heater_commands_if.get_regulator_data.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.nstackwords, _i.temperature_heater_commands_if._chan_y.get_regulator_data
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.nstackwords, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.weak _i.temperature_heater_commands_if.__interface_init.maxchanends.group
+	.add_to_set _i.temperature_heater_commands_if.__interface_init.maxchanends.group, (Temperature_Heater_Controller.init.0.maxchanends + __interface_init_task_extra.maxchanends), Temperature_Heater_Controller.init.0
 	.weak _i.temperature_heater_commands_if.__interface_init.maxcores.group
+	.add_to_set _i.temperature_heater_commands_if.__interface_init.maxcores.group, (Temperature_Heater_Controller.init.0.maxcores + __interface_init_task_extra.maxcores), Temperature_Heater_Controller.init.0
 	.weak _i.temperature_heater_commands_if.__interface_init.maxtimers.group
+	.add_to_set _i.temperature_heater_commands_if.__interface_init.maxtimers.group, (Temperature_Heater_Controller.init.0.maxtimers + __interface_init_task_extra.maxtimers), Temperature_Heater_Controller.init.0
 	.weak _i.temperature_heater_commands_if.__interface_init.nstackwords.group
 	.globl _i.temperature_heater_commands_if.__interface_init.nstackwords.group
 	.weak _i.temperature_heater_commands_if.__interface_init.fns.group
 	.globl _i.temperature_heater_commands_if.__interface_init.fns.group
+	.add_to_set _i.temperature_heater_commands_if.__interface_init.nstackwords.group, (Temperature_Heater_Controller.init.0.nstackwords + __interface_init_task_extra.nstackwords), Temperature_Heater_Controller.init.0
+	.add_to_set _i.temperature_heater_commands_if.__interface_init.fns.group, Temperature_Heater_Controller.init.0
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
 	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends, _i.temperature_water_commands_if._chan.get_temp_degC_str
 	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, 0
@@ -843,7 +853,7 @@
 	main.parinfo.debugstring0:
 	.asciiz "# -1 \"\""
 	main.parinfo.debugstring1:
-	.asciiz "# 217 \"../src/main.xc\""
+	.asciiz "# 378 \"../src/main.xc\""
 	.cc_top main.parinfo.cc, main.parinfo
 	.globl main.parinfo
 	.type main.parinfo, @object
@@ -1162,12 +1172,12 @@ inP_button_right.info:
 	.set usage.anon.4,0
 	.set usage.anon.5,0
 	.set usage.anon.6,0
-	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:76:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:75:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:74:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
-	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:76:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:75:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:74:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:142:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:141:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:140:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:142:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:141:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:140:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
 	.call usage.anon.6,adc_task
 	.call usage.anon.6,Port_Pins_Heat_Light_Server
 	.call usage.anon.6,My_startKIT_ADC_Client
@@ -1198,79 +1208,79 @@ inP_button_right.info:
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par installExceptionHandler,I2C_Internal_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,I2C_External_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,System_Task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Heater_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Water_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,System_Task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,System_Task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Water_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.4,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,usage.anon.5,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:64:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_Internal_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_External_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,System_Task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Heater_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Water_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,System_Task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,System_Task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Water_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.4,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,usage.anon.5,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:130:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.set main.locnoside, 0
 	.set main.locnochandec, 0
 	.set main.locnoglobalaccess, 0
-	.globpassesref Button_Task, inP_button_right,"../src/main.xc:76:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_center,"../src/main.xc:75:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_left,"../src/main.xc:74:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Client_9
+	.globpassesref Button_Task, inP_button_right,"../src/main.xc:142:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_center,"../src/main.xc:141:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_left,"../src/main.xc:140:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Client_9
 
 
 	.section	.debug_info,"",@progbits
@@ -4311,30 +4321,30 @@ _i.lib_startkit_adc_commands_if._chan_y.trigger:
 	.cc_top __main__main_tile_0.function,__main__main_tile_0
 __main__main_tile_0:
 	.cfi_startproc
-	ENTSP_lu6 173
+	ENTSP_lu6 178
 .Ltmp266:
-	.cfi_def_cfa_offset 692
+	.cfi_def_cfa_offset 712
 .Ltmp267:
 	.cfi_offset 15, 0
-	stw r4, sp[172]
+	stw r4, sp[177]
 .Ltmp268:
 	.cfi_offset 4, -4
-	stw r5, sp[171]
+	stw r5, sp[176]
 .Ltmp269:
 	.cfi_offset 5, -8
-	stw r6, sp[170]
+	stw r6, sp[175]
 .Ltmp270:
 	.cfi_offset 6, -12
-	stw r7, sp[169]
+	stw r7, sp[174]
 .Ltmp271:
 	.cfi_offset 7, -16
-	stw r8, sp[168]
+	stw r8, sp[173]
 .Ltmp272:
 	.cfi_offset 8, -20
-	stw r9, sp[167]
+	stw r9, sp[172]
 .Ltmp273:
 	.cfi_offset 9, -24
-	stw r10, sp[166]
+	stw r10, sp[171]
 .Ltmp274:
 	.cfi_offset 10, -28
 	getr r5, 2
@@ -4353,138 +4363,142 @@ __main__main_tile_0:
 	getr r2, 2
 	setd res[r2], r1
 	setd res[r1], r2
-	stw r1, sp[55]
-	stw r2, sp[56]
+	stw r1, sp[58]
+	stw r2, sp[59]
 	ldc r4, 0
-	stw r4, sp[57]
+	stw r4, sp[60]
 	ldaw r11, cp[.vtable]
-	stw r11, sp[58]
-	stw r1, sp[50]
-	stw r2, sp[53]
-	stw r1, sp[52]
+	stw r11, sp[61]
+	stw r1, sp[53]
+	stw r2, sp[56]
+	stw r1, sp[55]
 	mkmsk r1, 1
-	stw r1, sp[54]
+	stw r1, sp[57]
 	getr r2, 2
 	getr r3, 2
 	setd res[r3], r2
 	setd res[r2], r3
-	stw r2, sp[46]
-	stw r3, sp[47]
-	stw r4, sp[48]
+	stw r2, sp[49]
+	stw r3, sp[50]
+	stw r4, sp[51]
 	ldaw r11, cp[.vtable10]
-	stw r11, sp[49]
-	stw r2, sp[41]
-	stw r3, sp[44]
-	stw r2, sp[43]
-	stw r1, sp[45]
+	stw r11, sp[52]
+	stw r2, sp[44]
+	stw r3, sp[47]
+	stw r2, sp[46]
+	stw r1, sp[48]
 	getr r2, 2
-	stw r2, sp[39]
+	stw r2, sp[42]
 	ldaw r11, cp[.vtable11]
-	stw r11, sp[40]
-	stw r2, sp[38]
+	stw r11, sp[43]
+	stw r2, sp[41]
 	getr r2, 2
 	getr r3, 2
 	setd res[r3], r2
 	setd res[r2], r3
-	stw r2, sp[34]
-	stw r3, sp[35]
-	stw r4, sp[36]
+	stw r2, sp[37]
+	stw r3, sp[38]
+	stw r4, sp[39]
 	ldaw r11, cp[.vtable12]
-	stw r11, sp[37]
-	stw r2, sp[29]
-	stw r3, sp[32]
-	stw r2, sp[31]
-	stw r1, sp[33]
+	stw r11, sp[40]
+	stw r2, sp[32]
+	stw r3, sp[35]
+	stw r2, sp[34]
+	stw r1, sp[36]
 	getr r2, 2
 	getr r3, 2
 	setd res[r3], r2
 	setd res[r2], r3
-	stw r2, sp[25]
-	stw r3, sp[26]
-	stw r4, sp[27]
+	stw r2, sp[28]
+	stw r3, sp[29]
+	stw r4, sp[30]
 	ldaw r11, cp[.vtable13]
-	stw r11, sp[28]
-	stw r2, sp[20]
-	stw r3, sp[23]
-	stw r2, sp[22]
-	stw r1, sp[24]
-	getr r1, 2
-	stw r1, sp[18]
+	stw r11, sp[31]
+	stw r2, sp[23]
+	stw r3, sp[26]
+	stw r2, sp[25]
+	stw r1, sp[27]
+	getr r2, 2
+	stw r2, sp[21]
 	ldaw r11, cp[.vtable14]
-	stw r11, sp[19]
+	stw r11, sp[22]
+	stw r2, sp[20]
+	ldaw r2, sp[18]
+	stw r4, sp[16]
 	stw r1, sp[17]
-	getr r1, 2
-	stw r1, sp[15]
+	ldaw r3, sp[16]
+	stw r3, sp[18]
 	ldaw r11, cp[.vtable15]
-	stw r11, sp[16]
-	stw r1, sp[14]
-	getr r1, 2
-	stw r1, sp[12]
+	stw r11, sp[19]
+	stw r4, sp[14]
+	stw r3, sp[15]
+	getr r3, 2
+	stw r3, sp[12]
 	ldaw r11, cp[.vtable16]
 	stw r11, sp[13]
-	stw r1, sp[11]
-	getr r1, 2
-	stw r1, sp[5]
+	stw r3, sp[11]
+	ldaw r3, sp[9]
 	stw r4, sp[6]
-	ldaw r2, sp[5]
-	stw r2, sp[7]
+	stw r4, sp[7]
+	stw r1, sp[8]
+	ldaw r1, sp[6]
+	stw r1, sp[9]
 	ldaw r11, cp[.vtable17]
-	stw r11, sp[8]
-	stw r1, sp[4]
+	stw r11, sp[10]
+	stw r4, sp[4]
+	stw r1, sp[5]
 	getr r1, 2
 	stw r1, sp[2]
 	ldaw r11, cp[.vtable18]
 	stw r11, sp[3]
 	stw r1, sp[1]
-	stw r5, sp[157]
-	stw r6, sp[160]
-	stw r7, sp[158]
-	stw r8, sp[161]
-	stw r9, sp[159]
-	stw r10, sp[162]
-	ldaw r1, sp[50]
-	stw r1, sp[129]
-	ldaw r1, sp[55]
-	stw r1, sp[131]
+	stw r5, sp[162]
+	stw r6, sp[165]
+	stw r7, sp[163]
+	stw r8, sp[166]
+	stw r9, sp[164]
+	stw r10, sp[167]
+	ldaw r1, sp[53]
+	stw r1, sp[134]
+	ldaw r1, sp[58]
+	stw r1, sp[136]
+	ldaw r1, sp[44]
+	stw r1, sp[135]
+	ldaw r1, sp[49]
+	stw r1, sp[137]
 	ldaw r1, sp[41]
-	stw r1, sp[130]
-	ldaw r1, sp[46]
-	stw r1, sp[132]
-	ldaw r1, sp[38]
-	stw r1, sp[122]
-	ldaw r1, sp[39]
-	stw r1, sp[123]
-	ldaw r1, sp[29]
-	stw r1, sp[109]
-	ldaw r1, sp[34]
-	stw r1, sp[110]
+	stw r1, sp[127]
+	ldaw r1, sp[42]
+	stw r1, sp[128]
+	ldaw r1, sp[32]
+	stw r1, sp[114]
+	ldaw r1, sp[37]
+	stw r1, sp[115]
+	ldaw r1, sp[23]
+	stw r1, sp[101]
+	ldaw r1, sp[28]
+	stw r1, sp[102]
 	ldaw r1, sp[20]
-	stw r1, sp[96]
-	ldaw r1, sp[25]
-	stw r1, sp[97]
-	ldaw r1, sp[17]
-	stw r1, sp[82]
-	ldaw r1, sp[18]
-	stw r1, sp[84]
+	stw r1, sp[86]
+	ldaw r1, sp[21]
+	stw r1, sp[88]
 	ldaw r1, sp[14]
-	stw r1, sp[83]
-	ldaw r1, sp[15]
-	stw r1, sp[85]
+	stw r1, sp[87]
+	stw r2, sp[89]
 	ldaw r1, sp[11]
-	stw r1, sp[66]
-	ldaw r1, sp[12]
-	stw r1, sp[68]
-	ldaw r1, sp[4]
-	stw r1, sp[67]
-	ldaw r1, sp[7]
 	stw r1, sp[69]
+	ldaw r1, sp[12]
+	stw r1, sp[71]
+	ldaw r1, sp[4]
+	stw r1, sp[70]
+	stw r3, sp[72]
 	ldaw r1, sp[1]
-	stw r1, sp[59]
+	stw r1, sp[62]
 	ldaw r1, sp[2]
-	stw r1, sp[60]
-	stw r0, sp[155]
+	stw r1, sp[63]
+	stw r0, sp[160]
 	ldaw r1, dp[par.desc.1]
-	ldaw r0, sp[59]
+	ldaw r0, sp[62]
 	bl __start_other_cores
 	freer res[r5]
 	freer res[r6]
@@ -4492,103 +4506,99 @@ __main__main_tile_0:
 	freer res[r8]
 	freer res[r9]
 	freer res[r10]
-	ldw r0, sp[56]
-	ldw r1, sp[54]
+	ldw r0, sp[59]
+	ldw r1, sp[57]
 	bf r1, .LBB54_1
-	ldw r1, sp[52]
-	ldw r2, sp[53]
+	ldw r1, sp[55]
+	ldw r2, sp[56]
 	#APP
 	getd r3, res[r1]
 	#NO_APP
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-	stw r4, sp[54]
+	stw r4, sp[57]
 .LBB54_1:
 	chkct res[r0], 1
 	freer res[r0]
-	ldw r0, sp[50]
+	ldw r0, sp[53]
 	freer res[r0]
-	ldw r0, sp[47]
-	ldw r1, sp[45]
+	ldw r0, sp[50]
+	ldw r1, sp[48]
 	bf r1, .LBB54_2
-	ldw r1, sp[43]
-	ldw r2, sp[44]
+	ldw r1, sp[46]
+	ldw r2, sp[47]
 	#APP
 	getd r3, res[r1]
 	#NO_APP
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-	stw r4, sp[45]
+	stw r4, sp[48]
 .LBB54_2:
 	chkct res[r0], 1
+	freer res[r0]
+	ldw r0, sp[44]
 	freer res[r0]
 	ldw r0, sp[41]
 	freer res[r0]
 	ldw r0, sp[38]
-	freer res[r0]
-	ldw r0, sp[35]
-	ldw r1, sp[33]
+	ldw r1, sp[36]
 	bf r1, .LBB54_3
-	ldw r1, sp[31]
-	ldw r2, sp[32]
+	ldw r1, sp[34]
+	ldw r2, sp[35]
 	#APP
 	getd r3, res[r1]
 	#NO_APP
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-	stw r4, sp[33]
+	stw r4, sp[36]
 .LBB54_3:
 	chkct res[r0], 1
 	freer res[r0]
-	ldw r0, sp[29]
+	ldw r0, sp[32]
 	freer res[r0]
-	ldw r0, sp[26]
-	ldw r1, sp[24]
+	ldw r0, sp[29]
+	ldw r1, sp[27]
 	bf r1, .LBB54_5
-	ldw r1, sp[22]
-	ldw r2, sp[23]
+	ldw r1, sp[25]
+	ldw r2, sp[26]
 	#APP
 	getd r3, res[r1]
 	#NO_APP
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-	stw r4, sp[24]
+	stw r4, sp[27]
 .LBB54_5:
 	chkct res[r0], 1
 	freer res[r0]
+	ldw r0, sp[23]
+	freer res[r0]
 	ldw r0, sp[20]
-	freer res[r0]
-	ldw r0, sp[17]
-	freer res[r0]
-	ldw r0, sp[14]
 	freer res[r0]
 	ldw r0, sp[11]
 	freer res[r0]
-	ldw r0, sp[4]
-	freer res[r0]
 	ldw r0, sp[1]
 	freer res[r0]
-	ldw r10, sp[166]
-	ldw r9, sp[167]
-	ldw r8, sp[168]
-	ldw r7, sp[169]
-	ldw r6, sp[170]
-	ldw r5, sp[171]
-	ldw r4, sp[172]
-	retsp 173
+	ldw r10, sp[171]
+	ldw r9, sp[172]
+	ldw r8, sp[173]
+	ldw r7, sp[174]
+	ldw r6, sp[175]
+	ldw r5, sp[176]
+	ldw r4, sp[177]
+	retsp 178
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0.function
-	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords) + 173)
+	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords) + 178)
 	.globl	__main__main_tile_0.nstackwords
-	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_5.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores) $M 1
+	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores) $M 1
 	.globl	__main__main_tile_0.maxcores
-	.set	__main__main_tile_0.maxtimers,(6 + __main__main_tile_0_combined_tile_0_0.maxtimers + __main__main_tile_0_combined_tile_0_4.maxtimers + __main__main_tile_0_combined_tile_0_5.maxtimers + __main__main_tile_0_combined_tile_0_1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxtimers) $M 0
+	.set	__main__main_tile_0.maxtimers,(5 + __main__main_tile_0_combined_tile_0_0.maxtimers + __main__main_tile_0_combined_tile_0_4.maxtimers + __main__main_tile_0_combined_tile_0_1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxtimers) $M 0
 	.globl	__main__main_tile_0.maxtimers
-	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_5.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxchanends)) $M 20
+	.set	__main__main_tile_0.maxchanends,(18 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxchanends)) $M 18
 	.globl	__main__main_tile_0.maxchanends
 .Ltmp275:
 	.size	__main__main_tile_0, .Ltmp275-__main__main_tile_0
@@ -4608,188 +4618,289 @@ __main__main_tile_0:
 	.cc_top __main__main_tile_0_combined_tile_0_0.function,__main__main_tile_0_combined_tile_0_0
 __main__main_tile_0_combined_tile_0_0:
 	.cfi_startproc
-	entsp 11
+	entsp 13
 .Ltmp276:
-	.cfi_def_cfa_offset 44
+	.cfi_def_cfa_offset 52
 .Ltmp277:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
 .Ltmp278:
-	.cfi_offset 10, -40
+	.cfi_offset 10, -48
 	ldaw r10, sp[0]
 .Ltmp279:
 	.cfi_def_cfa_register 10
-	stw r4, r10[10]
+	ldc r11, 12
+	stw r4, r10[r11]
 .Ltmp280:
 	.cfi_offset 4, -4
-	stw r5, r10[9]
+	stw r5, r10[11]
 .Ltmp281:
 	.cfi_offset 5, -8
-	stw r6, r10[8]
+	stw r6, r10[10]
 .Ltmp282:
 	.cfi_offset 6, -12
-	stw r7, r10[7]
+	stw r7, r10[9]
 .Ltmp283:
 	.cfi_offset 7, -16
-	stw r8, r10[6]
+	stw r8, r10[8]
 .Ltmp284:
 	.cfi_offset 8, -20
-	stw r9, r10[5]
+	stw r9, r10[7]
 .Ltmp285:
 	.cfi_offset 9, -24
-	mov r6, r0
-	ldc r0, I2C_Internal_Server.init.0.savedstate
-	ldc r1, 4
-	ldaw r0, r1[r0]
-	ldaw r2, sp[0]
-	sub r0, r2, r0
-	set sp, r0
-	# ALLOCA 1
-	add r0, r0, 4
-	ldc r2, Temperature_Heater_Controller.init.0.savedstate
-	ldaw r1, r1[r2]
+	mov r4, r0
+	stw r4, r10[2]
+	ldc r1, I2C_Internal_Server.init.0.savedstate
+	ldc r0, 4
+	ldaw r1, r0[r1]
 	ldaw r2, sp[0]
 	sub r1, r2, r1
 	set sp, r1
-	# ALLOCA 0
+	# ALLOCA 3
 	add r1, r1, 4
-	stw r0, r10[4]
-	ldaw r0, r10[4]
+	ldc r2, Temperature_Heater_Controller.init.0.savedstate
+	ldaw r2, r0[r2]
+	ldaw r3, sp[0]
+	sub r2, r3, r2
+	set sp, r2
+	# ALLOCA 2
+	add r2, r2, 4
+	ldc r3, Temperature_Water_Controller.init.0.savedstate
+	ldaw r3, r0[r3]
+	ldaw r11, sp[0]
+	sub r3, r11, r3
+	set sp, r3
+	# ALLOCA 1
+	add r3, r3, 4
+	ldc r11, Port_Pins_Heat_Light_Server.init.0.savedstate
+	ldaw r0, r0[r11]
+	ldaw r11, sp[0]
+	sub r0, r11, r0
+	set sp, r0
+	# ALLOCA 0
+	add r0, r0, 4
+	stw r1, r10[6]
+	ldaw r1, r10[6]
 	#init allocation
-	stw r1, r10[3]
+	stw r2, r10[5]
+	ldaw r1, r10[5]
+	#init allocation
+	stw r3, r10[4]
+	ldaw r1, r10[4]
+	#init allocation
+	stw r0, r10[3]
 	ldaw r0, r10[3]
 	#init allocation
-	ldw r5, r10[4]
-	ldc r0, 252
-	add r1, r6, r0
+	ldw r5, r10[6]
+	ldc r0, 260
+	add r1, r4, r0
 	# STACKUP 
-	# ALLOCA 2
+	# ALLOCA 4
 	extsp 1
 	mov r0, r5
 .Lxta.call_labels0:
 	bl I2C_Internal_Server.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
-	ldw r4, r10[3]
-	stw r4, r10[2]
-	ldaw r1, r6[7]
-	ldc r0, 292
-	add r0, r6, r0
+	ldw r6, r10[5]
+	ldaw r1, r4[7]
+	ldc r0, 300
+	add r0, r4, r0
 	ldw r2, r0[0]
-	ldc r0, 104
-	add r0, r6, r0
+	ldc r0, 96
+	add r9, r4, r0
+	ldc r0, 108
+	add r0, r4, r0
 	ldw r3, r0[0]
 	# STACKUP 
-	# ALLOCA 3
+	# ALLOCA 5
 	extsp 1
-	mov r0, r4
+	mov r0, r6
 .Lxta.call_labels1:
 	bl Temperature_Heater_Controller.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
-	# STACKUP 
-	# ALLOCA 4
-	extsp 1
-	mov r0, r5
-	bl I2C_Internal_Server.init.1
-	ldaw sp, sp[1]
-	# STACKDOWN
-	# STACKUP 
-	# ALLOCA 5
-	extsp 1
-	mov r0, r4
-	bl Temperature_Heater_Controller.init.1
-	ldaw sp, sp[1]
-	# STACKDOWN
-	clre
-	get r11, id
-	ldaw r7, dp[__timer_delta]
-	ldw r0, cp[.LCPI55_0]
-	stw r0, r7[r11]
-	ldaw r0, dp[__timers]
-	ldw r8, r0[r11]
-	setc res[r8], 1
-	in r0, res[r8]
-	ldaw r4, dp[__timer_base]
-	stw r0, r4[r11]
+	ldw r7, r10[4]
+	ldw r1, r4[0]
+	ldw r2, r4[10]
 	# STACKUP 
 	# ALLOCA 6
 	extsp 1
-	mov r0, r5
-	mov r9, r5
-	bl I2C_Internal_Server.select.enable
+	mov r0, r7
+.Lxta.call_labels2:
+	bl Temperature_Water_Controller.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
-	mov r6, r0
+	ldw r8, r10[3]
 	# STACKUP 
 	# ALLOCA 7
 	extsp 1
-	ldw r0, r10[2]
-	mov r5, r0
-	bu .LBB55_1
-.LBB55_4:
-	bl __wait_nonlocal
-	bu .Ltmp286
-.Ltmp286:
-.LBB55_3:
-	clre
-	get r11, id
-	ldw r0, cp[.LCPI55_0]
-	stw r0, r7[r11]
-	setc res[r8], 1
-	in r0, res[r8]
-	stw r0, r4[r11]
-	# STACKUP 
-	# ALLOCA 10
-	extsp 1
-	mov r0, r9
-	bl I2C_Internal_Server.select.enable
+	mov r0, r8
+	mov r1, r9
+.Lxta.call_labels3:
+	bl Port_Pins_Heat_Light_Server.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
-	mov r6, r0
-	# STACKUP 
-	# ALLOCA 11
-	extsp 1
-	mov r0, r5
-.LBB55_1:
-	bl Temperature_Heater_Controller.select.enable
-	ldaw sp, sp[1]
-	# STACKDOWN
-	or r0, r0, r6
-	bt r0, .LBB55_4
+	ldc r0, 424
+	add r1, r4, r0
+	ldap r11, Temperature_Heater_Controller.select.y.enable
+	stw r11, r1[0]
+	ldc r0, 428
+	add r0, r4, r0
+	stw r6, r0[0]
+	ldw r2, r4[10]
+	ldw r0, r2[0]
+	ldw r2, r2[1]
+	ldw r2, r2[5]
 	# STACKUP 
 	# ALLOCA 8
 	extsp 1
-	mov r0, r9
-	bl I2C_Internal_Server.fini
+	bla r2
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 9
 	extsp 1
 	mov r0, r5
+	bl I2C_Internal_Server.init.1
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 10
+	extsp 1
+	mov r0, r6
+	bl Temperature_Heater_Controller.init.1
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 11
+	extsp 1
+	mov r0, r7
+	bl Temperature_Water_Controller.init.1
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 12
+	extsp 1
+	mov r0, r8
+	bl Port_Pins_Heat_Light_Server.init.1
+	ldaw sp, sp[1]
+	# STACKDOWN
+	get r11, id
+	ldaw r0, dp[__timers]
+	ldw r4, r0[r11]
+	bu .LBB55_1
+.LBB55_2:
+	bl __wait_nonlocal
+	bu .Ltmp286
+.Ltmp286:
+.LBB55_1:
+	clre
+	get r11, id
+	ldaw r0, dp[__timer_delta]
+	ldw r1, cp[.LCPI55_0]
+	stw r1, r0[r11]
+	setc res[r4], 1
+	in r0, res[r4]
+	ldaw r1, dp[__timer_base]
+	stw r0, r1[r11]
+	# STACKUP 
+	# ALLOCA 18
+	extsp 1
+	mov r0, r5
+	bl I2C_Internal_Server.select.enable
+	ldaw sp, sp[1]
+	# STACKDOWN
+	mov r9, r0
+	# STACKUP 
+	# ALLOCA 19
+	extsp 1
+	mov r0, r6
+	bl Temperature_Heater_Controller.select.enable
+	ldaw sp, sp[1]
+	# STACKDOWN
+	or r9, r0, r9
+	# STACKUP 
+	# ALLOCA 20
+	extsp 1
+	mov r0, r7
+	bl Temperature_Water_Controller.select.enable
+	ldaw sp, sp[1]
+	# STACKDOWN
+	or r9, r9, r0
+	# STACKUP 
+	# ALLOCA 21
+	extsp 1
+	mov r0, r8
+	bl Port_Pins_Heat_Light_Server.select.enable
+	ldaw sp, sp[1]
+	# STACKDOWN
+	or r0, r9, r0
+	bt r0, .LBB55_2
+	# STACKUP 
+	# ALLOCA 13
+	extsp 1
+	mov r0, r5
+	bl I2C_Internal_Server.fini
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 14
+	extsp 1
+	mov r0, r6
 	bl Temperature_Heater_Controller.fini
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 15
+	extsp 1
+	mov r0, r7
+	bl Temperature_Water_Controller.fini
+	ldaw sp, sp[1]
+	# STACKDOWN
+	# STACKUP 
+	# ALLOCA 16
+	extsp 1
+	mov r0, r8
+	bl Port_Pins_Heat_Light_Server.fini
+	ldaw sp, sp[1]
+	# STACKDOWN
+	ldw r0, r10[2]
+	ldw r1, r0[10]
+	ldw r0, r1[0]
+	ldw r1, r1[1]
+	ldw r2, r1[6]
+	# STACKUP 
+	# ALLOCA 17
+	extsp 1
+	mkmsk r1, 1
+	bla r2
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldaw r0, r10[3]
 	#completed deallocation
 	ldaw r0, r10[4]
 	#completed deallocation
-	ldw r9, r10[5]
-	ldw r8, r10[6]
-	ldw r7, r10[7]
-	ldw r6, r10[8]
-	ldw r5, r10[9]
-	ldw r4, r10[10]
+	ldaw r0, r10[5]
+	#completed deallocation
+	ldaw r0, r10[6]
+	#completed deallocation
+	ldw r9, r10[7]
+	ldw r8, r10[8]
+	ldw r7, r10[9]
+	ldw r6, r10[10]
+	ldw r5, r10[11]
+	ldc r0, 12
+	ldw r4, r10[r0]
 	set sp, r10
 	ldw r10, sp[1]
-	retsp 11
+	retsp 13
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_0.function
-	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M Temperature_Heater_Controller.select.enable.cases.nstackwords $M I2C_Internal_Server.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + 0))
+	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Water_Controller.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Server.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + Temperature_Water_Controller.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + Temperature_Water_Controller.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + Temperature_Water_Controller.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + Temperature_Water_Controller.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M I2C_Internal_Server.select.enable.cases.nstackwords $M Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords $M Temperature_Heater_Controller.select.enable.cases.nstackwords $M Temperature_Water_Controller.select.enable.cases.nstackwords)) + 13)
+	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + I2C_Internal_Server.fini.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.0.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.1.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.cases.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.fini.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.0.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.1.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.cases.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.fini.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.0.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.1.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.cases.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.fini.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.0.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.1.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.cases.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_push_yield.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __noop.maxcores)))) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + 1))))
+	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + I2C_Internal_Server.fini.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.0.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.1.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.cases.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.fini.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.0.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.1.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.cases.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.fini.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.0.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.1.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.cases.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.fini.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.0.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.1.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.cases.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __noop.maxtimers)))) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + 0))))
+	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + I2C_Internal_Server.fini.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.0.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.1.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.cases.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.fini.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.0.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.1.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.fini.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.0.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.1.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.cases.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.fini.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.0.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.1.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.cases.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __noop.maxchanends)))) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + 0))))
 .Ltmp287:
 	.size	__main__main_tile_0_combined_tile_0_0, .Ltmp287-__main__main_tile_0_combined_tile_0_0
 	.cfi_endproc
@@ -4860,21 +4971,21 @@ __main__main_tile_0_combined_tile_0_4:
 	ldaw r0, r10[3]
 	#init allocation
 	ldw r5, r10[4]
-	ldc r0, 280
+	ldc r0, 288
 	add r1, r4, r0
 	# STACKUP 
 	# ALLOCA 2
 	extsp 1
 	mov r0, r5
-.Lxta.call_labels2:
+.Lxta.call_labels4:
 	bl I2C_External_Server.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r6, r10[3]
-	ldc r0, 200
+	ldc r0, 208
 	add r0, r4, r0
 	ldw r1, r0[0]
-	ldc r0, 384
+	ldc r0, 392
 	add r0, r4, r0
 	ldw r2, r0[0]
 	# STACKUP 
@@ -4882,7 +4993,7 @@ __main__main_tile_0_combined_tile_0_4:
 	extsp 1
 	ldc r3, 0
 	mov r0, r6
-.Lxta.call_labels3:
+.Lxta.call_labels5:
 	bl adc_task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
@@ -4990,7 +5101,7 @@ __main__main_tile_0_combined_tile_0_4:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_4.function
-	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M I2C_External_Server.select.enable.cases.nstackwords $M adc_task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Server.select.enable.cases.nstackwords)) + 11)
 	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
@@ -5008,267 +5119,38 @@ __main__main_tile_0_combined_tile_0_4:
 	.cc_bottom .LCPI57_0.data
 	.text
 	.align	4
-	.type	__main__main_tile_0_combined_tile_0_5,@function
-	.cc_top __main__main_tile_0_combined_tile_0_5.function,__main__main_tile_0_combined_tile_0_5
-__main__main_tile_0_combined_tile_0_5:
-	.cfi_startproc
-	entsp 12
-.Ltmp300:
-	.cfi_def_cfa_offset 48
-.Ltmp301:
-	.cfi_offset 15, 0
-	stw r10, sp[1]
-.Ltmp302:
-	.cfi_offset 10, -44
-	ldaw r10, sp[0]
-.Ltmp303:
-	.cfi_def_cfa_register 10
-	stw r4, r10[11]
-.Ltmp304:
-	.cfi_offset 4, -4
-	stw r5, r10[10]
-.Ltmp305:
-	.cfi_offset 5, -8
-	stw r6, r10[9]
-.Ltmp306:
-	.cfi_offset 6, -12
-	stw r7, r10[8]
-.Ltmp307:
-	.cfi_offset 7, -16
-	stw r8, r10[7]
-.Ltmp308:
-	.cfi_offset 8, -20
-	stw r9, r10[6]
-.Ltmp309:
-	.cfi_offset 9, -24
-	mov r4, r0
-	stw r4, r10[3]
-	ldc r0, Temperature_Water_Controller.init.0.savedstate
-	ldc r1, 4
-	ldaw r0, r1[r0]
-	ldaw r2, sp[0]
-	sub r0, r2, r0
-	set sp, r0
-	# ALLOCA 1
-	add r0, r0, 4
-	ldc r2, Port_Pins_Heat_Light_Server.init.0.savedstate
-	ldaw r1, r1[r2]
-	ldaw r2, sp[0]
-	sub r1, r2, r1
-	set sp, r1
-	# ALLOCA 0
-	add r1, r1, 4
-	stw r0, r10[5]
-	ldaw r0, r10[5]
-	#init allocation
-	stw r1, r10[4]
-	ldaw r0, r10[4]
-	#init allocation
-	ldw r6, r10[5]
-	ldw r1, r4[0]
-	ldw r2, r4[10]
-	# STACKUP 
-	# ALLOCA 2
-	extsp 1
-	mov r0, r6
-.Lxta.call_labels4:
-	bl Temperature_Water_Controller.init.0
-	ldaw sp, sp[1]
-	# STACKDOWN
-	ldw r7, r10[4]
-	ldc r0, 92
-	add r1, r4, r0
-	# STACKUP 
-	# ALLOCA 3
-	extsp 1
-	mov r0, r7
-.Lxta.call_labels5:
-	bl Port_Pins_Heat_Light_Server.init.0
-	ldaw sp, sp[1]
-	# STACKDOWN
-	ldc r0, 416
-	add r1, r4, r0
-	ldap r11, Port_Pins_Heat_Light_Server.select.0.enable
-	stw r11, r1[0]
-	ldc r0, 420
-	add r0, r4, r0
-	stw r7, r0[0]
-	ldw r2, r4[10]
-	ldw r0, r2[0]
-	ldw r2, r2[1]
-	ldw r2, r2[5]
-	# STACKUP 
-	# ALLOCA 4
-	extsp 1
-	bla r2
-	ldaw sp, sp[1]
-	# STACKDOWN
-	# STACKUP 
-	# ALLOCA 5
-	extsp 1
-	mov r0, r6
-	bl Temperature_Water_Controller.init.1
-	ldaw sp, sp[1]
-	# STACKDOWN
-	# STACKUP 
-	# ALLOCA 6
-	extsp 1
-	mov r0, r7
-	bl Port_Pins_Heat_Light_Server.init.1
-	ldaw sp, sp[1]
-	# STACKDOWN
-	clre
-	get r11, id
-	ldaw r9, dp[__timer_delta]
-	ldw r0, cp[.LCPI57_0]
-	stw r0, r9[r11]
-	ldaw r0, dp[__timers]
-	ldw r4, r0[r11]
-	setc res[r4], 1
-	in r0, res[r4]
-	ldaw r5, dp[__timer_base]
-	stw r0, r5[r11]
-	# STACKUP 
-	# ALLOCA 7
-	extsp 1
-	mov r0, r6
-	mov r8, r6
-	bl Temperature_Water_Controller.select.enable
-	ldaw sp, sp[1]
-	# STACKDOWN
-	stw r0, r10[2]
-	# STACKUP 
-	# ALLOCA 8
-	extsp 1
-	mov r0, r7
-	mov r6, r7
-	bl Port_Pins_Heat_Light_Server.select.enable
-	ldaw sp, sp[1]
-	# STACKDOWN
-	ldw r1, r10[2]
-	or r0, r0, r1
-	bf r0, .LBB57_1
-.LBB57_3:
-	bl __wait_nonlocal
-	bu .Ltmp310
-.Ltmp310:
-.LBB57_2:
-	clre
-	get r11, id
-	ldw r0, cp[.LCPI57_0]
-	stw r0, r9[r11]
-	setc res[r4], 1
-	in r0, res[r4]
-	stw r0, r5[r11]
-	# STACKUP 
-	# ALLOCA 12
-	extsp 1
-	mov r0, r8
-	bl Temperature_Water_Controller.select.enable
-	ldaw sp, sp[1]
-	# STACKDOWN
-	mov r7, r0
-	# STACKUP 
-	# ALLOCA 13
-	extsp 1
-	mov r0, r6
-	bl Port_Pins_Heat_Light_Server.select.enable
-	ldaw sp, sp[1]
-	# STACKDOWN
-	or r0, r0, r7
-	bt r0, .LBB57_3
-.LBB57_1:
-	# STACKUP 
-	# ALLOCA 9
-	extsp 1
-	mov r0, r8
-	bl Temperature_Water_Controller.fini
-	ldaw sp, sp[1]
-	# STACKDOWN
-	# STACKUP 
-	# ALLOCA 10
-	extsp 1
-	mov r0, r6
-	bl Port_Pins_Heat_Light_Server.fini
-	ldaw sp, sp[1]
-	# STACKDOWN
-	ldw r0, r10[3]
-	ldw r1, r0[10]
-	ldw r0, r1[0]
-	ldw r1, r1[1]
-	ldw r2, r1[6]
-	# STACKUP 
-	# ALLOCA 11
-	extsp 1
-	mkmsk r1, 1
-	bla r2
-	ldaw sp, sp[1]
-	# STACKDOWN
-	ldaw r0, r10[4]
-	#completed deallocation
-	ldaw r0, r10[5]
-	#completed deallocation
-	ldw r9, r10[6]
-	ldw r8, r10[7]
-	ldw r7, r10[8]
-	ldw r6, r10[9]
-	ldw r5, r10[10]
-	ldw r4, r10[11]
-	set sp, r10
-	ldw r10, sp[1]
-	retsp 12
-	# RETURN_REG_HOLDER
-	.cc_bottom __main__main_tile_0_combined_tile_0_5.function
-	.set	__main__main_tile_0_combined_tile_0_5.nstackwords,((((((Temperature_Water_Controller.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Server.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Controller.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Controller.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.1.nstackwords) $M (1 + Temperature_Water_Controller.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.select.enable.nstackwords) $M (1 + Temperature_Water_Controller.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Controller.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.select.enable.nstackwords) $M Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords $M Temperature_Water_Controller.select.enable.cases.nstackwords)) + 12)
-	.set	__main__main_tile_0_combined_tile_0_5.maxcores,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_5.maxtimers,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_5.maxchanends,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + 0))
-.Ltmp311:
-	.size	__main__main_tile_0_combined_tile_0_5, .Ltmp311-__main__main_tile_0_combined_tile_0_5
-	.cfi_endproc
-
-	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI58_0.data,.LCPI58_0
-	.align	4
-	.type	.LCPI58_0,@object
-	.size	.LCPI58_0, 4
-.LCPI58_0:
-	.long	2147483647
-	.cc_bottom .LCPI58_0.data
-	.text
-	.align	4
 	.type	__main__main_tile_0_combined_tile_0_1,@function
 	.cc_top __main__main_tile_0_combined_tile_0_1.function,__main__main_tile_0_combined_tile_0_1
 __main__main_tile_0_combined_tile_0_1:
 	.cfi_startproc
 	entsp 11
-.Ltmp312:
+.Ltmp300:
 	.cfi_def_cfa_offset 44
-.Ltmp313:
+.Ltmp301:
 	.cfi_offset 15, 0
 	stw r10, sp[1]
-.Ltmp314:
+.Ltmp302:
 	.cfi_offset 10, -40
 	ldaw r10, sp[0]
-.Ltmp315:
+.Ltmp303:
 	.cfi_def_cfa_register 10
 	stw r4, r10[10]
-.Ltmp316:
+.Ltmp304:
 	.cfi_offset 4, -4
 	stw r5, r10[9]
-.Ltmp317:
+.Ltmp305:
 	.cfi_offset 5, -8
 	stw r6, r10[8]
-.Ltmp318:
+.Ltmp306:
 	.cfi_offset 6, -12
 	stw r7, r10[7]
-.Ltmp319:
+.Ltmp307:
 	.cfi_offset 7, -16
 	stw r8, r10[6]
-.Ltmp320:
+.Ltmp308:
 	.cfi_offset 8, -20
 	stw r9, r10[5]
-.Ltmp321:
+.Ltmp309:
 	.cfi_offset 9, -24
 	mov r7, r0
 	ldc r0, Button_Task.init.0.savedstate
@@ -5300,7 +5182,7 @@ __main__main_tile_0_combined_tile_0_1:
 	#init allocation
 	ldw r4, r10[4]
 	ldw r2, dp[inP_button_left]
-	ldc r0, 404
+	ldc r0, 412
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5314,7 +5196,7 @@ __main__main_tile_0_combined_tile_0_1:
 	# STACKDOWN
 	ldw r5, r10[3]
 	ldw r2, dp[inP_button_center]
-	ldc r0, 408
+	ldc r0, 416
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5328,7 +5210,7 @@ __main__main_tile_0_combined_tile_0_1:
 	# STACKDOWN
 	ldw r6, r10[2]
 	ldw r2, dp[inP_button_right]
-	ldc r0, 412
+	ldc r0, 420
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5365,16 +5247,16 @@ __main__main_tile_0_combined_tile_0_1:
 	ldaw r0, dp[__timers]
 	ldw r9, r0[r11]
 	ldaw r8, dp[__timer_base]
-	bu .LBB58_1
-.LBB58_2:
+	bu .LBB57_1
+.LBB57_2:
 	bl __wait_nonlocal
-	bu .Ltmp322
-.Ltmp322:
-.LBB58_1:
+	bu .Ltmp310
+.Ltmp310:
+.LBB57_1:
 	clre
 	get r11, id
 	ldaw r0, dp[__timer_delta]
-	ldw r1, cp[.LCPI58_0]
+	ldw r1, cp[.LCPI57_0]
 	stw r1, r0[r11]
 	setc res[r9], 1
 	in r0, res[r9]
@@ -5403,7 +5285,7 @@ __main__main_tile_0_combined_tile_0_1:
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r7, r0
-	bt r0, .LBB58_2
+	bt r0, .LBB57_2
 	# STACKUP 
 	# ALLOCA 9
 	extsp 1
@@ -5446,91 +5328,91 @@ __main__main_tile_0_combined_tile_0_1:
 	.set	__main__main_tile_0_combined_tile_0_1.maxcores,((3 * Button_Task.dynalloc_maxcores) + Button_Task.fini.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.0.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.1.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.cases.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + 1)
 	.set	__main__main_tile_0_combined_tile_0_1.maxtimers,((3 * Button_Task.dynalloc_maxtimers) + Button_Task.fini.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.0.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.1.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.cases.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + 0)
 	.set	__main__main_tile_0_combined_tile_0_1.maxchanends,((3 * Button_Task.dynalloc_maxchanends) + Button_Task.fini.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.0.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.1.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.cases.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + 0)
-.Ltmp323:
-	.size	__main__main_tile_0_combined_tile_0_1, .Ltmp323-__main__main_tile_0_combined_tile_0_1
+.Ltmp311:
+	.size	__main__main_tile_0_combined_tile_0_1, .Ltmp311-__main__main_tile_0_combined_tile_0_1
 	.cfi_endproc
 
 	.align	4
 	.type	__main__main_tile_0_task_installExceptionHandler_0,@function
 	.cc_top __main__main_tile_0_task_installExceptionHandler_0.function,__main__main_tile_0_task_installExceptionHandler_0
 __main__main_tile_0_task_installExceptionHandler_0:
-.Lfunc_begin59:
-	.loc	1 65 0
+.Lfunc_begin58:
+	.loc	1 131 0
 	.cfi_startproc
 	entsp 1
-.Ltmp324:
+.Ltmp312:
 	.cfi_def_cfa_offset 4
-.Ltmp325:
+.Ltmp313:
 	.cfi_offset 15, 0
-	.loc	1 65 0 prologue_end
-.Ltmp326:
+	.loc	1 131 0 prologue_end
+.Ltmp314:
 .Lxta.call_labels9:
 	bl installExceptionHandler
-.Ltmp327:
+.Ltmp315:
 	retsp 1
 	# RETURN_REG_HOLDER
-.Ltmp328:
+.Ltmp316:
 	.cc_bottom __main__main_tile_0_task_installExceptionHandler_0.function
 	.set	__main__main_tile_0_task_installExceptionHandler_0.nstackwords,(installExceptionHandler.nstackwords + 1)
 	.set	__main__main_tile_0_task_installExceptionHandler_0.maxcores,installExceptionHandler.maxcores $M 1
 	.set	__main__main_tile_0_task_installExceptionHandler_0.maxtimers,installExceptionHandler.maxtimers $M 0
 	.set	__main__main_tile_0_task_installExceptionHandler_0.maxchanends,installExceptionHandler.maxchanends $M 0
-.Ltmp329:
-	.size	__main__main_tile_0_task_installExceptionHandler_0, .Ltmp329-__main__main_tile_0_task_installExceptionHandler_0
-.Lfunc_end59:
+.Ltmp317:
+	.size	__main__main_tile_0_task_installExceptionHandler_0, .Ltmp317-__main__main_tile_0_task_installExceptionHandler_0
+.Lfunc_end58:
 	.cfi_endproc
 
 	.align	4
 	.type	__main__main_tile_0_task_System_Task_3,@function
 	.cc_top __main__main_tile_0_task_System_Task_3.function,__main__main_tile_0_task_System_Task_3
 __main__main_tile_0_task_System_Task_3:
-.Lfunc_begin60:
-	.loc	1 69 0
+.Lfunc_begin59:
+	.loc	1 135 0
 	.cfi_startproc
 	entsp 7
-.Ltmp330:
+.Ltmp318:
 	.cfi_def_cfa_offset 28
-.Ltmp331:
+.Ltmp319:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp332:
+.Ltmp320:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp333:
+.Ltmp321:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp334:
+.Ltmp322:
 	.cfi_offset 6, -12
-	ldc r1, 256
-	.loc	1 69 0 prologue_end
-.Ltmp335:
+	ldc r1, 264
+	.loc	1 135 0 prologue_end
+.Ltmp323:
 	add r1, r0, r1
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r11, r1[0]
-	ldc r1, 288
-	.loc	1 69 0
+	ldc r1, 296
+	.loc	1 135 0
 	add r1, r0, r1
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r1, r1[0]
-	ldc r2, 152
-	.loc	1 69 0
+	ldc r2, 160
+	.loc	1 135 0
 	add r2, r0, r2
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r2, r2[0]
-	ldc r3, 100
-	.loc	1 69 0
+	ldc r3, 104
+	.loc	1 135 0
 	add r3, r0, r3
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r3, r3[0]
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r4, r0[9]
-	.loc	1 69 0
+	.loc	1 135 0
 	ldw r5, r0[1]
-	ldc r6, 392
-	.loc	1 69 0
+	ldc r6, 400
+	.loc	1 135 0
 	add r0, r0, r6
-.Ltmp336:
-	.loc	1 69 0
+.Ltmp324:
+	.loc	1 135 0
 	stw r0, sp[3]
 	stw r5, sp[2]
 	stw r4, sp[1]
@@ -5542,57 +5424,57 @@ __main__main_tile_0_task_System_Task_3:
 	ldw r4, sp[6]
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp337:
+.Ltmp325:
 	.cc_bottom __main__main_tile_0_task_System_Task_3.function
 	.set	__main__main_tile_0_task_System_Task_3.nstackwords,(System_Task.nstackwords + 7)
 	.set	__main__main_tile_0_task_System_Task_3.maxcores,System_Task.maxcores $M 1
 	.set	__main__main_tile_0_task_System_Task_3.maxtimers,System_Task.maxtimers $M 0
 	.set	__main__main_tile_0_task_System_Task_3.maxchanends,System_Task.maxchanends $M 0
-.Ltmp338:
-	.size	__main__main_tile_0_task_System_Task_3, .Ltmp338-__main__main_tile_0_task_System_Task_3
-.Lfunc_end60:
+.Ltmp326:
+	.size	__main__main_tile_0_task_System_Task_3, .Ltmp326-__main__main_tile_0_task_System_Task_3
+.Lfunc_end59:
 	.cfi_endproc
 
 	.align	4
 	.type	__main__main_tile_0_task_My_startKIT_ADC_Client_9,@function
 	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Client_9.function,__main__main_tile_0_task_My_startKIT_ADC_Client_9
 __main__main_tile_0_task_My_startKIT_ADC_Client_9:
-.Lfunc_begin61:
-	.loc	1 77 0
+.Lfunc_begin60:
+	.loc	1 143 0
 	.cfi_startproc
 	entsp 1
-.Ltmp339:
+.Ltmp327:
 	.cfi_def_cfa_offset 4
-.Ltmp340:
+.Ltmp328:
 	.cfi_offset 15, 0
-	ldc r1, 204
-	.loc	1 77 0 prologue_end
-.Ltmp341:
+	ldc r1, 212
+	.loc	1 143 0 prologue_end
+.Ltmp329:
 	add r1, r0, r1
-	.loc	1 77 0
+	.loc	1 143 0
 	ldw r3, r1[0]
-	ldc r1, 148
-	.loc	1 77 0
+	ldc r1, 156
+	.loc	1 143 0
 	add r0, r0, r1
-.Ltmp342:
-	.loc	1 77 0
+.Ltmp330:
+	.loc	1 143 0
 	ldw r1, r0[0]
 	ldc r2, 1000
-	.loc	1 77 0
+	.loc	1 143 0
 	mov r0, r3
 .Lxta.call_labels11:
 	bl My_startKIT_ADC_Client
 	retsp 1
 	# RETURN_REG_HOLDER
-.Ltmp343:
+.Ltmp331:
 	.cc_bottom __main__main_tile_0_task_My_startKIT_ADC_Client_9.function
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords,(My_startKIT_ADC_Client.nstackwords + 1)
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores,My_startKIT_ADC_Client.maxcores $M 1
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxtimers,My_startKIT_ADC_Client.maxtimers $M 0
 	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxchanends,My_startKIT_ADC_Client.maxchanends $M 0
-.Ltmp344:
-	.size	__main__main_tile_0_task_My_startKIT_ADC_Client_9, .Ltmp344-__main__main_tile_0_task_My_startKIT_ADC_Client_9
-.Lfunc_end61:
+.Ltmp332:
+	.size	__main__main_tile_0_task_My_startKIT_ADC_Client_9, .Ltmp332-__main__main_tile_0_task_My_startKIT_ADC_Client_9
+.Lfunc_end60:
 	.cfi_endproc
 
 	.section	.cp.rodata,"ac",@progbits
@@ -5674,15 +5556,15 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.type	.vtable15,@object
 	.size	.vtable15, 36
 .vtable15:
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.long	_i.port_heat_light_commands_if._chan.set_light_composition
-	.long	_i.port_heat_light_commands_if._chan.beeper_on_command
-	.long	_i.port_heat_light_commands_if._chan.beeper_blip_command
-	.long	_i.port_heat_light_commands_if._chan.heat_cables_command
-	.long	__interface_client_push_yield
-	.long	__interface_client_pop_yield
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command
+	.long	_i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command
 	.long	__noop
+	.long	__noop
+	.long	__interface_init_task_1
 	.cc_bottom .vtable15.data
 	.cc_top .vtable16.data,.vtable16
 	.align	4
@@ -5703,14 +5585,14 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.type	.vtable17,@object
 	.size	.vtable17, 32
 .vtable17:
-	.long	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
-	.long	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
-	.long	_i.temperature_heater_commands_if._chan_y.get_temps
-	.long	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
-	.long	_i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.long	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
+	.long	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
+	.long	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
+	.long	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
+	.long	_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
-	.long	__noop
+	.long	__interface_init_task_1
 	.cc_bottom .vtable17.data
 	.cc_top .vtable18.data,.vtable18
 	.align	4
@@ -5728,14 +5610,12 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.cc_top par.desc.1.data,par.desc.1
 	.align	4
 	.type	par.desc.1,@object
-	.size	par.desc.1, 56
+	.size	par.desc.1, 48
 par.desc.1:
 	.long	__main__main_tile_0_combined_tile_0_4
 	.long	__main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords
-	.long	__main__main_tile_0_combined_tile_0_5
-	.long	__main__main_tile_0_combined_tile_0_4.nstackwords
 	.long	__main__main_tile_0_combined_tile_0_1
-	.long	__main__main_tile_0_combined_tile_0_5.nstackwords
+	.long	__main__main_tile_0_combined_tile_0_4.nstackwords
 	.long	__main__main_tile_0_task_installExceptionHandler_0
 	.long	__main__main_tile_0_combined_tile_0_1.nstackwords
 	.long	__main__main_tile_0_task_System_Task_3
@@ -5976,138 +5856,136 @@ par.desc.1:
 .Linfo_string112:
 .asciiz"__main__main_tile_0_combined_tile_0_4"
 .Linfo_string113:
-.asciiz"__main__main_tile_0_combined_tile_0_5"
-.Linfo_string114:
 .asciiz"__main__main_tile_0_combined_tile_0_1"
-.Linfo_string115:
+.Linfo_string114:
 .asciiz"__main__main_tile_0_task_installExceptionHandler_0"
-.Linfo_string116:
+.Linfo_string115:
 .asciiz"__main__main_tile_0_task_System_Task_3"
-.Linfo_string117:
+.Linfo_string116:
 .asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_9"
-.Linfo_string118:
+.Linfo_string117:
 .asciiz"__main__main_tile_0"
-.Linfo_string119:
+.Linfo_string118:
 .asciiz"frame"
-.Linfo_string120:
+.Linfo_string119:
 .asciiz"i_temperature_water_commands"
-.Linfo_string121:
+.Linfo_string120:
 .asciiz"x"
-.Linfo_string122:
+.Linfo_string121:
 .asciiz"interface"
-.Linfo_string123:
+.Linfo_string122:
 .asciiz"state.0"
-.Linfo_string124:
+.Linfo_string123:
 .asciiz"server_state"
-.Linfo_string125:
+.Linfo_string124:
 .asciiz"unsigned int"
-.Linfo_string126:
+.Linfo_string125:
 .asciiz"client_state"
-.Linfo_string127:
+.Linfo_string126:
 .asciiz"__TYPE_16"
-.Linfo_string128:
+.Linfo_string127:
 .asciiz"__TYPE_15"
-.Linfo_string129:
+.Linfo_string128:
 .asciiz"i_temperature_heater_commands"
-.Linfo_string130:
+.Linfo_string129:
 .asciiz"__TYPE_18"
-.Linfo_string131:
+.Linfo_string130:
 .asciiz"state.1"
-.Linfo_string132:
+.Linfo_string131:
 .asciiz"__TYPE_19"
-.Linfo_string133:
+.Linfo_string132:
 .asciiz"__TYPE_17"
-.Linfo_string134:
+.Linfo_string133:
 .asciiz"i_port_heat_light_commands"
-.Linfo_string135:
+.Linfo_string134:
 .asciiz"__TYPE_21"
-.Linfo_string136:
+.Linfo_string135:
 .asciiz"__TYPE_22"
-.Linfo_string137:
+.Linfo_string136:
 .asciiz"__TYPE_20"
-.Linfo_string138:
+.Linfo_string137:
 .asciiz"i_lib_startkit_adc_commands"
-.Linfo_string139:
+.Linfo_string138:
 .asciiz"__TYPE_24"
-.Linfo_string140:
+.Linfo_string139:
 .asciiz"__TYPE_23"
-.Linfo_string141:
+.Linfo_string140:
 .asciiz"i_startkit_adc_acquire"
-.Linfo_string142:
+.Linfo_string141:
 .asciiz"__TYPE_26"
-.Linfo_string143:
+.Linfo_string142:
 .asciiz"__TYPE_25"
-.Linfo_string144:
+.Linfo_string143:
 .asciiz"i_i2c_internal_commands"
-.Linfo_string145:
+.Linfo_string144:
 .asciiz"__TYPE_28"
-.Linfo_string146:
+.Linfo_string145:
 .asciiz"__TYPE_27"
-.Linfo_string147:
+.Linfo_string146:
 .asciiz"i_i2c_external_commands"
-.Linfo_string148:
+.Linfo_string147:
 .asciiz"__TYPE_30"
-.Linfo_string149:
+.Linfo_string148:
 .asciiz"__TYPE_31"
-.Linfo_string150:
+.Linfo_string149:
 .asciiz"__TYPE_29"
-.Linfo_string151:
+.Linfo_string150:
 .asciiz"c_analogue"
-.Linfo_string152:
+.Linfo_string151:
 .asciiz"chanend"
-.Linfo_string153:
+.Linfo_string152:
 .asciiz"c_buttons"
-.Linfo_string154:
+.Linfo_string153:
 .asciiz"yieldInfoState"
-.Linfo_string155:
+.Linfo_string154:
 .asciiz"frame.0"
-.Linfo_string156:
+.Linfo_string155:
 .asciiz"dest"
-.Linfo_string157:
+.Linfo_string156:
 .asciiz"last_notification_input"
-.Linfo_string158:
+.Linfo_string157:
 .asciiz"param2"
-.Linfo_string159:
+.Linfo_string158:
 .asciiz"unsigned short"
-.Linfo_string160:
+.Linfo_string159:
 .asciiz"s"
-.Linfo_string161:
+.Linfo_string160:
 .asciiz"y"
-.Linfo_string162:
+.Linfo_string161:
 .asciiz"yarg"
-.Linfo_string163:
+.Linfo_string162:
 .asciiz"param1"
-.Linfo_string164:
+.Linfo_string163:
 .asciiz"unsigned char"
-.Linfo_string165:
+.Linfo_string164:
 .asciiz"param3"
-.Linfo_string166:
+.Linfo_string165:
 .asciiz"registers"
-.Linfo_string167:
+.Linfo_string166:
 .asciiz"chronodot_d3231_registers_t"
-.Linfo_string168:
+.Linfo_string167:
 .asciiz"param4"
-.Linfo_string169:
+.Linfo_string168:
 .asciiz"year"
-.Linfo_string170:
+.Linfo_string169:
 .asciiz"month"
-.Linfo_string171:
+.Linfo_string170:
 .asciiz"day"
-.Linfo_string172:
+.Linfo_string171:
 .asciiz"hour"
-.Linfo_string173:
+.Linfo_string172:
 .asciiz"minute"
-.Linfo_string174:
+.Linfo_string173:
 .asciiz"second"
-.Linfo_string175:
+.Linfo_string174:
 .asciiz"__TYPE_14"
-.Linfo_string176:
+.Linfo_string175:
 .asciiz"delay"
-.Linfo_string177:
+.Linfo_string176:
 .asciiz"formal.c_analogue1"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3523
+	.long	3518
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -6287,42 +6165,42 @@ par.desc.1:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string115
-	.long	.Linfo_string115
+	.long	.Linfo_string114
+	.long	.Linfo_string114
 	.byte	1
-	.byte	65
+	.byte	131
 	.byte	7
 	.long	.Ldebug_loc0
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	6
 	.long	.Ldebug_ranges1
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string116
-	.long	.Linfo_string116
+	.long	.Linfo_string115
+	.long	.Linfo_string115
 	.byte	1
-	.byte	69
+	.byte	135
 	.byte	7
 	.long	.Ldebug_loc1
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	6
 	.long	.Ldebug_ranges2
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string117
-	.long	.Linfo_string117
+	.long	.Linfo_string116
+	.long	.Linfo_string116
 	.byte	1
-	.byte	77
+	.byte	143
 	.byte	7
 	.long	.Ldebug_loc2
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	8
 	.long	.Linfo_string48
@@ -6330,14 +6208,14 @@ par.desc.1:
 	.long	495
 	.byte	1
 	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	2657
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
-	.byte	9
-	.long	.Linfo_string158
-	.long	3249
+	.long	3244
 	.byte	0
 	.byte	3
 	.long	.Linfo_string49
@@ -6348,8 +6226,8 @@ par.desc.1:
 	.long	.Linfo_string50
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	0
 	.byte	8
 	.long	.Linfo_string51
@@ -6357,22 +6235,22 @@ par.desc.1:
 	.long	495
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
+	.byte	9
+	.long	.Linfo_string156
+	.long	2657
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
-	.byte	9
-	.long	.Linfo_string158
-	.long	3249
+	.long	3244
 	.byte	0
 	.byte	10
 	.long	.Linfo_string52
 	.long	.Linfo_string52
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	0
 	.byte	8
 	.long	.Linfo_string53
@@ -6380,31 +6258,31 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3318
+	.long	.Linfo_string157
+	.long	3313
 	.byte	9
-	.long	.Linfo_string165
-	.long	3306
+	.long	.Linfo_string164
+	.long	3301
 	.byte	0
 	.byte	10
 	.long	.Linfo_string54
 	.long	.Linfo_string54
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3318
+	.long	.Linfo_string157
+	.long	3313
 	.byte	0
 	.byte	8
 	.long	.Linfo_string55
@@ -6412,25 +6290,25 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3323
+	.long	.Linfo_string157
+	.long	3318
 	.byte	0
 	.byte	10
 	.long	.Linfo_string56
 	.long	.Linfo_string56
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	0
 	.byte	8
 	.long	.Linfo_string57
@@ -6438,20 +6316,20 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3306
+	.long	.Linfo_string157
+	.long	3301
 	.byte	9
-	.long	.Linfo_string165
-	.long	3358
+	.long	.Linfo_string164
+	.long	3353
 	.byte	9
-	.long	.Linfo_string168
-	.long	2675
+	.long	.Linfo_string167
+	.long	2657
 	.byte	0
 	.byte	8
 	.long	.Linfo_string58
@@ -6459,31 +6337,31 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3318
+	.long	.Linfo_string157
+	.long	3313
 	.byte	9
-	.long	.Linfo_string165
-	.long	3306
+	.long	.Linfo_string164
+	.long	3301
 	.byte	0
 	.byte	10
 	.long	.Linfo_string59
 	.long	.Linfo_string59
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3318
+	.long	.Linfo_string157
+	.long	3313
 	.byte	0
 	.byte	8
 	.long	.Linfo_string60
@@ -6491,25 +6369,25 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3323
+	.long	.Linfo_string157
+	.long	3318
 	.byte	0
 	.byte	10
 	.long	.Linfo_string61
 	.long	.Linfo_string61
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	0
 	.byte	8
 	.long	.Linfo_string62
@@ -6517,31 +6395,31 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3306
+	.long	.Linfo_string162
+	.long	3301
 	.byte	9
-	.long	.Linfo_string158
-	.long	3306
+	.long	.Linfo_string157
+	.long	3301
 	.byte	9
-	.long	.Linfo_string165
-	.long	3358
+	.long	.Linfo_string164
+	.long	3353
 	.byte	9
-	.long	.Linfo_string168
-	.long	2675
+	.long	.Linfo_string167
+	.long	2657
 	.byte	0
 	.byte	10
 	.long	.Linfo_string63
 	.long	.Linfo_string63
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3368
+	.long	.Linfo_string162
+	.long	3363
 	.byte	0
 	.byte	8
 	.long	.Linfo_string64
@@ -6549,11 +6427,11 @@ par.desc.1:
 	.long	1086
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string157
-	.long	2675
+	.long	.Linfo_string156
+	.long	2657
 	.byte	0
 	.byte	11
 	.long	.Linfo_string69
@@ -6594,11 +6472,11 @@ par.desc.1:
 	.long	.Linfo_string70
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3368
+	.long	.Linfo_string162
+	.long	3363
 	.byte	0
 	.byte	8
 	.long	.Linfo_string71
@@ -6606,337 +6484,337 @@ par.desc.1:
 	.long	1086
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
+	.byte	9
+	.long	.Linfo_string156
+	.long	2657
+	.byte	0
+	.byte	10
+	.long	.Linfo_string72
+	.long	.Linfo_string72
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
+	.long	3368
+	.byte	0
+	.byte	10
+	.long	.Linfo_string73
+	.long	.Linfo_string73
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
+	.long	3373
+	.byte	0
+	.byte	10
+	.long	.Linfo_string74
+	.long	.Linfo_string74
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
+	.long	3378
+	.byte	0
+	.byte	10
+	.long	.Linfo_string75
+	.long	.Linfo_string75
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
+	.long	3383
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
-	.byte	0
-	.byte	10
-	.long	.Linfo_string72
-	.long	.Linfo_string72
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
-	.long	3373
-	.byte	0
-	.byte	10
-	.long	.Linfo_string73
-	.long	.Linfo_string73
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
-	.long	3378
-	.byte	0
-	.byte	10
-	.long	.Linfo_string74
-	.long	.Linfo_string74
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
-	.long	3383
-	.byte	0
-	.byte	10
-	.long	.Linfo_string75
-	.long	.Linfo_string75
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
 	.long	3388
 	.byte	9
-	.long	.Linfo_string158
-	.long	3393
-	.byte	9
-	.long	.Linfo_string165
-	.long	3378
+	.long	.Linfo_string164
+	.long	3373
 	.byte	0
 	.byte	10
 	.long	.Linfo_string76
 	.long	.Linfo_string76
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3398
+	.long	.Linfo_string162
+	.long	3393
 	.byte	0
 	.byte	10
 	.long	.Linfo_string77
 	.long	.Linfo_string77
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	0
 	.byte	10
 	.long	.Linfo_string78
 	.long	.Linfo_string78
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
+	.long	3368
+	.byte	0
+	.byte	10
+	.long	.Linfo_string79
+	.long	.Linfo_string79
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3269
+	.byte	9
+	.long	.Linfo_string162
 	.long	3373
 	.byte	0
 	.byte	10
-	.long	.Linfo_string79
-	.long	.Linfo_string79
+	.long	.Linfo_string80
+	.long	.Linfo_string80
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
 	.long	3378
 	.byte	0
 	.byte	10
-	.long	.Linfo_string80
-	.long	.Linfo_string80
+	.long	.Linfo_string81
+	.long	.Linfo_string81
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
 	.long	3383
-	.byte	0
-	.byte	10
-	.long	.Linfo_string81
-	.long	.Linfo_string81
-	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
-	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string157
 	.long	3388
 	.byte	9
-	.long	.Linfo_string158
-	.long	3393
-	.byte	9
-	.long	.Linfo_string165
-	.long	3378
+	.long	.Linfo_string164
+	.long	3373
 	.byte	0
 	.byte	10
 	.long	.Linfo_string82
 	.long	.Linfo_string82
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
+	.long	3393
+	.byte	0
+	.byte	10
+	.long	.Linfo_string83
+	.long	.Linfo_string83
+	.byte	1
+	.byte	9
+	.long	.Linfo_string159
+	.long	3269
+	.byte	0
+	.byte	10
+	.long	.Linfo_string84
+	.long	.Linfo_string84
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
 	.long	3398
 	.byte	0
 	.byte	10
-	.long	.Linfo_string83
-	.long	.Linfo_string83
+	.long	.Linfo_string85
+	.long	.Linfo_string85
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
-	.byte	0
-	.byte	10
-	.long	.Linfo_string84
-	.long	.Linfo_string84
-	.byte	1
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
 	.long	3403
-	.byte	0
-	.byte	10
-	.long	.Linfo_string85
-	.long	.Linfo_string85
-	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string157
 	.long	3408
-	.byte	9
-	.long	.Linfo_string158
-	.long	3413
 	.byte	0
 	.byte	10
 	.long	.Linfo_string86
 	.long	.Linfo_string86
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3431
+	.long	.Linfo_string162
+	.long	3426
 	.byte	0
 	.byte	10
 	.long	.Linfo_string87
 	.long	.Linfo_string87
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3449
+	.long	.Linfo_string162
+	.long	3444
 	.byte	9
-	.long	.Linfo_string158
-	.long	3403
+	.long	.Linfo_string157
+	.long	3398
 	.byte	0
 	.byte	10
 	.long	.Linfo_string88
 	.long	.Linfo_string88
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3449
+	.long	.Linfo_string162
+	.long	3444
 	.byte	9
-	.long	.Linfo_string158
-	.long	3403
+	.long	.Linfo_string157
+	.long	3398
 	.byte	0
 	.byte	10
 	.long	.Linfo_string89
 	.long	.Linfo_string89
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3403
+	.long	.Linfo_string162
+	.long	3398
 	.byte	0
 	.byte	10
 	.long	.Linfo_string90
 	.long	.Linfo_string90
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
+	.long	3403
+	.byte	9
+	.long	.Linfo_string157
 	.long	3408
-	.byte	9
-	.long	.Linfo_string158
-	.long	3413
 	.byte	0
 	.byte	10
 	.long	.Linfo_string91
 	.long	.Linfo_string91
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3431
+	.long	.Linfo_string162
+	.long	3426
 	.byte	0
 	.byte	10
 	.long	.Linfo_string92
 	.long	.Linfo_string92
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3449
+	.long	.Linfo_string162
+	.long	3444
 	.byte	9
-	.long	.Linfo_string158
-	.long	3403
+	.long	.Linfo_string157
+	.long	3398
 	.byte	0
 	.byte	10
 	.long	.Linfo_string93
 	.long	.Linfo_string93
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3449
+	.long	.Linfo_string162
+	.long	3444
 	.byte	9
-	.long	.Linfo_string158
+	.long	.Linfo_string157
+	.long	3398
+	.byte	0
+	.byte	10
+	.long	.Linfo_string94
+	.long	.Linfo_string94
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	0
+	.byte	10
+	.long	.Linfo_string95
+	.long	.Linfo_string95
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	0
+	.byte	10
+	.long	.Linfo_string96
+	.long	.Linfo_string96
+	.byte	1
+	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
+	.long	.Linfo_string162
 	.long	3403
-	.byte	0
-	.byte	10
-	.long	.Linfo_string94
-	.long	.Linfo_string94
-	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	0
-	.byte	10
-	.long	.Linfo_string95
-	.long	.Linfo_string95
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	0
-	.byte	10
-	.long	.Linfo_string96
-	.long	.Linfo_string96
-	.byte	1
-	.byte	9
-	.long	.Linfo_string156
-	.long	3209
-	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string157
 	.long	3408
-	.byte	9
-	.long	.Linfo_string158
-	.long	3413
 	.byte	0
 	.byte	10
 	.long	.Linfo_string97
 	.long	.Linfo_string97
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	0
 	.byte	10
 	.long	.Linfo_string98
 	.long	.Linfo_string98
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	0
 	.byte	10
 	.long	.Linfo_string99
 	.long	.Linfo_string99
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
+	.long	.Linfo_string162
+	.long	3403
+	.byte	9
+	.long	.Linfo_string157
 	.long	3408
-	.byte	9
-	.long	.Linfo_string158
-	.long	3413
 	.byte	0
 	.byte	8
 	.long	.Linfo_string100
@@ -6944,19 +6822,19 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	9
-	.long	.Linfo_string163
-	.long	3454
+	.long	.Linfo_string162
+	.long	3449
 	.byte	0
 	.byte	10
 	.long	.Linfo_string101
 	.long	.Linfo_string101
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	0
 	.byte	8
 	.long	.Linfo_string102
@@ -6964,63 +6842,63 @@ par.desc.1:
 	.long	104
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	9
-	.long	.Linfo_string163
-	.long	3454
+	.long	.Linfo_string162
+	.long	3449
 	.byte	0
 	.byte	10
 	.long	.Linfo_string103
 	.long	.Linfo_string103
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	0
 	.byte	10
 	.long	.Linfo_string104
 	.long	.Linfo_string104
 	.byte	1
 	.byte	9
+	.long	.Linfo_string155
+	.long	3204
+	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	2657
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
-	.byte	9
-	.long	.Linfo_string158
-	.long	3249
+	.long	3244
 	.byte	0
 	.byte	10
 	.long	.Linfo_string105
 	.long	.Linfo_string105
 	.byte	1
 	.byte	9
-	.long	.Linfo_string156
-	.long	3209
+	.long	.Linfo_string155
+	.long	3204
 	.byte	0
 	.byte	10
 	.long	.Linfo_string106
 	.long	.Linfo_string106
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
+	.byte	9
+	.long	.Linfo_string156
+	.long	2657
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
-	.byte	9
-	.long	.Linfo_string158
-	.long	3249
+	.long	3244
 	.byte	0
 	.byte	10
 	.long	.Linfo_string107
 	.long	.Linfo_string107
 	.byte	1
 	.byte	9
-	.long	.Linfo_string160
-	.long	3274
+	.long	.Linfo_string159
+	.long	3269
 	.byte	0
 	.byte	16
 	.long	.Linfo_string108
@@ -7029,10 +6907,10 @@ par.desc.1:
 	.byte	46
 	.byte	1
 	.byte	17
-	.long	.Linfo_string176
+	.long	.Linfo_string175
 	.byte	2
 	.byte	46
-	.long	2675
+	.long	2657
 	.byte	0
 	.byte	16
 	.long	.Linfo_string109
@@ -7041,10 +6919,10 @@ par.desc.1:
 	.byte	54
 	.byte	1
 	.byte	17
-	.long	.Linfo_string176
+	.long	.Linfo_string175
 	.byte	2
 	.byte	54
-	.long	2675
+	.long	2657
 	.byte	0
 	.byte	16
 	.long	.Linfo_string110
@@ -7053,313 +6931,313 @@ par.desc.1:
 	.byte	62
 	.byte	1
 	.byte	17
-	.long	.Linfo_string176
+	.long	.Linfo_string175
 	.byte	2
 	.byte	62
-	.long	2675
+	.long	2657
 	.byte	0
 	.byte	18
 	.long	.Linfo_string111
 	.long	.Linfo_string111
 	.byte	9
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	18
 	.long	.Linfo_string112
 	.long	.Linfo_string112
 	.byte	9
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	18
 	.long	.Linfo_string113
 	.long	.Linfo_string113
 	.byte	9
-	.long	.Linfo_string119
-	.long	2471
-	.byte	0
-	.byte	18
-	.long	.Linfo_string114
-	.long	.Linfo_string114
-	.byte	9
-	.long	.Linfo_string119
-	.long	2471
+	.long	.Linfo_string118
+	.long	2452
 	.byte	0
 	.byte	10
-	.long	.Linfo_string118
-	.long	.Linfo_string118
+	.long	.Linfo_string117
+	.long	.Linfo_string117
 	.byte	1
 	.byte	9
-	.long	.Linfo_string177
-	.long	3209
+	.long	.Linfo_string176
+	.long	3204
 	.byte	0
 	.byte	19
-	.long	2476
+	.long	2457
 	.byte	20
-	.long	.Linfo_string155
-	.short	428
+	.long	.Linfo_string154
+	.short	436
 	.byte	12
-	.long	.Linfo_string120
-	.long	2588
+	.long	.Linfo_string119
+	.long	2570
 	.byte	0
 	.byte	12
-	.long	.Linfo_string129
-	.long	2695
+	.long	.Linfo_string128
+	.long	2677
 	.byte	28
 	.byte	12
-	.long	.Linfo_string134
-	.long	2819
-	.byte	92
+	.long	.Linfo_string133
+	.long	2814
+	.byte	96
 	.byte	12
-	.long	.Linfo_string138
-	.long	2910
-	.byte	148
+	.long	.Linfo_string137
+	.long	2905
+	.byte	156
 	.byte	12
-	.long	.Linfo_string141
-	.long	2977
-	.byte	200
-	.byte	12
-	.long	.Linfo_string144
-	.long	3031
-	.byte	252
+	.long	.Linfo_string140
+	.long	2972
+	.byte	208
 	.byte	21
-	.long	.Linfo_string147
-	.long	3105
-	.short	280
+	.long	.Linfo_string143
+	.long	3026
+	.short	260
 	.byte	21
-	.long	.Linfo_string151
-	.long	3196
-	.short	384
+	.long	.Linfo_string146
+	.long	3100
+	.short	288
 	.byte	21
-	.long	.Linfo_string153
-	.long	3216
+	.long	.Linfo_string150
+	.long	3191
 	.short	392
 	.byte	21
-	.long	.Linfo_string154
-	.long	3236
-	.short	416
+	.long	.Linfo_string152
+	.long	3211
+	.short	400
+	.byte	21
+	.long	.Linfo_string153
+	.long	3231
+	.short	424
 	.byte	0
 	.byte	11
-	.long	.Linfo_string128
+	.long	.Linfo_string127
 	.byte	28
 	.byte	12
-	.long	.Linfo_string121
-	.long	2615
+	.long	.Linfo_string120
+	.long	2597
 	.byte	0
 	.byte	12
-	.long	.Linfo_string123
-	.long	2635
+	.long	.Linfo_string122
+	.long	2617
 	.byte	8
 	.byte	0
 	.byte	13
-	.long	2628
+	.long	2610
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	3
-	.long	.Linfo_string122
+	.long	.Linfo_string121
 	.byte	7
 	.byte	4
 	.byte	11
-	.long	.Linfo_string127
+	.long	.Linfo_string126
 	.byte	20
 	.byte	12
-	.long	.Linfo_string124
-	.long	2662
+	.long	.Linfo_string123
+	.long	2644
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2682
+	.long	.Linfo_string125
+	.long	2664
 	.byte	4
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2657
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	3
-	.long	.Linfo_string125
+	.long	.Linfo_string124
 	.byte	7
 	.byte	4
 	.byte	13
-	.long	2675
+	.long	2657
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	3
-	.byte	0
-	.byte	11
-	.long	.Linfo_string133
-	.byte	64
-	.byte	12
-	.long	.Linfo_string121
-	.long	2732
-	.byte	0
-	.byte	12
-	.long	.Linfo_string123
-	.long	2752
-	.byte	16
-	.byte	12
-	.long	.Linfo_string131
-	.long	2792
-	.byte	40
-	.byte	0
-	.byte	13
-	.long	2628
-	.byte	14
-	.long	1126
-	.byte	0
-	.byte	1
-	.byte	14
-	.long	1126
-	.byte	0
-	.byte	1
-	.byte	0
-	.byte	11
-	.long	.Linfo_string130
-	.byte	24
-	.byte	12
-	.long	.Linfo_string124
-	.long	2662
-	.byte	0
-	.byte	12
-	.long	.Linfo_string126
-	.long	2779
-	.byte	4
-	.byte	0
-	.byte	13
-	.long	2675
-	.byte	14
-	.long	1126
-	.byte	0
-	.byte	4
 	.byte	0
 	.byte	11
 	.long	.Linfo_string132
-	.byte	24
+	.byte	68
 	.byte	12
-	.long	.Linfo_string124
-	.long	2662
+	.long	.Linfo_string120
+	.long	2714
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2779
-	.byte	4
-	.byte	0
-	.byte	11
-	.long	.Linfo_string137
-	.byte	56
-	.byte	12
-	.long	.Linfo_string121
-	.long	2732
-	.byte	0
-	.byte	12
-	.long	.Linfo_string123
-	.long	2856
+	.long	.Linfo_string122
+	.long	2734
 	.byte	16
 	.byte	12
-	.long	.Linfo_string131
-	.long	2883
-	.byte	36
+	.long	.Linfo_string130
+	.long	2774
+	.byte	40
+	.byte	0
+	.byte	13
+	.long	2610
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	1
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	1
 	.byte	0
 	.byte	11
-	.long	.Linfo_string135
-	.byte	20
+	.long	.Linfo_string129
+	.byte	24
 	.byte	12
-	.long	.Linfo_string124
-	.long	2662
+	.long	.Linfo_string123
+	.long	2644
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2682
+	.long	.Linfo_string125
+	.long	2761
 	.byte	4
+	.byte	0
+	.byte	13
+	.long	2657
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	4
+	.byte	0
+	.byte	11
+	.long	.Linfo_string131
+	.byte	28
+	.byte	12
+	.long	.Linfo_string123
+	.long	2801
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2761
+	.byte	8
+	.byte	0
+	.byte	13
+	.long	2657
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	1
 	.byte	0
 	.byte	11
 	.long	.Linfo_string136
-	.byte	20
+	.byte	60
 	.byte	12
-	.long	.Linfo_string124
-	.long	2662
+	.long	.Linfo_string120
+	.long	2714
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2682
+	.long	.Linfo_string122
+	.long	2851
+	.byte	16
+	.byte	12
+	.long	.Linfo_string130
+	.long	2878
+	.byte	36
+	.byte	0
+	.byte	11
+	.long	.Linfo_string134
+	.byte	20
+	.byte	12
+	.long	.Linfo_string123
+	.long	2644
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2664
 	.byte	4
 	.byte	0
 	.byte	11
-	.long	.Linfo_string140
-	.byte	52
-	.byte	12
-	.long	.Linfo_string121
-	.long	2615
-	.byte	0
+	.long	.Linfo_string135
+	.byte	24
 	.byte	12
 	.long	.Linfo_string123
-	.long	2937
+	.long	2801
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2664
 	.byte	8
 	.byte	0
 	.byte	11
 	.long	.Linfo_string139
-	.byte	44
+	.byte	52
 	.byte	12
-	.long	.Linfo_string124
-	.long	2779
+	.long	.Linfo_string120
+	.long	2597
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2964
+	.long	.Linfo_string122
+	.long	2932
+	.byte	8
+	.byte	0
+	.byte	11
+	.long	.Linfo_string138
+	.byte	44
+	.byte	12
+	.long	.Linfo_string123
+	.long	2761
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2959
 	.byte	20
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2657
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	5
 	.byte	0
 	.byte	11
-	.long	.Linfo_string143
+	.long	.Linfo_string142
 	.byte	52
 	.byte	12
-	.long	.Linfo_string121
-	.long	2615
+	.long	.Linfo_string120
+	.long	2597
 	.byte	0
 	.byte	12
-	.long	.Linfo_string123
-	.long	3004
+	.long	.Linfo_string122
+	.long	2999
 	.byte	8
 	.byte	0
 	.byte	11
-	.long	.Linfo_string142
+	.long	.Linfo_string141
 	.byte	44
 	.byte	12
-	.long	.Linfo_string124
-	.long	2779
+	.long	.Linfo_string123
+	.long	2761
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2964
+	.long	.Linfo_string125
+	.long	2959
 	.byte	20
 	.byte	0
 	.byte	11
-	.long	.Linfo_string146
+	.long	.Linfo_string145
 	.byte	28
 	.byte	12
-	.long	.Linfo_string121
-	.long	3058
+	.long	.Linfo_string120
+	.long	3053
 	.byte	0
 	.byte	12
-	.long	.Linfo_string123
-	.long	3078
+	.long	.Linfo_string122
+	.long	3073
 	.byte	8
 	.byte	0
 	.byte	13
-	.long	2628
+	.long	2610
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7370,70 +7248,70 @@ par.desc.1:
 	.byte	0
 	.byte	0
 	.byte	11
-	.long	.Linfo_string145
+	.long	.Linfo_string144
 	.byte	20
 	.byte	12
-	.long	.Linfo_string124
-	.long	2662
+	.long	.Linfo_string123
+	.long	2644
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2682
+	.long	.Linfo_string125
+	.long	2664
 	.byte	4
 	.byte	0
 	.byte	11
-	.long	.Linfo_string150
+	.long	.Linfo_string149
 	.byte	104
 	.byte	12
-	.long	.Linfo_string121
-	.long	2732
+	.long	.Linfo_string120
+	.long	2714
 	.byte	0
 	.byte	12
-	.long	.Linfo_string123
-	.long	3142
+	.long	.Linfo_string122
+	.long	3137
 	.byte	16
 	.byte	12
-	.long	.Linfo_string131
-	.long	3169
+	.long	.Linfo_string130
+	.long	3164
 	.byte	60
+	.byte	0
+	.byte	11
+	.long	.Linfo_string147
+	.byte	44
+	.byte	12
+	.long	.Linfo_string123
+	.long	2761
+	.byte	0
+	.byte	12
+	.long	.Linfo_string125
+	.long	2959
+	.byte	20
 	.byte	0
 	.byte	11
 	.long	.Linfo_string148
 	.byte	44
 	.byte	12
-	.long	.Linfo_string124
-	.long	2779
+	.long	.Linfo_string123
+	.long	2761
 	.byte	0
 	.byte	12
-	.long	.Linfo_string126
-	.long	2964
-	.byte	20
-	.byte	0
-	.byte	11
-	.long	.Linfo_string149
-	.byte	44
-	.byte	12
-	.long	.Linfo_string124
-	.long	2779
-	.byte	0
-	.byte	12
-	.long	.Linfo_string126
-	.long	2964
+	.long	.Linfo_string125
+	.long	2959
 	.byte	20
 	.byte	0
 	.byte	13
-	.long	3209
+	.long	3204
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	3
-	.long	.Linfo_string152
+	.long	.Linfo_string151
 	.byte	7
 	.byte	4
 	.byte	13
-	.long	3209
+	.long	3204
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7444,74 +7322,74 @@ par.desc.1:
 	.byte	2
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2657
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	22
-	.long	3254
+	.long	3249
 	.byte	13
-	.long	3267
+	.long	3262
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	3
 	.byte	0
 	.byte	3
-	.long	.Linfo_string159
+	.long	.Linfo_string158
 	.byte	7
 	.byte	2
 	.byte	22
-	.long	3279
+	.long	3274
 	.byte	11
-	.long	.Linfo_string162
-	.byte	8
-	.byte	12
-	.long	.Linfo_string156
-	.long	3209
-	.byte	0
-	.byte	12
 	.long	.Linfo_string161
-	.long	2675
+	.byte	8
+	.byte	12
+	.long	.Linfo_string155
+	.long	3204
+	.byte	0
+	.byte	12
+	.long	.Linfo_string160
+	.long	2657
 	.byte	4
 	.byte	0
 	.byte	23
-	.long	3311
+	.long	3306
 	.byte	3
-	.long	.Linfo_string164
+	.long	.Linfo_string163
 	.byte	8
 	.byte	1
 	.byte	23
-	.long	3267
+	.long	3262
 	.byte	23
-	.long	3328
+	.long	3323
 	.byte	11
-	.long	.Linfo_string167
+	.long	.Linfo_string166
 	.byte	19
 	.byte	12
-	.long	.Linfo_string166
-	.long	3345
+	.long	.Linfo_string165
+	.long	3340
 	.byte	0
 	.byte	0
 	.byte	13
-	.long	3311
+	.long	3306
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	18
 	.byte	0
 	.byte	22
-	.long	3363
+	.long	3358
 	.byte	24
-	.long	3311
+	.long	3306
 	.byte	23
 	.long	123
 	.byte	23
 	.long	142
 	.byte	23
-	.long	2675
+	.long	2657
 	.byte	23
 	.long	104
 	.byte	23
@@ -7519,22 +7397,22 @@ par.desc.1:
 	.byte	23
 	.long	258
 	.byte	22
-	.long	3236
+	.long	3231
 	.byte	23
 	.long	495
 	.byte	23
 	.long	307
 	.byte	22
-	.long	3418
+	.long	3413
 	.byte	13
-	.long	3311
+	.long	3306
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	22
-	.long	3436
+	.long	3431
 	.byte	13
 	.long	495
 	.byte	14
@@ -7545,33 +7423,33 @@ par.desc.1:
 	.byte	23
 	.long	338
 	.byte	23
-	.long	3459
+	.long	3454
 	.byte	11
-	.long	.Linfo_string175
+	.long	.Linfo_string174
 	.byte	24
 	.byte	12
-	.long	.Linfo_string169
-	.long	2675
+	.long	.Linfo_string168
+	.long	2657
 	.byte	0
 	.byte	12
-	.long	.Linfo_string170
-	.long	2675
+	.long	.Linfo_string169
+	.long	2657
 	.byte	4
 	.byte	12
-	.long	.Linfo_string171
-	.long	2675
+	.long	.Linfo_string170
+	.long	2657
 	.byte	8
 	.byte	12
+	.long	.Linfo_string171
+	.long	2657
+	.byte	12
+	.byte	12
 	.long	.Linfo_string172
-	.long	2675
-	.byte	12
-	.byte	12
-	.long	.Linfo_string173
-	.long	2675
+	.long	2657
 	.byte	16
 	.byte	12
-	.long	.Linfo_string174
-	.long	2675
+	.long	.Linfo_string173
+	.long	2657
 	.byte	20
 	.byte	0
 	.byte	0
@@ -7842,49 +7720,49 @@ par.desc.1:
 	.byte	0
 	.section	.debug_ranges,"",@progbits
 .Ldebug_ranges0:
+	.long	.Lfunc_begin58
+	.long	.Lfunc_end58
+	.long	0
+	.long	0
+.Ldebug_ranges1:
 	.long	.Lfunc_begin59
 	.long	.Lfunc_end59
 	.long	0
 	.long	0
-.Ldebug_ranges1:
+.Ldebug_ranges2:
 	.long	.Lfunc_begin60
 	.long	.Lfunc_end60
 	.long	0
 	.long	0
-.Ldebug_ranges2:
-	.long	.Lfunc_begin61
-	.long	.Lfunc_end61
-	.long	0
-	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
-	.long	.Lfunc_begin59
-	.long	.Ltmp327
-.Lset0 = .Ltmp346-.Ltmp345
+	.long	.Lfunc_begin58
+	.long	.Ltmp315
+.Lset0 = .Ltmp334-.Ltmp333
 	.short	.Lset0
-.Ltmp345:
+.Ltmp333:
 	.byte	80
-.Ltmp346:
+.Ltmp334:
 	.long	0
 	.long	0
 .Ldebug_loc1:
-	.long	.Lfunc_begin60
-	.long	.Ltmp336
-.Lset1 = .Ltmp348-.Ltmp347
+	.long	.Lfunc_begin59
+	.long	.Ltmp324
+.Lset1 = .Ltmp336-.Ltmp335
 	.short	.Lset1
-.Ltmp347:
+.Ltmp335:
 	.byte	80
-.Ltmp348:
+.Ltmp336:
 	.long	0
 	.long	0
 .Ldebug_loc2:
-	.long	.Lfunc_begin61
-	.long	.Ltmp342
-.Lset2 = .Ltmp350-.Ltmp349
+	.long	.Lfunc_begin60
+	.long	.Ltmp330
+.Lset2 = .Ltmp338-.Ltmp337
 	.short	.Lset2
-.Ltmp349:
+.Ltmp337:
 	.byte	80
-.Ltmp350:
+.Ltmp338:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -7897,7 +7775,7 @@ par.desc.1:
 	.long	.Lset4
 	.long	1153
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	2451
+	.long	2432
 .asciiz"__main__main_tile_0"
 	.long	715
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
@@ -7909,7 +7787,7 @@ par.desc.1:
 .asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_9"
 	.long	2375
 .asciiz"__main__main_tile_0_combined_tile_0_0"
-	.long	2432
+	.long	2413
 .asciiz"__main__main_tile_0_combined_tile_0_1"
 	.long	893
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
@@ -7923,8 +7801,6 @@ par.desc.1:
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 	.long	2394
 .asciiz"__main__main_tile_0_combined_tile_0_4"
-	.long	2413
-.asciiz"__main__main_tile_0_combined_tile_0_5"
 	.long	744
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	82
@@ -8041,35 +7917,35 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset6 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset6
-	.long	3142
+	.long	3137
 .asciiz"__TYPE_30"
-	.long	3169
+	.long	3164
 .asciiz"__TYPE_31"
-	.long	3459
+	.long	3454
 .asciiz"__TYPE_14"
-	.long	2588
+	.long	2570
 .asciiz"__TYPE_15"
 	.long	53
 .asciiz"port"
-	.long	2635
+	.long	2617
 .asciiz"__TYPE_16"
-	.long	2675
+	.long	2657
 .asciiz"unsigned int"
-	.long	2476
+	.long	2457
 .asciiz"frame.0"
-	.long	2695
+	.long	2677
 .asciiz"__TYPE_17"
 	.long	495
 .asciiz"int"
-	.long	2792
+	.long	2774
 .asciiz"__TYPE_19"
-	.long	2752
+	.long	2734
 .asciiz"__TYPE_18"
 	.long	123
 .asciiz"i2c_command_external_t"
-	.long	3209
+	.long	3204
 .asciiz"chanend"
-	.long	3279
+	.long	3274
 .asciiz"yarg"
 	.long	1086
 .asciiz"tag_i2c_temps_t"
@@ -8081,35 +7957,35 @@ par.desc.1:
 .asciiz"iof_temps_t"
 	.long	142
 .asciiz"heat_cable_commands_t"
-	.long	2819
+	.long	2814
 .asciiz"__TYPE_20"
-	.long	2856
+	.long	2851
 .asciiz"__TYPE_21"
-	.long	2883
+	.long	2878
 .asciiz"__TYPE_22"
-	.long	2910
+	.long	2905
 .asciiz"__TYPE_23"
-	.long	2937
+	.long	2932
 .asciiz"__TYPE_24"
-	.long	2977
+	.long	2972
 .asciiz"__TYPE_25"
-	.long	3004
+	.long	2999
 .asciiz"__TYPE_26"
-	.long	3031
+	.long	3026
 .asciiz"__TYPE_27"
-	.long	3078
+	.long	3073
 .asciiz"__TYPE_28"
-	.long	3105
+	.long	3100
 .asciiz"__TYPE_29"
-	.long	3328
+	.long	3323
 .asciiz"chronodot_d3231_registers_t"
-	.long	3267
+	.long	3262
 .asciiz"unsigned short"
 	.long	1146
 .asciiz"short"
-	.long	2628
+	.long	2610
 .asciiz"interface"
-	.long	3311
+	.long	3306
 .asciiz"unsigned char"
 	.long	173
 .asciiz"light_composition_t"
@@ -8119,6 +7995,17 @@ par.desc.1:
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_command, "f{0}(&(a(2:ui)),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_blip_command, "f{0}(&(a(2:ui)),:ui)"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.beeper_on_command, "f{0}(&(a(2:ui)),:e(){m(false){0},m(true){1}})"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.set_light_composition, "f{0}(&(a(2:ui)),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(2:ui)),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(a(2:ui)))"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data, "f{ui,ui}(&(a(3:ui)),:si)"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str, "f{0}(&(a(3:ui)),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps, "f{0}(&(a(3:ui)),&(a(4:si)))"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC, "f{0}(&(a(3:ui)),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional, "f{0}(&(a(3:ui)),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.typestring _i.startkit_adc_acquire_if._chan.read, "l:f{si}(chd,ui,&(a(4:us)))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan.trigger, "f{0}(chd)"
@@ -8229,13 +8116,13 @@ par.desc.1:
 	.typestring Button_Task.select.enable, "k:fe{0}()"
 	.typestring Button_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring installExceptionHandler, "f{0}(0)"
-	.typestring Port_Pins_Heat_Light_Server.select.0.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.init.1, "k:f{0}(u:q(ui))"
 	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})))"
 	.typestring Port_Pins_Heat_Light_Server.select.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Heater_Controller.init.1, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}})"
+	.typestring Temperature_Heater_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
@@ -8243,11 +8130,11 @@ par.desc.1:
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
 	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},:ui)"
-	.typestring System_Task, "f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
+	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
+	.overlay_reference __main__main_tile_0_combined_tile_0_0,__interface_client_push_yield
+	.overlay_reference __main__main_tile_0_combined_tile_0_0,__noop
+	.overlay_reference __main__main_tile_0_combined_tile_0_0,__interface_client_pop_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"
@@ -8260,74 +8147,74 @@ par.desc.1:
 .cc_top cc_0,.Lxta.call_labels9
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	65
+	.long	131
 	.long	.Lxta.call_labels9
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels0
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	67
+	.long	133
 	.long	.Lxta.call_labels0
 .cc_bottom cc_1
-.cc_top cc_2,.Lxta.call_labels2
+.cc_top cc_2,.Lxta.call_labels4
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	68
-	.long	.Lxta.call_labels2
+	.long	134
+	.long	.Lxta.call_labels4
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels10
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	69
+	.long	135
 	.long	.Lxta.call_labels10
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels1
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	72
+	.long	138
 	.long	.Lxta.call_labels1
 .cc_bottom cc_4
-.cc_top cc_5,.Lxta.call_labels4
+.cc_top cc_5,.Lxta.call_labels2
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	73
-	.long	.Lxta.call_labels4
+	.long	139
+	.long	.Lxta.call_labels2
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels6
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	74
+	.long	140
 	.long	.Lxta.call_labels6
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels7
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	75
+	.long	141
 	.long	.Lxta.call_labels7
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels8
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	76
+	.long	142
 	.long	.Lxta.call_labels8
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels11
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	77
+	.long	143
 	.long	.Lxta.call_labels11
 .cc_bottom cc_9
-.cc_top cc_10,.Lxta.call_labels5
+.cc_top cc_10,.Lxta.call_labels3
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	78
-	.long	.Lxta.call_labels5
-.cc_bottom cc_10
-.cc_top cc_11,.Lxta.call_labels3
-	.ascii	"../src/main.xc"
-	.byte	0
-	.long	79
+	.long	144
 	.long	.Lxta.call_labels3
+.cc_bottom cc_10
+.cc_top cc_11,.Lxta.call_labels5
+	.ascii	"../src/main.xc"
+	.byte	0
+	.long	145
+	.long	.Lxta.call_labels5
 .cc_bottom cc_11
 .Lentries_end1:
 	.section	.trap_info,"",@progbits

@@ -1854,7 +1854,8 @@ void My_startKIT_ADC_Client (
 # 40 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
-# 16 "../src/_Aquarium.h"
+# 15 "../src/_Aquarium.h"
+[[combinable]]
 extern void System_Task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
@@ -1883,9 +1884,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-
-
-
+# 130 "../src/main.xc"
     par {
         on tile[0]: installExceptionHandler();
 
@@ -1895,15 +1894,15 @@ int main() {
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-        on tile[0].core[5]: Temperature_Water_Controller (i_temperature_water_commands, i_temperature_heater_commands[1]);
+        on tile[0].core[0]: Temperature_Water_Controller (i_temperature_water_commands, i_temperature_heater_commands[1]);
         on tile[0].core[1]: Button_Task (0, inP_button_left, c_buttons[0]);
         on tile[0].core[1]: Button_Task (1, inP_button_center, c_buttons[1]);
         on tile[0].core[1]: Button_Task (2, inP_button_right, c_buttons[2]);
         on tile[0]: My_startKIT_ADC_Client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
-        on tile[0].core[5]: Port_Pins_Heat_Light_Server (i_port_heat_light_commands);
+        on tile[0].core[0]: Port_Pins_Heat_Light_Server (i_port_heat_light_commands);
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
-# 216 "../src/main.xc"
+# 377 "../src/main.xc"
     return 0;
 }

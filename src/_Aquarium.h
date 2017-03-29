@@ -12,7 +12,7 @@
 // BUTTON_LEFT            BUTTON_CENTER                BUTTON_RIGHT
 //                        Use this to update           Use this to get next DISPLAY
 //                        For clock it toggles forever
-
+[[combinable]]
 extern void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,

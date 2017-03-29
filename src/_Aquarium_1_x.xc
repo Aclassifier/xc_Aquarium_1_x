@@ -375,14 +375,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     #define LEFT_OF_RANDOM_TEXT_LEN 5
-                    char left_of_random_str [LEFT_OF_RANDOM_TEXT_LEN] = "    "; // "M12" or none
+                    char left_of_minutes_or_count_str [LEFT_OF_RANDOM_TEXT_LEN];
                     //
                     if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
-                        sprintf (left_of_random_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
+                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
-                        sprintf (left_of_random_str, "L:%u", light_sunrise_sunset_context.num_random_sequences_left);
-                    } else {} // Keep white space
-
+                        sprintf (left_of_minutes_or_count_str, "T:%u", light_sunrise_sunset_context.num_random_sequences_left);
+                    } else {
+                        sprintf (left_of_minutes_or_count_str, "...");
+                    }
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
@@ -400,14 +401,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           light_control_scheme_str,                                                          // "NATT" etc.
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
                           context.light_composition,                                                         // 10
-                          left_of_random_str);                                                               // M12
+                          left_of_minutes_or_count_str);                                                     // M23 or M:2 or T:8 or ...
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
                     //                                            ±      MAKS 3/3
                     //                                                   INIT ± 10 M:12
                     //                                                   DAG ± 10 M:12
-                    //                                                   LYKT ± 10 L:12
+                    //                                                   LYKT ± 10 T:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -1126,15 +1127,139 @@ void Handle_Real_Or_Clocked_Buttons (
     }
 }
 
-#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
+void System_Task_Data_Handler (
+        handler_context_t              &context,
+        light_sunrise_sunset_context_t &light_sunrise_sunset_context,
+ client i2c_internal_commands_if       i_i2c_internal_commands,
+ client port_heat_light_commands_if    i_port_heat_light_commands,
+ client temperature_water_commands_if  i_temperature_water_commands,
+ client temperature_heater_commands_if i_temperature_heater_commands)
+{
+    int sprintf_return;
 
+    // Fetch data (2)
+    {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
+    {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
+    {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+
+    // Convert some
+    context.datetime                                             = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+
+    if (context.screen_logg.exists) {
+        #ifdef SCREEN_LOGG_RAW_TEMPS
+            if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
+                (context.display_screen_name_present == SCREEN_LOGG)) {
+
+                context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
+
+                sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
+                        takes_press_for_10_seconds_right_button_str,
+                        context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER],   context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER],
+                        context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
+                        context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
+
+                if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
+                    sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
+                    context.screen_logg.display_ts1_chars_num = 4;
+                } else {
+                    context.screen_logg.display_ts1_chars_num = sprintf_return;
+                }
+            } else {}
+        #else
+            // Other screens
+        #endif
+    } else {}
+
+    // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+    {
+        bool light_sensor_intensity_ok;
+        {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
+            Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
+        if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.do_init) {
+            light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
+        } else {} // Fine
+    }
+
+    light_sunrise_sunset_context.datetime_now = context.datetime; // qwe to just above here?
+
+    if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
+        light_sunrise_sunset_context.datetime_previous_not_initialised = false;
+
+        light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
+        context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
+    } else {}
+
+    // HANDLE LIGHT INTENSITY
+    context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
+
+    if (light_sunrise_sunset_context.do_FRAM_write) {
+        bool write_ok;
+        uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
+
+        light_sunrise_sunset_context.do_FRAM_write = false;
+        write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
+        debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+    } else {}
+
+    light_sunrise_sunset_context.datetime_previous               = context.datetime;
+    light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
+
+    {context.light_composition, context.light_stable, context.light_control_scheme} = // .. then this, to get the result as soon as possible
+            i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
+
+    if (context.display_is_on == true) {
+        if (context.silent_any_button_while_display_on_seconds_cnt == DISPLAY_ON_FOR_SECONDS) { // Counted up
+            // context.beeper_blip_now = true; Not necessary, sounds strange here
+            Clear_All_Pixels_In_Buffer();
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = false;
+            context.display_appear_state = DISPLAY_APPEAR_BLACK;
+            context.display_sub_context[SCREEN_LOGG].sub_state              = SUB_STATE_DARK;
+            context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+            context.display_sub_context[SCREEN_LYSGULERING].sub_state       = SUB_STATE_SHOW;
+            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
+            context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
+        } else {
+            context.silent_any_button_while_display_on_seconds_cnt++;
+        }
+    } else {}
+
+    if (context.display_sub_countdown_seconds > 0) {
+        context.display_sub_countdown_seconds--;
+        if (context.display_sub_countdown_seconds == 0) {
+            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+            context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+            context.display_sub_context[SCREEN_LYSGULERING].sub_state       = SUB_STATE_SHOW;
+            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
+            context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
+            context.beeper_blip_now = true;
+        } else {}
+    } else {}
+
+    if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+        Handle_Real_Or_Clocked_Buttons (context,
+            light_sunrise_sunset_context,
+            i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
+            context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
+    } else {} // Not now
+
+    if (context.beeper_blip_now) {
+        i_port_heat_light_commands.beeper_blip_command (100);
+    } else {} // No blip
+}
+
+
+// To try to remove nested select here and by that less chanends
 typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
-    SYSTEM_STATE_AWAIT_TWO_NOTIFY,
-    SYSTEM_STATE_DATA_READY
+    SYSTEM_STATE_AWAIT_TWO_NOTIFY // num_notify_expexted 2,1,0
 } system_state_t;
 
-// [[combinable]] not since nested select
+#define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
+
+[[combinable]] // by itself when no nested select didn't give any extra chanends, hand to tag as combinable
+               // main select in combinable function cannot have default case
 void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
@@ -1148,10 +1273,11 @@ void System_Task (
     int   time;
     timer tmr;
 
+    system_state_t                 system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
+    unsigned                       num_notify_expexted = 0; // While SYSTEM_STATE_AWAIT_TWO_NOTIFY
     button_action_t                button_action;
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
-    int                            sprintf_return;
 
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
@@ -1211,7 +1337,7 @@ void System_Task (
 
     while(1) {
         select {
-            case tmr when timerafter(time) :> void: {
+            case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => tmr when timerafter(time) :> void: {
                 // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_str
                 // calls later (in Handle_Real_Or_Clocked_Button_Actions) on gave a rave and deadlock if we didn't finish here before "the second"
                 // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_temps (temps_onetenthDegC)
@@ -1228,134 +1354,33 @@ void System_Task (
                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.notify
                 i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
 
-                while ((i_i2c_external_commands_notify == false) or (i_startkit_adc_acquire_complete == false)) {
-                     select {
-                         case i_i2c_external_commands.notify() : {
-                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok (); // NOT USED IN SCREENS, JUST HERE!
-                             i_i2c_external_commands_notify = true;
-                         } break;
-
-                         case i_startkit_adc_acquire.notify(): {
-                             {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
-                             i_startkit_adc_acquire_complete = true;
-                         } break;
-                     }
-                }
-
-                // Fetch data (2)
-                {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-                {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
-                {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
-
-                // Convert some
-                context.datetime                                             = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
-                {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
-
-                if (context.screen_logg.exists) {
-                    #ifdef SCREEN_LOGG_RAW_TEMPS
-                        if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
-                            (context.display_screen_name_present == SCREEN_LOGG)) {
-
-                            context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
-
-                            sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
-                                    takes_press_for_10_seconds_right_button_str,
-                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER],   context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER],
-                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
-                                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
-
-                            if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
-                                sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
-                                context.screen_logg.display_ts1_chars_num = 4;
-                            } else {
-                                context.screen_logg.display_ts1_chars_num = sprintf_return;
-                            }
-                        } else {}
-                    #else
-                        // Other screens
-                    #endif
-                } else {}
-
-                // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
-                {
-                    bool light_sensor_intensity_ok;
-                    {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
-                        Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
-                    if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.do_init) {
-                        light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
-                    } else {} // Fine
-                }
-
-                light_sunrise_sunset_context.datetime_now = context.datetime; // qwe to just above here?
-
-                if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
-                    light_sunrise_sunset_context.datetime_previous_not_initialised = false;
-
-                    light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
-                    context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
-                } else {}
-
-                // HANDLE LIGHT INTENSITY
-                context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
-
-                if (light_sunrise_sunset_context.do_FRAM_write) {
-                    bool write_ok;
-                    uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
-
-                    light_sunrise_sunset_context.do_FRAM_write = false;
-                    write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
-                    debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
-                } else {}
-
-                light_sunrise_sunset_context.datetime_previous               = context.datetime;
-                light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
-
-                {context.light_composition, context.light_stable, context.light_control_scheme} = // .. then this, to get the result as soon as possible
-                        i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
-
-                if (context.display_is_on == true) {
-                    if (context.silent_any_button_while_display_on_seconds_cnt == DISPLAY_ON_FOR_SECONDS) { // Counted up
-                        // context.beeper_blip_now = true; Not necessary, sounds strange here
-                        Clear_All_Pixels_In_Buffer();
-                        writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
-                        context.display_is_on = false;
-                        context.display_appear_state = DISPLAY_APPEAR_BLACK;
-                        context.display_sub_context[SCREEN_LOGG].sub_state              = SUB_STATE_DARK;
-                        context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                        context.display_sub_context[SCREEN_LYSGULERING].sub_state       = SUB_STATE_SHOW;
-                        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
-                        context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
-                    } else {
-                        context.silent_any_button_while_display_on_seconds_cnt++;
-                    }
-                } else {}
-
-                if (context.display_sub_countdown_seconds > 0) {
-                    context.display_sub_countdown_seconds--;
-                    if (context.display_sub_countdown_seconds == 0) {
-                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                        context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                        context.display_sub_context[SCREEN_LYSGULERING].sub_state       = SUB_STATE_SHOW;
-                        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
-                        context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
-                        context.beeper_blip_now = true;
-                    } else {}
-                } else {}
-
-                if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
-                    Handle_Real_Or_Clocked_Buttons (context,
-                        light_sunrise_sunset_context,
-                        i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
-                } else {} // Not now
-
-                if (context.beeper_blip_now) {
-                    i_port_heat_light_commands.beeper_blip_command (100);
-                } else {} // No blip
-
+                system_state = SYSTEM_STATE_AWAIT_TWO_NOTIFY;
+                num_notify_expexted = 2;
             } break;
 
-            case c_button_in[int iof_button] :> button_action: {
+            case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_i2c_external_commands.notify(): {
+                context.i2c_temps = i_i2c_external_commands.read_temperature_ok (); // NOT USED IN SCREENS, JUST HERE!
+                num_notify_expexted--;
+                if (num_notify_expexted == 0) {
+                    System_Task_Data_Handler (context,
+                         light_sunrise_sunset_context,
+                         i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
+                    system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
+                }
+            } break;
+
+            case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_startkit_adc_acquire.notify(): {
+                {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
+                num_notify_expexted--;
+                if (num_notify_expexted == 0) {
+                    System_Task_Data_Handler (context,
+                         light_sunrise_sunset_context,
+                         i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
+                    system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
+                }
+            } break;
+
+            case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => c_button_in[int iof_button] :> button_action: {
 
                 bool display_is_on_pre = context.display_is_on;
                 bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled

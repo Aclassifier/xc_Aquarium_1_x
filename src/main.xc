@@ -59,8 +59,18 @@ int main() {
     temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
     temperature_water_commands_if  i_temperature_water_commands;
 
-    #define MAP_CHANENDS_27_A
+    #define MAP_CHANENDS_26_A
+
     #ifdef MAP_CHANENDS_27_A
+    // WORKS and LIGHT STABLE
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          7 .  OKAY
+      Timers available:          10,   used:          8 .  OKAY
+      Chanends available:        32,   used:         27 .  OKAY
+      Memory available:       65536,   used:      52772 .  OKAY
+        (Stack: 8212, Code: 38342, Data: 6218)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -80,6 +90,15 @@ int main() {
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
     #elif defined MAP_CHANENDS_27_B
+    // WORKS
+    /*Constraint check for tile[0]:
+      Cores available:            8,   used:          7 .  OKAY
+      Timers available:          10,   used:          8 .  OKAY
+      Chanends available:        32,   used:         27 .  OKAY
+      Memory available:       65536,   used:      52500 .  OKAY
+        (Stack: 6924, Code: 38810, Data: 6766)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -99,6 +118,15 @@ int main() {
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
     #elif defined MAP_CHANENDS_26_A
+    // WORKS
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          6 .  OKAY
+      Timers available:          10,   used:          7 .  OKAY
+      Chanends available:        32,   used:         26 .  OKAY
+      Memory available:       65536,   used:      53360 .  OKAY
+        (Stack: 6924, Code: 39678, Data: 6758)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -118,6 +146,15 @@ int main() {
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
     #elif defined MAP_CHANENDS_25_A
+    // WORKS with STABLE LIGHT
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          6 .  OKAY
+      Timers available:          10,   used:          7 .  OKAY
+      Chanends available:        32,   used:         25 .  OKAY
+      Memory available:       65536,   used:      53180 .  OKAY
+        (Stack: 6784, Code: 39638, Data: 6758)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -137,6 +174,15 @@ int main() {
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
     #elif defined MAP_CHANENDS_25_B
+    // WORKS
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          5 .  OKAY
+      Timers available:          10,   used:          6 .  OKAY
+      Chanends available:        32,   used:         25 .  OKAY
+      Memory available:       65536,   used:      53100 .  OKAY
+        (Stack: 6748, Code: 39602, Data: 6750)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -156,6 +202,15 @@ int main() {
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
     #elif defined MAP_CHANENDS_24_A
+    // WORKS BUT SOME TIMES THE LIGHT BLINKS JUST A LITTLE OFF.
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          5 .  OKAY
+      Timers available:          10,   used:          6 .  OKAY
+      Chanends available:        32,   used:         24 .  OKAY
+      Memory available:       65536,   used:      53408 .  OKAY
+        (Stack: 6716, Code: 39942, Data: 6750)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
@@ -174,13 +229,93 @@ int main() {
         on tile[0].core[0]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
     }
-    #elif defined MAP_CHANENDS_24_B
+    #elif defined MAP_CHANENDS_23_A
+    // DEADLOCKS? BLACK DISPLAY and NO BUTTONS
+    // Temperature_Heater_Controller started
+    // System_Task started
+    // New heater lim=150 tenths_degC
+    // Temperature_Water_Controller started
+    // FRAM max_light_in_FRAM_memory read ok=1 value=1
+    // (No more logs)
+
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          5 .  OKAY
+      Timers available:          10,   used:          6 .  OKAY
+      Chanends available:        32,   used:         23 .  OKAY
+      Memory available:       65536,   used:      56688 .  OKAY
+        (Stack: 6876, Code: 43062, Data: 6750)
+    Constraints checks PASSED.
+    Build Complete */
     par {
         on tile[0]: installExceptionHandler();
 
         on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
         on tile[0].core[0]: I2C_External_Server           (i_i2c_external_commands);
-        on tile[0]:         System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+                                                           i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
+                                                           c_buttons);
+        on tile[0].core[1]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
+        on tile[0].core[1]: Temperature_Water_Controller  (i_temperature_water_commands, i_temperature_heater_commands[1]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);
+        on tile[0]:         My_startKIT_ADC_Client        (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        on tile[0].core[0]: Port_Pins_Heat_Light_Server   (i_port_heat_light_commands);
+        on tile[0].core[0]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+                            startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
+    }
+    #elif defined MAP_CHANENDS_23_B
+    // DEADLOCKS? BLACK DISPLAY and NO BUTTONS
+    // Temperature_Heater_Controller started
+    // System_Task started
+    // New heater lim=150 tenths_degC
+    // Temperature_Water_Controller started
+    // FRAM max_light_in_FRAM_memory read ok=1 value=1
+    // (No more logs)
+
+    /* Constraint check for tile[0]:
+      Cores available:            8,   used:          5 .  OKAY
+      Timers available:          10,   used:          6 .  OKAY
+      Chanends available:        32,   used:         23 .  OKAY
+      Memory available:       65536,   used:      56688 .  OKAY
+        (Stack: 6876, Code: 43062, Data: 6750)
+    Constraints checks PASSED.
+    Build Complete*/
+    par {
+        on tile[0]: installExceptionHandler();
+
+        on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
+        on tile[0].core[0]: I2C_External_Server           (i_i2c_external_commands);
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+                                                           i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
+                                                           c_buttons);
+        on tile[0].core[1]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
+        on tile[0].core[1]: Temperature_Water_Controller  (i_temperature_water_commands, i_temperature_heater_commands[1]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);
+        on tile[0]:         My_startKIT_ADC_Client        (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        on tile[0].core[0]: Port_Pins_Heat_Light_Server   (i_port_heat_light_commands);
+        on tile[0].core[0]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+                            startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
+    }
+    #elif defined MAP_CHANENDS_17_PLUS_MAYBE
+    /*
+    Constraint check for tile[0]:
+      Cores available:            8,   used:          4+.  MAYBE
+      Timers available:          10,   used:          5+.  MAYBE
+      Chanends available:        32,   used:         17+.  MAYBE
+      Memory available:       65536,   used:      55184+.  MAYBE
+        (Stack: 5248+, Code: 42878, Data: 7058)
+    Constraints checks PASSED WITH CAVEATS.
+    Build Complete
+    */
+    par {
+        on tile[0]: installExceptionHandler();
+
+        on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
+        on tile[0].core[0]: I2C_External_Server           (i_i2c_external_commands);
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
@@ -197,16 +332,42 @@ int main() {
     par {
         on tile[0]: installExceptionHandler();
 
-        on tile[0]: I2C_Internal_Server           (i_i2c_internal_commands); // Keeps 24
-        on tile[0]: I2C_External_Server           (i_i2c_external_commands); // 24->25
+        on tile[0]: I2C_Internal_Server           (i_i2c_internal_commands); // Keeps 24 when core[0] was removed
+        on tile[0]: I2C_External_Server           (i_i2c_external_commands); // 24->25   when core[0] was removed
         on tile[0]:         System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
-        on tile[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]); // 25->26
+        on tile[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]); // 25->26when core[0] was removed
         on tile[0]: Temperature_Water_Controller  (i_temperature_water_commands, i_temperature_heater_commands[1]); // Cores available:            8,   used:          9 .  FAILED
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);
+        on tile[0]:         My_startKIT_ADC_Client        (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        on tile[0].core[0]: Port_Pins_Heat_Light_Server   (i_port_heat_light_commands);
+        on tile[0].core[0]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+                            startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
+    }
+    #elif defined MAP_CHANENDS_META_ERROR
+    /*
+    Creating _Aquarium_1_x.xe
+    ../src/main.xc:(.dp.data+0xc): Error: Meta information ("Temperature_Water_Controller.init.1.nstackwords") for function "Temperature_Water_Controller.init.1" cannot be determined.
+    ../src/main.xc:(.dp.data+0xc): Error:   lower bound could not be calculated (function is recursive?).
+    xmake[1]: *** [bin//_Aquarium_1_x.xe] Error 1
+    xmake: *** [bin//_Aquarium_1_x.xe] Error 2
+     */
+    par {
+        on tile[0]: installExceptionHandler();
+
+        on tile[0].core[1]: I2C_Internal_Server           (i_i2c_internal_commands);
+        on tile[0].core[1]: I2C_External_Server           (i_i2c_external_commands);
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+                                                           i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
+                                                           c_buttons);
+        on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
+        on tile[0].core[0]: Temperature_Water_Controller  (i_temperature_water_commands, i_temperature_heater_commands[1]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);
+        on tile[0].core[2]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);
         on tile[0]:         My_startKIT_ADC_Client        (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
         on tile[0].core[0]: Port_Pins_Heat_Light_Server   (i_port_heat_light_commands);
         on tile[0].core[0]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);

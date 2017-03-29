@@ -54,7 +54,7 @@
 	.globl Button_Task.select.y.enable.cases.maxchanends
 	.set Button_Task.select.y.enable.cases,0
 	.globl Button_Task.select.y.enable.cases
-	.set Button_Task.select.y.enable.cases.nstackwords, 0 $M (Button_Task.select.y.case.0.nstackwords) $M (Button_Task.select.y.case.1.nstackwords)
+	.set Button_Task.select.y.enable.cases.nstackwords, 0 $M (Button_Task.select.y.case.1.nstackwords) $M (Button_Task.select.y.case.0.nstackwords)
 	.globl Button_Task.select.y.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
