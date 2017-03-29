@@ -92,13 +92,13 @@ void display_print_dec_8 (const uint8_t value) {
         if (tens == 0) {               // 001
             display_print(c_ones, 1);  // ..1
         } else {                       // 021
-            display_print(c_tens, 1); // .2.
-            display_print(c_ones, 1); // ..1
+            display_print(c_tens, 1);  // .2.
+            display_print(c_ones, 1);  // ..1
         }
     } else {                           // 321
-        display_print(c_hundreds, 1); // 3..
-        display_print(c_tens, 1);     // .2.
-        display_print(c_ones, 1);     // ..1
+        display_print(c_hundreds, 1);  // 3..
+        display_print(c_tens, 1);      // .2.
+        display_print(c_ones, 1);      // ..1
     }
 }
 

@@ -1593,7 +1593,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 46 "../src/f_conversions.h"
+# 56 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1613,9 +1613,9 @@ typedef struct temp_onetenthDegC_mean_t {
     unsigned temps_num;
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
-
+# 89 "../src/f_conversions.h"
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
@@ -1884,7 +1884,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 130 "../src/main.xc"
+# 74 "../src/main.xc"
     par {
         on tile[0]: installExceptionHandler();
 
@@ -1894,15 +1894,15 @@ int main() {
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-        on tile[0].core[0]: Temperature_Water_Controller (i_temperature_water_commands, i_temperature_heater_commands[1]);
+        on tile[0].core[5]: Temperature_Water_Controller (i_temperature_water_commands, i_temperature_heater_commands[1]);
         on tile[0].core[1]: Button_Task (0, inP_button_left, c_buttons[0]);
         on tile[0].core[1]: Button_Task (1, inP_button_center, c_buttons[1]);
         on tile[0].core[1]: Button_Task (2, inP_button_right, c_buttons[2]);
         on tile[0]: My_startKIT_ADC_Client (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
-        on tile[0].core[0]: Port_Pins_Heat_Light_Server (i_port_heat_light_commands);
+        on tile[0].core[5]: Port_Pins_Heat_Light_Server (i_port_heat_light_commands);
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
-# 377 "../src/main.xc"
+# 405 "../src/main.xc"
     return 0;
 }

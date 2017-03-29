@@ -200,7 +200,7 @@ Temp_OnetenthDegC_To_Str (
 {temp_onetenthDegC_t, bool}
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) {
+    char (&?temp_degC_str)[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) {
 
      // Internal A/D-converter
      // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -224,20 +224,23 @@ TC1047_Raw_DegC_To_String_Ok (
     int  degC_Unary_Part   = degC_dp1/10;
     int  degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
 
-
-    int sprintf_return;
     bool error = false;
 
     error or_eq ((degC_Unary_Part < INNER_TEMPERATURE_MIN_DEGC) or (degC_Unary_Part > INNER_TEMPERATURE_MAX_DEGC));
     error or_eq ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
 
-    sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error or_eq (sprintf_return != 4); // "25.0"
-    error or_eq (sprintf_return < 0);
+    if (!isnull(temp_degC_str)) {
+        int sprintf_return;
+        sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
+        error or_eq (sprintf_return != 4); // "25.0"
+        error or_eq (sprintf_return < 0);
+        if (error) {
+            char error_text [] = INNER_TEMPERATURE_ERROR_TEXT;
+            memcpy (temp_degC_str, error_text, sizeof(error_text));
+        } else {} // No code: ok
+    } else {}
 
     if (error) {
-        char error_text [] = INNER_TEMPERATURE_ERROR_TEXT;
-        memcpy (temp_degC_str, error_text, sizeof(error_text));
         degC_dp1 = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
     } else {} // No code: ok
 

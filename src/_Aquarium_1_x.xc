@@ -102,11 +102,11 @@ typedef enum display_sub_state_t {
     SUB_STATE_DARK  // Special state
 } display_sub_state_t;
 
-#define SCREEN_LOGG_EXISTS 1  // DEBUG purpose: If 1 then any one of these are defined:
-#define SCREEN_LOGG_RAW_TEMPS // The only
+//efine SCREEN_LOGG_RAW_TEMPS
+#define SCREEN_LOGG_ERROR_BITS // default
 
 typedef struct screen_logg_t {
-    bool     exists; // Is SCREEN_LOGG_EXISTS value
+    bool     exists;
     unsigned display_ts1_chars_num;
     char     display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN + 10];
 } screen_logg_t;
@@ -130,6 +130,30 @@ typedef enum display_appear_state_t {
     DISPLAY_APPEAR_EDITABLE
 } display_appear_state_t;
 
+#define ERROR_BITS_NONE 0
+typedef enum error_bits_t {   // 0xHH since binary in display
+                                       // LIMITS
+    ERROR_BIT_I2C_AMBIENT      = 0x00,
+    ERROR_BIT_I2C_WATER        = 0x01,
+    ERROR_BIT_I2C_HEATER       = 0x02,
+    // VACANT                    0x03
+    //
+    ERROR_BIT_LOW_12V_LIGHT    = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1
+    ERROR_BIT_HIGH_12V_LIGHT   = 0x05, // INNER_RR_12V_MAX_VOLTS_DP1
+    ERROR_BIT_LOW_24V_HEAT     = 0x06, // INNER_RR_24V_MIN_VOLTS_DP1
+    ERROR_BIT_HIGH_24V_HEAT    = 0x07, // INNER_RR_24V_MAX_VOLTS_DP1
+    //
+    ERROR_BIT_BOX_OVERHEAT     = 0x08, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
+    // VACANT                    0x09
+    // VACANT                    0x0A
+    // VACANT                    0x0B
+    //
+    ERROR_BIT_AMBIENT_OVERHEAT = 0x0C, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX
+    ERROR_BIT_WATER_OVERHEAT   = 0x0D, // TEMP_ONETENTHDEGC_30_0_WATER_MAX
+    ERROR_BIT_HEATER_OVERHEAT  = 0x0E  // TEMP_ONETENTHDEGC_50_0_HEATER_MAX
+    // VACANT                    0x0F
+} error_bits_t;
+
 #define DISPLAY_ON_FOR_SECONDS        (10*60) // 10 minutes
 #define DISPLAY_SUB_COUNTDOWN_SECONDS 30 // At least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 
@@ -152,28 +176,31 @@ typedef struct handler_context_t {
     int                         iof_button_last_taken_action; // Since index of channel must(?) be int
     bool                        full_light;
     light_control_scheme_t      light_control_scheme;
-    // For read_chronodot_ok:
     chronodot_d3231_registers_t chronodot_d3231_registers; // For real use, with also setting, this needs to be filled from chronodot before it's written
     DateTime_t                  datetime;
     DateTime_t                  datetime_editable;
     DateTime_t                  datetime_at_startup;
     bool                        read_chronodot_ok;
-    // For read_temperatures_ok:
-    i2c_temps_t                 i2c_temps; // NOT USED IN SCREENS, JUST HERE!
+    i2c_temps_t                 i2c_temps;
     light_composition_t         light_composition;
     unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
     bool                        light_stable;
-                                // For get_adc_vals:
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
-                                // For get_regulator_data
     unsigned                    on_percent;
     unsigned                    on_watt;
-    voltage_onetenthV_t         rr_24V_voltage_onetenthV;
-    bool                        rr_24_voltage_ok;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
+    voltage_onetenthV_t         rr_24V_voltage_onetenthV; // Heat
+    bool                        rr_24_voltage_ok;
+    voltage_onetenthV_t         rr_12V_voltage_onetenthV; // Light
+    bool                        rr_12_voltage_ok;
+    temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
+    bool                        internal_box_temp_ok;
+    error_bits_t                error_bits;
+    bool                        error_beep_mute;
+
 } handler_context_t;
 
 static const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
@@ -900,7 +927,11 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable      = false;
                            context.display_sub_context[SCREEN_KLOKKE].sub_state            = SUB_STATE_SHOW;
                            context.display_sub_context[SCREEN_LOGG].sub_state              = SUB_STATE_DARK;
-                           i_temperature_water_commands.clear_debug_log(); // Not when we turn dislay on because it also gets off at timeout
+                           i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
+
+                           if ((context.error_bits != ERROR_BITS_NONE) and (not context.error_beep_mute)) {
+                               context.error_beep_mute = true;
+                           } else {}
                         }
                     } else {}
 
@@ -1064,6 +1095,8 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
+                                    context.error_bits = ERROR_BITS_NONE; // Only place it's cleared!
+                                    context.error_beep_mute = false;      // Only place it's cleared!
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {} // On below
                             } else {}
@@ -1136,18 +1169,103 @@ void System_Task_Data_Handler (
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
     int sprintf_return;
+    error_bits_t error_bits = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
 
-    // Fetch data (2)
     {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
+    {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
+    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+    {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}      = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
     {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
-    // Convert some
-    context.datetime                                             = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
-    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+    context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+
+    if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
+        error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT);
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX) {
+        error_bits or_eq (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
+    }
+
+    if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
+        error_bits or_eq (1<<ERROR_BIT_I2C_WATER);
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
+        error_bits or_eq (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
+    }
+
+    if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
+        error_bits or_eq (1<<ERROR_BIT_I2C_HEATER);
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > TEMP_ONETENTHDEGC_50_0_HEATER_MAX) {
+        error_bits or_eq (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
+    }
+
+    if (context.rr_12V_voltage_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
+        error_bits or_eq (1<<ERROR_BIT_LOW_12V_LIGHT);
+    } else {}
+
+    if (context.rr_12V_voltage_onetenthV > INNER_RR_12V_MAX_VOLTS_DP1) {
+        error_bits or_eq (1<<ERROR_BIT_HIGH_12V_LIGHT);
+    } else {}
+
+    if (context.rr_24V_voltage_onetenthV < INNER_RR_24V_MIN_VOLTS_DP1) {
+        error_bits or_eq (1<<ERROR_BIT_LOW_24V_HEAT);
+    } else {}
+
+    if (context.rr_24V_voltage_onetenthV > INNER_RR_24V_MAX_VOLTS_DP1) {
+        error_bits or_eq (1<<ERROR_BIT_HIGH_24V_HEAT);
+    } else {}
+
+    if (context.internal_box_temp_onetenthDegC > TEMP_ONETENTHDEGC_50_0_BOX_MAX) {
+        error_bits or_eq (1<<ERROR_BIT_BOX_OVERHEAT);
+    } else {}
+
+
+    if ((error_bits != ERROR_BITS_NONE) and (not context.error_beep_mute)) {
+        context.beeper_blip_now = true;
+    } else {}
+
+    // No new assignment of lical error_bits after here
+
+    context.error_bits or_eq error_bits;
 
     if (context.screen_logg.exists) {
-        #ifdef SCREEN_LOGG_RAW_TEMPS
+        #ifdef SCREEN_LOGG_ERROR_BITS
+            if (context.error_bits != ERROR_BITS_NONE) {
+                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_DARK) {
+                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_SHOW;
+                    context.beeper_blip_now = true;
+                    context.display_screen_name_present = SCREEN_LOGG;
+                    if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
+                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set three places
+                    } else {}
+                } else {}
+
+                if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
+                    (context.display_screen_name_present == SCREEN_LOGG)) {
+
+                    char ls_byte =  context.error_bits       bitand 0xff;
+                    char ms_byte = (context.error_bits >> 8) bitand 0xff;
+
+                    context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
+
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                            takes_press_for_10_seconds_right_button_str,
+                            BYTE_TO_BINARY(ms_byte),
+                            BYTE_TO_BINARY(ls_byte));
+                        //                                        ..........----------.
+                        //                                        0± BIT-FEILMELDINGER
+                        //
+                        //                                         F..C B..8 7..4 3..0
+                        //                                         0000 0000 0000 0111 If external I2C cable is out
+
+                    if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
+                        sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
+                        context.screen_logg.display_ts1_chars_num = 4;
+                    } else {
+                        context.screen_logg.display_ts1_chars_num = sprintf_return;
+                    }
+                } else {}
+            }
+        #elif defined SCREEN_LOGG_RAW_TEMPS
             if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
                 (context.display_screen_name_present == SCREEN_LOGG)) {
 
@@ -1258,8 +1376,10 @@ typedef enum system_state_t {
 
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (1000 * XS1_TIMER_KHZ)
 
-[[combinable]] // by itself when no nested select didn't give any extra chanends, hand to tag as combinable
-               // main select in combinable function cannot have default case
+[[combinable]] // When nested selects combinable not allowed
+               // When removng nested select and adding combinable it didn't give any extra chanends
+               // I have to place it on a logical core to get fewer chanends
+               // By the way "main select in combinable function cannot have default case" so I made System_Task_Data_Handler instead
 void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
@@ -1286,6 +1406,8 @@ void System_Task (
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
+    context.error_bits = ERROR_BITS_NONE;
+    context.error_beep_mute = false;
 
     for (unsigned iof_button = 0; iof_button < BUTTONS_NUM_CLIENTS; iof_button++) {
         context.buttons_state[iof_button].button_pressed_now = false;
@@ -1302,7 +1424,7 @@ void System_Task (
     context.display_sub_countdown_seconds = 0;
 
     context.screen_logg.display_ts1_chars_num = 0;
-    context.screen_logg.exists = SCREEN_LOGG_EXISTS;
+    context.screen_logg.exists = true;
 
     light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
@@ -1359,7 +1481,7 @@ void System_Task (
             } break;
 
             case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_i2c_external_commands.notify(): {
-                context.i2c_temps = i_i2c_external_commands.read_temperature_ok (); // NOT USED IN SCREENS, JUST HERE!
+                context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
                 num_notify_expexted--;
                 if (num_notify_expexted == 0) {
                     System_Task_Data_Handler (context,

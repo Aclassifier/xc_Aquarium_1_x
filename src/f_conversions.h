@@ -43,6 +43,16 @@ typedef int light_sensor_range_t;       // [0..99] = [00..INNER_MAX_LUX]
 // 24.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X 3) = 39.0 almost TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
 //                                                                    #
 
+//                                                                  REPORT BIT
+#define INNER_RR_12V_MIN_VOLTS_DP1         100 // 10.0 V            ERROR_BIT_LOW_12V_LIGHT
+#define INNER_RR_12V_MAX_VOLTS_DP1         140 // 14.0 V            ERROR_BIT_HIGH_12V_LIGHT
+#define INNER_RR_24V_MIN_VOLTS_DP1         220 // 22.0 V            ERROR_BIT_LOW_24V_HEAT
+#define INNER_RR_24V_MAX_VOLTS_DP1         260 // 26.0 V            ERROR_BIT_HIGH_24V_HEAT
+#define TEMP_ONETENTHDEGC_50_0_BOX_MAX     500 // 50.0 onetenthDegC ERROR_BIT_BOX_OVERHEAT
+#define TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX 350 // 35.0 onetenthDegC ERROR_BIT_BOX_OVERHEAT
+#define TEMP_ONETENTHDEGC_30_0_WATER_MAX   300 // 30.0 onetenthDegC ERROR_BIT_WATER_OVERHEAT
+#define TEMP_ONETENTHDEGC_50_0_HEATER_MAX  500 // 50.0 onetenthDegC ERROR_BIT_HEATER_OVERHEAT
+
 typedef struct temp_degC_str_t { char string[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -63,8 +73,21 @@ typedef struct temp_onetenthDegC_mean_t {
     temp_onetenthDegC_t temps_sum_mten_previous;   // 0 (init) or the value
 } temp_onetenthDegC_mean_t;
 
+
+
+// http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+#define BYTE_TO_BINARY(byte)   \
+    (byte & 0x80 ? '1' : '0'), \
+    (byte & 0x40 ? '1' : '0'), \
+    (byte & 0x20 ? '1' : '0'), \
+    (byte & 0x10 ? '1' : '0'), \
+    (byte & 0x08 ? '1' : '0'), \
+    (byte & 0x04 ? '1' : '0'), \
+    (byte & 0x02 ? '1' : '0'), \
+    (byte & 0x01 ? '1' : '0')
+
 {temp_onetenthDegC_t, bool}  Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
-{temp_onetenthDegC_t, bool}  TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
+{temp_onetenthDegC_t, bool}  TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char (&?temp_degC_str)[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i,      char (&?lux_str)[INNER_LUX_TEXT_LEN]);
 {voltage_onetenthV_t, bool}  RR_12V_24V_To_String_Ok                       (const unsigned int adc_val_mean_i,      char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]);
 
