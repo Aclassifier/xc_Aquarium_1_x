@@ -2010,7 +2010,8 @@ extern void System_Task (
 # 58 "../src/_Aquarium_1_x.xc"
 typedef enum {
     CALLER_IS_BUTTON,
-    CALLER_IS_REFRESH
+    CALLER_IS_REFRESH,
+    CALLER_IS_ERROR_WAKEUP
 } caller_t;
 
 
@@ -2152,7 +2153,7 @@ typedef struct handler_context_t {
     temp_onetenthDegC_t internal_box_temp_onetenthDegC;
     bool internal_box_temp_ok;
     error_bits_t error_bits;
-    bool error_beep_mute;
+    bool error_beeper_blip_now_muted;
 
 } handler_context_t;
 
@@ -2174,7 +2175,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_aa_str[] = {132,0};
     const char char_OE_str[] = {236,0};
 
-    do { if(0) printf("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state); } while (0);
+    do { if(1) printf("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state); } while (0);
 
     switch (context.display_screen_name_present) {
 
@@ -2195,10 +2196,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 if (caller == CALLER_IS_BUTTON) {
                     context.screen_logg.display_ts1_chars[context.screen_logg.display_ts1_chars_num] = 0;
-                    do { if(1) printf("SCREEN_LOGG: %s%s", context.screen_logg.display_ts1_chars, "/n"); } while (0);
+                    do { if(1) printf("SCREEN_LOGG:\n%s%s", context.screen_logg.display_ts1_chars, "\n"); } while (0);
                 } else {}
             } else {}
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
         } break;
 
         case SCREEN_AKVARIETEMPERATURER: {
@@ -2382,7 +2384,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 440 "../src/_Aquarium_1_x.xc"
+# 442 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2530,10 +2532,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Mar 29 2017",
+                               "Mar 30 2017",
                                char_aa_str,
                                char_OE_str);
-# 611 "../src/_Aquarium_1_x.xc"
+# 613 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2545,7 +2547,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "20:26:14", "Mar 29 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:49:34", "Mar 30 2017"); } while (0);
             } else {}
         } break;
 
@@ -2592,7 +2594,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller == CALLER_IS_BUTTON) {
                 context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "20:26:14", "Mar 29 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:49:34", "Mar 30 2017"); } while (0);
             } else {}
         } break;
 
@@ -2838,7 +2840,7 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    if (caller == CALLER_IS_BUTTON) {
+                    if ((caller == CALLER_IS_BUTTON) || (caller == CALLER_IS_ERROR_WAKEUP)) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                            writeDisplay_i2c_command(i_i2c_internal_commands, 0x81);
@@ -2855,8 +2857,8 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
                            i_temperature_water_commands.clear_debug_log();
 
-                           if ((context.error_bits != 0) && (! context.error_beep_mute)) {
-                               context.error_beep_mute = true;
+                           if ((context.error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
+                               context.error_beeper_blip_now_muted = true;
                            } else {}
                         }
                     } else {}
@@ -3022,7 +3024,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
                                     context.error_bits = 0;
-                                    context.error_beep_mute = false;
+                                    context.error_beeper_blip_now_muted = false;
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {}
                             } else {}
@@ -3096,6 +3098,7 @@ void System_Task_Data_Handler (
 {
     int sprintf_return;
     error_bits_t error_bits = 0;
+    caller_t caller = CALLER_IS_REFRESH;
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
@@ -3105,6 +3108,8 @@ void System_Task_Data_Handler (
     {context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+
+
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
         error_bits |= (1<<ERROR_BIT_I2C_AMBIENT);
@@ -3144,15 +3149,13 @@ void System_Task_Data_Handler (
         error_bits |= (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
-
-    if ((error_bits != 0) && (! context.error_beep_mute)) {
+    if ((error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
         context.beeper_blip_now = true;
     } else {}
 
 
 
     context.error_bits |= error_bits;
-
     if (context.screen_logg.exists) {
 
             if (context.error_bits != 0) {
@@ -3161,7 +3164,8 @@ void System_Task_Data_Handler (
                     context.beeper_blip_now = true;
                     context.display_screen_name_present = SCREEN_LOGG;
                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
-                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+                        context.iof_button_last_taken_action = 0;
+                        caller = CALLER_IS_ERROR_WAKEUP;
                     } else {}
                 } else {}
 
@@ -3170,24 +3174,28 @@ void System_Task_Data_Handler (
 
                     char ls_byte = context.error_bits & 0xff;
                     char ms_byte = (context.error_bits >> 8) & 0xff;
-
                     context.silent_any_button_while_display_on_seconds_cnt = 0;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
                             (ms_byte & 0x80 ? '1' : '0'), (ms_byte & 0x40 ? '1' : '0'), (ms_byte & 0x20 ? '1' : '0'), (ms_byte & 0x10 ? '1' : '0'), (ms_byte & 0x08 ? '1' : '0'), (ms_byte & 0x04 ? '1' : '0'), (ms_byte & 0x02 ? '1' : '0'), (ms_byte & 0x01 ? '1' : '0'),
                             (ls_byte & 0x80 ? '1' : '0'), (ls_byte & 0x40 ? '1' : '0'), (ls_byte & 0x20 ? '1' : '0'), (ls_byte & 0x10 ? '1' : '0'), (ls_byte & 0x08 ? '1' : '0'), (ls_byte & 0x04 ? '1' : '0'), (ls_byte & 0x02 ? '1' : '0'), (ls_byte & 0x01 ? '1' : '0'));
 
-                    if ((sprintf_return < 0) || (sprintf_return > ((21 * 4) + 1))) {
-                        sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
-                        context.screen_logg.display_ts1_chars_num = 4;
-                    } else {
-                        context.screen_logg.display_ts1_chars_num = sprintf_return;
-                    }
+
+
+
+
+
+                    assert_exception((!(sprintf_return < 0)) && xassert_msg("sprintf parse error"));
+                    assert_exception((!((sprintf_return+1) > sizeof context.display_ts1_chars)) && xassert_msg("sprint memory overflow"));
+
+                    context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
-            }
-# 1285 "../src/_Aquarium_1_x.xc"
+            } else {}
+# 1292 "../src/_Aquarium_1_x.xc"
     } else {}
+
+
 
 
     {
@@ -3255,11 +3263,12 @@ void System_Task_Data_Handler (
         } else {}
     } else {}
 
-    if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+    if ((context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) || (caller == CALLER_IS_ERROR_WAKEUP)) {
+        value |= (1<<9);
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-            context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
+            context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
     } else {}
 
     if (context.beeper_blip_now) {
@@ -3307,7 +3316,7 @@ void System_Task (
     context.iof_button_last_taken_action;
     context.full_light = true;
     context.error_bits = 0;
-    context.error_beep_mute = false;
+    context.error_beeper_blip_now_muted = false;
 
     for (unsigned iof_button = 0; iof_button < 3; iof_button++) {
         context.buttons_state[iof_button].button_pressed_now = false;

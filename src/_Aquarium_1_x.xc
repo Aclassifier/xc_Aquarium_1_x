@@ -52,12 +52,13 @@
 #define DEBUG_PRINT_AQUARIUM 1 // Cost 1.2k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
+#define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 1 // Cost < 100 bytes
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 typedef enum {
     CALLER_IS_BUTTON,
-    CALLER_IS_REFRESH
+    CALLER_IS_REFRESH,
+    CALLER_IS_ERROR_WAKEUP // Simulated CALLER_IS_BUTTON for IOF_BUTTON_LEFT
 } caller_t;
 
 #define SCREEN_NAME_NUMS      8
@@ -72,7 +73,7 @@ typedef enum display_screen_name_t {
     SCREEN_BOKSDATA,
     SCREEN_VERSJON,
     SCREEN_KONSTANTER,
-    SCREEN_KLOKKE
+    SCREEN_KLOKKE  // defines SCREEN_NAME_NUMS as 8
 } display_screen_name_t;
 
 typedef enum fram_byte_array_index_t {
@@ -199,7 +200,7 @@ typedef struct handler_context_t {
     temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
     bool                        internal_box_temp_ok;
     error_bits_t                error_bits;
-    bool                        error_beep_mute;
+    bool                        error_beeper_blip_now_muted; // Muted on left button when going dark, then screen reappears. Cleared after 10 seconds press of right button
 
 } handler_context_t;
 
@@ -242,10 +243,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 if (caller == CALLER_IS_BUTTON) {
                     context.screen_logg.display_ts1_chars[context.screen_logg.display_ts1_chars_num] = 0; // NUL
-                    debug_printf("SCREEN_LOGG: %s%s", context.screen_logg.display_ts1_chars, "/n");
+                    debug_printf("SCREEN_LOGG:\n%s%s", context.screen_logg.display_ts1_chars, "\n");
                 } else {}
             } else {}
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
         } break;
 
         case SCREEN_AKVARIETEMPERATURER: {
@@ -912,7 +914,7 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    if (caller == CALLER_IS_BUTTON) {
+                    if ((caller == CALLER_IS_BUTTON) or (caller == CALLER_IS_ERROR_WAKEUP)) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
                            writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);
@@ -929,8 +931,8 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_LOGG].sub_state              = SUB_STATE_DARK;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
 
-                           if ((context.error_bits != ERROR_BITS_NONE) and (not context.error_beep_mute)) {
-                               context.error_beep_mute = true;
+                           if ((context.error_bits != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
+                               context.error_beeper_blip_now_muted = true;
                            } else {}
                         }
                     } else {}
@@ -1096,7 +1098,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
                                     context.error_bits = ERROR_BITS_NONE; // Only place it's cleared!
-                                    context.error_beep_mute = false;      // Only place it's cleared!
+                                    context.error_beeper_blip_now_muted = false; // Only place it's cleared!
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {} // On below
                             } else {}
@@ -1168,8 +1170,9 @@ void System_Task_Data_Handler (
  client temperature_water_commands_if  i_temperature_water_commands,
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
-    int sprintf_return;
+    int          sprintf_return;
     error_bits_t error_bits = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
+    caller_t     caller     = CALLER_IS_REFRESH; // May be overwritten
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
@@ -1179,6 +1182,8 @@ void System_Task_Data_Handler (
     {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+
+    // HANDLE ERROR SITUATIONS (BEGIN)
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
         error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT);
@@ -1218,15 +1223,13 @@ void System_Task_Data_Handler (
         error_bits or_eq (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
-
-    if ((error_bits != ERROR_BITS_NONE) and (not context.error_beep_mute)) {
+    if ((error_bits != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
         context.beeper_blip_now = true;
     } else {}
 
-    // No new assignment of lical error_bits after here
+    // No new assignment of local error_bits after here
 
-    context.error_bits or_eq error_bits;
-
+    context.error_bits or_eq error_bits; // Add them into a bit-list
     if (context.screen_logg.exists) {
         #ifdef SCREEN_LOGG_ERROR_BITS
             if (context.error_bits != ERROR_BITS_NONE) {
@@ -1235,7 +1238,8 @@ void System_Task_Data_Handler (
                     context.beeper_blip_now = true;
                     context.display_screen_name_present = SCREEN_LOGG;
                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
-                        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set three places
+                        context.iof_button_last_taken_action = IOF_BUTTON_LEFT;
+                        caller = CALLER_IS_ERROR_WAKEUP; // Only for IOF_BUTTON_LEFT
                     } else {}
                 } else {}
 
@@ -1244,27 +1248,25 @@ void System_Task_Data_Handler (
 
                     char ls_byte =  context.error_bits       bitand 0xff;
                     char ms_byte = (context.error_bits >> 8) bitand 0xff;
-
                     context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
                             BYTE_TO_BINARY(ms_byte),
                             BYTE_TO_BINARY(ls_byte));
-                        //                                        ..........----------.
-                        //                                        0± BIT-FEILMELDINGER
-                        //
-                        //                                         F..C B..8 7..4 3..0
-                        //                                         0000 0000 0000 0111 If external I2C cable is out
+                    //                                        ..........----------.
+                    //                                        X± BIT-FEILMELDINGER
+                    //
+                    //                                         F..C B..8 7..4 3..0
+                    //                                         0000 0000 0000 0111 If external I2C cable is out
 
-                    if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
-                        sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
-                        context.screen_logg.display_ts1_chars_num = 4;
-                    } else {
-                        context.screen_logg.display_ts1_chars_num = sprintf_return;
-                    }
+                    assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
+                    assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
+
+                    context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
-            }
+            } else {}
+
         #elif defined SCREEN_LOGG_RAW_TEMPS
             if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) and
                 (context.display_screen_name_present == SCREEN_LOGG)) {
@@ -1288,6 +1290,8 @@ void System_Task_Data_Handler (
             // Other screens
         #endif
     } else {}
+
+    // HANDLE ERROR SITUATIONS (END)
 
     // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
     {
@@ -1355,11 +1359,11 @@ void System_Task_Data_Handler (
         } else {}
     } else {}
 
-    if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
+    if ((context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) or (caller == CALLER_IS_ERROR_WAKEUP)) {
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-            context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, CALLER_IS_REFRESH);
+            context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
     } else {} // Not now
 
     if (context.beeper_blip_now) {
@@ -1407,7 +1411,7 @@ void System_Task (
     context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
     context.error_bits = ERROR_BITS_NONE;
-    context.error_beep_mute = false;
+    context.error_beeper_blip_now_muted = false;
 
     for (unsigned iof_button = 0; iof_button < BUTTONS_NUM_CLIENTS; iof_button++) {
         context.buttons_state[iof_button].button_pressed_now = false;
