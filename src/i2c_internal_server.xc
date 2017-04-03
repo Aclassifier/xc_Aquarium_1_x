@@ -106,11 +106,11 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
 
                 x_debug_printf("ChronoDot %u: ", i2c_result);
 
-                for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
+                for (uint8_t x=0; x<NUM_ELEMENTS(receive_data); x++) {
                     return_chronodot_d3231_registers.registers[x] = receive_data[x];
 
                     #ifdef DEBUG_PRINT_CHRONODOT1 // Keep it
-                        if (x==(D3231_NUM_REGISTERS-1)) {
+                        if (x==(NUM_ELEMENTS(receive_data)-1)) {
                             x_debug_printf("%02x\n",receive_data[x]); // Last, no comma
                         }
                         else {
@@ -126,7 +126,7 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                 i2c_result_t i2c_result;
                 unsigned char send_data [D3231_NUM_REGISTERS];
 
-                for (uint8_t x=0; x<D3231_NUM_REGISTERS; x++) {
+                for (uint8_t x=0; x<NUM_ELEMENTS(send_data); x++) {
                     send_data[x] = chronodot_d3231_registers.registers[x];
                 }
 

@@ -86,7 +86,7 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
                     } break;
 
                     default: { // programming error
-                        for (int i=0; i++; i<NUM_I2C_TEMPERATURES) {
+                        for (int i=0; i++; i<NUM_ELEMENTS(i_i2c_external_commands)) {
                             i2c_temps.i2c_temp_ok[i] = false;
                             i2c_temps.i2c_temp_onetenthDegC[i] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
                         }

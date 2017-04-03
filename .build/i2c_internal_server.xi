@@ -1434,6 +1434,8 @@ size_t _safe_strnlen(const char s[], size_t n);
 # 17 "../src/param.h"
 typedef enum {false,true} bool;
 
+
+
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
 
 
@@ -1455,7 +1457,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 52 "../src/param.h"
+# 54 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1471,8 +1473,9 @@ typedef enum {
 } button_action_t;
 # 26 "../src/button_press.h"
 typedef struct {
-    bool button_pressed_now;
-    bool button_pressed_for_10_seconds;
+    bool pressed_now;
+    bool pressed_for_10_seconds;
+    bool inhibit_released_once;
 } button_state_t;
 
 
@@ -1800,11 +1803,11 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
 
                 do { if(0) printf("ChronoDot %u: ", i2c_result); } while (0);
 
-                for (uint8_t x=0; x<19; x++) {
+                for (uint8_t x=0; x<(sizeof(receive_data) / sizeof(receive_data[0])); x++) {
                     return_chronodot_d3231_registers.registers[x] = receive_data[x];
 
 
-                        if (x==(19 -1)) {
+                        if (x==((sizeof(receive_data) / sizeof(receive_data[0]))-1)) {
                             do { if(0) printf("%02x\n", receive_data[x]); } while (0);
                         }
                         else {
@@ -1820,7 +1823,7 @@ void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_command
                 i2c_result_t i2c_result;
                 unsigned char send_data [19];
 
-                for (uint8_t x=0; x<19; x++) {
+                for (uint8_t x=0; x<(sizeof(send_data) / sizeof(send_data[0])); x++) {
                     send_data[x] = chronodot_d3231_registers.registers[x];
                 }
 

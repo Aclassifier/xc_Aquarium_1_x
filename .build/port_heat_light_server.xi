@@ -1125,6 +1125,8 @@ typedef unsigned int uintptr_t;
 # 17 "../src/param.h"
 typedef enum {false,true} bool;
 
+
+
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
 
 
@@ -1146,7 +1148,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 52 "../src/param.h"
+# 54 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;

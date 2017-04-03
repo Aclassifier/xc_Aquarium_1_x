@@ -1296,6 +1296,8 @@ int _safe_rename(const char from[], const char to[]);
 # 17 "../src/param.h"
 typedef enum {false,true} bool;
 
+
+
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
 
 
@@ -1317,7 +1319,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 52 "../src/param.h"
+# 54 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1645,8 +1647,9 @@ typedef enum {
 } button_action_t;
 # 26 "../src/button_press.h"
 typedef struct {
-    bool button_pressed_now;
-    bool button_pressed_for_10_seconds;
+    bool pressed_now;
+    bool pressed_for_10_seconds;
+    bool inhibit_released_once;
 } button_state_t;
 
 

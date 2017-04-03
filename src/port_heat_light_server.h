@@ -5,7 +5,7 @@
  *      Author: teig
  */
 
-#define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK
+#define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK; often in a two-dim array with NUM_PWM_TIME_WINDOWS (so not using NUM_ELEMENTS)
 
 typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_FRONT,

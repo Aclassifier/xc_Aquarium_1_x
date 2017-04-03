@@ -276,7 +276,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         int nbytes = SSD1306_WRITE_CHUNK_SIZE;
         unsigned char data[SSD1306_WRITE_CHUNK_SIZE];
 
-        for (uint8_t x=0; x<SSD1306_WRITE_CHUNK_SIZE; x++) {
+        for (uint8_t x=0; x<NUM_ELEMENTS(data); x++) {
             data[x] = buffer[i];
             i++;
         }

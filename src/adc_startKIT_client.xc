@@ -52,7 +52,7 @@ void My_startKIT_ADC_Client (
        select{
            case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up.trigger(): {
                debug_printf ("ADC %d values?\n", Num_of_data_sets);
-               for (int i=0; i<NUM_STARTKIT_ADC_INPUTS; i++) {
+               for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
                    adc_vals.mean_sum[i] = 0;
                }
                adc_vals.mean_cnt = 0;
@@ -67,7 +67,7 @@ void My_startKIT_ADC_Client (
                        case i_startkit_adc_down.complete(): {
                            if (i_startkit_adc_down.read (adc_vals.x)) {
                                debug_printf ("ADC raw [%d]=", data_set_cnt);
-                               for (int i=0; i<NUM_STARTKIT_ADC_INPUTS; i++) {
+                               for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
                                    debug_printf ("(%d,", adc_vals.x[i]);
                                    adc_vals.mean_sum[i] += adc_vals.x[i];
                                    debug_printf ("%d) ", adc_vals.mean_sum[i]);
@@ -96,7 +96,7 @@ void My_startKIT_ADC_Client (
                debug_printf ("ADC %d values: ", Num_of_data_sets);
                unsigned short offsets [NUM_STARTKIT_ADC_INPUTS] = {OFFSET_ADC_INPUTS_STARTKIT};
 
-               for (int i=0; i<NUM_STARTKIT_ADC_INPUTS; i++) {
+               for (int i=0; i<NUM_ELEMENTS(return_adc_mean_vals); i++) {
                    if (adc_vals.mean_cnt == 0) { // Only theoretically possible if all did no_adc_cnt++
                        return_adc_mean_vals[i] = 0;
                    } else {

@@ -1357,6 +1357,8 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 17 "../src/param.h"
 typedef enum {false,true} bool;
 
+
+
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
 
 
@@ -1378,7 +1380,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 52 "../src/param.h"
+# 54 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1656,8 +1658,9 @@ typedef enum {
 } button_action_t;
 # 26 "../src/button_press.h"
 typedef struct {
-    bool button_pressed_now;
-    bool button_pressed_for_10_seconds;
+    bool pressed_now;
+    bool pressed_for_10_seconds;
+    bool inhibit_released_once;
 } button_state_t;
 
 
@@ -2019,14 +2022,17 @@ typedef enum {
 
 typedef enum display_screen_name_t {
 
-    SCREEN_LOGG,
+
+
+    SCREEN_FEIL,
     SCREEN_AKVARIETEMPERATURER,
     SCREEN_VANNTEMP_REG,
     SCREEN_LYSGULERING,
     SCREEN_BOKSDATA,
     SCREEN_VERSJON,
     SCREEN_KONSTANTER,
-    SCREEN_KLOKKE
+    SCREEN_KLOKKE,
+    SCREEN_NONE,
 } display_screen_name_t;
 
 typedef enum fram_byte_array_index_t {
@@ -2062,7 +2068,7 @@ typedef enum display_sub_state_t {
 typedef struct screen_logg_t {
     bool exists;
     unsigned display_ts1_chars_num;
-    char display_ts1_chars [((21 * 4) + 1) + 10];
+    char display_ts1_chars [((21 * 4) + 1)];
 } screen_logg_t;
 
 typedef enum screen_clock_cursor_at_t {
@@ -2124,7 +2130,6 @@ typedef struct handler_context_t {
     bool beeper_blip_now;
 
     button_state_t buttons_state [3];
-    bool buttons_inhibit_released_once [3];
     unsigned silent_any_button_while_display_on_seconds_cnt;
 
     int iof_button_last_taken_action;
@@ -2159,6 +2164,24 @@ typedef struct handler_context_t {
 
 static const char takes_press_for_10_seconds_right_button_str [] = {240,0};
 
+
+
+
+void Clear_All_Screen_Sub_Is_Editable_Except (
+    handler_context_t &context,
+    const display_screen_name_t except_screen)
+{
+    if (except_screen != SCREEN_LYSGULERING) {
+        context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+        context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
+    } else {}
+
+    if (except_screen != SCREEN_KLOKKE) {
+        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+        context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
+    } else {}
+}
+
 void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t &context,
             light_sunrise_sunset_context_t &light_sunrise_sunset_context,
@@ -2179,7 +2202,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     switch (context.display_screen_name_present) {
 
-        case SCREEN_LOGG: {
+        case SCREEN_FEIL: {
 
             Clear_All_Pixels_In_Buffer();
             if (context.screen_logg.display_ts1_chars_num > 0) {
@@ -2194,9 +2217,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 setCursor(0,0);
                 display_print (context.screen_logg.display_ts1_chars, context.screen_logg.display_ts1_chars_num);
 
-                if (caller == CALLER_IS_BUTTON) {
+                if (caller != CALLER_IS_REFRESH) {
                     context.screen_logg.display_ts1_chars[context.screen_logg.display_ts1_chars_num] = 0;
-                    do { if(1) printf("SCREEN_LOGG:\n%s%s", context.screen_logg.display_ts1_chars, "\n"); } while (0);
+                    do { if(1) printf("SCREEN_FEIL:\n%s%s", context.screen_logg.display_ts1_chars, "\n"); } while (0);
                 } else {}
             } else {}
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -2205,7 +2228,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_AKVARIETEMPERATURER: {
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2241,9 +2264,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                 do { if(1) printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str); } while (0);
             } else {}
         } break;
@@ -2256,7 +2278,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             i_temperature_water_commands.get_temp_degC_str (IOF_TEMPC_WATER, temp_degC_water_str);
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2300,9 +2322,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                 do { if(1) printf("VARMEREGULERING: P %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt); } while (0);
             } else {}
         } break;
@@ -2313,7 +2334,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char light_strength_full_str [(3 +1)] = "3/3";
             const char light_strength_weak_str [(3 +1)] = "2/3";
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
               context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2384,7 +2405,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 442 "../src/_Aquarium_1_x.xc"
+# 460 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2393,9 +2414,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                     context.display_is_on = true;
 
-                    if (caller == CALLER_IS_BUTTON) {
+                    if (caller != CALLER_IS_REFRESH) {
+                        Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_LYSGULERING);
                         context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = true;
-                        context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
                         do { if(1) printf("LYS: %u %u %u @ %u, %u\n", context.light_intensity_thirds[IOF_LED_STRIP_FRONT], context.light_intensity_thirds[IOF_LED_STRIP_CENTER], context.light_intensity_thirds[IOF_LED_STRIP_BACK], context.light_composition, full_light); } while (0);
 
 
@@ -2457,7 +2478,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 default: break;
             }
-            if (caller == CALLER_IS_BUTTON) {
+            if (caller != CALLER_IS_REFRESH) {
                 do { if(1) printf("%s", "SCREEN_LYSGULERING\n"); } while (0);
             } else {}
 
@@ -2478,7 +2499,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             char fill_2_str [] = "  ";
 
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2513,9 +2534,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                 do { if(1) printf("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); } while (0);
             } else {}
         } break;
@@ -2524,7 +2544,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             int boot_from_jtag = ((__builtin_getps(0x30b) & 0x4) >> 2);
             int reg_value = __builtin_getps(0x30b);
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2532,10 +2552,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Mar 30 2017",
+                               "Apr  3 2017",
                                char_aa_str,
                                char_OE_str);
-# 613 "../src/_Aquarium_1_x.xc"
+# 630 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2544,10 +2564,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "22:49:34", "Mar 30 2017"); } while (0);
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
+                do { if(1) printf("Version date %s %s\n", "21:24:29", "Apr  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -2560,7 +2579,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             {value, ok} = Temp_OnetenthDegC_To_Str ((250 + ( 0)), temp_water_degc_str);
             {value, ok} = Temp_OnetenthDegC_To_Str (400, temp_heater_degc_str);
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2591,10 +2610,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                do { if(1) printf("Version date %s %s\n", "22:49:34", "Mar 30 2017"); } while (0);
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
+                do { if(1) printf("Version date %s %s\n", "21:24:29", "Apr  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -2610,7 +2628,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             char editable_separator_left_right_arrow_str[2] = ".";
 
-            for (int index_of_char = 0; index_of_char < ((21 * 4) + 1); index_of_char++) {
+            for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
@@ -2633,10 +2651,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                     }
 
-                    context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
-                    context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
+                    Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                     context.display_sub_countdown_seconds = 0;
-                    context.buttons_inhibit_released_once[2] = true;
+                    context.buttons_state[2].inhibit_released_once = true;
                 } break;
 
                 case SUB_STATE_11: {
@@ -2797,8 +2814,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
 
-            if (caller == CALLER_IS_BUTTON) {
-                context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
+            if (caller != CALLER_IS_REFRESH) {
+                Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_KLOKKE);
                 context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = true;
                 do { if(1) printf("SCREEN_KLOKKE %04u.%02u.%02u %02u.%02u.%02u sub_state = %u\n", context.datetime.year, context.datetime.month, context.datetime.day, context.datetime.hour, context.datetime.minute, context.datetime.second, context.display_sub_context[SCREEN_KLOKKE].sub_state); } while (0);
 
@@ -2840,7 +2857,7 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    if ((caller == CALLER_IS_BUTTON) || (caller == CALLER_IS_ERROR_WAKEUP)) {
+                    if (caller != CALLER_IS_REFRESH) {
                         if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                            context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                            writeDisplay_i2c_command(i_i2c_internal_commands, 0x81);
@@ -2850,11 +2867,8 @@ void Handle_Real_Or_Clocked_Buttons (
                            Clear_All_Pixels_In_Buffer();
                            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                            context.display_is_on = false;
-                           context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-                           context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
-                           context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-                           context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
-                           context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
+                           Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
+                           context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
                            i_temperature_water_commands.clear_debug_log();
 
                            if ((context.error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
@@ -2902,7 +2916,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
 
                     } else if (context.display_sub_context[SCREEN_KLOKKE].sub_state >= SUB_STATE_01) {
-                        if ((context.buttons_state[2].button_pressed_now) &&
+                        if ((context.buttons_state[2].pressed_now) &&
                             (context.display_sub_context[SCREEN_KLOKKE].sub_state >= SUB_STATE_09)) {
 
                             context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_12;
@@ -2920,14 +2934,14 @@ void Handle_Real_Or_Clocked_Buttons (
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     } else if (caller == CALLER_IS_REFRESH) {
                         Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                    } else if (caller == CALLER_IS_BUTTON) {
+                    } else if (caller != CALLER_IS_REFRESH) {
 
                         if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
-                            if (context.display_screen_name_present == SCREEN_LOGG) {
+                            if (context.display_screen_name_present == SCREEN_FEIL) {
                                 context.display_screen_name_present = (8 - 1);
                             } else if (context.display_screen_name_present == SCREEN_AKVARIETEMPERATURER) {
-                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
-                                    context.display_screen_name_present = SCREEN_LOGG;
+                                if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) {
+                                    context.display_screen_name_present = SCREEN_FEIL;
                                 } else {
                                    context.display_screen_name_present = (8 - 1);
                                 }
@@ -2957,15 +2971,15 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    if (context.buttons_inhibit_released_once[2]) {
-                        context.buttons_inhibit_released_once[2] = false;
+                    if (context.buttons_state[2].inhibit_released_once) {
+                        context.buttons_state[2].inhibit_released_once = false;
                     } else if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
-                        if (caller == CALLER_IS_BUTTON) {
+                        if (caller != CALLER_IS_REFRESH) {
 
                             context.display_screen_name_present++;
                             if (context.display_screen_name_present == 8) {
-                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
-                                    context.display_screen_name_present = SCREEN_LOGG;
+                                if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) {
+                                    context.display_screen_name_present = SCREEN_FEIL;
                                 } else {
                                     context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
                                 }
@@ -2976,7 +2990,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } else {}
                     } else if (context.display_appear_state == DISPLAY_APPEAR_EDITABLE) {
-                        if (caller == CALLER_IS_BUTTON) {
+                        if (caller != CALLER_IS_REFRESH) {
 
                             if (context.display_sub_context[SCREEN_LYSGULERING].sub_state >= SUB_STATE_01) {
                                 if ((context.display_sub_context[SCREEN_LYSGULERING].sub_state % 2) == 0) {
@@ -2999,9 +3013,8 @@ void Handle_Real_Or_Clocked_Buttons (
 
                                 if (context.display_sub_context[SCREEN_KLOKKE].sub_state >= SUB_STATE_10) {
 
-                                    context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
+                                    Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                                    context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
                                     context.display_sub_countdown_seconds = 0;
                                     context.beeper_blip_now = true;
 
@@ -3017,10 +3030,10 @@ void Handle_Real_Or_Clocked_Buttons (
 
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
                     switch (context.display_screen_name_present) {
-                        case SCREEN_LOGG: {
+                        case SCREEN_FEIL: {
                             if (context.screen_logg.exists) {
-                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) {
-                                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
+                                if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) {
+                                    context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
                                     context.error_bits = 0;
@@ -3031,10 +3044,10 @@ void Handle_Real_Or_Clocked_Buttons (
                         } break;
                         case SCREEN_AKVARIETEMPERATURER: {
                             if (context.screen_logg.exists) {
-                                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_DARK) {
-                                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_SHOW;
+                                if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_DARK) {
+                                    context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_SHOW;
                                     context.beeper_blip_now = true;
-                                    context.display_screen_name_present = SCREEN_LOGG;
+                                    context.display_screen_name_present = SCREEN_FEIL;
                                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                                     } else {}
@@ -3159,18 +3172,22 @@ void System_Task_Data_Handler (
     if (context.screen_logg.exists) {
 
             if (context.error_bits != 0) {
-                if (context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_DARK) {
-                    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_SHOW;
+                if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_DARK) {
+                    context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_SHOW;
                     context.beeper_blip_now = true;
-                    context.display_screen_name_present = SCREEN_LOGG;
-                    if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
-                        context.iof_button_last_taken_action = 0;
-                        caller = CALLER_IS_ERROR_WAKEUP;
-                    } else {}
+                    context.display_screen_name_present = SCREEN_FEIL;
+                    Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
+
+
+
+
+
+                    context.iof_button_last_taken_action = 0;
+                    caller = CALLER_IS_ERROR_WAKEUP;
                 } else {}
 
-                if ((context.display_sub_context[SCREEN_LOGG].sub_state == SUB_STATE_SHOW) &&
-                    (context.display_screen_name_present == SCREEN_LOGG)) {
+                if ((context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) &&
+                    (context.display_screen_name_present == SCREEN_FEIL)) {
 
                     char ls_byte = context.error_bits & 0xff;
                     char ms_byte = (context.error_bits >> 8) & 0xff;
@@ -3192,7 +3209,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1292 "../src/_Aquarium_1_x.xc"
+# 1306 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3241,11 +3258,11 @@ void System_Task_Data_Handler (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = false;
             context.display_appear_state = DISPLAY_APPEAR_BLACK;
-            context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
-            context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-            context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
-            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-            context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
+
+            Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
+            context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
+            context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
+
         } else {
             context.silent_any_button_while_display_on_seconds_cnt++;
         }
@@ -3255,16 +3272,12 @@ void System_Task_Data_Handler (
         context.display_sub_countdown_seconds--;
         if (context.display_sub_countdown_seconds == 0) {
             context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-            context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false;
-            context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
-            context.display_sub_context[SCREEN_KLOKKE].sub_is_editable = false;
-            context.display_sub_context[SCREEN_KLOKKE].sub_state = SUB_STATE_SHOW;
+            Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
             context.beeper_blip_now = true;
         } else {}
     } else {}
 
     if ((context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) || (caller == CALLER_IS_ERROR_WAKEUP)) {
-        value |= (1<<9);
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
@@ -3318,17 +3331,18 @@ void System_Task (
     context.error_bits = 0;
     context.error_beeper_blip_now_muted = false;
 
-    for (unsigned iof_button = 0; iof_button < 3; iof_button++) {
-        context.buttons_state[iof_button].button_pressed_now = false;
-        context.buttons_state[iof_button].button_pressed_for_10_seconds = false;
-        context.buttons_inhibit_released_once[iof_button] = false;
+    for (unsigned iof_button = 0; iof_button < (sizeof(context.buttons_state) / sizeof(context.buttons_state[0])); iof_button++) {
+        context.buttons_state[iof_button].pressed_now = false;
+        context.buttons_state[iof_button].pressed_for_10_seconds = false;
+        context.buttons_state[iof_button].inhibit_released_once = false;
     }
 
-    for (unsigned iof_sub = 0; iof_sub < 8; iof_sub++) {
+    for (unsigned iof_sub = 0; iof_sub < (sizeof(context.display_sub_context) / sizeof(context.display_sub_context[0])); iof_sub++) {
+
         context.display_sub_context[iof_sub].sub_is_editable = false;
         context.display_sub_context[iof_sub].sub_state = SUB_STATE_SHOW;
     }
-    context.display_sub_context[SCREEN_LOGG].sub_state = SUB_STATE_DARK;
+    context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
 
     context.display_sub_countdown_seconds = 0;
 
@@ -3422,17 +3436,17 @@ void System_Task (
 
                 switch (button_action) {
                     case BUTTON_ACTION_RELEASED: {
-                        if (context.buttons_state[iof_button].button_pressed_for_10_seconds) {
+                        if (context.buttons_state[iof_button].pressed_for_10_seconds) {
                             do_handle_button = false;
                         } else {}
-                        context.buttons_state[iof_button].button_pressed_now = false;
-                        context.buttons_state[iof_button].button_pressed_for_10_seconds = false;
+                        context.buttons_state[iof_button].pressed_now = false;
+                        context.buttons_state[iof_button].pressed_for_10_seconds = false;
                     } break;
                     case BUTTON_ACTION_PRESSED: {
-                        context.buttons_state[iof_button].button_pressed_now = true;
+                        context.buttons_state[iof_button].pressed_now = true;
                     } break;
                     case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                        context.buttons_state[iof_button].button_pressed_for_10_seconds = true;
+                        context.buttons_state[iof_button].pressed_for_10_seconds = true;
                     } break;
                 }
 

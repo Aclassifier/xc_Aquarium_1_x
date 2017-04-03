@@ -68,7 +68,7 @@ typedef enum heat_cable_alternating_t {
 //     ERG        = ElectroRetinoGraphy
 //     Behavioral = Spontaneous or taught behavioural response to flickering light
 
-#define NUM_PWM_TIME_WINDOWS 3
+#define NUM_PWM_TIME_WINDOWS 3 // Often in a two-dim array with NUM_LED_STRIPS (so not using NUM_ELEMENTS)
 
 #define TIME_PER_PWM_WINDOW_MICROSECONDS 1500 // NUM_PWM_TIME_WINDOWS==3:
                                               //     1000 us per window, 333 Hz no flickering

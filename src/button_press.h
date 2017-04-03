@@ -12,7 +12,7 @@ typedef enum {
     BUTTON_ACTION_PRESSED,
     BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
     BUTTON_ACTION_RELEASED // Also must be sent after BUTTON_ACTION_PRESSED_FOR_10_SECONDS since we need to
-                           // know state button_pressed_now. So we can't filter it in Button_Task
+                           // know state pressed_now. So we can't filter it in Button_Task
 } button_action_t;
 
 #define DEBOUNCE_TIMEOUT_10000_MS 10000 // 10 seconds
@@ -24,8 +24,9 @@ typedef enum {
 #define BUTTONS_NUM_CLIENTS 3
 
 typedef struct {
-    bool button_pressed_now;            // Set by BUTTON_ACTION_PRESSED,                cleared by BUTTON_ACTION_RELEASED
-    bool button_pressed_for_10_seconds; // Set by BUTTON_ACTION_PRESSED_FOR_10_SECONDS, cleared by BUTTON_ACTION_RELEASED
+    bool pressed_now;            // Set by BUTTON_ACTION_PRESSED,                cleared by BUTTON_ACTION_RELEASED
+    bool pressed_for_10_seconds; // Set by BUTTON_ACTION_PRESSED_FOR_10_SECONDS, cleared by BUTTON_ACTION_RELEASED
+    bool inhibit_released_once;  // Only IOF_BUTTON_RIGHT used, since it's the only that takes long pushes
 } button_state_t;
 
 // NOT USED
