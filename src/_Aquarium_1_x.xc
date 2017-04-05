@@ -52,7 +52,7 @@
 #define DEBUG_PRINT_AQUARIUM 1 // Cost 1.2k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 1 // Cost < 100 bytes
+#define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 typedef enum {
@@ -1476,6 +1476,8 @@ void System_Task (
     while(1) {
         select {
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => tmr when timerafter(time) :> void: {
+                unsigned read_reg;
+
                 // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_str
                 // calls later (in Handle_Real_Or_Clocked_Button_Actions) on gave a rave and deadlock if we didn't finish here before "the second"
                 // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_temps (temps_onetenthDegC)

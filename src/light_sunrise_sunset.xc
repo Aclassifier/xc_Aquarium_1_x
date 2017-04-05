@@ -151,7 +151,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.max_light_in_FRAM_memory = context.max_light; // Always valid
 
         context.max_light_changed = false;
-        context.trigger_light_sensor_range_diff = false;
+        context.light_sensor_diff_state = DIFF_VOID;
         debug_set_val_to (context.print_value_previous,0);
 
         #ifdef DEBUG_TEST_DAY_NIGHT_DAY
@@ -262,9 +262,9 @@ Handle_Light_Sunrise_Sunset_Etc (
                 // ------------------------ CHANGE LIGHT LEVEL BACK TO MAX  ------------------------
                 debug_set_val_to (print_value,104);
                 i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.max_light), LIGHT_CONTROL_IS_DAY, 104);
-                if (context.trigger_light_sensor_range_diff) {
-                    context.trigger_light_sensor_range_diff = false; // This is where it's cleared! So that we can beep:
-                    return_beeper_blip                      = true;  // since it was triggered by some human like Anna, Jakob, Filip or Linnéa
+                if (context.light_sensor_diff_state == DIFF_ACTIVE) {
+                    context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
+                    return_beeper_blip = true;  // since it was triggered by some human like Anna, Jakob, Filip or Linnéa
                 } else {}
             } else {}
         } else {
@@ -277,17 +277,18 @@ Handle_Light_Sunrise_Sunset_Etc (
     //
     if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
         // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2000_mW_ON_MIXED because it's quite visible
-        context.trigger_light_sensor_range_diff = true; // Will not be taken if context.num_minutes_left_of_random counting etc.
+        context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
     } else {} // Not enough change
 
-    if (trigger_hour_changed or context.trigger_light_sensor_range_diff) {          // Start random only once per hours or when light changes
+    if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) {          // Start random only once per hours or when light changes
         if ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
             (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST)) {     // And when it's day-time'ish
             if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
                 if (context.num_random_sequences_left > 0) {                        // Some left to do
                     if ((random_number % 2) == 0) {                                 // Every other hour
                         if ((random_number % 2) == 0) {                             // Random light value
-                            if (context.trigger_light_sensor_range_diff) {
+                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {
+                                context.light_sensor_diff_state = DIFF_ACTIVE;
                                 debug_set_val_to (print_value,105);
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
                             } else if (context.max_light == MAX_LIGHT_IS_FULL) {
@@ -298,7 +299,8 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_5666_mW_ON, LIGHT_CONTROL_IS_RANDOM, 104);
                             }
                         } else {
-                            if (context.trigger_light_sensor_range_diff) {
+                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {
+                                context.light_sensor_diff_state = DIFF_ACTIVE;
                                 debug_set_val_to (print_value,106);
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 106);
                             } else {
@@ -306,7 +308,8 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_mW_ON, LIGHT_CONTROL_IS_RANDOM, 101);
                             }
                         }
-                        if (context.trigger_light_sensor_range_diff) {
+
+                        if (context.light_sensor_diff_state == DIFF_ACTIVE) {
                             context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
                                                                                                       // with the random triggering on the hours and minute in this case
                             return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
@@ -315,6 +318,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                     NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
                                     (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
                         }
+
                         context.num_random_sequences_left--;
                     } else {debug_set_val_to (print_value,1);} // Not this hour, maybe next
                 } else {debug_set_val_to (print_value,2);}     // Done enough today
@@ -343,12 +347,16 @@ Handle_Light_Sunrise_Sunset_Etc (
         if (context.print_value_previous != print_value) {
             debug_printf ("Random value %u [%u] with %u and %u. Light=%u\n",
                    print_value, context.print_value_previous, context.num_minutes_left_of_random,
-                   context.num_random_sequences_left, context.trigger_light_sensor_range_diff);
+                   context.num_random_sequences_left, context.light_sensor_diff_state);
             context.print_value_previous = print_value;
         } else {}
     #endif
 
-    // Don't clear context.trigger_light_sensor_range_diff here, it's cleared when it has timed out
+    if (context.light_sensor_diff_state == DIFF_ENOUGH) {
+        context.light_sensor_diff_state = DIFF_VOID; // Clear here if DIFF_ENOUGH not having caused DIFF_ACTIVE.
+                                                     // If not it will be seen as LIGHT_CONTROL_IS_RANDOM like at HH_RANDOM_EARLIEST:MM_RANDOM_EARLIEST
+                                                     // if there was a light change while not accepted
+    } else {}
 
     return return_beeper_blip;
 }

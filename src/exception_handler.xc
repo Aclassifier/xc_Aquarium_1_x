@@ -23,7 +23,7 @@ void assert_exception (bool assert_this) {
     if (assert_this) {
         // No code
     } else {
-        // https://www.xmos.com/download/private/XS1-L8A-64-TQ48-Datasheet%281.3%29.pdf
+
         // http://www.xcore.com/viewtopic.php?f=44&t=5083
         //
         int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -34,6 +34,9 @@ void assert_exception (bool assert_this) {
         else { // stuff that is only done when flashed
             asm(" ecallf %0" :: "r" (0));
         }
+
+        // http://www.xmos.com/download/private/XS1-U16A-128-FB217-Datasheet%281.10%29.pdf
+
     }
 }
 

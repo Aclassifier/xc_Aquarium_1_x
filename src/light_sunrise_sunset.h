@@ -21,25 +21,31 @@ typedef enum max_light_t {
     MAX_LIGHT_IS_VOID
 } max_light_t;
 
+typedef enum light_sensor_diff_state_t {
+    DIFF_VOID,
+    DIFF_ENOUGH,
+    DIFF_ACTIVE
+} light_sensor_diff_state_t;
+
 typedef struct light_sunrise_sunset_context_t {
-    bool                 do_init;
-    it_is_day_or_night_t it_is_day_or_night;
-    DateTime_t           datetime_now;
-    DateTime_t           datetime_previous;
-    bool                 datetime_previous_not_initialised;
-    unsigned             iof_day_night_action_list;
-    random_generator_t   random_number;
-    unsigned             num_minutes_left_of_random;
-    unsigned             num_random_sequences_left;
-    max_light_t          max_light;
-    max_light_t          max_light_in_FRAM_memory; // From Fujitsu MB85RC256V
-    max_light_t          max_light_next;
-    bool                 max_light_changed;
-    light_sensor_range_t light_sensor_intensity;
-    light_sensor_range_t light_sensor_intensity_previous;
-    bool                 trigger_light_sensor_range_diff;
-    unsigned             print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
-    bool                 do_FRAM_write;
+    bool                      do_init;
+    it_is_day_or_night_t      it_is_day_or_night;
+    DateTime_t                datetime_now;
+    DateTime_t                datetime_previous;
+    bool                      datetime_previous_not_initialised;
+    unsigned                  iof_day_night_action_list;
+    random_generator_t        random_number;
+    unsigned                  num_minutes_left_of_random;
+    unsigned                  num_random_sequences_left;
+    max_light_t               max_light;
+    max_light_t               max_light_in_FRAM_memory; // From Fujitsu MB85RC256V
+    max_light_t               max_light_next;
+    bool                      max_light_changed;
+    light_sensor_range_t      light_sensor_intensity;
+    light_sensor_range_t      light_sensor_intensity_previous;
+    light_sensor_diff_state_t light_sensor_diff_state;
+    unsigned                  print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
+    bool                      do_FRAM_write;
 } light_sunrise_sunset_context_t;
 
 // https://no.wikipedia.org/wiki/Sommertid

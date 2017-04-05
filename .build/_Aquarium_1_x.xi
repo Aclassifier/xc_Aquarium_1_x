@@ -1958,6 +1958,12 @@ typedef enum max_light_t {
     MAX_LIGHT_IS_VOID
 } max_light_t;
 
+typedef enum light_sensor_diff_state_t {
+    DIFF_VOID,
+    DIFF_ENOUGH,
+    DIFF_ACTIVE
+} light_sensor_diff_state_t;
+
 typedef struct light_sunrise_sunset_context_t {
     bool do_init;
     it_is_day_or_night_t it_is_day_or_night;
@@ -1974,11 +1980,11 @@ typedef struct light_sunrise_sunset_context_t {
     bool max_light_changed;
     light_sensor_range_t light_sensor_intensity;
     light_sensor_range_t light_sensor_intensity_previous;
-    bool trigger_light_sensor_range_diff;
+    light_sensor_diff_state_t light_sensor_diff_state;
     unsigned print_value_previous;
     bool do_FRAM_write;
 } light_sunrise_sunset_context_t;
-# 155 "../src/light_sunrise_sunset.h"
+# 161 "../src/light_sunrise_sunset.h"
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const max_light_t max_light);
 
@@ -2198,7 +2204,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_aa_str[] = {132,0};
     const char char_OE_str[] = {236,0};
 
-    do { if(1) printf("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state); } while (0);
+    do { if(0) printf("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state); } while (0);
 
     switch (context.display_screen_name_present) {
 
@@ -2552,7 +2558,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr  3 2017",
+                               "Apr  5 2017",
                                char_aa_str,
                                char_OE_str);
 # 630 "../src/_Aquarium_1_x.xc"
@@ -2566,7 +2572,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:24:29", "Apr  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "11:50:47", "Apr  5 2017"); } while (0);
             } else {}
         } break;
 
@@ -2612,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:24:29", "Apr  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "11:50:47", "Apr  5 2017"); } while (0);
             } else {}
         } break;
 
@@ -3383,6 +3389,8 @@ void System_Task (
     while(1) {
         select {
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => tmr when __builtin_timer_after(time) :> void: {
+                unsigned read_reg;
+
 
 
 
