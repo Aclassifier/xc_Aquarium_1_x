@@ -1932,13 +1932,13 @@ extern unsigned char font[];
 # 41 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/adc_startkit_client.h" 1
-# 13 "../src/adc_startkit_client.h"
+# 15 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
     [[guarded]] void trigger (void);
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
     [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
-# 26 "../src/adc_startkit_client.h"
+# 32 "../src/adc_startkit_client.h"
 void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
@@ -2572,7 +2572,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "11:50:47", "Apr  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:30:23", "Apr  5 2017"); } while (0);
             } else {}
         } break;
 
@@ -2618,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "11:50:47", "Apr  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:30:23", "Apr  5 2017"); } while (0);
             } else {}
         } break;
 

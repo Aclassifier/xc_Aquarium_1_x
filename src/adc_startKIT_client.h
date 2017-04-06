@@ -1,5 +1,5 @@
 /*
- * lib_startKIT_adc_client.h
+ * adc_startKIT_Client.h
  *
  *  Created on: 28. mars 2016
  *      Author: ¯yvind Teig
@@ -7,6 +7,8 @@
 
 #ifndef LIB_STARTKIT_ADC_CLIENT_H_
 #define LIB_STARTKIT_ADC_CLIENT_H_
+
+// #define DO_NESTED_SELECT
 
 #define NUM_STARTKIT_ADC_INPUTS 4
 
@@ -23,6 +25,10 @@ typedef interface lib_startkit_adc_commands_if {
 // described at http://www.teigfam.net/oyvind/home/technology/098-my-xmos-notes/#daily_vi_xtimecomposer_1410
 // most probably handled by XMOS document number XM-004900-DA bug ref. #15246 (as communicated to Teig)
 //
+
+#ifndef DO_NESTED_SELECT
+//[[combinable]]
+#endif
 void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if      i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up,
