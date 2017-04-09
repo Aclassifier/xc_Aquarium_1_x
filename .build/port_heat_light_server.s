@@ -36,7 +36,7 @@
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases.maxchanends
 	.set Port_Pins_Heat_Light_Server.select.y.enable.cases,0
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases
-	.set Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.y.case.1.nstackwords) $M (Port_Pins_Heat_Light_Server.select.y.case.0.nstackwords)
+	.set Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.y.case.0.nstackwords) $M (Port_Pins_Heat_Light_Server.select.y.case.1.nstackwords)
 	.globl Port_Pins_Heat_Light_Server.select.y.enable.cases.nstackwords
 	.set Port_Pins_Heat_Light_Server.select.enable.savedstate,58
 	.globl Port_Pins_Heat_Light_Server.select.enable.savedstate
@@ -48,7 +48,7 @@
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends
 	.set Port_Pins_Heat_Light_Server.select.enable.cases,0
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases
-	.set Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.case.1.nstackwords) $M (Port_Pins_Heat_Light_Server.select.case.0.nstackwords)
+	.set Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords, 0 $M (Port_Pins_Heat_Light_Server.select.case.0.nstackwords) $M (Port_Pins_Heat_Light_Server.select.case.1.nstackwords)
 	.globl Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords
 	.pushsection .netinfo, "", @netinfo
 	.int      0x1eaba15c

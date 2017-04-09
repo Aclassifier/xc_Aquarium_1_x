@@ -74,6 +74,7 @@ typedef struct tag_startkit_adc_vals {
   } printf
 
 #define DUMMY_WIFI
+#define DO_ADC_NESTED_SELECT
 
 #else
     #error Nested include PARAM_H_

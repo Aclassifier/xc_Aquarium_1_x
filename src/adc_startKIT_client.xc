@@ -1,5 +1,5 @@
 /*
- * adc_startKIT_Client.xc
+ * adc_startKIT_client.xc
  *
  *  Created on: 28. mars 2016
  *      Author: ¯yvind Teig
@@ -13,8 +13,8 @@
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
-#include "startkit_adc.h"
 #include "param.h"
+#include "startkit_adc.h"
 #include "adc_startKIT_client.h"
 #endif
 
@@ -35,16 +35,18 @@ typedef enum t_client_state {
     ADC_AWAIT_READ_FROM_UP
 } t_client_state;
 
-#ifndef DO_NESTED_SELECT
-//[[combinable]]
+#ifndef DO_ADC_NESTED_SELECT
+#error Doesn not work! See Ticket 9964
+[[combinable]]
 #endif
 void My_startKIT_ADC_Client (
-   client startkit_adc_acquire_if    i_startkit_adc_down,
-   server lib_startkit_adc_commands_if i_startkit_adc_up,
-   const unsigned int                Num_of_data_sets) // NUM_STARTKIT_ADC_NEEDED_DATA_SETS
+   client startkit_adc_acquire_if      i_startkit_adc_down,
+   server lib_startkit_adc_commands_if i_startkit_adc_up[ADC_STARTKIT_NUM_CLIENTS],
+   const unsigned int                  Num_of_data_sets) // NUM_STARTKIT_ADC_NEEDED_DATA_SETS
 {
     t_startkit_adc_user_vals adc_vals;
     t_client_state           client_state = ADC_AWAIT_TRIGGER_FROM_UP;
+    int                      present_index_of_client;
 
     unsigned int data_set_cnt = 0;
 
@@ -52,7 +54,8 @@ void My_startKIT_ADC_Client (
 
     while(1){
         select{
-            case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up.trigger(): {
+            case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up[int index_of_client].trigger(): {
+                present_index_of_client = index_of_client;
                 debug_printf ("ADC %d values?\n", Num_of_data_sets);
                 for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
                     adc_vals.mean_sum[i] = 0;
@@ -62,7 +65,9 @@ void My_startKIT_ADC_Client (
                 adc_vals.no_adc_cnt = 0;
 
                 data_set_cnt = 1; // First set
-#ifdef DO_NESTED_SELECT // This works
+
+            #ifdef DO_ADC_NESTED_SELECT // This works
+
                 while (data_set_cnt <= Num_of_data_sets) {
                     i_startkit_adc_down.trigger(); // Get next data set
                     select {
@@ -83,7 +88,7 @@ void My_startKIT_ADC_Client (
 
                             if (data_set_cnt == Num_of_data_sets) {
                                 debug_printf ("ADC %d values ready\n", Num_of_data_sets);
-                                i_startkit_adc_up.notify();
+                                i_startkit_adc_up[index_of_client].notify();
                             } else {
                                 // No code: get next data with i_startkit_adc_down.trigger above
                             }
@@ -92,7 +97,9 @@ void My_startKIT_ADC_Client (
                     data_set_cnt++;
                 }
                 client_state = ADC_AWAIT_READ_FROM_UP;
-#else // This does not work
+
+            #else // This does not work
+
                 i_startkit_adc_down.trigger(); // Get first data set
                 client_state = ADC_AWAIT_DATA_FROM_DOWN;
             } break;
@@ -116,16 +123,19 @@ void My_startKIT_ADC_Client (
 
                  if (data_set_cnt == Num_of_data_sets) {
                      debug_printf ("ADC %d values ready\n", Num_of_data_sets);
-                     i_startkit_adc_up.notify();
+                     i_startkit_adc_up[present_index_of_client].notify();
                      client_state = ADC_AWAIT_READ_FROM_UP;
                  } else {
                      data_set_cnt++;
                      i_startkit_adc_down.trigger(); // Get next data set
                  }
-#endif
+
+            #endif
+
             } break;
 
-            case (client_state == ADC_AWAIT_READ_FROM_UP) => i_startkit_adc_up.read (unsigned short return_adc_mean_vals[NUM_STARTKIT_ADC_INPUTS]) -> {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
+            case (client_state == ADC_AWAIT_READ_FROM_UP) => i_startkit_adc_up[int index_of_client].read (unsigned short return_adc_mean_vals[NUM_STARTKIT_ADC_INPUTS]) -> {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
+                present_index_of_client = index_of_client; // Not needed
                 debug_printf ("ADC %d values: ", Num_of_data_sets);
                 unsigned short offsets [NUM_STARTKIT_ADC_INPUTS] = {OFFSET_ADC_INPUTS_STARTKIT};
 

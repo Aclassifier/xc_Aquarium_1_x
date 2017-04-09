@@ -46,7 +46,7 @@
 	.globl Temperature_Water_Controller.select.enable.cases.maxchanends
 	.set Temperature_Water_Controller.select.enable.cases,0
 	.globl Temperature_Water_Controller.select.enable.cases
-	.set Temperature_Water_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Water_Controller.select.case.1.nstackwords) $M (Temperature_Water_Controller.select.case.0.nstackwords)
+	.set Temperature_Water_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Water_Controller.select.case.0.nstackwords) $M (Temperature_Water_Controller.select.case.1.nstackwords)
 	.globl Temperature_Water_Controller.select.enable.cases.nstackwords
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
 	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, 0
@@ -9804,9 +9804,9 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.get_temps.fns
 	.typestring Temperature_Water_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
-	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.__interface_init.fns
 	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
 	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.get_temps.fns
+	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.__interface_init.fns
 	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
 	.typestring Temperature_Water_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"

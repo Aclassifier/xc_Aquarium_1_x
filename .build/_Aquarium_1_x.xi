@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/_Aquarium_1_x.xc" 2
-# 10 "../src/_Aquarium_1_x.xc"
+# 14 "../src/_Aquarium_1_x.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -414,7 +414,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 10 "../src/_Aquarium_1_x.xc" 2
+# 14 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
@@ -826,7 +826,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 12 "../src/_Aquarium_1_x.xc" 2
+# 16 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
@@ -897,7 +897,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 13 "../src/_Aquarium_1_x.xc" 2
+# 17 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
@@ -1285,10 +1285,10 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 14 "../src/_Aquarium_1_x.xc" 2
+# 18 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
-# 15 "../src/_Aquarium_1_x.xc" 2
+# 19 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
@@ -1305,12 +1305,12 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 16 "../src/_Aquarium_1_x.xc" 2
+# 20 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Users/teig/workspace/lib_xassert/api/xassert.h" 1
 # 99 "/Users/teig/workspace/lib_xassert/api/xassert.h"
 inline int xassert_msg(const char msg[]) { return 1; }
-# 17 "../src/_Aquarium_1_x.xc" 2
+# 21 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
@@ -1351,7 +1351,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 19 "../src/_Aquarium_1_x.xc" 2
+# 23 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/param.h" 1
 # 17 "../src/param.h"
@@ -1384,7 +1384,7 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 20 "../src/_Aquarium_1_x.xc" 2
+# 24 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
 # 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
@@ -1418,7 +1418,7 @@ typedef interface startkit_adc_acquire_if {
 
 [[combinable]]
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
-# 21 "../src/_Aquarium_1_x.xc" 2
+# 25 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Users/teig/workspace/module_random/src/random.h" 1
@@ -1445,13 +1445,14 @@ random_generator_t random_create_generator_from_hw_seed(void);
 # 49 "/Users/teig/workspace/module_random/src/random.h"
 unsigned
 random_get_random_number(random_generator_t &g);
-# 24 "../src/_Aquarium_1_x.xc" 2
+# 27 "../src/_Aquarium_1_x.xc" 2
+
 
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 25 "../src/_Aquarium_1_x.xc" 2
+# 29 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
@@ -1460,7 +1461,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 26 "../src/_Aquarium_1_x.xc" 2
+# 30 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
 # 11 "../src/I2C_Internal_Server.h"
@@ -1497,7 +1498,7 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 27 "../src/_Aquarium_1_x.xc" 2
+# 31 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Chronodot_DS3231_Controller.h" 1
 # 41 "../src/Chronodot_DS3231_Controller.h"
@@ -1563,7 +1564,7 @@ typedef interface chronodot_ds3231_if {
 void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 28 "../src/_Aquarium_1_x.xc" 2
+# 32 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/display_ssd1306.h" 1
@@ -1598,7 +1599,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 30 "../src/_Aquarium_1_x.xc" 2
+# 34 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/I2C_External_Server.h" 1
@@ -1646,7 +1647,7 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 32 "../src/_Aquarium_1_x.xc" 2
+# 36 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
@@ -1670,7 +1671,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 33 "../src/_Aquarium_1_x.xc" 2
+# 37 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/port_heat_light_server.h" 1
@@ -1750,12 +1751,12 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 35 "../src/_Aquarium_1_x.xc" 2
+# 39 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
 # 58 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [5][2];
-# 36 "../src/_Aquarium_1_x.xc" 2
+# 40 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
@@ -1803,7 +1804,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 37 "../src/_Aquarium_1_x.xc" 2
+# 41 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
@@ -1839,7 +1840,7 @@ void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 38 "../src/_Aquarium_1_x.xc" 2
+# 42 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Water_Controller.h" 1
 # 12 "../src/Temperature_Water_Controller.h"
@@ -1862,7 +1863,7 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 39 "../src/_Aquarium_1_x.xc" 2
+# 43 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_adafruit_GFX.h" 1
 # 15 "../src/core_graphics_adafruit_GFX.h"
@@ -1924,26 +1925,26 @@ typedef struct tag_display_param_t {
 
 
 extern display_param_t display_param;
-# 40 "../src/_Aquarium_1_x.xc" 2
+# 44 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_font5x8.h" 1
 # 12 "../src/core_graphics_font5x8.h"
 extern unsigned char font[];
-# 41 "../src/_Aquarium_1_x.xc" 2
+# 45 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/adc_startkit_client.h" 1
-# 15 "../src/adc_startkit_client.h"
+# 13 "../src/adc_startkit_client.h"
 typedef interface lib_startkit_adc_commands_if {
     [[guarded]] void trigger (void);
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
     [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
-# 32 "../src/adc_startkit_client.h"
+# 31 "../src/adc_startkit_client.h"
 void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if i_startkit_adc_down,
-   server lib_startkit_adc_commands_if i_startkit_adc_up,
+   server lib_startkit_adc_commands_if i_startkit_adc_up[1],
    const unsigned int Num_of_data_sets);
-# 42 "../src/_Aquarium_1_x.xc" 2
+# 46 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/light_sunrise_sunset.h" 1
 # 13 "../src/light_sunrise_sunset.h"
@@ -1994,14 +1995,14 @@ bool
 Handle_Light_Sunrise_Sunset_Etc(
     light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 43 "../src/_Aquarium_1_x.xc" 2
+# 47 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/exception_handler.h" 1
 # 15 "../src/exception_handler.h"
 void assert_exception (bool assert_this);
 void installExceptionHandler(void);
 void myExceptionHandler(void);
-# 44 "../src/_Aquarium_1_x.xc" 2
+# 48 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/_Aquarium.h" 1
@@ -2015,8 +2016,8 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 46 "../src/_Aquarium_1_x.xc" 2
-# 58 "../src/_Aquarium_1_x.xc"
+# 50 "../src/_Aquarium_1_x.xc" 2
+# 69 "../src/_Aquarium_1_x.xc"
 typedef enum {
     CALLER_IS_BUTTON,
     CALLER_IS_REFRESH,
@@ -2123,21 +2124,21 @@ typedef enum error_bits_t {
 
 
 
+
+
+
 typedef struct handler_context_t {
     display_appear_state_t display_appear_state;
     display_screen_name_t display_screen_name_present;
     display_sub_context_t display_sub_context [8];
-    unsigned display_sub_countdown_seconds;
+    unsigned display_sub_editing_seconds_cntdown;
     bool display_sub_edited;
-    unsigned display_is_on_seconds_cnt;
     bool display_is_on;
+    unsigned display_is_on_seconds_cnt;
     char display_ts1_chars [((21 * 4) + 1)];
     screen_logg_t screen_logg;
     bool beeper_blip_now;
-
     button_state_t buttons_state [3];
-    unsigned silent_any_button_while_display_on_seconds_cnt;
-
     int iof_button_last_taken_action;
     bool full_light;
     light_control_scheme_t light_control_scheme;
@@ -2168,7 +2169,7 @@ typedef struct handler_context_t {
 
 } handler_context_t;
 
-static const char takes_press_for_10_seconds_right_button_str [] = {240,0};
+
 
 
 
@@ -2188,6 +2189,9 @@ void Clear_All_Screen_Sub_Is_Editable_Except (
     } else {}
 }
 
+
+
+
 void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t &context,
             light_sunrise_sunset_context_t &light_sunrise_sunset_context,
@@ -2203,16 +2207,19 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_AA_str[] = {143,0};
     const char char_aa_str[] = {132,0};
     const char char_OE_str[] = {236,0};
+    const char takes_press_for_10_seconds_right_button_str [] = {240,0};
 
     do { if(0) printf("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state); } while (0);
 
     switch (context.display_screen_name_present) {
 
+
+
         case SCREEN_FEIL: {
 
             Clear_All_Pixels_In_Buffer();
             if (context.screen_logg.display_ts1_chars_num > 0) {
-                context.silent_any_button_while_display_on_seconds_cnt = 0;
+                context.display_is_on_seconds_cnt = 0;
 
                 if (context.screen_logg.display_ts1_chars_num > ((sizeof context.screen_logg.display_ts1_chars)-1)) {
                     context.screen_logg.display_ts1_chars_num = ((sizeof context.screen_logg.display_ts1_chars)-1);
@@ -2231,6 +2238,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
         } break;
+
+
+
 
         case SCREEN_AKVARIETEMPERATURER: {
 
@@ -2275,6 +2285,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 do { if(1) printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str); } while (0);
             } else {}
         } break;
+
+
+
 
         case SCREEN_VANNTEMP_REG: {
 
@@ -2333,6 +2346,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 do { if(1) printf("VARMEREGULERING: P %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt); } while (0);
             } else {}
         } break;
+
+
+
 
         case SCREEN_LYSGULERING: {
 
@@ -2411,7 +2427,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 460 "../src/_Aquarium_1_x.xc"
+# 486 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2445,13 +2461,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
 
-                    context.display_sub_countdown_seconds = 0;
+                    context.display_sub_editing_seconds_cntdown = 0;
                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                 } break;
 
                 case SUB_STATE_02:
                 case SUB_STATE_01: {
-                    context.display_sub_countdown_seconds = 30;
+                    context.display_sub_editing_seconds_cntdown = 30;
                     if (context.display_sub_context[SCREEN_LYSGULERING].sub_state == SUB_STATE_01) {
                         light_sunrise_sunset_context.max_light_next = light_sunrise_sunset_context.max_light;
 
@@ -2489,6 +2505,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
 
         } break;
+
+
+
 
         case SCREEN_BOKSDATA: {
             char temp_degC_str [5];
@@ -2546,6 +2565,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
         } break;
 
+
+
+
         case SCREEN_VERSJON: {
             int boot_from_jtag = ((__builtin_getps(0x30b) & 0x4) >> 2);
             int reg_value = __builtin_getps(0x30b);
@@ -2558,10 +2580,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr  5 2017",
+                               "Apr  9 2017",
                                char_aa_str,
                                char_OE_str);
-# 630 "../src/_Aquarium_1_x.xc"
+# 662 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2572,9 +2594,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "15:30:23", "Apr  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "12:32:40", "Apr  9 2017"); } while (0);
             } else {}
         } break;
+
+
+
 
         case SCREEN_KONSTANTER: {
             char temp_water_degc_str [5];
@@ -2618,9 +2643,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                do { if(1) printf("Version date %s %s\n", "15:30:23", "Apr  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "12:32:40", "Apr  9 2017"); } while (0);
             } else {}
         } break;
+
+
+
 
         case SCREEN_KLOKKE: {
 
@@ -2630,7 +2658,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char show_separator_str[2] = ".";
             const char space_separator_str[2] = " ";
             screen_clock_cursor_at_t screen_clock_cursor_at = CURSOR_SCREEN_NONE;
-            bool displayed_result = false;
+            bool displayed_result_done = false;
 
             char editable_separator_left_right_arrow_str[2] = ".";
 
@@ -2640,6 +2668,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             switch (context.display_sub_context[SCREEN_KLOKKE].sub_state) {
 
+
+
                 case SUB_STATE_12: {
                     if (context.display_sub_edited) {
                         sprintf_return = sprintf (context.display_ts1_chars, " 6 KLOKKE STILT         Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
@@ -2648,7 +2678,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-                        displayed_result = true;
+                        displayed_result_done = true;
 
                         datetime_to_chronodot_registers (context.datetime_editable, context.chronodot_d3231_registers);
                         bool ok = i_i2c_internal_commands.write_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT, context.chronodot_d3231_registers);
@@ -2658,7 +2688,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                    context.display_sub_countdown_seconds = 0;
+                    context.display_sub_editing_seconds_cntdown = 0;
                     context.buttons_state[2].inhibit_released_once = true;
                 } break;
 
@@ -2667,7 +2697,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_10: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
 
                    if (context.datetime_editable.minute >= 59) {
                        context.datetime_editable.minute = 0;
@@ -2680,13 +2710,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_09: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MIN;
                 } break;
 
                 case SUB_STATE_08: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
 
                    if (context.datetime_editable.hour >= 59) {
                        context.datetime_editable.hour = 0;
@@ -2699,13 +2729,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_07: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_HOUR;
                 } break;
 
                 case SUB_STATE_06: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
 
                    if (context.datetime_editable.day >= 31) {
                        context.datetime_editable.day = 1;
@@ -2719,14 +2749,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_05: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                    editable_separator_left_right_arrow_str[0] = editable_separator_right_arrow_str[0];
                 } break;
 
                 case SUB_STATE_04: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
 
                    if (context.datetime_editable.month >= 12) {
                        context.datetime_editable.month = 1;
@@ -2740,14 +2770,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_03: {
-                   context.display_sub_countdown_seconds = 30;
+                   context.display_sub_editing_seconds_cntdown = 30;
                    datetime_show = context.datetime_editable;
                    editable_separator_left_right_arrow_str[0] = editable_separator_left_arrow_str[0];
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                 } break;
 
                 case SUB_STATE_02: {
-                    context.display_sub_countdown_seconds = 30;
+                    context.display_sub_editing_seconds_cntdown = 30;
                     if (context.datetime_editable.year == 2000) {
                         context.datetime_editable.year = 2017;
                         context.datetime_editable.month = 6;
@@ -2766,7 +2796,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_01: {
-                    context.display_sub_countdown_seconds = 30;
+                    context.display_sub_editing_seconds_cntdown = 30;
                     context.datetime_editable = context.datetime;
                     context.datetime_editable.second = 0;
                     datetime_show = context.datetime;
@@ -2781,11 +2811,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     datetime_show = context.datetime;
                     datetime_show.year = 1950;
                 } break;
+
+
             }
 
             Clear_All_Pixels_In_Buffer();
 
-            if (displayed_result) {
+            if (displayed_result_done) {
                 setTextSize(1);
                 setTextColor(1);
                 setCursor(0,0);
@@ -2831,6 +2863,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         } break;
 
+
+
         default: {
             do { __builtin_trap();} while(0);
         } break;
@@ -2842,6 +2876,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
     assert_exception((!(sprintf_return < 0)) && xassert_msg("sprintf parse error"));
     assert_exception((!((sprintf_return+1) > sizeof context.display_ts1_chars)) && xassert_msg("sprint memory overflow"));
 }
+
+
 
 void Handle_Real_Or_Clocked_Buttons (
            handler_context_t &context,
@@ -2877,9 +2913,14 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
                            i_temperature_water_commands.clear_debug_log();
 
-                           if ((context.error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
+                           if (context.error_bits == 0) {
+
+                           } else if (context.error_beeper_blip_now_muted) {
+
+                           } else {
+
                                context.error_beeper_blip_now_muted = true;
-                           } else {}
+                           }
                         }
                     } else {}
 
@@ -3021,7 +3062,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
                                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                                    context.display_sub_countdown_seconds = 0;
+                                    context.display_sub_editing_seconds_cntdown = 0;
                                     context.beeper_blip_now = true;
 
                                 } else {}
@@ -3107,6 +3148,8 @@ void Handle_Real_Or_Clocked_Buttons (
     }
 }
 
+
+
 void System_Task_Data_Handler (
         handler_context_t &context,
         light_sunrise_sunset_context_t &light_sunrise_sunset_context,
@@ -3116,8 +3159,12 @@ void System_Task_Data_Handler (
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
     int sprintf_return;
+    const char takes_press_for_10_seconds_right_button_str [] = {240,0};
+
     error_bits_t error_bits = 0;
     caller_t caller = CALLER_IS_REFRESH;
+
+
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok} = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
@@ -3127,6 +3174,7 @@ void System_Task_Data_Handler (
     {context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+
 
 
 
@@ -3175,7 +3223,10 @@ void System_Task_Data_Handler (
 
 
     context.error_bits |= error_bits;
+
     if (context.screen_logg.exists) {
+
+
 
             if (context.error_bits != 0) {
                 if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_DARK) {
@@ -3195,9 +3246,10 @@ void System_Task_Data_Handler (
                 if ((context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) &&
                     (context.display_screen_name_present == SCREEN_FEIL)) {
 
+                    context.display_is_on_seconds_cnt = 0;
+
                     char ls_byte = context.error_bits & 0xff;
                     char ms_byte = (context.error_bits >> 8) & 0xff;
-                    context.silent_any_button_while_display_on_seconds_cnt = 0;
 
                     sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
@@ -3215,9 +3267,8 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1306 "../src/_Aquarium_1_x.xc"
+# 1373 "../src/_Aquarium_1_x.xc"
     } else {}
-
 
 
 
@@ -3230,6 +3281,8 @@ void System_Task_Data_Handler (
         } else {}
     }
 
+
+
     light_sunrise_sunset_context.datetime_now = context.datetime;
 
     if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
@@ -3240,7 +3293,13 @@ void System_Task_Data_Handler (
     } else {}
 
 
+
+
+
     context.beeper_blip_now |= Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
+
+
+
 
     if (light_sunrise_sunset_context.do_FRAM_write) {
         bool write_ok;
@@ -3251,14 +3310,22 @@ void System_Task_Data_Handler (
         do { if(1) printf("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data); } while (0);
     } else {}
 
+
+
+
     light_sunrise_sunset_context.datetime_previous = context.datetime;
     light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
+
+
 
     {context.light_composition, context.light_stable, context.light_control_scheme} =
             i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
 
+
+
+
     if (context.display_is_on == true) {
-        if (context.silent_any_button_while_display_on_seconds_cnt == (10*60)) {
+        if (context.display_is_on_seconds_cnt == (10*60)) {
 
             Clear_All_Pixels_In_Buffer();
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -3270,29 +3337,43 @@ void System_Task_Data_Handler (
             context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
 
         } else {
-            context.silent_any_button_while_display_on_seconds_cnt++;
+            context.display_is_on_seconds_cnt++;
         }
     } else {}
 
-    if (context.display_sub_countdown_seconds > 0) {
-        context.display_sub_countdown_seconds--;
-        if (context.display_sub_countdown_seconds == 0) {
+
+
+
+    if (context.display_sub_editing_seconds_cntdown > 0) {
+
+        context.display_sub_editing_seconds_cntdown--;
+
+        if (context.display_sub_editing_seconds_cntdown == 0) {
             context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
             context.beeper_blip_now = true;
         } else {}
     } else {}
 
+
+
+
     if ((context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) || (caller == CALLER_IS_ERROR_WAKEUP)) {
+
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
             context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
     } else {}
 
+
+
+
     if (context.beeper_blip_now) {
         i_port_heat_light_commands.beeper_blip_command (100);
     } else {}
+
+
 }
 
 
@@ -3327,10 +3408,11 @@ void System_Task (
     handler_context_t context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
 
+
+
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
     context.display_screen_name_present = SCREEN_AKVARIETEMPERATURER;
     context.display_is_on = false;
-    context.silent_any_button_while_display_on_seconds_cnt = 0;
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action;
     context.full_light = true;
@@ -3350,7 +3432,7 @@ void System_Task (
     }
     context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
 
-    context.display_sub_countdown_seconds = 0;
+    context.display_sub_editing_seconds_cntdown = 0;
 
     context.screen_logg.display_ts1_chars_num = 0;
     context.screen_logg.exists = true;
@@ -3369,6 +3451,8 @@ void System_Task (
     Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
 
+
+
     {
         bool read_ok;
         uint8_t read_fram_data;
@@ -3384,11 +3468,14 @@ void System_Task (
         do { if(1) printf("FRAM max_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.max_light_in_FRAM_memory); } while (0);
     }
 
+
     tmr :> time;
 
     while(1) {
         select {
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => tmr when __builtin_timer_after(time) :> void: {
+
+
                 unsigned read_reg;
 
 
@@ -3409,9 +3496,13 @@ void System_Task (
 
                 system_state = SYSTEM_STATE_AWAIT_TWO_NOTIFY;
                 num_notify_expexted = 2;
+
+
             } break;
 
             case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_i2c_external_commands.notify(): {
+
+
                 context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
                 num_notify_expexted--;
                 if (num_notify_expexted == 0) {
@@ -3420,9 +3511,12 @@ void System_Task (
                          i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
                     system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
                 }
+
+
             } break;
 
             case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_startkit_adc_acquire.notify(): {
+
                 {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
                 num_notify_expexted--;
                 if (num_notify_expexted == 0) {
@@ -3431,16 +3525,18 @@ void System_Task (
                          i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
                     system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
                 }
+
             } break;
 
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => c_button_in[int iof_button] :> button_action: {
+
 
                 bool display_is_on_pre = context.display_is_on;
                 bool do_handle_button = true;
                 context.beeper_blip_now = false;
 
                 do { if(1) printf("Button [%u] with %u\n", iof_button, button_action); } while (0);
-                context.silent_any_button_while_display_on_seconds_cnt = 0;
+                context.display_is_on_seconds_cnt = 0;
 
                 switch (button_action) {
                     case BUTTON_ACTION_RELEASED: {
@@ -3472,6 +3568,8 @@ void System_Task (
                         i_port_heat_light_commands.beeper_blip_command (100);
                     } else {}
                 } else {}
+
+
             } break;
         }
     }

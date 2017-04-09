@@ -54,7 +54,7 @@ int main() {
     i2c_external_commands_if       i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS];
     i2c_internal_commands_if       i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS];
     startkit_adc_acquire_if        i_startkit_adc_acquire;
-    lib_startkit_adc_commands_if   i_lib_startkit_adc_commands;
+    lib_startkit_adc_commands_if   i_lib_startkit_adc_commands[ADC_STARTKIT_NUM_CLIENTS];
     port_heat_light_commands_if    i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS];
     temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
     temperature_water_commands_if  i_temperature_water_commands;
@@ -68,7 +68,7 @@ int main() {
 
         on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
         on tile[0].core[4]: I2C_External_Server           (i_i2c_external_commands);
-        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
@@ -76,7 +76,12 @@ int main() {
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);
         on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);
-        on tile[0].core[4]: My_startKIT_ADC_Client        (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        #ifdef DO_ADC_NESTED_SELECT
+            on tile[0]:         My_startKIT_ADC_Client    (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        #else // [[combinable]]
+            on tile[0].core[4]: My_startKIT_ADC_Client    (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+        #endif
+
         on tile[0].core[5]: Port_Pins_Heat_Light_Server   (i_port_heat_light_commands);
         on tile[0].core[4]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
                             startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
@@ -97,7 +102,7 @@ int main() {
 
         on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
         on tile[0].core[4]: I2C_External_Server           (i_i2c_external_commands);
-        on tile[0]:         System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0]:         System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[0]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
@@ -300,7 +305,7 @@ int main() {
 
         on tile[0].core[0]: I2C_Internal_Server           (i_i2c_internal_commands);
         on tile[0].core[0]: I2C_External_Server           (i_i2c_external_commands);
-        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands,
+        on tile[0].core[0]: System_Task                   (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
                                                            i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
                                                            c_buttons);
         on tile[0].core[1]: Temperature_Heater_Controller (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);

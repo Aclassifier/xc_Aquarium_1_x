@@ -1,14 +1,12 @@
 /*
- * adc_startKIT_Client.h
+ * adc_startKIT_client.h
  *
  *  Created on: 28. mars 2016
  *      Author: ¯yvind Teig
  */
 
-#ifndef LIB_STARTKIT_ADC_CLIENT_H_
-#define LIB_STARTKIT_ADC_CLIENT_H_
-
-// #define DO_NESTED_SELECT
+#ifndef ADC_STARTKIT_CLIENT_H_
+#define ADC_STARTKIT_CLIENT_H_
 
 #define NUM_STARTKIT_ADC_INPUTS 4
 
@@ -25,15 +23,16 @@ typedef interface lib_startkit_adc_commands_if {
 // described at http://www.teigfam.net/oyvind/home/technology/098-my-xmos-notes/#daily_vi_xtimecomposer_1410
 // most probably handled by XMOS document number XM-004900-DA bug ref. #15246 (as communicated to Teig)
 //
+#define ADC_STARTKIT_NUM_CLIENTS 1
 
-#ifndef DO_NESTED_SELECT
-//[[combinable]]
+#ifndef DO_ADC_NESTED_SELECT
+[[combinable]]
 #endif
 void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if      i_startkit_adc_down,
-   server lib_startkit_adc_commands_if i_startkit_adc_up,
+   server lib_startkit_adc_commands_if i_startkit_adc_up[ADC_STARTKIT_NUM_CLIENTS],
    const unsigned int                  Num_of_data_sets);
 
 #else
-    #error Nested include IB_STARTKIT_ADC_CLIENT_H_
+    #error Nested include ADC_STARTKIT_CLIENT_H_
 #endif

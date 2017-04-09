@@ -4,6 +4,9 @@
  *  Created on: 18. feb. 2017
  *      Author: teig
  */
+
+//{{{  #include
+
 #define INCLUDES
 #ifdef INCLUDES
 #include <platform.h>
@@ -42,10 +45,16 @@
 #include "light_sunrise_sunset.h"
 #endif
 
+//}}}  
+//{{{  debug_printf
+
 #define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 1 // Cost 0.4k
 //
 #define debug_printf(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET) printf(fmt, __VA_ARGS__); } while (0)
 #define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET) val=to;                   } while (0)
+
+//}}}  
+//{{{  definitions
 
 //------ NOT USED SINCE IT'S HOPELESS TO INITIALISE NICELY ------
 typedef struct hour_minute_light_t {
@@ -66,10 +75,15 @@ typedef struct _hour_minute_light_action_list_t {
 #define IOF_IOF_LIGHT_INLIST 2 // Yes two IOF
 
 typedef unsigned hour_minute_light_action_list_t[TIME_ACTION_ENTRY_NUMS][TIME_ACTION_ENTRY_LINE_NUMS];
+//}}}  
+//{{{  static (!)
 
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
 //
 static hour_minute_light_action_list_t hour_minute_light_action_list = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
+
+//}}}  
+//{{{  Darker_Light_Composition_Iff
 
 light_composition_t
 Darker_Light_Composition_Iff (const light_composition_t light_composition, const max_light_t max_light) {
@@ -88,6 +102,9 @@ Darker_Light_Composition_Iff (const light_composition_t light_composition, const
     return return_light_composition;
 }
 
+//}}}  
+//{{{  Brighter_Light_Composition_Iff
+
 light_composition_t
 Brighter_Light_Composition_Iff (const light_composition_t light_composition, const max_light_t max_light) {
 
@@ -104,6 +121,9 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
 
     return return_light_composition;
 }
+
+//}}}  
+//{{{  Handle_Light_Sunrise_Sunset_Etc
 
 // This is not a task, it's a function that's called regularly, at least once per minute, probably once per second
 //
@@ -126,8 +146,11 @@ Handle_Light_Sunrise_Sunset_Etc (
     #else
         const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
     #endif
-    // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY     hh mm NOW
+
+    // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
+
+    //{{{  Init once
 
     if (context.do_init) {
         light_composition_t light_composition_now;
@@ -186,17 +209,20 @@ Handle_Light_Sunrise_Sunset_Etc (
         #endif
     } else {}// init done
 
+    //}}}  
+    //{{{  trigger_minute_changed
+
     if (trigger_minute_changed) {
         const unsigned minutes_next_action =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
         if (minutes_into_day == minutes_next_action) {
-            light_composition_t light_composition_now =
-                hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
 
-            light_control_scheme_t light_control_scheme = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
+            light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
+            light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
 
+            //{{{  Main state changes done in here
             if (context.max_light == MAX_LIGHT_IS_FULL) {
                 switch (context.iof_day_night_action_list) {
                     case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
@@ -244,6 +270,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                     default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                 }
             }
+            //}}}  
 
             // ------------ CHANGE LIGHT LEVEL / COLOUR QUALITY ------------
             light_composition_now = Darker_Light_Composition_Iff (light_composition_now, context.max_light);
@@ -256,6 +283,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
 
         } else if (context.num_minutes_left_of_random > 0) {
+
             context.num_minutes_left_of_random--;
             debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random);
             if (context.num_minutes_left_of_random == 0) {
@@ -267,12 +295,15 @@ Handle_Light_Sunrise_Sunset_Etc (
                     return_beeper_blip = true;  // since it was triggered by some human like Anna, Jakob, Filip or Linnéa
                 } else {}
             } else {}
+
         } else {
             debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_next_action - minutes_into_day);
-        } // We only trigger on the exact minute
+        }
     } else {} // Action only at minute change
 
-    // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+    //}}}  
+    //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+
     // Piggy-back on the random change of light level
     //
     if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
@@ -280,7 +311,10 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
     } else {} // Not enough change
 
-    if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) {          // Start random only once per hours or when light changes
+    //}}}  
+    //{{{  Trigger_hour_changed or light sensor internally changed
+
+    if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // Start random only once per hours or when light changes
         if ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
             (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST)) {     // And when it's day-time'ish
             if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
@@ -326,6 +360,9 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {debug_set_val_to (print_value,4);}             // Night-time'ish
     } else {}                                                  // Nothing if not per the hour
 
+    //}}}  
+    //{{{  context.max_light_changed
+
     if (context.max_light_changed) {
         context.max_light_changed = false; // Action will not be seen if these don't trigger:
         if (context.num_minutes_left_of_random == 0) {
@@ -343,6 +380,9 @@ Handle_Light_Sunrise_Sunset_Etc (
         debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
     } else {}
 
+    //}}}  
+    //{{{  DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
+
     #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
         if (context.print_value_previous != print_value) {
             debug_printf ("Random value %u [%u] with %u and %u. Light=%u\n",
@@ -352,11 +392,22 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {}
     #endif
 
+    //}}}  
+    //{{{  reset light sensor internally if change didn't cause anything in this call
+
     if (context.light_sensor_diff_state == DIFF_ENOUGH) {
-        context.light_sensor_diff_state = DIFF_VOID; // Clear here if DIFF_ENOUGH not having caused DIFF_ACTIVE.
-                                                     // If not it will be seen as LIGHT_CONTROL_IS_RANDOM like at HH_RANDOM_EARLIEST:MM_RANDOM_EARLIEST
-                                                     // if there was a light change while not accepted
+
+        // Clear here if DIFF_ENOUGH not having caused DIFF_ACTIVE, i.e. we still have DIFF_ENOUGH
+        // If not it will be seen as LIGHT_CONTROL_IS_RANDOM like at HH_RANDOM_EARLIEST:MM_RANDOM_EARLIEST
+        // if there was a light change while not accepted
+        //
+        context.light_sensor_diff_state = DIFF_VOID;
     } else {}
+
+    //}}}  
 
     return return_beeper_blip;
 }
+
+//}}}  
+

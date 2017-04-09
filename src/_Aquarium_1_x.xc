@@ -1,9 +1,13 @@
+
 /*
  * _Aquarium_1_x.xc
  *
  *  Created on: 10. feb. 2017
  *      Author: teig
  */
+
+//{{{  #include
+
 #define INCLUDES
 #ifdef INCLUDES
 
@@ -46,7 +50,11 @@
 #include "_Aquarium.h"
 #endif
 
-//#define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
+//}}}  
+
+// #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
+
+//{{{  debug_printf
 
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
 #define DEBUG_PRINT_AQUARIUM 1 // Cost 1.2k
@@ -54,6 +62,9 @@
 
 #define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+
+//}}}  
+//{{{  definitions
 
 typedef enum {
     CALLER_IS_BUTTON,
@@ -158,24 +169,24 @@ typedef enum error_bits_t {   // 0xHH since binary in display
     // VACANT                    0x0F
 } error_bits_t;
 
-#define DISPLAY_ON_FOR_SECONDS        (10*60) // 10 minutes
-#define DISPLAY_SUB_COUNTDOWN_SECONDS 30 // At least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+#define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
+#define DISPLAY_SUB_ON_FOR_SECONDS 30     // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+
+//}}}  
+//{{{  handler_context_t
 
 typedef struct handler_context_t {
     display_appear_state_t      display_appear_state;
     display_screen_name_t       display_screen_name_present;
     display_sub_context_t       display_sub_context [SCREEN_NAME_NUMS];
-    unsigned                    display_sub_countdown_seconds;
+    unsigned                    display_sub_editing_seconds_cntdown; // Counting down from DISPLAY_SUB_ON_FOR_SECONDS while positive to ZERO
     bool                        display_sub_edited;
-    unsigned                    display_is_on_seconds_cnt;
     bool                        display_is_on;
+    unsigned                    display_is_on_seconds_cnt;   // Counting up from ZERO while display_is_on to DISPLAY_ON_FOR_SECONDS
     char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is use
     screen_logg_t               screen_logg;
     bool                        beeper_blip_now;
-
     button_state_t              buttons_state [BUTTONS_NUM_CLIENTS];
-    unsigned                    silent_any_button_while_display_on_seconds_cnt;
-
     int                         iof_button_last_taken_action; // Since index of channel must(?) be int
     bool                        full_light;
     light_control_scheme_t      light_control_scheme;
@@ -206,8 +217,8 @@ typedef struct handler_context_t {
 
 } handler_context_t;
 
-static const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
-
+//}}}  
+//{{{  Clear_All_Screen_Sub_Is_Editable_Except
 
 // The purpose of Clear_All_Screen_Sub_Is_Editable_Except is to have a single tear-down function
 
@@ -226,6 +237,9 @@ void Clear_All_Screen_Sub_Is_Editable_Except (
     } else {} // SCREEN_KLOKKE as parameter causes this exception
 }
 
+//}}}  
+//{{{  Handle_Real_Or_Clocked_Button_Actions
+
 void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t              &context,
             light_sunrise_sunset_context_t &light_sunrise_sunset_context,
@@ -237,20 +251,23 @@ void Handle_Real_Or_Clocked_Button_Actions (
 {
     int  sprintf_return = 0; // If OK, number of chars excluding \0 written, if < 0 error
 
-    const char char_degC_circle_str[] = DEGC_CIRCLE_STR;
-    const char char_AA_str[]          = CHAR_AA_STR; // A
-    const char char_aa_str[]          = CHAR_aa_STR; // Œ
-    const char char_OE_str[]          = CHAR_OE_STR; // ¯
+    const char char_degC_circle_str[]                         = DEGC_CIRCLE_STR;
+    const char char_AA_str[]                                  = CHAR_AA_STR; // A
+    const char char_aa_str[]                                  = CHAR_aa_STR; // Œ
+    const char char_OE_str[]                                  = CHAR_OE_STR; // ¯
+    const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
 
     x_debug_printf ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
     switch (context.display_screen_name_present) {
 
+        //{{{  SCREEN_FEIL
+
         case SCREEN_FEIL: {
             // NOT NORMALLY DISPLAYED. HOLD RIGHT BUTTON FOR 10 SECONDS WHILESCREEN_AKVARIETEMPERATURER TO ACTIVATE
             Clear_All_Pixels_In_Buffer();
             if (context.screen_logg.display_ts1_chars_num > 0) {
-                context.silent_any_button_while_display_on_seconds_cnt = 0; // Forever when it's on
+                context.display_is_on_seconds_cnt = 0; // Forever when it's on
 
                 if (context.screen_logg.display_ts1_chars_num > ((sizeof context.screen_logg.display_ts1_chars)-1)) {
                     context.screen_logg.display_ts1_chars_num = ((sizeof context.screen_logg.display_ts1_chars)-1); // Space for NUL
@@ -269,6 +286,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
             context.display_is_on = true;
         } break;
+
+        //}}}  
+        //{{{  SCREEN_AKVARIETEMPERATURER
 
         case SCREEN_AKVARIETEMPERATURER: {
 
@@ -313,6 +333,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 debug_printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
             } else {}
         } break;
+
+        //}}}  
+        //{{{  SCREEN_VANNTEMP_REG
 
         case SCREEN_VANNTEMP_REG: {
 
@@ -371,6 +394,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 debug_printf ("VARMEREGULERING: P %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
             } else {}
         } break;
+
+        //}}}  
+        //{{{  SCREEN_LYSGULERING
 
         case SCREEN_LYSGULERING: {
             #define LIGHT_STRENGTH_TEXT_NUM 3
@@ -490,13 +516,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     context.display_sub_context[SCREEN_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     // context.display_sub_context[SCREEN_LYSGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
-                    context.display_sub_countdown_seconds = 0;
+                    context.display_sub_editing_seconds_cntdown = 0; // SCREEN_LYSGULERING: SUB_STATE_03
                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                 } break;
 
                 case SUB_STATE_02:    // Even number from IOF_BUTTON_CENTER ("edit")
                 case SUB_STATE_01: {  // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
-                    context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_LYSGULERING: SUB_STATE_01 SUB_STATE_02
                     if (context.display_sub_context[SCREEN_LYSGULERING].sub_state == SUB_STATE_01) {
                         light_sunrise_sunset_context.max_light_next = light_sunrise_sunset_context.max_light; // Copy in
                         // Awaiting IOF_BUTTON_CENTER. Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
@@ -534,6 +560,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
 
         } break;
+
+        //}}}  
+        //{{{  SCREEN_BOKSDATA
 
         case SCREEN_BOKSDATA: {
             char temp_degC_str [INNER_TEMPERATURE_DEGC_TEXT_LEN];
@@ -591,6 +620,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
         } break;
 
+        //}}}  
+        //{{{  SCREEN_VERSJON
+
         case SCREEN_VERSJON: {
             int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
             int reg_value      =   getps(XS1_PS_BOOT_CONFIG); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -641,6 +673,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
         } break;
 
+        //}}}  
+        //{{{  SCREEN_KONSTANTER
+
         case SCREEN_KONSTANTER: {
             char temp_water_degc_str  [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
             char temp_heater_degc_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
@@ -687,6 +722,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             } else {}
         } break;
 
+        //}}}  
+        //{{{  SCREEN_KLOKKE
+
         case SCREEN_KLOKKE: {
             #define SINGLE_CHAR_STRL_LEN 2
             DateTime_t               datetime_show;
@@ -695,7 +733,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char               show_separator_str[SINGLE_CHAR_STRL_LEN]     = ".";
             const char               space_separator_str[SINGLE_CHAR_STRL_LEN]    = " ";
             screen_clock_cursor_at_t screen_clock_cursor_at = CURSOR_SCREEN_NONE;
-            bool                     displayed_result = false;
+            bool                     displayed_result_done = false;
 
             char editable_separator_left_right_arrow_str[SINGLE_CHAR_STRL_LEN] = ".";
 
@@ -705,6 +743,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             switch (context.display_sub_context[SCREEN_KLOKKE].sub_state) {
 
+                //{{{  SUB_STATE_..
+
                 case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER
                     if (context.display_sub_edited) {
                         sprintf_return = sprintf (context.display_ts1_chars, " 6 KLOKKE STILT         Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
@@ -713,7 +753,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         //                                                     . Det runde kortet:
                         //                                                     . ChronoDot V2.1    .
                         //                                                     . Batteri: CR1632   .
-                        displayed_result = true;
+                        displayed_result_done = true;
 
                         datetime_to_chronodot_registers (context.datetime_editable, context.chronodot_d3231_registers);
                         bool ok = i_i2c_internal_commands.write_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT, context.chronodot_d3231_registers);
@@ -723,7 +763,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
-                    context.display_sub_countdown_seconds = 0;
+                    context.display_sub_editing_seconds_cntdown = 0; // SCREEN_KLOKKE: SUB_STATE_12
                     context.buttons_state[IOF_BUTTON_RIGHT].inhibit_released_once = true;
                 } break;
 
@@ -732,7 +772,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_10: { // Even number from IOF_BUTTON_CENTER ("edit")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_10
 
                    if (context.datetime_editable.minute >= 59) {
                        context.datetime_editable.minute = 0;
@@ -745,13 +785,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_09: { // Odd number from IOF_BUTTON_RIGHT ("next")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_09
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MIN;
                 } break;
 
                 case SUB_STATE_08: { // Even number from IOF_BUTTON_CENTER ("edit")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_08
 
                    if (context.datetime_editable.hour >= 59) {
                        context.datetime_editable.hour = 0;
@@ -764,13 +804,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_07: { // Odd number from IOF_BUTTON_RIGHT ("next")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_07
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_HOUR;
                 } break;
 
                 case SUB_STATE_06: { // Even number from IOF_BUTTON_CENTER ("edit")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_06
 
                    if (context.datetime_editable.day >= 31) {
                        context.datetime_editable.day = 1;
@@ -784,14 +824,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_05: { // Odd number from IOF_BUTTON_RIGHT ("next")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_05
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                    editable_separator_left_right_arrow_str[0] = editable_separator_right_arrow_str[0]; // NUL is there already in [1]
                 } break;
 
                 case SUB_STATE_04: { // Even number from IOF_BUTTON_CENTER ("edit")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_04
 
                    if (context.datetime_editable.month >= 12) {
                        context.datetime_editable.month = 1;
@@ -805,14 +845,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
-                   context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                   context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_03
                    datetime_show = context.datetime_editable;
                    editable_separator_left_right_arrow_str[0] = editable_separator_left_arrow_str[0]; // NUL is there already in [1]
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                 } break;
 
                 case SUB_STATE_02: { // Even number from IOF_BUTTON_CENTER ("edit")
-                    context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_02
                     if (context.datetime_editable.year == 2000) { // New display
                         context.datetime_editable.year   = 2017;  // When I retire, quite soon now!
                         context.datetime_editable.month  =    6;
@@ -831,7 +871,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_01: { // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
-                    context.display_sub_countdown_seconds = DISPLAY_SUB_COUNTDOWN_SECONDS;
+                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_KLOKKE: SUB_STATE_01
                     context.datetime_editable = context.datetime;
                     context.datetime_editable.second = 0;
                     datetime_show = context.datetime;
@@ -846,11 +886,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     datetime_show = context.datetime;
                     datetime_show.year = 1950;
                 } break; // Error, not used
+
+                //}}}  
             }
 
             Clear_All_Pixels_In_Buffer();
 
-            if (displayed_result) {
+            if (displayed_result_done) {
                 setTextSize(1);
                 setTextColor(WHITE);
                 setCursor(0,0);
@@ -896,6 +938,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         } break;
 
+        //}}}  
+
         default: {
             unreachable("display_screen_name_present");
         } break;
@@ -907,6 +951,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
     assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
     assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
 }
+//}}}  
+//{{{  Handle_Real_Or_Clocked_Buttons
 
 void Handle_Real_Or_Clocked_Buttons (
            handler_context_t              &context,
@@ -942,9 +988,14 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
 
-                           if ((context.error_bits != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
+                           if (context.error_bits == ERROR_BITS_NONE) {
+                               // No code, all fine with no error(s)
+                           } else if (context.error_beeper_blip_now_muted) {
+                               // No code, already muted
+                           } else {
+                               // Error(s) and not muted. Mute it now:
                                context.error_beeper_blip_now_muted = true;
-                           } else {}
+                           }
                         }
                     } else {}
 
@@ -1086,7 +1137,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     // Terminate this screen since setting the clock with two BUTTON_ACTION_PRESSED buttons hasn't been done
                                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
                                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                                    context.display_sub_countdown_seconds = 0;
+                                    context.display_sub_editing_seconds_cntdown = 0; // IOF_BUTTON_RIGHT: BUTTON_ACTION_RELEASED
                                     context.beeper_blip_now = true;
 
                                 } else {}
@@ -1171,6 +1222,8 @@ void Handle_Real_Or_Clocked_Buttons (
         } break;
     }
 }
+//}}}  
+//{{{  System_Task_Data_Handler
 
 void System_Task_Data_Handler (
         handler_context_t              &context,
@@ -1180,9 +1233,13 @@ void System_Task_Data_Handler (
  client temperature_water_commands_if  i_temperature_water_commands,
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
-    int          sprintf_return;
+    int        sprintf_return;
+    const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
+
     error_bits_t error_bits = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
     caller_t     caller     = CALLER_IS_REFRESH; // May be overwritten
+
+    //{{{  Read data and convert some
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
@@ -1193,7 +1250,8 @@ void System_Task_Data_Handler (
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
 
-    // HANDLE ERROR SITUATIONS (BEGIN)
+    //}}}  
+    //{{{  HANDLE ERROR SITUATIONS
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
         error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT);
@@ -1240,8 +1298,11 @@ void System_Task_Data_Handler (
     // No new assignment of local error_bits after here
 
     context.error_bits or_eq error_bits; // Add them into a bit-list
+
     if (context.screen_logg.exists) {
         #ifdef SCREEN_LOGG_ERROR_BITS
+            //{{{  Start error screen and/or update it
+
             if (context.error_bits != ERROR_BITS_NONE) {
                 if (context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_SHOW;
@@ -1260,9 +1321,10 @@ void System_Task_Data_Handler (
                 if ((context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) and
                     (context.display_screen_name_present == SCREEN_FEIL)) {
 
+                    context.display_is_on_seconds_cnt = 0; // Never shut off
+
                     char ls_byte =  context.error_bits       bitand 0xff;
                     char ms_byte = (context.error_bits >> 8) bitand 0xff;
-                    context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
 
                     sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
@@ -1281,11 +1343,14 @@ void System_Task_Data_Handler (
                 } else {}
             } else {}
 
+            //}}}  
         #elif defined SCREEN_LOGG_RAW_TEMPS
+            //{{{  Use that screen as a log screen only (not default)
+
             if ((context.display_sub_context[SCREEN_FEIL].sub_state == SUB_STATE_SHOW) and
                 (context.display_screen_name_present == SCREEN_FEIL)) {
 
-                context.silent_any_button_while_display_on_seconds_cnt = 0; // Never shut off
+                context.display_is_on_seconds_cnt = 0; // Never shut off
 
                 sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
                         takes_press_for_10_seconds_right_button_str,
@@ -1300,14 +1365,15 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 }
             } else {}
+
+            //}}}  
         #else
-            // Other screens
+            #error Other screens not defined
         #endif
     } else {}
 
-    // HANDLE ERROR SITUATIONS (END)
-
-    // Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+    //}}}  
+    //{{{  Handle light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
     {
         bool light_sensor_intensity_ok;
         {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
@@ -1316,6 +1382,8 @@ void System_Task_Data_Handler (
             light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
         } else {} // Fine
     }
+    //}}}  
+    //{{{  Do init of "previous" of aquarium datetime for light
 
     light_sunrise_sunset_context.datetime_now = context.datetime; // qwe to just above here?
 
@@ -1326,8 +1394,14 @@ void System_Task_Data_Handler (
         context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
     } else {}
 
+    //}}}  
+    //{{{  Handle control of aquarium top light with respect to time and box internal light sensor
+
     // HANDLE LIGHT INTENSITY
     context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
+
+    //}}}  
+    //{{{  Update FRAM if needed
 
     if (light_sunrise_sunset_context.do_FRAM_write) {
         bool write_ok;
@@ -1338,14 +1412,22 @@ void System_Task_Data_Handler (
         debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
     } else {}
 
+    //}}}  
+    //{{{  Make history, update "previous"
+
     light_sunrise_sunset_context.datetime_previous               = context.datetime;
     light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
+    //}}}  
+    //{{{  Now, how did it go, how is light controlled right now?
 
     {context.light_composition, context.light_stable, context.light_control_scheme} = // .. then this, to get the result as soon as possible
             i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
 
+    //}}}  
+    //{{{  Switch display off automatically after a timeout
+
     if (context.display_is_on == true) {
-        if (context.silent_any_button_while_display_on_seconds_cnt == DISPLAY_ON_FOR_SECONDS) { // Counted up
+        if (context.display_is_on_seconds_cnt == DISPLAY_ON_FOR_SECONDS) { // Counted up
             // context.beeper_blip_now = true; Not necessary, sounds strange here
             Clear_All_Pixels_In_Buffer();
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -1357,33 +1439,47 @@ void System_Task_Data_Handler (
             context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a deafult startig point (SCREEN_FEIL)
 
         } else {
-            context.silent_any_button_while_display_on_seconds_cnt++;
+            context.display_is_on_seconds_cnt++;
         }
     } else {}
 
-    if (context.display_sub_countdown_seconds > 0) {
-        context.display_sub_countdown_seconds--;
-        if (context.display_sub_countdown_seconds == 0) {
+    //}}}  
+    //{{{  Editing only allowed for so long without pressing any button
+
+    if (context.display_sub_editing_seconds_cntdown > 0) {
+
+        context.display_sub_editing_seconds_cntdown--;
+
+        if (context.display_sub_editing_seconds_cntdown == 0) {
             context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_NONE);
             context.beeper_blip_now = true;
         } else {}
     } else {}
 
+    //}}}  
+    //{{{  Now lets DO IT!
+
     if ((context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) or (caller == CALLER_IS_ERROR_WAKEUP)) {
+
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
             context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
     } else {} // Not now
 
+    //}}}  
+    //{{{  Shall we beep?
+
     if (context.beeper_blip_now) {
         i_port_heat_light_commands.beeper_blip_command (100);
     } else {} // No blip
+
+    //}}}  
 }
+//}}}  
+//{{{  System_Task
 
-
-// To try to remove nested select here and by that less chanends
 typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY // num_notify_expexted 2,1,0
@@ -1414,10 +1510,11 @@ void System_Task (
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
 
+    //{{{  Init and clear display
+
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
     context.display_is_on = false;
-    context.silent_any_button_while_display_on_seconds_cnt = 0;
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
@@ -1437,7 +1534,7 @@ void System_Task (
     }
     context.display_sub_context[SCREEN_FEIL].sub_state = SUB_STATE_DARK; // ..it's overwritten here
 
-    context.display_sub_countdown_seconds = 0;
+    context.display_sub_editing_seconds_cntdown = 0;
 
     context.screen_logg.display_ts1_chars_num = 0;
     context.screen_logg.exists = true;
@@ -1456,6 +1553,8 @@ void System_Task (
     Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
 
+    //}}}  
+    //{{{  Read from FRAM module
     {
         bool read_ok;
         uint8_t read_fram_data;
@@ -1470,12 +1569,15 @@ void System_Task (
 
         debug_printf ("FRAM max_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.max_light_in_FRAM_memory);
     }
+    //}}}  
 
     tmr :> time;
 
     while(1) {
         select {
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => tmr when timerafter(time) :> void: {
+                //{{{  Once per second
+
                 unsigned read_reg;
 
                 // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_str
@@ -1496,9 +1598,13 @@ void System_Task (
 
                 system_state = SYSTEM_STATE_AWAIT_TWO_NOTIFY;
                 num_notify_expexted = 2;
+
+                //}}}  
             } break;
 
             case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_i2c_external_commands.notify(): {
+                //{{{  One (of two) asynchronous data sets
+
                 context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
                 num_notify_expexted--;
                 if (num_notify_expexted == 0) {
@@ -1507,9 +1613,12 @@ void System_Task (
                          i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
                     system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
                 }
+
+                //}}}  
             } break;
 
             case (system_state == SYSTEM_STATE_AWAIT_TWO_NOTIFY) => i_startkit_adc_acquire.notify(): {
+                //{{{  The other (of two) asynchronous data sets
                 {context.adc_cnt, context.no_adc_cnt} = i_startkit_adc_acquire.read (context.adc_vals_for_use.x);
                 num_notify_expexted--;
                 if (num_notify_expexted == 0) {
@@ -1518,16 +1627,18 @@ void System_Task (
                          i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
                     system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
                 }
+                //}}}  
             } break;
 
             case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => c_button_in[int iof_button] :> button_action: {
+                //{{{  Button pressed (the asynch data sets only cause unnoticed delays)
 
                 bool display_is_on_pre = context.display_is_on;
                 bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled
                 context.beeper_blip_now = false;
 
                 debug_printf ("Button [%u] with %u\n", iof_button, button_action);
-                context.silent_any_button_while_display_on_seconds_cnt = 0; // Display always goes on in the call:
+                context.display_is_on_seconds_cnt = 0; // Display always goes on in the call:
 
                 switch (button_action) {
                     case BUTTON_ACTION_RELEASED: {
@@ -1559,9 +1670,22 @@ void System_Task (
                         i_port_heat_light_commands.beeper_blip_command (100);
                     } else {} // No blip
                 } else {}
+
+                //}}}  
             } break;
         }
     }
 }
 
+//}}}  
+//{{{  TODO
+
+// Comment about keywords
+
+// server client interface select chan chanend port timer clock buffered out in
+// streaming extends timerafter par on tile core
+// distributable combinable combine notification clears_notification guarded
+// movable alias unsafe restrict when pinsneq
+
+//}}}  
 

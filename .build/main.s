@@ -31,7 +31,7 @@
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Server.select.0.enable.cases
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Server.select.0.enable.cases
-	.set __main__main_tile_0.savedstate,104
+	.set __main__main_tile_0.savedstate,105
 	.globl __main__main_tile_0.savedstate
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
 	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group, _i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends, _i.i2c_external_commands_if._chan.read_temperature_ok
@@ -843,7 +843,7 @@
 	main.parinfo.debugstring0:
 	.asciiz "# -1 \"\""
 	main.parinfo.debugstring1:
-	.asciiz "# 427 \"../src/main.xc\""
+	.asciiz "# 432 \"../src/main.xc\""
 	.cc_top main.parinfo.cc, main.parinfo
 	.globl main.parinfo
 	.type main.parinfo, @object
@@ -1162,12 +1162,12 @@ inP_button_right.info:
 	.set usage.anon.4,0
 	.set usage.anon.5,0
 	.set usage.anon.6,0
-	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:107:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:106:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:105:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
-	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:107:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:106:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:105:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:112:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:111:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:110:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:112:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:111:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:110:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
 	.call usage.anon.6,adc_task
 	.call usage.anon.6,Port_Pins_Heat_Light_Server
 	.call usage.anon.6,My_startKIT_ADC_Client
@@ -1198,78 +1198,78 @@ inP_button_right.info:
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par installExceptionHandler,I2C_Internal_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,I2C_External_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,System_Task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Heater_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Water_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,System_Task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,System_Task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Water_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.4,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,usage.anon.5,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:95:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_Internal_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_External_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Heater_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Water_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Server,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Server,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Water_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Controller,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.set main.locnoside, 0
 	.set main.locnochandec, 0
 	.set main.locnoglobalaccess, 0
-	.globpassesref Button_Task, inP_button_right,"../src/main.xc:107:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_center,"../src/main.xc:106:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_left,"../src/main.xc:105:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_right,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_center,"../src/main.xc:111:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_left,"../src/main.xc:110:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Client_9
 
 
@@ -4311,30 +4311,30 @@ _i.lib_startkit_adc_commands_if._chan_y.trigger:
 	.cc_top __main__main_tile_0.function,__main__main_tile_0
 __main__main_tile_0:
 	.cfi_startproc
-	ENTSP_lu6 173
+	ENTSP_lu6 174
 .Ltmp266:
-	.cfi_def_cfa_offset 692
+	.cfi_def_cfa_offset 696
 .Ltmp267:
 	.cfi_offset 15, 0
-	stw r4, sp[172]
+	stw r4, sp[173]
 .Ltmp268:
 	.cfi_offset 4, -4
-	stw r5, sp[171]
+	stw r5, sp[172]
 .Ltmp269:
 	.cfi_offset 5, -8
-	stw r6, sp[170]
+	stw r6, sp[171]
 .Ltmp270:
 	.cfi_offset 6, -12
-	stw r7, sp[169]
+	stw r7, sp[170]
 .Ltmp271:
 	.cfi_offset 7, -16
-	stw r8, sp[168]
+	stw r8, sp[169]
 .Ltmp272:
 	.cfi_offset 8, -20
-	stw r9, sp[167]
+	stw r9, sp[168]
 .Ltmp273:
 	.cfi_offset 9, -24
-	stw r10, sp[166]
+	stw r10, sp[167]
 .Ltmp274:
 	.cfi_offset 10, -28
 	getr r5, 2
@@ -4371,7 +4371,7 @@ __main__main_tile_0:
 	stw r2, sp[46]
 	stw r3, sp[47]
 	stw r4, sp[48]
-	ldaw r11, cp[.vtable10]
+	ldaw r11, cp[.vtable12]
 	stw r11, sp[49]
 	stw r2, sp[41]
 	stw r3, sp[44]
@@ -4379,7 +4379,7 @@ __main__main_tile_0:
 	stw r1, sp[45]
 	getr r2, 2
 	stw r2, sp[39]
-	ldaw r11, cp[.vtable11]
+	ldaw r11, cp[.vtable13]
 	stw r11, sp[40]
 	stw r2, sp[38]
 	getr r2, 2
@@ -4389,7 +4389,7 @@ __main__main_tile_0:
 	stw r2, sp[34]
 	stw r3, sp[35]
 	stw r4, sp[36]
-	ldaw r11, cp[.vtable12]
+	ldaw r11, cp[.vtable14]
 	stw r11, sp[37]
 	stw r2, sp[29]
 	stw r3, sp[32]
@@ -4402,7 +4402,7 @@ __main__main_tile_0:
 	stw r2, sp[25]
 	stw r3, sp[26]
 	stw r4, sp[27]
-	ldaw r11, cp[.vtable13]
+	ldaw r11, cp[.vtable15]
 	stw r11, sp[28]
 	stw r2, sp[20]
 	stw r3, sp[23]
@@ -4410,17 +4410,17 @@ __main__main_tile_0:
 	stw r1, sp[24]
 	getr r1, 2
 	stw r1, sp[18]
-	ldaw r11, cp[.vtable14]
+	ldaw r11, cp[.vtable16]
 	stw r11, sp[19]
 	stw r1, sp[17]
 	getr r1, 2
 	stw r1, sp[15]
-	ldaw r11, cp[.vtable15]
+	ldaw r11, cp[.vtable17]
 	stw r11, sp[16]
 	stw r1, sp[14]
 	getr r1, 2
 	stw r1, sp[12]
-	ldaw r11, cp[.vtable16]
+	ldaw r11, cp[.vtable18]
 	stw r11, sp[13]
 	stw r1, sp[11]
 	getr r1, 2
@@ -4428,36 +4428,36 @@ __main__main_tile_0:
 	stw r4, sp[6]
 	ldaw r2, sp[5]
 	stw r2, sp[7]
-	ldaw r11, cp[.vtable17]
+	ldaw r11, cp[.vtable19]
 	stw r11, sp[8]
 	stw r1, sp[4]
 	getr r1, 2
 	stw r1, sp[2]
-	ldaw r11, cp[.vtable18]
+	ldaw r11, cp[.vtable20]
 	stw r11, sp[3]
 	stw r1, sp[1]
-	stw r5, sp[157]
-	stw r6, sp[160]
-	stw r7, sp[158]
-	stw r8, sp[161]
-	stw r9, sp[159]
-	stw r10, sp[162]
+	stw r5, sp[158]
+	stw r6, sp[161]
+	stw r7, sp[159]
+	stw r8, sp[162]
+	stw r9, sp[160]
+	stw r10, sp[163]
 	ldaw r1, sp[50]
-	stw r1, sp[129]
-	ldaw r1, sp[55]
-	stw r1, sp[131]
-	ldaw r1, sp[41]
 	stw r1, sp[130]
-	ldaw r1, sp[46]
+	ldaw r1, sp[55]
 	stw r1, sp[132]
+	ldaw r1, sp[41]
+	stw r1, sp[131]
+	ldaw r1, sp[46]
+	stw r1, sp[133]
 	ldaw r1, sp[38]
-	stw r1, sp[122]
-	ldaw r1, sp[39]
 	stw r1, sp[123]
+	ldaw r1, sp[39]
+	stw r1, sp[124]
 	ldaw r1, sp[29]
-	stw r1, sp[109]
-	ldaw r1, sp[34]
 	stw r1, sp[110]
+	ldaw r1, sp[34]
+	stw r1, sp[111]
 	ldaw r1, sp[20]
 	stw r1, sp[96]
 	ldaw r1, sp[25]
@@ -4482,7 +4482,7 @@ __main__main_tile_0:
 	stw r1, sp[59]
 	ldaw r1, sp[2]
 	stw r1, sp[60]
-	stw r0, sp[155]
+	stw r0, sp[156]
 	ldaw r1, dp[par.desc.1]
 	ldaw r0, sp[59]
 	bl __start_other_cores
@@ -4572,17 +4572,17 @@ __main__main_tile_0:
 	freer res[r0]
 	ldw r0, sp[1]
 	freer res[r0]
-	ldw r10, sp[166]
-	ldw r9, sp[167]
-	ldw r8, sp[168]
-	ldw r7, sp[169]
-	ldw r6, sp[170]
-	ldw r5, sp[171]
-	ldw r4, sp[172]
-	retsp 173
+	ldw r10, sp[167]
+	ldw r9, sp[168]
+	ldw r8, sp[169]
+	ldw r7, sp[170]
+	ldw r6, sp[171]
+	ldw r5, sp[172]
+	ldw r4, sp[173]
+	retsp 174
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0.function
-	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords) + 173)
+	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords) + 174)
 	.globl	__main__main_tile_0.nstackwords
 	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_5.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores) $M 1
 	.globl	__main__main_tile_0.maxcores
@@ -4660,7 +4660,7 @@ __main__main_tile_0_combined_tile_0_0:
 	ldaw r0, r10[3]
 	#init allocation
 	ldw r5, r10[4]
-	ldc r0, 252
+	ldc r0, 256
 	add r1, r6, r0
 	# STACKUP 
 	# ALLOCA 2
@@ -4673,7 +4673,7 @@ __main__main_tile_0_combined_tile_0_0:
 	ldw r4, r10[3]
 	stw r4, r10[2]
 	ldaw r1, r6[7]
-	ldc r0, 292
+	ldc r0, 296
 	add r0, r6, r0
 	ldw r2, r0[0]
 	ldc r0, 104
@@ -4786,7 +4786,7 @@ __main__main_tile_0_combined_tile_0_0:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_0.function
-	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M I2C_Internal_Server.select.enable.cases.nstackwords $M Temperature_Heater_Controller.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M Temperature_Heater_Controller.select.enable.cases.nstackwords $M I2C_Internal_Server.select.enable.cases.nstackwords)) + 11)
 	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + 0))
@@ -4860,7 +4860,7 @@ __main__main_tile_0_combined_tile_0_4:
 	ldaw r0, r10[3]
 	#init allocation
 	ldw r5, r10[4]
-	ldc r0, 280
+	ldc r0, 284
 	add r1, r4, r0
 	# STACKUP 
 	# ALLOCA 2
@@ -4871,10 +4871,10 @@ __main__main_tile_0_combined_tile_0_4:
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r6, r10[3]
-	ldc r0, 200
+	ldc r0, 204
 	add r0, r4, r0
 	ldw r1, r0[0]
-	ldc r0, 384
+	ldc r0, 388
 	add r0, r4, r0
 	ldw r2, r0[0]
 	# STACKUP 
@@ -4990,7 +4990,7 @@ __main__main_tile_0_combined_tile_0_4:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_4.function
-	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Server.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M I2C_External_Server.select.enable.cases.nstackwords $M adc_task.select.enable.cases.nstackwords)) + 11)
 	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
@@ -5086,11 +5086,11 @@ __main__main_tile_0_combined_tile_0_5:
 	bl Port_Pins_Heat_Light_Server.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
-	ldc r0, 416
+	ldc r0, 420
 	add r1, r4, r0
 	ldap r11, Port_Pins_Heat_Light_Server.select.0.enable
 	stw r11, r1[0]
-	ldc r0, 420
+	ldc r0, 424
 	add r0, r4, r0
 	stw r7, r0[0]
 	ldw r2, r4[10]
@@ -5300,7 +5300,7 @@ __main__main_tile_0_combined_tile_0_1:
 	#init allocation
 	ldw r4, r10[4]
 	ldw r2, dp[inP_button_left]
-	ldc r0, 404
+	ldc r0, 408
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5314,7 +5314,7 @@ __main__main_tile_0_combined_tile_0_1:
 	# STACKDOWN
 	ldw r5, r10[3]
 	ldw r2, dp[inP_button_center]
-	ldc r0, 408
+	ldc r0, 412
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5328,7 +5328,7 @@ __main__main_tile_0_combined_tile_0_1:
 	# STACKDOWN
 	ldw r6, r10[2]
 	ldw r2, dp[inP_button_right]
-	ldc r0, 412
+	ldc r0, 416
 	add r0, r7, r0
 	ldw r3, r0[0]
 	# STACKUP 
@@ -5455,14 +5455,14 @@ __main__main_tile_0_combined_tile_0_1:
 	.cc_top __main__main_tile_0_task_installExceptionHandler_0.function,__main__main_tile_0_task_installExceptionHandler_0
 __main__main_tile_0_task_installExceptionHandler_0:
 .Lfunc_begin59:
-	.loc	1 96 0
+	.loc	1 101 0
 	.cfi_startproc
 	entsp 1
 .Ltmp324:
 	.cfi_def_cfa_offset 4
 .Ltmp325:
 	.cfi_offset 15, 0
-	.loc	1 96 0 prologue_end
+	.loc	1 101 0 prologue_end
 .Ltmp326:
 .Lxta.call_labels9:
 	bl installExceptionHandler
@@ -5485,7 +5485,7 @@ __main__main_tile_0_task_installExceptionHandler_0:
 	.cc_top __main__main_tile_0_task_System_Task_3.function,__main__main_tile_0_task_System_Task_3
 __main__main_tile_0_task_System_Task_3:
 .Lfunc_begin60:
-	.loc	1 100 0
+	.loc	1 105 0
 	.cfi_startproc
 	entsp 7
 .Ltmp330:
@@ -5501,36 +5501,36 @@ __main__main_tile_0_task_System_Task_3:
 	stw r6, sp[4]
 .Ltmp334:
 	.cfi_offset 6, -12
-	ldc r1, 256
-	.loc	1 100 0 prologue_end
+	ldc r1, 260
+	.loc	1 105 0 prologue_end
 .Ltmp335:
 	add r1, r0, r1
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r11, r1[0]
-	ldc r1, 288
-	.loc	1 100 0
+	ldc r1, 292
+	.loc	1 105 0
 	add r1, r0, r1
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r1, r1[0]
 	ldc r2, 152
-	.loc	1 100 0
+	.loc	1 105 0
 	add r2, r0, r2
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r2, r2[0]
 	ldc r3, 100
-	.loc	1 100 0
+	.loc	1 105 0
 	add r3, r0, r3
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r3, r3[0]
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r4, r0[9]
-	.loc	1 100 0
+	.loc	1 105 0
 	ldw r5, r0[1]
-	ldc r6, 392
-	.loc	1 100 0
+	ldc r6, 396
+	.loc	1 105 0
 	add r0, r0, r6
 .Ltmp336:
-	.loc	1 100 0
+	.loc	1 105 0
 	stw r0, sp[3]
 	stw r5, sp[2]
 	stw r4, sp[1]
@@ -5558,28 +5558,26 @@ __main__main_tile_0_task_System_Task_3:
 	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Client_9.function,__main__main_tile_0_task_My_startKIT_ADC_Client_9
 __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 .Lfunc_begin61:
-	.loc	1 108 0
+	.loc	1 113 0
 	.cfi_startproc
 	entsp 1
 .Ltmp339:
 	.cfi_def_cfa_offset 4
 .Ltmp340:
 	.cfi_offset 15, 0
-	ldc r1, 204
-	.loc	1 108 0 prologue_end
+	ldc r1, 208
+	.loc	1 113 0 prologue_end
 .Ltmp341:
 	add r1, r0, r1
-	.loc	1 108 0
+	.loc	1 113 0
 	ldw r3, r1[0]
 	ldc r1, 148
-	.loc	1 108 0
-	add r0, r0, r1
-.Ltmp342:
-	.loc	1 108 0
-	ldw r1, r0[0]
+	.loc	1 113 0
+	add r1, r0, r1
 	ldc r2, 1000
-	.loc	1 108 0
+	.loc	1 113 0
 	mov r0, r3
+.Ltmp342:
 .Lxta.call_labels11:
 	bl My_startKIT_ADC_Client
 	retsp 1
@@ -5607,22 +5605,22 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.long	__interface_client_pop_yield
 	.long	__noop
 	.cc_bottom .vtable.data
-	.cc_top .vtable10.data,.vtable10
+	.cc_top .vtable12.data,.vtable12
 	.align	4
-	.type	.vtable10,@object
-	.size	.vtable10, 20
-.vtable10:
+	.type	.vtable12,@object
+	.size	.vtable12, 20
+.vtable12:
 	.long	_i.i2c_external_commands_if._chan.read_temperature_ok
 	.long	_i.i2c_external_commands_if._chan.command
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable10.data
-	.cc_top .vtable11.data,.vtable11
+	.cc_bottom .vtable12.data
+	.cc_top .vtable13.data,.vtable13
 	.align	4
-	.type	.vtable11,@object
-	.size	.vtable11, 32
-.vtable11:
+	.type	.vtable13,@object
+	.size	.vtable13, 32
+.vtable13:
 	.long	_i.i2c_internal_commands_if._chan.write_display_ok
 	.long	_i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.long	_i.i2c_internal_commands_if._chan.write_chronodot_ok
@@ -5631,40 +5629,14 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable11.data
-	.cc_top .vtable12.data,.vtable12
-	.align	4
-	.type	.vtable12,@object
-	.size	.vtable12, 20
-.vtable12:
-	.long	_i.startkit_adc_acquire_if._chan.trigger
-	.long	_i.startkit_adc_acquire_if._chan.read
-	.long	__interface_client_push_yield
-	.long	__interface_client_pop_yield
-	.long	__noop
-	.cc_bottom .vtable12.data
-	.cc_top .vtable13.data,.vtable13
-	.align	4
-	.type	.vtable13,@object
-	.size	.vtable13, 20
-.vtable13:
-	.long	_i.lib_startkit_adc_commands_if._chan.trigger
-	.long	_i.lib_startkit_adc_commands_if._chan.read
-	.long	__interface_client_push_yield
-	.long	__interface_client_pop_yield
-	.long	__noop
 	.cc_bottom .vtable13.data
 	.cc_top .vtable14.data,.vtable14
 	.align	4
 	.type	.vtable14,@object
-	.size	.vtable14, 36
+	.size	.vtable14, 20
 .vtable14:
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.long	_i.port_heat_light_commands_if._chan.set_light_composition
-	.long	_i.port_heat_light_commands_if._chan.beeper_on_command
-	.long	_i.port_heat_light_commands_if._chan.beeper_blip_command
-	.long	_i.port_heat_light_commands_if._chan.heat_cables_command
+	.long	_i.startkit_adc_acquire_if._chan.trigger
+	.long	_i.startkit_adc_acquire_if._chan.read
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
@@ -5672,8 +5644,19 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.cc_top .vtable15.data,.vtable15
 	.align	4
 	.type	.vtable15,@object
-	.size	.vtable15, 36
+	.size	.vtable15, 20
 .vtable15:
+	.long	_i.lib_startkit_adc_commands_if._chan.trigger
+	.long	_i.lib_startkit_adc_commands_if._chan.read
+	.long	__interface_client_push_yield
+	.long	__interface_client_pop_yield
+	.long	__noop
+	.cc_bottom .vtable15.data
+	.cc_top .vtable16.data,.vtable16
+	.align	4
+	.type	.vtable16,@object
+	.size	.vtable16, 36
+.vtable16:
 	.long	_i.port_heat_light_commands_if._chan.get_light_composition
 	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.long	_i.port_heat_light_commands_if._chan.set_light_composition
@@ -5683,12 +5666,27 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable15.data
-	.cc_top .vtable16.data,.vtable16
+	.cc_bottom .vtable16.data
+	.cc_top .vtable17.data,.vtable17
 	.align	4
-	.type	.vtable16,@object
-	.size	.vtable16, 32
-.vtable16:
+	.type	.vtable17,@object
+	.size	.vtable17, 36
+.vtable17:
+	.long	_i.port_heat_light_commands_if._chan.get_light_composition
+	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.long	_i.port_heat_light_commands_if._chan.set_light_composition
+	.long	_i.port_heat_light_commands_if._chan.beeper_on_command
+	.long	_i.port_heat_light_commands_if._chan.beeper_blip_command
+	.long	_i.port_heat_light_commands_if._chan.heat_cables_command
+	.long	__interface_client_push_yield
+	.long	__interface_client_pop_yield
+	.long	__noop
+	.cc_bottom .vtable17.data
+	.cc_top .vtable18.data,.vtable18
+	.align	4
+	.type	.vtable18,@object
+	.size	.vtable18, 32
+.vtable18:
 	.long	_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.long	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.long	_i.temperature_heater_commands_if._chan.get_temps
@@ -5697,12 +5695,12 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable16.data
-	.cc_top .vtable17.data,.vtable17
+	.cc_bottom .vtable18.data
+	.cc_top .vtable19.data,.vtable19
 	.align	4
-	.type	.vtable17,@object
-	.size	.vtable17, 32
-.vtable17:
+	.type	.vtable19,@object
+	.size	.vtable19, 32
+.vtable19:
 	.long	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.long	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.long	_i.temperature_heater_commands_if._chan_y.get_temps
@@ -5711,19 +5709,19 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable17.data
-	.cc_top .vtable18.data,.vtable18
+	.cc_bottom .vtable19.data
+	.cc_top .vtable20.data,.vtable20
 	.align	4
-	.type	.vtable18,@object
-	.size	.vtable18, 24
-.vtable18:
+	.type	.vtable20,@object
+	.size	.vtable20, 24
+.vtable20:
 	.long	_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.long	_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.long	_i.temperature_water_commands_if._chan.clear_debug_log
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
-	.cc_bottom .vtable18.data
+	.cc_bottom .vtable20.data
 	.section	.dp.data,"awd",@progbits
 	.cc_top par.desc.1.data,par.desc.1
 	.align	4
@@ -6107,7 +6105,7 @@ par.desc.1:
 .asciiz"formal.c_analogue1"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3523
+	.long	3537
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -6290,7 +6288,7 @@ par.desc.1:
 	.long	.Linfo_string115
 	.long	.Linfo_string115
 	.byte	1
-	.byte	96
+	.byte	101
 	.byte	7
 	.long	.Ldebug_loc0
 	.long	.Linfo_string119
@@ -6304,7 +6302,7 @@ par.desc.1:
 	.long	.Linfo_string116
 	.long	.Linfo_string116
 	.byte	1
-	.byte	100
+	.byte	105
 	.byte	7
 	.long	.Ldebug_loc1
 	.long	.Linfo_string119
@@ -6318,7 +6316,7 @@ par.desc.1:
 	.long	.Linfo_string117
 	.long	.Linfo_string117
 	.byte	1
-	.byte	108
+	.byte	113
 	.byte	7
 	.long	.Ldebug_loc2
 	.long	.Linfo_string119
@@ -6331,13 +6329,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	9
 	.long	.Linfo_string158
-	.long	3249
+	.long	3263
 	.byte	0
 	.byte	3
 	.long	.Linfo_string49
@@ -6349,7 +6347,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	8
 	.long	.Linfo_string51
@@ -6358,13 +6356,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	9
 	.long	.Linfo_string158
-	.long	3249
+	.long	3263
 	.byte	0
 	.byte	10
 	.long	.Linfo_string52
@@ -6372,7 +6370,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	8
 	.long	.Linfo_string53
@@ -6381,16 +6379,16 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3318
+	.long	3332
 	.byte	9
 	.long	.Linfo_string165
-	.long	3306
+	.long	3320
 	.byte	0
 	.byte	10
 	.long	.Linfo_string54
@@ -6398,13 +6396,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3318
+	.long	3332
 	.byte	0
 	.byte	8
 	.long	.Linfo_string55
@@ -6413,13 +6411,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3323
+	.long	3337
 	.byte	0
 	.byte	10
 	.long	.Linfo_string56
@@ -6427,10 +6425,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	0
 	.byte	8
 	.long	.Linfo_string57
@@ -6439,19 +6437,19 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string165
-	.long	3358
+	.long	3372
 	.byte	9
 	.long	.Linfo_string168
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	8
 	.long	.Linfo_string58
@@ -6460,16 +6458,16 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3318
+	.long	3332
 	.byte	9
 	.long	.Linfo_string165
-	.long	3306
+	.long	3320
 	.byte	0
 	.byte	10
 	.long	.Linfo_string59
@@ -6477,13 +6475,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3318
+	.long	3332
 	.byte	0
 	.byte	8
 	.long	.Linfo_string60
@@ -6492,13 +6490,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3323
+	.long	3337
 	.byte	0
 	.byte	10
 	.long	.Linfo_string61
@@ -6506,10 +6504,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	0
 	.byte	8
 	.long	.Linfo_string62
@@ -6518,19 +6516,19 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string158
-	.long	3306
+	.long	3320
 	.byte	9
 	.long	.Linfo_string165
-	.long	3358
+	.long	3372
 	.byte	9
 	.long	.Linfo_string168
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	10
 	.long	.Linfo_string63
@@ -6538,10 +6536,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3368
+	.long	3382
 	.byte	0
 	.byte	8
 	.long	.Linfo_string64
@@ -6550,10 +6548,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	11
 	.long	.Linfo_string69
@@ -6595,10 +6593,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3368
+	.long	3382
 	.byte	0
 	.byte	8
 	.long	.Linfo_string71
@@ -6607,10 +6605,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	10
 	.long	.Linfo_string72
@@ -6618,10 +6616,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3373
+	.long	3387
 	.byte	0
 	.byte	10
 	.long	.Linfo_string73
@@ -6629,10 +6627,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3378
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string74
@@ -6640,10 +6638,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3383
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string75
@@ -6651,16 +6649,16 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3388
+	.long	3402
 	.byte	9
 	.long	.Linfo_string158
-	.long	3393
+	.long	3407
 	.byte	9
 	.long	.Linfo_string165
-	.long	3378
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string76
@@ -6668,10 +6666,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3398
+	.long	3412
 	.byte	0
 	.byte	10
 	.long	.Linfo_string77
@@ -6679,7 +6677,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	10
 	.long	.Linfo_string78
@@ -6687,10 +6685,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3373
+	.long	3387
 	.byte	0
 	.byte	10
 	.long	.Linfo_string79
@@ -6698,10 +6696,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3378
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string80
@@ -6709,10 +6707,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3383
+	.long	3397
 	.byte	0
 	.byte	10
 	.long	.Linfo_string81
@@ -6720,16 +6718,16 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3388
+	.long	3402
 	.byte	9
 	.long	.Linfo_string158
-	.long	3393
+	.long	3407
 	.byte	9
 	.long	.Linfo_string165
-	.long	3378
+	.long	3392
 	.byte	0
 	.byte	10
 	.long	.Linfo_string82
@@ -6737,10 +6735,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3398
+	.long	3412
 	.byte	0
 	.byte	10
 	.long	.Linfo_string83
@@ -6748,7 +6746,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	10
 	.long	.Linfo_string84
@@ -6756,10 +6754,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string85
@@ -6767,13 +6765,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3408
+	.long	3422
 	.byte	9
 	.long	.Linfo_string158
-	.long	3413
+	.long	3427
 	.byte	0
 	.byte	10
 	.long	.Linfo_string86
@@ -6781,10 +6779,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3431
+	.long	3445
 	.byte	0
 	.byte	10
 	.long	.Linfo_string87
@@ -6792,13 +6790,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3449
+	.long	3463
 	.byte	9
 	.long	.Linfo_string158
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string88
@@ -6806,13 +6804,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3449
+	.long	3463
 	.byte	9
 	.long	.Linfo_string158
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string89
@@ -6820,10 +6818,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string90
@@ -6831,13 +6829,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3408
+	.long	3422
 	.byte	9
 	.long	.Linfo_string158
-	.long	3413
+	.long	3427
 	.byte	0
 	.byte	10
 	.long	.Linfo_string91
@@ -6845,10 +6843,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3431
+	.long	3445
 	.byte	0
 	.byte	10
 	.long	.Linfo_string92
@@ -6856,13 +6854,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3449
+	.long	3463
 	.byte	9
 	.long	.Linfo_string158
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string93
@@ -6870,13 +6868,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3449
+	.long	3463
 	.byte	9
 	.long	.Linfo_string158
-	.long	3403
+	.long	3417
 	.byte	0
 	.byte	10
 	.long	.Linfo_string94
@@ -6884,7 +6882,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	10
 	.long	.Linfo_string95
@@ -6892,7 +6890,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	10
 	.long	.Linfo_string96
@@ -6900,13 +6898,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3408
+	.long	3422
 	.byte	9
 	.long	.Linfo_string158
-	.long	3413
+	.long	3427
 	.byte	0
 	.byte	10
 	.long	.Linfo_string97
@@ -6914,7 +6912,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	10
 	.long	.Linfo_string98
@@ -6922,7 +6920,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	10
 	.long	.Linfo_string99
@@ -6930,13 +6928,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3408
+	.long	3422
 	.byte	9
 	.long	.Linfo_string158
-	.long	3413
+	.long	3427
 	.byte	0
 	.byte	8
 	.long	.Linfo_string100
@@ -6945,10 +6943,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string163
-	.long	3454
+	.long	3468
 	.byte	0
 	.byte	10
 	.long	.Linfo_string101
@@ -6956,7 +6954,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	8
 	.long	.Linfo_string102
@@ -6965,10 +6963,10 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string163
-	.long	3454
+	.long	3468
 	.byte	0
 	.byte	10
 	.long	.Linfo_string103
@@ -6976,7 +6974,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	10
 	.long	.Linfo_string104
@@ -6984,13 +6982,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	9
 	.long	.Linfo_string158
-	.long	3249
+	.long	3263
 	.byte	0
 	.byte	10
 	.long	.Linfo_string105
@@ -6998,7 +6996,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	10
 	.long	.Linfo_string106
@@ -7006,13 +7004,13 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	9
 	.long	.Linfo_string157
-	.long	2675
+	.long	2676
 	.byte	9
 	.long	.Linfo_string158
-	.long	3249
+	.long	3263
 	.byte	0
 	.byte	10
 	.long	.Linfo_string107
@@ -7020,7 +7018,7 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string160
-	.long	3274
+	.long	3288
 	.byte	0
 	.byte	16
 	.long	.Linfo_string108
@@ -7032,7 +7030,7 @@ par.desc.1:
 	.long	.Linfo_string176
 	.byte	2
 	.byte	46
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	16
 	.long	.Linfo_string109
@@ -7044,7 +7042,7 @@ par.desc.1:
 	.long	.Linfo_string176
 	.byte	2
 	.byte	54
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	16
 	.long	.Linfo_string110
@@ -7056,7 +7054,7 @@ par.desc.1:
 	.long	.Linfo_string176
 	.byte	2
 	.byte	62
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	18
 	.long	.Linfo_string111
@@ -7092,68 +7090,68 @@ par.desc.1:
 	.byte	1
 	.byte	9
 	.long	.Linfo_string177
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	19
 	.long	2476
 	.byte	20
 	.long	.Linfo_string155
-	.short	428
+	.short	432
 	.byte	12
 	.long	.Linfo_string120
-	.long	2588
+	.long	2589
 	.byte	0
 	.byte	12
 	.long	.Linfo_string129
-	.long	2695
+	.long	2696
 	.byte	28
 	.byte	12
 	.long	.Linfo_string134
-	.long	2819
+	.long	2820
 	.byte	92
 	.byte	12
 	.long	.Linfo_string138
-	.long	2910
+	.long	2911
 	.byte	148
 	.byte	12
 	.long	.Linfo_string141
-	.long	2977
-	.byte	200
-	.byte	12
+	.long	2998
+	.byte	204
+	.byte	21
 	.long	.Linfo_string144
-	.long	3031
-	.byte	252
+	.long	3065
+	.short	256
 	.byte	21
 	.long	.Linfo_string147
-	.long	3105
-	.short	280
+	.long	3119
+	.short	284
 	.byte	21
 	.long	.Linfo_string151
-	.long	3196
-	.short	384
+	.long	3210
+	.short	388
 	.byte	21
 	.long	.Linfo_string153
-	.long	3216
-	.short	392
+	.long	3230
+	.short	396
 	.byte	21
 	.long	.Linfo_string154
-	.long	3236
-	.short	416
+	.long	3250
+	.short	420
 	.byte	0
 	.byte	11
 	.long	.Linfo_string128
 	.byte	28
 	.byte	12
 	.long	.Linfo_string121
-	.long	2615
+	.long	2616
 	.byte	0
 	.byte	12
 	.long	.Linfo_string123
-	.long	2635
+	.long	2636
 	.byte	8
 	.byte	0
 	.byte	13
-	.long	2628
+	.long	2629
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7168,15 +7166,15 @@ par.desc.1:
 	.byte	20
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2682
+	.long	2683
 	.byte	4
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2676
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7187,7 +7185,7 @@ par.desc.1:
 	.byte	7
 	.byte	4
 	.byte	13
-	.long	2675
+	.long	2676
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7198,19 +7196,19 @@ par.desc.1:
 	.byte	64
 	.byte	12
 	.long	.Linfo_string121
-	.long	2732
+	.long	2733
 	.byte	0
 	.byte	12
 	.long	.Linfo_string123
-	.long	2752
+	.long	2753
 	.byte	16
 	.byte	12
 	.long	.Linfo_string131
-	.long	2792
+	.long	2793
 	.byte	40
 	.byte	0
 	.byte	13
-	.long	2628
+	.long	2629
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7225,15 +7223,15 @@ par.desc.1:
 	.byte	24
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2779
+	.long	2780
 	.byte	4
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2676
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7244,11 +7242,11 @@ par.desc.1:
 	.byte	24
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2779
+	.long	2780
 	.byte	4
 	.byte	0
 	.byte	11
@@ -7256,15 +7254,15 @@ par.desc.1:
 	.byte	56
 	.byte	12
 	.long	.Linfo_string121
-	.long	2732
+	.long	2733
 	.byte	0
 	.byte	12
 	.long	.Linfo_string123
-	.long	2856
+	.long	2857
 	.byte	16
 	.byte	12
 	.long	.Linfo_string131
-	.long	2883
+	.long	2884
 	.byte	36
 	.byte	0
 	.byte	11
@@ -7272,11 +7270,11 @@ par.desc.1:
 	.byte	20
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2682
+	.long	2683
 	.byte	4
 	.byte	0
 	.byte	11
@@ -7284,82 +7282,27 @@ par.desc.1:
 	.byte	20
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2682
+	.long	2683
 	.byte	4
 	.byte	0
 	.byte	11
 	.long	.Linfo_string140
-	.byte	52
+	.byte	56
 	.byte	12
 	.long	.Linfo_string121
-	.long	2615
+	.long	2938
 	.byte	0
 	.byte	12
 	.long	.Linfo_string123
-	.long	2937
-	.byte	8
-	.byte	0
-	.byte	11
-	.long	.Linfo_string139
-	.byte	44
-	.byte	12
-	.long	.Linfo_string124
-	.long	2779
-	.byte	0
-	.byte	12
-	.long	.Linfo_string126
-	.long	2964
-	.byte	20
-	.byte	0
-	.byte	13
-	.long	2675
-	.byte	14
-	.long	1126
-	.byte	0
-	.byte	5
-	.byte	0
-	.byte	11
-	.long	.Linfo_string143
-	.byte	52
-	.byte	12
-	.long	.Linfo_string121
-	.long	2615
-	.byte	0
-	.byte	12
-	.long	.Linfo_string123
-	.long	3004
-	.byte	8
-	.byte	0
-	.byte	11
-	.long	.Linfo_string142
-	.byte	44
-	.byte	12
-	.long	.Linfo_string124
-	.long	2779
-	.byte	0
-	.byte	12
-	.long	.Linfo_string126
-	.long	2964
-	.byte	20
-	.byte	0
-	.byte	11
-	.long	.Linfo_string146
-	.byte	28
-	.byte	12
-	.long	.Linfo_string121
-	.long	3058
-	.byte	0
-	.byte	12
-	.long	.Linfo_string123
-	.long	3078
+	.long	2958
 	.byte	8
 	.byte	0
 	.byte	13
-	.long	2628
+	.long	2629
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7370,15 +7313,77 @@ par.desc.1:
 	.byte	0
 	.byte	0
 	.byte	11
+	.long	.Linfo_string139
+	.byte	48
+	.byte	12
+	.long	.Linfo_string124
+	.long	2780
+	.byte	0
+	.byte	12
+	.long	.Linfo_string126
+	.long	2985
+	.byte	20
+	.byte	0
+	.byte	13
+	.long	2676
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	6
+	.byte	0
+	.byte	11
+	.long	.Linfo_string143
+	.byte	52
+	.byte	12
+	.long	.Linfo_string121
+	.long	2616
+	.byte	0
+	.byte	12
+	.long	.Linfo_string123
+	.long	3025
+	.byte	8
+	.byte	0
+	.byte	11
+	.long	.Linfo_string142
+	.byte	44
+	.byte	12
+	.long	.Linfo_string124
+	.long	2780
+	.byte	0
+	.byte	12
+	.long	.Linfo_string126
+	.long	3052
+	.byte	20
+	.byte	0
+	.byte	13
+	.long	2676
+	.byte	14
+	.long	1126
+	.byte	0
+	.byte	5
+	.byte	0
+	.byte	11
+	.long	.Linfo_string146
+	.byte	28
+	.byte	12
+	.long	.Linfo_string121
+	.long	2938
+	.byte	0
+	.byte	12
+	.long	.Linfo_string123
+	.long	3092
+	.byte	8
+	.byte	0
+	.byte	11
 	.long	.Linfo_string145
 	.byte	20
 	.byte	12
 	.long	.Linfo_string124
-	.long	2662
+	.long	2663
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2682
+	.long	2683
 	.byte	4
 	.byte	0
 	.byte	11
@@ -7386,15 +7391,15 @@ par.desc.1:
 	.byte	104
 	.byte	12
 	.long	.Linfo_string121
-	.long	2732
+	.long	2733
 	.byte	0
 	.byte	12
 	.long	.Linfo_string123
-	.long	3142
+	.long	3156
 	.byte	16
 	.byte	12
 	.long	.Linfo_string131
-	.long	3169
+	.long	3183
 	.byte	60
 	.byte	0
 	.byte	11
@@ -7402,11 +7407,11 @@ par.desc.1:
 	.byte	44
 	.byte	12
 	.long	.Linfo_string124
-	.long	2779
+	.long	2780
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2964
+	.long	3052
 	.byte	20
 	.byte	0
 	.byte	11
@@ -7414,15 +7419,15 @@ par.desc.1:
 	.byte	44
 	.byte	12
 	.long	.Linfo_string124
-	.long	2779
+	.long	2780
 	.byte	0
 	.byte	12
 	.long	.Linfo_string126
-	.long	2964
+	.long	3052
 	.byte	20
 	.byte	0
 	.byte	13
-	.long	3209
+	.long	3223
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7433,7 +7438,7 @@ par.desc.1:
 	.byte	7
 	.byte	4
 	.byte	13
-	.long	3209
+	.long	3223
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7444,16 +7449,16 @@ par.desc.1:
 	.byte	2
 	.byte	0
 	.byte	13
-	.long	2675
+	.long	2676
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	22
-	.long	3254
+	.long	3268
 	.byte	13
-	.long	3267
+	.long	3281
 	.byte	14
 	.long	1126
 	.byte	0
@@ -7464,54 +7469,54 @@ par.desc.1:
 	.byte	7
 	.byte	2
 	.byte	22
-	.long	3279
+	.long	3293
 	.byte	11
 	.long	.Linfo_string162
 	.byte	8
 	.byte	12
 	.long	.Linfo_string156
-	.long	3209
+	.long	3223
 	.byte	0
 	.byte	12
 	.long	.Linfo_string161
-	.long	2675
+	.long	2676
 	.byte	4
 	.byte	0
 	.byte	23
-	.long	3311
+	.long	3325
 	.byte	3
 	.long	.Linfo_string164
 	.byte	8
 	.byte	1
 	.byte	23
-	.long	3267
+	.long	3281
 	.byte	23
-	.long	3328
+	.long	3342
 	.byte	11
 	.long	.Linfo_string167
 	.byte	19
 	.byte	12
 	.long	.Linfo_string166
-	.long	3345
+	.long	3359
 	.byte	0
 	.byte	0
 	.byte	13
-	.long	3311
+	.long	3325
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	18
 	.byte	0
 	.byte	22
-	.long	3363
+	.long	3377
 	.byte	24
-	.long	3311
+	.long	3325
 	.byte	23
 	.long	123
 	.byte	23
 	.long	142
 	.byte	23
-	.long	2675
+	.long	2676
 	.byte	23
 	.long	104
 	.byte	23
@@ -7519,22 +7524,22 @@ par.desc.1:
 	.byte	23
 	.long	258
 	.byte	22
-	.long	3236
+	.long	3250
 	.byte	23
 	.long	495
 	.byte	23
 	.long	307
 	.byte	22
-	.long	3418
+	.long	3432
 	.byte	13
-	.long	3311
+	.long	3325
 	.byte	14
 	.long	1126
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	22
-	.long	3436
+	.long	3450
 	.byte	13
 	.long	495
 	.byte	14
@@ -7545,33 +7550,33 @@ par.desc.1:
 	.byte	23
 	.long	338
 	.byte	23
-	.long	3459
+	.long	3473
 	.byte	11
 	.long	.Linfo_string175
 	.byte	24
 	.byte	12
 	.long	.Linfo_string169
-	.long	2675
+	.long	2676
 	.byte	0
 	.byte	12
 	.long	.Linfo_string170
-	.long	2675
+	.long	2676
 	.byte	4
 	.byte	12
 	.long	.Linfo_string171
-	.long	2675
+	.long	2676
 	.byte	8
 	.byte	12
 	.long	.Linfo_string172
-	.long	2675
+	.long	2676
 	.byte	12
 	.byte	12
 	.long	.Linfo_string173
-	.long	2675
+	.long	2676
 	.byte	16
 	.byte	12
 	.long	.Linfo_string174
-	.long	2675
+	.long	2676
 	.byte	20
 	.byte	0
 	.byte	0
@@ -8041,35 +8046,35 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset6 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset6
-	.long	3142
+	.long	3156
 .asciiz"__TYPE_30"
-	.long	3169
+	.long	3183
 .asciiz"__TYPE_31"
-	.long	3459
+	.long	3473
 .asciiz"__TYPE_14"
-	.long	2588
+	.long	2589
 .asciiz"__TYPE_15"
 	.long	53
 .asciiz"port"
-	.long	2635
+	.long	2636
 .asciiz"__TYPE_16"
-	.long	2675
+	.long	2676
 .asciiz"unsigned int"
 	.long	2476
 .asciiz"frame.0"
-	.long	2695
+	.long	2696
 .asciiz"__TYPE_17"
 	.long	495
 .asciiz"int"
-	.long	2792
+	.long	2793
 .asciiz"__TYPE_19"
-	.long	2752
+	.long	2753
 .asciiz"__TYPE_18"
 	.long	123
 .asciiz"i2c_command_external_t"
-	.long	3209
+	.long	3223
 .asciiz"chanend"
-	.long	3279
+	.long	3293
 .asciiz"yarg"
 	.long	1086
 .asciiz"tag_i2c_temps_t"
@@ -8081,35 +8086,35 @@ par.desc.1:
 .asciiz"iof_temps_t"
 	.long	142
 .asciiz"heat_cable_commands_t"
-	.long	2819
+	.long	2820
 .asciiz"__TYPE_20"
-	.long	2856
+	.long	2857
 .asciiz"__TYPE_21"
-	.long	2883
+	.long	2884
 .asciiz"__TYPE_22"
-	.long	2910
+	.long	2911
 .asciiz"__TYPE_23"
-	.long	2937
+	.long	2958
 .asciiz"__TYPE_24"
-	.long	2977
+	.long	2998
 .asciiz"__TYPE_25"
-	.long	3004
+	.long	3025
 .asciiz"__TYPE_26"
-	.long	3031
+	.long	3065
 .asciiz"__TYPE_27"
-	.long	3078
+	.long	3092
 .asciiz"__TYPE_28"
-	.long	3105
+	.long	3119
 .asciiz"__TYPE_29"
-	.long	3328
+	.long	3342
 .asciiz"chronodot_d3231_registers_t"
-	.long	3267
+	.long	3281
 .asciiz"unsigned short"
 	.long	1146
 .asciiz"short"
-	.long	2628
+	.long	2629
 .asciiz"interface"
-	.long	3311
+	.long	3325
 .asciiz"unsigned char"
 	.long	173
 .asciiz"light_composition_t"
@@ -8242,7 +8247,7 @@ par.desc.1:
 	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}})"
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
-	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},:ui)"
+	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
 	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
@@ -8260,73 +8265,73 @@ par.desc.1:
 .cc_top cc_0,.Lxta.call_labels9
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	96
+	.long	101
 	.long	.Lxta.call_labels9
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels0
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	98
+	.long	103
 	.long	.Lxta.call_labels0
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels2
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	99
+	.long	104
 	.long	.Lxta.call_labels2
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels10
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	100
+	.long	105
 	.long	.Lxta.call_labels10
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels1
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	103
+	.long	108
 	.long	.Lxta.call_labels1
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels4
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	104
+	.long	109
 	.long	.Lxta.call_labels4
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels6
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	105
+	.long	110
 	.long	.Lxta.call_labels6
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels7
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	106
+	.long	111
 	.long	.Lxta.call_labels7
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels8
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	107
+	.long	112
 	.long	.Lxta.call_labels8
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels11
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	108
+	.long	113
 	.long	.Lxta.call_labels11
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels5
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	109
+	.long	114
 	.long	.Lxta.call_labels5
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels3
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	110
+	.long	115
 	.long	.Lxta.call_labels3
 .cc_bottom cc_11
 .Lentries_end1:
