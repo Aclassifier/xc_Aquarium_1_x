@@ -29,7 +29,7 @@ typedef interface i2c_internal_commands_if {
     bool                                write_chronodot_ok     (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
 
     // TODO Make this general
-    // When trying to make this completely general (because it is), I had to issue this: Ticket XMOS_9916 ariable length array causes unrecoverable error
+    // When trying to make this completely general (because it is), I had to issue this: Ticket XMOS_9916 variable length array causes unrecoverable error
     {uint8_t, bool} read_byte_fram_ok  (const i2c_dev_address_t dev_addr, const uint16_t address);
     bool            write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
     // Also, reading device_id from FRAM is not possible with the I2C library I use (module_i2c_master). The newer (lib_i2c) opens for non-stop inside an I2C message

@@ -288,7 +288,7 @@ void Temperature_Heater_Controller (
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
-                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; /// Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
+                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
             } break;
 

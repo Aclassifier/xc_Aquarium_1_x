@@ -225,6 +225,10 @@ typedef enum pin_change_t {
     out port dummy_wify_ctrl_port = on tile[0]: XS1_PORT_4C; // CS - Bit0, Power enable - Bit1
 #endif
 
+//      There are 1500 in the formulae, so they are bound to be non-linear (dropping some numbers in the calculated result):
+#define NUM_TICKS_FROM_MS(ms)  ((ms * 1000) / TIME_PER_PWM_WINDOW_MICROSECONDS)   // Formula..
+#define NUM_MS_FROM_TICS(tics) ((tics * TIME_PER_PWM_WINDOW_MICROSECONDS) / 1000) // ..inverse formula
+
 // ---------------------------------------------------------------------------------------------------
 // DISCRETE LIGHT INTENSITY FOR THREE INDIVIDUAL LED STRIPS WITH DIFFERENT COLOUR RANGE
 // AND CONTINUOUS CHANGE FROM ONE DESCRETE LEVEL TO THE OTHER.
@@ -264,9 +268,9 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                                                                               // (even if the cables are mounted beside each other all the way)
                                                                               // And spread load and temperature increase of plugs and cable
 
-    unsigned     soft_change_pwm_window_timer_us [NUM_PWM_TIME_WINDOWS] = {0,0,0}; // (*1) No need to initialise..
-    pin_change_t pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
-    light_control_scheme_t       light_control_scheme = LIGHT_CONTROL_IS_VOID;
+    unsigned               soft_change_pwm_window_timer_us [NUM_PWM_TIME_WINDOWS] = {0,0,0}; // (*1) No need to initialise..
+    pin_change_t           pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
+    light_control_scheme_t light_control_scheme = LIGHT_CONTROL_IS_VOID;
 
     // (*1) Could have had one for all and initialised it to TIME_PER_PWM_WINDOW_MICROSECONDS * 3 and then DIV by 3 when used. However
     //      I have avoided division here since it takes more than one cycle and the DIVn instruction share a common division unit with the
@@ -277,6 +281,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     debug_printf("%s", "Port_Pins_Heat_Light_Server started\n");
 
     unsigned beeper_blip_ticks_cntdown = 0;
+    unsigned watchdog_ticks_cntdown    = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
+    bool     watchdog_timed_out        = false;
 
     #ifdef DUMMY_WIFI
         // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
@@ -368,7 +374,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0)  {
                         soft_change_pwm_window_timer_us[iof_light_pwm_window]--; // 1450 down 1 @ 222 Hz takes 6.5 secs
                     } else {
-                        // No code. Zero, finished. A LED that's OFF durin all three PWM phases _looks_ a little ON when there are
+                        // No code. Zero, finished. A LED that's OFF during all three PWM phases _looks_ a little ON when there are
                         // others that are also ON. It must be because of some re-glow from the others. I have scoped it, the pulses
                         // get thinner and thinner and then it's flat out.
                         // From light to down it goes very slowly at the start and then it appears that the last second or so it goes faster.
@@ -379,9 +385,34 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                 iof_light_pwm_window++;
                 if (iof_light_pwm_window == NUM_PWM_TIME_WINDOWS) {iof_light_pwm_window = 0;}
 
+                if (watchdog_ticks_cntdown > 0) {
+                    watchdog_ticks_cntdown--;
+                    if (watchdog_ticks_cntdown == 0) {
+                        // TODO With MAP_CHANENDS_23_A we never get here (after it stops?)!
+
+                        watchdog_timed_out = true;
+                        watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // Repeat, assuming watchdog_retrigger_with is dead
+
+                        // Simulate beeper_blip_command (200 ms)
+                        port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
+                        beeper_blip_ticks_cntdown = 200; // The longest beep
+
+                        // Switch off heat
+                        port_value and_eq compl BITS_HEAT_BOTH;
+                        // The client sending heat_cables_command will not know about this but heat_cables_command is regularly called based on temperatures,
+                        // so it will become right again when not watchdog timed out any more. This also implies that we might get short heat on blinks immediately
+                        // after that call that might be killed here within. This ensures that we don't need a button acknowledge should the cause of the watchdog
+                        // timeout repair itself. So neither the Temperature_Heater_Controller nor the Temperature_Water_Controller will know about this,
+                        // it has by design not been propagated up. However, System_Task will know by the get_heat_cables_forced_off_by_watchdog and will take
+                        // appropriate action in the display. Test with DEBUG_TEST_WATCHDOG
+
+                        myport_p32 <: port_value; // Out with beep and heat
+                    } else {}
+                } else {}
+
                 if (beeper_blip_ticks_cntdown == 1) {
                     beeper_blip_ticks_cntdown = 0;
-                    port_value or_eq BIT_BEEPER_LOW; // Set pin high, beeper off
+                    port_value or_eq BIT_BEEPER_LOW; // BEEPER_OFF: set pin high
                     myport_p32 <: port_value;
                 } else {
                     beeper_blip_ticks_cntdown--;
@@ -477,21 +508,34 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {
                 if (beeper_on) {
-                    port_value and_eq compl BIT_BEEPER_LOW; // Clear pin since pull-down
+                    port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
                 } else {
-                    port_value or_eq BIT_BEEPER_LOW; // Set pin
+                    port_value or_eq BIT_BEEPER_LOW; // BEEPER_OFF: set pin high
                 }
                 myport_p32 <: port_value;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_blip_command (const unsigned ms): {
-                // Immediate call will simply make it longer, so no need to guard this case
 
-                port_value and_eq compl BIT_BEEPER_LOW; // Clear pin since pull-down for beeper on
+                port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
                 myport_p32 <: port_value;
 
-                beeper_blip_ticks_cntdown = ( ms * 1000) / TIME_PER_PWM_WINDOW_MICROSECONDS; //  1500 ms per tick
-                //                          (100 * 1000) / 1500 = 66 cnt times 1500us =
+                beeper_blip_ticks_cntdown = NUM_TICKS_FROM_MS(ms);
+
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].watchdog_retrigger_with (const unsigned set_new_ms) -> {unsigned return_rest_ms}: {
+                unsigned watchdog_ticks_cntdown_copy = watchdog_ticks_cntdown;
+
+                return_rest_ms         = NUM_MS_FROM_TICS(watchdog_ticks_cntdown);
+                watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(set_new_ms);
+                debug_printf ("NEW=%ums->%ucnt, OLD=%ucnt->%ums\n", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);
+                // There are 1500 in the formulae, so they are bound to be non-linear:
+                // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=1cnt->1ms
+                // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=2cnt->3ms
+                // WATCHDOG_EXTRA_MS 4  NEW=1004ms->669cnt, OLD=3cnt->4ms
+                // WATCHDOG_EXTRA_MS 5  NEW=1005ms->670cnt, OLD=4cnt->6ms
+                watchdog_timed_out = false;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].heat_cables_command (const heat_cable_commands_t heat_cable_commands): {
@@ -518,6 +562,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         port_value_next or_eq BITS_HEAT_BOTH;
                     } break;
                 }
+
+                if (watchdog_timed_out) port_value_next and_eq compl BITS_HEAT_BOTH; // Force off
 
                 if (port_value_next != port_value) {
 
@@ -546,6 +592,10 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     } else {} // Do nothing
 
                 } else {} // No code
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_heat_cables_forced_off_by_watchdog (void) -> {bool return_watchdog_timed_out}: {
+                return_watchdog_timed_out = watchdog_timed_out;
             } break;
         }
     }

@@ -1586,7 +1586,7 @@ typedef struct {
 # 31 "../src/main.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 58 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [5][2];
+typedef char now_regulating_at_char_t [6][2];
 # 32 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
@@ -1689,13 +1689,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-
-
-
-
-
-
-
+# 80 "../src/port_heat_light_server.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
@@ -1705,6 +1699,9 @@ typedef interface port_heat_light_commands_if {
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
+    bool get_heat_cables_forced_off_by_watchdog (void);
+
+    unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
 
@@ -1756,7 +1753,8 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_BOILING,
     REGULATING_AT_SIMMERING,
     REGULATING_AT_TEMP_REACHED,
-    REGULATING_AT_HOTTER_AMBIENT
+    REGULATING_AT_HOTTER_AMBIENT,
+    HEAT_CABLES_FORCED_OFF_BY_WATCHDOG
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
@@ -1887,7 +1885,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 100 "../src/main.xc"
+# 101 "../src/main.xc"
     par {
         on tile[0]: installExceptionHandler();
 
@@ -1906,6 +1904,6 @@ int main() {
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
-# 431 "../src/main.xc"
+# 432 "../src/main.xc"
     return 0;
 }

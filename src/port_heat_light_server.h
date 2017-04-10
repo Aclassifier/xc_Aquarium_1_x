@@ -75,15 +75,20 @@ typedef enum heat_cable_commands_t {
 #define SCALE_LIGHTS_NONE_EVER_ON  0
 #define SCALE_LIGHTS_ALL_ON_ALWAYS 9
 
+#define WATCHDOG_TICKS_TIMEOUT_MS 10000 // Every 10 seconds. This is also how often it would beep if watchdog_retrigger_with fails
+
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t}                               get_light_composition     (void);
     {light_composition_t, bool, light_control_scheme_t} get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]);
 
-    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
-    void beeper_on_command     (const bool beeper_on);
-    void beeper_blip_command   (const unsigned ms);
-    void heat_cables_command   (const heat_cable_commands_t heat_cable_commands);
+    void set_light_composition                  (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
+    void beeper_on_command                      (const bool beeper_on);
+    void beeper_blip_command                    (const unsigned ms);
+    void heat_cables_command                    (const heat_cable_commands_t heat_cable_commands);
+    bool get_heat_cables_forced_off_by_watchdog (void); // bool return is return_watchdog_timed_out
+
+    unsigned watchdog_retrigger_with (const unsigned ms); // Returns zero when timed out. See WATCHDOG_TICKS_TIMEOUT_MS above
 
 } port_heat_light_commands_if;
 

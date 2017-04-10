@@ -92,7 +92,7 @@ void My_startKIT_ADC_Client (
                             } else {
                                 // No code: get next data with i_startkit_adc_down.trigger above
                             }
-                        } break;
+                        } break; // When MAP_CHANENDS_23_A a debugger break always stops here with data_set_cnt==1090535551 0x4100407F
                     }
                     data_set_cnt++;
                 }

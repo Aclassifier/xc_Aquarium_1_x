@@ -59,6 +59,7 @@ int main() {
     temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
     temperature_water_commands_if  i_temperature_water_commands;
 
+    //#define MAP_CHANENDS_23_A // Search for it
     #define MAP_CHANENDS_27_A
 
     #ifdef MAP_CHANENDS_XX_A

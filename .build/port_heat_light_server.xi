@@ -1207,13 +1207,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-
-
-
-
-
-
-
+# 80 "../src/port_heat_light_server.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
@@ -1223,6 +1217,9 @@ typedef interface port_heat_light_commands_if {
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
+    bool get_heat_cables_forced_off_by_watchdog (void);
+
+    unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
 
@@ -1317,7 +1314,7 @@ typedef enum pin_change_t {
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 255 "../src/port_heat_light_server.xc"
+# 259 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
@@ -1343,6 +1340,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     do { if(0) printf("%s", "Port_Pins_Heat_Light_Server started\n"); } while (0);
 
     unsigned beeper_blip_ticks_cntdown = 0;
+    unsigned watchdog_ticks_cntdown = ((10000 * 1000) / 1500);
+    bool watchdog_timed_out = false;
 
 
 
@@ -1444,6 +1443,31 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                 iof_light_pwm_window++;
                 if (iof_light_pwm_window == 3) {iof_light_pwm_window = 0;}
+
+                if (watchdog_ticks_cntdown > 0) {
+                    watchdog_ticks_cntdown--;
+                    if (watchdog_ticks_cntdown == 0) {
+
+
+                        watchdog_timed_out = true;
+                        watchdog_ticks_cntdown = ((10000 * 1000) / 1500);
+
+
+                        port_value &= ~ (1<<14);
+                        beeper_blip_ticks_cntdown = 200;
+
+
+                        port_value &= ~ ((1<<6) | (1<<13));
+
+
+
+
+
+
+
+                        myport_p32 <: port_value;
+                    } else {}
+                } else {}
 
                 if (beeper_blip_ticks_cntdown == 1) {
                     beeper_blip_ticks_cntdown = 0;
@@ -1552,12 +1576,25 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
             case i_port_heat_light_commands[int index_of_client].beeper_blip_command (const unsigned ms): {
 
-
                 port_value &= ~ (1<<14);
                 myport_p32 <: port_value;
 
-                beeper_blip_ticks_cntdown = ( ms * 1000) / 1500;
+                beeper_blip_ticks_cntdown = ((ms * 1000) / 1500);
 
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].watchdog_retrigger_with (const unsigned set_new_ms) -> {unsigned return_rest_ms}: {
+                unsigned watchdog_ticks_cntdown_copy = watchdog_ticks_cntdown;
+
+                return_rest_ms = ((watchdog_ticks_cntdown * 1500) / 1000);
+                watchdog_ticks_cntdown = ((set_new_ms * 1000) / 1500);
+                do { if(0) printf("NEW=%ums->%ucnt, OLD=%ucnt->%ums\n", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms); } while (0);
+
+
+
+
+
+                watchdog_timed_out = false;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].heat_cables_command (const heat_cable_commands_t heat_cable_commands): {
@@ -1584,6 +1621,8 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         port_value_next |= ((1<<6) | (1<<13));
                     } break;
                 }
+
+                if (watchdog_timed_out) port_value_next &= ~ ((1<<6) | (1<<13));
 
                 if (port_value_next != port_value) {
 
@@ -1612,6 +1651,10 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     } else {}
 
                 } else {}
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_heat_cables_forced_off_by_watchdog (void) -> {bool return_watchdog_timed_out}: {
+                return_watchdog_timed_out = watchdog_timed_out;
             } break;
         }
     }

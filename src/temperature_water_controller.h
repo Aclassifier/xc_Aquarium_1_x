@@ -10,12 +10,13 @@
 #define TEMPERATURE_WATER_CONTROLLER_H_
 
 typedef enum now_regulating_at_t {
-    // The text for it is defined by // NOW_REGULATING_AT_CHAR_TEXTS:
-    REGULATING_AT_INIT,              // Displaying "#" in box    If it's switched on exactly 25.0 then it may sit like this until it changes
-    REGULATING_AT_BOILING,           // Displaying "2" in box    Water is much colder than wanted (forget about ambient temperature)
-    REGULATING_AT_SIMMERING,         // Displaying "1" in box    Water is a little colder than wanted (forget about ambient temperature)
-    REGULATING_AT_TEMP_REACHED,      // Displaying "=" in box    Water warmer than ambient air
-    REGULATING_AT_HOTTER_AMBIENT     // Displaying "H" in box    Water colder than ambient air (hot summer or burning wood?)
+    // The text for it is defined by   // NOW_REGULATING_AT_CHAR_TEXTS:
+    REGULATING_AT_INIT,                // Displaying "#" in box    If it's switched on exactly 25.0 then it may sit like this until it changes
+    REGULATING_AT_BOILING,             // Displaying "2" in box    Water is much colder than wanted (forget about ambient temperature)
+    REGULATING_AT_SIMMERING,           // Displaying "1" in box    Water is a little colder than wanted (forget about ambient temperature)
+    REGULATING_AT_TEMP_REACHED,        // Displaying "=" in box    Water warmer than ambient air
+    REGULATING_AT_HOTTER_AMBIENT,      // Displaying "H" in box    Water colder than ambient air (hot summer or burning wood?)
+    HEAT_CABLES_FORCED_OFF_BY_WATCHDOG // Displaying "0" in box    Regulator doesn't know, but heating switched off by Port_Pins_Heat_Light_Server
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
