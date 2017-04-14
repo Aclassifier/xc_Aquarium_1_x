@@ -1322,7 +1322,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 20 "../src/temperature_water_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 58 "../src/_texts_and_constants.h"
+# 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [6][2];
 # 21 "../src/temperature_water_controller.xc" 2
 # 1 "../src/f_conversions.h" 1

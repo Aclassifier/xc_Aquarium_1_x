@@ -63,7 +63,7 @@
 #define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_TEST_WATCHDOG // Toggles on/off in SCREEN_4_BOKSDATA. Name used in comment in another file
+// #define DEBUG_TEST_WATCHDOG // Toggles on/off in SCREEN_4_BOKSDATA. Name used in comment in another file
 
 //}}}  
 //{{{  definitions
@@ -256,11 +256,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 {
     int  sprintf_return = 0; // If OK, number of chars excluding \0 written, if < 0 error
 
-    const char char_degC_circle_str[]                         = DEGC_CIRCLE_STR;
-    const char char_AA_str[]                                  = CHAR_AA_STR; // A
-    const char char_aa_str[]                                  = CHAR_aa_STR; // å
-    const char char_OE_str[]                                  = CHAR_OE_STR; // Ø
-    const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
+    const char char_degC_circle_str[]                        = DEGC_CIRCLE_STR;
+    const char char_AA_str[]                                 = CHAR_AA_STR; // A
+    const char char_aa_str[]                                 = CHAR_aa_STR; // √•
+    const char char_OE_str[]                                 = CHAR_OE_STR; // √ò
+    const char takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR; // "¬±"
+    const char char_triple_bar[]                             = CHAR_TRIPLE_BAR_STR; // ‚â°
 
     x_debug_printf ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
@@ -320,7 +321,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     temp_degC_ambient_str, char_degC_circle_str,
                     temp_degC_heater_str,  char_degC_circle_str);
             //                                            ..........----------.
-            //                                            1± AKVARIETERMOMETERE or
+            //                                            1¬± AKVARIETERMOMETERE or
             //                                            1 AKVARIETERMOMETERE
             //                                                      VANN 25.0oC
             //                                                      LUFT 25.0oC
@@ -371,8 +372,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.on_watt);
             //                                            ..........----------.
             //                                            2 VANNTEMP-REG 24.0oC
-            //                                              PÅ       100%     .
-            //                                              SNITT  39.6oC   [±]
+            //                                              P√Ö       100%     .
+            //                                              SNITT  39.6oC   [¬±]
             //                                              EFFEKT    48W     .
 
             if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) or (context.heat_cables_forced_off_by_watchdog)) {
@@ -401,7 +402,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
+                debug_printf ("VARMEREGULERING: P√Ö %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
             } else {}
         } break;
 
@@ -422,7 +423,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_SHOW: {
 
                     const char stable_str   [] = "=";
-                    const char unstable_str [] = CHAR_PLUS_MINUS_STR; // "±"
+                    const char unstable_str [] = CHAR_PLUS_MINUS_STR; // "¬±"
                     const bool full_light      = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
 
                     #define CONTROL_SCREEN_TEXT_LEN  5
@@ -463,7 +464,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
                         sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
-                        sprintf (left_of_minutes_or_count_str, "T:%u", light_sunrise_sunset_context.num_random_sequences_left);
+                        sprintf (left_of_minutes_or_count_str, "T%s%u",
+                                (light_sunrise_sunset_context.light_change_window_open) ? ":" : char_triple_bar,
+                                 light_sunrise_sunset_context.num_random_sequences_left);
                     } else {
                         sprintf (left_of_minutes_or_count_str, "...");
                     }
@@ -471,27 +474,28 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
                           "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
-                          takes_press_for_10_seconds_right_button_str,                                       // "±"                                                                       //  Å
+                          takes_press_for_10_seconds_right_button_str,                                       // "¬±"                                                                       //  √Ö
                           WATTOF_LED_STRIP_FRONT,                                                            // "5"
                           WATTOF_LED_STRIP_CENTER,                                                           // "2"
                           WATTOF_LED_STRIP_BACK,                                                             // "2"
                           context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                               // "1"
                           context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                              // "2"
                           context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                // "3"
-                          takes_press_for_10_seconds_right_button_str,                                       // "±"
+                          takes_press_for_10_seconds_right_button_str,                                       // "¬±"
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                  // "3/3" or "2/3
                           (control_scheme_add_leading_space) ? " " : "",                                     // So that " INIT" and "  DAG" will be left aligned first visible char
                           light_control_scheme_str,                                                          // "NATT" etc.
-                          (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
+                          (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "¬±"
                           context.light_composition,                                                         // 10
-                          left_of_minutes_or_count_str);                                                     // M23 or M:2 or T:8 or ...
+                          left_of_minutes_or_count_str);                                                     // M:2 or T:8 or ...
                     //                                            ..........----------.
-                    //                                            ±3 LYS F:5W M:2W B:2W
+                    //                                            ¬±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
-                    //                                            ±      MAKS 3/3
-                    //                                                   INIT ± 10 M:12
-                    //                                                   DAG ± 10 M:12
-                    //                                                   LYKT ± 10 T:12
+                    //                                            ¬±      MAKS 3/3
+                    //                                                   INIT ¬± 10 M:12
+                    //                                                   DAG ¬± 10 M:12
+                    //                                                   NATT = 0 T‚â°8
+                    //                                                   LYKT ¬± 10 T:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -656,8 +660,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                            ..........----------.
             //                                            5 BOKS FFFFFFFF     .
             //                                              KODE Sep 22 2013  .
-            //                                              XC på XMOS startKIT
-            //                                              Øyvind Teig
+            //                                              XC p√• XMOS startKIT
+            //                                              √òyvind Teig
 
             /*sprintf_return = sprintf (context.display_ts1_chars,
                     "5 BOKS       %sKODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
@@ -669,8 +673,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                            ..........----------.
             //                                            5 BOKS       (DEBUG).
             //                                              KODE Sep 22 2013  .
-            //                                              XC på XMOS startKIT
-            //                                              Øyvind Teig       .
+            //                                              XC p√• XMOS startKIT
+            //                                              √òyvind Teig       .
 
 
             Clear_All_Pixels_In_Buffer();
@@ -720,7 +724,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                            6 KONSTANTER
                     //                                              25.0oC VANN OG MAX
                     //                                              40.0oC UNDERVARME
-                    //                                              2017.03.14 BOKS PÅ
+                    //                                              2017.03.14 BOKS P√Ö
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1248,7 +1252,7 @@ void System_Task_Data_Handler (
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
     int        sprintf_return;
-    const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
+    const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "¬±"
 
     error_bits_t error_bits = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
     caller_t     caller     = CALLER_IS_REFRESH; // May be overwritten
@@ -1353,7 +1357,7 @@ void System_Task_Data_Handler (
                             BYTE_TO_BINARY(ms_byte),
                             BYTE_TO_BINARY(ls_byte));
                     //                                        ..........----------.
-                    //                                        X± BIT-FEILMELDINGER
+                    //                                        X¬± BIT-FEILMELDINGER
                     //
                     //                                         F..C B..8 7..4 3..0
                     //                                         0000 0000 0000 0111 If external I2C cable is out

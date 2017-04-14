@@ -1529,7 +1529,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 24 "../src/f_conversions.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 58 "../src/_texts_and_constants.h"
+# 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [6][2];
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1

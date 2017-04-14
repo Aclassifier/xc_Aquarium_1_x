@@ -62,13 +62,14 @@ extern unsigned char font[];
 #define CHAR_SMILEY        2 // Alternatively 1
 #define CHAR_RIGHT_ARROW  26 // <-
 #define CHAR_LEFT_ARROW   27 // <-
-#define CHAR_aa          132 // Œ MODIFIED, was a-umlaut Š
-#define CHAR_AA          143 //  MODIFIED, was A-ring (but a dot)
-#define CHAR_ae          145 // ¾ MODIFIED, was o-umlaut š
-#define CHAR_AE          146 // ®
-#define CHAR_oe          148 // ¿
-#define CHAR_OE          236 // ¯
-#define CHAR_PLUS_MINUS  240 // ±
+#define CHAR_aa          132 // Ã¥ MODIFIED, was a-umlaut Ã¤
+#define CHAR_AA          143 // Ã… MODIFIED, was A-ring (but a dot)
+#define CHAR_ae          145 // Ã¦ MODIFIED, was o-umlaut Ã¶
+#define CHAR_AE          146 // Ã†
+#define CHAR_oe          148 // Ã¸
+#define CHAR_OE          236 // Ã˜
+#define CHAR_TRIPLE_BAR  239 // â‰¡
+#define CHAR_PLUS_MINUS  240 // Â±
 #define CHAR_CIRCLE      247 // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
 
 //  Original characters, MODIFIED in ASCII_FONT5X8

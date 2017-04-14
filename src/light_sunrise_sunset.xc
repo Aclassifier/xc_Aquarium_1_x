@@ -137,7 +137,6 @@ Handle_Light_Sunrise_Sunset_Etc (
     const bool                 trigger_minute_changed  = (context.datetime_now.minute != context.datetime_previous.minute);
     const bool                 trigger_hour_changed    = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
     const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
-
     unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
@@ -146,6 +145,9 @@ Handle_Light_Sunrise_Sunset_Etc (
     #else
         const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
     #endif
+
+    context.light_change_window_open = ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                 (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
     // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
@@ -315,8 +317,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  Trigger_hour_changed or light sensor internally changed
 
     if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // Start random only once per hours or when light changes
-        if ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-            (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST)) {     // And when it's day-time'ish
+        if (context.light_change_window_open) {                                     // And when it's day-time'ish
             if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
                 if (context.num_random_sequences_left > 0) {                        // Some left to do
                     if ((random_number % 2) == 0) {                                 // Every other hour
