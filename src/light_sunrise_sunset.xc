@@ -161,6 +161,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.do_init = false;
         context.num_minutes_left_of_random = 0;
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
+        context.num_minutes_left_of_day_night_action = 0;
 
         if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_VOID) {              // No FRAM chip?
             context.max_light = MAX_LIGHT_IS_FULL;                                // Default
@@ -215,11 +216,13 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  trigger_minute_changed
 
     if (trigger_minute_changed) {
-        const unsigned minutes_next_action =
+        const unsigned minutes_into_day_of_next_action =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
-        if (minutes_into_day == minutes_next_action) {
+        context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action - minutes_into_day;
+
+        if (minutes_into_day == minutes_into_day_of_next_action) {
 
             light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
             light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
@@ -299,7 +302,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             } else {}
 
         } else {
-            debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_next_action - minutes_into_day);
+            debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action - minutes_into_day);
         }
     } else {} // Action only at minute change
 

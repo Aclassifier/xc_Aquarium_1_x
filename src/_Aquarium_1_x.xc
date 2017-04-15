@@ -461,7 +461,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     #define LEFT_OF_RANDOM_TEXT_LEN 5
                     char left_of_minutes_or_count_str [LEFT_OF_RANDOM_TEXT_LEN];
                     //
-                    if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
+                    if ((context.light_control_scheme == LIGHT_CONTROL_IS_DAY_TO_NIGHT) or  // " NED"
+                        (context.light_control_scheme == LIGHT_CONTROL_IS_NIGHT_TO_DAY)) {  // " OPP"
+                        sprintf (left_of_minutes_or_count_str, "M:%u",  light_sunrise_sunset_context.num_minutes_left_of_day_night_action);
+                    } else if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
                         sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
@@ -493,8 +496,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                                   1/3  2/3  3/3.
                     //                                            ±      MAKS 3/3
                     //                                                   INIT ± 10 M:12
-                    //                                                   DAG ± 10 M:12
+                    //                                                    DAG ± 10 M:12
                     //                                                   NATT = 0 T≡8
+                    //                                                    NED = 3 M:4
                     //                                                   LYKT ± 10 T:12
 
                     Clear_All_Pixels_In_Buffer();

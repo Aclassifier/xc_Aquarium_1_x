@@ -38,6 +38,7 @@ typedef struct light_sunrise_sunset_context_t {
     random_generator_t        random_number;
     unsigned                  num_minutes_left_of_random;
     unsigned                  num_random_sequences_left;
+    unsigned                  num_minutes_left_of_day_night_action;
     max_light_t               max_light;
     max_light_t               max_light_in_FRAM_memory; // From Fujitsu MB85RC256V
     max_light_t               max_light_next;

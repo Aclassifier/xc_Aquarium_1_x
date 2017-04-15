@@ -1974,6 +1974,7 @@ typedef struct light_sunrise_sunset_context_t {
     random_generator_t random_number;
     unsigned num_minutes_left_of_random;
     unsigned num_random_sequences_left;
+    unsigned num_minutes_left_of_day_night_action;
     max_light_t max_light;
     max_light_t max_light_in_FRAM_memory;
     max_light_t max_light_next;
@@ -1984,7 +1985,7 @@ typedef struct light_sunrise_sunset_context_t {
     unsigned print_value_previous;
     bool do_FRAM_write;
 } light_sunrise_sunset_context_t;
-# 162 "../src/light_sunrise_sunset.h"
+# 163 "../src/light_sunrise_sunset.h"
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const max_light_t max_light);
 
@@ -2410,7 +2411,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     char left_of_minutes_or_count_str [5];
 
-                    if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
+                    if ((context.light_control_scheme == LIGHT_CONTROL_IS_DAY_TO_NIGHT) ||
+                        (context.light_control_scheme == LIGHT_CONTROL_IS_NIGHT_TO_DAY)) {
+                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_day_night_action);
+                    } else if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
                         sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random);
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
@@ -2437,7 +2441,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 500 "../src/_Aquarium_1_x.xc"
+# 504 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2594,10 +2598,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr 14 2017",
+                               "Apr 15 2017",
                                char_aa_str,
                                char_OE_str);
-# 680 "../src/_Aquarium_1_x.xc"
+# 684 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2608,7 +2612,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:33:51", "Apr 14 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:01:49", "Apr 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -2657,7 +2661,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:33:51", "Apr 14 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:01:49", "Apr 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -3289,7 +3293,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1399 "../src/_Aquarium_1_x.xc"
+# 1403 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3404,7 +3408,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1524 "../src/_Aquarium_1_x.xc"
+# 1528 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
