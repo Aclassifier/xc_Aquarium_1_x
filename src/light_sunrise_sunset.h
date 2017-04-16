@@ -8,7 +8,7 @@
 #ifndef LIGHT_DAY_NIGHT_H_
 #define LIGHT_DAY_NIGHT_H_
 
-// #define DEBUG_TEST_DAY_NIGHT_DAY // If defined, set time start in light_sunrise_sunset.xc
+//#define DEBUG_TEST_DAY_NIGHT_DAY // If defined, set time start in light_sunrise_sunset.xc
 
 typedef enum it_is_day_or_night_t {
     IT_IS_DAY,
@@ -90,9 +90,9 @@ typedef struct light_sunrise_sunset_context_t {
 // In any case it looks strange in the summer since it' so light in Norway then
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
-    #define NUM_MINUTES_INTO_DAY_TO_NIGHT_LIST_START     ((HH_A * 60) + MM_B) // Earliest is for MAX_LIGHT_IS_FULL
-    #define NUM_MINUTES_INTO_DAY_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
-    #define NUM_MINUTES_INTO_DAY_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F) // Latest is when MAX_LIGHT_IS_FULL
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((HH_A * 60) + MM_B) // Earliest is for MAX_LIGHT_IS_FULL
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F) // Latest is when MAX_LIGHT_IS_FULL
 
     // LIGHT_COMPOSITION_3000_mW_ON, LIGHT_COMPOSITION_6000_mW_ON
     // not using it here because FRONT1 in the sequence is too dominant
@@ -124,32 +124,32 @@ typedef struct light_sunrise_sunset_context_t {
 
 #else //  DEBUG_TEST_DAY_NIGHT_DAY
 
-    #define NUM_MINUTES_INTO_DAY_TO_NIGHT_LIST_START     ((22 * 60) + 30)
-    #define NUM_MINUTES_INTO_DAY_NIGHT_TO_DAY_LIST_START ((22 * 60) + 40)
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((22 * 60) + 30)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 40)
     //   hours   minutes
     //                   LIGHT_COMPOSITION_9000_mW_ON
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {    22,     30, LIGHT_COMPOSITION_8333_mW_ON}, \
+        {    22,     30, LIGHT_COMPOSITION_8333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
         {    22,     31, LIGHT_COMPOSITION_5666_mW_ON}, \
-        {    22,     32, LIGHT_COMPOSITION_4000_mW_ON}, \
-        {    22,     33, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     34, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     35, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
-        {    22,     36, LIGHT_COMPOSITION_0666_mW_ON}, \
-        {    22,     37, LIGHT_COMPOSITION_0000_mW_OFF}
+        {    22,     34, LIGHT_COMPOSITION_4000_mW_ON}, \
+        {    22,     35, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     36, LIGHT_COMPOSITION_2666_mW_ON}, \
+        {    22,     37, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
+        {    22,     38, LIGHT_COMPOSITION_0666_mW_ON}, \
+        {    22,     39, LIGHT_COMPOSITION_0000_mW_OFF}
     //   hours   minutes
     //                   LIGHT_COMPOSITION_0000_mW_OFF
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {    22,     38, LIGHT_COMPOSITION_0666_mW_ON}, \
-        {    22,     39, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
-        {    22,     40, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     41, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     42, LIGHT_COMPOSITION_4000_mW_ON}, \
-        {    22,     43, LIGHT_COMPOSITION_5666_mW_ON}, \
-        {    22,     44, LIGHT_COMPOSITION_8333_mW_ON}, \
-        {    22,     45, LIGHT_COMPOSITION_9000_mW_ON}
+        {    22,     40, LIGHT_COMPOSITION_0666_mW_ON},  /* NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START */ \
+        {    22,     41, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
+        {    22,     44, LIGHT_COMPOSITION_2666_mW_ON}, \
+        {    22,     45, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     46, LIGHT_COMPOSITION_4000_mW_ON}, \
+        {    22,     47, LIGHT_COMPOSITION_5666_mW_ON}, \
+        {    22,     48, LIGHT_COMPOSITION_8333_mW_ON}, \
+        {    22,     49, LIGHT_COMPOSITION_9000_mW_ON}
 
-        #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) (NUM_MINUTES_INTO_DAY_TO_NIGHT_LIST_START - ((hour_now*60)+min_now))
+        #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) ((NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START-((hour_now*60)+min_now))+1) // +1 so that it will start at DEBUG time, not when passed
 #endif
 
 #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST ((HH_RANDOM_EARLIEST * 60) + MM_RANDOM_EARLIEST)
