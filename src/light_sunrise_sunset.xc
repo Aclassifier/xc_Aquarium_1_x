@@ -141,7 +141,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
         const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute) +
-            NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(17,53); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
+            NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(16,28); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
     #else
         const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
     #endif
@@ -188,15 +188,15 @@ Handle_Light_Sunrise_Sunset_Etc (
             debug_set_val_to (print_value,33);
             i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33);
         #else // NORMAL
-            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and    // Before 22.00
-                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {  // After  08.30
+            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
                 context.it_is_day_or_night = IT_IS_DAY;
             } else {
                 context.it_is_day_or_night = IT_IS_NIGHT;
             }
 
-            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and    // Before 22.00
-                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) { // After   8.00
+            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
                 context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
                 light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
                 // --------------------- SET FIRST LIGHT LEVEL ---------------------
@@ -216,12 +216,12 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  trigger_minute_changed
 
     if (trigger_minute_changed) {
-        const unsigned minutes_into_day_of_next_action =
+        unsigned minutes_into_day_of_next_action =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
-        context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day);
-        // Will show 0 the full last minute, just like num_minutes_left_of_random
+        context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day); // May be updated below
+        // Will NOT show 0 the full last minute, unlike num_minutes_left_of_random
 
         if (minutes_into_day == minutes_into_day_of_next_action) {
 
@@ -288,9 +288,16 @@ Handle_Light_Sunrise_Sunset_Etc (
 
             context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
 
+            // Update for num_minutes_left_of_day_night_action since iof_day_night_action_list has changed
+            minutes_into_day_of_next_action =
+                    (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
+                     hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
+            context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day); // Updated, so "zero" isn't seen in this case!
+            // Will NOT show 0 the full last minute, unlike num_minutes_left_of_random
+
         } else if (context.num_minutes_left_of_random > 0) {
 
-            context.num_minutes_left_of_random--; // Will show 0 the full last minute, just like context.num_minutes_left_of_day_night_action
+            context.num_minutes_left_of_random--; // Will show 0 the full last minute, unlike context.num_minutes_left_of_day_night_action
 
             debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random);
             if (context.num_minutes_left_of_random == 0) {

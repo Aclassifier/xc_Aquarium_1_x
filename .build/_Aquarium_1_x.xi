@@ -2598,7 +2598,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr 16 2017",
+                               "Apr 17 2017",
                                char_aa_str,
                                char_OE_str);
 # 684 "../src/_Aquarium_1_x.xc"
@@ -2612,7 +2612,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "18:56:55", "Apr 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "17:41:01", "Apr 17 2017"); } while (0);
             } else {}
         } break;
 
@@ -2661,7 +2661,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "18:56:55", "Apr 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "17:41:01", "Apr 17 2017"); } while (0);
             } else {}
         } break;
 

@@ -125,29 +125,29 @@ typedef struct light_sunrise_sunset_context_t {
 #else //  DEBUG_TEST_DAY_NIGHT_DAY
 
     #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((22 * 60) + 30)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 40)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 41)
     //   hours   minutes
     //                   LIGHT_COMPOSITION_9000_mW_ON
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
         {    22,     30, LIGHT_COMPOSITION_8333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
         {    22,     31, LIGHT_COMPOSITION_5666_mW_ON}, \
         {    22,     34, LIGHT_COMPOSITION_4000_mW_ON}, \
-        {    22,     35, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     36, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     37, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
-        {    22,     38, LIGHT_COMPOSITION_0666_mW_ON}, \
-        {    22,     39, LIGHT_COMPOSITION_0000_mW_OFF}
+        {    22,     36, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     37, LIGHT_COMPOSITION_2666_mW_ON}, \
+        {    22,     38, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
+        {    22,     39, LIGHT_COMPOSITION_0666_mW_ON}, \
+        {    22,     40, LIGHT_COMPOSITION_0000_mW_OFF}
     //   hours   minutes
     //                   LIGHT_COMPOSITION_0000_mW_OFF
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {    22,     40, LIGHT_COMPOSITION_0666_mW_ON},  /* NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START */ \
-        {    22,     41, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
-        {    22,     44, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     45, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     46, LIGHT_COMPOSITION_4000_mW_ON}, \
+        {    22,     41, LIGHT_COMPOSITION_0666_mW_ON},  /* NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START */ \
+        {    22,     42, LIGHT_COMPOSITION_2000_mW_ON_MIXED}, \
+        {    22,     43, LIGHT_COMPOSITION_2666_mW_ON}, \
+        {    22,     44, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     45, LIGHT_COMPOSITION_4000_mW_ON}, \
         {    22,     47, LIGHT_COMPOSITION_5666_mW_ON}, \
-        {    22,     48, LIGHT_COMPOSITION_8333_mW_ON}, \
-        {    22,     49, LIGHT_COMPOSITION_9000_mW_ON}
+        {    22,     49, LIGHT_COMPOSITION_8333_mW_ON}, \
+        {    22,     53, LIGHT_COMPOSITION_9000_mW_ON}
 
         #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) ((NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START-((hour_now*60)+min_now))+1) // +1 so that it will start at DEBUG time, not when passed
 #endif
