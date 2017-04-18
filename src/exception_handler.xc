@@ -48,10 +48,7 @@ void assert_exception (bool assert_this) {
             asm(" ecallf %0" :: "r" (0));
         }
 
-
-
         // http://www.xmos.com/download/private/XS1-U16A-128-FB217-Datasheet%281.10%29.pdf
-
     }
 }
 

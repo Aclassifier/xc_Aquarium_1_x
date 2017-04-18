@@ -463,9 +463,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //
                     if ((context.light_control_scheme == LIGHT_CONTROL_IS_DAY_TO_NIGHT) or  // " NED"
                         (context.light_control_scheme == LIGHT_CONTROL_IS_NIGHT_TO_DAY)) {  // " OPP"
-                        sprintf (left_of_minutes_or_count_str, "M:%u",  light_sunrise_sunset_context.num_minutes_left_of_day_night_action); // Shows 1 last minute...
+                        sprintf (left_of_minutes_or_count_str, "M:%u",  light_sunrise_sunset_context.num_minutes_left_of_day_night_action); // Will show 0 the full last minute
                     } else if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
-                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // Shows 0 last minute! (+1 here is wrong)
+                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // Will show 0 the full last minute
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
                                 (light_sunrise_sunset_context.light_change_window_open) ? ":" : char_triple_bar,

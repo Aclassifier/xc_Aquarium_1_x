@@ -8,7 +8,7 @@
 #ifndef LIGHT_DAY_NIGHT_H_
 #define LIGHT_DAY_NIGHT_H_
 
-//#define DEBUG_TEST_DAY_NIGHT_DAY // If defined, set time start in light_sunrise_sunset.xc
+// #define DEBUG_TEST_DAY_NIGHT_DAY // If defined, set time start in light_sunrise_sunset.xc
 
 typedef enum it_is_day_or_night_t {
     IT_IS_DAY,
