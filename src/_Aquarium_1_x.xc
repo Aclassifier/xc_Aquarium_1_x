@@ -153,7 +153,10 @@ typedef enum error_bits_t {   // 0xHH since binary in display
     ERROR_BIT_I2C_AMBIENT      = 0x00,
     ERROR_BIT_I2C_WATER        = 0x01,
     ERROR_BIT_I2C_HEATER       = 0x02,
-    // VACANT                    0x03
+    ERROR_BIT_HEATER_CABLE     = 0x03, // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) in
+                                       // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) when needed.
+                                       // Is automatically reset when "?" HEAT_CABLE_ERROR is not shown in SCREEN_2_VANNTEMP_REG;
+                                       // when the heating cable has been connected
     //
     ERROR_BIT_LOW_12V_LIGHT    = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1
     ERROR_BIT_HIGH_12V_LIGHT   = 0x05, // INNER_RR_12V_MAX_VOLTS_DP1
@@ -204,6 +207,7 @@ typedef struct handler_context_t {
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
+    bool                        on_ok;
     unsigned                    on_percent;
     unsigned                    on_watt;
     now_regulating_at_t         now_regulating_at;
@@ -376,7 +380,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                              SNITT  39.6oC   [±]
             //                                              EFFEKT    48W     .
 
-            if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) or (context.heat_cables_forced_off_by_watchdog)) {
+            if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) or
+                (context.heat_cables_forced_off_by_watchdog) or
+                (not context.on_ok)) {
+
                 drawRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
                 fillRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top FILL ONLY
                 setTextColor(BLACK);
@@ -388,7 +395,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             setCursor(101,14);
 
             if (context.heat_cables_forced_off_by_watchdog) {
-                display_print (now_regulating_at_char[HEAT_CABLES_FORCED_OFF_BY_WATCHDOG],REGULATING_AT_NUMS_TEXT_LEN);
+                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],REGULATING_AT_NUMS_TEXT_LEN);
+            } else if (not context.on_ok) {
+                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],REGULATING_AT_NUMS_TEXT_LEN);
             } else {
                 display_print (now_regulating_at_char[context.now_regulating_at],REGULATING_AT_NUMS_TEXT_LEN);
             }
@@ -1014,10 +1023,10 @@ void Handle_Real_Or_Clocked_Buttons (
                                // No code, all fine with no error(s)
                            } else if (context.error_beeper_blip_now_muted) {
                                // No code, already muted
-                           } else {
+                           } else if (caller == CALLER_IS_BUTTON) {
                                // Error(s) and not muted. Mute it now:
                                context.error_beeper_blip_now_muted = true;
-                           }
+                           } else {}
                         }
                     } else {}
 
@@ -1268,7 +1277,7 @@ void System_Task_Data_Handler (
     {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
     {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
     {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}      = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
-    {context.on_percent, context.on_watt}                                       = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+    {context.on_ok, context.on_percent, context.on_watt}                        = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
 
@@ -1294,6 +1303,10 @@ void System_Task_Data_Handler (
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > TEMP_ONETENTHDEGC_50_0_HEATER_MAX) {
         error_bits or_eq (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     }
+
+    if (not context.on_ok) {
+        error_bits or_eq (1<<ERROR_BIT_HEATER_CABLE);
+    } else {}
 
     if (context.rr_12V_voltage_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
         error_bits or_eq (1<<ERROR_BIT_LOW_12V_LIGHT);
@@ -1653,7 +1666,7 @@ void System_Task (
                     // and I here continue with about 1 second (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS)
                     // The NEXT watchdog_rest_ms are within +/- one ms! Unbelievable!
                     //
-                    debug_printf ("watchdog_rest_ms %u\n", watchdog_rest_ms);
+                    // debug_printf ("watchdog_rest_ms %u\n", watchdog_rest_ms);
                 }
                 //}}}  
             } break;

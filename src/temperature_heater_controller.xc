@@ -38,11 +38,34 @@ typedef enum is_doing_t {
     IS_CONTROLLING
 } is_doing_t;
 
+//Êcable_heater_mon_state_t
+// Monitors the enclosed space below the aquarium where the heating element tray has been pushed in place and closed.
+// This mechanism does not side effect into any other state. It is simply reported back to a client.
+// In the final end the ERROR_BIT_HEATER_CABLE is set when
+// the heater temperature not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) in
+// CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) when needed
+
+typedef enum cable_heater_mon_state_t {
+    CABLE_HEATER_OK, // Or we don't know yet
+    CABLE_HEATER_ASSUMED_POWERED,
+    CABLE_HEATER_TEMP_RISE_SEEN_OK,
+    CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR, // For CABLE_HEATER_ASSUMED_POWERED_SECONDS or heating element tray slided out of the aquarium
+    CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED
+} cable_heater_mon_state_t;///
+
+typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE
+    cable_heater_mon_state_t state;
+    temp_onetenthDegC_t      temp_onetenthDegC_heater_when_assumed_on;
+    unsigned                 on_cnt_secs_since_heater_assumed_on;
+} cable_heater_mon_t;
+
 #define RAW_TIMER_INTERVAL_IS_100_MILLISECONDS 100 // Times 100 yields 10 seconds round trip when ON_OFF_PROPORTIONAL
 #define NUM_TIMER_TICKS_PER_SECOND             10  // 10 seconds
 #define TEMP_MEASURE_INTERVAL_IS_10_SECONDS    ((NUM_TIMER_TICKS_PER_SECOND * 1000) / RAW_TIMER_INTERVAL_IS_100_MILLISECONDS)
                                                // 100 yields 10 seconds
                                                // Observe ARITHMETIC_MEAN_N_OF_TEMPS
+
+#define CABLE_HEATER_ASSUMED_POWERED_SECONDS (60 * 3) // It takes some time before the room is heated
 
 [[combinable]]
 void Temperature_Heater_Controller (
@@ -58,13 +81,14 @@ void Temperature_Heater_Controller (
     method_of_on_off_t  method_of_on_off = ON_OFF_TEMPC_HEATER;
     heater_wires_t      heater_wires     = HEATER_WIRES_BOTH_IS_FULL; // With 99% above you'll only notice the alternating HEAT_1_ON and HEAT_2_ON
     is_doing_t          is_doing         = IS_CONTROLLING;
-    unsigned            on_cnt_secs      = 0;
-    unsigned            off_cnt_secs     = 0;
-    unsigned            err_cnt_times    = 0;
+    unsigned            on_cnt_secs      = 0; // 32 bit value only incremented
+    unsigned            off_cnt_secs     = 0; // 32 bit value only incremented
+    unsigned            err_cnt_times    = 0; // 32 bit value only incremented
     bool                on_now           = false;
     bool                on_now_previous  = false;
     unsigned            on_percent       = 0;
     bool                first_round      = true;
+    cable_heater_mon_t  cable_heater_mon;
 
     unsigned            temp_onetenthDegC_heater_num = 0;
     int                 temp_onetenthDegC_heater_sum = 0;
@@ -82,6 +106,8 @@ void Temperature_Heater_Controller (
         Init_Arithmetic_Mean_Temp_OnetenthDegC (temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS);
     }
 
+    cable_heater_mon.state = CABLE_HEATER_OK;
+
     debug_printf("%s", "Temperature_Heater_Controller started\n");
 
     tmr :> time;
@@ -98,12 +124,15 @@ void Temperature_Heater_Controller (
                     raw_timer_interval_cnt_for_one_second = 0;
                     if (on_now) {
                         on_cnt_secs++;
+                        if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
+                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on++;
+                        } else {}
                     } else { // off_now
                         off_cnt_secs++;
                     }
                 } else {} // No code, counting to 1 secd
 
-                if (method_of_on_off == ON_OFF_PROPORTIONAL) {
+                if (method_of_on_off == ON_OFF_PROPORTIONAL) { // NOT here
                     proportional_percent_cnt = (proportional_percent_cnt + 1) % 100; // modulus 100 divison yields [0..99]
 
                     if (proportional_heater_percent_on_limit == 0) {
@@ -121,8 +150,8 @@ void Temperature_Heater_Controller (
                             i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
                         } else {}
                     }
-                } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) {
-                    if (temp_measurement_ticks_cnt == 0) {
+                } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) { // HERE
+                    if (temp_measurement_ticks_cnt == 0) { // Every TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
                         i_i2c_external_commands.command (GET_TEMPC_ALL); // Trigger
 
@@ -135,12 +164,12 @@ void Temperature_Heater_Controller (
 
             } break;
 
-            case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): { // Triggered and valus ready
+            case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): { // Triggered and value ready
 
                 bool ok_degC_converts[NUM_I2C_TEMPERATURES];
                 bool ok_degC_i2cs    [NUM_I2C_TEMPERATURES];
 
-                // --- READ THE THREE I2C TEMPERATURE CHIPS ---
+                // --- READ THE THREE I2C TEMPERATURE CHIPS every TEMP_MEASURE_INTERVAL_IS_10_SECONDS ---
                 //
                 i2c_temps_t i2c_temps = i_i2c_external_commands.read_temperature_ok();
 
@@ -157,7 +186,6 @@ void Temperature_Heater_Controller (
                                 temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. May be overwritten with mean value below
 
                     if (ok_degC_i2cs[iof_i2c_temp] and ok_degC_converts[iof_i2c_temp]) {
-                        // qwe should we not include IOF_TEMPC_HEATER
                         temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
@@ -187,16 +215,20 @@ void Temperature_Heater_Controller (
 
                     if (on_now) {
                         if (temps_onetenthDegC[IOF_TEMPC_HEATER] >= (temp_onetenthDegC_heater_limit + TEMP_ONETENTHDEGC_00_2_HYSTERESIS))  {
-                            on_now = false;
+                            on_now = false; // HEATER OFF
+                            if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED) {
+                                cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK; // Auto reset when OK again
+                                debug_printf("%s", " @ Heater assumed ok again\n");
+                            } else {}
                         } else {} // Stay on, let it heat (but continue to cool i.e. undershoot for a while when it's just been switched on)
                     } else { // off_now
                         if (temps_onetenthDegC[IOF_TEMPC_HEATER] <= (temp_onetenthDegC_heater_limit - TEMP_ONETENTHDEGC_00_2_HYSTERESIS))  {
-                            on_now = true;
+                            on_now = true;  // HEATER ON
                         } else {} // Stay off, let it cool (but continue to heat i.e. overshoot for a while when it's just been switched off)
                     }
                 } else {
                     err_cnt_times++;
-                    on_now = false;
+                    on_now = false; // HEATER OFF
                     // temp_onetenthDegC_heater_sum = 0; // xcore-5662 not any more
                     debug_printf ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
                 }
@@ -215,8 +247,22 @@ void Temperature_Heater_Controller (
                 }
 
                 if (on_now_previous != on_now) { // changed
-                    if (on_now == false) { // into off, will also zero on initial raise
+                    if (on_now == true) { // on_now means into HEATER ON
 
+                        if ((cable_heater_mon.state == CABLE_HEATER_OK) or (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
+
+                            // No test of temp_onetenthDegC_heater_limit here since when we turn it on, for no matter small rise,
+                            // the physical characteristics of the heating space is such that we'll have a rise anyhow, i.e. an overshoot
+
+                            cable_heater_mon.state = CABLE_HEATER_ASSUMED_POWERED;
+                            cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
+                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on = 0;
+                            debug_printf("%s", " @ Heater assumed on from now");
+                        } else {
+                            debug_printf("%s", " @ Heater history A");
+                        }
+
+                    } else { // Into HEATER OFF, will also zero on initial raise
                         const unsigned sum_on_off_seconds = off_cnt_secs + on_cnt_secs;
                         bool           ok_degC_heater_mean_last_cycle;
 
@@ -235,19 +281,42 @@ void Temperature_Heater_Controller (
                         }
 
                         {temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], ok_degC_heater_mean_last_cycle} =
-                            Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
+                             Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
 
                         debug_printf ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
-                                temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],
-                                temp_onetenthDegC_heater_num,
-                                temp_onetenthDegC_heater_num * NUM_TIMER_TICKS_PER_SECOND,
-                                on_percent);
+                             temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],
+                             temp_onetenthDegC_heater_num,
+                             temp_onetenthDegC_heater_num * NUM_TIMER_TICKS_PER_SECOND,
+                             on_percent);
 
                         temp_onetenthDegC_heater_sum = 0;
                         temp_onetenthDegC_heater_num = 0;
 
-                    } else {} // Do nothing
-                } else {} // Do nothing
+                        if ((cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) or (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
+                            cable_heater_mon.state = CABLE_HEATER_OK;
+                            debug_printf("%s", " @ Heater assumed ok now");
+                        } else {
+                            debug_printf("%s", " @ Heater off");
+                        }
+                    }
+                } else { // on_now_previous == on_now i.e. change
+                    if (on_now == true) { // on_now means continued HEATER ON or assumed heater on
+                        if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
+                            if (cable_heater_mon.on_cnt_secs_since_heater_assumed_on >= CABLE_HEATER_ASSUMED_POWERED_SECONDS) {
+
+                                if (temps_onetenthDegC[IOF_TEMPC_HEATER] > (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on + TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE)) {
+                                    cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK;
+                                    debug_printf("%s", " @ Heater temp rise ok now");
+                                } else {
+                                    cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR;
+                                    debug_printf("%s", " @ Heater temp rise not seen");
+                                }
+                            } else {
+                                debug_printf(" @ Heater temp rise monitored for %u seconds", cable_heater_mon.on_cnt_secs_since_heater_assumed_on);
+                            }
+                        } else {}
+                    } else {} // on_now false means continued HEATER OFF
+                }
 
                 debug_printf ("%s", "\n");
 
@@ -293,7 +362,7 @@ void Temperature_Heater_Controller (
             } break;
 
             case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
-                    {unsigned return_value_on_percent, unsigned return_value_on_watt}: {
+                    {bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
                 unsigned ohm;
 
                 if (rr_24V_voltage_onetenthV == 0) {
@@ -333,6 +402,17 @@ void Temperature_Heater_Controller (
                 // 48W = (240 * 240) / (12 * 100)
 
                 return_value_on_watt = (return_value_on_watt * return_value_on_percent) / 100;
+
+                if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR) {
+                    cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED;
+                    return_on_ok = false;
+                    debug_printf("%s", "Heater error reported\n");
+                } else if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED) {
+                    return_on_ok = false;
+                } else {
+                    return_on_ok = true;
+                }
+
             } break;
         }
     }

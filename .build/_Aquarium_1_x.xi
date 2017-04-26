@@ -1752,7 +1752,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [6][2];
+typedef char now_regulating_at_char_t [7][2];
 # 40 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/f_conversions.h" 1
@@ -1763,7 +1763,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 56 "../src/f_conversions.h"
+# 57 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1783,7 +1783,7 @@ typedef struct temp_onetenthDegC_mean_t {
     unsigned temps_num;
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
-# 89 "../src/f_conversions.h"
+# 90 "../src/f_conversions.h"
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
@@ -1826,7 +1826,7 @@ typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
-    {unsigned, unsigned}
+    {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
@@ -1848,7 +1848,10 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_SIMMERING,
     REGULATING_AT_TEMP_REACHED,
     REGULATING_AT_HOTTER_AMBIENT,
-    HEAT_CABLES_FORCED_OFF_BY_WATCHDOG
+
+
+    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG,
+    HEAT_CABLE_ERROR
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
@@ -2103,6 +2106,9 @@ typedef enum error_bits_t {
     ERROR_BIT_I2C_AMBIENT = 0x00,
     ERROR_BIT_I2C_WATER = 0x01,
     ERROR_BIT_I2C_HEATER = 0x02,
+    ERROR_BIT_HEATER_CABLE = 0x03,
+
+
 
 
     ERROR_BIT_LOW_12V_LIGHT = 0x04,
@@ -2154,6 +2160,7 @@ typedef struct handler_context_t {
     unsigned int adc_cnt;
     unsigned int no_adc_cnt;
     t_startkit_adc_vals adc_vals_for_use;
+    bool on_ok;
     unsigned on_percent;
     unsigned on_watt;
     now_regulating_at_t now_regulating_at;
@@ -2307,7 +2314,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             Clear_All_Pixels_In_Buffer();
 
-            now_regulating_at_char_t now_regulating_at_char = {"#", "2", "1", "=", "H", "0"};
+            now_regulating_at_char_t now_regulating_at_char = {"#", "2", "1", "=", "H", "0", "?"};
 
             i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str);
 
@@ -2326,7 +2333,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
 
-            if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) || (context.heat_cables_forced_off_by_watchdog)) {
+            if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) ||
+                (context.heat_cables_forced_off_by_watchdog) ||
+                (! context.on_ok)) {
+
                 drawRoundRect(98, 11, 16, 20, 3, 1);
                 fillRoundRect(98, 11, 16, 20, 3, 1);
                 setTextColor(0);
@@ -2338,7 +2348,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             setCursor(101,14);
 
             if (context.heat_cables_forced_off_by_watchdog) {
-                display_print (now_regulating_at_char[HEAT_CABLES_FORCED_OFF_BY_WATCHDOG],2);
+                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],2);
+            } else if (! context.on_ok) {
+                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],2);
             } else {
                 display_print (now_regulating_at_char[context.now_regulating_at],2);
             }
@@ -2441,7 +2453,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 504 "../src/_Aquarium_1_x.xc"
+# 513 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2598,10 +2610,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr 18 2017",
+                               "Apr 26 2017",
                                char_aa_str,
                                char_OE_str);
-# 684 "../src/_Aquarium_1_x.xc"
+# 693 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2612,7 +2624,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "22:08:41", "Apr 18 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "14:44:14", "Apr 26 2017"); } while (0);
             } else {}
         } break;
 
@@ -2661,7 +2673,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "22:08:41", "Apr 18 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "14:44:14", "Apr 26 2017"); } while (0);
             } else {}
         } break;
 
@@ -2935,10 +2947,10 @@ void Handle_Real_Or_Clocked_Buttons (
 
                            } else if (context.error_beeper_blip_now_muted) {
 
-                           } else {
+                           } else if (caller == CALLER_IS_BUTTON) {
 
                                context.error_beeper_blip_now_muted = true;
-                           }
+                           } else {}
                         }
                     } else {}
 
@@ -3189,7 +3201,7 @@ void System_Task_Data_Handler (
     {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[3], ((void*)0));
     {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok} = RR_12V_24V_To_String_Ok (context.adc_vals_for_use.x[0], ((void*)0));
     {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok} = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[2], ((void*)0));
-    {context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+    {context.on_ok, context.on_percent, context.on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
 
@@ -3215,6 +3227,10 @@ void System_Task_Data_Handler (
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > 500) {
         error_bits |= (1<<ERROR_BIT_HEATER_OVERHEAT);
     }
+
+    if (! context.on_ok) {
+        error_bits |= (1<<ERROR_BIT_HEATER_CABLE);
+    } else {}
 
     if (context.rr_12V_voltage_onetenthV < 100) {
         error_bits |= (1<<ERROR_BIT_LOW_12V_LIGHT);
@@ -3293,7 +3309,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1403 "../src/_Aquarium_1_x.xc"
+# 1416 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3408,7 +3424,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1528 "../src/_Aquarium_1_x.xc"
+# 1541 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3537,7 +3553,7 @@ void System_Task (
 
 
 
-                    do { if(1) printf("watchdog_rest_ms %u\n", watchdog_rest_ms); } while (0);
+
                 }
 
             } break;

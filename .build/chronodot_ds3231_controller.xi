@@ -1662,7 +1662,7 @@ typedef struct {
 # 29 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [6][2];
+typedef char now_regulating_at_char_t [7][2];
 # 30 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
@@ -1672,7 +1672,7 @@ void myExceptionHandler(void);
 typedef int temp_onetenthDegC_t;
 typedef int voltage_onetenthV_t;
 typedef int light_sensor_range_t;
-# 56 "../src/f_conversions.h"
+# 57 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1692,7 +1692,7 @@ typedef struct temp_onetenthDegC_mean_t {
     unsigned temps_num;
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
-# 89 "../src/f_conversions.h"
+# 90 "../src/f_conversions.h"
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
@@ -1809,7 +1809,7 @@ typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
-    {unsigned, unsigned}
+    {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
@@ -1830,7 +1830,10 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_SIMMERING,
     REGULATING_AT_TEMP_REACHED,
     REGULATING_AT_HOTTER_AMBIENT,
-    HEAT_CABLES_FORCED_OFF_BY_WATCHDOG
+
+
+    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG,
+    HEAT_CABLE_ERROR
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {

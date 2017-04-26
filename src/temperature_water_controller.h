@@ -16,7 +16,10 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_SIMMERING,           // Displaying "1" in box    Water is a little colder than wanted (forget about ambient temperature)
     REGULATING_AT_TEMP_REACHED,        // Displaying "=" in box    Water warmer than ambient air
     REGULATING_AT_HOTTER_AMBIENT,      // Displaying "H" in box    Water colder than ambient air (hot summer or burning wood?)
-    HEAT_CABLES_FORCED_OFF_BY_WATCHDOG // Displaying "0" in box    Regulator doesn't know, but heating switched off by Port_Pins_Heat_Light_Server
+    //
+    // Not part of regulation index above, only used for displaying special state but still using NOW_REGULATING_AT_CHAR_TEXTS
+    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG, // Displaying "0" in box    Regulator doesn't know, but heating switched off by Port_Pins_Heat_Light_Server
+    HEAT_CABLE_ERROR                   // Displaying "?" in box    Heating cable is not connected, temperature rise in heating space underneath not seen
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
