@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/temperature_heater_controller.xc" 2
-# 10 "../src/temperature_heater_controller.xc"
+# 11 "../src/temperature_heater_controller.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -415,6 +415,7 @@ service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
 # 11 "../src/temperature_heater_controller.xc" 2
+
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
@@ -1040,6 +1041,7 @@ int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
 # 13 "../src/temperature_heater_controller.xc" 2
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -1111,8 +1113,10 @@ typedef unsigned int uintptr_t;
 }
 # 14 "../src/temperature_heater_controller.xc" 2
 
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
 # 16 "../src/temperature_heater_controller.xc" 2
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/print.h" 3
 int printchar(char value);
@@ -1221,6 +1225,7 @@ int printstr(const char (& alias s)[]);
 int printstrln(const char (& alias s)[]);
 # 17 "../src/temperature_heater_controller.xc" 2
 
+
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 21 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
@@ -1282,6 +1287,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          struct r_i2c &i2c_master);
 # 19 "../src/temperature_heater_controller.xc" 2
 
+
 # 1 "../src/param.h" 1
 # 17 "../src/param.h"
 typedef enum {false,true} bool;
@@ -1314,10 +1320,12 @@ typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
 # 21 "../src/temperature_heater_controller.xc" 2
+
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [7][2];
 # 22 "../src/temperature_heater_controller.xc" 2
+
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
 void installExceptionHandler(void);
@@ -1365,6 +1373,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 23 "../src/temperature_heater_controller.xc" 2
+
 # 1 "../src/I2C_External_Server.h" 1
 # 10 "../src/I2C_External_Server.h"
 typedef enum i2c_dev_address_external_t {
@@ -1411,6 +1420,7 @@ typedef interface i2c_external_commands_if {
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 24 "../src/temperature_heater_controller.xc" 2
+
 # 1 "../src/port_heat_light_server.h" 1
 # 10 "../src/port_heat_light_server.h"
 typedef enum iof_LED_strip_t {
@@ -1486,6 +1496,7 @@ typedef interface port_heat_light_commands_if {
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 25 "../src/temperature_heater_controller.xc" 2
+
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
 typedef enum heater_wires_t {
@@ -1521,11 +1532,7 @@ void Temperature_Heater_Controller (
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
 # 26 "../src/temperature_heater_controller.xc" 2
-
-
-
-
-
+# 40 "../src/temperature_heater_controller.xc"
 typedef enum method_of_on_off_t {
     ON_OFF_PROPORTIONAL,
     ON_OFF_TEMPC_HEATER
@@ -1535,7 +1542,7 @@ typedef enum is_doing_t {
     IS_READING_TEMPS,
     IS_CONTROLLING
 } is_doing_t;
-# 48 "../src/temperature_heater_controller.xc"
+# 57 "../src/temperature_heater_controller.xc"
 typedef enum cable_heater_mon_state_t {
     CABLE_HEATER_OK,
     CABLE_HEATER_ASSUMED_POWERED,
@@ -1547,17 +1554,20 @@ typedef enum cable_heater_mon_state_t {
 typedef struct cable_heater_mon_t {
     cable_heater_mon_state_t state;
     temp_onetenthDegC_t temp_onetenthDegC_heater_when_assumed_on;
-    unsigned on_cnt_secs_since_heater_assumed_on;
+    unsigned on_cnt_secs_since_temperature_assumed_to_rise;
 } cable_heater_mon_t;
-# 70 "../src/temperature_heater_controller.xc"
+# 81 "../src/temperature_heater_controller.xc"
 [[combinable]]
 void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands) {
 
+
+
     timer tmr;
     int time;
+
     unsigned raw_timer_interval_cnt_for_one_second = 0;
     unsigned temp_measurement_ticks_cnt = 0;
     unsigned proportional_percent_cnt = 0;
@@ -1585,6 +1595,8 @@ void Temperature_Heater_Controller (
                                                      {{"??.?"}, {"??.?"},{"??.?"},{"...."}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean [3];
 
+
+
     for (int iof_i2c_temp = 0; iof_i2c_temp < 3; iof_i2c_temp++) {
         Init_Arithmetic_Mean_Temp_OnetenthDegC (temps_onetenthDegC_mean[iof_i2c_temp], 8);
     }
@@ -1595,8 +1607,11 @@ void Temperature_Heater_Controller (
 
     tmr :> time;
 
+
     while(1) {
         select {
+
+
             case (is_doing == IS_CONTROLLING) => tmr when __builtin_timer_after(time) :> void: {
 
 
@@ -1608,7 +1623,7 @@ void Temperature_Heater_Controller (
                     if (on_now) {
                         on_cnt_secs++;
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
-                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on++;
+                            cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise++;
                         } else {}
                     } else {
                         off_cnt_secs++;
@@ -1646,6 +1661,9 @@ void Temperature_Heater_Controller (
                 } else {}
 
             } break;
+
+
+
 
             case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): {
 
@@ -1688,7 +1706,10 @@ void Temperature_Heater_Controller (
                     }
                 }
 
+
+
                 on_now_previous = on_now;
+
 
 
                 if (ok_degC_i2cs[IOF_TEMPC_HEATER] && ok_degC_converts[IOF_TEMPC_HEATER]) {
@@ -1716,6 +1737,9 @@ void Temperature_Heater_Controller (
                     do { if(1) printf("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]); } while (0);
                 }
 
+
+
+
                 if (on_now) {
                     if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
                         do { if(1) printf("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times); } while (0);
@@ -1729,7 +1753,11 @@ void Temperature_Heater_Controller (
                     i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
                 }
 
+
+
                 if (on_now_previous != on_now) {
+
+
                     if (on_now == true) {
 
                         if ((cable_heater_mon.state == CABLE_HEATER_OK) || (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
@@ -1737,15 +1765,20 @@ void Temperature_Heater_Controller (
 
 
 
+
                             cable_heater_mon.state = CABLE_HEATER_ASSUMED_POWERED;
+
+
                             cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
-                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on = 0;
-                            do { if(1) printf("%s", " @ Heater assumed on from now"); } while (0);
+                            cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
+
+                            do { if(1) printf(" @ Heater assumed on from now, starting at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on); } while (0);
                         } else {
                             do { if(1) printf("%s", " @ Heater history A"); } while (0);
                         }
 
                     } else {
+
                         const unsigned sum_on_off_seconds = off_cnt_secs + on_cnt_secs;
                         bool ok_degC_heater_mean_last_cycle;
 
@@ -1782,10 +1815,29 @@ void Temperature_Heater_Controller (
                             do { if(1) printf("%s", " @ Heater off"); } while (0);
                         }
                     }
+
+
                 } else {
+
+
                     if (on_now == true) {
+
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
-                            if (cable_heater_mon.on_cnt_secs_since_heater_assumed_on >= (60 * 3)) {
+
+                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on) {
+
+
+
+
+
+
+
+                                cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
+                                cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
+
+                                do { if(1) printf(" @ Heater assumed on from now, undershoot at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on); } while (0);
+
+                            } else if (cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise >= (60 * 3)) {
 
                                 if (temps_onetenthDegC[IOF_TEMPC_HEATER] > (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on + 10)) {
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK;
@@ -1794,11 +1846,18 @@ void Temperature_Heater_Controller (
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR;
                                     do { if(1) printf("%s", " @ Heater temp rise not seen"); } while (0);
                                 }
+
                             } else {
-                                do { if(1) printf(" @ Heater temp rise monitored for %u seconds", cable_heater_mon.on_cnt_secs_since_heater_assumed_on); } while (0);
+
+                                do { if(1) printf(" @ Heater temp rise monitored for %u seconds, temp now %u", cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise, temps_onetenthDegC[IOF_TEMPC_HEATER]); } while (0);
+
                             }
+
                         } else {}
+
                     } else {}
+
+
                 }
 
                 do { if(1) printf("%s", "\n"); } while (0);
@@ -1806,12 +1865,18 @@ void Temperature_Heater_Controller (
                 is_doing = IS_CONTROLLING;
             } break;
 
+
+
+
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_proportional (const heater_wires_t heater_wires_, const int heater_percent_on): {
                 heater_wires = heater_wires_;
                 proportional_heater_percent_on_limit = heater_percent_on;
                 method_of_on_off = ON_OFF_PROPORTIONAL;
 
             } break;
+
+
+
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
                 heater_wires = heater_wires_;
@@ -1832,17 +1897,26 @@ void Temperature_Heater_Controller (
                 do { if(1) printf(" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit); } while (0);
             } break;
 
+
+
+
             case i_temperature_heater_commands[int index_of_client].get_temps (temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]) : {
                 for (int iof_temps=0; iof_temps < (3 +1); iof_temps++) {
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps];
                 }
             } break;
 
+
+
+
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]) : {
                 for (int iof_char=0; iof_char < 5; iof_char++) {
                     return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char];
                 }
             } break;
+
+
+
 
             case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
                     {bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
@@ -1867,7 +1941,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 400 "../src/temperature_heater_controller.xc"
+# 478 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 
@@ -1885,6 +1959,8 @@ void Temperature_Heater_Controller (
                 }
 
             } break;
+
+
         }
     }
 }

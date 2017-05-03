@@ -2106,7 +2106,10 @@ typedef enum error_bits_t {
     ERROR_BIT_I2C_AMBIENT = 0x00,
     ERROR_BIT_I2C_WATER = 0x01,
     ERROR_BIT_I2C_HEATER = 0x02,
-    ERROR_BIT_HEATER_CABLE = 0x03,
+    ERROR_BIT_HEATER_CABLE_UNPLUGGED = 0x03,
+
+
+
 
 
 
@@ -2453,7 +2456,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 513 "../src/_Aquarium_1_x.xc"
+# 516 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2610,10 +2613,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_return = sprintf (context.display_ts1_chars,
                                "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                reg_value,
-                               "Apr 26 2017",
+                               "May  3 2017",
                                char_aa_str,
                                char_OE_str);
-# 693 "../src/_Aquarium_1_x.xc"
+# 696 "../src/_Aquarium_1_x.xc"
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2624,7 +2627,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "14:44:14", "Apr 26 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "10:59:28", "May  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -2673,7 +2676,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "14:44:14", "Apr 26 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "10:59:28", "May  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -3229,7 +3232,7 @@ void System_Task_Data_Handler (
     }
 
     if (! context.on_ok) {
-        error_bits |= (1<<ERROR_BIT_HEATER_CABLE);
+        error_bits |= (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV < 100) {
@@ -3309,7 +3312,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1416 "../src/_Aquarium_1_x.xc"
+# 1419 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3424,7 +3427,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1541 "../src/_Aquarium_1_x.xc"
+# 1544 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3487,6 +3490,7 @@ void System_Task (
     light_sunrise_sunset_context.do_FRAM_write = false;
 
     do { if(1) printf("%s", "System_Task started\n"); } while (0);
+
 
 
     Adafruit_GFX_constructor (128, 32);

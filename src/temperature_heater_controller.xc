@@ -4,6 +4,7 @@
  *  Created on: 18. jan. 2017
  *      Author: teig
  */
+//{{{  #include
 
 #define INCLUDES
 #ifdef INCLUDES
@@ -25,8 +26,16 @@
 #include "Temperature_Heater_Controller.h"
 #endif
 
+//}}}  
+
 #define DEBUG_PRINT_HEATER_CONTROLLER 1 // Cost 1K
+//{{{  debug_printf
+
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER) printf(fmt, __VA_ARGS__); } while (0)
+
+//}}}  
+
+//{{{  typedefs and defines
 
 typedef enum method_of_on_off_t {
     ON_OFF_PROPORTIONAL,
@@ -41,9 +50,9 @@ typedef enum is_doing_t {
 //Êcable_heater_mon_state_t
 // Monitors the enclosed space below the aquarium where the heating element tray has been pushed in place and closed.
 // This mechanism does not side effect into any other state. It is simply reported back to a client.
-// In the final end the ERROR_BIT_HEATER_CABLE is set when
+// In the final end the ERROR_BIT_HEATER_CABLE_UNPLUGGED is set when
 // the heater temperature not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) in
-// CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) when needed
+// CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) when needed - after some lowest temperatue reached
 
 typedef enum cable_heater_mon_state_t {
     CABLE_HEATER_OK, // Or we don't know yet
@@ -53,10 +62,10 @@ typedef enum cable_heater_mon_state_t {
     CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED
 } cable_heater_mon_state_t;///
 
-typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE
+typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE_UNPLUGGED
     cable_heater_mon_state_t state;
     temp_onetenthDegC_t      temp_onetenthDegC_heater_when_assumed_on;
-    unsigned                 on_cnt_secs_since_heater_assumed_on;
+    unsigned                 on_cnt_secs_since_temperature_assumed_to_rise;
 } cable_heater_mon_t;
 
 #define RAW_TIMER_INTERVAL_IS_100_MILLISECONDS 100 // Times 100 yields 10 seconds round trip when ON_OFF_PROPORTIONAL
@@ -67,14 +76,19 @@ typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE
 
 #define CABLE_HEATER_ASSUMED_POWERED_SECONDS (60 * 3) // It takes some time before the room is heated
 
+//}}}  
+
 [[combinable]]
 void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [HEATER_CONTROLLER_NUM_CLIENTS],
     client i2c_external_commands_if       i_i2c_external_commands,
     client port_heat_light_commands_if    i_port_heat_light_commands) {
 
+    //{{{  Variables
+
     timer tmr;
     int   time;
+
     unsigned            raw_timer_interval_cnt_for_one_second = 0;
     unsigned            temp_measurement_ticks_cnt = 0;
     unsigned            proportional_percent_cnt   = 0;  // [0..99]
@@ -102,6 +116,8 @@ void Temperature_Heater_Controller (
                                                      {{GENERIC_TEXT_DEGC}, {GENERIC_TEXT_DEGC},{GENERIC_TEXT_DEGC},{GENERIC_TEXT_NO_DATA_DEGC}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean [NUM_I2C_TEMPERATURES]; // Not for IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 
+    //}}}  
+    //{{{  Init
     for (int iof_i2c_temp = 0; iof_i2c_temp < NUM_I2C_TEMPERATURES; iof_i2c_temp++) {
         Init_Arithmetic_Mean_Temp_OnetenthDegC (temps_onetenthDegC_mean[iof_i2c_temp], ARITHMETIC_MEAN_N_OF_TEMPS);
     }
@@ -111,9 +127,12 @@ void Temperature_Heater_Controller (
     debug_printf("%s", "Temperature_Heater_Controller started\n");
 
     tmr :> time;
+    //}}}  
 
     while(1) {
         select {
+            //{{{  timerafter
+
             case (is_doing == IS_CONTROLLING) => tmr when timerafter(time) :> void: {
 
                 // Here every 100 ms but doing GET_TEMPC_ALL only every 100th time, i.e. every 10 seconds
@@ -125,7 +144,7 @@ void Temperature_Heater_Controller (
                     if (on_now) {
                         on_cnt_secs++;
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
-                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on++;
+                            cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise++;
                         } else {}
                     } else { // off_now
                         off_cnt_secs++;
@@ -164,13 +183,16 @@ void Temperature_Heater_Controller (
 
             } break;
 
+            //}}}  
+            //{{{  i_i2c_external_commands.notify
+
             case (is_doing == IS_READING_TEMPS) => i_i2c_external_commands.notify(): { // Triggered and value ready
 
                 bool ok_degC_converts[NUM_I2C_TEMPERATURES];
                 bool ok_degC_i2cs    [NUM_I2C_TEMPERATURES];
 
-                // --- READ THE THREE I2C TEMPERATURE CHIPS every TEMP_MEASURE_INTERVAL_IS_10_SECONDS ---
-                //
+                //{{{  READ THE THREE I2C TEMPERATURE CHIPS every TEMP_MEASURE_INTERVAL_IS_10_SECONDS
+
                 i2c_temps_t i2c_temps = i_i2c_external_commands.read_temperature_ok();
 
                 for (int iof_i2c_temp = 0; iof_i2c_temp < NUM_I2C_TEMPERATURES; iof_i2c_temp++) {
@@ -205,8 +227,11 @@ void Temperature_Heater_Controller (
                     }
                 }
 
+                //}}}  
+
                 on_now_previous = on_now;
-                // temp_onetenthDegC_heater_num++; // xcore-5662 was here..
+
+                //{{{  Heater to go on or off now?
 
                 if (ok_degC_i2cs[IOF_TEMPC_HEATER] and ok_degC_converts[IOF_TEMPC_HEATER]) {
 
@@ -233,6 +258,9 @@ void Temperature_Heater_Controller (
                     debug_printf ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
                 }
 
+                //}}}  
+                //{{{  Set port pins accordingly
+
                 if (on_now) {
                     if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
                         debug_printf ("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
@@ -246,23 +274,32 @@ void Temperature_Heater_Controller (
                     i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
                 }
 
-                if (on_now_previous != on_now) { // changed
-                    if (on_now == true) { // on_now means into HEATER ON
+                //}}}  
+
+                if (on_now_previous != on_now) {
+                    //{{{  Now switch on or off, handle secondary matters
+
+                    if (on_now == true) {  // Into HEATER ON
 
                         if ((cable_heater_mon.state == CABLE_HEATER_OK) or (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
 
                             // No test of temp_onetenthDegC_heater_limit here since when we turn it on, for no matter small rise,
                             // the physical characteristics of the heating space is such that we'll have a rise anyhow, i.e. an overshoot
+                            // However, the undershoot may continue down for a while after off, so this is critical
 
                             cable_heater_mon.state = CABLE_HEATER_ASSUMED_POWERED;
+
+                            // If undeshoot these will follow down (later):
                             cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
-                            cable_heater_mon.on_cnt_secs_since_heater_assumed_on = 0;
-                            debug_printf("%s", " @ Heater assumed on from now");
+                            cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
+
+                            debug_printf(" @ Heater assumed on from now, starting at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
                         } else {
                             debug_printf("%s", " @ Heater history A");
                         }
 
                     } else { // Into HEATER OFF, will also zero on initial raise
+
                         const unsigned sum_on_off_seconds = off_cnt_secs + on_cnt_secs;
                         bool           ok_degC_heater_mean_last_cycle;
 
@@ -299,10 +336,29 @@ void Temperature_Heater_Controller (
                             debug_printf("%s", " @ Heater off");
                         }
                     }
-                } else { // on_now_previous == on_now i.e. change
+
+                    //}}}  
+                } else {
+                    //{{{  No change in heating, handle secondary matters
+
                     if (on_now == true) { // on_now means continued HEATER ON or assumed heater on
+
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
-                            if (cable_heater_mon.on_cnt_secs_since_heater_assumed_on >= CABLE_HEATER_ASSUMED_POWERED_SECONDS) {
+
+                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on) {
+
+                                // The "coldness" from the aquarium is continuing to cool the chamber even after heating has been switched on
+                                // This is called undershoot
+                                // Not taking height for this actually triggered alarm quite often (when 3 minutes and delta of 1 degC)
+                                // Also, it could potentially get colder and colder and delay this error message forever but physically it won't happen
+                                // Wait with counting until after a true temperature rise (i.e. after lowest point reached):
+                                //
+                                cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
+                                cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
+
+                                debug_printf(" @ Heater assumed on from now, undershoot at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
+
+                            } else if (cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise >= CABLE_HEATER_ASSUMED_POWERED_SECONDS) {
 
                                 if (temps_onetenthDegC[IOF_TEMPC_HEATER] > (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on + TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE)) {
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK;
@@ -311,11 +367,18 @@ void Temperature_Heater_Controller (
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR;
                                     debug_printf("%s", " @ Heater temp rise not seen");
                                 }
+
                             } else {
-                                debug_printf(" @ Heater temp rise monitored for %u seconds", cable_heater_mon.on_cnt_secs_since_heater_assumed_on);
+
+                                debug_printf(" @ Heater temp rise monitored for %u seconds, temp now %u", cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise, temps_onetenthDegC[IOF_TEMPC_HEATER]);
+
                             }
+
                         } else {}
+
                     } else {} // on_now false means continued HEATER OFF
+
+                    //}}}  
                 }
 
                 debug_printf ("%s", "\n");
@@ -323,12 +386,18 @@ void Temperature_Heater_Controller (
                 is_doing = IS_CONTROLLING;
             } break;
 
+            //}}}  
+            //{{{  i_temperature_heater_commands[].heater_set_proportional
+
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_proportional (const heater_wires_t heater_wires_, const int heater_percent_on): {
                 heater_wires                         = heater_wires_;
                 proportional_heater_percent_on_limit = heater_percent_on;
                 method_of_on_off                     = ON_OFF_PROPORTIONAL;
 
             } break;
+
+            //}}}  
+            //{{{  i_temperature_heater_commands[].heater_set_temp_degC
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
                 heater_wires     = heater_wires_;
@@ -349,17 +418,26 @@ void Temperature_Heater_Controller (
                 debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
             } break;
 
+            //}}}  
+            //{{{  i_temperature_heater_commands[].get_temps
+
             case i_temperature_heater_commands[int index_of_client].get_temps (temp_onetenthDegC_t return_temps_onetenthDegC [NUM_TEMPERATURES]) : {
                 for (int iof_temps=0; iof_temps < NUM_TEMPERATURES; iof_temps++) {
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
             } break;
 
+            //}}}  
+            //{{{  i_temperature_heater_commands[].get_temp_degC_str
+
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
                     return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
             } break;
+
+            //}}}  
+            //{{{  i_temperature_heater_commands[].get_regulator_data
 
             case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
                     {bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
@@ -414,6 +492,9 @@ void Temperature_Heater_Controller (
                 }
 
             } break;
+
+            //}}}  
         }
     }
 }
+
