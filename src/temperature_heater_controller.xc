@@ -290,7 +290,7 @@ void Temperature_Heater_Controller (
                             cable_heater_mon.state = CABLE_HEATER_ASSUMED_POWERED;
 
                             // If undeshoot these will follow down (later):
-                            cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
+                            cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on      = temps_onetenthDegC[IOF_TEMPC_HEATER];
                             cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
                             debug_printf(" @ Heater assumed on from now, starting at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
@@ -345,15 +345,18 @@ void Temperature_Heater_Controller (
 
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
 
-                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on) {
+                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on - TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
 
-                                // The "coldness" from the aquarium is continuing to cool the chamber even after heating has been switched on
-                                // This is called undershoot
-                                // Not taking height for this actually triggered alarm quite often (when 3 minutes and delta of 1 degC)
+                                // TEMP_ONETENTHDEGC_00_2_HYSTERESIS necessary to avoid a single measurement to restart here and then normally could be so little
+                                // temp rise left that it will trigger an alarm. I saw this with 3 cm water in the tank quite easily
+                                //
+                                // The "coldness" from the aquarium is continuing to cool the chamber even after heating has been switched on.
+                                // This is called undershoot.
+                                // Not taking height for this actually triggered alarm quite often (when 3 minutes and delta of 1 degC).
                                 // Also, it could potentially get colder and colder and delay this error message forever but physically it won't happen
                                 // Wait with counting until after a true temperature rise (i.e. after lowest point reached):
-                                //
-                                cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
+
+                                cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on      = temps_onetenthDegC[IOF_TEMPC_HEATER];
                                 cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
                                 debug_printf(" @ Heater assumed on from now, undershoot at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);

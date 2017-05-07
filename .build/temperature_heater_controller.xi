@@ -1824,14 +1824,8 @@ void Temperature_Heater_Controller (
 
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
 
-                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on) {
-
-
-
-
-
-
-
+                            if (temps_onetenthDegC[IOF_TEMPC_HEATER] < (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on - 2)) {
+# 359 "../src/temperature_heater_controller.xc"
                                 cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
                                 cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
@@ -1941,7 +1935,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 478 "../src/temperature_heater_controller.xc"
+# 481 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

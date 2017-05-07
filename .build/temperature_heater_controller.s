@@ -331,7 +331,7 @@
 	.assert 1,Do_Arithmetic_Mean_Temp_OnetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:211:60: error: call to function `Do_Arithmetic_Mean_Temp_OnetenthDegC\' which selects on a notification in a combinable function select case\n                        temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (\n                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,Init_Arithmetic_Mean_Temp_OnetenthDegC.actnonotificationselect,"../src/temperature_heater_controller.xc:222:25: error: call to function `Init_Arithmetic_Mean_Temp_OnetenthDegC\' which selects on a notification in a combinable function select case\n                        Init_Arithmetic_Mean_Temp_OnetenthDegC (\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,Temp_OnetenthDegC_To_Str.actnonotificationselect,"../src/temperature_heater_controller.xc:321:30: error: call to function `Temp_OnetenthDegC_To_Str\' which selects on a notification in a combinable function select case\n                             Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,printf.actnonotificationselect,"../src/temperature_heater_controller.xc:487:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\"%s\", \"Heater error reported\\n\");\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/temperature_heater_controller.xc:34:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/temperature_heater_controller.xc:490:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\"%s\", \"Heater error reported\\n\");\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/temperature_heater_controller.xc:34:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -364,7 +364,7 @@
 	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data
 _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulator_data:
 .Lfunc_begin0:
-	.loc	1 442 0
+	.loc	1 445 0
 	.cfi_startproc
 	entsp 5
 .Ltmp0:
@@ -396,7 +396,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 	bt r5, .LBB0_3
 .Ltmp9:
 .Lxtalabel0:
-	.loc	1 447 0 prologue_end
+	.loc	1 450 0 prologue_end
 	ldaw r11, cp[.str334]
 	mov r0, r11
 	ldaw r11, cp[.str335]
@@ -407,18 +407,18 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 .LBB0_3:
 .Lxtalabel1:
 	ldc r0, 72
-	.loc	1 450 17
+	.loc	1 453 17
 	add r0, r7, r0
-	.loc	1 450 17
+	.loc	1 453 17
 	ldw r0, r0[0]
-	.loc	1 450 17
+	.loc	1 453 17
 	bf r0, .LBB0_13
 .Ltmp11:
 .Lxtalabel2:
 	ldc r0, 60
-	.loc	1 451 21
+	.loc	1 454 21
 	add r0, r7, r0
-	.loc	1 451 21
+	.loc	1 454 21
 	ldw r0, r0[0]
 	bf r0, .LBB0_6
 .Ltmp12:
@@ -428,14 +428,14 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 .LBB0_13:
 .Lxtalabel3:
 	ldc r0, 68
-	.loc	1 457 0
+	.loc	1 460 0
 	add r0, r7, r0
-	.loc	1 457 0
+	.loc	1 460 0
 	ldw r4, r0[0]
 .Ltmp14:
 .LBB0_6:
 .Lxtalabel4:
-	.loc	1 460 17
+	.loc	1 463 17
 	ldw r0, r7[10]
 	bt r0, .LBB0_7
 .Ltmp15:
@@ -448,31 +448,31 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 .Ltmp17:
 .LBB0_10:
 .Lxtalabel6:
-	.loc	1 478 0
+	.loc	1 481 0
 	mul r1, r5, r5
-	.loc	1 478 0
+	.loc	1 481 0
 	divu r0, r1, r0
-	.loc	1 482 0
+	.loc	1 485 0
 	mul r0, r0, r4
 	ldc r6, 0
 	ldw r1, cp[.LCPI0_0]
-	.loc	1 482 0
+	.loc	1 485 0
 	lmul r0, r1, r0, r1, r6, r6
 	shr r5, r0, 5
 .Ltmp18:
 	ldc r0, 76
-	.loc	1 484 17
+	.loc	1 487 17
 	add r0, r7, r0
-	.loc	1 484 17
+	.loc	1 487 17
 	ldw r1, r0[0]
-	.loc	1 484 17
+	.loc	1 487 17
 	eq r2, r1, 3
 	bf r2, .LBB0_11
 .Lxtalabel7:
 	ldc r1, 4
-	.loc	1 485 0
+	.loc	1 488 0
 	stw r1, r0[0]
-	.loc	1 487 0
+	.loc	1 490 0
 	ldaw r11, cp[.str338]
 	mov r0, r11
 	ldaw r11, cp[.str339]
@@ -520,7 +520,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_regulato
 	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str
 _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_degC_str:
 .Lfunc_begin1:
-	.loc	1 433 0
+	.loc	1 436 0
 	.cfi_startproc
 	extsp 2
 .Ltmp21:
@@ -537,7 +537,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_deg
 	ldw r3, r0[0]
 	bf r3, .LBB1_1
 .Ltmp25:
-	.loc	1 434 0 prologue_end
+	.loc	1 437 0 prologue_end
 	ldaw r3, r1[r1]
 	add r11, r3, r0
 	ldc r3, 0
@@ -553,14 +553,14 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_deg
 .Lxtalabel11:
 .Ltrap_info0:
 	ecallf r1
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r3]
-	.loc	1 435 0
+	.loc	1 438 0
 	st8 r5, r2[r3]
-	.loc	1 434 0
+	.loc	1 437 0
 	add r3, r3, 1
 .Ltmp28:
-	.loc	1 434 0
+	.loc	1 437 0
 	lss r5, r3, r4
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
@@ -594,7 +594,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temp_deg
 	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps
 _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps:
 .Lfunc_begin2:
-	.loc	1 424 0
+	.loc	1 427 0
 	.cfi_startproc
 	ldw r0, r0[0]
 .Ltmp31:
@@ -607,34 +607,34 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps:
 .Ltmp33:
 	stw r2, r0[0]
 	ldc r2, 104
-	.loc	1 426 0 prologue_end
+	.loc	1 429 0 prologue_end
 .Ltmp34:
 	add r2, r0, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r2, r2[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	stw r2, r1[0]
 	ldc r2, 108
 .Ltmp35:
-	.loc	1 426 0
+	.loc	1 429 0
 	add r2, r0, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r2, r2[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	stw r2, r1[1]
 	ldc r2, 112
-	.loc	1 426 0
+	.loc	1 429 0
 	add r2, r0, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r2, r2[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	stw r2, r1[2]
 	ldc r2, 116
-	.loc	1 426 0
+	.loc	1 429 0
 	add r2, r0, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r2, r2[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	stw r2, r1[3]
 	mkmsk r1, 1
 .Ltmp36:
@@ -662,7 +662,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.get_temps:
 	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC
 _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_temp_degC:
 .Lfunc_begin3:
-	.loc	1 402 0
+	.loc	1 405 0
 	.cfi_startproc
 	entsp 6
 .Ltmp39:
@@ -707,43 +707,43 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .Ltmp51:
 	ldc r0, 0
 	stw r0, r7[0]
-	.loc	1 403 0 prologue_end
+	.loc	1 406 0 prologue_end
 .Ltmp52:
 	stw r5, r7[10]
 	mkmsk r6, 1
-	.loc	1 404 0
+	.loc	1 407 0
 	stw r6, r7[9]
 	ldc r0, 100
-	.loc	1 406 17
+	.loc	1 409 17
 	add r8, r7, r0
-	.loc	1 406 17
+	.loc	1 409 17
 	ldw r0, r8[0]
-	.loc	1 406 17
+	.loc	1 409 17
 	eq r0, r0, r4
-	.loc	1 406 17
+	.loc	1 409 17
 	bf r0, .LBB3_4
 .Ltmp53:
 .Lxtalabel14:
-	.loc	1 407 0
+	.loc	1 410 0
 	ldaw r11, cp[.str352]
 	mov r0, r11
 	ldaw r11, cp[.str353]
 	mov r1, r11
 .Lxta.call_labels2:
 	bl iprintf
-	.loc	1 418 0
+	.loc	1 421 0
 	ldw r5, r8[0]
 	bu .LBB3_12
 .LBB3_4:
 .Ltmp54:
 	ldc r5, 400
-	.loc	1 408 24
+	.loc	1 411 24
 	lss r0, r5, r4
-	.loc	1 408 24
+	.loc	1 411 24
 	bf r0, .LBB3_5
 .Ltmp55:
 .Lxtalabel15:
-	.loc	1 409 0
+	.loc	1 412 0
 	ldaw r11, cp[.str356]
 	mov r0, r11
 	ldaw r11, cp[.str357]
@@ -751,42 +751,42 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 .LBB3_5:
 .Ltmp56:
 	ldc r5, 150
-	.loc	1 411 24
+	.loc	1 414 24
 	lss r0, r4, r5
-	.loc	1 411 24
+	.loc	1 414 24
 	bf r0, .LBB3_11
 .Ltmp57:
 .Lxtalabel16:
-	.loc	1 412 0
+	.loc	1 415 0
 	ldaw r11, cp[.str360]
 	mov r0, r11
 	ldaw r11, cp[.str361]
 .LBB3_10:
 .Lxtalabel17:
-	.loc	1 409 0
+	.loc	1 412 0
 	mov r1, r11
 .Lxta.call_labels3:
 	bl iprintf
-	.loc	1 410 0
+	.loc	1 413 0
 	stw r5, r8[0]
 	bu .LBB3_12
 .LBB3_11:
 .Lxtalabel18:
 .Ltmp58:
-	.loc	1 415 0
+	.loc	1 418 0
 	ldaw r11, cp[.str364]
 	mov r0, r11
 	ldaw r11, cp[.str365]
 	mov r1, r11
 .Lxta.call_labels4:
 	bl iprintf
-	.loc	1 416 0
+	.loc	1 419 0
 	stw r4, r8[0]
 	mov r5, r4
 .Ltmp59:
 .LBB3_12:
 .Lxtalabel19:
-	.loc	1 418 0
+	.loc	1 421 0
 	ldaw r11, cp[.str368]
 	mov r0, r11
 	mov r1, r5
@@ -821,7 +821,7 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_t
 	.cc_top _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional.function,_i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional
 _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_proportional:
 .Lfunc_begin4:
-	.loc	1 392 0
+	.loc	1 395 0
 	.cfi_startproc
 	entsp 5
 .Ltmp62:
@@ -861,15 +861,15 @@ _i.temperature_heater_commands_if.Temperature_Heater_Controller._c0.heater_set_p
 	eq r0, r0, 1
 	bf r0, .LBB4_4
 .Ltmp73:
-	.loc	1 393 0 prologue_end
+	.loc	1 396 0 prologue_end
 	stw r5, r7[10]
 	ldc r0, 96
-	.loc	1 394 0
+	.loc	1 397 0
 	add r0, r7, r0
-	.loc	1 394 0
+	.loc	1 397 0
 	stw r4, r0[0]
 	ldc r0, 0
-	.loc	1 395 0
+	.loc	1 398 0
 	stw r0, r7[9]
 	mkmsk r0, 1
 	stw r0, r7[0]
@@ -2581,32 +2581,32 @@ Temperature_Heater_Controller:
 	bf r11, .LBB35_12
 .Ltmp222:
 .LBB35_11:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r0, r6[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r0[0]
 	ldap r11, .Ltmp223
 	mov r0, r11
-	.loc	1 392 0
+	.loc	1 395 0
 	setv res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r3
 	mov r10, r3
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 .Ltmp224:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r6[1]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r2[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r5
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 	ldc r7, 254
 
@@ -2619,31 +2619,31 @@ Temperature_Heater_Controller:
 	ldap r11, .Ltmp226
 	setv res[r0], r11
 	eeu res[r0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r0, r6[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r0[0]
 	ldap r11, .Ltmp223
 	mov r0, r11
-	.loc	1 392 0
+	.loc	1 395 0
 	setv res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r3
 	mov r10, r3
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r6[1]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r2[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r5
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 	ldc r7, 254
 
@@ -2653,9 +2653,9 @@ Temperature_Heater_Controller:
 .Ltmp223:
 .LBB35_13:
 .Lxtalabel23:
-	.loc	1 392 0
+	.loc	1 395 0
 	get r11, ed
-	.loc	1 392 0
+	.loc	1 395 0
 	zext r11, 16
 .Ltmp228:
 	ldw r9, r6[r11]
@@ -2748,7 +2748,7 @@ Temperature_Heater_Controller:
 	bt r7, .LBB35_76
 .Ltmp245:
 .Lxtalabel28:
-	.loc	1 447 0
+	.loc	1 450 0
 	ldaw r11, cp[.str72]
 	mov r0, r11
 	ldaw r11, cp[.str73]
@@ -2763,14 +2763,14 @@ Temperature_Heater_Controller:
 .LBB35_76:
 .Lxtalabel29:
 	ldw r10, sp[28]
-	.loc	1 450 17
+	.loc	1 453 17
 	ldw r0, sp[26]
 	ldw r11, sp[33]
 	bf r0, .LBB35_79
 .Ltmp247:
 .Lxtalabel30:
 	ldc r10, 100
-	.loc	1 454 0
+	.loc	1 457 0
 	ldw r0, sp[29]
 	bt r0, .LBB35_79
 .Ltmp248:
@@ -2780,7 +2780,7 @@ Temperature_Heater_Controller:
 .LBB35_79:
 .Lxtalabel32:
 	ldc r0, 1200
-	.loc	1 461 0
+	.loc	1 464 0
 	ldw r1, sp[31]
 	bt r1, .LBB35_81
 .Ltmp250:
@@ -2789,20 +2789,20 @@ Temperature_Heater_Controller:
 .Ltmp251:
 .LBB35_81:
 .Lxtalabel34:
-	.loc	1 478 0
+	.loc	1 481 0
 	mul r1, r7, r7
-	.loc	1 478 0
+	.loc	1 481 0
 	divu r0, r1, r0
 .Ltmp252:
-	.loc	1 482 0
+	.loc	1 485 0
 	mul r0, r0, r10
 .Ltmp253:
 	ldw r1, cp[.LCPI35_0]
-	.loc	1 482 0
+	.loc	1 485 0
 	lmul r0, r1, r0, r1, r3, r3
 	shr r7, r0, 5
 .Ltmp254:
-	.loc	1 484 17
+	.loc	1 487 17
 	eq r2, r11, 4
 	ldc r0, 4
 	mov r1, r3
@@ -2815,7 +2815,7 @@ Temperature_Heater_Controller:
 	bf r0, .LBB35_86
 .Ltmp256:
 .Lxtalabel36:
-	.loc	1 487 0
+	.loc	1 490 0
 	ldaw r11, cp[.str76]
 	mov r0, r11
 	ldaw r11, cp[.str77]
@@ -3035,14 +3035,14 @@ Temperature_Heater_Controller:
 	in r7, res[r0]
 .Ltmp290:
 	ldw r6, sp[23]
-	.loc	1 406 17
+	.loc	1 409 17
 .Ltmp291:
 	eq r0, r7, r6
-	.loc	1 406 17
+	.loc	1 409 17
 	bf r0, .LBB35_92
 .Ltmp292:
 .Lxtalabel50:
-	.loc	1 407 0
+	.loc	1 410 0
 	ldaw r11, cp[.str86]
 	mov r0, r11
 	ldaw r11, cp[.str87]
@@ -3061,60 +3061,60 @@ Temperature_Heater_Controller:
 .Ltmp296:
 	outct res[r0], 1
 .Ltmp297:
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r1, sp[85]
 	ldc r2, 6
 	mov r11, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
 	mov r3, r10
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 .Ltmp298:
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r1, sp[86]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r5
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r1, sp[87]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
 	ldc r2, 2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r1, sp[88]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
 	bu .LBB35_89
 .Ltmp299:
@@ -3125,94 +3125,94 @@ Temperature_Heater_Controller:
 	in r1, res[r0]
 .Ltmp301:
 	ldc r6, 4
-	.loc	1 435 0
+	.loc	1 438 0
 .Ltmp302:
 	lsu r2, r1, r6
 .Ltrap_info1:
 	ecallf r2
-	.loc	1 435 0
+	.loc	1 438 0
 	ldaw r2, r1[r1]
 	ldaw r1, sp[80]
 .Ltmp303:
 	mov r3, r1
 	add r1, r3, r2
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r2, r3[r2]
 	ldc r3, 8
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 .Ltmp304:
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r2, r1[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r2, 2
 	mov r11, r2
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r2, r1[r11]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r11
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r2, r1[r4]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r1, r1[r6]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	mov r3, r10
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
 .Ltmp305:
 .LBB35_89:
 .Lxtalabel52:
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	out res[r0], r3
 	outct res[r0], 1
@@ -3221,13 +3221,13 @@ Temperature_Heater_Controller:
 .Ltmp306:
 .LBB35_92:
 	ldc r6, 400
-	.loc	1 408 24
+	.loc	1 411 24
 	lss r0, r6, r7
-	.loc	1 408 24
+	.loc	1 411 24
 	bf r0, .LBB35_93
 .Ltmp307:
 .Lxtalabel53:
-	.loc	1 409 0
+	.loc	1 412 0
 	ldaw r11, cp[.str90]
 	mov r0, r11
 	ldaw r11, cp[.str91]
@@ -3281,28 +3281,28 @@ Temperature_Heater_Controller:
 .Ltmp315:
 .LBB35_93:
 	ldc r6, 150
-	.loc	1 411 24
+	.loc	1 414 24
 .Ltmp316:
 	lss r0, r7, r6
-	.loc	1 411 24
+	.loc	1 414 24
 	bf r0, .LBB35_98
 .Ltmp317:
 .Lxtalabel56:
-	.loc	1 412 0
+	.loc	1 415 0
 	ldaw r11, cp[.str94]
 	mov r0, r11
 	ldaw r11, cp[.str95]
 .Ltmp318:
 .LBB35_96:
 .Lxtalabel57:
-	.loc	1 407 0
+	.loc	1 410 0
 	mov r1, r11
 .Lxta.call_labels21:
 	bl iprintf
 .LBB35_99:
 .Lxtalabel58:
 .Ltmp319:
-	.loc	1 418 0
+	.loc	1 421 0
 	stw r6, sp[23]
 	ldaw r11, cp[.str102]
 	mov r0, r11
@@ -3551,7 +3551,7 @@ Temperature_Heater_Controller:
 .Ltmp357:
 .LBB35_98:
 .Lxtalabel76:
-	.loc	1 415 0
+	.loc	1 418 0
 	ldaw r11, cp[.str98]
 	mov r0, r11
 	ldaw r11, cp[.str99]
@@ -3615,12 +3615,14 @@ Temperature_Heater_Controller:
 	ldw r7, sp[85]
 	.loc	1 348 29
 	ldw r0, sp[13]
+	sub r0, r0, 2
+	.loc	1 348 29
 	lss r0, r7, r0
 	bf r0, .LBB35_68
 .Ltmp367:
 .Lxtalabel83:
 	stw r6, sp[21]
-	.loc	1 359 0
+	.loc	1 362 0
 	ldaw r11, cp[.str58]
 	mov r0, r11
 	mov r1, r7
@@ -3751,21 +3753,21 @@ Temperature_Heater_Controller:
 .LBB35_68:
 	ldc r0, 180
 	ldw r1, sp[16]
-	.loc	1 361 36
+	.loc	1 364 36
 	lsu r0, r1, r0
 	bt r0, .LBB35_72
 .Ltmp383:
 .Lxtalabel93:
 	stw r6, sp[21]
-	.loc	1 363 33
+	.loc	1 366 33
 	ldw r0, sp[13]
 	add r0, r0, 10
-	.loc	1 363 33
+	.loc	1 366 33
 	lss r0, r0, r7
 	bf r0, .LBB35_71
 .Ltmp384:
 .Lxtalabel94:
-	.loc	1 365 0
+	.loc	1 368 0
 	ldaw r11, cp[.str59]
 	mov r0, r11
 	ldaw r11, cp[.str60]
@@ -3804,7 +3806,7 @@ Temperature_Heater_Controller:
 .LBB35_72:
 .Lxtalabel97:
 	stw r6, sp[21]
-	.loc	1 373 0
+	.loc	1 376 0
 	ldaw r11, cp[.str67]
 	mov r0, r11
 	mov r2, r7
@@ -3839,7 +3841,7 @@ Temperature_Heater_Controller:
 .Ltmp392:
 .LBB35_71:
 .Lxtalabel100:
-	.loc	1 368 0
+	.loc	1 371 0
 	ldaw r11, cp[.str63]
 	mov r0, r11
 	ldaw r11, cp[.str64]
@@ -3850,7 +3852,7 @@ Temperature_Heater_Controller:
 .Ltmp393:
 .LBB35_73:
 .Lxtalabel101:
-	.loc	1 384 0
+	.loc	1 387 0
 	ldaw r11, cp[.str68]
 	mov r0, r11
 	ldaw r11, cp[.str69]
@@ -3958,38 +3960,38 @@ Temperature_Heater_Controller.select.0.enable:
 	ldw r1, cp[.LCPI36_2]
 	stw r1, r0[0]
 .Ltmp403:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	ldw r1, r4[2]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r1[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r2[0]
 	bf r2, .LBB36_3
 .Ltmp404:
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 392 0
+	.loc	1 395 0
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 .LBB36_3:
 .Ltmp405:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r1, r1[1]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r1, r1[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	bf r1, .LBB36_4
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r1], r11
 	mkmsk r0, 1
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setev res[r1], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r1]
 	bu .LBB36_5
 .Ltmp406:
@@ -4354,38 +4356,38 @@ Temperature_Heater_Controller.select.y.enable:
 	ldw r1, cp[.LCPI39_2]
 	stw r1, r0[0]
 .Ltmp451:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	ldw r1, r4[2]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r1[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r2[0]
 	bf r2, .LBB39_9
 .Ltmp452:
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 392 0
+	.loc	1 395 0
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 .LBB39_9:
 .Ltmp453:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r1, r1[1]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r1, r1[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	bf r1, .LBB39_10
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setv res[r1], r11
 	mkmsk r0, 1
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setev res[r1], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r1]
 	bu .LBB39_11
 .Ltmp454:
@@ -4516,38 +4518,38 @@ Temperature_Heater_Controller.select.enable:
 	ldw r2, cp[.LCPI40_2]
 	stw r2, r1[0]
 .Ltmp467:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	ldw r0, r0[2]
 .Ltmp468:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r0[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r2[0]
 	bf r2, .LBB40_9
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r1
 	setv res[r2], r11
 	ldc r11, 0
-	.loc	1 392 0
+	.loc	1 395 0
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 .LBB40_9:
 .Ltmp469:
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r0, r0[1]
-	.loc	1 392 0
+	.loc	1 395 0
 	ldw r2, r0[0]
-	.loc	1 392 0
+	.loc	1 395 0
 	bf r2, .LBB40_10
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r1
 	setv res[r2], r11
 	mkmsk r0, 1
-	.loc	1 392 0
+	.loc	1 395 0
 	mov r11, r0
 	setev res[r2], r11
-	.loc	1 392 0
+	.loc	1 395 0
 	eeu res[r2]
 	bu .LBB40_11
 .Ltmp470:
@@ -4612,7 +4614,7 @@ Temperature_Heater_Controller.fini:
 	.cc_top Temperature_Heater_Controller.select.0.case.0.function,Temperature_Heater_Controller.select.0.case.0
 Temperature_Heater_Controller.select.0.case.0:
 .Lfunc_begin42:
-	.loc	1 392 0
+	.loc	1 395 0
 	.cfi_startproc
 .Lxtalabel106:
 	ldw r11, sp[0]
@@ -4642,7 +4644,7 @@ Temperature_Heater_Controller.select.0.case.0:
 	.cfi_offset 8, -20
 	mov r5, r11
 .Ltmp482:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	get r11, ed
 	mov r4, r11
 .Ltmp483:
@@ -4667,7 +4669,7 @@ Temperature_Heater_Controller.select.0.case.0:
 	bt r7, .LBB42_4
 .Ltmp487:
 .Lxtalabel107:
-	.loc	1 447 0
+	.loc	1 450 0
 	ldaw r11, cp[.str103]
 	mov r0, r11
 	ldaw r11, cp[.str104]
@@ -4678,20 +4680,20 @@ Temperature_Heater_Controller.select.0.case.0:
 .LBB42_4:
 .Lxtalabel108:
 	ldc r0, 72
-	.loc	1 450 17
+	.loc	1 453 17
 	add r0, r5, r0
-	.loc	1 450 17
+	.loc	1 453 17
 	ldw r0, r0[0]
-	.loc	1 450 17
+	.loc	1 453 17
 	bf r0, .LBB42_14
 .Ltmp489:
 .Lxtalabel109:
 	ldc r0, 60
-	.loc	1 451 21
+	.loc	1 454 21
 	add r0, r5, r0
-	.loc	1 451 21
+	.loc	1 454 21
 	ldw r0, r0[0]
-	.loc	1 454 0
+	.loc	1 457 0
 	bt r0, .LBB42_6
 .Ltmp490:
 .Lxtalabel110:
@@ -4717,17 +4719,17 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp494:
 	in r0, res[r0]
 .Ltmp495:
-	.loc	1 393 0
+	.loc	1 396 0
 	stw r1, r5[10]
 	ldc r1, 96
 .Ltmp496:
-	.loc	1 394 0
+	.loc	1 397 0
 	add r1, r5, r1
-	.loc	1 394 0
+	.loc	1 397 0
 	stw r0, r1[0]
 	ldc r0, 0
 .Ltmp497:
-	.loc	1 395 0
+	.loc	1 398 0
 	stw r0, r5[9]
 	ldw r1, r7[r4]
 	ldw r1, r1[0]
@@ -4738,10 +4740,10 @@ Temperature_Heater_Controller.select.0.case.0:
 .LBB42_14:
 .Lxtalabel112:
 	ldc r0, 68
-	.loc	1 457 0
+	.loc	1 460 0
 .Ltmp499:
 	add r0, r5, r0
-	.loc	1 457 0
+	.loc	1 460 0
 	ldw r6, r0[0]
 .Ltmp500:
 	bu .LBB42_8
@@ -4751,9 +4753,9 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp502:
 .LBB42_8:
 .Lxtalabel113:
-	.loc	1 460 17
+	.loc	1 463 17
 	ldw r0, r5[10]
-	.loc	1 461 0
+	.loc	1 464 0
 	bt r0, .LBB42_9
 .Ltmp503:
 .Lxtalabel114:
@@ -4765,34 +4767,34 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp505:
 .LBB42_11:
 .Lxtalabel115:
-	.loc	1 478 0
+	.loc	1 481 0
 	mul r1, r7, r7
-	.loc	1 478 0
+	.loc	1 481 0
 	divu r0, r1, r0
 .Ltmp506:
-	.loc	1 482 0
+	.loc	1 485 0
 	mul r0, r0, r6
 .Ltmp507:
 	ldc r8, 0
 	ldw r1, cp[.LCPI42_0]
-	.loc	1 482 0
+	.loc	1 485 0
 	lmul r0, r1, r0, r1, r8, r8
 	shr r7, r0, 5
 .Ltmp508:
 	ldc r0, 76
-	.loc	1 484 17
+	.loc	1 487 17
 	add r0, r5, r0
-	.loc	1 484 17
+	.loc	1 487 17
 	ldw r1, r0[0]
-	.loc	1 484 17
+	.loc	1 487 17
 	eq r2, r1, 3
 	bf r2, .LBB42_12
 .Ltmp509:
 .Lxtalabel116:
 	ldc r1, 4
-	.loc	1 485 0
+	.loc	1 488 0
 	stw r1, r0[0]
-	.loc	1 487 0
+	.loc	1 490 0
 	ldaw r11, cp[.str107]
 	mov r0, r11
 	ldaw r11, cp[.str108]
@@ -4833,24 +4835,24 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp515:
 	in r6, res[r0]
 .Ltmp516:
-	.loc	1 403 0
+	.loc	1 406 0
 	stw r1, r5[10]
 	mkmsk r0, 1
-	.loc	1 404 0
+	.loc	1 407 0
 	stw r0, r5[9]
 	ldc r0, 100
-	.loc	1 406 17
+	.loc	1 409 17
 	add r5, r5, r0
 .Ltmp517:
-	.loc	1 406 17
+	.loc	1 409 17
 	ldw r0, r5[0]
-	.loc	1 406 17
+	.loc	1 409 17
 	eq r0, r6, r0
-	.loc	1 406 17
+	.loc	1 409 17
 	bf r0, .LBB42_20
 .Ltmp518:
 .Lxtalabel120:
-	.loc	1 407 0
+	.loc	1 410 0
 	ldaw r11, cp[.str117]
 	mov r0, r11
 	ldaw r11, cp[.str118]
@@ -4863,78 +4865,78 @@ Temperature_Heater_Controller.select.0.case.0:
 .Lxtalabel121:
 	outct res[r0], 1
 	ldc r2, 104
-	.loc	1 426 0
+	.loc	1 429 0
 .Ltmp520:
 	add r2, r5, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r2[0]
 	ldc r3, 6
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
 	ldc r2, 0
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 108
 .Ltmp521:
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	mkmsk r4, 1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 112
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	ldc r4, 2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 116
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	out res[r0], r2
 	bu .LBB42_31
@@ -4945,107 +4947,107 @@ Temperature_Heater_Controller.select.0.case.0:
 .Ltmp523:
 	ldc r2, 4
 .Ltmp524:
-	.loc	1 435 0
+	.loc	1 438 0
 	lsu r11, r3, r2
 .Ltrap_info2:
 	ecallf r11
-	.loc	1 435 0
+	.loc	1 438 0
 	ldaw r3, r3[r3]
 .Ltmp525:
 	add r11, r5, r3
 	ldc r3, 120
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r3]
 .Ltmp526:
 	ldc r4, 8
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
 	ldc r3, 0
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 121
 .Ltmp527:
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	mkmsk r6, 1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 122
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	ldc r6, 2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 123
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r1, 124
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r1, r11[r1]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	out res[r0], r3
 	bu .LBB42_31
 .Ltmp528:
 .LBB42_20:
 	ldc r8, 400
-	.loc	1 408 24
+	.loc	1 411 24
 	lss r0, r8, r6
-	.loc	1 408 24
+	.loc	1 411 24
 	bf r0, .LBB42_21
 .Ltmp529:
 .Lxtalabel122:
-	.loc	1 409 0
+	.loc	1 412 0
 	ldaw r11, cp[.str121]
 	mov r0, r11
 	ldaw r11, cp[.str122]
@@ -5053,42 +5055,42 @@ Temperature_Heater_Controller.select.0.case.0:
 .LBB42_21:
 .Ltmp530:
 	ldc r8, 150
-	.loc	1 411 24
+	.loc	1 414 24
 	lss r0, r6, r8
-	.loc	1 411 24
+	.loc	1 414 24
 	bf r0, .LBB42_25
 .Ltmp531:
 .Lxtalabel123:
-	.loc	1 412 0
+	.loc	1 415 0
 	ldaw r11, cp[.str125]
 	mov r0, r11
 	ldaw r11, cp[.str126]
 .LBB42_24:
 .Lxtalabel124:
-	.loc	1 409 0
+	.loc	1 412 0
 	mov r1, r11
 .Lxta.call_labels51:
 	bl iprintf
-	.loc	1 410 0
+	.loc	1 413 0
 	stw r8, r5[0]
 	mov r6, r8
 	bu .LBB42_26
 .LBB42_25:
 .Lxtalabel125:
 .Ltmp532:
-	.loc	1 415 0
+	.loc	1 418 0
 	ldaw r11, cp[.str129]
 	mov r0, r11
 	ldaw r11, cp[.str130]
 	mov r1, r11
 .Lxta.call_labels52:
 	bl iprintf
-	.loc	1 416 0
+	.loc	1 419 0
 	stw r6, r5[0]
 .Ltmp533:
 .LBB42_26:
 .Lxtalabel126:
-	.loc	1 418 0
+	.loc	1 421 0
 	ldaw r11, cp[.str133]
 	mov r0, r11
 	mov r1, r6
@@ -5794,18 +5796,20 @@ Temperature_Heater_Controller.select.y.case.1:
 	.loc	1 348 29
 	ldw r3, r1[0]
 	.loc	1 348 29
-	lss r11, r2, r3
+	sub r11, r3, 2
+	.loc	1 348 29
+	lss r11, r2, r11
 	bf r11, .LBB44_39
 .Lxtalabel171:
-	.loc	1 356 0
+	.loc	1 359 0
 	stw r2, r1[0]
 	ldc r0, 84
-	.loc	1 357 0
+	.loc	1 360 0
 	add r0, r10, r0
 	ldc r1, 0
-	.loc	1 357 0
+	.loc	1 360 0
 	stw r1, r0[0]
-	.loc	1 359 0
+	.loc	1 362 0
 	ldaw r11, cp[.str192]
 	mov r0, r11
 	mov r1, r2
@@ -5989,14 +5993,14 @@ Temperature_Heater_Controller.select.y.case.1:
 	mkmsk r4, 1
 .LBB44_45:
 .Lxtalabel184:
-	.loc	1 384 0
+	.loc	1 387 0
 	ldaw r11, cp[.str202]
 	mov r0, r11
 	ldaw r11, cp[.str203]
 	mov r1, r11
 .Lxta.call_labels75:
 	bl iprintf
-	.loc	1 386 0
+	.loc	1 389 0
 	stw r4, r10[11]
 	ldw r10, sp[20]
 	ldw r9, sp[21]
@@ -6009,32 +6013,32 @@ Temperature_Heater_Controller.select.y.case.1:
 	# RETURN_REG_HOLDER
 .LBB44_39:
 	ldc r1, 84
-	.loc	1 361 36
+	.loc	1 364 36
 	add r1, r10, r1
-	.loc	1 361 36
+	.loc	1 364 36
 	ldw r1, r1[0]
 	ldc r11, 180
-	.loc	1 361 36
+	.loc	1 364 36
 	lsu r11, r1, r11
 	bt r11, .LBB44_44
 .Lxtalabel185:
-	.loc	1 363 33
+	.loc	1 366 33
 	add r1, r3, 10
-	.loc	1 363 33
+	.loc	1 366 33
 	lss r1, r1, r2
 	bf r1, .LBB44_43
 .Lxtalabel186:
 	ldc r1, 2
-	.loc	1 364 0
+	.loc	1 367 0
 	stw r1, r0[0]
-	.loc	1 365 0
+	.loc	1 368 0
 	ldaw r11, cp[.str193]
 	mov r0, r11
 	ldaw r11, cp[.str194]
 	bu .LBB44_42
 .LBB44_44:
 .Lxtalabel187:
-	.loc	1 373 0
+	.loc	1 376 0
 	ldaw r11, cp[.str201]
 	mov r0, r11
 .Lxta.call_labels76:
@@ -6043,15 +6047,15 @@ Temperature_Heater_Controller.select.y.case.1:
 .LBB44_43:
 .Lxtalabel188:
 	mkmsk r1, 2
-	.loc	1 367 0
+	.loc	1 370 0
 	stw r1, r0[0]
-	.loc	1 368 0
+	.loc	1 371 0
 	ldaw r11, cp[.str197]
 	mov r0, r11
 	ldaw r11, cp[.str198]
 .LBB44_42:
 .Lxtalabel189:
-	.loc	1 365 0
+	.loc	1 368 0
 	mov r1, r11
 .Lxta.call_labels77:
 	bl iprintf
@@ -6081,7 +6085,7 @@ Temperature_Heater_Controller.select.y.case.1:
 	.cc_top Temperature_Heater_Controller.select.y.case.2.function,Temperature_Heater_Controller.select.y.case.2
 Temperature_Heater_Controller.select.y.case.2:
 .Lfunc_begin45:
-	.loc	1 392 0
+	.loc	1 395 0
 	.cfi_startproc
 .Lxtalabel190:
 	ldw r11, sp[0]
@@ -6111,7 +6115,7 @@ Temperature_Heater_Controller.select.y.case.2:
 	.cfi_offset 8, -20
 	mov r5, r11
 .Ltmp577:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	get r11, ed
 	mov r4, r11
 .Ltmp578:
@@ -6136,7 +6140,7 @@ Temperature_Heater_Controller.select.y.case.2:
 	bt r7, .LBB45_4
 .Ltmp582:
 .Lxtalabel191:
-	.loc	1 447 0
+	.loc	1 450 0
 	ldaw r11, cp[.str206]
 	mov r0, r11
 	ldaw r11, cp[.str207]
@@ -6147,20 +6151,20 @@ Temperature_Heater_Controller.select.y.case.2:
 .LBB45_4:
 .Lxtalabel192:
 	ldc r0, 72
-	.loc	1 450 17
+	.loc	1 453 17
 	add r0, r5, r0
-	.loc	1 450 17
+	.loc	1 453 17
 	ldw r0, r0[0]
-	.loc	1 450 17
+	.loc	1 453 17
 	bf r0, .LBB45_14
 .Ltmp584:
 .Lxtalabel193:
 	ldc r0, 60
-	.loc	1 451 21
+	.loc	1 454 21
 	add r0, r5, r0
-	.loc	1 451 21
+	.loc	1 454 21
 	ldw r0, r0[0]
-	.loc	1 454 0
+	.loc	1 457 0
 	bt r0, .LBB45_6
 .Ltmp585:
 .Lxtalabel194:
@@ -6186,17 +6190,17 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp589:
 	in r0, res[r0]
 .Ltmp590:
-	.loc	1 393 0
+	.loc	1 396 0
 	stw r1, r5[10]
 	ldc r1, 96
 .Ltmp591:
-	.loc	1 394 0
+	.loc	1 397 0
 	add r1, r5, r1
-	.loc	1 394 0
+	.loc	1 397 0
 	stw r0, r1[0]
 	ldc r0, 0
 .Ltmp592:
-	.loc	1 395 0
+	.loc	1 398 0
 	stw r0, r5[9]
 	ldw r1, r7[r4]
 	ldw r1, r1[0]
@@ -6207,10 +6211,10 @@ Temperature_Heater_Controller.select.y.case.2:
 .LBB45_14:
 .Lxtalabel196:
 	ldc r0, 68
-	.loc	1 457 0
+	.loc	1 460 0
 .Ltmp594:
 	add r0, r5, r0
-	.loc	1 457 0
+	.loc	1 460 0
 	ldw r6, r0[0]
 .Ltmp595:
 	bu .LBB45_8
@@ -6220,9 +6224,9 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp597:
 .LBB45_8:
 .Lxtalabel197:
-	.loc	1 460 17
+	.loc	1 463 17
 	ldw r0, r5[10]
-	.loc	1 461 0
+	.loc	1 464 0
 	bt r0, .LBB45_9
 .Ltmp598:
 .Lxtalabel198:
@@ -6234,34 +6238,34 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp600:
 .LBB45_11:
 .Lxtalabel199:
-	.loc	1 478 0
+	.loc	1 481 0
 	mul r1, r7, r7
-	.loc	1 478 0
+	.loc	1 481 0
 	divu r0, r1, r0
 .Ltmp601:
-	.loc	1 482 0
+	.loc	1 485 0
 	mul r0, r0, r6
 .Ltmp602:
 	ldc r8, 0
 	ldw r1, cp[.LCPI45_0]
-	.loc	1 482 0
+	.loc	1 485 0
 	lmul r0, r1, r0, r1, r8, r8
 	shr r7, r0, 5
 .Ltmp603:
 	ldc r0, 76
-	.loc	1 484 17
+	.loc	1 487 17
 	add r0, r5, r0
-	.loc	1 484 17
+	.loc	1 487 17
 	ldw r1, r0[0]
-	.loc	1 484 17
+	.loc	1 487 17
 	eq r2, r1, 3
 	bf r2, .LBB45_12
 .Ltmp604:
 .Lxtalabel200:
 	ldc r1, 4
-	.loc	1 485 0
+	.loc	1 488 0
 	stw r1, r0[0]
-	.loc	1 487 0
+	.loc	1 490 0
 	ldaw r11, cp[.str210]
 	mov r0, r11
 	ldaw r11, cp[.str211]
@@ -6302,24 +6306,24 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp610:
 	in r6, res[r0]
 .Ltmp611:
-	.loc	1 403 0
+	.loc	1 406 0
 	stw r1, r5[10]
 	mkmsk r0, 1
-	.loc	1 404 0
+	.loc	1 407 0
 	stw r0, r5[9]
 	ldc r0, 100
-	.loc	1 406 17
+	.loc	1 409 17
 	add r5, r5, r0
 .Ltmp612:
-	.loc	1 406 17
+	.loc	1 409 17
 	ldw r0, r5[0]
-	.loc	1 406 17
+	.loc	1 409 17
 	eq r0, r6, r0
-	.loc	1 406 17
+	.loc	1 409 17
 	bf r0, .LBB45_20
 .Ltmp613:
 .Lxtalabel204:
-	.loc	1 407 0
+	.loc	1 410 0
 	ldaw r11, cp[.str220]
 	mov r0, r11
 	ldaw r11, cp[.str221]
@@ -6332,78 +6336,78 @@ Temperature_Heater_Controller.select.y.case.2:
 .Lxtalabel205:
 	outct res[r0], 1
 	ldc r2, 104
-	.loc	1 426 0
+	.loc	1 429 0
 .Ltmp615:
 	add r2, r5, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r2[0]
 	ldc r3, 6
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
 	ldc r2, 0
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 108
 .Ltmp616:
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	mkmsk r4, 1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 112
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	ldc r4, 2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 116
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	out res[r0], r2
 	bu .LBB45_31
@@ -6414,107 +6418,107 @@ Temperature_Heater_Controller.select.y.case.2:
 .Ltmp618:
 	ldc r2, 4
 .Ltmp619:
-	.loc	1 435 0
+	.loc	1 438 0
 	lsu r11, r3, r2
 .Ltrap_info3:
 	ecallf r11
-	.loc	1 435 0
+	.loc	1 438 0
 	ldaw r3, r3[r3]
 .Ltmp620:
 	add r11, r5, r3
 	ldc r3, 120
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r3]
 .Ltmp621:
 	ldc r4, 8
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
 	ldc r3, 0
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 121
 .Ltmp622:
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	mkmsk r6, 1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 122
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	ldc r6, 2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 123
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r1, 124
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r1, r11[r1]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	out res[r0], r3
 	bu .LBB45_31
 .Ltmp623:
 .LBB45_20:
 	ldc r8, 400
-	.loc	1 408 24
+	.loc	1 411 24
 	lss r0, r8, r6
-	.loc	1 408 24
+	.loc	1 411 24
 	bf r0, .LBB45_21
 .Ltmp624:
 .Lxtalabel206:
-	.loc	1 409 0
+	.loc	1 412 0
 	ldaw r11, cp[.str224]
 	mov r0, r11
 	ldaw r11, cp[.str225]
@@ -6522,42 +6526,42 @@ Temperature_Heater_Controller.select.y.case.2:
 .LBB45_21:
 .Ltmp625:
 	ldc r8, 150
-	.loc	1 411 24
+	.loc	1 414 24
 	lss r0, r6, r8
-	.loc	1 411 24
+	.loc	1 414 24
 	bf r0, .LBB45_25
 .Ltmp626:
 .Lxtalabel207:
-	.loc	1 412 0
+	.loc	1 415 0
 	ldaw r11, cp[.str228]
 	mov r0, r11
 	ldaw r11, cp[.str229]
 .LBB45_24:
 .Lxtalabel208:
-	.loc	1 409 0
+	.loc	1 412 0
 	mov r1, r11
 .Lxta.call_labels81:
 	bl iprintf
-	.loc	1 410 0
+	.loc	1 413 0
 	stw r8, r5[0]
 	mov r6, r8
 	bu .LBB45_26
 .LBB45_25:
 .Lxtalabel209:
 .Ltmp627:
-	.loc	1 415 0
+	.loc	1 418 0
 	ldaw r11, cp[.str232]
 	mov r0, r11
 	ldaw r11, cp[.str233]
 	mov r1, r11
 .Lxta.call_labels82:
 	bl iprintf
-	.loc	1 416 0
+	.loc	1 419 0
 	stw r6, r5[0]
 .Ltmp628:
 .LBB45_26:
 .Lxtalabel210:
-	.loc	1 418 0
+	.loc	1 421 0
 	ldaw r11, cp[.str236]
 	mov r0, r11
 	mov r1, r6
@@ -7263,18 +7267,20 @@ Temperature_Heater_Controller.select.case.1:
 	.loc	1 348 29
 	ldw r3, r1[0]
 	.loc	1 348 29
-	lss r11, r2, r3
+	sub r11, r3, 2
+	.loc	1 348 29
+	lss r11, r2, r11
 	bf r11, .LBB47_39
 .Lxtalabel255:
-	.loc	1 356 0
+	.loc	1 359 0
 	stw r2, r1[0]
 	ldc r0, 84
-	.loc	1 357 0
+	.loc	1 360 0
 	add r0, r10, r0
 	ldc r1, 0
-	.loc	1 357 0
+	.loc	1 360 0
 	stw r1, r0[0]
-	.loc	1 359 0
+	.loc	1 362 0
 	ldaw r11, cp[.str289]
 	mov r0, r11
 	mov r1, r2
@@ -7458,14 +7464,14 @@ Temperature_Heater_Controller.select.case.1:
 	mkmsk r4, 1
 .LBB47_45:
 .Lxtalabel268:
-	.loc	1 384 0
+	.loc	1 387 0
 	ldaw r11, cp[.str299]
 	mov r0, r11
 	ldaw r11, cp[.str300]
 	mov r1, r11
 .Lxta.call_labels105:
 	bl iprintf
-	.loc	1 386 0
+	.loc	1 389 0
 	stw r4, r10[11]
 	ldw r10, sp[20]
 	ldw r9, sp[21]
@@ -7478,32 +7484,32 @@ Temperature_Heater_Controller.select.case.1:
 	# RETURN_REG_HOLDER
 .LBB47_39:
 	ldc r1, 84
-	.loc	1 361 36
+	.loc	1 364 36
 	add r1, r10, r1
-	.loc	1 361 36
+	.loc	1 364 36
 	ldw r1, r1[0]
 	ldc r11, 180
-	.loc	1 361 36
+	.loc	1 364 36
 	lsu r11, r1, r11
 	bt r11, .LBB47_44
 .Lxtalabel269:
-	.loc	1 363 33
+	.loc	1 366 33
 	add r1, r3, 10
-	.loc	1 363 33
+	.loc	1 366 33
 	lss r1, r1, r2
 	bf r1, .LBB47_43
 .Lxtalabel270:
 	ldc r1, 2
-	.loc	1 364 0
+	.loc	1 367 0
 	stw r1, r0[0]
-	.loc	1 365 0
+	.loc	1 368 0
 	ldaw r11, cp[.str290]
 	mov r0, r11
 	ldaw r11, cp[.str291]
 	bu .LBB47_42
 .LBB47_44:
 .Lxtalabel271:
-	.loc	1 373 0
+	.loc	1 376 0
 	ldaw r11, cp[.str298]
 	mov r0, r11
 .Lxta.call_labels106:
@@ -7512,15 +7518,15 @@ Temperature_Heater_Controller.select.case.1:
 .LBB47_43:
 .Lxtalabel272:
 	mkmsk r1, 2
-	.loc	1 367 0
+	.loc	1 370 0
 	stw r1, r0[0]
-	.loc	1 368 0
+	.loc	1 371 0
 	ldaw r11, cp[.str294]
 	mov r0, r11
 	ldaw r11, cp[.str295]
 .LBB47_42:
 .Lxtalabel273:
-	.loc	1 365 0
+	.loc	1 368 0
 	mov r1, r11
 .Lxta.call_labels107:
 	bl iprintf
@@ -7550,7 +7556,7 @@ Temperature_Heater_Controller.select.case.1:
 	.cc_top Temperature_Heater_Controller.select.case.2.function,Temperature_Heater_Controller.select.case.2
 Temperature_Heater_Controller.select.case.2:
 .Lfunc_begin48:
-	.loc	1 392 0
+	.loc	1 395 0
 	.cfi_startproc
 .Lxtalabel274:
 	ldw r11, sp[0]
@@ -7580,7 +7586,7 @@ Temperature_Heater_Controller.select.case.2:
 	.cfi_offset 8, -20
 	mov r5, r11
 .Ltmp672:
-	.loc	1 392 0 prologue_end
+	.loc	1 395 0 prologue_end
 	get r11, ed
 	mov r4, r11
 .Ltmp673:
@@ -7605,7 +7611,7 @@ Temperature_Heater_Controller.select.case.2:
 	bt r7, .LBB48_4
 .Ltmp677:
 .Lxtalabel275:
-	.loc	1 447 0
+	.loc	1 450 0
 	ldaw r11, cp[.str303]
 	mov r0, r11
 	ldaw r11, cp[.str304]
@@ -7616,20 +7622,20 @@ Temperature_Heater_Controller.select.case.2:
 .LBB48_4:
 .Lxtalabel276:
 	ldc r0, 72
-	.loc	1 450 17
+	.loc	1 453 17
 	add r0, r5, r0
-	.loc	1 450 17
+	.loc	1 453 17
 	ldw r0, r0[0]
-	.loc	1 450 17
+	.loc	1 453 17
 	bf r0, .LBB48_14
 .Ltmp679:
 .Lxtalabel277:
 	ldc r0, 60
-	.loc	1 451 21
+	.loc	1 454 21
 	add r0, r5, r0
-	.loc	1 451 21
+	.loc	1 454 21
 	ldw r0, r0[0]
-	.loc	1 454 0
+	.loc	1 457 0
 	bt r0, .LBB48_6
 .Ltmp680:
 .Lxtalabel278:
@@ -7655,17 +7661,17 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp684:
 	in r0, res[r0]
 .Ltmp685:
-	.loc	1 393 0
+	.loc	1 396 0
 	stw r1, r5[10]
 	ldc r1, 96
 .Ltmp686:
-	.loc	1 394 0
+	.loc	1 397 0
 	add r1, r5, r1
-	.loc	1 394 0
+	.loc	1 397 0
 	stw r0, r1[0]
 	ldc r0, 0
 .Ltmp687:
-	.loc	1 395 0
+	.loc	1 398 0
 	stw r0, r5[9]
 	ldw r1, r7[r4]
 	ldw r1, r1[0]
@@ -7676,10 +7682,10 @@ Temperature_Heater_Controller.select.case.2:
 .LBB48_14:
 .Lxtalabel280:
 	ldc r0, 68
-	.loc	1 457 0
+	.loc	1 460 0
 .Ltmp689:
 	add r0, r5, r0
-	.loc	1 457 0
+	.loc	1 460 0
 	ldw r6, r0[0]
 .Ltmp690:
 	bu .LBB48_8
@@ -7689,9 +7695,9 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp692:
 .LBB48_8:
 .Lxtalabel281:
-	.loc	1 460 17
+	.loc	1 463 17
 	ldw r0, r5[10]
-	.loc	1 461 0
+	.loc	1 464 0
 	bt r0, .LBB48_9
 .Ltmp693:
 .Lxtalabel282:
@@ -7703,34 +7709,34 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp695:
 .LBB48_11:
 .Lxtalabel283:
-	.loc	1 478 0
+	.loc	1 481 0
 	mul r1, r7, r7
-	.loc	1 478 0
+	.loc	1 481 0
 	divu r0, r1, r0
 .Ltmp696:
-	.loc	1 482 0
+	.loc	1 485 0
 	mul r0, r0, r6
 .Ltmp697:
 	ldc r8, 0
 	ldw r1, cp[.LCPI48_0]
-	.loc	1 482 0
+	.loc	1 485 0
 	lmul r0, r1, r0, r1, r8, r8
 	shr r7, r0, 5
 .Ltmp698:
 	ldc r0, 76
-	.loc	1 484 17
+	.loc	1 487 17
 	add r0, r5, r0
-	.loc	1 484 17
+	.loc	1 487 17
 	ldw r1, r0[0]
-	.loc	1 484 17
+	.loc	1 487 17
 	eq r2, r1, 3
 	bf r2, .LBB48_12
 .Ltmp699:
 .Lxtalabel284:
 	ldc r1, 4
-	.loc	1 485 0
+	.loc	1 488 0
 	stw r1, r0[0]
-	.loc	1 487 0
+	.loc	1 490 0
 	ldaw r11, cp[.str307]
 	mov r0, r11
 	ldaw r11, cp[.str308]
@@ -7771,24 +7777,24 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp705:
 	in r6, res[r0]
 .Ltmp706:
-	.loc	1 403 0
+	.loc	1 406 0
 	stw r1, r5[10]
 	mkmsk r0, 1
-	.loc	1 404 0
+	.loc	1 407 0
 	stw r0, r5[9]
 	ldc r0, 100
-	.loc	1 406 17
+	.loc	1 409 17
 	add r5, r5, r0
 .Ltmp707:
-	.loc	1 406 17
+	.loc	1 409 17
 	ldw r0, r5[0]
-	.loc	1 406 17
+	.loc	1 409 17
 	eq r0, r6, r0
-	.loc	1 406 17
+	.loc	1 409 17
 	bf r0, .LBB48_20
 .Ltmp708:
 .Lxtalabel288:
-	.loc	1 407 0
+	.loc	1 410 0
 	ldaw r11, cp[.str317]
 	mov r0, r11
 	ldaw r11, cp[.str318]
@@ -7801,78 +7807,78 @@ Temperature_Heater_Controller.select.case.2:
 .Lxtalabel289:
 	outct res[r0], 1
 	ldc r2, 104
-	.loc	1 426 0
+	.loc	1 429 0
 .Ltmp710:
 	add r2, r5, r2
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r2[0]
 	ldc r3, 6
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
 	ldc r2, 0
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 108
 .Ltmp711:
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	mkmsk r4, 1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 112
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
 	ldc r4, 2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r4
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	ldc r11, 116
-	.loc	1 426 0
+	.loc	1 429 0
 	add r11, r5, r11
-	.loc	1 426 0
+	.loc	1 429 0
 	ldw r11, r11[0]
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r3
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r2
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r1
-	.loc	1 426 0
+	.loc	1 429 0
 	out res[r0], r11
-	.loc	1 426 0
+	.loc	1 429 0
 	outct res[r0], 2
-	.loc	1 426 0
+	.loc	1 429 0
 	chkct res[r0], 1
 	out res[r0], r2
 	bu .LBB48_31
@@ -7883,107 +7889,107 @@ Temperature_Heater_Controller.select.case.2:
 .Ltmp713:
 	ldc r2, 4
 .Ltmp714:
-	.loc	1 435 0
+	.loc	1 438 0
 	lsu r11, r3, r2
 .Ltrap_info4:
 	ecallf r11
-	.loc	1 435 0
+	.loc	1 438 0
 	ldaw r3, r3[r3]
 .Ltmp715:
 	add r11, r5, r3
 	ldc r3, 120
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r3]
 .Ltmp716:
 	ldc r4, 8
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
 	ldc r3, 0
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 121
 .Ltmp717:
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	mkmsk r6, 1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 122
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
 	ldc r6, 2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r6
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r5, 123
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r5, r11[r5]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r5
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	ldc r1, 124
-	.loc	1 435 0
+	.loc	1 438 0
 	ld8u r1, r11[r1]
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r4
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r3
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r2
-	.loc	1 435 0
+	.loc	1 438 0
 	out res[r0], r1
-	.loc	1 435 0
+	.loc	1 438 0
 	outct res[r0], 2
-	.loc	1 435 0
+	.loc	1 438 0
 	chkct res[r0], 1
 	out res[r0], r3
 	bu .LBB48_31
 .Ltmp718:
 .LBB48_20:
 	ldc r8, 400
-	.loc	1 408 24
+	.loc	1 411 24
 	lss r0, r8, r6
-	.loc	1 408 24
+	.loc	1 411 24
 	bf r0, .LBB48_21
 .Ltmp719:
 .Lxtalabel290:
-	.loc	1 409 0
+	.loc	1 412 0
 	ldaw r11, cp[.str321]
 	mov r0, r11
 	ldaw r11, cp[.str322]
@@ -7991,42 +7997,42 @@ Temperature_Heater_Controller.select.case.2:
 .LBB48_21:
 .Ltmp720:
 	ldc r8, 150
-	.loc	1 411 24
+	.loc	1 414 24
 	lss r0, r6, r8
-	.loc	1 411 24
+	.loc	1 414 24
 	bf r0, .LBB48_25
 .Ltmp721:
 .Lxtalabel291:
-	.loc	1 412 0
+	.loc	1 415 0
 	ldaw r11, cp[.str325]
 	mov r0, r11
 	ldaw r11, cp[.str326]
 .LBB48_24:
 .Lxtalabel292:
-	.loc	1 409 0
+	.loc	1 412 0
 	mov r1, r11
 .Lxta.call_labels111:
 	bl iprintf
-	.loc	1 410 0
+	.loc	1 413 0
 	stw r8, r5[0]
 	mov r6, r8
 	bu .LBB48_26
 .LBB48_25:
 .Lxtalabel293:
 .Ltmp722:
-	.loc	1 415 0
+	.loc	1 418 0
 	ldaw r11, cp[.str329]
 	mov r0, r11
 	ldaw r11, cp[.str330]
 	mov r1, r11
 .Lxta.call_labels112:
 	bl iprintf
-	.loc	1 416 0
+	.loc	1 419 0
 	stw r6, r5[0]
 .Ltmp723:
 .LBB48_26:
 .Lxtalabel294:
-	.loc	1 418 0
+	.loc	1 421 0
 	ldaw r11, cp[.str333]
 	mov r0, r11
 	mov r1, r6
@@ -9766,7 +9772,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.short	443
+	.short	446
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -9778,7 +9784,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string40
 	.byte	4
 	.byte	1
-	.short	433
+	.short	436
 	.byte	3
 	.long	.Linfo_string36
 	.byte	0
@@ -9796,7 +9802,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string43
 	.byte	4
 	.byte	1
-	.short	402
+	.short	405
 	.byte	3
 	.long	.Linfo_string41
 	.byte	0
@@ -9808,7 +9814,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string43
 	.byte	4
 	.byte	1
-	.short	392
+	.short	395
 	.byte	3
 	.long	.Linfo_string41
 	.byte	0
@@ -9820,7 +9826,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string46
 	.byte	4
 	.byte	1
-	.short	392
+	.short	395
 	.byte	3
 	.long	.Linfo_string44
 	.byte	0
@@ -9832,7 +9838,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string49
 	.byte	4
 	.byte	1
-	.short	392
+	.short	395
 	.byte	3
 	.long	.Linfo_string47
 	.byte	0
@@ -9844,7 +9850,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.short	392
+	.short	395
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -9860,7 +9866,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string109
 	.long	.Linfo_string109
 	.byte	1
-	.short	442
+	.short	445
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc0
@@ -9870,14 +9876,14 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc1
 	.long	.Linfo_string115
 	.byte	1
-	.short	442
+	.short	445
 	.long	4985
 	.byte	9
 	.long	.Ldebug_ranges1
 	.byte	10
 	.long	.Linfo_string117
 	.byte	1
-	.short	444
+	.short	447
 	.long	4022
 	.byte	0
 	.byte	0
@@ -9889,7 +9895,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string110
 	.long	.Linfo_string110
 	.byte	1
-	.short	433
+	.short	436
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc2
@@ -9899,14 +9905,14 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc3
 	.long	.Linfo_string118
 	.byte	1
-	.short	433
+	.short	436
 	.long	4997
 	.byte	11
 	.byte	1
 	.byte	82
 	.long	.Linfo_string119
 	.byte	1
-	.short	433
+	.short	436
 	.long	5002
 	.byte	9
 	.long	.Ldebug_ranges3
@@ -9914,7 +9920,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc4
 	.long	.Linfo_string121
 	.byte	1
-	.short	434
+	.short	437
 	.long	4990
 	.byte	0
 	.byte	0
@@ -9926,7 +9932,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string111
 	.long	.Linfo_string111
 	.byte	1
-	.short	424
+	.short	427
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc5
@@ -9936,7 +9942,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc6
 	.long	.Linfo_string122
 	.byte	1
-	.short	424
+	.short	427
 	.long	5027
 	.byte	9
 	.long	.Ldebug_ranges5
@@ -9944,7 +9950,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc7
 	.long	.Linfo_string123
 	.byte	1
-	.short	425
+	.short	428
 	.long	4990
 	.byte	0
 	.byte	0
@@ -9956,7 +9962,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string112
 	.long	.Linfo_string112
 	.byte	1
-	.short	402
+	.short	405
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc8
@@ -9966,13 +9972,13 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc9
 	.long	.Linfo_string124
 	.byte	1
-	.short	402
+	.short	405
 	.long	5045
 	.byte	8
 	.long	.Ldebug_loc10
 	.long	.Linfo_string125
 	.byte	1
-	.short	402
+	.short	405
 	.long	4985
 	.byte	0
 	.byte	6
@@ -9983,7 +9989,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string113
 	.long	.Linfo_string113
 	.byte	1
-	.short	392
+	.short	395
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc11
@@ -9993,13 +9999,13 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc12
 	.long	.Linfo_string124
 	.byte	1
-	.short	392
+	.short	395
 	.long	5050
 	.byte	8
 	.long	.Ldebug_loc13
 	.long	.Linfo_string126
 	.byte	1
-	.short	392
+	.short	395
 	.long	4985
 	.byte	0
 	.byte	13
@@ -10297,77 +10303,77 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc36
 	.long	.Linfo_string159
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc37
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	12
 	.long	.Ldebug_loc38
 	.long	.Linfo_string115
 	.byte	1
-	.short	442
+	.short	445
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc39
 	.long	.Linfo_string161
 	.byte	1
-	.short	443
+	.short	446
 	.long	513
 	.byte	12
 	.long	.Ldebug_loc41
 	.long	.Linfo_string124
 	.byte	1
-	.short	392
+	.short	395
 	.long	5050
 	.byte	12
 	.long	.Ldebug_loc42
 	.long	.Linfo_string126
 	.byte	1
-	.short	392
+	.short	395
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc43
 	.long	.Linfo_string124
 	.byte	1
-	.short	402
+	.short	405
 	.long	5045
 	.byte	12
 	.long	.Ldebug_loc44
 	.long	.Linfo_string125
 	.byte	1
-	.short	402
+	.short	405
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc47
 	.long	.Linfo_string118
 	.byte	1
-	.short	433
+	.short	436
 	.long	4997
 	.byte	10
 	.long	.Linfo_string173
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	10
 	.long	.Linfo_string119
 	.byte	1
-	.short	433
+	.short	436
 	.long	5002
 	.byte	10
 	.long	.Linfo_string122
 	.byte	1
-	.short	424
+	.short	427
 	.long	5027
 	.byte	9
 	.long	.Ldebug_ranges17
 	.byte	10
 	.long	.Linfo_string117
 	.byte	1
-	.short	444
+	.short	447
 	.long	4022
 	.byte	0
 	.byte	9
@@ -10376,7 +10382,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc45
 	.long	.Linfo_string123
 	.byte	1
-	.short	425
+	.short	428
 	.long	4990
 	.byte	0
 	.byte	9
@@ -10385,7 +10391,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc46
 	.long	.Linfo_string121
 	.byte	1
-	.short	434
+	.short	437
 	.long	4990
 	.byte	0
 	.byte	0
@@ -10432,7 +10438,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc50
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	0
 	.byte	0
@@ -10661,7 +10667,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc54
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	0
 	.byte	0
@@ -10684,7 +10690,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc56
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	0
 	.byte	0
@@ -10696,7 +10702,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string96
 	.long	.Linfo_string96
 	.byte	1
-	.short	392
+	.short	395
 	.byte	7
 	.long	.Ldebug_loc57
 	.long	.Linfo_string180
@@ -10707,78 +10713,78 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc58
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	12
 	.long	.Ldebug_loc59
 	.long	.Linfo_string115
 	.byte	1
-	.short	442
+	.short	445
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc60
 	.long	.Linfo_string124
 	.byte	1
-	.short	392
+	.short	395
 	.long	5050
 	.byte	12
 	.long	.Ldebug_loc61
 	.long	.Linfo_string126
 	.byte	1
-	.short	392
+	.short	395
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc62
 	.long	.Linfo_string173
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc63
 	.long	.Linfo_string159
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc64
 	.long	.Linfo_string161
 	.byte	1
-	.short	443
+	.short	446
 	.long	513
 	.byte	12
 	.long	.Ldebug_loc65
 	.long	.Linfo_string124
 	.byte	1
-	.short	402
+	.short	405
 	.long	5045
 	.byte	12
 	.long	.Ldebug_loc66
 	.long	.Linfo_string125
 	.byte	1
-	.short	402
+	.short	405
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc68
 	.long	.Linfo_string118
 	.byte	1
-	.short	433
+	.short	436
 	.long	4997
 	.byte	10
 	.long	.Linfo_string119
 	.byte	1
-	.short	433
+	.short	436
 	.long	5002
 	.byte	10
 	.long	.Linfo_string122
 	.byte	1
-	.short	424
+	.short	427
 	.long	5027
 	.byte	9
 	.long	.Ldebug_ranges76
 	.byte	10
 	.long	.Linfo_string117
 	.byte	1
-	.short	444
+	.short	447
 	.long	4022
 	.byte	0
 	.byte	9
@@ -10787,7 +10793,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc67
 	.long	.Linfo_string123
 	.byte	1
-	.short	425
+	.short	428
 	.long	4990
 	.byte	0
 	.byte	9
@@ -10796,7 +10802,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc69
 	.long	.Linfo_string121
 	.byte	1
-	.short	434
+	.short	437
 	.long	4990
 	.byte	0
 	.byte	0
@@ -10892,7 +10898,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string102
 	.long	.Linfo_string102
 	.byte	1
-	.short	392
+	.short	395
 	.byte	7
 	.long	.Ldebug_loc72
 	.long	.Linfo_string180
@@ -10903,78 +10909,78 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc73
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	12
 	.long	.Ldebug_loc74
 	.long	.Linfo_string115
 	.byte	1
-	.short	442
+	.short	445
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc75
 	.long	.Linfo_string124
 	.byte	1
-	.short	392
+	.short	395
 	.long	5050
 	.byte	12
 	.long	.Ldebug_loc76
 	.long	.Linfo_string126
 	.byte	1
-	.short	392
+	.short	395
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc77
 	.long	.Linfo_string173
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc78
 	.long	.Linfo_string159
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc79
 	.long	.Linfo_string161
 	.byte	1
-	.short	443
+	.short	446
 	.long	513
 	.byte	12
 	.long	.Ldebug_loc80
 	.long	.Linfo_string124
 	.byte	1
-	.short	402
+	.short	405
 	.long	5045
 	.byte	12
 	.long	.Ldebug_loc81
 	.long	.Linfo_string125
 	.byte	1
-	.short	402
+	.short	405
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc83
 	.long	.Linfo_string118
 	.byte	1
-	.short	433
+	.short	436
 	.long	4997
 	.byte	10
 	.long	.Linfo_string119
 	.byte	1
-	.short	433
+	.short	436
 	.long	5002
 	.byte	10
 	.long	.Linfo_string122
 	.byte	1
-	.short	424
+	.short	427
 	.long	5027
 	.byte	9
 	.long	.Ldebug_ranges90
 	.byte	10
 	.long	.Linfo_string117
 	.byte	1
-	.short	444
+	.short	447
 	.long	4022
 	.byte	0
 	.byte	9
@@ -10983,7 +10989,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc82
 	.long	.Linfo_string123
 	.byte	1
-	.short	425
+	.short	428
 	.long	4990
 	.byte	0
 	.byte	9
@@ -10992,7 +10998,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc84
 	.long	.Linfo_string121
 	.byte	1
-	.short	434
+	.short	437
 	.long	4990
 	.byte	0
 	.byte	0
@@ -11088,7 +11094,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string106
 	.long	.Linfo_string106
 	.byte	1
-	.short	392
+	.short	395
 	.byte	7
 	.long	.Ldebug_loc87
 	.long	.Linfo_string180
@@ -11099,78 +11105,78 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc88
 	.long	.Linfo_string160
 	.byte	1
-	.short	392
+	.short	395
 	.long	4990
 	.byte	12
 	.long	.Ldebug_loc89
 	.long	.Linfo_string115
 	.byte	1
-	.short	442
+	.short	445
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc90
 	.long	.Linfo_string124
 	.byte	1
-	.short	392
+	.short	395
 	.long	5050
 	.byte	12
 	.long	.Ldebug_loc91
 	.long	.Linfo_string126
 	.byte	1
-	.short	392
+	.short	395
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc92
 	.long	.Linfo_string173
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc93
 	.long	.Linfo_string159
 	.byte	1
-	.short	443
+	.short	446
 	.long	4022
 	.byte	12
 	.long	.Ldebug_loc94
 	.long	.Linfo_string161
 	.byte	1
-	.short	443
+	.short	446
 	.long	513
 	.byte	12
 	.long	.Ldebug_loc95
 	.long	.Linfo_string124
 	.byte	1
-	.short	402
+	.short	405
 	.long	5045
 	.byte	12
 	.long	.Ldebug_loc96
 	.long	.Linfo_string125
 	.byte	1
-	.short	402
+	.short	405
 	.long	4985
 	.byte	12
 	.long	.Ldebug_loc98
 	.long	.Linfo_string118
 	.byte	1
-	.short	433
+	.short	436
 	.long	4997
 	.byte	10
 	.long	.Linfo_string119
 	.byte	1
-	.short	433
+	.short	436
 	.long	5002
 	.byte	10
 	.long	.Linfo_string122
 	.byte	1
-	.short	424
+	.short	427
 	.long	5027
 	.byte	9
 	.long	.Ldebug_ranges104
 	.byte	10
 	.long	.Linfo_string117
 	.byte	1
-	.short	444
+	.short	447
 	.long	4022
 	.byte	0
 	.byte	9
@@ -11179,7 +11185,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc97
 	.long	.Linfo_string123
 	.byte	1
-	.short	425
+	.short	428
 	.long	4990
 	.byte	0
 	.byte	9
@@ -11188,7 +11194,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Ldebug_loc99
 	.long	.Linfo_string121
 	.byte	1
-	.short	434
+	.short	437
 	.long	4990
 	.byte	0
 	.byte	0
@@ -11815,198 +11821,198 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	.Linfo_string178
 	.short	392
 	.byte	1
-	.short	392
+	.short	395
 	.byte	40
 	.long	.Linfo_string175
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	0
 	.byte	40
 	.long	.Linfo_string176
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	4
 	.byte	40
 	.long	.Linfo_string136
 	.long	5703
 	.byte	1
-	.short	392
+	.short	395
 	.byte	8
 	.byte	40
 	.long	.Linfo_string138
 	.long	5202
 	.byte	1
-	.short	392
+	.short	395
 	.byte	12
 	.byte	40
 	.long	.Linfo_string139
 	.long	5202
 	.byte	1
-	.short	392
+	.short	395
 	.byte	16
 	.byte	40
 	.long	.Linfo_string158
 	.long	4990
 	.byte	1
-	.short	392
+	.short	395
 	.byte	20
 	.byte	40
 	.long	.Linfo_string156
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	24
 	.byte	40
 	.long	.Linfo_string155
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	28
 	.byte	40
 	.long	.Linfo_string154
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	32
 	.byte	40
 	.long	.Linfo_string153
 	.long	613
 	.byte	1
-	.short	392
+	.short	395
 	.byte	36
 	.byte	40
 	.long	.Linfo_string152
 	.long	591
 	.byte	1
-	.short	392
+	.short	395
 	.byte	40
 	.byte	40
 	.long	.Linfo_string151
 	.long	635
 	.byte	1
-	.short	392
+	.short	395
 	.byte	44
 	.byte	40
 	.long	.Linfo_string150
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	48
 	.byte	40
 	.long	.Linfo_string149
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	52
 	.byte	40
 	.long	.Linfo_string148
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	56
 	.byte	40
 	.long	.Linfo_string147
 	.long	657
 	.byte	1
-	.short	392
+	.short	395
 	.byte	60
 	.byte	40
 	.long	.Linfo_string146
 	.long	657
 	.byte	1
-	.short	392
+	.short	395
 	.byte	64
 	.byte	40
 	.long	.Linfo_string145
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	68
 	.byte	40
 	.long	.Linfo_string144
 	.long	657
 	.byte	1
-	.short	392
+	.short	395
 	.byte	72
 	.byte	40
 	.long	.Linfo_string165
 	.long	5221
 	.byte	1
-	.short	392
+	.short	395
 	.byte	76
 	.byte	40
 	.long	.Linfo_string143
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	88
 	.byte	40
 	.long	.Linfo_string142
 	.long	4990
 	.byte	1
-	.short	392
+	.short	395
 	.byte	92
 	.byte	40
 	.long	.Linfo_string141
 	.long	4022
 	.byte	1
-	.short	392
+	.short	395
 	.byte	96
 	.byte	40
 	.long	.Linfo_string140
 	.long	4990
 	.byte	1
-	.short	392
+	.short	395
 	.byte	100
 	.byte	40
 	.long	.Linfo_string127
 	.long	5032
 	.byte	1
-	.short	392
+	.short	395
 	.byte	104
 	.byte	40
 	.long	.Linfo_string128
 	.long	5055
 	.byte	1
-	.short	392
+	.short	395
 	.byte	120
 	.byte	40
 	.long	.Linfo_string129
 	.long	5075
 	.byte	1
-	.short	392
+	.short	395
 	.byte	140
 	.byte	41
 	.long	.Linfo_string177
 	.long	5708
 	.byte	1
-	.short	392
+	.short	395
 	.short	272
 	.byte	41
 	.long	.Linfo_string177
 	.long	5708
 	.byte	1
-	.short	392
+	.short	395
 	.short	296
 	.byte	41
 	.long	.Linfo_string177
 	.long	5708
 	.byte	1
-	.short	392
+	.short	395
 	.short	320
 	.byte	41
 	.long	.Linfo_string177
 	.long	5708
 	.byte	1
-	.short	392
+	.short	395
 	.short	344
 	.byte	41
 	.long	.Linfo_string177
 	.long	5708
 	.byte	1
-	.short	392
+	.short	395
 	.short	368
 	.byte	0
 	.byte	38
@@ -15974,23 +15980,23 @@ Temperature_Heater_Controller.init.1.3.init:
 	.typestring Init_Arithmetic_Mean_Temp_OnetenthDegC, "f{0}(&(s(temp_onetenthDegC_mean_t){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui)"
 	.typestring Do_Arithmetic_Mean_Temp_OnetenthDegC, "f{si}(&(s(temp_onetenthDegC_mean_t){m(temps_onetenthDegC){a(8:si)},m(temps_index_next_to_write){ui},m(temps_num){ui},m(temps_sum_mten_previous){si}}),:ui,:si,:ui)"
 	.typestring Temperature_Heater_Controller, "k:f{0}(&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
-	.overlay_reference Temperature_Heater_Controller,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.overlay_reference Temperature_Heater_Controller,_i.i2c_external_commands_if.command.fns
 	.overlay_reference Temperature_Heater_Controller,_i.i2c_external_commands_if.read_temperature_ok.fns
+	.overlay_reference Temperature_Heater_Controller,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.typestring Temperature_Heater_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.init.1, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
 	.typestring Temperature_Heater_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Controller.fini, "k:f{0}(u:q(ui))"
-	.overlay_reference Temperature_Heater_Controller.select.y.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.overlay_reference Temperature_Heater_Controller.select.y.case.0,_i.i2c_external_commands_if.command.fns
-	.overlay_reference Temperature_Heater_Controller.select.y.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.y.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.overlay_reference Temperature_Heater_Controller.select.y.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
-	.overlay_reference Temperature_Heater_Controller.select.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.y.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.overlay_reference Temperature_Heater_Controller.select.case.0,_i.i2c_external_commands_if.command.fns
-	.overlay_reference Temperature_Heater_Controller.select.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.0,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.overlay_reference Temperature_Heater_Controller.select.case.1,_i.i2c_external_commands_if.read_temperature_ok.fns
+	.overlay_reference Temperature_Heater_Controller.select.case.1,_i.port_heat_light_commands_if.heat_cables_command.fns
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
@@ -16432,253 +16438,253 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_top cc_72,.Lxta.call_labels31
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
+	.long	362
 	.long	.Lxta.call_labels31
 .cc_bottom cc_72
 .cc_top cc_73,.Lxta.call_labels100
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
+	.long	362
 	.long	.Lxta.call_labels100
 .cc_bottom cc_73
 .cc_top cc_74,.Lxta.call_labels70
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
+	.long	362
 	.long	.Lxta.call_labels70
 .cc_bottom cc_74
 .cc_top cc_75,.Lxta.call_labels107
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
+	.long	368
 	.long	.Lxta.call_labels107
 .cc_bottom cc_75
 .cc_top cc_76,.Lxta.call_labels36
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
+	.long	368
 	.long	.Lxta.call_labels36
 .cc_bottom cc_76
 .cc_top cc_77,.Lxta.call_labels77
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
+	.long	368
 	.long	.Lxta.call_labels77
 .cc_bottom cc_77
 .cc_top cc_78,.Lxta.call_labels41
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	368
+	.long	371
 	.long	.Lxta.call_labels41
 .cc_bottom cc_78
 .cc_top cc_79,.Lxta.call_labels76
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
+	.long	376
 	.long	.Lxta.call_labels76
 .cc_bottom cc_79
 .cc_top cc_80,.Lxta.call_labels39
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
+	.long	376
 	.long	.Lxta.call_labels39
 .cc_bottom cc_80
 .cc_top cc_81,.Lxta.call_labels106
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
+	.long	376
 	.long	.Lxta.call_labels106
 .cc_bottom cc_81
 .cc_top cc_82,.Lxta.call_labels75
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
+	.long	387
 	.long	.Lxta.call_labels75
 .cc_bottom cc_82
 .cc_top cc_83,.Lxta.call_labels42
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
+	.long	387
 	.long	.Lxta.call_labels42
 .cc_bottom cc_83
 .cc_top cc_84,.Lxta.call_labels105
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
+	.long	387
 	.long	.Lxta.call_labels105
 .cc_bottom cc_84
 .cc_top cc_85,.Lxta.call_labels21
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
+	.long	410
 	.long	.Lxta.call_labels21
 .cc_bottom cc_85
 .cc_top cc_86,.Lxta.call_labels110
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
+	.long	410
 	.long	.Lxta.call_labels110
 .cc_bottom cc_86
 .cc_top cc_87,.Lxta.call_labels50
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
+	.long	410
 	.long	.Lxta.call_labels50
 .cc_bottom cc_87
 .cc_top cc_88,.Lxta.call_labels2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
+	.long	410
 	.long	.Lxta.call_labels2
 .cc_bottom cc_88
 .cc_top cc_89,.Lxta.call_labels80
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
+	.long	410
 	.long	.Lxta.call_labels80
 .cc_bottom cc_89
 .cc_top cc_90,.Lxta.call_labels51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
+	.long	412
 	.long	.Lxta.call_labels51
 .cc_bottom cc_90
 .cc_top cc_91,.Lxta.call_labels111
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
+	.long	412
 	.long	.Lxta.call_labels111
 .cc_bottom cc_91
 .cc_top cc_92,.Lxta.call_labels81
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
+	.long	412
 	.long	.Lxta.call_labels81
 .cc_bottom cc_92
 .cc_top cc_93,.Lxta.call_labels3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
+	.long	412
 	.long	.Lxta.call_labels3
 .cc_bottom cc_93
 .cc_top cc_94,.Lxta.call_labels4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
+	.long	418
 	.long	.Lxta.call_labels4
 .cc_bottom cc_94
 .cc_top cc_95,.Lxta.call_labels112
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
+	.long	418
 	.long	.Lxta.call_labels112
 .cc_bottom cc_95
 .cc_top cc_96,.Lxta.call_labels52
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
+	.long	418
 	.long	.Lxta.call_labels52
 .cc_bottom cc_96
 .cc_top cc_97,.Lxta.call_labels28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
+	.long	418
 	.long	.Lxta.call_labels28
 .cc_bottom cc_97
 .cc_top cc_98,.Lxta.call_labels82
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
+	.long	418
 	.long	.Lxta.call_labels82
 .cc_bottom cc_98
 .cc_top cc_99,.Lxta.call_labels83
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
+	.long	421
 	.long	.Lxta.call_labels83
 .cc_bottom cc_99
 .cc_top cc_100,.Lxta.call_labels5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
+	.long	421
 	.long	.Lxta.call_labels5
 .cc_bottom cc_100
 .cc_top cc_101,.Lxta.call_labels22
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
+	.long	421
 	.long	.Lxta.call_labels22
 .cc_bottom cc_101
 .cc_top cc_102,.Lxta.call_labels113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
+	.long	421
 	.long	.Lxta.call_labels113
 .cc_bottom cc_102
 .cc_top cc_103,.Lxta.call_labels53
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
+	.long	421
 	.long	.Lxta.call_labels53
 .cc_bottom cc_103
 .cc_top cc_104,.Lxta.call_labels0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
+	.long	450
 	.long	.Lxta.call_labels0
 .cc_bottom cc_104
 .cc_top cc_105,.Lxta.call_labels48
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
+	.long	450
 	.long	.Lxta.call_labels48
 .cc_bottom cc_105
 .cc_top cc_106,.Lxta.call_labels78
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
+	.long	450
 	.long	.Lxta.call_labels78
 .cc_bottom cc_106
 .cc_top cc_107,.Lxta.call_labels10
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
+	.long	450
 	.long	.Lxta.call_labels10
 .cc_bottom cc_107
 .cc_top cc_108,.Lxta.call_labels108
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
+	.long	450
 	.long	.Lxta.call_labels108
 .cc_bottom cc_108
 .cc_top cc_109,.Lxta.call_labels109
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
+	.long	490
 	.long	.Lxta.call_labels109
 .cc_bottom cc_109
 .cc_top cc_110,.Lxta.call_labels79
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
+	.long	490
 	.long	.Lxta.call_labels79
 .cc_bottom cc_110
 .cc_top cc_111,.Lxta.call_labels49
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
+	.long	490
 	.long	.Lxta.call_labels49
 .cc_bottom cc_111
 .cc_top cc_112,.Lxta.call_labels1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
+	.long	490
 	.long	.Lxta.call_labels1
 .cc_bottom cc_112
 .cc_top cc_113,.Lxta.call_labels11
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
+	.long	490
 	.long	.Lxta.call_labels11
 .cc_bottom cc_113
 .Lentries_end1:
@@ -19045,2416 +19051,2416 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_top cc_450,.Lxtalabel171
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	356
-	.long	357
+	.long	359
+	.long	360
 	.long	.Lxtalabel171
 .cc_bottom cc_450
 .cc_top cc_451,.Lxtalabel255
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	356
-	.long	357
+	.long	359
+	.long	360
 	.long	.Lxtalabel255
 .cc_bottom cc_451
 .cc_top cc_452,.Lxtalabel83
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	356
-	.long	357
+	.long	359
+	.long	360
 	.long	.Lxtalabel83
 .cc_bottom cc_452
 .cc_top cc_453,.Lxtalabel83
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	362
+	.long	362
 	.long	.Lxtalabel83
 .cc_bottom cc_453
 .cc_top cc_454,.Lxtalabel255
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	362
+	.long	362
 	.long	.Lxtalabel255
 .cc_bottom cc_454
 .cc_top cc_455,.Lxtalabel171
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	359
-	.long	359
+	.long	362
+	.long	362
 	.long	.Lxtalabel171
 .cc_bottom cc_455
 .cc_top cc_456,.Lxtalabel255
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	361
-	.long	361
+	.long	364
+	.long	364
 	.long	.Lxtalabel255
 .cc_bottom cc_456
 .cc_top cc_457,.Lxtalabel83
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	361
-	.long	361
+	.long	364
+	.long	364
 	.long	.Lxtalabel83
 .cc_bottom cc_457
 .cc_top cc_458,.Lxtalabel171
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	361
-	.long	361
+	.long	364
+	.long	364
 	.long	.Lxtalabel171
 .cc_bottom cc_458
 .cc_top cc_459,.Lxtalabel185
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	363
-	.long	363
+	.long	366
+	.long	366
 	.long	.Lxtalabel185
 .cc_bottom cc_459
 .cc_top cc_460,.Lxtalabel93
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	363
-	.long	363
+	.long	366
+	.long	366
 	.long	.Lxtalabel93
 .cc_bottom cc_460
 .cc_top cc_461,.Lxtalabel269
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	363
-	.long	363
+	.long	366
+	.long	366
 	.long	.Lxtalabel269
 .cc_bottom cc_461
 .cc_top cc_462,.Lxtalabel94
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	364
-	.long	364
+	.long	367
+	.long	367
 	.long	.Lxtalabel94
 .cc_bottom cc_462
 .cc_top cc_463,.Lxtalabel186
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	364
-	.long	364
+	.long	367
+	.long	367
 	.long	.Lxtalabel186
 .cc_bottom cc_463
 .cc_top cc_464,.Lxtalabel270
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	364
-	.long	364
+	.long	367
+	.long	367
 	.long	.Lxtalabel270
 .cc_bottom cc_464
 .cc_top cc_465,.Lxtalabel94
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
-	.long	365
+	.long	368
+	.long	368
 	.long	.Lxtalabel94
 .cc_bottom cc_465
 .cc_top cc_466,.Lxtalabel270
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
-	.long	365
+	.long	368
+	.long	368
 	.long	.Lxtalabel270
 .cc_bottom cc_466
 .cc_top cc_467,.Lxtalabel186
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	365
-	.long	365
+	.long	368
+	.long	368
 	.long	.Lxtalabel186
 .cc_bottom cc_467
 .cc_top cc_468,.Lxtalabel270
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	366
-	.long	366
+	.long	369
+	.long	369
 	.long	.Lxtalabel270
 .cc_bottom cc_468
 .cc_top cc_469,.Lxtalabel186
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	366
-	.long	366
+	.long	369
+	.long	369
 	.long	.Lxtalabel186
 .cc_bottom cc_469
 .cc_top cc_470,.Lxtalabel94
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	366
-	.long	366
+	.long	369
+	.long	369
 	.long	.Lxtalabel94
 .cc_bottom cc_470
 .cc_top cc_471,.Lxtalabel272
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	367
-	.long	367
+	.long	370
+	.long	370
 	.long	.Lxtalabel272
 .cc_bottom cc_471
 .cc_top cc_472,.Lxtalabel100
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	367
-	.long	367
+	.long	370
+	.long	370
 	.long	.Lxtalabel100
 .cc_bottom cc_472
 .cc_top cc_473,.Lxtalabel188
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	367
-	.long	367
+	.long	370
+	.long	370
 	.long	.Lxtalabel188
 .cc_bottom cc_473
 .cc_top cc_474,.Lxtalabel100
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	368
-	.long	368
+	.long	371
+	.long	371
 	.long	.Lxtalabel100
 .cc_bottom cc_474
 .cc_top cc_475,.Lxtalabel188
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	368
-	.long	368
+	.long	371
+	.long	371
 	.long	.Lxtalabel188
 .cc_bottom cc_475
 .cc_top cc_476,.Lxtalabel272
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	368
-	.long	368
+	.long	371
+	.long	371
 	.long	.Lxtalabel272
 .cc_bottom cc_476
 .cc_top cc_477,.Lxtalabel272
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	369
-	.long	369
+	.long	372
+	.long	372
 	.long	.Lxtalabel272
 .cc_bottom cc_477
 .cc_top cc_478,.Lxtalabel188
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	369
-	.long	369
+	.long	372
+	.long	372
 	.long	.Lxtalabel188
 .cc_bottom cc_478
 .cc_top cc_479,.Lxtalabel100
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	369
-	.long	369
+	.long	372
+	.long	372
 	.long	.Lxtalabel100
 .cc_bottom cc_479
 .cc_top cc_480,.Lxtalabel271
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
-	.long	373
+	.long	376
+	.long	376
 	.long	.Lxtalabel271
 .cc_bottom cc_480
 .cc_top cc_481,.Lxtalabel97
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
-	.long	373
+	.long	376
+	.long	376
 	.long	.Lxtalabel97
 .cc_bottom cc_481
 .cc_top cc_482,.Lxtalabel187
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	373
-	.long	373
+	.long	376
+	.long	376
 	.long	.Lxtalabel187
 .cc_bottom cc_482
 .cc_top cc_483,.Lxtalabel187
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	375
-	.long	375
+	.long	378
+	.long	378
 	.long	.Lxtalabel187
 .cc_bottom cc_483
 .cc_top cc_484,.Lxtalabel97
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	375
-	.long	375
+	.long	378
+	.long	378
 	.long	.Lxtalabel97
 .cc_bottom cc_484
 .cc_top cc_485,.Lxtalabel271
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	375
-	.long	375
+	.long	378
+	.long	378
 	.long	.Lxtalabel271
 .cc_bottom cc_485
 .cc_top cc_486,.Lxtalabel268
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel268
 .cc_bottom cc_486
 .cc_top cc_487,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel189
 .cc_bottom cc_487
 .cc_top cc_488,.Lxtalabel183
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel183
 .cc_bottom cc_488
 .cc_top cc_489,.Lxtalabel273
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel273
 .cc_bottom cc_489
 .cc_top cc_490,.Lxtalabel184
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel184
 .cc_bottom cc_490
 .cc_top cc_491,.Lxtalabel101
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel101
 .cc_bottom cc_491
 .cc_top cc_492,.Lxtalabel267
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	384
-	.long	384
+	.long	387
+	.long	387
 	.long	.Lxtalabel267
 .cc_bottom cc_492
 .cc_top cc_493,.Lxtalabel273
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel273
 .cc_bottom cc_493
 .cc_top cc_494,.Lxtalabel101
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel101
 .cc_bottom cc_494
 .cc_top cc_495,.Lxtalabel184
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel184
 .cc_bottom cc_495
 .cc_top cc_496,.Lxtalabel183
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel183
 .cc_bottom cc_496
 .cc_top cc_497,.Lxtalabel267
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel267
 .cc_bottom cc_497
 .cc_top cc_498,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel189
 .cc_bottom cc_498
 .cc_top cc_499,.Lxtalabel268
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	386
-	.long	387
+	.long	389
+	.long	390
 	.long	.Lxtalabel268
 .cc_bottom cc_499
 .cc_top cc_500,.Lxtalabel184
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel184
 .cc_bottom cc_500
 .cc_top cc_501,.Lxtalabel183
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel183
 .cc_bottom cc_501
 .cc_top cc_502,.Lxtalabel268
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel268
 .cc_bottom cc_502
 .cc_top cc_503,.Lxtalabel101
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel101
 .cc_bottom cc_503
 .cc_top cc_504,.Lxtalabel267
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel267
 .cc_bottom cc_504
 .cc_top cc_505,.Lxtalabel273
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel273
 .cc_bottom cc_505
 .cc_top cc_506,.Lxtalabel189
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	392
-	.long	392
+	.long	395
+	.long	395
 	.long	.Lxtalabel189
 .cc_bottom cc_506
 .cc_top cc_507,.Lxtalabel190
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel190
 .cc_bottom cc_507
 .cc_top cc_508,.Lxtalabel23
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel23
 .cc_bottom cc_508
 .cc_top cc_509,.Lxtalabel24
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel24
 .cc_bottom cc_509
 .cc_top cc_510,.Lxtalabel111
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel111
 .cc_bottom cc_510
 .cc_top cc_511,.Lxtalabel106
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel106
 .cc_bottom cc_511
 .cc_top cc_512,.Lxtalabel279
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel279
 .cc_bottom cc_512
 .cc_top cc_513,.Lxtalabel195
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel195
 .cc_bottom cc_513
 .cc_top cc_514,.Lxtalabel274
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	393
-	.long	395
+	.long	396
+	.long	398
 	.long	.Lxtalabel274
 .cc_bottom cc_514
 .cc_top cc_515,.Lxtalabel274
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel274
 .cc_bottom cc_515
 .cc_top cc_516,.Lxtalabel111
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel111
 .cc_bottom cc_516
 .cc_top cc_517,.Lxtalabel195
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel195
 .cc_bottom cc_517
 .cc_top cc_518,.Lxtalabel24
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel24
 .cc_bottom cc_518
 .cc_top cc_519,.Lxtalabel279
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel279
 .cc_bottom cc_519
 .cc_top cc_520,.Lxtalabel23
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel23
 .cc_bottom cc_520
 .cc_top cc_521,.Lxtalabel106
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel106
 .cc_bottom cc_521
 .cc_top cc_522,.Lxtalabel190
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	397
-	.long	397
+	.long	400
+	.long	400
 	.long	.Lxtalabel190
 .cc_bottom cc_522
 .cc_top cc_523,.Lxtalabel274
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel274
 .cc_bottom cc_523
 .cc_top cc_524,.Lxtalabel111
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel111
 .cc_bottom cc_524
 .cc_top cc_525,.Lxtalabel106
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel106
 .cc_bottom cc_525
 .cc_top cc_526,.Lxtalabel190
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel190
 .cc_bottom cc_526
 .cc_top cc_527,.Lxtalabel23
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel23
 .cc_bottom cc_527
 .cc_top cc_528,.Lxtalabel279
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel279
 .cc_bottom cc_528
 .cc_top cc_529,.Lxtalabel24
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel24
 .cc_bottom cc_529
 .cc_top cc_530,.Lxtalabel195
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	402
-	.long	402
+	.long	405
+	.long	405
 	.long	.Lxtalabel195
 .cc_bottom cc_530
 .cc_top cc_531,.Lxtalabel204
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
-	.long	407
+	.long	410
+	.long	410
 	.long	.Lxtalabel204
 .cc_bottom cc_531
 .cc_top cc_532,.Lxtalabel14
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
-	.long	407
+	.long	410
+	.long	410
 	.long	.Lxtalabel14
 .cc_bottom cc_532
 .cc_top cc_533,.Lxtalabel50
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
-	.long	407
+	.long	410
+	.long	410
 	.long	.Lxtalabel50
 .cc_bottom cc_533
 .cc_top cc_534,.Lxtalabel120
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
-	.long	407
+	.long	410
+	.long	410
 	.long	.Lxtalabel120
 .cc_bottom cc_534
 .cc_top cc_535,.Lxtalabel288
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	407
-	.long	407
+	.long	410
+	.long	410
 	.long	.Lxtalabel288
 .cc_bottom cc_535
 .cc_top cc_536,.Lxtalabel14
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	411
+	.long	411
 	.long	.Lxtalabel14
 .cc_bottom cc_536
 .cc_top cc_537,.Lxtalabel288
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	411
+	.long	411
 	.long	.Lxtalabel288
 .cc_bottom cc_537
 .cc_top cc_538,.Lxtalabel50
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	411
+	.long	411
 	.long	.Lxtalabel50
 .cc_bottom cc_538
 .cc_top cc_539,.Lxtalabel120
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	411
+	.long	411
 	.long	.Lxtalabel120
 .cc_bottom cc_539
 .cc_top cc_540,.Lxtalabel204
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	408
-	.long	408
+	.long	411
+	.long	411
 	.long	.Lxtalabel204
 .cc_bottom cc_540
 .cc_top cc_541,.Lxtalabel290
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
-	.long	409
+	.long	412
+	.long	412
 	.long	.Lxtalabel290
 .cc_bottom cc_541
 .cc_top cc_542,.Lxtalabel122
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
-	.long	409
+	.long	412
+	.long	412
 	.long	.Lxtalabel122
 .cc_bottom cc_542
 .cc_top cc_543,.Lxtalabel15
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
-	.long	409
+	.long	412
+	.long	412
 	.long	.Lxtalabel15
 .cc_bottom cc_543
 .cc_top cc_544,.Lxtalabel53
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
-	.long	409
+	.long	412
+	.long	412
 	.long	.Lxtalabel53
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel206
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	409
-	.long	409
+	.long	412
+	.long	412
 	.long	.Lxtalabel206
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel206
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	410
-	.long	411
+	.long	413
+	.long	414
 	.long	.Lxtalabel206
 .cc_bottom cc_546
 .cc_top cc_547,.Lxtalabel122
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	410
-	.long	411
+	.long	413
+	.long	414
 	.long	.Lxtalabel122
 .cc_bottom cc_547
 .cc_top cc_548,.Lxtalabel290
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	410
-	.long	411
+	.long	413
+	.long	414
 	.long	.Lxtalabel290
 .cc_bottom cc_548
 .cc_top cc_549,.Lxtalabel53
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	410
-	.long	411
+	.long	413
+	.long	414
 	.long	.Lxtalabel53
 .cc_bottom cc_549
 .cc_top cc_550,.Lxtalabel15
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	410
-	.long	411
+	.long	413
+	.long	414
 	.long	.Lxtalabel15
 .cc_bottom cc_550
 .cc_top cc_551,.Lxtalabel207
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	412
-	.long	412
+	.long	415
+	.long	415
 	.long	.Lxtalabel207
 .cc_bottom cc_551
 .cc_top cc_552,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	412
-	.long	412
+	.long	415
+	.long	415
 	.long	.Lxtalabel16
 .cc_bottom cc_552
 .cc_top cc_553,.Lxtalabel56
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	412
-	.long	412
+	.long	415
+	.long	415
 	.long	.Lxtalabel56
 .cc_bottom cc_553
 .cc_top cc_554,.Lxtalabel123
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	412
-	.long	412
+	.long	415
+	.long	415
 	.long	.Lxtalabel123
 .cc_bottom cc_554
 .cc_top cc_555,.Lxtalabel291
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	412
-	.long	412
+	.long	415
+	.long	415
 	.long	.Lxtalabel291
 .cc_bottom cc_555
 .cc_top cc_556,.Lxtalabel16
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	413
-	.long	414
+	.long	416
+	.long	417
 	.long	.Lxtalabel16
 .cc_bottom cc_556
 .cc_top cc_557,.Lxtalabel207
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	413
-	.long	414
+	.long	416
+	.long	417
 	.long	.Lxtalabel207
 .cc_bottom cc_557
 .cc_top cc_558,.Lxtalabel123
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	413
-	.long	414
+	.long	416
+	.long	417
 	.long	.Lxtalabel123
 .cc_bottom cc_558
 .cc_top cc_559,.Lxtalabel291
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	413
-	.long	414
+	.long	416
+	.long	417
 	.long	.Lxtalabel291
 .cc_bottom cc_559
 .cc_top cc_560,.Lxtalabel56
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	413
-	.long	414
+	.long	416
+	.long	417
 	.long	.Lxtalabel56
 .cc_bottom cc_560
 .cc_top cc_561,.Lxtalabel293
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	418
+	.long	418
 	.long	.Lxtalabel293
 .cc_bottom cc_561
 .cc_top cc_562,.Lxtalabel125
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	418
+	.long	418
 	.long	.Lxtalabel125
 .cc_bottom cc_562
 .cc_top cc_563,.Lxtalabel76
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	418
+	.long	418
 	.long	.Lxtalabel76
 .cc_bottom cc_563
 .cc_top cc_564,.Lxtalabel209
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	418
+	.long	418
 	.long	.Lxtalabel209
 .cc_bottom cc_564
 .cc_top cc_565,.Lxtalabel18
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	415
-	.long	415
+	.long	418
+	.long	418
 	.long	.Lxtalabel18
 .cc_bottom cc_565
 .cc_top cc_566,.Lxtalabel293
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	416
-	.long	417
+	.long	419
+	.long	420
 	.long	.Lxtalabel293
 .cc_bottom cc_566
 .cc_top cc_567,.Lxtalabel125
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	416
-	.long	417
+	.long	419
+	.long	420
 	.long	.Lxtalabel125
 .cc_bottom cc_567
 .cc_top cc_568,.Lxtalabel18
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	416
-	.long	417
+	.long	419
+	.long	420
 	.long	.Lxtalabel18
 .cc_bottom cc_568
 .cc_top cc_569,.Lxtalabel76
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	416
-	.long	417
+	.long	419
+	.long	420
 	.long	.Lxtalabel76
 .cc_bottom cc_569
 .cc_top cc_570,.Lxtalabel209
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	416
-	.long	417
+	.long	419
+	.long	420
 	.long	.Lxtalabel209
 .cc_bottom cc_570
 .cc_top cc_571,.Lxtalabel19
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel19
 .cc_bottom cc_571
 .cc_top cc_572,.Lxtalabel126
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel126
 .cc_bottom cc_572
 .cc_top cc_573,.Lxtalabel292
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel292
 .cc_bottom cc_573
 .cc_top cc_574,.Lxtalabel208
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel208
 .cc_bottom cc_574
 .cc_top cc_575,.Lxtalabel57
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel57
 .cc_bottom cc_575
 .cc_top cc_576,.Lxtalabel58
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel58
 .cc_bottom cc_576
 .cc_top cc_577,.Lxtalabel294
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel294
 .cc_bottom cc_577
 .cc_top cc_578,.Lxtalabel124
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel124
 .cc_bottom cc_578
 .cc_top cc_579,.Lxtalabel17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel17
 .cc_bottom cc_579
 .cc_top cc_580,.Lxtalabel210
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	418
-	.long	418
+	.long	421
+	.long	421
 	.long	.Lxtalabel210
 .cc_bottom cc_580
 .cc_top cc_581,.Lxtalabel210
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel210
 .cc_bottom cc_581
 .cc_top cc_582,.Lxtalabel294
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel294
 .cc_bottom cc_582
 .cc_top cc_583,.Lxtalabel208
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel208
 .cc_bottom cc_583
 .cc_top cc_584,.Lxtalabel292
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel292
 .cc_bottom cc_584
 .cc_top cc_585,.Lxtalabel19
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel19
 .cc_bottom cc_585
 .cc_top cc_586,.Lxtalabel126
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel126
 .cc_bottom cc_586
 .cc_top cc_587,.Lxtalabel17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel17
 .cc_bottom cc_587
 .cc_top cc_588,.Lxtalabel124
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel124
 .cc_bottom cc_588
 .cc_top cc_589,.Lxtalabel57
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel57
 .cc_bottom cc_589
 .cc_top cc_590,.Lxtalabel58
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	419
-	.long	419
+	.long	422
+	.long	422
 	.long	.Lxtalabel58
 .cc_bottom cc_590
 .cc_top cc_591,.Lxtalabel294
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel294
 .cc_bottom cc_591
 .cc_top cc_592,.Lxtalabel58
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel58
 .cc_bottom cc_592
 .cc_top cc_593,.Lxtalabel126
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel126
 .cc_bottom cc_593
 .cc_top cc_594,.Lxtalabel17
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel17
 .cc_bottom cc_594
 .cc_top cc_595,.Lxtalabel19
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel19
 .cc_bottom cc_595
 .cc_top cc_596,.Lxtalabel210
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel210
 .cc_bottom cc_596
 .cc_top cc_597,.Lxtalabel292
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel292
 .cc_bottom cc_597
 .cc_top cc_598,.Lxtalabel124
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel124
 .cc_bottom cc_598
 .cc_top cc_599,.Lxtalabel208
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel208
 .cc_bottom cc_599
 .cc_top cc_600,.Lxtalabel57
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	424
-	.long	424
+	.long	427
+	.long	427
 	.long	.Lxtalabel57
 .cc_bottom cc_600
 .cc_top cc_601,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel205
 .cc_bottom cc_601
 .cc_top cc_602,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel121
 .cc_bottom cc_602
 .cc_top cc_603,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel51
 .cc_bottom cc_603
 .cc_top cc_604,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel121
 .cc_bottom cc_604
 .cc_top cc_605,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel121
 .cc_bottom cc_605
 .cc_top cc_606,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel205
 .cc_bottom cc_606
 .cc_top cc_607,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel121
 .cc_bottom cc_607
 .cc_top cc_608,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel13
 .cc_bottom cc_608
 .cc_top cc_609,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel289
 .cc_bottom cc_609
 .cc_top cc_610,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel205
 .cc_bottom cc_610
 .cc_top cc_611,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel289
 .cc_bottom cc_611
 .cc_top cc_612,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel289
 .cc_bottom cc_612
 .cc_top cc_613,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel205
 .cc_bottom cc_613
 .cc_top cc_614,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel289
 .cc_bottom cc_614
 .cc_top cc_615,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel51
 .cc_bottom cc_615
 .cc_top cc_616,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel51
 .cc_bottom cc_616
 .cc_top cc_617,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel51
 .cc_bottom cc_617
 .cc_top cc_618,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel13
 .cc_bottom cc_618
 .cc_top cc_619,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel13
 .cc_bottom cc_619
 .cc_top cc_620,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	426
-	.long	427
+	.long	429
+	.long	430
 	.long	.Lxtalabel13
 .cc_bottom cc_620
 .cc_top cc_621,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	428
-	.long	428
+	.long	431
+	.long	431
 	.long	.Lxtalabel13
 .cc_bottom cc_621
 .cc_top cc_622,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	428
-	.long	428
+	.long	431
+	.long	431
 	.long	.Lxtalabel121
 .cc_bottom cc_622
 .cc_top cc_623,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	428
-	.long	428
+	.long	431
+	.long	431
 	.long	.Lxtalabel289
 .cc_bottom cc_623
 .cc_top cc_624,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	428
-	.long	428
+	.long	431
+	.long	431
 	.long	.Lxtalabel51
 .cc_bottom cc_624
 .cc_top cc_625,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	428
-	.long	428
+	.long	431
+	.long	431
 	.long	.Lxtalabel205
 .cc_bottom cc_625
 .cc_top cc_626,.Lxtalabel13
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	436
+	.long	436
 	.long	.Lxtalabel13
 .cc_bottom cc_626
 .cc_top cc_627,.Lxtalabel205
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	436
+	.long	436
 	.long	.Lxtalabel205
 .cc_bottom cc_627
 .cc_top cc_628,.Lxtalabel51
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	436
+	.long	436
 	.long	.Lxtalabel51
 .cc_bottom cc_628
 .cc_top cc_629,.Lxtalabel121
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	436
+	.long	436
 	.long	.Lxtalabel121
 .cc_bottom cc_629
 .cc_top cc_630,.Lxtalabel289
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	433
-	.long	433
+	.long	436
+	.long	436
 	.long	.Lxtalabel289
 .cc_bottom cc_630
 .cc_top cc_631,.Lxtalabel11
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	435
-	.long	436
+	.long	438
+	.long	439
 	.long	.Lxtalabel11
 .cc_bottom cc_631
 .cc_top cc_632,.Lxtalabel12
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	437
-	.long	437
+	.long	440
+	.long	440
 	.long	.Lxtalabel12
 .cc_bottom cc_632
 .cc_top cc_633,.Lxtalabel12
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	442
-	.long	443
+	.long	445
+	.long	446
 	.long	.Lxtalabel12
 .cc_bottom cc_633
 .cc_top cc_634,.Lxtalabel0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
-	.long	447
+	.long	450
+	.long	450
 	.long	.Lxtalabel0
 .cc_bottom cc_634
 .cc_top cc_635,.Lxtalabel191
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
-	.long	447
+	.long	450
+	.long	450
 	.long	.Lxtalabel191
 .cc_bottom cc_635
 .cc_top cc_636,.Lxtalabel107
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
-	.long	447
+	.long	450
+	.long	450
 	.long	.Lxtalabel107
 .cc_bottom cc_636
 .cc_top cc_637,.Lxtalabel28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
-	.long	447
+	.long	450
+	.long	450
 	.long	.Lxtalabel28
 .cc_bottom cc_637
 .cc_top cc_638,.Lxtalabel275
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	447
-	.long	447
+	.long	450
+	.long	450
 	.long	.Lxtalabel275
 .cc_bottom cc_638
 .cc_top cc_639,.Lxtalabel28
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	451
+	.long	451
 	.long	.Lxtalabel28
 .cc_bottom cc_639
 .cc_top cc_640,.Lxtalabel191
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	451
+	.long	451
 	.long	.Lxtalabel191
 .cc_bottom cc_640
 .cc_top cc_641,.Lxtalabel275
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	451
+	.long	451
 	.long	.Lxtalabel275
 .cc_bottom cc_641
 .cc_top cc_642,.Lxtalabel107
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	451
+	.long	451
 	.long	.Lxtalabel107
 .cc_bottom cc_642
 .cc_top cc_643,.Lxtalabel0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	448
-	.long	448
+	.long	451
+	.long	451
 	.long	.Lxtalabel0
 .cc_bottom cc_643
 .cc_top cc_644,.Lxtalabel192
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	450
-	.long	450
+	.long	453
+	.long	453
 	.long	.Lxtalabel192
 .cc_bottom cc_644
 .cc_top cc_645,.Lxtalabel1
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	450
-	.long	450
+	.long	453
+	.long	453
 	.long	.Lxtalabel1
 .cc_bottom cc_645
 .cc_top cc_646,.Lxtalabel108
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	450
-	.long	450
+	.long	453
+	.long	453
 	.long	.Lxtalabel108
 .cc_bottom cc_646
 .cc_top cc_647,.Lxtalabel276
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	450
-	.long	450
+	.long	453
+	.long	453
 	.long	.Lxtalabel276
 .cc_bottom cc_647
 .cc_top cc_648,.Lxtalabel29
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	450
-	.long	450
+	.long	453
+	.long	453
 	.long	.Lxtalabel29
 .cc_bottom cc_648
 .cc_top cc_649,.Lxtalabel278
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel278
 .cc_bottom cc_649
 .cc_top cc_650,.Lxtalabel277
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel277
 .cc_bottom cc_650
 .cc_top cc_651,.Lxtalabel109
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel109
 .cc_bottom cc_651
 .cc_top cc_652,.Lxtalabel110
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel110
 .cc_bottom cc_652
 .cc_top cc_653,.Lxtalabel31
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel31
 .cc_bottom cc_653
 .cc_top cc_654,.Lxtalabel30
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel30
 .cc_bottom cc_654
 .cc_top cc_655,.Lxtalabel194
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel194
 .cc_bottom cc_655
 .cc_top cc_656,.Lxtalabel193
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel193
 .cc_bottom cc_656
 .cc_top cc_657,.Lxtalabel2
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	451
-	.long	451
+	.long	454
+	.long	454
 	.long	.Lxtalabel2
 .cc_bottom cc_657
 .cc_top cc_658,.Lxtalabel29
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	457
-	.long	458
+	.long	460
+	.long	461
 	.long	.Lxtalabel29
 .cc_bottom cc_658
 .cc_top cc_659,.Lxtalabel196
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	457
-	.long	458
+	.long	460
+	.long	461
 	.long	.Lxtalabel196
 .cc_bottom cc_659
 .cc_top cc_660,.Lxtalabel3
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	457
-	.long	458
+	.long	460
+	.long	461
 	.long	.Lxtalabel3
 .cc_bottom cc_660
 .cc_top cc_661,.Lxtalabel280
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	457
-	.long	458
+	.long	460
+	.long	461
 	.long	.Lxtalabel280
 .cc_bottom cc_661
 .cc_top cc_662,.Lxtalabel112
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	457
-	.long	458
+	.long	460
+	.long	461
 	.long	.Lxtalabel112
 .cc_bottom cc_662
 .cc_top cc_663,.Lxtalabel282
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel282
 .cc_bottom cc_663
 .cc_top cc_664,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel32
 .cc_bottom cc_664
 .cc_top cc_665,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel113
 .cc_bottom cc_665
 .cc_top cc_666,.Lxtalabel283
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel283
 .cc_bottom cc_666
 .cc_top cc_667,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel198
 .cc_bottom cc_667
 .cc_top cc_668,.Lxtalabel281
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel281
 .cc_bottom cc_668
 .cc_top cc_669,.Lxtalabel115
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel115
 .cc_bottom cc_669
 .cc_top cc_670,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel6
 .cc_bottom cc_670
 .cc_top cc_671,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel117
 .cc_bottom cc_671
 .cc_top cc_672,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel199
 .cc_bottom cc_672
 .cc_top cc_673,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel5
 .cc_bottom cc_673
 .cc_top cc_674,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel4
 .cc_bottom cc_674
 .cc_top cc_675,.Lxtalabel201
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel201
 .cc_bottom cc_675
 .cc_top cc_676,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel114
 .cc_bottom cc_676
 .cc_top cc_677,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel197
 .cc_bottom cc_677
 .cc_top cc_678,.Lxtalabel285
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel285
 .cc_bottom cc_678
 .cc_top cc_679,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel8
 .cc_bottom cc_679
 .cc_top cc_680,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel33
 .cc_bottom cc_680
 .cc_top cc_681,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel34
 .cc_bottom cc_681
 .cc_top cc_682,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	460
-	.long	460
+	.long	463
+	.long	463
 	.long	.Lxtalabel35
 .cc_bottom cc_682
 .cc_top cc_683,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel34
 .cc_bottom cc_683
 .cc_top cc_684,.Lxtalabel115
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel115
 .cc_bottom cc_684
 .cc_top cc_685,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel197
 .cc_bottom cc_685
 .cc_top cc_686,.Lxtalabel281
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel281
 .cc_bottom cc_686
 .cc_top cc_687,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel6
 .cc_bottom cc_687
 .cc_top cc_688,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel35
 .cc_bottom cc_688
 .cc_top cc_689,.Lxtalabel201
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel201
 .cc_bottom cc_689
 .cc_top cc_690,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel4
 .cc_bottom cc_690
 .cc_top cc_691,.Lxtalabel282
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel282
 .cc_bottom cc_691
 .cc_top cc_692,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel8
 .cc_bottom cc_692
 .cc_top cc_693,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel198
 .cc_bottom cc_693
 .cc_top cc_694,.Lxtalabel283
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel283
 .cc_bottom cc_694
 .cc_top cc_695,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel117
 .cc_bottom cc_695
 .cc_top cc_696,.Lxtalabel285
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel285
 .cc_bottom cc_696
 .cc_top cc_697,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel114
 .cc_bottom cc_697
 .cc_top cc_698,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel33
 .cc_bottom cc_698
 .cc_top cc_699,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel5
 .cc_bottom cc_699
 .cc_top cc_700,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel113
 .cc_bottom cc_700
 .cc_top cc_701,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel199
 .cc_bottom cc_701
 .cc_top cc_702,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	478
-	.long	478
+	.long	481
+	.long	481
 	.long	.Lxtalabel32
 .cc_bottom cc_702
 .cc_top cc_703,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel32
 .cc_bottom cc_703
 .cc_top cc_704,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel197
 .cc_bottom cc_704
 .cc_top cc_705,.Lxtalabel201
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel201
 .cc_bottom cc_705
 .cc_top cc_706,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel199
 .cc_bottom cc_706
 .cc_top cc_707,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel113
 .cc_bottom cc_707
 .cc_top cc_708,.Lxtalabel281
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel281
 .cc_bottom cc_708
 .cc_top cc_709,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel35
 .cc_bottom cc_709
 .cc_top cc_710,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel33
 .cc_bottom cc_710
 .cc_top cc_711,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel114
 .cc_bottom cc_711
 .cc_top cc_712,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel6
 .cc_bottom cc_712
 .cc_top cc_713,.Lxtalabel285
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel285
 .cc_bottom cc_713
 .cc_top cc_714,.Lxtalabel282
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel282
 .cc_bottom cc_714
 .cc_top cc_715,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel34
 .cc_bottom cc_715
 .cc_top cc_716,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel5
 .cc_bottom cc_716
 .cc_top cc_717,.Lxtalabel115
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel115
 .cc_bottom cc_717
 .cc_top cc_718,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel8
 .cc_bottom cc_718
 .cc_top cc_719,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel4
 .cc_bottom cc_719
 .cc_top cc_720,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel198
 .cc_bottom cc_720
 .cc_top cc_721,.Lxtalabel283
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel283
 .cc_bottom cc_721
 .cc_top cc_722,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	482
-	.long	482
+	.long	485
+	.long	485
 	.long	.Lxtalabel117
 .cc_bottom cc_722
 .cc_top cc_723,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel4
 .cc_bottom cc_723
 .cc_top cc_724,.Lxtalabel283
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel283
 .cc_bottom cc_724
 .cc_top cc_725,.Lxtalabel201
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel201
 .cc_bottom cc_725
 .cc_top cc_726,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel5
 .cc_bottom cc_726
 .cc_top cc_727,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel32
 .cc_bottom cc_727
 .cc_top cc_728,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel8
 .cc_bottom cc_728
 .cc_top cc_729,.Lxtalabel115
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel115
 .cc_bottom cc_729
 .cc_top cc_730,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel33
 .cc_bottom cc_730
 .cc_top cc_731,.Lxtalabel282
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel282
 .cc_bottom cc_731
 .cc_top cc_732,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel117
 .cc_bottom cc_732
 .cc_top cc_733,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel114
 .cc_bottom cc_733
 .cc_top cc_734,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel34
 .cc_bottom cc_734
 .cc_top cc_735,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel198
 .cc_bottom cc_735
 .cc_top cc_736,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel6
 .cc_bottom cc_736
 .cc_top cc_737,.Lxtalabel285
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel285
 .cc_bottom cc_737
 .cc_top cc_738,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel199
 .cc_bottom cc_738
 .cc_top cc_739,.Lxtalabel281
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel281
 .cc_bottom cc_739
 .cc_top cc_740,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel113
 .cc_bottom cc_740
 .cc_top cc_741,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel35
 .cc_bottom cc_741
 .cc_top cc_742,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	484
-	.long	484
+	.long	487
+	.long	487
 	.long	.Lxtalabel197
 .cc_bottom cc_742
 .cc_top cc_743,.Lxtalabel7
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	485
-	.long	486
+	.long	488
+	.long	489
 	.long	.Lxtalabel7
 .cc_bottom cc_743
 .cc_top cc_744,.Lxtalabel116
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	485
-	.long	486
+	.long	488
+	.long	489
 	.long	.Lxtalabel116
 .cc_bottom cc_744
 .cc_top cc_745,.Lxtalabel36
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	485
-	.long	486
+	.long	488
+	.long	489
 	.long	.Lxtalabel36
 .cc_bottom cc_745
 .cc_top cc_746,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	485
-	.long	486
+	.long	488
+	.long	489
 	.long	.Lxtalabel200
 .cc_bottom cc_746
 .cc_top cc_747,.Lxtalabel284
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	485
-	.long	486
+	.long	488
+	.long	489
 	.long	.Lxtalabel284
 .cc_bottom cc_747
 .cc_top cc_748,.Lxtalabel36
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
-	.long	487
+	.long	490
+	.long	490
 	.long	.Lxtalabel36
 .cc_bottom cc_748
 .cc_top cc_749,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
-	.long	487
+	.long	490
+	.long	490
 	.long	.Lxtalabel200
 .cc_bottom cc_749
 .cc_top cc_750,.Lxtalabel116
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
-	.long	487
+	.long	490
+	.long	490
 	.long	.Lxtalabel116
 .cc_bottom cc_750
 .cc_top cc_751,.Lxtalabel7
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
-	.long	487
+	.long	490
+	.long	490
 	.long	.Lxtalabel7
 .cc_bottom cc_751
 .cc_top cc_752,.Lxtalabel284
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	487
-	.long	487
+	.long	490
+	.long	490
 	.long	.Lxtalabel284
 .cc_bottom cc_752
 .cc_top cc_753,.Lxtalabel116
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	491
+	.long	491
 	.long	.Lxtalabel116
 .cc_bottom cc_753
 .cc_top cc_754,.Lxtalabel36
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	491
+	.long	491
 	.long	.Lxtalabel36
 .cc_bottom cc_754
 .cc_top cc_755,.Lxtalabel200
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	491
+	.long	491
 	.long	.Lxtalabel200
 .cc_bottom cc_755
 .cc_top cc_756,.Lxtalabel284
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	491
+	.long	491
 	.long	.Lxtalabel284
 .cc_bottom cc_756
 .cc_top cc_757,.Lxtalabel7
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	488
-	.long	488
+	.long	491
+	.long	491
 	.long	.Lxtalabel7
 .cc_bottom cc_757
 .cc_top cc_758,.Lxtalabel8
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel8
 .cc_bottom cc_758
 .cc_top cc_759,.Lxtalabel282
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel282
 .cc_bottom cc_759
 .cc_top cc_760,.Lxtalabel283
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel283
 .cc_bottom cc_760
 .cc_top cc_761,.Lxtalabel4
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel4
 .cc_bottom cc_761
 .cc_top cc_762,.Lxtalabel198
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel198
 .cc_bottom cc_762
 .cc_top cc_763,.Lxtalabel117
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel117
 .cc_bottom cc_763
 .cc_top cc_764,.Lxtalabel197
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel197
 .cc_bottom cc_764
 .cc_top cc_765,.Lxtalabel201
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel201
 .cc_bottom cc_765
 .cc_top cc_766,.Lxtalabel35
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel35
 .cc_bottom cc_766
 .cc_top cc_767,.Lxtalabel281
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel281
 .cc_bottom cc_767
 .cc_top cc_768,.Lxtalabel285
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel285
 .cc_bottom cc_768
 .cc_top cc_769,.Lxtalabel115
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel115
 .cc_bottom cc_769
 .cc_top cc_770,.Lxtalabel34
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel34
 .cc_bottom cc_770
 .cc_top cc_771,.Lxtalabel6
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel6
 .cc_bottom cc_771
 .cc_top cc_772,.Lxtalabel33
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel33
 .cc_bottom cc_772
 .cc_top cc_773,.Lxtalabel32
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel32
 .cc_bottom cc_773
 .cc_top cc_774,.Lxtalabel199
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel199
 .cc_bottom cc_774
 .cc_top cc_775,.Lxtalabel114
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel114
 .cc_bottom cc_775
 .cc_top cc_776,.Lxtalabel5
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel5
 .cc_bottom cc_776
 .cc_top cc_777,.Lxtalabel113
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	489
-	.long	490
+	.long	492
+	.long	493
 	.long	.Lxtalabel113
 .cc_bottom cc_777
 .cc_top cc_778,.Lxtalabel286
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	491
-	.long	492
+	.long	494
+	.long	495
 	.long	.Lxtalabel286
 .cc_bottom cc_778
 .cc_top cc_779,.Lxtalabel202
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	491
-	.long	492
+	.long	494
+	.long	495
 	.long	.Lxtalabel202
 .cc_bottom cc_779
 .cc_top cc_780,.Lxtalabel118
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	491
-	.long	492
+	.long	494
+	.long	495
 	.long	.Lxtalabel118
 .cc_bottom cc_780
 .cc_top cc_781,.Lxtalabel9
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	491
-	.long	492
+	.long	494
+	.long	495
 	.long	.Lxtalabel9
 .cc_bottom cc_781
 .cc_top cc_782,.Lxtalabel48
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	491
-	.long	492
+	.long	494
+	.long	495
 	.long	.Lxtalabel48
 .cc_bottom cc_782
 .cc_top cc_783,.Lxtalabel10
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel10
 .cc_bottom cc_783
 .cc_top cc_784,.Lxtalabel21
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel21
 .cc_bottom cc_784
 .cc_top cc_785,.Lxtalabel287
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel287
 .cc_bottom cc_785
 .cc_top cc_786,.Lxtalabel49
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel49
 .cc_bottom cc_786
 .cc_top cc_787,.Lxtalabel203
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel203
 .cc_bottom cc_787
 .cc_top cc_788,.Lxtalabel119
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	494
-	.long	494
+	.long	497
+	.long	497
 	.long	.Lxtalabel119
 .cc_bottom cc_788
 .cc_top cc_789,.Lxtalabel49
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel49
 .cc_bottom cc_789
 .cc_top cc_790,.Lxtalabel287
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel287
 .cc_bottom cc_790
 .cc_top cc_791,.Lxtalabel203
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel203
 .cc_bottom cc_791
 .cc_top cc_792,.Lxtalabel21
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel21
 .cc_bottom cc_792
 .cc_top cc_793,.Lxtalabel10
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel10
 .cc_bottom cc_793
 .cc_top cc_794,.Lxtalabel119
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	497
-	.long	497
+	.long	500
+	.long	500
 	.long	.Lxtalabel119
 .cc_bottom cc_794
 .Lentries_end5:
@@ -21656,8 +21662,8 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_top cc_822,.Lxta.loop_labels0
 	.ascii	"../src/temperature_heater_controller.xc"
 	.byte	0
-	.long	435
-	.long	436
+	.long	438
+	.long	439
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_822
 .Lentries_end7:
@@ -21667,7 +21673,7 @@ Temperature_Heater_Controller.init.1.3.init:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"../src/temperature_heater_controller.xc:435:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/temperature_heater_controller.xc:438:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -21675,7 +21681,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"../src/temperature_heater_controller.xc:435:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/temperature_heater_controller.xc:438:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -21683,7 +21689,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"../src/temperature_heater_controller.xc:435:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/temperature_heater_controller.xc:438:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -21691,7 +21697,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"../src/temperature_heater_controller.xc:435:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/temperature_heater_controller.xc:438:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3
@@ -21699,7 +21705,7 @@ Temperature_Heater_Controller.init.1.3.init:
 .cc_bottom cc_trapinfo_3
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str4:
-.asciiz"../src/temperature_heater_controller.xc:435:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/temperature_heater_controller.xc:438:53: error: out of bounds array access\n                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values\n                                                    ^~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_4,.Ltrap_info4
 	.long	.Ltrap_info4

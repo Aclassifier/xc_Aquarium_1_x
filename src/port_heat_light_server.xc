@@ -17,6 +17,8 @@
 #include "port_heat_light_server.h"
 #endif
 
+#define DO_HEAT_PULSING_THROUGH_BOARD_9 // Just comment away if you are not using it. That's all
+
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)
 
@@ -80,6 +82,13 @@ typedef enum heat_cable_alternating_t {
 
 // Use 1/9 * 3 = 1/3 of the time window to set output values, to mimimize power surge and EMC
 // Will probably also cause the power supply to make less audible noise
+//
+#ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+    // Just a comment:
+    // BOARD 9 with the CD74HC4538E retrigerable monostable latch must be pulsed at least every 7 ms.
+    // TIME_PER_PWM_WINDOW_MICROSECONDS is faster: OK!
+    // Retrig within 7ms = 0.7 * 100nF * 100K
+#endif
 //
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
@@ -272,6 +281,11 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     pin_change_t           pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
     light_control_scheme_t light_control_scheme = LIGHT_CONTROL_IS_VOID;
 
+    #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+        bool pulse_heat_1 = false;
+        bool pulse_heat_2 = false;
+    #endif
+
     // (*1) Could have had one for all and initialised it to TIME_PER_PWM_WINDOW_MICROSECONDS * 3 and then DIV by 3 when used. However
     //      I have avoided division here since it takes more than one cycle and the DIVn instruction share a common division unit with the
     //      other threads. The good point would have been the three PWN windows would have finished once instead of three times.
@@ -280,6 +294,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
     debug_printf("%s", "Port_Pins_Heat_Light_Server started\n");
 
+    // If DO_HEAT_PULSING_THROUGH_BOARD_9 then this watchdog isn't needed. But it won't hurt!
     unsigned beeper_blip_ticks_cntdown = 0;
     unsigned watchdog_ticks_cntdown    = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
     bool     watchdog_timed_out        = false;
@@ -395,10 +410,14 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                         // Simulate beeper_blip_command (200 ms)
                         port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
-                        beeper_blip_ticks_cntdown = 200; // The longest beep
+                        beeper_blip_ticks_cntdown = 300; // The longest beep, easily distinguishable
 
                         // Switch off heat
                         port_value and_eq compl BITS_HEAT_BOTH;
+                        #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                            pulse_heat_1 = false;
+                            pulse_heat_2 = false;
+                        #endif
                         // The client sending heat_cables_command will not know about this but heat_cables_command is regularly called based on temperatures,
                         // so it will become right again when not watchdog timed out any more. This also implies that we might get short heat on blinks immediately
                         // after that call that might be killed here within. This ensures that we don't need a button acknowledge should the cause of the watchdog
@@ -409,6 +428,24 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         myport_p32 <: port_value; // Out with beep and heat
                     } else {}
                 } else {}
+
+                #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                    if (pulse_heat_1) {
+                        if ((port_value bitand BIT_HEAT_1) == 0) {
+                            port_value or_eq BIT_HEAT_1; // Pulse high
+                        } else {
+                            port_value and_eq compl BIT_HEAT_1; // Pulse low
+                        }
+                    } else {}
+                    if (pulse_heat_2) {
+                        if ((port_value bitand BIT_HEAT_2) == 0) {
+                            port_value or_eq BIT_HEAT_2; // Pulse high
+                        } else {
+                            port_value and_eq compl BIT_HEAT_2; // Pulse low
+                        }
+                    } else {}
+                    myport_p32 <: port_value; // Out with heat pulse change
+                #endif
 
                 if (beeper_blip_ticks_cntdown == 1) {
                     beeper_blip_ticks_cntdown = 0;
@@ -545,21 +582,37 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                 switch (heat_cable_commands) {
                     case HEAT_CABLES_OFF: {
                         port_value_next and_eq compl BITS_HEAT_BOTH;
+                        #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                            pulse_heat_1 = false;
+                            pulse_heat_2 = false;
+                        #endif
                     } break;
                     case HEAT_CABLES_ONE_ON: {
                         if (heat_cable_alternating == HEAT_1_ON) {
                             heat_cable_alternating     = HEAT_2_ON;  // NEXT
                             port_value_next or_eq        BIT_HEAT_2; // ON
                             port_value_next and_eq compl BIT_HEAT_1; // OFF
+                            #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                                pulse_heat_2 = true;
+                                pulse_heat_1 = false;
+                            #endif
                         } else { // HEAT_2_ON
                             heat_cable_alternating     = HEAT_1_ON;  // NEXT
                             port_value_next or_eq        BIT_HEAT_1; // ON
                             port_value_next and_eq compl BIT_HEAT_2; // OFF
+                            #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                                pulse_heat_1 = true;
+                                pulse_heat_2 = false;
+                            #endif
                         }
                     } break;
 
                     case HEAT_CABLES_BOTH_ON: {
                         port_value_next or_eq BITS_HEAT_BOTH;
+                        #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
+                            pulse_heat_1 = true;
+                            pulse_heat_2 = true;
+                        #endif
                     } break;
                 }
 
@@ -578,6 +631,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (heat_1 != heat_1_next) {
                         myport_p32 <: port_value;
                         if (heat_1_next) { // Went on
+
                             delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // Power supply must deliver again, give it some time
                         } else { // Went off
                             heat_1_no_delay = true;

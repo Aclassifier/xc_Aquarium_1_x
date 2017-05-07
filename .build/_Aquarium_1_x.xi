@@ -2602,21 +2602,29 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
         case SCREEN_5_VERSJON: {
-            int boot_from_jtag = ((__builtin_getps(0x30b) & 0x4) >> 2);
-            int reg_value = __builtin_getps(0x30b);
+
+
+
+
+
+
 
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
+# 694 "../src/_Aquarium_1_x.xc"
+                sprintf_return = sprintf (context.display_ts1_chars,
+                                   "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                                   "May  7 2017",
+                                   char_aa_str,
+                                   char_OE_str);
 
 
-            sprintf_return = sprintf (context.display_ts1_chars,
-                               "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                               reg_value,
-                               "May  3 2017",
-                               char_aa_str,
-                               char_OE_str);
-# 696 "../src/_Aquarium_1_x.xc"
+
+
+
+
+
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(1);
@@ -2627,7 +2635,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "10:59:28", "May  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:24:26", "May  7 2017"); } while (0);
             } else {}
         } break;
 
@@ -2676,7 +2684,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "10:59:28", "May  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "22:24:26", "May  7 2017"); } while (0);
             } else {}
         } break;
 
@@ -3217,19 +3225,19 @@ void System_Task_Data_Handler (
         error_bits |= (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > 350) {
         error_bits |= (1<<ERROR_BIT_AMBIENT_OVERHEAT);
-    }
+    } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits |= (1<<ERROR_BIT_I2C_WATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > 300) {
         error_bits |= (1<<ERROR_BIT_WATER_OVERHEAT);
-    }
+    } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
         error_bits |= (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > 500) {
         error_bits |= (1<<ERROR_BIT_HEATER_OVERHEAT);
-    }
+    } else {}
 
     if (! context.on_ok) {
         error_bits |= (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
@@ -3312,7 +3320,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1419 "../src/_Aquarium_1_x.xc"
+# 1429 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3427,7 +3435,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1544 "../src/_Aquarium_1_x.xc"
+# 1557 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3551,12 +3559,7 @@ void System_Task (
 
 
                 {
-                    watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(1000 + 5);
-
-
-
-
-
+                    watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(1000 + 10);
 
                 }
 

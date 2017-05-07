@@ -658,40 +658,50 @@ void Handle_Real_Or_Clocked_Button_Actions (
         //{{{  SCREEN_5_VERSJON
 
         case SCREEN_5_VERSJON: {
-            int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
-            int reg_value      =   getps(XS1_PS_BOOT_CONFIG); // Is XS1_G_PS_BOOT_CONFIG 0x30b
+            // #define TEST_BOOT_FROM_CONFIG // Does not work!
+
+            #ifdef TEST_BOOT_FROM_CONFIG
+                int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
+                int reg_value      =   getps(XS1_PS_BOOT_CONFIG); // Is XS1_G_PS_BOOT_CONFIG 0x30b
+            #endif
 
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
             // FILLS 84 chars plus \0
-            sprintf_return = sprintf (context.display_ts1_chars,
-                               "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                               reg_value,
-                               __DATE__,
-                               char_aa_str,
-                               char_OE_str);
+            #ifdef TEST_BOOT_FROM_CONFIG
+                sprintf_return = sprintf (context.display_ts1_chars,
+                                   "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                                   reg_value,
+                                   __DATE__,
+                                   char_aa_str,
+                                   char_OE_str);
 
-            //                                            ..........----------.
-            //                                            5 BOKS FFFFFFFF     .
-            //                                              KODE Sep 22 2013  .
-            //                                              XC på XMOS startKIT
-            //                                              Øyvind Teig
-
-            /*sprintf_return = sprintf (context.display_ts1_chars,
-                    "5 BOKS       %sKODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                    (boot_from_jtag) ? "(DEBUG) " : "(FLASHED)",
-                    __DATE__,
-                    char_aa_str,
-                    char_OE_str); */
-
-            //                                            ..........----------.
-            //                                            5 BOKS       (DEBUG).
-            //                                              KODE Sep 22 2013  .
-            //                                              XC på XMOS startKIT
-            //                                              Øyvind Teig       .
-
+                /* sprintf_return = sprintf (context.display_ts1_chars,
+                        "5 BOKS       %sKODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                        (boot_from_jtag) ? "(DEBUG) " : "(FLASHED)",
+                        __DATE__,
+                        char_aa_str,
+                        char_OE_str);
+                */
+                //                                            ..........----------.
+                //                                            5 BOKS       (DEBUG).
+                //                                              KODE Sep 22 2013  .
+                //                                              XC på XMOS startKIT
+                //                                              Øyvind Teig       .
+            #else
+                sprintf_return = sprintf (context.display_ts1_chars,
+                                   "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
+                                   __DATE__,
+                                   char_aa_str,
+                                   char_OE_str);
+                //                                            ..........----------.
+                //                                            5 BOKS              .
+                //                                              KODE Sep 22 2013  .
+                //                                              XC på XMOS startKIT
+                //                                              Øyvind Teig
+            #endif
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1293,19 +1303,19 @@ void System_Task_Data_Handler (
         error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX) {
         error_bits or_eq (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
-    }
+    } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits or_eq (1<<ERROR_BIT_I2C_WATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
         error_bits or_eq (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
-    }
+    } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
         error_bits or_eq (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > TEMP_ONETENTHDEGC_50_0_HEATER_MAX) {
         error_bits or_eq (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
-    }
+    } else {}
 
     if (not context.on_ok) {
         error_bits or_eq (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
@@ -1534,11 +1544,14 @@ typedef enum system_state_t {
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS 1000
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS * XS1_TIMER_KHZ)
 
-#define WATCHDOG_EXTRA_MS 5 // Name used in comment in Port_Pins_Heat_Light_Server
-//                        0    i_port_heat_light_commands beeps every time
-//                        1    Beeps two of three times
-//                        2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
-//                        5    Using this to get some margin
+#define WATCHDOG_EXTRA_MS 10 // Name used in comment in Port_Pins_Heat_Light_Server
+//                         0    i_port_heat_light_commands beeps every time
+//                         1    Beeps two of three times
+//                         2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
+//                         5    Using this to get some margin. No, the beep came some times when I used the display (at least when DO_HEAT_PULSING_THROUGH_BOARD_9 was introduced)
+//                              TODO: I also heare it some times when I made EMC by unplugging the air pump
+//                              I also heard it some times during downloading with the debugger!
+//                        10    Trying this 7May2017
 //
 
 [[combinable]] // When nested selects combinable not allowed
@@ -1665,11 +1678,6 @@ void System_Task (
                 #endif
                 {
                     watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS);
-                    //
-                    // The FIRST watchdog_rest_ms is long since Port_Pins_Heat_Light_Server starts internally with 10 seconds (WATCHDOG_TICKS_TIMEOUT_MS)
-                    // and I here continue with about 1 second (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS)
-                    // The NEXT watchdog_rest_ms are within +/- one ms! Unbelievable!
-                    //
                     // debug_printf ("watchdog_rest_ms %u\n", watchdog_rest_ms);
                 }
                 //}}}  

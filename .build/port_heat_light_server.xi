@@ -1233,13 +1233,15 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
 
 
+
+
 port myport_p32 = 0x200000;
-# 49 "../src/port_heat_light_server.xc"
+# 51 "../src/port_heat_light_server.xc"
 typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
-# 152 "../src/port_heat_light_server.xc"
+# 161 "../src/port_heat_light_server.xc"
     static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
     {
 
@@ -1314,7 +1316,7 @@ typedef enum pin_change_t {
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 259 "../src/port_heat_light_server.xc"
+# 268 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
@@ -1332,12 +1334,11 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     light_control_scheme_t light_control_scheme = LIGHT_CONTROL_IS_VOID;
 
 
-
-
-
-
-
+        bool pulse_heat_1 = false;
+        bool pulse_heat_2 = false;
+# 295 "../src/port_heat_light_server.xc"
     do { if(0) printf("%s", "Port_Pins_Heat_Light_Server started\n"); } while (0);
+
 
     unsigned beeper_blip_ticks_cntdown = 0;
     unsigned watchdog_ticks_cntdown = ((10000 * 1000) / 1500);
@@ -1454,20 +1455,35 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
 
                         port_value &= ~ (1<<14);
-                        beeper_blip_ticks_cntdown = 200;
+                        beeper_blip_ticks_cntdown = 300;
 
 
                         port_value &= ~ ((1<<6) | (1<<13));
 
-
-
-
-
-
-
+                            pulse_heat_1 = false;
+                            pulse_heat_2 = false;
+# 428 "../src/port_heat_light_server.xc"
                         myport_p32 <: port_value;
                     } else {}
                 } else {}
+
+
+                    if (pulse_heat_1) {
+                        if ((port_value & (1<<6)) == 0) {
+                            port_value |= (1<<6);
+                        } else {
+                            port_value &= ~ (1<<6);
+                        }
+                    } else {}
+                    if (pulse_heat_2) {
+                        if ((port_value & (1<<13)) == 0) {
+                            port_value |= (1<<13);
+                        } else {
+                            port_value &= ~ (1<<13);
+                        }
+                    } else {}
+                    myport_p32 <: port_value;
+
 
                 if (beeper_blip_ticks_cntdown == 1) {
                     beeper_blip_ticks_cntdown = 0;
@@ -1604,21 +1620,37 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                 switch (heat_cable_commands) {
                     case HEAT_CABLES_OFF: {
                         port_value_next &= ~ ((1<<6) | (1<<13));
+
+                            pulse_heat_1 = false;
+                            pulse_heat_2 = false;
+
                     } break;
                     case HEAT_CABLES_ONE_ON: {
                         if (heat_cable_alternating == HEAT_1_ON) {
                             heat_cable_alternating = HEAT_2_ON;
                             port_value_next |= (1<<13);
                             port_value_next &= ~ (1<<6);
+
+                                pulse_heat_2 = true;
+                                pulse_heat_1 = false;
+
                         } else {
                             heat_cable_alternating = HEAT_1_ON;
                             port_value_next |= (1<<6);
                             port_value_next &= ~ (1<<13);
+
+                                pulse_heat_1 = true;
+                                pulse_heat_2 = false;
+
                         }
                     } break;
 
                     case HEAT_CABLES_BOTH_ON: {
                         port_value_next |= ((1<<6) | (1<<13));
+
+                            pulse_heat_1 = true;
+                            pulse_heat_2 = true;
+
                     } break;
                 }
 
@@ -1637,6 +1669,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (heat_1 != heat_1_next) {
                         myport_p32 <: port_value;
                         if (heat_1_next) {
+
                             delay_microseconds ((1500 / (1500*3)));
                         } else {
                             heat_1_no_delay = true;
