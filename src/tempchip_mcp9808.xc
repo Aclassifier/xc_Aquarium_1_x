@@ -74,7 +74,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (REFERENCE_PARAM(struct r_i2c
             return (i2c_temp_onetenthDegC_t) (math_i32 bitand 0xFFFF);
         } else { // temp below zero
             ok = false;
-            return EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC; // we need mp degree of it!
+            return EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC; // we need no degree of it!
         }
     }
     else { // i2c_external_params._result is I2C_ERR or I2C_PARAM_ERR

@@ -1323,7 +1323,7 @@ typedef struct tag_startkit_adc_vals {
 
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [7][2];
+typedef char now_regulating_at_char_t [8][2];
 # 22 "../src/temperature_heater_controller.xc" 2
 
 # 1 "../src/f_conversions.h" 1
@@ -1590,9 +1590,9 @@ void Temperature_Heater_Controller (
     temp_onetenthDegC_t temp_onetenthDegC_heater_limit = (250 + ( 0));
 
     temp_onetenthDegC_t temps_onetenthDegC [(3 +1)] =
-                                                     {999,999,999, 999};
+                                                          {999,999,999, 999};
     char temps_degC_str [(3 +1)] [5] =
-                                                     {{"??.?"}, {"??.?"},{"??.?"},{"...."}};
+                                                          {{"??.?"}, {"??.?"},{"??.?"},{"...."}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean [3];
 
 
@@ -1687,7 +1687,8 @@ void Temperature_Heater_Controller (
                                 temps_degC_str[iof_i2c_temp]);
 
                     if (ok_degC_i2cs[iof_i2c_temp] && ok_degC_converts[iof_i2c_temp]) {
-                        temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (
+                        temps_onetenthDegC[iof_i2c_temp] =
+                                Do_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 8,
                                 temps_onetenthDegC_converted,
@@ -1697,13 +1698,18 @@ void Temperature_Heater_Controller (
                                     temps_onetenthDegC[iof_i2c_temp],
                                     temps_degC_str[iof_i2c_temp]);
                     } else {
+                        ok_degC_i2cs[iof_i2c_temp] = false;
+                        temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted;
 
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 8);
 
 
+
                     }
+
+                    do { if(1) printf("Heater I=%u @ ok=%u, onetenthDegC=%u\n", iof_i2c_temp, ok_degC_i2cs[iof_i2c_temp], temps_onetenthDegC[iof_i2c_temp]); } while (0);
                 }
 
 
@@ -1712,7 +1718,7 @@ void Temperature_Heater_Controller (
 
 
 
-                if (ok_degC_i2cs[IOF_TEMPC_HEATER] && ok_degC_converts[IOF_TEMPC_HEATER]) {
+                if (ok_degC_i2cs[IOF_TEMPC_HEATER]) {
 
                     temp_onetenthDegC_heater_sum += temps_onetenthDegC[IOF_TEMPC_HEATER];
                     temp_onetenthDegC_heater_num++;
@@ -1825,7 +1831,7 @@ void Temperature_Heater_Controller (
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
 
                             if (temps_onetenthDegC[IOF_TEMPC_HEATER] < (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on - 2)) {
-# 359 "../src/temperature_heater_controller.xc"
+# 365 "../src/temperature_heater_controller.xc"
                                 cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
                                 cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
@@ -1935,7 +1941,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 481 "../src/temperature_heater_controller.xc"
+# 487 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

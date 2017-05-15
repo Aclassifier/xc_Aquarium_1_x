@@ -89,32 +89,32 @@ void Temperature_Heater_Controller (
     timer tmr;
     int   time;
 
-    unsigned            raw_timer_interval_cnt_for_one_second = 0;
-    unsigned            temp_measurement_ticks_cnt = 0;
-    unsigned            proportional_percent_cnt   = 0;  // [0..99]
-    method_of_on_off_t  method_of_on_off = ON_OFF_TEMPC_HEATER;
-    heater_wires_t      heater_wires     = HEATER_WIRES_BOTH_IS_FULL; // With 99% above you'll only notice the alternating HEAT_1_ON and HEAT_2_ON
-    is_doing_t          is_doing         = IS_CONTROLLING;
-    unsigned            on_cnt_secs      = 0; // 32 bit value only incremented
-    unsigned            off_cnt_secs     = 0; // 32 bit value only incremented
-    unsigned            err_cnt_times    = 0; // 32 bit value only incremented
-    bool                on_now           = false;
-    bool                on_now_previous  = false;
-    unsigned            on_percent       = 0;
-    bool                first_round      = true;
-    cable_heater_mon_t  cable_heater_mon;
+    unsigned                 raw_timer_interval_cnt_for_one_second = 0;
+    unsigned                 temp_measurement_ticks_cnt = 0;
+    unsigned                 proportional_percent_cnt   = 0;  // [0..99]
+    method_of_on_off_t       method_of_on_off = ON_OFF_TEMPC_HEATER;
+    heater_wires_t           heater_wires     = HEATER_WIRES_BOTH_IS_FULL; // With 99% above you'll only notice the alternating HEAT_1_ON and HEAT_2_ON
+    is_doing_t               is_doing         = IS_CONTROLLING;
+    unsigned                 on_cnt_secs      = 0; // 32 bit value only incremented
+    unsigned                 off_cnt_secs     = 0; // 32 bit value only incremented
+    unsigned                 err_cnt_times    = 0; // 32 bit value only incremented
+    bool                     on_now           = false;
+    bool                     on_now_previous  = false;
+    unsigned                 on_percent       = 0;
+    bool                     first_round      = true;
+    cable_heater_mon_t       cable_heater_mon;
 
-    unsigned            temp_onetenthDegC_heater_num = 0;
-    int                 temp_onetenthDegC_heater_sum = 0;
+    unsigned                 temp_onetenthDegC_heater_num = 0;
+    int                      temp_onetenthDegC_heater_sum = 0;
 
-    unsigned            proportional_heater_percent_on_limit = 50; // [0..100]
-    temp_onetenthDegC_t temp_onetenthDegC_heater_limit       = TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT; // Default. Will fast be set to something else
+    unsigned                 proportional_heater_percent_on_limit = 50; // [0..100]
+    temp_onetenthDegC_t      temp_onetenthDegC_heater_limit       = TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT; // Default. Will fast be set to something else
 
-    temp_onetenthDegC_t      temps_onetenthDegC      [NUM_TEMPERATURES] =
-                                                     {EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC, EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC};
-    char                     temps_degC_str          [NUM_TEMPERATURES] [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] =
-                                                     {{GENERIC_TEXT_DEGC}, {GENERIC_TEXT_DEGC},{GENERIC_TEXT_DEGC},{GENERIC_TEXT_NO_DATA_DEGC}};
-    temp_onetenthDegC_mean_t temps_onetenthDegC_mean [NUM_I2C_TEMPERATURES]; // Not for IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
+    temp_onetenthDegC_t      temps_onetenthDegC       [NUM_TEMPERATURES] =
+                                                          {EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC, EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC};
+    char                     temps_degC_str           [NUM_TEMPERATURES] [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] =
+                                                          {{GENERIC_TEXT_DEGC}, {GENERIC_TEXT_DEGC},{GENERIC_TEXT_DEGC},{GENERIC_TEXT_NO_DATA_DEGC}};
+    temp_onetenthDegC_mean_t temps_onetenthDegC_mean  [NUM_I2C_TEMPERATURES]; // Not for IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 
     //}}}  
     //{{{  Init
@@ -149,7 +149,7 @@ void Temperature_Heater_Controller (
                     } else { // off_now
                         off_cnt_secs++;
                     }
-                } else {} // No code, counting to 1 secd
+                } else {} // No code, counting to 1 sec
 
                 if (method_of_on_off == ON_OFF_PROPORTIONAL) { // NOT here
                     proportional_percent_cnt = (proportional_percent_cnt + 1) % 100; // modulus 100 divison yields [0..99]
@@ -208,7 +208,8 @@ void Temperature_Heater_Controller (
                                 temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. May be overwritten with mean value below
 
                     if (ok_degC_i2cs[iof_i2c_temp] and ok_degC_converts[iof_i2c_temp]) {
-                        temps_onetenthDegC[iof_i2c_temp] = Do_Arithmetic_Mean_Temp_OnetenthDegC (
+                        temps_onetenthDegC[iof_i2c_temp] = // Used also out of this loop
+                                Do_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
                                 temps_onetenthDegC_converted,
@@ -218,13 +219,18 @@ void Temperature_Heater_Controller (
                                     temps_onetenthDegC[iof_i2c_temp],
                                     temps_degC_str[iof_i2c_temp]); // // For get_temp_degC_str. Overvwritten
                     } else {
+                        ok_degC_i2cs[iof_i2c_temp] = false; // Will propagate ok_degC_converts over (won't happen after Temp_OnetenthDegC_To_Str function test)
+                        temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted; // EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC
                         // Error with data, init filter
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS);
+
                         // xcore-5662 comment: Will not add anything to temp_onetenthDegC_heater_sum and temp_onetenthDegC_heater_num for IOF_TEMPC_HEATER
                         // temps_degC_str[iof_i2c_temp] is ok with error texts
                     }
+
+                    debug_printf("Heater I=%u @ ok=%u, onetenthDegC=%u\n", iof_i2c_temp, ok_degC_i2cs[iof_i2c_temp], temps_onetenthDegC[iof_i2c_temp]);
                 }
 
                 //}}}  
@@ -233,7 +239,7 @@ void Temperature_Heater_Controller (
 
                 //{{{  Heater to go on or off now?
 
-                if (ok_degC_i2cs[IOF_TEMPC_HEATER] and ok_degC_converts[IOF_TEMPC_HEATER]) {
+                if (ok_degC_i2cs[IOF_TEMPC_HEATER]) {
 
                     temp_onetenthDegC_heater_sum += temps_onetenthDegC[IOF_TEMPC_HEATER];
                     temp_onetenthDegC_heater_num++; // xcore-5662 ..moved to here

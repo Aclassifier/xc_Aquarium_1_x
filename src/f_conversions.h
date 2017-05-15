@@ -39,11 +39,11 @@ typedef int light_sensor_range_t;       // [0..99] = [00..INNER_MAX_LUX]
 
 // Area of heat transfor into the aquarium by the heater and and loss through the sides and some from the top assumed to be 1:3
 // Some will be lost down to the shelf also
-#define AMBIENT_WATER_FACTOR_SLOW_HEATING_3 3 // No decimal point! --- #
-// 24.0 in water and ambient 22.5 diff = 1.5 so heat with 24 + (1.5 X 3) = 28.5
-// 24.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X 3) = 39.0 almost TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
-//                                                                    #
-
+#define AMBIENT_WATER_FACTOR_SLOW_HEATING_3  3 // No decimal point!    #
+// 24.0 in water and ambient 22.5 diff = 1.5 so heat with 24 + (1.5 X  3) = 28.5
+// 24.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X  3) = 39.0 almost TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
+#define AMBIENT_WATER_FACTOR_FAST_HEATING_15 15 // No decimal point!   #
+// 25.0 in water and ambient 24.0 diff = 1.0 so heat with 25 + (1.0 X 15) = 40.0 which is TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
 //                                                                  REPORT BIT
 #define INNER_RR_12V_MIN_VOLTS_DP1         100 // 10.0 V            ERROR_BIT_LOW_12V_LIGHT
 #define INNER_RR_12V_MAX_VOLTS_DP1         140 // 14.0 V            ERROR_BIT_HIGH_12V_LIGHT

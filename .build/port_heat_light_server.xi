@@ -1625,6 +1625,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                             pulse_heat_2 = false;
 
                     } break;
+
                     case HEAT_CABLES_ONE_ON: {
                         if (heat_cable_alternating == HEAT_1_ON) {
                             heat_cable_alternating = HEAT_2_ON;
@@ -1669,7 +1670,6 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (heat_1 != heat_1_next) {
                         myport_p32 <: port_value;
                         if (heat_1_next) {
-
                             delay_microseconds ((1500 / (1500*3)));
                         } else {
                             heat_1_no_delay = true;

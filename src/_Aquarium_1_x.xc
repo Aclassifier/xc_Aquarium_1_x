@@ -210,9 +210,9 @@ typedef struct handler_context_t {
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
-    bool                        on_ok;
-    unsigned                    on_percent;
-    unsigned                    on_watt;
+    bool                        heater_on_ok;
+    unsigned                    heater_on_percent;
+    unsigned                    heater_on_watt;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
     voltage_onetenthV_t         rr_24V_voltage_onetenthV; // Heat
@@ -374,9 +374,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     temp_degC_water_str,
                     char_degC_circle_str,
                     char_AA_str,
-                    context.on_percent,
+                    context.heater_on_percent,
                     temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
-                    context.on_watt);
+                    context.heater_on_watt);
             //                                            ..........----------.
             //                                            2 VANNTEMP-REG 24.0oC
             //                                              PÅ       100%     .
@@ -385,7 +385,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) or
                 (context.heat_cables_forced_off_by_watchdog) or
-                (not context.on_ok)) {
+                (not context.heater_on_ok)) {
 
                 drawRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top BORDERS ONLY
                 fillRoundRect(98, 11, 16, 20, 3, WHITE); // x,y,w,h,r,color x,y=0,0 is left top FILL ONLY
@@ -399,7 +399,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (context.heat_cables_forced_off_by_watchdog) {
                 display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],REGULATING_AT_NUMS_TEXT_LEN);
-            } else if (not context.on_ok) {
+            } else if (not context.heater_on_ok) {
                 display_print (now_regulating_at_char[HEAT_CABLE_ERROR],REGULATING_AT_NUMS_TEXT_LEN);
             } else {
                 display_print (now_regulating_at_char[context.now_regulating_at],REGULATING_AT_NUMS_TEXT_LEN);
@@ -414,7 +414,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.on_percent, temp_degC_heater_mean_last_cycle_str, context.on_watt);
+                debug_printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.heater_on_percent, temp_degC_heater_mean_last_cycle_str, context.heater_on_watt);
             } else {}
         } break;
 
@@ -1290,7 +1290,7 @@ void System_Task_Data_Handler (
     {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
     {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
     {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}      = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
-    {context.on_ok, context.on_percent, context.on_watt}                        = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+    {context.heater_on_ok, context.heater_on_percent, context.heater_on_watt}   = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
     context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
 
@@ -1307,6 +1307,7 @@ void System_Task_Data_Handler (
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits or_eq (1<<ERROR_BIT_I2C_WATER);
+        // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
         error_bits or_eq (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
@@ -1317,7 +1318,7 @@ void System_Task_Data_Handler (
         error_bits or_eq (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
-    if (not context.on_ok) {
+    if (not context.heater_on_ok) {
         error_bits or_eq (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 

@@ -197,7 +197,7 @@ dummy_wify_ctrl_port.info:
 	.set Port_Pins_Heat_Light_Server.locnoside, 0
 	.set Port_Pins_Heat_Light_Server.locnoglobalaccess, 0
 	.set Port_Pins_Heat_Light_Server.locnointerfaceaccess, 0
-	.assert 1,printf.actnonotificationselect,"../src/port_heat_light_server.xc:569:17: error: call to function `printf\' which selects on a notification in a combinable function select case\n                debug_printf (\"NEW=%ums->%ucnt, OLD=%ucnt->%ums\\n\", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/port_heat_light_server.xc:23:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/port_heat_light_server.xc:569:17: error: call to function `printf\' which selects on a notification in a combinable function select case\n                debug_printf (\"NEW=%ums->%ucnt, OLD=%ucnt->%ums\\n\", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/port_heat_light_server.xc:21:71: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,usage.anon.2.actnonotificationselect,"../src/port_heat_light_server.xc:644:29: error: call to function `delay_microseconds\' which selects on a notification in a combinable function select case\n                            delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
@@ -402,25 +402,25 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 	bf r2, .LBB2_4
 .Ltmp23:
 .Lxtalabel1:
-	.loc	1 591 25
+	.loc	1 592 25
 	ldw r1, r5[7]
-	.loc	1 591 25
+	.loc	1 592 25
 	bf r1, .LBB2_17
 .Lxtalabel2:
-	.loc	1 600 0
+	.loc	1 601 0
 	stw r4, r5[7]
 	ldw r1, cp[.LCPI2_0]
-	.loc	1 602 0
+	.loc	1 603 0
 	and r1, r0, r1
 	ldc r2, 64
-	.loc	1 602 0
+	.loc	1 603 0
 	or r1, r1, r2
 .Ltmp24:
 	ldc r2, 84
-	.loc	1 604 0
+	.loc	1 605 0
 	add r2, r5, r2
 	mkmsk r3, 1
-	.loc	1 604 0
+	.loc	1 605 0
 	stw r3, r2[0]
 	ldc r2, 88
 	bu .LBB2_18
@@ -444,95 +444,95 @@ _i.port_heat_light_commands_if.Port_Pins_Heat_Light_Server._c0.heat_cables_comma
 	bf r2, .LBB2_5
 .Lxtalabel4:
 	ldc r1, 8256
-	.loc	1 611 0
+	.loc	1 612 0
 	or r1, r0, r1
 .Ltmp29:
 	ldc r2, 84
-	.loc	1 613 0
+	.loc	1 614 0
 	add r2, r5, r2
 	mkmsk r3, 1
 .Ltmp30:
 .LBB2_15:
 .Lxtalabel5:
-	.loc	1 613 0
+	.loc	1 614 0
 	stw r3, r2[0]
 	ldc r2, 88
-	.loc	1 614 0
+	.loc	1 615 0
 	add r2, r5, r2
-	.loc	1 614 0
+	.loc	1 615 0
 	stw r3, r2[0]
 	bu .LBB2_5
 .LBB2_17:
 .Lxtalabel6:
 	mkmsk r2, 1
-	.loc	1 592 0
+	.loc	1 593 0
 	stw r2, r5[7]
 	ldw r1, cp[.LCPI2_0]
-	.loc	1 594 0
+	.loc	1 595 0
 	and r1, r0, r1
 	ldc r3, 8192
-	.loc	1 594 0
+	.loc	1 595 0
 	or r1, r1, r3
 .Ltmp31:
 	ldc r3, 88
-	.loc	1 596 0
+	.loc	1 597 0
 	add r3, r5, r3
-	.loc	1 596 0
+	.loc	1 597 0
 	stw r2, r3[0]
 	ldc r2, 84
 .Ltmp32:
 .LBB2_18:
 .Lxtalabel7:
-	.loc	1 597 0
+	.loc	1 598 0
 	add r2, r5, r2
-	.loc	1 597 0
+	.loc	1 598 0
 	stw r4, r2[0]
 .LBB2_5:
 .Lxtalabel8:
 .Ltmp33:
 	ldc r2, 100
-	.loc	1 619 17
+	.loc	1 620 17
 	add r2, r5, r2
-	.loc	1 619 17
+	.loc	1 620 17
 	ldw r2, r2[0]
 	bf r2, .LBB2_7
 .Ltmp34:
 	ldw r2, cp[.LCPI2_0]
-	.loc	1 619 0
+	.loc	1 620 0
 	and r1, r1, r2
 .Ltmp35:
 .LBB2_7:
 .Lxtalabel9:
-	.loc	1 621 17
+	.loc	1 622 17
 	eq r2, r1, r0
 	bt r2, .LBB2_12
 .Ltmp36:
 .Lxtalabel10:
 	ldc r2, 64
-	.loc	1 623 0
+	.loc	1 624 0
 .Ltmp37:
 	and r3, r0, r2
 .Ltmp38:
 	ldc r11, 8192
-	.loc	1 624 0
+	.loc	1 625 0
 .Ltmp39:
 	and r7, r0, r11
 .Ltmp40:
-	.loc	1 625 0
+	.loc	1 626 0
 	and r0, r1, r2
 .Ltmp41:
-	.loc	1 626 0
+	.loc	1 627 0
 	and r6, r1, r11
 .Ltmp42:
-	.loc	1 629 0
+	.loc	1 630 0
 	stw r1, r5[3]
-	.loc	1 631 21
+	.loc	1 632 21
 	eq r2, r3, r0
 	bt r2, .LBB2_11
 .Ltmp43:
 .Lxtalabel11:
 	ldw r2, cp[.LCPI2_1]
-	.loc	1 632 49
+	.loc	1 633 49
 .Lxta.endpoint_labels0:
 	out res[r2], r1
 	bf r0, .LBB2_10
@@ -3203,15 +3203,15 @@ Port_Pins_Heat_Light_Server:
 .Ltmp404:
 .Lxtalabel133:
 	ldw r0, cp[.LCPI24_4]
-	.loc	1 594 0
+	.loc	1 595 0
 	and r0, r2, r0
-	.loc	1 591 25
+	.loc	1 592 25
 	ldw r1, sp[9]
 	bf r1, .LBB24_86
 .Lxtalabel134:
 .Ltmp405:
 	ldc r1, 64
-	.loc	1 602 0
+	.loc	1 603 0
 	or r4, r0, r1
 .Ltmp406:
 	stw r9, sp[17]
@@ -3288,7 +3288,7 @@ Port_Pins_Heat_Light_Server:
 .Lxtalabel138:
 .Ltmp420:
 	ldc r0, 8256
-	.loc	1 611 0
+	.loc	1 612 0
 	or r4, r2, r0
 .Ltmp421:
 	stw r10, sp[17]
@@ -3304,20 +3304,20 @@ Port_Pins_Heat_Light_Server:
 .LBB24_78:
 .Lxtalabel140:
 .Ltmp424:
-	.loc	1 619 17
+	.loc	1 620 17
 	ldw r0, sp[12]
 	bf r0, .LBB24_80
 .Ltmp425:
 	ldw r0, cp[.LCPI24_4]
-	.loc	1 619 0
+	.loc	1 620 0
 	and r4, r4, r0
 .Ltmp426:
 .LBB24_80:
 .Lxtalabel141:
-	.loc	1 621 17
+	.loc	1 622 17
 	eq r0, r4, r2
 .Ltmp427:
-	.loc	1 621 17
+	.loc	1 622 17
 	bf r0, .LBB24_88
 .Ltmp428:
 	mov r4, r10
@@ -3332,22 +3332,22 @@ Port_Pins_Heat_Light_Server:
 	ldc r0, 64
 .Ltmp431:
 	mov r11, r0
-	.loc	1 623 0
+	.loc	1 624 0
 .Ltmp432:
 	and r0, r2, r11
 .Ltmp433:
-	.loc	1 624 0
+	.loc	1 625 0
 	and r8, r2, r1
 .Ltmp434:
 	mov r2, r1
-	.loc	1 625 0
+	.loc	1 626 0
 .Ltmp435:
 	and r1, r4, r11
 .Ltmp436:
-	.loc	1 626 0
+	.loc	1 627 0
 	and r5, r4, r2
 .Ltmp437:
-	.loc	1 631 21
+	.loc	1 632 21
 	eq r2, r0, r1
 	mov r0, r9
 .Ltmp438:
@@ -3355,7 +3355,7 @@ Port_Pins_Heat_Light_Server:
 	bt r2, .LBB24_90
 .Ltmp439:
 .Lxtalabel143:
-	.loc	1 632 49
+	.loc	1 633 49
 .Lxta.endpoint_labels19:
 	out res[r3], r4
 	mov r0, r10
@@ -3414,7 +3414,7 @@ Port_Pins_Heat_Light_Server:
 .LBB24_86:
 .Lxtalabel149:
 	ldc r1, 8192
-	.loc	1 594 0
+	.loc	1 595 0
 	or r4, r0, r1
 .Ltmp449:
 	stw r10, sp[17]
@@ -4717,32 +4717,32 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 	bf r2, .LBB33_5
 .Ltmp595:
 .Lxtalabel183:
-	.loc	1 591 25
+	.loc	1 592 25
 	ldw r1, r8[7]
-	.loc	1 591 25
+	.loc	1 592 25
 	bf r1, .LBB33_15
 .Ltmp596:
 .Lxtalabel184:
 	ldc r2, 0
-	.loc	1 600 0
+	.loc	1 601 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI33_4]
-	.loc	1 602 0
+	.loc	1 603 0
 	and r1, r0, r1
 	ldc r3, 64
-	.loc	1 602 0
+	.loc	1 603 0
 	or r1, r1, r3
 .Ltmp597:
 	ldc r3, 84
-	.loc	1 604 0
+	.loc	1 605 0
 	add r3, r8, r3
 	mkmsk r11, 1
-	.loc	1 604 0
+	.loc	1 605 0
 	stw r11, r3[0]
 	ldc r3, 88
-	.loc	1 605 0
+	.loc	1 606 0
 	add r3, r8, r3
-	.loc	1 605 0
+	.loc	1 606 0
 	stw r2, r3[0]
 	bu .LBB33_6
 .Ltmp598:
@@ -4825,88 +4825,88 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .Ltmp610:
 .Lxtalabel188:
 	ldc r1, 8256
-	.loc	1 611 0
+	.loc	1 612 0
 	or r1, r0, r1
 .Ltmp611:
 	ldc r2, 84
-	.loc	1 613 0
+	.loc	1 614 0
 	add r2, r8, r2
 	mkmsk r3, 1
 .Ltmp612:
 .LBB33_13:
 .Lxtalabel189:
-	.loc	1 613 0
+	.loc	1 614 0
 	stw r3, r2[0]
 	ldc r2, 88
-	.loc	1 614 0
+	.loc	1 615 0
 	add r2, r8, r2
-	.loc	1 614 0
+	.loc	1 615 0
 	stw r3, r2[0]
 	bu .LBB33_6
 .LBB33_15:
 .Lxtalabel190:
 .Ltmp613:
 	mkmsk r2, 1
-	.loc	1 592 0
+	.loc	1 593 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI33_4]
-	.loc	1 594 0
+	.loc	1 595 0
 	and r1, r0, r1
 	ldc r3, 8192
-	.loc	1 594 0
+	.loc	1 595 0
 	or r1, r1, r3
 .Ltmp614:
 	ldc r3, 88
-	.loc	1 596 0
+	.loc	1 597 0
 	add r3, r8, r3
-	.loc	1 596 0
+	.loc	1 597 0
 	stw r2, r3[0]
 	ldc r2, 84
-	.loc	1 597 0
+	.loc	1 598 0
 	add r2, r8, r2
 	ldc r3, 0
-	.loc	1 597 0
+	.loc	1 598 0
 	stw r3, r2[0]
 .Ltmp615:
 .LBB33_6:
 .Lxtalabel191:
 	ldc r2, 100
-	.loc	1 619 17
+	.loc	1 620 17
 	add r2, r8, r2
-	.loc	1 619 17
+	.loc	1 620 17
 	ldw r2, r2[0]
 	bf r2, .LBB33_8
 .Ltmp616:
 	ldw r2, cp[.LCPI33_4]
-	.loc	1 619 0
+	.loc	1 620 0
 	and r1, r1, r2
 .Ltmp617:
 .LBB33_8:
 .Lxtalabel192:
-	.loc	1 621 17
+	.loc	1 622 17
 	eq r2, r1, r0
 	bt r2, .LBB33_20
 .Ltmp618:
 .Lxtalabel193:
 	ldc r2, 64
-	.loc	1 623 0
+	.loc	1 624 0
 .Ltmp619:
 	and r3, r0, r2
 .Ltmp620:
 	ldc r11, 8192
-	.loc	1 624 0
+	.loc	1 625 0
 .Ltmp621:
 	and r7, r0, r11
 .Ltmp622:
-	.loc	1 625 0
+	.loc	1 626 0
 	and r0, r1, r2
 .Ltmp623:
-	.loc	1 626 0
+	.loc	1 627 0
 	and r4, r1, r11
 .Ltmp624:
-	.loc	1 629 0
+	.loc	1 630 0
 	stw r1, r8[3]
-	.loc	1 631 21
+	.loc	1 632 21
 	eq r2, r3, r0
 	bf r2, .LBB33_17
 .Ltmp625:
@@ -4916,10 +4916,10 @@ Port_Pins_Heat_Light_Server.select.0.case.0:
 .LBB33_17:
 .Lxtalabel194:
 	ldw r2, cp[.LCPI33_1]
-	.loc	1 632 49
+	.loc	1 633 49
 .Lxta.endpoint_labels26:
 	out res[r2], r1
-	.loc	1 633 25
+	.loc	1 634 25
 	bf r0, .LBB33_18
 .Ltmp627:
 .Lxtalabel195:
@@ -6265,32 +6265,32 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 	bf r2, .LBB35_5
 .Ltmp769:
 .Lxtalabel287:
-	.loc	1 591 25
+	.loc	1 592 25
 	ldw r1, r8[7]
-	.loc	1 591 25
+	.loc	1 592 25
 	bf r1, .LBB35_15
 .Ltmp770:
 .Lxtalabel288:
 	ldc r2, 0
-	.loc	1 600 0
+	.loc	1 601 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI35_4]
-	.loc	1 602 0
+	.loc	1 603 0
 	and r1, r0, r1
 	ldc r3, 64
-	.loc	1 602 0
+	.loc	1 603 0
 	or r1, r1, r3
 .Ltmp771:
 	ldc r3, 84
-	.loc	1 604 0
+	.loc	1 605 0
 	add r3, r8, r3
 	mkmsk r11, 1
-	.loc	1 604 0
+	.loc	1 605 0
 	stw r11, r3[0]
 	ldc r3, 88
-	.loc	1 605 0
+	.loc	1 606 0
 	add r3, r8, r3
-	.loc	1 605 0
+	.loc	1 606 0
 	stw r2, r3[0]
 	bu .LBB35_6
 .Ltmp772:
@@ -6373,88 +6373,88 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .Ltmp784:
 .Lxtalabel292:
 	ldc r1, 8256
-	.loc	1 611 0
+	.loc	1 612 0
 	or r1, r0, r1
 .Ltmp785:
 	ldc r2, 84
-	.loc	1 613 0
+	.loc	1 614 0
 	add r2, r8, r2
 	mkmsk r3, 1
 .Ltmp786:
 .LBB35_13:
 .Lxtalabel293:
-	.loc	1 613 0
+	.loc	1 614 0
 	stw r3, r2[0]
 	ldc r2, 88
-	.loc	1 614 0
+	.loc	1 615 0
 	add r2, r8, r2
-	.loc	1 614 0
+	.loc	1 615 0
 	stw r3, r2[0]
 	bu .LBB35_6
 .LBB35_15:
 .Lxtalabel294:
 .Ltmp787:
 	mkmsk r2, 1
-	.loc	1 592 0
+	.loc	1 593 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI35_4]
-	.loc	1 594 0
+	.loc	1 595 0
 	and r1, r0, r1
 	ldc r3, 8192
-	.loc	1 594 0
+	.loc	1 595 0
 	or r1, r1, r3
 .Ltmp788:
 	ldc r3, 88
-	.loc	1 596 0
+	.loc	1 597 0
 	add r3, r8, r3
-	.loc	1 596 0
+	.loc	1 597 0
 	stw r2, r3[0]
 	ldc r2, 84
-	.loc	1 597 0
+	.loc	1 598 0
 	add r2, r8, r2
 	ldc r3, 0
-	.loc	1 597 0
+	.loc	1 598 0
 	stw r3, r2[0]
 .Ltmp789:
 .LBB35_6:
 .Lxtalabel295:
 	ldc r2, 100
-	.loc	1 619 17
+	.loc	1 620 17
 	add r2, r8, r2
-	.loc	1 619 17
+	.loc	1 620 17
 	ldw r2, r2[0]
 	bf r2, .LBB35_8
 .Ltmp790:
 	ldw r2, cp[.LCPI35_4]
-	.loc	1 619 0
+	.loc	1 620 0
 	and r1, r1, r2
 .Ltmp791:
 .LBB35_8:
 .Lxtalabel296:
-	.loc	1 621 17
+	.loc	1 622 17
 	eq r2, r1, r0
 	bt r2, .LBB35_20
 .Ltmp792:
 .Lxtalabel297:
 	ldc r2, 64
-	.loc	1 623 0
+	.loc	1 624 0
 .Ltmp793:
 	and r3, r0, r2
 .Ltmp794:
 	ldc r11, 8192
-	.loc	1 624 0
+	.loc	1 625 0
 .Ltmp795:
 	and r7, r0, r11
 .Ltmp796:
-	.loc	1 625 0
+	.loc	1 626 0
 	and r0, r1, r2
 .Ltmp797:
-	.loc	1 626 0
+	.loc	1 627 0
 	and r4, r1, r11
 .Ltmp798:
-	.loc	1 629 0
+	.loc	1 630 0
 	stw r1, r8[3]
-	.loc	1 631 21
+	.loc	1 632 21
 	eq r2, r3, r0
 	bf r2, .LBB35_17
 .Ltmp799:
@@ -6464,10 +6464,10 @@ Port_Pins_Heat_Light_Server.select.y.case.1:
 .LBB35_17:
 .Lxtalabel298:
 	ldw r2, cp[.LCPI35_1]
-	.loc	1 632 49
+	.loc	1 633 49
 .Lxta.endpoint_labels39:
 	out res[r2], r1
-	.loc	1 633 25
+	.loc	1 634 25
 	bf r0, .LBB35_18
 .Ltmp801:
 .Lxtalabel299:
@@ -7813,32 +7813,32 @@ Port_Pins_Heat_Light_Server.select.case.1:
 	bf r2, .LBB37_5
 .Ltmp943:
 .Lxtalabel391:
-	.loc	1 591 25
+	.loc	1 592 25
 	ldw r1, r8[7]
-	.loc	1 591 25
+	.loc	1 592 25
 	bf r1, .LBB37_15
 .Ltmp944:
 .Lxtalabel392:
 	ldc r2, 0
-	.loc	1 600 0
+	.loc	1 601 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI37_4]
-	.loc	1 602 0
+	.loc	1 603 0
 	and r1, r0, r1
 	ldc r3, 64
-	.loc	1 602 0
+	.loc	1 603 0
 	or r1, r1, r3
 .Ltmp945:
 	ldc r3, 84
-	.loc	1 604 0
+	.loc	1 605 0
 	add r3, r8, r3
 	mkmsk r11, 1
-	.loc	1 604 0
+	.loc	1 605 0
 	stw r11, r3[0]
 	ldc r3, 88
-	.loc	1 605 0
+	.loc	1 606 0
 	add r3, r8, r3
-	.loc	1 605 0
+	.loc	1 606 0
 	stw r2, r3[0]
 	bu .LBB37_6
 .Ltmp946:
@@ -7921,88 +7921,88 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .Ltmp958:
 .Lxtalabel396:
 	ldc r1, 8256
-	.loc	1 611 0
+	.loc	1 612 0
 	or r1, r0, r1
 .Ltmp959:
 	ldc r2, 84
-	.loc	1 613 0
+	.loc	1 614 0
 	add r2, r8, r2
 	mkmsk r3, 1
 .Ltmp960:
 .LBB37_13:
 .Lxtalabel397:
-	.loc	1 613 0
+	.loc	1 614 0
 	stw r3, r2[0]
 	ldc r2, 88
-	.loc	1 614 0
+	.loc	1 615 0
 	add r2, r8, r2
-	.loc	1 614 0
+	.loc	1 615 0
 	stw r3, r2[0]
 	bu .LBB37_6
 .LBB37_15:
 .Lxtalabel398:
 .Ltmp961:
 	mkmsk r2, 1
-	.loc	1 592 0
+	.loc	1 593 0
 	stw r2, r8[7]
 	ldw r1, cp[.LCPI37_4]
-	.loc	1 594 0
+	.loc	1 595 0
 	and r1, r0, r1
 	ldc r3, 8192
-	.loc	1 594 0
+	.loc	1 595 0
 	or r1, r1, r3
 .Ltmp962:
 	ldc r3, 88
-	.loc	1 596 0
+	.loc	1 597 0
 	add r3, r8, r3
-	.loc	1 596 0
+	.loc	1 597 0
 	stw r2, r3[0]
 	ldc r2, 84
-	.loc	1 597 0
+	.loc	1 598 0
 	add r2, r8, r2
 	ldc r3, 0
-	.loc	1 597 0
+	.loc	1 598 0
 	stw r3, r2[0]
 .Ltmp963:
 .LBB37_6:
 .Lxtalabel399:
 	ldc r2, 100
-	.loc	1 619 17
+	.loc	1 620 17
 	add r2, r8, r2
-	.loc	1 619 17
+	.loc	1 620 17
 	ldw r2, r2[0]
 	bf r2, .LBB37_8
 .Ltmp964:
 	ldw r2, cp[.LCPI37_4]
-	.loc	1 619 0
+	.loc	1 620 0
 	and r1, r1, r2
 .Ltmp965:
 .LBB37_8:
 .Lxtalabel400:
-	.loc	1 621 17
+	.loc	1 622 17
 	eq r2, r1, r0
 	bt r2, .LBB37_20
 .Ltmp966:
 .Lxtalabel401:
 	ldc r2, 64
-	.loc	1 623 0
+	.loc	1 624 0
 .Ltmp967:
 	and r3, r0, r2
 .Ltmp968:
 	ldc r11, 8192
-	.loc	1 624 0
+	.loc	1 625 0
 .Ltmp969:
 	and r7, r0, r11
 .Ltmp970:
-	.loc	1 625 0
+	.loc	1 626 0
 	and r0, r1, r2
 .Ltmp971:
-	.loc	1 626 0
+	.loc	1 627 0
 	and r4, r1, r11
 .Ltmp972:
-	.loc	1 629 0
+	.loc	1 630 0
 	stw r1, r8[3]
-	.loc	1 631 21
+	.loc	1 632 21
 	eq r2, r3, r0
 	bf r2, .LBB37_17
 .Ltmp973:
@@ -8012,10 +8012,10 @@ Port_Pins_Heat_Light_Server.select.case.1:
 .LBB37_17:
 .Lxtalabel402:
 	ldw r2, cp[.LCPI37_1]
-	.loc	1 632 49
+	.loc	1 633 49
 .Lxta.endpoint_labels52:
 	out res[r2], r1
-	.loc	1 633 25
+	.loc	1 634 25
 	bf r0, .LBB37_18
 .Ltmp975:
 .Lxtalabel403:
@@ -8731,18 +8731,6 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Linfo_string11
 	.byte	4
 	.byte	1
-	.short	623
-	.byte	9
-	.long	.Linfo_string9
-	.byte	0
-	.byte	9
-	.long	.Linfo_string10
-	.byte	1
-	.byte	0
-	.byte	10
-	.long	.Linfo_string11
-	.byte	4
-	.byte	1
 	.short	624
 	.byte	9
 	.long	.Linfo_string9
@@ -8780,6 +8768,18 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	4
 	.byte	1
 	.short	627
+	.byte	9
+	.long	.Linfo_string9
+	.byte	0
+	.byte	9
+	.long	.Linfo_string10
+	.byte	1
+	.byte	0
+	.byte	10
+	.long	.Linfo_string11
+	.byte	4
+	.byte	1
+	.short	628
 	.byte	9
 	.long	.Linfo_string9
 	.byte	0
@@ -9204,7 +9204,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc6
 	.long	.Linfo_string92
 	.byte	1
-	.short	623
+	.short	624
 	.long	545
 	.byte	14
 	.long	.Ldebug_ranges9
@@ -9212,7 +9212,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc7
 	.long	.Linfo_string93
 	.byte	1
-	.short	624
+	.short	625
 	.long	567
 	.byte	14
 	.long	.Ldebug_ranges8
@@ -9220,7 +9220,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc8
 	.long	.Linfo_string94
 	.byte	1
-	.short	625
+	.short	626
 	.long	589
 	.byte	14
 	.long	.Ldebug_ranges7
@@ -9228,7 +9228,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc9
 	.long	.Linfo_string95
 	.byte	1
-	.short	626
+	.short	627
 	.long	611
 	.byte	14
 	.long	.Ldebug_ranges6
@@ -9236,7 +9236,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.long	.Linfo_string96
 	.byte	1
-	.short	627
+	.short	628
 	.long	633
 	.byte	21
 	.long	1389
@@ -9751,7 +9751,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc61
 	.long	.Linfo_string92
 	.byte	1
-	.short	623
+	.short	624
 	.long	545
 	.byte	14
 	.long	.Ldebug_ranges39
@@ -9759,7 +9759,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc62
 	.long	.Linfo_string93
 	.byte	1
-	.short	624
+	.short	625
 	.long	567
 	.byte	14
 	.long	.Ldebug_ranges38
@@ -9767,7 +9767,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc63
 	.long	.Linfo_string94
 	.byte	1
-	.short	625
+	.short	626
 	.long	589
 	.byte	14
 	.long	.Ldebug_ranges37
@@ -9775,7 +9775,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc64
 	.long	.Linfo_string95
 	.byte	1
-	.short	626
+	.short	627
 	.long	611
 	.byte	14
 	.long	.Ldebug_ranges36
@@ -9783,7 +9783,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.long	.Linfo_string96
 	.byte	1
-	.short	627
+	.short	628
 	.long	633
 	.byte	21
 	.long	1389
@@ -10262,7 +10262,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc93
 	.long	.Linfo_string92
 	.byte	1
-	.short	623
+	.short	624
 	.long	545
 	.byte	14
 	.long	.Ldebug_ranges98
@@ -10270,7 +10270,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc94
 	.long	.Linfo_string93
 	.byte	1
-	.short	624
+	.short	625
 	.long	567
 	.byte	14
 	.long	.Ldebug_ranges97
@@ -10278,7 +10278,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc95
 	.long	.Linfo_string94
 	.byte	1
-	.short	625
+	.short	626
 	.long	589
 	.byte	14
 	.long	.Ldebug_ranges96
@@ -10286,7 +10286,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc96
 	.long	.Linfo_string95
 	.byte	1
-	.short	626
+	.short	627
 	.long	611
 	.byte	14
 	.long	.Ldebug_ranges95
@@ -10294,7 +10294,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.long	.Linfo_string96
 	.byte	1
-	.short	627
+	.short	628
 	.long	633
 	.byte	21
 	.long	1389
@@ -10570,7 +10570,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc119
 	.long	.Linfo_string92
 	.byte	1
-	.short	623
+	.short	624
 	.long	545
 	.byte	14
 	.long	.Ldebug_ranges123
@@ -10578,7 +10578,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc120
 	.long	.Linfo_string93
 	.byte	1
-	.short	624
+	.short	625
 	.long	567
 	.byte	14
 	.long	.Ldebug_ranges122
@@ -10586,7 +10586,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc121
 	.long	.Linfo_string94
 	.byte	1
-	.short	625
+	.short	626
 	.long	589
 	.byte	14
 	.long	.Ldebug_ranges121
@@ -10594,7 +10594,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc122
 	.long	.Linfo_string95
 	.byte	1
-	.short	626
+	.short	627
 	.long	611
 	.byte	14
 	.long	.Ldebug_ranges120
@@ -10602,7 +10602,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.long	.Linfo_string96
 	.byte	1
-	.short	627
+	.short	628
 	.long	633
 	.byte	21
 	.long	1389
@@ -10878,7 +10878,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc145
 	.long	.Linfo_string92
 	.byte	1
-	.short	623
+	.short	624
 	.long	545
 	.byte	14
 	.long	.Ldebug_ranges148
@@ -10886,7 +10886,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc146
 	.long	.Linfo_string93
 	.byte	1
-	.short	624
+	.short	625
 	.long	567
 	.byte	14
 	.long	.Ldebug_ranges147
@@ -10894,7 +10894,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc147
 	.long	.Linfo_string94
 	.byte	1
-	.short	625
+	.short	626
 	.long	589
 	.byte	14
 	.long	.Ldebug_ranges146
@@ -10902,7 +10902,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	.Ldebug_loc148
 	.long	.Linfo_string95
 	.byte	1
-	.short	626
+	.short	627
 	.long	611
 	.byte	14
 	.long	.Ldebug_ranges145
@@ -10910,7 +10910,7 @@ p32_bits_for_light_composition_pwm_windows:
 	.byte	0
 	.long	.Linfo_string96
 	.byte	1
-	.short	627
+	.short	628
 	.long	633
 	.byte	21
 	.long	1389
@@ -17163,31 +17163,31 @@ p32_bits_for_light_composition_pwm_windows:
 .cc_top cc_66,.Lxta.endpoint_labels19
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	632
+	.long	633
 	.long	.Lxta.endpoint_labels19
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.endpoint_labels39
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	632
+	.long	633
 	.long	.Lxta.endpoint_labels39
 .cc_bottom cc_67
 .cc_top cc_68,.Lxta.endpoint_labels26
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	632
+	.long	633
 	.long	.Lxta.endpoint_labels26
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.endpoint_labels52
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	632
+	.long	633
 	.long	.Lxta.endpoint_labels52
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.endpoint_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	632
+	.long	633
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.endpoint_labels40
@@ -17255,19 +17255,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	282
 	.long	.Lxtalabel151
 .cc_bottom cc_79
-.cc_top cc_80,.Lxtalabel151
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	285
-	.long	286
-	.long	.Lxtalabel151
-.cc_bottom cc_80
-.cc_top cc_81,.Lxtalabel46
+.cc_top cc_80,.Lxtalabel46
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	285
 	.long	286
 	.long	.Lxtalabel46
+.cc_bottom cc_80
+.cc_top cc_81,.Lxtalabel151
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	285
+	.long	286
+	.long	.Lxtalabel151
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel46
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17297,19 +17297,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	300
 	.long	.Lxtalabel46
 .cc_bottom cc_85
-.cc_top cc_86,.Lxtalabel46
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	304
-	.long	304
-	.long	.Lxtalabel46
-.cc_bottom cc_86
-.cc_top cc_87,.Lxtalabel150
+.cc_top cc_86,.Lxtalabel150
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	304
 	.long	304
 	.long	.Lxtalabel150
+.cc_bottom cc_86
+.cc_top cc_87,.Lxtalabel46
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	304
+	.long	304
+	.long	.Lxtalabel46
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel150
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17325,61 +17325,61 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	307
 	.long	.Lxtalabel46
 .cc_bottom cc_89
-.cc_top cc_90,.Lxtalabel150
+.cc_top cc_90,.Lxtalabel46
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	309
 	.long	309
-	.long	.Lxtalabel150
+	.long	.Lxtalabel46
 .cc_bottom cc_90
-.cc_top cc_91,.Lxtalabel46
+.cc_top cc_91,.Lxtalabel150
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	309
 	.long	309
-	.long	.Lxtalabel46
+	.long	.Lxtalabel150
 .cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel150
+.cc_top cc_92,.Lxtalabel46
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	311
+	.long	311
+	.long	.Lxtalabel46
+.cc_bottom cc_92
+.cc_top cc_93,.Lxtalabel150
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	311
 	.long	311
 	.long	.Lxtalabel150
-.cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel46
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	311
-	.long	311
-	.long	.Lxtalabel46
 .cc_bottom cc_93
-.cc_top cc_94,.Lxtalabel48
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	312
-	.long	313
-	.long	.Lxtalabel48
-.cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel47
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	312
-	.long	313
-	.long	.Lxtalabel47
-.cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel130
+.cc_top cc_94,.Lxtalabel130
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	312
 	.long	313
 	.long	.Lxtalabel130
-.cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel55
+.cc_bottom cc_94
+.cc_top cc_95,.Lxtalabel48
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	312
+	.long	313
+	.long	.Lxtalabel48
+.cc_bottom cc_95
+.cc_top cc_96,.Lxtalabel55
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	312
 	.long	313
 	.long	.Lxtalabel55
+.cc_bottom cc_96
+.cc_top cc_97,.Lxtalabel47
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	312
+	.long	313
+	.long	.Lxtalabel47
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel54
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17388,40 +17388,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	313
 	.long	.Lxtalabel54
 .cc_bottom cc_98
-.cc_top cc_99,.Lxtalabel304
+.cc_top cc_99,.Lxtalabel49
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	314
+	.long	315
+	.long	.Lxtalabel49
+.cc_bottom cc_99
+.cc_top cc_100,.Lxtalabel200
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	314
+	.long	315
+	.long	.Lxtalabel200
+.cc_bottom cc_100
+.cc_top cc_101,.Lxtalabel304
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	314
 	.long	315
 	.long	.Lxtalabel304
-.cc_bottom cc_99
-.cc_top cc_100,.Lxtalabel49
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	314
-	.long	315
-	.long	.Lxtalabel49
-.cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel200
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	314
-	.long	315
-	.long	.Lxtalabel200
 .cc_bottom cc_101
-.cc_top cc_102,.Lxtalabel200
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	317
-	.long	317
-	.long	.Lxtalabel200
-.cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel49
+.cc_top cc_102,.Lxtalabel49
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	317
 	.long	317
 	.long	.Lxtalabel49
+.cc_bottom cc_102
+.cc_top cc_103,.Lxtalabel200
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	317
+	.long	317
+	.long	.Lxtalabel200
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel304
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17430,257 +17430,257 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	317
 	.long	.Lxtalabel304
 .cc_bottom cc_104
-.cc_top cc_105,.Lxtalabel313
+.cc_top cc_105,.Lxtalabel315
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
-	.long	.Lxtalabel313
+	.long	.Lxtalabel315
 .cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel61
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel61
-.cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel311
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel311
-.cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel60
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel60
-.cc_bottom cc_108
-.cc_top cc_109,.Lxtalabel57
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel57
-.cc_bottom cc_109
-.cc_top cc_110,.Lxtalabel56
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel56
-.cc_bottom cc_110
-.cc_top cc_111,.Lxtalabel62
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel62
-.cc_bottom cc_111
-.cc_top cc_112,.Lxtalabel63
+.cc_top cc_106,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
 	.long	.Lxtalabel63
-.cc_bottom cc_112
-.cc_top cc_113,.Lxtalabel64
+.cc_bottom cc_106
+.cc_top cc_107,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
-	.long	.Lxtalabel64
-.cc_bottom cc_113
-.cc_top cc_114,.Lxtalabel211
+	.long	.Lxtalabel56
+.cc_bottom cc_107
+.cc_top cc_108,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
-	.long	.Lxtalabel211
-.cc_bottom cc_114
-.cc_top cc_115,.Lxtalabel210
+	.long	.Lxtalabel62
+.cc_bottom cc_108
+.cc_top cc_109,.Lxtalabel307
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
-	.long	.Lxtalabel210
-.cc_bottom cc_115
-.cc_top cc_116,.Lxtalabel312
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel312
-.cc_bottom cc_116
-.cc_top cc_117,.Lxtalabel209
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel209
-.cc_bottom cc_117
-.cc_top cc_118,.Lxtalabel315
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel315
-.cc_bottom cc_118
-.cc_top cc_119,.Lxtalabel208
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel208
-.cc_bottom cc_119
-.cc_top cc_120,.Lxtalabel207
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel207
-.cc_bottom cc_120
-.cc_top cc_121,.Lxtalabel204
+	.long	.Lxtalabel307
+.cc_bottom cc_109
+.cc_top cc_110,.Lxtalabel204
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
 	.long	.Lxtalabel204
+.cc_bottom cc_110
+.cc_top cc_111,.Lxtalabel211
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel211
+.cc_bottom cc_111
+.cc_top cc_112,.Lxtalabel314
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel314
+.cc_bottom cc_112
+.cc_top cc_113,.Lxtalabel60
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel60
+.cc_bottom cc_113
+.cc_top cc_114,.Lxtalabel308
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel308
+.cc_bottom cc_114
+.cc_top cc_115,.Lxtalabel313
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel313
+.cc_bottom cc_115
+.cc_top cc_116,.Lxtalabel64
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel64
+.cc_bottom cc_116
+.cc_top cc_117,.Lxtalabel208
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel208
+.cc_bottom cc_117
+.cc_top cc_118,.Lxtalabel61
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel61
+.cc_bottom cc_118
+.cc_top cc_119,.Lxtalabel210
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel210
+.cc_bottom cc_119
+.cc_top cc_120,.Lxtalabel209
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel209
+.cc_bottom cc_120
+.cc_top cc_121,.Lxtalabel57
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel57
 .cc_bottom cc_121
-.cc_top cc_122,.Lxtalabel203
+.cc_top cc_122,.Lxtalabel207
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel207
+.cc_bottom cc_122
+.cc_top cc_123,.Lxtalabel312
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel312
+.cc_bottom cc_123
+.cc_top cc_124,.Lxtalabel203
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
 	.long	.Lxtalabel203
-.cc_bottom cc_122
-.cc_top cc_123,.Lxtalabel307
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel307
-.cc_bottom cc_123
-.cc_top cc_124,.Lxtalabel308
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel308
 .cc_bottom cc_124
-.cc_top cc_125,.Lxtalabel314
+.cc_top cc_125,.Lxtalabel311
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	323
 	.long	324
-	.long	.Lxtalabel314
+	.long	.Lxtalabel311
 .cc_bottom cc_125
-.cc_top cc_126,.Lxtalabel210
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel210
-.cc_bottom cc_126
-.cc_top cc_127,.Lxtalabel314
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel314
-.cc_bottom cc_127
-.cc_top cc_128,.Lxtalabel209
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel209
-.cc_bottom cc_128
-.cc_top cc_129,.Lxtalabel312
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel312
-.cc_bottom cc_129
-.cc_top cc_130,.Lxtalabel308
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel308
-.cc_bottom cc_130
-.cc_top cc_131,.Lxtalabel60
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel60
-.cc_bottom cc_131
-.cc_top cc_132,.Lxtalabel61
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel61
-.cc_bottom cc_132
-.cc_top cc_133,.Lxtalabel211
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel211
-.cc_bottom cc_133
-.cc_top cc_134,.Lxtalabel208
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel208
-.cc_bottom cc_134
-.cc_top cc_135,.Lxtalabel307
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel307
-.cc_bottom cc_135
-.cc_top cc_136,.Lxtalabel315
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel315
-.cc_bottom cc_136
-.cc_top cc_137,.Lxtalabel207
+.cc_top cc_126,.Lxtalabel207
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
 	.long	.Lxtalabel207
-.cc_bottom cc_137
-.cc_top cc_138,.Lxtalabel57
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	325
-	.long	329
-	.long	.Lxtalabel57
-.cc_bottom cc_138
-.cc_top cc_139,.Lxtalabel311
+.cc_bottom cc_126
+.cc_top cc_127,.Lxtalabel311
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
 	.long	.Lxtalabel311
-.cc_bottom cc_139
-.cc_top cc_140,.Lxtalabel64
+.cc_bottom cc_127
+.cc_top cc_128,.Lxtalabel312
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel312
+.cc_bottom cc_128
+.cc_top cc_129,.Lxtalabel203
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel203
+.cc_bottom cc_129
+.cc_top cc_130,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
 	.long	.Lxtalabel64
+.cc_bottom cc_130
+.cc_top cc_131,.Lxtalabel63
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel63
+.cc_bottom cc_131
+.cc_top cc_132,.Lxtalabel308
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel308
+.cc_bottom cc_132
+.cc_top cc_133,.Lxtalabel315
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel315
+.cc_bottom cc_133
+.cc_top cc_134,.Lxtalabel313
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel313
+.cc_bottom cc_134
+.cc_top cc_135,.Lxtalabel60
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel60
+.cc_bottom cc_135
+.cc_top cc_136,.Lxtalabel307
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel307
+.cc_bottom cc_136
+.cc_top cc_137,.Lxtalabel211
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel211
+.cc_bottom cc_137
+.cc_top cc_138,.Lxtalabel208
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel208
+.cc_bottom cc_138
+.cc_top cc_139,.Lxtalabel61
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel61
+.cc_bottom cc_139
+.cc_top cc_140,.Lxtalabel210
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	325
+	.long	329
+	.long	.Lxtalabel210
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17689,131 +17689,131 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	329
 	.long	.Lxtalabel56
 .cc_bottom cc_141
-.cc_top cc_142,.Lxtalabel313
+.cc_top cc_142,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
-	.long	.Lxtalabel313
+	.long	.Lxtalabel62
 .cc_bottom cc_142
-.cc_top cc_143,.Lxtalabel203
+.cc_top cc_143,.Lxtalabel57
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
-	.long	.Lxtalabel203
+	.long	.Lxtalabel57
 .cc_bottom cc_143
-.cc_top cc_144,.Lxtalabel63
+.cc_top cc_144,.Lxtalabel314
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
-	.long	.Lxtalabel63
+	.long	.Lxtalabel314
 .cc_bottom cc_144
-.cc_top cc_145,.Lxtalabel204
+.cc_top cc_145,.Lxtalabel209
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
-	.long	.Lxtalabel204
+	.long	.Lxtalabel209
 .cc_bottom cc_145
-.cc_top cc_146,.Lxtalabel62
+.cc_top cc_146,.Lxtalabel204
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	325
 	.long	329
-	.long	.Lxtalabel62
-.cc_bottom cc_146
-.cc_top cc_147,.Lxtalabel308
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel308
-.cc_bottom cc_147
-.cc_top cc_148,.Lxtalabel311
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel311
-.cc_bottom cc_148
-.cc_top cc_149,.Lxtalabel204
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
 	.long	.Lxtalabel204
-.cc_bottom cc_149
-.cc_top cc_150,.Lxtalabel62
+.cc_bottom cc_146
+.cc_top cc_147,.Lxtalabel209
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel62
-.cc_bottom cc_150
-.cc_top cc_151,.Lxtalabel203
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel203
-.cc_bottom cc_151
-.cc_top cc_152,.Lxtalabel63
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel63
-.cc_bottom cc_152
-.cc_top cc_153,.Lxtalabel315
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel315
-.cc_bottom cc_153
-.cc_top cc_154,.Lxtalabel56
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel56
-.cc_bottom cc_154
-.cc_top cc_155,.Lxtalabel57
+	.long	.Lxtalabel209
+.cc_bottom cc_147
+.cc_top cc_148,.Lxtalabel57
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
 	.long	.Lxtalabel57
-.cc_bottom cc_155
-.cc_top cc_156,.Lxtalabel207
+.cc_bottom cc_148
+.cc_top cc_149,.Lxtalabel61
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel207
-.cc_bottom cc_156
-.cc_top cc_157,.Lxtalabel64
+	.long	.Lxtalabel61
+.cc_bottom cc_149
+.cc_top cc_150,.Lxtalabel204
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel64
-.cc_bottom cc_157
-.cc_top cc_158,.Lxtalabel313
+	.long	.Lxtalabel204
+.cc_bottom cc_150
+.cc_top cc_151,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel313
-.cc_bottom cc_158
-.cc_top cc_159,.Lxtalabel211
+	.long	.Lxtalabel56
+.cc_bottom cc_151
+.cc_top cc_152,.Lxtalabel208
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel208
+.cc_bottom cc_152
+.cc_top cc_153,.Lxtalabel210
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel210
+.cc_bottom cc_153
+.cc_top cc_154,.Lxtalabel211
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
 	.long	.Lxtalabel211
+.cc_bottom cc_154
+.cc_top cc_155,.Lxtalabel314
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel314
+.cc_bottom cc_155
+.cc_top cc_156,.Lxtalabel63
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel63
+.cc_bottom cc_156
+.cc_top cc_157,.Lxtalabel313
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel313
+.cc_bottom cc_157
+.cc_top cc_158,.Lxtalabel62
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel62
+.cc_bottom cc_158
+.cc_top cc_159,.Lxtalabel315
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel315
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel307
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17822,124 +17822,124 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	334
 	.long	.Lxtalabel307
 .cc_bottom cc_160
-.cc_top cc_161,.Lxtalabel208
+.cc_top cc_161,.Lxtalabel308
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel208
+	.long	.Lxtalabel308
 .cc_bottom cc_161
-.cc_top cc_162,.Lxtalabel61
+.cc_top cc_162,.Lxtalabel311
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel61
+	.long	.Lxtalabel311
 .cc_bottom cc_162
-.cc_top cc_163,.Lxtalabel210
+.cc_top cc_163,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
-	.long	.Lxtalabel210
+	.long	.Lxtalabel64
 .cc_bottom cc_163
-.cc_top cc_164,.Lxtalabel312
+.cc_top cc_164,.Lxtalabel207
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel207
+.cc_bottom cc_164
+.cc_top cc_165,.Lxtalabel312
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
 	.long	.Lxtalabel312
-.cc_bottom cc_164
-.cc_top cc_165,.Lxtalabel60
+.cc_bottom cc_165
+.cc_top cc_166,.Lxtalabel203
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	330
+	.long	334
+	.long	.Lxtalabel203
+.cc_bottom cc_166
+.cc_top cc_167,.Lxtalabel60
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	330
 	.long	334
 	.long	.Lxtalabel60
-.cc_bottom cc_165
-.cc_top cc_166,.Lxtalabel314
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel314
-.cc_bottom cc_166
-.cc_top cc_167,.Lxtalabel209
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	330
-	.long	334
-	.long	.Lxtalabel209
 .cc_bottom cc_167
-.cc_top cc_168,.Lxtalabel209
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel209
-.cc_bottom cc_168
-.cc_top cc_169,.Lxtalabel56
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel56
-.cc_bottom cc_169
-.cc_top cc_170,.Lxtalabel308
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel308
-.cc_bottom cc_170
-.cc_top cc_171,.Lxtalabel203
+.cc_top cc_168,.Lxtalabel203
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
 	.long	.Lxtalabel203
+.cc_bottom cc_168
+.cc_top cc_169,.Lxtalabel308
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel308
+.cc_bottom cc_169
+.cc_top cc_170,.Lxtalabel207
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel207
+.cc_bottom cc_170
+.cc_top cc_171,.Lxtalabel60
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel60
 .cc_bottom cc_171
-.cc_top cc_172,.Lxtalabel311
+.cc_top cc_172,.Lxtalabel64
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel311
+	.long	.Lxtalabel64
 .cc_bottom cc_172
-.cc_top cc_173,.Lxtalabel210
+.cc_top cc_173,.Lxtalabel63
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel210
+	.long	.Lxtalabel63
 .cc_bottom cc_173
-.cc_top cc_174,.Lxtalabel204
+.cc_top cc_174,.Lxtalabel57
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel204
+	.long	.Lxtalabel57
 .cc_bottom cc_174
-.cc_top cc_175,.Lxtalabel62
+.cc_top cc_175,.Lxtalabel315
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel62
+	.long	.Lxtalabel315
 .cc_bottom cc_175
-.cc_top cc_176,.Lxtalabel208
+.cc_top cc_176,.Lxtalabel61
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel208
+	.long	.Lxtalabel61
 .cc_bottom cc_176
-.cc_top cc_177,.Lxtalabel312
+.cc_top cc_177,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel312
+	.long	.Lxtalabel56
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel211
 	.ascii	"../src/port_heat_light_server.xc"
@@ -17948,250 +17948,250 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	337
 	.long	.Lxtalabel211
 .cc_bottom cc_178
-.cc_top cc_179,.Lxtalabel57
+.cc_top cc_179,.Lxtalabel307
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel57
+	.long	.Lxtalabel307
 .cc_bottom cc_179
-.cc_top cc_180,.Lxtalabel315
+.cc_top cc_180,.Lxtalabel311
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	335
 	.long	337
-	.long	.Lxtalabel315
-.cc_bottom cc_180
-.cc_top cc_181,.Lxtalabel60
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel60
-.cc_bottom cc_181
-.cc_top cc_182,.Lxtalabel63
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel63
-.cc_bottom cc_182
-.cc_top cc_183,.Lxtalabel314
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel314
-.cc_bottom cc_183
-.cc_top cc_184,.Lxtalabel207
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel207
-.cc_bottom cc_184
-.cc_top cc_185,.Lxtalabel313
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel313
-.cc_bottom cc_185
-.cc_top cc_186,.Lxtalabel64
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel64
-.cc_bottom cc_186
-.cc_top cc_187,.Lxtalabel61
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel61
-.cc_bottom cc_187
-.cc_top cc_188,.Lxtalabel307
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	335
-	.long	337
-	.long	.Lxtalabel307
-.cc_bottom cc_188
-.cc_top cc_189,.Lxtalabel307
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel307
-.cc_bottom cc_189
-.cc_top cc_190,.Lxtalabel57
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel57
-.cc_bottom cc_190
-.cc_top cc_191,.Lxtalabel64
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel64
-.cc_bottom cc_191
-.cc_top cc_192,.Lxtalabel61
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel61
-.cc_bottom cc_192
-.cc_top cc_193,.Lxtalabel207
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel207
-.cc_bottom cc_193
-.cc_top cc_194,.Lxtalabel312
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel312
-.cc_bottom cc_194
-.cc_top cc_195,.Lxtalabel314
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel314
-.cc_bottom cc_195
-.cc_top cc_196,.Lxtalabel56
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel56
-.cc_bottom cc_196
-.cc_top cc_197,.Lxtalabel60
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel60
-.cc_bottom cc_197
-.cc_top cc_198,.Lxtalabel315
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel315
-.cc_bottom cc_198
-.cc_top cc_199,.Lxtalabel63
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel63
-.cc_bottom cc_199
-.cc_top cc_200,.Lxtalabel209
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel209
-.cc_bottom cc_200
-.cc_top cc_201,.Lxtalabel204
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel204
-.cc_bottom cc_201
-.cc_top cc_202,.Lxtalabel311
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
 	.long	.Lxtalabel311
-.cc_bottom cc_202
-.cc_top cc_203,.Lxtalabel313
+.cc_bottom cc_180
+.cc_top cc_181,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel313
-.cc_bottom cc_203
-.cc_top cc_204,.Lxtalabel208
+	.long	335
+	.long	337
+	.long	.Lxtalabel62
+.cc_bottom cc_181
+.cc_top cc_182,.Lxtalabel314
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	339
-	.long	339
+	.long	335
+	.long	337
+	.long	.Lxtalabel314
+.cc_bottom cc_182
+.cc_top cc_183,.Lxtalabel208
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
 	.long	.Lxtalabel208
-.cc_bottom cc_204
-.cc_top cc_205,.Lxtalabel203
+.cc_bottom cc_183
+.cc_top cc_184,.Lxtalabel204
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel204
+.cc_bottom cc_184
+.cc_top cc_185,.Lxtalabel312
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel312
+.cc_bottom cc_185
+.cc_top cc_186,.Lxtalabel313
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel313
+.cc_bottom cc_186
+.cc_top cc_187,.Lxtalabel210
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel210
+.cc_bottom cc_187
+.cc_top cc_188,.Lxtalabel209
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	335
+	.long	337
+	.long	.Lxtalabel209
+.cc_bottom cc_188
+.cc_top cc_189,.Lxtalabel203
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	339
 	.long	339
 	.long	.Lxtalabel203
-.cc_bottom cc_205
-.cc_top cc_206,.Lxtalabel210
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel210
-.cc_bottom cc_206
-.cc_top cc_207,.Lxtalabel211
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	339
-	.long	339
-	.long	.Lxtalabel211
-.cc_bottom cc_207
-.cc_top cc_208,.Lxtalabel62
+.cc_bottom cc_189
+.cc_top cc_190,.Lxtalabel62
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	339
 	.long	339
 	.long	.Lxtalabel62
-.cc_bottom cc_208
-.cc_top cc_209,.Lxtalabel308
+.cc_bottom cc_190
+.cc_top cc_191,.Lxtalabel63
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel63
+.cc_bottom cc_191
+.cc_top cc_192,.Lxtalabel209
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel209
+.cc_bottom cc_192
+.cc_top cc_193,.Lxtalabel313
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel313
+.cc_bottom cc_193
+.cc_top cc_194,.Lxtalabel60
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel60
+.cc_bottom cc_194
+.cc_top cc_195,.Lxtalabel210
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel210
+.cc_bottom cc_195
+.cc_top cc_196,.Lxtalabel208
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel208
+.cc_bottom cc_196
+.cc_top cc_197,.Lxtalabel312
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel312
+.cc_bottom cc_197
+.cc_top cc_198,.Lxtalabel57
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel57
+.cc_bottom cc_198
+.cc_top cc_199,.Lxtalabel311
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel311
+.cc_bottom cc_199
+.cc_top cc_200,.Lxtalabel204
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel204
+.cc_bottom cc_200
+.cc_top cc_201,.Lxtalabel314
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel314
+.cc_bottom cc_201
+.cc_top cc_202,.Lxtalabel61
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel61
+.cc_bottom cc_202
+.cc_top cc_203,.Lxtalabel308
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	339
 	.long	339
 	.long	.Lxtalabel308
-.cc_bottom cc_209
-.cc_top cc_210,.Lxtalabel309
+.cc_bottom cc_203
+.cc_top cc_204,.Lxtalabel56
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	341
-	.long	341
-	.long	.Lxtalabel309
-.cc_bottom cc_210
-.cc_top cc_211,.Lxtalabel205
+	.long	339
+	.long	339
+	.long	.Lxtalabel56
+.cc_bottom cc_204
+.cc_top cc_205,.Lxtalabel315
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel315
+.cc_bottom cc_205
+.cc_top cc_206,.Lxtalabel211
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel211
+.cc_bottom cc_206
+.cc_top cc_207,.Lxtalabel207
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel207
+.cc_bottom cc_207
+.cc_top cc_208,.Lxtalabel64
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel64
+.cc_bottom cc_208
+.cc_top cc_209,.Lxtalabel307
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	339
+	.long	339
+	.long	.Lxtalabel307
+.cc_bottom cc_209
+.cc_top cc_210,.Lxtalabel205
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	341
 	.long	341
 	.long	.Lxtalabel205
-.cc_bottom cc_211
-.cc_top cc_212,.Lxtalabel50
+.cc_bottom cc_210
+.cc_top cc_211,.Lxtalabel201
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	341
 	.long	341
-	.long	.Lxtalabel50
-.cc_bottom cc_212
-.cc_top cc_213,.Lxtalabel58
+	.long	.Lxtalabel201
+.cc_bottom cc_211
+.cc_top cc_212,.Lxtalabel58
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	341
 	.long	341
 	.long	.Lxtalabel58
+.cc_bottom cc_212
+.cc_top cc_213,.Lxtalabel309
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	341
+	.long	341
+	.long	.Lxtalabel309
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel305
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18200,12 +18200,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	341
 	.long	.Lxtalabel305
 .cc_bottom cc_214
-.cc_top cc_215,.Lxtalabel201
+.cc_top cc_215,.Lxtalabel50
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	341
 	.long	341
-	.long	.Lxtalabel201
+	.long	.Lxtalabel50
 .cc_bottom cc_215
 .cc_top cc_216,.Lxtalabel51
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18214,19 +18214,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	343
 	.long	.Lxtalabel51
 .cc_bottom cc_216
-.cc_top cc_217,.Lxtalabel306
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	342
-	.long	343
-	.long	.Lxtalabel306
-.cc_bottom cc_217
-.cc_top cc_218,.Lxtalabel202
+.cc_top cc_217,.Lxtalabel202
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	342
 	.long	343
 	.long	.Lxtalabel202
+.cc_bottom cc_217
+.cc_top cc_218,.Lxtalabel306
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	342
+	.long	343
+	.long	.Lxtalabel306
 .cc_bottom cc_218
 .cc_top cc_219,.Lxtalabel206
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18235,40 +18235,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	345
 	.long	.Lxtalabel206
 .cc_bottom cc_219
-.cc_top cc_220,.Lxtalabel310
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	344
-	.long	345
-	.long	.Lxtalabel310
-.cc_bottom cc_220
-.cc_top cc_221,.Lxtalabel59
+.cc_top cc_220,.Lxtalabel59
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	344
 	.long	345
 	.long	.Lxtalabel59
+.cc_bottom cc_220
+.cc_top cc_221,.Lxtalabel310
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	344
+	.long	345
+	.long	.Lxtalabel310
 .cc_bottom cc_221
-.cc_top cc_222,.Lxtalabel316
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	346
-	.long	346
-	.long	.Lxtalabel316
-.cc_bottom cc_222
-.cc_top cc_223,.Lxtalabel65
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	346
-	.long	346
-	.long	.Lxtalabel65
-.cc_bottom cc_223
-.cc_top cc_224,.Lxtalabel212
+.cc_top cc_222,.Lxtalabel212
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	346
 	.long	346
 	.long	.Lxtalabel212
+.cc_bottom cc_222
+.cc_top cc_223,.Lxtalabel316
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	346
+	.long	346
+	.long	.Lxtalabel316
+.cc_bottom cc_223
+.cc_top cc_224,.Lxtalabel65
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	346
+	.long	346
+	.long	.Lxtalabel65
 .cc_bottom cc_224
 .cc_top cc_225,.Lxtalabel317
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18284,19 +18284,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	349
 	.long	.Lxtalabel318
 .cc_bottom cc_226
-.cc_top cc_227,.Lxtalabel214
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	349
-	.long	349
-	.long	.Lxtalabel214
-.cc_bottom cc_227
-.cc_top cc_228,.Lxtalabel213
+.cc_top cc_227,.Lxtalabel213
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	349
 	.long	349
 	.long	.Lxtalabel213
+.cc_bottom cc_227
+.cc_top cc_228,.Lxtalabel68
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	349
+	.long	349
+	.long	.Lxtalabel68
 .cc_bottom cc_228
 .cc_top cc_229,.Lxtalabel66
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18305,54 +18305,54 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	349
 	.long	.Lxtalabel66
 .cc_bottom cc_229
-.cc_top cc_230,.Lxtalabel68
+.cc_top cc_230,.Lxtalabel214
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	349
 	.long	349
-	.long	.Lxtalabel68
+	.long	.Lxtalabel214
 .cc_bottom cc_230
-.cc_top cc_231,.Lxtalabel67
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	350
-	.long	351
-	.long	.Lxtalabel67
-.cc_bottom cc_231
-.cc_top cc_232,.Lxtalabel217
+.cc_top cc_231,.Lxtalabel217
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	350
 	.long	351
 	.long	.Lxtalabel217
-.cc_bottom cc_232
-.cc_top cc_233,.Lxtalabel321
+.cc_bottom cc_231
+.cc_top cc_232,.Lxtalabel321
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	350
 	.long	351
 	.long	.Lxtalabel321
-.cc_bottom cc_233
-.cc_top cc_234,.Lxtalabel69
+.cc_bottom cc_232
+.cc_top cc_233,.Lxtalabel67
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	352
-	.long	353
-	.long	.Lxtalabel69
-.cc_bottom cc_234
-.cc_top cc_235,.Lxtalabel215
+	.long	350
+	.long	351
+	.long	.Lxtalabel67
+.cc_bottom cc_233
+.cc_top cc_234,.Lxtalabel215
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	352
 	.long	353
 	.long	.Lxtalabel215
-.cc_bottom cc_235
-.cc_top cc_236,.Lxtalabel319
+.cc_bottom cc_234
+.cc_top cc_235,.Lxtalabel319
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	352
 	.long	353
 	.long	.Lxtalabel319
+.cc_bottom cc_235
+.cc_top cc_236,.Lxtalabel69
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	352
+	.long	353
+	.long	.Lxtalabel69
 .cc_bottom cc_236
 .cc_top cc_237,.Lxtalabel70
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18375,47 +18375,47 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	354
 	.long	.Lxtalabel216
 .cc_bottom cc_239
-.cc_top cc_240,.Lxtalabel218
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	357
-	.long	357
-	.long	.Lxtalabel218
-.cc_bottom cc_240
-.cc_top cc_241,.Lxtalabel219
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	357
-	.long	357
-	.long	.Lxtalabel219
-.cc_bottom cc_241
-.cc_top cc_242,.Lxtalabel323
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	357
-	.long	357
-	.long	.Lxtalabel323
-.cc_bottom cc_242
-.cc_top cc_243,.Lxtalabel71
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	357
-	.long	357
-	.long	.Lxtalabel71
-.cc_bottom cc_243
-.cc_top cc_244,.Lxtalabel72
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	357
-	.long	357
-	.long	.Lxtalabel72
-.cc_bottom cc_244
-.cc_top cc_245,.Lxtalabel322
+.cc_top cc_240,.Lxtalabel322
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	357
 	.long	357
 	.long	.Lxtalabel322
+.cc_bottom cc_240
+.cc_top cc_241,.Lxtalabel323
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	357
+	.long	357
+	.long	.Lxtalabel323
+.cc_bottom cc_241
+.cc_top cc_242,.Lxtalabel218
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	357
+	.long	357
+	.long	.Lxtalabel218
+.cc_bottom cc_242
+.cc_top cc_243,.Lxtalabel72
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	357
+	.long	357
+	.long	.Lxtalabel72
+.cc_bottom cc_243
+.cc_top cc_244,.Lxtalabel219
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	357
+	.long	357
+	.long	.Lxtalabel219
+.cc_bottom cc_244
+.cc_top cc_245,.Lxtalabel71
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	357
+	.long	357
+	.long	.Lxtalabel71
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel324
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18424,26 +18424,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	361
 	.long	.Lxtalabel324
 .cc_bottom cc_246
-.cc_top cc_247,.Lxtalabel73
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	360
-	.long	361
-	.long	.Lxtalabel73
-.cc_bottom cc_247
-.cc_top cc_248,.Lxtalabel220
+.cc_top cc_247,.Lxtalabel220
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	360
 	.long	361
 	.long	.Lxtalabel220
+.cc_bottom cc_247
+.cc_top cc_248,.Lxtalabel73
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	360
+	.long	361
+	.long	.Lxtalabel73
 .cc_bottom cc_248
-.cc_top cc_249,.Lxtalabel74
+.cc_top cc_249,.Lxtalabel325
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	362
 	.long	362
-	.long	.Lxtalabel74
+	.long	.Lxtalabel325
 .cc_bottom cc_249
 .cc_top cc_250,.Lxtalabel221
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18452,68 +18452,68 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	362
 	.long	.Lxtalabel221
 .cc_bottom cc_250
-.cc_top cc_251,.Lxtalabel325
+.cc_top cc_251,.Lxtalabel74
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	362
 	.long	362
-	.long	.Lxtalabel325
+	.long	.Lxtalabel74
 .cc_bottom cc_251
-.cc_top cc_252,.Lxtalabel326
+.cc_top cc_252,.Lxtalabel75
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	365
 	.long	365
-	.long	.Lxtalabel326
+	.long	.Lxtalabel75
 .cc_bottom cc_252
-.cc_top cc_253,.Lxtalabel222
+.cc_top cc_253,.Lxtalabel326
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	365
 	.long	365
-	.long	.Lxtalabel222
+	.long	.Lxtalabel326
 .cc_bottom cc_253
-.cc_top cc_254,.Lxtalabel75
+.cc_top cc_254,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	365
 	.long	365
-	.long	.Lxtalabel75
+	.long	.Lxtalabel222
 .cc_bottom cc_254
-.cc_top cc_255,.Lxtalabel222
+.cc_top cc_255,.Lxtalabel75
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	367
+	.long	367
+	.long	.Lxtalabel75
+.cc_bottom cc_255
+.cc_top cc_256,.Lxtalabel326
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	367
+	.long	367
+	.long	.Lxtalabel326
+.cc_bottom cc_256
+.cc_top cc_257,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	367
 	.long	367
 	.long	.Lxtalabel222
-.cc_bottom cc_255
-.cc_top cc_256,.Lxtalabel75
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	367
-	.long	367
-	.long	.Lxtalabel75
-.cc_bottom cc_256
-.cc_top cc_257,.Lxtalabel326
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	367
-	.long	367
-	.long	.Lxtalabel326
 .cc_bottom cc_257
-.cc_top cc_258,.Lxtalabel326
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	369
-	.long	369
-	.long	.Lxtalabel326
-.cc_bottom cc_258
-.cc_top cc_259,.Lxtalabel75
+.cc_top cc_258,.Lxtalabel75
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	369
 	.long	369
 	.long	.Lxtalabel75
+.cc_bottom cc_258
+.cc_top cc_259,.Lxtalabel326
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	369
+	.long	369
+	.long	.Lxtalabel326
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel222
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18522,96 +18522,96 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	369
 	.long	.Lxtalabel222
 .cc_bottom cc_260
-.cc_top cc_261,.Lxtalabel76
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	370
-	.long	371
-	.long	.Lxtalabel76
-.cc_bottom cc_261
-.cc_top cc_262,.Lxtalabel224
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	370
-	.long	371
-	.long	.Lxtalabel224
-.cc_bottom cc_262
-.cc_top cc_263,.Lxtalabel328
+.cc_top cc_261,.Lxtalabel328
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	370
 	.long	371
 	.long	.Lxtalabel328
+.cc_bottom cc_261
+.cc_top cc_262,.Lxtalabel76
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	370
+	.long	371
+	.long	.Lxtalabel76
+.cc_bottom cc_262
+.cc_top cc_263,.Lxtalabel224
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	370
+	.long	371
+	.long	.Lxtalabel224
 .cc_bottom cc_263
-.cc_top cc_264,.Lxtalabel223
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	372
-	.long	373
-	.long	.Lxtalabel223
-.cc_bottom cc_264
-.cc_top cc_265,.Lxtalabel77
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	372
-	.long	373
-	.long	.Lxtalabel77
-.cc_bottom cc_265
-.cc_top cc_266,.Lxtalabel78
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	372
-	.long	373
-	.long	.Lxtalabel78
-.cc_bottom cc_266
-.cc_top cc_267,.Lxtalabel327
+.cc_top cc_264,.Lxtalabel327
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	372
 	.long	373
 	.long	.Lxtalabel327
-.cc_bottom cc_267
-.cc_top cc_268,.Lxtalabel332
+.cc_bottom cc_264
+.cc_top cc_265,.Lxtalabel78
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	375
-	.long	375
-	.long	.Lxtalabel332
-.cc_bottom cc_268
-.cc_top cc_269,.Lxtalabel226
+	.long	372
+	.long	373
+	.long	.Lxtalabel78
+.cc_bottom cc_265
+.cc_top cc_266,.Lxtalabel223
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	372
+	.long	373
+	.long	.Lxtalabel223
+.cc_bottom cc_266
+.cc_top cc_267,.Lxtalabel77
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	372
+	.long	373
+	.long	.Lxtalabel77
+.cc_bottom cc_267
+.cc_top cc_268,.Lxtalabel226
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	375
 	.long	375
 	.long	.Lxtalabel226
+.cc_bottom cc_268
+.cc_top cc_269,.Lxtalabel228
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	375
+	.long	375
+	.long	.Lxtalabel228
 .cc_bottom cc_269
-.cc_top cc_270,.Lxtalabel225
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	375
-	.long	375
-	.long	.Lxtalabel225
-.cc_bottom cc_270
-.cc_top cc_271,.Lxtalabel79
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	375
-	.long	375
-	.long	.Lxtalabel79
-.cc_bottom cc_271
-.cc_top cc_272,.Lxtalabel330
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	375
-	.long	375
-	.long	.Lxtalabel330
-.cc_bottom cc_272
-.cc_top cc_273,.Lxtalabel329
+.cc_top cc_270,.Lxtalabel329
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	375
 	.long	375
 	.long	.Lxtalabel329
+.cc_bottom cc_270
+.cc_top cc_271,.Lxtalabel330
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	375
+	.long	375
+	.long	.Lxtalabel330
+.cc_bottom cc_271
+.cc_top cc_272,.Lxtalabel79
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	375
+	.long	375
+	.long	.Lxtalabel79
+.cc_bottom cc_272
+.cc_top cc_273,.Lxtalabel332
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	375
+	.long	375
+	.long	.Lxtalabel332
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel80
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18620,12 +18620,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	375
 	.long	.Lxtalabel80
 .cc_bottom cc_274
-.cc_top cc_275,.Lxtalabel228
+.cc_top cc_275,.Lxtalabel225
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	375
 	.long	375
-	.long	.Lxtalabel228
+	.long	.Lxtalabel225
 .cc_bottom cc_275
 .cc_top cc_276,.Lxtalabel227
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18648,152 +18648,152 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	377
 	.long	.Lxtalabel331
 .cc_bottom cc_278
-.cc_top cc_279,.Lxtalabel333
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	378
-	.long	379
-	.long	.Lxtalabel333
-.cc_bottom cc_279
-.cc_top cc_280,.Lxtalabel229
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	378
-	.long	379
-	.long	.Lxtalabel229
-.cc_bottom cc_280
-.cc_top cc_281,.Lxtalabel82
+.cc_top cc_279,.Lxtalabel82
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	378
 	.long	379
 	.long	.Lxtalabel82
-.cc_bottom cc_281
-.cc_top cc_282,.Lxtalabel337
+.cc_bottom cc_279
+.cc_top cc_280,.Lxtalabel333
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	381
-	.long	381
-	.long	.Lxtalabel337
-.cc_bottom cc_282
-.cc_top cc_283,.Lxtalabel231
+	.long	378
+	.long	379
+	.long	.Lxtalabel333
+.cc_bottom cc_280
+.cc_top cc_281,.Lxtalabel229
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	378
+	.long	379
+	.long	.Lxtalabel229
+.cc_bottom cc_281
+.cc_top cc_282,.Lxtalabel231
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	381
 	.long	381
 	.long	.Lxtalabel231
-.cc_bottom cc_283
-.cc_top cc_284,.Lxtalabel335
+.cc_bottom cc_282
+.cc_top cc_283,.Lxtalabel335
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	381
 	.long	381
 	.long	.Lxtalabel335
-.cc_bottom cc_284
-.cc_top cc_285,.Lxtalabel334
+.cc_bottom cc_283
+.cc_top cc_284,.Lxtalabel334
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	381
 	.long	381
 	.long	.Lxtalabel334
-.cc_bottom cc_285
-.cc_top cc_286,.Lxtalabel233
+.cc_bottom cc_284
+.cc_top cc_285,.Lxtalabel233
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	381
 	.long	381
 	.long	.Lxtalabel233
-.cc_bottom cc_286
-.cc_top cc_287,.Lxtalabel230
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	381
-	.long	381
-	.long	.Lxtalabel230
-.cc_bottom cc_287
-.cc_top cc_288,.Lxtalabel83
+.cc_bottom cc_285
+.cc_top cc_286,.Lxtalabel83
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	381
 	.long	381
 	.long	.Lxtalabel83
+.cc_bottom cc_286
+.cc_top cc_287,.Lxtalabel337
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	381
+	.long	381
+	.long	.Lxtalabel337
+.cc_bottom cc_287
+.cc_top cc_288,.Lxtalabel230
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	381
+	.long	381
+	.long	.Lxtalabel230
 .cc_bottom cc_288
-.cc_top cc_289,.Lxtalabel338
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	382
-	.long	383
-	.long	.Lxtalabel338
-.cc_bottom cc_289
-.cc_top cc_290,.Lxtalabel84
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	382
-	.long	383
-	.long	.Lxtalabel84
-.cc_bottom cc_290
-.cc_top cc_291,.Lxtalabel234
+.cc_top cc_289,.Lxtalabel234
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	382
 	.long	383
 	.long	.Lxtalabel234
+.cc_bottom cc_289
+.cc_top cc_290,.Lxtalabel338
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	382
+	.long	383
+	.long	.Lxtalabel338
+.cc_bottom cc_290
+.cc_top cc_291,.Lxtalabel84
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	382
+	.long	383
+	.long	.Lxtalabel84
 .cc_bottom cc_291
-.cc_top cc_292,.Lxtalabel86
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	384
-	.long	385
-	.long	.Lxtalabel86
-.cc_bottom cc_292
-.cc_top cc_293,.Lxtalabel232
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	384
-	.long	385
-	.long	.Lxtalabel232
-.cc_bottom cc_293
-.cc_top cc_294,.Lxtalabel336
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	384
-	.long	385
-	.long	.Lxtalabel336
-.cc_bottom cc_294
-.cc_top cc_295,.Lxtalabel85
+.cc_top cc_292,.Lxtalabel85
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	384
 	.long	385
 	.long	.Lxtalabel85
+.cc_bottom cc_292
+.cc_top cc_293,.Lxtalabel336
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	384
+	.long	385
+	.long	.Lxtalabel336
+.cc_bottom cc_293
+.cc_top cc_294,.Lxtalabel232
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	384
+	.long	385
+	.long	.Lxtalabel232
+.cc_bottom cc_294
+.cc_top cc_295,.Lxtalabel86
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	384
+	.long	385
+	.long	.Lxtalabel86
 .cc_bottom cc_295
-.cc_top cc_296,.Lxtalabel340
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	387
-	.long	387
-	.long	.Lxtalabel340
-.cc_bottom cc_296
-.cc_top cc_297,.Lxtalabel235
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	387
-	.long	387
-	.long	.Lxtalabel235
-.cc_bottom cc_297
-.cc_top cc_298,.Lxtalabel236
+.cc_top cc_296,.Lxtalabel236
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	387
 	.long	387
 	.long	.Lxtalabel236
-.cc_bottom cc_298
-.cc_top cc_299,.Lxtalabel339
+.cc_bottom cc_296
+.cc_top cc_297,.Lxtalabel339
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	387
 	.long	387
 	.long	.Lxtalabel339
+.cc_bottom cc_297
+.cc_top cc_298,.Lxtalabel340
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	387
+	.long	387
+	.long	.Lxtalabel340
+.cc_bottom cc_298
+.cc_top cc_299,.Lxtalabel235
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	387
+	.long	387
+	.long	.Lxtalabel235
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel235
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18802,12 +18802,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	389
 	.long	.Lxtalabel235
 .cc_bottom cc_300
-.cc_top cc_301,.Lxtalabel339
+.cc_top cc_301,.Lxtalabel236
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	389
 	.long	389
-	.long	.Lxtalabel339
+	.long	.Lxtalabel236
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel340
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18816,12 +18816,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	389
 	.long	.Lxtalabel340
 .cc_bottom cc_302
-.cc_top cc_303,.Lxtalabel236
+.cc_top cc_303,.Lxtalabel339
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	389
 	.long	389
-	.long	.Lxtalabel236
+	.long	.Lxtalabel339
 .cc_bottom cc_303
 .cc_top cc_304,.Lxtalabel237
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18837,19 +18837,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	391
 	.long	.Lxtalabel341
 .cc_bottom cc_305
-.cc_top cc_306,.Lxtalabel235
+.cc_top cc_306,.Lxtalabel340
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	397
+	.long	397
+	.long	.Lxtalabel340
+.cc_bottom cc_306
+.cc_top cc_307,.Lxtalabel235
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	397
 	.long	397
 	.long	.Lxtalabel235
-.cc_bottom cc_306
-.cc_top cc_307,.Lxtalabel339
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	397
-	.long	397
-	.long	.Lxtalabel339
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel236
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18858,12 +18858,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	397
 	.long	.Lxtalabel236
 .cc_bottom cc_308
-.cc_top cc_309,.Lxtalabel340
+.cc_top cc_309,.Lxtalabel339
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	397
 	.long	397
-	.long	.Lxtalabel340
+	.long	.Lxtalabel339
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18872,40 +18872,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	401
 	.long	.Lxtalabel238
 .cc_bottom cc_310
-.cc_top cc_311,.Lxtalabel89
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	400
-	.long	401
-	.long	.Lxtalabel89
-.cc_bottom cc_311
-.cc_top cc_312,.Lxtalabel342
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	400
-	.long	401
-	.long	.Lxtalabel342
-.cc_bottom cc_312
-.cc_top cc_313,.Lxtalabel239
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	400
-	.long	401
-	.long	.Lxtalabel239
-.cc_bottom cc_313
-.cc_top cc_314,.Lxtalabel343
+.cc_top cc_311,.Lxtalabel343
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	400
 	.long	401
 	.long	.Lxtalabel343
-.cc_bottom cc_314
-.cc_top cc_315,.Lxtalabel87
+.cc_bottom cc_311
+.cc_top cc_312,.Lxtalabel239
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	400
+	.long	401
+	.long	.Lxtalabel239
+.cc_bottom cc_312
+.cc_top cc_313,.Lxtalabel87
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	400
 	.long	401
 	.long	.Lxtalabel87
+.cc_bottom cc_313
+.cc_top cc_314,.Lxtalabel342
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	400
+	.long	401
+	.long	.Lxtalabel342
+.cc_bottom cc_314
+.cc_top cc_315,.Lxtalabel89
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	400
+	.long	401
+	.long	.Lxtalabel89
 .cc_bottom cc_315
 .cc_top cc_316,.Lxtalabel88
 	.ascii	"../src/port_heat_light_server.xc"
@@ -18914,89 +18914,89 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	401
 	.long	.Lxtalabel88
 .cc_bottom cc_316
-.cc_top cc_317,.Lxtalabel342
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	403
-	.long	403
-	.long	.Lxtalabel342
-.cc_bottom cc_317
-.cc_top cc_318,.Lxtalabel239
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	403
-	.long	403
-	.long	.Lxtalabel239
-.cc_bottom cc_318
-.cc_top cc_319,.Lxtalabel87
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	403
-	.long	403
-	.long	.Lxtalabel87
-.cc_bottom cc_319
-.cc_top cc_320,.Lxtalabel238
+.cc_top cc_317,.Lxtalabel238
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	403
 	.long	403
 	.long	.Lxtalabel238
-.cc_bottom cc_320
-.cc_top cc_321,.Lxtalabel88
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	403
-	.long	403
-	.long	.Lxtalabel88
-.cc_bottom cc_321
-.cc_top cc_322,.Lxtalabel89
+.cc_bottom cc_317
+.cc_top cc_318,.Lxtalabel89
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	403
 	.long	403
 	.long	.Lxtalabel89
-.cc_bottom cc_322
-.cc_top cc_323,.Lxtalabel343
+.cc_bottom cc_318
+.cc_top cc_319,.Lxtalabel343
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	403
 	.long	403
 	.long	.Lxtalabel343
+.cc_bottom cc_319
+.cc_top cc_320,.Lxtalabel88
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	403
+	.long	403
+	.long	.Lxtalabel88
+.cc_bottom cc_320
+.cc_top cc_321,.Lxtalabel87
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	403
+	.long	403
+	.long	.Lxtalabel87
+.cc_bottom cc_321
+.cc_top cc_322,.Lxtalabel239
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	403
+	.long	403
+	.long	.Lxtalabel239
+.cc_bottom cc_322
+.cc_top cc_323,.Lxtalabel342
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	403
+	.long	403
+	.long	.Lxtalabel342
 .cc_bottom cc_323
-.cc_top cc_324,.Lxtalabel90
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	404
-	.long	405
-	.long	.Lxtalabel90
-.cc_bottom cc_324
-.cc_top cc_325,.Lxtalabel240
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	404
-	.long	405
-	.long	.Lxtalabel240
-.cc_bottom cc_325
-.cc_top cc_326,.Lxtalabel344
+.cc_top cc_324,.Lxtalabel344
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	404
 	.long	405
 	.long	.Lxtalabel344
-.cc_bottom cc_326
-.cc_top cc_327,.Lxtalabel94
+.cc_bottom cc_324
+.cc_top cc_325,.Lxtalabel90
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	408
-	.long	409
-	.long	.Lxtalabel94
-.cc_bottom cc_327
-.cc_top cc_328,.Lxtalabel241
+	.long	404
+	.long	405
+	.long	.Lxtalabel90
+.cc_bottom cc_325
+.cc_top cc_326,.Lxtalabel240
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	404
+	.long	405
+	.long	.Lxtalabel240
+.cc_bottom cc_326
+.cc_top cc_327,.Lxtalabel241
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	408
 	.long	409
 	.long	.Lxtalabel241
+.cc_bottom cc_327
+.cc_top cc_328,.Lxtalabel94
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	408
+	.long	409
+	.long	.Lxtalabel94
 .cc_bottom cc_328
 .cc_top cc_329,.Lxtalabel345
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19026,12 +19026,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	413
 	.long	.Lxtalabel241
 .cc_bottom cc_332
-.cc_top cc_333,.Lxtalabel345
+.cc_top cc_333,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	416
 	.long	416
-	.long	.Lxtalabel345
+	.long	.Lxtalabel94
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel241
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19040,19 +19040,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	416
 	.long	.Lxtalabel241
 .cc_bottom cc_334
-.cc_top cc_335,.Lxtalabel94
+.cc_top cc_335,.Lxtalabel345
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	416
 	.long	416
-	.long	.Lxtalabel94
+	.long	.Lxtalabel345
 .cc_bottom cc_335
-.cc_top cc_336,.Lxtalabel94
+.cc_top cc_336,.Lxtalabel241
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	418
 	.long	419
-	.long	.Lxtalabel94
+	.long	.Lxtalabel241
 .cc_bottom cc_336
 .cc_top cc_337,.Lxtalabel345
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19061,40 +19061,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	419
 	.long	.Lxtalabel345
 .cc_bottom cc_337
-.cc_top cc_338,.Lxtalabel241
+.cc_top cc_338,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	418
 	.long	419
-	.long	.Lxtalabel241
+	.long	.Lxtalabel94
 .cc_bottom cc_338
-.cc_top cc_339,.Lxtalabel345
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	428
-	.long	429
-	.long	.Lxtalabel345
-.cc_bottom cc_339
-.cc_top cc_340,.Lxtalabel241
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	428
-	.long	429
-	.long	.Lxtalabel241
-.cc_bottom cc_340
-.cc_top cc_341,.Lxtalabel94
+.cc_top cc_339,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	428
 	.long	429
 	.long	.Lxtalabel94
+.cc_bottom cc_339
+.cc_top cc_340,.Lxtalabel345
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	428
+	.long	429
+	.long	.Lxtalabel345
+.cc_bottom cc_340
+.cc_top cc_341,.Lxtalabel241
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	428
+	.long	429
+	.long	.Lxtalabel241
 .cc_bottom cc_341
-.cc_top cc_342,.Lxtalabel91
+.cc_top cc_342,.Lxtalabel346
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	433
 	.long	433
-	.long	.Lxtalabel91
+	.long	.Lxtalabel346
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel242
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19103,12 +19103,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	433
 	.long	.Lxtalabel242
 .cc_bottom cc_343
-.cc_top cc_344,.Lxtalabel346
+.cc_top cc_344,.Lxtalabel91
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	433
 	.long	433
-	.long	.Lxtalabel346
+	.long	.Lxtalabel91
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19124,26 +19124,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	434
 	.long	.Lxtalabel92
 .cc_bottom cc_346
-.cc_top cc_347,.Lxtalabel243
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	434
-	.long	434
-	.long	.Lxtalabel243
-.cc_bottom cc_347
-.cc_top cc_348,.Lxtalabel347
+.cc_top cc_347,.Lxtalabel347
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	434
 	.long	434
 	.long	.Lxtalabel347
+.cc_bottom cc_347
+.cc_top cc_348,.Lxtalabel243
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	434
+	.long	434
+	.long	.Lxtalabel243
 .cc_bottom cc_348
-.cc_top cc_349,.Lxtalabel349
+.cc_top cc_349,.Lxtalabel245
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	435
 	.long	436
-	.long	.Lxtalabel349
+	.long	.Lxtalabel245
 .cc_bottom cc_349
 .cc_top cc_350,.Lxtalabel95
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19152,12 +19152,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	436
 	.long	.Lxtalabel95
 .cc_bottom cc_350
-.cc_top cc_351,.Lxtalabel245
+.cc_top cc_351,.Lxtalabel349
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	435
 	.long	436
-	.long	.Lxtalabel245
+	.long	.Lxtalabel349
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel348
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19180,26 +19180,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	438
 	.long	.Lxtalabel93
 .cc_bottom cc_354
-.cc_top cc_355,.Lxtalabel246
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	440
-	.long	440
-	.long	.Lxtalabel246
-.cc_bottom cc_355
-.cc_top cc_356,.Lxtalabel96
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	440
-	.long	440
-	.long	.Lxtalabel96
-.cc_bottom cc_356
-.cc_top cc_357,.Lxtalabel350
+.cc_top cc_355,.Lxtalabel350
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	440
 	.long	440
 	.long	.Lxtalabel350
+.cc_bottom cc_355
+.cc_top cc_356,.Lxtalabel351
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	440
+	.long	440
+	.long	.Lxtalabel351
+.cc_bottom cc_356
+.cc_top cc_357,.Lxtalabel96
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	440
+	.long	440
+	.long	.Lxtalabel96
 .cc_bottom cc_357
 .cc_top cc_358,.Lxtalabel94
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19208,12 +19208,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	440
 	.long	.Lxtalabel94
 .cc_bottom cc_358
-.cc_top cc_359,.Lxtalabel351
+.cc_top cc_359,.Lxtalabel246
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	440
 	.long	440
-	.long	.Lxtalabel351
+	.long	.Lxtalabel246
 .cc_bottom cc_359
 .cc_top cc_360,.Lxtalabel247
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19222,103 +19222,103 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	440
 	.long	.Lxtalabel247
 .cc_bottom cc_360
-.cc_top cc_361,.Lxtalabel97
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	441
-	.long	441
-	.long	.Lxtalabel97
-.cc_bottom cc_361
-.cc_top cc_362,.Lxtalabel352
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	441
-	.long	441
-	.long	.Lxtalabel352
-.cc_bottom cc_362
-.cc_top cc_363,.Lxtalabel248
+.cc_top cc_361,.Lxtalabel248
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	441
 	.long	441
 	.long	.Lxtalabel248
+.cc_bottom cc_361
+.cc_top cc_362,.Lxtalabel97
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	441
+	.long	441
+	.long	.Lxtalabel97
+.cc_bottom cc_362
+.cc_top cc_363,.Lxtalabel352
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	441
+	.long	441
+	.long	.Lxtalabel352
 .cc_bottom cc_363
-.cc_top cc_364,.Lxtalabel354
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	442
-	.long	443
-	.long	.Lxtalabel354
-.cc_bottom cc_364
-.cc_top cc_365,.Lxtalabel250
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	442
-	.long	443
-	.long	.Lxtalabel250
-.cc_bottom cc_365
-.cc_top cc_366,.Lxtalabel99
+.cc_top cc_364,.Lxtalabel99
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	442
 	.long	443
 	.long	.Lxtalabel99
+.cc_bottom cc_364
+.cc_top cc_365,.Lxtalabel354
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	442
+	.long	443
+	.long	.Lxtalabel354
+.cc_bottom cc_365
+.cc_top cc_366,.Lxtalabel250
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	442
+	.long	443
+	.long	.Lxtalabel250
 .cc_bottom cc_366
-.cc_top cc_367,.Lxtalabel353
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	444
-	.long	445
-	.long	.Lxtalabel353
-.cc_bottom cc_367
-.cc_top cc_368,.Lxtalabel98
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	444
-	.long	445
-	.long	.Lxtalabel98
-.cc_bottom cc_368
-.cc_top cc_369,.Lxtalabel249
+.cc_top cc_367,.Lxtalabel249
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	444
 	.long	445
 	.long	.Lxtalabel249
+.cc_bottom cc_367
+.cc_top cc_368,.Lxtalabel353
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	444
+	.long	445
+	.long	.Lxtalabel353
+.cc_bottom cc_368
+.cc_top cc_369,.Lxtalabel98
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	444
+	.long	445
+	.long	.Lxtalabel98
 .cc_bottom cc_369
-.cc_top cc_370,.Lxtalabel355
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	447
-	.long	447
-	.long	.Lxtalabel355
-.cc_bottom cc_370
-.cc_top cc_371,.Lxtalabel100
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	447
-	.long	447
-	.long	.Lxtalabel100
-.cc_bottom cc_371
-.cc_top cc_372,.Lxtalabel251
+.cc_top cc_370,.Lxtalabel251
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	447
 	.long	447
 	.long	.Lxtalabel251
-.cc_bottom cc_372
-.cc_top cc_373,.Lxtalabel94
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	447
-	.long	447
-	.long	.Lxtalabel94
-.cc_bottom cc_373
-.cc_top cc_374,.Lxtalabel356
+.cc_bottom cc_370
+.cc_top cc_371,.Lxtalabel356
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	447
 	.long	447
 	.long	.Lxtalabel356
+.cc_bottom cc_371
+.cc_top cc_372,.Lxtalabel100
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	447
+	.long	447
+	.long	.Lxtalabel100
+.cc_bottom cc_372
+.cc_top cc_373,.Lxtalabel355
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	447
+	.long	447
+	.long	.Lxtalabel355
+.cc_bottom cc_373
+.cc_top cc_374,.Lxtalabel94
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	447
+	.long	447
+	.long	.Lxtalabel94
 .cc_bottom cc_374
 .cc_top cc_375,.Lxtalabel252
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19327,103 +19327,103 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	447
 	.long	.Lxtalabel252
 .cc_bottom cc_375
-.cc_top cc_376,.Lxtalabel94
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	450
-	.long	450
-	.long	.Lxtalabel94
-.cc_bottom cc_376
-.cc_top cc_377,.Lxtalabel100
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	450
-	.long	450
-	.long	.Lxtalabel100
-.cc_bottom cc_377
-.cc_top cc_378,.Lxtalabel356
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	450
-	.long	450
-	.long	.Lxtalabel356
-.cc_bottom cc_378
-.cc_top cc_379,.Lxtalabel251
+.cc_top cc_376,.Lxtalabel251
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	450
 	.long	450
 	.long	.Lxtalabel251
-.cc_bottom cc_379
-.cc_top cc_380,.Lxtalabel252
+.cc_bottom cc_376
+.cc_top cc_377,.Lxtalabel252
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	450
 	.long	450
 	.long	.Lxtalabel252
-.cc_bottom cc_380
-.cc_top cc_381,.Lxtalabel355
+.cc_bottom cc_377
+.cc_top cc_378,.Lxtalabel355
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	450
 	.long	450
 	.long	.Lxtalabel355
-.cc_bottom cc_381
-.cc_top cc_382,.Lxtalabel253
+.cc_bottom cc_378
+.cc_top cc_379,.Lxtalabel100
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	451
-	.long	454
-	.long	.Lxtalabel253
-.cc_bottom cc_382
-.cc_top cc_383,.Lxtalabel357
+	.long	450
+	.long	450
+	.long	.Lxtalabel100
+.cc_bottom cc_379
+.cc_top cc_380,.Lxtalabel356
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	450
+	.long	450
+	.long	.Lxtalabel356
+.cc_bottom cc_380
+.cc_top cc_381,.Lxtalabel94
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	450
+	.long	450
+	.long	.Lxtalabel94
+.cc_bottom cc_381
+.cc_top cc_382,.Lxtalabel357
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	451
 	.long	454
 	.long	.Lxtalabel357
-.cc_bottom cc_383
-.cc_top cc_384,.Lxtalabel101
+.cc_bottom cc_382
+.cc_top cc_383,.Lxtalabel101
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	451
 	.long	454
 	.long	.Lxtalabel101
-.cc_bottom cc_384
-.cc_top cc_385,.Lxtalabel254
+.cc_bottom cc_383
+.cc_top cc_384,.Lxtalabel253
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	455
-	.long	456
-	.long	.Lxtalabel254
-.cc_bottom cc_385
-.cc_top cc_386,.Lxtalabel102
+	.long	451
+	.long	454
+	.long	.Lxtalabel253
+.cc_bottom cc_384
+.cc_top cc_385,.Lxtalabel102
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	455
 	.long	456
 	.long	.Lxtalabel102
-.cc_bottom cc_386
-.cc_top cc_387,.Lxtalabel358
+.cc_bottom cc_385
+.cc_top cc_386,.Lxtalabel358
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	455
 	.long	456
 	.long	.Lxtalabel358
-.cc_bottom cc_387
-.cc_top cc_388,.Lxtalabel359
+.cc_bottom cc_386
+.cc_top cc_387,.Lxtalabel254
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	457
-	.long	457
-	.long	.Lxtalabel359
-.cc_bottom cc_388
-.cc_top cc_389,.Lxtalabel255
+	.long	455
+	.long	456
+	.long	.Lxtalabel254
+.cc_bottom cc_387
+.cc_top cc_388,.Lxtalabel255
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	457
 	.long	457
 	.long	.Lxtalabel255
+.cc_bottom cc_388
+.cc_top cc_389,.Lxtalabel359
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	457
+	.long	457
+	.long	.Lxtalabel359
 .cc_bottom cc_389
 .cc_top cc_390,.Lxtalabel359
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19439,61 +19439,61 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	462
 	.long	.Lxtalabel255
 .cc_bottom cc_391
-.cc_top cc_392,.Lxtalabel53
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	464
-	.long	464
-	.long	.Lxtalabel53
-.cc_bottom cc_392
-.cc_top cc_393,.Lxtalabel361
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	464
-	.long	464
-	.long	.Lxtalabel361
-.cc_bottom cc_393
-.cc_top cc_394,.Lxtalabel360
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	464
-	.long	464
-	.long	.Lxtalabel360
-.cc_bottom cc_394
-.cc_top cc_395,.Lxtalabel152
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	464
-	.long	464
-	.long	.Lxtalabel152
-.cc_bottom cc_395
-.cc_top cc_396,.Lxtalabel52
+.cc_top cc_392,.Lxtalabel52
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	464
 	.long	464
 	.long	.Lxtalabel52
-.cc_bottom cc_396
-.cc_top cc_397,.Lxtalabel256
+.cc_bottom cc_392
+.cc_top cc_393,.Lxtalabel53
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	464
+	.long	464
+	.long	.Lxtalabel53
+.cc_bottom cc_393
+.cc_top cc_394,.Lxtalabel256
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	464
 	.long	464
 	.long	.Lxtalabel256
-.cc_bottom cc_397
-.cc_top cc_398,.Lxtalabel257
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	464
-	.long	464
-	.long	.Lxtalabel257
-.cc_bottom cc_398
-.cc_top cc_399,.Lxtalabel153
+.cc_bottom cc_394
+.cc_top cc_395,.Lxtalabel153
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	464
 	.long	464
 	.long	.Lxtalabel153
+.cc_bottom cc_395
+.cc_top cc_396,.Lxtalabel152
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	464
+	.long	464
+	.long	.Lxtalabel152
+.cc_bottom cc_396
+.cc_top cc_397,.Lxtalabel257
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	464
+	.long	464
+	.long	.Lxtalabel257
+.cc_bottom cc_397
+.cc_top cc_398,.Lxtalabel361
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	464
+	.long	464
+	.long	.Lxtalabel361
+.cc_bottom cc_398
+.cc_top cc_399,.Lxtalabel360
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	464
+	.long	464
+	.long	.Lxtalabel360
 .cc_bottom cc_399
 .cc_top cc_400,.Lxtalabel164
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19502,33 +19502,33 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	466
 	.long	.Lxtalabel164
 .cc_bottom cc_400
-.cc_top cc_401,.Lxtalabel114
+.cc_top cc_401,.Lxtalabel113
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	466
 	.long	466
-	.long	.Lxtalabel114
+	.long	.Lxtalabel113
 .cc_bottom cc_401
-.cc_top cc_402,.Lxtalabel268
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	466
-	.long	466
-	.long	.Lxtalabel268
-.cc_bottom cc_402
-.cc_top cc_403,.Lxtalabel115
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	466
-	.long	466
-	.long	.Lxtalabel115
-.cc_bottom cc_403
-.cc_top cc_404,.Lxtalabel20
+.cc_top cc_402,.Lxtalabel20
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	466
 	.long	466
 	.long	.Lxtalabel20
+.cc_bottom cc_402
+.cc_top cc_403,.Lxtalabel268
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	466
+	.long	466
+	.long	.Lxtalabel268
+.cc_bottom cc_403
+.cc_top cc_404,.Lxtalabel114
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	466
+	.long	466
+	.long	.Lxtalabel114
 .cc_bottom cc_404
 .cc_top cc_405,.Lxtalabel372
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19537,19 +19537,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	466
 	.long	.Lxtalabel372
 .cc_bottom cc_405
-.cc_top cc_406,.Lxtalabel113
+.cc_top cc_406,.Lxtalabel115
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	466
 	.long	466
-	.long	.Lxtalabel113
+	.long	.Lxtalabel115
 .cc_bottom cc_406
-.cc_top cc_407,.Lxtalabel113
+.cc_top cc_407,.Lxtalabel269
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	468
 	.long	468
-	.long	.Lxtalabel113
+	.long	.Lxtalabel269
 .cc_bottom cc_407
 .cc_top cc_408,.Lxtalabel115
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19558,117 +19558,117 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	468
 	.long	.Lxtalabel115
 .cc_bottom cc_408
-.cc_top cc_409,.Lxtalabel269
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	468
-	.long	468
-	.long	.Lxtalabel269
-.cc_bottom cc_409
-.cc_top cc_410,.Lxtalabel21
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	468
-	.long	468
-	.long	.Lxtalabel21
-.cc_bottom cc_410
-.cc_top cc_411,.Lxtalabel373
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	468
-	.long	468
-	.long	.Lxtalabel373
-.cc_bottom cc_411
-.cc_top cc_412,.Lxtalabel165
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	468
-	.long	468
-	.long	.Lxtalabel165
-.cc_bottom cc_412
-.cc_top cc_413,.Lxtalabel114
+.cc_top cc_409,.Lxtalabel114
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	468
 	.long	468
 	.long	.Lxtalabel114
+.cc_bottom cc_409
+.cc_top cc_410,.Lxtalabel165
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	468
+	.long	468
+	.long	.Lxtalabel165
+.cc_bottom cc_410
+.cc_top cc_411,.Lxtalabel21
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	468
+	.long	468
+	.long	.Lxtalabel21
+.cc_bottom cc_411
+.cc_top cc_412,.Lxtalabel113
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	468
+	.long	468
+	.long	.Lxtalabel113
+.cc_bottom cc_412
+.cc_top cc_413,.Lxtalabel373
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	468
+	.long	468
+	.long	.Lxtalabel373
 .cc_bottom cc_413
-.cc_top cc_414,.Lxtalabel165
+.cc_top cc_414,.Lxtalabel373
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	469
+	.long	469
+	.long	.Lxtalabel373
+.cc_bottom cc_414
+.cc_top cc_415,.Lxtalabel165
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	469
 	.long	469
 	.long	.Lxtalabel165
-.cc_bottom cc_414
-.cc_top cc_415,.Lxtalabel113
+.cc_bottom cc_415
+.cc_top cc_416,.Lxtalabel21
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	469
+	.long	469
+	.long	.Lxtalabel21
+.cc_bottom cc_416
+.cc_top cc_417,.Lxtalabel113
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	469
 	.long	469
 	.long	.Lxtalabel113
-.cc_bottom cc_415
-.cc_top cc_416,.Lxtalabel373
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	469
-	.long	469
-	.long	.Lxtalabel373
-.cc_bottom cc_416
-.cc_top cc_417,.Lxtalabel21
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	469
-	.long	469
-	.long	.Lxtalabel21
 .cc_bottom cc_417
-.cc_top cc_418,.Lxtalabel115
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	469
-	.long	469
-	.long	.Lxtalabel115
-.cc_bottom cc_418
-.cc_top cc_419,.Lxtalabel114
+.cc_top cc_418,.Lxtalabel114
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	469
 	.long	469
 	.long	.Lxtalabel114
-.cc_bottom cc_419
-.cc_top cc_420,.Lxtalabel269
+.cc_bottom cc_418
+.cc_top cc_419,.Lxtalabel269
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	469
 	.long	469
 	.long	.Lxtalabel269
+.cc_bottom cc_419
+.cc_top cc_420,.Lxtalabel115
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	469
+	.long	469
+	.long	.Lxtalabel115
 .cc_bottom cc_420
-.cc_top cc_421,.Lxtalabel22
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxtalabel22
-.cc_bottom cc_421
-.cc_top cc_422,.Lxtalabel166
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxtalabel166
-.cc_bottom cc_422
-.cc_top cc_423,.Lxtalabel270
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxtalabel270
-.cc_bottom cc_423
-.cc_top cc_424,.Lxtalabel116
+.cc_top cc_421,.Lxtalabel116
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	471
 	.long	472
 	.long	.Lxtalabel116
+.cc_bottom cc_421
+.cc_top cc_422,.Lxtalabel270
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	471
+	.long	472
+	.long	.Lxtalabel270
+.cc_bottom cc_422
+.cc_top cc_423,.Lxtalabel22
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	471
+	.long	472
+	.long	.Lxtalabel22
+.cc_bottom cc_423
+.cc_top cc_424,.Lxtalabel166
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	471
+	.long	472
+	.long	.Lxtalabel166
 .cc_bottom cc_424
 .cc_top cc_425,.Lxtalabel374
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19677,33 +19677,33 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	472
 	.long	.Lxtalabel374
 .cc_bottom cc_425
-.cc_top cc_426,.Lxtalabel374
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxtalabel374
-.cc_bottom cc_426
-.cc_top cc_427,.Lxtalabel22
+.cc_top cc_426,.Lxtalabel22
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	474
 	.long	474
 	.long	.Lxtalabel22
-.cc_bottom cc_427
-.cc_top cc_428,.Lxtalabel270
+.cc_bottom cc_426
+.cc_top cc_427,.Lxtalabel270
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	474
 	.long	474
 	.long	.Lxtalabel270
-.cc_bottom cc_428
-.cc_top cc_429,.Lxtalabel116
+.cc_bottom cc_427
+.cc_top cc_428,.Lxtalabel116
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	474
 	.long	474
 	.long	.Lxtalabel116
+.cc_bottom cc_428
+.cc_top cc_429,.Lxtalabel374
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
+	.long	.Lxtalabel374
 .cc_bottom cc_429
 .cc_top cc_430,.Lxtalabel166
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19712,12 +19712,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	474
 	.long	.Lxtalabel166
 .cc_bottom cc_430
-.cc_top cc_431,.Lxtalabel166
+.cc_top cc_431,.Lxtalabel22
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	476
 	.long	476
-	.long	.Lxtalabel166
+	.long	.Lxtalabel22
 .cc_bottom cc_431
 .cc_top cc_432,.Lxtalabel116
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19726,12 +19726,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	476
 	.long	.Lxtalabel116
 .cc_bottom cc_432
-.cc_top cc_433,.Lxtalabel270
+.cc_top cc_433,.Lxtalabel166
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	476
 	.long	476
-	.long	.Lxtalabel270
+	.long	.Lxtalabel166
 .cc_bottom cc_433
 .cc_top cc_434,.Lxtalabel374
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19740,19 +19740,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	476
 	.long	.Lxtalabel374
 .cc_bottom cc_434
-.cc_top cc_435,.Lxtalabel22
+.cc_top cc_435,.Lxtalabel270
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	476
 	.long	476
-	.long	.Lxtalabel22
+	.long	.Lxtalabel270
 .cc_bottom cc_435
-.cc_top cc_436,.Lxtalabel272
+.cc_top cc_436,.Lxtalabel24
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	477
 	.long	478
-	.long	.Lxtalabel272
+	.long	.Lxtalabel24
 .cc_bottom cc_436
 .cc_top cc_437,.Lxtalabel376
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19761,75 +19761,75 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	478
 	.long	.Lxtalabel376
 .cc_bottom cc_437
-.cc_top cc_438,.Lxtalabel24
+.cc_top cc_438,.Lxtalabel272
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	477
 	.long	478
-	.long	.Lxtalabel24
+	.long	.Lxtalabel272
 .cc_bottom cc_438
-.cc_top cc_439,.Lxtalabel168
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	477
-	.long	478
-	.long	.Lxtalabel168
-.cc_bottom cc_439
-.cc_top cc_440,.Lxtalabel118
+.cc_top cc_439,.Lxtalabel118
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	477
 	.long	478
 	.long	.Lxtalabel118
-.cc_bottom cc_440
-.cc_top cc_441,.Lxtalabel271
+.cc_bottom cc_439
+.cc_top cc_440,.Lxtalabel168
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	479
-	.long	480
-	.long	.Lxtalabel271
-.cc_bottom cc_441
-.cc_top cc_442,.Lxtalabel23
+	.long	477
+	.long	478
+	.long	.Lxtalabel168
+.cc_bottom cc_440
+.cc_top cc_441,.Lxtalabel23
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	479
 	.long	480
 	.long	.Lxtalabel23
-.cc_bottom cc_442
-.cc_top cc_443,.Lxtalabel117
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	479
-	.long	480
-	.long	.Lxtalabel117
-.cc_bottom cc_443
-.cc_top cc_444,.Lxtalabel375
+.cc_bottom cc_441
+.cc_top cc_442,.Lxtalabel375
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	479
 	.long	480
 	.long	.Lxtalabel375
-.cc_bottom cc_444
-.cc_top cc_445,.Lxtalabel167
+.cc_bottom cc_442
+.cc_top cc_443,.Lxtalabel167
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	479
 	.long	480
 	.long	.Lxtalabel167
+.cc_bottom cc_443
+.cc_top cc_444,.Lxtalabel271
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	479
+	.long	480
+	.long	.Lxtalabel271
+.cc_bottom cc_444
+.cc_top cc_445,.Lxtalabel117
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	479
+	.long	480
+	.long	.Lxtalabel117
 .cc_bottom cc_445
-.cc_top cc_446,.Lxtalabel169
+.cc_top cc_446,.Lxtalabel25
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	481
 	.long	482
-	.long	.Lxtalabel169
+	.long	.Lxtalabel25
 .cc_bottom cc_446
-.cc_top cc_447,.Lxtalabel273
+.cc_top cc_447,.Lxtalabel119
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	481
 	.long	482
-	.long	.Lxtalabel273
+	.long	.Lxtalabel119
 .cc_bottom cc_447
 .cc_top cc_448,.Lxtalabel377
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19838,47 +19838,47 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	482
 	.long	.Lxtalabel377
 .cc_bottom cc_448
-.cc_top cc_449,.Lxtalabel119
+.cc_top cc_449,.Lxtalabel169
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	481
 	.long	482
-	.long	.Lxtalabel119
+	.long	.Lxtalabel169
 .cc_bottom cc_449
-.cc_top cc_450,.Lxtalabel25
+.cc_top cc_450,.Lxtalabel273
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	481
 	.long	482
-	.long	.Lxtalabel25
+	.long	.Lxtalabel273
 .cc_bottom cc_450
-.cc_top cc_451,.Lxtalabel274
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	484
-	.long	484
-	.long	.Lxtalabel274
-.cc_bottom cc_451
-.cc_top cc_452,.Lxtalabel170
+.cc_top cc_451,.Lxtalabel170
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	484
 	.long	484
 	.long	.Lxtalabel170
-.cc_bottom cc_452
-.cc_top cc_453,.Lxtalabel120
+.cc_bottom cc_451
+.cc_top cc_452,.Lxtalabel120
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	484
 	.long	484
 	.long	.Lxtalabel120
-.cc_bottom cc_453
-.cc_top cc_454,.Lxtalabel26
+.cc_bottom cc_452
+.cc_top cc_453,.Lxtalabel26
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	484
 	.long	484
 	.long	.Lxtalabel26
+.cc_bottom cc_453
+.cc_top cc_454,.Lxtalabel274
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	484
+	.long	484
+	.long	.Lxtalabel274
 .cc_bottom cc_454
 .cc_top cc_455,.Lxtalabel378
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19887,33 +19887,33 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	484
 	.long	.Lxtalabel378
 .cc_bottom cc_455
-.cc_top cc_456,.Lxtalabel122
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	485
-	.long	486
-	.long	.Lxtalabel122
-.cc_bottom cc_456
-.cc_top cc_457,.Lxtalabel380
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	485
-	.long	486
-	.long	.Lxtalabel380
-.cc_bottom cc_457
-.cc_top cc_458,.Lxtalabel172
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	485
-	.long	486
-	.long	.Lxtalabel172
-.cc_bottom cc_458
-.cc_top cc_459,.Lxtalabel276
+.cc_top cc_456,.Lxtalabel276
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	485
 	.long	486
 	.long	.Lxtalabel276
+.cc_bottom cc_456
+.cc_top cc_457,.Lxtalabel172
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	485
+	.long	486
+	.long	.Lxtalabel172
+.cc_bottom cc_457
+.cc_top cc_458,.Lxtalabel380
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	485
+	.long	486
+	.long	.Lxtalabel380
+.cc_bottom cc_458
+.cc_top cc_459,.Lxtalabel122
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	485
+	.long	486
+	.long	.Lxtalabel122
 .cc_bottom cc_459
 .cc_top cc_460,.Lxtalabel28
 	.ascii	"../src/port_heat_light_server.xc"
@@ -19922,82 +19922,82 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	486
 	.long	.Lxtalabel28
 .cc_bottom cc_460
-.cc_top cc_461,.Lxtalabel275
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	487
-	.long	488
-	.long	.Lxtalabel275
-.cc_bottom cc_461
-.cc_top cc_462,.Lxtalabel379
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	487
-	.long	488
-	.long	.Lxtalabel379
-.cc_bottom cc_462
-.cc_top cc_463,.Lxtalabel27
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	487
-	.long	488
-	.long	.Lxtalabel27
-.cc_bottom cc_463
-.cc_top cc_464,.Lxtalabel171
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	487
-	.long	488
-	.long	.Lxtalabel171
-.cc_bottom cc_464
-.cc_top cc_465,.Lxtalabel121
+.cc_top cc_461,.Lxtalabel121
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	487
 	.long	488
 	.long	.Lxtalabel121
+.cc_bottom cc_461
+.cc_top cc_462,.Lxtalabel171
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	487
+	.long	488
+	.long	.Lxtalabel171
+.cc_bottom cc_462
+.cc_top cc_463,.Lxtalabel379
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	487
+	.long	488
+	.long	.Lxtalabel379
+.cc_bottom cc_463
+.cc_top cc_464,.Lxtalabel27
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	487
+	.long	488
+	.long	.Lxtalabel27
+.cc_bottom cc_464
+.cc_top cc_465,.Lxtalabel275
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	487
+	.long	488
+	.long	.Lxtalabel275
 .cc_bottom cc_465
-.cc_top cc_466,.Lxtalabel29
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	489
-	.long	490
-	.long	.Lxtalabel29
-.cc_bottom cc_466
-.cc_top cc_467,.Lxtalabel123
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	489
-	.long	490
-	.long	.Lxtalabel123
-.cc_bottom cc_467
-.cc_top cc_468,.Lxtalabel173
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	489
-	.long	490
-	.long	.Lxtalabel173
-.cc_bottom cc_468
-.cc_top cc_469,.Lxtalabel277
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	489
-	.long	490
-	.long	.Lxtalabel277
-.cc_bottom cc_469
-.cc_top cc_470,.Lxtalabel381
+.cc_top cc_466,.Lxtalabel381
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	489
 	.long	490
 	.long	.Lxtalabel381
+.cc_bottom cc_466
+.cc_top cc_467,.Lxtalabel173
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	489
+	.long	490
+	.long	.Lxtalabel173
+.cc_bottom cc_467
+.cc_top cc_468,.Lxtalabel277
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	489
+	.long	490
+	.long	.Lxtalabel277
+.cc_bottom cc_468
+.cc_top cc_469,.Lxtalabel123
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	489
+	.long	490
+	.long	.Lxtalabel123
+.cc_bottom cc_469
+.cc_top cc_470,.Lxtalabel29
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	489
+	.long	490
+	.long	.Lxtalabel29
 .cc_bottom cc_470
-.cc_top cc_471,.Lxtalabel124
+.cc_top cc_471,.Lxtalabel30
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	492
 	.long	492
-	.long	.Lxtalabel124
+	.long	.Lxtalabel30
 .cc_bottom cc_471
 .cc_top cc_472,.Lxtalabel278
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20020,33 +20020,33 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	492
 	.long	.Lxtalabel174
 .cc_bottom cc_474
-.cc_top cc_475,.Lxtalabel30
+.cc_top cc_475,.Lxtalabel124
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	492
 	.long	492
-	.long	.Lxtalabel30
+	.long	.Lxtalabel124
 .cc_bottom cc_475
-.cc_top cc_476,.Lxtalabel32
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	493
-	.long	494
-	.long	.Lxtalabel32
-.cc_bottom cc_476
-.cc_top cc_477,.Lxtalabel176
+.cc_top cc_476,.Lxtalabel176
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	493
 	.long	494
 	.long	.Lxtalabel176
-.cc_bottom cc_477
-.cc_top cc_478,.Lxtalabel384
+.cc_bottom cc_476
+.cc_top cc_477,.Lxtalabel32
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	493
 	.long	494
-	.long	.Lxtalabel384
+	.long	.Lxtalabel32
+.cc_bottom cc_477
+.cc_top cc_478,.Lxtalabel126
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	493
+	.long	494
+	.long	.Lxtalabel126
 .cc_bottom cc_478
 .cc_top cc_479,.Lxtalabel280
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20055,12 +20055,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	494
 	.long	.Lxtalabel280
 .cc_bottom cc_479
-.cc_top cc_480,.Lxtalabel126
+.cc_top cc_480,.Lxtalabel384
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	493
 	.long	494
-	.long	.Lxtalabel126
+	.long	.Lxtalabel384
 .cc_bottom cc_480
 .cc_top cc_481,.Lxtalabel383
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20069,117 +20069,117 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	496
 	.long	.Lxtalabel383
 .cc_bottom cc_481
-.cc_top cc_482,.Lxtalabel175
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	495
-	.long	496
-	.long	.Lxtalabel175
-.cc_bottom cc_482
-.cc_top cc_483,.Lxtalabel125
+.cc_top cc_482,.Lxtalabel125
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	495
 	.long	496
 	.long	.Lxtalabel125
-.cc_bottom cc_483
-.cc_top cc_484,.Lxtalabel31
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	495
-	.long	496
-	.long	.Lxtalabel31
-.cc_bottom cc_484
-.cc_top cc_485,.Lxtalabel279
+.cc_bottom cc_482
+.cc_top cc_483,.Lxtalabel279
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	495
 	.long	496
 	.long	.Lxtalabel279
+.cc_bottom cc_483
+.cc_top cc_484,.Lxtalabel175
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	495
+	.long	496
+	.long	.Lxtalabel175
+.cc_bottom cc_484
+.cc_top cc_485,.Lxtalabel31
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	495
+	.long	496
+	.long	.Lxtalabel31
 .cc_bottom cc_485
-.cc_top cc_486,.Lxtalabel385
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	497
-	.long	498
-	.long	.Lxtalabel385
-.cc_bottom cc_486
-.cc_top cc_487,.Lxtalabel127
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	497
-	.long	498
-	.long	.Lxtalabel127
-.cc_bottom cc_487
-.cc_top cc_488,.Lxtalabel33
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	497
-	.long	498
-	.long	.Lxtalabel33
-.cc_bottom cc_488
-.cc_top cc_489,.Lxtalabel281
+.cc_top cc_486,.Lxtalabel281
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	497
 	.long	498
 	.long	.Lxtalabel281
-.cc_bottom cc_489
-.cc_top cc_490,.Lxtalabel177
+.cc_bottom cc_486
+.cc_top cc_487,.Lxtalabel385
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	497
+	.long	498
+	.long	.Lxtalabel385
+.cc_bottom cc_487
+.cc_top cc_488,.Lxtalabel177
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	497
 	.long	498
 	.long	.Lxtalabel177
+.cc_bottom cc_488
+.cc_top cc_489,.Lxtalabel33
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	497
+	.long	498
+	.long	.Lxtalabel33
+.cc_bottom cc_489
+.cc_top cc_490,.Lxtalabel127
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	497
+	.long	498
+	.long	.Lxtalabel127
 .cc_bottom cc_490
-.cc_top cc_491,.Lxtalabel178
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	500
-	.long	501
-	.long	.Lxtalabel178
-.cc_bottom cc_491
-.cc_top cc_492,.Lxtalabel386
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	500
-	.long	501
-	.long	.Lxtalabel386
-.cc_bottom cc_492
-.cc_top cc_493,.Lxtalabel283
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	500
-	.long	501
-	.long	.Lxtalabel283
-.cc_bottom cc_493
-.cc_top cc_494,.Lxtalabel179
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	500
-	.long	501
-	.long	.Lxtalabel179
-.cc_bottom cc_494
-.cc_top cc_495,.Lxtalabel282
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	500
-	.long	501
-	.long	.Lxtalabel282
-.cc_bottom cc_495
-.cc_top cc_496,.Lxtalabel128
+.cc_top cc_491,.Lxtalabel128
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxtalabel128
-.cc_bottom cc_496
-.cc_top cc_497,.Lxtalabel34
+.cc_bottom cc_491
+.cc_top cc_492,.Lxtalabel34
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxtalabel34
+.cc_bottom cc_492
+.cc_top cc_493,.Lxtalabel282
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	500
+	.long	501
+	.long	.Lxtalabel282
+.cc_bottom cc_493
+.cc_top cc_494,.Lxtalabel386
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	500
+	.long	501
+	.long	.Lxtalabel386
+.cc_bottom cc_494
+.cc_top cc_495,.Lxtalabel179
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	500
+	.long	501
+	.long	.Lxtalabel179
+.cc_bottom cc_495
+.cc_top cc_496,.Lxtalabel178
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	500
+	.long	501
+	.long	.Lxtalabel178
+.cc_bottom cc_496
+.cc_top cc_497,.Lxtalabel283
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	500
+	.long	501
+	.long	.Lxtalabel283
 .cc_bottom cc_497
 .cc_top cc_498,.Lxtalabel387
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20195,12 +20195,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	505
 	.long	.Lxtalabel180
 .cc_bottom cc_499
-.cc_top cc_500,.Lxtalabel284
+.cc_top cc_500,.Lxtalabel388
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	505
 	.long	505
-	.long	.Lxtalabel284
+	.long	.Lxtalabel388
 .cc_bottom cc_500
 .cc_top cc_501,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20209,12 +20209,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	505
 	.long	.Lxtalabel35
 .cc_bottom cc_501
-.cc_top cc_502,.Lxtalabel388
+.cc_top cc_502,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	505
 	.long	505
-	.long	.Lxtalabel388
+	.long	.Lxtalabel284
 .cc_bottom cc_502
 .cc_top cc_503,.Lxtalabel129
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20223,40 +20223,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	505
 	.long	.Lxtalabel129
 .cc_bottom cc_503
-.cc_top cc_504,.Lxtalabel129
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	507
-	.long	507
-	.long	.Lxtalabel129
-.cc_bottom cc_504
-.cc_top cc_505,.Lxtalabel284
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	507
-	.long	507
-	.long	.Lxtalabel284
-.cc_bottom cc_505
-.cc_top cc_506,.Lxtalabel35
+.cc_top cc_504,.Lxtalabel35
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	507
 	.long	507
 	.long	.Lxtalabel35
-.cc_bottom cc_506
-.cc_top cc_507,.Lxtalabel388
+.cc_bottom cc_504
+.cc_top cc_505,.Lxtalabel388
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	507
 	.long	507
 	.long	.Lxtalabel388
-.cc_bottom cc_507
-.cc_top cc_508,.Lxtalabel180
+.cc_bottom cc_505
+.cc_top cc_506,.Lxtalabel180
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	507
 	.long	507
 	.long	.Lxtalabel180
+.cc_bottom cc_506
+.cc_top cc_507,.Lxtalabel284
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	507
+	.long	507
+	.long	.Lxtalabel284
+.cc_bottom cc_507
+.cc_top cc_508,.Lxtalabel129
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	507
+	.long	507
+	.long	.Lxtalabel129
 .cc_bottom cc_508
 .cc_top cc_509,.Lxtalabel388
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20265,75 +20265,75 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	509
 	.long	.Lxtalabel388
 .cc_bottom cc_509
-.cc_top cc_510,.Lxtalabel35
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	509
-	.long	509
-	.long	.Lxtalabel35
-.cc_bottom cc_510
-.cc_top cc_511,.Lxtalabel129
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	509
-	.long	509
-	.long	.Lxtalabel129
-.cc_bottom cc_511
-.cc_top cc_512,.Lxtalabel180
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	509
-	.long	509
-	.long	.Lxtalabel180
-.cc_bottom cc_512
-.cc_top cc_513,.Lxtalabel284
+.cc_top cc_510,.Lxtalabel284
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	509
 	.long	509
 	.long	.Lxtalabel284
+.cc_bottom cc_510
+.cc_top cc_511,.Lxtalabel180
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	509
+	.long	509
+	.long	.Lxtalabel180
+.cc_bottom cc_511
+.cc_top cc_512,.Lxtalabel35
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	509
+	.long	509
+	.long	.Lxtalabel35
+.cc_bottom cc_512
+.cc_top cc_513,.Lxtalabel129
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	509
+	.long	509
+	.long	.Lxtalabel129
 .cc_bottom cc_513
-.cc_top cc_514,.Lxtalabel258
+.cc_top cc_514,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel258
+	.long	.Lxtalabel103
 .cc_bottom cc_514
-.cc_top cc_515,.Lxtalabel154
+.cc_top cc_515,.Lxtalabel362
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel154
+	.long	.Lxtalabel362
 .cc_bottom cc_515
-.cc_top cc_516,.Lxtalabel154
+.cc_top cc_516,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel154
+	.long	.Lxtalabel103
 .cc_bottom cc_516
-.cc_top cc_517,.Lxtalabel154
+.cc_top cc_517,.Lxtalabel36
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	519
+	.long	520
+	.long	.Lxtalabel36
+.cc_bottom cc_517
+.cc_top cc_518,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
 	.long	.Lxtalabel154
-.cc_bottom cc_517
-.cc_top cc_518,.Lxtalabel362
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	519
-	.long	520
-	.long	.Lxtalabel362
 .cc_bottom cc_518
-.cc_top cc_519,.Lxtalabel362
+.cc_top cc_519,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel362
+	.long	.Lxtalabel154
 .cc_bottom cc_519
 .cc_top cc_520,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20342,19 +20342,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	520
 	.long	.Lxtalabel36
 .cc_bottom cc_520
-.cc_top cc_521,.Lxtalabel258
+.cc_top cc_521,.Lxtalabel154
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel258
+	.long	.Lxtalabel154
 .cc_bottom cc_521
-.cc_top cc_522,.Lxtalabel36
+.cc_top cc_522,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel36
+	.long	.Lxtalabel103
 .cc_bottom cc_522
 .cc_top cc_523,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20363,103 +20363,103 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	520
 	.long	.Lxtalabel258
 .cc_bottom cc_523
-.cc_top cc_524,.Lxtalabel36
+.cc_top cc_524,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel36
+	.long	.Lxtalabel258
 .cc_bottom cc_524
-.cc_top cc_525,.Lxtalabel103
+.cc_top cc_525,.Lxtalabel362
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel103
+	.long	.Lxtalabel362
 .cc_bottom cc_525
-.cc_top cc_526,.Lxtalabel103
+.cc_top cc_526,.Lxtalabel362
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel103
+	.long	.Lxtalabel362
 .cc_bottom cc_526
-.cc_top cc_527,.Lxtalabel103
+.cc_top cc_527,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel103
+	.long	.Lxtalabel36
 .cc_bottom cc_527
-.cc_top cc_528,.Lxtalabel362
+.cc_top cc_528,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	519
 	.long	520
-	.long	.Lxtalabel362
+	.long	.Lxtalabel258
 .cc_bottom cc_528
-.cc_top cc_529,.Lxtalabel362
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel362
-.cc_bottom cc_529
-.cc_top cc_530,.Lxtalabel258
+.cc_top cc_529,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel258
-.cc_bottom cc_530
-.cc_top cc_531,.Lxtalabel103
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel103
-.cc_bottom cc_531
-.cc_top cc_532,.Lxtalabel362
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel362
-.cc_bottom cc_532
-.cc_top cc_533,.Lxtalabel154
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel154
-.cc_bottom cc_533
-.cc_top cc_534,.Lxtalabel36
+.cc_bottom cc_529
+.cc_top cc_530,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel36
-.cc_bottom cc_534
-.cc_top cc_535,.Lxtalabel154
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel154
-.cc_bottom cc_535
-.cc_top cc_536,.Lxtalabel258
+.cc_bottom cc_530
+.cc_top cc_531,.Lxtalabel258
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel258
-.cc_bottom cc_536
-.cc_top cc_537,.Lxtalabel103
+.cc_bottom cc_531
+.cc_top cc_532,.Lxtalabel154
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel154
+.cc_bottom cc_532
+.cc_top cc_533,.Lxtalabel258
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel258
+.cc_bottom cc_533
+.cc_top cc_534,.Lxtalabel154
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel154
+.cc_bottom cc_534
+.cc_top cc_535,.Lxtalabel103
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel103
+.cc_bottom cc_535
+.cc_top cc_536,.Lxtalabel154
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel154
+.cc_bottom cc_536
+.cc_top cc_537,.Lxtalabel362
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel362
 .cc_bottom cc_537
 .cc_top cc_538,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20468,54 +20468,54 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	523
 	.long	.Lxtalabel36
 .cc_bottom cc_538
-.cc_top cc_539,.Lxtalabel103
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel103
-.cc_bottom cc_539
-.cc_top cc_540,.Lxtalabel362
+.cc_top cc_539,.Lxtalabel362
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel362
+.cc_bottom cc_539
+.cc_top cc_540,.Lxtalabel103
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel103
 .cc_bottom cc_540
-.cc_top cc_541,.Lxtalabel36
+.cc_top cc_541,.Lxtalabel362
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel362
+.cc_bottom cc_541
+.cc_top cc_542,.Lxtalabel103
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	523
+	.long	523
+	.long	.Lxtalabel103
+.cc_bottom cc_542
+.cc_top cc_543,.Lxtalabel36
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	523
 	.long	523
 	.long	.Lxtalabel36
-.cc_bottom cc_541
-.cc_top cc_542,.Lxtalabel258
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel258
-.cc_bottom cc_542
-.cc_top cc_543,.Lxtalabel154
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	523
-	.long	523
-	.long	.Lxtalabel154
 .cc_bottom cc_543
-.cc_top cc_544,.Lxtalabel37
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	524
-	.long	525
-	.long	.Lxtalabel37
-.cc_bottom cc_544
-.cc_top cc_545,.Lxtalabel155
+.cc_top cc_544,.Lxtalabel155
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	525
 	.long	.Lxtalabel155
+.cc_bottom cc_544
+.cc_top cc_545,.Lxtalabel37
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	524
+	.long	525
+	.long	.Lxtalabel37
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel104
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20524,26 +20524,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	525
 	.long	.Lxtalabel104
 .cc_bottom cc_546
-.cc_top cc_547,.Lxtalabel259
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	524
-	.long	525
-	.long	.Lxtalabel259
-.cc_bottom cc_547
-.cc_top cc_548,.Lxtalabel363
+.cc_top cc_547,.Lxtalabel363
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	525
 	.long	.Lxtalabel363
+.cc_bottom cc_547
+.cc_top cc_548,.Lxtalabel259
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	524
+	.long	525
+	.long	.Lxtalabel259
 .cc_bottom cc_548
-.cc_top cc_549,.Lxtalabel364
+.cc_top cc_549,.Lxtalabel156
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	526
 	.long	526
-	.long	.Lxtalabel364
+	.long	.Lxtalabel156
 .cc_bottom cc_549
 .cc_top cc_550,.Lxtalabel260
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20552,26 +20552,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	526
 	.long	.Lxtalabel260
 .cc_bottom cc_550
-.cc_top cc_551,.Lxtalabel105
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	526
-	.long	526
-	.long	.Lxtalabel105
-.cc_bottom cc_551
-.cc_top cc_552,.Lxtalabel38
+.cc_top cc_551,.Lxtalabel38
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	526
 	.long	526
 	.long	.Lxtalabel38
-.cc_bottom cc_552
-.cc_top cc_553,.Lxtalabel156
+.cc_bottom cc_551
+.cc_top cc_552,.Lxtalabel364
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	526
 	.long	526
-	.long	.Lxtalabel156
+	.long	.Lxtalabel364
+.cc_bottom cc_552
+.cc_top cc_553,.Lxtalabel105
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	526
+	.long	526
+	.long	.Lxtalabel105
 .cc_bottom cc_553
 .cc_top cc_554,.Lxtalabel365
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20580,19 +20580,19 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	527
 	.long	.Lxtalabel365
 .cc_bottom cc_554
-.cc_top cc_555,.Lxtalabel157
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	527
-	.long	527
-	.long	.Lxtalabel157
-.cc_bottom cc_555
-.cc_top cc_556,.Lxtalabel261
+.cc_top cc_555,.Lxtalabel261
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	527
 	.long	527
 	.long	.Lxtalabel261
+.cc_bottom cc_555
+.cc_top cc_556,.Lxtalabel39
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	527
+	.long	527
+	.long	.Lxtalabel39
 .cc_bottom cc_556
 .cc_top cc_557,.Lxtalabel106
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20601,40 +20601,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	527
 	.long	.Lxtalabel106
 .cc_bottom cc_557
-.cc_top cc_558,.Lxtalabel39
+.cc_top cc_558,.Lxtalabel157
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	527
 	.long	527
-	.long	.Lxtalabel39
+	.long	.Lxtalabel157
 .cc_bottom cc_558
-.cc_top cc_559,.Lxtalabel107
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	528
-	.long	528
-	.long	.Lxtalabel107
-.cc_bottom cc_559
-.cc_top cc_560,.Lxtalabel40
+.cc_top cc_559,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	528
 	.long	528
 	.long	.Lxtalabel40
-.cc_bottom cc_560
-.cc_top cc_561,.Lxtalabel262
+.cc_bottom cc_559
+.cc_top cc_560,.Lxtalabel107
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	528
 	.long	528
-	.long	.Lxtalabel262
-.cc_bottom cc_561
-.cc_top cc_562,.Lxtalabel366
+	.long	.Lxtalabel107
+.cc_bottom cc_560
+.cc_top cc_561,.Lxtalabel366
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	528
 	.long	528
 	.long	.Lxtalabel366
+.cc_bottom cc_561
+.cc_top cc_562,.Lxtalabel262
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	528
+	.long	528
+	.long	.Lxtalabel262
 .cc_bottom cc_562
 .cc_top cc_563,.Lxtalabel158
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20643,40 +20643,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	528
 	.long	.Lxtalabel158
 .cc_bottom cc_563
-.cc_top cc_564,.Lxtalabel366
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	530
-	.long	530
-	.long	.Lxtalabel366
-.cc_bottom cc_564
-.cc_top cc_565,.Lxtalabel158
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	530
-	.long	530
-	.long	.Lxtalabel158
-.cc_bottom cc_565
-.cc_top cc_566,.Lxtalabel107
+.cc_top cc_564,.Lxtalabel107
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	530
 	.long	530
 	.long	.Lxtalabel107
-.cc_bottom cc_566
-.cc_top cc_567,.Lxtalabel262
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	530
-	.long	530
-	.long	.Lxtalabel262
-.cc_bottom cc_567
-.cc_top cc_568,.Lxtalabel40
+.cc_bottom cc_564
+.cc_top cc_565,.Lxtalabel40
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	530
 	.long	530
 	.long	.Lxtalabel40
+.cc_bottom cc_565
+.cc_top cc_566,.Lxtalabel262
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	530
+	.long	530
+	.long	.Lxtalabel262
+.cc_bottom cc_566
+.cc_top cc_567,.Lxtalabel366
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	530
+	.long	530
+	.long	.Lxtalabel366
+.cc_bottom cc_567
+.cc_top cc_568,.Lxtalabel158
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	530
+	.long	530
+	.long	.Lxtalabel158
 .cc_bottom cc_568
 .cc_top cc_569,.Lxtalabel262
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20685,159 +20685,159 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	538
 	.long	.Lxtalabel262
 .cc_bottom cc_569
-.cc_top cc_570,.Lxtalabel158
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	537
-	.long	538
-	.long	.Lxtalabel158
-.cc_bottom cc_570
-.cc_top cc_571,.Lxtalabel40
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	537
-	.long	538
-	.long	.Lxtalabel40
-.cc_bottom cc_571
-.cc_top cc_572,.Lxtalabel107
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	537
-	.long	538
-	.long	.Lxtalabel107
-.cc_bottom cc_572
-.cc_top cc_573,.Lxtalabel366
+.cc_top cc_570,.Lxtalabel366
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	537
 	.long	538
 	.long	.Lxtalabel366
+.cc_bottom cc_570
+.cc_top cc_571,.Lxtalabel158
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	537
+	.long	538
+	.long	.Lxtalabel158
+.cc_bottom cc_571
+.cc_top cc_572,.Lxtalabel40
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	537
+	.long	538
+	.long	.Lxtalabel40
+.cc_bottom cc_572
+.cc_top cc_573,.Lxtalabel107
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	537
+	.long	538
+	.long	.Lxtalabel107
 .cc_bottom cc_573
-.cc_top cc_574,.Lxtalabel112
+.cc_top cc_574,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel112
+	.long	.Lxtalabel108
 .cc_bottom cc_574
-.cc_top cc_575,.Lxtalabel111
+.cc_top cc_575,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel111
+	.long	.Lxtalabel108
 .cc_bottom cc_575
-.cc_top cc_576,.Lxtalabel369
+.cc_top cc_576,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel369
+	.long	.Lxtalabel108
 .cc_bottom cc_576
-.cc_top cc_577,.Lxtalabel111
+.cc_top cc_577,.Lxtalabel370
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel111
+	.long	.Lxtalabel370
 .cc_bottom cc_577
-.cc_top cc_578,.Lxtalabel263
+.cc_top cc_578,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel263
+	.long	.Lxtalabel109
 .cc_bottom cc_578
-.cc_top cc_579,.Lxtalabel368
+.cc_top cc_579,.Lxtalabel370
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel368
+	.long	.Lxtalabel370
 .cc_bottom cc_579
-.cc_top cc_580,.Lxtalabel263
+.cc_top cc_580,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel263
+	.long	.Lxtalabel109
 .cc_bottom cc_580
-.cc_top cc_581,.Lxtalabel111
+.cc_top cc_581,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel111
+	.long	.Lxtalabel109
 .cc_bottom cc_581
-.cc_top cc_582,.Lxtalabel368
+.cc_top cc_582,.Lxtalabel110
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel368
+	.long	.Lxtalabel110
 .cc_bottom cc_582
-.cc_top cc_583,.Lxtalabel263
+.cc_top cc_583,.Lxtalabel110
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel263
+	.long	.Lxtalabel110
 .cc_bottom cc_583
-.cc_top cc_584,.Lxtalabel368
+.cc_top cc_584,.Lxtalabel370
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel368
+	.long	.Lxtalabel370
 .cc_bottom cc_584
-.cc_top cc_585,.Lxtalabel110
+.cc_top cc_585,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel110
+	.long	.Lxtalabel45
 .cc_bottom cc_585
-.cc_top cc_586,.Lxtalabel369
+.cc_top cc_586,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel369
+	.long	.Lxtalabel45
 .cc_bottom cc_586
-.cc_top cc_587,.Lxtalabel110
+.cc_top cc_587,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel110
+	.long	.Lxtalabel45
 .cc_bottom cc_587
-.cc_top cc_588,.Lxtalabel367
+.cc_top cc_588,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel367
+	.long	.Lxtalabel44
 .cc_bottom cc_588
-.cc_top cc_589,.Lxtalabel371
+.cc_top cc_589,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel371
+	.long	.Lxtalabel44
 .cc_bottom cc_589
-.cc_top cc_590,.Lxtalabel264
+.cc_top cc_590,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel264
+	.long	.Lxtalabel44
 .cc_bottom cc_590
-.cc_top cc_591,.Lxtalabel264
+.cc_top cc_591,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel264
+	.long	.Lxtalabel43
 .cc_bottom cc_591
 .cc_top cc_592,.Lxtalabel110
 	.ascii	"../src/port_heat_light_server.xc"
@@ -20846,887 +20846,887 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	539
 	.long	.Lxtalabel110
 .cc_bottom cc_592
-.cc_top cc_593,.Lxtalabel163
+.cc_top cc_593,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel163
+	.long	.Lxtalabel111
 .cc_bottom cc_593
-.cc_top cc_594,.Lxtalabel264
+.cc_top cc_594,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel264
+	.long	.Lxtalabel43
 .cc_bottom cc_594
-.cc_top cc_595,.Lxtalabel163
+.cc_top cc_595,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel163
+	.long	.Lxtalabel43
 .cc_bottom cc_595
-.cc_top cc_596,.Lxtalabel371
+.cc_top cc_596,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel371
+	.long	.Lxtalabel42
 .cc_bottom cc_596
-.cc_top cc_597,.Lxtalabel163
+.cc_top cc_597,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel163
+	.long	.Lxtalabel42
 .cc_bottom cc_597
-.cc_top cc_598,.Lxtalabel371
+.cc_top cc_598,.Lxtalabel42
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel371
+	.long	.Lxtalabel42
 .cc_bottom cc_598
-.cc_top cc_599,.Lxtalabel109
+.cc_top cc_599,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel109
+	.long	.Lxtalabel111
 .cc_bottom cc_599
-.cc_top cc_600,.Lxtalabel265
+.cc_top cc_600,.Lxtalabel371
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel265
+	.long	.Lxtalabel371
 .cc_bottom cc_600
-.cc_top cc_601,.Lxtalabel109
+.cc_top cc_601,.Lxtalabel160
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel109
+	.long	.Lxtalabel160
 .cc_bottom cc_601
-.cc_top cc_602,.Lxtalabel265
+.cc_top cc_602,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel265
+	.long	.Lxtalabel41
 .cc_bottom cc_602
-.cc_top cc_603,.Lxtalabel109
+.cc_top cc_603,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel109
+	.long	.Lxtalabel41
 .cc_bottom cc_603
-.cc_top cc_604,.Lxtalabel265
+.cc_top cc_604,.Lxtalabel41
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel41
+.cc_bottom cc_604
+.cc_top cc_605,.Lxtalabel371
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel371
+.cc_bottom cc_605
+.cc_top cc_606,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel112
+.cc_bottom cc_606
+.cc_top cc_607,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel112
+.cc_bottom cc_607
+.cc_top cc_608,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel112
+.cc_bottom cc_608
+.cc_top cc_609,.Lxtalabel371
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel371
+.cc_bottom cc_609
+.cc_top cc_610,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel159
+.cc_bottom cc_610
+.cc_top cc_611,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel159
+.cc_bottom cc_611
+.cc_top cc_612,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel159
+.cc_bottom cc_612
+.cc_top cc_613,.Lxtalabel267
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel267
+.cc_bottom cc_613
+.cc_top cc_614,.Lxtalabel267
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel267
+.cc_bottom cc_614
+.cc_top cc_615,.Lxtalabel160
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel160
+.cc_bottom cc_615
+.cc_top cc_616,.Lxtalabel267
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel267
+.cc_bottom cc_616
+.cc_top cc_617,.Lxtalabel163
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel163
+.cc_bottom cc_617
+.cc_top cc_618,.Lxtalabel163
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel163
+.cc_bottom cc_618
+.cc_top cc_619,.Lxtalabel163
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel163
+.cc_bottom cc_619
+.cc_top cc_620,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel263
+.cc_bottom cc_620
+.cc_top cc_621,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel162
+.cc_bottom cc_621
+.cc_top cc_622,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel263
+.cc_bottom cc_622
+.cc_top cc_623,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel162
+.cc_bottom cc_623
+.cc_top cc_624,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel263
+.cc_bottom cc_624
+.cc_top cc_625,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel162
+.cc_bottom cc_625
+.cc_top cc_626,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel264
+.cc_bottom cc_626
+.cc_top cc_627,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel264
+.cc_bottom cc_627
+.cc_top cc_628,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel264
+.cc_bottom cc_628
+.cc_top cc_629,.Lxtalabel161
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	539
+	.long	539
+	.long	.Lxtalabel161
+.cc_bottom cc_629
+.cc_top cc_630,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
 	.long	.Lxtalabel265
-.cc_bottom cc_604
-.cc_top cc_605,.Lxtalabel162
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel162
-.cc_bottom cc_605
-.cc_top cc_606,.Lxtalabel162
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel162
-.cc_bottom cc_606
-.cc_top cc_607,.Lxtalabel266
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel266
-.cc_bottom cc_607
-.cc_top cc_608,.Lxtalabel162
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel162
-.cc_bottom cc_608
-.cc_top cc_609,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel108
-.cc_bottom cc_609
-.cc_top cc_610,.Lxtalabel367
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel367
-.cc_bottom cc_610
-.cc_top cc_611,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel108
-.cc_bottom cc_611
-.cc_top cc_612,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel370
-.cc_bottom cc_612
-.cc_top cc_613,.Lxtalabel266
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel266
-.cc_bottom cc_613
-.cc_top cc_614,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel370
-.cc_bottom cc_614
-.cc_top cc_615,.Lxtalabel266
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel266
-.cc_bottom cc_615
-.cc_top cc_616,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel108
-.cc_bottom cc_616
-.cc_top cc_617,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel161
-.cc_bottom cc_617
-.cc_top cc_618,.Lxtalabel369
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel369
-.cc_bottom cc_618
-.cc_top cc_619,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel161
-.cc_bottom cc_619
-.cc_top cc_620,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel112
-.cc_bottom cc_620
-.cc_top cc_621,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel370
-.cc_bottom cc_621
-.cc_top cc_622,.Lxtalabel267
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel267
-.cc_bottom cc_622
-.cc_top cc_623,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel161
-.cc_bottom cc_623
-.cc_top cc_624,.Lxtalabel267
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel267
-.cc_bottom cc_624
-.cc_top cc_625,.Lxtalabel267
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel267
-.cc_bottom cc_625
-.cc_top cc_626,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel160
-.cc_bottom cc_626
-.cc_top cc_627,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel160
-.cc_bottom cc_627
-.cc_top cc_628,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel160
-.cc_bottom cc_628
-.cc_top cc_629,.Lxtalabel159
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel159
-.cc_bottom cc_629
-.cc_top cc_630,.Lxtalabel159
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	539
-	.long	539
-	.long	.Lxtalabel159
 .cc_bottom cc_630
-.cc_top cc_631,.Lxtalabel159
+.cc_top cc_631,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel159
+	.long	.Lxtalabel161
 .cc_bottom cc_631
-.cc_top cc_632,.Lxtalabel112
+.cc_top cc_632,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel112
+	.long	.Lxtalabel265
 .cc_bottom cc_632
-.cc_top cc_633,.Lxtalabel367
+.cc_top cc_633,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel367
+	.long	.Lxtalabel161
 .cc_bottom cc_633
-.cc_top cc_634,.Lxtalabel41
+.cc_top cc_634,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel41
+	.long	.Lxtalabel265
 .cc_bottom cc_634
-.cc_top cc_635,.Lxtalabel45
+.cc_top cc_635,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel45
+	.long	.Lxtalabel266
 .cc_bottom cc_635
-.cc_top cc_636,.Lxtalabel41
+.cc_top cc_636,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel41
+	.long	.Lxtalabel266
 .cc_bottom cc_636
-.cc_top cc_637,.Lxtalabel45
+.cc_top cc_637,.Lxtalabel160
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel45
+	.long	.Lxtalabel160
 .cc_bottom cc_637
-.cc_top cc_638,.Lxtalabel41
+.cc_top cc_638,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel41
+	.long	.Lxtalabel266
 .cc_bottom cc_638
-.cc_top cc_639,.Lxtalabel45
+.cc_top cc_639,.Lxtalabel367
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel45
+	.long	.Lxtalabel367
 .cc_bottom cc_639
-.cc_top cc_640,.Lxtalabel42
+.cc_top cc_640,.Lxtalabel367
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel42
+	.long	.Lxtalabel367
 .cc_bottom cc_640
-.cc_top cc_641,.Lxtalabel42
+.cc_top cc_641,.Lxtalabel367
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel42
+	.long	.Lxtalabel367
 .cc_bottom cc_641
-.cc_top cc_642,.Lxtalabel42
+.cc_top cc_642,.Lxtalabel368
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel42
+	.long	.Lxtalabel368
 .cc_bottom cc_642
-.cc_top cc_643,.Lxtalabel44
+.cc_top cc_643,.Lxtalabel368
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel44
+	.long	.Lxtalabel368
 .cc_bottom cc_643
-.cc_top cc_644,.Lxtalabel43
+.cc_top cc_644,.Lxtalabel368
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel43
+	.long	.Lxtalabel368
 .cc_bottom cc_644
-.cc_top cc_645,.Lxtalabel44
+.cc_top cc_645,.Lxtalabel369
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel44
+	.long	.Lxtalabel369
 .cc_bottom cc_645
-.cc_top cc_646,.Lxtalabel43
+.cc_top cc_646,.Lxtalabel369
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel43
+	.long	.Lxtalabel369
 .cc_bottom cc_646
-.cc_top cc_647,.Lxtalabel44
+.cc_top cc_647,.Lxtalabel369
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel44
+	.long	.Lxtalabel369
 .cc_bottom cc_647
-.cc_top cc_648,.Lxtalabel43
+.cc_top cc_648,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	539
 	.long	539
-	.long	.Lxtalabel43
+	.long	.Lxtalabel111
 .cc_bottom cc_648
-.cc_top cc_649,.Lxtalabel43
+.cc_top cc_649,.Lxtalabel369
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel43
+	.long	.Lxtalabel369
 .cc_bottom cc_649
-.cc_top cc_650,.Lxtalabel369
+.cc_top cc_650,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel369
+	.long	.Lxtalabel111
 .cc_bottom cc_650
-.cc_top cc_651,.Lxtalabel43
+.cc_top cc_651,.Lxtalabel371
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel43
+	.long	.Lxtalabel371
 .cc_bottom cc_651
-.cc_top cc_652,.Lxtalabel44
+.cc_top cc_652,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel44
+	.long	.Lxtalabel111
 .cc_bottom cc_652
-.cc_top cc_653,.Lxtalabel43
+.cc_top cc_653,.Lxtalabel369
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel369
+.cc_bottom cc_653
+.cc_top cc_654,.Lxtalabel369
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel369
+.cc_bottom cc_654
+.cc_top cc_655,.Lxtalabel111
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel111
+.cc_bottom cc_655
+.cc_top cc_656,.Lxtalabel110
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel110
+.cc_bottom cc_656
+.cc_top cc_657,.Lxtalabel368
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel368
+.cc_bottom cc_657
+.cc_top cc_658,.Lxtalabel368
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel368
+.cc_bottom cc_658
+.cc_top cc_659,.Lxtalabel368
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel368
+.cc_bottom cc_659
+.cc_top cc_660,.Lxtalabel110
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel110
+.cc_bottom cc_660
+.cc_top cc_661,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel112
+.cc_bottom cc_661
+.cc_top cc_662,.Lxtalabel367
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel367
+.cc_bottom cc_662
+.cc_top cc_663,.Lxtalabel367
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel367
+.cc_bottom cc_663
+.cc_top cc_664,.Lxtalabel367
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel367
+.cc_bottom cc_664
+.cc_top cc_665,.Lxtalabel370
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel370
+.cc_bottom cc_665
+.cc_top cc_666,.Lxtalabel110
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel110
+.cc_bottom cc_666
+.cc_top cc_667,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel112
+.cc_bottom cc_667
+.cc_top cc_668,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel112
+.cc_bottom cc_668
+.cc_top cc_669,.Lxtalabel109
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel109
+.cc_bottom cc_669
+.cc_top cc_670,.Lxtalabel109
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel109
+.cc_bottom cc_670
+.cc_top cc_671,.Lxtalabel41
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel41
+.cc_bottom cc_671
+.cc_top cc_672,.Lxtalabel41
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel41
+.cc_bottom cc_672
+.cc_top cc_673,.Lxtalabel41
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel41
+.cc_bottom cc_673
+.cc_top cc_674,.Lxtalabel109
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel109
+.cc_bottom cc_674
+.cc_top cc_675,.Lxtalabel370
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel370
+.cc_bottom cc_675
+.cc_top cc_676,.Lxtalabel42
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel42
+.cc_bottom cc_676
+.cc_top cc_677,.Lxtalabel42
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel42
+.cc_bottom cc_677
+.cc_top cc_678,.Lxtalabel42
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel42
+.cc_bottom cc_678
+.cc_top cc_679,.Lxtalabel108
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel108
+.cc_bottom cc_679
+.cc_top cc_680,.Lxtalabel108
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel108
+.cc_bottom cc_680
+.cc_top cc_681,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
 	.long	.Lxtalabel43
-.cc_bottom cc_653
-.cc_top cc_654,.Lxtalabel44
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel44
-.cc_bottom cc_654
-.cc_top cc_655,.Lxtalabel159
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel159
-.cc_bottom cc_655
-.cc_top cc_656,.Lxtalabel42
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel42
-.cc_bottom cc_656
-.cc_top cc_657,.Lxtalabel44
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel44
-.cc_bottom cc_657
-.cc_top cc_658,.Lxtalabel42
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel42
-.cc_bottom cc_658
-.cc_top cc_659,.Lxtalabel159
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel159
-.cc_bottom cc_659
-.cc_top cc_660,.Lxtalabel42
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel42
-.cc_bottom cc_660
-.cc_top cc_661,.Lxtalabel159
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel159
-.cc_bottom cc_661
-.cc_top cc_662,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel160
-.cc_bottom cc_662
-.cc_top cc_663,.Lxtalabel41
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel41
-.cc_bottom cc_663
-.cc_top cc_664,.Lxtalabel45
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel45
-.cc_bottom cc_664
-.cc_top cc_665,.Lxtalabel41
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel41
-.cc_bottom cc_665
-.cc_top cc_666,.Lxtalabel45
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel45
-.cc_bottom cc_666
-.cc_top cc_667,.Lxtalabel41
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel41
-.cc_bottom cc_667
-.cc_top cc_668,.Lxtalabel45
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel45
-.cc_bottom cc_668
-.cc_top cc_669,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel160
-.cc_bottom cc_669
-.cc_top cc_670,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel370
-.cc_bottom cc_670
-.cc_top cc_671,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel108
-.cc_bottom cc_671
-.cc_top cc_672,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel370
-.cc_bottom cc_672
-.cc_top cc_673,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel108
-.cc_bottom cc_673
-.cc_top cc_674,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel108
-.cc_bottom cc_674
-.cc_top cc_675,.Lxtalabel160
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel160
-.cc_bottom cc_675
-.cc_top cc_676,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel370
-.cc_bottom cc_676
-.cc_top cc_677,.Lxtalabel267
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel267
-.cc_bottom cc_677
-.cc_top cc_678,.Lxtalabel109
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel109
-.cc_bottom cc_678
-.cc_top cc_679,.Lxtalabel109
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel109
-.cc_bottom cc_679
-.cc_top cc_680,.Lxtalabel371
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel371
-.cc_bottom cc_680
-.cc_top cc_681,.Lxtalabel367
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel367
 .cc_bottom cc_681
-.cc_top cc_682,.Lxtalabel267
+.cc_top cc_682,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel267
+	.long	.Lxtalabel43
 .cc_bottom cc_682
-.cc_top cc_683,.Lxtalabel110
+.cc_top cc_683,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel110
+	.long	.Lxtalabel43
 .cc_bottom cc_683
-.cc_top cc_684,.Lxtalabel371
+.cc_top cc_684,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel371
+	.long	.Lxtalabel108
 .cc_bottom cc_684
-.cc_top cc_685,.Lxtalabel371
+.cc_top cc_685,.Lxtalabel370
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel370
+.cc_bottom cc_685
+.cc_top cc_686,.Lxtalabel371
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
 	.long	.Lxtalabel371
-.cc_bottom cc_685
-.cc_top cc_686,.Lxtalabel110
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel110
 .cc_bottom cc_686
-.cc_top cc_687,.Lxtalabel110
+.cc_top cc_687,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel110
+	.long	.Lxtalabel45
 .cc_bottom cc_687
-.cc_top cc_688,.Lxtalabel367
+.cc_top cc_688,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel367
+	.long	.Lxtalabel44
 .cc_bottom cc_688
-.cc_top cc_689,.Lxtalabel267
+.cc_top cc_689,.Lxtalabel44
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel44
+.cc_bottom cc_689
+.cc_top cc_690,.Lxtalabel44
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel44
+.cc_bottom cc_690
+.cc_top cc_691,.Lxtalabel45
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel45
+.cc_bottom cc_691
+.cc_top cc_692,.Lxtalabel45
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel45
+.cc_bottom cc_692
+.cc_top cc_693,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel159
+.cc_bottom cc_693
+.cc_top cc_694,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel159
+.cc_bottom cc_694
+.cc_top cc_695,.Lxtalabel371
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel371
+.cc_bottom cc_695
+.cc_top cc_696,.Lxtalabel159
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel159
+.cc_bottom cc_696
+.cc_top cc_697,.Lxtalabel267
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
 	.long	.Lxtalabel267
-.cc_bottom cc_689
-.cc_top cc_690,.Lxtalabel111
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel111
-.cc_bottom cc_690
-.cc_top cc_691,.Lxtalabel111
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel111
-.cc_bottom cc_691
-.cc_top cc_692,.Lxtalabel111
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel111
-.cc_bottom cc_692
-.cc_top cc_693,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel161
-.cc_bottom cc_693
-.cc_top cc_694,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel112
-.cc_bottom cc_694
-.cc_top cc_695,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel112
-.cc_bottom cc_695
-.cc_top cc_696,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel112
-.cc_bottom cc_696
-.cc_top cc_697,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel161
 .cc_bottom cc_697
-.cc_top cc_698,.Lxtalabel369
+.cc_top cc_698,.Lxtalabel267
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel369
+	.long	.Lxtalabel267
 .cc_bottom cc_698
-.cc_top cc_699,.Lxtalabel109
+.cc_top cc_699,.Lxtalabel267
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel109
+	.long	.Lxtalabel267
 .cc_bottom cc_699
-.cc_top cc_700,.Lxtalabel369
+.cc_top cc_700,.Lxtalabel163
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel369
+	.long	.Lxtalabel163
 .cc_bottom cc_700
-.cc_top cc_701,.Lxtalabel266
+.cc_top cc_701,.Lxtalabel163
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel266
+	.long	.Lxtalabel163
 .cc_bottom cc_701
-.cc_top cc_702,.Lxtalabel368
+.cc_top cc_702,.Lxtalabel163
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel368
+	.long	.Lxtalabel163
 .cc_bottom cc_702
-.cc_top cc_703,.Lxtalabel263
+.cc_top cc_703,.Lxtalabel160
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel263
+	.long	.Lxtalabel160
 .cc_bottom cc_703
-.cc_top cc_704,.Lxtalabel368
+.cc_top cc_704,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel368
+	.long	.Lxtalabel266
 .cc_bottom cc_704
-.cc_top cc_705,.Lxtalabel263
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel263
-.cc_bottom cc_705
-.cc_top cc_706,.Lxtalabel368
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel368
-.cc_bottom cc_706
-.cc_top cc_707,.Lxtalabel263
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel263
-.cc_bottom cc_707
-.cc_top cc_708,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel161
-.cc_bottom cc_708
-.cc_top cc_709,.Lxtalabel266
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel266
-.cc_bottom cc_709
-.cc_top cc_710,.Lxtalabel266
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel266
-.cc_bottom cc_710
-.cc_top cc_711,.Lxtalabel264
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel264
-.cc_bottom cc_711
-.cc_top cc_712,.Lxtalabel163
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel163
-.cc_bottom cc_712
-.cc_top cc_713,.Lxtalabel264
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel264
-.cc_bottom cc_713
-.cc_top cc_714,.Lxtalabel163
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel163
-.cc_bottom cc_714
-.cc_top cc_715,.Lxtalabel264
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	540
-	.long	540
-	.long	.Lxtalabel264
-.cc_bottom cc_715
-.cc_top cc_716,.Lxtalabel162
+.cc_top cc_705,.Lxtalabel162
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
 	.long	.Lxtalabel162
+.cc_bottom cc_705
+.cc_top cc_706,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel263
+.cc_bottom cc_706
+.cc_top cc_707,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel162
+.cc_bottom cc_707
+.cc_top cc_708,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel263
+.cc_bottom cc_708
+.cc_top cc_709,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel162
+.cc_bottom cc_709
+.cc_top cc_710,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel263
+.cc_bottom cc_710
+.cc_top cc_711,.Lxtalabel160
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel160
+.cc_bottom cc_711
+.cc_top cc_712,.Lxtalabel266
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel266
+.cc_bottom cc_712
+.cc_top cc_713,.Lxtalabel160
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel160
+.cc_bottom cc_713
+.cc_top cc_714,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel264
+.cc_bottom cc_714
+.cc_top cc_715,.Lxtalabel266
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel266
+.cc_bottom cc_715
+.cc_top cc_716,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	540
+	.long	540
+	.long	.Lxtalabel264
 .cc_bottom cc_716
-.cc_top cc_717,.Lxtalabel163
+.cc_top cc_717,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel163
+	.long	.Lxtalabel161
 .cc_bottom cc_717
-.cc_top cc_718,.Lxtalabel367
+.cc_top cc_718,.Lxtalabel264
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel367
+	.long	.Lxtalabel264
 .cc_bottom cc_718
 .cc_top cc_719,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
@@ -21735,82 +21735,82 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	540
 	.long	.Lxtalabel265
 .cc_bottom cc_719
-.cc_top cc_720,.Lxtalabel162
+.cc_top cc_720,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel162
+	.long	.Lxtalabel265
 .cc_bottom cc_720
-.cc_top cc_721,.Lxtalabel265
+.cc_top cc_721,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel265
+	.long	.Lxtalabel161
 .cc_bottom cc_721
-.cc_top cc_722,.Lxtalabel162
+.cc_top cc_722,.Lxtalabel265
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel162
+	.long	.Lxtalabel265
 .cc_bottom cc_722
-.cc_top cc_723,.Lxtalabel265
+.cc_top cc_723,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	540
 	.long	540
-	.long	.Lxtalabel265
+	.long	.Lxtalabel161
 .cc_bottom cc_723
-.cc_top cc_724,.Lxtalabel265
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel265
-.cc_bottom cc_724
-.cc_top cc_725,.Lxtalabel162
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel162
-.cc_bottom cc_725
-.cc_top cc_726,.Lxtalabel264
+.cc_top cc_724,.Lxtalabel264
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
 	.long	.Lxtalabel264
-.cc_bottom cc_726
-.cc_top cc_727,.Lxtalabel163
+.cc_bottom cc_724
+.cc_top cc_725,.Lxtalabel111
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel163
+	.long	.Lxtalabel111
+.cc_bottom cc_725
+.cc_top cc_726,.Lxtalabel265
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel265
+.cc_bottom cc_726
+.cc_top cc_727,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel112
 .cc_bottom cc_727
-.cc_top cc_728,.Lxtalabel161
+.cc_top cc_728,.Lxtalabel110
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel110
+.cc_bottom cc_728
+.cc_top cc_729,.Lxtalabel160
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel160
+.cc_bottom cc_729
+.cc_top cc_730,.Lxtalabel161
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
 	.long	.Lxtalabel161
-.cc_bottom cc_728
-.cc_top cc_729,.Lxtalabel367
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel367
-.cc_bottom cc_729
-.cc_top cc_730,.Lxtalabel263
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel263
 .cc_bottom cc_730
 .cc_top cc_731,.Lxtalabel368
 	.ascii	"../src/port_heat_light_server.xc"
@@ -21819,40 +21819,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	544
 	.long	.Lxtalabel368
 .cc_bottom cc_731
-.cc_top cc_732,.Lxtalabel266
+.cc_top cc_732,.Lxtalabel367
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel367
+.cc_bottom cc_732
+.cc_top cc_733,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel263
+.cc_bottom cc_733
+.cc_top cc_734,.Lxtalabel162
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel162
+.cc_bottom cc_734
+.cc_top cc_735,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
 	.long	.Lxtalabel266
-.cc_bottom cc_732
-.cc_top cc_733,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel112
-.cc_bottom cc_733
-.cc_top cc_734,.Lxtalabel111
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel111
-.cc_bottom cc_734
-.cc_top cc_735,.Lxtalabel371
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel371
 .cc_bottom cc_735
-.cc_top cc_736,.Lxtalabel110
+.cc_top cc_736,.Lxtalabel370
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel110
+	.long	.Lxtalabel370
 .cc_bottom cc_736
 .cc_top cc_737,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
@@ -21861,61 +21861,61 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	544
 	.long	.Lxtalabel109
 .cc_bottom cc_737
-.cc_top cc_738,.Lxtalabel160
+.cc_top cc_738,.Lxtalabel163
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel160
+	.long	.Lxtalabel163
 .cc_bottom cc_738
-.cc_top cc_739,.Lxtalabel370
+.cc_top cc_739,.Lxtalabel371
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel370
+	.long	.Lxtalabel371
 .cc_bottom cc_739
-.cc_top cc_740,.Lxtalabel267
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel267
-.cc_bottom cc_740
-.cc_top cc_741,.Lxtalabel108
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel108
-.cc_bottom cc_741
-.cc_top cc_742,.Lxtalabel45
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	542
-	.long	544
-	.long	.Lxtalabel45
-.cc_bottom cc_742
-.cc_top cc_743,.Lxtalabel41
+.cc_top cc_740,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
 	.long	.Lxtalabel41
-.cc_bottom cc_743
-.cc_top cc_744,.Lxtalabel159
+.cc_bottom cc_740
+.cc_top cc_741,.Lxtalabel159
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
 	.long	.Lxtalabel159
-.cc_bottom cc_744
-.cc_top cc_745,.Lxtalabel44
+.cc_bottom cc_741
+.cc_top cc_742,.Lxtalabel108
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel44
+	.long	.Lxtalabel108
+.cc_bottom cc_742
+.cc_top cc_743,.Lxtalabel267
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel267
+.cc_bottom cc_743
+.cc_top cc_744,.Lxtalabel42
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel42
+.cc_bottom cc_744
+.cc_top cc_745,.Lxtalabel43
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	542
+	.long	544
+	.long	.Lxtalabel43
 .cc_bottom cc_745
 .cc_top cc_746,.Lxtalabel369
 	.ascii	"../src/port_heat_light_server.xc"
@@ -21924,117 +21924,117 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	544
 	.long	.Lxtalabel369
 .cc_bottom cc_746
-.cc_top cc_747,.Lxtalabel42
+.cc_top cc_747,.Lxtalabel45
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel42
+	.long	.Lxtalabel45
 .cc_bottom cc_747
-.cc_top cc_748,.Lxtalabel43
+.cc_top cc_748,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	542
 	.long	544
-	.long	.Lxtalabel43
+	.long	.Lxtalabel44
 .cc_bottom cc_748
-.cc_top cc_749,.Lxtalabel267
+.cc_top cc_749,.Lxtalabel44
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel267
+	.long	.Lxtalabel44
 .cc_bottom cc_749
-.cc_top cc_750,.Lxtalabel266
+.cc_top cc_750,.Lxtalabel43
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel266
+	.long	.Lxtalabel43
 .cc_bottom cc_750
-.cc_top cc_751,.Lxtalabel265
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel265
-.cc_bottom cc_751
-.cc_top cc_752,.Lxtalabel264
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel264
-.cc_bottom cc_752
-.cc_top cc_753,.Lxtalabel263
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel263
-.cc_bottom cc_753
-.cc_top cc_754,.Lxtalabel369
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel369
-.cc_bottom cc_754
-.cc_top cc_755,.Lxtalabel370
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel370
-.cc_bottom cc_755
-.cc_top cc_756,.Lxtalabel371
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel371
-.cc_bottom cc_756
-.cc_top cc_757,.Lxtalabel368
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel368
-.cc_bottom cc_757
-.cc_top cc_758,.Lxtalabel367
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel367
-.cc_bottom cc_758
-.cc_top cc_759,.Lxtalabel163
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel163
-.cc_bottom cc_759
-.cc_top cc_760,.Lxtalabel162
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel162
-.cc_bottom cc_760
-.cc_top cc_761,.Lxtalabel161
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel161
-.cc_bottom cc_761
-.cc_top cc_762,.Lxtalabel160
+.cc_top cc_751,.Lxtalabel160
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
 	.long	.Lxtalabel160
+.cc_bottom cc_751
+.cc_top cc_752,.Lxtalabel112
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel112
+.cc_bottom cc_752
+.cc_top cc_753,.Lxtalabel45
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel45
+.cc_bottom cc_753
+.cc_top cc_754,.Lxtalabel264
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel264
+.cc_bottom cc_754
+.cc_top cc_755,.Lxtalabel368
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel368
+.cc_bottom cc_755
+.cc_top cc_756,.Lxtalabel369
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel369
+.cc_bottom cc_756
+.cc_top cc_757,.Lxtalabel111
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel111
+.cc_bottom cc_757
+.cc_top cc_758,.Lxtalabel110
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel110
+.cc_bottom cc_758
+.cc_top cc_759,.Lxtalabel42
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel42
+.cc_bottom cc_759
+.cc_top cc_760,.Lxtalabel267
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel267
+.cc_bottom cc_760
+.cc_top cc_761,.Lxtalabel265
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel265
+.cc_bottom cc_761
+.cc_top cc_762,.Lxtalabel108
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel108
 .cc_bottom cc_762
 .cc_top cc_763,.Lxtalabel41
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22043,61 +22043,61 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	546
 	.long	.Lxtalabel41
 .cc_bottom cc_763
-.cc_top cc_764,.Lxtalabel159
+.cc_top cc_764,.Lxtalabel163
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel163
+.cc_bottom cc_764
+.cc_top cc_765,.Lxtalabel161
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel161
+.cc_bottom cc_765
+.cc_top cc_766,.Lxtalabel367
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel367
+.cc_bottom cc_766
+.cc_top cc_767,.Lxtalabel263
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	546
+	.long	546
+	.long	.Lxtalabel263
+.cc_bottom cc_767
+.cc_top cc_768,.Lxtalabel159
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
 	.long	.Lxtalabel159
-.cc_bottom cc_764
-.cc_top cc_765,.Lxtalabel112
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel112
-.cc_bottom cc_765
-.cc_top cc_766,.Lxtalabel111
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel111
-.cc_bottom cc_766
-.cc_top cc_767,.Lxtalabel110
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel110
-.cc_bottom cc_767
-.cc_top cc_768,.Lxtalabel42
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	546
-	.long	546
-	.long	.Lxtalabel42
 .cc_bottom cc_768
-.cc_top cc_769,.Lxtalabel43
+.cc_top cc_769,.Lxtalabel370
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel43
+	.long	.Lxtalabel370
 .cc_bottom cc_769
-.cc_top cc_770,.Lxtalabel44
+.cc_top cc_770,.Lxtalabel266
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel44
+	.long	.Lxtalabel266
 .cc_bottom cc_770
-.cc_top cc_771,.Lxtalabel45
+.cc_top cc_771,.Lxtalabel162
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel45
+	.long	.Lxtalabel162
 .cc_bottom cc_771
 .cc_top cc_772,.Lxtalabel109
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22106,68 +22106,68 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	546
 	.long	.Lxtalabel109
 .cc_bottom cc_772
-.cc_top cc_773,.Lxtalabel108
+.cc_top cc_773,.Lxtalabel371
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	546
 	.long	546
-	.long	.Lxtalabel108
+	.long	.Lxtalabel371
 .cc_bottom cc_773
-.cc_top cc_774,.Lxtalabel290
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel290
-.cc_bottom cc_774
-.cc_top cc_775,.Lxtalabel136
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel136
-.cc_bottom cc_775
-.cc_top cc_776,.Lxtalabel186
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel186
-.cc_bottom cc_776
-.cc_top cc_777,.Lxtalabel390
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel390
-.cc_bottom cc_777
-.cc_top cc_778,.Lxtalabel17
+.cc_top cc_774,.Lxtalabel17
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	552
 	.long	553
 	.long	.Lxtalabel17
+.cc_bottom cc_774
+.cc_top cc_775,.Lxtalabel18
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel18
+.cc_bottom cc_775
+.cc_top cc_776,.Lxtalabel286
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel286
+.cc_bottom cc_776
+.cc_top cc_777,.Lxtalabel290
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel290
+.cc_bottom cc_777
+.cc_top cc_778,.Lxtalabel285
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel285
 .cc_bottom cc_778
-.cc_top cc_779,.Lxtalabel389
+.cc_top cc_779,.Lxtalabel19
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel19
+.cc_bottom cc_779
+.cc_top cc_780,.Lxtalabel132
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel132
+.cc_bottom cc_780
+.cc_top cc_781,.Lxtalabel389
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	552
 	.long	553
 	.long	.Lxtalabel389
-.cc_bottom cc_779
-.cc_top cc_780,.Lxtalabel394
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel394
-.cc_bottom cc_780
-.cc_top cc_781,.Lxtalabel182
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel182
 .cc_bottom cc_781
 .cc_top cc_782,.Lxtalabel181
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22176,47 +22176,47 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	553
 	.long	.Lxtalabel181
 .cc_bottom cc_782
-.cc_top cc_783,.Lxtalabel286
+.cc_top cc_783,.Lxtalabel182
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	552
 	.long	553
-	.long	.Lxtalabel286
+	.long	.Lxtalabel182
 .cc_bottom cc_783
-.cc_top cc_784,.Lxtalabel18
+.cc_top cc_784,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	552
 	.long	553
-	.long	.Lxtalabel18
+	.long	.Lxtalabel136
 .cc_bottom cc_784
-.cc_top cc_785,.Lxtalabel131
+.cc_top cc_785,.Lxtalabel390
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel390
+.cc_bottom cc_785
+.cc_top cc_786,.Lxtalabel186
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel186
+.cc_bottom cc_786
+.cc_top cc_787,.Lxtalabel394
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	552
+	.long	553
+	.long	.Lxtalabel394
+.cc_bottom cc_787
+.cc_top cc_788,.Lxtalabel131
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	552
 	.long	553
 	.long	.Lxtalabel131
-.cc_bottom cc_785
-.cc_top cc_786,.Lxtalabel19
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel19
-.cc_bottom cc_786
-.cc_top cc_787,.Lxtalabel132
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel132
-.cc_bottom cc_787
-.cc_top cc_788,.Lxtalabel285
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	552
-	.long	553
-	.long	.Lxtalabel285
 .cc_bottom cc_788
 .cc_top cc_789,.Lxtalabel290
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22225,89 +22225,89 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	555
 	.long	.Lxtalabel290
 .cc_bottom cc_789
-.cc_top cc_790,.Lxtalabel136
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel136
-.cc_bottom cc_790
-.cc_top cc_791,.Lxtalabel132
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel132
-.cc_bottom cc_791
-.cc_top cc_792,.Lxtalabel19
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel19
-.cc_bottom cc_792
-.cc_top cc_793,.Lxtalabel131
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel131
-.cc_bottom cc_793
-.cc_top cc_794,.Lxtalabel18
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel18
-.cc_bottom cc_794
-.cc_top cc_795,.Lxtalabel285
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel285
-.cc_bottom cc_795
-.cc_top cc_796,.Lxtalabel286
+.cc_top cc_790,.Lxtalabel286
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	555
 	.long	555
 	.long	.Lxtalabel286
-.cc_bottom cc_796
-.cc_top cc_797,.Lxtalabel181
+.cc_bottom cc_790
+.cc_top cc_791,.Lxtalabel285
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	555
 	.long	555
-	.long	.Lxtalabel181
-.cc_bottom cc_797
-.cc_top cc_798,.Lxtalabel17
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel17
-.cc_bottom cc_798
-.cc_top cc_799,.Lxtalabel394
+	.long	.Lxtalabel285
+.cc_bottom cc_791
+.cc_top cc_792,.Lxtalabel394
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	555
 	.long	555
 	.long	.Lxtalabel394
-.cc_bottom cc_799
-.cc_top cc_800,.Lxtalabel182
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	555
-	.long	555
-	.long	.Lxtalabel182
-.cc_bottom cc_800
-.cc_top cc_801,.Lxtalabel389
+.cc_bottom cc_792
+.cc_top cc_793,.Lxtalabel389
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	555
 	.long	555
 	.long	.Lxtalabel389
+.cc_bottom cc_793
+.cc_top cc_794,.Lxtalabel181
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel181
+.cc_bottom cc_794
+.cc_top cc_795,.Lxtalabel182
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel182
+.cc_bottom cc_795
+.cc_top cc_796,.Lxtalabel186
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel186
+.cc_bottom cc_796
+.cc_top cc_797,.Lxtalabel131
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel131
+.cc_bottom cc_797
+.cc_top cc_798,.Lxtalabel19
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel19
+.cc_bottom cc_798
+.cc_top cc_799,.Lxtalabel132
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel132
+.cc_bottom cc_799
+.cc_top cc_800,.Lxtalabel18
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel18
+.cc_bottom cc_800
+.cc_top cc_801,.Lxtalabel17
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	555
+	.long	555
+	.long	.Lxtalabel17
 .cc_bottom cc_801
 .cc_top cc_802,.Lxtalabel390
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22316,12 +22316,12 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	555
 	.long	.Lxtalabel390
 .cc_bottom cc_802
-.cc_top cc_803,.Lxtalabel186
+.cc_top cc_803,.Lxtalabel136
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	555
 	.long	555
-	.long	.Lxtalabel186
+	.long	.Lxtalabel136
 .cc_bottom cc_803
 .cc_top cc_804,.Lxtalabel0
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22330,26 +22330,26 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	576
 	.long	.Lxtalabel0
 .cc_bottom cc_804
-.cc_top cc_805,.Lxtalabel393
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	575
-	.long	576
-	.long	.Lxtalabel393
-.cc_bottom cc_805
-.cc_top cc_806,.Lxtalabel289
+.cc_top cc_805,.Lxtalabel289
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	575
 	.long	576
 	.long	.Lxtalabel289
-.cc_bottom cc_806
-.cc_top cc_807,.Lxtalabel135
+.cc_bottom cc_805
+.cc_top cc_806,.Lxtalabel135
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	575
 	.long	576
 	.long	.Lxtalabel135
+.cc_bottom cc_806
+.cc_top cc_807,.Lxtalabel393
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	575
+	.long	576
+	.long	.Lxtalabel393
 .cc_bottom cc_807
 .cc_top cc_808,.Lxtalabel185
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22358,61 +22358,61 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	576
 	.long	.Lxtalabel185
 .cc_bottom cc_808
-.cc_top cc_809,.Lxtalabel393
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	578
-	.long	578
-	.long	.Lxtalabel393
-.cc_bottom cc_809
-.cc_top cc_810,.Lxtalabel185
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	578
-	.long	578
-	.long	.Lxtalabel185
-.cc_bottom cc_810
-.cc_top cc_811,.Lxtalabel0
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	578
-	.long	578
-	.long	.Lxtalabel0
-.cc_bottom cc_811
-.cc_top cc_812,.Lxtalabel289
+.cc_top cc_809,.Lxtalabel289
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	578
 	.long	578
 	.long	.Lxtalabel289
-.cc_bottom cc_812
-.cc_top cc_813,.Lxtalabel135
+.cc_bottom cc_809
+.cc_top cc_810,.Lxtalabel135
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	578
 	.long	578
 	.long	.Lxtalabel135
+.cc_bottom cc_810
+.cc_top cc_811,.Lxtalabel393
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	578
+	.long	578
+	.long	.Lxtalabel393
+.cc_bottom cc_811
+.cc_top cc_812,.Lxtalabel185
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	578
+	.long	578
+	.long	.Lxtalabel185
+.cc_bottom cc_812
+.cc_top cc_813,.Lxtalabel0
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	578
+	.long	578
+	.long	.Lxtalabel0
 .cc_bottom cc_813
-.cc_top cc_814,.Lxtalabel3
+.cc_top cc_814,.Lxtalabel137
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	584
+	.long	584
+	.long	.Lxtalabel137
+.cc_bottom cc_814
+.cc_top cc_815,.Lxtalabel3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	584
 	.long	584
 	.long	.Lxtalabel3
-.cc_bottom cc_814
-.cc_top cc_815,.Lxtalabel187
+.cc_bottom cc_815
+.cc_top cc_816,.Lxtalabel187
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	584
 	.long	584
 	.long	.Lxtalabel187
-.cc_bottom cc_815
-.cc_top cc_816,.Lxtalabel291
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	584
-	.long	584
-	.long	.Lxtalabel291
 .cc_bottom cc_816
 .cc_top cc_817,.Lxtalabel395
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22421,40 +22421,40 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	584
 	.long	.Lxtalabel395
 .cc_bottom cc_817
-.cc_top cc_818,.Lxtalabel137
+.cc_top cc_818,.Lxtalabel291
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	584
 	.long	584
-	.long	.Lxtalabel137
+	.long	.Lxtalabel291
 .cc_bottom cc_818
-.cc_top cc_819,.Lxtalabel137
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	586
-	.long	587
-	.long	.Lxtalabel137
-.cc_bottom cc_819
-.cc_top cc_820,.Lxtalabel187
+.cc_top cc_819,.Lxtalabel187
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	586
 	.long	587
 	.long	.Lxtalabel187
-.cc_bottom cc_820
-.cc_top cc_821,.Lxtalabel3
+.cc_bottom cc_819
+.cc_top cc_820,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	586
 	.long	587
-	.long	.Lxtalabel3
-.cc_bottom cc_821
-.cc_top cc_822,.Lxtalabel395
+	.long	.Lxtalabel137
+.cc_bottom cc_820
+.cc_top cc_821,.Lxtalabel395
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	586
 	.long	587
 	.long	.Lxtalabel395
+.cc_bottom cc_821
+.cc_top cc_822,.Lxtalabel3
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	586
+	.long	587
+	.long	.Lxtalabel3
 .cc_bottom cc_822
 .cc_top cc_823,.Lxtalabel291
 	.ascii	"../src/port_heat_light_server.xc"
@@ -22463,1532 +22463,1567 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	587
 	.long	.Lxtalabel291
 .cc_bottom cc_823
-.cc_top cc_824,.Lxtalabel187
+.cc_top cc_824,.Lxtalabel3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	589
-	.long	590
-	.long	.Lxtalabel187
-.cc_bottom cc_824
-.cc_top cc_825,.Lxtalabel3
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
 	.long	589
-	.long	590
 	.long	.Lxtalabel3
+.cc_bottom cc_824
+.cc_top cc_825,.Lxtalabel187
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	589
+	.long	589
+	.long	.Lxtalabel187
 .cc_bottom cc_825
-.cc_top cc_826,.Lxtalabel291
+.cc_top cc_826,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	589
-	.long	590
-	.long	.Lxtalabel291
-.cc_bottom cc_826
-.cc_top cc_827,.Lxtalabel137
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
 	.long	589
-	.long	590
 	.long	.Lxtalabel137
-.cc_bottom cc_827
-.cc_top cc_828,.Lxtalabel395
+.cc_bottom cc_826
+.cc_top cc_827,.Lxtalabel395
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	589
-	.long	590
+	.long	589
 	.long	.Lxtalabel395
+.cc_bottom cc_827
+.cc_top cc_828,.Lxtalabel291
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	589
+	.long	589
+	.long	.Lxtalabel291
 .cc_bottom cc_828
-.cc_top cc_829,.Lxtalabel287
+.cc_top cc_829,.Lxtalabel291
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	591
 	.long	591
-	.long	.Lxtalabel287
+	.long	.Lxtalabel291
 .cc_bottom cc_829
-.cc_top cc_830,.Lxtalabel133
+.cc_top cc_830,.Lxtalabel187
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	591
 	.long	591
-	.long	.Lxtalabel133
+	.long	.Lxtalabel187
 .cc_bottom cc_830
-.cc_top cc_831,.Lxtalabel1
+.cc_top cc_831,.Lxtalabel3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	591
 	.long	591
-	.long	.Lxtalabel1
+	.long	.Lxtalabel3
 .cc_bottom cc_831
-.cc_top cc_832,.Lxtalabel183
+.cc_top cc_832,.Lxtalabel137
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	591
 	.long	591
-	.long	.Lxtalabel183
+	.long	.Lxtalabel137
 .cc_bottom cc_832
-.cc_top cc_833,.Lxtalabel391
+.cc_top cc_833,.Lxtalabel395
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	591
 	.long	591
-	.long	.Lxtalabel391
+	.long	.Lxtalabel395
 .cc_bottom cc_833
-.cc_top cc_834,.Lxtalabel294
+.cc_top cc_834,.Lxtalabel391
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	592
-	.long	594
-	.long	.Lxtalabel294
+	.long	592
+	.long	.Lxtalabel391
 .cc_bottom cc_834
-.cc_top cc_835,.Lxtalabel6
+.cc_top cc_835,.Lxtalabel133
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	592
-	.long	594
-	.long	.Lxtalabel6
+	.long	592
+	.long	.Lxtalabel133
 .cc_bottom cc_835
-.cc_top cc_836,.Lxtalabel149
+.cc_top cc_836,.Lxtalabel1
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	592
-	.long	594
-	.long	.Lxtalabel149
+	.long	592
+	.long	.Lxtalabel1
 .cc_bottom cc_836
-.cc_top cc_837,.Lxtalabel398
+.cc_top cc_837,.Lxtalabel183
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	592
-	.long	594
-	.long	.Lxtalabel398
+	.long	592
+	.long	.Lxtalabel183
 .cc_bottom cc_837
-.cc_top cc_838,.Lxtalabel190
+.cc_top cc_838,.Lxtalabel287
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	592
-	.long	594
-	.long	.Lxtalabel190
+	.long	592
+	.long	.Lxtalabel287
 .cc_bottom cc_838
-.cc_top cc_839,.Lxtalabel398
+.cc_top cc_839,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	596
-	.long	597
-	.long	.Lxtalabel398
+	.long	593
+	.long	595
+	.long	.Lxtalabel190
 .cc_bottom cc_839
-.cc_top cc_840,.Lxtalabel6
+.cc_top cc_840,.Lxtalabel294
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	596
-	.long	597
-	.long	.Lxtalabel6
+	.long	593
+	.long	595
+	.long	.Lxtalabel294
 .cc_bottom cc_840
-.cc_top cc_841,.Lxtalabel190
+.cc_top cc_841,.Lxtalabel149
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	596
-	.long	597
-	.long	.Lxtalabel190
+	.long	593
+	.long	595
+	.long	.Lxtalabel149
 .cc_bottom cc_841
-.cc_top cc_842,.Lxtalabel149
+.cc_top cc_842,.Lxtalabel398
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	596
-	.long	597
-	.long	.Lxtalabel149
-.cc_bottom cc_842
-.cc_top cc_843,.Lxtalabel294
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	596
-	.long	597
-	.long	.Lxtalabel294
-.cc_bottom cc_843
-.cc_top cc_844,.Lxtalabel294
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	599
-	.long	599
-	.long	.Lxtalabel294
-.cc_bottom cc_844
-.cc_top cc_845,.Lxtalabel190
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	599
-	.long	599
-	.long	.Lxtalabel190
-.cc_bottom cc_845
-.cc_top cc_846,.Lxtalabel149
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	599
-	.long	599
-	.long	.Lxtalabel149
-.cc_bottom cc_846
-.cc_top cc_847,.Lxtalabel398
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	599
-	.long	599
+	.long	593
+	.long	595
 	.long	.Lxtalabel398
-.cc_bottom cc_847
-.cc_top cc_848,.Lxtalabel6
+.cc_bottom cc_842
+.cc_top cc_843,.Lxtalabel6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	599
-	.long	599
+	.long	593
+	.long	595
 	.long	.Lxtalabel6
+.cc_bottom cc_843
+.cc_top cc_844,.Lxtalabel6
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	597
+	.long	598
+	.long	.Lxtalabel6
+.cc_bottom cc_844
+.cc_top cc_845,.Lxtalabel398
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	597
+	.long	598
+	.long	.Lxtalabel398
+.cc_bottom cc_845
+.cc_top cc_846,.Lxtalabel190
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	597
+	.long	598
+	.long	.Lxtalabel190
+.cc_bottom cc_846
+.cc_top cc_847,.Lxtalabel294
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	597
+	.long	598
+	.long	.Lxtalabel294
+.cc_bottom cc_847
+.cc_top cc_848,.Lxtalabel149
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	597
+	.long	598
+	.long	.Lxtalabel149
 .cc_bottom cc_848
-.cc_top cc_849,.Lxtalabel392
+.cc_top cc_849,.Lxtalabel6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	600
-	.long	602
-	.long	.Lxtalabel392
+	.long	600
+	.long	.Lxtalabel6
 .cc_bottom cc_849
-.cc_top cc_850,.Lxtalabel184
+.cc_top cc_850,.Lxtalabel190
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	600
-	.long	602
-	.long	.Lxtalabel184
+	.long	600
+	.long	.Lxtalabel190
 .cc_bottom cc_850
-.cc_top cc_851,.Lxtalabel134
+.cc_top cc_851,.Lxtalabel398
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	600
-	.long	602
-	.long	.Lxtalabel134
+	.long	600
+	.long	.Lxtalabel398
 .cc_bottom cc_851
-.cc_top cc_852,.Lxtalabel2
+.cc_top cc_852,.Lxtalabel294
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	600
-	.long	602
-	.long	.Lxtalabel2
+	.long	600
+	.long	.Lxtalabel294
 .cc_bottom cc_852
-.cc_top cc_853,.Lxtalabel288
+.cc_top cc_853,.Lxtalabel149
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	600
-	.long	602
-	.long	.Lxtalabel288
+	.long	600
+	.long	.Lxtalabel149
 .cc_bottom cc_853
 .cc_top cc_854,.Lxtalabel392
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	604
-	.long	605
+	.long	601
+	.long	603
 	.long	.Lxtalabel392
 .cc_bottom cc_854
-.cc_top cc_855,.Lxtalabel2
+.cc_top cc_855,.Lxtalabel184
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	604
-	.long	605
-	.long	.Lxtalabel2
+	.long	601
+	.long	603
+	.long	.Lxtalabel184
 .cc_bottom cc_855
 .cc_top cc_856,.Lxtalabel134
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	604
-	.long	605
+	.long	601
+	.long	603
 	.long	.Lxtalabel134
 .cc_bottom cc_856
-.cc_top cc_857,.Lxtalabel184
+.cc_top cc_857,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	604
-	.long	605
-	.long	.Lxtalabel184
+	.long	601
+	.long	603
+	.long	.Lxtalabel288
 .cc_bottom cc_857
-.cc_top cc_858,.Lxtalabel288
+.cc_top cc_858,.Lxtalabel2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	604
-	.long	605
-	.long	.Lxtalabel288
-.cc_bottom cc_858
-.cc_top cc_859,.Lxtalabel288
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	607
-	.long	607
-	.long	.Lxtalabel288
-.cc_bottom cc_859
-.cc_top cc_860,.Lxtalabel2
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	607
-	.long	607
+	.long	601
+	.long	603
 	.long	.Lxtalabel2
-.cc_bottom cc_860
-.cc_top cc_861,.Lxtalabel184
+.cc_bottom cc_858
+.cc_top cc_859,.Lxtalabel134
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	607
-	.long	607
-	.long	.Lxtalabel184
-.cc_bottom cc_861
-.cc_top cc_862,.Lxtalabel392
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	607
-	.long	607
-	.long	.Lxtalabel392
-.cc_bottom cc_862
-.cc_top cc_863,.Lxtalabel134
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	607
-	.long	607
+	.long	605
+	.long	606
 	.long	.Lxtalabel134
+.cc_bottom cc_859
+.cc_top cc_860,.Lxtalabel184
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	605
+	.long	606
+	.long	.Lxtalabel184
+.cc_bottom cc_860
+.cc_top cc_861,.Lxtalabel392
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	605
+	.long	606
+	.long	.Lxtalabel392
+.cc_bottom cc_861
+.cc_top cc_862,.Lxtalabel2
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	605
+	.long	606
+	.long	.Lxtalabel2
+.cc_bottom cc_862
+.cc_top cc_863,.Lxtalabel288
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	605
+	.long	606
+	.long	.Lxtalabel288
 .cc_bottom cc_863
-.cc_top cc_864,.Lxtalabel4
+.cc_top cc_864,.Lxtalabel134
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	611
-	.long	611
-	.long	.Lxtalabel4
+	.long	608
+	.long	608
+	.long	.Lxtalabel134
 .cc_bottom cc_864
-.cc_top cc_865,.Lxtalabel138
+.cc_top cc_865,.Lxtalabel392
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	611
-	.long	611
-	.long	.Lxtalabel138
+	.long	608
+	.long	608
+	.long	.Lxtalabel392
 .cc_bottom cc_865
-.cc_top cc_866,.Lxtalabel188
+.cc_top cc_866,.Lxtalabel184
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	611
-	.long	611
-	.long	.Lxtalabel188
+	.long	608
+	.long	608
+	.long	.Lxtalabel184
 .cc_bottom cc_866
-.cc_top cc_867,.Lxtalabel396
+.cc_top cc_867,.Lxtalabel288
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	611
-	.long	611
-	.long	.Lxtalabel396
+	.long	608
+	.long	608
+	.long	.Lxtalabel288
 .cc_bottom cc_867
-.cc_top cc_868,.Lxtalabel292
+.cc_top cc_868,.Lxtalabel2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	611
-	.long	611
-	.long	.Lxtalabel292
+	.long	608
+	.long	608
+	.long	.Lxtalabel2
 .cc_bottom cc_868
-.cc_top cc_869,.Lxtalabel138
+.cc_top cc_869,.Lxtalabel4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	613
-	.long	614
-	.long	.Lxtalabel138
-.cc_bottom cc_869
-.cc_top cc_870,.Lxtalabel188
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	613
-	.long	614
-	.long	.Lxtalabel188
-.cc_bottom cc_870
-.cc_top cc_871,.Lxtalabel292
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	613
-	.long	614
-	.long	.Lxtalabel292
-.cc_bottom cc_871
-.cc_top cc_872,.Lxtalabel4
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	613
-	.long	614
+	.long	612
+	.long	612
 	.long	.Lxtalabel4
-.cc_bottom cc_872
-.cc_top cc_873,.Lxtalabel396
+.cc_bottom cc_869
+.cc_top cc_870,.Lxtalabel138
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	613
-	.long	614
+	.long	612
+	.long	612
+	.long	.Lxtalabel138
+.cc_bottom cc_870
+.cc_top cc_871,.Lxtalabel396
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	612
+	.long	612
 	.long	.Lxtalabel396
-.cc_bottom cc_873
-.cc_top cc_874,.Lxtalabel188
+.cc_bottom cc_871
+.cc_top cc_872,.Lxtalabel292
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	616
-	.long	617
+	.long	612
+	.long	612
+	.long	.Lxtalabel292
+.cc_bottom cc_872
+.cc_top cc_873,.Lxtalabel188
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	612
+	.long	612
 	.long	.Lxtalabel188
+.cc_bottom cc_873
+.cc_top cc_874,.Lxtalabel292
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	614
+	.long	615
+	.long	.Lxtalabel292
 .cc_bottom cc_874
 .cc_top cc_875,.Lxtalabel4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	616
-	.long	617
+	.long	614
+	.long	615
 	.long	.Lxtalabel4
 .cc_bottom cc_875
-.cc_top cc_876,.Lxtalabel396
+.cc_top cc_876,.Lxtalabel188
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	616
-	.long	617
-	.long	.Lxtalabel396
+	.long	614
+	.long	615
+	.long	.Lxtalabel188
 .cc_bottom cc_876
 .cc_top cc_877,.Lxtalabel138
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	616
-	.long	617
+	.long	614
+	.long	615
 	.long	.Lxtalabel138
 .cc_bottom cc_877
-.cc_top cc_878,.Lxtalabel292
+.cc_top cc_878,.Lxtalabel396
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	616
-	.long	617
-	.long	.Lxtalabel292
+	.long	614
+	.long	615
+	.long	.Lxtalabel396
 .cc_bottom cc_878
-.cc_top cc_879,.Lxtalabel296
+.cc_top cc_879,.Lxtalabel138
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel296
+	.long	617
+	.long	618
+	.long	.Lxtalabel138
 .cc_bottom cc_879
-.cc_top cc_880,.Lxtalabel397
+.cc_top cc_880,.Lxtalabel188
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel397
+	.long	617
+	.long	618
+	.long	.Lxtalabel188
 .cc_bottom cc_880
-.cc_top cc_881,.Lxtalabel189
+.cc_top cc_881,.Lxtalabel4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel189
+	.long	617
+	.long	618
+	.long	.Lxtalabel4
 .cc_bottom cc_881
-.cc_top cc_882,.Lxtalabel139
+.cc_top cc_882,.Lxtalabel292
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel139
+	.long	617
+	.long	618
+	.long	.Lxtalabel292
 .cc_bottom cc_882
-.cc_top cc_883,.Lxtalabel295
+.cc_top cc_883,.Lxtalabel396
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel295
+	.long	617
+	.long	618
+	.long	.Lxtalabel396
 .cc_bottom cc_883
-.cc_top cc_884,.Lxtalabel293
+.cc_top cc_884,.Lxtalabel397
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel293
+	.long	620
+	.long	620
+	.long	.Lxtalabel397
 .cc_bottom cc_884
-.cc_top cc_885,.Lxtalabel141
+.cc_top cc_885,.Lxtalabel191
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel141
-.cc_bottom cc_885
-.cc_top cc_886,.Lxtalabel140
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel140
-.cc_bottom cc_886
-.cc_top cc_887,.Lxtalabel5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel5
-.cc_bottom cc_887
-.cc_top cc_888,.Lxtalabel191
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	619
-	.long	619
+	.long	620
+	.long	620
 	.long	.Lxtalabel191
-.cc_bottom cc_888
-.cc_top cc_889,.Lxtalabel192
+.cc_bottom cc_885
+.cc_top cc_886,.Lxtalabel192
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
+	.long	620
+	.long	620
 	.long	.Lxtalabel192
-.cc_bottom cc_889
-.cc_top cc_890,.Lxtalabel7
+.cc_bottom cc_886
+.cc_top cc_887,.Lxtalabel141
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel7
+	.long	620
+	.long	620
+	.long	.Lxtalabel141
+.cc_bottom cc_887
+.cc_top cc_888,.Lxtalabel189
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel189
+.cc_bottom cc_888
+.cc_top cc_889,.Lxtalabel399
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel399
+.cc_bottom cc_889
+.cc_top cc_890,.Lxtalabel293
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel293
 .cc_bottom cc_890
 .cc_top cc_891,.Lxtalabel8
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
+	.long	620
+	.long	620
 	.long	.Lxtalabel8
 .cc_bottom cc_891
-.cc_top cc_892,.Lxtalabel9
+.cc_top cc_892,.Lxtalabel295
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel9
-.cc_bottom cc_892
-.cc_top cc_893,.Lxtalabel400
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel400
-.cc_bottom cc_893
-.cc_top cc_894,.Lxtalabel399
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	619
-	.long	619
-	.long	.Lxtalabel399
-.cc_bottom cc_894
-.cc_top cc_895,.Lxtalabel295
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
+	.long	620
+	.long	620
 	.long	.Lxtalabel295
-.cc_bottom cc_895
-.cc_top cc_896,.Lxtalabel192
+.cc_bottom cc_892
+.cc_top cc_893,.Lxtalabel7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel192
-.cc_bottom cc_896
-.cc_top cc_897,.Lxtalabel399
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel399
-.cc_bottom cc_897
-.cc_top cc_898,.Lxtalabel189
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel189
-.cc_bottom cc_898
-.cc_top cc_899,.Lxtalabel400
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel400
-.cc_bottom cc_899
-.cc_top cc_900,.Lxtalabel5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel5
-.cc_bottom cc_900
-.cc_top cc_901,.Lxtalabel397
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel397
-.cc_bottom cc_901
-.cc_top cc_902,.Lxtalabel293
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel293
-.cc_bottom cc_902
-.cc_top cc_903,.Lxtalabel296
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel296
-.cc_bottom cc_903
-.cc_top cc_904,.Lxtalabel139
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel139
-.cc_bottom cc_904
-.cc_top cc_905,.Lxtalabel140
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel140
-.cc_bottom cc_905
-.cc_top cc_906,.Lxtalabel191
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel191
-.cc_bottom cc_906
-.cc_top cc_907,.Lxtalabel141
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel141
-.cc_bottom cc_907
-.cc_top cc_908,.Lxtalabel9
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
-	.long	.Lxtalabel9
-.cc_bottom cc_908
-.cc_top cc_909,.Lxtalabel7
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	621
-	.long	621
+	.long	620
+	.long	620
 	.long	.Lxtalabel7
-.cc_bottom cc_909
-.cc_top cc_910,.Lxtalabel8
+.cc_bottom cc_893
+.cc_top cc_894,.Lxtalabel296
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	621
-	.long	621
+	.long	620
+	.long	620
+	.long	.Lxtalabel296
+.cc_bottom cc_894
+.cc_top cc_895,.Lxtalabel5
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel5
+.cc_bottom cc_895
+.cc_top cc_896,.Lxtalabel400
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel400
+.cc_bottom cc_896
+.cc_top cc_897,.Lxtalabel140
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel140
+.cc_bottom cc_897
+.cc_top cc_898,.Lxtalabel139
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel139
+.cc_bottom cc_898
+.cc_top cc_899,.Lxtalabel9
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	620
+	.long	620
+	.long	.Lxtalabel9
+.cc_bottom cc_899
+.cc_top cc_900,.Lxtalabel399
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel399
+.cc_bottom cc_900
+.cc_top cc_901,.Lxtalabel139
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel139
+.cc_bottom cc_901
+.cc_top cc_902,.Lxtalabel140
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel140
+.cc_bottom cc_902
+.cc_top cc_903,.Lxtalabel8
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
 	.long	.Lxtalabel8
+.cc_bottom cc_903
+.cc_top cc_904,.Lxtalabel141
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel141
+.cc_bottom cc_904
+.cc_top cc_905,.Lxtalabel189
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel189
+.cc_bottom cc_905
+.cc_top cc_906,.Lxtalabel293
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel293
+.cc_bottom cc_906
+.cc_top cc_907,.Lxtalabel400
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel400
+.cc_bottom cc_907
+.cc_top cc_908,.Lxtalabel5
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel5
+.cc_bottom cc_908
+.cc_top cc_909,.Lxtalabel397
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel397
+.cc_bottom cc_909
+.cc_top cc_910,.Lxtalabel191
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	622
+	.long	622
+	.long	.Lxtalabel191
 .cc_bottom cc_910
-.cc_top cc_911,.Lxtalabel193
+.cc_top cc_911,.Lxtalabel7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	623
-	.long	627
-	.long	.Lxtalabel193
+	.long	622
+	.long	622
+	.long	.Lxtalabel7
 .cc_bottom cc_911
-.cc_top cc_912,.Lxtalabel297
+.cc_top cc_912,.Lxtalabel192
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	623
-	.long	627
-	.long	.Lxtalabel297
+	.long	622
+	.long	622
+	.long	.Lxtalabel192
 .cc_bottom cc_912
-.cc_top cc_913,.Lxtalabel10
+.cc_top cc_913,.Lxtalabel295
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	623
-	.long	627
-	.long	.Lxtalabel10
+	.long	622
+	.long	622
+	.long	.Lxtalabel295
 .cc_bottom cc_913
-.cc_top cc_914,.Lxtalabel142
+.cc_top cc_914,.Lxtalabel296
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	623
-	.long	627
-	.long	.Lxtalabel142
+	.long	622
+	.long	622
+	.long	.Lxtalabel296
 .cc_bottom cc_914
-.cc_top cc_915,.Lxtalabel401
+.cc_top cc_915,.Lxtalabel9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	623
-	.long	627
-	.long	.Lxtalabel401
+	.long	622
+	.long	622
+	.long	.Lxtalabel9
 .cc_bottom cc_915
 .cc_top cc_916,.Lxtalabel401
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	629
-	.long	629
+	.long	624
+	.long	628
 	.long	.Lxtalabel401
 .cc_bottom cc_916
 .cc_top cc_917,.Lxtalabel10
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	629
-	.long	629
+	.long	624
+	.long	628
 	.long	.Lxtalabel10
 .cc_bottom cc_917
 .cc_top cc_918,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	629
-	.long	629
+	.long	624
+	.long	628
 	.long	.Lxtalabel193
 .cc_bottom cc_918
 .cc_top cc_919,.Lxtalabel297
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	629
-	.long	629
+	.long	624
+	.long	628
 	.long	.Lxtalabel297
 .cc_bottom cc_919
 .cc_top cc_920,.Lxtalabel142
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	629
-	.long	629
+	.long	624
+	.long	628
 	.long	.Lxtalabel142
 .cc_bottom cc_920
 .cc_top cc_921,.Lxtalabel142
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	631
-	.long	631
+	.long	630
+	.long	630
 	.long	.Lxtalabel142
 .cc_bottom cc_921
-.cc_top cc_922,.Lxtalabel10
+.cc_top cc_922,.Lxtalabel297
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	631
-	.long	631
-	.long	.Lxtalabel10
-.cc_bottom cc_922
-.cc_top cc_923,.Lxtalabel401
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	631
-	.long	631
-	.long	.Lxtalabel401
-.cc_bottom cc_923
-.cc_top cc_924,.Lxtalabel297
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	631
-	.long	631
+	.long	630
+	.long	630
 	.long	.Lxtalabel297
-.cc_bottom cc_924
-.cc_top cc_925,.Lxtalabel193
+.cc_bottom cc_922
+.cc_top cc_923,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	631
-	.long	631
+	.long	630
+	.long	630
 	.long	.Lxtalabel193
+.cc_bottom cc_923
+.cc_top cc_924,.Lxtalabel401
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	630
+	.long	630
+	.long	.Lxtalabel401
+.cc_bottom cc_924
+.cc_top cc_925,.Lxtalabel10
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	630
+	.long	630
+	.long	.Lxtalabel10
 .cc_bottom cc_925
-.cc_top cc_926,.Lxtalabel143
+.cc_top cc_926,.Lxtalabel297
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	632
-	.long	633
-	.long	.Lxtalabel143
+	.long	632
+	.long	.Lxtalabel297
 .cc_bottom cc_926
-.cc_top cc_927,.Lxtalabel402
+.cc_top cc_927,.Lxtalabel10
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	632
-	.long	633
-	.long	.Lxtalabel402
+	.long	632
+	.long	.Lxtalabel10
 .cc_bottom cc_927
-.cc_top cc_928,.Lxtalabel11
+.cc_top cc_928,.Lxtalabel401
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	632
-	.long	633
-	.long	.Lxtalabel11
+	.long	632
+	.long	.Lxtalabel401
 .cc_bottom cc_928
-.cc_top cc_929,.Lxtalabel298
+.cc_top cc_929,.Lxtalabel142
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	632
-	.long	633
-	.long	.Lxtalabel298
+	.long	632
+	.long	.Lxtalabel142
 .cc_bottom cc_929
-.cc_top cc_930,.Lxtalabel194
+.cc_top cc_930,.Lxtalabel193
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	632
-	.long	633
-	.long	.Lxtalabel194
+	.long	632
+	.long	.Lxtalabel193
 .cc_bottom cc_930
-.cc_top cc_931,.Lxtalabel195
+.cc_top cc_931,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	635
-	.long	636
-	.long	.Lxtalabel195
+	.long	633
+	.long	634
+	.long	.Lxtalabel194
 .cc_bottom cc_931
-.cc_top cc_932,.Lxtalabel144
+.cc_top cc_932,.Lxtalabel11
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	635
-	.long	636
-	.long	.Lxtalabel144
+	.long	633
+	.long	634
+	.long	.Lxtalabel11
 .cc_bottom cc_932
-.cc_top cc_933,.Lxtalabel299
+.cc_top cc_933,.Lxtalabel402
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	635
-	.long	636
-	.long	.Lxtalabel299
+	.long	633
+	.long	634
+	.long	.Lxtalabel402
 .cc_bottom cc_933
-.cc_top cc_934,.Lxtalabel403
+.cc_top cc_934,.Lxtalabel298
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	633
+	.long	634
+	.long	.Lxtalabel298
+.cc_bottom cc_934
+.cc_top cc_935,.Lxtalabel143
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	633
+	.long	634
+	.long	.Lxtalabel143
+.cc_bottom cc_935
+.cc_top cc_936,.Lxtalabel403
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	635
 	.long	636
 	.long	.Lxtalabel403
-.cc_bottom cc_934
-.cc_top cc_935,.Lxtalabel12
+.cc_bottom cc_936
+.cc_top cc_937,.Lxtalabel12
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	635
 	.long	636
 	.long	.Lxtalabel12
-.cc_bottom cc_935
-.cc_top cc_936,.Lxtalabel298
+.cc_bottom cc_937
+.cc_top cc_938,.Lxtalabel144
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	637
-	.long	638
-	.long	.Lxtalabel298
-.cc_bottom cc_936
-.cc_top cc_937,.Lxtalabel194
+	.long	635
+	.long	636
+	.long	.Lxtalabel144
+.cc_bottom cc_938
+.cc_top cc_939,.Lxtalabel299
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	635
+	.long	636
+	.long	.Lxtalabel299
+.cc_bottom cc_939
+.cc_top cc_940,.Lxtalabel195
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	635
+	.long	636
+	.long	.Lxtalabel195
+.cc_bottom cc_940
+.cc_top cc_941,.Lxtalabel194
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	637
 	.long	638
 	.long	.Lxtalabel194
-.cc_bottom cc_937
-.cc_top cc_938,.Lxtalabel11
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	637
-	.long	638
-	.long	.Lxtalabel11
-.cc_bottom cc_938
-.cc_top cc_939,.Lxtalabel402
+.cc_bottom cc_941
+.cc_top cc_942,.Lxtalabel402
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	637
 	.long	638
 	.long	.Lxtalabel402
-.cc_bottom cc_939
-.cc_top cc_940,.Lxtalabel143
+.cc_bottom cc_942
+.cc_top cc_943,.Lxtalabel143
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	637
 	.long	638
 	.long	.Lxtalabel143
-.cc_bottom cc_940
-.cc_top cc_941,.Lxtalabel13
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	641
-	.long	641
-	.long	.Lxtalabel13
-.cc_bottom cc_941
-.cc_top cc_942,.Lxtalabel300
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	641
-	.long	641
-	.long	.Lxtalabel300
-.cc_bottom cc_942
-.cc_top cc_943,.Lxtalabel145
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	641
-	.long	641
-	.long	.Lxtalabel145
 .cc_bottom cc_943
-.cc_top cc_944,.Lxtalabel404
+.cc_top cc_944,.Lxtalabel11
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	637
+	.long	638
+	.long	.Lxtalabel11
+.cc_bottom cc_944
+.cc_top cc_945,.Lxtalabel298
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	637
+	.long	638
+	.long	.Lxtalabel298
+.cc_bottom cc_945
+.cc_top cc_946,.Lxtalabel404
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	641
 	.long	641
 	.long	.Lxtalabel404
-.cc_bottom cc_944
-.cc_top cc_945,.Lxtalabel196
+.cc_bottom cc_946
+.cc_top cc_947,.Lxtalabel13
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	641
+	.long	641
+	.long	.Lxtalabel13
+.cc_bottom cc_947
+.cc_top cc_948,.Lxtalabel145
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	641
+	.long	641
+	.long	.Lxtalabel145
+.cc_bottom cc_948
+.cc_top cc_949,.Lxtalabel300
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	641
+	.long	641
+	.long	.Lxtalabel300
+.cc_bottom cc_949
+.cc_top cc_950,.Lxtalabel196
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	641
 	.long	641
 	.long	.Lxtalabel196
-.cc_bottom cc_945
-.cc_top cc_946,.Lxtalabel146
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	642
-	.long	643
-	.long	.Lxtalabel146
-.cc_bottom cc_946
-.cc_top cc_947,.Lxtalabel14
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	642
-	.long	643
-	.long	.Lxtalabel14
-.cc_bottom cc_947
-.cc_top cc_948,.Lxtalabel405
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	642
-	.long	643
-	.long	.Lxtalabel405
-.cc_bottom cc_948
-.cc_top cc_949,.Lxtalabel197
+.cc_bottom cc_950
+.cc_top cc_951,.Lxtalabel197
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	642
 	.long	643
 	.long	.Lxtalabel197
-.cc_bottom cc_949
-.cc_top cc_950,.Lxtalabel301
+.cc_bottom cc_951
+.cc_top cc_952,.Lxtalabel301
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	642
 	.long	643
 	.long	.Lxtalabel301
-.cc_bottom cc_950
-.cc_top cc_951,.Lxtalabel147
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	644
-	.long	645
-	.long	.Lxtalabel147
-.cc_bottom cc_951
-.cc_top cc_952,.Lxtalabel198
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	644
-	.long	645
-	.long	.Lxtalabel198
 .cc_bottom cc_952
-.cc_top cc_953,.Lxtalabel15
+.cc_top cc_953,.Lxtalabel14
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	644
-	.long	645
-	.long	.Lxtalabel15
+	.long	642
+	.long	643
+	.long	.Lxtalabel14
 .cc_bottom cc_953
-.cc_top cc_954,.Lxtalabel406
+.cc_top cc_954,.Lxtalabel405
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	644
-	.long	645
-	.long	.Lxtalabel406
+	.long	642
+	.long	643
+	.long	.Lxtalabel405
 .cc_bottom cc_954
-.cc_top cc_955,.Lxtalabel302
+.cc_top cc_955,.Lxtalabel146
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	642
+	.long	643
+	.long	.Lxtalabel146
+.cc_bottom cc_955
+.cc_top cc_956,.Lxtalabel302
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	644
 	.long	645
 	.long	.Lxtalabel302
-.cc_bottom cc_955
-.cc_top cc_956,.Lxtalabel303
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	649
-	.long	649
-	.long	.Lxtalabel303
 .cc_bottom cc_956
-.cc_top cc_957,.Lxtalabel199
+.cc_top cc_957,.Lxtalabel406
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	649
-	.long	649
-	.long	.Lxtalabel199
+	.long	644
+	.long	645
+	.long	.Lxtalabel406
 .cc_bottom cc_957
-.cc_top cc_958,.Lxtalabel16
+.cc_top cc_958,.Lxtalabel147
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	644
+	.long	645
+	.long	.Lxtalabel147
+.cc_bottom cc_958
+.cc_top cc_959,.Lxtalabel15
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	644
+	.long	645
+	.long	.Lxtalabel15
+.cc_bottom cc_959
+.cc_top cc_960,.Lxtalabel198
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	644
+	.long	645
+	.long	.Lxtalabel198
+.cc_bottom cc_960
+.cc_top cc_961,.Lxtalabel16
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	649
 	.long	649
 	.long	.Lxtalabel16
-.cc_bottom cc_958
-.cc_top cc_959,.Lxtalabel407
+.cc_bottom cc_961
+.cc_top cc_962,.Lxtalabel407
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	649
 	.long	649
 	.long	.Lxtalabel407
-.cc_bottom cc_959
-.cc_top cc_960,.Lxtalabel148
+.cc_bottom cc_962
+.cc_top cc_963,.Lxtalabel199
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	649
+	.long	649
+	.long	.Lxtalabel199
+.cc_bottom cc_963
+.cc_top cc_964,.Lxtalabel303
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	649
+	.long	649
+	.long	.Lxtalabel303
+.cc_bottom cc_964
+.cc_top cc_965,.Lxtalabel148
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	649
 	.long	649
 	.long	.Lxtalabel148
-.cc_bottom cc_960
-.cc_top cc_961,.Lxtalabel303
+.cc_bottom cc_965
+.cc_top cc_966,.Lxtalabel407
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	651
+	.long	651
+	.long	.Lxtalabel407
+.cc_bottom cc_966
+.cc_top cc_967,.Lxtalabel16
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	651
+	.long	651
+	.long	.Lxtalabel16
+.cc_bottom cc_967
+.cc_top cc_968,.Lxtalabel148
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	651
+	.long	651
+	.long	.Lxtalabel148
+.cc_bottom cc_968
+.cc_top cc_969,.Lxtalabel199
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	651
+	.long	651
+	.long	.Lxtalabel199
+.cc_bottom cc_969
+.cc_top cc_970,.Lxtalabel303
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	651
 	.long	651
 	.long	.Lxtalabel303
-.cc_bottom cc_961
-.cc_top cc_962,.Lxtalabel148
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	651
-	.long	651
-	.long	.Lxtalabel148
-.cc_bottom cc_962
-.cc_top cc_963,.Lxtalabel407
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	651
-	.long	651
-	.long	.Lxtalabel407
-.cc_bottom cc_963
-.cc_top cc_964,.Lxtalabel16
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	651
-	.long	651
-	.long	.Lxtalabel16
-.cc_bottom cc_964
-.cc_top cc_965,.Lxtalabel199
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	651
-	.long	651
-	.long	.Lxtalabel199
-.cc_bottom cc_965
-.cc_top cc_966,.Lxtalabel210
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel210
-.cc_bottom cc_966
-.cc_top cc_967,.Lxtalabel210
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel210
-.cc_bottom cc_967
-.cc_top cc_968,.Lxtalabel210
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel210
-.cc_bottom cc_968
-.cc_top cc_969,.Lxtalabel209
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel209
-.cc_bottom cc_969
-.cc_top cc_970,.Lxtalabel209
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel209
 .cc_bottom cc_970
-.cc_top cc_971,.Lxtalabel209
+.cc_top cc_971,.Lxtalabel314
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel209
+	.long	.Lxtalabel314
 .cc_bottom cc_971
-.cc_top cc_972,.Lxtalabel208
+.cc_top cc_972,.Lxtalabel314
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel208
+	.long	.Lxtalabel314
 .cc_bottom cc_972
-.cc_top cc_973,.Lxtalabel208
+.cc_top cc_973,.Lxtalabel313
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel208
+	.long	.Lxtalabel313
 .cc_bottom cc_973
-.cc_top cc_974,.Lxtalabel208
+.cc_top cc_974,.Lxtalabel313
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel208
+	.long	.Lxtalabel313
 .cc_bottom cc_974
-.cc_top cc_975,.Lxtalabel207
+.cc_top cc_975,.Lxtalabel313
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel207
+	.long	.Lxtalabel313
 .cc_bottom cc_975
-.cc_top cc_976,.Lxtalabel207
+.cc_top cc_976,.Lxtalabel312
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel207
+	.long	.Lxtalabel312
 .cc_bottom cc_976
-.cc_top cc_977,.Lxtalabel207
+.cc_top cc_977,.Lxtalabel312
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel207
+	.long	.Lxtalabel312
 .cc_bottom cc_977
-.cc_top cc_978,.Lxtalabel204
+.cc_top cc_978,.Lxtalabel312
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel204
+	.long	.Lxtalabel312
 .cc_bottom cc_978
-.cc_top cc_979,.Lxtalabel204
+.cc_top cc_979,.Lxtalabel311
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel204
+	.long	.Lxtalabel311
 .cc_bottom cc_979
-.cc_top cc_980,.Lxtalabel204
+.cc_top cc_980,.Lxtalabel311
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel204
+	.long	.Lxtalabel311
 .cc_bottom cc_980
-.cc_top cc_981,.Lxtalabel203
+.cc_top cc_981,.Lxtalabel311
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel203
+	.long	.Lxtalabel311
 .cc_bottom cc_981
-.cc_top cc_982,.Lxtalabel203
+.cc_top cc_982,.Lxtalabel308
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel203
+	.long	.Lxtalabel308
 .cc_bottom cc_982
-.cc_top cc_983,.Lxtalabel203
+.cc_top cc_983,.Lxtalabel308
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel203
+	.long	.Lxtalabel308
 .cc_bottom cc_983
-.cc_top cc_984,.Lxtalabel211
+.cc_top cc_984,.Lxtalabel308
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel211
+	.long	.Lxtalabel308
 .cc_bottom cc_984
-.cc_top cc_985,.Lxtalabel211
+.cc_top cc_985,.Lxtalabel307
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel211
+	.long	.Lxtalabel307
 .cc_bottom cc_985
-.cc_top cc_986,.Lxtalabel211
+.cc_top cc_986,.Lxtalabel307
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel211
+	.long	.Lxtalabel307
 .cc_bottom cc_986
-.cc_top cc_987,.Lxtalabel315
+.cc_top cc_987,.Lxtalabel307
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel315
+	.long	.Lxtalabel307
 .cc_bottom cc_987
-.cc_top cc_988,.Lxtalabel222
+.cc_top cc_988,.Lxtalabel314
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel222
+	.long	.Lxtalabel314
 .cc_bottom cc_988
-.cc_top cc_989,.Lxtalabel299
+.cc_top cc_989,.Lxtalabel302
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel302
+.cc_bottom cc_989
+.cc_top cc_990,.Lxtalabel299
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
 	.long	.Lxtalabel299
-.cc_bottom cc_989
-.cc_top cc_990,.Lxtalabel326
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel326
 .cc_bottom cc_990
-.cc_top cc_991,.Lxtalabel195
+.cc_top cc_991,.Lxtalabel222
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel195
+	.long	.Lxtalabel222
 .cc_bottom cc_991
-.cc_top cc_992,.Lxtalabel302
+.cc_top cc_992,.Lxtalabel211
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel302
+	.long	.Lxtalabel211
 .cc_bottom cc_992
-.cc_top cc_993,.Lxtalabel307
+.cc_top cc_993,.Lxtalabel211
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel307
+	.long	.Lxtalabel211
 .cc_bottom cc_993
-.cc_top cc_994,.Lxtalabel307
+.cc_top cc_994,.Lxtalabel211
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel307
+	.long	.Lxtalabel211
 .cc_bottom cc_994
-.cc_top cc_995,.Lxtalabel307
+.cc_top cc_995,.Lxtalabel210
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel307
+	.long	.Lxtalabel210
 .cc_bottom cc_995
-.cc_top cc_996,.Lxtalabel147
+.cc_top cc_996,.Lxtalabel210
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel147
+	.long	.Lxtalabel210
 .cc_bottom cc_996
-.cc_top cc_997,.Lxtalabel308
+.cc_top cc_997,.Lxtalabel210
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel308
+	.long	.Lxtalabel210
 .cc_bottom cc_997
-.cc_top cc_998,.Lxtalabel308
+.cc_top cc_998,.Lxtalabel209
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel308
+	.long	.Lxtalabel209
 .cc_bottom cc_998
-.cc_top cc_999,.Lxtalabel308
+.cc_top cc_999,.Lxtalabel209
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel308
+	.long	.Lxtalabel209
 .cc_bottom cc_999
-.cc_top cc_1000,.Lxtalabel144
+.cc_top cc_1000,.Lxtalabel209
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel144
+	.long	.Lxtalabel209
 .cc_bottom cc_1000
-.cc_top cc_1001,.Lxtalabel311
+.cc_top cc_1001,.Lxtalabel208
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel311
+	.long	.Lxtalabel208
 .cc_bottom cc_1001
-.cc_top cc_1002,.Lxtalabel75
+.cc_top cc_1002,.Lxtalabel208
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel75
+	.long	.Lxtalabel208
 .cc_bottom cc_1002
-.cc_top cc_1003,.Lxtalabel64
+.cc_top cc_1003,.Lxtalabel208
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel64
+	.long	.Lxtalabel208
 .cc_bottom cc_1003
-.cc_top cc_1004,.Lxtalabel64
+.cc_top cc_1004,.Lxtalabel207
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel64
+	.long	.Lxtalabel207
 .cc_bottom cc_1004
-.cc_top cc_1005,.Lxtalabel64
+.cc_top cc_1005,.Lxtalabel207
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel64
+	.long	.Lxtalabel207
 .cc_bottom cc_1005
-.cc_top cc_1006,.Lxtalabel63
+.cc_top cc_1006,.Lxtalabel207
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel63
+	.long	.Lxtalabel207
 .cc_bottom cc_1006
-.cc_top cc_1007,.Lxtalabel63
+.cc_top cc_1007,.Lxtalabel204
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel63
+	.long	.Lxtalabel204
 .cc_bottom cc_1007
-.cc_top cc_1008,.Lxtalabel63
+.cc_top cc_1008,.Lxtalabel204
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel63
+	.long	.Lxtalabel204
 .cc_bottom cc_1008
-.cc_top cc_1009,.Lxtalabel62
+.cc_top cc_1009,.Lxtalabel204
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel62
+	.long	.Lxtalabel204
 .cc_bottom cc_1009
-.cc_top cc_1010,.Lxtalabel62
+.cc_top cc_1010,.Lxtalabel203
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel62
+	.long	.Lxtalabel203
 .cc_bottom cc_1010
-.cc_top cc_1011,.Lxtalabel62
+.cc_top cc_1011,.Lxtalabel203
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel62
+	.long	.Lxtalabel203
 .cc_bottom cc_1011
-.cc_top cc_1012,.Lxtalabel61
+.cc_top cc_1012,.Lxtalabel203
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel61
+	.long	.Lxtalabel203
 .cc_bottom cc_1012
-.cc_top cc_1013,.Lxtalabel61
+.cc_top cc_1013,.Lxtalabel315
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
-	.long	.Lxtalabel61
+	.long	.Lxtalabel315
 .cc_bottom cc_1013
-.cc_top cc_1014,.Lxtalabel61
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel61
-.cc_bottom cc_1014
-.cc_top cc_1015,.Lxtalabel60
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel60
-.cc_bottom cc_1015
-.cc_top cc_1016,.Lxtalabel60
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel60
-.cc_bottom cc_1016
-.cc_top cc_1017,.Lxtalabel60
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel60
-.cc_bottom cc_1017
-.cc_top cc_1018,.Lxtalabel57
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel57
-.cc_bottom cc_1018
-.cc_top cc_1019,.Lxtalabel57
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel57
-.cc_bottom cc_1019
-.cc_top cc_1020,.Lxtalabel57
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel57
-.cc_bottom cc_1020
-.cc_top cc_1021,.Lxtalabel56
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel56
-.cc_bottom cc_1021
-.cc_top cc_1022,.Lxtalabel56
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel56
-.cc_bottom cc_1022
-.cc_top cc_1023,.Lxtalabel56
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel56
-.cc_bottom cc_1023
-.cc_top cc_1024,.Lxtalabel311
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel311
-.cc_bottom cc_1024
-.cc_top cc_1025,.Lxtalabel311
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel311
-.cc_bottom cc_1025
-.cc_top cc_1026,.Lxtalabel312
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel312
-.cc_bottom cc_1026
-.cc_top cc_1027,.Lxtalabel15
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel15
-.cc_bottom cc_1027
-.cc_top cc_1028,.Lxtalabel312
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel312
-.cc_bottom cc_1028
-.cc_top cc_1029,.Lxtalabel312
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel312
-.cc_bottom cc_1029
-.cc_top cc_1030,.Lxtalabel313
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel313
-.cc_bottom cc_1030
-.cc_top cc_1031,.Lxtalabel12
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel12
-.cc_bottom cc_1031
-.cc_top cc_1032,.Lxtalabel313
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel313
-.cc_bottom cc_1032
-.cc_top cc_1033,.Lxtalabel313
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel313
-.cc_bottom cc_1033
-.cc_top cc_1034,.Lxtalabel403
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel403
-.cc_bottom cc_1034
-.cc_top cc_1035,.Lxtalabel314
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel314
-.cc_bottom cc_1035
-.cc_top cc_1036,.Lxtalabel314
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel314
-.cc_bottom cc_1036
-.cc_top cc_1037,.Lxtalabel314
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel314
-.cc_bottom cc_1037
-.cc_top cc_1038,.Lxtalabel406
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel406
-.cc_bottom cc_1038
-.cc_top cc_1039,.Lxtalabel315
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel315
-.cc_bottom cc_1039
-.cc_top cc_1040,.Lxtalabel315
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.byte	0
-	.long	63
-	.long	64
-	.long	.Lxtalabel315
-.cc_bottom cc_1040
-.cc_top cc_1041,.Lxtalabel198
+.cc_top cc_1014,.Lxtalabel198
 	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.byte	0
 	.long	63
 	.long	64
 	.long	.Lxtalabel198
+.cc_bottom cc_1014
+.cc_top cc_1015,.Lxtalabel326
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel326
+.cc_bottom cc_1015
+.cc_top cc_1016,.Lxtalabel315
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel315
+.cc_bottom cc_1016
+.cc_top cc_1017,.Lxtalabel147
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel147
+.cc_bottom cc_1017
+.cc_top cc_1018,.Lxtalabel144
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel144
+.cc_bottom cc_1018
+.cc_top cc_1019,.Lxtalabel75
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel75
+.cc_bottom cc_1019
+.cc_top cc_1020,.Lxtalabel64
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel64
+.cc_bottom cc_1020
+.cc_top cc_1021,.Lxtalabel64
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel64
+.cc_bottom cc_1021
+.cc_top cc_1022,.Lxtalabel64
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel64
+.cc_bottom cc_1022
+.cc_top cc_1023,.Lxtalabel63
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel63
+.cc_bottom cc_1023
+.cc_top cc_1024,.Lxtalabel63
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel63
+.cc_bottom cc_1024
+.cc_top cc_1025,.Lxtalabel63
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel63
+.cc_bottom cc_1025
+.cc_top cc_1026,.Lxtalabel62
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel62
+.cc_bottom cc_1026
+.cc_top cc_1027,.Lxtalabel62
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel62
+.cc_bottom cc_1027
+.cc_top cc_1028,.Lxtalabel62
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel62
+.cc_bottom cc_1028
+.cc_top cc_1029,.Lxtalabel61
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel61
+.cc_bottom cc_1029
+.cc_top cc_1030,.Lxtalabel61
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel61
+.cc_bottom cc_1030
+.cc_top cc_1031,.Lxtalabel61
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel61
+.cc_bottom cc_1031
+.cc_top cc_1032,.Lxtalabel60
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel60
+.cc_bottom cc_1032
+.cc_top cc_1033,.Lxtalabel60
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel60
+.cc_bottom cc_1033
+.cc_top cc_1034,.Lxtalabel60
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel60
+.cc_bottom cc_1034
+.cc_top cc_1035,.Lxtalabel57
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel57
+.cc_bottom cc_1035
+.cc_top cc_1036,.Lxtalabel57
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel57
+.cc_bottom cc_1036
+.cc_top cc_1037,.Lxtalabel57
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel57
+.cc_bottom cc_1037
+.cc_top cc_1038,.Lxtalabel56
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel56
+.cc_bottom cc_1038
+.cc_top cc_1039,.Lxtalabel403
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel403
+.cc_bottom cc_1039
+.cc_top cc_1040,.Lxtalabel56
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel56
+.cc_bottom cc_1040
+.cc_top cc_1041,.Lxtalabel56
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel56
 .cc_bottom cc_1041
+.cc_top cc_1042,.Lxtalabel315
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel315
+.cc_bottom cc_1042
+.cc_top cc_1043,.Lxtalabel406
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel406
+.cc_bottom cc_1043
+.cc_top cc_1044,.Lxtalabel15
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel15
+.cc_bottom cc_1044
+.cc_top cc_1045,.Lxtalabel12
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel12
+.cc_bottom cc_1045
+.cc_top cc_1046,.Lxtalabel195
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.byte	0
+	.long	63
+	.long	64
+	.long	.Lxtalabel195
+.cc_bottom cc_1046
 .Lentries_end5:
 	.section	.xtalooplabeltable,"",@progbits
 .Lentries_start6:
@@ -23996,251 +24031,251 @@ p32_bits_for_light_composition_pwm_windows:
 	.long	0
 	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
 	.byte	0
-.cc_top cc_1042,.Lxta.loop_labels0
+.cc_top cc_1047,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	471
 	.long	472
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_1042
-.cc_top cc_1043,.Lxta.loop_labels3
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxta.loop_labels3
-.cc_bottom cc_1043
-.cc_top cc_1044,.Lxta.loop_labels5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxta.loop_labels5
-.cc_bottom cc_1044
-.cc_top cc_1045,.Lxta.loop_labels9
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxta.loop_labels9
-.cc_bottom cc_1045
-.cc_top cc_1046,.Lxta.loop_labels7
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	471
-	.long	472
-	.long	.Lxta.loop_labels7
-.cc_bottom cc_1046
-.cc_top cc_1047,.Lxta.loop_labels7
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxta.loop_labels7
 .cc_bottom cc_1047
-.cc_top cc_1048,.Lxta.loop_labels5
+.cc_top cc_1048,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxta.loop_labels5
+	.long	471
+	.long	472
+	.long	.Lxta.loop_labels3
 .cc_bottom cc_1048
-.cc_top cc_1049,.Lxta.loop_labels9
+.cc_top cc_1049,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxta.loop_labels9
-.cc_bottom cc_1049
-.cc_top cc_1050,.Lxta.loop_labels0
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxta.loop_labels0
-.cc_bottom cc_1050
-.cc_top cc_1051,.Lxta.loop_labels3
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	474
-	.long	474
-	.long	.Lxta.loop_labels3
-.cc_bottom cc_1051
-.cc_top cc_1052,.Lxta.loop_labels3
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	476
-	.long	482
-	.long	.Lxta.loop_labels3
-.cc_bottom cc_1052
-.cc_top cc_1053,.Lxta.loop_labels7
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	476
-	.long	482
-	.long	.Lxta.loop_labels7
-.cc_bottom cc_1053
-.cc_top cc_1054,.Lxta.loop_labels5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	476
-	.long	482
+	.long	471
+	.long	472
 	.long	.Lxta.loop_labels5
-.cc_bottom cc_1054
-.cc_top cc_1055,.Lxta.loop_labels9
+.cc_bottom cc_1049
+.cc_top cc_1050,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	476
-	.long	482
+	.long	471
+	.long	472
 	.long	.Lxta.loop_labels9
-.cc_bottom cc_1055
-.cc_top cc_1056,.Lxta.loop_labels0
+.cc_bottom cc_1050
+.cc_top cc_1051,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	476
-	.long	482
+	.long	471
+	.long	472
+	.long	.Lxta.loop_labels7
+.cc_bottom cc_1051
+.cc_top cc_1052,.Lxta.loop_labels7
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
+	.long	.Lxta.loop_labels7
+.cc_bottom cc_1052
+.cc_top cc_1053,.Lxta.loop_labels5
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
+	.long	.Lxta.loop_labels5
+.cc_bottom cc_1053
+.cc_top cc_1054,.Lxta.loop_labels9
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
+	.long	.Lxta.loop_labels9
+.cc_bottom cc_1054
+.cc_top cc_1055,.Lxta.loop_labels0
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
 	.long	.Lxta.loop_labels0
+.cc_bottom cc_1055
+.cc_top cc_1056,.Lxta.loop_labels3
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	474
+	.long	474
+	.long	.Lxta.loop_labels3
 .cc_bottom cc_1056
 .cc_top cc_1057,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	484
-	.long	490
+	.long	476
+	.long	482
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_1057
 .cc_top cc_1058,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	484
-	.long	490
+	.long	476
+	.long	482
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_1058
-.cc_top cc_1059,.Lxta.loop_labels9
+.cc_top cc_1059,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
-	.long	484
-	.long	490
-	.long	.Lxta.loop_labels9
-.cc_bottom cc_1059
-.cc_top cc_1060,.Lxta.loop_labels5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	484
-	.long	490
+	.long	476
+	.long	482
 	.long	.Lxta.loop_labels5
+.cc_bottom cc_1059
+.cc_top cc_1060,.Lxta.loop_labels9
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	476
+	.long	482
+	.long	.Lxta.loop_labels9
 .cc_bottom cc_1060
 .cc_top cc_1061,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
+	.long	476
+	.long	482
+	.long	.Lxta.loop_labels0
+.cc_bottom cc_1061
+.cc_top cc_1062,.Lxta.loop_labels3
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	484
+	.long	490
+	.long	.Lxta.loop_labels3
+.cc_bottom cc_1062
+.cc_top cc_1063,.Lxta.loop_labels7
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	484
+	.long	490
+	.long	.Lxta.loop_labels7
+.cc_bottom cc_1063
+.cc_top cc_1064,.Lxta.loop_labels9
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	484
+	.long	490
+	.long	.Lxta.loop_labels9
+.cc_bottom cc_1064
+.cc_top cc_1065,.Lxta.loop_labels5
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	484
+	.long	490
+	.long	.Lxta.loop_labels5
+.cc_bottom cc_1065
+.cc_top cc_1066,.Lxta.loop_labels0
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
 	.long	484
 	.long	490
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_1061
-.cc_top cc_1062,.Lxta.loop_labels0
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	492
-	.long	498
-	.long	.Lxta.loop_labels0
-.cc_bottom cc_1062
-.cc_top cc_1063,.Lxta.loop_labels9
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	492
-	.long	498
-	.long	.Lxta.loop_labels9
-.cc_bottom cc_1063
-.cc_top cc_1064,.Lxta.loop_labels3
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	492
-	.long	498
-	.long	.Lxta.loop_labels3
-.cc_bottom cc_1064
-.cc_top cc_1065,.Lxta.loop_labels7
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	492
-	.long	498
-	.long	.Lxta.loop_labels7
-.cc_bottom cc_1065
-.cc_top cc_1066,.Lxta.loop_labels5
-	.ascii	"../src/port_heat_light_server.xc"
-	.byte	0
-	.long	492
-	.long	498
-	.long	.Lxta.loop_labels5
 .cc_bottom cc_1066
-.cc_top cc_1067,.Lxta.loop_labels9
+.cc_top cc_1067,.Lxta.loop_labels0
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	492
+	.long	498
+	.long	.Lxta.loop_labels0
+.cc_bottom cc_1067
+.cc_top cc_1068,.Lxta.loop_labels9
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	492
+	.long	498
+	.long	.Lxta.loop_labels9
+.cc_bottom cc_1068
+.cc_top cc_1069,.Lxta.loop_labels3
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	492
+	.long	498
+	.long	.Lxta.loop_labels3
+.cc_bottom cc_1069
+.cc_top cc_1070,.Lxta.loop_labels7
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	492
+	.long	498
+	.long	.Lxta.loop_labels7
+.cc_bottom cc_1070
+.cc_top cc_1071,.Lxta.loop_labels5
+	.ascii	"../src/port_heat_light_server.xc"
+	.byte	0
+	.long	492
+	.long	498
+	.long	.Lxta.loop_labels5
+.cc_bottom cc_1071
+.cc_top cc_1072,.Lxta.loop_labels9
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxta.loop_labels9
-.cc_bottom cc_1067
-.cc_top cc_1068,.Lxta.loop_labels5
+.cc_bottom cc_1072
+.cc_top cc_1073,.Lxta.loop_labels5
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxta.loop_labels5
-.cc_bottom cc_1068
-.cc_top cc_1069,.Lxta.loop_labels7
+.cc_bottom cc_1073
+.cc_top cc_1074,.Lxta.loop_labels7
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxta.loop_labels7
-.cc_bottom cc_1069
-.cc_top cc_1070,.Lxta.loop_labels0
+.cc_bottom cc_1074
+.cc_top cc_1075,.Lxta.loop_labels0
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_1070
-.cc_top cc_1071,.Lxta.loop_labels3
+.cc_bottom cc_1075
+.cc_top cc_1076,.Lxta.loop_labels3
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	500
 	.long	501
 	.long	.Lxta.loop_labels3
-.cc_bottom cc_1071
-.cc_top cc_1072,.Lxta.loop_labels4
+.cc_bottom cc_1076
+.cc_top cc_1077,.Lxta.loop_labels4
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	528
 	.long	.Lxta.loop_labels4
-.cc_bottom cc_1072
-.cc_top cc_1073,.Lxta.loop_labels2
+.cc_bottom cc_1077
+.cc_top cc_1078,.Lxta.loop_labels2
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	528
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_1073
-.cc_top cc_1074,.Lxta.loop_labels6
+.cc_bottom cc_1078
+.cc_top cc_1079,.Lxta.loop_labels6
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	528
 	.long	.Lxta.loop_labels6
-.cc_bottom cc_1074
-.cc_top cc_1075,.Lxta.loop_labels1
+.cc_bottom cc_1079
+.cc_top cc_1080,.Lxta.loop_labels1
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	528
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_1075
-.cc_top cc_1076,.Lxta.loop_labels8
+.cc_bottom cc_1080
+.cc_top cc_1081,.Lxta.loop_labels8
 	.ascii	"../src/port_heat_light_server.xc"
 	.byte	0
 	.long	524
 	.long	528
 	.long	.Lxta.loop_labels8
-.cc_bottom cc_1076
+.cc_bottom cc_1081
 .Lentries_end7:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

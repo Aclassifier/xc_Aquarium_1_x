@@ -5,14 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/temperature_water_controller.xc" 2
-
-
-
-
-
-
-
-
+# 12 "../src/temperature_water_controller.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -421,7 +414,8 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 10 "../src/temperature_water_controller.xc" 2
+# 12 "../src/temperature_water_controller.xc" 2
+
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
@@ -1046,7 +1040,8 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 12 "../src/temperature_water_controller.xc" 2
+# 14 "../src/temperature_water_controller.xc" 2
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 extern "C" {
@@ -1116,10 +1111,12 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 13 "../src/temperature_water_controller.xc" 2
+# 15 "../src/temperature_water_controller.xc" 2
+
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
-# 15 "../src/temperature_water_controller.xc" 2
+# 17 "../src/temperature_water_controller.xc" 2
+
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/print.h" 3
 int printchar(char value);
@@ -1226,7 +1223,8 @@ int printbinln(unsigned value);
 int printstr(const char (& alias s)[]);
 # 145 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/print.h" 3
 int printstrln(const char (& alias s)[]);
-# 16 "../src/temperature_water_controller.xc" 2
+# 18 "../src/temperature_water_controller.xc" 2
+
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 21 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1287,7 +1285,8 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 18 "../src/temperature_water_controller.xc" 2
+# 20 "../src/temperature_water_controller.xc" 2
+
 
 # 1 "../src/param.h" 1
 # 17 "../src/param.h"
@@ -1320,11 +1319,13 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 20 "../src/temperature_water_controller.xc" 2
+# 22 "../src/temperature_water_controller.xc" 2
+
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [7][2];
-# 21 "../src/temperature_water_controller.xc" 2
+typedef char now_regulating_at_char_t [8][2];
+# 23 "../src/temperature_water_controller.xc" 2
+
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
 void installExceptionHandler(void);
@@ -1371,7 +1372,8 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 22 "../src/temperature_water_controller.xc" 2
+# 24 "../src/temperature_water_controller.xc" 2
+
 # 1 "../src/I2C_External_Server.h" 1
 # 10 "../src/I2C_External_Server.h"
 typedef enum i2c_dev_address_external_t {
@@ -1417,7 +1419,8 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 23 "../src/temperature_water_controller.xc" 2
+# 25 "../src/temperature_water_controller.xc" 2
+
 # 1 "../src/port_heat_light_server.h" 1
 # 10 "../src/port_heat_light_server.h"
 typedef enum iof_LED_strip_t {
@@ -1492,7 +1495,8 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 24 "../src/temperature_water_controller.xc" 2
+# 26 "../src/temperature_water_controller.xc" 2
+
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
 typedef enum heater_wires_t {
@@ -1527,7 +1531,8 @@ void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 25 "../src/temperature_water_controller.xc" 2
+# 27 "../src/temperature_water_controller.xc" 2
+
 
 # 1 "../src/Temperature_Water_Controller.h" 1
 # 12 "../src/Temperature_Water_Controller.h"
@@ -1538,6 +1543,7 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_SIMMERING,
     REGULATING_AT_TEMP_REACHED,
     REGULATING_AT_HOTTER_AMBIENT,
+    REGULATING_AT_LOST_WATER_SENSOR,
 
 
     HEAT_CABLE_FORCED_OFF_BY_WATCHDOG,
@@ -1547,6 +1553,7 @@ typedef enum now_regulating_at_t {
 typedef interface temperature_water_commands_if {
     [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
     [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
+
     [[guarded]] void clear_debug_log (void);
 } temperature_water_commands_if;
 
@@ -1554,12 +1561,14 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 27 "../src/temperature_water_controller.xc" 2
-# 41 "../src/temperature_water_controller.xc"
+# 29 "../src/temperature_water_controller.xc" 2
+# 49 "../src/temperature_water_controller.xc"
 [[combinable]]
 void Temperature_Water_Controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands) {
+
+
 
     timer tmr;
     int time;
@@ -1577,6 +1586,9 @@ void Temperature_Water_Controller (
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted = (250 + ( 0));
     temp_onetenthDegC_t temp_onetenthDegC_heater_limit = 150;
 
+
+
+
     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
     i_temperature_heater_commands.get_temps (temps_onetenthDegC);
 
@@ -1588,6 +1600,8 @@ void Temperature_Water_Controller (
 
     tmr :> time;
 
+
+
     while(1) {
         select {
             case tmr when __builtin_timer_after(time) :> void: {
@@ -1595,6 +1609,8 @@ void Temperature_Water_Controller (
                 raw_timer_interval_cntdown_seconds--;
 
                 if (raw_timer_interval_cntdown_seconds == 0) {
+
+
 
                        raw_timer_interval_cntdown_seconds = ( 1 * 60);
 
@@ -1611,13 +1627,28 @@ void Temperature_Water_Controller (
 
                     do { if(1) printf("DIFF with wanted %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temp_onetenthDegC_water_wanted, temp_onetenthDegC_water_wanted_diff); } while (0);
 
-                    if (temps_onetenthDegC[IOF_TEMPC_WATER] == 0) {
+                    if (temps_onetenthDegC[IOF_TEMPC_WATER] == 999) {
+
+
+                        debug_log |= 0x004;
+                        temp_onetenthDegC_heater_limit = 150;
+                        now_regulating_at = REGULATING_AT_LOST_WATER_SENSOR;
+                        do { if(1) printf("%s", "lost water sensor "); } while (0);
+
+
+                    } else if (temps_onetenthDegC[IOF_TEMPC_WATER] == 0) {
+
+
                         do { if(1) printf("%s", "zero! "); } while (0);
                         temp_onetenthDegC_heater_limit = 150;
                         raw_timer_interval_cntdown_seconds = ( 2);
+
+
                     } else if (temp_onetenthDegC_water_wanted_diff > 0) {
 
+
                         do { if(1) printf("%s", "above: "); } while (0);
+
                         if (temp_onetenthDegC_water_ambient_diff > 0) {
                             debug_log |= 0x001;
 
@@ -1631,9 +1662,13 @@ void Temperature_Water_Controller (
                             now_regulating_at = REGULATING_AT_HOTTER_AMBIENT;
                             do { if(1) printf("%s", "fast cool "); } while (0);
                         }
+
+
                     } else if (temp_onetenthDegC_water_wanted_diff < 0) {
 
+
                         do { if(1) printf("%s", " below: "); } while (0);
+
                         if (temp_onetenthDegC_water_wanted_diff <= (-2)) {
                             debug_log |= 0x020;
 
@@ -1647,10 +1682,20 @@ void Temperature_Water_Controller (
                            now_regulating_at = REGULATING_AT_SIMMERING;
                            do { if(1) printf("%s", " slow heat"); } while (0);
                         }
+
+
                     } else if (now_regulating_at == REGULATING_AT_INIT ) {
+
+
                         raw_timer_interval_cntdown_seconds = ( 2);
                         do { if(1) printf("%s", "soon "); } while (0);
+
+
                     } else {
+
+
+                        raw_timer_interval_cntdown_seconds = ( 1 * 60);
+
 
                         if ((debug_log & 0x100) != 0) {
                             debug_log &= (~ 0xF00);
@@ -1659,9 +1704,13 @@ void Temperature_Water_Controller (
                             debug_log &= (~ 0xF00);
                             debug_log |= 0x100;
                         }
-                        raw_timer_interval_cntdown_seconds = ( 1 * 60);
+
                         do { if(1) printf("%s", "same "); } while (0);
+
+
                     }
+
+
 
                     do { if(1) printf("%s", "\n"); } while (0);
                     do { if(1) printf("DELTA since last %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temps_onetenthDegC_prev[IOF_TEMPC_WATER], temp_onetenthDegC_water_delta); } while (0);
@@ -1679,17 +1728,23 @@ void Temperature_Water_Controller (
                     } else {
                         do { if(1) printf("%s", "same "); } while (0);
                     }
+
                     do { if(1) printf("%s", "\n"); } while (0);
+
+
 
                     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
 
                     for (int index_of_temp=0; index_of_temp < (3 +1); index_of_temp++) {
                         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
                     }
+
+
                 } else {}
             } break;
 
             case (guard_first_value_read) => i_temperature_water_commands.get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]) : {
+
 
 
 
@@ -1702,16 +1757,26 @@ void Temperature_Water_Controller (
                 for (int iof_char=0; iof_char < 5; iof_char++) {
                     return_value_string[iof_char] = temp_degC_str[iof_char];
                 }
+
+
             } break;
 
             case (guard_first_value_read) => i_temperature_water_commands.get_now_regulating_at (void) -> {now_regulating_at_t return_now_regulating_at, unsigned int return_debug_log} : {
+
+
                 return_now_regulating_at = now_regulating_at;
                 return_debug_log = debug_log;
+
+
             } break;
 
             case (guard_first_value_read) => i_temperature_water_commands.clear_debug_log (void) : {
                 debug_log = 0;
             } break;
+
+
+
+
         }
     }
 }

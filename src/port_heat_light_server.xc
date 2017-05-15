@@ -17,10 +17,10 @@
 #include "port_heat_light_server.h"
 #endif
 
-#define DO_HEAT_PULSING_THROUGH_BOARD_9 // Just comment away if you are not using it. That's all
-
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)
+
+#define DO_HEAT_PULSING_THROUGH_BOARD_9 // Just comment away if you are not using it. That's all
 
 port myport_p32 = XS1_PORT_32A;
 
@@ -587,6 +587,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                             pulse_heat_2 = false;
                         #endif
                     } break;
+
                     case HEAT_CABLES_ONE_ON: {
                         if (heat_cable_alternating == HEAT_1_ON) {
                             heat_cable_alternating     = HEAT_2_ON;  // NEXT
@@ -631,7 +632,6 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                     if (heat_1 != heat_1_next) {
                         myport_p32 <: port_value;
                         if (heat_1_next) { // Went on
-
                             delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // Power supply must deliver again, give it some time
                         } else { // Went off
                             heat_1_no_delay = true;
