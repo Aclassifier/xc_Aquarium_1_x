@@ -25,7 +25,7 @@
 	.set slider_periodic.select.enable.cases.maxcores,0 $M slider_periodic.select.case.1.maxcores $M slider_periodic.select.case.0.maxcores
 	.set slider_periodic.select.enable.cases.maxchanends,0 $M slider_periodic.select.case.1.maxchanends $M slider_periodic.select.case.0.maxchanends
 	.set slider_periodic.select.enable.cases,0
-	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.0.nstackwords) $M (slider_periodic.select.case.1.nstackwords)
+	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.1.nstackwords) $M (slider_periodic.select.case.0.nstackwords)
 	.weak slider_task.3.maxargsize.group
 	.globl slider_task.3.maxargsize.group
 	.add_to_set slider_task.3.maxargsize.group, 1

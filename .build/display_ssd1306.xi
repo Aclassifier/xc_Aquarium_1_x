@@ -1674,7 +1674,7 @@ bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_co
     unsigned char data[] = {c};
     int nbytes = 1;
 
-    error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
+    error = error | ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
 
     return ! error;
 }
@@ -1685,7 +1685,7 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
     unsigned char data[] = {c};
     int nbytes = 1;
 
-    error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
+    error = error | ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
 
     return ! error;
 }
@@ -1707,39 +1707,39 @@ bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_
 
 
 
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xAE);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD5);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA8);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD3);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x40 | 0x0);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x8D);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xAE);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD5);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA8);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD3);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x40 | 0x0);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x8D);
         if (vccstate == SSD1306_SWITCHCAPVCC)
-            { error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x14); }
+            { error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x14); }
         else
-            { error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x10); }
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x20);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x00);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA0 | 0x1);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xC8);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xDA);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x02);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x81);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x8F);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD9);
+            { error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x10); }
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x20);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x00);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA0 | 0x1);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xC8);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xDA);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x02);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x81);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x8F);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD9);
         if (vccstate == SSD1306_SWITCHCAPVCC)
-            { error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xF1); }
+            { error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xF1); }
         else
-            { error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x22); }
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xDB);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x40);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA4);
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA6);
+            { error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x22); }
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xDB);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x40);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA4);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA6);
 
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xAF);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xAF);
 
     return ! error;
 }
@@ -1779,9 +1779,9 @@ bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_comm
     bool error = false;
 
     if (i) {
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA7);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA7);
     } else {
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA6);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA6);
     }
 
     return ! error;
@@ -1794,14 +1794,14 @@ bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_comm
 bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x26);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, start);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, stop);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0XFF);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x2F);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x26);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, start);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, stop);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0XFF);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x2F);
 
     return ! error;
 }
@@ -1813,14 +1813,14 @@ bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_int
 bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x27);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0XFF);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x27);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0XFF);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
 
     return ! error;
 }
@@ -1832,16 +1832,16 @@ bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_inte
 bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0xA3);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,32);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x29);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0xA3);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,32);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x29);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
 
     return ! error;
 }
@@ -1853,16 +1853,16 @@ bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c
 bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0xA3);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,32);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2A);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0xA3);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,32);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2A);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2F);
 
     return ! error;
 }
@@ -1870,7 +1870,7 @@ bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_
 bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_commands){
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2E);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands,0x2E);
 
     return ! error;
 }
@@ -1878,17 +1878,17 @@ bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_
 bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_internal_commands) {
     bool error = false;
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x21);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 128 -1);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x21);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 128 -1);
 
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x22);
-    error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 0);
-
-
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x22);
+    error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0);
 
 
-        error |= ! writeDisplay_i2c_command(i_i2c_internal_commands, 3);
+
+
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 3);
 
 
 
@@ -1911,7 +1911,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         }
         i--;
 
-        error |= ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
+        error = error | ! i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
     }
     return ! error;
 }

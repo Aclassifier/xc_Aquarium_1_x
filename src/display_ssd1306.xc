@@ -45,7 +45,7 @@ bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_co
     unsigned char data[] = {c};
     int           nbytes = 1;
 
-    error or_eq not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
+    error = error bitor not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_COMMAND, data, nbytes);
 
     return not error;
 }
@@ -56,7 +56,7 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
     unsigned char data[] = {c};
     int           nbytes = 1;
 
-    error or_eq not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
+    error = error bitor not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes);
 
     return not error;
 }
@@ -78,39 +78,39 @@ bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_
 
     #if defined SSD1306_128_32
         // Init sequence for 128x32 OLED module
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYOFF);          // 0xAE
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYCLOCKDIV);  // 0xD5
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);                        // the suggested ratio 0x80
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETMULTIPLEX);        // 0xA8
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYOFFSET);    // 0xD3
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);                         // no offset
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETSTARTLINE | 0x0);  // line #0
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_CHARGEPUMP);          // 0x8D
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYOFF);          // 0xAE
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYCLOCKDIV);  // 0xD5
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);                        // the suggested ratio 0x80
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETMULTIPLEX);        // 0xA8
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYOFFSET);    // 0xD3
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);                         // no offset
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETSTARTLINE | 0x0);  // line #0
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_CHARGEPUMP);          // 0x8D
         if (vccstate == SSD1306_SWITCHCAPVCC)
-            { error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x14); }
+            { error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x14); }
         else // SSD1306_EXTERNALVCC
-            { error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x10); }
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_MEMORYMODE);          // 0x20
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x00);                        // 0x0 act like ks0108
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SEGREMAP | 0x1);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_COMSCANDEC);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCOMPINS);          // 0xDA
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x02);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);         // 0x81
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETPRECHARGE);        // 0xd9
+            { error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x10); }
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_MEMORYMODE);          // 0x20
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x00);                        // 0x0 act like ks0108
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SEGREMAP | 0x1);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_COMSCANDEC);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCOMPINS);          // 0xDA
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x02);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETCONTRAST);         // 0x81
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, CONTRAST_VALUE_BRIGHT_IS_DEFAULT);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETPRECHARGE);        // 0xd9
         if (vccstate == SSD1306_SWITCHCAPVCC)
-            { error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0xF1); }
+            { error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0xF1); }
         else // SSD1306_EXTERNALVCC here
-            { error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x22); }
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETVCOMDETECT);       // 0xDB
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0x40);
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYALLON_RESUME); // 0xA4
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_NORMALDISPLAY);       // 0xA6
+            { error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x22); }
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETVCOMDETECT);       // 0xDB
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x40);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYALLON_RESUME); // 0xA4
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_NORMALDISPLAY);       // 0xA6
     #endif
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYON);               // 0xAF turn on oled panel
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_DISPLAYON);               // 0xAF turn on oled panel
 
     return not error;
 }
@@ -150,9 +150,9 @@ bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_comm
     bool error = false;
 
     if (i) {
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_INVERTDISPLAY);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_INVERTDISPLAY);
     } else {
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_NORMALDISPLAY);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_NORMALDISPLAY);
     }
 
     return not error;
@@ -165,14 +165,14 @@ bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_comm
 bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_RIGHT_HORIZONTAL_SCROLL);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, start);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, stop);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0XFF);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_ACTIVATE_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_RIGHT_HORIZONTAL_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, start);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, stop);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0XFF);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_ACTIVATE_SCROLL);
 
     return not error;
 }
@@ -184,14 +184,14 @@ bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_int
 bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LEFT_HORIZONTAL_SCROLL);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0XFF);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LEFT_HORIZONTAL_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0XFF);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
 
     return not error;
 }
@@ -203,16 +203,16 @@ bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_inte
 bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_SET_VERTICAL_SCROLL_AREA);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LCDHEIGHT);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_SET_VERTICAL_SCROLL_AREA);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LCDHEIGHT);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
 
     return not error;
 }
@@ -224,16 +224,16 @@ bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c
 bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop){
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_SET_VERTICAL_SCROLL_AREA);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LCDHEIGHT);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,start);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_SET_VERTICAL_SCROLL_AREA);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_LCDHEIGHT);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,start);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X00);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,stop);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,0X01);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_ACTIVATE_SCROLL);
 
     return not error;
 }
@@ -241,7 +241,7 @@ bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_
 bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_commands){
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_DEACTIVATE_SCROLL);
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands,SSD1306_DEACTIVATE_SCROLL);
 
     return not error;
 }
@@ -249,20 +249,20 @@ bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_
 bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_internal_commands) {
     bool error = false;
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_COLUMNADDR); // 0x21
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0);                  // 0x00 Column start address (0 = reset)
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_LCDWIDTH-1); // 0x7F Column end address (127 = reset)
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_COLUMNADDR); // 0x21
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0);                  // 0x00 Column start address (0 = reset)
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_LCDWIDTH-1); // 0x7F Column end address (127 = reset)
 
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_PAGEADDR);   // 0x22
-    error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 0);                  // 0x00 Page start address (0 = reset)
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_PAGEADDR);   // 0x22
+    error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0);                  // 0x00 Page start address (0 = reset)
     #if SSD1306_LCDHEIGHT == 64
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 7); // Page end address
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 7); // Page end address
     #endif
     #if SSD1306_LCDHEIGHT == 32
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 3); // Page end address
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 3); // Page end address
     #endif
     #if SSD1306_LCDHEIGHT == 16
-        error or_eq not writeDisplay_i2c_command(i_i2c_internal_commands, 1); // Page end address
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 1); // Page end address
     #endif
 
     // I2C
@@ -282,7 +282,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         }
         i--; // Went one too far above
 
-        error or_eq not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes); // Was i2c_master_write_reg (device, reg_addr, data, nbytes, i2c_internal_config);
+        error = error bitor not i_i2c_internal_commands.write_display_ok (I2C_ADDRESS_OF_DISPLAY, DISPLAY_REG_ADDR_DATA, data, nbytes); // Was i2c_master_write_reg (device, reg_addr, data, nbytes, i2c_internal_config);
     }
     return not error;
 }

@@ -265,7 +265,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     const char char_degC_circle_str[]                        = DEGC_CIRCLE_STR;
     const char char_AA_str[]                                 = CHAR_AA_STR; // A
-    const char char_aa_str[]                                 = CHAR_aa_STR; // å
     const char char_OE_str[]                                 = CHAR_OE_STR; // Ø
     const char takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR; // "±"
     const char char_triple_bar[]                             = CHAR_TRIPLE_BAR_STR; // ≡
@@ -692,14 +691,19 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 //                                              Øyvind Teig       .
             #else
                 sprintf_return = sprintf (context.display_ts1_chars,
-                                   "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                                   __DATE__,
-                                   char_aa_str,
-                                   char_OE_str);
+                //                 "5 BOKS  xTIMEc 14.2.4  KODE %s     XC p%s XMOS startKIT  %syvind Teig",
                 //                                            ..........----------.
-                //                                            5 BOKS              .
+                //                                            5 BOKS  xTIMEc 14.2.4
                 //                                              KODE Sep 22 2013  .
                 //                                              XC på XMOS startKIT
+                //                                              Øyvind Teig
+                                   //"5 BOKS  XMOS startKIT  XC KODE %s  xTIMEcomp. v.14.2.4  %syvind Teig",
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp. v.14.2.4  XC KODE %s  %syvind Teig",
+                                   __DATE__,
+                                   char_OE_str);
+                //                                            5 BOKS  XMOS startKIT
+                //                                              xTIMEcomp. v.14.2.4
+                //                                              XC KODE Sep 22 2013
                 //                                              Øyvind Teig
             #endif
 
@@ -1300,52 +1304,53 @@ void System_Task_Data_Handler (
     //{{{  HANDLE ERROR SITUATIONS
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
-        error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT);
+        // error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT); Note bt xTIMEcomposer 14.3:
+        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX) {
-        error_bits or_eq (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
+        error_bits = error_bits bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
-        error_bits or_eq (1<<ERROR_BIT_I2C_WATER);
+        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
-        error_bits or_eq (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
+        error_bits = error_bits bitor (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
-        error_bits or_eq (1<<ERROR_BIT_I2C_HEATER);
+        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > TEMP_ONETENTHDEGC_50_0_HEATER_MAX) {
-        error_bits or_eq (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
+        error_bits = error_bits bitor (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
     if (not context.heater_on_ok) {
-        error_bits or_eq (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
+        error_bits = error_bits bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
-        error_bits or_eq (1<<ERROR_BIT_LOW_12V_LIGHT);
+        error_bits = error_bits bitor (1<<ERROR_BIT_LOW_12V_LIGHT);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV > INNER_RR_12V_MAX_VOLTS_DP1) {
-        error_bits or_eq (1<<ERROR_BIT_HIGH_12V_LIGHT);
+        error_bits = error_bits bitor (1<<ERROR_BIT_HIGH_12V_LIGHT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV < INNER_RR_24V_MIN_VOLTS_DP1) {
-        error_bits or_eq (1<<ERROR_BIT_LOW_24V_HEAT);
+        error_bits = error_bits bitor (1<<ERROR_BIT_LOW_24V_HEAT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV > INNER_RR_24V_MAX_VOLTS_DP1) {
-        error_bits or_eq (1<<ERROR_BIT_HIGH_24V_HEAT);
+        error_bits = error_bits bitor (1<<ERROR_BIT_HIGH_24V_HEAT);
     } else {}
 
     if (context.internal_box_temp_onetenthDegC > TEMP_ONETENTHDEGC_50_0_BOX_MAX) {
-        error_bits or_eq (1<<ERROR_BIT_BOX_OVERHEAT);
+        error_bits = error_bits bitor (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
     if (context.heat_cables_forced_off_by_watchdog) {
         // This task is mostly watching iself, even if delays elsewhere may also cause this
         // Test with DEBUG_TEST_WATCHDOG
-        error_bits or_eq (1<<ERROR_WATCHDOG_TIMED_OUT);
+        error_bits = error_bits bitor (1<<ERROR_WATCHDOG_TIMED_OUT);
     } else {}
 
     if ((error_bits != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
@@ -1354,7 +1359,7 @@ void System_Task_Data_Handler (
 
     // No new assignment of local error_bits after here
 
-    context.error_bits or_eq error_bits; // Add them into a bit-list
+    context.error_bits = context.error_bits bitor error_bits; // Add them into a bit-list
 
     if (context.screen_logg.exists) {
         #ifdef SCREEN_LOGG_ERROR_BITS
@@ -1455,7 +1460,7 @@ void System_Task_Data_Handler (
     //{{{  Handle control of aquarium top light with respect to time and box internal light sensor
 
     // HANDLE LIGHT INTENSITY
-    context.beeper_blip_now or_eq Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
+    context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
 
     //}}}  
     //{{{  Update FRAM if needed
@@ -1578,6 +1583,7 @@ void System_Task (
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
     unsigned                       watchdog_rest_ms;
+    unsigned                       debug_button_cnt = 0;
 
     //{{{  Init and clear display
 
@@ -1719,7 +1725,9 @@ void System_Task (
                 bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled
                 context.beeper_blip_now = false;
 
-                debug_printf ("Button [%u] with %u\n", iof_button, button_action);
+                debug_button_cnt++;
+                debug_printf ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
+
                 context.display_is_on_seconds_cnt = 0; // Display always goes on in the call:
 
                 switch (button_action) {

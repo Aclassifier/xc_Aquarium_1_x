@@ -78,8 +78,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
             case is_stable => p_button when pinsneq(current_val) :> current_val: {
                 if (current_val == 0) {
                     debug_printf(": Button %u pressed\n", button_n);
-                }
-                else {
+                } else {
                     debug_printf(": Button %u released\n", button_n);
                 }
 
@@ -117,6 +116,8 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                     }
                     is_stable = true;
                 } else { // == pressed_but_not_released (is_stable == true, so pinsneq would have stopped it)
+                    // xTIMEcomposer 14.2.4 works fine
+                    // xTIMEcomposer 14.3.0 does 880997 times in 30 seconds with DEBUG_PRINT_BUTTON_PRESS==0, yields about 30000 per second probably livelocked (but printed in receiver)
                     pressed_but_not_released = false;
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
                     debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);

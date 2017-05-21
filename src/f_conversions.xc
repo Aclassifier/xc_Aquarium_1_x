@@ -181,12 +181,12 @@ Temp_OnetenthDegC_To_Str (
     int sprintf_return;
     bool error = false;
 
-    error or_eq ((degC_Unary_Part < EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC) or (degC_Unary_Part > EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC));
-    error or_eq ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
+    error = error bitor ((degC_Unary_Part < EXTERNAL_TEMPERATURE_MIN_ONETENTHDEGC) or (degC_Unary_Part > EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC));
+    error = error bitor ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
 
     sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-    error or_eq (sprintf_return != 4); // "25.0"
-    error or_eq (sprintf_return < 0);
+    error = error bitor (sprintf_return != 4); // "25.0"
+    error = error bitor (sprintf_return < 0);
 
     if (error) {
         char error_text [] = EXTERNAL_TEMPERATURE_ERROR_TEXT;
@@ -226,14 +226,14 @@ TC1047_Raw_DegC_To_String_Ok (
 
     bool error = false;
 
-    error or_eq ((degC_Unary_Part < INNER_TEMPERATURE_MIN_DEGC) or (degC_Unary_Part > INNER_TEMPERATURE_MAX_DEGC));
-    error or_eq ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
+    error = error bitor ((degC_Unary_Part < INNER_TEMPERATURE_MIN_DEGC) or (degC_Unary_Part > INNER_TEMPERATURE_MAX_DEGC));
+    error = error bitor ((degC_Decimal_Part < 0) or (degC_Decimal_Part > 9)); // error not possible if correct math
 
     if (!isnull(temp_degC_str)) {
         int sprintf_return;
         sprintf_return = sprintf (temp_degC_str, "%02u.%01u", degC_Unary_Part, degC_Decimal_Part);
-        error or_eq (sprintf_return != 4); // "25.0"
-        error or_eq (sprintf_return < 0);
+        error = error bitor (sprintf_return != 4); // "25.0"
+        error = error bitor (sprintf_return < 0);
         if (error) {
             char error_text [] = INNER_TEMPERATURE_ERROR_TEXT;
             memcpy (temp_degC_str, error_text, sizeof(error_text));
@@ -268,12 +268,12 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     int sprintf_return;
     bool error = false;
 
-    error or_eq ((light_sensor_range < INNER_MIN_LUX) or (light_sensor_range > INNER_MAX_LUX));
+    error = error bitor ((light_sensor_range < INNER_MIN_LUX) or (light_sensor_range > INNER_MAX_LUX));
 
     if (!isnull(lux_str)) {
         sprintf_return = sprintf (lux_str, "%02u", light_sensor_range);
-        error or_eq (sprintf_return != 2); // "25.0"
-        error or_eq (sprintf_return < 0);
+        error = error bitor (sprintf_return != 2); // "25.0"
+        error = error bitor (sprintf_return < 0);
 
         if (error) {
             char error_text [] = INNER_LUX_ERROR_TEXT;
@@ -316,8 +316,8 @@ RR_12V_24V_To_String_Ok (
     int sprintf_return;
     bool error = false;
 
-    error or_eq ((volt_Unary_Part < INNER_RR_12V_24V_MIN_VOLTS) or (volt_Unary_Part > INNER_RR_12V_24V_MAX_VOLTS));
-    error or_eq ((volt_Decimal_Part < 0) or (volt_Decimal_Part > 9)); // error not possible if correct math
+    error = error bitor ((volt_Unary_Part < INNER_RR_12V_24V_MIN_VOLTS) or (volt_Unary_Part > INNER_RR_12V_24V_MAX_VOLTS));
+    error = error bitor ((volt_Decimal_Part < 0) or (volt_Decimal_Part > 9)); // error not possible if correct math
 
     if (error) {
         volt_dp1 = INNER_RR_12V_24V_MAX_VOLTS;
@@ -325,8 +325,8 @@ RR_12V_24V_To_String_Ok (
 
     if (!isnull(rr_12V_24V_str)) {
         sprintf_return = sprintf (rr_12V_24V_str, "%02u.%01u", volt_Unary_Part, volt_Decimal_Part);
-        error or_eq (sprintf_return != 4); // "25.0"
-        error or_eq (sprintf_return < 0);
+        error = error bitor (sprintf_return != 4); // "25.0"
+        error = error bitor (sprintf_return < 0);
 
         if (error) {
             char error_text [] = INNER_RR_12V_24V_ERROR_TEXT;

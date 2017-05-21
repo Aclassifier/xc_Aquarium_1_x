@@ -2220,7 +2220,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     const char char_degC_circle_str[] = {247,0};
     const char char_AA_str[] = {143,0};
-    const char char_aa_str[] = {132,0};
     const char char_OE_str[] = {236,0};
     const char takes_press_for_10_seconds_right_button_str[] = {240,0};
     const char char_triple_bar[] = {239,0};
@@ -2458,7 +2457,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 516 "../src/_Aquarium_1_x.xc"
+# 515 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2614,13 +2613,18 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-# 694 "../src/_Aquarium_1_x.xc"
+# 693 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
-                                   "5 BOKS                 KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                                   "May 13 2017",
-                                   char_aa_str,
-                                   char_OE_str);
 
+
+
+
+
+
+
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp. v.14.2.4  XC KODE %s  %syvind Teig",
+                                   "May 21 2017",
+                                   char_OE_str);
 
 
 
@@ -2637,7 +2641,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "20:44:06", "May 13 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:37:50", "May 21 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2690,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "20:44:06", "May 13 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:37:50", "May 21 2017"); } while (0);
             } else {}
         } break;
 
@@ -3224,52 +3228,53 @@ void System_Task_Data_Handler (
 
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
-        error_bits |= (1<<ERROR_BIT_I2C_AMBIENT);
+
+        error_bits = error_bits | (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > 350) {
-        error_bits |= (1<<ERROR_BIT_AMBIENT_OVERHEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_AMBIENT_OVERHEAT);
     } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
-        error_bits |= (1<<ERROR_BIT_I2C_WATER);
+        error_bits = error_bits | (1<<ERROR_BIT_I2C_WATER);
 
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > 300) {
-        error_bits |= (1<<ERROR_BIT_WATER_OVERHEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_WATER_OVERHEAT);
     } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
-        error_bits |= (1<<ERROR_BIT_I2C_HEATER);
+        error_bits = error_bits | (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > 500) {
-        error_bits |= (1<<ERROR_BIT_HEATER_OVERHEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_HEATER_OVERHEAT);
     } else {}
 
     if (! context.heater_on_ok) {
-        error_bits |= (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
+        error_bits = error_bits | (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV < 100) {
-        error_bits |= (1<<ERROR_BIT_LOW_12V_LIGHT);
+        error_bits = error_bits | (1<<ERROR_BIT_LOW_12V_LIGHT);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV > 140) {
-        error_bits |= (1<<ERROR_BIT_HIGH_12V_LIGHT);
+        error_bits = error_bits | (1<<ERROR_BIT_HIGH_12V_LIGHT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV < 220) {
-        error_bits |= (1<<ERROR_BIT_LOW_24V_HEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_LOW_24V_HEAT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV > 260) {
-        error_bits |= (1<<ERROR_BIT_HIGH_24V_HEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_HIGH_24V_HEAT);
     } else {}
 
     if (context.internal_box_temp_onetenthDegC > 500) {
-        error_bits |= (1<<ERROR_BIT_BOX_OVERHEAT);
+        error_bits = error_bits | (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
     if (context.heat_cables_forced_off_by_watchdog) {
 
 
-        error_bits |= (1<<ERROR_WATCHDOG_TIMED_OUT);
+        error_bits = error_bits | (1<<ERROR_WATCHDOG_TIMED_OUT);
     } else {}
 
     if ((error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
@@ -3278,7 +3283,7 @@ void System_Task_Data_Handler (
 
 
 
-    context.error_bits |= error_bits;
+    context.error_bits = context.error_bits | error_bits;
 
     if (context.screen_logg.exists) {
 
@@ -3323,7 +3328,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1430 "../src/_Aquarium_1_x.xc"
+# 1435 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3352,7 +3357,7 @@ void System_Task_Data_Handler (
 
 
 
-    context.beeper_blip_now |= Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
+    context.beeper_blip_now = context.beeper_blip_now | Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
 
 
@@ -3438,7 +3443,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1558 "../src/_Aquarium_1_x.xc"
+# 1563 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3462,6 +3467,7 @@ void System_Task (
     handler_context_t context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
     unsigned watchdog_rest_ms;
+    unsigned debug_button_cnt = 0;
 
 
 
@@ -3603,7 +3609,9 @@ void System_Task (
                 bool do_handle_button = true;
                 context.beeper_blip_now = false;
 
-                do { if(1) printf("Button [%u] with %u\n", iof_button, button_action); } while (0);
+                debug_button_cnt++;
+                do { if(1) printf("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt); } while (0);
+
                 context.display_is_on_seconds_cnt = 0;
 
                 switch (button_action) {

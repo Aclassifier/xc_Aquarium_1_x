@@ -1407,8 +1407,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
                 if (current_val == 0) {
                     do { if(0) printf(": Button %u pressed\n", button_n); } while (0);
-                }
-                else {
+                } else {
                     do { if(0) printf(": Button %u released\n", button_n); } while (0);
                 }
 
@@ -1446,6 +1445,8 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                     }
                     is_stable = true;
                 } else {
+
+
                     pressed_but_not_released = false;
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
                     do { if(0) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n); } while (0);
