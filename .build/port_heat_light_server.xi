@@ -1241,9 +1241,10 @@ typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
     HEAT_2_ON,
 } heat_cable_alternating_t;
-# 161 "../src/port_heat_light_server.xc"
+# 162 "../src/port_heat_light_server.xc"
     static unsigned int p32_bits_for_light_composition_pwm_windows [13][3] =
     {
+
 
 
        {
@@ -1316,7 +1317,7 @@ typedef enum pin_change_t {
 
 
     out port dummy_wify_ctrl_port = on tile[0]: 0x40200;
-# 268 "../src/port_heat_light_server.xc"
+# 270 "../src/port_heat_light_server.xc"
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]) {
 
@@ -1336,7 +1337,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
         bool pulse_heat_1 = false;
         bool pulse_heat_2 = false;
-# 295 "../src/port_heat_light_server.xc"
+# 297 "../src/port_heat_light_server.xc"
     do { if(0) printf("%s", "Port_Pins_Heat_Light_Server started\n"); } while (0);
 
 
@@ -1462,7 +1463,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 
                             pulse_heat_1 = false;
                             pulse_heat_2 = false;
-# 428 "../src/port_heat_light_server.xc"
+# 430 "../src/port_heat_light_server.xc"
                         myport_p32 <: port_value;
                     } else {}
                 } else {}

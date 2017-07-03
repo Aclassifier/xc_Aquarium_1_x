@@ -1506,6 +1506,7 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 # 1 "../src/I2C_Internal_Server.h" 1
 # 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
+
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_FRAM = 0x50,
     I2C_ADDRESS_OF_FRAM_F8 = 0xF8,

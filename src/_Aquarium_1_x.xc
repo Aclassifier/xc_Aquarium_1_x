@@ -6,6 +6,9 @@
  *      Author: teig
  */
 
+
+// TODO Full frakboling på kontoret, se på alle skjermene
+
 //{{{  #include
 
 #define INCLUDES
@@ -178,7 +181,8 @@ typedef enum error_bits_t {   // 0xHH since binary in display
 } error_bits_t;
 
 #define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
-#define DISPLAY_SUB_ON_FOR_SECONDS 30     // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+#define DISPLAY_SUB_ON_FOR_SECONDS (2*60) // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+                                          // Should be larger than 1 minute since seconds are not set when we set the clock at SCREEN_7_KLOKKE.SUB_STATE_12, and wee need to wait for the next minute
 
 //}}}  
 //{{{  handler_context_t
@@ -793,7 +797,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 //{{{  SUB_STATE_..
 
-                case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER
+                case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER, but do it before DISPLAY_SUB_ON_FOR_SECONDS after last keypress
                     if (context.display_sub_edited) {
                         sprintf_return = sprintf (context.display_ts1_chars, " 6 KLOKKE STILT         Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
                         //                                                     ..........----------.
@@ -841,7 +845,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_08: { // Even number from IOF_BUTTON_CENTER ("edit")
                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_7_KLOKKE: SUB_STATE_08
 
-                   if (context.datetime_editable.hour >= 59) {
+                   if (context.datetime_editable.hour >= 23) {
                        context.datetime_editable.hour = 0;
                    } else {
                        context.datetime_editable.hour++;

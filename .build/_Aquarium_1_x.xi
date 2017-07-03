@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../src/_Aquarium_1_x.xc" 2
-# 14 "../src/_Aquarium_1_x.xc"
+# 17 "../src/_Aquarium_1_x.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
@@ -414,7 +414,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
-# 14 "../src/_Aquarium_1_x.xc" 2
+# 17 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 1 3
@@ -826,7 +826,7 @@ long long _safe_strtoll(const char n[], char * unsafe (&?endptr)[1], int base);
 unsigned long long _safe_strtoull(const char n[], char * unsafe (&?endptr)[1], int base);
 int _safe_system(const char (&?string)[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdlib.h" 2 3
-# 16 "../src/_Aquarium_1_x.xc" 2
+# 19 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
 # 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
@@ -897,7 +897,7 @@ typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 471 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 }
-# 17 "../src/_Aquarium_1_x.xc" 2
+# 20 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 1 3
 
@@ -1285,10 +1285,10 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/stdio.h" 2 3
-# 18 "../src/_Aquarium_1_x.xc" 2
+# 21 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/iso646.h" 1 3
-# 19 "../src/_Aquarium_1_x.xc" 2
+# 22 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
@@ -1305,12 +1305,12 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 20 "../src/_Aquarium_1_x.xc" 2
+# 23 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Users/teig/workspace/lib_xassert/api/xassert.h" 1
 # 99 "/Users/teig/workspace/lib_xassert/api/xassert.h"
 inline int xassert_msg(const char msg[]) { return 1; }
-# 21 "../src/_Aquarium_1_x.xc" 2
+# 24 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
@@ -1351,7 +1351,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 23 "../src/_Aquarium_1_x.xc" 2
+# 26 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/param.h" 1
 # 17 "../src/param.h"
@@ -1384,7 +1384,7 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 24 "../src/_Aquarium_1_x.xc" 2
+# 27 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
 # 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
@@ -1418,7 +1418,7 @@ typedef interface startkit_adc_acquire_if {
 
 [[combinable]]
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
-# 25 "../src/_Aquarium_1_x.xc" 2
+# 28 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "/Users/teig/workspace/module_random/src/random.h" 1
@@ -1445,14 +1445,14 @@ random_generator_t random_create_generator_from_hw_seed(void);
 # 49 "/Users/teig/workspace/module_random/src/random.h"
 unsigned
 random_get_random_number(random_generator_t &g);
-# 27 "../src/_Aquarium_1_x.xc" 2
+# 30 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 29 "../src/_Aquarium_1_x.xc" 2
+# 32 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
@@ -1461,11 +1461,12 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 30 "../src/_Aquarium_1_x.xc" 2
+# 33 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/I2C_Internal_Server.h" 1
 # 11 "../src/I2C_Internal_Server.h"
 typedef enum i2c_dev_address_internal_t {
+
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_FRAM = 0x50,
     I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
@@ -1498,7 +1499,7 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 31 "../src/_Aquarium_1_x.xc" 2
+# 34 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Chronodot_DS3231_Controller.h" 1
 # 41 "../src/Chronodot_DS3231_Controller.h"
@@ -1564,7 +1565,7 @@ typedef interface chronodot_ds3231_if {
 void Chronodot_DS3231_Controller (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 32 "../src/_Aquarium_1_x.xc" 2
+# 35 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/display_ssd1306.h" 1
@@ -1599,7 +1600,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 34 "../src/_Aquarium_1_x.xc" 2
+# 37 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/I2C_External_Server.h" 1
@@ -1647,7 +1648,7 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 36 "../src/_Aquarium_1_x.xc" 2
+# 39 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
@@ -1671,7 +1672,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 37 "../src/_Aquarium_1_x.xc" 2
+# 40 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/port_heat_light_server.h" 1
@@ -1748,12 +1749,12 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 39 "../src/_Aquarium_1_x.xc" 2
+# 42 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
 # 59 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
-# 40 "../src/_Aquarium_1_x.xc" 2
+# 43 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
@@ -1801,7 +1802,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 41 "../src/_Aquarium_1_x.xc" 2
+# 44 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Heater_Controller.h" 1
 # 12 "../src/Temperature_Heater_Controller.h"
@@ -1837,7 +1838,7 @@ void Temperature_Heater_Controller (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 42 "../src/_Aquarium_1_x.xc" 2
+# 45 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/Temperature_Water_Controller.h" 1
 # 12 "../src/Temperature_Water_Controller.h"
@@ -1866,7 +1867,7 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Controller (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 43 "../src/_Aquarium_1_x.xc" 2
+# 46 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_adafruit_GFX.h" 1
 # 15 "../src/core_graphics_adafruit_GFX.h"
@@ -1928,12 +1929,12 @@ typedef struct tag_display_param_t {
 
 
 extern display_param_t display_param;
-# 44 "../src/_Aquarium_1_x.xc" 2
+# 47 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/core_graphics_font5x8.h" 1
 # 12 "../src/core_graphics_font5x8.h"
 extern unsigned char font[];
-# 45 "../src/_Aquarium_1_x.xc" 2
+# 48 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/adc_startkit_client.h" 1
 # 13 "../src/adc_startkit_client.h"
@@ -1947,7 +1948,7 @@ void My_startKIT_ADC_Client (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[1],
    const unsigned int Num_of_data_sets);
-# 46 "../src/_Aquarium_1_x.xc" 2
+# 49 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/light_sunrise_sunset.h" 1
 # 13 "../src/light_sunrise_sunset.h"
@@ -2000,14 +2001,14 @@ bool
 Handle_Light_Sunrise_Sunset_Etc(
     light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 47 "../src/_Aquarium_1_x.xc" 2
+# 50 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/exception_handler.h" 1
 # 15 "../src/exception_handler.h"
 void assert_exception (bool assert_this);
 void installExceptionHandler(void);
 void myExceptionHandler(void);
-# 48 "../src/_Aquarium_1_x.xc" 2
+# 51 "../src/_Aquarium_1_x.xc" 2
 
 
 # 1 "../src/_Aquarium.h" 1
@@ -2021,8 +2022,8 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 50 "../src/_Aquarium_1_x.xc" 2
-# 71 "../src/_Aquarium_1_x.xc"
+# 53 "../src/_Aquarium_1_x.xc" 2
+# 74 "../src/_Aquarium_1_x.xc"
 typedef enum {
     CALLER_IS_BUTTON,
     CALLER_IS_REFRESH,
@@ -2131,13 +2132,7 @@ typedef enum error_bits_t {
     ERROR_BIT_HEATER_OVERHEAT = 0x0E,
     ERROR_WATCHDOG_TIMED_OUT = 0x0F
 } error_bits_t;
-
-
-
-
-
-
-
+# 190 "../src/_Aquarium_1_x.xc"
 typedef struct handler_context_t {
     display_appear_state_t display_appear_state;
     display_screen_name_t display_screen_name_present;
@@ -2457,7 +2452,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 515 "../src/_Aquarium_1_x.xc"
+# 519 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2497,7 +2492,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 case SUB_STATE_02:
                 case SUB_STATE_01: {
-                    context.display_sub_editing_seconds_cntdown = 30;
+                    context.display_sub_editing_seconds_cntdown = (2*60);
                     if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_01) {
                         light_sunrise_sunset_context.max_light_next = light_sunrise_sunset_context.max_light;
 
@@ -2613,7 +2608,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-# 693 "../src/_Aquarium_1_x.xc"
+# 697 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
 
 
@@ -2623,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
 
                                    "5 BOKS  XMOS startKIT  xTIMEcomp. v.14.2.4  XC KODE %s  %syvind Teig",
-                                   "May 21 2017",
+                                   "Jul  3 2017",
                                    char_OE_str);
 
 
@@ -2641,7 +2636,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "20:37:50", "May 21 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "13:14:43", "Jul  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -2690,7 +2685,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "20:37:50", "May 21 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "13:14:43", "Jul  3 2017"); } while (0);
             } else {}
         } break;
 
@@ -2744,7 +2739,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_10: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
 
                    if (context.datetime_editable.minute >= 59) {
                        context.datetime_editable.minute = 0;
@@ -2757,15 +2752,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_09: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MIN;
                 } break;
 
                 case SUB_STATE_08: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
 
-                   if (context.datetime_editable.hour >= 59) {
+                   if (context.datetime_editable.hour >= 23) {
                        context.datetime_editable.hour = 0;
                    } else {
                        context.datetime_editable.hour++;
@@ -2776,13 +2771,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_07: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_HOUR;
                 } break;
 
                 case SUB_STATE_06: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
 
                    if (context.datetime_editable.day >= 31) {
                        context.datetime_editable.day = 1;
@@ -2796,14 +2791,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_05: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
                    datetime_show = context.datetime_editable;
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                    editable_separator_left_right_arrow_str[0] = editable_separator_right_arrow_str[0];
                 } break;
 
                 case SUB_STATE_04: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
 
                    if (context.datetime_editable.month >= 12) {
                        context.datetime_editable.month = 1;
@@ -2817,14 +2812,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_03: {
-                   context.display_sub_editing_seconds_cntdown = 30;
+                   context.display_sub_editing_seconds_cntdown = (2*60);
                    datetime_show = context.datetime_editable;
                    editable_separator_left_right_arrow_str[0] = editable_separator_left_arrow_str[0];
                    screen_clock_cursor_at = CURSOR_POINTING_AT_MONTH_AND_DAY;
                 } break;
 
                 case SUB_STATE_02: {
-                    context.display_sub_editing_seconds_cntdown = 30;
+                    context.display_sub_editing_seconds_cntdown = (2*60);
                     if (context.datetime_editable.year == 2000) {
                         context.datetime_editable.year = 2017;
                         context.datetime_editable.month = 6;
@@ -2843,7 +2838,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 } break;
 
                 case SUB_STATE_01: {
-                    context.display_sub_editing_seconds_cntdown = 30;
+                    context.display_sub_editing_seconds_cntdown = (2*60);
                     context.datetime_editable = context.datetime;
                     context.datetime_editable.second = 0;
                     datetime_show = context.datetime;
@@ -3328,7 +3323,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1435 "../src/_Aquarium_1_x.xc"
+# 1439 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3443,7 +3438,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1563 "../src/_Aquarium_1_x.xc"
+# 1567 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 

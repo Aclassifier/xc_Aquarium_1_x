@@ -100,6 +100,7 @@ typedef enum heat_cable_alternating_t {
     {
        //   MONOTONOUS COLOUR AND INTENSITY INCREASE:
        //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       //   36-5066               36-3848                36-3849         North Light LED strip bought at Clas Ohlson
        {                                                                 //                       #### mW              Concise but less general name
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
@@ -162,6 +163,7 @@ typedef enum heat_cable_alternating_t {
     {
        //   MONOTONOUS COLOUR AND INTENSITY INCREASE:
        //   5W white 3000K        2W whiter 3200K        2W blue 465nm
+       //   36-5066               36-3848                36-3849         North Light LED strip bought at Clas Ohlson
        {                                                                 //                       #### mW              Concise but less general name
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
