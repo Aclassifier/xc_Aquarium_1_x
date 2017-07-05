@@ -314,7 +314,7 @@ void Temperature_Heater_Controller (
                         if (sum_on_off_seconds == 0) { // xcore-5662  new
                             on_percent = 100;
                         } else {
-                            on_percent = (on_cnt_secs * 100) / sum_on_off_seconds;
+                            on_percent = (on_cnt_secs * 100) / sum_on_off_seconds; // THIS IS THE ONLY PLACE IT'S CALCULATED (and not set to 0 or 100)
                         }
 
                         if (temp_onetenthDegC_heater_num == 0) { // xcore-5662  new
@@ -414,15 +414,20 @@ void Temperature_Heater_Controller (
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
                     debug_printf ("%s", "Same");
-                } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
-                    debug_printf ("%s", "High");
-                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
-                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
-                    debug_printf ("%s", "Low");
-                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
                 } else {
-                    debug_printf ("%s", "New");
-                    temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    on_cnt_secs  = 0; // Resetting these now avoids calculating like 5W when REGULATING_AT_HOTTER_AMBIENT since it else would need to wait for..
+                    off_cnt_secs = 0; // ..elements to go off, which it won't since it's not on
+
+                    if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
+                        debug_printf ("%s", "High");
+                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
+                    } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
+                        debug_printf ("%s", "Low");
+                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
+                    } else {
+                        debug_printf ("%s", "New");
+                        temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    }
                 }
                 debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
             } break;
@@ -463,7 +468,7 @@ void Temperature_Heater_Controller (
                         return_value_on_percent = 0;
                     }
                 } else {
-                    return_value_on_percent = on_percent;
+                    return_value_on_percent = on_percent; // This is the only place on_percent is used
                 }
 
                 if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {

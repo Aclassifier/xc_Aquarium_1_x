@@ -1884,15 +1884,20 @@ void Temperature_Heater_Controller (
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
                     do { if(1) printf("%s", "Same"); } while (0);
-                } else if (temp_onetenthDegC > 400) {
-                    do { if(1) printf("%s", "High"); } while (0);
-                    temp_onetenthDegC_heater_limit = 400;
-                } else if (temp_onetenthDegC < 150) {
-                    do { if(1) printf("%s", "Low"); } while (0);
-                    temp_onetenthDegC_heater_limit = 150;
                 } else {
-                    do { if(1) printf("%s", "New"); } while (0);
-                    temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    on_cnt_secs = 0;
+                    off_cnt_secs = 0;
+
+                    if (temp_onetenthDegC > 400) {
+                        do { if(1) printf("%s", "High"); } while (0);
+                        temp_onetenthDegC_heater_limit = 400;
+                    } else if (temp_onetenthDegC < 150) {
+                        do { if(1) printf("%s", "Low"); } while (0);
+                        temp_onetenthDegC_heater_limit = 150;
+                    } else {
+                        do { if(1) printf("%s", "New"); } while (0);
+                        temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    }
                 }
                 do { if(1) printf(" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit); } while (0);
             } break;
@@ -1941,7 +1946,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 487 "../src/temperature_heater_controller.xc"
+# 492 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

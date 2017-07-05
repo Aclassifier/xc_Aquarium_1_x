@@ -22,5 +22,6 @@
   ../../workspace/_Aquarium_1_x/src/adc_startkit_client.h \
   ../../workspace/_Aquarium_1_x/src/light_sunrise_sunset.h \
   ../../workspace/_Aquarium_1_x/src/exception_handler.h \
+  ../../workspace/_Aquarium_1_x/src/_version.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

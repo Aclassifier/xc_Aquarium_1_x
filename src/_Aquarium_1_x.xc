@@ -49,6 +49,7 @@
 #include "adc_startkit_client.h"
 #include "light_sunrise_sunset.h"
 #include "exception_handler.h"
+#include "_version.h"
 
 #include "_Aquarium.h"
 #endif
@@ -153,7 +154,7 @@ typedef enum display_appear_state_t {
 #define ERROR_BITS_NONE 0
 typedef enum error_bits_t {   // 0xHH since binary in display
                                        // LIMITS
-    ERROR_BIT_I2C_AMBIENT            = 0x00,
+    ERROR_BIT_I2C_AMBIENT            = 0x00, // BLACK_BOARD SETS IT
     ERROR_BIT_I2C_WATER              = 0x01,
     ERROR_BIT_I2C_HEATER             = 0x02,
     ERROR_BIT_HEATER_CABLE_UNPLUGGED = 0x03, // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
@@ -164,9 +165,9 @@ typedef enum error_bits_t {   // 0xHH since binary in display
                                              // Heating elements not below the aquarium but on the table may also trigger this alarm,
                                              // but only 1.0 degC is very little and is easily observed even in that case!
     //
-    ERROR_BIT_LOW_12V_LIGHT          = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1
+    ERROR_BIT_LOW_12V_LIGHT          = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
     ERROR_BIT_HIGH_12V_LIGHT         = 0x05, // INNER_RR_12V_MAX_VOLTS_DP1
-    ERROR_BIT_LOW_24V_HEAT           = 0x06, // INNER_RR_24V_MIN_VOLTS_DP1
+    ERROR_BIT_LOW_24V_HEAT           = 0x06, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
     ERROR_BIT_HIGH_24V_HEAT          = 0x07, // INNER_RR_24V_MAX_VOLTS_DP1
     //
     ERROR_BIT_BOX_OVERHEAT           = 0x08, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
@@ -662,6 +663,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_5_VERSJON: {
             // #define TEST_BOOT_FROM_CONFIG // Does not work!
+            char xTIMEcomposer_version_str  [7] = XTIMECOMPOSER_VERSION_STR; // Typical "14.2.3"
+            char application_version_str    [6] = APPLICATION_VERSION_STR;   // Typical "1.0.1"
 
             #ifdef TEST_BOOT_FROM_CONFIG
                 int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -695,20 +698,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 //                                              Øyvind Teig       .
             #else
                 sprintf_return = sprintf (context.display_ts1_chars,
-                //                 "5 BOKS  xTIMEc 14.2.4  KODE %s     XC p%s XMOS startKIT  %syvind Teig",
-                //                                            ..........----------.
-                //                                            5 BOKS  xTIMEc 14.2.4
-                //                                              KODE Sep 22 2013  .
-                //                                              XC på XMOS startKIT
-                //                                              Øyvind Teig
-                                   //"5 BOKS  XMOS startKIT  XC KODE %s  xTIMEcomp. v.14.2.4  %syvind Teig",
-                                   "5 BOKS  XMOS startKIT  xTIMEcomp. v.14.2.4  XC KODE %s  %syvind Teig",
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
+                                   xTIMEcomposer_version_str,
                                    __DATE__,
+                                   application_version_str,
                                    char_OE_str);
                 //                                            5 BOKS  XMOS startKIT
-                //                                              xTIMEcomp. v.14.2.4
+                //                                              xTIMEcomp.  v14.2.4
                 //                                              XC KODE Sep 22 2013
-                //                                              Øyvind Teig
+                //                                              v1.0.2  Øyvind Teig
             #endif
 
             Clear_All_Pixels_In_Buffer();

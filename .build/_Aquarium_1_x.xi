@@ -2010,6 +2010,9 @@ void installExceptionHandler(void);
 void myExceptionHandler(void);
 # 51 "../src/_Aquarium_1_x.xc" 2
 
+# 1 "../src/_version.h" 1
+# 52 "../src/_Aquarium_1_x.xc" 2
+
 
 # 1 "../src/_Aquarium.h" 1
 # 15 "../src/_Aquarium.h"
@@ -2022,8 +2025,8 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 53 "../src/_Aquarium_1_x.xc" 2
-# 74 "../src/_Aquarium_1_x.xc"
+# 54 "../src/_Aquarium_1_x.xc" 2
+# 75 "../src/_Aquarium_1_x.xc"
 typedef enum {
     CALLER_IS_BUTTON,
     CALLER_IS_REFRESH,
@@ -2132,7 +2135,7 @@ typedef enum error_bits_t {
     ERROR_BIT_HEATER_OVERHEAT = 0x0E,
     ERROR_WATCHDOG_TIMED_OUT = 0x0F
 } error_bits_t;
-# 190 "../src/_Aquarium_1_x.xc"
+# 191 "../src/_Aquarium_1_x.xc"
 typedef struct handler_context_t {
     display_appear_state_t display_appear_state;
     display_screen_name_t display_screen_name_present;
@@ -2452,7 +2455,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 519 "../src/_Aquarium_1_x.xc"
+# 520 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2599,6 +2602,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         case SCREEN_5_VERSJON: {
 
+            char xTIMEcomposer_version_str [7] = "14.2.4";
+            char application_version_str [6] = "1.0.1";
 
 
 
@@ -2608,17 +2613,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-# 697 "../src/_Aquarium_1_x.xc"
+# 700 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
-
-
-
-
-
-
-
-                                   "5 BOKS  XMOS startKIT  xTIMEcomp. v.14.2.4  XC KODE %s  %syvind Teig",
-                                   "Jul  3 2017",
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
+                                   xTIMEcomposer_version_str,
+                                   "Jul  5 2017",
+                                   application_version_str,
                                    char_OE_str);
 
 
@@ -2636,7 +2636,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "13:14:43", "Jul  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:05:43", "Jul  5 2017"); } while (0);
             } else {}
         } break;
 
@@ -2685,7 +2685,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "13:14:43", "Jul  3 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "18:05:43", "Jul  5 2017"); } while (0);
             } else {}
         } break;
 
@@ -3323,7 +3323,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1439 "../src/_Aquarium_1_x.xc"
+# 1437 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3438,7 +3438,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1567 "../src/_Aquarium_1_x.xc"
+# 1565 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
