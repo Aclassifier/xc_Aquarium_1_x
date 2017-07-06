@@ -111,9 +111,15 @@ void Temperature_Heater_Controller (
     temp_onetenthDegC_t      temp_onetenthDegC_heater_limit       = TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT; // Default. Will fast be set to something else
 
     temp_onetenthDegC_t      temps_onetenthDegC       [NUM_TEMPERATURES] =
-                                                          {EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC, EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC};
+                                                          {EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,
+                                                           EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC,
+                                                           EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC, 
+                                                           EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC};
     char                     temps_degC_str           [NUM_TEMPERATURES] [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] =
-                                                          {{GENERIC_TEXT_DEGC}, {GENERIC_TEXT_DEGC},{GENERIC_TEXT_DEGC},{GENERIC_TEXT_NO_DATA_DEGC}};
+                                                          {{GENERIC_TEXT_DEGC},
+                                                           {GENERIC_TEXT_DEGC},
+                                                           {GENERIC_TEXT_DEGC},
+                                                           {GENERIC_TEXT_NO_DATA_DEGC}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean  [NUM_I2C_TEMPERATURES]; // Not for IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 
     //}}}  
@@ -409,26 +415,45 @@ void Temperature_Heater_Controller (
             //{{{  i_temperature_heater_commands[].heater_set_temp_degC
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
+
+                bool do_temp_cycle_log_values_reset = false;
+
                 heater_wires     = heater_wires_;
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
                     debug_printf ("%s", "Same");
+                } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
+                    debug_printf ("%s", "High");
+                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
+                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
+                    debug_printf ("%s", "Low");
+                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
+                    do_temp_cycle_log_values_reset = true; // "Low!"
                 } else {
-                    on_cnt_secs  = 0; // Resetting these now avoids calculating like 5W when REGULATING_AT_HOTTER_AMBIENT since it else would need to wait for..
-                    off_cnt_secs = 0; // ..elements to go off, which it won't since it's not on
-
-                    if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
-                        debug_printf ("%s", "High");
-                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
-                    } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
-                        debug_printf ("%s", "Low");
-                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
-                    } else {
-                        debug_printf ("%s", "New");
-                        temp_onetenthDegC_heater_limit = temp_onetenthDegC;
-                    }
+                    debug_printf ("%s", "New");
+                    temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    if (temp_onetenthDegC == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
+                        do_temp_cycle_log_values_reset = true; // "New!"
+                    } else {}
                 }
+
+                if (do_temp_cycle_log_values_reset) {
+                    // Resetting these now (when new limit given) avoids calculating like "5W" in SCREEN_2_VANNTEMP_REG when REGULATING_AT_HOTTER_AMBIENT,
+                    // since it else would need to wait for elements to go off, which it won't since it's never ON. We also get the effect of following when
+                    // a new limit has been given so that we'll se when a heating cyclus has been finished. Observe it only goes to TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
+                    on_cnt_secs  = 0;
+                    off_cnt_secs = 0;
+                    //
+                    char dots_temps_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_NO_DATA_DEGC}; // "...."
+                    for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
+                        temps_degC_str [IOF_TEMPC_HEATER_MEAN_LAST_CYCLE][iof_char] = dots_temps_degC_str[iof_char];
+                    }
+                    //
+                    temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
+                    debug_printf ("%s", "!"); // "New!" or "Low!"
+                } else {}
+
                 debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
             } break;
 

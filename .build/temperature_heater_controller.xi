@@ -1590,9 +1590,15 @@ void Temperature_Heater_Controller (
     temp_onetenthDegC_t temp_onetenthDegC_heater_limit = (250 + ( 0));
 
     temp_onetenthDegC_t temps_onetenthDegC [(3 +1)] =
-                                                          {999,999,999, 999};
+                                                          {999,
+                                                           999,
+                                                           999,
+                                                           999};
     char temps_degC_str [(3 +1)] [5] =
-                                                          {{"??.?"}, {"??.?"},{"??.?"},{"...."}};
+                                                          {{"??.?"},
+                                                           {"??.?"},
+                                                           {"??.?"},
+                                                           {"...."}};
     temp_onetenthDegC_mean_t temps_onetenthDegC_mean [3];
 
 
@@ -1831,7 +1837,7 @@ void Temperature_Heater_Controller (
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
 
                             if (temps_onetenthDegC[IOF_TEMPC_HEATER] < (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on - 2)) {
-# 365 "../src/temperature_heater_controller.xc"
+# 371 "../src/temperature_heater_controller.xc"
                                 cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on = temps_onetenthDegC[IOF_TEMPC_HEATER];
                                 cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
@@ -1879,26 +1885,45 @@ void Temperature_Heater_Controller (
 
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
+
+                bool do_temp_cycle_log_values_reset = false;
+
                 heater_wires = heater_wires_;
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
                     do { if(1) printf("%s", "Same"); } while (0);
+                } else if (temp_onetenthDegC > 400) {
+                    do { if(1) printf("%s", "High"); } while (0);
+                    temp_onetenthDegC_heater_limit = 400;
+                } else if (temp_onetenthDegC < 150) {
+                    do { if(1) printf("%s", "Low"); } while (0);
+                    temp_onetenthDegC_heater_limit = 150;
+                    do_temp_cycle_log_values_reset = true;
                 } else {
+                    do { if(1) printf("%s", "New"); } while (0);
+                    temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    if (temp_onetenthDegC == 150) {
+                        do_temp_cycle_log_values_reset = true;
+                    } else {}
+                }
+
+                if (do_temp_cycle_log_values_reset) {
+
+
+
                     on_cnt_secs = 0;
                     off_cnt_secs = 0;
 
-                    if (temp_onetenthDegC > 400) {
-                        do { if(1) printf("%s", "High"); } while (0);
-                        temp_onetenthDegC_heater_limit = 400;
-                    } else if (temp_onetenthDegC < 150) {
-                        do { if(1) printf("%s", "Low"); } while (0);
-                        temp_onetenthDegC_heater_limit = 150;
-                    } else {
-                        do { if(1) printf("%s", "New"); } while (0);
-                        temp_onetenthDegC_heater_limit = temp_onetenthDegC;
+                    char dots_temps_degC_str [5] = {"...."};
+                    for (int iof_char=0; iof_char < 5; iof_char++) {
+                        temps_degC_str [IOF_TEMPC_HEATER_MEAN_LAST_CYCLE][iof_char] = dots_temps_degC_str[iof_char];
                     }
-                }
+
+                    temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = 999;
+                    do { if(1) printf("%s", "!"); } while (0);
+                } else {}
+
                 do { if(1) printf(" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit); } while (0);
             } break;
 
@@ -1946,7 +1971,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 492 "../src/temperature_heater_controller.xc"
+# 517 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

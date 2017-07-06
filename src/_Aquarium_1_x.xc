@@ -370,7 +370,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             now_regulating_at_char_t now_regulating_at_char = NOW_REGULATING_AT_CHAR_TEXTS;
 
-            i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str);
+            i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str); // Value or GENERIC_TEXT_NO_DATA_DEGC
 
             // FILLS 78 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
@@ -378,9 +378,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     temp_degC_water_str,
                     char_degC_circle_str,
                     char_AA_str,
-                    context.heater_on_percent,
-                    temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
-                    context.heater_on_watt);
+                    context.heater_on_percent, // PÅ
+                    temp_degC_heater_mean_last_cycle_str, // SNITT
+                    char_degC_circle_str,
+                    context.heater_on_watt); // EFFEKT
             //                                            ..........----------.
             //                                            2 VANNTEMP-REG 24.0oC
             //                                              PÅ       100%     .
@@ -682,21 +683,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                    reg_value,
                                    __DATE__,
                                    char_aa_str,
-                                   char_OE_str);
-
-                /* sprintf_return = sprintf (context.display_ts1_chars,
-                        "5 BOKS       %sKODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                        (boot_from_jtag) ? "(DEBUG) " : "(FLASHED)",
-                        __DATE__,
-                        char_aa_str,
-                        char_OE_str);
-                */
-                //                                            ..........----------.
-                //                                            5 BOKS       (DEBUG).
-                //                                              KODE Sep 22 2013  .
-                //                                              XC på XMOS startKIT
-                //                                              Øyvind Teig       .
+                                   char_OE_str);      .
             #else
+                // EDIT HERE IF XTIMECOMPOSER_VERSION_STR or APPLICATION_VERSION_STR need to change size,
+                // as I didn't think it necessary to code it dynamically as I have done with some of the others
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
@@ -705,7 +695,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                    char_OE_str);
                 //                                            5 BOKS  XMOS startKIT
                 //                                              xTIMEcomp.  v14.2.4
-                //                                              XC KODE Sep 22 2013
+                //                                              XC KODE Jun 14 2017
                 //                                              v1.0.2  Øyvind Teig
             #endif
 

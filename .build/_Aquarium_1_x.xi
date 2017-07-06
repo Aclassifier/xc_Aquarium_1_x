@@ -2327,7 +2327,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     char_degC_circle_str,
                     char_AA_str,
                     context.heater_on_percent,
-                    temp_degC_heater_mean_last_cycle_str, char_degC_circle_str,
+                    temp_degC_heater_mean_last_cycle_str,
+                    char_degC_circle_str,
                     context.heater_on_watt);
 
 
@@ -2455,7 +2456,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 520 "../src/_Aquarium_1_x.xc"
+# 521 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2613,11 +2614,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-# 700 "../src/_Aquarium_1_x.xc"
+# 690 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul  5 2017",
+                                   "Jul  6 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2636,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "18:05:43", "Jul  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "19:28:24", "Jul  6 2017"); } while (0);
             } else {}
         } break;
 
@@ -2685,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "18:05:43", "Jul  5 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "19:28:24", "Jul  6 2017"); } while (0);
             } else {}
         } break;
 
@@ -3323,7 +3324,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1437 "../src/_Aquarium_1_x.xc"
+# 1427 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3438,7 +3439,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1565 "../src/_Aquarium_1_x.xc"
+# 1555 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
