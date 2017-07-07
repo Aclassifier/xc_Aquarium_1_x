@@ -2637,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "19:28:24", "Jul  6 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:10:32", "Jul  6 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "19:28:24", "Jul  6 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "20:10:32", "Jul  6 2017"); } while (0);
             } else {}
         } break;
 

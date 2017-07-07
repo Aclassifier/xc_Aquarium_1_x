@@ -120,7 +120,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                     // xTIMEcomposer 14.3.0 does 880997 times in 30 seconds with DEBUG_PRINT_BUTTON_PRESS==0, yields about 30000 per second probably livelocked (but printed in receiver)
                     pressed_but_not_released = false;
                     c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
-                    debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\n", button_n);
+                    debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n);
                 }
             } break;
 

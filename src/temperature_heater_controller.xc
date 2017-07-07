@@ -451,7 +451,7 @@ void Temperature_Heater_Controller (
                     }
                     //
                     temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
-                    debug_printf ("%s", "!"); // "New!" or "Low!"
+                    debug_printf ("%s", "!"); // "Low!" or "New!"
                 } else {}
 
                 debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
