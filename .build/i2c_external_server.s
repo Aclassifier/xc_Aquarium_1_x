@@ -29,18 +29,18 @@
 	.globl I2C_External_Server.dynalloc_maxtimers
 	.set I2C_External_Server.init.0.savedstate,22
 	.globl I2C_External_Server.init.0.savedstate
-	.set I2C_External_Server.select.y.enable.savedstate,22
-	.globl I2C_External_Server.select.y.enable.savedstate
-	.set I2C_External_Server.select.y.enable.cases.maxtimers,0 $M I2C_External_Server.select.y.case.0.maxtimers
-	.globl I2C_External_Server.select.y.enable.cases.maxtimers
-	.set I2C_External_Server.select.y.enable.cases.maxcores,0 $M I2C_External_Server.select.y.case.0.maxcores
-	.globl I2C_External_Server.select.y.enable.cases.maxcores
-	.set I2C_External_Server.select.y.enable.cases.maxchanends,0 $M I2C_External_Server.select.y.case.0.maxchanends
-	.globl I2C_External_Server.select.y.enable.cases.maxchanends
-	.set I2C_External_Server.select.y.enable.cases,0
-	.globl I2C_External_Server.select.y.enable.cases
-	.set I2C_External_Server.select.y.enable.cases.nstackwords, 0 $M (I2C_External_Server.select.y.case.0.nstackwords)
-	.globl I2C_External_Server.select.y.enable.cases.nstackwords
+	.set I2C_External_Server.select.yield.enable.savedstate,22
+	.globl I2C_External_Server.select.yield.enable.savedstate
+	.set I2C_External_Server.select.yield.enable.cases.maxtimers,0 $M I2C_External_Server.select.yield.case.0.maxtimers
+	.globl I2C_External_Server.select.yield.enable.cases.maxtimers
+	.set I2C_External_Server.select.yield.enable.cases.maxcores,0 $M I2C_External_Server.select.yield.case.0.maxcores
+	.globl I2C_External_Server.select.yield.enable.cases.maxcores
+	.set I2C_External_Server.select.yield.enable.cases.maxchanends,0 $M I2C_External_Server.select.yield.case.0.maxchanends
+	.globl I2C_External_Server.select.yield.enable.cases.maxchanends
+	.set I2C_External_Server.select.yield.enable.cases,0
+	.globl I2C_External_Server.select.yield.enable.cases
+	.set I2C_External_Server.select.yield.enable.cases.nstackwords, 0 $M (I2C_External_Server.select.yield.case.0.nstackwords)
+	.globl I2C_External_Server.select.yield.enable.cases.nstackwords
 	.set I2C_External_Server.select.enable.savedstate,22
 	.globl I2C_External_Server.select.enable.savedstate
 	.set I2C_External_Server.select.enable.cases.maxtimers,0 $M I2C_External_Server.select.case.0.maxtimers
@@ -116,7 +116,7 @@ __xcc1_internal_2.info:
 	.weak _i.i2c_external_commands_if._client_call_y.fns.group
 	.globl _i.i2c_external_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_external_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.i2c_external_commands_if._client_call_y.max.nstackwords, _i.i2c_external_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if._client_call_y.fns, _i.i2c_external_commands_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -142,8 +142,8 @@ __xcc1_internal_2.info:
 	.assert 1,Tempchip_MCP9808_ReadTempC.actnonotificationselect,"../src/i2c_external_server.xc:85:78: error: call to function `Tempchip_MCP9808_ReadTempC\' which selects on a notification in a combinable function select case\n                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,Tempchip_MCP9808_Begin_Ok.actnonotificationselect,"../src/i2c_external_server.xc:73:78: error: call to function `Tempchip_MCP9808_Begin_Ok\' which selects on a notification in a combinable function select case\n                        i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]             = Tempchip_MCP9808_Begin_Ok (i2c_external_config, i2c_external_params, I2C_ADDRESS_OF_TEMPC_WATER);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,printf.actnonotificationselect,"../src/i2c_external_server.xc:106:17: error: call to function `printf\' which selects on a notification in a combinable function select case\n                debug_printf (\"I2C: GET_TEMPC_ALL Y %u\\n\", index_of_client);\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/i2c_external_server.xc:40:73: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_SERVER) printf(fmt, __VA_ARGS__); } while (0)\n                                                                        ^~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_external_server.xc:24:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_external_server.xc:24:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_external_server.xc:24:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_external_server.xc:24:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 	.globpassesref Tempchip_MCP9808_ReadTempC, i2c_external_config,"../src/i2c_external_server.xc:85:78: error: call to `Tempchip_MCP9808_ReadTempC\' in `I2C_External_Server\' makes alias of global \'i2c_external_config\'\n                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref Tempchip_MCP9808_ReadTempC, i2c_external_config,"../src/i2c_external_server.xc:82:78: error: call to `Tempchip_MCP9808_ReadTempC\' in `I2C_External_Server\' makes alias of global \'i2c_external_config\'\n                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref Tempchip_MCP9808_ReadTempC, i2c_external_config,"../src/i2c_external_server.xc:79:78: error: call to `Tempchip_MCP9808_ReadTempC\' in `I2C_External_Server\' makes alias of global \'i2c_external_config\'\n                        i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);\n                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -1259,11 +1259,11 @@ I2C_External_Server.init.0:
 	.long	670763580
 	.cc_bottom .LCPI10_2.data
 	.text
-	.globl	I2C_External_Server.select.y.enable
+	.globl	I2C_External_Server.select.yield.enable
 	.align	4
-	.type	I2C_External_Server.select.y.enable,@function
-	.cc_top I2C_External_Server.select.y.enable.function,I2C_External_Server.select.y.enable
-I2C_External_Server.select.y.enable:
+	.type	I2C_External_Server.select.yield.enable,@function
+	.cc_top I2C_External_Server.select.yield.enable.function,I2C_External_Server.select.yield.enable
+I2C_External_Server.select.yield.enable:
 .Lfunc_begin10:
 	.loc	2 0 0
 	.cfi_startproc
@@ -1290,7 +1290,7 @@ I2C_External_Server.select.y.enable:
 	stw r1, r4[10]
 	ldc r1, 56
 	add r1, r4, r1
-	ldap r11, I2C_External_Server.select.y.case.0
+	ldap r11, I2C_External_Server.select.yield.case.0
 	stw r11, r1[0]
 	ldc r1, 52
 	add r1, r4, r1
@@ -1344,17 +1344,17 @@ I2C_External_Server.select.y.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom I2C_External_Server.select.y.enable.function
-	.set	I2C_External_Server.select.y.enable.nstackwords,(I2C_External_Server.init.1.nstackwords + 2)
-	.globl	I2C_External_Server.select.y.enable.nstackwords
-	.set	I2C_External_Server.select.y.enable.maxcores,I2C_External_Server.init.1.maxcores $M 1
-	.globl	I2C_External_Server.select.y.enable.maxcores
-	.set	I2C_External_Server.select.y.enable.maxtimers,I2C_External_Server.init.1.maxtimers $M 0
-	.globl	I2C_External_Server.select.y.enable.maxtimers
-	.set	I2C_External_Server.select.y.enable.maxchanends,I2C_External_Server.init.1.maxchanends $M 0
-	.globl	I2C_External_Server.select.y.enable.maxchanends
+	.cc_bottom I2C_External_Server.select.yield.enable.function
+	.set	I2C_External_Server.select.yield.enable.nstackwords,(I2C_External_Server.init.1.nstackwords + 2)
+	.globl	I2C_External_Server.select.yield.enable.nstackwords
+	.set	I2C_External_Server.select.yield.enable.maxcores,I2C_External_Server.init.1.maxcores $M 1
+	.globl	I2C_External_Server.select.yield.enable.maxcores
+	.set	I2C_External_Server.select.yield.enable.maxtimers,I2C_External_Server.init.1.maxtimers $M 0
+	.globl	I2C_External_Server.select.yield.enable.maxtimers
+	.set	I2C_External_Server.select.yield.enable.maxchanends,I2C_External_Server.init.1.maxchanends $M 0
+	.globl	I2C_External_Server.select.yield.enable.maxchanends
 .Ltmp114:
-	.size	I2C_External_Server.select.y.enable, .Ltmp114-I2C_External_Server.select.y.enable
+	.size	I2C_External_Server.select.yield.enable, .Ltmp114-I2C_External_Server.select.yield.enable
 .Lfunc_end10:
 	.cfi_endproc
 
@@ -1764,9 +1764,9 @@ I2C_External_Server.select.0.case.0:
 	.cfi_endproc
 
 	.align	4
-	.type	I2C_External_Server.select.y.case.0,@function
-	.cc_top I2C_External_Server.select.y.case.0.function,I2C_External_Server.select.y.case.0
-I2C_External_Server.select.y.case.0:
+	.type	I2C_External_Server.select.yield.case.0,@function
+	.cc_top I2C_External_Server.select.yield.case.0.function,I2C_External_Server.select.yield.case.0
+I2C_External_Server.select.yield.case.0:
 .Lfunc_begin14:
 	.loc	1 60 0
 	.cfi_startproc
@@ -2021,13 +2021,13 @@ I2C_External_Server.select.y.case.0:
 	ldw r4, sp[12]
 	retsp 13
 	# RETURN_REG_HOLDER
-	.cc_bottom I2C_External_Server.select.y.case.0.function
-	.set	I2C_External_Server.select.y.case.0.nstackwords,((Tempchip_MCP9808_Begin_Ok.nstackwords $M Tempchip_MCP9808_ReadTempC.nstackwords $M __memcpy_4.nstackwords $M sout_char_array.nstackwords) + 13)
-	.set	I2C_External_Server.select.y.case.0.maxcores,Tempchip_MCP9808_Begin_Ok.maxcores $M Tempchip_MCP9808_ReadTempC.maxcores $M sout_char_array.maxcores $M 1
-	.set	I2C_External_Server.select.y.case.0.maxtimers,Tempchip_MCP9808_Begin_Ok.maxtimers $M Tempchip_MCP9808_ReadTempC.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	I2C_External_Server.select.y.case.0.maxchanends,Tempchip_MCP9808_Begin_Ok.maxchanends $M Tempchip_MCP9808_ReadTempC.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom I2C_External_Server.select.yield.case.0.function
+	.set	I2C_External_Server.select.yield.case.0.nstackwords,((Tempchip_MCP9808_Begin_Ok.nstackwords $M Tempchip_MCP9808_ReadTempC.nstackwords $M __memcpy_4.nstackwords $M sout_char_array.nstackwords) + 13)
+	.set	I2C_External_Server.select.yield.case.0.maxcores,Tempchip_MCP9808_Begin_Ok.maxcores $M Tempchip_MCP9808_ReadTempC.maxcores $M sout_char_array.maxcores $M 1
+	.set	I2C_External_Server.select.yield.case.0.maxtimers,Tempchip_MCP9808_Begin_Ok.maxtimers $M Tempchip_MCP9808_ReadTempC.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	I2C_External_Server.select.yield.case.0.maxchanends,Tempchip_MCP9808_Begin_Ok.maxchanends $M Tempchip_MCP9808_ReadTempC.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp171:
-	.size	I2C_External_Server.select.y.case.0, .Ltmp171-I2C_External_Server.select.y.case.0
+	.size	I2C_External_Server.select.yield.case.0, .Ltmp171-I2C_External_Server.select.yield.case.0
 .Lfunc_end14:
 	.cfi_endproc
 
@@ -2327,11 +2327,11 @@ __xcc1_internal_2:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
 .Linfo_string1:
 .asciiz"../src/i2c_external_server.xc"
 .Linfo_string2:
@@ -2415,9 +2415,9 @@ __xcc1_internal_2:
 .Linfo_string41:
 .asciiz"I2C_External_Server.init.0"
 .Linfo_string42:
-.asciiz"I2C_External_Server.select.y.case.0"
+.asciiz"I2C_External_Server.select.yield.case.0"
 .Linfo_string43:
-.asciiz"I2C_External_Server.select.y.enable"
+.asciiz"I2C_External_Server.select.yield.enable"
 .Linfo_string44:
 .asciiz"I2C_External_Server.select.case.0"
 .Linfo_string45:
@@ -2475,7 +2475,7 @@ __xcc1_internal_2:
 .Linfo_string71:
 .asciiz"s"
 .Linfo_string72:
-.asciiz"y"
+.asciiz"yield"
 .Linfo_string73:
 .asciiz"yarg"
 .Linfo_string74:
@@ -4260,12 +4260,8 @@ __xcc1_internal_2:
 	.long	.L.debug_info_begin0
 .Lset56 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset56
-	.long	537
-.asciiz"I2C_External_Server.select.y.enable"
 	.long	1015
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	728
-.asciiz"I2C_External_Server.select.y.case.0"
 	.long	1044
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 	.long	198
@@ -4284,6 +4280,8 @@ __xcc1_internal_2:
 .asciiz"I2C_External_Server.select.case.0"
 	.long	246
 .asciiz"_i.i2c_external_commands_if.I2C_External_Server._c0.read_temperature_ok"
+	.long	728
+.asciiz"I2C_External_Server.select.yield.case.0"
 	.long	1206
 .asciiz"_safe_memmove"
 	.long	1101
@@ -4304,6 +4302,8 @@ __xcc1_internal_2:
 .asciiz"_safe_memcmp"
 	.long	1077
 .asciiz"delay_seconds"
+	.long	537
+.asciiz"I2C_External_Server.select.yield.enable"
 	.long	593
 .asciiz"I2C_External_Server.select.enable"
 	.long	0
@@ -4354,9 +4354,9 @@ __xcc1_internal_2:
 	.typestring _i.i2c_external_commands_if.I2C_External_Server._c0.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(a(2:ui)),ui)"
 	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
+	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring sout_char_array, "f{0}(m:chd,&(a(!1:c:uc)),ui)"
 	.typestring i2c_master_init, "f{0}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
@@ -4366,7 +4366,7 @@ __xcc1_internal_2:
 	.typestring I2C_External_Server.select.0.enable, "k:fe{0}()"
 	.typestring I2C_External_Server.init.1, "k:f{0}(u:q(ui))"
 	.typestring I2C_External_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(command){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}})))"
-	.typestring I2C_External_Server.select.y.enable, "k:fe{0}()"
+	.typestring I2C_External_Server.select.yield.enable, "k:fe{0}()"
 	.typestring I2C_External_Server.select.enable, "k:fe{0}()"
 	.typestring I2C_External_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring i2c_external_config, "s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}"

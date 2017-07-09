@@ -57,7 +57,7 @@
 	.weak _i.i2c_external_commands_if._client_call_y.fns.group
 	.globl _i.i2c_external_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_external_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.i2c_external_commands_if._client_call_y.max.nstackwords, _i.i2c_external_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if._client_call_y.fns, _i.i2c_external_commands_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -79,8 +79,8 @@
 	.call usage.anon.0,delay_ticks_longlong
 	.set Init_Arithmetic_Mean_Temp_OnetenthDegC.locnoside, 0
 	.set Do_Arithmetic_Mean_Temp_OnetenthDegC.locnoside, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/f_conversions.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/f_conversions.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/f_conversions.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/f_conversions.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -1034,17 +1034,17 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC:
 	bf r1, .LBB10_3
 .Ltmp124:
 	ldc r2, 0
-	mkmsk r11, 3
-	ldc r3, 0
+	mkmsk r3, 3
+	ldc r11, 0
 .Ltmp125:
 .LBB10_2:
 .Lxtalabel26:
 	.loc	1 44 0 prologue_end
-	lsu r4, r11, r2
+	lsu r4, r3, r2
 .Ltrap_info0:
 	ecallt r4
 	.loc	1 44 0
-	stw r3, r0[r2]
+	stw r11, r0[r2]
 	.loc	1 43 0
 	add r2, r2, 1
 .Ltmp126:
@@ -1399,11 +1399,11 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.cc_bottom .str55.data
 	.text
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
 .Linfo_string1:
 .asciiz"../src/f_conversions.xc"
 .Linfo_string2:
@@ -1555,7 +1555,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string75:
 .asciiz"s"
 .Linfo_string76:
-.asciiz"y"
+.asciiz"yield"
 .Linfo_string77:
 .asciiz"yarg"
 .Linfo_string78:
@@ -4025,9 +4025,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 
 	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
+	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring siprintf, "f{si}(u:q(uc),u:q(c:uc),va)"
 	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"

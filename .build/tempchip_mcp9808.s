@@ -57,7 +57,7 @@
 	.weak _i.i2c_external_commands_if._client_call_y.fns.group
 	.globl _i.i2c_external_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_external_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.i2c_external_commands_if._client_call_y.max.nstackwords, _i.i2c_external_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if._client_call_y.fns, _i.i2c_external_commands_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -85,8 +85,8 @@
 	.set Tempchip_MCP9808_Shutdown_Wake_Ok.locnoside, 0
 	.set Tempchip_MCP9808_Write16.locnoside, 0
 	.set Tempchip_MCP9808_Read16.locnoside, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -769,11 +769,11 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
 .Linfo_string1:
 .asciiz"../src/tempchip_mcp9808.xc"
 .Linfo_string2:
@@ -911,7 +911,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string68:
 .asciiz"s"
 .Linfo_string69:
-.asciiz"y"
+.asciiz"yield"
 .Linfo_string70:
 .asciiz"yarg"
 .Linfo_string71:
@@ -2663,9 +2663,9 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 
 	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
+	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring i2c_master_read_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
 	.typestring i2c_master_write_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"

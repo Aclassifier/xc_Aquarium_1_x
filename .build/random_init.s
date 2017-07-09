@@ -54,7 +54,7 @@ random_simple_init_seed:
 .Ldebug_end0:
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"clang version 3.6.0 "
+.asciiz"XMOS-16341-Apr-10-2017 clang version 3.6.0  (based on LLVM 3.6.0svn)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/module_random/src/random_init.c"
 .Linfo_string2:
@@ -217,7 +217,7 @@ random_simple_init_seed:
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.ident	"clang version 3.6.0 "
+	.ident	"XMOS-16341-Apr-10-2017 clang version 3.6.0  (based on LLVM 3.6.0svn)"
 	.typestring random_simple_init_seed, "f{0}()"
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

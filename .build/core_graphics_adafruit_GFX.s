@@ -15,7 +15,7 @@
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
 	.file	1 "../src/core_graphics_adafruit_GFX.c"
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h"
 	.file	3 ".././src/core_graphics_adafruit_GFX.h"
 	.file	4 ".././src/param.h"
 	.text
@@ -1021,7 +1021,7 @@ display_print_dec_8:
 .Ltmp148:
 	.size	display_print_dec_8, .Ltmp148-display_print_dec_8
 .Lfunc_end6:
-	.file	5 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h"
+	.file	5 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h"
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -4307,7 +4307,7 @@ display_param:
 .Ldebug_end2:
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"clang version 3.6.0 "
+.asciiz"XMOS-16341-Apr-10-2017 clang version 3.6.0  (based on LLVM 3.6.0svn)"
 .Linfo_string1:
 .asciiz".././src/core_graphics_adafruit_GFX.c"
 .Linfo_string2:
@@ -9440,7 +9440,7 @@ display_param:
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.ident	"clang version 3.6.0 "
+	.ident	"XMOS-16341-Apr-10-2017 clang version 3.6.0  (based on LLVM 3.6.0svn)"
 	.typestring Adafruit_GFX_constructor, "f{0}(ss,ss)"
 	.typestring display_print, "f{0}(p(c:uc),ui)"
 	.typestring write, "f{0}(uc)"

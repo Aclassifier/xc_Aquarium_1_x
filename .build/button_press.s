@@ -12,18 +12,18 @@
 	.globl Mux_Button_Task.dynalloc_maxtimers
 	.set Mux_Button_Task.init.0.savedstate,13
 	.globl Mux_Button_Task.init.0.savedstate
-	.set Mux_Button_Task.select.y.enable.savedstate,13
-	.globl Mux_Button_Task.select.y.enable.savedstate
-	.set Mux_Button_Task.select.y.enable.cases.maxtimers,0 $M Mux_Button_Task.select.y.case.0.maxtimers
-	.globl Mux_Button_Task.select.y.enable.cases.maxtimers
-	.set Mux_Button_Task.select.y.enable.cases.maxcores,0 $M Mux_Button_Task.select.y.case.0.maxcores
-	.globl Mux_Button_Task.select.y.enable.cases.maxcores
-	.set Mux_Button_Task.select.y.enable.cases.maxchanends,0 $M Mux_Button_Task.select.y.case.0.maxchanends
-	.globl Mux_Button_Task.select.y.enable.cases.maxchanends
-	.set Mux_Button_Task.select.y.enable.cases,0
-	.globl Mux_Button_Task.select.y.enable.cases
-	.set Mux_Button_Task.select.y.enable.cases.nstackwords, 0 $M (Mux_Button_Task.select.y.case.0.nstackwords)
-	.globl Mux_Button_Task.select.y.enable.cases.nstackwords
+	.set Mux_Button_Task.select.yield.enable.savedstate,13
+	.globl Mux_Button_Task.select.yield.enable.savedstate
+	.set Mux_Button_Task.select.yield.enable.cases.maxtimers,0 $M Mux_Button_Task.select.yield.case.0.maxtimers
+	.globl Mux_Button_Task.select.yield.enable.cases.maxtimers
+	.set Mux_Button_Task.select.yield.enable.cases.maxcores,0 $M Mux_Button_Task.select.yield.case.0.maxcores
+	.globl Mux_Button_Task.select.yield.enable.cases.maxcores
+	.set Mux_Button_Task.select.yield.enable.cases.maxchanends,0 $M Mux_Button_Task.select.yield.case.0.maxchanends
+	.globl Mux_Button_Task.select.yield.enable.cases.maxchanends
+	.set Mux_Button_Task.select.yield.enable.cases,0
+	.globl Mux_Button_Task.select.yield.enable.cases
+	.set Mux_Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Mux_Button_Task.select.yield.case.0.nstackwords)
+	.globl Mux_Button_Task.select.yield.enable.cases.nstackwords
 	.set Mux_Button_Task.select.enable.savedstate,13
 	.globl Mux_Button_Task.select.enable.savedstate
 	.set Mux_Button_Task.select.enable.cases.maxtimers,0 $M Mux_Button_Task.select.case.0.maxtimers
@@ -44,18 +44,18 @@
 	.globl Button_Task.dynalloc_maxtimers
 	.set Button_Task.init.0.savedstate,11
 	.globl Button_Task.init.0.savedstate
-	.set Button_Task.select.y.enable.savedstate,11
-	.globl Button_Task.select.y.enable.savedstate
-	.set Button_Task.select.y.enable.cases.maxtimers,0 $M Button_Task.select.y.case.1.maxtimers $M Button_Task.select.y.case.0.maxtimers
-	.globl Button_Task.select.y.enable.cases.maxtimers
-	.set Button_Task.select.y.enable.cases.maxcores,0 $M Button_Task.select.y.case.1.maxcores $M Button_Task.select.y.case.0.maxcores
-	.globl Button_Task.select.y.enable.cases.maxcores
-	.set Button_Task.select.y.enable.cases.maxchanends,0 $M Button_Task.select.y.case.1.maxchanends $M Button_Task.select.y.case.0.maxchanends
-	.globl Button_Task.select.y.enable.cases.maxchanends
-	.set Button_Task.select.y.enable.cases,0
-	.globl Button_Task.select.y.enable.cases
-	.set Button_Task.select.y.enable.cases.nstackwords, 0 $M (Button_Task.select.y.case.1.nstackwords) $M (Button_Task.select.y.case.0.nstackwords)
-	.globl Button_Task.select.y.enable.cases.nstackwords
+	.set Button_Task.select.yield.enable.savedstate,11
+	.globl Button_Task.select.yield.enable.savedstate
+	.set Button_Task.select.yield.enable.cases.maxtimers,0 $M Button_Task.select.yield.case.1.maxtimers $M Button_Task.select.yield.case.0.maxtimers
+	.globl Button_Task.select.yield.enable.cases.maxtimers
+	.set Button_Task.select.yield.enable.cases.maxcores,0 $M Button_Task.select.yield.case.1.maxcores $M Button_Task.select.yield.case.0.maxcores
+	.globl Button_Task.select.yield.enable.cases.maxcores
+	.set Button_Task.select.yield.enable.cases.maxchanends,0 $M Button_Task.select.yield.case.1.maxchanends $M Button_Task.select.yield.case.0.maxchanends
+	.globl Button_Task.select.yield.enable.cases.maxchanends
+	.set Button_Task.select.yield.enable.cases,0
+	.globl Button_Task.select.yield.enable.cases
+	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.0.nstackwords) $M (Button_Task.select.yield.case.1.nstackwords)
+	.globl Button_Task.select.yield.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
 	.set Button_Task.select.enable.cases.maxtimers,0 $M Button_Task.select.case.1.maxtimers $M Button_Task.select.case.0.maxtimers
@@ -66,7 +66,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.set usage.anon.0,0
 	.set usage.anon.1,0
@@ -77,7 +77,7 @@
 	.call usage.anon.0,delay_ticks_longlong
 	.set Mux_Button_Task.locnoside, 0
 	.set Button_Task.locnoside, 0
-	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:123:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:22:66: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS) printf(fmt, __VA_ARGS__); } while (0)\n                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:123:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:22:66: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS) printf(fmt, __VA_ARGS__); } while (0)\n                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -380,11 +380,20 @@ Button_Task.init.0:
 	.size	Button_Task.init.0, .Ltmp40-Button_Task.init.0
 	.cfi_endproc
 
-	.globl	Button_Task.select.y.enable
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI3_0.data,.LCPI3_0
 	.align	4
-	.type	Button_Task.select.y.enable,@function
-	.cc_top Button_Task.select.y.enable.function,Button_Task.select.y.enable
-Button_Task.select.y.enable:
+	.type	.LCPI3_0,@object
+	.size	.LCPI3_0, 4
+.LCPI3_0:
+	.long	2147483648
+	.cc_bottom .LCPI3_0.data
+	.text
+	.globl	Button_Task.select.yield.enable
+	.align	4
+	.type	Button_Task.select.yield.enable,@function
+	.cc_top Button_Task.select.yield.enable.function,Button_Task.select.yield.enable
+Button_Task.select.yield.enable:
 	.cfi_startproc
 	entsp 3
 .Ltmp41:
@@ -404,10 +413,14 @@ Button_Task.select.y.enable:
 	ldw r1, r4[6]
 	bf r1, .LBB3_4
 	ldw r0, r4[3]
+	get r11, id
+	ldaw r2, dp[__timer_delta]
+	ldw r3, cp[.LCPI3_0]
+	stw r3, r2[r11]
 	ldw r2, r4[5]
 	setd res[r0], r2
 	setc res[r0], 25
-	ldap r11, Button_Task.select.y.case.0
+	ldap r11, Button_Task.select.yield.case.0
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -433,7 +446,7 @@ Button_Task.select.y.enable:
 	stw r3, r5[r11]
 	setd res[r1], r2
 	setc res[r1], 9
-	ldap r11, Button_Task.select.y.case.1
+	ldap r11, Button_Task.select.yield.case.1
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
@@ -447,19 +460,28 @@ Button_Task.select.y.enable:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom Button_Task.select.y.enable.function
-	.set	Button_Task.select.y.enable.nstackwords,(Button_Task.init.1.nstackwords + 3)
-	.globl	Button_Task.select.y.enable.nstackwords
-	.set	Button_Task.select.y.enable.maxcores,Button_Task.init.1.maxcores $M 1
-	.globl	Button_Task.select.y.enable.maxcores
-	.set	Button_Task.select.y.enable.maxtimers,Button_Task.init.1.maxtimers $M 0
-	.globl	Button_Task.select.y.enable.maxtimers
-	.set	Button_Task.select.y.enable.maxchanends,Button_Task.init.1.maxchanends $M 0
-	.globl	Button_Task.select.y.enable.maxchanends
+	.cc_bottom Button_Task.select.yield.enable.function
+	.set	Button_Task.select.yield.enable.nstackwords,(Button_Task.init.1.nstackwords + 3)
+	.globl	Button_Task.select.yield.enable.nstackwords
+	.set	Button_Task.select.yield.enable.maxcores,Button_Task.init.1.maxcores $M 1
+	.globl	Button_Task.select.yield.enable.maxcores
+	.set	Button_Task.select.yield.enable.maxtimers,Button_Task.init.1.maxtimers $M 0
+	.globl	Button_Task.select.yield.enable.maxtimers
+	.set	Button_Task.select.yield.enable.maxchanends,Button_Task.init.1.maxchanends $M 0
+	.globl	Button_Task.select.yield.enable.maxchanends
 .Ltmp45:
-	.size	Button_Task.select.y.enable, .Ltmp45-Button_Task.select.y.enable
+	.size	Button_Task.select.yield.enable, .Ltmp45-Button_Task.select.yield.enable
 	.cfi_endproc
 
+	.section	.cp.rodata.cst4,"aMc",@progbits,4
+	.cc_top .LCPI4_0.data,.LCPI4_0
+	.align	4
+	.type	.LCPI4_0,@object
+	.size	.LCPI4_0, 4
+.LCPI4_0:
+	.long	2147483648
+	.cc_bottom .LCPI4_0.data
+	.text
 	.globl	Button_Task.select.enable
 	.align	4
 	.type	Button_Task.select.enable,@function
@@ -480,6 +502,10 @@ Button_Task.select.enable:
 	ldw r2, r0[6]
 	bf r2, .LBB4_4
 	ldw r1, r0[3]
+	get r11, id
+	ldaw r3, dp[__timer_delta]
+	ldw r4, cp[.LCPI4_0]
+	stw r4, r3[r11]
 	ldw r3, r0[5]
 	setd res[r1], r3
 	setc res[r1], 25
@@ -772,11 +798,11 @@ Mux_Button_Task.init.0:
 	.long	171759621
 	.cc_bottom .LCPI9_2.data
 	.text
-	.globl	Mux_Button_Task.select.y.enable
+	.globl	Mux_Button_Task.select.yield.enable
 	.align	4
-	.type	Mux_Button_Task.select.y.enable,@function
-	.cc_top Mux_Button_Task.select.y.enable.function,Mux_Button_Task.select.y.enable
-Mux_Button_Task.select.y.enable:
+	.type	Mux_Button_Task.select.yield.enable,@function
+	.cc_top Mux_Button_Task.select.yield.enable.function,Mux_Button_Task.select.yield.enable
+Mux_Button_Task.select.yield.enable:
 .Lfunc_begin9:
 	.loc	2 0 0
 	.cfi_startproc
@@ -797,7 +823,7 @@ Mux_Button_Task.select.y.enable:
 	.loc	2 46 9 prologue_end
 	ldaw r1, r4[7]
 	.loc	2 46 9
-	ldap r11, Mux_Button_Task.select.y.case.0
+	ldap r11, Mux_Button_Task.select.yield.case.0
 	stw r11, r4[11]
 	ldw r0, cp[.LCPI9_0]
 	stw r0, r4[9]
@@ -849,17 +875,17 @@ Mux_Button_Task.select.y.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom Mux_Button_Task.select.y.enable.function
-	.set	Mux_Button_Task.select.y.enable.nstackwords,(Mux_Button_Task.init.1.nstackwords + 2)
-	.globl	Mux_Button_Task.select.y.enable.nstackwords
-	.set	Mux_Button_Task.select.y.enable.maxcores,Mux_Button_Task.init.1.maxcores $M 1
-	.globl	Mux_Button_Task.select.y.enable.maxcores
-	.set	Mux_Button_Task.select.y.enable.maxtimers,Mux_Button_Task.init.1.maxtimers $M 0
-	.globl	Mux_Button_Task.select.y.enable.maxtimers
-	.set	Mux_Button_Task.select.y.enable.maxchanends,Mux_Button_Task.init.1.maxchanends $M 0
-	.globl	Mux_Button_Task.select.y.enable.maxchanends
+	.cc_bottom Mux_Button_Task.select.yield.enable.function
+	.set	Mux_Button_Task.select.yield.enable.nstackwords,(Mux_Button_Task.init.1.nstackwords + 2)
+	.globl	Mux_Button_Task.select.yield.enable.nstackwords
+	.set	Mux_Button_Task.select.yield.enable.maxcores,Mux_Button_Task.init.1.maxcores $M 1
+	.globl	Mux_Button_Task.select.yield.enable.maxcores
+	.set	Mux_Button_Task.select.yield.enable.maxtimers,Mux_Button_Task.init.1.maxtimers $M 0
+	.globl	Mux_Button_Task.select.yield.enable.maxtimers
+	.set	Mux_Button_Task.select.yield.enable.maxchanends,Mux_Button_Task.init.1.maxchanends $M 0
+	.globl	Mux_Button_Task.select.yield.enable.maxchanends
 .Ltmp79:
-	.size	Mux_Button_Task.select.y.enable, .Ltmp79-Mux_Button_Task.select.y.enable
+	.size	Mux_Button_Task.select.yield.enable, .Ltmp79-Mux_Button_Task.select.yield.enable
 .Lfunc_end9:
 	.cfi_endproc
 
@@ -993,9 +1019,9 @@ Mux_Button_Task.fini:
 	.cfi_endproc
 
 	.align	4
-	.type	Mux_Button_Task.select.y.case.0,@function
-	.cc_top Mux_Button_Task.select.y.case.0.function,Mux_Button_Task.select.y.case.0
-Mux_Button_Task.select.y.case.0:
+	.type	Mux_Button_Task.select.yield.case.0,@function
+	.cc_top Mux_Button_Task.select.yield.case.0.function,Mux_Button_Task.select.yield.case.0
+Mux_Button_Task.select.yield.case.0:
 .Lfunc_begin12:
 	.loc	1 47 0
 	.cfi_startproc
@@ -1048,13 +1074,13 @@ Mux_Button_Task.select.y.case.0:
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp91:
-	.cc_bottom Mux_Button_Task.select.y.case.0.function
-	.set	Mux_Button_Task.select.y.case.0.nstackwords,0
-	.set	Mux_Button_Task.select.y.case.0.maxcores,1
-	.set	Mux_Button_Task.select.y.case.0.maxtimers,0
-	.set	Mux_Button_Task.select.y.case.0.maxchanends,0
+	.cc_bottom Mux_Button_Task.select.yield.case.0.function
+	.set	Mux_Button_Task.select.yield.case.0.nstackwords,0
+	.set	Mux_Button_Task.select.yield.case.0.maxcores,1
+	.set	Mux_Button_Task.select.yield.case.0.maxtimers,0
+	.set	Mux_Button_Task.select.yield.case.0.maxchanends,0
 .Ltmp92:
-	.size	Mux_Button_Task.select.y.case.0, .Ltmp92-Mux_Button_Task.select.y.case.0
+	.size	Mux_Button_Task.select.yield.case.0, .Ltmp92-Mux_Button_Task.select.yield.case.0
 .Lfunc_end12:
 	.cfi_endproc
 
@@ -1134,9 +1160,9 @@ Mux_Button_Task.select.case.0:
 	.cc_bottom .LCPI14_0.data
 	.text
 	.align	4
-	.type	Button_Task.select.y.case.0,@function
-	.cc_top Button_Task.select.y.case.0.function,Button_Task.select.y.case.0
-Button_Task.select.y.case.0:
+	.type	Button_Task.select.yield.case.0,@function
+	.cc_top Button_Task.select.yield.case.0.function,Button_Task.select.yield.case.0
+Button_Task.select.yield.case.0:
 .Lfunc_begin14:
 	.loc	1 78 0
 	.cfi_startproc
@@ -1177,13 +1203,13 @@ Button_Task.select.y.case.0:
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp100:
-	.cc_bottom Button_Task.select.y.case.0.function
-	.set	Button_Task.select.y.case.0.nstackwords,0
-	.set	Button_Task.select.y.case.0.maxcores,1
-	.set	Button_Task.select.y.case.0.maxtimers,0
-	.set	Button_Task.select.y.case.0.maxchanends,0
+	.cc_bottom Button_Task.select.yield.case.0.function
+	.set	Button_Task.select.yield.case.0.nstackwords,0
+	.set	Button_Task.select.yield.case.0.maxcores,1
+	.set	Button_Task.select.yield.case.0.maxtimers,0
+	.set	Button_Task.select.yield.case.0.maxchanends,0
 .Ltmp101:
-	.size	Button_Task.select.y.case.0, .Ltmp101-Button_Task.select.y.case.0
+	.size	Button_Task.select.yield.case.0, .Ltmp101-Button_Task.select.yield.case.0
 .Lfunc_end14:
 	.cfi_endproc
 
@@ -1197,9 +1223,9 @@ Button_Task.select.y.case.0:
 	.cc_bottom .LCPI15_0.data
 	.text
 	.align	4
-	.type	Button_Task.select.y.case.1,@function
-	.cc_top Button_Task.select.y.case.1.function,Button_Task.select.y.case.1
-Button_Task.select.y.case.1:
+	.type	Button_Task.select.yield.case.1,@function
+	.cc_top Button_Task.select.yield.case.1.function,Button_Task.select.yield.case.1
+Button_Task.select.yield.case.1:
 .Lfunc_begin15:
 	.loc	1 96 0
 	.cfi_startproc
@@ -1319,13 +1345,13 @@ Button_Task.select.y.case.1:
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp105:
-	.cc_bottom Button_Task.select.y.case.1.function
-	.set	Button_Task.select.y.case.1.nstackwords,0
-	.set	Button_Task.select.y.case.1.maxcores,1
-	.set	Button_Task.select.y.case.1.maxtimers,0
-	.set	Button_Task.select.y.case.1.maxchanends,0
+	.cc_bottom Button_Task.select.yield.case.1.function
+	.set	Button_Task.select.yield.case.1.nstackwords,0
+	.set	Button_Task.select.yield.case.1.maxcores,1
+	.set	Button_Task.select.yield.case.1.maxtimers,0
+	.set	Button_Task.select.yield.case.1.maxchanends,0
 .Ltmp106:
-	.size	Button_Task.select.y.case.1, .Ltmp106-Button_Task.select.y.case.1
+	.size	Button_Task.select.yield.case.1, .Ltmp106-Button_Task.select.yield.case.1
 .Lfunc_end15:
 	.cfi_endproc
 
@@ -1535,10 +1561,10 @@ Button_Task.select.case.1:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
 .Linfo_string1:
 .asciiz"../src/button_press.xc"
 .Linfo_string2:
@@ -1570,9 +1596,9 @@ Button_Task.select.case.1:
 .Linfo_string15:
 .asciiz"Mux_Button_Task.init.0"
 .Linfo_string16:
-.asciiz"Mux_Button_Task.select.y.case.0"
+.asciiz"Mux_Button_Task.select.yield.case.0"
 .Linfo_string17:
-.asciiz"Mux_Button_Task.select.y.enable"
+.asciiz"Mux_Button_Task.select.yield.enable"
 .Linfo_string18:
 .asciiz"unsigned int"
 .Linfo_string19:
@@ -1588,11 +1614,11 @@ Button_Task.select.case.1:
 .Linfo_string24:
 .asciiz"Button_Task.init.0"
 .Linfo_string25:
-.asciiz"Button_Task.select.y.case.0"
+.asciiz"Button_Task.select.yield.case.0"
 .Linfo_string26:
-.asciiz"Button_Task.select.y.case.1"
+.asciiz"Button_Task.select.yield.case.1"
 .Linfo_string27:
-.asciiz"Button_Task.select.y.enable"
+.asciiz"Button_Task.select.yield.enable"
 .Linfo_string28:
 .asciiz"Button_Task.select.case.0"
 .Linfo_string29:
@@ -3282,10 +3308,10 @@ Button_Task.select.case.1:
 	.long	.L.debug_info_begin0
 .Lset35 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset35
+	.long	761
+.asciiz"Mux_Button_Task.select.yield.case.0"
 	.long	1227
 .asciiz"Button_Task.fini"
-	.long	761
-.asciiz"Mux_Button_Task.select.y.case.0"
 	.long	903
 .asciiz"Button_Task.select.case.0"
 	.long	921
@@ -3294,30 +3320,30 @@ Button_Task.select.case.1:
 .asciiz"Mux_Button_Task"
 	.long	1011
 .asciiz"Mux_Button_Task.init.1"
+	.long	867
+.asciiz"Button_Task.select.yield.case.0"
 	.long	1053
 .asciiz"Mux_Button_Task.init.0"
 	.long	705
 .asciiz"Mux_Button_Task.select.enable"
-	.long	867
-.asciiz"Button_Task.select.y.case.0"
 	.long	885
-.asciiz"Button_Task.select.y.case.1"
+.asciiz"Button_Task.select.yield.case.1"
 	.long	192
 .asciiz"Button_Task"
 	.long	396
 .asciiz"Button_Task.init.1"
 	.long	649
-.asciiz"Mux_Button_Task.select.y.enable"
+.asciiz"Mux_Button_Task.select.yield.enable"
+	.long	1124
+.asciiz"Button_Task.init.0"
 	.long	1203
 .asciiz"Button_Task.select.enable"
 	.long	963
 .asciiz"delay_milliseconds"
+	.long	1179
+.asciiz"Button_Task.select.yield.enable"
 	.long	987
 .asciiz"delay_microseconds"
-	.long	1124
-.asciiz"Button_Task.init.0"
-	.long	1179
-.asciiz"Button_Task.select.y.enable"
 	.long	1104
 .asciiz"Mux_Button_Task.fini"
 	.long	939
@@ -3361,13 +3387,13 @@ Button_Task.select.case.1:
 	.typestring Button_Task, "k:f{0}(:ui,p,chd)"
 	.typestring Button_Task.init.1, "k:f{0}(u:q(ui))"
 	.typestring Button_Task.init.0, "k:f{0}(u:q(ui),:ui,p,chd)"
-	.typestring Button_Task.select.y.enable, "k:fe{0}()"
+	.typestring Button_Task.select.yield.enable, "k:fe{0}()"
 	.typestring Button_Task.select.enable, "k:fe{0}()"
 	.typestring Button_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring Mux_Button_Task, "k:f{0}(&(a(3:chd)),chd)"
 	.typestring Mux_Button_Task.init.1, "k:f{0}(u:q(ui))"
 	.typestring Mux_Button_Task.init.0, "k:f{0}(u:q(ui),&(a(3:chd)),chd)"
-	.typestring Mux_Button_Task.select.y.enable, "k:fe{0}()"
+	.typestring Mux_Button_Task.select.yield.enable, "k:fe{0}()"
 	.typestring Mux_Button_Task.select.enable, "k:fe{0}()"
 	.typestring Mux_Button_Task.fini, "k:f{0}(u:q(ui))"
 	.section	.xtaendpointtable,"",@progbits
