@@ -24,18 +24,18 @@
 	.globl Chronodot_DS3231_Controller.dynalloc_maxtimers
 	.set Chronodot_DS3231_Controller.init.0.savedstate,17
 	.globl Chronodot_DS3231_Controller.init.0.savedstate
-	.set Chronodot_DS3231_Controller.select.yield.enable.savedstate,17
-	.globl Chronodot_DS3231_Controller.select.yield.enable.savedstate
-	.set Chronodot_DS3231_Controller.select.yield.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.yield.case.1.maxtimers $M Chronodot_DS3231_Controller.select.yield.case.0.maxtimers
-	.globl Chronodot_DS3231_Controller.select.yield.enable.cases.maxtimers
-	.set Chronodot_DS3231_Controller.select.yield.enable.cases.maxcores,0 $M Chronodot_DS3231_Controller.select.yield.case.1.maxcores $M Chronodot_DS3231_Controller.select.yield.case.0.maxcores
-	.globl Chronodot_DS3231_Controller.select.yield.enable.cases.maxcores
-	.set Chronodot_DS3231_Controller.select.yield.enable.cases.maxchanends,0 $M Chronodot_DS3231_Controller.select.yield.case.1.maxchanends $M Chronodot_DS3231_Controller.select.yield.case.0.maxchanends
-	.globl Chronodot_DS3231_Controller.select.yield.enable.cases.maxchanends
-	.set Chronodot_DS3231_Controller.select.yield.enable.cases,0
-	.globl Chronodot_DS3231_Controller.select.yield.enable.cases
-	.set Chronodot_DS3231_Controller.select.yield.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.yield.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.yield.case.0.nstackwords)
-	.globl Chronodot_DS3231_Controller.select.yield.enable.cases.nstackwords
+	.set Chronodot_DS3231_Controller.select.y.enable.savedstate,17
+	.globl Chronodot_DS3231_Controller.select.y.enable.savedstate
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxtimers $M Chronodot_DS3231_Controller.select.y.case.0.maxtimers
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxtimers
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxcores,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxcores $M Chronodot_DS3231_Controller.select.y.case.0.maxcores
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxcores
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends,0 $M Chronodot_DS3231_Controller.select.y.case.1.maxchanends $M Chronodot_DS3231_Controller.select.y.case.0.maxchanends
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.maxchanends
+	.set Chronodot_DS3231_Controller.select.y.enable.cases,0
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases
+	.set Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.y.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.y.case.1.nstackwords)
+	.globl Chronodot_DS3231_Controller.select.y.enable.cases.nstackwords
 	.set Chronodot_DS3231_Controller.select.enable.savedstate,17
 	.globl Chronodot_DS3231_Controller.select.enable.savedstate
 	.set Chronodot_DS3231_Controller.select.enable.cases.maxtimers,0 $M Chronodot_DS3231_Controller.select.case.1.maxtimers $M Chronodot_DS3231_Controller.select.case.0.maxtimers
@@ -98,7 +98,7 @@
 	.weak _i.chronodot_ds3231_if._client_call_y.fns.group
 	.globl _i.chronodot_ds3231_if._client_call_y.fns.group
 	.add_to_set _i.chronodot_ds3231_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.max.nstackwords, _i.chronodot_ds3231_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.fns, _i.chronodot_ds3231_if._client_call_y.fns.group, 0
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
@@ -163,7 +163,7 @@
 	.weak _i.temperature_water_commands_if._client_call_y.fns.group
 	.globl _i.temperature_water_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_water_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.temperature_water_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.temperature_water_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.temperature_water_commands_if._client_call_y.max.nstackwords, _i.temperature_water_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_water_commands_if._client_call_y.fns, _i.temperature_water_commands_if._client_call_y.fns.group, 0
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
@@ -252,7 +252,7 @@
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.max.nstackwords, _i.temperature_heater_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.fns, _i.temperature_heater_commands_if._client_call_y.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
@@ -377,7 +377,7 @@
 	.weak _i.port_heat_light_commands_if._client_call_y.fns.group
 	.globl _i.port_heat_light_commands_if._client_call_y.fns.group
 	.add_to_set _i.port_heat_light_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.port_heat_light_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.port_heat_light_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.max.nstackwords, _i.port_heat_light_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.fns, _i.port_heat_light_commands_if._client_call_y.fns.group, 0
 	.weak _i.i2c_internal_commands_if.write_display_ok.maxchanends.group
@@ -466,7 +466,7 @@
 	.weak _i.i2c_internal_commands_if._client_call_y.fns.group
 	.globl _i.i2c_internal_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_internal_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.max.nstackwords, _i.i2c_internal_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.fns, _i.i2c_internal_commands_if._client_call_y.fns.group, 0
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
@@ -519,7 +519,7 @@
 	.weak _i.i2c_external_commands_if._client_call_y.fns.group
 	.globl _i.i2c_external_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_external_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.i2c_external_commands_if._client_call_y.max.nstackwords, _i.i2c_external_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if._client_call_y.fns, _i.i2c_external_commands_if._client_call_y.fns.group, 0
 	.weak _i.startkit_adc_acquire_if.trigger.maxchanends.group
@@ -572,7 +572,7 @@
 	.weak _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.globl _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.add_to_set _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.max.nstackwords, _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.fns, _i.startkit_adc_acquire_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -4516,11 +4516,11 @@ Chronodot_DS3231_Controller.init.0:
 	.size	Chronodot_DS3231_Controller.init.0, .Ltmp348-Chronodot_DS3231_Controller.init.0
 	.cfi_endproc
 
-	.globl	Chronodot_DS3231_Controller.select.yield.enable
+	.globl	Chronodot_DS3231_Controller.select.y.enable
 	.align	4
-	.type	Chronodot_DS3231_Controller.select.yield.enable,@function
-	.cc_top Chronodot_DS3231_Controller.select.yield.enable.function,Chronodot_DS3231_Controller.select.yield.enable
-Chronodot_DS3231_Controller.select.yield.enable:
+	.type	Chronodot_DS3231_Controller.select.y.enable,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.enable.function,Chronodot_DS3231_Controller.select.y.enable
+Chronodot_DS3231_Controller.select.y.enable:
 	.cfi_startproc
 	entsp 2
 .Ltmp349:
@@ -4551,7 +4551,7 @@ Chronodot_DS3231_Controller.select.yield.enable:
 	stw r2, r3[r11]
 	setd res[r0], r1
 	setc res[r0], 9
-	ldap r11, Chronodot_DS3231_Controller.select.yield.case.0
+	ldap r11, Chronodot_DS3231_Controller.select.y.case.0
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -4561,7 +4561,7 @@ Chronodot_DS3231_Controller.select.yield.enable:
 	ldw r1, r0[0]
 	mkmsk r0, 1
 	bf r1, .LBB62_5
-	ldap r11, Chronodot_DS3231_Controller.select.yield.case.1
+	ldap r11, Chronodot_DS3231_Controller.select.y.case.1
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
@@ -4573,17 +4573,17 @@ Chronodot_DS3231_Controller.select.yield.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom Chronodot_DS3231_Controller.select.yield.enable.function
-	.set	Chronodot_DS3231_Controller.select.yield.enable.nstackwords,(Chronodot_DS3231_Controller.init.1.nstackwords + 2)
-	.globl	Chronodot_DS3231_Controller.select.yield.enable.nstackwords
-	.set	Chronodot_DS3231_Controller.select.yield.enable.maxcores,Chronodot_DS3231_Controller.init.1.maxcores $M 1
-	.globl	Chronodot_DS3231_Controller.select.yield.enable.maxcores
-	.set	Chronodot_DS3231_Controller.select.yield.enable.maxtimers,Chronodot_DS3231_Controller.init.1.maxtimers $M 0
-	.globl	Chronodot_DS3231_Controller.select.yield.enable.maxtimers
-	.set	Chronodot_DS3231_Controller.select.yield.enable.maxchanends,Chronodot_DS3231_Controller.init.1.maxchanends $M 0
-	.globl	Chronodot_DS3231_Controller.select.yield.enable.maxchanends
+	.cc_bottom Chronodot_DS3231_Controller.select.y.enable.function
+	.set	Chronodot_DS3231_Controller.select.y.enable.nstackwords,(Chronodot_DS3231_Controller.init.1.nstackwords + 2)
+	.globl	Chronodot_DS3231_Controller.select.y.enable.nstackwords
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxcores,Chronodot_DS3231_Controller.init.1.maxcores $M 1
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxcores
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxtimers,Chronodot_DS3231_Controller.init.1.maxtimers $M 0
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxtimers
+	.set	Chronodot_DS3231_Controller.select.y.enable.maxchanends,Chronodot_DS3231_Controller.init.1.maxchanends $M 0
+	.globl	Chronodot_DS3231_Controller.select.y.enable.maxchanends
 .Ltmp352:
-	.size	Chronodot_DS3231_Controller.select.yield.enable, .Ltmp352-Chronodot_DS3231_Controller.select.yield.enable
+	.size	Chronodot_DS3231_Controller.select.y.enable, .Ltmp352-Chronodot_DS3231_Controller.select.y.enable
 	.cfi_endproc
 
 	.globl	Chronodot_DS3231_Controller.select.enable
@@ -4869,9 +4869,9 @@ Chronodot_DS3231_Controller.select.0.case.0:
 	.cc_bottom .LCPI66_0.data
 	.text
 	.align	4
-	.type	Chronodot_DS3231_Controller.select.yield.case.0,@function
-	.cc_top Chronodot_DS3231_Controller.select.yield.case.0.function,Chronodot_DS3231_Controller.select.yield.case.0
-Chronodot_DS3231_Controller.select.yield.case.0:
+	.type	Chronodot_DS3231_Controller.select.y.case.0,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.case.0.function,Chronodot_DS3231_Controller.select.y.case.0
+Chronodot_DS3231_Controller.select.y.case.0:
 .Lfunc_begin66:
 	.loc	1 106 0
 	.cfi_startproc
@@ -5010,20 +5010,20 @@ Chronodot_DS3231_Controller.select.yield.case.0:
 	ldw r4, sp[10]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom Chronodot_DS3231_Controller.select.yield.case.0.function
-	.set	Chronodot_DS3231_Controller.select.yield.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M BCD_To_Bin_8.nstackwords) + 11)
-	.set	Chronodot_DS3231_Controller.select.yield.case.0.maxcores,BCD_To_Bin_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M 1
-	.set	Chronodot_DS3231_Controller.select.yield.case.0.maxtimers,BCD_To_Bin_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M 0
-	.set	Chronodot_DS3231_Controller.select.yield.case.0.maxchanends,BCD_To_Bin_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M 0
+	.cc_bottom Chronodot_DS3231_Controller.select.y.case.0.function
+	.set	Chronodot_DS3231_Controller.select.y.case.0.nstackwords,((_i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords $M memcpy.nstackwords $M BCD_To_Bin_8.nstackwords) + 11)
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxcores,BCD_To_Bin_8.maxcores $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxtimers,BCD_To_Bin_8.maxtimers $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.y.case.0.maxchanends,BCD_To_Bin_8.maxchanends $M _i.i2c_internal_commands_if.read_chronodot_ok.max.maxchanends $M 0
 .Ltmp381:
-	.size	Chronodot_DS3231_Controller.select.yield.case.0, .Ltmp381-Chronodot_DS3231_Controller.select.yield.case.0
+	.size	Chronodot_DS3231_Controller.select.y.case.0, .Ltmp381-Chronodot_DS3231_Controller.select.y.case.0
 .Lfunc_end66:
 	.cfi_endproc
 
 	.align	4
-	.type	Chronodot_DS3231_Controller.select.yield.case.1,@function
-	.cc_top Chronodot_DS3231_Controller.select.yield.case.1.function,Chronodot_DS3231_Controller.select.yield.case.1
-Chronodot_DS3231_Controller.select.yield.case.1:
+	.type	Chronodot_DS3231_Controller.select.y.case.1,@function
+	.cc_top Chronodot_DS3231_Controller.select.y.case.1.function,Chronodot_DS3231_Controller.select.y.case.1
+Chronodot_DS3231_Controller.select.y.case.1:
 .Lfunc_begin67:
 	.loc	1 126 0
 	.cfi_startproc
@@ -5189,13 +5189,13 @@ Chronodot_DS3231_Controller.select.yield.case.1:
 	ldw r4, sp[17]
 	retsp 18
 	# RETURN_REG_HOLDER
-	.cc_bottom Chronodot_DS3231_Controller.select.yield.case.1.function
-	.set	Chronodot_DS3231_Controller.select.yield.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
-	.set	Chronodot_DS3231_Controller.select.yield.case.1.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	Chronodot_DS3231_Controller.select.yield.case.1.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	Chronodot_DS3231_Controller.select.yield.case.1.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom Chronodot_DS3231_Controller.select.y.case.1.function
+	.set	Chronodot_DS3231_Controller.select.y.case.1.nstackwords,((sout_char_array.nstackwords $M sin_char_array.nstackwords $M __memcpy_4.nstackwords $M Bin_To_BCD_8.nstackwords $M _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords) + 18)
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxcores,Bin_To_BCD_8.maxcores $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxtimers,Bin_To_BCD_8.maxtimers $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	Chronodot_DS3231_Controller.select.y.case.1.maxchanends,Bin_To_BCD_8.maxchanends $M _i.i2c_internal_commands_if.write_chronodot_ok.max.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp394:
-	.size	Chronodot_DS3231_Controller.select.yield.case.1, .Ltmp394-Chronodot_DS3231_Controller.select.yield.case.1
+	.size	Chronodot_DS3231_Controller.select.y.case.1, .Ltmp394-Chronodot_DS3231_Controller.select.y.case.1
 .Lfunc_end67:
 	.cfi_endproc
 
@@ -5554,10 +5554,10 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.cc_bottom Chronodot_DS3231_Controller.init.1.1.init.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/chronodot_ds3231_controller.xc"
 .Linfo_string2:
@@ -5801,11 +5801,11 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string121:
 .asciiz"Chronodot_DS3231_Controller.init.0"
 .Linfo_string122:
-.asciiz"Chronodot_DS3231_Controller.select.yield.case.0"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 .Linfo_string123:
-.asciiz"Chronodot_DS3231_Controller.select.yield.case.1"
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
 .Linfo_string124:
-.asciiz"Chronodot_DS3231_Controller.select.yield.enable"
+.asciiz"Chronodot_DS3231_Controller.select.y.enable"
 .Linfo_string125:
 .asciiz"Chronodot_DS3231_Controller.select.case.0"
 .Linfo_string126:
@@ -5873,7 +5873,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string157:
 .asciiz"s"
 .Linfo_string158:
-.asciiz"yield"
+.asciiz"y"
 .Linfo_string159:
 .asciiz"yarg"
 .Linfo_string160:
@@ -8186,6 +8186,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.long	.Lset32
 	.long	1362
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
+	.long	3164
+.asciiz"Chronodot_DS3231_Controller.select.y.enable"
 	.long	3188
 .asciiz"Chronodot_DS3231_Controller.select.enable"
 	.long	1904
@@ -8198,10 +8200,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"Chronodot_DS3231_Controller.select.case.1"
 	.long	1213
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
-	.long	912
-.asciiz"Chronodot_DS3231_Controller.select.yield.case.0"
-	.long	930
-.asciiz"Chronodot_DS3231_Controller.select.yield.case.1"
+	.long	1007
+.asciiz"Chronodot_DS3231_Controller.select.case.0"
 	.long	1733
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	2380
@@ -8214,8 +8214,10 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 	.long	428
 .asciiz"chronodot_registers_to_datetime"
-	.long	1007
-.asciiz"Chronodot_DS3231_Controller.select.case.0"
+	.long	930
+.asciiz"Chronodot_DS3231_Controller.select.y.case.1"
+	.long	912
+.asciiz"Chronodot_DS3231_Controller.select.y.case.0"
 	.long	1584
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	1424
@@ -8320,8 +8322,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"delay_microseconds"
 	.long	2418
 .asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	3164
-.asciiz"Chronodot_DS3231_Controller.select.yield.enable"
 	.long	1102
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 	.long	2447
@@ -8391,30 +8391,30 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.startkit_adc_acquire_if._chan.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan.trigger, "f{0}(chd)"
 	.overlay_reference _i.startkit_adc_acquire_if._chan.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.read, "l:f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui,&(a(4:us)))"
+	.typestring _i.startkit_adc_acquire_if._chan_y.read, "l:f{si}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,&(a(4:us)))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
+	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:us,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(chd,:uc,:us)"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:us,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us,:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:us)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan.watchdog_retrigger_with, "f{ui}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(chd)"
@@ -8424,21 +8424,21 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
 	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
-	.typestring _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, "f{ui}(&(s(yarg){m(dest){chd},m(yield){ui}}),:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, "f{ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(){m(false){0},m(true){1}})"
+	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{e(){m(false){0},m(true){1}},ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
@@ -8450,15 +8450,15 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_regulator_data, "f{e(){m(false){0},m(true){1}},ui,ui}(&(s(yarg){m(dest){chd},m(yield){ui}}),:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.get_regulator_data, "f{e(){m(false){0},m(true){1}},ui,ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),&(a(4:si)))"
+	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(4:si)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if._chan.clear_debug_log, "f{0}(chd)"
 	.overlay_reference _i.temperature_water_commands_if._chan.clear_debug_log,_i.temperature_water_commands_if._client_call_y.fns
@@ -8466,17 +8466,17 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.temperature_water_commands_if._chan.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_water_commands_if._chan.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.clear_debug_log, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.temperature_water_commands_if._chan_y.clear_debug_log, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.temperature_water_commands_if._chan_y.clear_debug_log,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.temperature_water_commands_if._chan_y.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan.set_time_ok, "f{e(){m(false){0},m(true){1}}}(chd,:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.typestring _i.chronodot_ds3231_if._chan.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(chd)"
-	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
+	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.set_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
-	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
 	.typestring BCD_To_Bin_8, "f{uc}(uc)"
 	.typestring Bin_To_BCD_8, "f{uc}(uc)"
@@ -8488,12 +8488,12 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.typestring Chronodot_DS3231_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.init.1, "k:f{0}(u:q(ui))"
 	.typestring Chronodot_DS3231_Controller.init.0, "k:f{0}(u:q(ui),is(chronodot_ds3231_if){m(get_time_ok){f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(0)},m(set_time_ok){f{e(){m(false){0},m(true){1}}}(:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})}},ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})"
-	.typestring Chronodot_DS3231_Controller.select.yield.enable, "k:fe{0}()"
+	.typestring Chronodot_DS3231_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.select.enable, "k:fe{0}()"
 	.typestring Chronodot_DS3231_Controller.fini, "k:f{0}(u:q(ui))"
 	.overlay_reference Chronodot_DS3231_Controller.select.0.case.0,_i.i2c_internal_commands_if.write_chronodot_ok.fns
-	.overlay_reference Chronodot_DS3231_Controller.select.yield.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
-	.overlay_reference Chronodot_DS3231_Controller.select.yield.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.y.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
+	.overlay_reference Chronodot_DS3231_Controller.select.y.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
 	.overlay_reference Chronodot_DS3231_Controller.select.case.0,_i.i2c_internal_commands_if.read_chronodot_ok.fns
 	.overlay_reference Chronodot_DS3231_Controller.select.case.1,_i.i2c_internal_commands_if.write_chronodot_ok.fns
 	.section	.xtacalltable,"",@progbits

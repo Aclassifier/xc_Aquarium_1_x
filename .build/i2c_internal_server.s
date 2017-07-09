@@ -29,18 +29,18 @@
 	.globl I2C_Internal_Server.dynalloc_maxtimers
 	.set I2C_Internal_Server.init.0.savedstate,34
 	.globl I2C_Internal_Server.init.0.savedstate
-	.set I2C_Internal_Server.select.yield.enable.savedstate,34
-	.globl I2C_Internal_Server.select.yield.enable.savedstate
-	.set I2C_Internal_Server.select.yield.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.yield.case.0.maxtimers
-	.globl I2C_Internal_Server.select.yield.enable.cases.maxtimers
-	.set I2C_Internal_Server.select.yield.enable.cases.maxcores,0 $M I2C_Internal_Server.select.yield.case.0.maxcores
-	.globl I2C_Internal_Server.select.yield.enable.cases.maxcores
-	.set I2C_Internal_Server.select.yield.enable.cases.maxchanends,0 $M I2C_Internal_Server.select.yield.case.0.maxchanends
-	.globl I2C_Internal_Server.select.yield.enable.cases.maxchanends
-	.set I2C_Internal_Server.select.yield.enable.cases,0
-	.globl I2C_Internal_Server.select.yield.enable.cases
-	.set I2C_Internal_Server.select.yield.enable.cases.nstackwords, 0 $M (I2C_Internal_Server.select.yield.case.0.nstackwords)
-	.globl I2C_Internal_Server.select.yield.enable.cases.nstackwords
+	.set I2C_Internal_Server.select.y.enable.savedstate,34
+	.globl I2C_Internal_Server.select.y.enable.savedstate
+	.set I2C_Internal_Server.select.y.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.y.case.0.maxtimers
+	.globl I2C_Internal_Server.select.y.enable.cases.maxtimers
+	.set I2C_Internal_Server.select.y.enable.cases.maxcores,0 $M I2C_Internal_Server.select.y.case.0.maxcores
+	.globl I2C_Internal_Server.select.y.enable.cases.maxcores
+	.set I2C_Internal_Server.select.y.enable.cases.maxchanends,0 $M I2C_Internal_Server.select.y.case.0.maxchanends
+	.globl I2C_Internal_Server.select.y.enable.cases.maxchanends
+	.set I2C_Internal_Server.select.y.enable.cases,0
+	.globl I2C_Internal_Server.select.y.enable.cases
+	.set I2C_Internal_Server.select.y.enable.cases.nstackwords, 0 $M (I2C_Internal_Server.select.y.case.0.nstackwords)
+	.globl I2C_Internal_Server.select.y.enable.cases.nstackwords
 	.set I2C_Internal_Server.select.enable.savedstate,34
 	.globl I2C_Internal_Server.select.enable.savedstate
 	.set I2C_Internal_Server.select.enable.cases.maxtimers,0 $M I2C_Internal_Server.select.case.0.maxtimers
@@ -116,7 +116,7 @@ __xcc1_internal_2.info:
 	.weak _i.chronodot_ds3231_if._client_call_y.fns.group
 	.globl _i.chronodot_ds3231_if._client_call_y.fns.group
 	.add_to_set _i.chronodot_ds3231_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.max.nstackwords, _i.chronodot_ds3231_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.fns, _i.chronodot_ds3231_if._client_call_y.fns.group, 0
 	.weak _i.i2c_internal_commands_if.write_display_ok.maxchanends.group
@@ -205,7 +205,7 @@ __xcc1_internal_2.info:
 	.weak _i.i2c_internal_commands_if._client_call_y.fns.group
 	.globl _i.i2c_internal_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_internal_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.max.nstackwords, _i.i2c_internal_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.fns, _i.i2c_internal_commands_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -235,8 +235,8 @@ __xcc1_internal_2.info:
 	.assert 1,i2c_master_16bit_read_reg.actnonotificationselect,"../src/i2c_internal_server.xc:140:30: error: call to function `i2c_master_16bit_read_reg\' which selects on a notification in a combinable function select case\n                i2c_result = i2c_master_16bit_read_reg ((int)dev_addr, address, receive_data_array, 1, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,i2c_master_read_reg.actnonotificationselect,"../src/i2c_internal_server.xc:105:30: error: call to function `i2c_master_read_reg\' which selects on a notification in a combinable function select case\n                i2c_result = i2c_master_read_reg ((int)dev_addr, DS3231_REG_SECOND, receive_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.assert 1,printf.actnonotificationselect,"../src/i2c_internal_server.xc:117:29: error: call to function `printf\' which selects on a notification in a combinable function select case\n                            x_debug_printf(\"%02x  \",receive_data[x]); // Two spaces better for setting up names in the log\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/i2c_internal_server.xc:36:66: note: expanded from here\n#define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1) printf(fmt, __VA_ARGS__); } while (0)\n                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~"
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/i2c_internal_server.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 	.globpassesref i2c_master_16bit_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:148:30: error: call to `i2c_master_16bit_write_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_16bit_write_reg ((int)dev_addr, address, send_data_array, 1, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref i2c_master_16bit_read_reg, i2c_internal_config,"../src/i2c_internal_server.xc:140:30: error: call to `i2c_master_16bit_read_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_16bit_read_reg ((int)dev_addr, address, receive_data_array, 1, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref i2c_master_write_reg, i2c_internal_config,"../src/i2c_internal_server.xc:133:30: error: call to `i2c_master_write_reg\' in `I2C_Internal_Server\' makes alias of global \'i2c_internal_config\'\n                i2c_result = i2c_master_write_reg ((int)dev_addr, DS3231_REG_SECOND, send_data, D3231_NUM_REGISTERS, i2c_internal_config);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -2330,11 +2330,11 @@ I2C_Internal_Server.init.0:
 	.long	171759621
 	.cc_bottom .LCPI23_2.data
 	.text
-	.globl	I2C_Internal_Server.select.yield.enable
+	.globl	I2C_Internal_Server.select.y.enable
 	.align	4
-	.type	I2C_Internal_Server.select.yield.enable,@function
-	.cc_top I2C_Internal_Server.select.yield.enable.function,I2C_Internal_Server.select.yield.enable
-I2C_Internal_Server.select.yield.enable:
+	.type	I2C_Internal_Server.select.y.enable,@function
+	.cc_top I2C_Internal_Server.select.y.enable.function,I2C_Internal_Server.select.y.enable
+I2C_Internal_Server.select.y.enable:
 .Lfunc_begin23:
 	.loc	2 0 0
 	.cfi_startproc
@@ -2353,7 +2353,7 @@ I2C_Internal_Server.select.yield.enable:
 	bf r0, .LBB23_1
 .Ltmp266:
 	.loc	2 64 9 prologue_end
-	ldap r11, I2C_Internal_Server.select.yield.case.0
+	ldap r11, I2C_Internal_Server.select.y.case.0
 	stw r11, r4[8]
 	ldw r0, cp[.LCPI23_0]
 	stw r0, r4[6]
@@ -2390,17 +2390,17 @@ I2C_Internal_Server.select.yield.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom I2C_Internal_Server.select.yield.enable.function
-	.set	I2C_Internal_Server.select.yield.enable.nstackwords,(I2C_Internal_Server.init.1.nstackwords + 2)
-	.globl	I2C_Internal_Server.select.yield.enable.nstackwords
-	.set	I2C_Internal_Server.select.yield.enable.maxcores,I2C_Internal_Server.init.1.maxcores $M 1
-	.globl	I2C_Internal_Server.select.yield.enable.maxcores
-	.set	I2C_Internal_Server.select.yield.enable.maxtimers,I2C_Internal_Server.init.1.maxtimers $M 0
-	.globl	I2C_Internal_Server.select.yield.enable.maxtimers
-	.set	I2C_Internal_Server.select.yield.enable.maxchanends,I2C_Internal_Server.init.1.maxchanends $M 0
-	.globl	I2C_Internal_Server.select.yield.enable.maxchanends
+	.cc_bottom I2C_Internal_Server.select.y.enable.function
+	.set	I2C_Internal_Server.select.y.enable.nstackwords,(I2C_Internal_Server.init.1.nstackwords + 2)
+	.globl	I2C_Internal_Server.select.y.enable.nstackwords
+	.set	I2C_Internal_Server.select.y.enable.maxcores,I2C_Internal_Server.init.1.maxcores $M 1
+	.globl	I2C_Internal_Server.select.y.enable.maxcores
+	.set	I2C_Internal_Server.select.y.enable.maxtimers,I2C_Internal_Server.init.1.maxtimers $M 0
+	.globl	I2C_Internal_Server.select.y.enable.maxtimers
+	.set	I2C_Internal_Server.select.y.enable.maxchanends,I2C_Internal_Server.init.1.maxchanends $M 0
+	.globl	I2C_Internal_Server.select.y.enable.maxchanends
 .Ltmp271:
-	.size	I2C_Internal_Server.select.yield.enable, .Ltmp271-I2C_Internal_Server.select.yield.enable
+	.size	I2C_Internal_Server.select.y.enable, .Ltmp271-I2C_Internal_Server.select.y.enable
 .Lfunc_end23:
 	.cfi_endproc
 
@@ -2635,40 +2635,40 @@ I2C_Internal_Server.select.0.case.0:
 	bf r6, .LBB26_16
 .Ltmp302:
 	ldc r3, 0
-	ldc r1, 5
-	ldc r10, 0
+	ldc r10, 5
+	ldc r1, 0
 	ldaw r7, sp[5]
 .Ltmp303:
 .LBB26_15:
 .Lxtalabel29:
 	.loc	1 77 0
-	mov r11, r3
-	zext r11, 8
-	.loc	1 77 0
-	shr r9, r11, 4
-.Ltrap_info4:
-	ecallt r9
-	.loc	1 77 0
-	lsu r9, r11, r2
-.Ltrap_info5:
-	ecallf r9
-	.loc	1 77 0
 	mov r9, r3
-	sext r9, 8
+	zext r9, 8
 	.loc	1 77 0
-	out res[r0], r1
+	shr r11, r9, 4
+.Ltrap_info4:
+	ecallt r11
+	.loc	1 77 0
+	lsu r11, r9, r2
+.Ltrap_info5:
+	ecallf r11
+	.loc	1 77 0
+	mov r11, r3
+	sext r11, 8
 	.loc	1 77 0
 	out res[r0], r10
 	.loc	1 77 0
-	out res[r0], r9
+	out res[r0], r1
+	.loc	1 77 0
+	out res[r0], r11
 	.loc	1 77 0
 	outct res[r0], 2
 	.loc	1 77 0
-	in r9, res[r0]
+	in r11, res[r0]
 	.loc	1 77 0
 	chkct res[r0], 1
 	.loc	1 77 0
-	st8 r9, r7[r11]
+	st8 r11, r7[r9]
 	.loc	1 76 0
 	add r3, r3, 1
 	.loc	1 76 0
@@ -2877,9 +2877,9 @@ I2C_Internal_Server.select.0.case.0:
 	.cfi_endproc
 
 	.align	4
-	.type	I2C_Internal_Server.select.yield.case.0,@function
-	.cc_top I2C_Internal_Server.select.yield.case.0.function,I2C_Internal_Server.select.yield.case.0
-I2C_Internal_Server.select.yield.case.0:
+	.type	I2C_Internal_Server.select.y.case.0,@function
+	.cc_top I2C_Internal_Server.select.y.case.0.function,I2C_Internal_Server.select.y.case.0
+I2C_Internal_Server.select.y.case.0:
 .Lfunc_begin27:
 	.loc	1 66 0
 	.cfi_startproc
@@ -2995,40 +2995,40 @@ I2C_Internal_Server.select.yield.case.0:
 	bf r6, .LBB27_16
 .Ltmp350:
 	ldc r3, 0
-	ldc r1, 5
-	ldc r10, 0
+	ldc r10, 5
+	ldc r1, 0
 	ldaw r7, sp[5]
 .Ltmp351:
 .LBB27_15:
 .Lxtalabel41:
 	.loc	1 77 0
-	mov r11, r3
-	zext r11, 8
-	.loc	1 77 0
-	shr r9, r11, 4
-.Ltrap_info6:
-	ecallt r9
-	.loc	1 77 0
-	lsu r9, r11, r2
-.Ltrap_info7:
-	ecallf r9
-	.loc	1 77 0
 	mov r9, r3
-	sext r9, 8
+	zext r9, 8
 	.loc	1 77 0
-	out res[r0], r1
+	shr r11, r9, 4
+.Ltrap_info6:
+	ecallt r11
+	.loc	1 77 0
+	lsu r11, r9, r2
+.Ltrap_info7:
+	ecallf r11
+	.loc	1 77 0
+	mov r11, r3
+	sext r11, 8
 	.loc	1 77 0
 	out res[r0], r10
 	.loc	1 77 0
-	out res[r0], r9
+	out res[r0], r1
+	.loc	1 77 0
+	out res[r0], r11
 	.loc	1 77 0
 	outct res[r0], 2
 	.loc	1 77 0
-	in r9, res[r0]
+	in r11, res[r0]
 	.loc	1 77 0
 	chkct res[r0], 1
 	.loc	1 77 0
-	st8 r9, r7[r11]
+	st8 r11, r7[r9]
 	.loc	1 76 0
 	add r3, r3, 1
 	.loc	1 76 0
@@ -3226,13 +3226,13 @@ I2C_Internal_Server.select.yield.case.0:
 	ldw r4, sp[37]
 	retsp 38
 	# RETURN_REG_HOLDER
-	.cc_bottom I2C_Internal_Server.select.yield.case.0.function
-	.set	I2C_Internal_Server.select.yield.case.0.nstackwords,((i2c_master_16bit_write_reg.nstackwords $M i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords $M i2c_master_16bit_read_reg.nstackwords) + 38)
-	.set	I2C_Internal_Server.select.yield.case.0.maxcores,i2c_master_16bit_read_reg.maxcores $M i2c_master_16bit_write_reg.maxcores $M i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
-	.set	I2C_Internal_Server.select.yield.case.0.maxtimers,i2c_master_16bit_read_reg.maxtimers $M i2c_master_16bit_write_reg.maxtimers $M i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
-	.set	I2C_Internal_Server.select.yield.case.0.maxchanends,i2c_master_16bit_read_reg.maxchanends $M i2c_master_16bit_write_reg.maxchanends $M i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
+	.cc_bottom I2C_Internal_Server.select.y.case.0.function
+	.set	I2C_Internal_Server.select.y.case.0.nstackwords,((i2c_master_16bit_write_reg.nstackwords $M i2c_master_read_reg.nstackwords $M sout_char_array.nstackwords $M sin_char_array.nstackwords $M i2c_master_write_reg.nstackwords $M i2c_master_16bit_read_reg.nstackwords) + 38)
+	.set	I2C_Internal_Server.select.y.case.0.maxcores,i2c_master_16bit_read_reg.maxcores $M i2c_master_16bit_write_reg.maxcores $M i2c_master_read_reg.maxcores $M i2c_master_write_reg.maxcores $M sin_char_array.maxcores $M sout_char_array.maxcores $M 1
+	.set	I2C_Internal_Server.select.y.case.0.maxtimers,i2c_master_16bit_read_reg.maxtimers $M i2c_master_16bit_write_reg.maxtimers $M i2c_master_read_reg.maxtimers $M i2c_master_write_reg.maxtimers $M sin_char_array.maxtimers $M sout_char_array.maxtimers $M 0
+	.set	I2C_Internal_Server.select.y.case.0.maxchanends,i2c_master_16bit_read_reg.maxchanends $M i2c_master_16bit_write_reg.maxchanends $M i2c_master_read_reg.maxchanends $M i2c_master_write_reg.maxchanends $M sin_char_array.maxchanends $M sout_char_array.maxchanends $M 0
 .Ltmp374:
-	.size	I2C_Internal_Server.select.yield.case.0, .Ltmp374-I2C_Internal_Server.select.yield.case.0
+	.size	I2C_Internal_Server.select.y.case.0, .Ltmp374-I2C_Internal_Server.select.y.case.0
 .Lfunc_end27:
 	.cfi_endproc
 
@@ -3355,40 +3355,40 @@ I2C_Internal_Server.select.case.0:
 	bf r6, .LBB28_16
 .Ltmp398:
 	ldc r3, 0
-	ldc r1, 5
-	ldc r10, 0
+	ldc r10, 5
+	ldc r1, 0
 	ldaw r7, sp[5]
 .Ltmp399:
 .LBB28_15:
 .Lxtalabel53:
 	.loc	1 77 0
-	mov r11, r3
-	zext r11, 8
-	.loc	1 77 0
-	shr r9, r11, 4
-.Ltrap_info8:
-	ecallt r9
-	.loc	1 77 0
-	lsu r9, r11, r2
-.Ltrap_info9:
-	ecallf r9
-	.loc	1 77 0
 	mov r9, r3
-	sext r9, 8
+	zext r9, 8
 	.loc	1 77 0
-	out res[r0], r1
+	shr r11, r9, 4
+.Ltrap_info8:
+	ecallt r11
+	.loc	1 77 0
+	lsu r11, r9, r2
+.Ltrap_info9:
+	ecallf r11
+	.loc	1 77 0
+	mov r11, r3
+	sext r11, 8
 	.loc	1 77 0
 	out res[r0], r10
 	.loc	1 77 0
-	out res[r0], r9
+	out res[r0], r1
+	.loc	1 77 0
+	out res[r0], r11
 	.loc	1 77 0
 	outct res[r0], 2
 	.loc	1 77 0
-	in r9, res[r0]
+	in r11, res[r0]
 	.loc	1 77 0
 	chkct res[r0], 1
 	.loc	1 77 0
-	st8 r9, r7[r11]
+	st8 r11, r7[r9]
 	.loc	1 76 0
 	add r3, r3, 1
 	.loc	1 76 0
@@ -3624,11 +3624,11 @@ __xcc1_internal_2:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
-	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xc/safe/string.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	4 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"../src/i2c_internal_server.xc"
 .Linfo_string2:
@@ -3716,9 +3716,9 @@ __xcc1_internal_2:
 .Linfo_string43:
 .asciiz"I2C_Internal_Server.init.0"
 .Linfo_string44:
-.asciiz"I2C_Internal_Server.select.yield.case.0"
+.asciiz"I2C_Internal_Server.select.y.case.0"
 .Linfo_string45:
-.asciiz"I2C_Internal_Server.select.yield.enable"
+.asciiz"I2C_Internal_Server.select.y.enable"
 .Linfo_string46:
 .asciiz"I2C_Internal_Server.select.case.0"
 .Linfo_string47:
@@ -3816,7 +3816,7 @@ __xcc1_internal_2:
 .Linfo_string93:
 .asciiz"s"
 .Linfo_string94:
-.asciiz"yield"
+.asciiz"y"
 .Linfo_string95:
 .asciiz"yarg"
 .Linfo_string96:
@@ -7793,10 +7793,10 @@ __xcc1_internal_2:
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	3697
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
-	.long	2328
-.asciiz"I2C_Internal_Server.select.yield.case.0"
 	.long	494
 .asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.read_byte_fram_ok"
+	.long	2328
+.asciiz"I2C_Internal_Server.select.y.case.0"
 	.long	3735
 .asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
 	.long	31
@@ -7845,10 +7845,10 @@ __xcc1_internal_2:
 .asciiz"I2C_Internal_Server.init.0"
 	.long	4020
 .asciiz"delay_microseconds"
-	.long	1675
-.asciiz"I2C_Internal_Server.select.yield.enable"
 	.long	371
 .asciiz"_i.i2c_internal_commands_if.I2C_Internal_Server._c0.write_byte_fram_ok"
+	.long	1675
+.asciiz"I2C_Internal_Server.select.y.enable"
 	.long	3866
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	3972
@@ -7909,21 +7909,21 @@ __xcc1_internal_2:
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:us,:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us,:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:us)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc)"
+	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan.set_time_ok, "f{e(){m(false){0},m(true){1}}}(chd,:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.typestring _i.chronodot_ds3231_if._chan.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(chd)"
-	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
+	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.set_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
-	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.chronodot_ds3231_if._chan_y.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
 	.typestring i2c_master_init, "f{0}(&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
 	.typestring i2c_master_read_reg, "f{si}(si,si,&(a(:uc)),si,&(s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}))"
@@ -7934,7 +7934,7 @@ __xcc1_internal_2:
 	.typestring I2C_Internal_Server.select.0.enable, "k:fe{0}()"
 	.typestring I2C_Internal_Server.init.1, "k:f{0}(u:q(ui))"
 	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})))"
-	.typestring I2C_Internal_Server.select.yield.enable, "k:fe{0}()"
+	.typestring I2C_Internal_Server.select.y.enable, "k:fe{0}()"
 	.typestring I2C_Internal_Server.select.enable, "k:fe{0}()"
 	.typestring I2C_Internal_Server.fini, "k:f{0}(u:q(ui))"
 	.typestring i2c_internal_config, "s(r_i2c){m(scl){p},m(sda){p},m(clockTicks){ui}}"

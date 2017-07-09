@@ -6,16 +6,16 @@
 # 1 "<built-in>" 2
 # 1 "../src/core_graphics_adafruit_GFX.c" 2
 # 10 "../src/core_graphics_adafruit_GFX.c"
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/platform.h" 1 3
-# 21 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/platform.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 1 3
+# 21 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 3
 # 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
 
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 1 3
-# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h" 1 3
-# 33 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 1 3
+# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h" 1 3
+# 33 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h" 3
 void delay_ticks(unsigned ticks);
 
 
@@ -48,56 +48,56 @@ inline void delay_milliseconds(unsigned delay) {
 inline void delay_microseconds(unsigned delay) {
   delay_ticks_longlong(100U * (unsigned long long)delay);
 }
-# 24 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
-# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_g4000b-512.h" 1 3
-# 37 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
+# 24 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
+# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_g4000b-512.h" 1 3
+# 37 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_user.h" 1 3
-# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_user.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_user.h" 1 3
-# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_user.h" 2 3
-# 39 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_kernel.h" 1 3
-# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_kernel.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_kernel.h" 1 3
-# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_kernel.h" 2 3
-# 40 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_registers.h" 1 3
-# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_registers.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_registers.h" 1 3
-# 29 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_registers.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_g_registers.h" 1 3
-# 30 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_registers.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_l_registers.h" 1 3
-# 31 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1b_registers.h" 2 3
-# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_registers.h" 2 3
-# 41 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_clock.h" 1 3
-# 39 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1_clock.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_user.h" 1 3
+# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_user.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_user.h" 1 3
+# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_user.h" 2 3
+# 39 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_kernel.h" 1 3
+# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_kernel.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_kernel.h" 1 3
+# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_kernel.h" 2 3
+# 40 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_registers.h" 1 3
+# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_registers.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_registers.h" 1 3
+# 29 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_registers.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_g_registers.h" 1 3
+# 30 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_registers.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_l_registers.h" 1 3
+# 31 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1b_registers.h" 2 3
+# 23 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_registers.h" 2 3
+# 41 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_clock.h" 1 3
+# 39 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1_clock.h" 3
 typedef unsigned clock;
-# 42 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 2 3
-# 1745 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 42 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 2 3
+# 1745 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 unsigned getps(unsigned reg);
-# 1756 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1756 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 void setps(unsigned reg, unsigned value);
-# 1779 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1779 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int read_pswitch_reg(unsigned tileid, unsigned reg, unsigned *data);
-# 1803 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1803 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int read_sswitch_reg(unsigned tileid, unsigned reg, unsigned *data);
-# 1823 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1823 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int write_pswitch_reg(unsigned tileid, unsigned reg, unsigned data);
-# 1843 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1843 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int write_pswitch_reg_no_ack(unsigned tileid, unsigned reg, unsigned data);
-# 1862 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1862 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int write_sswitch_reg(unsigned tileid, unsigned reg, unsigned data);
-# 1883 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 1883 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 int write_sswitch_reg_no_ack(unsigned tileid, unsigned reg, unsigned data);
-# 2117 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 2117 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 unsigned get_local_tile_id(void);
-# 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 2148 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xs1.h" 3
+# 2148 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xs1.h" 3
 __attribute__((deprecated)) static inline unsigned get_core_id(void) {
   return get_local_tile_id();
 }
@@ -105,67 +105,67 @@ __attribute__((deprecated)) static inline unsigned get_thread_id(void) {
   return __builtin_getid();
 }
 # 5 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 2 3
-# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/platform.h" 2 3
+# 22 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/platform.h" 2 3
 # 10 "../src/core_graphics_adafruit_GFX.c" 2
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 1 3
-# 10 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/_ansi.h" 1 3
-# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/_ansi.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/newlib.h" 1 3
-# 16 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/_ansi.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/config.h" 1 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 1 3
+# 10 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/_ansi.h" 1 3
+# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/_ansi.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/newlib.h" 1 3
+# 16 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/_ansi.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/config.h" 1 3
 
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/ieeefp.h" 1 3
-# 5 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/config.h" 2 3
-# 17 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/_ansi.h" 2 3
-# 11 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/ieeefp.h" 1 3
+# 5 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/config.h" 2 3
+# 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/_ansi.h" 2 3
+# 11 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 2 3
 
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h" 1 3
-# 66 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h" 1 3
+# 66 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h" 3
 typedef unsigned int size_t;
-# 94 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h" 3
+# 94 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h" 3
 typedef unsigned char wchar_t;
-# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 2 3
+# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 2 3
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 1 3
-# 14 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 1 3
-# 12 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_types.h" 1 3
-
-
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 1 3
+# 14 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 1 3
+# 12 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_types.h" 1 3
 
 
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 1 3
-# 26 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+
+
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 1 3
+# 26 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef signed char __int8_t ;
 typedef unsigned char __uint8_t ;
-# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef signed short __int16_t;
 typedef unsigned short __uint16_t;
-# 46 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+# 46 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef __int16_t __int_least16_t;
 typedef __uint16_t __uint_least16_t;
-# 58 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+# 58 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
-# 76 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+# 76 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef __int32_t __int_least32_t;
 typedef __uint32_t __uint_least32_t;
-# 99 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_default_types.h" 3
+# 99 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_default_types.h" 3
 typedef signed long long __int64_t;
 typedef unsigned long long __uint64_t;
-# 8 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/_types.h" 2 3
-# 13 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/lock.h" 1 3
+# 8 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/_types.h" 2 3
+# 13 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/lock.h" 1 3
 
 
 
@@ -187,7 +187,7 @@ typedef struct {
   int _owner;
   int _count;
 } _LOCK_RECURSIVE_T;
-# 30 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/lock.h" 3
+# 30 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/lock.h" 3
 void __lock_simple_init(volatile _LOCK_SIMPLE_T *);
 void __lock_simple_close(volatile _LOCK_SIMPLE_T *);
 void __lock_simple_acquire(volatile _LOCK_SIMPLE_T *);
@@ -207,7 +207,7 @@ int __lock_recursive_try_acquire(volatile _LOCK_RECURSIVE_T *);
 void __lock_recursive_release(volatile _LOCK_RECURSIVE_T *);
 
 typedef _LOCK_FAIR_T _LOCK_T;
-# 14 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 2 3
+# 14 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 2 3
 
 
 typedef long _off_t;
@@ -227,9 +227,9 @@ typedef unsigned short __uid_t;
 
 
 typedef unsigned short __gid_t;
-# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 3
+# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 3
 typedef long _fpos_t;
-# 57 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 3
+# 57 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 3
 typedef int _ssize_t;
 
 
@@ -238,10 +238,10 @@ typedef int _ssize_t;
 
 
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h" 1 3
-# 149 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/clang/stddef.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h" 1 3
+# 149 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/clang/stddef.h" 3
 typedef unsigned int wint_t;
-# 65 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/_types.h" 2 3
+# 65 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/_types.h" 2 3
 
 
 
@@ -263,7 +263,7 @@ typedef _LOCK_RECURSIVE_T _flock_t;
 
 
 typedef void *_iconv_t;
-# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 2 3
+# 15 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 2 3
 
 
 
@@ -271,14 +271,14 @@ typedef void *_iconv_t;
 
 
 typedef unsigned long __ULong;
-# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 3
+# 36 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 3
 struct _reent;
-# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 3
+# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 78 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 3
+# 78 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -291,15 +291,11 @@ struct __sFILE {
 
   void * _cookie;
 
-  __attribute__((fptrgroup("__sread",0)))
   int (*_read) (struct _reent *, void *, char *, int);
 
-  __attribute__((fptrgroup("__swrite",0)))
   int (*_write) (struct _reent *, void *, const char *, int);
 
-  __attribute__((fptrgroup("__sseek",0)))
   _fpos_t (*_seek) (struct _reent *, void *, _fpos_t, int);
-  __attribute__((fptrgroup("__sclose",0)))
   int (*_close) (struct _reent *, void *);
 
 
@@ -322,7 +318,7 @@ struct __sFILE {
   _flock_t _lock;
 
 };
-# 176 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/sys/reent.h" 3
+# 172 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/sys/reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -349,14 +345,12 @@ extern __FILE *__stdin, *__stdout, *__stderr;
 __FILE * __getstdin (void);
 __FILE * __getstdout (void);
 __FILE * __getstderr (void);
-# 17 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 2 3
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/stdlib.h" 1 3
-# 26 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/machine/stdlib.h" 3
-void qsort2 (void * __base, unsigned short __nel, size_t __width, int(*__less)(const void *, const void *), void * __scratch);
-# 18 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 2 3
+# 17 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/machine/stdlib.h" 1 3
+# 18 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 2 3
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/alloca.h" 1 3
-# 20 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 2 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/alloca.h" 1 3
+# 20 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 2 3
 
 
 
@@ -383,15 +377,13 @@ typedef struct
   long long int quot;
   long long int rem;
 } lldiv_t;
-# 57 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdlib.h" 3
+# 57 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdlib.h" 3
 extern int __mb_cur_max;
 
 
 
 void abort (void) __attribute__ ((noreturn));
 int abs (int);
-
-
 
 int atexit (void (*__func)(void));
 
@@ -401,8 +393,6 @@ float atoff (const char *__nptr);
 
 int atoi (const char *__nptr);
 long atol (const char *__nptr);
-
-
 
 void * bsearch (const void * __key, const void * __base, size_t __nmemb, size_t __size, int (* _compar) (const void *, const void *));
 
@@ -436,10 +426,6 @@ int mkstemp (char *);
 char * mktemp (char *);
 
 
-
-
-
-
 void qsort (void * __base, size_t __nmemb, size_t __size, int(*_compar)(const void *, const void *));
 
 int rand (void);
@@ -468,8 +454,6 @@ unsigned long long strtoull (const char *__n, char **__end_PTR, int __base);
 
 long a64l (const char *__input);
 char * l64a (long __input);
-
-
 
 int on_exit (void (*__func)(int, void *),void * __arg);
 
@@ -520,8 +504,8 @@ int _system_r (struct _reent *, const char *);
 void __eprintf (const char *, const char *, unsigned int, const char *);
 # 12 "../src/core_graphics_adafruit_GFX.c" 2
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 1 3
-# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 1 3
+# 45 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef signed char int8_t ;
 typedef unsigned char uint8_t ;
 
@@ -536,22 +520,22 @@ typedef unsigned char uint_least8_t;
 
 typedef signed short int16_t;
 typedef unsigned short uint16_t;
-# 71 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 71 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef int16_t int_least16_t;
 typedef uint16_t uint_least16_t;
-# 83 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 83 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
-# 101 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 101 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef int32_t int_least32_t;
 typedef uint32_t uint_least32_t;
-# 123 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 123 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef signed long long int64_t;
 typedef unsigned long long uint64_t;
-# 133 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 133 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef int64_t int_least64_t;
 typedef uint64_t uint_least64_t;
-# 163 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 163 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
   typedef signed int int_fast8_t;
   typedef unsigned int uint_fast8_t;
 
@@ -566,7 +550,7 @@ typedef uint64_t uint_least64_t;
 
   typedef signed int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 217 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 217 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
   typedef int_least64_t int_fast64_t;
   typedef uint_least64_t uint_fast64_t;
 
@@ -577,15 +561,15 @@ typedef uint64_t uint_least64_t;
 
 
   typedef long long int intmax_t;
-# 235 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 235 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
   typedef long long unsigned int uintmax_t;
-# 247 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/stdint.h" 3
+# 247 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/stdint.h" 3
 typedef signed int intptr_t;
 typedef unsigned int uintptr_t;
 # 13 "../src/core_graphics_adafruit_GFX.c" 2
 
-# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xccompat.h" 1 3
-# 122 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/xccompat.h" 3
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 1 3
+# 122 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/xccompat.h" 3
 typedef unsigned chanend;
 
 

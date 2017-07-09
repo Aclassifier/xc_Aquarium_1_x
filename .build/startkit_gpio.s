@@ -24,18 +24,18 @@
 	.globl startkit_led_driver.dynalloc_maxtimers
 	.set startkit_led_driver.init.0.savedstate,21
 	.globl startkit_led_driver.init.0.savedstate
-	.set startkit_led_driver.select.yield.enable.savedstate,21
-	.globl startkit_led_driver.select.yield.enable.savedstate
-	.set startkit_led_driver.select.yield.enable.cases.maxtimers,0 $M startkit_led_driver.select.yield.case.0.maxtimers
-	.globl startkit_led_driver.select.yield.enable.cases.maxtimers
-	.set startkit_led_driver.select.yield.enable.cases.maxcores,0 $M startkit_led_driver.select.yield.case.0.maxcores
-	.globl startkit_led_driver.select.yield.enable.cases.maxcores
-	.set startkit_led_driver.select.yield.enable.cases.maxchanends,0 $M startkit_led_driver.select.yield.case.0.maxchanends
-	.globl startkit_led_driver.select.yield.enable.cases.maxchanends
-	.set startkit_led_driver.select.yield.enable.cases,0
-	.globl startkit_led_driver.select.yield.enable.cases
-	.set startkit_led_driver.select.yield.enable.cases.nstackwords, 0 $M (startkit_led_driver.select.yield.case.0.nstackwords)
-	.globl startkit_led_driver.select.yield.enable.cases.nstackwords
+	.set startkit_led_driver.select.y.enable.savedstate,21
+	.globl startkit_led_driver.select.y.enable.savedstate
+	.set startkit_led_driver.select.y.enable.cases.maxtimers,0 $M startkit_led_driver.select.y.case.0.maxtimers
+	.globl startkit_led_driver.select.y.enable.cases.maxtimers
+	.set startkit_led_driver.select.y.enable.cases.maxcores,0 $M startkit_led_driver.select.y.case.0.maxcores
+	.globl startkit_led_driver.select.y.enable.cases.maxcores
+	.set startkit_led_driver.select.y.enable.cases.maxchanends,0 $M startkit_led_driver.select.y.case.0.maxchanends
+	.globl startkit_led_driver.select.y.enable.cases.maxchanends
+	.set startkit_led_driver.select.y.enable.cases,0
+	.globl startkit_led_driver.select.y.enable.cases
+	.set startkit_led_driver.select.y.enable.cases.nstackwords, 0 $M (startkit_led_driver.select.y.case.0.nstackwords)
+	.globl startkit_led_driver.select.y.enable.cases.nstackwords
 	.set startkit_led_driver.select.enable.savedstate,21
 	.globl startkit_led_driver.select.enable.savedstate
 	.set startkit_led_driver.select.enable.cases.maxtimers,0 $M startkit_led_driver.select.case.0.maxtimers
@@ -104,18 +104,18 @@
 	.globl startkit_gpio_driver_aux.dynalloc_maxtimers
 	.set startkit_gpio_driver_aux.init.0.savedstate,29
 	.globl startkit_gpio_driver_aux.init.0.savedstate
-	.set startkit_gpio_driver_aux.select.yield.enable.savedstate,29
-	.globl startkit_gpio_driver_aux.select.yield.enable.savedstate
-	.set startkit_gpio_driver_aux.select.yield.enable.cases.maxtimers,0 $M startkit_gpio_driver_aux.select.yield.case.4.maxtimers $M startkit_gpio_driver_aux.select.yield.case.3.maxtimers $M startkit_gpio_driver_aux.select.yield.case.2.maxtimers $M startkit_gpio_driver_aux.select.yield.case.1.maxtimers $M startkit_gpio_driver_aux.select.yield.case.0.maxtimers
-	.globl startkit_gpio_driver_aux.select.yield.enable.cases.maxtimers
-	.set startkit_gpio_driver_aux.select.yield.enable.cases.maxcores,0 $M startkit_gpio_driver_aux.select.yield.case.4.maxcores $M startkit_gpio_driver_aux.select.yield.case.3.maxcores $M startkit_gpio_driver_aux.select.yield.case.2.maxcores $M startkit_gpio_driver_aux.select.yield.case.1.maxcores $M startkit_gpio_driver_aux.select.yield.case.0.maxcores
-	.globl startkit_gpio_driver_aux.select.yield.enable.cases.maxcores
-	.set startkit_gpio_driver_aux.select.yield.enable.cases.maxchanends,0 $M startkit_gpio_driver_aux.select.yield.case.4.maxchanends $M startkit_gpio_driver_aux.select.yield.case.3.maxchanends $M startkit_gpio_driver_aux.select.yield.case.2.maxchanends $M startkit_gpio_driver_aux.select.yield.case.1.maxchanends $M startkit_gpio_driver_aux.select.yield.case.0.maxchanends
-	.globl startkit_gpio_driver_aux.select.yield.enable.cases.maxchanends
-	.set startkit_gpio_driver_aux.select.yield.enable.cases,0
-	.globl startkit_gpio_driver_aux.select.yield.enable.cases
-	.set startkit_gpio_driver_aux.select.yield.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.yield.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.0.nstackwords)
-	.globl startkit_gpio_driver_aux.select.yield.enable.cases.nstackwords
+	.set startkit_gpio_driver_aux.select.y.enable.savedstate,29
+	.globl startkit_gpio_driver_aux.select.y.enable.savedstate
+	.set startkit_gpio_driver_aux.select.y.enable.cases.maxtimers,0 $M startkit_gpio_driver_aux.select.y.case.4.maxtimers $M startkit_gpio_driver_aux.select.y.case.3.maxtimers $M startkit_gpio_driver_aux.select.y.case.2.maxtimers $M startkit_gpio_driver_aux.select.y.case.1.maxtimers $M startkit_gpio_driver_aux.select.y.case.0.maxtimers
+	.globl startkit_gpio_driver_aux.select.y.enable.cases.maxtimers
+	.set startkit_gpio_driver_aux.select.y.enable.cases.maxcores,0 $M startkit_gpio_driver_aux.select.y.case.4.maxcores $M startkit_gpio_driver_aux.select.y.case.3.maxcores $M startkit_gpio_driver_aux.select.y.case.2.maxcores $M startkit_gpio_driver_aux.select.y.case.1.maxcores $M startkit_gpio_driver_aux.select.y.case.0.maxcores
+	.globl startkit_gpio_driver_aux.select.y.enable.cases.maxcores
+	.set startkit_gpio_driver_aux.select.y.enable.cases.maxchanends,0 $M startkit_gpio_driver_aux.select.y.case.4.maxchanends $M startkit_gpio_driver_aux.select.y.case.3.maxchanends $M startkit_gpio_driver_aux.select.y.case.2.maxchanends $M startkit_gpio_driver_aux.select.y.case.1.maxchanends $M startkit_gpio_driver_aux.select.y.case.0.maxchanends
+	.globl startkit_gpio_driver_aux.select.y.enable.cases.maxchanends
+	.set startkit_gpio_driver_aux.select.y.enable.cases,0
+	.globl startkit_gpio_driver_aux.select.y.enable.cases
+	.set startkit_gpio_driver_aux.select.y.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.y.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.0.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.y.case.2.nstackwords)
+	.globl startkit_gpio_driver_aux.select.y.enable.cases.nstackwords
 	.set startkit_gpio_driver_aux.select.enable.savedstate,29
 	.globl startkit_gpio_driver_aux.select.enable.savedstate
 	.set startkit_gpio_driver_aux.select.enable.cases.maxtimers,0 $M startkit_gpio_driver_aux.select.case.4.maxtimers $M startkit_gpio_driver_aux.select.case.3.maxtimers $M startkit_gpio_driver_aux.select.case.2.maxtimers $M startkit_gpio_driver_aux.select.case.1.maxtimers $M startkit_gpio_driver_aux.select.case.0.maxtimers
@@ -142,7 +142,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.max_reduce _i.slider_query_if.filter.max.nstackwords, _i.slider_query_if.filter.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.filter.fns, _i.slider_query_if.filter.fns.group, 0
 	.weak _i.slider_query_if.get_coord.maxchanends.group
@@ -159,7 +159,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.max_reduce _i.slider_query_if.get_coord.max.nstackwords, _i.slider_query_if.get_coord.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.get_coord.fns, _i.slider_query_if.get_coord.fns.group, 0
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
@@ -176,7 +176,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.max_reduce _i.slider_query_if.__interface_init.max.nstackwords, _i.slider_query_if.__interface_init.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.__interface_init.fns, _i.slider_query_if.__interface_init.fns.group, 0
 	.weak _i.slider_query_if._client_call_y.maxchanends.group
@@ -193,7 +193,7 @@
 	.weak _i.slider_query_if._client_call_y.fns.group
 	.globl _i.slider_query_if._client_call_y.fns.group
 	.add_to_set _i.slider_query_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.slider_query_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.slider_query_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.slider_query_if._client_call_y.max.nstackwords, _i.slider_query_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.slider_query_if._client_call_y.fns, _i.slider_query_if._client_call_y.fns.group, 0
 	.weak _i.slider_query_if.filter.maxchanends.group
@@ -207,7 +207,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.weak _i.slider_query_if.get_coord.maxchanends.group
 	.add_to_set _i.slider_query_if.get_coord.maxchanends.group, _i.slider_query_if.slider._c0.get_coord.maxchanends, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.get_coord.maxcores.group
@@ -219,7 +219,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
 	.add_to_set _i.slider_query_if.__interface_init.maxchanends.group, (slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), slider.init.0
 	.weak _i.slider_query_if.__interface_init.maxcores.group
@@ -231,7 +231,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
 	.add_to_set _i.absolute_slider_if.get_coord.maxchanends.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.maxchanends, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.max_reduce _i.absolute_slider_if.get_coord.max.maxchanends, _i.absolute_slider_if.get_coord.maxchanends.group, 0
@@ -246,7 +246,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.max_reduce _i.absolute_slider_if.get_coord.max.nstackwords, _i.absolute_slider_if.get_coord.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if.get_coord.fns, _i.absolute_slider_if.get_coord.fns.group, 0
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
@@ -263,7 +263,7 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.max_reduce _i.absolute_slider_if.__interface_init.max.nstackwords, _i.absolute_slider_if.__interface_init.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if.__interface_init.fns, _i.absolute_slider_if.__interface_init.fns.group, 0
 	.weak _i.absolute_slider_if._client_call_y.maxchanends.group
@@ -280,7 +280,7 @@
 	.weak _i.absolute_slider_if._client_call_y.fns.group
 	.globl _i.absolute_slider_if._client_call_y.fns.group
 	.add_to_set _i.absolute_slider_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.absolute_slider_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.absolute_slider_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.absolute_slider_if._client_call_y.max.nstackwords, _i.absolute_slider_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if._client_call_y.fns, _i.absolute_slider_if._client_call_y.fns.group, 0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
@@ -294,7 +294,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
 	.add_to_set _i.absolute_slider_if.__interface_init.maxchanends.group, (absolute_slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), absolute_slider.init.0
 	.weak _i.absolute_slider_if.__interface_init.maxcores.group
@@ -306,7 +306,7 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.weak absolute_slider.3.maxargsize.group
 	.globl absolute_slider.3.maxargsize.group
 	.add_to_set absolute_slider.3.maxargsize.group, 4
@@ -386,7 +386,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.weak _i.slider_query_if.get_coord.maxchanends.group
 	.add_to_set _i.slider_query_if.get_coord.maxchanends.group, _i.slider_query_if.slider._c0.get_coord.maxchanends, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.get_coord.maxcores.group
@@ -398,7 +398,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
 	.add_to_set _i.slider_query_if.__interface_init.maxchanends.group, (slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), slider.init.0
 	.weak _i.slider_query_if.__interface_init.maxcores.group
@@ -410,7 +410,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.add_to_set _i.slider_query_if.filter.maxchanends.group, _i.slider_query_if.slider._c0.filter.maxchanends, _i.slider_query_if.slider._c0.filter
 	.weak _i.slider_query_if.filter.maxcores.group
@@ -422,7 +422,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.weak _i.slider_query_if.get_coord.maxchanends.group
 	.add_to_set _i.slider_query_if.get_coord.maxchanends.group, _i.slider_query_if.slider._c0.get_coord.maxchanends, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.get_coord.maxcores.group
@@ -434,7 +434,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
 	.add_to_set _i.slider_query_if.__interface_init.maxchanends.group, (slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), slider.init.0
 	.weak _i.slider_query_if.__interface_init.maxcores.group
@@ -446,7 +446,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
 	.add_to_set _i.absolute_slider_if.get_coord.maxchanends.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.maxchanends, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.get_coord.maxcores.group
@@ -458,7 +458,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
 	.add_to_set _i.absolute_slider_if.__interface_init.maxchanends.group, (absolute_slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), absolute_slider.init.0
 	.weak _i.absolute_slider_if.__interface_init.maxcores.group
@@ -470,7 +470,7 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
 	.add_to_set _i.absolute_slider_if.get_coord.maxchanends.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.maxchanends, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.get_coord.maxcores.group
@@ -482,7 +482,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
 	.add_to_set _i.absolute_slider_if.__interface_init.maxchanends.group, (absolute_slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), absolute_slider.init.0
 	.weak _i.absolute_slider_if.__interface_init.maxcores.group
@@ -494,7 +494,7 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.weak absolute_slider.3.maxargsize.group
 	.globl absolute_slider.3.maxargsize.group
 	.add_to_set absolute_slider.3.maxargsize.group, 4
@@ -507,18 +507,18 @@
 	.weak absolute_slider.4.maxargsize.group
 	.globl absolute_slider.4.maxargsize.group
 	.add_to_set absolute_slider.4.maxargsize.group, 80
-	.set startkit_gpio_driver.select.yield.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
-	.globl startkit_gpio_driver.select.yield.enable.savedstate
-	.set startkit_gpio_driver.select.yield.enable.cases.maxtimers,0 $M absolute_slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M startkit_gpio_driver_aux.select.enable.cases.maxtimers
-	.globl startkit_gpio_driver.select.yield.enable.cases.maxtimers
-	.set startkit_gpio_driver.select.yield.enable.cases.maxcores,0 $M absolute_slider.select.enable.cases.maxcores $M absolute_slider.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M startkit_gpio_driver_aux.select.enable.cases.maxcores
-	.globl startkit_gpio_driver.select.yield.enable.cases.maxcores
-	.set startkit_gpio_driver.select.yield.enable.cases.maxchanends,0 $M absolute_slider.select.enable.cases.maxchanends $M absolute_slider.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M startkit_gpio_driver_aux.select.enable.cases.maxchanends
-	.globl startkit_gpio_driver.select.yield.enable.cases.maxchanends
-	.set startkit_gpio_driver.select.yield.enable.cases,0
-	.globl startkit_gpio_driver.select.yield.enable.cases
-	.set startkit_gpio_driver.select.yield.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
-	.globl startkit_gpio_driver.select.yield.enable.cases.nstackwords
+	.set startkit_gpio_driver.select.y.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
+	.globl startkit_gpio_driver.select.y.enable.savedstate
+	.set startkit_gpio_driver.select.y.enable.cases.maxtimers,0 $M absolute_slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M startkit_gpio_driver_aux.select.enable.cases.maxtimers
+	.globl startkit_gpio_driver.select.y.enable.cases.maxtimers
+	.set startkit_gpio_driver.select.y.enable.cases.maxcores,0 $M absolute_slider.select.enable.cases.maxcores $M absolute_slider.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M startkit_gpio_driver_aux.select.enable.cases.maxcores
+	.globl startkit_gpio_driver.select.y.enable.cases.maxcores
+	.set startkit_gpio_driver.select.y.enable.cases.maxchanends,0 $M absolute_slider.select.enable.cases.maxchanends $M absolute_slider.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M startkit_gpio_driver_aux.select.enable.cases.maxchanends
+	.globl startkit_gpio_driver.select.y.enable.cases.maxchanends
+	.set startkit_gpio_driver.select.y.enable.cases,0
+	.globl startkit_gpio_driver.select.y.enable.cases
+	.set startkit_gpio_driver.select.y.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.globl startkit_gpio_driver.select.y.enable.cases.nstackwords
 	.set startkit_gpio_driver.select.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
 	.globl startkit_gpio_driver.select.enable.savedstate
 	.set startkit_gpio_driver.select.enable.cases.maxtimers,0 $M absolute_slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M startkit_gpio_driver_aux.select.enable.cases.maxtimers
@@ -604,7 +604,7 @@
 	.weak _i.startkit_button_if._client_call_y.fns.group
 	.globl _i.startkit_button_if._client_call_y.fns.group
 	.add_to_set _i.startkit_button_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.startkit_button_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.startkit_button_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.startkit_button_if._client_call_y.max.nstackwords, _i.startkit_button_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.startkit_button_if._client_call_y.fns, _i.startkit_button_if._client_call_y.fns.group, 0
 	.weak _i.startkit_led_if.set.maxchanends.group
@@ -657,7 +657,7 @@
 	.weak _i.startkit_led_if._client_call_y.fns.group
 	.globl _i.startkit_led_if._client_call_y.fns.group
 	.add_to_set _i.startkit_led_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.startkit_led_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.startkit_led_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.startkit_led_if._client_call_y.max.nstackwords, _i.startkit_led_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.startkit_led_if._client_call_y.fns, _i.startkit_led_if._client_call_y.fns.group, 0
 	.weak _i.slider_if.get_slider_state.maxchanends.group
@@ -710,7 +710,7 @@
 	.weak _i.slider_if._client_call_y.fns.group
 	.globl _i.slider_if._client_call_y.fns.group
 	.add_to_set _i.slider_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.slider_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.slider_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.slider_if._client_call_y.max.nstackwords, _i.slider_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.slider_if._client_call_y.fns, _i.slider_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -3121,11 +3121,11 @@ startkit_led_driver.init.0:
 	.long	171759621
 	.cc_bottom .LCPI38_2.data
 	.text
-	.globl	startkit_led_driver.select.yield.enable
+	.globl	startkit_led_driver.select.y.enable
 	.align	4
-	.type	startkit_led_driver.select.yield.enable,@function
-	.cc_top startkit_led_driver.select.yield.enable.function,startkit_led_driver.select.yield.enable
-startkit_led_driver.select.yield.enable:
+	.type	startkit_led_driver.select.y.enable,@function
+	.cc_top startkit_led_driver.select.y.enable.function,startkit_led_driver.select.y.enable
+startkit_led_driver.select.y.enable:
 .Lfunc_begin38:
 	.loc	2 0 0
 	.cfi_startproc
@@ -3156,7 +3156,7 @@ startkit_led_driver.select.yield.enable:
 	stw r0, r4[9]
 	ldc r0, 52
 	add r0, r4, r0
-	ldap r11, startkit_led_driver.select.yield.case.0
+	ldap r11, startkit_led_driver.select.y.case.0
 	stw r11, r0[0]
 	ldc r0, 48
 	add r0, r4, r0
@@ -3204,17 +3204,17 @@ startkit_led_driver.select.yield.enable:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_led_driver.select.yield.enable.function
-	.set	startkit_led_driver.select.yield.enable.nstackwords,(startkit_led_driver.init.1.nstackwords + 3)
-	.globl	startkit_led_driver.select.yield.enable.nstackwords
-	.set	startkit_led_driver.select.yield.enable.maxcores,startkit_led_driver.init.1.maxcores $M 1
-	.globl	startkit_led_driver.select.yield.enable.maxcores
-	.set	startkit_led_driver.select.yield.enable.maxtimers,startkit_led_driver.init.1.maxtimers $M 0
-	.globl	startkit_led_driver.select.yield.enable.maxtimers
-	.set	startkit_led_driver.select.yield.enable.maxchanends,startkit_led_driver.init.1.maxchanends $M 0
-	.globl	startkit_led_driver.select.yield.enable.maxchanends
+	.cc_bottom startkit_led_driver.select.y.enable.function
+	.set	startkit_led_driver.select.y.enable.nstackwords,(startkit_led_driver.init.1.nstackwords + 3)
+	.globl	startkit_led_driver.select.y.enable.nstackwords
+	.set	startkit_led_driver.select.y.enable.maxcores,startkit_led_driver.init.1.maxcores $M 1
+	.globl	startkit_led_driver.select.y.enable.maxcores
+	.set	startkit_led_driver.select.y.enable.maxtimers,startkit_led_driver.init.1.maxtimers $M 0
+	.globl	startkit_led_driver.select.y.enable.maxtimers
+	.set	startkit_led_driver.select.y.enable.maxchanends,startkit_led_driver.init.1.maxchanends $M 0
+	.globl	startkit_led_driver.select.y.enable.maxchanends
 .Ltmp289:
-	.size	startkit_led_driver.select.yield.enable, .Ltmp289-startkit_led_driver.select.yield.enable
+	.size	startkit_led_driver.select.y.enable, .Ltmp289-startkit_led_driver.select.y.enable
 .Lfunc_end38:
 	.cfi_endproc
 
@@ -4136,9 +4136,13 @@ startkit_gpio_driver.init.0:
 	stw r3, r4[4]
 	stw r11, r4[5]
 	stw r0, r4[6]
-	ldc r0, slider.init.0.savedstate
-	ldc r3, 29
-	add r5, r0, r3
+	ldc r0, 176
+	ldc r3, slider.init.0.savedstate
+	mkmsk r11, 5
+	add r5, r3, r11
+	add r3, r3, r5
+	add r6, r3, 1
+	ldc r7, absolute_slider.init.0.savedstate
 	ldc r3, 0
 	stw r3, r4[0]
 	ldap r11, startkit_gpio_driver.init.1
@@ -4153,21 +4157,19 @@ startkit_gpio_driver.init.0:
 	ldw r2, r4[3]
 .Ltmp369:
 .LBB47_1:
-	ldc r1, 176
-	add r11, r5, r0
-	ldc r6, absolute_slider.init.0.savedstate
+	add r0, r4, r0
+	add r1, r7, r6
 	bf r2, .LBB47_2
 .Ltmp370:
-	ldw r0, r2[0]
-	bt r0, .LBB47_2
+	ldw r11, r2[0]
+	bt r11, .LBB47_2
 .Ltmp371:
-	ldw r0, r2[1]
-	stw r4, r0[0]
+	ldw r2, r2[1]
+	stw r4, r2[0]
 .Ltmp372:
 .LBB47_2:
-	add r0, r4, r1
-	ldc r1, 292
-	add r6, r11, r6
+	ldaw r11, r0[r1]
+	ldc r1, 296
 	ldw r2, r4[4]
 	bf r2, .LBB47_3
 .Ltmp373:
@@ -4180,9 +4182,9 @@ startkit_gpio_driver.init.0:
 .LBB47_3:
 	add r2, r4, r1
 	ldaw r1, r0[r5]
-	ldaw r11, r0[r11]
-	stw r11, sp[10]
-	ldaw r11, r0[r6]
+	ldaw r5, r0[r6]
+	stw r5, sp[10]
+	add r11, r11, 4
 	stw r11, sp[12]
 	ldw r11, r4[5]
 	mov r5, r3
@@ -4413,11 +4415,11 @@ startkit_gpio_driver.init.0:
 .Lfunc_end47:
 	.cfi_endproc
 
-	.globl	startkit_gpio_driver.select.yield.enable
+	.globl	startkit_gpio_driver.select.y.enable
 	.align	4
-	.type	startkit_gpio_driver.select.yield.enable,@function
-	.cc_top startkit_gpio_driver.select.yield.enable.function,startkit_gpio_driver.select.yield.enable
-startkit_gpio_driver.select.yield.enable:
+	.type	startkit_gpio_driver.select.y.enable,@function
+	.cc_top startkit_gpio_driver.select.y.enable.function,startkit_gpio_driver.select.y.enable
+startkit_gpio_driver.select.y.enable:
 	.cfi_startproc
 	entsp 3
 .Ltmp386:
@@ -4462,17 +4464,17 @@ startkit_gpio_driver.select.yield.enable:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_gpio_driver.select.yield.enable.function
-	.set	startkit_gpio_driver.select.yield.enable.nstackwords,((startkit_gpio_driver.init.1.nstackwords $M startkit_gpio_driver_aux.select.enable.nstackwords $M slider.select.enable.nstackwords $M absolute_slider.select.enable.nstackwords) + 3)
-	.globl	startkit_gpio_driver.select.yield.enable.nstackwords
-	.set	startkit_gpio_driver.select.yield.enable.maxcores,absolute_slider.select.enable.maxcores $M slider.select.enable.maxcores $M startkit_gpio_driver.init.1.maxcores $M startkit_gpio_driver_aux.select.enable.maxcores $M 1
-	.globl	startkit_gpio_driver.select.yield.enable.maxcores
-	.set	startkit_gpio_driver.select.yield.enable.maxtimers,absolute_slider.select.enable.maxtimers $M slider.select.enable.maxtimers $M startkit_gpio_driver.init.1.maxtimers $M startkit_gpio_driver_aux.select.enable.maxtimers $M 0
-	.globl	startkit_gpio_driver.select.yield.enable.maxtimers
-	.set	startkit_gpio_driver.select.yield.enable.maxchanends,absolute_slider.select.enable.maxchanends $M slider.select.enable.maxchanends $M startkit_gpio_driver.init.1.maxchanends $M startkit_gpio_driver_aux.select.enable.maxchanends $M 0
-	.globl	startkit_gpio_driver.select.yield.enable.maxchanends
+	.cc_bottom startkit_gpio_driver.select.y.enable.function
+	.set	startkit_gpio_driver.select.y.enable.nstackwords,((startkit_gpio_driver.init.1.nstackwords $M startkit_gpio_driver_aux.select.enable.nstackwords $M slider.select.enable.nstackwords $M absolute_slider.select.enable.nstackwords) + 3)
+	.globl	startkit_gpio_driver.select.y.enable.nstackwords
+	.set	startkit_gpio_driver.select.y.enable.maxcores,absolute_slider.select.enable.maxcores $M slider.select.enable.maxcores $M startkit_gpio_driver.init.1.maxcores $M startkit_gpio_driver_aux.select.enable.maxcores $M 1
+	.globl	startkit_gpio_driver.select.y.enable.maxcores
+	.set	startkit_gpio_driver.select.y.enable.maxtimers,absolute_slider.select.enable.maxtimers $M slider.select.enable.maxtimers $M startkit_gpio_driver.init.1.maxtimers $M startkit_gpio_driver_aux.select.enable.maxtimers $M 0
+	.globl	startkit_gpio_driver.select.y.enable.maxtimers
+	.set	startkit_gpio_driver.select.y.enable.maxchanends,absolute_slider.select.enable.maxchanends $M slider.select.enable.maxchanends $M startkit_gpio_driver.init.1.maxchanends $M startkit_gpio_driver_aux.select.enable.maxchanends $M 0
+	.globl	startkit_gpio_driver.select.y.enable.maxchanends
 .Ltmp390:
-	.size	startkit_gpio_driver.select.yield.enable, .Ltmp390-startkit_gpio_driver.select.yield.enable
+	.size	startkit_gpio_driver.select.y.enable, .Ltmp390-startkit_gpio_driver.select.y.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver.select.enable
@@ -4779,9 +4781,9 @@ startkit_led_driver.select.0.case.0:
 	.cfi_endproc
 
 	.align	4
-	.type	startkit_led_driver.select.yield.case.0,@function
-	.cc_top startkit_led_driver.select.yield.case.0.function,startkit_led_driver.select.yield.case.0
-startkit_led_driver.select.yield.case.0:
+	.type	startkit_led_driver.select.y.case.0,@function
+	.cc_top startkit_led_driver.select.y.case.0.function,startkit_led_driver.select.y.case.0
+startkit_led_driver.select.y.case.0:
 .Lfunc_begin52:
 	.loc	1 34 0
 	.cfi_startproc
@@ -4989,13 +4991,13 @@ startkit_led_driver.select.yield.case.0:
 	ldaw sp, sp[6]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_led_driver.select.yield.case.0.function
-	.set	startkit_led_driver.select.yield.case.0.nstackwords,6
-	.set	startkit_led_driver.select.yield.case.0.maxcores,1
-	.set	startkit_led_driver.select.yield.case.0.maxtimers,0
-	.set	startkit_led_driver.select.yield.case.0.maxchanends,0
+	.cc_bottom startkit_led_driver.select.y.case.0.function
+	.set	startkit_led_driver.select.y.case.0.nstackwords,6
+	.set	startkit_led_driver.select.y.case.0.maxcores,1
+	.set	startkit_led_driver.select.y.case.0.maxtimers,0
+	.set	startkit_led_driver.select.y.case.0.maxchanends,0
 .Ltmp470:
-	.size	startkit_led_driver.select.yield.case.0, .Ltmp470-startkit_led_driver.select.yield.case.0
+	.size	startkit_led_driver.select.y.case.0, .Ltmp470-startkit_led_driver.select.y.case.0
 .Lfunc_end52:
 	.cfi_endproc
 
@@ -5354,7 +5356,7 @@ startkit_gpio_driver_aux:
 .Ltmp539:
 .LBB54_9:
 
-	.xtabranch .LBB54_10, .LBB54_40, .LBB54_44, .LBB54_55, .LBB54_60
+	.xtabranch .LBB54_10, .LBB54_40, .LBB54_44, .LBB54_55, .LBB54_61
 	waiteu
 .Ltmp540:
 .Ltmp527:
@@ -5414,7 +5416,7 @@ startkit_gpio_driver_aux:
 	.loc	1 109 11
 	lss r0, r0, r2
 	.loc	1 109 11
-	bf r0, .LBB54_65
+	bf r0, .LBB54_66
 .Ltmp551:
 .Lxtalabel71:
 	mkmsk r0, 1
@@ -5611,7 +5613,7 @@ startkit_gpio_driver_aux:
 	sub r1, r1, r2
 	setd res[r0], r1
 	eq r1, r2, 1
-	bf r1, .LBB54_57
+	bf r1, .LBB54_58
 .Ltmp585:
 	ldw r0, sp[31]
 	mov r1, r0
@@ -5628,15 +5630,10 @@ startkit_gpio_driver_aux:
 	bla r1
 .Ltmp588:
 	ldw r1, r5[0]
-	out res[r1], r9
-	out res[r1], r0
-.Ltrap_info16:
-	ecallf r1
-	outct res[r1], 1
-	bu .LBB54_1
+	bu .LBB54_57
 .Ltmp589:
 .Ltmp538:
-.LBB54_60:
+.LBB54_61:
 .Lxtalabel84:
 	ldw r0, r7[0]
 	in r1, res[r0]
@@ -5646,7 +5643,7 @@ startkit_gpio_driver_aux:
 	sub r1, r1, r2
 	setd res[r0], r1
 	eq r1, r2, 1
-	bf r1, .LBB54_62
+	bf r1, .LBB54_63
 .Ltmp590:
 	ldw r0, sp[32]
 	mov r1, r0
@@ -5663,27 +5660,31 @@ startkit_gpio_driver_aux:
 	bla r1
 .Ltmp593:
 	ldw r1, r7[0]
+.Ltmp594:
+.LBB54_57:
+.Lxtalabel85:
 	out res[r1], r9
 	out res[r1], r0
-.Ltrap_info17:
+.Ltrap_info16:
 	ecallf r1
+.Ltmp595:
 	outct res[r1], 1
 	bu .LBB54_1
-.Ltmp594:
+.Ltmp596:
 .LBB54_11:
 	mov r0, r7
-.Ltmp595:
+.Ltmp597:
 	bu .LBB54_17
-.Ltmp596:
-.LBB54_57:
-.Ltrap_info18:
+.Ltmp598:
+.LBB54_58:
+.Ltrap_info17:
 	ecallf r0
 	outct res[r0], 1
 	in r1, res[r0]
 	ldw r2, r5[4]
 	eq r1, r2, r1
-	bt r1, .LBB54_59
-.Ltmp597:
+	bt r1, .LBB54_60
+.Ltmp599:
 	ldw r1, r5[2]
 	ldw r2, r5[3]
 	#APP
@@ -5692,23 +5693,23 @@ startkit_gpio_driver_aux:
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-.Ltmp598:
-.LBB54_59:
+.Ltmp600:
+.LBB54_60:
 	mkmsk r1, 1
 	stw r1, r5[4]
 	out res[r0], r9
 	ldw r1, sp[11]
 	bu .LBB54_43
-.Ltmp599:
-.LBB54_62:
-.Ltrap_info19:
+.Ltmp601:
+.LBB54_63:
+.Ltrap_info18:
 	ecallf r0
 	outct res[r0], 1
 	in r1, res[r0]
 	ldw r2, r7[4]
 	eq r1, r2, r1
-	bt r1, .LBB54_64
-.Ltmp600:
+	bt r1, .LBB54_65
+.Ltmp602:
 	ldw r1, r7[2]
 	ldw r2, r7[3]
 	#APP
@@ -5717,47 +5718,47 @@ startkit_gpio_driver_aux:
 	setd res[r1], r2
 	outct res[r1], 1
 	setd res[r1], r3
-.Ltmp601:
-.LBB54_64:
+.Ltmp603:
+.LBB54_65:
 	mkmsk r1, 1
 	stw r1, r7[4]
 	out res[r0], r9
 	ldw r1, sp[4]
 	bu .LBB54_43
-.Ltmp602:
+.Ltmp604:
 .LBB54_45:
-.Ltrap_info20:
+.Ltrap_info19:
 	ecallf r0
 	mov r6, r5
-.Ltmp603:
+.Ltmp605:
 	outct res[r0], 1
 	in r3, res[r0]
-.Ltmp604:
-	in r1, res[r0]
-.Ltmp605:
-	in r2, res[r0]
 .Ltmp606:
+	in r1, res[r0]
+.Ltmp607:
+	in r2, res[r0]
+.Ltmp608:
 	.loc	1 174 0
 	lsu r11, r3, r10
-.Ltrap_info21:
+.Ltrap_info20:
 	ecallf r11
 	mov r5, r4
-.Ltmp607:
+.Ltmp609:
 	.loc	1 174 0
 	lsu r11, r1, r10
-.Ltrap_info22:
+.Ltrap_info21:
 	ecallf r11
 	ldc r11, 12
 	.loc	1 174 0
 	mul r3, r3, r11
-.Ltmp608:
+.Ltmp610:
 	ldaw r11, sp[13]
 	add r3, r11, r3
 	ldw r11, cp[.LCPI54_0]
 	.loc	1 174 0
 	lmul r11, r4, r2, r11, r9, r9
 	sub r2, r2, r11
-.Ltmp609:
+.Ltmp611:
 	shr r2, r2, 1
 	add r2, r2, r11
 	ldc r11, 9
@@ -5767,86 +5768,86 @@ startkit_gpio_driver_aux:
 	out res[r0], r9
 	outct res[r0], 1
 	mov r4, r5
-.Ltmp610:
-	mov r5, r6
-.Ltmp611:
-	ldw r6, sp[6]
 .Ltmp612:
-	bu .LBB54_1
+	mov r5, r6
 .Ltmp613:
+	ldw r6, sp[6]
+.Ltmp614:
+	bu .LBB54_1
+.Ltmp615:
 .LBB54_13:
 	ldw r2, sp[5]
 	bu .LBB54_14
-.Ltmp614:
-.LBB54_65:
-.Lxtalabel85:
+.Ltmp616:
+.LBB54_66:
+.Lxtalabel86:
 	.loc	1 123 0
 	add r2, r2, 1
-.Ltmp615:
+.Ltmp617:
 .LBB54_14:
-.Lxtalabel86:
+.Lxtalabel87:
 	.loc	1 126 9
 	ldw r0, sp[8]
 	bf r0, .LBB54_31
-.Ltmp616:
-.Lxtalabel87:
+.Ltmp618:
+.Lxtalabel88:
 	stw r2, sp[5]
 	bf r5, .LBB54_16
-.Ltmp617:
-.Lxtalabel88:
+.Ltmp619:
+.Lxtalabel89:
 	ldw r0, sp[31]
 	mov r1, r0
-.Ltmp618:
+.Ltmp620:
 	.loc	1 128 0
 	ldw r0, r1[0]
 	.loc	1 128 0
 	ldw r1, r1[1]
-.Ltmp619:
+.Ltmp621:
 	.loc	1 128 0
 	ldw r1, r1[0]
 	.loc	1 128 0
 .Lxta.call_labels16:
 	bla r1
-.Ltmp620:
+.Ltmp622:
 	ldw r2, sp[11]
 	.loc	1 129 13
 	eq r1, r0, r2
 	.loc	1 129 13
 	bf r1, .LBB54_37
-.Ltmp621:
+.Ltmp623:
 	stw r2, sp[11]
 	bu .LBB54_16
-.Ltmp622:
+.Ltmp624:
 .LBB54_31:
-.Lxtalabel89:
+.Lxtalabel90:
 	stw r2, sp[5]
 	bf r7, .LBB54_16
-.Ltmp623:
-.Lxtalabel90:
+.Ltmp625:
+.Lxtalabel91:
 	ldw r0, sp[32]
 	mov r1, r0
-.Ltmp624:
+.Ltmp626:
 	.loc	1 136 0
 	ldw r0, r1[0]
 	.loc	1 136 0
 	ldw r1, r1[1]
-.Ltmp625:
+.Ltmp627:
 	.loc	1 136 0
 	ldw r1, r1[0]
 	.loc	1 136 0
 .Lxta.call_labels17:
 	bla r1
-.Ltmp626:
+.Ltmp628:
 	.loc	1 137 13
 	ldw r1, sp[4]
 	eq r1, r0, r1
 	bt r1, .LBB54_16
-.Ltmp627:
-.Lxtalabel91:
+.Ltmp629:
+.Lxtalabel92:
 	.loc	1 139 0
 	ldw r1, r7[4]
 	bf r1, .LBB54_34
-.Ltmp628:
+.Ltmp630:
 	.loc	1 139 0
 	ldw r1, r7[2]
 	.loc	1 139 0
@@ -5864,17 +5865,17 @@ startkit_gpio_driver_aux:
 	.loc	1 139 0
 	stw r9, r7[4]
 	stw r0, sp[4]
-.Ltmp629:
-	bu .LBB54_16
-.Ltmp630:
-.LBB54_37:
-.Lxtalabel92:
-	stw r0, sp[11]
 .Ltmp631:
+	bu .LBB54_16
+.Ltmp632:
+.LBB54_37:
+.Lxtalabel93:
+	stw r0, sp[11]
+.Ltmp633:
 	.loc	1 131 0
 	ldw r1, r5[4]
 	bf r1, .LBB54_16
-.Ltmp632:
+.Ltmp634:
 	.loc	1 131 0
 	ldw r1, r5[2]
 	.loc	1 131 0
@@ -5892,80 +5893,80 @@ startkit_gpio_driver_aux:
 	.loc	1 131 0
 	stw r9, r5[4]
 	bu .LBB54_16
-.Ltmp633:
+.Ltmp635:
 .LBB54_34:
 	stw r0, sp[4]
-.Ltmp634:
+.Ltmp636:
 .LBB54_16:
-.Lxtalabel93:
+.Lxtalabel94:
 	mov r0, r7
-.Ltmp635:
+.Ltmp637:
 	.loc	1 143 0
 	ldw r1, sp[8]
 	not r1, r1
-.Ltmp636:
+.Ltmp638:
 	stw r1, sp[8]
 	mov r2, r9
-.Ltmp637:
+.Ltmp639:
 .LBB54_17:
-.Lxtalabel94:
+.Lxtalabel95:
 	stw r2, sp[10]
 	ldc r1, 100
 	.loc	1 153 11
-.Ltmp638:
+.Ltmp640:
 	sub r1, r1, r2
 	ldaw r11, cp[map]
 	ldaw r2, sp[13]
 	mov r7, r9
 	mkmsk r3, 32
-.Ltmp639:
+.Ltmp641:
 .LBB54_18:
-.Lxtalabel95:
+.Lxtalabel96:
 	.loc	1 153 11
 	ldw r4, r2[0]
 	.loc	1 153 11
 	lss r4, r1, r4
 	bf r4, .LBB54_20
-.Ltmp640:
-.Lxtalabel96:
+.Ltmp642:
+.Lxtalabel97:
 	.loc	1 154 0
 	ldw r4, r11[0]
 	.loc	1 154 0
 	andnot r3, r4
-.Ltmp641:
+.Ltmp643:
 .LBB54_20:
-.Lxtalabel97:
+.Lxtalabel98:
 	.loc	1 153 11
 	ldw r4, r2[1]
 	.loc	1 153 11
 	lss r4, r1, r4
 	bf r4, .LBB54_22
-.Ltmp642:
-.Lxtalabel98:
+.Ltmp644:
+.Lxtalabel99:
 	.loc	1 154 0
 	ldw r4, r11[1]
 	.loc	1 154 0
 	andnot r3, r4
-.Ltmp643:
+.Ltmp645:
 .LBB54_22:
-.Lxtalabel99:
+.Lxtalabel100:
 	.loc	1 153 11
 	ldw r4, r2[2]
 	.loc	1 153 11
 	lss r4, r1, r4
 	bf r4, .LBB54_24
-.Ltmp644:
-.Lxtalabel100:
+.Ltmp646:
+.Lxtalabel101:
 	.loc	1 154 0
 	ldw r4, r11[2]
 	.loc	1 154 0
 	andnot r3, r4
-.Ltmp645:
+.Ltmp647:
 .LBB54_24:
-.Lxtalabel101:
+.Lxtalabel102:
 	.loc	1 149 0
 	add r7, r7, 1
-.Ltmp646:
+.Ltmp648:
 	.loc	1 149 0
 	ldaw r11, r11[3]
 	.loc	1 149 0
@@ -5975,8 +5976,8 @@ startkit_gpio_driver_aux:
 .Lxta.loop_labels8:
 	# LOOPMARKER 1
 	bt r4, .LBB54_18
-.Ltmp647:
-.Lxtalabel102:
+.Ltmp649:
+.Lxtalabel103:
 	ldw r1, sp[30]
 	.loc	1 159 18
 .Lxta.endpoint_labels19:
@@ -5986,18 +5987,18 @@ startkit_gpio_driver_aux:
 	.loc	1 161 0
 .Lxta.endpoint_labels20:
 	in r1, res[r8]
-.Ltmp648:
+.Ltmp650:
 	ldc r2, 1000
 	.loc	1 162 0
 	add r1, r1, r2
-.Ltmp649:
+.Ltmp651:
 	stw r1, sp[12]
 	mov r7, r0
-.Ltmp650:
-	ldw r4, sp[9]
-.Ltmp651:
-	bu .LBB54_1
 .Ltmp652:
+	ldw r4, sp[9]
+.Ltmp653:
+	bu .LBB54_1
+.Ltmp654:
 	.cc_bottom startkit_gpio_driver_aux.function
 	.set	startkit_gpio_driver_aux.nstackwords,((memset.nstackwords $M _i.slider_query_if.filter.max.nstackwords $M _i.slider_query_if.get_coord.max.nstackwords) + 29)
 	.globl	startkit_gpio_driver_aux.nstackwords
@@ -6007,8 +6008,8 @@ startkit_gpio_driver_aux:
 	.globl	startkit_gpio_driver_aux.maxtimers
 	.set	startkit_gpio_driver_aux.maxchanends,_i.slider_query_if.filter.max.maxchanends $M _i.slider_query_if.get_coord.max.maxchanends $M 0
 	.globl	startkit_gpio_driver_aux.maxchanends
-.Ltmp653:
-	.size	startkit_gpio_driver_aux, .Ltmp653-startkit_gpio_driver_aux
+.Ltmp655:
+	.size	startkit_gpio_driver_aux, .Ltmp655-startkit_gpio_driver_aux
 .Lfunc_end54:
 	.cfi_endproc
 
@@ -6019,12 +6020,12 @@ startkit_gpio_driver_aux:
 startkit_gpio_driver_aux.select.0.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp654:
+.Ltmp656:
 	.cfi_def_cfa_offset 8
-.Ltmp655:
+.Ltmp657:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp656:
+.Ltmp658:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl startkit_gpio_driver_aux.init.1
@@ -6056,8 +6057,8 @@ startkit_gpio_driver_aux.select.0.enable:
 	.globl	startkit_gpio_driver_aux.select.0.enable.maxtimers
 	.set	startkit_gpio_driver_aux.select.0.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
 	.globl	startkit_gpio_driver_aux.select.0.enable.maxchanends
-.Ltmp657:
-	.size	startkit_gpio_driver_aux.select.0.enable, .Ltmp657-startkit_gpio_driver_aux.select.0.enable
+.Ltmp659:
+	.size	startkit_gpio_driver_aux.select.0.enable, .Ltmp659-startkit_gpio_driver_aux.select.0.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver_aux.select.1.enable
@@ -6067,12 +6068,12 @@ startkit_gpio_driver_aux.select.0.enable:
 startkit_gpio_driver_aux.select.1.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp658:
+.Ltmp660:
 	.cfi_def_cfa_offset 8
-.Ltmp659:
+.Ltmp661:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp660:
+.Ltmp662:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl startkit_gpio_driver_aux.init.1
@@ -6104,8 +6105,8 @@ startkit_gpio_driver_aux.select.1.enable:
 	.globl	startkit_gpio_driver_aux.select.1.enable.maxtimers
 	.set	startkit_gpio_driver_aux.select.1.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
 	.globl	startkit_gpio_driver_aux.select.1.enable.maxchanends
-.Ltmp661:
-	.size	startkit_gpio_driver_aux.select.1.enable, .Ltmp661-startkit_gpio_driver_aux.select.1.enable
+.Ltmp663:
+	.size	startkit_gpio_driver_aux.select.1.enable, .Ltmp663-startkit_gpio_driver_aux.select.1.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver_aux.select.2.enable
@@ -6115,12 +6116,12 @@ startkit_gpio_driver_aux.select.1.enable:
 startkit_gpio_driver_aux.select.2.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp662:
+.Ltmp664:
 	.cfi_def_cfa_offset 8
-.Ltmp663:
+.Ltmp665:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp664:
+.Ltmp666:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl startkit_gpio_driver_aux.init.1
@@ -6152,8 +6153,8 @@ startkit_gpio_driver_aux.select.2.enable:
 	.globl	startkit_gpio_driver_aux.select.2.enable.maxtimers
 	.set	startkit_gpio_driver_aux.select.2.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
 	.globl	startkit_gpio_driver_aux.select.2.enable.maxchanends
-.Ltmp665:
-	.size	startkit_gpio_driver_aux.select.2.enable, .Ltmp665-startkit_gpio_driver_aux.select.2.enable
+.Ltmp667:
+	.size	startkit_gpio_driver_aux.select.2.enable, .Ltmp667-startkit_gpio_driver_aux.select.2.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver_aux.select.3.enable
@@ -6163,12 +6164,12 @@ startkit_gpio_driver_aux.select.2.enable:
 startkit_gpio_driver_aux.select.3.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp666:
+.Ltmp668:
 	.cfi_def_cfa_offset 8
-.Ltmp667:
+.Ltmp669:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp668:
+.Ltmp670:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl startkit_gpio_driver_aux.init.1
@@ -6200,8 +6201,8 @@ startkit_gpio_driver_aux.select.3.enable:
 	.globl	startkit_gpio_driver_aux.select.3.enable.maxtimers
 	.set	startkit_gpio_driver_aux.select.3.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
 	.globl	startkit_gpio_driver_aux.select.3.enable.maxchanends
-.Ltmp669:
-	.size	startkit_gpio_driver_aux.select.3.enable, .Ltmp669-startkit_gpio_driver_aux.select.3.enable
+.Ltmp671:
+	.size	startkit_gpio_driver_aux.select.3.enable, .Ltmp671-startkit_gpio_driver_aux.select.3.enable
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -6222,61 +6223,61 @@ startkit_gpio_driver_aux.init.1:
 	.loc	2 0 0
 	.cfi_startproc
 	entsp 5
-.Ltmp670:
+.Ltmp672:
 	.cfi_def_cfa_offset 20
-.Ltmp671:
+.Ltmp673:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp672:
+.Ltmp674:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp673:
+.Ltmp675:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp674:
+.Ltmp676:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp675:
+.Ltmp677:
 	.cfi_offset 7, -16
 	mov r4, r0
-.Ltmp676:
+.Ltmp678:
 	ldw r0, r4[1]
 	bf r0, .LBB59_2
-.Ltmp677:
+.Ltmp679:
 	ldc r5, 0
 	stw r5, r4[1]
 	mkmsk r6, 1
 	.loc	1 75 0 prologue_end
-.Ltmp678:
+.Ltmp680:
 	stw r6, r4[9]
 	ldc r0, 1000
-.Ltmp679:
+.Ltmp681:
 	.loc	1 79 0
 	stw r0, r4[10]
 	.loc	1 81 0
-.Ltmp680:
+.Ltmp682:
 	ldaw r0, r4[11]
 	ldc r1, 92
 	.loc	1 87 0
-.Ltmp681:
+.Ltmp683:
 	add r7, r4, r1
 	ldc r2, 48
-.Ltmp682:
+.Ltmp684:
 	.loc	1 84 0
 	mov r1, r5
 	bl memset
 	ldw r0, cp[.LCPI59_0]
 	.loc	1 87 0
-.Ltmp683:
+.Ltmp685:
 	stw r0, r7[0]
 	ldc r1, 100
 	.loc	1 90 0
-.Ltmp684:
+.Ltmp686:
 	add r1, r4, r1
 	.loc	1 90 0
 	stw r5, r1[0]
 	.loc	1 92 0
-.Ltmp685:
+.Ltmp687:
 	get r11, id
 	.loc	1 92 0
 	ldaw r1, dp[__timers]
@@ -6301,19 +6302,19 @@ startkit_gpio_driver_aux.init.1:
 	stw r0, r2[0]
 	ldc r0, 108
 	.loc	1 94 0
-.Ltmp686:
+.Ltmp688:
 	add r0, r4, r0
 	ldc r1, 50
 	.loc	1 94 0
 	stw r1, r0[0]
 	ldc r0, 112
 	.loc	1 95 0
-.Ltmp687:
+.Ltmp689:
 	add r0, r4, r0
 	.loc	1 95 0
 	stw r1, r0[0]
 	stw r6, r4[0]
-.Ltmp688:
+.Ltmp690:
 .LBB59_2:
 	ldw r7, sp[1]
 	ldw r6, sp[2]
@@ -6330,8 +6331,8 @@ startkit_gpio_driver_aux.init.1:
 	.globl	startkit_gpio_driver_aux.init.1.maxtimers
 	.set	startkit_gpio_driver_aux.init.1.maxchanends,0
 	.globl	startkit_gpio_driver_aux.init.1.maxchanends
-.Ltmp689:
-	.size	startkit_gpio_driver_aux.init.1, .Ltmp689-startkit_gpio_driver_aux.init.1
+.Ltmp691:
+	.size	startkit_gpio_driver_aux.init.1, .Ltmp691-startkit_gpio_driver_aux.init.1
 .Lfunc_end59:
 	.cfi_endproc
 
@@ -6341,18 +6342,18 @@ startkit_gpio_driver_aux.init.1:
 	.cc_top startkit_gpio_driver_aux.init.0.function,startkit_gpio_driver_aux.init.0
 startkit_gpio_driver_aux.init.0:
 	.cfi_startproc
-.Lxtalabel103:
+.Lxtalabel104:
 	extsp 3
-.Ltmp690:
+.Ltmp692:
 	.cfi_def_cfa_offset 12
 	stw r4, sp[2]
-.Ltmp691:
+.Ltmp693:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp692:
+.Ltmp694:
 	.cfi_offset 5, -8
 	stw r6, sp[0]
-.Ltmp693:
+.Ltmp695:
 	.cfi_offset 6, -12
 	ldw r11, sp[7]
 	ldw r4, sp[6]
@@ -6411,23 +6412,23 @@ startkit_gpio_driver_aux.init.0:
 	.globl	startkit_gpio_driver_aux.init.0.maxtimers
 	.set	startkit_gpio_driver_aux.init.0.maxchanends,0
 	.globl	startkit_gpio_driver_aux.init.0.maxchanends
-.Ltmp694:
-	.size	startkit_gpio_driver_aux.init.0, .Ltmp694-startkit_gpio_driver_aux.init.0
+.Ltmp696:
+	.size	startkit_gpio_driver_aux.init.0, .Ltmp696-startkit_gpio_driver_aux.init.0
 	.cfi_endproc
 
-	.globl	startkit_gpio_driver_aux.select.yield.enable
+	.globl	startkit_gpio_driver_aux.select.y.enable
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.enable,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.enable.function,startkit_gpio_driver_aux.select.yield.enable
-startkit_gpio_driver_aux.select.yield.enable:
+	.type	startkit_gpio_driver_aux.select.y.enable,@function
+	.cc_top startkit_gpio_driver_aux.select.y.enable.function,startkit_gpio_driver_aux.select.y.enable
+startkit_gpio_driver_aux.select.y.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp695:
+.Ltmp697:
 	.cfi_def_cfa_offset 8
-.Ltmp696:
+.Ltmp698:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp697:
+.Ltmp699:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl startkit_gpio_driver_aux.init.1
@@ -6450,7 +6451,7 @@ startkit_gpio_driver_aux.select.yield.enable:
 	stw r2, r3[r11]
 	setd res[r0], r1
 	setc res[r0], 9
-	ldap r11, startkit_gpio_driver_aux.select.yield.case.0
+	ldap r11, startkit_gpio_driver_aux.select.y.case.0
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -6460,7 +6461,7 @@ startkit_gpio_driver_aux.select.yield.enable:
 	bf r0, .LBB61_5
 	ldw r0, r0[0]
 	bf r0, .LBB61_5
-	ldap r11, startkit_gpio_driver_aux.select.yield.case.1
+	ldap r11, startkit_gpio_driver_aux.select.y.case.1
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -6470,7 +6471,7 @@ startkit_gpio_driver_aux.select.yield.enable:
 	bf r0, .LBB61_7
 	ldw r0, r0[0]
 	bf r0, .LBB61_7
-	ldap r11, startkit_gpio_driver_aux.select.yield.case.2
+	ldap r11, startkit_gpio_driver_aux.select.y.case.2
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -6480,7 +6481,7 @@ startkit_gpio_driver_aux.select.yield.enable:
 	bf r0, .LBB61_9
 	ldw r0, r0[0]
 	bf r0, .LBB61_9
-	ldap r11, startkit_gpio_driver_aux.select.yield.case.3
+	ldap r11, startkit_gpio_driver_aux.select.y.case.3
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -6491,7 +6492,7 @@ startkit_gpio_driver_aux.select.yield.enable:
 	bf r1, .LBB61_12
 	ldw r1, r1[0]
 	bf r1, .LBB61_12
-	ldap r11, startkit_gpio_driver_aux.select.yield.case.4
+	ldap r11, startkit_gpio_driver_aux.select.y.case.4
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
@@ -6503,17 +6504,17 @@ startkit_gpio_driver_aux.select.yield.enable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_gpio_driver_aux.select.yield.enable.function
-	.set	startkit_gpio_driver_aux.select.yield.enable.nstackwords,(startkit_gpio_driver_aux.init.1.nstackwords + 2)
-	.globl	startkit_gpio_driver_aux.select.yield.enable.nstackwords
-	.set	startkit_gpio_driver_aux.select.yield.enable.maxcores,startkit_gpio_driver_aux.init.1.maxcores $M 1
-	.globl	startkit_gpio_driver_aux.select.yield.enable.maxcores
-	.set	startkit_gpio_driver_aux.select.yield.enable.maxtimers,startkit_gpio_driver_aux.init.1.maxtimers $M 0
-	.globl	startkit_gpio_driver_aux.select.yield.enable.maxtimers
-	.set	startkit_gpio_driver_aux.select.yield.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
-	.globl	startkit_gpio_driver_aux.select.yield.enable.maxchanends
-.Ltmp698:
-	.size	startkit_gpio_driver_aux.select.yield.enable, .Ltmp698-startkit_gpio_driver_aux.select.yield.enable
+	.cc_bottom startkit_gpio_driver_aux.select.y.enable.function
+	.set	startkit_gpio_driver_aux.select.y.enable.nstackwords,(startkit_gpio_driver_aux.init.1.nstackwords + 2)
+	.globl	startkit_gpio_driver_aux.select.y.enable.nstackwords
+	.set	startkit_gpio_driver_aux.select.y.enable.maxcores,startkit_gpio_driver_aux.init.1.maxcores $M 1
+	.globl	startkit_gpio_driver_aux.select.y.enable.maxcores
+	.set	startkit_gpio_driver_aux.select.y.enable.maxtimers,startkit_gpio_driver_aux.init.1.maxtimers $M 0
+	.globl	startkit_gpio_driver_aux.select.y.enable.maxtimers
+	.set	startkit_gpio_driver_aux.select.y.enable.maxchanends,startkit_gpio_driver_aux.init.1.maxchanends $M 0
+	.globl	startkit_gpio_driver_aux.select.y.enable.maxchanends
+.Ltmp700:
+	.size	startkit_gpio_driver_aux.select.y.enable, .Ltmp700-startkit_gpio_driver_aux.select.y.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver_aux.select.enable
@@ -6523,10 +6524,10 @@ startkit_gpio_driver_aux.select.yield.enable:
 startkit_gpio_driver_aux.select.enable:
 	.cfi_startproc
 	extsp 1
-.Ltmp699:
+.Ltmp701:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp700:
+.Ltmp702:
 	.cfi_offset 4, -4
 	mov r1, r0
 	ldw r0, r1[0]
@@ -6611,8 +6612,8 @@ startkit_gpio_driver_aux.select.enable:
 	.globl	startkit_gpio_driver_aux.select.enable.maxtimers
 	.set	startkit_gpio_driver_aux.select.enable.maxchanends,0
 	.globl	startkit_gpio_driver_aux.select.enable.maxchanends
-.Ltmp701:
-	.size	startkit_gpio_driver_aux.select.enable, .Ltmp701-startkit_gpio_driver_aux.select.enable
+.Ltmp703:
+	.size	startkit_gpio_driver_aux.select.enable, .Ltmp703-startkit_gpio_driver_aux.select.enable
 	.cfi_endproc
 
 	.globl	startkit_gpio_driver_aux.fini
@@ -6637,8 +6638,8 @@ startkit_gpio_driver_aux.fini:
 	.globl	startkit_gpio_driver_aux.fini.maxtimers
 	.set	startkit_gpio_driver_aux.fini.maxchanends,0
 	.globl	startkit_gpio_driver_aux.fini.maxchanends
-.Ltmp702:
-	.size	startkit_gpio_driver_aux.fini, .Ltmp702-startkit_gpio_driver_aux.fini
+.Ltmp704:
+	.size	startkit_gpio_driver_aux.fini, .Ltmp704-startkit_gpio_driver_aux.fini
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -6657,18 +6658,18 @@ startkit_gpio_driver_aux.select.0.case.0:
 .Lfunc_begin64:
 	.loc	1 171 0
 	.cfi_startproc
-.Lxtalabel104:
+.Lxtalabel105:
 	extsp 3
-.Ltmp703:
+.Ltmp705:
 	.cfi_def_cfa_offset 12
 	stw r4, sp[2]
-.Ltmp704:
+.Ltmp706:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp705:
+.Ltmp707:
 	.cfi_offset 5, -8
 	stw r6, sp[0]
-.Ltmp706:
+.Ltmp708:
 	.cfi_offset 6, -12
 	get r11, ed
 	ldc r0, 0
@@ -6682,59 +6683,59 @@ startkit_gpio_driver_aux.select.0.case.0:
 	sub r1, r1, r3
 	setd res[r2], r1
 	bf r3, .LBB64_10
-.Ltrap_info23:
+.Ltrap_info22:
 	ecallf r2
 	outct res[r2], 1
 	in r1, res[r2]
-.Ltmp707:
+.Ltmp709:
 	in r2, res[r2]
-.Ltmp708:
+.Ltmp710:
 	ldw r3, cp[.LCPI64_0]
 	.loc	1 181 0 prologue_end
-.Ltmp709:
+.Ltmp711:
 	lmul r3, r4, r2, r3, r0, r0
 	sub r2, r2, r3
-.Ltmp710:
+.Ltmp712:
 	shr r2, r2, 1
 	add r2, r2, r3
 	ldc r3, 9
 	shr r2, r2, r3
-.Ltmp711:
+.Ltmp713:
 	ldc r3, 72
-.Ltmp712:
+.Ltmp714:
 	add r3, r11, r3
 	ldc r4, 2
-.Ltmp713:
+.Ltmp715:
 .LBB64_2:
-.Lxtalabel105:
+.Lxtalabel106:
 	.loc	1 186 0
 	mov r6, r1
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB64_4
-.Ltmp714:
-.Lxtalabel106:
-	mov r5, r0
-.Ltmp715:
-.LBB64_4:
+.Ltmp716:
 .Lxtalabel107:
+	mov r5, r0
+.Ltmp717:
+.LBB64_4:
+.Lxtalabel108:
 	.loc	1 186 0
 	stw r5, r3[2]
 	.loc	1 187 0
 	shr r6, r1, 1
-.Ltmp716:
+.Ltmp718:
 	.loc	1 186 0
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB64_6
-.Ltmp717:
-.Lxtalabel108:
-	mov r5, r0
-.Ltmp718:
-.LBB64_6:
+.Ltmp719:
 .Lxtalabel109:
+	mov r5, r0
+.Ltmp720:
+.LBB64_6:
+.Lxtalabel110:
 	.loc	1 186 0
 	stw r5, r3[1]
 	.loc	1 187 0
@@ -6744,20 +6745,20 @@ startkit_gpio_driver_aux.select.0.case.0:
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB64_8
-.Ltmp719:
-.Lxtalabel110:
-	mov r5, r0
-.Ltmp720:
-.LBB64_8:
+.Ltmp721:
 .Lxtalabel111:
+	mov r5, r0
+.Ltmp722:
+.LBB64_8:
+.Lxtalabel112:
 	.loc	1 186 0
 	stw r5, r3[0]
 	.loc	1 187 0
 	shr r1, r1, 3
-.Ltmp721:
+.Ltmp723:
 	.loc	1 184 0
 	sub r4, r4, 1
-.Ltmp722:
+.Ltmp724:
 	.loc	1 184 0
 	ldaw r3, r3[-3]
 .Lxta.loop_labels9:
@@ -6765,62 +6766,59 @@ startkit_gpio_driver_aux.select.0.case.0:
 	.loc	1 184 0
 	ashr r5, r4, 32
 	bf r5, .LBB64_2
-.Ltmp723:
-.Lxtalabel112:
+.Ltmp725:
+.Lxtalabel113:
 	ldw r0, r11[2]
 	ldw r0, r0[0]
 	ldc r1, 0
-	out res[r0], r1
-.Ltrap_info24:
-	ecallf r0
 	bu .LBB64_11
 .LBB64_10:
-.Ltrap_info25:
+.Ltrap_info23:
 	ecallf r2
 	outct res[r2], 1
 	in r3, res[r2]
-.Ltmp724:
-	in r1, res[r2]
-.Ltmp725:
-	in r0, res[r2]
 .Ltmp726:
+	in r1, res[r2]
+.Ltmp727:
+	in r0, res[r2]
+.Ltmp728:
 	mkmsk r2, 2
 	.loc	1 174 0
 	lsu r4, r3, r2
-.Ltrap_info26:
+.Ltrap_info24:
 	ecallf r4
 	.loc	1 174 0
 	lsu r2, r1, r2
-.Ltrap_info27:
+.Ltrap_info25:
 	ecallf r2
 	ldc r2, 12
 	.loc	1 174 0
 	mul r2, r3, r2
 	add r2, r11, r2
 	ldaw r1, r2[r1]
-.Ltmp727:
-	ldc r2, 48
-	add r1, r1, r2
-	ldc r2, 0
-	ldw r3, cp[.LCPI64_0]
-.Ltmp728:
-	.loc	1 174 0
-	lmul r3, r4, r0, r3, r2, r2
-	sub r0, r0, r3
 .Ltmp729:
+	ldc r2, 48
+	add r2, r1, r2
+	ldc r1, 0
+	ldw r3, cp[.LCPI64_0]
+.Ltmp730:
+	.loc	1 174 0
+	lmul r3, r4, r0, r3, r1, r1
+	sub r0, r0, r3
+.Ltmp731:
 	shr r0, r0, 1
 	add r0, r0, r3
 	ldc r3, 9
 	shr r0, r0, r3
 	.loc	1 174 0
-	stw r0, r1[0]
+	stw r0, r2[0]
 	ldw r0, r11[2]
 	ldw r0, r0[0]
-	out res[r0], r2
-.Ltrap_info28:
-	ecallf r0
-.Ltmp730:
+.Ltmp732:
 .LBB64_11:
+	out res[r0], r1
+.Ltrap_info26:
+	ecallf r0
 	outct res[r0], 1
 	mkmsk r0, 1
 	stw r0, r11[0]
@@ -6835,8 +6833,8 @@ startkit_gpio_driver_aux.select.0.case.0:
 	.set	startkit_gpio_driver_aux.select.0.case.0.maxcores,1
 	.set	startkit_gpio_driver_aux.select.0.case.0.maxtimers,0
 	.set	startkit_gpio_driver_aux.select.0.case.0.maxchanends,0
-.Ltmp731:
-	.size	startkit_gpio_driver_aux.select.0.case.0, .Ltmp731-startkit_gpio_driver_aux.select.0.case.0
+.Ltmp733:
+	.size	startkit_gpio_driver_aux.select.0.case.0, .Ltmp733-startkit_gpio_driver_aux.select.0.case.0
 .Lfunc_end64:
 	.cfi_endproc
 
@@ -6847,12 +6845,12 @@ startkit_gpio_driver_aux.select.1.case.0:
 .Lfunc_begin65:
 	.loc	1 166 0
 	.cfi_startproc
-.Lxtalabel113:
+.Lxtalabel114:
 	extsp 1
-.Ltmp732:
+.Ltmp734:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp733:
+.Ltmp735:
 	.cfi_offset 4, -4
 	get r11, ed
 	ldc r0, 0
@@ -6865,7 +6863,7 @@ startkit_gpio_driver_aux.select.1.case.0:
 	zext r4, 8
 	sub r3, r3, r4
 	setd res[r2], r3
-.Ltrap_info29:
+.Ltrap_info27:
 	ecallf r2
 	outct res[r2], 1
 	in r2, res[r2]
@@ -6884,14 +6882,14 @@ startkit_gpio_driver_aux.select.1.case.0:
 	mkmsk r2, 1
 	stw r2, r1[4]
 	.loc	1 167 0 prologue_end
-.Ltmp734:
+.Ltmp736:
 	ldw r3, r11[9]
-.Ltmp735:
+.Ltmp737:
 	ldw r1, r11[3]
 	ldw r1, r1[0]
 	out res[r1], r0
 	out res[r1], r3
-.Ltrap_info30:
+.Ltrap_info28:
 	ecallf r1
 	outct res[r1], 1
 	stw r2, r11[0]
@@ -6899,14 +6897,14 @@ startkit_gpio_driver_aux.select.1.case.0:
 	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp736:
+.Ltmp738:
 	.cc_bottom startkit_gpio_driver_aux.select.1.case.0.function
 	.set	startkit_gpio_driver_aux.select.1.case.0.nstackwords,1
 	.set	startkit_gpio_driver_aux.select.1.case.0.maxcores,1
 	.set	startkit_gpio_driver_aux.select.1.case.0.maxtimers,0
 	.set	startkit_gpio_driver_aux.select.1.case.0.maxchanends,0
-.Ltmp737:
-	.size	startkit_gpio_driver_aux.select.1.case.0, .Ltmp737-startkit_gpio_driver_aux.select.1.case.0
+.Ltmp739:
+	.size	startkit_gpio_driver_aux.select.1.case.0, .Ltmp739-startkit_gpio_driver_aux.select.1.case.0
 .Lfunc_end65:
 	.cfi_endproc
 
@@ -6917,17 +6915,17 @@ startkit_gpio_driver_aux.select.2.case.0:
 .Lfunc_begin66:
 	.loc	1 191 0
 	.cfi_startproc
-.Lxtalabel114:
+.Lxtalabel115:
 	entsp 3
-.Ltmp738:
+.Ltmp740:
 	.cfi_def_cfa_offset 12
-.Ltmp739:
+.Ltmp741:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp740:
+.Ltmp742:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp741:
+.Ltmp743:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -6944,7 +6942,7 @@ startkit_gpio_driver_aux.select.2.case.0:
 	eq r2, r3, 1
 	bf r2, .LBB66_1
 	.loc	1 192 0 prologue_end
-.Ltmp742:
+.Ltmp744:
 	ldw r1, r4[7]
 	.loc	1 192 0
 	ldw r0, r1[0]
@@ -6955,18 +6953,18 @@ startkit_gpio_driver_aux.select.2.case.0:
 	.loc	1 192 0
 .Lxta.call_labels18:
 	bla r1
-.Ltmp743:
+.Ltmp745:
 	ldw r1, r4[4]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info31:
+.Ltrap_info29:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB66_4
-.Ltmp744:
+.Ltmp746:
 .LBB66_1:
-.Ltrap_info32:
+.Ltrap_info30:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -6989,15 +6987,15 @@ startkit_gpio_driver_aux.select.2.case.0:
 	add r0, r4, r0
 	.loc	1 195 0
 	ldw r1, r0[0]
-.Ltmp745:
+.Ltmp747:
 	ldw r0, r4[4]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info33:
+.Ltrap_info31:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp746:
+.Ltmp748:
 .LBB66_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -7010,8 +7008,8 @@ startkit_gpio_driver_aux.select.2.case.0:
 	.set	startkit_gpio_driver_aux.select.2.case.0.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
 	.set	startkit_gpio_driver_aux.select.2.case.0.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
 	.set	startkit_gpio_driver_aux.select.2.case.0.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp747:
-	.size	startkit_gpio_driver_aux.select.2.case.0, .Ltmp747-startkit_gpio_driver_aux.select.2.case.0
+.Ltmp749:
+	.size	startkit_gpio_driver_aux.select.2.case.0, .Ltmp749-startkit_gpio_driver_aux.select.2.case.0
 .Lfunc_end66:
 	.cfi_endproc
 
@@ -7022,17 +7020,17 @@ startkit_gpio_driver_aux.select.3.case.0:
 .Lfunc_begin67:
 	.loc	1 197 0
 	.cfi_startproc
-.Lxtalabel115:
+.Lxtalabel116:
 	entsp 3
-.Ltmp748:
+.Ltmp750:
 	.cfi_def_cfa_offset 12
-.Ltmp749:
+.Ltmp751:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp750:
+.Ltmp752:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp751:
+.Ltmp753:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -7049,7 +7047,7 @@ startkit_gpio_driver_aux.select.3.case.0:
 	eq r2, r3, 1
 	bf r2, .LBB67_1
 	.loc	1 198 0 prologue_end
-.Ltmp752:
+.Ltmp754:
 	ldw r1, r4[8]
 	.loc	1 198 0
 	ldw r0, r1[0]
@@ -7060,18 +7058,18 @@ startkit_gpio_driver_aux.select.3.case.0:
 	.loc	1 198 0
 .Lxta.call_labels19:
 	bla r1
-.Ltmp753:
+.Ltmp755:
 	ldw r1, r4[5]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info34:
+.Ltrap_info32:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB67_4
-.Ltmp754:
+.Ltmp756:
 .LBB67_1:
-.Ltrap_info35:
+.Ltrap_info33:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -7094,15 +7092,15 @@ startkit_gpio_driver_aux.select.3.case.0:
 	add r0, r4, r0
 	.loc	1 201 0
 	ldw r1, r0[0]
-.Ltmp755:
+.Ltmp757:
 	ldw r0, r4[5]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info36:
+.Ltrap_info34:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp756:
+.Ltmp758:
 .LBB67_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -7115,55 +7113,55 @@ startkit_gpio_driver_aux.select.3.case.0:
 	.set	startkit_gpio_driver_aux.select.3.case.0.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
 	.set	startkit_gpio_driver_aux.select.3.case.0.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
 	.set	startkit_gpio_driver_aux.select.3.case.0.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp757:
-	.size	startkit_gpio_driver_aux.select.3.case.0, .Ltmp757-startkit_gpio_driver_aux.select.3.case.0
+.Ltmp759:
+	.size	startkit_gpio_driver_aux.select.3.case.0, .Ltmp759-startkit_gpio_driver_aux.select.3.case.0
 .Lfunc_end67:
 	.cfi_endproc
 
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.case.0,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.case.0.function,startkit_gpio_driver_aux.select.yield.case.0
-startkit_gpio_driver_aux.select.yield.case.0:
+	.type	startkit_gpio_driver_aux.select.y.case.0,@function
+	.cc_top startkit_gpio_driver_aux.select.y.case.0.function,startkit_gpio_driver_aux.select.y.case.0
+startkit_gpio_driver_aux.select.y.case.0:
 .Lfunc_begin68:
 	.loc	1 99 0
 	.cfi_startproc
-.Lxtalabel116:
+.Lxtalabel117:
 	entsp 6
-.Ltmp758:
+.Ltmp760:
 	.cfi_def_cfa_offset 24
-.Ltmp759:
+.Ltmp761:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp760:
+.Ltmp762:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp761:
+.Ltmp763:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp762:
+.Ltmp764:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp763:
+.Ltmp765:
 	.cfi_offset 7, -16
 	stw r8, sp[1]
-.Ltmp764:
+.Ltmp766:
 	.cfi_offset 8, -20
 	get r11, ed
 	mov r4, r11
 	.loc	1 99 0 prologue_end
-.Ltmp765:
+.Ltmp767:
 	get r11, id
 	.loc	1 99 0
 	ldaw r0, dp[__timers]
 	.loc	1 99 0
 	ldw r5, r0[r11]
 	.loc	1 99 0
-.Ltmp766:
+.Ltmp768:
 .Lxta.endpoint_labels22:
 	in r0, res[r5]
 	ldc r6, 0
 	stw r6, r4[0]
-.Ltmp767:
+.Ltmp769:
 	.loc	1 100 0
 	ldw r0, r4[11]
 	.loc	1 100 0
@@ -7174,31 +7172,31 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 101 7
 	eq r0, r2, r7
 	bf r0, .LBB68_1
-.Lxtalabel117:
+.Lxtalabel118:
 	.loc	1 104 0
-.Ltmp768:
+.Ltmp770:
 	ldw r0, r4[6]
 	.loc	1 104 0
 	setc res[r0], 1
 	.loc	1 104 0
 .Lxta.endpoint_labels23:
 	in r1, res[r0]
-.Ltmp769:
+.Ltmp771:
 	.loc	1 105 0
 	setc res[r5], 1
 	.loc	1 105 0
 .Lxta.endpoint_labels24:
 	in r1, res[r5]
-.Ltmp770:
+.Ltmp772:
 	.loc	1 106 0
 	add r1, r1, 10
-.Ltmp771:
+.Ltmp773:
 	.loc	1 106 0
 	setd res[r5], r1
 	.loc	1 106 0
 	setc res[r5], 9
 	.loc	1 106 0
-.Ltmp772:
+.Ltmp774:
 .Lxta.endpoint_labels25:
 	in r1, res[r5]
 	.loc	1 107 0
@@ -7206,12 +7204,12 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 107 0
 .Lxta.endpoint_labels26:
 	in r3, res[r0]
-.Ltmp773:
+.Ltmp775:
 	.loc	1 108 9
 	ldw r1, r4[3]
 	bf r1, .LBB68_13
-.Ltmp774:
-.Lxtalabel118:
+.Ltmp776:
+.Lxtalabel119:
 	ldc r0, 112
 	.loc	1 109 11
 	add r0, r4, r0
@@ -7226,33 +7224,33 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	lss r11, r2, r11
 	.loc	1 109 11
 	bf r11, .LBB68_12
-.Ltmp775:
-.Lxtalabel119:
+.Ltmp777:
+.Lxtalabel120:
 	.loc	1 123 0
 	add r1, r2, 1
 	.loc	1 123 0
 	stw r1, r0[0]
 	bu .LBB68_13
 .LBB68_12:
-.Lxtalabel120:
-.Ltmp776:
+.Lxtalabel121:
+.Ltmp778:
 	mkmsk r2, 1
 	.loc	1 113 0
-.Ltmp777:
+.Ltmp779:
 	andnot r2, r3
-.Ltmp778:
+.Ltmp780:
 	.loc	1 116 13
 	ldw r3, r4[9]
-.Ltmp779:
+.Ltmp781:
 	.loc	1 116 13
 	eq r3, r2, r3
 	bt r3, .LBB68_13
-.Ltmp780:
-.Lxtalabel121:
+.Ltmp782:
+.Lxtalabel122:
 	.loc	1 117 0
 	ldw r3, r1[4]
 	bf r3, .LBB68_18
-.Ltmp781:
+.Ltmp783:
 	.loc	1 117 0
 	ldw r3, r1[2]
 	.loc	1 117 0
@@ -7270,29 +7268,29 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	ldc r3, 0
 	.loc	1 117 0
 	stw r3, r1[4]
-.Ltmp782:
+.Ltmp784:
 .LBB68_18:
 	.loc	1 118 0
 	stw r2, r4[9]
 	ldc r1, 0
 	.loc	1 119 0
 	stw r1, r0[0]
-.Ltmp783:
+.Ltmp785:
 .LBB68_13:
-.Lxtalabel122:
+.Lxtalabel123:
 	.loc	1 126 9
 	add r8, r4, r7
 	.loc	1 126 9
 	ldw r0, r8[0]
 	.loc	1 126 9
 	bf r0, .LBB68_24
-.Lxtalabel123:
+.Lxtalabel124:
 	.loc	1 127 11
 	ldw r0, r4[4]
 	bf r0, .LBB68_15
-.Lxtalabel124:
+.Lxtalabel125:
 	.loc	1 128 0
-.Ltmp784:
+.Ltmp786:
 	ldw r1, r4[7]
 	.loc	1 128 0
 	ldw r0, r1[0]
@@ -7303,7 +7301,7 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 128 0
 .Lxta.call_labels20:
 	bla r1
-.Ltmp785:
+.Ltmp787:
 	ldc r1, 84
 	.loc	1 129 13
 	add r1, r4, r1
@@ -7312,13 +7310,13 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 129 13
 	eq r2, r0, r2
 	bt r2, .LBB68_15
-.Ltmp786:
-.Lxtalabel125:
+.Ltmp788:
+.Lxtalabel126:
 	.loc	1 130 0
 	stw r0, r1[0]
 	.loc	1 131 0
 	ldw r0, r4[4]
-.Ltmp787:
+.Ltmp789:
 	.loc	1 131 0
 	ldw r1, r0[4]
 	bf r1, .LBB68_15
@@ -7331,15 +7329,15 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	getd r3, res[r1]
 	#NO_APP
 	bu .LBB68_23
-.Ltmp788:
+.Ltmp790:
 .LBB68_24:
-.Lxtalabel126:
+.Lxtalabel127:
 	.loc	1 135 11
 	ldw r0, r4[5]
 	bf r0, .LBB68_15
-.Lxtalabel127:
+.Lxtalabel128:
 	.loc	1 136 0
-.Ltmp789:
+.Ltmp791:
 	ldw r1, r4[8]
 	.loc	1 136 0
 	ldw r0, r1[0]
@@ -7350,7 +7348,7 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 136 0
 .Lxta.call_labels21:
 	bla r1
-.Ltmp790:
+.Ltmp792:
 	ldc r1, 88
 	.loc	1 137 13
 	add r1, r4, r1
@@ -7359,13 +7357,13 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	.loc	1 137 13
 	eq r2, r0, r2
 	bt r2, .LBB68_15
-.Ltmp791:
-.Lxtalabel128:
+.Ltmp793:
+.Lxtalabel129:
 	.loc	1 138 0
 	stw r0, r1[0]
 	.loc	1 139 0
 	ldw r0, r4[5]
-.Ltmp792:
+.Ltmp794:
 	.loc	1 139 0
 	ldw r1, r0[4]
 	bf r1, .LBB68_15
@@ -7377,9 +7375,9 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	#APP
 	getd r3, res[r1]
 	#NO_APP
-.Ltmp793:
+.Ltmp795:
 .LBB68_23:
-.Lxtalabel129:
+.Lxtalabel130:
 	.loc	1 131 0
 	setd res[r1], r2
 	.loc	1 131 0
@@ -7389,9 +7387,9 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	ldc r1, 0
 	.loc	1 131 0
 	stw r1, r0[4]
-.Ltmp794:
+.Ltmp796:
 .LBB68_15:
-.Lxtalabel130:
+.Lxtalabel131:
 	.loc	1 143 0
 	ldw r0, r8[0]
 	.loc	1 143 0
@@ -7415,60 +7413,60 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	ldc r2, 0
 	.loc	1 145 0
 	stw r2, r4[11]
-.Ltmp795:
+.Ltmp797:
 .LBB68_1:
 	ldc r0, 48
 	add r1, r4, r0
 	mkmsk r0, 32
 	ldaw r11, cp[map]
 	.loc	1 153 11
-.Ltmp796:
+.Ltmp798:
 	sub r2, r7, r2
 	mkmsk r3, 2
 .LBB68_2:
-.Lxtalabel131:
-.Ltmp797:
+.Lxtalabel132:
+.Ltmp799:
 	.loc	1 153 11
 	ldw r7, r1[0]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB68_4
-.Lxtalabel132:
+.Lxtalabel133:
 	.loc	1 154 0
 	ldw r7, r11[0]
 	.loc	1 154 0
 	andnot r0, r7
-.Ltmp798:
+.Ltmp800:
 .LBB68_4:
-.Lxtalabel133:
+.Lxtalabel134:
 	.loc	1 153 11
 	ldw r7, r1[1]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB68_6
-.Lxtalabel134:
+.Lxtalabel135:
 	.loc	1 154 0
 	ldw r7, r11[1]
 	.loc	1 154 0
 	andnot r0, r7
 .LBB68_6:
-.Lxtalabel135:
+.Lxtalabel136:
 	.loc	1 153 11
 	ldw r7, r1[2]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB68_8
-.Lxtalabel136:
+.Lxtalabel137:
 	.loc	1 154 0
 	ldw r7, r11[2]
 	.loc	1 154 0
 	andnot r0, r7
-.Ltmp799:
+.Ltmp801:
 .LBB68_8:
-.Lxtalabel137:
+.Lxtalabel138:
 	.loc	1 149 0
 	add r6, r6, 1
-.Ltmp800:
+.Ltmp802:
 	.loc	1 149 0
 	ldaw r11, r11[3]
 	.loc	1 149 0
@@ -7478,8 +7476,8 @@ startkit_gpio_driver_aux.select.yield.case.0:
 .Lxta.loop_labels10:
 	# LOOPMARKER 0
 	bt r7, .LBB68_2
-.Ltmp801:
-.Lxtalabel138:
+.Ltmp803:
+.Lxtalabel139:
 	.loc	1 159 18
 	ldw r1, r4[6]
 	.loc	1 159 18
@@ -7508,30 +7506,30 @@ startkit_gpio_driver_aux.select.yield.case.0:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-.Ltmp802:
-	.cc_bottom startkit_gpio_driver_aux.select.yield.case.0.function
-	.set	startkit_gpio_driver_aux.select.yield.case.0.nstackwords,(_i.slider_query_if.filter.max.nstackwords + 6)
-	.set	startkit_gpio_driver_aux.select.yield.case.0.maxcores,_i.slider_query_if.filter.max.maxcores $M 1
-	.set	startkit_gpio_driver_aux.select.yield.case.0.maxtimers,_i.slider_query_if.filter.max.maxtimers $M 0
-	.set	startkit_gpio_driver_aux.select.yield.case.0.maxchanends,_i.slider_query_if.filter.max.maxchanends $M 0
-.Ltmp803:
-	.size	startkit_gpio_driver_aux.select.yield.case.0, .Ltmp803-startkit_gpio_driver_aux.select.yield.case.0
+.Ltmp804:
+	.cc_bottom startkit_gpio_driver_aux.select.y.case.0.function
+	.set	startkit_gpio_driver_aux.select.y.case.0.nstackwords,(_i.slider_query_if.filter.max.nstackwords + 6)
+	.set	startkit_gpio_driver_aux.select.y.case.0.maxcores,_i.slider_query_if.filter.max.maxcores $M 1
+	.set	startkit_gpio_driver_aux.select.y.case.0.maxtimers,_i.slider_query_if.filter.max.maxtimers $M 0
+	.set	startkit_gpio_driver_aux.select.y.case.0.maxchanends,_i.slider_query_if.filter.max.maxchanends $M 0
+.Ltmp805:
+	.size	startkit_gpio_driver_aux.select.y.case.0, .Ltmp805-startkit_gpio_driver_aux.select.y.case.0
 .Lfunc_end68:
 	.cfi_endproc
 
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.case.1,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.case.1.function,startkit_gpio_driver_aux.select.yield.case.1
-startkit_gpio_driver_aux.select.yield.case.1:
+	.type	startkit_gpio_driver_aux.select.y.case.1,@function
+	.cc_top startkit_gpio_driver_aux.select.y.case.1.function,startkit_gpio_driver_aux.select.y.case.1
+startkit_gpio_driver_aux.select.y.case.1:
 .Lfunc_begin69:
 	.loc	1 166 0
 	.cfi_startproc
-.Lxtalabel139:
+.Lxtalabel140:
 	extsp 1
-.Ltmp804:
+.Ltmp806:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp805:
+.Ltmp807:
 	.cfi_offset 4, -4
 	get r11, ed
 	ldc r0, 0
@@ -7544,7 +7542,7 @@ startkit_gpio_driver_aux.select.yield.case.1:
 	zext r4, 8
 	sub r3, r3, r4
 	setd res[r2], r3
-.Ltrap_info37:
+.Ltrap_info35:
 	ecallf r2
 	outct res[r2], 1
 	in r2, res[r2]
@@ -7563,14 +7561,14 @@ startkit_gpio_driver_aux.select.yield.case.1:
 	mkmsk r2, 1
 	stw r2, r1[4]
 	.loc	1 167 0 prologue_end
-.Ltmp806:
+.Ltmp808:
 	ldw r3, r11[9]
-.Ltmp807:
+.Ltmp809:
 	ldw r1, r11[3]
 	ldw r1, r1[0]
 	out res[r1], r0
 	out res[r1], r3
-.Ltrap_info38:
+.Ltrap_info36:
 	ecallf r1
 	outct res[r1], 1
 	stw r2, r11[0]
@@ -7578,14 +7576,14 @@ startkit_gpio_driver_aux.select.yield.case.1:
 	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp808:
-	.cc_bottom startkit_gpio_driver_aux.select.yield.case.1.function
-	.set	startkit_gpio_driver_aux.select.yield.case.1.nstackwords,1
-	.set	startkit_gpio_driver_aux.select.yield.case.1.maxcores,1
-	.set	startkit_gpio_driver_aux.select.yield.case.1.maxtimers,0
-	.set	startkit_gpio_driver_aux.select.yield.case.1.maxchanends,0
-.Ltmp809:
-	.size	startkit_gpio_driver_aux.select.yield.case.1, .Ltmp809-startkit_gpio_driver_aux.select.yield.case.1
+.Ltmp810:
+	.cc_bottom startkit_gpio_driver_aux.select.y.case.1.function
+	.set	startkit_gpio_driver_aux.select.y.case.1.nstackwords,1
+	.set	startkit_gpio_driver_aux.select.y.case.1.maxcores,1
+	.set	startkit_gpio_driver_aux.select.y.case.1.maxtimers,0
+	.set	startkit_gpio_driver_aux.select.y.case.1.maxchanends,0
+.Ltmp811:
+	.size	startkit_gpio_driver_aux.select.y.case.1, .Ltmp811-startkit_gpio_driver_aux.select.y.case.1
 .Lfunc_end69:
 	.cfi_endproc
 
@@ -7599,24 +7597,24 @@ startkit_gpio_driver_aux.select.yield.case.1:
 	.cc_bottom .LCPI70_0.data
 	.text
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.case.2,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.case.2.function,startkit_gpio_driver_aux.select.yield.case.2
-startkit_gpio_driver_aux.select.yield.case.2:
+	.type	startkit_gpio_driver_aux.select.y.case.2,@function
+	.cc_top startkit_gpio_driver_aux.select.y.case.2.function,startkit_gpio_driver_aux.select.y.case.2
+startkit_gpio_driver_aux.select.y.case.2:
 .Lfunc_begin70:
 	.loc	1 171 0
 	.cfi_startproc
-.Lxtalabel140:
+.Lxtalabel141:
 	extsp 3
-.Ltmp810:
+.Ltmp812:
 	.cfi_def_cfa_offset 12
 	stw r4, sp[2]
-.Ltmp811:
+.Ltmp813:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp812:
+.Ltmp814:
 	.cfi_offset 5, -8
 	stw r6, sp[0]
-.Ltmp813:
+.Ltmp815:
 	.cfi_offset 6, -12
 	get r11, ed
 	ldc r0, 0
@@ -7630,59 +7628,59 @@ startkit_gpio_driver_aux.select.yield.case.2:
 	sub r1, r1, r3
 	setd res[r2], r1
 	bf r3, .LBB70_10
-.Ltrap_info39:
+.Ltrap_info37:
 	ecallf r2
 	outct res[r2], 1
 	in r1, res[r2]
-.Ltmp814:
+.Ltmp816:
 	in r2, res[r2]
-.Ltmp815:
+.Ltmp817:
 	ldw r3, cp[.LCPI70_0]
 	.loc	1 181 0 prologue_end
-.Ltmp816:
+.Ltmp818:
 	lmul r3, r4, r2, r3, r0, r0
 	sub r2, r2, r3
-.Ltmp817:
+.Ltmp819:
 	shr r2, r2, 1
 	add r2, r2, r3
 	ldc r3, 9
 	shr r2, r2, r3
-.Ltmp818:
+.Ltmp820:
 	ldc r3, 72
-.Ltmp819:
+.Ltmp821:
 	add r3, r11, r3
 	ldc r4, 2
-.Ltmp820:
+.Ltmp822:
 .LBB70_2:
-.Lxtalabel141:
+.Lxtalabel142:
 	.loc	1 186 0
 	mov r6, r1
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB70_4
-.Ltmp821:
-.Lxtalabel142:
-	mov r5, r0
-.Ltmp822:
-.LBB70_4:
+.Ltmp823:
 .Lxtalabel143:
+	mov r5, r0
+.Ltmp824:
+.LBB70_4:
+.Lxtalabel144:
 	.loc	1 186 0
 	stw r5, r3[2]
 	.loc	1 187 0
 	shr r6, r1, 1
-.Ltmp823:
+.Ltmp825:
 	.loc	1 186 0
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB70_6
-.Ltmp824:
-.Lxtalabel144:
-	mov r5, r0
-.Ltmp825:
-.LBB70_6:
+.Ltmp826:
 .Lxtalabel145:
+	mov r5, r0
+.Ltmp827:
+.LBB70_6:
+.Lxtalabel146:
 	.loc	1 186 0
 	stw r5, r3[1]
 	.loc	1 187 0
@@ -7692,20 +7690,20 @@ startkit_gpio_driver_aux.select.yield.case.2:
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB70_8
-.Ltmp826:
-.Lxtalabel146:
-	mov r5, r0
-.Ltmp827:
-.LBB70_8:
+.Ltmp828:
 .Lxtalabel147:
+	mov r5, r0
+.Ltmp829:
+.LBB70_8:
+.Lxtalabel148:
 	.loc	1 186 0
 	stw r5, r3[0]
 	.loc	1 187 0
 	shr r1, r1, 3
-.Ltmp828:
+.Ltmp830:
 	.loc	1 184 0
 	sub r4, r4, 1
-.Ltmp829:
+.Ltmp831:
 	.loc	1 184 0
 	ldaw r3, r3[-3]
 .Lxta.loop_labels11:
@@ -7713,62 +7711,59 @@ startkit_gpio_driver_aux.select.yield.case.2:
 	.loc	1 184 0
 	ashr r5, r4, 32
 	bf r5, .LBB70_2
-.Ltmp830:
-.Lxtalabel148:
+.Ltmp832:
+.Lxtalabel149:
 	ldw r0, r11[2]
 	ldw r0, r0[0]
 	ldc r1, 0
-	out res[r0], r1
-.Ltrap_info40:
-	ecallf r0
 	bu .LBB70_11
 .LBB70_10:
-.Ltrap_info41:
+.Ltrap_info38:
 	ecallf r2
 	outct res[r2], 1
 	in r3, res[r2]
-.Ltmp831:
-	in r1, res[r2]
-.Ltmp832:
-	in r0, res[r2]
 .Ltmp833:
+	in r1, res[r2]
+.Ltmp834:
+	in r0, res[r2]
+.Ltmp835:
 	mkmsk r2, 2
 	.loc	1 174 0
 	lsu r4, r3, r2
-.Ltrap_info42:
+.Ltrap_info39:
 	ecallf r4
 	.loc	1 174 0
 	lsu r2, r1, r2
-.Ltrap_info43:
+.Ltrap_info40:
 	ecallf r2
 	ldc r2, 12
 	.loc	1 174 0
 	mul r2, r3, r2
 	add r2, r11, r2
 	ldaw r1, r2[r1]
-.Ltmp834:
-	ldc r2, 48
-	add r1, r1, r2
-	ldc r2, 0
-	ldw r3, cp[.LCPI70_0]
-.Ltmp835:
-	.loc	1 174 0
-	lmul r3, r4, r0, r3, r2, r2
-	sub r0, r0, r3
 .Ltmp836:
+	ldc r2, 48
+	add r2, r1, r2
+	ldc r1, 0
+	ldw r3, cp[.LCPI70_0]
+.Ltmp837:
+	.loc	1 174 0
+	lmul r3, r4, r0, r3, r1, r1
+	sub r0, r0, r3
+.Ltmp838:
 	shr r0, r0, 1
 	add r0, r0, r3
 	ldc r3, 9
 	shr r0, r0, r3
 	.loc	1 174 0
-	stw r0, r1[0]
+	stw r0, r2[0]
 	ldw r0, r11[2]
 	ldw r0, r0[0]
-	out res[r0], r2
-.Ltrap_info44:
-	ecallf r0
-.Ltmp837:
+.Ltmp839:
 .LBB70_11:
+	out res[r0], r1
+.Ltrap_info41:
+	ecallf r0
 	outct res[r0], 1
 	mkmsk r0, 1
 	stw r0, r11[0]
@@ -7778,34 +7773,34 @@ startkit_gpio_driver_aux.select.yield.case.2:
 	ldaw sp, sp[3]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_gpio_driver_aux.select.yield.case.2.function
-	.set	startkit_gpio_driver_aux.select.yield.case.2.nstackwords,3
-	.set	startkit_gpio_driver_aux.select.yield.case.2.maxcores,1
-	.set	startkit_gpio_driver_aux.select.yield.case.2.maxtimers,0
-	.set	startkit_gpio_driver_aux.select.yield.case.2.maxchanends,0
-.Ltmp838:
-	.size	startkit_gpio_driver_aux.select.yield.case.2, .Ltmp838-startkit_gpio_driver_aux.select.yield.case.2
+	.cc_bottom startkit_gpio_driver_aux.select.y.case.2.function
+	.set	startkit_gpio_driver_aux.select.y.case.2.nstackwords,3
+	.set	startkit_gpio_driver_aux.select.y.case.2.maxcores,1
+	.set	startkit_gpio_driver_aux.select.y.case.2.maxtimers,0
+	.set	startkit_gpio_driver_aux.select.y.case.2.maxchanends,0
+.Ltmp840:
+	.size	startkit_gpio_driver_aux.select.y.case.2, .Ltmp840-startkit_gpio_driver_aux.select.y.case.2
 .Lfunc_end70:
 	.cfi_endproc
 
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.case.3,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.case.3.function,startkit_gpio_driver_aux.select.yield.case.3
-startkit_gpio_driver_aux.select.yield.case.3:
+	.type	startkit_gpio_driver_aux.select.y.case.3,@function
+	.cc_top startkit_gpio_driver_aux.select.y.case.3.function,startkit_gpio_driver_aux.select.y.case.3
+startkit_gpio_driver_aux.select.y.case.3:
 .Lfunc_begin71:
 	.loc	1 191 0
 	.cfi_startproc
-.Lxtalabel149:
+.Lxtalabel150:
 	entsp 3
-.Ltmp839:
+.Ltmp841:
 	.cfi_def_cfa_offset 12
-.Ltmp840:
+.Ltmp842:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp841:
+.Ltmp843:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp842:
+.Ltmp844:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -7822,7 +7817,7 @@ startkit_gpio_driver_aux.select.yield.case.3:
 	eq r2, r3, 1
 	bf r2, .LBB71_1
 	.loc	1 192 0 prologue_end
-.Ltmp843:
+.Ltmp845:
 	ldw r1, r4[7]
 	.loc	1 192 0
 	ldw r0, r1[0]
@@ -7833,18 +7828,18 @@ startkit_gpio_driver_aux.select.yield.case.3:
 	.loc	1 192 0
 .Lxta.call_labels22:
 	bla r1
-.Ltmp844:
+.Ltmp846:
 	ldw r1, r4[4]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info45:
+.Ltrap_info42:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB71_4
-.Ltmp845:
+.Ltmp847:
 .LBB71_1:
-.Ltrap_info46:
+.Ltrap_info43:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -7867,15 +7862,15 @@ startkit_gpio_driver_aux.select.yield.case.3:
 	add r0, r4, r0
 	.loc	1 195 0
 	ldw r1, r0[0]
-.Ltmp846:
+.Ltmp848:
 	ldw r0, r4[4]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info47:
+.Ltrap_info44:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp847:
+.Ltmp849:
 .LBB71_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -7883,34 +7878,34 @@ startkit_gpio_driver_aux.select.yield.case.3:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_gpio_driver_aux.select.yield.case.3.function
-	.set	startkit_gpio_driver_aux.select.yield.case.3.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
-	.set	startkit_gpio_driver_aux.select.yield.case.3.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
-	.set	startkit_gpio_driver_aux.select.yield.case.3.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
-	.set	startkit_gpio_driver_aux.select.yield.case.3.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp848:
-	.size	startkit_gpio_driver_aux.select.yield.case.3, .Ltmp848-startkit_gpio_driver_aux.select.yield.case.3
+	.cc_bottom startkit_gpio_driver_aux.select.y.case.3.function
+	.set	startkit_gpio_driver_aux.select.y.case.3.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
+	.set	startkit_gpio_driver_aux.select.y.case.3.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
+	.set	startkit_gpio_driver_aux.select.y.case.3.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
+	.set	startkit_gpio_driver_aux.select.y.case.3.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
+.Ltmp850:
+	.size	startkit_gpio_driver_aux.select.y.case.3, .Ltmp850-startkit_gpio_driver_aux.select.y.case.3
 .Lfunc_end71:
 	.cfi_endproc
 
 	.align	4
-	.type	startkit_gpio_driver_aux.select.yield.case.4,@function
-	.cc_top startkit_gpio_driver_aux.select.yield.case.4.function,startkit_gpio_driver_aux.select.yield.case.4
-startkit_gpio_driver_aux.select.yield.case.4:
+	.type	startkit_gpio_driver_aux.select.y.case.4,@function
+	.cc_top startkit_gpio_driver_aux.select.y.case.4.function,startkit_gpio_driver_aux.select.y.case.4
+startkit_gpio_driver_aux.select.y.case.4:
 .Lfunc_begin72:
 	.loc	1 197 0
 	.cfi_startproc
-.Lxtalabel150:
+.Lxtalabel151:
 	entsp 3
-.Ltmp849:
+.Ltmp851:
 	.cfi_def_cfa_offset 12
-.Ltmp850:
+.Ltmp852:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp851:
+.Ltmp853:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp852:
+.Ltmp854:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -7927,7 +7922,7 @@ startkit_gpio_driver_aux.select.yield.case.4:
 	eq r2, r3, 1
 	bf r2, .LBB72_1
 	.loc	1 198 0 prologue_end
-.Ltmp853:
+.Ltmp855:
 	ldw r1, r4[8]
 	.loc	1 198 0
 	ldw r0, r1[0]
@@ -7938,18 +7933,18 @@ startkit_gpio_driver_aux.select.yield.case.4:
 	.loc	1 198 0
 .Lxta.call_labels23:
 	bla r1
-.Ltmp854:
+.Ltmp856:
 	ldw r1, r4[5]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info48:
+.Ltrap_info45:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB72_4
-.Ltmp855:
+.Ltmp857:
 .LBB72_1:
-.Ltrap_info49:
+.Ltrap_info46:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -7972,15 +7967,15 @@ startkit_gpio_driver_aux.select.yield.case.4:
 	add r0, r4, r0
 	.loc	1 201 0
 	ldw r1, r0[0]
-.Ltmp856:
+.Ltmp858:
 	ldw r0, r4[5]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info50:
+.Ltrap_info47:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp857:
+.Ltmp859:
 .LBB72_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -7988,13 +7983,13 @@ startkit_gpio_driver_aux.select.yield.case.4:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom startkit_gpio_driver_aux.select.yield.case.4.function
-	.set	startkit_gpio_driver_aux.select.yield.case.4.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
-	.set	startkit_gpio_driver_aux.select.yield.case.4.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
-	.set	startkit_gpio_driver_aux.select.yield.case.4.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
-	.set	startkit_gpio_driver_aux.select.yield.case.4.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp858:
-	.size	startkit_gpio_driver_aux.select.yield.case.4, .Ltmp858-startkit_gpio_driver_aux.select.yield.case.4
+	.cc_bottom startkit_gpio_driver_aux.select.y.case.4.function
+	.set	startkit_gpio_driver_aux.select.y.case.4.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
+	.set	startkit_gpio_driver_aux.select.y.case.4.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
+	.set	startkit_gpio_driver_aux.select.y.case.4.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
+	.set	startkit_gpio_driver_aux.select.y.case.4.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
+.Ltmp860:
+	.size	startkit_gpio_driver_aux.select.y.case.4, .Ltmp860-startkit_gpio_driver_aux.select.y.case.4
 .Lfunc_end72:
 	.cfi_endproc
 
@@ -8005,43 +8000,43 @@ startkit_gpio_driver_aux.select.case.0:
 .Lfunc_begin73:
 	.loc	1 99 0
 	.cfi_startproc
-.Lxtalabel151:
+.Lxtalabel152:
 	entsp 6
-.Ltmp859:
+.Ltmp861:
 	.cfi_def_cfa_offset 24
-.Ltmp860:
+.Ltmp862:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp861:
+.Ltmp863:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp862:
+.Ltmp864:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp863:
+.Ltmp865:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp864:
+.Ltmp866:
 	.cfi_offset 7, -16
 	stw r8, sp[1]
-.Ltmp865:
+.Ltmp867:
 	.cfi_offset 8, -20
 	get r11, ed
 	mov r4, r11
 	.loc	1 99 0 prologue_end
-.Ltmp866:
+.Ltmp868:
 	get r11, id
 	.loc	1 99 0
 	ldaw r0, dp[__timers]
 	.loc	1 99 0
 	ldw r5, r0[r11]
 	.loc	1 99 0
-.Ltmp867:
+.Ltmp869:
 .Lxta.endpoint_labels29:
 	in r0, res[r5]
 	ldc r6, 0
 	stw r6, r4[0]
-.Ltmp868:
+.Ltmp870:
 	.loc	1 100 0
 	ldw r0, r4[11]
 	.loc	1 100 0
@@ -8052,31 +8047,31 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 101 7
 	eq r0, r2, r7
 	bf r0, .LBB73_1
-.Lxtalabel152:
+.Lxtalabel153:
 	.loc	1 104 0
-.Ltmp869:
+.Ltmp871:
 	ldw r0, r4[6]
 	.loc	1 104 0
 	setc res[r0], 1
 	.loc	1 104 0
 .Lxta.endpoint_labels30:
 	in r1, res[r0]
-.Ltmp870:
+.Ltmp872:
 	.loc	1 105 0
 	setc res[r5], 1
 	.loc	1 105 0
 .Lxta.endpoint_labels31:
 	in r1, res[r5]
-.Ltmp871:
+.Ltmp873:
 	.loc	1 106 0
 	add r1, r1, 10
-.Ltmp872:
+.Ltmp874:
 	.loc	1 106 0
 	setd res[r5], r1
 	.loc	1 106 0
 	setc res[r5], 9
 	.loc	1 106 0
-.Ltmp873:
+.Ltmp875:
 .Lxta.endpoint_labels32:
 	in r1, res[r5]
 	.loc	1 107 0
@@ -8084,12 +8079,12 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 107 0
 .Lxta.endpoint_labels33:
 	in r3, res[r0]
-.Ltmp874:
+.Ltmp876:
 	.loc	1 108 9
 	ldw r1, r4[3]
 	bf r1, .LBB73_13
-.Ltmp875:
-.Lxtalabel153:
+.Ltmp877:
+.Lxtalabel154:
 	ldc r0, 112
 	.loc	1 109 11
 	add r0, r4, r0
@@ -8104,33 +8099,33 @@ startkit_gpio_driver_aux.select.case.0:
 	lss r11, r2, r11
 	.loc	1 109 11
 	bf r11, .LBB73_12
-.Ltmp876:
-.Lxtalabel154:
+.Ltmp878:
+.Lxtalabel155:
 	.loc	1 123 0
 	add r1, r2, 1
 	.loc	1 123 0
 	stw r1, r0[0]
 	bu .LBB73_13
 .LBB73_12:
-.Lxtalabel155:
-.Ltmp877:
+.Lxtalabel156:
+.Ltmp879:
 	mkmsk r2, 1
 	.loc	1 113 0
-.Ltmp878:
+.Ltmp880:
 	andnot r2, r3
-.Ltmp879:
+.Ltmp881:
 	.loc	1 116 13
 	ldw r3, r4[9]
-.Ltmp880:
+.Ltmp882:
 	.loc	1 116 13
 	eq r3, r2, r3
 	bt r3, .LBB73_13
-.Ltmp881:
-.Lxtalabel156:
+.Ltmp883:
+.Lxtalabel157:
 	.loc	1 117 0
 	ldw r3, r1[4]
 	bf r3, .LBB73_18
-.Ltmp882:
+.Ltmp884:
 	.loc	1 117 0
 	ldw r3, r1[2]
 	.loc	1 117 0
@@ -8148,29 +8143,29 @@ startkit_gpio_driver_aux.select.case.0:
 	ldc r3, 0
 	.loc	1 117 0
 	stw r3, r1[4]
-.Ltmp883:
+.Ltmp885:
 .LBB73_18:
 	.loc	1 118 0
 	stw r2, r4[9]
 	ldc r1, 0
 	.loc	1 119 0
 	stw r1, r0[0]
-.Ltmp884:
+.Ltmp886:
 .LBB73_13:
-.Lxtalabel157:
+.Lxtalabel158:
 	.loc	1 126 9
 	add r8, r4, r7
 	.loc	1 126 9
 	ldw r0, r8[0]
 	.loc	1 126 9
 	bf r0, .LBB73_24
-.Lxtalabel158:
+.Lxtalabel159:
 	.loc	1 127 11
 	ldw r0, r4[4]
 	bf r0, .LBB73_15
-.Lxtalabel159:
+.Lxtalabel160:
 	.loc	1 128 0
-.Ltmp885:
+.Ltmp887:
 	ldw r1, r4[7]
 	.loc	1 128 0
 	ldw r0, r1[0]
@@ -8181,7 +8176,7 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 128 0
 .Lxta.call_labels24:
 	bla r1
-.Ltmp886:
+.Ltmp888:
 	ldc r1, 84
 	.loc	1 129 13
 	add r1, r4, r1
@@ -8190,13 +8185,13 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 129 13
 	eq r2, r0, r2
 	bt r2, .LBB73_15
-.Ltmp887:
-.Lxtalabel160:
+.Ltmp889:
+.Lxtalabel161:
 	.loc	1 130 0
 	stw r0, r1[0]
 	.loc	1 131 0
 	ldw r0, r4[4]
-.Ltmp888:
+.Ltmp890:
 	.loc	1 131 0
 	ldw r1, r0[4]
 	bf r1, .LBB73_15
@@ -8209,15 +8204,15 @@ startkit_gpio_driver_aux.select.case.0:
 	getd r3, res[r1]
 	#NO_APP
 	bu .LBB73_23
-.Ltmp889:
+.Ltmp891:
 .LBB73_24:
-.Lxtalabel161:
+.Lxtalabel162:
 	.loc	1 135 11
 	ldw r0, r4[5]
 	bf r0, .LBB73_15
-.Lxtalabel162:
+.Lxtalabel163:
 	.loc	1 136 0
-.Ltmp890:
+.Ltmp892:
 	ldw r1, r4[8]
 	.loc	1 136 0
 	ldw r0, r1[0]
@@ -8228,7 +8223,7 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 136 0
 .Lxta.call_labels25:
 	bla r1
-.Ltmp891:
+.Ltmp893:
 	ldc r1, 88
 	.loc	1 137 13
 	add r1, r4, r1
@@ -8237,13 +8232,13 @@ startkit_gpio_driver_aux.select.case.0:
 	.loc	1 137 13
 	eq r2, r0, r2
 	bt r2, .LBB73_15
-.Ltmp892:
-.Lxtalabel163:
+.Ltmp894:
+.Lxtalabel164:
 	.loc	1 138 0
 	stw r0, r1[0]
 	.loc	1 139 0
 	ldw r0, r4[5]
-.Ltmp893:
+.Ltmp895:
 	.loc	1 139 0
 	ldw r1, r0[4]
 	bf r1, .LBB73_15
@@ -8255,9 +8250,9 @@ startkit_gpio_driver_aux.select.case.0:
 	#APP
 	getd r3, res[r1]
 	#NO_APP
-.Ltmp894:
+.Ltmp896:
 .LBB73_23:
-.Lxtalabel164:
+.Lxtalabel165:
 	.loc	1 131 0
 	setd res[r1], r2
 	.loc	1 131 0
@@ -8267,9 +8262,9 @@ startkit_gpio_driver_aux.select.case.0:
 	ldc r1, 0
 	.loc	1 131 0
 	stw r1, r0[4]
-.Ltmp895:
+.Ltmp897:
 .LBB73_15:
-.Lxtalabel165:
+.Lxtalabel166:
 	.loc	1 143 0
 	ldw r0, r8[0]
 	.loc	1 143 0
@@ -8293,60 +8288,60 @@ startkit_gpio_driver_aux.select.case.0:
 	ldc r2, 0
 	.loc	1 145 0
 	stw r2, r4[11]
-.Ltmp896:
+.Ltmp898:
 .LBB73_1:
 	ldc r0, 48
 	add r1, r4, r0
 	mkmsk r0, 32
 	ldaw r11, cp[map]
 	.loc	1 153 11
-.Ltmp897:
+.Ltmp899:
 	sub r2, r7, r2
 	mkmsk r3, 2
 .LBB73_2:
-.Lxtalabel166:
-.Ltmp898:
+.Lxtalabel167:
+.Ltmp900:
 	.loc	1 153 11
 	ldw r7, r1[0]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB73_4
-.Lxtalabel167:
+.Lxtalabel168:
 	.loc	1 154 0
 	ldw r7, r11[0]
 	.loc	1 154 0
 	andnot r0, r7
-.Ltmp899:
+.Ltmp901:
 .LBB73_4:
-.Lxtalabel168:
+.Lxtalabel169:
 	.loc	1 153 11
 	ldw r7, r1[1]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB73_6
-.Lxtalabel169:
+.Lxtalabel170:
 	.loc	1 154 0
 	ldw r7, r11[1]
 	.loc	1 154 0
 	andnot r0, r7
 .LBB73_6:
-.Lxtalabel170:
+.Lxtalabel171:
 	.loc	1 153 11
 	ldw r7, r1[2]
 	.loc	1 153 11
 	lss r7, r2, r7
 	bf r7, .LBB73_8
-.Lxtalabel171:
+.Lxtalabel172:
 	.loc	1 154 0
 	ldw r7, r11[2]
 	.loc	1 154 0
 	andnot r0, r7
-.Ltmp900:
+.Ltmp902:
 .LBB73_8:
-.Lxtalabel172:
+.Lxtalabel173:
 	.loc	1 149 0
 	add r6, r6, 1
-.Ltmp901:
+.Ltmp903:
 	.loc	1 149 0
 	ldaw r11, r11[3]
 	.loc	1 149 0
@@ -8356,8 +8351,8 @@ startkit_gpio_driver_aux.select.case.0:
 .Lxta.loop_labels12:
 	# LOOPMARKER 0
 	bt r7, .LBB73_2
-.Ltmp902:
-.Lxtalabel173:
+.Ltmp904:
+.Lxtalabel174:
 	.loc	1 159 18
 	ldw r1, r4[6]
 	.loc	1 159 18
@@ -8386,14 +8381,14 @@ startkit_gpio_driver_aux.select.case.0:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-.Ltmp903:
+.Ltmp905:
 	.cc_bottom startkit_gpio_driver_aux.select.case.0.function
 	.set	startkit_gpio_driver_aux.select.case.0.nstackwords,(_i.slider_query_if.filter.max.nstackwords + 6)
 	.set	startkit_gpio_driver_aux.select.case.0.maxcores,_i.slider_query_if.filter.max.maxcores $M 1
 	.set	startkit_gpio_driver_aux.select.case.0.maxtimers,_i.slider_query_if.filter.max.maxtimers $M 0
 	.set	startkit_gpio_driver_aux.select.case.0.maxchanends,_i.slider_query_if.filter.max.maxchanends $M 0
-.Ltmp904:
-	.size	startkit_gpio_driver_aux.select.case.0, .Ltmp904-startkit_gpio_driver_aux.select.case.0
+.Ltmp906:
+	.size	startkit_gpio_driver_aux.select.case.0, .Ltmp906-startkit_gpio_driver_aux.select.case.0
 .Lfunc_end73:
 	.cfi_endproc
 
@@ -8404,12 +8399,12 @@ startkit_gpio_driver_aux.select.case.1:
 .Lfunc_begin74:
 	.loc	1 166 0
 	.cfi_startproc
-.Lxtalabel174:
+.Lxtalabel175:
 	extsp 1
-.Ltmp905:
+.Ltmp907:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp906:
+.Ltmp908:
 	.cfi_offset 4, -4
 	get r11, ed
 	ldc r0, 0
@@ -8422,7 +8417,7 @@ startkit_gpio_driver_aux.select.case.1:
 	zext r4, 8
 	sub r3, r3, r4
 	setd res[r2], r3
-.Ltrap_info51:
+.Ltrap_info48:
 	ecallf r2
 	outct res[r2], 1
 	in r2, res[r2]
@@ -8441,14 +8436,14 @@ startkit_gpio_driver_aux.select.case.1:
 	mkmsk r2, 1
 	stw r2, r1[4]
 	.loc	1 167 0 prologue_end
-.Ltmp907:
+.Ltmp909:
 	ldw r3, r11[9]
-.Ltmp908:
+.Ltmp910:
 	ldw r1, r11[3]
 	ldw r1, r1[0]
 	out res[r1], r0
 	out res[r1], r3
-.Ltrap_info52:
+.Ltrap_info49:
 	ecallf r1
 	outct res[r1], 1
 	stw r2, r11[0]
@@ -8456,14 +8451,14 @@ startkit_gpio_driver_aux.select.case.1:
 	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp909:
+.Ltmp911:
 	.cc_bottom startkit_gpio_driver_aux.select.case.1.function
 	.set	startkit_gpio_driver_aux.select.case.1.nstackwords,1
 	.set	startkit_gpio_driver_aux.select.case.1.maxcores,1
 	.set	startkit_gpio_driver_aux.select.case.1.maxtimers,0
 	.set	startkit_gpio_driver_aux.select.case.1.maxchanends,0
-.Ltmp910:
-	.size	startkit_gpio_driver_aux.select.case.1, .Ltmp910-startkit_gpio_driver_aux.select.case.1
+.Ltmp912:
+	.size	startkit_gpio_driver_aux.select.case.1, .Ltmp912-startkit_gpio_driver_aux.select.case.1
 .Lfunc_end74:
 	.cfi_endproc
 
@@ -8483,18 +8478,18 @@ startkit_gpio_driver_aux.select.case.2:
 .Lfunc_begin75:
 	.loc	1 171 0
 	.cfi_startproc
-.Lxtalabel175:
+.Lxtalabel176:
 	extsp 3
-.Ltmp911:
+.Ltmp913:
 	.cfi_def_cfa_offset 12
 	stw r4, sp[2]
-.Ltmp912:
+.Ltmp914:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp913:
+.Ltmp915:
 	.cfi_offset 5, -8
 	stw r6, sp[0]
-.Ltmp914:
+.Ltmp916:
 	.cfi_offset 6, -12
 	get r11, ed
 	ldc r0, 0
@@ -8508,59 +8503,59 @@ startkit_gpio_driver_aux.select.case.2:
 	sub r1, r1, r3
 	setd res[r2], r1
 	bf r3, .LBB75_10
-.Ltrap_info53:
+.Ltrap_info50:
 	ecallf r2
 	outct res[r2], 1
 	in r1, res[r2]
-.Ltmp915:
+.Ltmp917:
 	in r2, res[r2]
-.Ltmp916:
+.Ltmp918:
 	ldw r3, cp[.LCPI75_0]
 	.loc	1 181 0 prologue_end
-.Ltmp917:
+.Ltmp919:
 	lmul r3, r4, r2, r3, r0, r0
 	sub r2, r2, r3
-.Ltmp918:
+.Ltmp920:
 	shr r2, r2, 1
 	add r2, r2, r3
 	ldc r3, 9
 	shr r2, r2, r3
-.Ltmp919:
+.Ltmp921:
 	ldc r3, 72
-.Ltmp920:
+.Ltmp922:
 	add r3, r11, r3
 	ldc r4, 2
-.Ltmp921:
+.Ltmp923:
 .LBB75_2:
-.Lxtalabel176:
+.Lxtalabel177:
 	.loc	1 186 0
 	mov r6, r1
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB75_4
-.Ltmp922:
-.Lxtalabel177:
-	mov r5, r0
-.Ltmp923:
-.LBB75_4:
+.Ltmp924:
 .Lxtalabel178:
+	mov r5, r0
+.Ltmp925:
+.LBB75_4:
+.Lxtalabel179:
 	.loc	1 186 0
 	stw r5, r3[2]
 	.loc	1 187 0
 	shr r6, r1, 1
-.Ltmp924:
+.Ltmp926:
 	.loc	1 186 0
 	zext r6, 1
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB75_6
-.Ltmp925:
-.Lxtalabel179:
-	mov r5, r0
-.Ltmp926:
-.LBB75_6:
+.Ltmp927:
 .Lxtalabel180:
+	mov r5, r0
+.Ltmp928:
+.LBB75_6:
+.Lxtalabel181:
 	.loc	1 186 0
 	stw r5, r3[1]
 	.loc	1 187 0
@@ -8570,20 +8565,20 @@ startkit_gpio_driver_aux.select.case.2:
 	.loc	1 186 0
 	mov r5, r2
 	bt r6, .LBB75_8
-.Ltmp927:
-.Lxtalabel181:
-	mov r5, r0
-.Ltmp928:
-.LBB75_8:
+.Ltmp929:
 .Lxtalabel182:
+	mov r5, r0
+.Ltmp930:
+.LBB75_8:
+.Lxtalabel183:
 	.loc	1 186 0
 	stw r5, r3[0]
 	.loc	1 187 0
 	shr r1, r1, 3
-.Ltmp929:
+.Ltmp931:
 	.loc	1 184 0
 	sub r4, r4, 1
-.Ltmp930:
+.Ltmp932:
 	.loc	1 184 0
 	ldaw r3, r3[-3]
 .Lxta.loop_labels13:
@@ -8591,62 +8586,59 @@ startkit_gpio_driver_aux.select.case.2:
 	.loc	1 184 0
 	ashr r5, r4, 32
 	bf r5, .LBB75_2
-.Ltmp931:
-.Lxtalabel183:
+.Ltmp933:
+.Lxtalabel184:
 	ldw r0, r11[2]
 	ldw r0, r0[0]
 	ldc r1, 0
-	out res[r0], r1
-.Ltrap_info54:
-	ecallf r0
 	bu .LBB75_11
 .LBB75_10:
-.Ltrap_info55:
+.Ltrap_info51:
 	ecallf r2
 	outct res[r2], 1
 	in r3, res[r2]
-.Ltmp932:
-	in r1, res[r2]
-.Ltmp933:
-	in r0, res[r2]
 .Ltmp934:
+	in r1, res[r2]
+.Ltmp935:
+	in r0, res[r2]
+.Ltmp936:
 	mkmsk r2, 2
 	.loc	1 174 0
 	lsu r4, r3, r2
-.Ltrap_info56:
+.Ltrap_info52:
 	ecallf r4
 	.loc	1 174 0
 	lsu r2, r1, r2
-.Ltrap_info57:
+.Ltrap_info53:
 	ecallf r2
 	ldc r2, 12
 	.loc	1 174 0
 	mul r2, r3, r2
 	add r2, r11, r2
 	ldaw r1, r2[r1]
-.Ltmp935:
-	ldc r2, 48
-	add r1, r1, r2
-	ldc r2, 0
-	ldw r3, cp[.LCPI75_0]
-.Ltmp936:
-	.loc	1 174 0
-	lmul r3, r4, r0, r3, r2, r2
-	sub r0, r0, r3
 .Ltmp937:
+	ldc r2, 48
+	add r2, r1, r2
+	ldc r1, 0
+	ldw r3, cp[.LCPI75_0]
+.Ltmp938:
+	.loc	1 174 0
+	lmul r3, r4, r0, r3, r1, r1
+	sub r0, r0, r3
+.Ltmp939:
 	shr r0, r0, 1
 	add r0, r0, r3
 	ldc r3, 9
 	shr r0, r0, r3
 	.loc	1 174 0
-	stw r0, r1[0]
+	stw r0, r2[0]
 	ldw r0, r11[2]
 	ldw r0, r0[0]
-	out res[r0], r2
-.Ltrap_info58:
-	ecallf r0
-.Ltmp938:
+.Ltmp940:
 .LBB75_11:
+	out res[r0], r1
+.Ltrap_info54:
+	ecallf r0
 	outct res[r0], 1
 	mkmsk r0, 1
 	stw r0, r11[0]
@@ -8661,8 +8653,8 @@ startkit_gpio_driver_aux.select.case.2:
 	.set	startkit_gpio_driver_aux.select.case.2.maxcores,1
 	.set	startkit_gpio_driver_aux.select.case.2.maxtimers,0
 	.set	startkit_gpio_driver_aux.select.case.2.maxchanends,0
-.Ltmp939:
-	.size	startkit_gpio_driver_aux.select.case.2, .Ltmp939-startkit_gpio_driver_aux.select.case.2
+.Ltmp941:
+	.size	startkit_gpio_driver_aux.select.case.2, .Ltmp941-startkit_gpio_driver_aux.select.case.2
 .Lfunc_end75:
 	.cfi_endproc
 
@@ -8673,17 +8665,17 @@ startkit_gpio_driver_aux.select.case.3:
 .Lfunc_begin76:
 	.loc	1 191 0
 	.cfi_startproc
-.Lxtalabel184:
+.Lxtalabel185:
 	entsp 3
-.Ltmp940:
+.Ltmp942:
 	.cfi_def_cfa_offset 12
-.Ltmp941:
+.Ltmp943:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp942:
+.Ltmp944:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp943:
+.Ltmp945:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -8700,7 +8692,7 @@ startkit_gpio_driver_aux.select.case.3:
 	eq r2, r3, 1
 	bf r2, .LBB76_1
 	.loc	1 192 0 prologue_end
-.Ltmp944:
+.Ltmp946:
 	ldw r1, r4[7]
 	.loc	1 192 0
 	ldw r0, r1[0]
@@ -8711,18 +8703,18 @@ startkit_gpio_driver_aux.select.case.3:
 	.loc	1 192 0
 .Lxta.call_labels26:
 	bla r1
-.Ltmp945:
+.Ltmp947:
 	ldw r1, r4[4]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info59:
+.Ltrap_info55:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB76_4
-.Ltmp946:
+.Ltmp948:
 .LBB76_1:
-.Ltrap_info60:
+.Ltrap_info56:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -8745,15 +8737,15 @@ startkit_gpio_driver_aux.select.case.3:
 	add r0, r4, r0
 	.loc	1 195 0
 	ldw r1, r0[0]
-.Ltmp947:
+.Ltmp949:
 	ldw r0, r4[4]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info61:
+.Ltrap_info57:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp948:
+.Ltmp950:
 .LBB76_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -8766,8 +8758,8 @@ startkit_gpio_driver_aux.select.case.3:
 	.set	startkit_gpio_driver_aux.select.case.3.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
 	.set	startkit_gpio_driver_aux.select.case.3.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
 	.set	startkit_gpio_driver_aux.select.case.3.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp949:
-	.size	startkit_gpio_driver_aux.select.case.3, .Ltmp949-startkit_gpio_driver_aux.select.case.3
+.Ltmp951:
+	.size	startkit_gpio_driver_aux.select.case.3, .Ltmp951-startkit_gpio_driver_aux.select.case.3
 .Lfunc_end76:
 	.cfi_endproc
 
@@ -8778,17 +8770,17 @@ startkit_gpio_driver_aux.select.case.4:
 .Lfunc_begin77:
 	.loc	1 197 0
 	.cfi_startproc
-.Lxtalabel185:
+.Lxtalabel186:
 	entsp 3
-.Ltmp950:
+.Ltmp952:
 	.cfi_def_cfa_offset 12
-.Ltmp951:
+.Ltmp953:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp952:
+.Ltmp954:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp953:
+.Ltmp955:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
@@ -8805,7 +8797,7 @@ startkit_gpio_driver_aux.select.case.4:
 	eq r2, r3, 1
 	bf r2, .LBB77_1
 	.loc	1 198 0 prologue_end
-.Ltmp954:
+.Ltmp956:
 	ldw r1, r4[8]
 	.loc	1 198 0
 	ldw r0, r1[0]
@@ -8816,18 +8808,18 @@ startkit_gpio_driver_aux.select.case.4:
 	.loc	1 198 0
 .Lxta.call_labels27:
 	bla r1
-.Ltmp955:
+.Ltmp957:
 	ldw r1, r4[5]
 	ldw r1, r1[0]
 	out res[r1], r5
 	out res[r1], r0
-.Ltrap_info62:
+.Ltrap_info58:
 	ecallf r1
 	outct res[r1], 1
 	bu .LBB77_4
-.Ltmp956:
+.Ltmp958:
 .LBB77_1:
-.Ltrap_info63:
+.Ltrap_info59:
 	ecallf r1
 	outct res[r1], 1
 	in r1, res[r1]
@@ -8850,15 +8842,15 @@ startkit_gpio_driver_aux.select.case.4:
 	add r0, r4, r0
 	.loc	1 201 0
 	ldw r1, r0[0]
-.Ltmp957:
+.Ltmp959:
 	ldw r0, r4[5]
 	ldw r0, r0[0]
 	out res[r0], r5
 	out res[r0], r1
-.Ltrap_info64:
+.Ltrap_info60:
 	ecallf r0
 	outct res[r0], 1
-.Ltmp958:
+.Ltmp960:
 .LBB77_4:
 	mkmsk r0, 1
 	stw r0, r4[0]
@@ -8871,8 +8863,8 @@ startkit_gpio_driver_aux.select.case.4:
 	.set	startkit_gpio_driver_aux.select.case.4.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
 	.set	startkit_gpio_driver_aux.select.case.4.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
 	.set	startkit_gpio_driver_aux.select.case.4.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
-.Ltmp959:
-	.size	startkit_gpio_driver_aux.select.case.4, .Ltmp959-startkit_gpio_driver_aux.select.case.4
+.Ltmp961:
+	.size	startkit_gpio_driver_aux.select.case.4, .Ltmp961-startkit_gpio_driver_aux.select.case.4
 .Lfunc_end77:
 	.cfi_endproc
 
@@ -8979,10 +8971,10 @@ map:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 .Linfo_string2:
@@ -9064,9 +9056,9 @@ map:
 .Linfo_string40:
 .asciiz"startkit_led_driver.init.0"
 .Linfo_string41:
-.asciiz"startkit_led_driver.select.yield.case.0"
+.asciiz"startkit_led_driver.select.y.case.0"
 .Linfo_string42:
-.asciiz"startkit_led_driver.select.yield.enable"
+.asciiz"startkit_led_driver.select.y.enable"
 .Linfo_string43:
 .asciiz"startkit_led_driver.select.case.0"
 .Linfo_string44:
@@ -9096,17 +9088,17 @@ map:
 .Linfo_string56:
 .asciiz"startkit_gpio_driver_aux.init.0"
 .Linfo_string57:
-.asciiz"startkit_gpio_driver_aux.select.yield.case.0"
+.asciiz"startkit_gpio_driver_aux.select.y.case.0"
 .Linfo_string58:
-.asciiz"startkit_gpio_driver_aux.select.yield.case.1"
+.asciiz"startkit_gpio_driver_aux.select.y.case.1"
 .Linfo_string59:
-.asciiz"startkit_gpio_driver_aux.select.yield.case.2"
+.asciiz"startkit_gpio_driver_aux.select.y.case.2"
 .Linfo_string60:
-.asciiz"startkit_gpio_driver_aux.select.yield.case.3"
+.asciiz"startkit_gpio_driver_aux.select.y.case.3"
 .Linfo_string61:
-.asciiz"startkit_gpio_driver_aux.select.yield.case.4"
+.asciiz"startkit_gpio_driver_aux.select.y.case.4"
 .Linfo_string62:
-.asciiz"startkit_gpio_driver_aux.select.yield.enable"
+.asciiz"startkit_gpio_driver_aux.select.y.enable"
 .Linfo_string63:
 .asciiz"startkit_gpio_driver_aux.select.case.0"
 .Linfo_string64:
@@ -9136,7 +9128,7 @@ map:
 .Linfo_string76:
 .asciiz"startkit_gpio_driver.init.0"
 .Linfo_string77:
-.asciiz"startkit_gpio_driver.select.yield.enable"
+.asciiz"startkit_gpio_driver.select.y.enable"
 .Linfo_string78:
 .asciiz"startkit_gpio_driver.select.enable"
 .Linfo_string79:
@@ -9354,7 +9346,7 @@ map:
 .Linfo_string185:
 .asciiz"s"
 .Linfo_string186:
-.asciiz"yield"
+.asciiz"y"
 .Linfo_string187:
 .asciiz"yarg"
 .Linfo_string188:
@@ -13162,29 +13154,29 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges47:
-	.long	.Ltmp618
-	.long	.Ltmp621
-	.long	.Ltmp631
+	.long	.Ltmp620
+	.long	.Ltmp623
 	.long	.Ltmp633
+	.long	.Ltmp635
 	.long	0
 	.long	0
 .Ldebug_ranges48:
-	.long	.Ltmp624
-	.long	.Ltmp630
+	.long	.Ltmp626
+	.long	.Ltmp632
 	.long	0
 	.long	0
 .Ldebug_ranges49:
 	.long	.Ltmp544
 	.long	.Ltmp557
-	.long	.Ltmp614
-	.long	.Ltmp637
+	.long	.Ltmp616
+	.long	.Ltmp639
 	.long	0
 	.long	0
 .Ldebug_ranges50:
 	.long	.Ltmp544
 	.long	.Ltmp557
-	.long	.Ltmp614
-	.long	.Ltmp637
+	.long	.Ltmp616
+	.long	.Ltmp639
 	.long	0
 	.long	0
 .Ldebug_ranges51:
@@ -13198,88 +13190,88 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges53:
-	.long	.Ltmp638
-	.long	.Ltmp645
-	.long	0
-	.long	0
-.Ldebug_ranges54:
-	.long	.Ltmp638
+	.long	.Ltmp640
 	.long	.Ltmp647
 	.long	0
 	.long	0
+.Ldebug_ranges54:
+	.long	.Ltmp640
+	.long	.Ltmp649
+	.long	0
+	.long	0
 .Ldebug_ranges55:
-	.long	.Ltmp638
-	.long	.Ltmp652
+	.long	.Ltmp640
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges56:
 	.long	.Ltmp540
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges57:
 	.long	.Ltmp540
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges58:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges59:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges60:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges61:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges62:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges63:
 	.long	.Ltmp522
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges64:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges65:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges66:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges67:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges68:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges69:
 	.long	.Ltmp521
-	.long	.Ltmp652
+	.long	.Ltmp654
 	.long	0
 	.long	0
 .Ldebug_ranges70:
@@ -13288,77 +13280,77 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges71:
-	.long	.Ltmp687
-	.long	.Ltmp688
+	.long	.Ltmp689
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges72:
-	.long	.Ltmp686
 	.long	.Ltmp688
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges73:
-	.long	.Ltmp685
-	.long	.Ltmp688
+	.long	.Ltmp687
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges74:
-	.long	.Ltmp684
-	.long	.Ltmp688
+	.long	.Ltmp686
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges75:
-	.long	.Ltmp684
-	.long	.Ltmp688
+	.long	.Ltmp686
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges76:
-	.long	.Ltmp684
-	.long	.Ltmp688
+	.long	.Ltmp686
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges77:
-	.long	.Ltmp681
-	.long	.Ltmp682
 	.long	.Ltmp683
-	.long	.Ltmp688
+	.long	.Ltmp684
+	.long	.Ltmp685
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges78:
-	.long	.Ltmp681
-	.long	.Ltmp682
 	.long	.Ltmp683
-	.long	.Ltmp688
+	.long	.Ltmp684
+	.long	.Ltmp685
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges79:
-	.long	.Ltmp681
-	.long	.Ltmp688
+	.long	.Ltmp683
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges80:
-	.long	.Ltmp680
-	.long	.Ltmp688
+	.long	.Ltmp682
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges81:
-	.long	.Ltmp679
-	.long	.Ltmp688
+	.long	.Ltmp681
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges82:
-	.long	.Ltmp679
-	.long	.Ltmp688
+	.long	.Ltmp681
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges83:
-	.long	.Ltmp679
-	.long	.Ltmp688
+	.long	.Ltmp681
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges84:
-	.long	.Ltmp678
-	.long	.Ltmp688
+	.long	.Ltmp680
+	.long	.Ltmp690
 	.long	0
 	.long	0
 .Ldebug_ranges85:
@@ -13367,18 +13359,18 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges86:
-	.long	.Ltmp713
-	.long	.Ltmp721
-	.long	0
-	.long	0
-.Ldebug_ranges87:
-	.long	.Ltmp713
+	.long	.Ltmp715
 	.long	.Ltmp723
 	.long	0
 	.long	0
+.Ldebug_ranges87:
+	.long	.Ltmp715
+	.long	.Ltmp725
+	.long	0
+	.long	0
 .Ldebug_ranges88:
-	.long	.Ltmp709
-	.long	.Ltmp730
+	.long	.Ltmp711
+	.long	.Ltmp732
 	.long	0
 	.long	0
 .Ldebug_ranges89:
@@ -13387,8 +13379,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges90:
-	.long	.Ltmp734
 	.long	.Ltmp736
+	.long	.Ltmp738
 	.long	0
 	.long	0
 .Ldebug_ranges91:
@@ -13397,8 +13389,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges92:
-	.long	.Ltmp742
-	.long	.Ltmp746
+	.long	.Ltmp744
+	.long	.Ltmp748
 	.long	0
 	.long	0
 .Ldebug_ranges93:
@@ -13407,8 +13399,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges94:
-	.long	.Ltmp752
-	.long	.Ltmp756
+	.long	.Ltmp754
+	.long	.Ltmp758
 	.long	0
 	.long	0
 .Ldebug_ranges95:
@@ -13417,45 +13409,45 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges96:
-	.long	.Ltmp777
-	.long	.Ltmp783
+	.long	.Ltmp779
+	.long	.Ltmp785
 	.long	0
 	.long	0
 .Ldebug_ranges97:
-	.long	.Ltmp784
-	.long	.Ltmp788
-	.long	.Ltmp793
-	.long	.Ltmp794
+	.long	.Ltmp786
+	.long	.Ltmp790
+	.long	.Ltmp795
+	.long	.Ltmp796
 	.long	0
 	.long	0
 .Ldebug_ranges98:
-	.long	.Ltmp789
-	.long	.Ltmp793
+	.long	.Ltmp791
+	.long	.Ltmp795
 	.long	0
 	.long	0
 .Ldebug_ranges99:
-	.long	.Ltmp768
-	.long	.Ltmp795
+	.long	.Ltmp770
+	.long	.Ltmp797
 	.long	0
 	.long	0
 .Ldebug_ranges100:
-	.long	.Ltmp768
-	.long	.Ltmp795
+	.long	.Ltmp770
+	.long	.Ltmp797
 	.long	0
 	.long	0
 .Ldebug_ranges101:
-	.long	.Ltmp796
-	.long	.Ltmp799
-	.long	0
-	.long	0
-.Ldebug_ranges102:
-	.long	.Ltmp796
+	.long	.Ltmp798
 	.long	.Ltmp801
 	.long	0
 	.long	0
+.Ldebug_ranges102:
+	.long	.Ltmp798
+	.long	.Ltmp803
+	.long	0
+	.long	0
 .Ldebug_ranges103:
-	.long	.Ltmp796
-	.long	.Ltmp802
+	.long	.Ltmp798
+	.long	.Ltmp804
 	.long	0
 	.long	0
 .Ldebug_ranges104:
@@ -13464,8 +13456,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges105:
-	.long	.Ltmp806
 	.long	.Ltmp808
+	.long	.Ltmp810
 	.long	0
 	.long	0
 .Ldebug_ranges106:
@@ -13474,18 +13466,18 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges107:
-	.long	.Ltmp820
-	.long	.Ltmp828
-	.long	0
-	.long	0
-.Ldebug_ranges108:
-	.long	.Ltmp820
+	.long	.Ltmp822
 	.long	.Ltmp830
 	.long	0
 	.long	0
+.Ldebug_ranges108:
+	.long	.Ltmp822
+	.long	.Ltmp832
+	.long	0
+	.long	0
 .Ldebug_ranges109:
-	.long	.Ltmp816
-	.long	.Ltmp837
+	.long	.Ltmp818
+	.long	.Ltmp839
 	.long	0
 	.long	0
 .Ldebug_ranges110:
@@ -13494,8 +13486,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges111:
-	.long	.Ltmp843
-	.long	.Ltmp847
+	.long	.Ltmp845
+	.long	.Ltmp849
 	.long	0
 	.long	0
 .Ldebug_ranges112:
@@ -13504,8 +13496,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges113:
-	.long	.Ltmp853
-	.long	.Ltmp857
+	.long	.Ltmp855
+	.long	.Ltmp859
 	.long	0
 	.long	0
 .Ldebug_ranges114:
@@ -13514,45 +13506,45 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges115:
-	.long	.Ltmp878
-	.long	.Ltmp884
+	.long	.Ltmp880
+	.long	.Ltmp886
 	.long	0
 	.long	0
 .Ldebug_ranges116:
-	.long	.Ltmp885
-	.long	.Ltmp889
-	.long	.Ltmp894
-	.long	.Ltmp895
+	.long	.Ltmp887
+	.long	.Ltmp891
+	.long	.Ltmp896
+	.long	.Ltmp897
 	.long	0
 	.long	0
 .Ldebug_ranges117:
-	.long	.Ltmp890
-	.long	.Ltmp894
+	.long	.Ltmp892
+	.long	.Ltmp896
 	.long	0
 	.long	0
 .Ldebug_ranges118:
-	.long	.Ltmp869
-	.long	.Ltmp896
+	.long	.Ltmp871
+	.long	.Ltmp898
 	.long	0
 	.long	0
 .Ldebug_ranges119:
-	.long	.Ltmp869
-	.long	.Ltmp896
+	.long	.Ltmp871
+	.long	.Ltmp898
 	.long	0
 	.long	0
 .Ldebug_ranges120:
-	.long	.Ltmp897
-	.long	.Ltmp900
-	.long	0
-	.long	0
-.Ldebug_ranges121:
-	.long	.Ltmp897
+	.long	.Ltmp899
 	.long	.Ltmp902
 	.long	0
 	.long	0
+.Ldebug_ranges121:
+	.long	.Ltmp899
+	.long	.Ltmp904
+	.long	0
+	.long	0
 .Ldebug_ranges122:
-	.long	.Ltmp897
-	.long	.Ltmp903
+	.long	.Ltmp899
+	.long	.Ltmp905
 	.long	0
 	.long	0
 .Ldebug_ranges123:
@@ -13561,8 +13553,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges124:
-	.long	.Ltmp907
 	.long	.Ltmp909
+	.long	.Ltmp911
 	.long	0
 	.long	0
 .Ldebug_ranges125:
@@ -13571,18 +13563,18 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges126:
-	.long	.Ltmp921
-	.long	.Ltmp929
-	.long	0
-	.long	0
-.Ldebug_ranges127:
-	.long	.Ltmp921
+	.long	.Ltmp923
 	.long	.Ltmp931
 	.long	0
 	.long	0
+.Ldebug_ranges127:
+	.long	.Ltmp923
+	.long	.Ltmp933
+	.long	0
+	.long	0
 .Ldebug_ranges128:
-	.long	.Ltmp917
-	.long	.Ltmp938
+	.long	.Ltmp919
+	.long	.Ltmp940
 	.long	0
 	.long	0
 .Ldebug_ranges129:
@@ -13591,8 +13583,8 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges130:
-	.long	.Ltmp944
-	.long	.Ltmp948
+	.long	.Ltmp946
+	.long	.Ltmp950
 	.long	0
 	.long	0
 .Ldebug_ranges131:
@@ -13601,2927 +13593,2979 @@ map:
 	.long	0
 	.long	0
 .Ldebug_ranges132:
-	.long	.Ltmp954
-	.long	.Ltmp958
+	.long	.Ltmp956
+	.long	.Ltmp960
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin0
 	.long	.Ltmp6
-.Lset0 = .Ltmp961-.Ltmp960
+.Lset0 = .Ltmp963-.Ltmp962
 	.short	.Lset0
-.Ltmp960:
+.Ltmp962:
 	.byte	80
-.Ltmp961:
+.Ltmp963:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin0
 	.long	.Ltmp6
-.Lset1 = .Ltmp963-.Ltmp962
+.Lset1 = .Ltmp965-.Ltmp964
 	.short	.Lset1
-.Ltmp962:
-	.byte	81
-.Ltmp963:
-	.long	.Ltmp7
-	.long	.Ltmp10
-.Lset2 = .Ltmp965-.Ltmp964
-	.short	.Lset2
 .Ltmp964:
 	.byte	81
 .Ltmp965:
-	.long	.Ltmp18
-	.long	.Ltmp20
-.Lset3 = .Ltmp967-.Ltmp966
-	.short	.Lset3
+	.long	.Ltmp7
+	.long	.Ltmp10
+.Lset2 = .Ltmp967-.Ltmp966
+	.short	.Lset2
 .Ltmp966:
 	.byte	81
 .Ltmp967:
+	.long	.Ltmp18
+	.long	.Ltmp20
+.Lset3 = .Ltmp969-.Ltmp968
+	.short	.Lset3
+.Ltmp968:
+	.byte	81
+.Ltmp969:
 	.long	0
 	.long	0
 .Ldebug_loc2:
 	.long	.Lfunc_begin0
 	.long	.Ltmp6
-.Lset4 = .Ltmp969-.Ltmp968
+.Lset4 = .Ltmp971-.Ltmp970
 	.short	.Lset4
-.Ltmp968:
-	.byte	82
-.Ltmp969:
-	.long	.Ltmp7
-	.long	.Ltmp9
-.Lset5 = .Ltmp971-.Ltmp970
-	.short	.Lset5
 .Ltmp970:
 	.byte	82
 .Ltmp971:
-	.long	.Ltmp10
-	.long	.Ltmp20
-.Lset6 = .Ltmp973-.Ltmp972
-	.short	.Lset6
+	.long	.Ltmp7
+	.long	.Ltmp9
+.Lset5 = .Ltmp973-.Ltmp972
+	.short	.Lset5
 .Ltmp972:
 	.byte	82
 .Ltmp973:
+	.long	.Ltmp10
+	.long	.Ltmp20
+.Lset6 = .Ltmp975-.Ltmp974
+	.short	.Lset6
+.Ltmp974:
+	.byte	82
+.Ltmp975:
 	.long	0
 	.long	0
 .Ldebug_loc3:
 	.long	.Ltmp10
 	.long	.Ltmp19
-.Lset7 = .Ltmp975-.Ltmp974
+.Lset7 = .Ltmp977-.Ltmp976
 	.short	.Lset7
-.Ltmp974:
+.Ltmp976:
 	.byte	17
 	.byte	2
-.Ltmp975:
+.Ltmp977:
 	.long	.Ltmp19
 	.long	.Ltmp20
-.Lset8 = .Ltmp977-.Ltmp976
+.Lset8 = .Ltmp979-.Ltmp978
 	.short	.Lset8
-.Ltmp976:
+.Ltmp978:
 	.byte	84
-.Ltmp977:
+.Ltmp979:
 	.long	0
 	.long	0
 .Ldebug_loc4:
 	.long	.Ltmp10
 	.long	.Ltmp13
-.Lset9 = .Ltmp979-.Ltmp978
+.Lset9 = .Ltmp981-.Ltmp980
 	.short	.Lset9
-.Ltmp978:
-	.byte	17
-	.byte	2
-.Ltmp979:
-	.long	.Ltmp13
-	.long	.Lfunc_end0
-.Lset10 = .Ltmp981-.Ltmp980
-	.short	.Lset10
 .Ltmp980:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp981:
+	.long	.Ltmp13
+	.long	.Lfunc_end0
+.Lset10 = .Ltmp983-.Ltmp982
+	.short	.Lset10
+.Ltmp982:
+	.byte	17
+	.byte	1
+.Ltmp983:
 	.long	0
 	.long	0
 .Ldebug_loc5:
 	.long	.Lfunc_begin1
 	.long	.Ltmp26
-.Lset11 = .Ltmp983-.Ltmp982
+.Lset11 = .Ltmp985-.Ltmp984
 	.short	.Lset11
-.Ltmp982:
+.Ltmp984:
 	.byte	80
-.Ltmp983:
+.Ltmp985:
 	.long	0
 	.long	0
 .Ldebug_loc6:
 	.long	.Lfunc_begin1
 	.long	.Ltmp26
-.Lset12 = .Ltmp985-.Ltmp984
+.Lset12 = .Ltmp987-.Ltmp986
 	.short	.Lset12
-.Ltmp984:
-	.byte	81
-.Ltmp985:
-	.long	.Ltmp27
-	.long	.Ltmp29
-.Lset13 = .Ltmp987-.Ltmp986
-	.short	.Lset13
 .Ltmp986:
 	.byte	81
 .Ltmp987:
+	.long	.Ltmp27
+	.long	.Ltmp29
+.Lset13 = .Ltmp989-.Ltmp988
+	.short	.Lset13
+.Ltmp988:
+	.byte	81
+.Ltmp989:
 	.long	0
 	.long	0
 .Ldebug_loc7:
 	.long	.Lfunc_begin1
 	.long	.Ltmp26
-.Lset14 = .Ltmp989-.Ltmp988
+.Lset14 = .Ltmp991-.Ltmp990
 	.short	.Lset14
-.Ltmp988:
-	.byte	82
-.Ltmp989:
-	.long	.Ltmp27
-	.long	.Ltmp30
-.Lset15 = .Ltmp991-.Ltmp990
-	.short	.Lset15
 .Ltmp990:
 	.byte	82
 .Ltmp991:
+	.long	.Ltmp27
+	.long	.Ltmp30
+.Lset15 = .Ltmp993-.Ltmp992
+	.short	.Lset15
+.Ltmp992:
+	.byte	82
+.Ltmp993:
 	.long	0
 	.long	0
 .Ldebug_loc8:
 	.long	.Lfunc_begin1
 	.long	.Ltmp26
-.Lset16 = .Ltmp993-.Ltmp992
+.Lset16 = .Ltmp995-.Ltmp994
 	.short	.Lset16
-.Ltmp992:
-	.byte	83
-.Ltmp993:
-	.long	.Ltmp27
-	.long	.Ltmp31
-.Lset17 = .Ltmp995-.Ltmp994
-	.short	.Lset17
 .Ltmp994:
 	.byte	83
 .Ltmp995:
+	.long	.Ltmp27
+	.long	.Ltmp31
+.Lset17 = .Ltmp997-.Ltmp996
+	.short	.Lset17
+.Ltmp996:
+	.byte	83
+.Ltmp997:
 	.long	0
 	.long	0
 .Ldebug_loc9:
 	.long	.Lfunc_begin2
 	.long	.Ltmp44
-.Lset18 = .Ltmp997-.Ltmp996
+.Lset18 = .Ltmp999-.Ltmp998
 	.short	.Lset18
-.Ltmp996:
+.Ltmp998:
 	.byte	80
-.Ltmp997:
+.Ltmp999:
 	.long	0
 	.long	0
 .Ldebug_loc10:
 	.long	.Lfunc_begin2
 	.long	.Ltmp43
-.Lset19 = .Ltmp999-.Ltmp998
+.Lset19 = .Ltmp1001-.Ltmp1000
 	.short	.Lset19
-.Ltmp998:
+.Ltmp1000:
 	.byte	81
-.Ltmp999:
+.Ltmp1001:
 	.long	.Ltmp43
 	.long	.Ltmp48
-.Lset20 = .Ltmp1001-.Ltmp1000
+.Lset20 = .Ltmp1003-.Ltmp1002
 	.short	.Lset20
-.Ltmp1000:
-	.byte	85
-.Ltmp1001:
-	.long	.Ltmp56
-	.long	.Ltmp58
-.Lset21 = .Ltmp1003-.Ltmp1002
-	.short	.Lset21
 .Ltmp1002:
 	.byte	85
 .Ltmp1003:
+	.long	.Ltmp56
+	.long	.Ltmp58
+.Lset21 = .Ltmp1005-.Ltmp1004
+	.short	.Lset21
+.Ltmp1004:
+	.byte	85
+.Ltmp1005:
 	.long	0
 	.long	0
 .Ldebug_loc11:
 	.long	.Lfunc_begin2
 	.long	.Ltmp42
-.Lset22 = .Ltmp1005-.Ltmp1004
+.Lset22 = .Ltmp1007-.Ltmp1006
 	.short	.Lset22
-.Ltmp1004:
+.Ltmp1006:
 	.byte	82
-.Ltmp1005:
+.Ltmp1007:
 	.long	.Ltmp42
 	.long	.Ltmp46
-.Lset23 = .Ltmp1007-.Ltmp1006
+.Lset23 = .Ltmp1009-.Ltmp1008
 	.short	.Lset23
-.Ltmp1006:
+.Ltmp1008:
 	.byte	86
-.Ltmp1007:
+.Ltmp1009:
 	.long	.Ltmp46
 	.long	.Ltmp58
-.Lset24 = .Ltmp1009-.Ltmp1008
+.Lset24 = .Ltmp1011-.Ltmp1010
 	.short	.Lset24
-.Ltmp1008:
+.Ltmp1010:
 	.byte	80
-.Ltmp1009:
+.Ltmp1011:
 	.long	0
 	.long	0
 .Ldebug_loc12:
 	.long	.Ltmp47
 	.long	.Ltmp57
-.Lset25 = .Ltmp1011-.Ltmp1010
+.Lset25 = .Ltmp1013-.Ltmp1012
 	.short	.Lset25
-.Ltmp1010:
+.Ltmp1012:
 	.byte	17
 	.byte	2
-.Ltmp1011:
+.Ltmp1013:
 	.long	.Ltmp57
 	.long	.Ltmp58
-.Lset26 = .Ltmp1013-.Ltmp1012
+.Lset26 = .Ltmp1015-.Ltmp1014
 	.short	.Lset26
-.Ltmp1012:
+.Ltmp1014:
 	.byte	81
-.Ltmp1013:
+.Ltmp1015:
 	.long	0
 	.long	0
 .Ldebug_loc13:
 	.long	.Ltmp48
 	.long	.Ltmp51
-.Lset27 = .Ltmp1015-.Ltmp1014
+.Lset27 = .Ltmp1017-.Ltmp1016
 	.short	.Lset27
-.Ltmp1014:
-	.byte	17
-	.byte	2
-.Ltmp1015:
-	.long	.Ltmp51
-	.long	.Lfunc_end2
-.Lset28 = .Ltmp1017-.Ltmp1016
-	.short	.Lset28
 .Ltmp1016:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1017:
+	.long	.Ltmp51
+	.long	.Lfunc_end2
+.Lset28 = .Ltmp1019-.Ltmp1018
+	.short	.Lset28
+.Ltmp1018:
+	.byte	17
+	.byte	1
+.Ltmp1019:
 	.long	0
 	.long	0
 .Ldebug_loc14:
 	.long	.Lfunc_begin3
 	.long	.Ltmp71
-.Lset29 = .Ltmp1019-.Ltmp1018
+.Lset29 = .Ltmp1021-.Ltmp1020
 	.short	.Lset29
-.Ltmp1018:
+.Ltmp1020:
 	.byte	80
-.Ltmp1019:
+.Ltmp1021:
 	.long	0
 	.long	0
 .Ldebug_loc15:
 	.long	.Lfunc_begin3
 	.long	.Ltmp70
-.Lset30 = .Ltmp1021-.Ltmp1020
+.Lset30 = .Ltmp1023-.Ltmp1022
 	.short	.Lset30
-.Ltmp1020:
+.Ltmp1022:
 	.byte	81
-.Ltmp1021:
+.Ltmp1023:
 	.long	.Ltmp70
 	.long	.Ltmp73
-.Lset31 = .Ltmp1023-.Ltmp1022
+.Lset31 = .Ltmp1025-.Ltmp1024
 	.short	.Lset31
-.Ltmp1022:
+.Ltmp1024:
 	.byte	87
-.Ltmp1023:
+.Ltmp1025:
 	.long	0
 	.long	0
 .Ldebug_loc16:
 	.long	.Lfunc_begin3
 	.long	.Ltmp69
-.Lset32 = .Ltmp1025-.Ltmp1024
+.Lset32 = .Ltmp1027-.Ltmp1026
 	.short	.Lset32
-.Ltmp1024:
+.Ltmp1026:
 	.byte	82
-.Ltmp1025:
+.Ltmp1027:
 	.long	.Ltmp69
 	.long	.Ltmp73
-.Lset33 = .Ltmp1027-.Ltmp1026
+.Lset33 = .Ltmp1029-.Ltmp1028
 	.short	.Lset33
-.Ltmp1026:
+.Ltmp1028:
 	.byte	86
-.Ltmp1027:
+.Ltmp1029:
 	.long	0
 	.long	0
 .Ldebug_loc17:
 	.long	.Lfunc_begin3
 	.long	.Ltmp68
-.Lset34 = .Ltmp1029-.Ltmp1028
+.Lset34 = .Ltmp1031-.Ltmp1030
 	.short	.Lset34
-.Ltmp1028:
+.Ltmp1030:
 	.byte	83
-.Ltmp1029:
+.Ltmp1031:
 	.long	.Ltmp68
 	.long	.Ltmp73
-.Lset35 = .Ltmp1031-.Ltmp1030
+.Lset35 = .Ltmp1033-.Ltmp1032
 	.short	.Lset35
-.Ltmp1030:
+.Ltmp1032:
 	.byte	85
-.Ltmp1031:
+.Ltmp1033:
 	.long	0
 	.long	0
 .Ldebug_loc18:
 	.long	.Lfunc_begin4
 	.long	.Ltmp79
-.Lset36 = .Ltmp1033-.Ltmp1032
+.Lset36 = .Ltmp1035-.Ltmp1034
 	.short	.Lset36
-.Ltmp1032:
+.Ltmp1034:
 	.byte	80
-.Ltmp1033:
+.Ltmp1035:
 	.long	.Ltmp79
 	.long	.Ltmp83
-.Lset37 = .Ltmp1035-.Ltmp1034
+.Lset37 = .Ltmp1037-.Ltmp1036
 	.short	.Lset37
-.Ltmp1034:
+.Ltmp1036:
 	.byte	84
-.Ltmp1035:
+.Ltmp1037:
 	.long	0
 	.long	0
 .Ldebug_loc19:
 	.long	.Lfunc_begin5
 	.long	.Ltmp88
-.Lset38 = .Ltmp1037-.Ltmp1036
+.Lset38 = .Ltmp1039-.Ltmp1038
 	.short	.Lset38
-.Ltmp1036:
+.Ltmp1038:
 	.byte	81
-.Ltmp1037:
+.Ltmp1039:
 	.long	0
 	.long	0
 .Ldebug_loc20:
 	.long	.Lfunc_begin6
 	.long	.Ltmp95
-.Lset39 = .Ltmp1039-.Ltmp1038
+.Lset39 = .Ltmp1041-.Ltmp1040
 	.short	.Lset39
-.Ltmp1038:
+.Ltmp1040:
 	.byte	80
-.Ltmp1039:
+.Ltmp1041:
 	.long	.Ltmp95
 	.long	.Ltmp99
-.Lset40 = .Ltmp1041-.Ltmp1040
+.Lset40 = .Ltmp1043-.Ltmp1042
 	.short	.Lset40
-.Ltmp1040:
+.Ltmp1042:
 	.byte	84
-.Ltmp1041:
+.Ltmp1043:
 	.long	0
 	.long	0
 .Ldebug_loc21:
 	.long	.Lfunc_begin7
 	.long	.Ltmp104
-.Lset41 = .Ltmp1043-.Ltmp1042
+.Lset41 = .Ltmp1045-.Ltmp1044
 	.short	.Lset41
-.Ltmp1042:
-	.byte	81
-.Ltmp1043:
-	.long	0
-	.long	0
-.Ldebug_loc22:
-	.long	.Lfunc_begin8
-	.long	.Ltmp110
-.Lset42 = .Ltmp1045-.Ltmp1044
-	.short	.Lset42
 .Ltmp1044:
 	.byte	81
 .Ltmp1045:
 	.long	0
 	.long	0
-.Ldebug_loc23:
-	.long	.Lfunc_begin9
-	.long	.Ltmp124
-.Lset43 = .Ltmp1047-.Ltmp1046
-	.short	.Lset43
+.Ldebug_loc22:
+	.long	.Lfunc_begin8
+	.long	.Ltmp110
+.Lset42 = .Ltmp1047-.Ltmp1046
+	.short	.Lset42
 .Ltmp1046:
 	.byte	81
 .Ltmp1047:
-	.long	.Ltmp132
-	.long	.Ltmp134
-.Lset44 = .Ltmp1049-.Ltmp1048
-	.short	.Lset44
+	.long	0
+	.long	0
+.Ldebug_loc23:
+	.long	.Lfunc_begin9
+	.long	.Ltmp124
+.Lset43 = .Ltmp1049-.Ltmp1048
+	.short	.Lset43
 .Ltmp1048:
 	.byte	81
 .Ltmp1049:
+	.long	.Ltmp132
+	.long	.Ltmp134
+.Lset44 = .Ltmp1051-.Ltmp1050
+	.short	.Lset44
+.Ltmp1050:
+	.byte	81
+.Ltmp1051:
 	.long	0
 	.long	0
 .Ldebug_loc24:
 	.long	.Lfunc_begin9
 	.long	.Ltmp121
-.Lset45 = .Ltmp1051-.Ltmp1050
+.Lset45 = .Ltmp1053-.Ltmp1052
 	.short	.Lset45
-.Ltmp1050:
-	.byte	82
-.Ltmp1051:
-	.long	.Ltmp122
-	.long	.Ltmp134
-.Lset46 = .Ltmp1053-.Ltmp1052
-	.short	.Lset46
 .Ltmp1052:
 	.byte	82
 .Ltmp1053:
+	.long	.Ltmp122
+	.long	.Ltmp134
+.Lset46 = .Ltmp1055-.Ltmp1054
+	.short	.Lset46
+.Ltmp1054:
+	.byte	82
+.Ltmp1055:
 	.long	0
 	.long	0
 .Ldebug_loc25:
 	.long	.Ltmp123
 	.long	.Ltmp133
-.Lset47 = .Ltmp1055-.Ltmp1054
+.Lset47 = .Ltmp1057-.Ltmp1056
 	.short	.Lset47
-.Ltmp1054:
+.Ltmp1056:
 	.byte	17
 	.byte	2
-.Ltmp1055:
+.Ltmp1057:
 	.long	.Ltmp133
 	.long	.Ltmp134
-.Lset48 = .Ltmp1057-.Ltmp1056
+.Lset48 = .Ltmp1059-.Ltmp1058
 	.short	.Lset48
-.Ltmp1056:
+.Ltmp1058:
 	.byte	84
-.Ltmp1057:
+.Ltmp1059:
 	.long	0
 	.long	0
 .Ldebug_loc26:
 	.long	.Ltmp124
 	.long	.Ltmp127
-.Lset49 = .Ltmp1059-.Ltmp1058
+.Lset49 = .Ltmp1061-.Ltmp1060
 	.short	.Lset49
-.Ltmp1058:
-	.byte	17
-	.byte	2
-.Ltmp1059:
-	.long	.Ltmp127
-	.long	.Lfunc_end9
-.Lset50 = .Ltmp1061-.Ltmp1060
-	.short	.Lset50
 .Ltmp1060:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1061:
+	.long	.Ltmp127
+	.long	.Lfunc_end9
+.Lset50 = .Ltmp1063-.Ltmp1062
+	.short	.Lset50
+.Ltmp1062:
+	.byte	17
+	.byte	1
+.Ltmp1063:
 	.long	0
 	.long	0
 .Ldebug_loc27:
 	.long	.Lfunc_begin10
 	.long	.Ltmp142
-.Lset51 = .Ltmp1063-.Ltmp1062
+.Lset51 = .Ltmp1065-.Ltmp1064
 	.short	.Lset51
-.Ltmp1062:
+.Ltmp1064:
 	.byte	81
-.Ltmp1063:
+.Ltmp1065:
 	.long	0
 	.long	0
 .Ldebug_loc28:
 	.long	.Lfunc_begin10
 	.long	.Ltmp143
-.Lset52 = .Ltmp1065-.Ltmp1064
+.Lset52 = .Ltmp1067-.Ltmp1066
 	.short	.Lset52
-.Ltmp1064:
+.Ltmp1066:
 	.byte	82
-.Ltmp1065:
+.Ltmp1067:
 	.long	0
 	.long	0
 .Ldebug_loc29:
 	.long	.Lfunc_begin10
 	.long	.Ltmp144
-.Lset53 = .Ltmp1067-.Ltmp1066
+.Lset53 = .Ltmp1069-.Ltmp1068
 	.short	.Lset53
-.Ltmp1066:
+.Ltmp1068:
 	.byte	83
-.Ltmp1067:
+.Ltmp1069:
 	.long	0
 	.long	0
 .Ldebug_loc30:
 	.long	.Lfunc_begin34
 	.long	.Ltmp219
-.Lset54 = .Ltmp1069-.Ltmp1068
+.Lset54 = .Ltmp1071-.Ltmp1070
 	.short	.Lset54
-.Ltmp1068:
+.Ltmp1070:
 	.byte	82
-.Ltmp1069:
+.Ltmp1071:
 	.long	.Ltmp219
 	.long	.Lfunc_end34
-.Lset55 = .Ltmp1071-.Ltmp1070
+.Lset55 = .Ltmp1073-.Ltmp1072
 	.short	.Lset55
-.Ltmp1070:
+.Ltmp1072:
 	.byte	126
 	.byte	4
-.Ltmp1071:
+.Ltmp1073:
 	.long	0
 	.long	0
 .Ldebug_loc31:
 	.long	.Ltmp217
 	.long	.Ltmp220
-.Lset56 = .Ltmp1073-.Ltmp1072
+.Lset56 = .Ltmp1075-.Ltmp1074
 	.short	.Lset56
-.Ltmp1072:
+.Ltmp1074:
 	.byte	16
 	.ascii	"\377\377\377\377\377\377\377\377\377\001"
-.Ltmp1073:
+.Ltmp1075:
 	.long	.Ltmp220
 	.long	.Ltmp221
-.Lset57 = .Ltmp1075-.Ltmp1074
+.Lset57 = .Ltmp1077-.Ltmp1076
 	.short	.Lset57
-.Ltmp1074:
+.Ltmp1076:
 	.byte	90
-.Ltmp1075:
+.Ltmp1077:
 	.long	.Ltmp221
 	.long	.Ltmp237
-.Lset58 = .Ltmp1077-.Ltmp1076
+.Lset58 = .Ltmp1079-.Ltmp1078
 	.short	.Lset58
-.Ltmp1076:
+.Ltmp1078:
 	.byte	16
 	.ascii	"\377\377\377\377\377\377\377\377\377\001"
-.Ltmp1077:
+.Ltmp1079:
 	.long	.Ltmp237
 	.long	.Ltmp240
-.Lset59 = .Ltmp1079-.Ltmp1078
+.Lset59 = .Ltmp1081-.Ltmp1080
 	.short	.Lset59
-.Ltmp1078:
-	.byte	90
-.Ltmp1079:
-	.long	.Ltmp250
-	.long	.Ltmp253
-.Lset60 = .Ltmp1081-.Ltmp1080
-	.short	.Lset60
 .Ltmp1080:
 	.byte	90
 .Ltmp1081:
+	.long	.Ltmp250
+	.long	.Ltmp253
+.Lset60 = .Ltmp1083-.Ltmp1082
+	.short	.Lset60
+.Ltmp1082:
+	.byte	90
+.Ltmp1083:
 	.long	0
 	.long	0
 .Ldebug_loc32:
 	.long	.Ltmp222
 	.long	.Ltmp225
-.Lset61 = .Ltmp1083-.Ltmp1082
+.Lset61 = .Ltmp1085-.Ltmp1084
 	.short	.Lset61
-.Ltmp1082:
+.Ltmp1084:
 	.byte	17
 	.byte	0
-.Ltmp1083:
+.Ltmp1085:
 	.long	.Ltmp225
 	.long	.Ltmp226
-.Lset62 = .Ltmp1085-.Ltmp1084
+.Lset62 = .Ltmp1087-.Ltmp1086
 	.short	.Lset62
-.Ltmp1084:
+.Ltmp1086:
 	.byte	83
-.Ltmp1085:
+.Ltmp1087:
 	.long	.Ltmp228
 	.long	.Ltmp229
-.Lset63 = .Ltmp1087-.Ltmp1086
+.Lset63 = .Ltmp1089-.Ltmp1088
 	.short	.Lset63
-.Ltmp1086:
+.Ltmp1088:
 	.byte	91
-.Ltmp1087:
+.Ltmp1089:
 	.long	0
 	.long	0
 .Ldebug_loc33:
 	.long	.Ltmp230
 	.long	.Ltmp236
-.Lset64 = .Ltmp1089-.Ltmp1088
+.Lset64 = .Ltmp1091-.Ltmp1090
 	.short	.Lset64
-.Ltmp1088:
-	.byte	87
-.Ltmp1089:
-	.long	.Ltmp246
-	.long	.Ltmp251
-.Lset65 = .Ltmp1091-.Ltmp1090
-	.short	.Lset65
 .Ltmp1090:
 	.byte	87
 .Ltmp1091:
+	.long	.Ltmp246
+	.long	.Ltmp251
+.Lset65 = .Ltmp1093-.Ltmp1092
+	.short	.Lset65
+.Ltmp1092:
+	.byte	87
+.Ltmp1093:
 	.long	0
 	.long	0
 .Ldebug_loc34:
 	.long	.Ltmp230
 	.long	.Ltmp236
-.Lset66 = .Ltmp1093-.Ltmp1092
+.Lset66 = .Ltmp1095-.Ltmp1094
 	.short	.Lset66
-.Ltmp1092:
-	.byte	87
-.Ltmp1093:
-	.long	.Ltmp248
-	.long	.Ltmp251
-.Lset67 = .Ltmp1095-.Ltmp1094
-	.short	.Lset67
 .Ltmp1094:
 	.byte	87
 .Ltmp1095:
+	.long	.Ltmp248
+	.long	.Ltmp251
+.Lset67 = .Ltmp1097-.Ltmp1096
+	.short	.Lset67
+.Ltmp1096:
+	.byte	87
+.Ltmp1097:
 	.long	0
 	.long	0
 .Ldebug_loc35:
 	.long	.Ltmp231
 	.long	.Ltmp234
-.Lset68 = .Ltmp1097-.Ltmp1096
+.Lset68 = .Ltmp1099-.Ltmp1098
 	.short	.Lset68
-.Ltmp1096:
-	.byte	88
-.Ltmp1097:
-	.long	.Ltmp236
-	.long	.Ltmp251
-.Lset69 = .Ltmp1099-.Ltmp1098
-	.short	.Lset69
 .Ltmp1098:
 	.byte	88
 .Ltmp1099:
+	.long	.Ltmp236
+	.long	.Ltmp251
+.Lset69 = .Ltmp1101-.Ltmp1100
+	.short	.Lset69
+.Ltmp1100:
+	.byte	88
+.Ltmp1101:
 	.long	0
 	.long	0
 .Ldebug_loc36:
 	.long	.Ltmp231
 	.long	.Ltmp234
-.Lset70 = .Ltmp1101-.Ltmp1100
+.Lset70 = .Ltmp1103-.Ltmp1102
 	.short	.Lset70
-.Ltmp1100:
-	.byte	88
-.Ltmp1101:
-	.long	.Ltmp248
-	.long	.Ltmp251
-.Lset71 = .Ltmp1103-.Ltmp1102
-	.short	.Lset71
 .Ltmp1102:
 	.byte	88
 .Ltmp1103:
+	.long	.Ltmp248
+	.long	.Ltmp251
+.Lset71 = .Ltmp1105-.Ltmp1104
+	.short	.Lset71
+.Ltmp1104:
+	.byte	88
+.Ltmp1105:
 	.long	0
 	.long	0
 .Ldebug_loc37:
 	.long	.Ltmp235
 	.long	.Ltmp247
-.Lset72 = .Ltmp1105-.Ltmp1104
+.Lset72 = .Ltmp1107-.Ltmp1106
 	.short	.Lset72
-.Ltmp1104:
+.Ltmp1106:
 	.byte	17
 	.byte	2
-.Ltmp1105:
+.Ltmp1107:
 	.long	.Ltmp247
 	.long	.Ltmp248
-.Lset73 = .Ltmp1107-.Ltmp1106
+.Lset73 = .Ltmp1109-.Ltmp1108
 	.short	.Lset73
-.Ltmp1106:
+.Ltmp1108:
 	.byte	89
-.Ltmp1107:
+.Ltmp1109:
 	.long	0
 	.long	0
 .Ldebug_loc38:
 	.long	.Ltmp236
 	.long	.Ltmp241
-.Lset74 = .Ltmp1109-.Ltmp1108
+.Lset74 = .Ltmp1111-.Ltmp1110
 	.short	.Lset74
-.Ltmp1108:
-	.byte	17
-	.byte	2
-.Ltmp1109:
-	.long	.Ltmp241
-	.long	.Lfunc_end34
-.Lset75 = .Ltmp1111-.Ltmp1110
-	.short	.Lset75
 .Ltmp1110:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1111:
+	.long	.Ltmp241
+	.long	.Lfunc_end34
+.Lset75 = .Ltmp1113-.Ltmp1112
+	.short	.Lset75
+.Ltmp1112:
+	.byte	17
+	.byte	1
+.Ltmp1113:
 	.long	0
 	.long	0
 .Ldebug_loc39:
 	.long	.Ltmp249
 	.long	.Ltmp251
-.Lset76 = .Ltmp1113-.Ltmp1112
+.Lset76 = .Ltmp1115-.Ltmp1114
 	.short	.Lset76
-.Ltmp1112:
+.Ltmp1114:
 	.byte	89
-.Ltmp1113:
+.Ltmp1115:
 	.long	0
 	.long	0
 .Ldebug_loc40:
 	.long	.Lfunc_begin35
 	.long	.Ltmp260
-.Lset77 = .Ltmp1115-.Ltmp1114
+.Lset77 = .Ltmp1117-.Ltmp1116
 	.short	.Lset77
-.Ltmp1114:
+.Ltmp1116:
 	.byte	80
-.Ltmp1115:
+.Ltmp1117:
 	.long	.Ltmp260
 	.long	.Ltmp266
-.Lset78 = .Ltmp1117-.Ltmp1116
+.Lset78 = .Ltmp1119-.Ltmp1118
 	.short	.Lset78
-.Ltmp1116:
+.Ltmp1118:
 	.byte	84
-.Ltmp1117:
+.Ltmp1119:
 	.long	0
 	.long	0
 .Ldebug_loc41:
 	.long	.Ltmp263
 	.long	.Ltmp267
-.Lset79 = .Ltmp1119-.Ltmp1118
+.Lset79 = .Ltmp1121-.Ltmp1120
 	.short	.Lset79
-.Ltmp1118:
+.Ltmp1120:
 	.byte	17
 	.byte	0
-.Ltmp1119:
+.Ltmp1121:
 	.long	.Ltmp267
 	.long	.Ltmp268
-.Lset80 = .Ltmp1121-.Ltmp1120
+.Lset80 = .Ltmp1123-.Ltmp1122
 	.short	.Lset80
-.Ltmp1120:
+.Ltmp1122:
 	.byte	82
-.Ltmp1121:
+.Ltmp1123:
 	.long	0
 	.long	0
 .Ldebug_loc42:
 	.long	.Lfunc_begin38
 	.long	.Ltmp280
-.Lset81 = .Ltmp1123-.Ltmp1122
+.Lset81 = .Ltmp1125-.Ltmp1124
 	.short	.Lset81
-.Ltmp1122:
+.Ltmp1124:
 	.byte	80
-.Ltmp1123:
+.Ltmp1125:
 	.long	.Ltmp280
 	.long	.Ltmp286
-.Lset82 = .Ltmp1125-.Ltmp1124
+.Lset82 = .Ltmp1127-.Ltmp1126
 	.short	.Lset82
-.Ltmp1124:
+.Ltmp1126:
 	.byte	84
-.Ltmp1125:
+.Ltmp1127:
 	.long	0
 	.long	0
 .Ldebug_loc43:
 	.long	.Ltmp283
 	.long	.Ltmp287
-.Lset83 = .Ltmp1127-.Ltmp1126
+.Lset83 = .Ltmp1129-.Ltmp1128
 	.short	.Lset83
-.Ltmp1126:
+.Ltmp1128:
 	.byte	17
 	.byte	0
-.Ltmp1127:
+.Ltmp1129:
 	.long	.Ltmp287
 	.long	.Ltmp288
-.Lset84 = .Ltmp1129-.Ltmp1128
+.Lset84 = .Ltmp1131-.Ltmp1130
 	.short	.Lset84
-.Ltmp1128:
+.Ltmp1130:
 	.byte	82
-.Ltmp1129:
+.Ltmp1131:
 	.long	0
 	.long	0
 .Ldebug_loc44:
 	.long	.Lfunc_begin39
 	.long	.Ltmp293
-.Lset85 = .Ltmp1131-.Ltmp1130
+.Lset85 = .Ltmp1133-.Ltmp1132
 	.short	.Lset85
-.Ltmp1130:
+.Ltmp1132:
 	.byte	80
-.Ltmp1131:
+.Ltmp1133:
 	.long	.Ltmp293
 	.long	.Ltmp299
-.Lset86 = .Ltmp1133-.Ltmp1132
+.Lset86 = .Ltmp1135-.Ltmp1134
 	.short	.Lset86
-.Ltmp1132:
+.Ltmp1134:
 	.byte	81
-.Ltmp1133:
+.Ltmp1135:
 	.long	0
 	.long	0
 .Ldebug_loc45:
 	.long	.Ltmp296
 	.long	.Ltmp300
-.Lset87 = .Ltmp1135-.Ltmp1134
+.Lset87 = .Ltmp1137-.Ltmp1136
 	.short	.Lset87
-.Ltmp1134:
+.Ltmp1136:
 	.byte	17
 	.byte	0
-.Ltmp1135:
+.Ltmp1137:
 	.long	.Ltmp300
 	.long	.Ltmp301
-.Lset88 = .Ltmp1137-.Ltmp1136
+.Lset88 = .Ltmp1139-.Ltmp1138
 	.short	.Lset88
-.Ltmp1136:
+.Ltmp1138:
 	.byte	81
-.Ltmp1137:
+.Ltmp1139:
 	.long	0
 	.long	0
 .Ldebug_loc46:
 	.long	.Lfunc_begin41
 	.long	.Ltmp317
-.Lset89 = .Ltmp1139-.Ltmp1138
+.Lset89 = .Ltmp1141-.Ltmp1140
 	.short	.Lset89
-.Ltmp1138:
+.Ltmp1140:
 	.byte	80
-.Ltmp1139:
+.Ltmp1141:
 	.long	.Ltmp317
 	.long	.Ltmp321
-.Lset90 = .Ltmp1141-.Ltmp1140
+.Lset90 = .Ltmp1143-.Ltmp1142
 	.short	.Lset90
-.Ltmp1140:
+.Ltmp1142:
 	.byte	122
 	.byte	24
-.Ltmp1141:
+.Ltmp1143:
 	.long	.Ltmp321
 	.long	.Ltmp324
-.Lset91 = .Ltmp1143-.Ltmp1142
+.Lset91 = .Ltmp1145-.Ltmp1144
 	.short	.Lset91
-.Ltmp1142:
+.Ltmp1144:
 	.byte	81
-.Ltmp1143:
+.Ltmp1145:
 	.long	0
 	.long	0
 .Ldebug_loc47:
 	.long	.Lfunc_begin41
 	.long	.Ltmp316
-.Lset92 = .Ltmp1145-.Ltmp1144
+.Lset92 = .Ltmp1147-.Ltmp1146
 	.short	.Lset92
-.Ltmp1144:
+.Ltmp1146:
 	.byte	81
-.Ltmp1145:
+.Ltmp1147:
 	.long	.Ltmp316
 	.long	.Ltmp322
-.Lset93 = .Ltmp1147-.Ltmp1146
+.Lset93 = .Ltmp1149-.Ltmp1148
 	.short	.Lset93
-.Ltmp1146:
+.Ltmp1148:
 	.byte	122
 	.byte	32
-.Ltmp1147:
+.Ltmp1149:
 	.long	.Ltmp322
 	.long	.Ltmp324
-.Lset94 = .Ltmp1149-.Ltmp1148
+.Lset94 = .Ltmp1151-.Ltmp1150
 	.short	.Lset94
-.Ltmp1148:
+.Ltmp1150:
 	.byte	82
-.Ltmp1149:
+.Ltmp1151:
 	.long	0
 	.long	0
 .Ldebug_loc48:
 	.long	.Lfunc_begin41
 	.long	.Ltmp315
-.Lset95 = .Ltmp1151-.Ltmp1150
+.Lset95 = .Ltmp1153-.Ltmp1152
 	.short	.Lset95
-.Ltmp1150:
+.Ltmp1152:
 	.byte	82
-.Ltmp1151:
+.Ltmp1153:
 	.long	.Ltmp315
 	.long	.Ltmp323
-.Lset96 = .Ltmp1153-.Ltmp1152
+.Lset96 = .Ltmp1155-.Ltmp1154
 	.short	.Lset96
-.Ltmp1152:
+.Ltmp1154:
 	.byte	122
 	.byte	36
-.Ltmp1153:
+.Ltmp1155:
 	.long	.Ltmp323
 	.long	.Ltmp324
-.Lset97 = .Ltmp1155-.Ltmp1154
+.Lset97 = .Ltmp1157-.Ltmp1156
 	.short	.Lset97
-.Ltmp1154:
+.Ltmp1156:
 	.byte	83
-.Ltmp1155:
+.Ltmp1157:
 	.long	0
 	.long	0
 .Ldebug_loc49:
 	.long	.Lfunc_begin41
 	.long	.Ltmp314
-.Lset98 = .Ltmp1157-.Ltmp1156
+.Lset98 = .Ltmp1159-.Ltmp1158
 	.short	.Lset98
-.Ltmp1156:
+.Ltmp1158:
 	.byte	83
-.Ltmp1157:
+.Ltmp1159:
 	.long	.Ltmp314
 	.long	.Ltmp325
-.Lset99 = .Ltmp1159-.Ltmp1158
+.Lset99 = .Ltmp1161-.Ltmp1160
 	.short	.Lset99
-.Ltmp1158:
+.Ltmp1160:
 	.byte	122
 	.byte	28
-.Ltmp1159:
+.Ltmp1161:
 	.long	0
 	.long	0
 .Ldebug_loc50:
 	.long	.Lfunc_begin41
 	.long	.Lfunc_end41
-.Lset100 = .Ltmp1161-.Ltmp1160
+.Lset100 = .Ltmp1163-.Ltmp1162
 	.short	.Lset100
-.Ltmp1160:
+.Ltmp1162:
 	.byte	122
 	.ascii	"\220\002"
-.Ltmp1161:
+.Ltmp1163:
 	.long	0
 	.long	0
 .Ldebug_loc51:
 	.long	.Lfunc_begin46
 	.long	.Ltmp352
-.Lset101 = .Ltmp1163-.Ltmp1162
+.Lset101 = .Ltmp1165-.Ltmp1164
 	.short	.Lset101
-.Ltmp1162:
+.Ltmp1164:
 	.byte	80
-.Ltmp1163:
+.Ltmp1165:
 	.long	.Ltmp352
 	.long	.Ltmp355
-.Lset102 = .Ltmp1165-.Ltmp1164
+.Lset102 = .Ltmp1167-.Ltmp1166
 	.short	.Lset102
-.Ltmp1164:
+.Ltmp1166:
 	.byte	84
-.Ltmp1165:
+.Ltmp1167:
 	.long	0
 	.long	0
 .Ldebug_loc52:
 	.long	.Lfunc_begin47
 	.long	.Ltmp366
-.Lset103 = .Ltmp1167-.Ltmp1166
+.Lset103 = .Ltmp1169-.Ltmp1168
 	.short	.Lset103
-.Ltmp1166:
+.Ltmp1168:
 	.byte	80
-.Ltmp1167:
+.Ltmp1169:
 	.long	.Ltmp366
 	.long	.Ltmp383
-.Lset104 = .Ltmp1169-.Ltmp1168
+.Lset104 = .Ltmp1171-.Ltmp1170
 	.short	.Lset104
-.Ltmp1168:
+.Ltmp1170:
 	.byte	84
-.Ltmp1169:
+.Ltmp1171:
 	.long	0
 	.long	0
 .Ldebug_loc53:
 	.long	.Lfunc_begin51
 	.long	.Ltmp404
-.Lset105 = .Ltmp1171-.Ltmp1170
+.Lset105 = .Ltmp1173-.Ltmp1172
 	.short	.Lset105
-.Ltmp1170:
+.Ltmp1172:
 	.byte	91
-.Ltmp1171:
+.Ltmp1173:
 	.long	.Ltmp404
 	.long	.Ltmp423
-.Lset106 = .Ltmp1173-.Ltmp1172
+.Lset106 = .Ltmp1175-.Ltmp1174
 	.short	.Lset106
-.Ltmp1172:
-	.byte	80
-.Ltmp1173:
-	.long	.Ltmp424
-	.long	.Ltmp431
-.Lset107 = .Ltmp1175-.Ltmp1174
-	.short	.Lset107
 .Ltmp1174:
 	.byte	80
 .Ltmp1175:
+	.long	.Ltmp424
+	.long	.Ltmp431
+.Lset107 = .Ltmp1177-.Ltmp1176
+	.short	.Lset107
+.Ltmp1176:
+	.byte	80
+.Ltmp1177:
 	.long	0
 	.long	0
 .Ldebug_loc54:
 	.long	.Ltmp405
 	.long	.Ltmp406
-.Lset108 = .Ltmp1177-.Ltmp1176
+.Lset108 = .Ltmp1179-.Ltmp1178
 	.short	.Lset108
-.Ltmp1176:
+.Ltmp1178:
 	.byte	91
-.Ltmp1177:
+.Ltmp1179:
 	.long	0
 	.long	0
 .Ldebug_loc55:
 	.long	.Ltmp407
 	.long	.Ltmp412
-.Lset109 = .Ltmp1179-.Ltmp1178
+.Lset109 = .Ltmp1181-.Ltmp1180
 	.short	.Lset109
-.Ltmp1178:
-	.byte	82
-.Ltmp1179:
-	.long	.Ltmp420
-	.long	.Ltmp422
-.Lset110 = .Ltmp1181-.Ltmp1180
-	.short	.Lset110
 .Ltmp1180:
 	.byte	82
 .Ltmp1181:
-	.long	.Ltmp424
-	.long	.Ltmp426
-.Lset111 = .Ltmp1183-.Ltmp1182
-	.short	.Lset111
+	.long	.Ltmp420
+	.long	.Ltmp422
+.Lset110 = .Ltmp1183-.Ltmp1182
+	.short	.Lset110
 .Ltmp1182:
 	.byte	82
 .Ltmp1183:
+	.long	.Ltmp424
+	.long	.Ltmp426
+.Lset111 = .Ltmp1185-.Ltmp1184
+	.short	.Lset111
+.Ltmp1184:
+	.byte	82
+.Ltmp1185:
 	.long	0
 	.long	0
 .Ldebug_loc56:
 	.long	.Ltmp407
 	.long	.Ltmp412
-.Lset112 = .Ltmp1185-.Ltmp1184
+.Lset112 = .Ltmp1187-.Ltmp1186
 	.short	.Lset112
-.Ltmp1184:
-	.byte	82
-.Ltmp1185:
-	.long	.Ltmp424
-	.long	.Ltmp426
-.Lset113 = .Ltmp1187-.Ltmp1186
-	.short	.Lset113
 .Ltmp1186:
 	.byte	82
 .Ltmp1187:
+	.long	.Ltmp424
+	.long	.Ltmp426
+.Lset113 = .Ltmp1189-.Ltmp1188
+	.short	.Lset113
+.Ltmp1188:
+	.byte	82
+.Ltmp1189:
 	.long	0
 	.long	0
 .Ldebug_loc57:
 	.long	.Ltmp408
 	.long	.Ltmp410
-.Lset114 = .Ltmp1189-.Ltmp1188
+.Lset114 = .Ltmp1191-.Ltmp1190
 	.short	.Lset114
-.Ltmp1188:
-	.byte	83
-.Ltmp1189:
-	.long	.Ltmp412
-	.long	.Ltmp422
-.Lset115 = .Ltmp1191-.Ltmp1190
-	.short	.Lset115
 .Ltmp1190:
 	.byte	83
 .Ltmp1191:
-	.long	.Ltmp424
-	.long	.Ltmp427
-.Lset116 = .Ltmp1193-.Ltmp1192
-	.short	.Lset116
+	.long	.Ltmp412
+	.long	.Ltmp422
+.Lset115 = .Ltmp1193-.Ltmp1192
+	.short	.Lset115
 .Ltmp1192:
 	.byte	83
 .Ltmp1193:
+	.long	.Ltmp424
+	.long	.Ltmp427
+.Lset116 = .Ltmp1195-.Ltmp1194
+	.short	.Lset116
+.Ltmp1194:
+	.byte	83
+.Ltmp1195:
 	.long	0
 	.long	0
 .Ldebug_loc58:
 	.long	.Ltmp408
 	.long	.Ltmp410
-.Lset117 = .Ltmp1195-.Ltmp1194
+.Lset117 = .Ltmp1197-.Ltmp1196
 	.short	.Lset117
-.Ltmp1194:
-	.byte	83
-.Ltmp1195:
-	.long	.Ltmp424
-	.long	.Ltmp427
-.Lset118 = .Ltmp1197-.Ltmp1196
-	.short	.Lset118
 .Ltmp1196:
 	.byte	83
 .Ltmp1197:
+	.long	.Ltmp424
+	.long	.Ltmp427
+.Lset118 = .Ltmp1199-.Ltmp1198
+	.short	.Lset118
+.Ltmp1198:
+	.byte	83
+.Ltmp1199:
 	.long	0
 	.long	0
 .Ldebug_loc59:
 	.long	.Ltmp411
 	.long	.Ltmp421
-.Lset119 = .Ltmp1199-.Ltmp1198
+.Lset119 = .Ltmp1201-.Ltmp1200
 	.short	.Lset119
-.Ltmp1198:
+.Ltmp1200:
 	.byte	17
 	.byte	2
-.Ltmp1199:
+.Ltmp1201:
 	.long	.Ltmp421
 	.long	.Ltmp422
-.Lset120 = .Ltmp1201-.Ltmp1200
+.Lset120 = .Ltmp1203-.Ltmp1202
 	.short	.Lset120
-.Ltmp1200:
+.Ltmp1202:
 	.byte	84
-.Ltmp1201:
+.Ltmp1203:
 	.long	0
 	.long	0
 .Ldebug_loc60:
 	.long	.Ltmp412
 	.long	.Ltmp415
-.Lset121 = .Ltmp1203-.Ltmp1202
+.Lset121 = .Ltmp1205-.Ltmp1204
 	.short	.Lset121
-.Ltmp1202:
-	.byte	17
-	.byte	2
-.Ltmp1203:
-	.long	.Ltmp415
-	.long	.Lfunc_end51
-.Lset122 = .Ltmp1205-.Ltmp1204
-	.short	.Lset122
 .Ltmp1204:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1205:
+	.long	.Ltmp415
+	.long	.Lfunc_end51
+.Lset122 = .Ltmp1207-.Ltmp1206
+	.short	.Lset122
+.Ltmp1206:
+	.byte	17
+	.byte	1
+.Ltmp1207:
 	.long	0
 	.long	0
 .Ldebug_loc61:
 	.long	.Ltmp425
 	.long	.Ltmp428
-.Lset123 = .Ltmp1207-.Ltmp1206
+.Lset123 = .Ltmp1209-.Ltmp1208
 	.short	.Lset123
-.Ltmp1206:
+.Ltmp1208:
 	.byte	84
-.Ltmp1207:
+.Ltmp1209:
 	.long	0
 	.long	0
 .Ldebug_loc62:
 	.long	.Lfunc_begin52
 	.long	.Ltmp441
-.Lset124 = .Ltmp1209-.Ltmp1208
+.Lset124 = .Ltmp1211-.Ltmp1210
 	.short	.Lset124
-.Ltmp1208:
+.Ltmp1210:
 	.byte	91
-.Ltmp1209:
+.Ltmp1211:
 	.long	.Ltmp441
 	.long	.Ltmp460
-.Lset125 = .Ltmp1211-.Ltmp1210
+.Lset125 = .Ltmp1213-.Ltmp1212
 	.short	.Lset125
-.Ltmp1210:
-	.byte	80
-.Ltmp1211:
-	.long	.Ltmp461
-	.long	.Ltmp468
-.Lset126 = .Ltmp1213-.Ltmp1212
-	.short	.Lset126
 .Ltmp1212:
 	.byte	80
 .Ltmp1213:
+	.long	.Ltmp461
+	.long	.Ltmp468
+.Lset126 = .Ltmp1215-.Ltmp1214
+	.short	.Lset126
+.Ltmp1214:
+	.byte	80
+.Ltmp1215:
 	.long	0
 	.long	0
 .Ldebug_loc63:
 	.long	.Ltmp442
 	.long	.Ltmp443
-.Lset127 = .Ltmp1215-.Ltmp1214
+.Lset127 = .Ltmp1217-.Ltmp1216
 	.short	.Lset127
-.Ltmp1214:
+.Ltmp1216:
 	.byte	91
-.Ltmp1215:
+.Ltmp1217:
 	.long	0
 	.long	0
 .Ldebug_loc64:
 	.long	.Ltmp444
 	.long	.Ltmp449
-.Lset128 = .Ltmp1217-.Ltmp1216
+.Lset128 = .Ltmp1219-.Ltmp1218
 	.short	.Lset128
-.Ltmp1216:
-	.byte	82
-.Ltmp1217:
-	.long	.Ltmp457
-	.long	.Ltmp459
-.Lset129 = .Ltmp1219-.Ltmp1218
-	.short	.Lset129
 .Ltmp1218:
 	.byte	82
 .Ltmp1219:
-	.long	.Ltmp461
-	.long	.Ltmp463
-.Lset130 = .Ltmp1221-.Ltmp1220
-	.short	.Lset130
+	.long	.Ltmp457
+	.long	.Ltmp459
+.Lset129 = .Ltmp1221-.Ltmp1220
+	.short	.Lset129
 .Ltmp1220:
 	.byte	82
 .Ltmp1221:
+	.long	.Ltmp461
+	.long	.Ltmp463
+.Lset130 = .Ltmp1223-.Ltmp1222
+	.short	.Lset130
+.Ltmp1222:
+	.byte	82
+.Ltmp1223:
 	.long	0
 	.long	0
 .Ldebug_loc65:
 	.long	.Ltmp444
 	.long	.Ltmp449
-.Lset131 = .Ltmp1223-.Ltmp1222
+.Lset131 = .Ltmp1225-.Ltmp1224
 	.short	.Lset131
-.Ltmp1222:
-	.byte	82
-.Ltmp1223:
-	.long	.Ltmp461
-	.long	.Ltmp463
-.Lset132 = .Ltmp1225-.Ltmp1224
-	.short	.Lset132
 .Ltmp1224:
 	.byte	82
 .Ltmp1225:
+	.long	.Ltmp461
+	.long	.Ltmp463
+.Lset132 = .Ltmp1227-.Ltmp1226
+	.short	.Lset132
+.Ltmp1226:
+	.byte	82
+.Ltmp1227:
 	.long	0
 	.long	0
 .Ldebug_loc66:
 	.long	.Ltmp445
 	.long	.Ltmp447
-.Lset133 = .Ltmp1227-.Ltmp1226
+.Lset133 = .Ltmp1229-.Ltmp1228
 	.short	.Lset133
-.Ltmp1226:
-	.byte	83
-.Ltmp1227:
-	.long	.Ltmp449
-	.long	.Ltmp459
-.Lset134 = .Ltmp1229-.Ltmp1228
-	.short	.Lset134
 .Ltmp1228:
 	.byte	83
 .Ltmp1229:
-	.long	.Ltmp461
-	.long	.Ltmp464
-.Lset135 = .Ltmp1231-.Ltmp1230
-	.short	.Lset135
+	.long	.Ltmp449
+	.long	.Ltmp459
+.Lset134 = .Ltmp1231-.Ltmp1230
+	.short	.Lset134
 .Ltmp1230:
 	.byte	83
 .Ltmp1231:
+	.long	.Ltmp461
+	.long	.Ltmp464
+.Lset135 = .Ltmp1233-.Ltmp1232
+	.short	.Lset135
+.Ltmp1232:
+	.byte	83
+.Ltmp1233:
 	.long	0
 	.long	0
 .Ldebug_loc67:
 	.long	.Ltmp445
 	.long	.Ltmp447
-.Lset136 = .Ltmp1233-.Ltmp1232
+.Lset136 = .Ltmp1235-.Ltmp1234
 	.short	.Lset136
-.Ltmp1232:
-	.byte	83
-.Ltmp1233:
-	.long	.Ltmp461
-	.long	.Ltmp464
-.Lset137 = .Ltmp1235-.Ltmp1234
-	.short	.Lset137
 .Ltmp1234:
 	.byte	83
 .Ltmp1235:
+	.long	.Ltmp461
+	.long	.Ltmp464
+.Lset137 = .Ltmp1237-.Ltmp1236
+	.short	.Lset137
+.Ltmp1236:
+	.byte	83
+.Ltmp1237:
 	.long	0
 	.long	0
 .Ldebug_loc68:
 	.long	.Ltmp448
 	.long	.Ltmp458
-.Lset138 = .Ltmp1237-.Ltmp1236
+.Lset138 = .Ltmp1239-.Ltmp1238
 	.short	.Lset138
-.Ltmp1236:
+.Ltmp1238:
 	.byte	17
 	.byte	2
-.Ltmp1237:
+.Ltmp1239:
 	.long	.Ltmp458
 	.long	.Ltmp459
-.Lset139 = .Ltmp1239-.Ltmp1238
+.Lset139 = .Ltmp1241-.Ltmp1240
 	.short	.Lset139
-.Ltmp1238:
+.Ltmp1240:
 	.byte	84
-.Ltmp1239:
+.Ltmp1241:
 	.long	0
 	.long	0
 .Ldebug_loc69:
 	.long	.Ltmp449
 	.long	.Ltmp452
-.Lset140 = .Ltmp1241-.Ltmp1240
+.Lset140 = .Ltmp1243-.Ltmp1242
 	.short	.Lset140
-.Ltmp1240:
-	.byte	17
-	.byte	2
-.Ltmp1241:
-	.long	.Ltmp452
-	.long	.Lfunc_end52
-.Lset141 = .Ltmp1243-.Ltmp1242
-	.short	.Lset141
 .Ltmp1242:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1243:
+	.long	.Ltmp452
+	.long	.Lfunc_end52
+.Lset141 = .Ltmp1245-.Ltmp1244
+	.short	.Lset141
+.Ltmp1244:
+	.byte	17
+	.byte	1
+.Ltmp1245:
 	.long	0
 	.long	0
 .Ldebug_loc70:
 	.long	.Ltmp462
 	.long	.Ltmp465
-.Lset142 = .Ltmp1245-.Ltmp1244
+.Lset142 = .Ltmp1247-.Ltmp1246
 	.short	.Lset142
-.Ltmp1244:
+.Ltmp1246:
 	.byte	84
-.Ltmp1245:
+.Ltmp1247:
 	.long	0
 	.long	0
 .Ldebug_loc71:
 	.long	.Lfunc_begin53
 	.long	.Ltmp478
-.Lset143 = .Ltmp1247-.Ltmp1246
+.Lset143 = .Ltmp1249-.Ltmp1248
 	.short	.Lset143
-.Ltmp1246:
+.Ltmp1248:
 	.byte	91
-.Ltmp1247:
+.Ltmp1249:
 	.long	.Ltmp478
 	.long	.Ltmp497
-.Lset144 = .Ltmp1249-.Ltmp1248
+.Lset144 = .Ltmp1251-.Ltmp1250
 	.short	.Lset144
-.Ltmp1248:
-	.byte	80
-.Ltmp1249:
-	.long	.Ltmp498
-	.long	.Ltmp505
-.Lset145 = .Ltmp1251-.Ltmp1250
-	.short	.Lset145
 .Ltmp1250:
 	.byte	80
 .Ltmp1251:
+	.long	.Ltmp498
+	.long	.Ltmp505
+.Lset145 = .Ltmp1253-.Ltmp1252
+	.short	.Lset145
+.Ltmp1252:
+	.byte	80
+.Ltmp1253:
 	.long	0
 	.long	0
 .Ldebug_loc72:
 	.long	.Ltmp479
 	.long	.Ltmp480
-.Lset146 = .Ltmp1253-.Ltmp1252
+.Lset146 = .Ltmp1255-.Ltmp1254
 	.short	.Lset146
-.Ltmp1252:
+.Ltmp1254:
 	.byte	91
-.Ltmp1253:
+.Ltmp1255:
 	.long	0
 	.long	0
 .Ldebug_loc73:
 	.long	.Ltmp481
 	.long	.Ltmp486
-.Lset147 = .Ltmp1255-.Ltmp1254
+.Lset147 = .Ltmp1257-.Ltmp1256
 	.short	.Lset147
-.Ltmp1254:
-	.byte	82
-.Ltmp1255:
-	.long	.Ltmp494
-	.long	.Ltmp496
-.Lset148 = .Ltmp1257-.Ltmp1256
-	.short	.Lset148
 .Ltmp1256:
 	.byte	82
 .Ltmp1257:
-	.long	.Ltmp498
-	.long	.Ltmp500
-.Lset149 = .Ltmp1259-.Ltmp1258
-	.short	.Lset149
+	.long	.Ltmp494
+	.long	.Ltmp496
+.Lset148 = .Ltmp1259-.Ltmp1258
+	.short	.Lset148
 .Ltmp1258:
 	.byte	82
 .Ltmp1259:
+	.long	.Ltmp498
+	.long	.Ltmp500
+.Lset149 = .Ltmp1261-.Ltmp1260
+	.short	.Lset149
+.Ltmp1260:
+	.byte	82
+.Ltmp1261:
 	.long	0
 	.long	0
 .Ldebug_loc74:
 	.long	.Ltmp481
 	.long	.Ltmp486
-.Lset150 = .Ltmp1261-.Ltmp1260
+.Lset150 = .Ltmp1263-.Ltmp1262
 	.short	.Lset150
-.Ltmp1260:
-	.byte	82
-.Ltmp1261:
-	.long	.Ltmp498
-	.long	.Ltmp500
-.Lset151 = .Ltmp1263-.Ltmp1262
-	.short	.Lset151
 .Ltmp1262:
 	.byte	82
 .Ltmp1263:
+	.long	.Ltmp498
+	.long	.Ltmp500
+.Lset151 = .Ltmp1265-.Ltmp1264
+	.short	.Lset151
+.Ltmp1264:
+	.byte	82
+.Ltmp1265:
 	.long	0
 	.long	0
 .Ldebug_loc75:
 	.long	.Ltmp482
 	.long	.Ltmp484
-.Lset152 = .Ltmp1265-.Ltmp1264
+.Lset152 = .Ltmp1267-.Ltmp1266
 	.short	.Lset152
-.Ltmp1264:
-	.byte	83
-.Ltmp1265:
-	.long	.Ltmp486
-	.long	.Ltmp496
-.Lset153 = .Ltmp1267-.Ltmp1266
-	.short	.Lset153
 .Ltmp1266:
 	.byte	83
 .Ltmp1267:
-	.long	.Ltmp498
-	.long	.Ltmp501
-.Lset154 = .Ltmp1269-.Ltmp1268
-	.short	.Lset154
+	.long	.Ltmp486
+	.long	.Ltmp496
+.Lset153 = .Ltmp1269-.Ltmp1268
+	.short	.Lset153
 .Ltmp1268:
 	.byte	83
 .Ltmp1269:
+	.long	.Ltmp498
+	.long	.Ltmp501
+.Lset154 = .Ltmp1271-.Ltmp1270
+	.short	.Lset154
+.Ltmp1270:
+	.byte	83
+.Ltmp1271:
 	.long	0
 	.long	0
 .Ldebug_loc76:
 	.long	.Ltmp482
 	.long	.Ltmp484
-.Lset155 = .Ltmp1271-.Ltmp1270
+.Lset155 = .Ltmp1273-.Ltmp1272
 	.short	.Lset155
-.Ltmp1270:
-	.byte	83
-.Ltmp1271:
-	.long	.Ltmp498
-	.long	.Ltmp501
-.Lset156 = .Ltmp1273-.Ltmp1272
-	.short	.Lset156
 .Ltmp1272:
 	.byte	83
 .Ltmp1273:
+	.long	.Ltmp498
+	.long	.Ltmp501
+.Lset156 = .Ltmp1275-.Ltmp1274
+	.short	.Lset156
+.Ltmp1274:
+	.byte	83
+.Ltmp1275:
 	.long	0
 	.long	0
 .Ldebug_loc77:
 	.long	.Ltmp485
 	.long	.Ltmp495
-.Lset157 = .Ltmp1275-.Ltmp1274
+.Lset157 = .Ltmp1277-.Ltmp1276
 	.short	.Lset157
-.Ltmp1274:
+.Ltmp1276:
 	.byte	17
 	.byte	2
-.Ltmp1275:
+.Ltmp1277:
 	.long	.Ltmp495
 	.long	.Ltmp496
-.Lset158 = .Ltmp1277-.Ltmp1276
+.Lset158 = .Ltmp1279-.Ltmp1278
 	.short	.Lset158
-.Ltmp1276:
+.Ltmp1278:
 	.byte	84
-.Ltmp1277:
+.Ltmp1279:
 	.long	0
 	.long	0
 .Ldebug_loc78:
 	.long	.Ltmp486
 	.long	.Ltmp489
-.Lset159 = .Ltmp1279-.Ltmp1278
+.Lset159 = .Ltmp1281-.Ltmp1280
 	.short	.Lset159
-.Ltmp1278:
-	.byte	17
-	.byte	2
-.Ltmp1279:
-	.long	.Ltmp489
-	.long	.Lfunc_end53
-.Lset160 = .Ltmp1281-.Ltmp1280
-	.short	.Lset160
 .Ltmp1280:
 	.byte	17
-	.byte	1
+	.byte	2
 .Ltmp1281:
+	.long	.Ltmp489
+	.long	.Lfunc_end53
+.Lset160 = .Ltmp1283-.Ltmp1282
+	.short	.Lset160
+.Ltmp1282:
+	.byte	17
+	.byte	1
+.Ltmp1283:
 	.long	0
 	.long	0
 .Ldebug_loc79:
 	.long	.Ltmp499
 	.long	.Ltmp502
-.Lset161 = .Ltmp1283-.Ltmp1282
+.Lset161 = .Ltmp1285-.Ltmp1284
 	.short	.Lset161
-.Ltmp1282:
+.Ltmp1284:
 	.byte	84
-.Ltmp1283:
+.Ltmp1285:
 	.long	0
 	.long	0
 .Ldebug_loc80:
 	.long	.Lfunc_begin54
 	.long	.Ltmp520
-.Lset162 = .Ltmp1285-.Ltmp1284
+.Lset162 = .Ltmp1287-.Ltmp1286
 	.short	.Lset162
-.Ltmp1284:
+.Ltmp1286:
 	.byte	80
-.Ltmp1285:
+.Ltmp1287:
 	.long	.Ltmp520
 	.long	.Ltmp525
-.Lset163 = .Ltmp1287-.Ltmp1286
+.Lset163 = .Ltmp1289-.Ltmp1288
 	.short	.Lset163
-.Ltmp1286:
-	.byte	84
-.Ltmp1287:
-	.long	.Ltmp526
-	.long	.Ltmp562
-.Lset164 = .Ltmp1289-.Ltmp1288
-	.short	.Lset164
 .Ltmp1288:
 	.byte	84
 .Ltmp1289:
+	.long	.Ltmp526
+	.long	.Ltmp562
+.Lset164 = .Ltmp1291-.Ltmp1290
+	.short	.Lset164
+.Ltmp1290:
+	.byte	84
+.Ltmp1291:
 	.long	.Ltmp562
 	.long	.Ltmp583
-.Lset165 = .Ltmp1291-.Ltmp1290
+.Lset165 = .Ltmp1293-.Ltmp1292
 	.short	.Lset165
-.Ltmp1290:
+.Ltmp1292:
 	.byte	126
 	.byte	36
-.Ltmp1291:
+.Ltmp1293:
 	.long	.Ltmp583
 	.long	.Ltmp594
-.Lset166 = .Ltmp1293-.Ltmp1292
+.Lset166 = .Ltmp1295-.Ltmp1294
 	.short	.Lset166
-.Ltmp1292:
-	.byte	84
-.Ltmp1293:
-	.long	.Ltmp594
-	.long	.Ltmp596
-.Lset167 = .Ltmp1295-.Ltmp1294
-	.short	.Lset167
 .Ltmp1294:
-	.byte	126
-	.byte	36
+	.byte	84
 .Ltmp1295:
+	.long	.Ltmp595
 	.long	.Ltmp596
-	.long	.Ltmp607
-.Lset168 = .Ltmp1297-.Ltmp1296
-	.short	.Lset168
+.Lset167 = .Ltmp1297-.Ltmp1296
+	.short	.Lset167
 .Ltmp1296:
 	.byte	84
 .Ltmp1297:
-	.long	.Ltmp607
-	.long	.Ltmp610
-.Lset169 = .Ltmp1299-.Ltmp1298
-	.short	.Lset169
+	.long	.Ltmp596
+	.long	.Ltmp598
+.Lset168 = .Ltmp1299-.Ltmp1298
+	.short	.Lset168
 .Ltmp1298:
-	.byte	85
+	.byte	126
+	.byte	36
 .Ltmp1299:
-	.long	.Ltmp610
-	.long	.Ltmp621
-.Lset170 = .Ltmp1301-.Ltmp1300
-	.short	.Lset170
+	.long	.Ltmp598
+	.long	.Ltmp609
+.Lset169 = .Ltmp1301-.Ltmp1300
+	.short	.Lset169
 .Ltmp1300:
 	.byte	84
 .Ltmp1301:
-	.long	.Ltmp621
-	.long	.Ltmp622
-.Lset171 = .Ltmp1303-.Ltmp1302
-	.short	.Lset171
+	.long	.Ltmp609
+	.long	.Ltmp612
+.Lset170 = .Ltmp1303-.Ltmp1302
+	.short	.Lset170
 .Ltmp1302:
-	.byte	126
-	.byte	36
+	.byte	85
 .Ltmp1303:
-	.long	.Ltmp622
-	.long	.Ltmp627
-.Lset172 = .Ltmp1305-.Ltmp1304
-	.short	.Lset172
+	.long	.Ltmp612
+	.long	.Ltmp623
+.Lset171 = .Ltmp1305-.Ltmp1304
+	.short	.Lset171
 .Ltmp1304:
 	.byte	84
 .Ltmp1305:
-	.long	.Ltmp627
-	.long	.Ltmp630
-.Lset173 = .Ltmp1307-.Ltmp1306
-	.short	.Lset173
+	.long	.Ltmp623
+	.long	.Ltmp624
+.Lset172 = .Ltmp1307-.Ltmp1306
+	.short	.Lset172
 .Ltmp1306:
 	.byte	126
 	.byte	36
 .Ltmp1307:
-	.long	.Ltmp630
-	.long	.Ltmp631
-.Lset174 = .Ltmp1309-.Ltmp1308
-	.short	.Lset174
+	.long	.Ltmp624
+	.long	.Ltmp629
+.Lset173 = .Ltmp1309-.Ltmp1308
+	.short	.Lset173
 .Ltmp1308:
 	.byte	84
 .Ltmp1309:
-	.long	.Ltmp631
-	.long	.Ltmp651
-.Lset175 = .Ltmp1311-.Ltmp1310
-	.short	.Lset175
+	.long	.Ltmp629
+	.long	.Ltmp632
+.Lset174 = .Ltmp1311-.Ltmp1310
+	.short	.Lset174
 .Ltmp1310:
 	.byte	126
 	.byte	36
 .Ltmp1311:
-	.long	.Ltmp651
-	.long	.Lfunc_end54
-.Lset176 = .Ltmp1313-.Ltmp1312
-	.short	.Lset176
+	.long	.Ltmp632
+	.long	.Ltmp633
+.Lset175 = .Ltmp1313-.Ltmp1312
+	.short	.Lset175
 .Ltmp1312:
 	.byte	84
 .Ltmp1313:
+	.long	.Ltmp633
+	.long	.Ltmp653
+.Lset176 = .Ltmp1315-.Ltmp1314
+	.short	.Lset176
+.Ltmp1314:
+	.byte	126
+	.byte	36
+.Ltmp1315:
+	.long	.Ltmp653
+	.long	.Lfunc_end54
+.Lset177 = .Ltmp1317-.Ltmp1316
+	.short	.Lset177
+.Ltmp1316:
+	.byte	84
+.Ltmp1317:
 	.long	0
 	.long	0
 .Ldebug_loc81:
 	.long	.Lfunc_begin54
 	.long	.Ltmp519
-.Lset177 = .Ltmp1315-.Ltmp1314
-	.short	.Lset177
-.Ltmp1314:
+.Lset178 = .Ltmp1319-.Ltmp1318
+	.short	.Lset178
+.Ltmp1318:
 	.byte	81
-.Ltmp1315:
+.Ltmp1319:
 	.long	.Ltmp519
 	.long	.Ltmp525
-.Lset178 = .Ltmp1317-.Ltmp1316
-	.short	.Lset178
-.Ltmp1316:
+.Lset179 = .Ltmp1321-.Ltmp1320
+	.short	.Lset179
+.Ltmp1320:
 	.byte	86
-.Ltmp1317:
+.Ltmp1321:
 	.long	.Ltmp526
 	.long	.Ltmp562
-.Lset179 = .Ltmp1319-.Ltmp1318
-	.short	.Lset179
-.Ltmp1318:
-	.byte	86
-.Ltmp1319:
-	.long	.Ltmp562
-	.long	.Ltmp582
-.Lset180 = .Ltmp1321-.Ltmp1320
+.Lset180 = .Ltmp1323-.Ltmp1322
 	.short	.Lset180
-.Ltmp1320:
-	.byte	126
-	.byte	24
-.Ltmp1321:
-	.long	.Ltmp582
-	.long	.Ltmp602
-.Lset181 = .Ltmp1323-.Ltmp1322
-	.short	.Lset181
 .Ltmp1322:
 	.byte	86
 .Ltmp1323:
-	.long	.Ltmp602
-	.long	.Ltmp612
-.Lset182 = .Ltmp1325-.Ltmp1324
-	.short	.Lset182
+	.long	.Ltmp562
+	.long	.Ltmp582
+.Lset181 = .Ltmp1325-.Ltmp1324
+	.short	.Lset181
 .Ltmp1324:
 	.byte	126
 	.byte	24
 .Ltmp1325:
-	.long	.Ltmp612
-	.long	.Lfunc_end54
-.Lset183 = .Ltmp1327-.Ltmp1326
-	.short	.Lset183
+	.long	.Ltmp582
+	.long	.Ltmp594
+.Lset182 = .Ltmp1327-.Ltmp1326
+	.short	.Lset182
 .Ltmp1326:
 	.byte	86
 .Ltmp1327:
+	.long	.Ltmp595
+	.long	.Ltmp604
+.Lset183 = .Ltmp1329-.Ltmp1328
+	.short	.Lset183
+.Ltmp1328:
+	.byte	86
+.Ltmp1329:
+	.long	.Ltmp604
+	.long	.Ltmp614
+.Lset184 = .Ltmp1331-.Ltmp1330
+	.short	.Lset184
+.Ltmp1330:
+	.byte	126
+	.byte	24
+.Ltmp1331:
+	.long	.Ltmp614
+	.long	.Lfunc_end54
+.Lset185 = .Ltmp1333-.Ltmp1332
+	.short	.Lset185
+.Ltmp1332:
+	.byte	86
+.Ltmp1333:
 	.long	0
 	.long	0
 .Ldebug_loc82:
 	.long	.Lfunc_begin54
 	.long	.Ltmp518
-.Lset184 = .Ltmp1329-.Ltmp1328
-	.short	.Lset184
-.Ltmp1328:
+.Lset186 = .Ltmp1335-.Ltmp1334
+	.short	.Lset186
+.Ltmp1334:
 	.byte	82
-.Ltmp1329:
+.Ltmp1335:
 	.long	.Ltmp518
 	.long	.Ltmp525
-.Lset185 = .Ltmp1331-.Ltmp1330
-	.short	.Lset185
-.Ltmp1330:
-	.byte	85
-.Ltmp1331:
-	.long	.Ltmp526
-	.long	.Ltmp563
-.Lset186 = .Ltmp1333-.Ltmp1332
-	.short	.Lset186
-.Ltmp1332:
-	.byte	85
-.Ltmp1333:
-	.long	.Ltmp563
-	.long	.Ltmp581
-.Lset187 = .Ltmp1335-.Ltmp1334
+.Lset187 = .Ltmp1337-.Ltmp1336
 	.short	.Lset187
-.Ltmp1334:
-	.byte	86
-.Ltmp1335:
-	.long	.Ltmp581
-	.long	.Ltmp603
-.Lset188 = .Ltmp1337-.Ltmp1336
-	.short	.Lset188
 .Ltmp1336:
 	.byte	85
 .Ltmp1337:
-	.long	.Ltmp603
-	.long	.Ltmp611
-.Lset189 = .Ltmp1339-.Ltmp1338
-	.short	.Lset189
+	.long	.Ltmp526
+	.long	.Ltmp563
+.Lset188 = .Ltmp1339-.Ltmp1338
+	.short	.Lset188
 .Ltmp1338:
-	.byte	86
-.Ltmp1339:
-	.long	.Ltmp611
-	.long	.Lfunc_end54
-.Lset190 = .Ltmp1341-.Ltmp1340
-	.short	.Lset190
-.Ltmp1340:
 	.byte	85
+.Ltmp1339:
+	.long	.Ltmp563
+	.long	.Ltmp581
+.Lset189 = .Ltmp1341-.Ltmp1340
+	.short	.Lset189
+.Ltmp1340:
+	.byte	86
 .Ltmp1341:
+	.long	.Ltmp581
+	.long	.Ltmp594
+.Lset190 = .Ltmp1343-.Ltmp1342
+	.short	.Lset190
+.Ltmp1342:
+	.byte	85
+.Ltmp1343:
+	.long	.Ltmp595
+	.long	.Ltmp605
+.Lset191 = .Ltmp1345-.Ltmp1344
+	.short	.Lset191
+.Ltmp1344:
+	.byte	85
+.Ltmp1345:
+	.long	.Ltmp605
+	.long	.Ltmp613
+.Lset192 = .Ltmp1347-.Ltmp1346
+	.short	.Lset192
+.Ltmp1346:
+	.byte	86
+.Ltmp1347:
+	.long	.Ltmp613
+	.long	.Lfunc_end54
+.Lset193 = .Ltmp1349-.Ltmp1348
+	.short	.Lset193
+.Ltmp1348:
+	.byte	85
+.Ltmp1349:
 	.long	0
 	.long	0
 .Ldebug_loc83:
 	.long	.Lfunc_begin54
 	.long	.Ltmp517
-.Lset191 = .Ltmp1343-.Ltmp1342
-	.short	.Lset191
-.Ltmp1342:
+.Lset194 = .Ltmp1351-.Ltmp1350
+	.short	.Lset194
+.Ltmp1350:
 	.byte	83
-.Ltmp1343:
+.Ltmp1351:
 	.long	.Ltmp517
 	.long	.Ltmp525
-.Lset192 = .Ltmp1345-.Ltmp1344
-	.short	.Lset192
-.Ltmp1344:
+.Lset195 = .Ltmp1353-.Ltmp1352
+	.short	.Lset195
+.Ltmp1352:
 	.byte	87
-.Ltmp1345:
+.Ltmp1353:
 	.long	.Ltmp526
 	.long	.Ltmp564
-.Lset193 = .Ltmp1347-.Ltmp1346
-	.short	.Lset193
-.Ltmp1346:
-	.byte	87
-.Ltmp1347:
-	.long	.Ltmp564
-	.long	.Ltmp580
-.Lset194 = .Ltmp1349-.Ltmp1348
-	.short	.Lset194
-.Ltmp1348:
-	.byte	85
-.Ltmp1349:
-	.long	.Ltmp580
-	.long	.Ltmp595
-.Lset195 = .Ltmp1351-.Ltmp1350
-	.short	.Lset195
-.Ltmp1350:
-	.byte	87
-.Ltmp1351:
-	.long	.Ltmp595
-	.long	.Ltmp596
-.Lset196 = .Ltmp1353-.Ltmp1352
+.Lset196 = .Ltmp1355-.Ltmp1354
 	.short	.Lset196
-.Ltmp1352:
-	.byte	80
-.Ltmp1353:
-	.long	.Ltmp596
-	.long	.Ltmp635
-.Lset197 = .Ltmp1355-.Ltmp1354
-	.short	.Lset197
 .Ltmp1354:
 	.byte	87
 .Ltmp1355:
-	.long	.Ltmp635
-	.long	.Ltmp650
-.Lset198 = .Ltmp1357-.Ltmp1356
-	.short	.Lset198
+	.long	.Ltmp564
+	.long	.Ltmp580
+.Lset197 = .Ltmp1357-.Ltmp1356
+	.short	.Lset197
 .Ltmp1356:
-	.byte	80
+	.byte	85
 .Ltmp1357:
-	.long	.Ltmp650
-	.long	.Lfunc_end54
-.Lset199 = .Ltmp1359-.Ltmp1358
-	.short	.Lset199
+	.long	.Ltmp580
+	.long	.Ltmp594
+.Lset198 = .Ltmp1359-.Ltmp1358
+	.short	.Lset198
 .Ltmp1358:
 	.byte	87
 .Ltmp1359:
+	.long	.Ltmp595
+	.long	.Ltmp597
+.Lset199 = .Ltmp1361-.Ltmp1360
+	.short	.Lset199
+.Ltmp1360:
+	.byte	87
+.Ltmp1361:
+	.long	.Ltmp597
+	.long	.Ltmp598
+.Lset200 = .Ltmp1363-.Ltmp1362
+	.short	.Lset200
+.Ltmp1362:
+	.byte	80
+.Ltmp1363:
+	.long	.Ltmp598
+	.long	.Ltmp637
+.Lset201 = .Ltmp1365-.Ltmp1364
+	.short	.Lset201
+.Ltmp1364:
+	.byte	87
+.Ltmp1365:
+	.long	.Ltmp637
+	.long	.Ltmp652
+.Lset202 = .Ltmp1367-.Ltmp1366
+	.short	.Lset202
+.Ltmp1366:
+	.byte	80
+.Ltmp1367:
+	.long	.Ltmp652
+	.long	.Lfunc_end54
+.Lset203 = .Ltmp1369-.Ltmp1368
+	.short	.Lset203
+.Ltmp1368:
+	.byte	87
+.Ltmp1369:
 	.long	0
 	.long	0
 .Ldebug_loc84:
 	.long	.Ltmp520
 	.long	.Ltmp542
-.Lset200 = .Ltmp1361-.Ltmp1360
-	.short	.Lset200
-.Ltmp1360:
+.Lset204 = .Ltmp1371-.Ltmp1370
+	.short	.Lset204
+.Ltmp1370:
 	.byte	17
 	.byte	0
-.Ltmp1361:
+.Ltmp1371:
 	.long	.Ltmp542
 	.long	.Ltmp543
-.Lset201 = .Ltmp1363-.Ltmp1362
-	.short	.Lset201
-.Ltmp1362:
+.Lset205 = .Ltmp1373-.Ltmp1372
+	.short	.Lset205
+.Ltmp1372:
 	.byte	82
-.Ltmp1363:
-	.long	.Ltmp636
+.Ltmp1373:
+	.long	.Ltmp638
 	.long	.Lfunc_end54
-.Lset202 = .Ltmp1365-.Ltmp1364
-	.short	.Lset202
-.Ltmp1364:
+.Lset206 = .Ltmp1375-.Ltmp1374
+	.short	.Lset206
+.Ltmp1374:
 	.byte	17
 	.byte	0
-.Ltmp1365:
+.Ltmp1375:
 	.long	0
 	.long	0
 .Ldebug_loc85:
 	.long	.Lfunc_begin54
 	.long	.Ltmp525
-.Lset203 = .Ltmp1367-.Ltmp1366
-	.short	.Lset203
-.Ltmp1366:
+.Lset207 = .Ltmp1377-.Ltmp1376
+	.short	.Lset207
+.Ltmp1376:
 	.byte	126
 	.byte	4
-.Ltmp1367:
+.Ltmp1377:
 	.long	.Ltmp526
 	.long	.Ltmp544
-.Lset204 = .Ltmp1369-.Ltmp1368
-	.short	.Lset204
-.Ltmp1368:
+.Lset208 = .Ltmp1379-.Ltmp1378
+	.short	.Lset208
+.Ltmp1378:
 	.byte	126
 	.byte	4
-.Ltmp1369:
+.Ltmp1379:
 	.long	.Ltmp544
 	.long	.Ltmp549
-.Lset205 = .Ltmp1371-.Ltmp1370
-	.short	.Lset205
-.Ltmp1370:
+.Lset209 = .Ltmp1381-.Ltmp1380
+	.short	.Lset209
+.Ltmp1380:
 	.byte	81
-.Ltmp1371:
+.Ltmp1381:
 	.long	.Ltmp549
-	.long	.Lfunc_end54
-.Lset206 = .Ltmp1373-.Ltmp1372
-	.short	.Lset206
-.Ltmp1372:
+	.long	.Ltmp594
+.Lset210 = .Ltmp1383-.Ltmp1382
+	.short	.Lset210
+.Ltmp1382:
 	.byte	126
 	.byte	4
-.Ltmp1373:
+.Ltmp1383:
+	.long	.Ltmp595
+	.long	.Lfunc_end54
+.Lset211 = .Ltmp1385-.Ltmp1384
+	.short	.Lset211
+.Ltmp1384:
+	.byte	126
+	.byte	4
+.Ltmp1385:
 	.long	0
 	.long	0
 .Ldebug_loc86:
 	.long	.Lfunc_begin54
 	.long	.Ltmp525
-.Lset207 = .Ltmp1375-.Ltmp1374
-	.short	.Lset207
-.Ltmp1374:
+.Lset212 = .Ltmp1387-.Ltmp1386
+	.short	.Lset212
+.Ltmp1386:
 	.byte	126
 	.byte	8
-.Ltmp1375:
+.Ltmp1387:
 	.long	.Ltmp526
 	.long	.Ltmp586
-.Lset208 = .Ltmp1377-.Ltmp1376
-	.short	.Lset208
-.Ltmp1376:
+.Lset213 = .Ltmp1389-.Ltmp1388
+	.short	.Lset213
+.Ltmp1388:
 	.byte	126
 	.byte	8
-.Ltmp1377:
+.Ltmp1389:
 	.long	.Ltmp586
 	.long	.Ltmp587
-.Lset209 = .Ltmp1379-.Ltmp1378
-	.short	.Lset209
-.Ltmp1378:
+.Lset214 = .Ltmp1391-.Ltmp1390
+	.short	.Lset214
+.Ltmp1390:
 	.byte	81
-.Ltmp1379:
+.Ltmp1391:
 	.long	.Ltmp587
-	.long	.Ltmp618
-.Lset210 = .Ltmp1381-.Ltmp1380
-	.short	.Lset210
-.Ltmp1380:
+	.long	.Ltmp594
+.Lset215 = .Ltmp1393-.Ltmp1392
+	.short	.Lset215
+.Ltmp1392:
 	.byte	126
 	.byte	8
-.Ltmp1381:
-	.long	.Ltmp618
-	.long	.Ltmp619
-.Lset211 = .Ltmp1383-.Ltmp1382
-	.short	.Lset211
-.Ltmp1382:
+.Ltmp1393:
+	.long	.Ltmp595
+	.long	.Ltmp620
+.Lset216 = .Ltmp1395-.Ltmp1394
+	.short	.Lset216
+.Ltmp1394:
+	.byte	126
+	.byte	8
+.Ltmp1395:
+	.long	.Ltmp620
+	.long	.Ltmp621
+.Lset217 = .Ltmp1397-.Ltmp1396
+	.short	.Lset217
+.Ltmp1396:
 	.byte	81
-.Ltmp1383:
-	.long	.Ltmp619
+.Ltmp1397:
+	.long	.Ltmp621
 	.long	.Lfunc_end54
-.Lset212 = .Ltmp1385-.Ltmp1384
-	.short	.Lset212
-.Ltmp1384:
+.Lset218 = .Ltmp1399-.Ltmp1398
+	.short	.Lset218
+.Ltmp1398:
 	.byte	126
 	.byte	8
-.Ltmp1385:
+.Ltmp1399:
 	.long	0
 	.long	0
 .Ldebug_loc87:
 	.long	.Lfunc_begin54
 	.long	.Ltmp525
-.Lset213 = .Ltmp1387-.Ltmp1386
-	.short	.Lset213
-.Ltmp1386:
+.Lset219 = .Ltmp1401-.Ltmp1400
+	.short	.Lset219
+.Ltmp1400:
 	.byte	126
 	.byte	12
-.Ltmp1387:
+.Ltmp1401:
 	.long	.Ltmp526
 	.long	.Ltmp591
-.Lset214 = .Ltmp1389-.Ltmp1388
-	.short	.Lset214
-.Ltmp1388:
+.Lset220 = .Ltmp1403-.Ltmp1402
+	.short	.Lset220
+.Ltmp1402:
 	.byte	126
 	.byte	12
-.Ltmp1389:
+.Ltmp1403:
 	.long	.Ltmp591
 	.long	.Ltmp592
-.Lset215 = .Ltmp1391-.Ltmp1390
-	.short	.Lset215
-.Ltmp1390:
+.Lset221 = .Ltmp1405-.Ltmp1404
+	.short	.Lset221
+.Ltmp1404:
 	.byte	81
-.Ltmp1391:
+.Ltmp1405:
 	.long	.Ltmp592
-	.long	.Ltmp624
-.Lset216 = .Ltmp1393-.Ltmp1392
-	.short	.Lset216
-.Ltmp1392:
+	.long	.Ltmp594
+.Lset222 = .Ltmp1407-.Ltmp1406
+	.short	.Lset222
+.Ltmp1406:
 	.byte	126
 	.byte	12
-.Ltmp1393:
-	.long	.Ltmp624
-	.long	.Ltmp625
-.Lset217 = .Ltmp1395-.Ltmp1394
-	.short	.Lset217
-.Ltmp1394:
+.Ltmp1407:
+	.long	.Ltmp595
+	.long	.Ltmp626
+.Lset223 = .Ltmp1409-.Ltmp1408
+	.short	.Lset223
+.Ltmp1408:
+	.byte	126
+	.byte	12
+.Ltmp1409:
+	.long	.Ltmp626
+	.long	.Ltmp627
+.Lset224 = .Ltmp1411-.Ltmp1410
+	.short	.Lset224
+.Ltmp1410:
 	.byte	81
-.Ltmp1395:
-	.long	.Ltmp625
+.Ltmp1411:
+	.long	.Ltmp627
 	.long	.Lfunc_end54
-.Lset218 = .Ltmp1397-.Ltmp1396
-	.short	.Lset218
-.Ltmp1396:
+.Lset225 = .Ltmp1413-.Ltmp1412
+	.short	.Lset225
+.Ltmp1412:
 	.byte	126
 	.byte	12
-.Ltmp1397:
+.Ltmp1413:
 	.long	0
 	.long	0
 .Ldebug_loc88:
 	.long	.Ltmp523
-	.long	.Ltmp636
-.Lset219 = .Ltmp1399-.Ltmp1398
-	.short	.Lset219
-.Ltmp1398:
+	.long	.Ltmp638
+.Lset226 = .Ltmp1415-.Ltmp1414
+	.short	.Lset226
+.Ltmp1414:
 	.byte	17
 	.byte	0
-.Ltmp1399:
-	.long	.Ltmp636
-	.long	.Ltmp637
-.Lset220 = .Ltmp1401-.Ltmp1400
-	.short	.Lset220
-.Ltmp1400:
+.Ltmp1415:
+	.long	.Ltmp638
+	.long	.Ltmp639
+.Lset227 = .Ltmp1417-.Ltmp1416
+	.short	.Lset227
+.Ltmp1416:
 	.byte	126
 	.byte	32
-.Ltmp1401:
+.Ltmp1417:
 	.long	0
 	.long	0
 .Ldebug_loc89:
 	.long	.Ltmp523
-	.long	.Ltmp626
-.Lset221 = .Ltmp1403-.Ltmp1402
-	.short	.Lset221
-.Ltmp1402:
+	.long	.Ltmp628
+.Lset228 = .Ltmp1419-.Ltmp1418
+	.short	.Lset228
+.Ltmp1418:
 	.byte	16
 	.byte	0
-.Ltmp1403:
-	.long	.Ltmp626
-	.long	.Ltmp629
-.Lset222 = .Ltmp1405-.Ltmp1404
-	.short	.Lset222
-.Ltmp1404:
+.Ltmp1419:
+	.long	.Ltmp628
+	.long	.Ltmp631
+.Lset229 = .Ltmp1421-.Ltmp1420
+	.short	.Lset229
+.Ltmp1420:
 	.byte	80
-.Ltmp1405:
-	.long	.Ltmp629
-	.long	.Ltmp630
-.Lset223 = .Ltmp1407-.Ltmp1406
-	.short	.Lset223
-.Ltmp1406:
+.Ltmp1421:
+	.long	.Ltmp631
+	.long	.Ltmp632
+.Lset230 = .Ltmp1423-.Ltmp1422
+	.short	.Lset230
+.Ltmp1422:
 	.byte	126
 	.byte	16
-.Ltmp1407:
+.Ltmp1423:
 	.long	0
 	.long	0
 .Ldebug_loc90:
 	.long	.Ltmp523
-	.long	.Ltmp620
-.Lset224 = .Ltmp1409-.Ltmp1408
-	.short	.Lset224
-.Ltmp1408:
+	.long	.Ltmp622
+.Lset231 = .Ltmp1425-.Ltmp1424
+	.short	.Lset231
+.Ltmp1424:
 	.byte	16
 	.byte	0
-.Ltmp1409:
-	.long	.Ltmp620
-	.long	.Ltmp621
-.Lset225 = .Ltmp1411-.Ltmp1410
-	.short	.Lset225
-.Ltmp1410:
+.Ltmp1425:
+	.long	.Ltmp622
+	.long	.Ltmp623
+.Lset232 = .Ltmp1427-.Ltmp1426
+	.short	.Lset232
+.Ltmp1426:
 	.byte	80
-.Ltmp1411:
-	.long	.Ltmp630
-	.long	.Ltmp631
-.Lset226 = .Ltmp1413-.Ltmp1412
-	.short	.Lset226
-.Ltmp1412:
-	.byte	80
-.Ltmp1413:
-	.long	.Ltmp631
+.Ltmp1427:
+	.long	.Ltmp632
 	.long	.Ltmp633
-.Lset227 = .Ltmp1415-.Ltmp1414
-	.short	.Lset227
-.Ltmp1414:
+.Lset233 = .Ltmp1429-.Ltmp1428
+	.short	.Lset233
+.Ltmp1428:
+	.byte	80
+.Ltmp1429:
+	.long	.Ltmp633
+	.long	.Ltmp635
+.Lset234 = .Ltmp1431-.Ltmp1430
+	.short	.Lset234
+.Ltmp1430:
 	.byte	126
 	.byte	44
-.Ltmp1415:
+.Ltmp1431:
 	.long	0
 	.long	0
 .Ldebug_loc91:
 	.long	.Ltmp524
-	.long	.Ltmp615
-.Lset228 = .Ltmp1417-.Ltmp1416
-	.short	.Lset228
-.Ltmp1416:
+	.long	.Ltmp617
+.Lset235 = .Ltmp1433-.Ltmp1432
+	.short	.Lset235
+.Ltmp1432:
 	.byte	17
 	.byte	50
-.Ltmp1417:
-	.long	.Ltmp615
-	.long	.Ltmp615
-.Lset229 = .Ltmp1419-.Ltmp1418
-	.short	.Lset229
-.Ltmp1418:
+.Ltmp1433:
+	.long	.Ltmp617
+	.long	.Ltmp617
+.Lset236 = .Ltmp1435-.Ltmp1434
+	.short	.Lset236
+.Ltmp1434:
 	.byte	82
-.Ltmp1419:
+.Ltmp1435:
 	.long	0
 	.long	0
 .Ldebug_loc92:
 	.long	.Ltmp524
 	.long	.Ltmp525
-.Lset230 = .Ltmp1421-.Ltmp1420
-	.short	.Lset230
-.Ltmp1420:
+.Lset237 = .Ltmp1437-.Ltmp1436
+	.short	.Lset237
+.Ltmp1436:
 	.byte	126
 	.byte	48
-.Ltmp1421:
-	.long	.Ltmp648
-	.long	.Ltmp649
-.Lset231 = .Ltmp1423-.Ltmp1422
-	.short	.Lset231
-.Ltmp1422:
+.Ltmp1437:
+	.long	.Ltmp650
+	.long	.Ltmp651
+.Lset238 = .Ltmp1439-.Ltmp1438
+	.short	.Lset238
+.Ltmp1438:
 	.byte	81
-.Ltmp1423:
-	.long	.Ltmp649
+.Ltmp1439:
+	.long	.Ltmp651
 	.long	.Lfunc_end54
-.Lset232 = .Ltmp1425-.Ltmp1424
-	.short	.Lset232
-.Ltmp1424:
+.Lset239 = .Ltmp1441-.Ltmp1440
+	.short	.Lset239
+.Ltmp1440:
 	.byte	126
 	.byte	48
-.Ltmp1425:
+.Ltmp1441:
 	.long	0
 	.long	0
 .Ldebug_loc93:
 	.long	.Ltmp545
 	.long	.Ltmp546
-.Lset233 = .Ltmp1427-.Ltmp1426
-	.short	.Lset233
-.Ltmp1426:
+.Lset240 = .Ltmp1443-.Ltmp1442
+	.short	.Lset240
+.Ltmp1442:
 	.byte	80
-.Ltmp1427:
+.Ltmp1443:
 	.long	.Ltmp549
 	.long	.Ltmp554
-.Lset234 = .Ltmp1429-.Ltmp1428
-	.short	.Lset234
-.Ltmp1428:
+.Lset241 = .Ltmp1445-.Ltmp1444
+	.short	.Lset241
+.Ltmp1444:
 	.byte	81
-.Ltmp1429:
+.Ltmp1445:
 	.long	0
 	.long	0
 .Ldebug_loc94:
 	.long	.Ltmp546
 	.long	.Ltmp547
-.Lset235 = .Ltmp1431-.Ltmp1430
-	.short	.Lset235
-.Ltmp1430:
+.Lset242 = .Ltmp1447-.Ltmp1446
+	.short	.Lset242
+.Ltmp1446:
 	.byte	80
-.Ltmp1431:
+.Ltmp1447:
 	.long	0
 	.long	0
 .Ldebug_loc95:
 	.long	.Ltmp553
 	.long	.Ltmp557
-.Lset236 = .Ltmp1433-.Ltmp1432
-	.short	.Lset236
-.Ltmp1432:
+.Lset243 = .Ltmp1449-.Ltmp1448
+	.short	.Lset243
+.Ltmp1448:
 	.byte	80
-.Ltmp1433:
+.Ltmp1449:
 	.long	0
 	.long	0
 .Ldebug_loc96:
 	.long	.Ltmp560
 	.long	.Ltmp561
-.Lset237 = .Ltmp1435-.Ltmp1434
-	.short	.Lset237
-.Ltmp1434:
+.Lset244 = .Ltmp1451-.Ltmp1450
+	.short	.Lset244
+.Ltmp1450:
 	.byte	126
 	.byte	28
-.Ltmp1435:
+.Ltmp1451:
 	.long	0
 	.long	0
 .Ldebug_loc97:
 	.long	.Ltmp565
 	.long	.Ltmp569
-.Lset238 = .Ltmp1437-.Ltmp1436
-	.short	.Lset238
-.Ltmp1436:
+.Lset245 = .Ltmp1453-.Ltmp1452
+	.short	.Lset245
+.Ltmp1452:
 	.byte	81
-.Ltmp1437:
+.Ltmp1453:
 	.long	.Ltmp577
 	.long	.Ltmp579
-.Lset239 = .Ltmp1439-.Ltmp1438
-	.short	.Lset239
-.Ltmp1438:
+.Lset246 = .Ltmp1455-.Ltmp1454
+	.short	.Lset246
+.Ltmp1454:
 	.byte	81
-.Ltmp1439:
+.Ltmp1455:
 	.long	0
 	.long	0
 .Ldebug_loc98:
 	.long	.Ltmp566
 	.long	.Ltmp567
-.Lset240 = .Ltmp1441-.Ltmp1440
-	.short	.Lset240
-.Ltmp1440:
+.Lset247 = .Ltmp1457-.Ltmp1456
+	.short	.Lset247
+.Ltmp1456:
 	.byte	82
-.Ltmp1441:
+.Ltmp1457:
 	.long	.Ltmp568
 	.long	.Ltmp579
-.Lset241 = .Ltmp1443-.Ltmp1442
-	.short	.Lset241
-.Ltmp1442:
+.Lset248 = .Ltmp1459-.Ltmp1458
+	.short	.Lset248
+.Ltmp1458:
 	.byte	87
-.Ltmp1443:
+.Ltmp1459:
 	.long	0
 	.long	0
 .Ldebug_loc99:
 	.long	.Ltmp568
 	.long	.Ltmp578
-.Lset242 = .Ltmp1445-.Ltmp1444
-	.short	.Lset242
-.Ltmp1444:
+.Lset249 = .Ltmp1461-.Ltmp1460
+	.short	.Lset249
+.Ltmp1460:
 	.byte	17
 	.byte	2
-.Ltmp1445:
+.Ltmp1461:
 	.long	.Ltmp578
 	.long	.Ltmp579
-.Lset243 = .Ltmp1447-.Ltmp1446
-	.short	.Lset243
-.Ltmp1446:
+.Lset250 = .Ltmp1463-.Ltmp1462
+	.short	.Lset250
+.Ltmp1462:
 	.byte	91
-.Ltmp1447:
+.Ltmp1463:
 	.long	0
 	.long	0
 .Ldebug_loc100:
 	.long	.Ltmp569
 	.long	.Ltmp572
-.Lset244 = .Ltmp1449-.Ltmp1448
-	.short	.Lset244
-.Ltmp1448:
+.Lset251 = .Ltmp1465-.Ltmp1464
+	.short	.Lset251
+.Ltmp1464:
 	.byte	17
 	.byte	2
-.Ltmp1449:
+.Ltmp1465:
 	.long	.Ltmp572
 	.long	.Lfunc_end54
-.Lset245 = .Ltmp1451-.Ltmp1450
-	.short	.Lset245
-.Ltmp1450:
+.Lset252 = .Ltmp1467-.Ltmp1466
+	.short	.Lset252
+.Ltmp1466:
 	.byte	17
 	.byte	1
-.Ltmp1451:
+.Ltmp1467:
 	.long	0
 	.long	0
 .Ldebug_loc101:
 	.long	.Ltmp588
 	.long	.Ltmp589
-.Lset246 = .Ltmp1453-.Ltmp1452
-	.short	.Lset246
-.Ltmp1452:
+.Lset253 = .Ltmp1469-.Ltmp1468
+	.short	.Lset253
+.Ltmp1468:
 	.byte	80
-.Ltmp1453:
+.Ltmp1469:
 	.long	0
 	.long	0
 .Ldebug_loc102:
 	.long	.Ltmp593
 	.long	.Ltmp594
-.Lset247 = .Ltmp1455-.Ltmp1454
-	.short	.Lset247
-.Ltmp1454:
-	.byte	80
-.Ltmp1455:
-	.long	0
-	.long	0
-.Ldebug_loc103:
-	.long	.Ltmp598
-	.long	.Ltmp599
-.Lset248 = .Ltmp1457-.Ltmp1456
-	.short	.Lset248
-.Ltmp1456:
-	.byte	126
-	.byte	44
-.Ltmp1457:
-	.long	0
-	.long	0
-.Ldebug_loc104:
-	.long	.Ltmp601
-	.long	.Ltmp602
-.Lset249 = .Ltmp1459-.Ltmp1458
-	.short	.Lset249
-.Ltmp1458:
-	.byte	126
-	.byte	16
-.Ltmp1459:
-	.long	0
-	.long	0
-.Ldebug_loc105:
-	.long	.Ltmp604
-	.long	.Ltmp608
-.Lset250 = .Ltmp1461-.Ltmp1460
-	.short	.Lset250
-.Ltmp1460:
-	.byte	83
-.Ltmp1461:
-	.long	0
-	.long	0
-.Ldebug_loc106:
-	.long	.Ltmp605
-	.long	.Ltmp613
-.Lset251 = .Ltmp1463-.Ltmp1462
-	.short	.Lset251
-.Ltmp1462:
-	.byte	81
-.Ltmp1463:
-	.long	0
-	.long	0
-.Ldebug_loc107:
-	.long	.Ltmp606
-	.long	.Ltmp609
-.Lset252 = .Ltmp1465-.Ltmp1464
-	.short	.Lset252
-.Ltmp1464:
-	.byte	82
-.Ltmp1465:
-	.long	0
-	.long	0
-.Ldebug_loc108:
-	.long	.Ltmp620
-	.long	.Ltmp621
-.Lset253 = .Ltmp1467-.Ltmp1466
-	.short	.Lset253
-.Ltmp1466:
-	.byte	80
-.Ltmp1467:
-	.long	.Ltmp630
-	.long	.Ltmp631
-.Lset254 = .Ltmp1469-.Ltmp1468
+.Lset254 = .Ltmp1471-.Ltmp1470
 	.short	.Lset254
-.Ltmp1468:
-	.byte	80
-.Ltmp1469:
-	.long	.Ltmp631
-	.long	.Ltmp633
-.Lset255 = .Ltmp1471-.Ltmp1470
-	.short	.Lset255
 .Ltmp1470:
-	.byte	126
-	.byte	44
+	.byte	80
 .Ltmp1471:
 	.long	0
 	.long	0
-.Ldebug_loc109:
-	.long	.Ltmp626
-	.long	.Ltmp629
-.Lset256 = .Ltmp1473-.Ltmp1472
-	.short	.Lset256
+.Ldebug_loc103:
+	.long	.Ltmp600
+	.long	.Ltmp601
+.Lset255 = .Ltmp1473-.Ltmp1472
+	.short	.Lset255
 .Ltmp1472:
-	.byte	80
+	.byte	126
+	.byte	44
 .Ltmp1473:
-	.long	.Ltmp629
-	.long	.Ltmp630
-.Lset257 = .Ltmp1475-.Ltmp1474
-	.short	.Lset257
+	.long	0
+	.long	0
+.Ldebug_loc104:
+	.long	.Ltmp603
+	.long	.Ltmp604
+.Lset256 = .Ltmp1475-.Ltmp1474
+	.short	.Lset256
 .Ltmp1474:
 	.byte	126
 	.byte	16
 .Ltmp1475:
 	.long	0
 	.long	0
-.Ldebug_loc110:
-	.long	.Ltmp637
-	.long	.Ltmp641
-.Lset258 = .Ltmp1477-.Ltmp1476
-	.short	.Lset258
+.Ldebug_loc105:
+	.long	.Ltmp606
+	.long	.Ltmp610
+.Lset257 = .Ltmp1477-.Ltmp1476
+	.short	.Lset257
 .Ltmp1476:
-	.byte	16
-	.ascii	"\377\377\377\377\377\377\377\377\377\001"
-.Ltmp1477:
-	.long	.Ltmp641
-	.long	.Ltmp641
-.Lset259 = .Ltmp1479-.Ltmp1478
-	.short	.Lset259
-.Ltmp1478:
 	.byte	83
+.Ltmp1477:
+	.long	0
+	.long	0
+.Ldebug_loc106:
+	.long	.Ltmp607
+	.long	.Ltmp615
+.Lset258 = .Ltmp1479-.Ltmp1478
+	.short	.Lset258
+.Ltmp1478:
+	.byte	81
 .Ltmp1479:
-	.long	.Ltmp641
-	.long	.Lfunc_end54
-.Lset260 = .Ltmp1481-.Ltmp1480
-	.short	.Lset260
+	.long	0
+	.long	0
+.Ldebug_loc107:
+	.long	.Ltmp608
+	.long	.Ltmp611
+.Lset259 = .Ltmp1481-.Ltmp1480
+	.short	.Lset259
 .Ltmp1480:
-	.byte	16
-	.ascii	"\377\377\377\377\377\377\377\377\377\001"
+	.byte	82
 .Ltmp1481:
 	.long	0
 	.long	0
-.Ldebug_loc111:
-	.long	.Ltmp637
-	.long	.Ltmp646
-.Lset261 = .Ltmp1483-.Ltmp1482
-	.short	.Lset261
+.Ldebug_loc108:
+	.long	.Ltmp622
+	.long	.Ltmp623
+.Lset260 = .Ltmp1483-.Ltmp1482
+	.short	.Lset260
 .Ltmp1482:
+	.byte	80
+.Ltmp1483:
+	.long	.Ltmp632
+	.long	.Ltmp633
+.Lset261 = .Ltmp1485-.Ltmp1484
+	.short	.Lset261
+.Ltmp1484:
+	.byte	80
+.Ltmp1485:
+	.long	.Ltmp633
+	.long	.Ltmp635
+.Lset262 = .Ltmp1487-.Ltmp1486
+	.short	.Lset262
+.Ltmp1486:
+	.byte	126
+	.byte	44
+.Ltmp1487:
+	.long	0
+	.long	0
+.Ldebug_loc109:
+	.long	.Ltmp628
+	.long	.Ltmp631
+.Lset263 = .Ltmp1489-.Ltmp1488
+	.short	.Lset263
+.Ltmp1488:
+	.byte	80
+.Ltmp1489:
+	.long	.Ltmp631
+	.long	.Ltmp632
+.Lset264 = .Ltmp1491-.Ltmp1490
+	.short	.Lset264
+.Ltmp1490:
+	.byte	126
+	.byte	16
+.Ltmp1491:
+	.long	0
+	.long	0
+.Ldebug_loc110:
+	.long	.Ltmp639
+	.long	.Ltmp643
+.Lset265 = .Ltmp1493-.Ltmp1492
+	.short	.Lset265
+.Ltmp1492:
+	.byte	16
+	.ascii	"\377\377\377\377\377\377\377\377\377\001"
+.Ltmp1493:
+	.long	.Ltmp643
+	.long	.Ltmp643
+.Lset266 = .Ltmp1495-.Ltmp1494
+	.short	.Lset266
+.Ltmp1494:
+	.byte	83
+.Ltmp1495:
+	.long	.Ltmp643
+	.long	.Lfunc_end54
+.Lset267 = .Ltmp1497-.Ltmp1496
+	.short	.Lset267
+.Ltmp1496:
+	.byte	16
+	.ascii	"\377\377\377\377\377\377\377\377\377\001"
+.Ltmp1497:
+	.long	0
+	.long	0
+.Ldebug_loc111:
+	.long	.Ltmp639
+	.long	.Ltmp648
+.Lset268 = .Ltmp1499-.Ltmp1498
+	.short	.Lset268
+.Ltmp1498:
 	.byte	17
 	.byte	0
-.Ltmp1483:
-	.long	.Ltmp646
-	.long	.Ltmp647
-.Lset262 = .Ltmp1485-.Ltmp1484
-	.short	.Lset262
-.Ltmp1484:
+.Ltmp1499:
+	.long	.Ltmp648
+	.long	.Ltmp649
+.Lset269 = .Ltmp1501-.Ltmp1500
+	.short	.Lset269
+.Ltmp1500:
 	.byte	87
-.Ltmp1485:
+.Ltmp1501:
 	.long	0
 	.long	0
 .Ldebug_loc112:
 	.long	.Lfunc_begin59
-	.long	.Ltmp676
-.Lset263 = .Ltmp1487-.Ltmp1486
-	.short	.Lset263
-.Ltmp1486:
-	.byte	80
-.Ltmp1487:
-	.long	.Ltmp676
-	.long	.Ltmp688
-.Lset264 = .Ltmp1489-.Ltmp1488
-	.short	.Lset264
-.Ltmp1488:
-	.byte	84
-.Ltmp1489:
-	.long	0
-	.long	0
-.Ldebug_loc113:
-	.long	.Ltmp707
-	.long	.Ltmp713
-.Lset265 = .Ltmp1491-.Ltmp1490
-	.short	.Lset265
-.Ltmp1490:
-	.byte	81
-.Ltmp1491:
-	.long	.Ltmp721
-	.long	.Ltmp723
-.Lset266 = .Ltmp1493-.Ltmp1492
-	.short	.Lset266
-.Ltmp1492:
-	.byte	81
-.Ltmp1493:
-	.long	0
-	.long	0
-.Ldebug_loc114:
-	.long	.Ltmp708
-	.long	.Ltmp710
-.Lset267 = .Ltmp1495-.Ltmp1494
-	.short	.Lset267
-.Ltmp1494:
-	.byte	82
-.Ltmp1495:
-	.long	.Ltmp711
-	.long	.Ltmp723
-.Lset268 = .Ltmp1497-.Ltmp1496
-	.short	.Lset268
-.Ltmp1496:
-	.byte	82
-.Ltmp1497:
-	.long	0
-	.long	0
-.Ldebug_loc115:
-	.long	.Ltmp712
-	.long	.Ltmp722
-.Lset269 = .Ltmp1499-.Ltmp1498
-	.short	.Lset269
-.Ltmp1498:
-	.byte	17
-	.byte	2
-.Ltmp1499:
-	.long	.Ltmp722
-	.long	.Ltmp723
-.Lset270 = .Ltmp1501-.Ltmp1500
+	.long	.Ltmp678
+.Lset270 = .Ltmp1503-.Ltmp1502
 	.short	.Lset270
-.Ltmp1500:
-	.byte	84
-.Ltmp1501:
-	.long	0
-	.long	0
-.Ldebug_loc116:
-	.long	.Ltmp713
-	.long	.Ltmp716
-.Lset271 = .Ltmp1503-.Ltmp1502
-	.short	.Lset271
 .Ltmp1502:
-	.byte	17
-	.byte	2
+	.byte	80
 .Ltmp1503:
-	.long	.Ltmp716
-	.long	.Lfunc_end64
-.Lset272 = .Ltmp1505-.Ltmp1504
-	.short	.Lset272
+	.long	.Ltmp678
+	.long	.Ltmp690
+.Lset271 = .Ltmp1505-.Ltmp1504
+	.short	.Lset271
 .Ltmp1504:
-	.byte	17
-	.byte	1
+	.byte	84
 .Ltmp1505:
 	.long	0
 	.long	0
-.Ldebug_loc117:
-	.long	.Ltmp724
-	.long	.Ltmp728
-.Lset273 = .Ltmp1507-.Ltmp1506
-	.short	.Lset273
+.Ldebug_loc113:
+	.long	.Ltmp709
+	.long	.Ltmp715
+.Lset272 = .Ltmp1507-.Ltmp1506
+	.short	.Lset272
 .Ltmp1506:
-	.byte	83
+	.byte	81
 .Ltmp1507:
-	.long	0
-	.long	0
-.Ldebug_loc118:
+	.long	.Ltmp723
 	.long	.Ltmp725
-	.long	.Ltmp727
-.Lset274 = .Ltmp1509-.Ltmp1508
-	.short	.Lset274
+.Lset273 = .Ltmp1509-.Ltmp1508
+	.short	.Lset273
 .Ltmp1508:
 	.byte	81
 .Ltmp1509:
 	.long	0
 	.long	0
-.Ldebug_loc119:
-	.long	.Ltmp726
-	.long	.Ltmp729
-.Lset275 = .Ltmp1511-.Ltmp1510
-	.short	.Lset275
+.Ldebug_loc114:
+	.long	.Ltmp710
+	.long	.Ltmp712
+.Lset274 = .Ltmp1511-.Ltmp1510
+	.short	.Lset274
 .Ltmp1510:
-	.byte	80
+	.byte	82
 .Ltmp1511:
-	.long	0
-	.long	0
-.Ldebug_loc120:
-	.long	.Ltmp743
-	.long	.Ltmp744
-.Lset276 = .Ltmp1513-.Ltmp1512
-	.short	.Lset276
+	.long	.Ltmp713
+	.long	.Ltmp725
+.Lset275 = .Ltmp1513-.Ltmp1512
+	.short	.Lset275
 .Ltmp1512:
-	.byte	80
+	.byte	82
 .Ltmp1513:
 	.long	0
 	.long	0
-.Ldebug_loc121:
-	.long	.Ltmp745
-	.long	.Ltmp746
-.Lset277 = .Ltmp1515-.Ltmp1514
-	.short	.Lset277
+.Ldebug_loc115:
+	.long	.Ltmp714
+	.long	.Ltmp724
+.Lset276 = .Ltmp1515-.Ltmp1514
+	.short	.Lset276
 .Ltmp1514:
-	.byte	81
+	.byte	17
+	.byte	2
 .Ltmp1515:
-	.long	0
-	.long	0
-.Ldebug_loc122:
-	.long	.Ltmp753
-	.long	.Ltmp754
-.Lset278 = .Ltmp1517-.Ltmp1516
-	.short	.Lset278
+	.long	.Ltmp724
+	.long	.Ltmp725
+.Lset277 = .Ltmp1517-.Ltmp1516
+	.short	.Lset277
 .Ltmp1516:
-	.byte	80
+	.byte	84
 .Ltmp1517:
 	.long	0
 	.long	0
-.Ldebug_loc123:
-	.long	.Ltmp755
-	.long	.Ltmp756
-.Lset279 = .Ltmp1519-.Ltmp1518
-	.short	.Lset279
+.Ldebug_loc116:
+	.long	.Ltmp715
+	.long	.Ltmp718
+.Lset278 = .Ltmp1519-.Ltmp1518
+	.short	.Lset278
 .Ltmp1518:
-	.byte	81
+	.byte	17
+	.byte	2
 .Ltmp1519:
-	.long	0
-	.long	0
-.Ldebug_loc124:
-	.long	.Ltmp769
-	.long	.Ltmp770
-.Lset280 = .Ltmp1521-.Ltmp1520
-	.short	.Lset280
+	.long	.Ltmp718
+	.long	.Lfunc_end64
+.Lset279 = .Ltmp1521-.Ltmp1520
+	.short	.Lset279
 .Ltmp1520:
-	.byte	81
+	.byte	17
+	.byte	1
 .Ltmp1521:
-	.long	.Ltmp773
-	.long	.Ltmp775
-.Lset281 = .Ltmp1523-.Ltmp1522
-	.short	.Lset281
+	.long	0
+	.long	0
+.Ldebug_loc117:
+	.long	.Ltmp726
+	.long	.Ltmp730
+.Lset280 = .Ltmp1523-.Ltmp1522
+	.short	.Lset280
 .Ltmp1522:
 	.byte	83
 .Ltmp1523:
-	.long	.Ltmp776
-	.long	.Ltmp779
-.Lset282 = .Ltmp1525-.Ltmp1524
-	.short	.Lset282
+	.long	0
+	.long	0
+.Ldebug_loc118:
+	.long	.Ltmp727
+	.long	.Ltmp729
+.Lset281 = .Ltmp1525-.Ltmp1524
+	.short	.Lset281
 .Ltmp1524:
-	.byte	83
+	.byte	81
 .Ltmp1525:
 	.long	0
 	.long	0
-.Ldebug_loc125:
-	.long	.Ltmp770
-	.long	.Ltmp771
-.Lset283 = .Ltmp1527-.Ltmp1526
-	.short	.Lset283
+.Ldebug_loc119:
+	.long	.Ltmp728
+	.long	.Ltmp731
+.Lset282 = .Ltmp1527-.Ltmp1526
+	.short	.Lset282
 .Ltmp1526:
-	.byte	81
+	.byte	80
 .Ltmp1527:
 	.long	0
 	.long	0
-.Ldebug_loc126:
-	.long	.Ltmp778
-	.long	.Ltmp783
-.Lset284 = .Ltmp1529-.Ltmp1528
-	.short	.Lset284
+.Ldebug_loc120:
+	.long	.Ltmp745
+	.long	.Ltmp746
+.Lset283 = .Ltmp1529-.Ltmp1528
+	.short	.Lset283
 .Ltmp1528:
-	.byte	82
+	.byte	80
 .Ltmp1529:
 	.long	0
 	.long	0
-.Ldebug_loc127:
-	.long	.Ltmp785
-	.long	.Ltmp787
-.Lset285 = .Ltmp1531-.Ltmp1530
-	.short	.Lset285
+.Ldebug_loc121:
+	.long	.Ltmp747
+	.long	.Ltmp748
+.Lset284 = .Ltmp1531-.Ltmp1530
+	.short	.Lset284
 .Ltmp1530:
-	.byte	80
+	.byte	81
 .Ltmp1531:
 	.long	0
 	.long	0
-.Ldebug_loc128:
-	.long	.Ltmp790
-	.long	.Ltmp792
-.Lset286 = .Ltmp1533-.Ltmp1532
-	.short	.Lset286
+.Ldebug_loc122:
+	.long	.Ltmp755
+	.long	.Ltmp756
+.Lset285 = .Ltmp1533-.Ltmp1532
+	.short	.Lset285
 .Ltmp1532:
 	.byte	80
 .Ltmp1533:
 	.long	0
 	.long	0
-.Ldebug_loc129:
-	.long	.Ltmp797
-	.long	.Ltmp798
-.Lset287 = .Ltmp1535-.Ltmp1534
-	.short	.Lset287
+.Ldebug_loc123:
+	.long	.Ltmp757
+	.long	.Ltmp758
+.Lset286 = .Ltmp1535-.Ltmp1534
+	.short	.Lset286
 .Ltmp1534:
-	.byte	17
-	.byte	0
+	.byte	81
 .Ltmp1535:
-	.long	.Ltmp798
-	.long	.Lfunc_end68
-.Lset288 = .Ltmp1537-.Ltmp1536
-	.short	.Lset288
+	.long	0
+	.long	0
+.Ldebug_loc124:
+	.long	.Ltmp771
+	.long	.Ltmp772
+.Lset287 = .Ltmp1537-.Ltmp1536
+	.short	.Lset287
 .Ltmp1536:
-	.byte	17
-	.byte	1
+	.byte	81
 .Ltmp1537:
-	.long	0
-	.long	0
-.Ldebug_loc130:
-	.long	.Ltmp798
-	.long	.Ltmp798
-.Lset289 = .Ltmp1539-.Ltmp1538
-	.short	.Lset289
+	.long	.Ltmp775
+	.long	.Ltmp777
+.Lset288 = .Ltmp1539-.Ltmp1538
+	.short	.Lset288
 .Ltmp1538:
-	.byte	80
+	.byte	83
 .Ltmp1539:
-	.long	0
-	.long	0
-.Ldebug_loc131:
-	.long	.Ltmp800
-	.long	.Ltmp801
-.Lset290 = .Ltmp1541-.Ltmp1540
-	.short	.Lset290
+	.long	.Ltmp778
+	.long	.Ltmp781
+.Lset289 = .Ltmp1541-.Ltmp1540
+	.short	.Lset289
 .Ltmp1540:
-	.byte	86
+	.byte	83
 .Ltmp1541:
 	.long	0
 	.long	0
-.Ldebug_loc132:
-	.long	.Ltmp814
-	.long	.Ltmp820
-.Lset291 = .Ltmp1543-.Ltmp1542
-	.short	.Lset291
+.Ldebug_loc125:
+	.long	.Ltmp772
+	.long	.Ltmp773
+.Lset290 = .Ltmp1543-.Ltmp1542
+	.short	.Lset290
 .Ltmp1542:
 	.byte	81
 .Ltmp1543:
-	.long	.Ltmp828
-	.long	.Ltmp830
-.Lset292 = .Ltmp1545-.Ltmp1544
-	.short	.Lset292
+	.long	0
+	.long	0
+.Ldebug_loc126:
+	.long	.Ltmp780
+	.long	.Ltmp785
+.Lset291 = .Ltmp1545-.Ltmp1544
+	.short	.Lset291
 .Ltmp1544:
-	.byte	81
+	.byte	82
 .Ltmp1545:
 	.long	0
 	.long	0
-.Ldebug_loc133:
-	.long	.Ltmp815
-	.long	.Ltmp817
-.Lset293 = .Ltmp1547-.Ltmp1546
-	.short	.Lset293
+.Ldebug_loc127:
+	.long	.Ltmp787
+	.long	.Ltmp789
+.Lset292 = .Ltmp1547-.Ltmp1546
+	.short	.Lset292
 .Ltmp1546:
-	.byte	82
+	.byte	80
 .Ltmp1547:
-	.long	.Ltmp818
-	.long	.Ltmp830
-.Lset294 = .Ltmp1549-.Ltmp1548
-	.short	.Lset294
+	.long	0
+	.long	0
+.Ldebug_loc128:
+	.long	.Ltmp792
+	.long	.Ltmp794
+.Lset293 = .Ltmp1549-.Ltmp1548
+	.short	.Lset293
 .Ltmp1548:
-	.byte	82
+	.byte	80
 .Ltmp1549:
 	.long	0
 	.long	0
-.Ldebug_loc134:
-	.long	.Ltmp819
-	.long	.Ltmp829
-.Lset295 = .Ltmp1551-.Ltmp1550
-	.short	.Lset295
+.Ldebug_loc129:
+	.long	.Ltmp799
+	.long	.Ltmp800
+.Lset294 = .Ltmp1551-.Ltmp1550
+	.short	.Lset294
 .Ltmp1550:
 	.byte	17
-	.byte	2
+	.byte	0
 .Ltmp1551:
-	.long	.Ltmp829
-	.long	.Ltmp830
-.Lset296 = .Ltmp1553-.Ltmp1552
-	.short	.Lset296
+	.long	.Ltmp800
+	.long	.Lfunc_end68
+.Lset295 = .Ltmp1553-.Ltmp1552
+	.short	.Lset295
 .Ltmp1552:
-	.byte	84
+	.byte	17
+	.byte	1
 .Ltmp1553:
 	.long	0
 	.long	0
-.Ldebug_loc135:
-	.long	.Ltmp820
-	.long	.Ltmp823
-.Lset297 = .Ltmp1555-.Ltmp1554
-	.short	.Lset297
+.Ldebug_loc130:
+	.long	.Ltmp800
+	.long	.Ltmp800
+.Lset296 = .Ltmp1555-.Ltmp1554
+	.short	.Lset296
 .Ltmp1554:
-	.byte	17
-	.byte	2
+	.byte	80
 .Ltmp1555:
-	.long	.Ltmp823
-	.long	.Lfunc_end70
-.Lset298 = .Ltmp1557-.Ltmp1556
-	.short	.Lset298
+	.long	0
+	.long	0
+.Ldebug_loc131:
+	.long	.Ltmp802
+	.long	.Ltmp803
+.Lset297 = .Ltmp1557-.Ltmp1556
+	.short	.Lset297
 .Ltmp1556:
-	.byte	17
-	.byte	1
+	.byte	86
 .Ltmp1557:
 	.long	0
 	.long	0
-.Ldebug_loc136:
-	.long	.Ltmp831
-	.long	.Ltmp835
-.Lset299 = .Ltmp1559-.Ltmp1558
-	.short	.Lset299
+.Ldebug_loc132:
+	.long	.Ltmp816
+	.long	.Ltmp822
+.Lset298 = .Ltmp1559-.Ltmp1558
+	.short	.Lset298
 .Ltmp1558:
-	.byte	83
+	.byte	81
 .Ltmp1559:
-	.long	0
-	.long	0
-.Ldebug_loc137:
+	.long	.Ltmp830
 	.long	.Ltmp832
-	.long	.Ltmp834
-.Lset300 = .Ltmp1561-.Ltmp1560
-	.short	.Lset300
+.Lset299 = .Ltmp1561-.Ltmp1560
+	.short	.Lset299
 .Ltmp1560:
 	.byte	81
 .Ltmp1561:
 	.long	0
 	.long	0
-.Ldebug_loc138:
-	.long	.Ltmp833
-	.long	.Ltmp836
-.Lset301 = .Ltmp1563-.Ltmp1562
-	.short	.Lset301
+.Ldebug_loc133:
+	.long	.Ltmp817
+	.long	.Ltmp819
+.Lset300 = .Ltmp1563-.Ltmp1562
+	.short	.Lset300
 .Ltmp1562:
-	.byte	80
+	.byte	82
 .Ltmp1563:
-	.long	0
-	.long	0
-.Ldebug_loc139:
-	.long	.Ltmp844
-	.long	.Ltmp845
-.Lset302 = .Ltmp1565-.Ltmp1564
-	.short	.Lset302
+	.long	.Ltmp820
+	.long	.Ltmp832
+.Lset301 = .Ltmp1565-.Ltmp1564
+	.short	.Lset301
 .Ltmp1564:
-	.byte	80
+	.byte	82
 .Ltmp1565:
 	.long	0
 	.long	0
-.Ldebug_loc140:
-	.long	.Ltmp846
-	.long	.Ltmp847
-.Lset303 = .Ltmp1567-.Ltmp1566
-	.short	.Lset303
+.Ldebug_loc134:
+	.long	.Ltmp821
+	.long	.Ltmp831
+.Lset302 = .Ltmp1567-.Ltmp1566
+	.short	.Lset302
 .Ltmp1566:
-	.byte	81
+	.byte	17
+	.byte	2
 .Ltmp1567:
-	.long	0
-	.long	0
-.Ldebug_loc141:
-	.long	.Ltmp854
-	.long	.Ltmp855
-.Lset304 = .Ltmp1569-.Ltmp1568
-	.short	.Lset304
+	.long	.Ltmp831
+	.long	.Ltmp832
+.Lset303 = .Ltmp1569-.Ltmp1568
+	.short	.Lset303
 .Ltmp1568:
-	.byte	80
+	.byte	84
 .Ltmp1569:
 	.long	0
 	.long	0
-.Ldebug_loc142:
-	.long	.Ltmp856
-	.long	.Ltmp857
-.Lset305 = .Ltmp1571-.Ltmp1570
-	.short	.Lset305
+.Ldebug_loc135:
+	.long	.Ltmp822
+	.long	.Ltmp825
+.Lset304 = .Ltmp1571-.Ltmp1570
+	.short	.Lset304
 .Ltmp1570:
-	.byte	81
+	.byte	17
+	.byte	2
 .Ltmp1571:
-	.long	0
-	.long	0
-.Ldebug_loc143:
-	.long	.Ltmp870
-	.long	.Ltmp871
-.Lset306 = .Ltmp1573-.Ltmp1572
-	.short	.Lset306
+	.long	.Ltmp825
+	.long	.Lfunc_end70
+.Lset305 = .Ltmp1573-.Ltmp1572
+	.short	.Lset305
 .Ltmp1572:
-	.byte	81
+	.byte	17
+	.byte	1
 .Ltmp1573:
-	.long	.Ltmp874
-	.long	.Ltmp876
-.Lset307 = .Ltmp1575-.Ltmp1574
-	.short	.Lset307
+	.long	0
+	.long	0
+.Ldebug_loc136:
+	.long	.Ltmp833
+	.long	.Ltmp837
+.Lset306 = .Ltmp1575-.Ltmp1574
+	.short	.Lset306
 .Ltmp1574:
 	.byte	83
 .Ltmp1575:
-	.long	.Ltmp877
-	.long	.Ltmp880
-.Lset308 = .Ltmp1577-.Ltmp1576
-	.short	.Lset308
+	.long	0
+	.long	0
+.Ldebug_loc137:
+	.long	.Ltmp834
+	.long	.Ltmp836
+.Lset307 = .Ltmp1577-.Ltmp1576
+	.short	.Lset307
 .Ltmp1576:
-	.byte	83
+	.byte	81
 .Ltmp1577:
 	.long	0
 	.long	0
-.Ldebug_loc144:
-	.long	.Ltmp871
-	.long	.Ltmp872
-.Lset309 = .Ltmp1579-.Ltmp1578
-	.short	.Lset309
+.Ldebug_loc138:
+	.long	.Ltmp835
+	.long	.Ltmp838
+.Lset308 = .Ltmp1579-.Ltmp1578
+	.short	.Lset308
 .Ltmp1578:
-	.byte	81
+	.byte	80
 .Ltmp1579:
 	.long	0
 	.long	0
-.Ldebug_loc145:
-	.long	.Ltmp879
-	.long	.Ltmp884
-.Lset310 = .Ltmp1581-.Ltmp1580
-	.short	.Lset310
+.Ldebug_loc139:
+	.long	.Ltmp846
+	.long	.Ltmp847
+.Lset309 = .Ltmp1581-.Ltmp1580
+	.short	.Lset309
 .Ltmp1580:
-	.byte	82
+	.byte	80
 .Ltmp1581:
 	.long	0
 	.long	0
-.Ldebug_loc146:
-	.long	.Ltmp886
-	.long	.Ltmp888
-.Lset311 = .Ltmp1583-.Ltmp1582
-	.short	.Lset311
+.Ldebug_loc140:
+	.long	.Ltmp848
+	.long	.Ltmp849
+.Lset310 = .Ltmp1583-.Ltmp1582
+	.short	.Lset310
 .Ltmp1582:
-	.byte	80
+	.byte	81
 .Ltmp1583:
 	.long	0
 	.long	0
-.Ldebug_loc147:
-	.long	.Ltmp891
-	.long	.Ltmp893
-.Lset312 = .Ltmp1585-.Ltmp1584
-	.short	.Lset312
+.Ldebug_loc141:
+	.long	.Ltmp856
+	.long	.Ltmp857
+.Lset311 = .Ltmp1585-.Ltmp1584
+	.short	.Lset311
 .Ltmp1584:
 	.byte	80
 .Ltmp1585:
 	.long	0
 	.long	0
-.Ldebug_loc148:
-	.long	.Ltmp898
-	.long	.Ltmp899
-.Lset313 = .Ltmp1587-.Ltmp1586
-	.short	.Lset313
+.Ldebug_loc142:
+	.long	.Ltmp858
+	.long	.Ltmp859
+.Lset312 = .Ltmp1587-.Ltmp1586
+	.short	.Lset312
 .Ltmp1586:
-	.byte	17
-	.byte	0
+	.byte	81
 .Ltmp1587:
-	.long	.Ltmp899
-	.long	.Lfunc_end73
-.Lset314 = .Ltmp1589-.Ltmp1588
-	.short	.Lset314
+	.long	0
+	.long	0
+.Ldebug_loc143:
+	.long	.Ltmp872
+	.long	.Ltmp873
+.Lset313 = .Ltmp1589-.Ltmp1588
+	.short	.Lset313
 .Ltmp1588:
-	.byte	17
-	.byte	1
+	.byte	81
 .Ltmp1589:
-	.long	0
-	.long	0
-.Ldebug_loc149:
-	.long	.Ltmp899
-	.long	.Ltmp899
-.Lset315 = .Ltmp1591-.Ltmp1590
-	.short	.Lset315
+	.long	.Ltmp876
+	.long	.Ltmp878
+.Lset314 = .Ltmp1591-.Ltmp1590
+	.short	.Lset314
 .Ltmp1590:
-	.byte	80
+	.byte	83
 .Ltmp1591:
-	.long	0
-	.long	0
-.Ldebug_loc150:
-	.long	.Ltmp901
-	.long	.Ltmp902
-.Lset316 = .Ltmp1593-.Ltmp1592
-	.short	.Lset316
+	.long	.Ltmp879
+	.long	.Ltmp882
+.Lset315 = .Ltmp1593-.Ltmp1592
+	.short	.Lset315
 .Ltmp1592:
-	.byte	86
+	.byte	83
 .Ltmp1593:
 	.long	0
 	.long	0
-.Ldebug_loc151:
-	.long	.Ltmp915
-	.long	.Ltmp921
-.Lset317 = .Ltmp1595-.Ltmp1594
-	.short	.Lset317
+.Ldebug_loc144:
+	.long	.Ltmp873
+	.long	.Ltmp874
+.Lset316 = .Ltmp1595-.Ltmp1594
+	.short	.Lset316
 .Ltmp1594:
 	.byte	81
 .Ltmp1595:
-	.long	.Ltmp929
-	.long	.Ltmp931
-.Lset318 = .Ltmp1597-.Ltmp1596
-	.short	.Lset318
+	.long	0
+	.long	0
+.Ldebug_loc145:
+	.long	.Ltmp881
+	.long	.Ltmp886
+.Lset317 = .Ltmp1597-.Ltmp1596
+	.short	.Lset317
 .Ltmp1596:
-	.byte	81
+	.byte	82
 .Ltmp1597:
 	.long	0
 	.long	0
-.Ldebug_loc152:
-	.long	.Ltmp916
-	.long	.Ltmp918
-.Lset319 = .Ltmp1599-.Ltmp1598
-	.short	.Lset319
+.Ldebug_loc146:
+	.long	.Ltmp888
+	.long	.Ltmp890
+.Lset318 = .Ltmp1599-.Ltmp1598
+	.short	.Lset318
 .Ltmp1598:
-	.byte	82
+	.byte	80
 .Ltmp1599:
-	.long	.Ltmp919
-	.long	.Ltmp931
-.Lset320 = .Ltmp1601-.Ltmp1600
-	.short	.Lset320
+	.long	0
+	.long	0
+.Ldebug_loc147:
+	.long	.Ltmp893
+	.long	.Ltmp895
+.Lset319 = .Ltmp1601-.Ltmp1600
+	.short	.Lset319
 .Ltmp1600:
-	.byte	82
+	.byte	80
 .Ltmp1601:
 	.long	0
 	.long	0
-.Ldebug_loc153:
-	.long	.Ltmp920
-	.long	.Ltmp930
-.Lset321 = .Ltmp1603-.Ltmp1602
-	.short	.Lset321
+.Ldebug_loc148:
+	.long	.Ltmp900
+	.long	.Ltmp901
+.Lset320 = .Ltmp1603-.Ltmp1602
+	.short	.Lset320
 .Ltmp1602:
 	.byte	17
-	.byte	2
+	.byte	0
 .Ltmp1603:
-	.long	.Ltmp930
-	.long	.Ltmp931
-.Lset322 = .Ltmp1605-.Ltmp1604
-	.short	.Lset322
+	.long	.Ltmp901
+	.long	.Lfunc_end73
+.Lset321 = .Ltmp1605-.Ltmp1604
+	.short	.Lset321
 .Ltmp1604:
-	.byte	84
+	.byte	17
+	.byte	1
 .Ltmp1605:
 	.long	0
 	.long	0
-.Ldebug_loc154:
-	.long	.Ltmp921
-	.long	.Ltmp924
-.Lset323 = .Ltmp1607-.Ltmp1606
-	.short	.Lset323
+.Ldebug_loc149:
+	.long	.Ltmp901
+	.long	.Ltmp901
+.Lset322 = .Ltmp1607-.Ltmp1606
+	.short	.Lset322
 .Ltmp1606:
-	.byte	17
-	.byte	2
+	.byte	80
 .Ltmp1607:
-	.long	.Ltmp924
-	.long	.Lfunc_end75
-.Lset324 = .Ltmp1609-.Ltmp1608
-	.short	.Lset324
+	.long	0
+	.long	0
+.Ldebug_loc150:
+	.long	.Ltmp903
+	.long	.Ltmp904
+.Lset323 = .Ltmp1609-.Ltmp1608
+	.short	.Lset323
 .Ltmp1608:
-	.byte	17
-	.byte	1
+	.byte	86
 .Ltmp1609:
 	.long	0
 	.long	0
-.Ldebug_loc155:
-	.long	.Ltmp932
-	.long	.Ltmp936
-.Lset325 = .Ltmp1611-.Ltmp1610
-	.short	.Lset325
+.Ldebug_loc151:
+	.long	.Ltmp917
+	.long	.Ltmp923
+.Lset324 = .Ltmp1611-.Ltmp1610
+	.short	.Lset324
 .Ltmp1610:
-	.byte	83
+	.byte	81
 .Ltmp1611:
-	.long	0
-	.long	0
-.Ldebug_loc156:
+	.long	.Ltmp931
 	.long	.Ltmp933
-	.long	.Ltmp935
-.Lset326 = .Ltmp1613-.Ltmp1612
-	.short	.Lset326
+.Lset325 = .Ltmp1613-.Ltmp1612
+	.short	.Lset325
 .Ltmp1612:
 	.byte	81
 .Ltmp1613:
 	.long	0
 	.long	0
-.Ldebug_loc157:
-	.long	.Ltmp934
-	.long	.Ltmp937
-.Lset327 = .Ltmp1615-.Ltmp1614
-	.short	.Lset327
+.Ldebug_loc152:
+	.long	.Ltmp918
+	.long	.Ltmp920
+.Lset326 = .Ltmp1615-.Ltmp1614
+	.short	.Lset326
 .Ltmp1614:
-	.byte	80
+	.byte	82
 .Ltmp1615:
-	.long	0
-	.long	0
-.Ldebug_loc158:
-	.long	.Ltmp945
-	.long	.Ltmp946
-.Lset328 = .Ltmp1617-.Ltmp1616
-	.short	.Lset328
+	.long	.Ltmp921
+	.long	.Ltmp933
+.Lset327 = .Ltmp1617-.Ltmp1616
+	.short	.Lset327
 .Ltmp1616:
-	.byte	80
+	.byte	82
 .Ltmp1617:
 	.long	0
 	.long	0
-.Ldebug_loc159:
-	.long	.Ltmp947
-	.long	.Ltmp948
-.Lset329 = .Ltmp1619-.Ltmp1618
-	.short	.Lset329
+.Ldebug_loc153:
+	.long	.Ltmp922
+	.long	.Ltmp932
+.Lset328 = .Ltmp1619-.Ltmp1618
+	.short	.Lset328
 .Ltmp1618:
-	.byte	81
+	.byte	17
+	.byte	2
 .Ltmp1619:
-	.long	0
-	.long	0
-.Ldebug_loc160:
-	.long	.Ltmp955
-	.long	.Ltmp956
-.Lset330 = .Ltmp1621-.Ltmp1620
-	.short	.Lset330
+	.long	.Ltmp932
+	.long	.Ltmp933
+.Lset329 = .Ltmp1621-.Ltmp1620
+	.short	.Lset329
 .Ltmp1620:
-	.byte	80
+	.byte	84
 .Ltmp1621:
 	.long	0
 	.long	0
-.Ldebug_loc161:
+.Ldebug_loc154:
+	.long	.Ltmp923
+	.long	.Ltmp926
+.Lset330 = .Ltmp1623-.Ltmp1622
+	.short	.Lset330
+.Ltmp1622:
+	.byte	17
+	.byte	2
+.Ltmp1623:
+	.long	.Ltmp926
+	.long	.Lfunc_end75
+.Lset331 = .Ltmp1625-.Ltmp1624
+	.short	.Lset331
+.Ltmp1624:
+	.byte	17
+	.byte	1
+.Ltmp1625:
+	.long	0
+	.long	0
+.Ldebug_loc155:
+	.long	.Ltmp934
+	.long	.Ltmp938
+.Lset332 = .Ltmp1627-.Ltmp1626
+	.short	.Lset332
+.Ltmp1626:
+	.byte	83
+.Ltmp1627:
+	.long	0
+	.long	0
+.Ldebug_loc156:
+	.long	.Ltmp935
+	.long	.Ltmp937
+.Lset333 = .Ltmp1629-.Ltmp1628
+	.short	.Lset333
+.Ltmp1628:
+	.byte	81
+.Ltmp1629:
+	.long	0
+	.long	0
+.Ldebug_loc157:
+	.long	.Ltmp936
+	.long	.Ltmp939
+.Lset334 = .Ltmp1631-.Ltmp1630
+	.short	.Lset334
+.Ltmp1630:
+	.byte	80
+.Ltmp1631:
+	.long	0
+	.long	0
+.Ldebug_loc158:
+	.long	.Ltmp947
+	.long	.Ltmp948
+.Lset335 = .Ltmp1633-.Ltmp1632
+	.short	.Lset335
+.Ltmp1632:
+	.byte	80
+.Ltmp1633:
+	.long	0
+	.long	0
+.Ldebug_loc159:
+	.long	.Ltmp949
+	.long	.Ltmp950
+.Lset336 = .Ltmp1635-.Ltmp1634
+	.short	.Lset336
+.Ltmp1634:
+	.byte	81
+.Ltmp1635:
+	.long	0
+	.long	0
+.Ldebug_loc160:
 	.long	.Ltmp957
 	.long	.Ltmp958
-.Lset331 = .Ltmp1623-.Ltmp1622
-	.short	.Lset331
-.Ltmp1622:
+.Lset337 = .Ltmp1637-.Ltmp1636
+	.short	.Lset337
+.Ltmp1636:
+	.byte	80
+.Ltmp1637:
+	.long	0
+	.long	0
+.Ldebug_loc161:
+	.long	.Ltmp959
+	.long	.Ltmp960
+.Lset338 = .Ltmp1639-.Ltmp1638
+	.short	.Lset338
+.Ltmp1638:
 	.byte	81
-.Ltmp1623:
+.Ltmp1639:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
-.Lset332 = .LpubNames_end0-.LpubNames_begin0
-	.long	.Lset332
+.Lset339 = .LpubNames_end0-.LpubNames_begin0
+	.long	.Lset339
 .LpubNames_begin0:
 	.short	2
 	.long	.L.debug_info_begin0
-.Lset333 = .L.debug_info_end0-.L.debug_info_begin0
-	.long	.Lset333
+.Lset340 = .L.debug_info_end0-.L.debug_info_begin0
+	.long	.Lset340
 	.long	5360
 .asciiz"startkit_gpio_driver_aux.select.3.enable"
 	.long	5093
 .asciiz"_i.slider_query_if._chan_y.get_coord"
 	.long	5141
 .asciiz"delay_seconds"
-	.long	5483
-.asciiz"startkit_gpio_driver_aux.select.yield.enable"
-	.long	5507
-.asciiz"startkit_gpio_driver_aux.select.enable"
 	.long	908
 .asciiz"_i.slider_if.startkit_gpio_driver_aux._c2.get_slider_state"
+	.long	5507
+.asciiz"startkit_gpio_driver_aux.select.enable"
+	.long	5483
+.asciiz"startkit_gpio_driver_aux.select.y.enable"
 	.long	4884
 .asciiz"_i.startkit_led_if._chan_y.set"
 	.long	5045
@@ -16548,18 +16592,20 @@ map:
 .asciiz"startkit_gpio_driver_aux.select.case.0"
 	.long	4530
 .asciiz"startkit_gpio_driver_aux.select.case.3"
-	.long	3686
-.asciiz"startkit_gpio_driver_aux.select.yield.case.0"
+	.long	4388
+.asciiz"startkit_gpio_driver_aux.select.case.2"
 	.long	1561
 .asciiz"startkit_led_driver.select.enable"
+	.long	3686
+.asciiz"startkit_gpio_driver_aux.select.y.case.0"
 	.long	3873
-.asciiz"startkit_gpio_driver_aux.select.yield.case.1"
+.asciiz"startkit_gpio_driver_aux.select.y.case.1"
 	.long	3911
-.asciiz"startkit_gpio_driver_aux.select.yield.case.2"
+.asciiz"startkit_gpio_driver_aux.select.y.case.2"
 	.long	4053
-.asciiz"startkit_gpio_driver_aux.select.yield.case.3"
+.asciiz"startkit_gpio_driver_aux.select.y.case.3"
 	.long	4108
-.asciiz"startkit_gpio_driver_aux.select.yield.case.4"
+.asciiz"startkit_gpio_driver_aux.select.y.case.4"
 	.long	31
 .asciiz"map"
 	.long	5336
@@ -16568,8 +16614,6 @@ map:
 .asciiz"startkit_gpio_driver_aux.select.case.4"
 	.long	5671
 .asciiz"startkit_gpio_driver.select.enable"
-	.long	4388
-.asciiz"startkit_gpio_driver_aux.select.case.2"
 	.long	823
 .asciiz"_i.slider_if.startkit_gpio_driver_aux._c3.get_slider_state"
 	.long	5862
@@ -16632,28 +16676,28 @@ map:
 .asciiz"startkit_led_driver"
 	.long	420
 .asciiz"_i.startkit_led_if.startkit_led_driver._c0.set_multiple"
-	.long	5647
-.asciiz"startkit_gpio_driver.select.yield.enable"
 	.long	5739
 .asciiz"_i.slider_if.startkit_gpio_driver._c3.get_slider_state"
-	.long	1505
-.asciiz"startkit_led_driver.select.yield.enable"
+	.long	5647
+.asciiz"startkit_gpio_driver.select.y.enable"
 	.long	5288
 .asciiz"startkit_gpio_driver_aux.select.0.enable"
 	.long	1004
 .asciiz"_i.startkit_led_if.startkit_gpio_driver_aux._c0.set_multiple"
+	.long	1505
+.asciiz"startkit_led_driver.select.y.enable"
 	.long	5021
 .asciiz"_i.absolute_slider_if._chan_y.get_coord"
 	.long	5117
 .asciiz"_i.slider_query_if._chan_y.filter"
-	.long	2001
-.asciiz"startkit_led_driver.select.yield.case.0"
 	.long	3396
 .asciiz"startkit_gpio_driver_aux.select.0.case.0"
-	.long	5599
-.asciiz"startkit_gpio_driver.select.2.enable"
 	.long	1712
 .asciiz"startkit_gpio_driver.init.1"
+	.long	2001
+.asciiz"startkit_led_driver.select.y.case.0"
+	.long	5599
+.asciiz"startkit_gpio_driver.select.2.enable"
 	.long	603
 .asciiz"_i.startkit_led_if.startkit_led_driver.0.set_multiple"
 	.long	1743
@@ -16677,13 +16721,13 @@ map:
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
-.Lset334 = .LpubTypes_end0-.LpubTypes_begin0
-	.long	.Lset334
+.Lset341 = .LpubTypes_end0-.LpubTypes_begin0
+	.long	.Lset341
 .LpubTypes_begin0:
 	.short	2
 	.long	.L.debug_info_begin0
-.Lset335 = .L.debug_info_end0-.L.debug_info_begin0
-	.long	.Lset335
+.Lset342 = .L.debug_info_end0-.L.debug_info_begin0
+	.long	.Lset342
 	.long	6156
 .asciiz"__TYPE_10"
 	.long	5994
@@ -16763,34 +16807,34 @@ map:
 	.typestring _i.startkit_led_if.startkit_gpio_driver._c0.set, "f{0}(u:q(uc),ui,ui,ui)"
 	.typestring _i.slider_if._chan.get_coord, "f{si}(chd)"
 	.typestring _i.slider_if._chan.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(chd,ui)"
-	.typestring _i.slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_if._chan_y.get_coord,_i.slider_if._client_call_y.fns
-	.typestring _i.slider_if._chan_y.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
+	.typestring _i.slider_if._chan_y.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.slider_if._chan_y.get_slider_state,_i.slider_if._client_call_y.fns
 	.typestring _i.startkit_led_if._chan.set_multiple, "f{0}(chd,ui,ui)"
 	.typestring _i.startkit_led_if._chan.set, "f{0}(chd,ui,ui,ui)"
-	.typestring _i.startkit_led_if._chan_y.set_multiple, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui,ui)"
+	.typestring _i.startkit_led_if._chan_y.set_multiple, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,ui)"
 	.overlay_reference _i.startkit_led_if._chan_y.set_multiple,_i.startkit_led_if._client_call_y.fns
-	.typestring _i.startkit_led_if._chan_y.set, "f{0}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui,ui,ui)"
+	.typestring _i.startkit_led_if._chan_y.set, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,ui,ui)"
 	.overlay_reference _i.startkit_led_if._chan_y.set,_i.startkit_led_if._client_call_y.fns
 	.typestring _i.startkit_button_if._chan.get_value, "l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(chd,ui)"
-	.typestring _i.startkit_button_if._chan_y.get_value, "l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
+	.typestring _i.startkit_button_if._chan_y.get_value, "l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.startkit_button_if._chan_y.get_value,_i.startkit_button_if._client_call_y.fns
 	.typestring _i.absolute_slider_if._chan.get_coord, "f{si}(chd)"
-	.typestring _i.absolute_slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.absolute_slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.absolute_slider_if._chan_y.get_coord,_i.absolute_slider_if._client_call_y.fns
 	.typestring _i.slider_query_if._chan.get_coord, "f{si}(chd)"
 	.typestring _i.slider_query_if._chan.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(chd)"
-	.typestring _i.slider_query_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_query_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_query_if._chan_y.get_coord,_i.slider_query_if._client_call_y.fns
-	.typestring _i.slider_query_if._chan_y.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_query_if._chan_y.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_query_if._chan_y.filter,_i.slider_query_if._client_call_y.fns
 	.typestring capsenseInitClock, "f{0}(ck)"
 	.typestring startkit_led_driver, "dk:f{0}(&(a(!1:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}})),ui,p)"
 	.typestring startkit_led_driver.select.0.enable, "dk:fe{0}()"
 	.typestring startkit_led_driver.init.1, "dk:f{0}(u:q(ui))"
 	.typestring startkit_led_driver.init.0, "dk:f{0}(u:q(ui),&(a(!1:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}})),ui,p)"
-	.typestring startkit_led_driver.select.yield.enable, "dk:fe{0}()"
+	.typestring startkit_led_driver.select.y.enable, "dk:fe{0}()"
 	.typestring startkit_led_driver.select.enable, "dk:fe{0}()"
 	.typestring startkit_led_driver.fini, "dk:f{0}(u:q(ui))"
 	.typestring startkit_gpio_driver, "k:f{0}(n:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}},n:is(startkit_button_if){m(changed){st:f{0}(0)},m(get_value){l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},&(s(startkit_gpio_ports){m(p32){p},m(capx){p},m(capy){p},m(clk){ck}}))"
@@ -16800,7 +16844,7 @@ map:
 	.typestring startkit_gpio_driver.select.3.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver.init.1, "k:f{0}(u:q(ui))"
 	.typestring startkit_gpio_driver.init.0, "k:f{0}(u:q(ui),n:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}},n:is(startkit_button_if){m(changed){st:f{0}(0)},m(get_value){l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},&(s(startkit_gpio_ports){m(p32){p},m(capx){p},m(capy){p},m(clk){ck}}))"
-	.typestring startkit_gpio_driver.select.yield.enable, "k:fe{0}()"
+	.typestring startkit_gpio_driver.select.y.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver.select.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver.fini, "k:f{0}(u:q(ui))"
 	.typestring absolute_slider.init.1, "dk:f{0}(u:q(ui))"
@@ -16818,14 +16862,14 @@ map:
 	.typestring startkit_gpio_driver_aux.select.3.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver_aux.init.1, "k:f{0}(u:q(ui))"
 	.typestring startkit_gpio_driver_aux.init.0, "k:f{0}(u:q(ui),n:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}},n:is(startkit_button_if){m(changed){st:f{0}(0)},m(get_value){l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},p,ic(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},ic(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}})"
-	.typestring startkit_gpio_driver_aux.select.yield.enable, "k:fe{0}()"
+	.typestring startkit_gpio_driver_aux.select.y.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver_aux.select.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver_aux.fini, "k:f{0}(u:q(ui))"
 	.overlay_reference startkit_gpio_driver_aux.select.2.case.0,_i.slider_query_if.get_coord.fns
 	.overlay_reference startkit_gpio_driver_aux.select.3.case.0,_i.slider_query_if.get_coord.fns
-	.overlay_reference startkit_gpio_driver_aux.select.yield.case.0,_i.slider_query_if.filter.fns
-	.overlay_reference startkit_gpio_driver_aux.select.yield.case.3,_i.slider_query_if.get_coord.fns
-	.overlay_reference startkit_gpio_driver_aux.select.yield.case.4,_i.slider_query_if.get_coord.fns
+	.overlay_reference startkit_gpio_driver_aux.select.y.case.0,_i.slider_query_if.filter.fns
+	.overlay_reference startkit_gpio_driver_aux.select.y.case.3,_i.slider_query_if.get_coord.fns
+	.overlay_reference startkit_gpio_driver_aux.select.y.case.4,_i.slider_query_if.get_coord.fns
 	.overlay_reference startkit_gpio_driver_aux.select.case.0,_i.slider_query_if.filter.fns
 	.overlay_reference startkit_gpio_driver_aux.select.case.3,_i.slider_query_if.get_coord.fns
 	.overlay_reference startkit_gpio_driver_aux.select.case.4,_i.slider_query_if.get_coord.fns
@@ -17233,33 +17277,33 @@ map:
 	.long	0
 	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
 	.byte	0
-.cc_top cc_64,.Lxtalabel24
+.cc_top cc_64,.Lxtalabel35
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	28
 	.long	28
-	.long	.Lxtalabel24
+	.long	.Lxtalabel35
 .cc_bottom cc_64
-.cc_top cc_65,.Lxtalabel35
+.cc_top cc_65,.Lxtalabel24
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	28
 	.long	28
-	.long	.Lxtalabel35
+	.long	.Lxtalabel24
 .cc_bottom cc_65
-.cc_top cc_66,.Lxtalabel24
+.cc_top cc_66,.Lxtalabel35
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	30
+	.long	32
+	.long	.Lxtalabel35
+.cc_bottom cc_66
+.cc_top cc_67,.Lxtalabel24
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	30
 	.long	32
 	.long	.Lxtalabel24
-.cc_bottom cc_66
-.cc_top cc_67,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	30
-	.long	32
-	.long	.Lxtalabel35
 .cc_bottom cc_67
 .cc_top cc_68,.Lxtalabel26
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17282,19 +17326,19 @@ map:
 	.long	37
 	.long	.Lxtalabel56
 .cc_bottom cc_70
-.cc_top cc_71,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	37
-	.long	37
-	.long	.Lxtalabel47
-.cc_bottom cc_71
-.cc_top cc_72,.Lxtalabel27
+.cc_top cc_71,.Lxtalabel27
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	37
 	.long	37
 	.long	.Lxtalabel27
+.cc_bottom cc_71
+.cc_top cc_72,.Lxtalabel47
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	37
+	.long	37
+	.long	.Lxtalabel47
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel47
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17303,33 +17347,33 @@ map:
 	.long	39
 	.long	.Lxtalabel47
 .cc_bottom cc_73
-.cc_top cc_74,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	39
-	.long	39
-	.long	.Lxtalabel38
-.cc_bottom cc_74
-.cc_top cc_75,.Lxtalabel27
+.cc_top cc_74,.Lxtalabel27
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel27
-.cc_bottom cc_75
-.cc_top cc_76,.Lxtalabel56
+.cc_bottom cc_74
+.cc_top cc_75,.Lxtalabel56
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel56
+.cc_bottom cc_75
+.cc_top cc_76,.Lxtalabel38
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	39
+	.long	39
+	.long	.Lxtalabel38
 .cc_bottom cc_76
-.cc_top cc_77,.Lxtalabel47
+.cc_top cc_77,.Lxtalabel38
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
-	.long	.Lxtalabel47
+	.long	.Lxtalabel38
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel27
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17338,19 +17382,19 @@ map:
 	.long	41
 	.long	.Lxtalabel27
 .cc_bottom cc_78
-.cc_top cc_79,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	41
-	.long	41
-	.long	.Lxtalabel38
-.cc_bottom cc_79
-.cc_top cc_80,.Lxtalabel56
+.cc_top cc_79,.Lxtalabel56
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel56
+.cc_bottom cc_79
+.cc_top cc_80,.Lxtalabel47
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	41
+	.long	41
+	.long	.Lxtalabel47
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel38
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17359,54 +17403,54 @@ map:
 	.long	45
 	.long	.Lxtalabel38
 .cc_bottom cc_81
-.cc_top cc_82,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	43
-	.long	45
-	.long	.Lxtalabel27
-.cc_bottom cc_82
-.cc_top cc_83,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	43
-	.long	45
-	.long	.Lxtalabel56
-.cc_bottom cc_83
-.cc_top cc_84,.Lxtalabel47
+.cc_top cc_82,.Lxtalabel47
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	45
 	.long	.Lxtalabel47
+.cc_bottom cc_82
+.cc_top cc_83,.Lxtalabel27
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	43
+	.long	45
+	.long	.Lxtalabel27
+.cc_bottom cc_83
+.cc_top cc_84,.Lxtalabel56
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	43
+	.long	45
+	.long	.Lxtalabel56
 .cc_bottom cc_84
-.cc_top cc_85,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxtalabel49
-.cc_bottom cc_85
-.cc_top cc_86,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxtalabel48
-.cc_bottom cc_86
-.cc_top cc_87,.Lxtalabel4
+.cc_top cc_85,.Lxtalabel4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel4
-.cc_bottom cc_87
-.cc_top cc_88,.Lxtalabel50
+.cc_bottom cc_85
+.cc_top cc_86,.Lxtalabel63
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel50
+	.long	.Lxtalabel63
+.cc_bottom cc_86
+.cc_top cc_87,.Lxtalabel48
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxtalabel48
+.cc_bottom cc_87
+.cc_top cc_88,.Lxtalabel34
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxtalabel34
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17415,33 +17459,33 @@ map:
 	.long	50
 	.long	.Lxtalabel5
 .cc_bottom cc_89
-.cc_top cc_90,.Lxtalabel51
+.cc_top cc_90,.Lxtalabel33
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel51
+	.long	.Lxtalabel33
 .cc_bottom cc_90
-.cc_top cc_91,.Lxtalabel52
+.cc_top cc_91,.Lxtalabel32
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel52
+	.long	.Lxtalabel32
 .cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel45
+.cc_top cc_92,.Lxtalabel31
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel45
+	.long	.Lxtalabel31
 .cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel44
+.cc_top cc_93,.Lxtalabel49
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel44
+	.long	.Lxtalabel49
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17450,40 +17494,40 @@ map:
 	.long	50
 	.long	.Lxtalabel6
 .cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel43
+.cc_top cc_95,.Lxtalabel30
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel43
+	.long	.Lxtalabel30
 .cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel42
+.cc_top cc_96,.Lxtalabel29
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel42
+	.long	.Lxtalabel29
 .cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel41
+.cc_top cc_97,.Lxtalabel28
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel41
+	.long	.Lxtalabel28
 .cc_bottom cc_97
-.cc_top cc_98,.Lxtalabel40
+.cc_top cc_98,.Lxtalabel3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel40
+	.long	.Lxtalabel3
 .cc_bottom cc_98
-.cc_top cc_99,.Lxtalabel39
+.cc_top cc_99,.Lxtalabel62
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel39
+	.long	.Lxtalabel62
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel8
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17492,33 +17536,33 @@ map:
 	.long	50
 	.long	.Lxtalabel8
 .cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxtalabel53
-.cc_bottom cc_101
-.cc_top cc_102,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxtalabel3
-.cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxtalabel54
-.cc_bottom cc_103
-.cc_top cc_104,.Lxtalabel2
+.cc_top cc_101,.Lxtalabel2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel2
+.cc_bottom cc_101
+.cc_top cc_102,.Lxtalabel39
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxtalabel39
+.cc_bottom cc_102
+.cc_top cc_103,.Lxtalabel40
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxtalabel40
+.cc_bottom cc_103
+.cc_top cc_104,.Lxtalabel41
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxtalabel41
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel9
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17527,33 +17571,33 @@ map:
 	.long	50
 	.long	.Lxtalabel9
 .cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel57
+.cc_top cc_106,.Lxtalabel1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel57
+	.long	.Lxtalabel1
 .cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel58
+.cc_top cc_107,.Lxtalabel42
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel58
+	.long	.Lxtalabel42
 .cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel34
+.cc_top cc_108,.Lxtalabel50
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel34
+	.long	.Lxtalabel50
 .cc_bottom cc_108
-.cc_top cc_109,.Lxtalabel33
+.cc_top cc_109,.Lxtalabel51
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel33
+	.long	.Lxtalabel51
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17562,33 +17606,33 @@ map:
 	.long	50
 	.long	.Lxtalabel10
 .cc_bottom cc_110
-.cc_top cc_111,.Lxtalabel32
+.cc_top cc_111,.Lxtalabel52
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel32
+	.long	.Lxtalabel52
 .cc_bottom cc_111
-.cc_top cc_112,.Lxtalabel31
+.cc_top cc_112,.Lxtalabel53
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel31
+	.long	.Lxtalabel53
 .cc_bottom cc_112
-.cc_top cc_113,.Lxtalabel30
+.cc_top cc_113,.Lxtalabel54
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel30
+	.long	.Lxtalabel54
 .cc_bottom cc_113
-.cc_top cc_114,.Lxtalabel29
+.cc_top cc_114,.Lxtalabel45
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel29
+	.long	.Lxtalabel45
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel11
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17597,33 +17641,33 @@ map:
 	.long	50
 	.long	.Lxtalabel11
 .cc_bottom cc_115
-.cc_top cc_116,.Lxtalabel28
+.cc_top cc_116,.Lxtalabel43
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel28
+	.long	.Lxtalabel43
 .cc_bottom cc_116
-.cc_top cc_117,.Lxtalabel59
+.cc_top cc_117,.Lxtalabel44
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel59
+	.long	.Lxtalabel44
 .cc_bottom cc_117
-.cc_top cc_118,.Lxtalabel1
+.cc_top cc_118,.Lxtalabel0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel1
+	.long	.Lxtalabel0
 .cc_bottom cc_118
-.cc_top cc_119,.Lxtalabel60
+.cc_top cc_119,.Lxtalabel61
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel60
+	.long	.Lxtalabel61
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel12
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17632,33 +17676,33 @@ map:
 	.long	50
 	.long	.Lxtalabel12
 .cc_bottom cc_120
-.cc_top cc_121,.Lxtalabel61
+.cc_top cc_121,.Lxtalabel57
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel61
+	.long	.Lxtalabel57
 .cc_bottom cc_121
-.cc_top cc_122,.Lxtalabel62
+.cc_top cc_122,.Lxtalabel58
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel62
+	.long	.Lxtalabel58
 .cc_bottom cc_122
-.cc_top cc_123,.Lxtalabel63
+.cc_top cc_123,.Lxtalabel59
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel63
+	.long	.Lxtalabel59
 .cc_bottom cc_123
-.cc_top cc_124,.Lxtalabel0
+.cc_top cc_124,.Lxtalabel60
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
-	.long	.Lxtalabel0
+	.long	.Lxtalabel60
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel13
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17688,12 +17732,12 @@ map:
 	.long	55
 	.long	.Lxtalabel13
 .cc_bottom cc_128
-.cc_top cc_129,.Lxtalabel63
+.cc_top cc_129,.Lxtalabel60
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel63
+	.long	.Lxtalabel60
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel13
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -17723,334 +17767,334 @@ map:
 	.long	55
 	.long	.Lxtalabel14
 .cc_bottom cc_133
-.cc_top cc_134,.Lxtalabel63
+.cc_top cc_134,.Lxtalabel60
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel63
+	.long	.Lxtalabel60
 .cc_bottom cc_134
-.cc_top cc_135,.Lxtalabel63
+.cc_top cc_135,.Lxtalabel60
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel63
+	.long	.Lxtalabel60
 .cc_bottom cc_135
-.cc_top cc_136,.Lxtalabel0
+.cc_top cc_136,.Lxtalabel59
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel0
+	.long	.Lxtalabel59
 .cc_bottom cc_136
-.cc_top cc_137,.Lxtalabel62
+.cc_top cc_137,.Lxtalabel59
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel62
+	.long	.Lxtalabel59
 .cc_bottom cc_137
-.cc_top cc_138,.Lxtalabel62
+.cc_top cc_138,.Lxtalabel59
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel62
+	.long	.Lxtalabel59
 .cc_bottom cc_138
-.cc_top cc_139,.Lxtalabel62
+.cc_top cc_139,.Lxtalabel12
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel62
+	.long	.Lxtalabel12
 .cc_bottom cc_139
-.cc_top cc_140,.Lxtalabel0
+.cc_top cc_140,.Lxtalabel58
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel0
+	.long	.Lxtalabel58
 .cc_bottom cc_140
-.cc_top cc_141,.Lxtalabel61
+.cc_top cc_141,.Lxtalabel58
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel61
+	.long	.Lxtalabel58
 .cc_bottom cc_141
-.cc_top cc_142,.Lxtalabel61
+.cc_top cc_142,.Lxtalabel58
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel61
+	.long	.Lxtalabel58
 .cc_bottom cc_142
-.cc_top cc_143,.Lxtalabel61
+.cc_top cc_143,.Lxtalabel12
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel12
+.cc_bottom cc_143
+.cc_top cc_144,.Lxtalabel57
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel57
+.cc_bottom cc_144
+.cc_top cc_145,.Lxtalabel57
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel57
+.cc_bottom cc_145
+.cc_top cc_146,.Lxtalabel57
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel57
+.cc_bottom cc_146
+.cc_top cc_147,.Lxtalabel12
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel12
+.cc_bottom cc_147
+.cc_top cc_148,.Lxtalabel11
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel11
+.cc_bottom cc_148
+.cc_top cc_149,.Lxtalabel11
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel11
+.cc_bottom cc_149
+.cc_top cc_150,.Lxtalabel11
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel11
+.cc_bottom cc_150
+.cc_top cc_151,.Lxtalabel61
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel61
-.cc_bottom cc_143
-.cc_top cc_144,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel0
-.cc_bottom cc_144
-.cc_top cc_145,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel60
-.cc_bottom cc_145
-.cc_top cc_146,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel60
-.cc_bottom cc_146
-.cc_top cc_147,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel60
-.cc_bottom cc_147
-.cc_top cc_148,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel59
-.cc_bottom cc_148
-.cc_top cc_149,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel59
-.cc_bottom cc_149
-.cc_top cc_150,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel59
-.cc_bottom cc_150
-.cc_top cc_151,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel1
 .cc_bottom cc_151
-.cc_top cc_152,.Lxtalabel58
+.cc_top cc_152,.Lxtalabel54
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel58
+	.long	.Lxtalabel54
 .cc_bottom cc_152
-.cc_top cc_153,.Lxtalabel58
+.cc_top cc_153,.Lxtalabel54
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel58
+	.long	.Lxtalabel54
 .cc_bottom cc_153
-.cc_top cc_154,.Lxtalabel58
+.cc_top cc_154,.Lxtalabel54
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel58
+	.long	.Lxtalabel54
 .cc_bottom cc_154
-.cc_top cc_155,.Lxtalabel1
+.cc_top cc_155,.Lxtalabel10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel1
+	.long	.Lxtalabel10
 .cc_bottom cc_155
-.cc_top cc_156,.Lxtalabel57
+.cc_top cc_156,.Lxtalabel53
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel57
+	.long	.Lxtalabel53
 .cc_bottom cc_156
-.cc_top cc_157,.Lxtalabel57
+.cc_top cc_157,.Lxtalabel53
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel57
+	.long	.Lxtalabel53
 .cc_bottom cc_157
-.cc_top cc_158,.Lxtalabel57
+.cc_top cc_158,.Lxtalabel53
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel57
+	.long	.Lxtalabel53
 .cc_bottom cc_158
-.cc_top cc_159,.Lxtalabel1
+.cc_top cc_159,.Lxtalabel10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel1
+	.long	.Lxtalabel10
 .cc_bottom cc_159
-.cc_top cc_160,.Lxtalabel2
+.cc_top cc_160,.Lxtalabel52
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel2
+	.long	.Lxtalabel52
 .cc_bottom cc_160
-.cc_top cc_161,.Lxtalabel2
+.cc_top cc_161,.Lxtalabel52
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel2
+	.long	.Lxtalabel52
 .cc_bottom cc_161
-.cc_top cc_162,.Lxtalabel2
+.cc_top cc_162,.Lxtalabel52
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel2
+	.long	.Lxtalabel52
 .cc_bottom cc_162
-.cc_top cc_163,.Lxtalabel54
+.cc_top cc_163,.Lxtalabel10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel54
+	.long	.Lxtalabel10
 .cc_bottom cc_163
-.cc_top cc_164,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel54
-.cc_bottom cc_164
-.cc_top cc_165,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel54
-.cc_bottom cc_165
-.cc_top cc_166,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel53
-.cc_bottom cc_166
-.cc_top cc_167,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel53
-.cc_bottom cc_167
-.cc_top cc_168,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel53
-.cc_bottom cc_168
-.cc_top cc_169,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel3
-.cc_bottom cc_169
-.cc_top cc_170,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel52
-.cc_bottom cc_170
-.cc_top cc_171,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel52
-.cc_bottom cc_171
-.cc_top cc_172,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel52
-.cc_bottom cc_172
-.cc_top cc_173,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel12
-.cc_bottom cc_173
-.cc_top cc_174,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel3
-.cc_bottom cc_174
-.cc_top cc_175,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel12
-.cc_bottom cc_175
-.cc_top cc_176,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel12
-.cc_bottom cc_176
-.cc_top cc_177,.Lxtalabel51
+.cc_top cc_164,.Lxtalabel51
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel51
+.cc_bottom cc_164
+.cc_top cc_165,.Lxtalabel51
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel51
+.cc_bottom cc_165
+.cc_top cc_166,.Lxtalabel51
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel51
+.cc_bottom cc_166
+.cc_top cc_167,.Lxtalabel61
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel61
+.cc_bottom cc_167
+.cc_top cc_168,.Lxtalabel50
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel50
+.cc_bottom cc_168
+.cc_top cc_169,.Lxtalabel50
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel50
+.cc_bottom cc_169
+.cc_top cc_170,.Lxtalabel50
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel50
+.cc_bottom cc_170
+.cc_top cc_171,.Lxtalabel9
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel9
+.cc_bottom cc_171
+.cc_top cc_172,.Lxtalabel9
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel9
+.cc_bottom cc_172
+.cc_top cc_173,.Lxtalabel9
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel9
+.cc_bottom cc_173
+.cc_top cc_174,.Lxtalabel49
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel49
+.cc_bottom cc_174
+.cc_top cc_175,.Lxtalabel61
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel61
+.cc_bottom cc_175
+.cc_top cc_176,.Lxtalabel8
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel8
+.cc_bottom cc_176
+.cc_top cc_177,.Lxtalabel8
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel8
 .cc_bottom cc_177
-.cc_top cc_178,.Lxtalabel11
+.cc_top cc_178,.Lxtalabel8
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel11
+	.long	.Lxtalabel8
 .cc_bottom cc_178
-.cc_top cc_179,.Lxtalabel11
+.cc_top cc_179,.Lxtalabel62
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel11
+	.long	.Lxtalabel62
 .cc_bottom cc_179
-.cc_top cc_180,.Lxtalabel11
+.cc_top cc_180,.Lxtalabel6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel11
+	.long	.Lxtalabel6
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel28
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18073,19 +18117,19 @@ map:
 	.long	55
 	.long	.Lxtalabel28
 .cc_bottom cc_183
-.cc_top cc_184,.Lxtalabel51
+.cc_top cc_184,.Lxtalabel49
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel51
+	.long	.Lxtalabel49
 .cc_bottom cc_184
-.cc_top cc_185,.Lxtalabel51
+.cc_top cc_185,.Lxtalabel6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel51
+	.long	.Lxtalabel6
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel29
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18108,19 +18152,19 @@ map:
 	.long	55
 	.long	.Lxtalabel29
 .cc_bottom cc_188
-.cc_top cc_189,.Lxtalabel3
+.cc_top cc_189,.Lxtalabel49
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel3
+	.long	.Lxtalabel49
 .cc_bottom cc_189
-.cc_top cc_190,.Lxtalabel10
+.cc_top cc_190,.Lxtalabel6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel10
+	.long	.Lxtalabel6
 .cc_bottom cc_190
 .cc_top cc_191,.Lxtalabel30
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18143,19 +18187,19 @@ map:
 	.long	55
 	.long	.Lxtalabel30
 .cc_bottom cc_193
-.cc_top cc_194,.Lxtalabel50
+.cc_top cc_194,.Lxtalabel62
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel50
+	.long	.Lxtalabel62
 .cc_bottom cc_194
-.cc_top cc_195,.Lxtalabel10
+.cc_top cc_195,.Lxtalabel5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel10
+	.long	.Lxtalabel5
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel31
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18178,19 +18222,19 @@ map:
 	.long	55
 	.long	.Lxtalabel31
 .cc_bottom cc_198
-.cc_top cc_199,.Lxtalabel50
+.cc_top cc_199,.Lxtalabel48
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel50
+	.long	.Lxtalabel48
 .cc_bottom cc_199
-.cc_top cc_200,.Lxtalabel10
+.cc_top cc_200,.Lxtalabel5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel10
+	.long	.Lxtalabel5
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel32
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18213,19 +18257,19 @@ map:
 	.long	55
 	.long	.Lxtalabel32
 .cc_bottom cc_203
-.cc_top cc_204,.Lxtalabel50
+.cc_top cc_204,.Lxtalabel48
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel50
+	.long	.Lxtalabel48
 .cc_bottom cc_204
-.cc_top cc_205,.Lxtalabel49
+.cc_top cc_205,.Lxtalabel5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel49
+	.long	.Lxtalabel5
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel33
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18248,19 +18292,19 @@ map:
 	.long	55
 	.long	.Lxtalabel33
 .cc_bottom cc_208
-.cc_top cc_209,.Lxtalabel49
+.cc_top cc_209,.Lxtalabel48
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel49
+	.long	.Lxtalabel48
 .cc_bottom cc_209
-.cc_top cc_210,.Lxtalabel9
+.cc_top cc_210,.Lxtalabel62
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel9
+	.long	.Lxtalabel62
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel34
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18283,89 +18327,89 @@ map:
 	.long	55
 	.long	.Lxtalabel34
 .cc_bottom cc_213
-.cc_top cc_214,.Lxtalabel49
+.cc_top cc_214,.Lxtalabel4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel49
+	.long	.Lxtalabel4
 .cc_bottom cc_214
-.cc_top cc_215,.Lxtalabel9
+.cc_top cc_215,.Lxtalabel4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel9
+	.long	.Lxtalabel4
 .cc_bottom cc_215
-.cc_top cc_216,.Lxtalabel9
+.cc_top cc_216,.Lxtalabel4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel9
+	.long	.Lxtalabel4
 .cc_bottom cc_216
-.cc_top cc_217,.Lxtalabel4
+.cc_top cc_217,.Lxtalabel3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel4
+	.long	.Lxtalabel3
 .cc_bottom cc_217
-.cc_top cc_218,.Lxtalabel48
+.cc_top cc_218,.Lxtalabel3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel48
+	.long	.Lxtalabel3
 .cc_bottom cc_218
-.cc_top cc_219,.Lxtalabel48
+.cc_top cc_219,.Lxtalabel3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel48
+	.long	.Lxtalabel3
 .cc_bottom cc_219
-.cc_top cc_220,.Lxtalabel48
+.cc_top cc_220,.Lxtalabel63
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel48
+	.long	.Lxtalabel63
 .cc_bottom cc_220
-.cc_top cc_221,.Lxtalabel4
+.cc_top cc_221,.Lxtalabel2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel4
+	.long	.Lxtalabel2
 .cc_bottom cc_221
-.cc_top cc_222,.Lxtalabel8
+.cc_top cc_222,.Lxtalabel2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel8
+	.long	.Lxtalabel2
 .cc_bottom cc_222
-.cc_top cc_223,.Lxtalabel8
+.cc_top cc_223,.Lxtalabel2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel8
+	.long	.Lxtalabel2
 .cc_bottom cc_223
-.cc_top cc_224,.Lxtalabel8
+.cc_top cc_224,.Lxtalabel63
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel8
+	.long	.Lxtalabel63
 .cc_bottom cc_224
-.cc_top cc_225,.Lxtalabel4
+.cc_top cc_225,.Lxtalabel1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel4
+	.long	.Lxtalabel1
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel39
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18388,19 +18432,19 @@ map:
 	.long	55
 	.long	.Lxtalabel39
 .cc_bottom cc_228
-.cc_top cc_229,.Lxtalabel5
+.cc_top cc_229,.Lxtalabel45
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel5
+	.long	.Lxtalabel45
 .cc_bottom cc_229
-.cc_top cc_230,.Lxtalabel5
+.cc_top cc_230,.Lxtalabel1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel5
+	.long	.Lxtalabel1
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel40
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18430,12 +18474,12 @@ map:
 	.long	55
 	.long	.Lxtalabel45
 .cc_bottom cc_234
-.cc_top cc_235,.Lxtalabel6
+.cc_top cc_235,.Lxtalabel1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel6
+	.long	.Lxtalabel1
 .cc_bottom cc_235
 .cc_top cc_236,.Lxtalabel41
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18465,12 +18509,12 @@ map:
 	.long	55
 	.long	.Lxtalabel45
 .cc_bottom cc_239
-.cc_top cc_240,.Lxtalabel6
+.cc_top cc_240,.Lxtalabel63
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel6
+	.long	.Lxtalabel63
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel42
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18493,19 +18537,19 @@ map:
 	.long	55
 	.long	.Lxtalabel42
 .cc_bottom cc_243
-.cc_top cc_244,.Lxtalabel45
+.cc_top cc_244,.Lxtalabel0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel45
+	.long	.Lxtalabel0
 .cc_bottom cc_244
-.cc_top cc_245,.Lxtalabel6
+.cc_top cc_245,.Lxtalabel0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
-	.long	.Lxtalabel6
+	.long	.Lxtalabel0
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel43
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18528,19 +18572,19 @@ map:
 	.long	55
 	.long	.Lxtalabel43
 .cc_bottom cc_248
-.cc_top cc_249,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	52
-	.long	55
-	.long	.Lxtalabel5
-.cc_bottom cc_249
-.cc_top cc_250,.Lxtalabel44
+.cc_top cc_249,.Lxtalabel44
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel44
+.cc_bottom cc_249
+.cc_top cc_250,.Lxtalabel0
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	52
+	.long	55
+	.long	.Lxtalabel0
 .cc_bottom cc_250
 .cc_top cc_251,.Lxtalabel44
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18556,12 +18600,12 @@ map:
 	.long	55
 	.long	.Lxtalabel44
 .cc_bottom cc_252
-.cc_top cc_253,.Lxtalabel5
+.cc_top cc_253,.Lxtalabel43
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel5
+	.long	.Lxtalabel43
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel44
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18570,33 +18614,33 @@ map:
 	.long	56
 	.long	.Lxtalabel44
 .cc_bottom cc_254
-.cc_top cc_255,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	56
-	.long	56
-	.long	.Lxtalabel43
-.cc_bottom cc_255
-.cc_top cc_256,.Lxtalabel42
+.cc_top cc_255,.Lxtalabel42
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel42
-.cc_bottom cc_256
-.cc_top cc_257,.Lxtalabel41
+.cc_bottom cc_255
+.cc_top cc_256,.Lxtalabel41
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel41
-.cc_bottom cc_257
-.cc_top cc_258,.Lxtalabel40
+.cc_bottom cc_256
+.cc_top cc_257,.Lxtalabel40
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel40
+.cc_bottom cc_257
+.cc_top cc_258,.Lxtalabel39
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	56
+	.long	56
+	.long	.Lxtalabel39
 .cc_bottom cc_258
 .cc_top cc_259,.Lxtalabel45
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18612,61 +18656,61 @@ map:
 	.long	56
 	.long	.Lxtalabel63
 .cc_bottom cc_260
-.cc_top cc_261,.Lxtalabel6
+.cc_top cc_261,.Lxtalabel0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel6
+	.long	.Lxtalabel0
 .cc_bottom cc_261
-.cc_top cc_262,.Lxtalabel39
+.cc_top cc_262,.Lxtalabel1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel39
+	.long	.Lxtalabel1
 .cc_bottom cc_262
-.cc_top cc_263,.Lxtalabel4
+.cc_top cc_263,.Lxtalabel2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel4
+	.long	.Lxtalabel2
 .cc_bottom cc_263
-.cc_top cc_264,.Lxtalabel13
+.cc_top cc_264,.Lxtalabel3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel13
+	.long	.Lxtalabel3
 .cc_bottom cc_264
-.cc_top cc_265,.Lxtalabel8
+.cc_top cc_265,.Lxtalabel34
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel8
+	.long	.Lxtalabel34
 .cc_bottom cc_265
-.cc_top cc_266,.Lxtalabel14
+.cc_top cc_266,.Lxtalabel33
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel14
+	.long	.Lxtalabel33
 .cc_bottom cc_266
-.cc_top cc_267,.Lxtalabel62
+.cc_top cc_267,.Lxtalabel32
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel62
+	.long	.Lxtalabel32
 .cc_bottom cc_267
-.cc_top cc_268,.Lxtalabel61
+.cc_top cc_268,.Lxtalabel31
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel61
+	.long	.Lxtalabel31
 .cc_bottom cc_268
 .cc_top cc_269,.Lxtalabel48
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18675,33 +18719,33 @@ map:
 	.long	56
 	.long	.Lxtalabel48
 .cc_bottom cc_269
-.cc_top cc_270,.Lxtalabel60
+.cc_top cc_270,.Lxtalabel30
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel60
+	.long	.Lxtalabel30
 .cc_bottom cc_270
-.cc_top cc_271,.Lxtalabel34
+.cc_top cc_271,.Lxtalabel29
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel34
+	.long	.Lxtalabel29
 .cc_bottom cc_271
-.cc_top cc_272,.Lxtalabel33
+.cc_top cc_272,.Lxtalabel28
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel33
+	.long	.Lxtalabel28
 .cc_bottom cc_272
-.cc_top cc_273,.Lxtalabel9
+.cc_top cc_273,.Lxtalabel62
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel9
+	.long	.Lxtalabel62
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel49
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18710,33 +18754,33 @@ map:
 	.long	56
 	.long	.Lxtalabel49
 .cc_bottom cc_274
-.cc_top cc_275,.Lxtalabel3
+.cc_top cc_275,.Lxtalabel4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel3
+	.long	.Lxtalabel4
 .cc_bottom cc_275
-.cc_top cc_276,.Lxtalabel32
+.cc_top cc_276,.Lxtalabel5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel32
+	.long	.Lxtalabel5
 .cc_bottom cc_276
-.cc_top cc_277,.Lxtalabel31
+.cc_top cc_277,.Lxtalabel6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel31
+	.long	.Lxtalabel6
 .cc_bottom cc_277
-.cc_top cc_278,.Lxtalabel30
+.cc_top cc_278,.Lxtalabel61
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel30
+	.long	.Lxtalabel61
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel50
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18745,26 +18789,26 @@ map:
 	.long	56
 	.long	.Lxtalabel50
 .cc_bottom cc_279
-.cc_top cc_280,.Lxtalabel29
+.cc_top cc_280,.Lxtalabel8
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel29
+	.long	.Lxtalabel8
 .cc_bottom cc_280
-.cc_top cc_281,.Lxtalabel10
+.cc_top cc_281,.Lxtalabel9
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	56
+	.long	56
+	.long	.Lxtalabel9
+.cc_bottom cc_281
+.cc_top cc_282,.Lxtalabel10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel10
-.cc_bottom cc_281
-.cc_top cc_282,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	56
-	.long	56
-	.long	.Lxtalabel28
 .cc_bottom cc_282
 .cc_top cc_283,.Lxtalabel11
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18780,12 +18824,12 @@ map:
 	.long	56
 	.long	.Lxtalabel51
 .cc_bottom cc_284
-.cc_top cc_285,.Lxtalabel0
+.cc_top cc_285,.Lxtalabel60
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel0
+	.long	.Lxtalabel60
 .cc_bottom cc_285
 .cc_top cc_286,.Lxtalabel12
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18794,19 +18838,19 @@ map:
 	.long	56
 	.long	.Lxtalabel12
 .cc_bottom cc_286
-.cc_top cc_287,.Lxtalabel59
+.cc_top cc_287,.Lxtalabel13
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel59
+	.long	.Lxtalabel13
 .cc_bottom cc_287
-.cc_top cc_288,.Lxtalabel58
+.cc_top cc_288,.Lxtalabel14
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
-	.long	.Lxtalabel58
+	.long	.Lxtalabel14
 .cc_bottom cc_288
 .cc_top cc_289,.Lxtalabel52
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18815,33 +18859,33 @@ map:
 	.long	56
 	.long	.Lxtalabel52
 .cc_bottom cc_289
-.cc_top cc_290,.Lxtalabel57
+.cc_top cc_290,.Lxtalabel59
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	56
+	.long	56
+	.long	.Lxtalabel59
+.cc_bottom cc_290
+.cc_top cc_291,.Lxtalabel58
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	56
+	.long	56
+	.long	.Lxtalabel58
+.cc_bottom cc_291
+.cc_top cc_292,.Lxtalabel57
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel57
-.cc_bottom cc_290
-.cc_top cc_291,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	56
-	.long	56
-	.long	.Lxtalabel1
-.cc_bottom cc_291
-.cc_top cc_292,.Lxtalabel54
+.cc_bottom cc_292
+.cc_top cc_293,.Lxtalabel54
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel54
-.cc_bottom cc_292
-.cc_top cc_293,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	56
-	.long	56
-	.long	.Lxtalabel2
 .cc_bottom cc_293
 .cc_top cc_294,.Lxtalabel53
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18850,40 +18894,40 @@ map:
 	.long	56
 	.long	.Lxtalabel53
 .cc_bottom cc_294
-.cc_top cc_295,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	58
-	.long	60
-	.long	.Lxtalabel15
-.cc_bottom cc_295
-.cc_top cc_296,.Lxtalabel7
+.cc_top cc_295,.Lxtalabel7
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel7
-.cc_bottom cc_296
-.cc_top cc_297,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	58
-	.long	60
-	.long	.Lxtalabel46
-.cc_bottom cc_297
-.cc_top cc_298,.Lxtalabel64
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	58
-	.long	60
-	.long	.Lxtalabel64
-.cc_bottom cc_298
-.cc_top cc_299,.Lxtalabel25
+.cc_bottom cc_295
+.cc_top cc_296,.Lxtalabel25
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel25
+.cc_bottom cc_296
+.cc_top cc_297,.Lxtalabel15
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	58
+	.long	60
+	.long	.Lxtalabel15
+.cc_bottom cc_297
+.cc_top cc_298,.Lxtalabel46
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	58
+	.long	60
+	.long	.Lxtalabel46
+.cc_bottom cc_298
+.cc_top cc_299,.Lxtalabel64
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	58
+	.long	60
+	.long	.Lxtalabel64
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel55
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18892,68 +18936,68 @@ map:
 	.long	60
 	.long	.Lxtalabel55
 .cc_bottom cc_300
-.cc_top cc_301,.Lxtalabel103
+.cc_top cc_301,.Lxtalabel65
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	74
 	.long	76
-	.long	.Lxtalabel103
+	.long	.Lxtalabel65
 .cc_bottom cc_301
-.cc_top cc_302,.Lxtalabel65
+.cc_top cc_302,.Lxtalabel104
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	74
 	.long	76
-	.long	.Lxtalabel65
+	.long	.Lxtalabel104
 .cc_bottom cc_302
-.cc_top cc_303,.Lxtalabel65
+.cc_top cc_303,.Lxtalabel104
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	78
 	.long	79
-	.long	.Lxtalabel65
+	.long	.Lxtalabel104
 .cc_bottom cc_303
-.cc_top cc_304,.Lxtalabel103
+.cc_top cc_304,.Lxtalabel65
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	78
 	.long	79
-	.long	.Lxtalabel103
+	.long	.Lxtalabel65
 .cc_bottom cc_304
-.cc_top cc_305,.Lxtalabel65
+.cc_top cc_305,.Lxtalabel104
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	81
 	.long	81
-	.long	.Lxtalabel65
+	.long	.Lxtalabel104
 .cc_bottom cc_305
-.cc_top cc_306,.Lxtalabel103
+.cc_top cc_306,.Lxtalabel65
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	81
 	.long	81
-	.long	.Lxtalabel103
+	.long	.Lxtalabel65
 .cc_bottom cc_306
-.cc_top cc_307,.Lxtalabel65
+.cc_top cc_307,.Lxtalabel104
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	84
+	.long	84
+	.long	.Lxtalabel104
+.cc_bottom cc_307
+.cc_top cc_308,.Lxtalabel65
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	84
 	.long	84
 	.long	.Lxtalabel65
-.cc_bottom cc_307
-.cc_top cc_308,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	84
-	.long	84
-	.long	.Lxtalabel103
 .cc_bottom cc_308
-.cc_top cc_309,.Lxtalabel103
+.cc_top cc_309,.Lxtalabel104
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	86
 	.long	96
-	.long	.Lxtalabel103
+	.long	.Lxtalabel104
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel65
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -18962,110 +19006,110 @@ map:
 	.long	96
 	.long	.Lxtalabel65
 .cc_bottom cc_310
-.cc_top cc_311,.Lxtalabel66
+.cc_top cc_311,.Lxtalabel85
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	97
 	.long	97
-	.long	.Lxtalabel66
+	.long	.Lxtalabel85
 .cc_bottom cc_311
-.cc_top cc_312,.Lxtalabel67
+.cc_top cc_312,.Lxtalabel66
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	97
+	.long	97
+	.long	.Lxtalabel66
+.cc_bottom cc_312
+.cc_top cc_313,.Lxtalabel67
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel67
-.cc_bottom cc_312
-.cc_top cc_313,.Lxtalabel66
+.cc_bottom cc_313
+.cc_top cc_314,.Lxtalabel66
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	99
 	.long	.Lxtalabel66
-.cc_bottom cc_313
-.cc_top cc_314,.Lxtalabel67
+.cc_bottom cc_314
+.cc_top cc_315,.Lxtalabel85
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	99
+	.long	99
+	.long	.Lxtalabel85
+.cc_bottom cc_315
+.cc_top cc_316,.Lxtalabel67
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	99
 	.long	.Lxtalabel67
-.cc_bottom cc_314
-.cc_top cc_315,.Lxtalabel151
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	100
-	.long	101
-	.long	.Lxtalabel151
-.cc_bottom cc_315
-.cc_top cc_316,.Lxtalabel116
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	100
-	.long	101
-	.long	.Lxtalabel116
 .cc_bottom cc_316
-.cc_top cc_317,.Lxtalabel68
+.cc_top cc_317,.Lxtalabel152
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	100
+	.long	101
+	.long	.Lxtalabel152
+.cc_bottom cc_317
+.cc_top cc_318,.Lxtalabel68
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	100
 	.long	101
 	.long	.Lxtalabel68
-.cc_bottom cc_317
-.cc_top cc_318,.Lxtalabel69
+.cc_bottom cc_318
+.cc_top cc_319,.Lxtalabel117
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	100
+	.long	101
+	.long	.Lxtalabel117
+.cc_bottom cc_319
+.cc_top cc_320,.Lxtalabel69
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	102
 	.long	108
 	.long	.Lxtalabel69
-.cc_bottom cc_318
-.cc_top cc_319,.Lxtalabel152
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	102
-	.long	108
-	.long	.Lxtalabel152
-.cc_bottom cc_319
-.cc_top cc_320,.Lxtalabel117
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	102
-	.long	108
-	.long	.Lxtalabel117
 .cc_bottom cc_320
 .cc_top cc_321,.Lxtalabel153
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	109
-	.long	109
+	.long	102
+	.long	108
 	.long	.Lxtalabel153
 .cc_bottom cc_321
-.cc_top cc_322,.Lxtalabel70
+.cc_top cc_322,.Lxtalabel118
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	102
+	.long	108
+	.long	.Lxtalabel118
+.cc_bottom cc_322
+.cc_top cc_323,.Lxtalabel119
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	109
+	.long	109
+	.long	.Lxtalabel119
+.cc_bottom cc_323
+.cc_top cc_324,.Lxtalabel154
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	109
+	.long	109
+	.long	.Lxtalabel154
+.cc_bottom cc_324
+.cc_top cc_325,.Lxtalabel70
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel70
-.cc_bottom cc_322
-.cc_top cc_323,.Lxtalabel118
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	109
-	.long	109
-	.long	.Lxtalabel118
-.cc_bottom cc_323
-.cc_top cc_324,.Lxtalabel155
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	113
-	.long	113
-	.long	.Lxtalabel155
-.cc_bottom cc_324
-.cc_top cc_325,.Lxtalabel120
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	113
-	.long	113
-	.long	.Lxtalabel120
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel71
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -19074,565 +19118,565 @@ map:
 	.long	113
 	.long	.Lxtalabel71
 .cc_bottom cc_326
-.cc_top cc_327,.Lxtalabel120
+.cc_top cc_327,.Lxtalabel121
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	113
+	.long	113
+	.long	.Lxtalabel121
+.cc_bottom cc_327
+.cc_top cc_328,.Lxtalabel156
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	113
+	.long	113
+	.long	.Lxtalabel156
+.cc_bottom cc_328
+.cc_top cc_329,.Lxtalabel156
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	116
 	.long	116
-	.long	.Lxtalabel120
-.cc_bottom cc_327
-.cc_top cc_328,.Lxtalabel71
+	.long	.Lxtalabel156
+.cc_bottom cc_329
+.cc_top cc_330,.Lxtalabel71
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	116
 	.long	116
 	.long	.Lxtalabel71
-.cc_bottom cc_328
-.cc_top cc_329,.Lxtalabel155
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	116
-	.long	116
-	.long	.Lxtalabel155
-.cc_bottom cc_329
-.cc_top cc_330,.Lxtalabel156
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	117
-	.long	120
-	.long	.Lxtalabel156
 .cc_bottom cc_330
 .cc_top cc_331,.Lxtalabel121
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	117
-	.long	120
+	.long	116
+	.long	116
 	.long	.Lxtalabel121
 .cc_bottom cc_331
-.cc_top cc_332,.Lxtalabel72
+.cc_top cc_332,.Lxtalabel122
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	117
+	.long	120
+	.long	.Lxtalabel122
+.cc_bottom cc_332
+.cc_top cc_333,.Lxtalabel157
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	117
+	.long	120
+	.long	.Lxtalabel157
+.cc_bottom cc_333
+.cc_top cc_334,.Lxtalabel72
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	117
 	.long	120
 	.long	.Lxtalabel72
-.cc_bottom cc_332
-.cc_top cc_333,.Lxtalabel154
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	122
-	.long	124
-	.long	.Lxtalabel154
-.cc_bottom cc_333
-.cc_top cc_334,.Lxtalabel85
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	122
-	.long	124
-	.long	.Lxtalabel85
 .cc_bottom cc_334
-.cc_top cc_335,.Lxtalabel119
+.cc_top cc_335,.Lxtalabel155
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	122
 	.long	124
-	.long	.Lxtalabel119
+	.long	.Lxtalabel155
 .cc_bottom cc_335
-.cc_top cc_336,.Lxtalabel157
+.cc_top cc_336,.Lxtalabel86
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	126
-	.long	126
-	.long	.Lxtalabel157
-.cc_bottom cc_336
-.cc_top cc_337,.Lxtalabel122
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	126
-	.long	126
-	.long	.Lxtalabel122
-.cc_bottom cc_337
-.cc_top cc_338,.Lxtalabel86
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	126
-	.long	126
+	.long	122
+	.long	124
 	.long	.Lxtalabel86
-.cc_bottom cc_338
-.cc_top cc_339,.Lxtalabel123
+.cc_bottom cc_336
+.cc_top cc_337,.Lxtalabel120
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	122
+	.long	124
+	.long	.Lxtalabel120
+.cc_bottom cc_337
+.cc_top cc_338,.Lxtalabel123
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	126
+	.long	126
 	.long	.Lxtalabel123
+.cc_bottom cc_338
+.cc_top cc_339,.Lxtalabel158
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	126
+	.long	126
+	.long	.Lxtalabel158
 .cc_bottom cc_339
 .cc_top cc_340,.Lxtalabel87
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	126
+	.long	126
 	.long	.Lxtalabel87
 .cc_bottom cc_340
-.cc_top cc_341,.Lxtalabel158
+.cc_top cc_341,.Lxtalabel88
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	127
 	.long	127
-	.long	.Lxtalabel158
+	.long	.Lxtalabel88
 .cc_bottom cc_341
 .cc_top cc_342,.Lxtalabel159
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	128
-	.long	129
+	.long	127
+	.long	127
 	.long	.Lxtalabel159
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel124
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	128
-	.long	129
+	.long	127
+	.long	127
 	.long	.Lxtalabel124
 .cc_bottom cc_343
-.cc_top cc_344,.Lxtalabel88
+.cc_top cc_344,.Lxtalabel125
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	129
-	.long	.Lxtalabel88
+	.long	.Lxtalabel125
 .cc_bottom cc_344
-.cc_top cc_345,.Lxtalabel92
+.cc_top cc_345,.Lxtalabel89
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	130
-	.long	132
-	.long	.Lxtalabel92
+	.long	128
+	.long	129
+	.long	.Lxtalabel89
 .cc_bottom cc_345
 .cc_top cc_346,.Lxtalabel160
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	130
-	.long	132
+	.long	128
+	.long	129
 	.long	.Lxtalabel160
 .cc_bottom cc_346
-.cc_top cc_347,.Lxtalabel125
+.cc_top cc_347,.Lxtalabel161
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	130
 	.long	132
-	.long	.Lxtalabel125
+	.long	.Lxtalabel161
 .cc_bottom cc_347
-.cc_top cc_348,.Lxtalabel89
+.cc_top cc_348,.Lxtalabel93
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	135
-	.long	135
-	.long	.Lxtalabel89
+	.long	130
+	.long	132
+	.long	.Lxtalabel93
 .cc_bottom cc_348
 .cc_top cc_349,.Lxtalabel126
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	135
-	.long	135
+	.long	130
+	.long	132
 	.long	.Lxtalabel126
 .cc_bottom cc_349
-.cc_top cc_350,.Lxtalabel161
+.cc_top cc_350,.Lxtalabel162
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	135
 	.long	135
-	.long	.Lxtalabel161
+	.long	.Lxtalabel162
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel90
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	136
-	.long	137
+	.long	135
+	.long	135
 	.long	.Lxtalabel90
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel127
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	136
-	.long	137
+	.long	135
+	.long	135
 	.long	.Lxtalabel127
 .cc_bottom cc_352
-.cc_top cc_353,.Lxtalabel162
+.cc_top cc_353,.Lxtalabel163
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	137
-	.long	.Lxtalabel162
+	.long	.Lxtalabel163
 .cc_bottom cc_353
-.cc_top cc_354,.Lxtalabel163
+.cc_top cc_354,.Lxtalabel128
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	138
-	.long	140
-	.long	.Lxtalabel163
+	.long	136
+	.long	137
+	.long	.Lxtalabel128
 .cc_bottom cc_354
 .cc_top cc_355,.Lxtalabel91
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	138
-	.long	140
+	.long	136
+	.long	137
 	.long	.Lxtalabel91
 .cc_bottom cc_355
-.cc_top cc_356,.Lxtalabel128
+.cc_top cc_356,.Lxtalabel92
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	138
 	.long	140
-	.long	.Lxtalabel128
+	.long	.Lxtalabel92
 .cc_bottom cc_356
-.cc_top cc_357,.Lxtalabel93
+.cc_top cc_357,.Lxtalabel164
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	143
-	.long	146
-	.long	.Lxtalabel93
+	.long	138
+	.long	140
+	.long	.Lxtalabel164
 .cc_bottom cc_357
-.cc_top cc_358,.Lxtalabel130
+.cc_top cc_358,.Lxtalabel129
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	138
+	.long	140
+	.long	.Lxtalabel129
+.cc_bottom cc_358
+.cc_top cc_359,.Lxtalabel130
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel130
-.cc_bottom cc_358
-.cc_top cc_359,.Lxtalabel165
+.cc_bottom cc_359
+.cc_top cc_360,.Lxtalabel94
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	143
+	.long	146
+	.long	.Lxtalabel94
+.cc_bottom cc_360
+.cc_top cc_361,.Lxtalabel131
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	143
+	.long	146
+	.long	.Lxtalabel131
+.cc_bottom cc_361
+.cc_top cc_362,.Lxtalabel165
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel165
-.cc_bottom cc_359
-.cc_top cc_360,.Lxtalabel164
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	143
-	.long	146
-	.long	.Lxtalabel164
-.cc_bottom cc_360
-.cc_top cc_361,.Lxtalabel129
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	143
-	.long	146
-	.long	.Lxtalabel129
-.cc_bottom cc_361
-.cc_top cc_362,.Lxtalabel94
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	148
-	.long	149
-	.long	.Lxtalabel94
 .cc_bottom cc_362
 .cc_top cc_363,.Lxtalabel166
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	150
-	.long	150
+	.long	143
+	.long	146
 	.long	.Lxtalabel166
 .cc_bottom cc_363
-.cc_top cc_364,.Lxtalabel131
+.cc_top cc_364,.Lxtalabel95
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	150
-	.long	150
-	.long	.Lxtalabel131
+	.long	148
+	.long	149
+	.long	.Lxtalabel95
 .cc_bottom cc_364
-.cc_top cc_365,.Lxtalabel95
+.cc_top cc_365,.Lxtalabel132
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
-	.long	.Lxtalabel95
-.cc_bottom cc_365
-.cc_top cc_366,.Lxtalabel170
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel170
-.cc_bottom cc_366
-.cc_top cc_367,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel133
-.cc_bottom cc_367
-.cc_top cc_368,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel99
-.cc_bottom cc_368
-.cc_top cc_369,.Lxtalabel168
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel168
-.cc_bottom cc_369
-.cc_top cc_370,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel131
-.cc_bottom cc_370
-.cc_top cc_371,.Lxtalabel135
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel135
-.cc_bottom cc_371
-.cc_top cc_372,.Lxtalabel95
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel95
-.cc_bottom cc_372
-.cc_top cc_373,.Lxtalabel166
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel166
-.cc_bottom cc_373
-.cc_top cc_374,.Lxtalabel97
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel97
-.cc_bottom cc_374
-.cc_top cc_375,.Lxtalabel132
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
 	.long	.Lxtalabel132
-.cc_bottom cc_375
-.cc_top cc_376,.Lxtalabel134
+.cc_bottom cc_365
+.cc_top cc_366,.Lxtalabel167
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel134
-.cc_bottom cc_376
-.cc_top cc_377,.Lxtalabel96
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel96
-.cc_bottom cc_377
-.cc_top cc_378,.Lxtalabel98
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel98
-.cc_bottom cc_378
-.cc_top cc_379,.Lxtalabel136
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel136
-.cc_bottom cc_379
-.cc_top cc_380,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel100
-.cc_bottom cc_380
-.cc_top cc_381,.Lxtalabel171
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel171
-.cc_bottom cc_381
-.cc_top cc_382,.Lxtalabel169
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
-	.long	.Lxtalabel169
-.cc_bottom cc_382
-.cc_top cc_383,.Lxtalabel167
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	154
-	.long	155
+	.long	150
+	.long	150
 	.long	.Lxtalabel167
-.cc_bottom cc_383
-.cc_top cc_384,.Lxtalabel133
+.cc_bottom cc_366
+.cc_top cc_367,.Lxtalabel96
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel133
-.cc_bottom cc_384
-.cc_top cc_385,.Lxtalabel168
+	.long	150
+	.long	150
+	.long	.Lxtalabel96
+.cc_bottom cc_367
+.cc_top cc_368,.Lxtalabel171
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel168
-.cc_bottom cc_385
-.cc_top cc_386,.Lxtalabel135
+	.long	153
+	.long	153
+	.long	.Lxtalabel171
+.cc_bottom cc_368
+.cc_top cc_369,.Lxtalabel136
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel135
-.cc_bottom cc_386
-.cc_top cc_387,.Lxtalabel99
+	.long	153
+	.long	153
+	.long	.Lxtalabel136
+.cc_bottom cc_369
+.cc_top cc_370,.Lxtalabel134
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
+	.long	153
+	.long	153
+	.long	.Lxtalabel134
+.cc_bottom cc_370
+.cc_top cc_371,.Lxtalabel169
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel169
+.cc_bottom cc_371
+.cc_top cc_372,.Lxtalabel167
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel167
+.cc_bottom cc_372
+.cc_top cc_373,.Lxtalabel132
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel132
+.cc_bottom cc_373
+.cc_top cc_374,.Lxtalabel96
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel96
+.cc_bottom cc_374
+.cc_top cc_375,.Lxtalabel100
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel100
+.cc_bottom cc_375
+.cc_top cc_376,.Lxtalabel98
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	153
+	.long	153
+	.long	.Lxtalabel98
+.cc_bottom cc_376
+.cc_top cc_377,.Lxtalabel99
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
 	.long	.Lxtalabel99
-.cc_bottom cc_387
-.cc_top cc_388,.Lxtalabel170
+.cc_bottom cc_377
+.cc_top cc_378,.Lxtalabel172
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel170
-.cc_bottom cc_388
-.cc_top cc_389,.Lxtalabel97
+	.long	154
+	.long	155
+	.long	.Lxtalabel172
+.cc_bottom cc_378
+.cc_top cc_379,.Lxtalabel137
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	156
-	.long	156
+	.long	154
+	.long	155
+	.long	.Lxtalabel137
+.cc_bottom cc_379
+.cc_top cc_380,.Lxtalabel97
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
 	.long	.Lxtalabel97
+.cc_bottom cc_380
+.cc_top cc_381,.Lxtalabel101
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
+	.long	.Lxtalabel101
+.cc_bottom cc_381
+.cc_top cc_382,.Lxtalabel135
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
+	.long	.Lxtalabel135
+.cc_bottom cc_382
+.cc_top cc_383,.Lxtalabel170
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
+	.long	.Lxtalabel170
+.cc_bottom cc_383
+.cc_top cc_384,.Lxtalabel168
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
+	.long	.Lxtalabel168
+.cc_bottom cc_384
+.cc_top cc_385,.Lxtalabel133
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	154
+	.long	155
+	.long	.Lxtalabel133
+.cc_bottom cc_385
+.cc_top cc_386,.Lxtalabel169
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel169
+.cc_bottom cc_386
+.cc_top cc_387,.Lxtalabel102
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel102
+.cc_bottom cc_387
+.cc_top cc_388,.Lxtalabel134
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel134
+.cc_bottom cc_388
+.cc_top cc_389,.Lxtalabel138
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel138
 .cc_bottom cc_389
-.cc_top cc_390,.Lxtalabel137
+.cc_top cc_390,.Lxtalabel173
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
-	.long	.Lxtalabel137
-.cc_bottom cc_390
-.cc_top cc_391,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel101
-.cc_bottom cc_391
-.cc_top cc_392,.Lxtalabel172
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	156
-	.long	156
-	.long	.Lxtalabel172
-.cc_bottom cc_392
-.cc_top cc_393,.Lxtalabel172
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	157
-	.long	157
-	.long	.Lxtalabel172
-.cc_bottom cc_393
-.cc_top cc_394,.Lxtalabel137
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	157
-	.long	157
-	.long	.Lxtalabel137
-.cc_bottom cc_394
-.cc_top cc_395,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	157
-	.long	157
-	.long	.Lxtalabel101
-.cc_bottom cc_395
-.cc_top cc_396,.Lxtalabel173
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	159
-	.long	159
 	.long	.Lxtalabel173
+.cc_bottom cc_390
+.cc_top cc_391,.Lxtalabel98
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel98
+.cc_bottom cc_391
+.cc_top cc_392,.Lxtalabel100
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel100
+.cc_bottom cc_392
+.cc_top cc_393,.Lxtalabel136
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel136
+.cc_bottom cc_393
+.cc_top cc_394,.Lxtalabel171
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	156
+	.long	156
+	.long	.Lxtalabel171
+.cc_bottom cc_394
+.cc_top cc_395,.Lxtalabel173
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	157
+	.long	157
+	.long	.Lxtalabel173
+.cc_bottom cc_395
+.cc_top cc_396,.Lxtalabel138
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	157
+	.long	157
+	.long	.Lxtalabel138
 .cc_bottom cc_396
 .cc_top cc_397,.Lxtalabel102
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	159
-	.long	159
+	.long	157
+	.long	157
 	.long	.Lxtalabel102
 .cc_bottom cc_397
-.cc_top cc_398,.Lxtalabel138
+.cc_top cc_398,.Lxtalabel174
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	159
-	.long	.Lxtalabel138
+	.long	.Lxtalabel174
 .cc_bottom cc_398
-.cc_top cc_399,.Lxtalabel102
+.cc_top cc_399,.Lxtalabel103
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	161
-	.long	163
-	.long	.Lxtalabel102
+	.long	159
+	.long	159
+	.long	.Lxtalabel103
 .cc_bottom cc_399
-.cc_top cc_400,.Lxtalabel173
+.cc_top cc_400,.Lxtalabel139
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	161
-	.long	163
-	.long	.Lxtalabel173
+	.long	159
+	.long	159
+	.long	.Lxtalabel139
 .cc_bottom cc_400
-.cc_top cc_401,.Lxtalabel138
+.cc_top cc_401,.Lxtalabel174
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	163
-	.long	.Lxtalabel138
+	.long	.Lxtalabel174
 .cc_bottom cc_401
-.cc_top cc_402,.Lxtalabel102
+.cc_top cc_402,.Lxtalabel139
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	166
-	.long	166
-	.long	.Lxtalabel102
+	.long	161
+	.long	163
+	.long	.Lxtalabel139
 .cc_bottom cc_402
-.cc_top cc_403,.Lxtalabel173
+.cc_top cc_403,.Lxtalabel103
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	166
-	.long	166
-	.long	.Lxtalabel173
+	.long	161
+	.long	163
+	.long	.Lxtalabel103
 .cc_bottom cc_403
-.cc_top cc_404,.Lxtalabel138
+.cc_top cc_404,.Lxtalabel139
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	166
 	.long	166
-	.long	.Lxtalabel138
+	.long	.Lxtalabel139
 .cc_bottom cc_404
 .cc_top cc_405,.Lxtalabel174
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	167
-	.long	168
+	.long	166
+	.long	166
 	.long	.Lxtalabel174
 .cc_bottom cc_405
-.cc_top cc_406,.Lxtalabel139
+.cc_top cc_406,.Lxtalabel103
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	167
-	.long	168
-	.long	.Lxtalabel139
+	.long	166
+	.long	166
+	.long	.Lxtalabel103
 .cc_bottom cc_406
 .cc_top cc_407,.Lxtalabel73
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -19641,145 +19685,145 @@ map:
 	.long	168
 	.long	.Lxtalabel73
 .cc_bottom cc_407
-.cc_top cc_408,.Lxtalabel113
+.cc_top cc_408,.Lxtalabel114
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	167
 	.long	168
-	.long	.Lxtalabel113
+	.long	.Lxtalabel114
 .cc_bottom cc_408
-.cc_top cc_409,.Lxtalabel73
+.cc_top cc_409,.Lxtalabel140
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	167
+	.long	168
+	.long	.Lxtalabel140
+.cc_bottom cc_409
+.cc_top cc_410,.Lxtalabel175
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	167
+	.long	168
+	.long	.Lxtalabel175
+.cc_bottom cc_410
+.cc_top cc_411,.Lxtalabel73
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
 	.long	.Lxtalabel73
-.cc_bottom cc_409
-.cc_top cc_410,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	171
-	.long	172
-	.long	.Lxtalabel113
-.cc_bottom cc_410
-.cc_top cc_411,.Lxtalabel139
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	171
-	.long	172
-	.long	.Lxtalabel139
 .cc_bottom cc_411
-.cc_top cc_412,.Lxtalabel174
+.cc_top cc_412,.Lxtalabel114
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
-	.long	.Lxtalabel174
+	.long	.Lxtalabel114
 .cc_bottom cc_412
-.cc_top cc_413,.Lxtalabel175
+.cc_top cc_413,.Lxtalabel140
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	174
-	.long	175
-	.long	.Lxtalabel175
-.cc_bottom cc_413
-.cc_top cc_414,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	174
-	.long	175
-	.long	.Lxtalabel104
-.cc_bottom cc_414
-.cc_top cc_415,.Lxtalabel140
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	174
-	.long	175
+	.long	171
+	.long	172
 	.long	.Lxtalabel140
-.cc_bottom cc_415
-.cc_top cc_416,.Lxtalabel74
+.cc_bottom cc_413
+.cc_top cc_414,.Lxtalabel175
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	171
+	.long	172
+	.long	.Lxtalabel175
+.cc_bottom cc_414
+.cc_top cc_415,.Lxtalabel176
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	174
 	.long	175
-	.long	.Lxtalabel74
+	.long	.Lxtalabel176
+.cc_bottom cc_415
+.cc_top cc_416,.Lxtalabel105
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	174
+	.long	175
+	.long	.Lxtalabel105
 .cc_bottom cc_416
 .cc_top cc_417,.Lxtalabel74
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
+	.long	174
+	.long	175
+	.long	.Lxtalabel74
+.cc_bottom cc_417
+.cc_top cc_418,.Lxtalabel141
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	174
+	.long	175
+	.long	.Lxtalabel141
+.cc_bottom cc_418
+.cc_top cc_419,.Lxtalabel176
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	178
+	.long	179
+	.long	.Lxtalabel176
+.cc_bottom cc_419
+.cc_top cc_420,.Lxtalabel105
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	178
+	.long	179
+	.long	.Lxtalabel105
+.cc_bottom cc_420
+.cc_top cc_421,.Lxtalabel141
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	178
+	.long	179
+	.long	.Lxtalabel141
+.cc_bottom cc_421
+.cc_top cc_422,.Lxtalabel74
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxtalabel74
-.cc_bottom cc_417
-.cc_top cc_418,.Lxtalabel175
+.cc_bottom cc_422
+.cc_top cc_423,.Lxtalabel76
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	178
-	.long	179
-	.long	.Lxtalabel175
-.cc_bottom cc_418
-.cc_top cc_419,.Lxtalabel140
+	.long	185
+	.long	185
+	.long	.Lxtalabel76
+.cc_bottom cc_423
+.cc_top cc_424,.Lxtalabel75
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	178
-	.long	179
-	.long	.Lxtalabel140
-.cc_bottom cc_419
-.cc_top cc_420,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	178
-	.long	179
-	.long	.Lxtalabel104
-.cc_bottom cc_420
-.cc_top cc_421,.Lxtalabel77
+	.long	185
+	.long	185
+	.long	.Lxtalabel75
+.cc_bottom cc_424
+.cc_top cc_425,.Lxtalabel77
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel77
-.cc_bottom cc_421
-.cc_top cc_422,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel181
-.cc_bottom cc_422
-.cc_top cc_423,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel180
-.cc_bottom cc_423
-.cc_top cc_424,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel179
-.cc_bottom cc_424
-.cc_top cc_425,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel178
 .cc_bottom cc_425
-.cc_top cc_426,.Lxtalabel177
+.cc_top cc_426,.Lxtalabel148
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
-	.long	.Lxtalabel177
+	.long	.Lxtalabel148
 .cc_bottom cc_426
-.cc_top cc_427,.Lxtalabel176
+.cc_top cc_427,.Lxtalabel147
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
-	.long	.Lxtalabel176
+	.long	.Lxtalabel147
 .cc_bottom cc_427
 .cc_top cc_428,.Lxtalabel81
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -19788,103 +19832,103 @@ map:
 	.long	185
 	.long	.Lxtalabel81
 .cc_bottom cc_428
-.cc_top cc_429,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel105
-.cc_bottom cc_429
-.cc_top cc_430,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel16
-.cc_bottom cc_430
-.cc_top cc_431,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel17
-.cc_bottom cc_431
-.cc_top cc_432,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel18
-.cc_bottom cc_432
-.cc_top cc_433,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel19
-.cc_bottom cc_433
-.cc_top cc_434,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel106
-.cc_bottom cc_434
-.cc_top cc_435,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel20
-.cc_bottom cc_435
-.cc_top cc_436,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel21
-.cc_bottom cc_436
-.cc_top cc_437,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel22
-.cc_bottom cc_437
-.cc_top cc_438,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel147
-.cc_bottom cc_438
-.cc_top cc_439,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel107
-.cc_bottom cc_439
-.cc_top cc_440,.Lxtalabel146
+.cc_top cc_429,.Lxtalabel146
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel146
-.cc_bottom cc_440
-.cc_top cc_441,.Lxtalabel145
+.cc_bottom cc_429
+.cc_top cc_430,.Lxtalabel145
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel145
-.cc_bottom cc_441
-.cc_top cc_442,.Lxtalabel144
+.cc_bottom cc_430
+.cc_top cc_431,.Lxtalabel106
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel106
+.cc_bottom cc_431
+.cc_top cc_432,.Lxtalabel16
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel16
+.cc_bottom cc_432
+.cc_top cc_433,.Lxtalabel17
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel17
+.cc_bottom cc_433
+.cc_top cc_434,.Lxtalabel18
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel18
+.cc_bottom cc_434
+.cc_top cc_435,.Lxtalabel19
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel19
+.cc_bottom cc_435
+.cc_top cc_436,.Lxtalabel107
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel107
+.cc_bottom cc_436
+.cc_top cc_437,.Lxtalabel20
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel20
+.cc_bottom cc_437
+.cc_top cc_438,.Lxtalabel21
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel21
+.cc_bottom cc_438
+.cc_top cc_439,.Lxtalabel78
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel78
+.cc_bottom cc_439
+.cc_top cc_440,.Lxtalabel144
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel144
+.cc_bottom cc_440
+.cc_top cc_441,.Lxtalabel108
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel108
+.cc_bottom cc_441
+.cc_top cc_442,.Lxtalabel22
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel22
 .cc_bottom cc_442
 .cc_top cc_443,.Lxtalabel143
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -19893,124 +19937,124 @@ map:
 	.long	185
 	.long	.Lxtalabel143
 .cc_bottom cc_443
-.cc_top cc_444,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel108
-.cc_bottom cc_444
-.cc_top cc_445,.Lxtalabel142
+.cc_top cc_444,.Lxtalabel142
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel142
+.cc_bottom cc_444
+.cc_top cc_445,.Lxtalabel177
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel177
 .cc_bottom cc_445
-.cc_top cc_446,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel141
-.cc_bottom cc_446
-.cc_top cc_447,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel182
-.cc_bottom cc_447
-.cc_top cc_448,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel75
-.cc_bottom cc_448
-.cc_top cc_449,.Lxtalabel109
+.cc_top cc_446,.Lxtalabel109
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel109
+.cc_bottom cc_446
+.cc_top cc_447,.Lxtalabel178
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel178
+.cc_bottom cc_447
+.cc_top cc_448,.Lxtalabel179
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel179
+.cc_bottom cc_448
+.cc_top cc_449,.Lxtalabel180
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel180
 .cc_bottom cc_449
-.cc_top cc_450,.Lxtalabel76
+.cc_top cc_450,.Lxtalabel181
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
-	.long	.Lxtalabel76
+	.long	.Lxtalabel181
 .cc_bottom cc_450
-.cc_top cc_451,.Lxtalabel78
+.cc_top cc_451,.Lxtalabel110
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
-	.long	.Lxtalabel78
+	.long	.Lxtalabel110
 .cc_bottom cc_451
-.cc_top cc_452,.Lxtalabel79
+.cc_top cc_452,.Lxtalabel182
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel182
+.cc_bottom cc_452
+.cc_top cc_453,.Lxtalabel183
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxtalabel183
+.cc_bottom cc_453
+.cc_top cc_454,.Lxtalabel79
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel79
-.cc_bottom cc_452
-.cc_top cc_453,.Lxtalabel80
+.cc_bottom cc_454
+.cc_top cc_455,.Lxtalabel80
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel80
-.cc_bottom cc_453
-.cc_top cc_454,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel110
-.cc_bottom cc_454
-.cc_top cc_455,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxtalabel111
 .cc_bottom cc_455
-.cc_top cc_456,.Lxtalabel110
+.cc_top cc_456,.Lxtalabel111
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel110
+	.long	185
+	.long	185
+	.long	.Lxtalabel111
 .cc_bottom cc_456
-.cc_top cc_457,.Lxtalabel110
+.cc_top cc_457,.Lxtalabel112
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel110
+	.long	185
+	.long	185
+	.long	.Lxtalabel112
 .cc_bottom cc_457
-.cc_top cc_458,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel180
-.cc_bottom cc_458
-.cc_top cc_459,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel110
-.cc_bottom cc_459
-.cc_top cc_460,.Lxtalabel111
+.cc_top cc_458,.Lxtalabel111
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel111
+.cc_bottom cc_458
+.cc_top cc_459,.Lxtalabel111
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel111
+.cc_bottom cc_459
+.cc_top cc_460,.Lxtalabel183
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel183
 .cc_bottom cc_460
 .cc_top cc_461,.Lxtalabel111
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -20019,103 +20063,103 @@ map:
 	.long	188
 	.long	.Lxtalabel111
 .cc_bottom cc_461
-.cc_top cc_462,.Lxtalabel111
+.cc_top cc_462,.Lxtalabel112
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel111
+	.long	.Lxtalabel112
 .cc_bottom cc_462
-.cc_top cc_463,.Lxtalabel180
+.cc_top cc_463,.Lxtalabel112
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel180
+	.long	.Lxtalabel112
 .cc_bottom cc_463
-.cc_top cc_464,.Lxtalabel180
+.cc_top cc_464,.Lxtalabel112
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel180
+	.long	.Lxtalabel112
 .cc_bottom cc_464
-.cc_top cc_465,.Lxtalabel179
+.cc_top cc_465,.Lxtalabel183
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel179
+	.long	.Lxtalabel183
 .cc_bottom cc_465
-.cc_top cc_466,.Lxtalabel80
+.cc_top cc_466,.Lxtalabel183
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel80
+	.long	.Lxtalabel183
 .cc_bottom cc_466
-.cc_top cc_467,.Lxtalabel179
+.cc_top cc_467,.Lxtalabel182
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel179
+	.long	.Lxtalabel182
 .cc_bottom cc_467
-.cc_top cc_468,.Lxtalabel179
+.cc_top cc_468,.Lxtalabel110
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel179
+	.long	.Lxtalabel110
 .cc_bottom cc_468
-.cc_top cc_469,.Lxtalabel80
+.cc_top cc_469,.Lxtalabel182
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel80
+	.long	.Lxtalabel182
 .cc_bottom cc_469
-.cc_top cc_470,.Lxtalabel80
+.cc_top cc_470,.Lxtalabel182
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel80
+	.long	.Lxtalabel182
 .cc_bottom cc_470
-.cc_top cc_471,.Lxtalabel178
+.cc_top cc_471,.Lxtalabel110
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel178
+	.long	.Lxtalabel110
 .cc_bottom cc_471
-.cc_top cc_472,.Lxtalabel178
+.cc_top cc_472,.Lxtalabel110
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel178
+	.long	.Lxtalabel110
 .cc_bottom cc_472
-.cc_top cc_473,.Lxtalabel79
+.cc_top cc_473,.Lxtalabel181
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel79
+	.long	.Lxtalabel181
 .cc_bottom cc_473
-.cc_top cc_474,.Lxtalabel79
+.cc_top cc_474,.Lxtalabel109
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel79
+	.long	.Lxtalabel109
 .cc_bottom cc_474
-.cc_top cc_475,.Lxtalabel79
+.cc_top cc_475,.Lxtalabel109
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel79
+	.long	.Lxtalabel109
 .cc_bottom cc_475
 .cc_top cc_476,.Lxtalabel109
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -20124,572 +20168,572 @@ map:
 	.long	188
 	.long	.Lxtalabel109
 .cc_bottom cc_476
-.cc_top cc_477,.Lxtalabel178
+.cc_top cc_477,.Lxtalabel181
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel181
+.cc_bottom cc_477
+.cc_top cc_478,.Lxtalabel108
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel108
+.cc_bottom cc_478
+.cc_top cc_479,.Lxtalabel108
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel108
+.cc_bottom cc_479
+.cc_top cc_480,.Lxtalabel108
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel108
+.cc_bottom cc_480
+.cc_top cc_481,.Lxtalabel181
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel181
+.cc_bottom cc_481
+.cc_top cc_482,.Lxtalabel107
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel107
+.cc_bottom cc_482
+.cc_top cc_483,.Lxtalabel107
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel107
+.cc_bottom cc_483
+.cc_top cc_484,.Lxtalabel107
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel107
+.cc_bottom cc_484
+.cc_top cc_485,.Lxtalabel180
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel180
+.cc_bottom cc_485
+.cc_top cc_486,.Lxtalabel106
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel106
+.cc_bottom cc_486
+.cc_top cc_487,.Lxtalabel106
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel106
+.cc_bottom cc_487
+.cc_top cc_488,.Lxtalabel106
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel106
+.cc_bottom cc_488
+.cc_top cc_489,.Lxtalabel180
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel180
+.cc_bottom cc_489
+.cc_top cc_490,.Lxtalabel180
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel180
+.cc_bottom cc_490
+.cc_top cc_491,.Lxtalabel179
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel179
+.cc_bottom cc_491
+.cc_top cc_492,.Lxtalabel179
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel179
+.cc_bottom cc_492
+.cc_top cc_493,.Lxtalabel81
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel81
+.cc_bottom cc_493
+.cc_top cc_494,.Lxtalabel81
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel81
+.cc_bottom cc_494
+.cc_top cc_495,.Lxtalabel81
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel81
+.cc_bottom cc_495
+.cc_top cc_496,.Lxtalabel179
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel179
+.cc_bottom cc_496
+.cc_top cc_497,.Lxtalabel80
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel80
+.cc_bottom cc_497
+.cc_top cc_498,.Lxtalabel80
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel80
+.cc_bottom cc_498
+.cc_top cc_499,.Lxtalabel80
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel80
+.cc_bottom cc_499
+.cc_top cc_500,.Lxtalabel178
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel178
-.cc_bottom cc_477
-.cc_top cc_478,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel78
-.cc_bottom cc_478
-.cc_top cc_479,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel78
-.cc_bottom cc_479
-.cc_top cc_480,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel78
-.cc_bottom cc_480
-.cc_top cc_481,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel109
-.cc_bottom cc_481
-.cc_top cc_482,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel81
-.cc_bottom cc_482
-.cc_top cc_483,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel77
-.cc_bottom cc_483
-.cc_top cc_484,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel77
-.cc_bottom cc_484
-.cc_top cc_485,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel77
-.cc_bottom cc_485
-.cc_top cc_486,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel182
-.cc_bottom cc_486
-.cc_top cc_487,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel177
-.cc_bottom cc_487
-.cc_top cc_488,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel76
-.cc_bottom cc_488
-.cc_top cc_489,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel76
-.cc_bottom cc_489
-.cc_top cc_490,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel76
-.cc_bottom cc_490
-.cc_top cc_491,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel109
-.cc_bottom cc_491
-.cc_top cc_492,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel177
-.cc_bottom cc_492
-.cc_top cc_493,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel75
-.cc_bottom cc_493
-.cc_top cc_494,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel75
-.cc_bottom cc_494
-.cc_top cc_495,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel75
-.cc_bottom cc_495
-.cc_top cc_496,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel177
-.cc_bottom cc_496
-.cc_top cc_497,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel182
-.cc_bottom cc_497
-.cc_top cc_498,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel182
-.cc_bottom cc_498
-.cc_top cc_499,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel108
-.cc_bottom cc_499
-.cc_top cc_500,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel81
 .cc_bottom cc_500
-.cc_top cc_501,.Lxtalabel176
+.cc_top cc_501,.Lxtalabel79
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel176
+	.long	.Lxtalabel79
 .cc_bottom cc_501
-.cc_top cc_502,.Lxtalabel176
+.cc_top cc_502,.Lxtalabel79
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel176
+	.long	.Lxtalabel79
 .cc_bottom cc_502
-.cc_top cc_503,.Lxtalabel108
+.cc_top cc_503,.Lxtalabel79
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel108
+	.long	.Lxtalabel79
 .cc_bottom cc_503
-.cc_top cc_504,.Lxtalabel141
+.cc_top cc_504,.Lxtalabel178
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel141
+	.long	.Lxtalabel178
 .cc_bottom cc_504
-.cc_top cc_505,.Lxtalabel141
+.cc_top cc_505,.Lxtalabel78
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel141
+	.long	.Lxtalabel78
 .cc_bottom cc_505
-.cc_top cc_506,.Lxtalabel141
+.cc_top cc_506,.Lxtalabel142
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel141
+	.long	.Lxtalabel142
 .cc_bottom cc_506
-.cc_top cc_507,.Lxtalabel176
+.cc_top cc_507,.Lxtalabel142
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel176
+	.long	.Lxtalabel142
 .cc_bottom cc_507
-.cc_top cc_508,.Lxtalabel108
+.cc_top cc_508,.Lxtalabel142
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel108
+	.long	.Lxtalabel142
 .cc_bottom cc_508
-.cc_top cc_509,.Lxtalabel142
+.cc_top cc_509,.Lxtalabel178
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel142
+	.long	.Lxtalabel178
 .cc_bottom cc_509
-.cc_top cc_510,.Lxtalabel142
+.cc_top cc_510,.Lxtalabel78
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel142
+	.long	.Lxtalabel78
 .cc_bottom cc_510
-.cc_top cc_511,.Lxtalabel142
+.cc_top cc_511,.Lxtalabel143
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel142
+	.long	.Lxtalabel143
 .cc_bottom cc_511
-.cc_top cc_512,.Lxtalabel81
+.cc_top cc_512,.Lxtalabel143
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel81
+	.long	.Lxtalabel143
 .cc_bottom cc_512
-.cc_top cc_513,.Lxtalabel105
+.cc_top cc_513,.Lxtalabel143
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel105
+	.long	.Lxtalabel143
 .cc_bottom cc_513
-.cc_top cc_514,.Lxtalabel143
+.cc_top cc_514,.Lxtalabel177
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel143
+	.long	.Lxtalabel177
 .cc_bottom cc_514
-.cc_top cc_515,.Lxtalabel143
+.cc_top cc_515,.Lxtalabel78
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel143
+	.long	.Lxtalabel78
 .cc_bottom cc_515
-.cc_top cc_516,.Lxtalabel143
+.cc_top cc_516,.Lxtalabel144
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel143
+	.long	.Lxtalabel144
 .cc_bottom cc_516
-.cc_top cc_517,.Lxtalabel181
+.cc_top cc_517,.Lxtalabel144
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel181
+	.long	.Lxtalabel144
 .cc_bottom cc_517
-.cc_top cc_518,.Lxtalabel107
+.cc_top cc_518,.Lxtalabel144
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel107
+	.long	.Lxtalabel144
 .cc_bottom cc_518
-.cc_top cc_519,.Lxtalabel144
+.cc_top cc_519,.Lxtalabel177
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel144
+	.long	.Lxtalabel177
 .cc_bottom cc_519
-.cc_top cc_520,.Lxtalabel144
+.cc_top cc_520,.Lxtalabel177
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel144
+	.long	.Lxtalabel177
 .cc_bottom cc_520
-.cc_top cc_521,.Lxtalabel144
+.cc_top cc_521,.Lxtalabel145
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel144
+	.long	.Lxtalabel145
 .cc_bottom cc_521
-.cc_top cc_522,.Lxtalabel16
+.cc_top cc_522,.Lxtalabel145
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel16
+	.long	.Lxtalabel145
 .cc_bottom cc_522
-.cc_top cc_523,.Lxtalabel107
+.cc_top cc_523,.Lxtalabel145
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel107
+	.long	.Lxtalabel145
 .cc_bottom cc_523
-.cc_top cc_524,.Lxtalabel145
+.cc_top cc_524,.Lxtalabel22
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel145
+	.long	.Lxtalabel22
 .cc_bottom cc_524
-.cc_top cc_525,.Lxtalabel145
+.cc_top cc_525,.Lxtalabel77
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel145
+	.long	.Lxtalabel77
 .cc_bottom cc_525
-.cc_top cc_526,.Lxtalabel145
+.cc_top cc_526,.Lxtalabel146
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel145
+	.long	.Lxtalabel146
 .cc_bottom cc_526
-.cc_top cc_527,.Lxtalabel16
+.cc_top cc_527,.Lxtalabel146
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel16
+	.long	.Lxtalabel146
 .cc_bottom cc_527
-.cc_top cc_528,.Lxtalabel107
+.cc_top cc_528,.Lxtalabel146
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel107
+	.long	.Lxtalabel146
 .cc_bottom cc_528
-.cc_top cc_529,.Lxtalabel146
+.cc_top cc_529,.Lxtalabel22
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel146
+	.long	.Lxtalabel22
 .cc_bottom cc_529
-.cc_top cc_530,.Lxtalabel146
+.cc_top cc_530,.Lxtalabel77
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel146
+	.long	.Lxtalabel77
 .cc_bottom cc_530
-.cc_top cc_531,.Lxtalabel146
+.cc_top cc_531,.Lxtalabel147
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel146
+	.long	.Lxtalabel147
 .cc_bottom cc_531
-.cc_top cc_532,.Lxtalabel16
+.cc_top cc_532,.Lxtalabel147
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel147
+.cc_bottom cc_532
+.cc_top cc_533,.Lxtalabel147
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel147
+.cc_bottom cc_533
+.cc_top cc_534,.Lxtalabel22
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel22
+.cc_bottom cc_534
+.cc_top cc_535,.Lxtalabel77
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel77
+.cc_bottom cc_535
+.cc_top cc_536,.Lxtalabel148
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel148
+.cc_bottom cc_536
+.cc_top cc_537,.Lxtalabel148
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel148
+.cc_bottom cc_537
+.cc_top cc_538,.Lxtalabel148
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel148
+.cc_bottom cc_538
+.cc_top cc_539,.Lxtalabel21
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel21
+.cc_bottom cc_539
+.cc_top cc_540,.Lxtalabel21
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel21
+.cc_bottom cc_540
+.cc_top cc_541,.Lxtalabel21
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel21
+.cc_bottom cc_541
+.cc_top cc_542,.Lxtalabel20
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel20
+.cc_bottom cc_542
+.cc_top cc_543,.Lxtalabel20
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel20
+.cc_bottom cc_543
+.cc_top cc_544,.Lxtalabel76
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel76
+.cc_bottom cc_544
+.cc_top cc_545,.Lxtalabel76
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel76
+.cc_bottom cc_545
+.cc_top cc_546,.Lxtalabel76
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel76
+.cc_bottom cc_546
+.cc_top cc_547,.Lxtalabel20
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel20
+.cc_bottom cc_547
+.cc_top cc_548,.Lxtalabel75
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel75
+.cc_bottom cc_548
+.cc_top cc_549,.Lxtalabel75
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel75
+.cc_bottom cc_549
+.cc_top cc_550,.Lxtalabel75
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel75
+.cc_bottom cc_550
+.cc_top cc_551,.Lxtalabel16
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel16
-.cc_bottom cc_532
-.cc_top cc_533,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel105
-.cc_bottom cc_533
-.cc_top cc_534,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel147
-.cc_bottom cc_534
-.cc_top cc_535,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel147
-.cc_bottom cc_535
-.cc_top cc_536,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel147
-.cc_bottom cc_536
-.cc_top cc_537,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel17
-.cc_bottom cc_537
-.cc_top cc_538,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel17
-.cc_bottom cc_538
-.cc_top cc_539,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel181
-.cc_bottom cc_539
-.cc_top cc_540,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel181
-.cc_bottom cc_540
-.cc_top cc_541,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel22
-.cc_bottom cc_541
-.cc_top cc_542,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel22
-.cc_bottom cc_542
-.cc_top cc_543,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel22
-.cc_bottom cc_543
-.cc_top cc_544,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel106
-.cc_bottom cc_544
-.cc_top cc_545,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel17
-.cc_bottom cc_545
-.cc_top cc_546,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel21
-.cc_bottom cc_546
-.cc_top cc_547,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel21
-.cc_bottom cc_547
-.cc_top cc_548,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel21
-.cc_bottom cc_548
-.cc_top cc_549,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel106
-.cc_bottom cc_549
-.cc_top cc_550,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel105
-.cc_bottom cc_550
-.cc_top cc_551,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	186
-	.long	188
-	.long	.Lxtalabel20
 .cc_bottom cc_551
-.cc_top cc_552,.Lxtalabel20
+.cc_top cc_552,.Lxtalabel16
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel20
+	.long	.Lxtalabel16
 .cc_bottom cc_552
-.cc_top cc_553,.Lxtalabel20
+.cc_top cc_553,.Lxtalabel16
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel20
+	.long	.Lxtalabel16
 .cc_bottom cc_553
-.cc_top cc_554,.Lxtalabel106
+.cc_top cc_554,.Lxtalabel19
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel106
+	.long	.Lxtalabel19
 .cc_bottom cc_554
-.cc_top cc_555,.Lxtalabel18
+.cc_top cc_555,.Lxtalabel17
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel18
+	.long	.Lxtalabel17
 .cc_bottom cc_555
-.cc_top cc_556,.Lxtalabel19
+.cc_top cc_556,.Lxtalabel17
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel19
+	.long	.Lxtalabel17
 .cc_bottom cc_556
-.cc_top cc_557,.Lxtalabel19
+.cc_top cc_557,.Lxtalabel17
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
-	.long	.Lxtalabel19
+	.long	.Lxtalabel17
 .cc_bottom cc_557
 .cc_top cc_558,.Lxtalabel19
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
@@ -20715,367 +20759,381 @@ map:
 .cc_top cc_561,.Lxtalabel18
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel18
+.cc_bottom cc_561
+.cc_top cc_562,.Lxtalabel19
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	186
+	.long	188
+	.long	.Lxtalabel19
+.cc_bottom cc_562
+.cc_top cc_563,.Lxtalabel18
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel18
-.cc_bottom cc_561
-.cc_top cc_562,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel105
-.cc_bottom cc_562
-.cc_top cc_563,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel19
 .cc_bottom cc_563
-.cc_top cc_564,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel20
-.cc_bottom cc_564
-.cc_top cc_565,.Lxtalabel17
+.cc_top cc_564,.Lxtalabel17
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel17
-.cc_bottom cc_565
-.cc_top cc_566,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel21
-.cc_bottom cc_566
-.cc_top cc_567,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel143
-.cc_bottom cc_567
-.cc_top cc_568,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel147
-.cc_bottom cc_568
-.cc_top cc_569,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel106
-.cc_bottom cc_569
-.cc_top cc_570,.Lxtalabel16
+.cc_bottom cc_564
+.cc_top cc_565,.Lxtalabel16
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel16
-.cc_bottom cc_570
-.cc_top cc_571,.Lxtalabel146
+.cc_bottom cc_565
+.cc_top cc_566,.Lxtalabel19
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
-	.long	.Lxtalabel146
-.cc_bottom cc_571
-.cc_top cc_572,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel145
-.cc_bottom cc_572
-.cc_top cc_573,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel144
-.cc_bottom cc_573
-.cc_top cc_574,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel107
-.cc_bottom cc_574
-.cc_top cc_575,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel142
-.cc_bottom cc_575
-.cc_top cc_576,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel141
-.cc_bottom cc_576
-.cc_top cc_577,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel22
-.cc_bottom cc_577
-.cc_top cc_578,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel180
-.cc_bottom cc_578
-.cc_top cc_579,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel176
-.cc_bottom cc_579
-.cc_top cc_580,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel181
-.cc_bottom cc_580
-.cc_top cc_581,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel108
-.cc_bottom cc_581
-.cc_top cc_582,.Lxtalabel75
+	.long	.Lxtalabel19
+.cc_bottom cc_566
+.cc_top cc_567,.Lxtalabel75
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel75
-.cc_bottom cc_582
-.cc_top cc_583,.Lxtalabel76
+.cc_bottom cc_567
+.cc_top cc_568,.Lxtalabel76
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel76
-.cc_bottom cc_583
-.cc_top cc_584,.Lxtalabel177
+.cc_bottom cc_568
+.cc_top cc_569,.Lxtalabel183
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
-	.long	.Lxtalabel177
-.cc_bottom cc_584
-.cc_top cc_585,.Lxtalabel77
+	.long	.Lxtalabel183
+.cc_bottom cc_569
+.cc_top cc_570,.Lxtalabel20
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
-	.long	.Lxtalabel77
-.cc_bottom cc_585
-.cc_top cc_586,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel78
-.cc_bottom cc_586
-.cc_top cc_587,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel79
-.cc_bottom cc_587
-.cc_top cc_588,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel109
-.cc_bottom cc_588
-.cc_top cc_589,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel178
-.cc_bottom cc_589
-.cc_top cc_590,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel81
-.cc_bottom cc_590
-.cc_top cc_591,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel182
-.cc_bottom cc_591
-.cc_top cc_592,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel110
-.cc_bottom cc_592
-.cc_top cc_593,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel80
-.cc_bottom cc_593
-.cc_top cc_594,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxtalabel179
-.cc_bottom cc_594
-.cc_top cc_595,.Lxtalabel111
+	.long	.Lxtalabel20
+.cc_bottom cc_570
+.cc_top cc_571,.Lxtalabel111
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel111
-.cc_bottom cc_595
-.cc_top cc_596,.Lxtalabel112
+.cc_bottom cc_571
+.cc_top cc_572,.Lxtalabel112
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	190
-	.long	191
+	.long	189
+	.long	189
 	.long	.Lxtalabel112
+.cc_bottom cc_572
+.cc_top cc_573,.Lxtalabel148
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel148
+.cc_bottom cc_573
+.cc_top cc_574,.Lxtalabel21
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel21
+.cc_bottom cc_574
+.cc_top cc_575,.Lxtalabel147
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel147
+.cc_bottom cc_575
+.cc_top cc_576,.Lxtalabel146
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel146
+.cc_bottom cc_576
+.cc_top cc_577,.Lxtalabel145
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel145
+.cc_bottom cc_577
+.cc_top cc_578,.Lxtalabel77
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel77
+.cc_bottom cc_578
+.cc_top cc_579,.Lxtalabel144
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel144
+.cc_bottom cc_579
+.cc_top cc_580,.Lxtalabel143
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel143
+.cc_bottom cc_580
+.cc_top cc_581,.Lxtalabel177
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel177
+.cc_bottom cc_581
+.cc_top cc_582,.Lxtalabel22
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel22
+.cc_bottom cc_582
+.cc_top cc_583,.Lxtalabel142
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel142
+.cc_bottom cc_583
+.cc_top cc_584,.Lxtalabel78
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel78
+.cc_bottom cc_584
+.cc_top cc_585,.Lxtalabel79
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel79
+.cc_bottom cc_585
+.cc_top cc_586,.Lxtalabel178
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel178
+.cc_bottom cc_586
+.cc_top cc_587,.Lxtalabel182
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel182
+.cc_bottom cc_587
+.cc_top cc_588,.Lxtalabel80
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel80
+.cc_bottom cc_588
+.cc_top cc_589,.Lxtalabel81
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel81
+.cc_bottom cc_589
+.cc_top cc_590,.Lxtalabel110
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel110
+.cc_bottom cc_590
+.cc_top cc_591,.Lxtalabel179
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel179
+.cc_bottom cc_591
+.cc_top cc_592,.Lxtalabel181
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel181
+.cc_bottom cc_592
+.cc_top cc_593,.Lxtalabel109
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel109
+.cc_bottom cc_593
+.cc_top cc_594,.Lxtalabel108
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel108
+.cc_bottom cc_594
+.cc_top cc_595,.Lxtalabel106
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel106
+.cc_bottom cc_595
+.cc_top cc_596,.Lxtalabel180
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxtalabel180
 .cc_bottom cc_596
-.cc_top cc_597,.Lxtalabel82
+.cc_top cc_597,.Lxtalabel107
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	190
-	.long	191
-	.long	.Lxtalabel82
+	.long	189
+	.long	189
+	.long	.Lxtalabel107
 .cc_bottom cc_597
-.cc_top cc_598,.Lxtalabel183
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	190
-	.long	191
-	.long	.Lxtalabel183
-.cc_bottom cc_598
-.cc_top cc_599,.Lxtalabel23
+.cc_top cc_598,.Lxtalabel23
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel23
-.cc_bottom cc_599
-.cc_top cc_600,.Lxtalabel148
+.cc_bottom cc_598
+.cc_top cc_599,.Lxtalabel82
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
-	.long	.Lxtalabel148
+	.long	.Lxtalabel82
+.cc_bottom cc_599
+.cc_top cc_600,.Lxtalabel149
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	190
+	.long	191
+	.long	.Lxtalabel149
 .cc_bottom cc_600
-.cc_top cc_601,.Lxtalabel83
+.cc_top cc_601,.Lxtalabel184
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	190
+	.long	191
+	.long	.Lxtalabel184
+.cc_bottom cc_601
+.cc_top cc_602,.Lxtalabel113
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	190
+	.long	191
+	.long	.Lxtalabel113
+.cc_bottom cc_602
+.cc_top cc_603,.Lxtalabel83
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
 	.long	.Lxtalabel83
-.cc_bottom cc_601
-.cc_top cc_602,.Lxtalabel149
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	192
-	.long	194
-	.long	.Lxtalabel149
-.cc_bottom cc_602
-.cc_top cc_603,.Lxtalabel184
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	192
-	.long	194
-	.long	.Lxtalabel184
 .cc_bottom cc_603
-.cc_top cc_604,.Lxtalabel114
+.cc_top cc_604,.Lxtalabel115
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
-	.long	.Lxtalabel114
+	.long	.Lxtalabel115
 .cc_bottom cc_604
 .cc_top cc_605,.Lxtalabel185
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	198
-	.long	200
+	.long	192
+	.long	194
 	.long	.Lxtalabel185
 .cc_bottom cc_605
-.cc_top cc_606,.Lxtalabel115
+.cc_top cc_606,.Lxtalabel150
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	198
-	.long	200
-	.long	.Lxtalabel115
-.cc_bottom cc_606
-.cc_top cc_607,.Lxtalabel150
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	198
-	.long	200
+	.long	192
+	.long	194
 	.long	.Lxtalabel150
+.cc_bottom cc_606
+.cc_top cc_607,.Lxtalabel186
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	198
+	.long	200
+	.long	.Lxtalabel186
 .cc_bottom cc_607
-.cc_top cc_608,.Lxtalabel84
+.cc_top cc_608,.Lxtalabel151
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	198
+	.long	200
+	.long	.Lxtalabel151
+.cc_bottom cc_608
+.cc_top cc_609,.Lxtalabel116
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	198
+	.long	200
+	.long	.Lxtalabel116
+.cc_bottom cc_609
+.cc_top cc_610,.Lxtalabel84
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	200
 	.long	.Lxtalabel84
-.cc_bottom cc_608
-.cc_top cc_609,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	215
-	.long	219
-	.long	.Lxtalabel37
-.cc_bottom cc_609
-.cc_top cc_610,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	215
-	.long	219
-	.long	.Lxtalabel36
 .cc_bottom cc_610
-.cc_top cc_611,.Lxtalabel36
+.cc_top cc_611,.Lxtalabel37
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	221
-	.long	229
-	.long	.Lxtalabel36
+	.long	215
+	.long	219
+	.long	.Lxtalabel37
 .cc_bottom cc_611
-.cc_top cc_612,.Lxtalabel37
+.cc_top cc_612,.Lxtalabel36
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	215
+	.long	219
+	.long	.Lxtalabel36
+.cc_bottom cc_612
+.cc_top cc_613,.Lxtalabel37
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	221
 	.long	229
 	.long	.Lxtalabel37
-.cc_bottom cc_612
+.cc_bottom cc_613
+.cc_top cc_614,.Lxtalabel36
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	221
+	.long	229
+	.long	.Lxtalabel36
+.cc_bottom cc_614
 .Lentries_end5:
 	.section	.xtalooplabeltable,"",@progbits
 .Lentries_start6:
@@ -21083,202 +21141,202 @@ map:
 	.long	0
 	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
 	.byte	0
-.cc_top cc_613,.Lxta.loop_labels0
+.cc_top cc_615,.Lxta.loop_labels0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_613
-.cc_top cc_614,.Lxta.loop_labels6
+.cc_bottom cc_615
+.cc_top cc_616,.Lxta.loop_labels6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels6
-.cc_bottom cc_614
-.cc_top cc_615,.Lxta.loop_labels1
+.cc_bottom cc_616
+.cc_top cc_617,.Lxta.loop_labels1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_615
-.cc_top cc_616,.Lxta.loop_labels5
+.cc_bottom cc_617
+.cc_top cc_618,.Lxta.loop_labels5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels5
-.cc_bottom cc_616
-.cc_top cc_617,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxta.loop_labels4
-.cc_bottom cc_617
-.cc_top cc_618,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	50
-	.long	50
-	.long	.Lxta.loop_labels3
 .cc_bottom cc_618
 .cc_top cc_619,.Lxta.loop_labels4
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
-	.long	56
-	.long	56
+	.long	50
+	.long	50
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_619
 .cc_top cc_620,.Lxta.loop_labels3
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
+	.long	50
+	.long	50
+	.long	.Lxta.loop_labels3
+.cc_bottom cc_620
+.cc_top cc_621,.Lxta.loop_labels4
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	56
+	.long	56
+	.long	.Lxta.loop_labels4
+.cc_bottom cc_621
+.cc_top cc_622,.Lxta.loop_labels3
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels3
-.cc_bottom cc_620
-.cc_top cc_621,.Lxta.loop_labels6
+.cc_bottom cc_622
+.cc_top cc_623,.Lxta.loop_labels6
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels6
-.cc_bottom cc_621
-.cc_top cc_622,.Lxta.loop_labels0
+.cc_bottom cc_623
+.cc_top cc_624,.Lxta.loop_labels0
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_622
-.cc_top cc_623,.Lxta.loop_labels1
+.cc_bottom cc_624
+.cc_top cc_625,.Lxta.loop_labels1
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_623
-.cc_top cc_624,.Lxta.loop_labels5
+.cc_bottom cc_625
+.cc_top cc_626,.Lxta.loop_labels5
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels5
-.cc_bottom cc_624
-.cc_top cc_625,.Lxta.loop_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	150
-	.long	150
-	.long	.Lxta.loop_labels12
-.cc_bottom cc_625
-.cc_top cc_626,.Lxta.loop_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	150
-	.long	150
-	.long	.Lxta.loop_labels10
 .cc_bottom cc_626
-.cc_top cc_627,.Lxta.loop_labels8
+.cc_top cc_627,.Lxta.loop_labels12
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	150
+	.long	150
+	.long	.Lxta.loop_labels12
+.cc_bottom cc_627
+.cc_top cc_628,.Lxta.loop_labels10
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	150
+	.long	150
+	.long	.Lxta.loop_labels10
+.cc_bottom cc_628
+.cc_top cc_629,.Lxta.loop_labels8
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxta.loop_labels8
-.cc_bottom cc_627
-.cc_top cc_628,.Lxta.loop_labels12
+.cc_bottom cc_629
+.cc_top cc_630,.Lxta.loop_labels12
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels12
-.cc_bottom cc_628
-.cc_top cc_629,.Lxta.loop_labels10
+.cc_bottom cc_630
+.cc_top cc_631,.Lxta.loop_labels10
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels10
-.cc_bottom cc_629
-.cc_top cc_630,.Lxta.loop_labels8
+.cc_bottom cc_631
+.cc_top cc_632,.Lxta.loop_labels8
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels8
-.cc_bottom cc_630
-.cc_top cc_631,.Lxta.loop_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxta.loop_labels9
-.cc_bottom cc_631
-.cc_top cc_632,.Lxta.loop_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxta.loop_labels13
 .cc_bottom cc_632
-.cc_top cc_633,.Lxta.loop_labels2
+.cc_top cc_633,.Lxta.loop_labels9
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
-	.long	.Lxta.loop_labels2
+	.long	.Lxta.loop_labels9
 .cc_bottom cc_633
-.cc_top cc_634,.Lxta.loop_labels7
+.cc_top cc_634,.Lxta.loop_labels13
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxta.loop_labels13
+.cc_bottom cc_634
+.cc_top cc_635,.Lxta.loop_labels2
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxta.loop_labels2
+.cc_bottom cc_635
+.cc_top cc_636,.Lxta.loop_labels7
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels7
-.cc_bottom cc_634
-.cc_top cc_635,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	185
-	.long	185
-	.long	.Lxta.loop_labels11
-.cc_bottom cc_635
-.cc_top cc_636,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
-	.byte	0
-	.long	189
-	.long	189
-	.long	.Lxta.loop_labels11
 .cc_bottom cc_636
-.cc_top cc_637,.Lxta.loop_labels2
+.cc_top cc_637,.Lxta.loop_labels11
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	185
+	.long	185
+	.long	.Lxta.loop_labels11
+.cc_bottom cc_637
+.cc_top cc_638,.Lxta.loop_labels11
+	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.byte	0
+	.long	189
+	.long	189
+	.long	.Lxta.loop_labels11
+.cc_bottom cc_638
+.cc_top cc_639,.Lxta.loop_labels2
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_637
-.cc_top cc_638,.Lxta.loop_labels7
+.cc_bottom cc_639
+.cc_top cc_640,.Lxta.loop_labels7
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels7
-.cc_bottom cc_638
-.cc_top cc_639,.Lxta.loop_labels9
+.cc_bottom cc_640
+.cc_top cc_641,.Lxta.loop_labels9
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels9
-.cc_bottom cc_639
-.cc_top cc_640,.Lxta.loop_labels13
+.cc_bottom cc_641
+.cc_top cc_642,.Lxta.loop_labels13
 	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels13
-.cc_bottom cc_640
+.cc_bottom cc_642
 .Lentries_end7:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:
@@ -21422,7 +21480,7 @@ map:
 .cc_bottom cc_trapinfo_16
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str17:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_17,.Ltrap_info17
 	.long	.Ltrap_info17
@@ -21430,7 +21488,7 @@ map:
 .cc_bottom cc_trapinfo_17
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str18:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_18,.Ltrap_info18
 	.long	.Ltrap_info18
@@ -21438,7 +21496,7 @@ map:
 .cc_bottom cc_trapinfo_18
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str19:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_19,.Ltrap_info19
 	.long	.Ltrap_info19
@@ -21446,7 +21504,7 @@ map:
 .cc_bottom cc_trapinfo_19
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str20:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_20,.Ltrap_info20
 	.long	.Ltrap_info20
@@ -21454,7 +21512,7 @@ map:
 .cc_bottom cc_trapinfo_20
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str21:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_21,.Ltrap_info21
 	.long	.Ltrap_info21
@@ -21462,7 +21520,7 @@ map:
 .cc_bottom cc_trapinfo_21
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str22:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_22,.Ltrap_info22
 	.long	.Ltrap_info22
@@ -21470,7 +21528,7 @@ map:
 .cc_bottom cc_trapinfo_22
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str23:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_23,.Ltrap_info23
 	.long	.Ltrap_info23
@@ -21478,7 +21536,7 @@ map:
 .cc_bottom cc_trapinfo_23
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str24:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_24,.Ltrap_info24
 	.long	.Ltrap_info24
@@ -21486,7 +21544,7 @@ map:
 .cc_bottom cc_trapinfo_24
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str25:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_25,.Ltrap_info25
 	.long	.Ltrap_info25
@@ -21494,7 +21552,7 @@ map:
 .cc_bottom cc_trapinfo_25
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str26:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_26,.Ltrap_info26
 	.long	.Ltrap_info26
@@ -21502,7 +21560,7 @@ map:
 .cc_bottom cc_trapinfo_26
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str27:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_27,.Ltrap_info27
 	.long	.Ltrap_info27
@@ -21510,7 +21568,7 @@ map:
 .cc_bottom cc_trapinfo_27
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str28:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_28,.Ltrap_info28
 	.long	.Ltrap_info28
@@ -21518,7 +21576,7 @@ map:
 .cc_bottom cc_trapinfo_28
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str29:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_29,.Ltrap_info29
 	.long	.Ltrap_info29
@@ -21526,7 +21584,7 @@ map:
 .cc_bottom cc_trapinfo_29
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str30:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_30,.Ltrap_info30
 	.long	.Ltrap_info30
@@ -21534,7 +21592,7 @@ map:
 .cc_bottom cc_trapinfo_30
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str31:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_31,.Ltrap_info31
 	.long	.Ltrap_info31
@@ -21542,7 +21600,7 @@ map:
 .cc_bottom cc_trapinfo_31
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str32:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_32,.Ltrap_info32
 	.long	.Ltrap_info32
@@ -21550,7 +21608,7 @@ map:
 .cc_bottom cc_trapinfo_32
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str33:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_33,.Ltrap_info33
 	.long	.Ltrap_info33
@@ -21558,7 +21616,7 @@ map:
 .cc_bottom cc_trapinfo_33
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str34:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_34,.Ltrap_info34
 	.long	.Ltrap_info34
@@ -21566,7 +21624,7 @@ map:
 .cc_bottom cc_trapinfo_34
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str35:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_35,.Ltrap_info35
 	.long	.Ltrap_info35
@@ -21574,7 +21632,7 @@ map:
 .cc_bottom cc_trapinfo_35
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str36:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_36,.Ltrap_info36
 	.long	.Ltrap_info36
@@ -21582,7 +21640,7 @@ map:
 .cc_bottom cc_trapinfo_36
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str37:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_37,.Ltrap_info37
 	.long	.Ltrap_info37
@@ -21590,7 +21648,7 @@ map:
 .cc_bottom cc_trapinfo_37
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str38:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_38,.Ltrap_info38
 	.long	.Ltrap_info38
@@ -21598,7 +21656,7 @@ map:
 .cc_bottom cc_trapinfo_38
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str39:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_39,.Ltrap_info39
 	.long	.Ltrap_info39
@@ -21606,7 +21664,7 @@ map:
 .cc_bottom cc_trapinfo_39
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str40:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_40,.Ltrap_info40
 	.long	.Ltrap_info40
@@ -21622,7 +21680,7 @@ map:
 .cc_bottom cc_trapinfo_41
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str42:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_42,.Ltrap_info42
 	.long	.Ltrap_info42
@@ -21630,7 +21688,7 @@ map:
 .cc_bottom cc_trapinfo_42
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str43:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_43,.Ltrap_info43
 	.long	.Ltrap_info43
@@ -21638,7 +21696,7 @@ map:
 .cc_bottom cc_trapinfo_43
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str44:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_44,.Ltrap_info44
 	.long	.Ltrap_info44
@@ -21646,7 +21704,7 @@ map:
 .cc_bottom cc_trapinfo_44
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str45:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_45,.Ltrap_info45
 	.long	.Ltrap_info45
@@ -21654,7 +21712,7 @@ map:
 .cc_bottom cc_trapinfo_45
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str46:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_46,.Ltrap_info46
 	.long	.Ltrap_info46
@@ -21662,7 +21720,7 @@ map:
 .cc_bottom cc_trapinfo_46
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str47:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_47,.Ltrap_info47
 	.long	.Ltrap_info47
@@ -21670,7 +21728,7 @@ map:
 .cc_bottom cc_trapinfo_47
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str48:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_48,.Ltrap_info48
 	.long	.Ltrap_info48
@@ -21678,7 +21736,7 @@ map:
 .cc_bottom cc_trapinfo_48
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str49:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_49,.Ltrap_info49
 	.long	.Ltrap_info49
@@ -21686,7 +21744,7 @@ map:
 .cc_bottom cc_trapinfo_49
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str50:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_50,.Ltrap_info50
 	.long	.Ltrap_info50
@@ -21694,7 +21752,7 @@ map:
 .cc_bottom cc_trapinfo_50
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str51:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_51,.Ltrap_info51
 	.long	.Ltrap_info51
@@ -21702,7 +21760,7 @@ map:
 .cc_bottom cc_trapinfo_51
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str52:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_52,.Ltrap_info52
 	.long	.Ltrap_info52
@@ -21710,7 +21768,7 @@ map:
 .cc_bottom cc_trapinfo_52
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str53:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_53,.Ltrap_info53
 	.long	.Ltrap_info53
@@ -21718,7 +21776,7 @@ map:
 .cc_bottom cc_trapinfo_53
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str54:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_54,.Ltrap_info54
 	.long	.Ltrap_info54
@@ -21726,7 +21784,7 @@ map:
 .cc_bottom cc_trapinfo_54
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str55:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_55,.Ltrap_info55
 	.long	.Ltrap_info55
@@ -21734,7 +21792,7 @@ map:
 .cc_bottom cc_trapinfo_55
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str56:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_56,.Ltrap_info56
 	.long	.Ltrap_info56
@@ -21742,7 +21800,7 @@ map:
 .cc_bottom cc_trapinfo_56
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str57:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_57,.Ltrap_info57
 	.long	.Ltrap_info57
@@ -21750,7 +21808,7 @@ map:
 .cc_bottom cc_trapinfo_57
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str58:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_58,.Ltrap_info58
 	.long	.Ltrap_info58
@@ -21758,7 +21816,7 @@ map:
 .cc_bottom cc_trapinfo_58
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str59:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_59,.Ltrap_info59
 	.long	.Ltrap_info59
@@ -21766,44 +21824,12 @@ map:
 .cc_bottom cc_trapinfo_59
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str60:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_60,.Ltrap_info60
 	.long	.Ltrap_info60
 	.long	.Ltrap_info_str60
 .cc_bottom cc_trapinfo_60
-	.section	.trap_info_str,"MS",@progbits
-.Ltrap_info_str61:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
-	.section	.trap_info,"",@progbits
-.cc_top cc_trapinfo_61,.Ltrap_info61
-	.long	.Ltrap_info61
-	.long	.Ltrap_info_str61
-.cc_bottom cc_trapinfo_61
-	.section	.trap_info_str,"MS",@progbits
-.Ltrap_info_str62:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
-	.section	.trap_info,"",@progbits
-.cc_top cc_trapinfo_62,.Ltrap_info62
-	.long	.Ltrap_info62
-	.long	.Ltrap_info_str62
-.cc_bottom cc_trapinfo_62
-	.section	.trap_info_str,"MS",@progbits
-.Ltrap_info_str63:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
-	.section	.trap_info,"",@progbits
-.cc_top cc_trapinfo_63,.Ltrap_info63
-	.long	.Ltrap_info63
-	.long	.Ltrap_info_str63
-.cc_bottom cc_trapinfo_63
-	.section	.trap_info_str,"MS",@progbits
-.Ltrap_info_str64:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
-	.section	.trap_info,"",@progbits
-.cc_top cc_trapinfo_64,.Ltrap_info64
-	.long	.Ltrap_info64
-	.long	.Ltrap_info_str64
-.cc_bottom cc_trapinfo_64
 .Ltrap_info_entries_end0:
 	.section	.debug_line,"",@progbits
 .Lline_table_start0:

@@ -14,18 +14,18 @@
 	.set slider_periodic.dynalloc_maxcores, 0
 	.set slider_periodic.dynalloc_maxtimers, 0
 	.set slider_periodic.init.0.savedstate,6
-	.set slider_periodic.select.yield.enable.savedstate,6
-	.set slider_periodic.select.yield.enable.cases.maxtimers,0 $M slider_periodic.select.yield.case.1.maxtimers $M slider_periodic.select.yield.case.0.maxtimers
-	.set slider_periodic.select.yield.enable.cases.maxcores,0 $M slider_periodic.select.yield.case.1.maxcores $M slider_periodic.select.yield.case.0.maxcores
-	.set slider_periodic.select.yield.enable.cases.maxchanends,0 $M slider_periodic.select.yield.case.1.maxchanends $M slider_periodic.select.yield.case.0.maxchanends
-	.set slider_periodic.select.yield.enable.cases,0
-	.set slider_periodic.select.yield.enable.cases.nstackwords, 0 $M (slider_periodic.select.yield.case.0.nstackwords) $M (slider_periodic.select.yield.case.1.nstackwords)
+	.set slider_periodic.select.y.enable.savedstate,6
+	.set slider_periodic.select.y.enable.cases.maxtimers,0 $M slider_periodic.select.y.case.1.maxtimers $M slider_periodic.select.y.case.0.maxtimers
+	.set slider_periodic.select.y.enable.cases.maxcores,0 $M slider_periodic.select.y.case.1.maxcores $M slider_periodic.select.y.case.0.maxcores
+	.set slider_periodic.select.y.enable.cases.maxchanends,0 $M slider_periodic.select.y.case.1.maxchanends $M slider_periodic.select.y.case.0.maxchanends
+	.set slider_periodic.select.y.enable.cases,0
+	.set slider_periodic.select.y.enable.cases.nstackwords, 0 $M (slider_periodic.select.y.case.1.nstackwords) $M (slider_periodic.select.y.case.0.nstackwords)
 	.set slider_periodic.select.enable.savedstate,6
 	.set slider_periodic.select.enable.cases.maxtimers,0 $M slider_periodic.select.case.1.maxtimers $M slider_periodic.select.case.0.maxtimers
 	.set slider_periodic.select.enable.cases.maxcores,0 $M slider_periodic.select.case.1.maxcores $M slider_periodic.select.case.0.maxcores
 	.set slider_periodic.select.enable.cases.maxchanends,0 $M slider_periodic.select.case.1.maxchanends $M slider_periodic.select.case.0.maxchanends
 	.set slider_periodic.select.enable.cases,0
-	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.0.nstackwords) $M (slider_periodic.select.case.1.nstackwords)
+	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.1.nstackwords) $M (slider_periodic.select.case.0.nstackwords)
 	.weak slider_task.3.maxargsize.group
 	.globl slider_task.3.maxargsize.group
 	.add_to_set slider_task.3.maxargsize.group, 1
@@ -52,7 +52,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.max_reduce _i.slider_query_if.filter.max.nstackwords, _i.slider_query_if.filter.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.filter.fns, _i.slider_query_if.filter.fns.group, 0
 	.weak _i.slider_query_if.get_coord.maxchanends.group
@@ -69,7 +69,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.max_reduce _i.slider_query_if.get_coord.max.nstackwords, _i.slider_query_if.get_coord.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.get_coord.fns, _i.slider_query_if.get_coord.fns.group, 0
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
@@ -86,7 +86,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.max_reduce _i.slider_query_if.__interface_init.max.nstackwords, _i.slider_query_if.__interface_init.nstackwords.group, 0
 	.max_reduce _i.slider_query_if.__interface_init.fns, _i.slider_query_if.__interface_init.fns.group, 0
 	.weak _i.slider_query_if._client_call_y.maxchanends.group
@@ -103,7 +103,7 @@
 	.weak _i.slider_query_if._client_call_y.fns.group
 	.globl _i.slider_query_if._client_call_y.fns.group
 	.add_to_set _i.slider_query_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.slider_query_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.slider_query_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.slider_query_if._client_call_y.max.nstackwords, _i.slider_query_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.slider_query_if._client_call_y.fns, _i.slider_query_if._client_call_y.fns.group, 0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
@@ -120,7 +120,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.max_reduce _i.absolute_slider_if.get_coord.max.nstackwords, _i.absolute_slider_if.get_coord.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if.get_coord.fns, _i.absolute_slider_if.get_coord.fns.group, 0
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
@@ -137,7 +137,7 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.max_reduce _i.absolute_slider_if.__interface_init.max.nstackwords, _i.absolute_slider_if.__interface_init.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if.__interface_init.fns, _i.absolute_slider_if.__interface_init.fns.group, 0
 	.weak _i.absolute_slider_if._client_call_y.maxchanends.group
@@ -154,7 +154,7 @@
 	.weak _i.absolute_slider_if._client_call_y.fns.group
 	.globl _i.absolute_slider_if._client_call_y.fns.group
 	.add_to_set _i.absolute_slider_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.absolute_slider_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.absolute_slider_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.absolute_slider_if._client_call_y.max.nstackwords, _i.absolute_slider_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.absolute_slider_if._client_call_y.fns, _i.absolute_slider_if._client_call_y.fns.group, 0
 	.weak absolute_slider.3.maxargsize.group
@@ -194,7 +194,7 @@
 	.weak _i.slider_query_if.filter.fns.group
 	.globl _i.slider_query_if.filter.fns.group
 	.add_to_set _i.slider_query_if.filter.nstackwords.group, _i.slider_query_if.slider._c0.filter.nstackwords, _i.slider_query_if.slider._c0.filter
-	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter, _i.slider_query_if.slider._c0.filter
+	.add_to_set _i.slider_query_if.filter.fns.group, _i.slider_query_if.slider._c0.filter
 	.weak _i.slider_query_if.get_coord.maxchanends.group
 	.add_to_set _i.slider_query_if.get_coord.maxchanends.group, _i.slider_query_if.slider._c0.get_coord.maxchanends, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.get_coord.maxcores.group
@@ -206,7 +206,7 @@
 	.weak _i.slider_query_if.get_coord.fns.group
 	.globl _i.slider_query_if.get_coord.fns.group
 	.add_to_set _i.slider_query_if.get_coord.nstackwords.group, _i.slider_query_if.slider._c0.get_coord.nstackwords, _i.slider_query_if.slider._c0.get_coord
-	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord, _i.slider_query_if.slider._c0.get_coord
+	.add_to_set _i.slider_query_if.get_coord.fns.group, _i.slider_query_if.slider._c0.get_coord
 	.weak _i.slider_query_if.__interface_init.maxchanends.group
 	.add_to_set _i.slider_query_if.__interface_init.maxchanends.group, (slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), slider.init.0
 	.weak _i.slider_query_if.__interface_init.maxcores.group
@@ -218,7 +218,7 @@
 	.weak _i.slider_query_if.__interface_init.fns.group
 	.globl _i.slider_query_if.__interface_init.fns.group
 	.add_to_set _i.slider_query_if.__interface_init.nstackwords.group, (slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), slider.init.0
-	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0, slider.init.0
+	.add_to_set _i.slider_query_if.__interface_init.fns.group, slider.init.0
 	.weak _i.absolute_slider_if.get_coord.maxchanends.group
 	.add_to_set _i.absolute_slider_if.get_coord.maxchanends.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.maxchanends, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.get_coord.maxcores.group
@@ -230,7 +230,7 @@
 	.weak _i.absolute_slider_if.get_coord.fns.group
 	.globl _i.absolute_slider_if.get_coord.fns.group
 	.add_to_set _i.absolute_slider_if.get_coord.nstackwords.group, _i.absolute_slider_if.absolute_slider._c0.get_coord.nstackwords, _i.absolute_slider_if.absolute_slider._c0.get_coord
-	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord, _i.absolute_slider_if.absolute_slider._c0.get_coord
+	.add_to_set _i.absolute_slider_if.get_coord.fns.group, _i.absolute_slider_if.absolute_slider._c0.get_coord
 	.weak _i.absolute_slider_if.__interface_init.maxchanends.group
 	.add_to_set _i.absolute_slider_if.__interface_init.maxchanends.group, (absolute_slider.init.0.maxchanends + __interface_init_task_extra.maxchanends), absolute_slider.init.0
 	.weak _i.absolute_slider_if.__interface_init.maxcores.group
@@ -242,25 +242,25 @@
 	.weak _i.absolute_slider_if.__interface_init.fns.group
 	.globl _i.absolute_slider_if.__interface_init.fns.group
 	.add_to_set _i.absolute_slider_if.__interface_init.nstackwords.group, (absolute_slider.init.0.nstackwords + __interface_init_task_extra.nstackwords), absolute_slider.init.0
-	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0, absolute_slider.init.0
+	.add_to_set _i.absolute_slider_if.__interface_init.fns.group, absolute_slider.init.0
 	.weak absolute_slider.3.maxargsize.group
 	.globl absolute_slider.3.maxargsize.group
 	.add_to_set absolute_slider.3.maxargsize.group, slider_task.3.maxargsize
 	.weak absolute_slider.4.maxargsize.group
 	.globl absolute_slider.4.maxargsize.group
 	.add_to_set absolute_slider.4.maxargsize.group, slider_task.4.maxargsize
-	.set slider_task.select.yield.enable.savedstate,28+ absolute_slider.select.enable.savedstate+ slider.select.enable.savedstate+ slider_periodic.select.enable.savedstate
-	.globl slider_task.select.yield.enable.savedstate
-	.set slider_task.select.yield.enable.cases.maxtimers,0 $M slider_periodic.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers
-	.globl slider_task.select.yield.enable.cases.maxtimers
-	.set slider_task.select.yield.enable.cases.maxcores,0 $M slider_periodic.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M absolute_slider.select.enable.cases.maxcores
-	.globl slider_task.select.yield.enable.cases.maxcores
-	.set slider_task.select.yield.enable.cases.maxchanends,0 $M slider_periodic.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M absolute_slider.select.enable.cases.maxchanends
-	.globl slider_task.select.yield.enable.cases.maxchanends
-	.set slider_task.select.yield.enable.cases,0
-	.globl slider_task.select.yield.enable.cases
-	.set slider_task.select.yield.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords)
-	.globl slider_task.select.yield.enable.cases.nstackwords
+	.set slider_task.select.y.enable.savedstate,28+ absolute_slider.select.enable.savedstate+ slider.select.enable.savedstate+ slider_periodic.select.enable.savedstate
+	.globl slider_task.select.y.enable.savedstate
+	.set slider_task.select.y.enable.cases.maxtimers,0 $M slider_periodic.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers
+	.globl slider_task.select.y.enable.cases.maxtimers
+	.set slider_task.select.y.enable.cases.maxcores,0 $M slider_periodic.select.enable.cases.maxcores $M slider.select.enable.cases.maxcores $M absolute_slider.select.enable.cases.maxcores
+	.globl slider_task.select.y.enable.cases.maxcores
+	.set slider_task.select.y.enable.cases.maxchanends,0 $M slider_periodic.select.enable.cases.maxchanends $M slider.select.enable.cases.maxchanends $M absolute_slider.select.enable.cases.maxchanends
+	.globl slider_task.select.y.enable.cases.maxchanends
+	.set slider_task.select.y.enable.cases,0
+	.globl slider_task.select.y.enable.cases
+	.set slider_task.select.y.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords)
+	.globl slider_task.select.y.enable.cases.nstackwords
 	.set slider_task.select.enable.savedstate,28+ absolute_slider.select.enable.savedstate+ slider.select.enable.savedstate+ slider_periodic.select.enable.savedstate
 	.globl slider_task.select.enable.savedstate
 	.set slider_task.select.enable.cases.maxtimers,0 $M slider_periodic.select.enable.cases.maxtimers $M slider.select.enable.cases.maxtimers $M absolute_slider.select.enable.cases.maxtimers
@@ -358,7 +358,7 @@
 	.weak _i.slider_if._client_call_y.fns.group
 	.globl _i.slider_if._client_call_y.fns.group
 	.add_to_set _i.slider_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.slider_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
+	.add_to_set _i.slider_if._client_call_y.fns.group, __interface_client_call_y_other
 	.max_reduce _i.slider_if._client_call_y.max.nstackwords, _i.slider_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.slider_if._client_call_y.fns, _i.slider_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -1147,7 +1147,7 @@ slider_task:
 	bf r0, .LBB12_1
 	bu .LBB12_2
 	.cc_bottom slider_task.function
-	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M absolute_slider.select.enable.cases.nstackwords $M slider.select.enable.cases.nstackwords $M slider_periodic.select.enable.cases.nstackwords)) + 28)
+	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M slider.select.enable.cases.nstackwords $M slider_periodic.select.enable.cases.nstackwords $M absolute_slider.select.enable.cases.nstackwords)) + 28)
 	.globl	slider_task.nstackwords
 	.set	slider_task.maxcores,((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + 1)))
 	.globl	slider_task.maxcores
@@ -1310,15 +1310,17 @@ slider_task.init.0:
 	stw r6, r4[6]
 	stw r7, r4[7]
 	stw r8, r4[8]
-	ldc r11, absolute_slider.init.0.savedstate
+	ldc r0, absolute_slider.init.0.savedstate
+	add r11, r0, 1
 	ldc r0, 112
 	add r0, r4, r0
-	ldaw r9, r0[r11]
-	stw r9, sp[9]
 	ldc r9, slider.init.0.savedstate
-	add r11, r9, r11
+	add r9, r9, r11
+	ldaw r9, r0[r9]
 	ldaw r11, r0[r11]
 	stw r11, sp[8]
+	add r11, r9, 4
+	stw r11, sp[9]
 	ldc r9, 0
 	stw r9, r4[0]
 	ldap r11, slider_task.init.1
@@ -1399,11 +1401,11 @@ slider_task.init.0:
 	stw r0, r2[0]
 	ldc r2, 104
 	add r5, r4, r2
-	ldw r2, sp[9]
+	ldw r2, sp[8]
 	stw r2, r5[0]
 	ldc r2, 108
 	add r9, r4, r2
-	ldw r2, sp[8]
+	ldw r2, sp[9]
 	stw r2, r9[0]
 	stw r8, sp[4]
 	stw r7, sp[3]
@@ -1449,11 +1451,11 @@ slider_task.init.0:
 .Lfunc_end15:
 	.cfi_endproc
 
-	.globl	slider_task.select.yield.enable
+	.globl	slider_task.select.y.enable
 	.align	4
-	.type	slider_task.select.yield.enable,@function
-	.cc_top slider_task.select.yield.enable.function,slider_task.select.yield.enable
-slider_task.select.yield.enable:
+	.type	slider_task.select.y.enable,@function
+	.cc_top slider_task.select.y.enable.function,slider_task.select.y.enable
+slider_task.select.y.enable:
 	.cfi_startproc
 	entsp 3
 .Ltmp80:
@@ -1488,17 +1490,17 @@ slider_task.select.yield.enable:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom slider_task.select.yield.enable.function
-	.set	slider_task.select.yield.enable.nstackwords,((slider_task.init.1.nstackwords $M absolute_slider.select.enable.nstackwords $M slider.select.enable.nstackwords $M slider_periodic.select.enable.nstackwords) + 3)
-	.globl	slider_task.select.yield.enable.nstackwords
-	.set	slider_task.select.yield.enable.maxcores,absolute_slider.select.enable.maxcores $M slider.select.enable.maxcores $M slider_periodic.select.enable.maxcores $M slider_task.init.1.maxcores $M 1
-	.globl	slider_task.select.yield.enable.maxcores
-	.set	slider_task.select.yield.enable.maxtimers,absolute_slider.select.enable.maxtimers $M slider.select.enable.maxtimers $M slider_periodic.select.enable.maxtimers $M slider_task.init.1.maxtimers $M 0
-	.globl	slider_task.select.yield.enable.maxtimers
-	.set	slider_task.select.yield.enable.maxchanends,absolute_slider.select.enable.maxchanends $M slider.select.enable.maxchanends $M slider_periodic.select.enable.maxchanends $M slider_task.init.1.maxchanends $M 0
-	.globl	slider_task.select.yield.enable.maxchanends
+	.cc_bottom slider_task.select.y.enable.function
+	.set	slider_task.select.y.enable.nstackwords,((slider_task.init.1.nstackwords $M absolute_slider.select.enable.nstackwords $M slider.select.enable.nstackwords $M slider_periodic.select.enable.nstackwords) + 3)
+	.globl	slider_task.select.y.enable.nstackwords
+	.set	slider_task.select.y.enable.maxcores,absolute_slider.select.enable.maxcores $M slider.select.enable.maxcores $M slider_periodic.select.enable.maxcores $M slider_task.init.1.maxcores $M 1
+	.globl	slider_task.select.y.enable.maxcores
+	.set	slider_task.select.y.enable.maxtimers,absolute_slider.select.enable.maxtimers $M slider.select.enable.maxtimers $M slider_periodic.select.enable.maxtimers $M slider_task.init.1.maxtimers $M 0
+	.globl	slider_task.select.y.enable.maxtimers
+	.set	slider_task.select.y.enable.maxchanends,absolute_slider.select.enable.maxchanends $M slider.select.enable.maxchanends $M slider_periodic.select.enable.maxchanends $M slider_task.init.1.maxchanends $M 0
+	.globl	slider_task.select.y.enable.maxchanends
 .Ltmp84:
-	.size	slider_task.select.yield.enable, .Ltmp84-slider_task.select.yield.enable
+	.size	slider_task.select.y.enable, .Ltmp84-slider_task.select.y.enable
 	.cfi_endproc
 
 	.globl	slider_task.select.enable
@@ -1804,9 +1806,9 @@ slider_periodic.select.0.case.0:
 	.cc_bottom .LCPI23_0.data
 	.text
 	.align	4
-	.type	slider_periodic.select.yield.case.0,@function
-	.cc_top slider_periodic.select.yield.case.0.function,slider_periodic.select.yield.case.0
-slider_periodic.select.yield.case.0:
+	.type	slider_periodic.select.y.case.0,@function
+	.cc_top slider_periodic.select.y.case.0.function,slider_periodic.select.y.case.0
+slider_periodic.select.y.case.0:
 .Lfunc_begin23:
 	.loc	1 22 0
 	.cfi_startproc
@@ -1900,20 +1902,20 @@ slider_periodic.select.yield.case.0:
 	retsp 3
 	# RETURN_REG_HOLDER
 .Ltmp118:
-	.cc_bottom slider_periodic.select.yield.case.0.function
-	.set	slider_periodic.select.yield.case.0.nstackwords,(_i.slider_query_if.filter.max.nstackwords + 3)
-	.set	slider_periodic.select.yield.case.0.maxcores,_i.slider_query_if.filter.max.maxcores $M 1
-	.set	slider_periodic.select.yield.case.0.maxtimers,_i.slider_query_if.filter.max.maxtimers $M 0
-	.set	slider_periodic.select.yield.case.0.maxchanends,_i.slider_query_if.filter.max.maxchanends $M 0
+	.cc_bottom slider_periodic.select.y.case.0.function
+	.set	slider_periodic.select.y.case.0.nstackwords,(_i.slider_query_if.filter.max.nstackwords + 3)
+	.set	slider_periodic.select.y.case.0.maxcores,_i.slider_query_if.filter.max.maxcores $M 1
+	.set	slider_periodic.select.y.case.0.maxtimers,_i.slider_query_if.filter.max.maxtimers $M 0
+	.set	slider_periodic.select.y.case.0.maxchanends,_i.slider_query_if.filter.max.maxchanends $M 0
 .Ltmp119:
-	.size	slider_periodic.select.yield.case.0, .Ltmp119-slider_periodic.select.yield.case.0
+	.size	slider_periodic.select.y.case.0, .Ltmp119-slider_periodic.select.y.case.0
 .Lfunc_end23:
 	.cfi_endproc
 
 	.align	4
-	.type	slider_periodic.select.yield.case.1,@function
-	.cc_top slider_periodic.select.yield.case.1.function,slider_periodic.select.yield.case.1
-slider_periodic.select.yield.case.1:
+	.type	slider_periodic.select.y.case.1,@function
+	.cc_top slider_periodic.select.y.case.1.function,slider_periodic.select.y.case.1
+slider_periodic.select.y.case.1:
 .Lfunc_begin24:
 	.loc	1 30 0
 	.cfi_startproc
@@ -1988,13 +1990,13 @@ slider_periodic.select.yield.case.1:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom slider_periodic.select.yield.case.1.function
-	.set	slider_periodic.select.yield.case.1.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
-	.set	slider_periodic.select.yield.case.1.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
-	.set	slider_periodic.select.yield.case.1.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
-	.set	slider_periodic.select.yield.case.1.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
+	.cc_bottom slider_periodic.select.y.case.1.function
+	.set	slider_periodic.select.y.case.1.nstackwords,(_i.slider_query_if.get_coord.max.nstackwords + 3)
+	.set	slider_periodic.select.y.case.1.maxcores,_i.slider_query_if.get_coord.max.maxcores $M 1
+	.set	slider_periodic.select.y.case.1.maxtimers,_i.slider_query_if.get_coord.max.maxtimers $M 0
+	.set	slider_periodic.select.y.case.1.maxchanends,_i.slider_query_if.get_coord.max.maxchanends $M 0
 .Ltmp127:
-	.size	slider_periodic.select.yield.case.1, .Ltmp127-slider_periodic.select.yield.case.1
+	.size	slider_periodic.select.y.case.1, .Ltmp127-slider_periodic.select.y.case.1
 .Lfunc_end24:
 	.cfi_endproc
 
@@ -2247,10 +2249,10 @@ slider_periodic.select.case.1:
 	.cc_bottom .vtable3.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.0/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.0 (build 16341, Apr-10-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
 .Linfo_string2:
@@ -2310,11 +2312,11 @@ slider_periodic.select.case.1:
 .Linfo_string29:
 .asciiz"slider_periodic.init.0"
 .Linfo_string30:
-.asciiz"slider_periodic.select.yield.case.0"
+.asciiz"slider_periodic.select.y.case.0"
 .Linfo_string31:
-.asciiz"slider_periodic.select.yield.case.1"
+.asciiz"slider_periodic.select.y.case.1"
 .Linfo_string32:
-.asciiz"slider_periodic.select.yield.enable"
+.asciiz"slider_periodic.select.y.enable"
 .Linfo_string33:
 .asciiz"slider_periodic.select.case.0"
 .Linfo_string34:
@@ -2332,7 +2334,7 @@ slider_periodic.select.case.1:
 .Linfo_string40:
 .asciiz"slider_task.init.0"
 .Linfo_string41:
-.asciiz"slider_task.select.yield.enable"
+.asciiz"slider_task.select.y.enable"
 .Linfo_string42:
 .asciiz"slider_task.select.enable"
 .Linfo_string43:
@@ -2430,7 +2432,7 @@ slider_periodic.select.case.1:
 .Linfo_string89:
 .asciiz"s"
 .Linfo_string90:
-.asciiz"yield"
+.asciiz"y"
 .Linfo_string91:
 .asciiz"yarg"
 .Linfo_string92:
@@ -3979,7 +3981,7 @@ slider_periodic.select.case.1:
 .Lset20 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset20
 	.long	1375
-.asciiz"slider_task.select.yield.enable"
+.asciiz"slider_task.select.y.enable"
 	.long	925
 .asciiz"_i.slider_query_if._chan.get_coord"
 	.long	705
@@ -3988,12 +3990,12 @@ slider_periodic.select.case.1:
 .asciiz"_i.slider_if._chan_y.get_coord"
 	.long	1443
 .asciiz"_i.slider_if.slider_periodic._c0.get_coord"
+	.long	665
+.asciiz"slider_periodic.select.case.0"
 	.long	574
-.asciiz"slider_periodic.select.yield.case.0"
+.asciiz"slider_periodic.select.y.case.0"
 	.long	614
-.asciiz"slider_periodic.select.yield.case.1"
-	.long	1502
-.asciiz"_i.slider_if.slider_task._c0.get_coord"
+.asciiz"slider_periodic.select.y.case.1"
 	.long	1223
 .asciiz"slider_periodic.init.0"
 	.long	756
@@ -4004,14 +4006,14 @@ slider_periodic.select.case.1:
 .asciiz"delay_milliseconds"
 	.long	444
 .asciiz"slider_periodic.init.1"
-	.long	665
-.asciiz"slider_periodic.select.case.0"
 	.long	1331
 .asciiz"slider_task.select.0.enable"
-	.long	334
-.asciiz"slider_task.init.0"
 	.long	1355
 .asciiz"slider_task.init.1"
+	.long	334
+.asciiz"slider_task.init.0"
+	.long	1502
+.asciiz"_i.slider_if.slider_task._c0.get_coord"
 	.long	523
 .asciiz"slider_periodic.select.0.case.0"
 	.long	1312
@@ -4036,12 +4038,12 @@ slider_periodic.select.case.1:
 .asciiz"delay_microseconds"
 	.long	949
 .asciiz"_i.slider_query_if._chan.filter"
-	.long	1266
-.asciiz"slider_periodic.select.yield.enable"
-	.long	1526
-.asciiz"_i.slider_if.slider_task._c0.get_slider_state"
 	.long	1399
 .asciiz"slider_task.select.enable"
+	.long	1526
+.asciiz"_i.slider_if.slider_task._c0.get_slider_state"
+	.long	1266
+.asciiz"slider_periodic.select.y.enable"
 	.long	1468
 .asciiz"_i.slider_if.slider_periodic._c0.get_slider_state"
 	.long	1021
@@ -4103,24 +4105,24 @@ slider_periodic.select.case.1:
 	.typestring _i.slider_if.slider_task._c0.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(u:q(uc),ui)"
 	.typestring _i.slider_if._chan.get_coord, "f{si}(chd)"
 	.typestring _i.slider_if._chan.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(chd,ui)"
-	.typestring _i.slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_if._chan_y.get_coord,_i.slider_if._client_call_y.fns
-	.typestring _i.slider_if._chan_y.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(yield){ui}}),ui)"
+	.typestring _i.slider_if._chan_y.get_slider_state, "l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.slider_if._chan_y.get_slider_state,_i.slider_if._client_call_y.fns
 	.typestring _i.absolute_slider_if._chan.get_coord, "f{si}(chd)"
-	.typestring _i.absolute_slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.absolute_slider_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.absolute_slider_if._chan_y.get_coord,_i.absolute_slider_if._client_call_y.fns
 	.typestring _i.slider_query_if._chan.get_coord, "f{si}(chd)"
 	.typestring _i.slider_query_if._chan.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(chd)"
-	.typestring _i.slider_query_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_query_if._chan_y.get_coord, "f{si}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_query_if._chan_y.get_coord,_i.slider_query_if._client_call_y.fns
-	.typestring _i.slider_query_if._chan_y.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(yield){ui}}))"
+	.typestring _i.slider_query_if._chan_y.filter, "f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.slider_query_if._chan_y.filter,_i.slider_query_if._client_call_y.fns
 	.typestring slider_task, "k:f{0}(is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},p,:ck,e:si,e:si,si,si)"
 	.typestring slider_task.select.0.enable, "k:fe{0}()"
 	.typestring slider_task.init.1, "k:f{0}(u:q(ui))"
 	.typestring slider_task.init.0, "k:f{0}(u:q(ui),is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},p,:ck,e:si,e:si,si,si)"
-	.typestring slider_task.select.yield.enable, "k:fe{0}()"
+	.typestring slider_task.select.y.enable, "k:fe{0}()"
 	.typestring slider_task.select.enable, "k:fe{0}()"
 	.typestring slider_task.fini, "k:f{0}(u:q(ui))"
 	.typestring absolute_slider.init.1, "dk:f{0}(u:q(ui))"
@@ -4130,8 +4132,8 @@ slider_periodic.select.case.1:
 	.typestring slider.init.0, "dk:f{0}(u:q(ui),is(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},ic(absolute_slider_if){m(get_coord){f{si}(0)}})"
 	.typestring slider.select.enable, "dk:fe{0}()"
 	.overlay_reference slider_periodic.select.0.case.0,_i.slider_query_if.get_coord.fns
-	.overlay_reference slider_periodic.select.yield.case.0,_i.slider_query_if.filter.fns
-	.overlay_reference slider_periodic.select.yield.case.1,_i.slider_query_if.get_coord.fns
+	.overlay_reference slider_periodic.select.y.case.0,_i.slider_query_if.filter.fns
+	.overlay_reference slider_periodic.select.y.case.1,_i.slider_query_if.get_coord.fns
 	.overlay_reference slider_periodic.select.case.0,_i.slider_query_if.filter.fns
 	.overlay_reference slider_periodic.select.case.1,_i.slider_query_if.get_coord.fns
 	.section	.xtacalltable,"",@progbits
