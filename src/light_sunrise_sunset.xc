@@ -333,27 +333,16 @@ Handle_Light_Sunrise_Sunset_Etc (
             if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
                 if (context.num_random_sequences_left > 0) {                        // Some left to do
                     if ((random_number % 2) == 0) {                                 // Every other hour
-                        if ((random_number % 2) == 0) {                             // Random light value
-                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {
-                                context.light_sensor_diff_state = DIFF_ACTIVE;
-                                debug_set_val_to (print_value,105);
-                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
-                            } else if (context.max_light == MAX_LIGHT_IS_FULL) {
-                                debug_set_val_to (print_value,102);
-                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_6000_mW_ON, LIGHT_CONTROL_IS_RANDOM, 102);
-                            } else { // MAX_LIGHT_IS_TWO_THIRDS
-                                debug_set_val_to (print_value,104);
-                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_5666_mW_ON, LIGHT_CONTROL_IS_RANDOM, 104);
-                            }
-                        } else {
-                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {
-                                context.light_sensor_diff_state = DIFF_ACTIVE;
-                                debug_set_val_to (print_value,106);
-                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 106);
-                            } else {
-                                debug_set_val_to (print_value,101);
-                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_mW_ON, LIGHT_CONTROL_IS_RANDOM, 101);
-                            }
+                        if (context.light_sensor_diff_state == DIFF_ENOUGH) {
+                            context.light_sensor_diff_state = DIFF_ACTIVE;
+                            debug_set_val_to (print_value,105);
+                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+                        } else if (context.max_light == MAX_LIGHT_IS_FULL) {
+                            debug_set_val_to (print_value,102);
+                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_mW_ON, LIGHT_CONTROL_IS_RANDOM, 102); // Was LIGHT_COMPOSITION_6000_mW_ON in 1.0.0 too little
+                        } else { // MAX_LIGHT_IS_TWO_THIRDS
+                            debug_set_val_to (print_value,104);
+                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_WHITE, LIGHT_CONTROL_IS_RANDOM, 104); // Was LIGHT_COMPOSITION_5666_mW_ON in 1.0.0 too little
                         }
 
                         if (context.light_sensor_diff_state == DIFF_ACTIVE) {

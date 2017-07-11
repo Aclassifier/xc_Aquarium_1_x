@@ -2604,7 +2604,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.1";
+            char application_version_str [6] = "1.0.2";
 
 
 
@@ -2618,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul  9 2017",
+                                   "Jul 11 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2637,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "22:18:27", "Jul  9 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "19:54:57", "Jul 11 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "22:18:27", "Jul  9 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "19:54:57", "Jul 11 2017"); } while (0);
             } else {}
         } break;
 
