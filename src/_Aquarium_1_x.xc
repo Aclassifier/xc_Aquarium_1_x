@@ -1178,7 +1178,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     // Terminate this screen since setting the clock with two BUTTON_ACTION_PRESSED buttons hasn't been done
                                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
                                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                                    context.display_sub_editing_seconds_cntdown = 0; // IOF_BUTTON_RIGHT: BUTTON_ACTION_RELEASED
+                                    context.display_sub_editing_seconds_cntdown = 0;
                                     context.beeper_blip_now = true;
 
                                 } else {}
