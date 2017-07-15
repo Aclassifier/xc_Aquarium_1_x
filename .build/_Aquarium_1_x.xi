@@ -1825,7 +1825,7 @@ typedef struct temps_t {
 typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
@@ -2618,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul 11 2017",
+                                   "Jul 15 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2637,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "19:54:57", "Jul 11 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "11:53:21", "Jul 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "19:54:57", "Jul 11 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "11:53:21", "Jul 15 2017"); } while (0);
             } else {}
         } break;
 

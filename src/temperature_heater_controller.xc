@@ -416,8 +416,6 @@ void Temperature_Heater_Controller (
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
 
-                bool do_temp_cycle_log_values_reset = false;
-
                 heater_wires     = heater_wires_;
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
@@ -429,49 +427,43 @@ void Temperature_Heater_Controller (
                 } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
                     debug_printf ("%s", "Low");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
-                    do_temp_cycle_log_values_reset = true; // "Low!"
                 } else {
+                    // Also == TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_15_0_FAST_COOLING in here when new
                     debug_printf ("%s", "New");
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;
-                    if (temp_onetenthDegC == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
-                        do_temp_cycle_log_values_reset = true; // "New!"
-                    } else {}
                 }
-
-                if (do_temp_cycle_log_values_reset) {
-                    // Resetting these now (when new limit given) avoids calculating like "5W" in SCREEN_2_VANNTEMP_REG when REGULATING_AT_HOTTER_AMBIENT,
-                    // since it else would need to wait for elements to go off, which it won't since it's never ON. We also get the effect of following when
-                    // a new limit has been given so that we'll se when a heating cyclus has been finished. Observe it only goes to TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
-                    on_cnt_secs  = 0;
-                    off_cnt_secs = 0;
-                    //
-                    char dots_temps_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_NO_DATA_DEGC}; // "...."
-                    for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
-                        temps_degC_str [IOF_TEMPC_HEATER_MEAN_LAST_CYCLE][iof_char] = dots_temps_degC_str[iof_char];
-                    }
-                    //
-                    temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
-                    debug_printf ("%s", "!"); // "Low!" or "New!"
-                } else {}
 
                 debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
             } break;
 
             //}}}  
-            //{{{  i_temperature_heater_commands[].get_temps
+            //{{{  i_temperature_heater_commands[].get_mean_i2c_temps
 
-            case i_temperature_heater_commands[int index_of_client].get_temps (temp_onetenthDegC_t return_temps_onetenthDegC [NUM_TEMPERATURES]) : {
+            case i_temperature_heater_commands[int index_of_client].get_mean_i2c_temps (temp_onetenthDegC_t return_temps_onetenthDegC [NUM_I2C_TEMPERATURES]) : {
                 for (int iof_temps=0; iof_temps < NUM_TEMPERATURES; iof_temps++) {
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
+                // IOF_TEMPC_HEATER_MEAN_LAST_CYCLE not returned here
             } break;
 
             //}}}  
             //{{{  i_temperature_heater_commands[].get_temp_degC_str
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
-                for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
-                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
+
+                if ((iof_temp == IOF_TEMPC_HEATER_MEAN_LAST_CYCLE) and
+                    (temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and
+                    (on_now == false)) {
+
+                    // This is soon becoming outdated meaning that it may be a long time since the heater was on. It looks rather strange to display that outdated value
+                    char dots_temps_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_NO_DATA_DEGC}; // "...."
+                    for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
+                        return_value_string [iof_char] = dots_temps_degC_str[iof_char];
+                    }
+                } else {
+                    for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
+                        return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
+                    }
                 }
             } break;
 
@@ -493,7 +485,11 @@ void Temperature_Heater_Controller (
                         return_value_on_percent = 0;
                     }
                 } else {
-                    return_value_on_percent = on_percent; // This is the only place on_percent is used
+                    if ((temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and (on_now == false)) {
+                        return_value_on_percent = 0; // Since it may be seriously outdated
+                    } else {
+                        return_value_on_percent = on_percent; // This is the only place on_percent is used
+                    }
                 }
 
                 if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {

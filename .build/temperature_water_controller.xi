@@ -1518,7 +1518,7 @@ typedef struct temps_t {
 typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
@@ -1578,8 +1578,8 @@ void Temperature_Water_Controller (
 
     now_regulating_at_t now_regulating_at = REGULATING_AT_INIT;
 
-    temp_onetenthDegC_t temps_onetenthDegC [(3 +1)];
-    temp_onetenthDegC_t temps_onetenthDegC_prev [(3 +1)];
+    temp_onetenthDegC_t temps_onetenthDegC [3];
+    temp_onetenthDegC_t temps_onetenthDegC_prev [3];
     temp_onetenthDegC_t temp_onetenthDegC_water_delta;
     temp_onetenthDegC_t temp_onetenthDegC_water_ambient_diff;
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted_diff;
@@ -1590,9 +1590,9 @@ void Temperature_Water_Controller (
 
 
     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
-    i_temperature_heater_commands.get_temps (temps_onetenthDegC);
+    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC);
 
-    for (int index_of_temp=0; index_of_temp < (3 +1); index_of_temp++) {
+    for (int index_of_temp=0; index_of_temp < 3; index_of_temp++) {
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
@@ -1617,7 +1617,7 @@ void Temperature_Water_Controller (
 
 
 
-                    i_temperature_heater_commands.get_temps (temps_onetenthDegC);
+                    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC);
                     guard_first_value_read = true;
 
 
@@ -1735,7 +1735,7 @@ void Temperature_Water_Controller (
 
                     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
 
-                    for (int index_of_temp=0; index_of_temp < (3 +1); index_of_temp++) {
+                    for (int index_of_temp=0; index_of_temp < 3; index_of_temp++) {
                         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
                     }
 

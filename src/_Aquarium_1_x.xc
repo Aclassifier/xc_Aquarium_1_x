@@ -1653,7 +1653,7 @@ void System_Task (
 
                 // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_str
                 // calls later (in Handle_Real_Or_Clocked_Button_Actions) on gave a rave and deadlock if we didn't finish here before "the second"
-                // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_temps (temps_onetenthDegC)
+                // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC)
                 // that caused the deadlock. See logs from "2017 02 15"
                 //
                 bool i_startkit_adc_acquire_complete = false;

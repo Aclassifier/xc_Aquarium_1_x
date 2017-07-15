@@ -61,8 +61,8 @@ void Temperature_Water_Controller (
 
     now_regulating_at_t now_regulating_at = REGULATING_AT_INIT;
 
-    temp_onetenthDegC_t temps_onetenthDegC      [NUM_TEMPERATURES];
-    temp_onetenthDegC_t temps_onetenthDegC_prev [NUM_TEMPERATURES];
+    temp_onetenthDegC_t temps_onetenthDegC      [NUM_I2C_TEMPERATURES];
+    temp_onetenthDegC_t temps_onetenthDegC_prev [NUM_I2C_TEMPERATURES];
     temp_onetenthDegC_t temp_onetenthDegC_water_delta;
     temp_onetenthDegC_t temp_onetenthDegC_water_ambient_diff;
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted_diff;
@@ -73,9 +73,9 @@ void Temperature_Water_Controller (
     //{{{  Init
 
     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
-    i_temperature_heater_commands.get_temps (temps_onetenthDegC);
+    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC);
 
-    for (int index_of_temp=0; index_of_temp < NUM_TEMPERATURES; index_of_temp++) {
+    for (int index_of_temp=0; index_of_temp < NUM_I2C_TEMPERATURES; index_of_temp++) {
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
@@ -100,7 +100,7 @@ void Temperature_Water_Controller (
                        raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_10_MINUTES; // May be made faster below
                     #endif
 
-                    i_temperature_heater_commands.get_temps (temps_onetenthDegC); // Filtered inÊTemperature_Heater_Controller
+                    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC); // Filtered inÊTemperature_Heater_Controller
                     guard_first_value_read = true;
                     // Could deadlock on call i_temperature_water_commands.get_temp_degC_str in _Aquarium_1_x (fixed)
 
@@ -218,7 +218,7 @@ void Temperature_Water_Controller (
 
                     i_temperature_heater_commands.heater_set_temp_degC (HEATER_WIRES_BOTH_IS_FULL, temp_onetenthDegC_heater_limit);
 
-                    for (int index_of_temp=0; index_of_temp < NUM_TEMPERATURES; index_of_temp++) {
+                    for (int index_of_temp=0; index_of_temp < NUM_I2C_TEMPERATURES; index_of_temp++) {
                         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
                     }
 

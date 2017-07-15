@@ -1518,7 +1518,7 @@ typedef struct temps_t {
 typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
@@ -1886,8 +1886,6 @@ void Temperature_Heater_Controller (
 
             case (is_doing == IS_CONTROLLING) => i_temperature_heater_commands[int index_of_client].heater_set_temp_degC (const heater_wires_t heater_wires_, const temp_onetenthDegC_t temp_onetenthDegC): {
 
-                bool do_temp_cycle_log_values_reset = false;
-
                 heater_wires = heater_wires_;
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
@@ -1899,30 +1897,11 @@ void Temperature_Heater_Controller (
                 } else if (temp_onetenthDegC < 150) {
                     do { if(1) printf("%s", "Low"); } while (0);
                     temp_onetenthDegC_heater_limit = 150;
-                    do_temp_cycle_log_values_reset = true;
                 } else {
+
                     do { if(1) printf("%s", "New"); } while (0);
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;
-                    if (temp_onetenthDegC == 150) {
-                        do_temp_cycle_log_values_reset = true;
-                    } else {}
                 }
-
-                if (do_temp_cycle_log_values_reset) {
-
-
-
-                    on_cnt_secs = 0;
-                    off_cnt_secs = 0;
-
-                    char dots_temps_degC_str [5] = {"...."};
-                    for (int iof_char=0; iof_char < 5; iof_char++) {
-                        temps_degC_str [IOF_TEMPC_HEATER_MEAN_LAST_CYCLE][iof_char] = dots_temps_degC_str[iof_char];
-                    }
-
-                    temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] = 999;
-                    do { if(1) printf("%s", "!"); } while (0);
-                } else {}
 
                 do { if(1) printf(" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit); } while (0);
             } break;
@@ -1930,18 +1909,31 @@ void Temperature_Heater_Controller (
 
 
 
-            case i_temperature_heater_commands[int index_of_client].get_temps (temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]) : {
+            case i_temperature_heater_commands[int index_of_client].get_mean_i2c_temps (temp_onetenthDegC_t return_temps_onetenthDegC [3]) : {
                 for (int iof_temps=0; iof_temps < (3 +1); iof_temps++) {
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps];
                 }
+
             } break;
 
 
 
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]) : {
-                for (int iof_char=0; iof_char < 5; iof_char++) {
-                    return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char];
+
+                if ((iof_temp == IOF_TEMPC_HEATER_MEAN_LAST_CYCLE) &&
+                    (temp_onetenthDegC_heater_limit == 150) &&
+                    (on_now == false)) {
+
+
+                    char dots_temps_degC_str [5] = {"...."};
+                    for (int iof_char=0; iof_char < 5; iof_char++) {
+                        return_value_string [iof_char] = dots_temps_degC_str[iof_char];
+                    }
+                } else {
+                    for (int iof_char=0; iof_char < 5; iof_char++) {
+                        return_value_string[iof_char] = temps_degC_str[iof_temp][iof_char];
+                    }
                 }
             } break;
 
@@ -1963,7 +1955,11 @@ void Temperature_Heater_Controller (
                         return_value_on_percent = 0;
                     }
                 } else {
-                    return_value_on_percent = on_percent;
+                    if ((temp_onetenthDegC_heater_limit == 150) && (on_now == false)) {
+                        return_value_on_percent = 0;
+                    } else {
+                        return_value_on_percent = on_percent;
+                    }
                 }
 
                 if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
@@ -1971,7 +1967,7 @@ void Temperature_Heater_Controller (
                 } else {
                     ohm = 12;
                 }
-# 517 "../src/temperature_heater_controller.xc"
+# 513 "../src/temperature_heater_controller.xc"
                 return_value_on_watt = (rr_24V_voltage_onetenthV * rr_24V_voltage_onetenthV) / (ohm * 100);
 
 

@@ -1808,7 +1808,7 @@ typedef struct temps_t {
 typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [(3 +1)]);
+                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);

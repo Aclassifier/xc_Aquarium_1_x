@@ -4,7 +4,7 @@
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
 	.inline_definition delay_microseconds
-	.set Temperature_Water_Controller.select.0.enable.savedstate,22
+	.set Temperature_Water_Controller.select.0.enable.savedstate,20
 	.globl Temperature_Water_Controller.select.0.enable.savedstate
 	.set Temperature_Water_Controller.select.0.enable.cases.maxtimers,0 $M Temperature_Water_Controller.select.0.case.0.maxtimers
 	.globl Temperature_Water_Controller.select.0.enable.cases.maxtimers
@@ -22,9 +22,9 @@
 	.globl Temperature_Water_Controller.dynalloc_maxcores
 	.set Temperature_Water_Controller.dynalloc_maxtimers, 0
 	.globl Temperature_Water_Controller.dynalloc_maxtimers
-	.set Temperature_Water_Controller.init.0.savedstate,22
+	.set Temperature_Water_Controller.init.0.savedstate,20
 	.globl Temperature_Water_Controller.init.0.savedstate
-	.set Temperature_Water_Controller.select.y.enable.savedstate,22
+	.set Temperature_Water_Controller.select.y.enable.savedstate,20
 	.globl Temperature_Water_Controller.select.y.enable.savedstate
 	.set Temperature_Water_Controller.select.y.enable.cases.maxtimers,0 $M Temperature_Water_Controller.select.y.case.1.maxtimers $M Temperature_Water_Controller.select.y.case.0.maxtimers
 	.globl Temperature_Water_Controller.select.y.enable.cases.maxtimers
@@ -36,7 +36,7 @@
 	.globl Temperature_Water_Controller.select.y.enable.cases
 	.set Temperature_Water_Controller.select.y.enable.cases.nstackwords, 0 $M (Temperature_Water_Controller.select.y.case.1.nstackwords) $M (Temperature_Water_Controller.select.y.case.0.nstackwords)
 	.globl Temperature_Water_Controller.select.y.enable.cases.nstackwords
-	.set Temperature_Water_Controller.select.enable.savedstate,22
+	.set Temperature_Water_Controller.select.enable.savedstate,20
 	.globl Temperature_Water_Controller.select.enable.savedstate
 	.set Temperature_Water_Controller.select.enable.cases.maxtimers,0 $M Temperature_Water_Controller.select.case.1.maxtimers $M Temperature_Water_Controller.select.case.0.maxtimers
 	.globl Temperature_Water_Controller.select.enable.cases.maxtimers
@@ -137,18 +137,18 @@
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords, _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.fns, _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxchanends.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxchanends, _i.temperature_heater_commands_if.get_temps.maxchanends.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxcores.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxcores, _i.temperature_heater_commands_if.get_temps.maxcores.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxtimers.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxtimers, _i.temperature_heater_commands_if.get_temps.maxtimers.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temps.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temps.fns.group
-	.globl _i.temperature_heater_commands_if.get_temps.fns.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.nstackwords, _i.temperature_heater_commands_if.get_temps.nstackwords.group, 0
-	.max_reduce _i.temperature_heater_commands_if.get_temps.fns, _i.temperature_heater_commands_if.get_temps.fns.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
+	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords, _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, 0
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.fns, _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, 0
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
@@ -533,63 +533,67 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 .Lfunc_begin2:
 	.loc	1 229 0
 	.cfi_startproc
-	entsp 9
+	entsp 10
 .Ltmp16:
-	.cfi_def_cfa_offset 36
+	.cfi_def_cfa_offset 40
 .Ltmp17:
 	.cfi_offset 15, 0
-	stw r4, sp[8]
+	stw r4, sp[9]
 .Ltmp18:
 	.cfi_offset 4, -4
-	stw r5, sp[7]
+	stw r5, sp[8]
 .Ltmp19:
 	.cfi_offset 5, -8
-	stw r6, sp[6]
+	stw r6, sp[7]
 .Ltmp20:
 	.cfi_offset 6, -12
-	stw r7, sp[5]
+	stw r7, sp[6]
 .Ltmp21:
 	.cfi_offset 7, -16
-	stw r8, sp[4]
+	stw r8, sp[5]
 .Ltmp22:
 	.cfi_offset 8, -20
-	stw r9, sp[3]
+	stw r9, sp[4]
 .Ltmp23:
 	.cfi_offset 9, -24
-	mov r4, r2
+	stw r10, sp[3]
 .Ltmp24:
-	mov r5, r1
+	.cfi_offset 10, -28
+	mov r4, r2
 .Ltmp25:
+	mov r5, r1
+.Ltmp26:
 	ldw r7, r0[0]
 	ldw r6, r0[1]
-.Ltmp26:
+.Ltmp27:
 .LBB2_1:
 	ldw r0, r7[0]
 	bf r0, .LBB2_1
 	bu .LBB2_2
 .LBB2_4:
-.Ltmp27:
+.Ltmp28:
 	mov r0, r6
 	bl __interface_yield_once
-.Ltmp28:
+.Ltmp29:
 .LBB2_2:
 	ldw r0, r7[7]
 	bf r0, .LBB2_4
-.Ltmp29:
+.Ltmp30:
 	.loc	1 234 0 prologue_end
 	ldc r8, 0
 	stw r8, r7[0]
 	ldaw r11, cp[.str276+4]
-.Ltmp30:
+.Ltmp31:
 	ld8u r0, r11[r8]
 	ldc r9, 4
 	ldaw r6, sp[1]
 	st8 r0, r6[r9]
 	ldw r0, cp[.str276]
 	stw r0, sp[1]
+	mkmsk r10, 2
 	.loc	1 238 0
-.Ltmp31:
-	lsu r0, r5, r9
+.Ltmp32:
+	lsu r0, r5, r10
 .Ltrap_info0:
 	ecallf r0
 	.loc	1 238 0
@@ -600,13 +604,13 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 	mov r1, r6
 .Lxta.call_labels0:
 	bl Temp_OnetenthDegC_To_Str
-.Ltmp32:
+.Ltmp33:
 	.loc	1 241 0
 	ld8u r0, r6[r8]
 	.loc	1 241 0
 	st8 r0, r4[r8]
 	mkmsk r0, 1
-.Ltmp33:
+.Ltmp34:
 	.loc	1 241 0
 	or r1, r6, r0
 	.loc	1 241 0
@@ -620,32 +624,32 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 	ld8u r2, r2[r8]
 	.loc	1 241 0
 	st8 r2, r4[r1]
-	mkmsk r1, 2
 	.loc	1 241 0
-	or r2, r6, r1
+	or r1, r6, r10
 	.loc	1 241 0
-	ld8u r2, r2[r8]
+	ld8u r1, r1[r8]
 	.loc	1 241 0
-	st8 r2, r4[r1]
+	st8 r1, r4[r10]
 	.loc	1 241 0
 	ld8u r1, r6[r9]
 	.loc	1 241 0
 	st8 r1, r4[r9]
 	stw r0, r7[0]
-	ldw r9, sp[3]
-	ldw r8, sp[4]
-	ldw r7, sp[5]
-	ldw r6, sp[6]
-	ldw r5, sp[7]
-.Ltmp34:
-	ldw r4, sp[8]
+	ldw r10, sp[3]
+	ldw r9, sp[4]
+	ldw r8, sp[5]
+	ldw r7, sp[6]
+	ldw r6, sp[7]
+	ldw r5, sp[8]
 .Ltmp35:
-	retsp 9
+	ldw r4, sp[9]
 .Ltmp36:
-	# RETURN_REG_HOLDER
+	retsp 10
 .Ltmp37:
+	# RETURN_REG_HOLDER
+.Ltmp38:
 	.cc_bottom _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.function
-	.set	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M Temp_OnetenthDegC_To_Str.nstackwords) + 9)
+	.set	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.nstackwords,((_i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_yield_once.nstackwords ? __interface_yield_once.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M Temp_OnetenthDegC_To_Str.nstackwords) + 10)
 	.globl	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.nstackwords
 	.set	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M ($D __interface_yield_once.maxcores ? __interface_yield_once.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
 	.globl	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.maxcores
@@ -653,8 +657,8 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 	.globl	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.maxtimers
 	.set	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M ($D __interface_yield_once.maxchanends ? __interface_yield_once.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends) $M 0
 	.globl	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str.maxchanends
-.Ltmp38:
-	.size	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str, .Ltmp38-_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str
+.Ltmp39:
+	.size	_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str, .Ltmp39-_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str
 .Lfunc_end2:
 	.cfi_endproc
 
@@ -690,8 +694,8 @@ _i.i2c_external_commands_if._chan.command:
 	.set	_i.i2c_external_commands_if._chan.command.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.command.maxchanends
-.Ltmp39:
-	.size	_i.i2c_external_commands_if._chan.command, .Ltmp39-_i.i2c_external_commands_if._chan.command
+.Ltmp40:
+	.size	_i.i2c_external_commands_if._chan.command, .Ltmp40-_i.i2c_external_commands_if._chan.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -701,12 +705,12 @@ _i.i2c_external_commands_if._chan.command:
 _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp40:
-	.cfi_def_cfa_offset 8
 .Ltmp41:
+	.cfi_def_cfa_offset 8
+.Ltmp42:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp42:
+.Ltmp43:
 	.cfi_offset 4, -4
 	mov r3, r0
 	getr r4, 2
@@ -739,8 +743,8 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
-.Ltmp43:
-	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp43-_i.i2c_external_commands_if._chan.read_temperature_ok
+.Ltmp44:
+	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp44-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.command
@@ -750,12 +754,12 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 _i.i2c_external_commands_if._chan_y.command:
 	.cfi_startproc
 	entsp 2
-.Ltmp44:
-	.cfi_def_cfa_offset 8
 .Ltmp45:
+	.cfi_def_cfa_offset 8
+.Ltmp46:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp46:
+.Ltmp47:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -788,8 +792,8 @@ _i.i2c_external_commands_if._chan_y.command:
 	.set	_i.i2c_external_commands_if._chan_y.command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.command.maxchanends
-.Ltmp47:
-	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp47-_i.i2c_external_commands_if._chan_y.command
+.Ltmp48:
+	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp48-_i.i2c_external_commands_if._chan_y.command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
@@ -799,15 +803,15 @@ _i.i2c_external_commands_if._chan_y.command:
 _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
-.Ltmp48:
-	.cfi_def_cfa_offset 12
 .Ltmp49:
+	.cfi_def_cfa_offset 12
+.Ltmp50:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp50:
+.Ltmp51:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp51:
+.Ltmp52:
 	.cfi_offset 5, -8
 	mov r4, r0
 	ldw r0, r1[0]
@@ -845,8 +849,8 @@ _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
-.Ltmp52:
-	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp52-_i.i2c_external_commands_if._chan_y.read_temperature_ok
+.Ltmp53:
+	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp53-_i.i2c_external_commands_if._chan_y.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with
@@ -882,8 +886,8 @@ _i.port_heat_light_commands_if._chan.watchdog_retrigger_with:
 	.set	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with.maxchanends
-.Ltmp53:
-	.size	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with, .Ltmp53-_i.port_heat_light_commands_if._chan.watchdog_retrigger_with
+.Ltmp54:
+	.size	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with, .Ltmp54-_i.port_heat_light_commands_if._chan.watchdog_retrigger_with
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
@@ -916,8 +920,8 @@ _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog:
 	.set	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.maxchanends
-.Ltmp54:
-	.size	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, .Ltmp54-_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
+.Ltmp55:
+	.size	_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, .Ltmp55-_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command
@@ -952,8 +956,8 @@ _i.port_heat_light_commands_if._chan.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends
-.Ltmp55:
-	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp55-_i.port_heat_light_commands_if._chan.heat_cables_command
+.Ltmp56:
+	.size	_i.port_heat_light_commands_if._chan.heat_cables_command, .Ltmp56-_i.port_heat_light_commands_if._chan.heat_cables_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command
@@ -988,8 +992,8 @@ _i.port_heat_light_commands_if._chan.beeper_blip_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends
-.Ltmp56:
-	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp56-_i.port_heat_light_commands_if._chan.beeper_blip_command
+.Ltmp57:
+	.size	_i.port_heat_light_commands_if._chan.beeper_blip_command, .Ltmp57-_i.port_heat_light_commands_if._chan.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command
@@ -1024,8 +1028,8 @@ _i.port_heat_light_commands_if._chan.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends
-.Ltmp57:
-	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp57-_i.port_heat_light_commands_if._chan.beeper_on_command
+.Ltmp58:
+	.size	_i.port_heat_light_commands_if._chan.beeper_on_command, .Ltmp58-_i.port_heat_light_commands_if._chan.beeper_on_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.set_light_composition
@@ -1062,8 +1066,8 @@ _i.port_heat_light_commands_if._chan.set_light_composition:
 	.set	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.set_light_composition.maxchanends
-.Ltmp58:
-	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp58-_i.port_heat_light_commands_if._chan.set_light_composition
+.Ltmp59:
+	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp59-_i.port_heat_light_commands_if._chan.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc
@@ -1073,12 +1077,12 @@ _i.port_heat_light_commands_if._chan.set_light_composition:
 _i.port_heat_light_commands_if._chan.get_light_composition_etc:
 	.cfi_startproc
 	entsp 3
-.Ltmp59:
-	.cfi_def_cfa_offset 12
 .Ltmp60:
+	.cfi_def_cfa_offset 12
+.Ltmp61:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp61:
+.Ltmp62:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -1112,8 +1116,8 @@ _i.port_heat_light_commands_if._chan.get_light_composition_etc:
 	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
 	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
-.Ltmp62:
-	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc, .Ltmp62-_i.port_heat_light_commands_if._chan.get_light_composition_etc
+.Ltmp63:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc, .Ltmp63-_i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition
@@ -1145,8 +1149,8 @@ _i.port_heat_light_commands_if._chan.get_light_composition:
 	.set	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends,1
 	.globl	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition.maxchanends
-.Ltmp63:
-	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp63-_i.port_heat_light_commands_if._chan.get_light_composition
+.Ltmp64:
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp64-_i.port_heat_light_commands_if._chan.get_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
@@ -1156,12 +1160,12 @@ _i.port_heat_light_commands_if._chan.get_light_composition:
 _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with:
 	.cfi_startproc
 	entsp 2
-.Ltmp64:
-	.cfi_def_cfa_offset 8
 .Ltmp65:
+	.cfi_def_cfa_offset 8
+.Ltmp66:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp66:
+.Ltmp67:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1195,8 +1199,8 @@ _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with:
 	.set	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends
-.Ltmp67:
-	.size	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, .Ltmp67-_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
+.Ltmp68:
+	.size	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, .Ltmp68-_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
@@ -1206,12 +1210,12 @@ _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with:
 _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog:
 	.cfi_startproc
 	entsp 2
-.Ltmp68:
-	.cfi_def_cfa_offset 8
 .Ltmp69:
+	.cfi_def_cfa_offset 8
+.Ltmp70:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp70:
+.Ltmp71:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	getr r4, 2
@@ -1242,8 +1246,8 @@ _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog:
 	.set	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends
-.Ltmp71:
-	.size	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, .Ltmp71-_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
+.Ltmp72:
+	.size	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, .Ltmp72-_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command
@@ -1253,12 +1257,12 @@ _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog:
 _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp72:
-	.cfi_def_cfa_offset 8
 .Ltmp73:
+	.cfi_def_cfa_offset 8
+.Ltmp74:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp74:
+.Ltmp75:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1291,8 +1295,8 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
-.Ltmp75:
-	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp75-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+.Ltmp76:
+	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp76-_i.port_heat_light_commands_if._chan_y.heat_cables_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command
@@ -1302,12 +1306,12 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp76:
-	.cfi_def_cfa_offset 8
 .Ltmp77:
+	.cfi_def_cfa_offset 8
+.Ltmp78:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp78:
+.Ltmp79:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1340,8 +1344,8 @@ _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
-.Ltmp79:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp79-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+.Ltmp80:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp80-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command
@@ -1351,12 +1355,12 @@ _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp80:
-	.cfi_def_cfa_offset 8
 .Ltmp81:
+	.cfi_def_cfa_offset 8
+.Ltmp82:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp82:
+.Ltmp83:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1389,8 +1393,8 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
-.Ltmp83:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp83-_i.port_heat_light_commands_if._chan_y.beeper_on_command
+.Ltmp84:
+	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp84-_i.port_heat_light_commands_if._chan_y.beeper_on_command
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition
@@ -1400,12 +1404,12 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 _i.port_heat_light_commands_if._chan_y.set_light_composition:
 	.cfi_startproc
 	entsp 2
-.Ltmp84:
-	.cfi_def_cfa_offset 8
 .Ltmp85:
+	.cfi_def_cfa_offset 8
+.Ltmp86:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp86:
+.Ltmp87:
 	.cfi_offset 4, -4
 	ldw r11, r0[0]
 	getr r4, 2
@@ -1440,8 +1444,8 @@ _i.port_heat_light_commands_if._chan_y.set_light_composition:
 	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
-.Ltmp87:
-	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp87-_i.port_heat_light_commands_if._chan_y.set_light_composition
+.Ltmp88:
+	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp88-_i.port_heat_light_commands_if._chan_y.set_light_composition
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
@@ -1451,12 +1455,12 @@ _i.port_heat_light_commands_if._chan_y.set_light_composition:
 _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 	.cfi_startproc
 	entsp 3
-.Ltmp88:
-	.cfi_def_cfa_offset 12
 .Ltmp89:
+	.cfi_def_cfa_offset 12
+.Ltmp90:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp90:
+.Ltmp91:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -1492,8 +1496,8 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
-.Ltmp91:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc, .Ltmp91-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
+.Ltmp92:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc, .Ltmp92-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition
@@ -1503,12 +1507,12 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.cfi_startproc
 	entsp 2
-.Ltmp92:
-	.cfi_def_cfa_offset 8
 .Ltmp93:
+	.cfi_def_cfa_offset 8
+.Ltmp94:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp94:
+.Ltmp95:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	getr r4, 2
@@ -1538,8 +1542,8 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
 	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
-.Ltmp95:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp95-_i.port_heat_light_commands_if._chan_y.get_light_composition
+.Ltmp96:
+	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp96-_i.port_heat_light_commands_if._chan_y.get_light_composition
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data
@@ -1549,15 +1553,15 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.cfi_startproc
 	entsp 3
-.Ltmp96:
-	.cfi_def_cfa_offset 12
 .Ltmp97:
+	.cfi_def_cfa_offset 12
+.Ltmp98:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp98:
+.Ltmp99:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp99:
+.Ltmp100:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1594,8 +1598,8 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data.maxchanends
-.Ltmp100:
-	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp100-_i.temperature_heater_commands_if._chan.get_regulator_data
+.Ltmp101:
+	.size	_i.temperature_heater_commands_if._chan.get_regulator_data, .Ltmp101-_i.temperature_heater_commands_if._chan.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str
@@ -1605,18 +1609,18 @@ _i.temperature_heater_commands_if._chan.get_regulator_data:
 _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 5
-.Ltmp101:
-	.cfi_def_cfa_offset 20
 .Ltmp102:
+	.cfi_def_cfa_offset 20
+.Ltmp103:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp103:
+.Ltmp104:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp104:
+.Ltmp105:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp105:
+.Ltmp106:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1655,26 +1659,26 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.set	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.get_temp_degC_str.maxchanends
-.Ltmp106:
-	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp106-_i.temperature_heater_commands_if._chan.get_temp_degC_str
+.Ltmp107:
+	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp107-_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan.get_temps
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan.get_temps,@function
-	.cc_top _i.temperature_heater_commands_if._chan.get_temps.function,_i.temperature_heater_commands_if._chan.get_temps
-_i.temperature_heater_commands_if._chan.get_temps:
+	.type	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps,@function
+	.cc_top _i.temperature_heater_commands_if._chan.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
+_i.temperature_heater_commands_if._chan.get_mean_i2c_temps:
 	.cfi_startproc
 	entsp 4
-.Ltmp107:
-	.cfi_def_cfa_offset 16
 .Ltmp108:
+	.cfi_def_cfa_offset 16
+.Ltmp109:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp109:
+.Ltmp110:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp110:
+.Ltmp111:
 	.cfi_offset 5, -8
 	mov r4, r1
 	getr r5, 2
@@ -1697,21 +1701,21 @@ _i.temperature_heater_commands_if._chan.get_temps:
 	ldw r4, sp[3]
 	retsp 4
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan.get_temps.function
-	.set	_i.temperature_heater_commands_if._chan.get_temps.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 4)
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.nstackwords
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxcores
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxcores
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxtimers
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-.Ltmp111:
-	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp111-_i.temperature_heater_commands_if._chan.get_temps
+	.cc_bottom _i.temperature_heater_commands_if._chan.get_mean_i2c_temps.function
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 4)
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends
+.Ltmp112:
+	.size	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps, .Ltmp112-_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
@@ -1721,18 +1725,18 @@ _i.temperature_heater_commands_if._chan.get_temps:
 _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 4
-.Ltmp112:
-	.cfi_def_cfa_offset 16
 .Ltmp113:
+	.cfi_def_cfa_offset 16
+.Ltmp114:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp114:
+.Ltmp115:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp115:
+.Ltmp116:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp116:
+.Ltmp117:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1769,8 +1773,8 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC.maxchanends
-.Ltmp117:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp117-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
+.Ltmp118:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_temp_degC, .Ltmp118-_i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional
@@ -1780,18 +1784,18 @@ _i.temperature_heater_commands_if._chan.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.cfi_startproc
 	entsp 4
-.Ltmp118:
-	.cfi_def_cfa_offset 16
 .Ltmp119:
+	.cfi_def_cfa_offset 16
+.Ltmp120:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp120:
+.Ltmp121:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp121:
+.Ltmp122:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp122:
+.Ltmp123:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -1827,8 +1831,8 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_proportional.maxchanends
-.Ltmp123:
-	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp123-_i.temperature_heater_commands_if._chan.heater_set_proportional
+.Ltmp124:
+	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp124-_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data
@@ -1838,18 +1842,18 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.cfi_startproc
 	entsp 4
-.Ltmp124:
-	.cfi_def_cfa_offset 16
 .Ltmp125:
+	.cfi_def_cfa_offset 16
+.Ltmp126:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp126:
+.Ltmp127:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp127:
+.Ltmp128:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp128:
+.Ltmp129:
 	.cfi_offset 6, -12
 	mov r5, r1
 	ldw r1, r0[0]
@@ -1892,8 +1896,8 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
-.Ltmp129:
-	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp129-_i.temperature_heater_commands_if._chan_y.get_regulator_data
+.Ltmp130:
+	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp130-_i.temperature_heater_commands_if._chan_y.get_regulator_data
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
@@ -1903,21 +1907,21 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
-.Ltmp130:
-	.cfi_def_cfa_offset 24
 .Ltmp131:
+	.cfi_def_cfa_offset 24
+.Ltmp132:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp132:
+.Ltmp133:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp133:
+.Ltmp134:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp134:
+.Ltmp135:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp135:
+.Ltmp136:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -1960,29 +1964,29 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
-.Ltmp136:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp136-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+.Ltmp137:
+	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp137-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_temps,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_temps.function,_i.temperature_heater_commands_if._chan_y.get_temps
-_i.temperature_heater_commands_if._chan_y.get_temps:
+	.type	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,@function
+	.cc_top _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps:
 	.cfi_startproc
 	entsp 5
-.Ltmp137:
-	.cfi_def_cfa_offset 20
 .Ltmp138:
+	.cfi_def_cfa_offset 20
+.Ltmp139:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp139:
+.Ltmp140:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp140:
+.Ltmp141:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp141:
+.Ltmp142:
 	.cfi_offset 6, -12
 	mov r4, r1
 	ldw r1, r0[0]
@@ -2009,21 +2013,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temps.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-.Ltmp142:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp142-_i.temperature_heater_commands_if._chan_y.get_temps
+	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
+.Ltmp143:
+	.size	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, .Ltmp143-_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
@@ -2033,21 +2037,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 5
-.Ltmp143:
-	.cfi_def_cfa_offset 20
 .Ltmp144:
+	.cfi_def_cfa_offset 20
+.Ltmp145:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp145:
+.Ltmp146:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp146:
+.Ltmp147:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp147:
+.Ltmp148:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp148:
+.Ltmp149:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2090,8 +2094,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
-.Ltmp149:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp149-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+.Ltmp150:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp150-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
@@ -2101,21 +2105,21 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.cfi_startproc
 	entsp 5
-.Ltmp150:
-	.cfi_def_cfa_offset 20
 .Ltmp151:
+	.cfi_def_cfa_offset 20
+.Ltmp152:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp152:
+.Ltmp153:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp153:
+.Ltmp154:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp154:
+.Ltmp155:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp155:
+.Ltmp156:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2157,8 +2161,8 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
-.Ltmp156:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp156-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+.Ltmp157:
+	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp157-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.clear_debug_log
@@ -2168,12 +2172,12 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 _i.temperature_water_commands_if._chan.clear_debug_log:
 	.cfi_startproc
 	entsp 2
-.Ltmp157:
-	.cfi_def_cfa_offset 8
 .Ltmp158:
+	.cfi_def_cfa_offset 8
+.Ltmp159:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp159:
+.Ltmp160:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -2202,8 +2206,8 @@ _i.temperature_water_commands_if._chan.clear_debug_log:
 	.set	_i.temperature_water_commands_if._chan.clear_debug_log.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan.clear_debug_log.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.clear_debug_log.maxchanends
-.Ltmp160:
-	.size	_i.temperature_water_commands_if._chan.clear_debug_log, .Ltmp160-_i.temperature_water_commands_if._chan.clear_debug_log
+.Ltmp161:
+	.size	_i.temperature_water_commands_if._chan.clear_debug_log, .Ltmp161-_i.temperature_water_commands_if._chan.clear_debug_log
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at
@@ -2213,12 +2217,12 @@ _i.temperature_water_commands_if._chan.clear_debug_log:
 _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.cfi_startproc
 	entsp 2
-.Ltmp161:
-	.cfi_def_cfa_offset 8
 .Ltmp162:
+	.cfi_def_cfa_offset 8
+.Ltmp163:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp163:
+.Ltmp164:
 	.cfi_offset 4, -4
 	getr r4, 2
 	setd res[r4], r0
@@ -2249,8 +2253,8 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_now_regulating_at.maxchanends
-.Ltmp164:
-	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp164-_i.temperature_water_commands_if._chan.get_now_regulating_at
+.Ltmp165:
+	.size	_i.temperature_water_commands_if._chan.get_now_regulating_at, .Ltmp165-_i.temperature_water_commands_if._chan.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str
@@ -2260,18 +2264,18 @@ _i.temperature_water_commands_if._chan.get_now_regulating_at:
 _i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.cfi_startproc
 	entsp 5
-.Ltmp165:
-	.cfi_def_cfa_offset 20
 .Ltmp166:
+	.cfi_def_cfa_offset 20
+.Ltmp167:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp167:
+.Ltmp168:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp168:
+.Ltmp169:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp169:
+.Ltmp170:
 	.cfi_offset 6, -12
 	mov r4, r2
 	mov r5, r1
@@ -2309,8 +2313,8 @@ _i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.set	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_water_commands_if._chan.get_temp_degC_str.maxchanends
-.Ltmp170:
-	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp170-_i.temperature_water_commands_if._chan.get_temp_degC_str
+.Ltmp171:
+	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp171-_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log
@@ -2320,15 +2324,15 @@ _i.temperature_water_commands_if._chan.get_temp_degC_str:
 _i.temperature_water_commands_if._chan_y.clear_debug_log:
 	.cfi_startproc
 	entsp 3
-.Ltmp171:
-	.cfi_def_cfa_offset 12
 .Ltmp172:
+	.cfi_def_cfa_offset 12
+.Ltmp173:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp173:
+.Ltmp174:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp174:
+.Ltmp175:
 	.cfi_offset 5, -8
 	ldw r1, r0[0]
 	getr r4, 2
@@ -2363,8 +2367,8 @@ _i.temperature_water_commands_if._chan_y.clear_debug_log:
 	.set	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends
-.Ltmp175:
-	.size	_i.temperature_water_commands_if._chan_y.clear_debug_log, .Ltmp175-_i.temperature_water_commands_if._chan_y.clear_debug_log
+.Ltmp176:
+	.size	_i.temperature_water_commands_if._chan_y.clear_debug_log, .Ltmp176-_i.temperature_water_commands_if._chan_y.clear_debug_log
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
@@ -2374,15 +2378,15 @@ _i.temperature_water_commands_if._chan_y.clear_debug_log:
 _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.cfi_startproc
 	entsp 3
-.Ltmp176:
-	.cfi_def_cfa_offset 12
 .Ltmp177:
+	.cfi_def_cfa_offset 12
+.Ltmp178:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp178:
+.Ltmp179:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp179:
+.Ltmp180:
 	.cfi_offset 5, -8
 	ldw r1, r0[0]
 	getr r4, 2
@@ -2419,8 +2423,8 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
-.Ltmp180:
-	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp180-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
+.Ltmp181:
+	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp181-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str
@@ -2430,21 +2434,21 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
-.Ltmp181:
-	.cfi_def_cfa_offset 24
 .Ltmp182:
+	.cfi_def_cfa_offset 24
+.Ltmp183:
 	.cfi_offset 15, 0
 	stw r4, sp[5]
-.Ltmp183:
+.Ltmp184:
 	.cfi_offset 4, -4
 	stw r5, sp[4]
-.Ltmp184:
+.Ltmp185:
 	.cfi_offset 5, -8
 	stw r6, sp[3]
-.Ltmp185:
+.Ltmp186:
 	.cfi_offset 6, -12
 	stw r7, sp[2]
-.Ltmp186:
+.Ltmp187:
 	.cfi_offset 7, -16
 	mov r4, r2
 	mov r5, r1
@@ -2486,8 +2490,8 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
 	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
-.Ltmp187:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp187-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+.Ltmp188:
+	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp188-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -2529,37 +2533,37 @@ Temperature_Water_Controller:
 	.loc	1 52 0
 	.cfi_startproc
 .Lxtalabel0:
-	entsp 32
-.Ltmp188:
-	.cfi_def_cfa_offset 128
+	entsp 31
 .Ltmp189:
-	.cfi_offset 15, 0
-	stw r4, sp[31]
+	.cfi_def_cfa_offset 124
 .Ltmp190:
-	.cfi_offset 4, -4
-	stw r5, sp[30]
+	.cfi_offset 15, 0
+	stw r4, sp[30]
 .Ltmp191:
-	.cfi_offset 5, -8
-	stw r6, sp[29]
+	.cfi_offset 4, -4
+	stw r5, sp[29]
 .Ltmp192:
-	.cfi_offset 6, -12
-	stw r7, sp[28]
+	.cfi_offset 5, -8
+	stw r6, sp[28]
 .Ltmp193:
-	.cfi_offset 7, -16
-	stw r8, sp[27]
+	.cfi_offset 6, -12
+	stw r7, sp[27]
 .Ltmp194:
-	.cfi_offset 8, -20
-	stw r9, sp[26]
+	.cfi_offset 7, -16
+	stw r8, sp[26]
 .Ltmp195:
-	.cfi_offset 9, -24
-	stw r10, sp[25]
+	.cfi_offset 8, -20
+	stw r9, sp[25]
 .Ltmp196:
+	.cfi_offset 9, -24
+	stw r10, sp[24]
+.Ltmp197:
 	.cfi_offset 10, -28
 	mov r4, r1
-.Ltmp197:
+.Ltmp198:
 	stw r4, sp[9]
 	mov r5, r0
-.Ltmp198:
+.Ltmp199:
 	.loc	1 75 0 prologue_end
 	ldw r0, r4[0]
 	.loc	1 75 0
@@ -2567,41 +2571,37 @@ Temperature_Water_Controller:
 	.loc	1 75 0
 	ldw r3, r1[1]
 	mkmsk r1, 1
-	ldc r6, 150
+	ldc r7, 150
 	.loc	1 75 0
-	mov r2, r6
+	mov r2, r7
 .Lxta.call_labels1:
 	bla r3
 	.loc	1 76 0
 	ldw r0, r4[0]
 	.loc	1 76 0
 	ldw r1, r4[1]
-.Ltmp199:
+.Ltmp200:
 	.loc	1 76 0
 	ldw r2, r1[2]
 	ldaw r1, sp[21]
 	.loc	1 76 0
 .Lxta.call_labels2:
 	bla r2
-.Ltmp200:
+.Ltmp201:
 	.loc	1 79 0
 	ldw r0, sp[21]
 	.loc	1 79 0
-	stw r0, sp[17]
-.Ltmp201:
+	stw r0, sp[18]
+.Ltmp202:
 	.loc	1 79 0
 	ldw r0, sp[22]
 	.loc	1 79 0
-	stw r0, sp[18]
+	stw r0, sp[19]
 	.loc	1 79 0
 	ldw r0, sp[23]
 	.loc	1 79 0
-	stw r0, sp[19]
-	.loc	1 79 0
-	ldw r0, sp[24]
-	.loc	1 79 0
 	stw r0, sp[20]
-.Ltmp202:
+.Ltmp203:
 	.loc	1 82 0
 	ldaw r11, cp[.str6]
 	mov r0, r11
@@ -2614,63 +2614,102 @@ Temperature_Water_Controller:
 	.loc	1 84 0
 	ldaw r0, dp[__timers]
 	.loc	1 84 0
-	ldw r8, r0[r11]
+	ldw r9, r0[r11]
 	.loc	1 84 0
-	stw r8, sp[11]
-	setc res[r8], 1
+	stw r9, sp[11]
+	setc res[r9], 1
 	.loc	1 84 0
 .Lxta.endpoint_labels0:
-	in r9, res[r8]
-.Ltmp203:
-	ldc r0, 2
-	ldc r1, 0
-	ldc r4, 254
-	stw r6, sp[8]
-	stw r1, sp[10]
-	stw r1, sp[14]
-	stw r1, sp[12]
-	mov r6, r0
-	bu .LBB39_1
+	in r0, res[r9]
 .Ltmp204:
-.LBB39_44:
-	stw r6, sp[13]
-	mov r8, r9
+	stw r0, sp[15]
+	ldc r4, 2
+	ldc r0, 0
+	ldc r6, 254
+	stw r7, sp[8]
+	stw r0, sp[10]
+	stw r0, sp[14]
+	stw r0, sp[12]
+	bu .LBB39_1
+.Ltmp205:
+.LBB39_39:
+.Lxtalabel1:
+	.loc	1 215 0
+	ldaw r11, cp[.str78]
+	mov r0, r11
+	ldaw r11, cp[.str79]
+	mov r1, r11
+.Lxta.call_labels4:
+	bl iprintf
+	ldw r7, sp[9]
+.Ltmp206:
+	.loc	1 219 0
+	ldw r0, r7[0]
+	.loc	1 219 0
+	ldw r1, r7[1]
+.Ltmp207:
+	.loc	1 219 0
+	ldw r3, r1[1]
+	.loc	1 219 0
+	mov r1, r10
+	ldw r2, sp[8]
+.Lxta.call_labels5:
+	bla r3
+.Ltmp208:
+	.loc	1 222 0
+	ldw r0, sp[21]
+	.loc	1 222 0
+	stw r0, sp[18]
+.Ltmp209:
+	.loc	1 222 0
+	ldw r0, sp[22]
+	.loc	1 222 0
+	stw r0, sp[19]
+	.loc	1 222 0
+	ldw r0, sp[23]
+	.loc	1 222 0
+	stw r0, sp[20]
+	stw r10, sp[14]
+.Ltmp210:
+.LBB39_1:
+	ldaw r8, sp[16]
+	bu .LBB39_2
+.Ltmp211:
+.LBB39_45:
+	stw r4, sp[13]
 	outct res[r7], 1
 	in r0, res[r7]
-.Ltmp205:
+.Ltmp212:
 	ldaw r11, cp[.str276+4]
 	ldc r1, 0
 	mov r2, r1
 	.loc	1 234 0
-.Ltmp206:
+.Ltmp213:
 	ld8u r1, r11[r2]
-.Ltmp207:
-	ldaw r3, sp[15]
-.Ltmp208:
-	st8 r1, r3[r10]
+.Ltmp214:
+	st8 r1, r8[r10]
 	ldw r1, cp[.str276]
-	stw r1, sp[15]
+	stw r1, sp[16]
+	mkmsk r4, 2
 	.loc	1 238 0
-.Ltmp209:
-	lsu r1, r0, r10
+.Ltmp215:
+	lsu r1, r0, r4
 	mov r9, r10
 .Ltrap_info1:
 	ecallf r1
 	ldaw r1, sp[21]
 	.loc	1 238 0
 	ldaw r0, r1[r0]
-.Ltmp210:
+.Ltmp216:
 	.loc	1 238 0
 	ld16s r0, r0[r2]
-	mov r1, r3
+	mov r1, r8
 	mov r10, r2
-	mov r6, r3
-.Ltmp211:
-.Lxta.call_labels4:
+.Lxta.call_labels6:
 	bl Temp_OnetenthDegC_To_Str
-.Ltmp212:
+.Ltmp217:
 	.loc	1 241 0
-	ld8u r0, r6[r10]
+	ld8u r0, r8[r10]
 	ldc r2, 8
 	.loc	1 241 0
 	out res[r7], r2
@@ -2684,11 +2723,11 @@ Temperature_Water_Controller:
 	outct res[r7], 2
 	.loc	1 241 0
 	chkct res[r7], 1
-.Ltmp213:
+.Ltmp218:
 	mkmsk r0, 1
 	mov r1, r0
 	.loc	1 241 0
-	or r0, r6, r1
+	or r0, r8, r1
 	.loc	1 241 0
 	ld8u r0, r0[r10]
 	.loc	1 241 0
@@ -2706,25 +2745,7 @@ Temperature_Water_Controller:
 	ldc r0, 2
 	mov r1, r0
 	.loc	1 241 0
-	or r0, r6, r1
-	.loc	1 241 0
-	ld8u r0, r0[r10]
-	.loc	1 241 0
-	out res[r7], r2
-	.loc	1 241 0
-	out res[r7], r10
-	.loc	1 241 0
-	out res[r7], r1
-	.loc	1 241 0
-	out res[r7], r0
-	.loc	1 241 0
-	outct res[r7], 2
-	.loc	1 241 0
-	chkct res[r7], 1
-	mkmsk r0, 2
-	mov r1, r0
-	.loc	1 241 0
-	or r0, r6, r1
+	or r0, r8, r1
 	.loc	1 241 0
 	ld8u r0, r0[r10]
 	.loc	1 241 0
@@ -2740,8 +2761,23 @@ Temperature_Water_Controller:
 	.loc	1 241 0
 	chkct res[r7], 1
 	.loc	1 241 0
-	ld8u r0, r6[r9]
-.Ltmp214:
+	or r0, r8, r4
+	.loc	1 241 0
+	ld8u r0, r0[r10]
+	.loc	1 241 0
+	out res[r7], r2
+	.loc	1 241 0
+	out res[r7], r10
+	.loc	1 241 0
+	out res[r7], r4
+	.loc	1 241 0
+	out res[r7], r0
+	.loc	1 241 0
+	outct res[r7], 2
+	.loc	1 241 0
+	chkct res[r7], 1
+	.loc	1 241 0
+	ld8u r0, r8[r9]
 	.loc	1 241 0
 	out res[r7], r2
 	.loc	1 241 0
@@ -2757,156 +2793,103 @@ Temperature_Water_Controller:
 	ldw r0, r5[0]
 	out res[r0], r10
 	outct res[r0], 1
-	mov r9, r8
-	ldw r8, sp[11]
-	ldw r6, sp[13]
-.Ltmp215:
-.LBB39_1:
-.Lxtalabel1:
+	ldw r9, sp[11]
+	ldw r4, sp[13]
+.Ltmp219:
+.LBB39_2:
+.Lxtalabel2:
 	clre
-	setd res[r8], r9
-	setc res[r8], 9
-	ldap r11, .Ltmp216
-	setv res[r8], r11
-	eeu res[r8]
+	ldw r0, sp[15]
+	setd res[r9], r0
+	setc res[r9], 9
+	ldap r11, .Ltmp220
+	setv res[r9], r11
+	eeu res[r9]
 	ldw r0, sp[14]
 	zext r0, 1
-	bf r0, .LBB39_2
-.Ltmp217:
+	bf r0, .LBB39_3
+.Ltmp221:
 	ldw r1, r5[0]
-	ldap r11, .Ltmp218
+	ldap r11, .Ltmp222
 	setv res[r1], r11
 	eeu res[r1]
 	ldc r10, 4
 
-	.xtabranch .LBB39_8, .LBB39_3
+	.xtabranch .LBB39_9, .LBB39_4
 	waiteu
-.Ltmp219:
-.LBB39_2:
+.Ltmp223:
+.LBB39_3:
 	ldc r10, 4
 
-	.xtabranch .LBB39_8, .LBB39_3
+	.xtabranch .LBB39_9, .LBB39_4
 	waiteu
-.Ltmp220:
-.Ltmp218:
-.LBB39_3:
-.Lxtalabel2:
+.Ltmp224:
+.Ltmp222:
+.LBB39_4:
+.Lxtalabel3:
 	ldw r7, r5[0]
 	in r1, res[r7]
-	add r2, r1, r4
+	add r2, r1, r6
 	zext r2, 8
 	sub r3, r1, r2
 	setd res[r7], r3
-	bt r2, .LBB39_4
-.Ltmp221:
-	bt r0, .LBB39_44
-.Ltmp222:
-	setd res[r7], r7
-	out res[r7], r1
-	outct res[r7], 2
-	edu res[r7]
-
-	.xtabranch .LBB39_8, .LBB39_3
-	waiteu
-.Ltmp223:
-.LBB39_4:
-.Lxtalabel3:
-	eq r2, r2, 1
-	bf r2, .LBB39_5
-.Ltmp224:
-	bt r0, .LBB39_41
+	bt r2, .LBB39_5
 .Ltmp225:
-	setd res[r7], r7
-	out res[r7], r1
-	outct res[r7], 2
-	edu res[r7]
-
-	.xtabranch .LBB39_8, .LBB39_3
-	waiteu
+	bt r0, .LBB39_45
 .Ltmp226:
-.LBB39_5:
-	bt r0, .LBB39_6
-.Ltmp227:
 	setd res[r7], r7
 	out res[r7], r1
 	outct res[r7], 2
 	edu res[r7]
 
-	.xtabranch .LBB39_8, .LBB39_3
+	.xtabranch .LBB39_9, .LBB39_4
 	waiteu
-.Ltmp228:
-.Ltmp216:
-.LBB39_8:
+.Ltmp227:
+.LBB39_5:
 .Lxtalabel4:
+	eq r2, r2, 1
+	bf r2, .LBB39_6
+.Ltmp228:
+	bt r0, .LBB39_42
+.Ltmp229:
+	setd res[r7], r7
+	out res[r7], r1
+	outct res[r7], 2
+	edu res[r7]
+
+	.xtabranch .LBB39_9, .LBB39_4
+	waiteu
+.Ltmp230:
+.LBB39_6:
+	bt r0, .LBB39_7
+.Ltmp231:
+	setd res[r7], r7
+	out res[r7], r1
+	outct res[r7], 2
+	edu res[r7]
+
+	.xtabranch .LBB39_9, .LBB39_4
+	waiteu
+.Ltmp232:
+.Ltmp220:
+.LBB39_9:
+.Lxtalabel5:
 	.loc	1 90 0
 .Lxta.endpoint_labels1:
-	in r0, res[r8]
+	in r0, res[r9]
 	ldw r0, cp[.LCPI39_0]
-.Ltmp229:
-	.loc	1 91 0
-	add r9, r9, r0
-	.loc	1 92 0
-	sub r6, r6, 1
-.Ltmp230:
-	bt r6, .LBB39_1
-.Ltmp231:
-.Lxtalabel5:
-	ldw r1, sp[9]
-.Ltmp232:
-	.loc	1 103 0
-	ldw r0, r1[0]
-	.loc	1 103 0
-	ldw r1, r1[1]
 .Ltmp233:
-	.loc	1 103 0
-	ldw r2, r1[2]
-	ldaw r1, sp[21]
-	.loc	1 103 0
-.Lxta.call_labels5:
-	bla r2
+	.loc	1 91 0
+	ldw r1, sp[15]
+	add r1, r1, r0
+	.loc	1 92 0
+	stw r1, sp[15]
+	sub r4, r4, 1
 .Ltmp234:
-	.loc	1 107 0
-	ldw r10, sp[23]
-	.loc	1 107 0
-	ldw r0, sp[19]
-	.loc	1 107 0
-	stw r0, sp[14]
-	sub r7, r10, r0
+	bt r4, .LBB39_2
+	bu .LBB39_10
 .Ltmp235:
-	.loc	1 108 0
-	ldw r0, sp[22]
-	stw r0, sp[13]
-	ldw r0, cp[.LCPI39_1]
-	.loc	1 109 0
-	add r6, r10, r0
-.Ltmp236:
-	.loc	1 111 0
-	ldaw r11, cp[.str12]
-	mov r0, r11
-	mov r1, r10
-	ldc r2, 250
-	mov r3, r6
-.Lxta.call_labels6:
-	bl iprintf
-	.loc	1 113 21
-	bt r10, .LBB39_10
-.Ltmp237:
-.Lxtalabel6:
-	stw r10, sp[13]
-	.loc	1 125 0
-	ldaw r11, cp[.str17]
-	mov r0, r11
-	ldaw r11, cp[.str18]
-	mov r1, r11
-.Lxta.call_labels7:
-	bl iprintf
-.Ltmp238:
-	ldc r0, 150
-	stw r0, sp[8]
-	ldc r6, 2
-	bu .LBB39_29
-.Ltmp239:
-.LBB39_41:
+.LBB39_42:
 	ldc r0, 0
 	out res[r7], r0
 	ldw r0, sp[10]
@@ -2914,106 +2897,161 @@ Temperature_Water_Controller:
 	ldw r0, sp[12]
 	out res[r7], r0
 	outct res[r7], 1
-	bu .LBB39_1
-.Ltmp240:
-.LBB39_6:
+	bu .LBB39_2
+.Ltmp236:
+.LBB39_7:
 	ldc r0, 0
 	out res[r7], r0
 	outct res[r7], 1
 	stw r0, sp[12]
-	bu .LBB39_1
-.Ltmp241:
+	bu .LBB39_2
+.Ltmp237:
 .LBB39_10:
-.Lxtalabel7:
-	ldw r2, sp[13]
-	mov r1, r6
-	ldc r0, 999
-	eq r0, r10, r0
-	bf r0, .LBB39_15
+.Lxtalabel6:
+	ldw r1, sp[9]
+.Ltmp238:
+	.loc	1 103 0
+	ldw r0, r1[0]
+	.loc	1 103 0
+	ldw r1, r1[1]
+.Ltmp239:
+	.loc	1 103 0
+	ldw r2, r1[2]
+	ldaw r1, sp[21]
+	.loc	1 103 0
+.Lxta.call_labels7:
+	bla r2
+	.loc	1 107 0
+	ldw r8, sp[23]
+	.loc	1 107 0
+	ldw r10, sp[20]
+	.loc	1 107 0
+	sub r7, r8, r10
+.Ltmp240:
+	.loc	1 108 0
+	ldw r0, sp[22]
+	stw r0, sp[14]
+	ldw r0, cp[.LCPI39_1]
+	.loc	1 109 0
+	add r4, r8, r0
+.Ltmp241:
+	.loc	1 111 0
+	ldaw r11, cp[.str12]
+	mov r0, r11
+	mov r1, r8
+	ldc r2, 250
+	mov r3, r4
+.Lxta.call_labels8:
+	bl iprintf
+	.loc	1 113 21
+	bt r8, .LBB39_11
 .Ltmp242:
+.Lxtalabel7:
+	stw r10, sp[14]
+	.loc	1 125 0
+	ldaw r11, cp[.str17]
+	mov r0, r11
+	ldaw r11, cp[.str18]
+	mov r1, r11
+.Lxta.call_labels9:
+	bl iprintf
+.Ltmp243:
+	ldc r0, 150
+	stw r0, sp[8]
+	ldc r4, 2
+	bu .LBB39_30
+.Ltmp244:
+.LBB39_11:
 .Lxtalabel8:
-	stw r10, sp[13]
+	ldw r2, sp[14]
+	mov r1, r4
+	ldc r0, 999
+	eq r0, r8, r0
+	bf r0, .LBB39_16
+.Ltmp245:
+.Lxtalabel9:
+	stw r10, sp[14]
 	ldc r0, 4
 	.loc	1 116 0
 	ldw r1, sp[12]
 	or r1, r1, r0
-.Ltmp243:
+.Ltmp246:
 	.loc	1 119 0
 	stw r1, sp[12]
 	ldaw r11, cp[.str13]
 	mov r0, r11
 	ldaw r11, cp[.str14]
 	mov r1, r11
-.Lxta.call_labels8:
+.Lxta.call_labels10:
 	bl iprintf
 	ldc r0, 150
 	stw r0, sp[8]
 	ldc r0, 5
 	stw r0, sp[10]
-.Ltmp244:
-.LBB39_28:
-.Lxtalabel9:
-	ldc r0, 60
-	mov r6, r0
+.Ltmp247:
 .LBB39_29:
 .Lxtalabel10:
+	ldc r0, 60
+	mov r4, r0
+.LBB39_30:
+.Lxtalabel11:
 	mkmsk r10, 1
-	bu .LBB39_30
-.LBB39_15:
-.Ltmp245:
+	bu .LBB39_31
+.LBB39_16:
+.Ltmp248:
 	.loc	1 108 0
-	sub r6, r10, r2
-.Ltmp246:
+	sub r4, r8, r2
+.Ltmp249:
 	ldc r0, 0
 	mov r2, r1
 	.loc	1 130 28
 	lss r0, r0, r2
 	.loc	1 130 28
-	bf r0, .LBB39_21
-.Ltmp247:
-.Lxtalabel11:
-	stw r10, sp[13]
+	bf r0, .LBB39_22
+.Ltmp250:
+.Lxtalabel12:
+	stw r10, sp[14]
 	.loc	1 133 0
 	ldaw r11, cp[.str21]
 	mov r0, r11
 	ldaw r11, cp[.str22]
 	mov r1, r11
-.Lxta.call_labels9:
+.Lxta.call_labels11:
 	bl iprintf
 	mkmsk r10, 1
 	.loc	1 135 25
-	lss r0, r6, r10
-	bt r0, .LBB39_20
-.Ltmp248:
-.Lxtalabel12:
+	lss r0, r4, r10
+	bt r0, .LBB39_21
+.Ltmp251:
+.Lxtalabel13:
 	.loc	1 136 0
 	ldw r0, sp[12]
 	or r0, r0, r10
-.Ltmp249:
+.Ltmp252:
 	.loc	1 140 0
 	stw r0, sp[12]
 	ldaw r11, cp[.str25]
 	mov r0, r11
 	ldaw r11, cp[.str26]
 	mov r1, r11
-.Lxta.call_labels10:
+.Lxta.call_labels12:
 	bl iprintf
 	ldc r0, 245
 	stw r0, sp[8]
 	mkmsk r0, 2
-	bu .LBB39_18
-.Ltmp250:
-.LBB39_21:
+	bu .LBB39_19
+.Ltmp253:
+.LBB39_22:
 	.loc	1 150 28
 	ashr r0, r2, 32
-	bt r0, .LBB39_22
-.Ltmp251:
+	bt r0, .LBB39_23
+.Ltmp254:
 	.loc	1 170 28
 	ldw r0, sp[10]
-	bf r0, .LBB39_26
-.Ltmp252:
-.Lxtalabel13:
-	stw r10, sp[13]
+	bf r0, .LBB39_27
+.Ltmp255:
+.Lxtalabel14:
+	stw r10, sp[14]
 	ldc r0, 256
 	mov r2, r0
 	ldw r3, sp[12]
@@ -3022,7 +3060,7 @@ Temperature_Water_Controller:
 	ldw r1, cp[.LCPI39_2]
 	.loc	1 184 0
 	and r1, r3, r1
-.Ltmp253:
+.Ltmp256:
 	.loc	1 183 25
 	add r0, r0, r2
 	.loc	1 183 25
@@ -3033,187 +3071,144 @@ Temperature_Water_Controller:
 	mov r0, r11
 	ldaw r11, cp[.str50]
 	mov r1, r11
-.Ltmp254:
-.Lxta.call_labels11:
+.Ltmp257:
+.Lxta.call_labels13:
 	bl iprintf
-	bu .LBB39_28
-.Ltmp255:
-.LBB39_20:
-.Lxtalabel14:
+	bu .LBB39_29
+.Ltmp258:
+.LBB39_21:
+.Lxtalabel15:
 	ldc r0, 2
 	.loc	1 142 0
 	ldw r1, sp[12]
 	or r1, r1, r0
-.Ltmp256:
+.Ltmp259:
 	.loc	1 146 0
 	stw r1, sp[12]
 	ldaw r11, cp[.str29]
 	mov r0, r11
 	ldaw r11, cp[.str30]
 	mov r1, r11
-.Lxta.call_labels12:
+.Lxta.call_labels14:
 	bl iprintf
 	ldc r0, 150
 	stw r0, sp[8]
 	ldc r0, 4
-.Ltmp257:
-.LBB39_18:
-.Lxtalabel15:
-	stw r0, sp[10]
+.Ltmp260:
 .LBB39_19:
 .Lxtalabel16:
-	ldc r0, 60
-	mov r6, r0
-.LBB39_30:
+	stw r0, sp[10]
+.LBB39_20:
 .Lxtalabel17:
-.Ltmp258:
+	ldc r0, 60
+	mov r4, r0
+.LBB39_31:
+.Lxtalabel18:
+.Ltmp261:
 	.loc	1 198 0
 	ldaw r11, cp[.str53]
 	mov r0, r11
 	ldaw r11, cp[.str54]
 	mov r1, r11
-.Lxta.call_labels13:
+.Lxta.call_labels15:
 	bl iprintf
 	.loc	1 199 0
 	ldaw r11, cp[.str57]
 	mov r0, r11
-	ldw r1, sp[13]
+	mov r1, r8
 	ldw r2, sp[14]
 	mov r3, r7
-.Lxta.call_labels14:
+.Lxta.call_labels16:
 	bl iprintf
 	ldc r0, 0
 	.loc	1 201 21
 	lss r0, r0, r7
 	.loc	1 201 21
-	bf r0, .LBB39_31
-.Ltmp259:
-.Lxtalabel18:
+	bf r0, .LBB39_32
+.Ltmp262:
+.Lxtalabel19:
 	.loc	1 202 0
 	ldaw r11, cp[.str58]
 	mov r0, r11
 	ldaw r11, cp[.str59]
 	mov r1, r11
-.Lxta.call_labels15:
+.Lxta.call_labels17:
 	bl iprintf
 	ldc r0, 2
 	.loc	1 203 25
 	lss r0, r7, r0
-	bt r0, .LBB39_38
-.Ltmp260:
-.Lxtalabel19:
+	bt r0, .LBB39_39
+.Ltmp263:
+.Lxtalabel20:
 	.loc	1 204 0
 	ldaw r11, cp[.str62]
 	mov r0, r11
 	ldaw r11, cp[.str63]
-	bu .LBB39_37
-.Ltmp261:
-.LBB39_31:
+	bu .LBB39_38
+.Ltmp264:
+.LBB39_32:
 	.loc	1 206 28
 	ashr r0, r7, 32
-	bt r0, .LBB39_32
-.Ltmp262:
-.Lxtalabel20:
+	bt r0, .LBB39_33
+.Ltmp265:
+.Lxtalabel21:
 	.loc	1 212 0
 	ldaw r11, cp[.str74]
 	mov r0, r11
 	ldaw r11, cp[.str75]
-	bu .LBB39_37
-.Ltmp263:
-.LBB39_32:
-.Lxtalabel21:
+	bu .LBB39_38
+.Ltmp266:
+.LBB39_33:
+.Lxtalabel22:
 	.loc	1 207 0
 	ldaw r11, cp[.str66]
 	mov r0, r11
 	ldaw r11, cp[.str67]
 	mov r1, r11
-.Lxta.call_labels16:
+.Lxta.call_labels18:
 	bl iprintf
 	ldw r0, cp[.LCPI39_3]
 	.loc	1 208 25
 	lss r0, r0, r7
-	bt r0, .LBB39_38
-.Ltmp264:
-.Lxtalabel22:
+	bt r0, .LBB39_39
+.Ltmp267:
+.Lxtalabel23:
 	.loc	1 209 0
 	ldaw r11, cp[.str70]
 	mov r0, r11
 	ldaw r11, cp[.str71]
-.Ltmp265:
-.LBB39_37:
-.Lxtalabel23:
-	.loc	1 212 0
-	mov r1, r11
-.Lxta.call_labels17:
-	bl iprintf
+.Ltmp268:
 .LBB39_38:
 .Lxtalabel24:
-.Ltmp266:
-	.loc	1 215 0
-	ldaw r11, cp[.str78]
-	mov r0, r11
-	ldaw r11, cp[.str79]
+	.loc	1 212 0
 	mov r1, r11
-.Lxta.call_labels18:
-	bl iprintf
-	ldw r7, sp[9]
-.Ltmp267:
-	.loc	1 219 0
-	ldw r0, r7[0]
-	.loc	1 219 0
-	ldw r1, r7[1]
-.Ltmp268:
-	.loc	1 219 0
-	ldw r3, r1[1]
-	.loc	1 219 0
-	mov r1, r10
-	ldw r2, sp[8]
 .Lxta.call_labels19:
-	bla r3
-.Ltmp269:
-	.loc	1 222 0
-	ldw r0, sp[21]
-	.loc	1 222 0
-	stw r0, sp[17]
-.Ltmp270:
-	.loc	1 222 0
-	ldw r0, sp[22]
-	.loc	1 222 0
-	stw r0, sp[18]
-	.loc	1 222 0
-	ldw r0, sp[23]
-	.loc	1 222 0
-	stw r0, sp[19]
-	.loc	1 222 0
-	ldw r0, sp[24]
-	.loc	1 222 0
-	stw r0, sp[20]
-	stw r10, sp[14]
-	bu .LBB39_1
-.Ltmp271:
-.LBB39_22:
+	bl iprintf
+	bu .LBB39_39
+.LBB39_23:
 .Lxtalabel25:
+.Ltmp269:
 	.loc	1 153 0
 	ldaw r11, cp[.str33]
 	mov r0, r11
 	ldaw r11, cp[.str34]
 	mov r1, r11
-	stw r2, sp[13]
+	stw r2, sp[14]
 .Lxta.call_labels20:
 	bl iprintf
 	ldw r0, cp[.LCPI39_3]
 	.loc	1 155 25
-	ldw r1, sp[13]
+	ldw r1, sp[14]
 	lss r0, r0, r1
-	bt r0, .LBB39_24
-.Ltmp272:
+	bt r0, .LBB39_25
+.Ltmp270:
 .Lxtalabel26:
-	stw r10, sp[13]
+	stw r10, sp[14]
 	ldc r0, 32
 	.loc	1 156 0
 	ldw r1, sp[12]
 	or r1, r1, r0
-.Ltmp273:
+.Ltmp271:
 	.loc	1 160 0
 	stw r1, sp[12]
 	ldaw r11, cp[.str37]
@@ -3226,11 +3221,11 @@ Temperature_Water_Controller:
 	stw r0, sp[8]
 	mkmsk r10, 1
 	stw r10, sp[10]
-	bu .LBB39_19
-.Ltmp274:
-.LBB39_26:
+	bu .LBB39_20
+.Ltmp272:
+.LBB39_27:
 .Lxtalabel27:
-	stw r10, sp[13]
+	stw r10, sp[14]
 	.loc	1 174 0
 	ldaw r11, cp[.str45]
 	mov r0, r11
@@ -3240,24 +3235,24 @@ Temperature_Water_Controller:
 	bl iprintf
 	ldc r0, 0
 	stw r0, sp[10]
-	ldc r6, 2
-	bu .LBB39_29
-.Ltmp275:
-.LBB39_24:
+	ldc r4, 2
+	bu .LBB39_30
+.Ltmp273:
+.LBB39_25:
 .Lxtalabel28:
-	stw r10, sp[13]
+	stw r10, sp[14]
 	ldc r0, 16
 	.loc	1 162 0
 	ldw r1, sp[12]
 	or r1, r1, r0
-.Ltmp276:
+.Ltmp274:
 	.loc	1 164 0
 	stw r1, sp[12]
-	lda16 r0, r6[r6]
+	lda16 r0, r4[r4]
 	ldc r1, 250
 	.loc	1 164 0
 	add r0, r0, r1
-.Ltmp277:
+.Ltmp275:
 	.loc	1 166 0
 	stw r0, sp[8]
 	ldaw r11, cp[.str41]
@@ -3268,19 +3263,19 @@ Temperature_Water_Controller:
 	bl iprintf
 	ldc r0, 2
 	stw r0, sp[10]
-	bu .LBB39_28
-.Ltmp278:
+	bu .LBB39_29
+.Ltmp276:
 	.cc_bottom Temperature_Water_Controller.function
-	.set	Temperature_Water_Controller.nstackwords,((_i.temperature_heater_commands_if.get_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords $M Temp_OnetenthDegC_To_Str.nstackwords) + 32)
+	.set	Temperature_Water_Controller.nstackwords,((_i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords $M Temp_OnetenthDegC_To_Str.nstackwords) + 31)
 	.globl	Temperature_Water_Controller.nstackwords
-	.set	Temperature_Water_Controller.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M _i.temperature_heater_commands_if.get_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
+	.set	Temperature_Water_Controller.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
 	.globl	Temperature_Water_Controller.maxcores
-	.set	Temperature_Water_Controller.maxtimers,Temp_OnetenthDegC_To_Str.maxtimers $M _i.temperature_heater_commands_if.get_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
+	.set	Temperature_Water_Controller.maxtimers,Temp_OnetenthDegC_To_Str.maxtimers $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
 	.globl	Temperature_Water_Controller.maxtimers
-	.set	Temperature_Water_Controller.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M _i.temperature_heater_commands_if.get_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
+	.set	Temperature_Water_Controller.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
 	.globl	Temperature_Water_Controller.maxchanends
-.Ltmp279:
-	.size	Temperature_Water_Controller, .Ltmp279-Temperature_Water_Controller
+.Ltmp277:
+	.size	Temperature_Water_Controller, .Ltmp277-Temperature_Water_Controller
 .Lfunc_end39:
 	.cfi_endproc
 
@@ -3291,12 +3286,12 @@ Temperature_Water_Controller:
 Temperature_Water_Controller.select.0.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp280:
+.Ltmp278:
 	.cfi_def_cfa_offset 8
-.Ltmp281:
+.Ltmp279:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp282:
+.Ltmp280:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl Temperature_Water_Controller.init.1
@@ -3329,8 +3324,8 @@ Temperature_Water_Controller.select.0.enable:
 	.globl	Temperature_Water_Controller.select.0.enable.maxtimers
 	.set	Temperature_Water_Controller.select.0.enable.maxchanends,Temperature_Water_Controller.init.1.maxchanends $M 0
 	.globl	Temperature_Water_Controller.select.0.enable.maxchanends
-.Ltmp283:
-	.size	Temperature_Water_Controller.select.0.enable, .Ltmp283-Temperature_Water_Controller.select.0.enable
+.Ltmp281:
+	.size	Temperature_Water_Controller.select.0.enable, .Ltmp281-Temperature_Water_Controller.select.0.enable
 	.cfi_endproc
 
 	.globl	Temperature_Water_Controller.init.1
@@ -3343,53 +3338,53 @@ Temperature_Water_Controller.init.1:
 	.loc	2 0 0
 	.cfi_startproc
 	entsp 5
-.Ltmp284:
+.Ltmp282:
 	.cfi_def_cfa_offset 20
-.Ltmp285:
+.Ltmp283:
 	.cfi_offset 15, 0
 	stw r4, sp[4]
-.Ltmp286:
+.Ltmp284:
 	.cfi_offset 4, -4
 	stw r5, sp[3]
-.Ltmp287:
+.Ltmp285:
 	.cfi_offset 5, -8
 	stw r6, sp[2]
-.Ltmp288:
+.Ltmp286:
 	.cfi_offset 6, -12
 	stw r7, sp[1]
-.Ltmp289:
+.Ltmp287:
 	.cfi_offset 7, -16
 	mov r4, r0
-.Ltmp290:
+.Ltmp288:
 	ldw r0, r4[1]
 	bf r0, .LBB41_2
-.Ltmp291:
+.Ltmp289:
 .Lxtalabel29:
 	ldc r0, 0
 	stw r0, r4[1]
 	ldc r1, 2
 	.loc	1 58 0 prologue_end
-.Ltmp292:
+.Ltmp290:
 	stw r1, r4[5]
 	.loc	1 59 0
-.Ltmp293:
+.Ltmp291:
 	stw r0, r4[6]
 	.loc	1 60 0
-.Ltmp294:
+.Ltmp292:
 	stw r0, r4[7]
 	.loc	1 62 0
-.Ltmp295:
+.Ltmp293:
 	stw r0, r4[8]
-	ldc r0, 80
+	ldc r0, 72
 	.loc	1 69 0
-.Ltmp296:
+.Ltmp294:
 	add r0, r4, r0
 	ldc r1, 250
 	.loc	1 69 0
 	stw r1, r0[0]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 70 0
-.Ltmp297:
+.Ltmp295:
 	add r0, r4, r0
 	ldc r6, 150
 	.loc	1 70 0
@@ -3435,40 +3430,30 @@ Temperature_Water_Controller.init.1:
 	.loc	1 76 0
 .Lxta.call_labels25:
 	bla r2
-	ldc r0, 52
-.Ltmp298:
+	ldc r0, 48
+.Ltmp296:
 	.loc	1 79 0
 	add r0, r4, r0
 	.loc	1 79 0
 	ldw r1, r4[9]
 	.loc	1 79 0
 	stw r1, r0[0]
-	ldc r0, 56
-.Ltmp299:
+	ldc r0, 52
+.Ltmp297:
 	.loc	1 79 0
 	add r0, r4, r0
 	.loc	1 79 0
 	ldw r1, r4[10]
 	.loc	1 79 0
 	stw r1, r0[0]
-	ldc r0, 60
+	ldc r0, 56
 	.loc	1 79 0
 	add r0, r4, r0
 	.loc	1 79 0
 	ldw r1, r4[11]
 	.loc	1 79 0
 	stw r1, r0[0]
-	ldc r0, 64
-	.loc	1 79 0
-	add r0, r4, r0
-	ldc r1, 48
-	.loc	1 79 0
-	add r1, r4, r1
-	.loc	1 79 0
-	ldw r1, r1[0]
-	.loc	1 79 0
-	stw r1, r0[0]
-.Ltmp300:
+.Ltmp298:
 	.loc	1 82 0
 	ldaw r11, cp[.str106]
 	mov r0, r11
@@ -3490,7 +3475,7 @@ Temperature_Water_Controller.init.1:
 	.loc	1 84 0
 	stw r0, r4[4]
 	stw r5, r4[0]
-.Ltmp301:
+.Ltmp299:
 .LBB41_2:
 	ldw r7, sp[1]
 	ldw r6, sp[2]
@@ -3499,16 +3484,16 @@ Temperature_Water_Controller.init.1:
 	retsp 5
 	# RETURN_REG_HOLDER
 	.cc_bottom Temperature_Water_Controller.init.1.function
-	.set	Temperature_Water_Controller.init.1.nstackwords,((_i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M _i.temperature_heater_commands_if.__interface_init.max.nstackwords $M _i.temperature_heater_commands_if.get_temps.max.nstackwords $M iprintf.nstackwords) + 5)
+	.set	Temperature_Water_Controller.init.1.nstackwords,((_i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M _i.temperature_heater_commands_if.__interface_init.max.nstackwords $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords $M iprintf.nstackwords) + 5)
 	.globl	Temperature_Water_Controller.init.1.nstackwords
-	.set	Temperature_Water_Controller.init.1.maxcores,_i.temperature_heater_commands_if.__interface_init.max.maxcores $M _i.temperature_heater_commands_if.get_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
+	.set	Temperature_Water_Controller.init.1.maxcores,_i.temperature_heater_commands_if.__interface_init.max.maxcores $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
 	.globl	Temperature_Water_Controller.init.1.maxcores
-	.set	Temperature_Water_Controller.init.1.maxtimers,_i.temperature_heater_commands_if.__interface_init.max.maxtimers $M _i.temperature_heater_commands_if.get_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
+	.set	Temperature_Water_Controller.init.1.maxtimers,_i.temperature_heater_commands_if.__interface_init.max.maxtimers $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
 	.globl	Temperature_Water_Controller.init.1.maxtimers
-	.set	Temperature_Water_Controller.init.1.maxchanends,_i.temperature_heater_commands_if.__interface_init.max.maxchanends $M _i.temperature_heater_commands_if.get_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
+	.set	Temperature_Water_Controller.init.1.maxchanends,_i.temperature_heater_commands_if.__interface_init.max.maxchanends $M _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
 	.globl	Temperature_Water_Controller.init.1.maxchanends
-.Ltmp302:
-	.size	Temperature_Water_Controller.init.1, .Ltmp302-Temperature_Water_Controller.init.1
+.Ltmp300:
+	.size	Temperature_Water_Controller.init.1, .Ltmp300-Temperature_Water_Controller.init.1
 .Lfunc_end41:
 	.cfi_endproc
 
@@ -3541,8 +3526,8 @@ Temperature_Water_Controller.init.0:
 	.globl	Temperature_Water_Controller.init.0.maxtimers
 	.set	Temperature_Water_Controller.init.0.maxchanends,0
 	.globl	Temperature_Water_Controller.init.0.maxchanends
-.Ltmp303:
-	.size	Temperature_Water_Controller.init.0, .Ltmp303-Temperature_Water_Controller.init.0
+.Ltmp301:
+	.size	Temperature_Water_Controller.init.0, .Ltmp301-Temperature_Water_Controller.init.0
 	.cfi_endproc
 
 	.globl	Temperature_Water_Controller.select.y.enable
@@ -3552,12 +3537,12 @@ Temperature_Water_Controller.init.0:
 Temperature_Water_Controller.select.y.enable:
 	.cfi_startproc
 	entsp 2
-.Ltmp304:
+.Ltmp302:
 	.cfi_def_cfa_offset 8
-.Ltmp305:
+.Ltmp303:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp306:
+.Ltmp304:
 	.cfi_offset 4, -4
 	mov r4, r0
 	bl Temperature_Water_Controller.init.1
@@ -3611,8 +3596,8 @@ Temperature_Water_Controller.select.y.enable:
 	.globl	Temperature_Water_Controller.select.y.enable.maxtimers
 	.set	Temperature_Water_Controller.select.y.enable.maxchanends,Temperature_Water_Controller.init.1.maxchanends $M 0
 	.globl	Temperature_Water_Controller.select.y.enable.maxchanends
-.Ltmp307:
-	.size	Temperature_Water_Controller.select.y.enable, .Ltmp307-Temperature_Water_Controller.select.y.enable
+.Ltmp305:
+	.size	Temperature_Water_Controller.select.y.enable, .Ltmp305-Temperature_Water_Controller.select.y.enable
 	.cfi_endproc
 
 	.globl	Temperature_Water_Controller.select.enable
@@ -3622,10 +3607,10 @@ Temperature_Water_Controller.select.y.enable:
 Temperature_Water_Controller.select.enable:
 	.cfi_startproc
 	extsp 1
-.Ltmp308:
+.Ltmp306:
 	.cfi_def_cfa_offset 4
 	stw r4, sp[0]
-.Ltmp309:
+.Ltmp307:
 	.cfi_offset 4, -4
 	ldw r1, r0[0]
 	bf r1, .LBB44_1
@@ -3679,8 +3664,8 @@ Temperature_Water_Controller.select.enable:
 	.globl	Temperature_Water_Controller.select.enable.maxtimers
 	.set	Temperature_Water_Controller.select.enable.maxchanends,0
 	.globl	Temperature_Water_Controller.select.enable.maxchanends
-.Ltmp310:
-	.size	Temperature_Water_Controller.select.enable, .Ltmp310-Temperature_Water_Controller.select.enable
+.Ltmp308:
+	.size	Temperature_Water_Controller.select.enable, .Ltmp308-Temperature_Water_Controller.select.enable
 	.cfi_endproc
 
 	.globl	Temperature_Water_Controller.fini
@@ -3705,8 +3690,8 @@ Temperature_Water_Controller.fini:
 	.globl	Temperature_Water_Controller.fini.maxtimers
 	.set	Temperature_Water_Controller.fini.maxchanends,0
 	.globl	Temperature_Water_Controller.fini.maxchanends
-.Ltmp311:
-	.size	Temperature_Water_Controller.fini, .Ltmp311-Temperature_Water_Controller.fini
+.Ltmp309:
+	.size	Temperature_Water_Controller.fini, .Ltmp309-Temperature_Water_Controller.fini
 	.cfi_endproc
 
 	.align	4
@@ -3717,30 +3702,33 @@ Temperature_Water_Controller.select.0.case.0:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel31:
-	entsp 10
-.Ltmp312:
-	.cfi_def_cfa_offset 40
-.Ltmp313:
+	entsp 11
+.Ltmp310:
+	.cfi_def_cfa_offset 44
+.Ltmp311:
 	.cfi_offset 15, 0
+.Ltmp312:
+	.cfi_offset 1, -40
+.Ltmp313:
+	.cfi_offset 0, -36
+	stw r4, sp[10]
 .Ltmp314:
-	.cfi_offset 1, -36
-.Ltmp315:
-	.cfi_offset 0, -32
-	stw r4, sp[9]
-.Ltmp316:
 	.cfi_offset 4, -4
-	stw r5, sp[8]
-.Ltmp317:
+	stw r5, sp[9]
+.Ltmp315:
 	.cfi_offset 5, -8
-	stw r6, sp[7]
-.Ltmp318:
+	stw r6, sp[8]
+.Ltmp316:
 	.cfi_offset 6, -12
-	stw r7, sp[6]
-.Ltmp319:
+	stw r7, sp[7]
+.Ltmp317:
 	.cfi_offset 7, -16
-	stw r8, sp[5]
-.Ltmp320:
+	stw r8, sp[6]
+.Ltmp318:
 	.cfi_offset 8, -20
+	stw r9, sp[5]
+.Ltmp319:
+	.cfi_offset 9, -24
 	get r11, ed
 	mov r4, r11
 	ldc r7, 0
@@ -3758,31 +3746,32 @@ Temperature_Water_Controller.select.0.case.0:
 	bf r1, .LBB46_10
 	outct res[r6], 1
 	in r0, res[r6]
-.Ltmp321:
+.Ltmp320:
 	ldaw r11, cp[.str276+4]
 	.loc	1 234 0 prologue_end
-.Ltmp322:
+.Ltmp321:
 	ld8u r1, r11[r7]
 	ldc r8, 4
 	ldaw r5, sp[3]
 	st8 r1, r5[r8]
 	ldw r1, cp[.str276]
 	stw r1, sp[3]
+	mkmsk r9, 2
 	.loc	1 238 0
-.Ltmp323:
-	lsu r1, r0, r8
+.Ltmp322:
+	lsu r1, r0, r9
 .Ltrap_info2:
 	ecallf r1
 	.loc	1 238 0
 	ldaw r0, r4[r0]
-.Ltmp324:
+.Ltmp323:
 	ldaw r0, r0[9]
 	.loc	1 238 0
 	ld16s r0, r0[r7]
 	mov r1, r5
 .Lxta.call_labels27:
 	bl Temp_OnetenthDegC_To_Str
-.Ltmp325:
+.Ltmp324:
 	.loc	1 241 0
 	ld8u r0, r5[r7]
 	ldc r1, 8
@@ -3799,7 +3788,7 @@ Temperature_Water_Controller.select.0.case.0:
 	.loc	1 241 0
 	chkct res[r6], 1
 	mkmsk r0, 1
-.Ltmp326:
+.Ltmp325:
 	.loc	1 241 0
 	or r2, r5, r0
 	.loc	1 241 0
@@ -3833,19 +3822,18 @@ Temperature_Water_Controller.select.0.case.0:
 	outct res[r6], 2
 	.loc	1 241 0
 	chkct res[r6], 1
-	mkmsk r2, 2
 	.loc	1 241 0
-	or r3, r5, r2
+	or r2, r5, r9
 	.loc	1 241 0
-	ld8u r3, r3[r7]
+	ld8u r2, r2[r7]
 	.loc	1 241 0
 	out res[r6], r1
 	.loc	1 241 0
 	out res[r6], r7
 	.loc	1 241 0
-	out res[r6], r2
+	out res[r6], r9
 	.loc	1 241 0
-	out res[r6], r3
+	out res[r6], r2
 	.loc	1 241 0
 	outct res[r6], 2
 	.loc	1 241 0
@@ -3869,7 +3857,7 @@ Temperature_Water_Controller.select.0.case.0:
 	out res[r1], r7
 	outct res[r1], 1
 	bu .LBB46_9
-.Ltmp327:
+.Ltmp326:
 .LBB46_1:
 .Lxtalabel32:
 	eq r2, r2, 1
@@ -3878,18 +3866,18 @@ Temperature_Water_Controller.select.0.case.0:
 	bf r1, .LBB46_10
 	.loc	1 250 0
 	ldw r0, r4[8]
-.Ltmp328:
+.Ltmp327:
 	.loc	1 251 0
 	ldw r1, r4[6]
-.Ltmp329:
+.Ltmp328:
 	out res[r6], r7
 	out res[r6], r0
 	out res[r6], r1
 	outct res[r6], 1
 	mkmsk r0, 1
-.Ltmp330:
+.Ltmp329:
 	bu .LBB46_9
-.Ltmp331:
+.Ltmp330:
 .LBB46_2:
 	ldw r2, r4[7]
 	bf r2, .LBB46_10
@@ -3899,42 +3887,44 @@ Temperature_Water_Controller.select.0.case.0:
 	out res[r0], r7
 	outct res[r0], 1
 	mkmsk r0, 1
-.Ltmp332:
+.Ltmp331:
 .LBB46_9:
 	stw r0, r4[0]
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
-	retsp 10
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
+	retsp 11
 	# RETURN_REG_HOLDER
 .LBB46_10:
 	setd res[r6], r6
 	out res[r6], r0
 	outct res[r6], 2
 	edu res[r6]
-	ldc r0, 40
+	ldc r0, 44
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
 	.cc_bottom Temperature_Water_Controller.select.0.case.0.function
-	.set	Temperature_Water_Controller.select.0.case.0.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 10)
+	.set	Temperature_Water_Controller.select.0.case.0.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 11)
 	.set	Temperature_Water_Controller.select.0.case.0.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M 1
 	.set	Temperature_Water_Controller.select.0.case.0.maxtimers,Temp_OnetenthDegC_To_Str.maxtimers $M 0
 	.set	Temperature_Water_Controller.select.0.case.0.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M 0
-.Ltmp333:
-	.size	Temperature_Water_Controller.select.0.case.0, .Ltmp333-Temperature_Water_Controller.select.0.case.0
+.Ltmp332:
+	.size	Temperature_Water_Controller.select.0.case.0, .Ltmp332-Temperature_Water_Controller.select.0.case.0
 .Lfunc_end46:
 	.cfi_endproc
 
@@ -3970,47 +3960,47 @@ Temperature_Water_Controller.select.y.case.0:
 	.cfi_startproc
 .Lxtalabel33:
 	entsp 9
-.Ltmp334:
+.Ltmp333:
 	.cfi_def_cfa_offset 36
-.Ltmp335:
+.Ltmp334:
 	.cfi_offset 15, 0
 	stw r4, sp[8]
-.Ltmp336:
+.Ltmp335:
 	.cfi_offset 4, -4
 	stw r5, sp[7]
-.Ltmp337:
+.Ltmp336:
 	.cfi_offset 5, -8
 	stw r6, sp[6]
-.Ltmp338:
+.Ltmp337:
 	.cfi_offset 6, -12
 	stw r7, sp[5]
-.Ltmp339:
+.Ltmp338:
 	.cfi_offset 7, -16
 	stw r8, sp[4]
-.Ltmp340:
+.Ltmp339:
 	.cfi_offset 8, -20
 	stw r9, sp[3]
-.Ltmp341:
+.Ltmp340:
 	.cfi_offset 9, -24
 	stw r10, sp[2]
-.Ltmp342:
+.Ltmp341:
 	.cfi_offset 10, -28
 	get r11, ed
 	mov r4, r11
 	.loc	1 90 0 prologue_end
-.Ltmp343:
+.Ltmp342:
 	get r11, id
 	.loc	1 90 0
 	ldaw r0, dp[__timers]
 	.loc	1 90 0
 	ldw r0, r0[r11]
 	.loc	1 90 0
-.Ltmp344:
+.Ltmp343:
 .Lxta.endpoint_labels3:
 	in r0, res[r0]
 	ldc r7, 0
 	stw r7, r4[0]
-.Ltmp345:
+.Ltmp344:
 	.loc	1 91 0
 	ldw r0, r4[4]
 	ldw r1, cp[.LCPI47_0]
@@ -4045,13 +4035,13 @@ Temperature_Water_Controller.select.y.case.0:
 	mkmsk r0, 1
 	.loc	1 104 0
 	stw r0, r4[7]
-	ldc r0, 68
 	.loc	1 107 0
-	add r6, r4, r0
+	add r6, r4, r10
 	.loc	1 107 0
 	ldw r1, r4[11]
+	ldc r0, 56
 	.loc	1 107 0
-	add r0, r4, r10
+	add r0, r4, r0
 	.loc	1 107 0
 	stw r0, sp[1]
 	ldw r0, r0[0]
@@ -4059,7 +4049,7 @@ Temperature_Water_Controller.select.y.case.0:
 	sub r0, r1, r0
 	.loc	1 107 0
 	stw r0, r6[0]
-	ldc r0, 72
+	ldc r0, 64
 	.loc	1 108 0
 	add r9, r4, r0
 	.loc	1 108 0
@@ -4068,10 +4058,10 @@ Temperature_Water_Controller.select.y.case.0:
 	sub r0, r1, r0
 	.loc	1 108 0
 	stw r0, r9[0]
-	ldc r0, 76
+	ldc r0, 68
 	.loc	1 109 0
 	add r5, r4, r0
-	ldc r0, 80
+	ldc r0, 72
 	.loc	1 109 0
 	add r8, r4, r0
 	.loc	1 109 0
@@ -4097,7 +4087,7 @@ Temperature_Water_Controller.select.y.case.0:
 	mov r1, r11
 .Lxta.call_labels30:
 	bl iprintf
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 126 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -4120,7 +4110,7 @@ Temperature_Water_Controller.select.y.case.0:
 	or r0, r0, r1
 	.loc	1 116 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 117 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -4162,7 +4152,7 @@ Temperature_Water_Controller.select.y.case.0:
 	or r0, r0, r2
 	.loc	1 136 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 138 0
 	add r0, r4, r0
 	ldc r1, 245
@@ -4213,7 +4203,7 @@ Temperature_Water_Controller.select.y.case.0:
 	or r0, r0, r1
 	.loc	1 142 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 144 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -4250,7 +4240,7 @@ Temperature_Water_Controller.select.y.case.0:
 	or r0, r0, r1
 	.loc	1 156 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 158 0
 	add r0, r4, r0
 	ldc r1, 400
@@ -4281,7 +4271,7 @@ Temperature_Water_Controller.select.y.case.0:
 	or r0, r0, r1
 	.loc	1 162 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 164 0
 	add r0, r4, r0
 	.loc	1 164 0
@@ -4407,7 +4397,7 @@ Temperature_Water_Controller.select.y.case.0:
 	ldw r1, r1[1]
 	.loc	1 219 0
 	ldw r3, r1[1]
-	ldc r1, 84
+	ldc r1, 76
 	.loc	1 219 0
 	add r1, r4, r1
 	.loc	1 219 0
@@ -4416,16 +4406,16 @@ Temperature_Water_Controller.select.y.case.0:
 	.loc	1 219 0
 .Lxta.call_labels40:
 	bla r3
-	ldc r0, 52
-.Ltmp346:
+	ldc r0, 48
+.Ltmp345:
 	.loc	1 222 0
 	add r0, r4, r0
 	.loc	1 222 0
 	ldw r1, r4[9]
 	.loc	1 222 0
 	stw r1, r0[0]
-	ldc r0, 56
-.Ltmp347:
+	ldc r0, 52
+.Ltmp346:
 	.loc	1 222 0
 	add r0, r4, r0
 	.loc	1 222 0
@@ -4436,17 +4426,7 @@ Temperature_Water_Controller.select.y.case.0:
 	ldw r0, r4[11]
 	.loc	1 222 0
 	stw r0, r5[0]
-	ldc r0, 64
-	.loc	1 222 0
-	add r0, r4, r0
-	ldc r1, 48
-	.loc	1 222 0
-	add r1, r4, r1
-	.loc	1 222 0
-	ldw r1, r1[0]
-	.loc	1 222 0
-	stw r1, r0[0]
-.Ltmp348:
+.Ltmp347:
 .LBB47_26:
 .Lxtalabel55:
 	mkmsk r0, 1
@@ -4461,12 +4441,12 @@ Temperature_Water_Controller.select.y.case.0:
 	retsp 9
 	# RETURN_REG_HOLDER
 	.cc_bottom Temperature_Water_Controller.select.y.case.0.function
-	.set	Temperature_Water_Controller.select.y.case.0.nstackwords,((_i.temperature_heater_commands_if.get_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords) + 9)
-	.set	Temperature_Water_Controller.select.y.case.0.maxcores,_i.temperature_heater_commands_if.get_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
-	.set	Temperature_Water_Controller.select.y.case.0.maxtimers,_i.temperature_heater_commands_if.get_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
-	.set	Temperature_Water_Controller.select.y.case.0.maxchanends,_i.temperature_heater_commands_if.get_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
-.Ltmp349:
-	.size	Temperature_Water_Controller.select.y.case.0, .Ltmp349-Temperature_Water_Controller.select.y.case.0
+	.set	Temperature_Water_Controller.select.y.case.0.nstackwords,((_i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords) + 9)
+	.set	Temperature_Water_Controller.select.y.case.0.maxcores,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
+	.set	Temperature_Water_Controller.select.y.case.0.maxtimers,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
+	.set	Temperature_Water_Controller.select.y.case.0.maxchanends,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
+.Ltmp348:
+	.size	Temperature_Water_Controller.select.y.case.0, .Ltmp348-Temperature_Water_Controller.select.y.case.0
 .Lfunc_end47:
 	.cfi_endproc
 
@@ -4478,30 +4458,33 @@ Temperature_Water_Controller.select.y.case.1:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel56:
-	entsp 10
+	entsp 11
+.Ltmp349:
+	.cfi_def_cfa_offset 44
 .Ltmp350:
-	.cfi_def_cfa_offset 40
-.Ltmp351:
 	.cfi_offset 15, 0
+.Ltmp351:
+	.cfi_offset 1, -40
 .Ltmp352:
-	.cfi_offset 1, -36
+	.cfi_offset 0, -36
+	stw r4, sp[10]
 .Ltmp353:
-	.cfi_offset 0, -32
-	stw r4, sp[9]
-.Ltmp354:
 	.cfi_offset 4, -4
-	stw r5, sp[8]
-.Ltmp355:
+	stw r5, sp[9]
+.Ltmp354:
 	.cfi_offset 5, -8
-	stw r6, sp[7]
-.Ltmp356:
+	stw r6, sp[8]
+.Ltmp355:
 	.cfi_offset 6, -12
-	stw r7, sp[6]
-.Ltmp357:
+	stw r7, sp[7]
+.Ltmp356:
 	.cfi_offset 7, -16
-	stw r8, sp[5]
-.Ltmp358:
+	stw r8, sp[6]
+.Ltmp357:
 	.cfi_offset 8, -20
+	stw r9, sp[5]
+.Ltmp358:
+	.cfi_offset 9, -24
 	get r11, ed
 	mov r4, r11
 	ldc r7, 0
@@ -4529,9 +4512,10 @@ Temperature_Water_Controller.select.y.case.1:
 	st8 r1, r5[r8]
 	ldw r1, cp[.str276]
 	stw r1, sp[3]
+	mkmsk r9, 2
 	.loc	1 238 0
 .Ltmp361:
-	lsu r1, r0, r8
+	lsu r1, r0, r9
 .Ltrap_info3:
 	ecallf r1
 	.loc	1 238 0
@@ -4594,19 +4578,18 @@ Temperature_Water_Controller.select.y.case.1:
 	outct res[r6], 2
 	.loc	1 241 0
 	chkct res[r6], 1
-	mkmsk r2, 2
 	.loc	1 241 0
-	or r3, r5, r2
+	or r2, r5, r9
 	.loc	1 241 0
-	ld8u r3, r3[r7]
+	ld8u r2, r2[r7]
 	.loc	1 241 0
 	out res[r6], r1
 	.loc	1 241 0
 	out res[r6], r7
 	.loc	1 241 0
-	out res[r6], r2
+	out res[r6], r9
 	.loc	1 241 0
-	out res[r6], r3
+	out res[r6], r2
 	.loc	1 241 0
 	outct res[r6], 2
 	.loc	1 241 0
@@ -4663,34 +4646,36 @@ Temperature_Water_Controller.select.y.case.1:
 .Ltmp370:
 .LBB48_9:
 	stw r0, r4[0]
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
-	retsp 10
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
+	retsp 11
 	# RETURN_REG_HOLDER
 .LBB48_10:
 	setd res[r6], r6
 	out res[r6], r0
 	outct res[r6], 2
 	edu res[r6]
-	ldc r0, 40
+	ldc r0, 44
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
 	.cc_bottom Temperature_Water_Controller.select.y.case.1.function
-	.set	Temperature_Water_Controller.select.y.case.1.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 10)
+	.set	Temperature_Water_Controller.select.y.case.1.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 11)
 	.set	Temperature_Water_Controller.select.y.case.1.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M 1
 	.set	Temperature_Water_Controller.select.y.case.1.maxtimers,Temp_OnetenthDegC_To_Str.maxtimers $M 0
 	.set	Temperature_Water_Controller.select.y.case.1.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M 0
@@ -4806,13 +4791,13 @@ Temperature_Water_Controller.select.case.0:
 	mkmsk r0, 1
 	.loc	1 104 0
 	stw r0, r4[7]
-	ldc r0, 68
 	.loc	1 107 0
-	add r6, r4, r0
+	add r6, r4, r10
 	.loc	1 107 0
 	ldw r1, r4[11]
+	ldc r0, 56
 	.loc	1 107 0
-	add r0, r4, r10
+	add r0, r4, r0
 	.loc	1 107 0
 	stw r0, sp[1]
 	ldw r0, r0[0]
@@ -4820,7 +4805,7 @@ Temperature_Water_Controller.select.case.0:
 	sub r0, r1, r0
 	.loc	1 107 0
 	stw r0, r6[0]
-	ldc r0, 72
+	ldc r0, 64
 	.loc	1 108 0
 	add r9, r4, r0
 	.loc	1 108 0
@@ -4829,10 +4814,10 @@ Temperature_Water_Controller.select.case.0:
 	sub r0, r1, r0
 	.loc	1 108 0
 	stw r0, r9[0]
-	ldc r0, 76
+	ldc r0, 68
 	.loc	1 109 0
 	add r5, r4, r0
-	ldc r0, 80
+	ldc r0, 72
 	.loc	1 109 0
 	add r8, r4, r0
 	.loc	1 109 0
@@ -4858,7 +4843,7 @@ Temperature_Water_Controller.select.case.0:
 	mov r1, r11
 .Lxta.call_labels44:
 	bl iprintf
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 126 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -4881,7 +4866,7 @@ Temperature_Water_Controller.select.case.0:
 	or r0, r0, r1
 	.loc	1 116 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 117 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -4923,7 +4908,7 @@ Temperature_Water_Controller.select.case.0:
 	or r0, r0, r2
 	.loc	1 136 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 138 0
 	add r0, r4, r0
 	ldc r1, 245
@@ -4974,7 +4959,7 @@ Temperature_Water_Controller.select.case.0:
 	or r0, r0, r1
 	.loc	1 142 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 144 0
 	add r0, r4, r0
 	ldc r1, 150
@@ -5011,7 +4996,7 @@ Temperature_Water_Controller.select.case.0:
 	or r0, r0, r1
 	.loc	1 156 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 158 0
 	add r0, r4, r0
 	ldc r1, 400
@@ -5042,7 +5027,7 @@ Temperature_Water_Controller.select.case.0:
 	or r0, r0, r1
 	.loc	1 162 0
 	stw r0, r4[6]
-	ldc r0, 84
+	ldc r0, 76
 	.loc	1 164 0
 	add r0, r4, r0
 	.loc	1 164 0
@@ -5168,7 +5153,7 @@ Temperature_Water_Controller.select.case.0:
 	ldw r1, r1[1]
 	.loc	1 219 0
 	ldw r3, r1[1]
-	ldc r1, 84
+	ldc r1, 76
 	.loc	1 219 0
 	add r1, r4, r1
 	.loc	1 219 0
@@ -5177,7 +5162,7 @@ Temperature_Water_Controller.select.case.0:
 	.loc	1 219 0
 .Lxta.call_labels54:
 	bla r3
-	ldc r0, 52
+	ldc r0, 48
 .Ltmp384:
 	.loc	1 222 0
 	add r0, r4, r0
@@ -5185,7 +5170,7 @@ Temperature_Water_Controller.select.case.0:
 	ldw r1, r4[9]
 	.loc	1 222 0
 	stw r1, r0[0]
-	ldc r0, 56
+	ldc r0, 52
 .Ltmp385:
 	.loc	1 222 0
 	add r0, r4, r0
@@ -5197,16 +5182,6 @@ Temperature_Water_Controller.select.case.0:
 	ldw r0, r4[11]
 	.loc	1 222 0
 	stw r0, r5[0]
-	ldc r0, 64
-	.loc	1 222 0
-	add r0, r4, r0
-	ldc r1, 48
-	.loc	1 222 0
-	add r1, r4, r1
-	.loc	1 222 0
-	ldw r1, r1[0]
-	.loc	1 222 0
-	stw r1, r0[0]
 .Ltmp386:
 .LBB49_26:
 .Lxtalabel80:
@@ -5222,10 +5197,10 @@ Temperature_Water_Controller.select.case.0:
 	retsp 9
 	# RETURN_REG_HOLDER
 	.cc_bottom Temperature_Water_Controller.select.case.0.function
-	.set	Temperature_Water_Controller.select.case.0.nstackwords,((_i.temperature_heater_commands_if.get_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords) + 9)
-	.set	Temperature_Water_Controller.select.case.0.maxcores,_i.temperature_heater_commands_if.get_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
-	.set	Temperature_Water_Controller.select.case.0.maxtimers,_i.temperature_heater_commands_if.get_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
-	.set	Temperature_Water_Controller.select.case.0.maxchanends,_i.temperature_heater_commands_if.get_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
+	.set	Temperature_Water_Controller.select.case.0.nstackwords,((_i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords $M iprintf.nstackwords) + 9)
+	.set	Temperature_Water_Controller.select.case.0.maxcores,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxcores $M iprintf.maxcores $M 1
+	.set	Temperature_Water_Controller.select.case.0.maxtimers,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxtimers $M iprintf.maxtimers $M 0
+	.set	Temperature_Water_Controller.select.case.0.maxchanends,_i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends $M _i.temperature_heater_commands_if.heater_set_temp_degC.max.maxchanends $M iprintf.maxchanends $M 0
 .Ltmp387:
 	.size	Temperature_Water_Controller.select.case.0, .Ltmp387-Temperature_Water_Controller.select.case.0
 .Lfunc_end49:
@@ -5239,30 +5214,33 @@ Temperature_Water_Controller.select.case.1:
 	.loc	1 229 0
 	.cfi_startproc
 .Lxtalabel81:
-	entsp 10
+	entsp 11
 .Ltmp388:
-	.cfi_def_cfa_offset 40
+	.cfi_def_cfa_offset 44
 .Ltmp389:
 	.cfi_offset 15, 0
 .Ltmp390:
-	.cfi_offset 1, -36
+	.cfi_offset 1, -40
 .Ltmp391:
-	.cfi_offset 0, -32
-	stw r4, sp[9]
+	.cfi_offset 0, -36
+	stw r4, sp[10]
 .Ltmp392:
 	.cfi_offset 4, -4
-	stw r5, sp[8]
+	stw r5, sp[9]
 .Ltmp393:
 	.cfi_offset 5, -8
-	stw r6, sp[7]
+	stw r6, sp[8]
 .Ltmp394:
 	.cfi_offset 6, -12
-	stw r7, sp[6]
+	stw r7, sp[7]
 .Ltmp395:
 	.cfi_offset 7, -16
-	stw r8, sp[5]
+	stw r8, sp[6]
 .Ltmp396:
 	.cfi_offset 8, -20
+	stw r9, sp[5]
+.Ltmp397:
+	.cfi_offset 9, -24
 	get r11, ed
 	mov r4, r11
 	ldc r7, 0
@@ -5280,31 +5258,32 @@ Temperature_Water_Controller.select.case.1:
 	bf r1, .LBB50_10
 	outct res[r6], 1
 	in r0, res[r6]
-.Ltmp397:
+.Ltmp398:
 	ldaw r11, cp[.str276+4]
 	.loc	1 234 0 prologue_end
-.Ltmp398:
+.Ltmp399:
 	ld8u r1, r11[r7]
 	ldc r8, 4
 	ldaw r5, sp[3]
 	st8 r1, r5[r8]
 	ldw r1, cp[.str276]
 	stw r1, sp[3]
+	mkmsk r9, 2
 	.loc	1 238 0
-.Ltmp399:
-	lsu r1, r0, r8
+.Ltmp400:
+	lsu r1, r0, r9
 .Ltrap_info4:
 	ecallf r1
 	.loc	1 238 0
 	ldaw r0, r4[r0]
-.Ltmp400:
+.Ltmp401:
 	ldaw r0, r0[9]
 	.loc	1 238 0
 	ld16s r0, r0[r7]
 	mov r1, r5
 .Lxta.call_labels55:
 	bl Temp_OnetenthDegC_To_Str
-.Ltmp401:
+.Ltmp402:
 	.loc	1 241 0
 	ld8u r0, r5[r7]
 	ldc r1, 8
@@ -5321,7 +5300,7 @@ Temperature_Water_Controller.select.case.1:
 	.loc	1 241 0
 	chkct res[r6], 1
 	mkmsk r0, 1
-.Ltmp402:
+.Ltmp403:
 	.loc	1 241 0
 	or r2, r5, r0
 	.loc	1 241 0
@@ -5355,19 +5334,18 @@ Temperature_Water_Controller.select.case.1:
 	outct res[r6], 2
 	.loc	1 241 0
 	chkct res[r6], 1
-	mkmsk r2, 2
 	.loc	1 241 0
-	or r3, r5, r2
+	or r2, r5, r9
 	.loc	1 241 0
-	ld8u r3, r3[r7]
+	ld8u r2, r2[r7]
 	.loc	1 241 0
 	out res[r6], r1
 	.loc	1 241 0
 	out res[r6], r7
 	.loc	1 241 0
-	out res[r6], r2
+	out res[r6], r9
 	.loc	1 241 0
-	out res[r6], r3
+	out res[r6], r2
 	.loc	1 241 0
 	outct res[r6], 2
 	.loc	1 241 0
@@ -5391,7 +5369,7 @@ Temperature_Water_Controller.select.case.1:
 	out res[r1], r7
 	outct res[r1], 1
 	bu .LBB50_9
-.Ltmp403:
+.Ltmp404:
 .LBB50_1:
 .Lxtalabel82:
 	eq r2, r2, 1
@@ -5400,18 +5378,18 @@ Temperature_Water_Controller.select.case.1:
 	bf r1, .LBB50_10
 	.loc	1 250 0
 	ldw r0, r4[8]
-.Ltmp404:
+.Ltmp405:
 	.loc	1 251 0
 	ldw r1, r4[6]
-.Ltmp405:
+.Ltmp406:
 	out res[r6], r7
 	out res[r6], r0
 	out res[r6], r1
 	outct res[r6], 1
 	mkmsk r0, 1
-.Ltmp406:
-	bu .LBB50_9
 .Ltmp407:
+	bu .LBB50_9
+.Ltmp408:
 .LBB50_2:
 	ldw r2, r4[7]
 	bf r2, .LBB50_10
@@ -5421,42 +5399,44 @@ Temperature_Water_Controller.select.case.1:
 	out res[r0], r7
 	outct res[r0], 1
 	mkmsk r0, 1
-.Ltmp408:
+.Ltmp409:
 .LBB50_9:
 	stw r0, r4[0]
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
-	retsp 10
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
+	retsp 11
 	# RETURN_REG_HOLDER
 .LBB50_10:
 	setd res[r6], r6
 	out res[r6], r0
 	outct res[r6], 2
 	edu res[r6]
-	ldc r0, 40
+	ldc r0, 44
 	ldaw r1, sp[0]
 	add r2, r1, r0
 	ldap r11, __wait_nonlocal
 	mov r3, r11
-	ldw r8, sp[5]
-	ldw r7, sp[6]
-	ldw r6, sp[7]
-	ldw r5, sp[8]
-	ldw r4, sp[9]
+	ldw r9, sp[5]
+	ldw r8, sp[6]
+	ldw r7, sp[7]
+	ldw r6, sp[8]
+	ldw r5, sp[9]
+	ldw r4, sp[10]
 	ldw r1, sp[1]
 	ldw r0, sp[2]
 	set sp, r2
 	bau r3
 	.cc_bottom Temperature_Water_Controller.select.case.1.function
-	.set	Temperature_Water_Controller.select.case.1.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 10)
+	.set	Temperature_Water_Controller.select.case.1.nstackwords,(Temp_OnetenthDegC_To_Str.nstackwords + 11)
 	.set	Temperature_Water_Controller.select.case.1.maxcores,Temp_OnetenthDegC_To_Str.maxcores $M 1
 	.set	Temperature_Water_Controller.select.case.1.maxtimers,Temp_OnetenthDegC_To_Str.maxtimers $M 0
 	.set	Temperature_Water_Controller.select.case.1.maxchanends,Temp_OnetenthDegC_To_Str.maxchanends $M 0
-.Ltmp409:
-	.size	Temperature_Water_Controller.select.case.1, .Ltmp409-Temperature_Water_Controller.select.case.1
+.Ltmp410:
+	.size	Temperature_Water_Controller.select.case.1, .Ltmp410-Temperature_Water_Controller.select.case.1
 .Lfunc_end50:
 	.cfi_endproc
 
@@ -6479,7 +6459,7 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string80:
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string81:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.get_mean_i2c_temps"
 .Linfo_string82:
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string83:
@@ -6489,7 +6469,7 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string85:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string86:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
 .Linfo_string87:
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string88:
@@ -6587,11 +6567,11 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string134:
 .asciiz"time"
 .Linfo_string135:
-.asciiz"temp_onetenthDegC_water_delta"
-.Linfo_string136:
-.asciiz"temp_onetenthDegC_water_wanted_diff"
-.Linfo_string137:
 .asciiz"return_now_regulating_at"
+.Linfo_string136:
+.asciiz"temp_onetenthDegC_water_delta"
+.Linfo_string137:
+.asciiz"temp_onetenthDegC_water_wanted_diff"
 .Linfo_string138:
 .asciiz"return_debug_log"
 .Linfo_string139:
@@ -6636,7 +6616,7 @@ Temperature_Water_Controller.select.case.1:
 .asciiz"Temperature_Water_Controller.fini.state_ptr"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3788
+	.long	3789
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -6920,7 +6900,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	6
 	.long	.Ldebug_loc0
 	.long	.Linfo_string113
-	.long	3430
+	.long	3431
 	.byte	0
 	.byte	7
 	.long	.Ldebug_ranges1
@@ -6935,7 +6915,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	6
 	.long	.Ldebug_loc1
 	.long	.Linfo_string113
-	.long	3430
+	.long	3431
 	.byte	0
 	.byte	7
 	.long	.Ldebug_ranges2
@@ -6950,19 +6930,19 @@ Temperature_Water_Controller.select.case.1:
 	.byte	6
 	.long	.Ldebug_loc2
 	.long	.Linfo_string113
-	.long	3430
+	.long	3431
 	.byte	8
 	.long	.Ldebug_loc3
 	.long	.Linfo_string116
 	.byte	1
 	.byte	229
-	.long	3468
+	.long	3469
 	.byte	8
 	.long	.Ldebug_loc4
 	.long	.Linfo_string117
 	.byte	1
 	.byte	229
-	.long	3473
+	.long	3474
 	.byte	9
 	.long	.Ldebug_ranges6
 	.byte	10
@@ -6972,14 +6952,14 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string114
 	.byte	1
 	.byte	234
-	.long	3448
+	.long	3449
 	.byte	9
 	.long	.Ldebug_ranges5
 	.byte	11
 	.long	.Linfo_string120
 	.byte	1
 	.byte	235
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges4
 	.byte	11
@@ -6994,7 +6974,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string118
 	.byte	1
 	.byte	240
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7015,20 +6995,20 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string124
 	.byte	1
 	.byte	51
-	.long	3498
+	.long	3499
 	.byte	8
 	.long	.Ldebug_loc7
 	.long	.Linfo_string126
 	.byte	1
 	.byte	52
-	.long	3498
+	.long	3499
 	.byte	9
 	.long	.Ldebug_ranges26
 	.byte	11
 	.long	.Linfo_string140
 	.byte	1
 	.byte	56
-	.long	3505
+	.long	3506
 	.byte	9
 	.long	.Ldebug_ranges25
 	.byte	12
@@ -7036,7 +7016,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string134
 	.byte	1
 	.byte	57
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges24
 	.byte	12
@@ -7044,7 +7024,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string132
 	.byte	1
 	.byte	58
-	.long	2268
+	.long	2269
 	.byte	9
 	.long	.Ldebug_ranges23
 	.byte	12
@@ -7052,7 +7032,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string131
 	.byte	1
 	.byte	59
-	.long	2268
+	.long	2269
 	.byte	9
 	.long	.Ldebug_ranges22
 	.byte	12
@@ -7078,41 +7058,41 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string122
 	.byte	1
 	.byte	64
-	.long	3485
+	.long	3486
 	.byte	9
 	.long	.Ldebug_ranges19
 	.byte	10
 	.byte	3
 	.byte	145
-.asciiz"\304"
+.asciiz"\310"
 	.long	.Linfo_string123
 	.byte	1
 	.byte	65
-	.long	3485
+	.long	3486
 	.byte	9
 	.long	.Ldebug_ranges18
 	.byte	12
-	.long	.Ldebug_loc17
-	.long	.Linfo_string135
+	.long	.Ldebug_loc19
+	.long	.Linfo_string136
 	.byte	1
 	.byte	66
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges17
 	.byte	12
-	.long	.Ldebug_loc21
+	.long	.Ldebug_loc22
 	.long	.Linfo_string139
 	.byte	1
 	.byte	67
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges16
 	.byte	12
-	.long	.Ldebug_loc18
-	.long	.Linfo_string136
+	.long	.Ldebug_loc20
+	.long	.Linfo_string137
 	.byte	1
 	.byte	68
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges15
 	.byte	13
@@ -7120,7 +7100,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string128
 	.byte	1
 	.byte	69
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges14
 	.byte	12
@@ -7128,30 +7108,30 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string127
 	.byte	1
 	.byte	70
-	.long	3478
+	.long	3479
 	.byte	12
-	.long	.Ldebug_loc15
+	.long	.Ldebug_loc16
 	.long	.Linfo_string116
 	.byte	1
 	.byte	229
-	.long	3468
+	.long	3469
 	.byte	12
-	.long	.Ldebug_loc19
-	.long	.Linfo_string137
+	.long	.Ldebug_loc18
+	.long	.Linfo_string135
 	.byte	1
 	.byte	247
 	.long	362
 	.byte	12
-	.long	.Ldebug_loc20
+	.long	.Ldebug_loc21
 	.long	.Linfo_string138
 	.byte	1
 	.byte	247
-	.long	2268
+	.long	2269
 	.byte	11
 	.long	.Linfo_string117
 	.byte	1
 	.byte	229
-	.long	3473
+	.long	3474
 	.byte	9
 	.long	.Ldebug_ranges8
 	.byte	12
@@ -7159,52 +7139,52 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string133
 	.byte	1
 	.byte	78
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	9
-	.long	.Ldebug_ranges12
+	.long	.Ldebug_ranges9
+	.byte	12
+	.long	.Ldebug_loc15
+	.long	.Linfo_string133
+	.byte	1
+	.byte	221
+	.long	3479
+	.byte	0
+	.byte	9
+	.long	.Ldebug_ranges13
 	.byte	10
-	.byte	2
+	.byte	3
 	.byte	145
-	.byte	60
+.asciiz"\300"
 	.long	.Linfo_string114
 	.byte	1
 	.byte	234
-	.long	3448
+	.long	3449
 	.byte	9
-	.long	.Ldebug_ranges11
+	.long	.Ldebug_ranges12
 	.byte	11
 	.long	.Linfo_string120
 	.byte	1
 	.byte	235
-	.long	3478
+	.long	3479
 	.byte	9
-	.long	.Ldebug_ranges10
+	.long	.Ldebug_ranges11
 	.byte	11
 	.long	.Linfo_string121
 	.byte	1
 	.byte	236
 	.long	452
 	.byte	9
-	.long	.Ldebug_ranges9
+	.long	.Ldebug_ranges10
 	.byte	12
-	.long	.Ldebug_loc16
+	.long	.Ldebug_loc17
 	.long	.Linfo_string118
 	.byte	1
 	.byte	240
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0
-	.byte	9
-	.long	.Ldebug_ranges13
-	.byte	12
-	.long	.Ldebug_loc22
-	.long	.Linfo_string133
-	.byte	1
-	.byte	221
-	.long	3478
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7231,35 +7211,35 @@ Temperature_Water_Controller.select.case.1:
 	.byte	6
 	.long	.Ldebug_loc23
 	.long	.Linfo_string142
-	.long	3512
+	.long	3513
 	.byte	9
 	.long	.Ldebug_ranges41
 	.byte	11
 	.long	.Linfo_string140
 	.byte	1
 	.byte	56
-	.long	3505
+	.long	3506
 	.byte	9
 	.long	.Ldebug_ranges40
 	.byte	11
 	.long	.Linfo_string134
 	.byte	1
 	.byte	57
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges39
 	.byte	11
 	.long	.Linfo_string132
 	.byte	1
 	.byte	58
-	.long	2268
+	.long	2269
 	.byte	9
 	.long	.Ldebug_ranges38
 	.byte	11
 	.long	.Linfo_string131
 	.byte	1
 	.byte	59
-	.long	2268
+	.long	2269
 	.byte	9
 	.long	.Ldebug_ranges37
 	.byte	11
@@ -7280,49 +7260,49 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string122
 	.byte	1
 	.byte	64
-	.long	3485
+	.long	3486
 	.byte	9
 	.long	.Ldebug_ranges34
 	.byte	11
 	.long	.Linfo_string123
 	.byte	1
 	.byte	65
-	.long	3485
+	.long	3486
 	.byte	9
 	.long	.Ldebug_ranges33
 	.byte	11
-	.long	.Linfo_string135
+	.long	.Linfo_string136
 	.byte	1
 	.byte	66
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges32
 	.byte	11
 	.long	.Linfo_string139
 	.byte	1
 	.byte	67
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges31
 	.byte	11
-	.long	.Linfo_string136
+	.long	.Linfo_string137
 	.byte	1
 	.byte	68
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges30
 	.byte	11
 	.long	.Linfo_string128
 	.byte	1
 	.byte	69
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges29
 	.byte	11
 	.long	.Linfo_string127
 	.byte	1
 	.byte	70
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges28
 	.byte	12
@@ -7330,7 +7310,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string133
 	.byte	1
 	.byte	78
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7362,10 +7342,10 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string116
 	.byte	1
 	.byte	229
-	.long	3468
+	.long	3469
 	.byte	12
 	.long	.Ldebug_loc27
-	.long	.Linfo_string137
+	.long	.Linfo_string135
 	.byte	1
 	.byte	247
 	.long	362
@@ -7374,12 +7354,12 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string138
 	.byte	1
 	.byte	247
-	.long	2268
+	.long	2269
 	.byte	11
 	.long	.Linfo_string117
 	.byte	1
 	.byte	229
-	.long	3473
+	.long	3474
 	.byte	9
 	.long	.Ldebug_ranges46
 	.byte	10
@@ -7389,14 +7369,14 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string114
 	.byte	1
 	.byte	234
-	.long	3448
+	.long	3449
 	.byte	9
 	.long	.Ldebug_ranges45
 	.byte	11
 	.long	.Linfo_string120
 	.byte	1
 	.byte	235
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges44
 	.byte	11
@@ -7411,7 +7391,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string118
 	.byte	1
 	.byte	240
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7434,7 +7414,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string133
 	.byte	1
 	.byte	221
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	15
@@ -7453,10 +7433,10 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string116
 	.byte	1
 	.byte	229
-	.long	3468
+	.long	3469
 	.byte	12
 	.long	.Ldebug_loc32
-	.long	.Linfo_string137
+	.long	.Linfo_string135
 	.byte	1
 	.byte	247
 	.long	362
@@ -7465,12 +7445,12 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string138
 	.byte	1
 	.byte	247
-	.long	2268
+	.long	2269
 	.byte	11
 	.long	.Linfo_string117
 	.byte	1
 	.byte	229
-	.long	3473
+	.long	3474
 	.byte	9
 	.long	.Ldebug_ranges54
 	.byte	10
@@ -7480,14 +7460,14 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string114
 	.byte	1
 	.byte	234
-	.long	3448
+	.long	3449
 	.byte	9
 	.long	.Ldebug_ranges53
 	.byte	11
 	.long	.Linfo_string120
 	.byte	1
 	.byte	235
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges52
 	.byte	11
@@ -7502,7 +7482,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string118
 	.byte	1
 	.byte	240
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7525,7 +7505,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string133
 	.byte	1
 	.byte	221
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	15
@@ -7544,10 +7524,10 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string116
 	.byte	1
 	.byte	229
-	.long	3468
+	.long	3469
 	.byte	12
 	.long	.Ldebug_loc37
-	.long	.Linfo_string137
+	.long	.Linfo_string135
 	.byte	1
 	.byte	247
 	.long	362
@@ -7556,12 +7536,12 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string138
 	.byte	1
 	.byte	247
-	.long	2268
+	.long	2269
 	.byte	11
 	.long	.Linfo_string117
 	.byte	1
 	.byte	229
-	.long	3473
+	.long	3474
 	.byte	9
 	.long	.Ldebug_ranges62
 	.byte	10
@@ -7571,14 +7551,14 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string114
 	.byte	1
 	.byte	234
-	.long	3448
+	.long	3449
 	.byte	9
 	.long	.Ldebug_ranges61
 	.byte	11
 	.long	.Linfo_string120
 	.byte	1
 	.byte	235
-	.long	3478
+	.long	3479
 	.byte	9
 	.long	.Ldebug_ranges60
 	.byte	11
@@ -7593,7 +7573,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string118
 	.byte	1
 	.byte	240
-	.long	3478
+	.long	3479
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7606,39 +7586,39 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3691
+	.long	3692
 	.byte	0
 	.byte	18
 	.long	.Linfo_string54
 	.long	.Linfo_string54
-	.long	2106
+	.long	2107
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string149
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	19
 	.long	.Linfo_string59
 	.byte	20
 	.byte	20
 	.long	.Linfo_string55
-	.long	2133
+	.long	2134
 	.byte	0
 	.byte	20
 	.long	.Linfo_string57
-	.long	2153
+	.long	2154
 	.byte	12
 	.byte	0
 	.byte	21
 	.long	50
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
 	.byte	2
 	.byte	0
@@ -7647,9 +7627,9 @@ Temperature_Water_Controller.select.case.1:
 	.byte	8
 	.byte	7
 	.byte	21
-	.long	2166
+	.long	2167
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
 	.byte	2
 	.byte	0
@@ -7663,34 +7643,34 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3691
+	.long	3692
 	.byte	0
 	.byte	18
 	.long	.Linfo_string61
 	.long	.Linfo_string61
-	.long	2106
+	.long	2107
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string149
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	18
 	.long	.Linfo_string62
 	.long	.Linfo_string62
-	.long	2268
+	.long	2269
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	24
 	.long	.Linfo_string63
@@ -7703,7 +7683,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	0
 	.byte	16
 	.long	.Linfo_string65
@@ -7711,10 +7691,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3733
+	.long	3734
 	.byte	0
 	.byte	16
 	.long	.Linfo_string66
@@ -7722,10 +7702,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	16
 	.long	.Linfo_string67
@@ -7733,10 +7713,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3738
+	.long	3739
 	.byte	0
 	.byte	16
 	.long	.Linfo_string68
@@ -7744,16 +7724,16 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3743
+	.long	3744
 	.byte	17
 	.long	.Linfo_string153
-	.long	3748
+	.long	3749
 	.byte	17
 	.long	.Linfo_string154
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	16
 	.long	.Linfo_string69
@@ -7761,10 +7741,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3753
+	.long	3754
 	.byte	0
 	.byte	16
 	.long	.Linfo_string70
@@ -7772,19 +7752,19 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	0
 	.byte	18
 	.long	.Linfo_string71
 	.long	.Linfo_string71
-	.long	2268
+	.long	2269
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	18
 	.long	.Linfo_string72
@@ -7793,7 +7773,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	0
 	.byte	16
 	.long	.Linfo_string73
@@ -7801,10 +7781,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3733
+	.long	3734
 	.byte	0
 	.byte	16
 	.long	.Linfo_string74
@@ -7812,10 +7792,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	16
 	.long	.Linfo_string75
@@ -7823,10 +7803,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3738
+	.long	3739
 	.byte	0
 	.byte	16
 	.long	.Linfo_string76
@@ -7834,16 +7814,16 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3743
+	.long	3744
 	.byte	17
 	.long	.Linfo_string153
-	.long	3748
+	.long	3749
 	.byte	17
 	.long	.Linfo_string154
-	.long	3728
+	.long	3729
 	.byte	0
 	.byte	16
 	.long	.Linfo_string77
@@ -7851,10 +7831,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3753
+	.long	3754
 	.byte	0
 	.byte	16
 	.long	.Linfo_string78
@@ -7862,7 +7842,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	0
 	.byte	16
 	.long	.Linfo_string79
@@ -7870,10 +7850,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string80
@@ -7881,13 +7861,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3776
+	.long	3777
 	.byte	17
 	.long	.Linfo_string153
-	.long	3473
+	.long	3474
 	.byte	0
 	.byte	16
 	.long	.Linfo_string81
@@ -7895,10 +7875,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3781
+	.long	3782
 	.byte	0
 	.byte	16
 	.long	.Linfo_string82
@@ -7906,13 +7886,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3786
+	.long	3787
 	.byte	17
 	.long	.Linfo_string153
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string83
@@ -7920,13 +7900,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3786
+	.long	3787
 	.byte	17
 	.long	.Linfo_string153
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string84
@@ -7934,10 +7914,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string85
@@ -7945,13 +7925,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3776
+	.long	3777
 	.byte	17
 	.long	.Linfo_string153
-	.long	3473
+	.long	3474
 	.byte	0
 	.byte	16
 	.long	.Linfo_string86
@@ -7959,10 +7939,10 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3781
+	.long	3782
 	.byte	0
 	.byte	16
 	.long	.Linfo_string87
@@ -7970,13 +7950,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3786
+	.long	3787
 	.byte	17
 	.long	.Linfo_string153
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string88
@@ -7984,13 +7964,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3786
+	.long	3787
 	.byte	17
 	.long	.Linfo_string153
-	.long	3771
+	.long	3772
 	.byte	0
 	.byte	16
 	.long	.Linfo_string89
@@ -7998,7 +7978,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	0
 	.byte	16
 	.long	.Linfo_string90
@@ -8006,7 +7986,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	0
 	.byte	16
 	.long	.Linfo_string91
@@ -8014,13 +7994,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	17
 	.long	.Linfo_string148
-	.long	3776
+	.long	3777
 	.byte	17
 	.long	.Linfo_string153
-	.long	3473
+	.long	3474
 	.byte	0
 	.byte	16
 	.long	.Linfo_string92
@@ -8028,7 +8008,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	0
 	.byte	16
 	.long	.Linfo_string93
@@ -8036,7 +8016,7 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	0
 	.byte	16
 	.long	.Linfo_string94
@@ -8044,13 +8024,13 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string150
-	.long	3696
+	.long	3697
 	.byte	17
 	.long	.Linfo_string148
-	.long	3776
+	.long	3777
 	.byte	17
 	.long	.Linfo_string153
-	.long	3473
+	.long	3474
 	.byte	0
 	.byte	25
 	.long	.Linfo_string95
@@ -8062,7 +8042,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string155
 	.byte	3
 	.byte	46
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	25
 	.long	.Linfo_string96
@@ -8074,7 +8054,7 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string155
 	.byte	3
 	.byte	54
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	25
 	.long	.Linfo_string97
@@ -8086,16 +8066,16 @@ Temperature_Water_Controller.select.case.1:
 	.long	.Linfo_string155
 	.byte	3
 	.byte	62
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	18
 	.long	.Linfo_string100
 	.long	.Linfo_string100
-	.long	2268
+	.long	2269
 	.byte	1
 	.byte	17
 	.long	.Linfo_string156
-	.long	3512
+	.long	3513
 	.byte	0
 	.byte	25
 	.long	.Linfo_string102
@@ -8105,35 +8085,35 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string157
-	.long	3512
+	.long	3513
 	.byte	26
 	.long	.Linfo_string124
 	.byte	1
 	.byte	51
-	.long	3498
+	.long	3499
 	.byte	26
 	.long	.Linfo_string126
 	.byte	1
 	.byte	52
-	.long	3498
+	.long	3499
 	.byte	0
 	.byte	18
 	.long	.Linfo_string105
 	.long	.Linfo_string105
-	.long	2268
+	.long	2269
 	.byte	1
 	.byte	17
 	.long	.Linfo_string156
-	.long	3512
+	.long	3513
 	.byte	0
 	.byte	18
 	.long	.Linfo_string108
 	.long	.Linfo_string108
-	.long	2268
+	.long	2269
 	.byte	1
 	.byte	17
 	.long	.Linfo_string156
-	.long	3512
+	.long	3513
 	.byte	0
 	.byte	16
 	.long	.Linfo_string109
@@ -8141,21 +8121,21 @@ Temperature_Water_Controller.select.case.1:
 	.byte	1
 	.byte	17
 	.long	.Linfo_string158
-	.long	3512
+	.long	3513
 	.byte	0
 	.byte	27
-	.long	3435
+	.long	3436
 	.byte	21
-	.long	2268
+	.long	2269
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	21
-	.long	3461
+	.long	3462
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
 	.byte	4
 	.byte	0
@@ -8166,17 +8146,17 @@ Temperature_Water_Controller.select.case.1:
 	.byte	28
 	.long	419
 	.byte	27
-	.long	3448
+	.long	3449
 	.byte	24
 	.long	.Linfo_string119
 	.byte	5
 	.byte	4
 	.byte	21
-	.long	3478
+	.long	3479
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
-	.byte	3
+	.byte	2
 	.byte	0
 	.byte	24
 	.long	.Linfo_string125
@@ -8187,37 +8167,37 @@ Temperature_Water_Controller.select.case.1:
 	.byte	7
 	.byte	4
 	.byte	29
-	.long	3517
+	.long	3518
 	.byte	19
 	.long	.Linfo_string145
-	.byte	88
+	.byte	80
 	.byte	20
 	.long	.Linfo_string143
-	.long	2268
+	.long	2269
 	.byte	0
 	.byte	20
 	.long	.Linfo_string144
-	.long	2268
+	.long	2269
 	.byte	4
 	.byte	20
 	.long	.Linfo_string124
-	.long	3498
+	.long	3499
 	.byte	8
 	.byte	20
 	.long	.Linfo_string126
-	.long	3498
+	.long	3499
 	.byte	12
 	.byte	20
 	.long	.Linfo_string134
-	.long	3478
+	.long	3479
 	.byte	16
 	.byte	20
 	.long	.Linfo_string132
-	.long	2268
+	.long	2269
 	.byte	20
 	.byte	20
 	.long	.Linfo_string131
-	.long	2268
+	.long	2269
 	.byte	24
 	.byte	20
 	.long	.Linfo_string130
@@ -8229,32 +8209,32 @@ Temperature_Water_Controller.select.case.1:
 	.byte	32
 	.byte	20
 	.long	.Linfo_string122
-	.long	3485
+	.long	3486
 	.byte	36
 	.byte	20
 	.long	.Linfo_string123
-	.long	3485
-	.byte	52
-	.byte	20
-	.long	.Linfo_string135
-	.long	3478
-	.byte	68
-	.byte	20
-	.long	.Linfo_string139
-	.long	3478
-	.byte	72
+	.long	3486
+	.byte	48
 	.byte	20
 	.long	.Linfo_string136
-	.long	3478
-	.byte	76
+	.long	3479
+	.byte	60
+	.byte	20
+	.long	.Linfo_string139
+	.long	3479
+	.byte	64
+	.byte	20
+	.long	.Linfo_string137
+	.long	3479
+	.byte	68
 	.byte	20
 	.long	.Linfo_string128
-	.long	3478
-	.byte	80
+	.long	3479
+	.byte	72
 	.byte	20
 	.long	.Linfo_string127
-	.long	3478
-	.byte	84
+	.long	3479
+	.byte	76
 	.byte	0
 	.byte	24
 	.long	.Linfo_string147
@@ -8263,21 +8243,21 @@ Temperature_Water_Controller.select.case.1:
 	.byte	28
 	.long	31
 	.byte	27
-	.long	3701
+	.long	3702
 	.byte	19
 	.long	.Linfo_string152
 	.byte	8
 	.byte	20
 	.long	.Linfo_string146
-	.long	3684
+	.long	3685
 	.byte	0
 	.byte	20
 	.long	.Linfo_string151
-	.long	2268
+	.long	2269
 	.byte	4
 	.byte	0
 	.byte	28
-	.long	2268
+	.long	2269
 	.byte	28
 	.long	69
 	.byte	28
@@ -8287,20 +8267,20 @@ Temperature_Water_Controller.select.case.1:
 	.byte	28
 	.long	185
 	.byte	27
-	.long	3758
+	.long	3759
 	.byte	21
-	.long	2268
+	.long	2269
 	.byte	22
-	.long	2146
+	.long	2147
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	28
-	.long	3478
+	.long	3479
 	.byte	28
 	.long	234
 	.byte	27
-	.long	3485
+	.long	3486
 	.byte	28
 	.long	265
 	.byte	0
@@ -8683,23 +8663,23 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges3:
-	.long	.Ltmp32
-	.long	.Ltmp37
+	.long	.Ltmp33
+	.long	.Ltmp38
 	.long	0
 	.long	0
 .Ldebug_ranges4:
-	.long	.Ltmp31
-	.long	.Ltmp37
+	.long	.Ltmp32
+	.long	.Ltmp38
 	.long	0
 	.long	0
 .Ldebug_ranges5:
-	.long	.Ltmp31
-	.long	.Ltmp37
+	.long	.Ltmp32
+	.long	.Ltmp38
 	.long	0
 	.long	0
 .Ldebug_ranges6:
-	.long	.Ltmp29
-	.long	.Ltmp37
+	.long	.Ltmp30
+	.long	.Ltmp38
 	.long	0
 	.long	0
 .Ldebug_ranges7:
@@ -8708,98 +8688,98 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges8:
-	.long	.Ltmp200
-	.long	.Ltmp202
+	.long	.Ltmp201
+	.long	.Ltmp203
 	.long	0
 	.long	0
 .Ldebug_ranges9:
-	.long	.Ltmp212
-	.long	.Ltmp215
+	.long	.Ltmp208
+	.long	.Ltmp210
 	.long	0
 	.long	0
 .Ldebug_ranges10:
-	.long	.Ltmp209
-	.long	.Ltmp215
+	.long	.Ltmp217
+	.long	.Ltmp219
 	.long	0
 	.long	0
 .Ldebug_ranges11:
-	.long	.Ltmp209
 	.long	.Ltmp215
+	.long	.Ltmp219
 	.long	0
 	.long	0
 .Ldebug_ranges12:
-	.long	.Ltmp206
 	.long	.Ltmp215
+	.long	.Ltmp219
 	.long	0
 	.long	0
 .Ldebug_ranges13:
-	.long	.Ltmp269
-	.long	.Ltmp271
+	.long	.Ltmp213
+	.long	.Ltmp219
 	.long	0
 	.long	0
 .Ldebug_ranges14:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges15:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges16:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges17:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges18:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges19:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges20:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges21:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges22:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges23:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges24:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges25:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges26:
-	.long	.Ltmp198
-	.long	.Ltmp278
+	.long	.Ltmp199
+	.long	.Ltmp276
 	.long	0
 	.long	0
 .Ldebug_ranges27:
@@ -8808,73 +8788,73 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges28:
+	.long	.Ltmp296
 	.long	.Ltmp298
-	.long	.Ltmp300
 	.long	0
 	.long	0
 .Ldebug_ranges29:
-	.long	.Ltmp297
-	.long	.Ltmp301
+	.long	.Ltmp295
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges30:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges31:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges32:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges33:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges34:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges35:
-	.long	.Ltmp296
-	.long	.Ltmp301
+	.long	.Ltmp294
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges36:
-	.long	.Ltmp295
-	.long	.Ltmp301
+	.long	.Ltmp293
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges37:
-	.long	.Ltmp294
-	.long	.Ltmp301
+	.long	.Ltmp292
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges38:
-	.long	.Ltmp293
-	.long	.Ltmp301
+	.long	.Ltmp291
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges39:
-	.long	.Ltmp292
-	.long	.Ltmp301
+	.long	.Ltmp290
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges40:
-	.long	.Ltmp292
-	.long	.Ltmp301
+	.long	.Ltmp290
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges41:
-	.long	.Ltmp292
-	.long	.Ltmp301
+	.long	.Ltmp290
+	.long	.Ltmp299
 	.long	0
 	.long	0
 .Ldebug_ranges42:
@@ -8883,28 +8863,28 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges43:
-	.long	.Ltmp325
-	.long	.Ltmp327
+	.long	.Ltmp324
+	.long	.Ltmp326
 	.long	0
 	.long	0
 .Ldebug_ranges44:
-	.long	.Ltmp323
-	.long	.Ltmp327
+	.long	.Ltmp322
+	.long	.Ltmp326
 	.long	0
 	.long	0
 .Ldebug_ranges45:
-	.long	.Ltmp323
-	.long	.Ltmp327
+	.long	.Ltmp322
+	.long	.Ltmp326
 	.long	0
 	.long	0
 .Ldebug_ranges46:
-	.long	.Ltmp322
-	.long	.Ltmp327
+	.long	.Ltmp321
+	.long	.Ltmp326
 	.long	0
 	.long	0
 .Ldebug_ranges47:
-	.long	.Ltmp322
-	.long	.Ltmp332
+	.long	.Ltmp321
+	.long	.Ltmp331
 	.long	0
 	.long	0
 .Ldebug_ranges48:
@@ -8913,8 +8893,8 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges49:
-	.long	.Ltmp346
-	.long	.Ltmp348
+	.long	.Ltmp345
+	.long	.Ltmp347
 	.long	0
 	.long	0
 .Ldebug_ranges50:
@@ -8963,1013 +8943,1022 @@ Temperature_Water_Controller.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges59:
-	.long	.Ltmp401
-	.long	.Ltmp403
+	.long	.Ltmp402
+	.long	.Ltmp404
 	.long	0
 	.long	0
 .Ldebug_ranges60:
-	.long	.Ltmp399
-	.long	.Ltmp403
+	.long	.Ltmp400
+	.long	.Ltmp404
 	.long	0
 	.long	0
 .Ldebug_ranges61:
-	.long	.Ltmp399
-	.long	.Ltmp403
+	.long	.Ltmp400
+	.long	.Ltmp404
 	.long	0
 	.long	0
 .Ldebug_ranges62:
-	.long	.Ltmp398
-	.long	.Ltmp403
+	.long	.Ltmp399
+	.long	.Ltmp404
 	.long	0
 	.long	0
 .Ldebug_ranges63:
-	.long	.Ltmp398
-	.long	.Ltmp408
+	.long	.Ltmp399
+	.long	.Ltmp409
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin0
 	.long	.Ltmp4
-.Lset0 = .Ltmp411-.Ltmp410
+.Lset0 = .Ltmp412-.Ltmp411
 	.short	.Lset0
-.Ltmp410:
-	.byte	80
 .Ltmp411:
+	.byte	80
+.Ltmp412:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin1
 	.long	.Ltmp12
-.Lset1 = .Ltmp413-.Ltmp412
+.Lset1 = .Ltmp414-.Ltmp413
 	.short	.Lset1
-.Ltmp412:
-	.byte	80
 .Ltmp413:
+	.byte	80
+.Ltmp414:
 	.long	0
 	.long	0
 .Ldebug_loc2:
 	.long	.Lfunc_begin2
-	.long	.Ltmp26
-.Lset2 = .Ltmp415-.Ltmp414
+	.long	.Ltmp27
+.Lset2 = .Ltmp416-.Ltmp415
 	.short	.Lset2
-.Ltmp414:
-	.byte	80
 .Ltmp415:
+	.byte	80
+.Ltmp416:
 	.long	0
 	.long	0
 .Ldebug_loc3:
 	.long	.Lfunc_begin2
-	.long	.Ltmp25
-.Lset3 = .Ltmp417-.Ltmp416
-	.short	.Lset3
-.Ltmp416:
-	.byte	81
-.Ltmp417:
-	.long	.Ltmp25
 	.long	.Ltmp26
-.Lset4 = .Ltmp419-.Ltmp418
-	.short	.Lset4
+.Lset3 = .Ltmp418-.Ltmp417
+	.short	.Lset3
+.Ltmp417:
+	.byte	81
 .Ltmp418:
-	.byte	85
-.Ltmp419:
+	.long	.Ltmp26
 	.long	.Ltmp27
-	.long	.Ltmp34
-.Lset5 = .Ltmp421-.Ltmp420
-	.short	.Lset5
-.Ltmp420:
+.Lset4 = .Ltmp420-.Ltmp419
+	.short	.Lset4
+.Ltmp419:
 	.byte	85
+.Ltmp420:
+	.long	.Ltmp28
+	.long	.Ltmp35
+.Lset5 = .Ltmp422-.Ltmp421
+	.short	.Lset5
 .Ltmp421:
+	.byte	85
+.Ltmp422:
 	.long	0
 	.long	0
 .Ldebug_loc4:
 	.long	.Lfunc_begin2
-	.long	.Ltmp24
-.Lset6 = .Ltmp423-.Ltmp422
+	.long	.Ltmp25
+.Lset6 = .Ltmp424-.Ltmp423
 	.short	.Lset6
-.Ltmp422:
-	.byte	82
 .Ltmp423:
-	.long	.Ltmp24
-	.long	.Ltmp26
-.Lset7 = .Ltmp425-.Ltmp424
-	.short	.Lset7
+	.byte	82
 .Ltmp424:
-	.byte	84
-.Ltmp425:
+	.long	.Ltmp25
 	.long	.Ltmp27
-	.long	.Ltmp35
-.Lset8 = .Ltmp427-.Ltmp426
-	.short	.Lset8
-.Ltmp426:
+.Lset7 = .Ltmp426-.Ltmp425
+	.short	.Lset7
+.Ltmp425:
 	.byte	84
+.Ltmp426:
+	.long	.Ltmp28
+	.long	.Ltmp36
+.Lset8 = .Ltmp428-.Ltmp427
+	.short	.Lset8
 .Ltmp427:
+	.byte	84
+.Ltmp428:
 	.long	0
 	.long	0
 .Ldebug_loc5:
-	.long	.Ltmp32
 	.long	.Ltmp33
-.Lset9 = .Ltmp429-.Ltmp428
+	.long	.Ltmp34
+.Lset9 = .Ltmp430-.Ltmp429
 	.short	.Lset9
-.Ltmp428:
+.Ltmp429:
 	.byte	17
 	.byte	0
-.Ltmp429:
-	.long	.Ltmp33
-	.long	.Lfunc_end2
-.Lset10 = .Ltmp431-.Ltmp430
-	.short	.Lset10
 .Ltmp430:
+	.long	.Ltmp34
+	.long	.Lfunc_end2
+.Lset10 = .Ltmp432-.Ltmp431
+	.short	.Lset10
+.Ltmp431:
 	.byte	17
 	.byte	1
-.Ltmp431:
+.Ltmp432:
 	.long	0
 	.long	0
 .Ldebug_loc6:
 	.long	.Lfunc_begin39
-	.long	.Ltmp198
-.Lset11 = .Ltmp433-.Ltmp432
+	.long	.Ltmp199
+.Lset11 = .Ltmp434-.Ltmp433
 	.short	.Lset11
-.Ltmp432:
-	.byte	80
 .Ltmp433:
-	.long	.Ltmp198
-	.long	.Ltmp244
-.Lset12 = .Ltmp435-.Ltmp434
-	.short	.Lset12
+	.byte	80
 .Ltmp434:
-	.byte	85
+	.long	.Ltmp199
+	.long	.Ltmp247
+.Lset12 = .Ltmp436-.Ltmp435
+	.short	.Lset12
 .Ltmp435:
-	.long	.Ltmp245
-	.long	.Ltmp257
-.Lset13 = .Ltmp437-.Ltmp436
-	.short	.Lset13
+	.byte	85
 .Ltmp436:
-	.byte	85
+	.long	.Ltmp248
+	.long	.Ltmp260
+.Lset13 = .Ltmp438-.Ltmp437
+	.short	.Lset13
 .Ltmp437:
-	.long	.Ltmp258
-	.long	.Ltmp265
-.Lset14 = .Ltmp439-.Ltmp438
-	.short	.Lset14
+	.byte	85
 .Ltmp438:
-	.byte	85
+	.long	.Ltmp261
+	.long	.Ltmp268
+.Lset14 = .Ltmp440-.Ltmp439
+	.short	.Lset14
 .Ltmp439:
-	.long	.Ltmp266
-	.long	.Lfunc_end39
-.Lset15 = .Ltmp441-.Ltmp440
-	.short	.Lset15
-.Ltmp440:
 	.byte	85
+.Ltmp440:
+	.long	.Ltmp269
+	.long	.Lfunc_end39
+.Lset15 = .Ltmp442-.Ltmp441
+	.short	.Lset15
 .Ltmp441:
+	.byte	85
+.Ltmp442:
 	.long	0
 	.long	0
 .Ldebug_loc7:
 	.long	.Lfunc_begin39
-	.long	.Ltmp197
-.Lset16 = .Ltmp443-.Ltmp442
+	.long	.Ltmp198
+.Lset16 = .Ltmp444-.Ltmp443
 	.short	.Lset16
-.Ltmp442:
-	.byte	81
 .Ltmp443:
-	.long	.Ltmp197
-	.long	.Ltmp199
-.Lset17 = .Ltmp445-.Ltmp444
-	.short	.Lset17
-.Ltmp444:
-	.byte	84
-.Ltmp445:
-	.long	.Ltmp199
-	.long	.Ltmp232
-.Lset18 = .Ltmp447-.Ltmp446
-	.short	.Lset18
-.Ltmp446:
-	.byte	126
-	.byte	36
-.Ltmp447:
-	.long	.Ltmp232
-	.long	.Ltmp233
-.Lset19 = .Ltmp449-.Ltmp448
-	.short	.Lset19
-.Ltmp448:
 	.byte	81
+.Ltmp444:
+	.long	.Ltmp198
+	.long	.Ltmp200
+.Lset17 = .Ltmp446-.Ltmp445
+	.short	.Lset17
+.Ltmp445:
+	.byte	84
+.Ltmp446:
+	.long	.Ltmp200
+	.long	.Ltmp206
+.Lset18 = .Ltmp448-.Ltmp447
+	.short	.Lset18
+.Ltmp447:
+	.byte	126
+	.byte	36
+.Ltmp448:
+	.long	.Ltmp206
+	.long	.Ltmp207
+.Lset19 = .Ltmp450-.Ltmp449
+	.short	.Lset19
 .Ltmp449:
-	.long	.Ltmp233
-	.long	.Ltmp244
-.Lset20 = .Ltmp451-.Ltmp450
-	.short	.Lset20
-.Ltmp450:
-	.byte	126
-	.byte	36
-.Ltmp451:
-	.long	.Ltmp245
-	.long	.Ltmp257
-.Lset21 = .Ltmp453-.Ltmp452
-	.short	.Lset21
-.Ltmp452:
-	.byte	126
-	.byte	36
-.Ltmp453:
-	.long	.Ltmp258
-	.long	.Ltmp265
-.Lset22 = .Ltmp455-.Ltmp454
-	.short	.Lset22
-.Ltmp454:
-	.byte	126
-	.byte	36
-.Ltmp455:
-	.long	.Ltmp266
-	.long	.Ltmp267
-.Lset23 = .Ltmp457-.Ltmp456
-	.short	.Lset23
-.Ltmp456:
-	.byte	126
-	.byte	36
-.Ltmp457:
-	.long	.Ltmp267
-	.long	.Ltmp268
-.Lset24 = .Ltmp459-.Ltmp458
-	.short	.Lset24
-.Ltmp458:
 	.byte	87
-.Ltmp459:
-	.long	.Ltmp268
-	.long	.Lfunc_end39
-.Lset25 = .Ltmp461-.Ltmp460
-	.short	.Lset25
-.Ltmp460:
+.Ltmp450:
+	.long	.Ltmp207
+	.long	.Ltmp238
+.Lset20 = .Ltmp452-.Ltmp451
+	.short	.Lset20
+.Ltmp451:
 	.byte	126
 	.byte	36
+.Ltmp452:
+	.long	.Ltmp238
+	.long	.Ltmp239
+.Lset21 = .Ltmp454-.Ltmp453
+	.short	.Lset21
+.Ltmp453:
+	.byte	81
+.Ltmp454:
+	.long	.Ltmp239
+	.long	.Ltmp247
+.Lset22 = .Ltmp456-.Ltmp455
+	.short	.Lset22
+.Ltmp455:
+	.byte	126
+	.byte	36
+.Ltmp456:
+	.long	.Ltmp248
+	.long	.Ltmp260
+.Lset23 = .Ltmp458-.Ltmp457
+	.short	.Lset23
+.Ltmp457:
+	.byte	126
+	.byte	36
+.Ltmp458:
+	.long	.Ltmp261
+	.long	.Ltmp268
+.Lset24 = .Ltmp460-.Ltmp459
+	.short	.Lset24
+.Ltmp459:
+	.byte	126
+	.byte	36
+.Ltmp460:
+	.long	.Ltmp269
+	.long	.Lfunc_end39
+.Lset25 = .Ltmp462-.Ltmp461
+	.short	.Lset25
 .Ltmp461:
+	.byte	126
+	.byte	36
+.Ltmp462:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Ltmp198
-	.long	.Ltmp249
-.Lset26 = .Ltmp463-.Ltmp462
+	.long	.Ltmp199
+	.long	.Ltmp252
+.Lset26 = .Ltmp464-.Ltmp463
 	.short	.Lset26
-.Ltmp462:
+.Ltmp463:
 	.byte	17
 	.ascii	"\226\001"
-.Ltmp463:
-	.long	.Ltmp249
-	.long	.Ltmp256
-.Lset27 = .Ltmp465-.Ltmp464
-	.short	.Lset27
 .Ltmp464:
+	.long	.Ltmp252
+	.long	.Ltmp259
+.Lset27 = .Ltmp466-.Ltmp465
+	.short	.Lset27
+.Ltmp465:
 	.byte	17
 	.ascii	"\365\001"
-.Ltmp465:
-	.long	.Ltmp256
-	.long	.Ltmp273
-.Lset28 = .Ltmp467-.Ltmp466
-	.short	.Lset28
 .Ltmp466:
+	.long	.Ltmp259
+	.long	.Ltmp271
+.Lset28 = .Ltmp468-.Ltmp467
+	.short	.Lset28
+.Ltmp467:
 	.byte	17
 	.ascii	"\226\001"
-.Ltmp467:
-	.long	.Ltmp273
-	.long	.Ltmp277
-.Lset29 = .Ltmp469-.Ltmp468
-	.short	.Lset29
 .Ltmp468:
+	.long	.Ltmp271
+	.long	.Ltmp275
+.Lset29 = .Ltmp470-.Ltmp469
+	.short	.Lset29
+.Ltmp469:
 	.byte	17
 	.ascii	"\220\003"
-.Ltmp469:
-	.long	.Ltmp277
-	.long	.Lfunc_end39
-.Lset30 = .Ltmp471-.Ltmp470
-	.short	.Lset30
 .Ltmp470:
+	.long	.Ltmp275
+	.long	.Lfunc_end39
+.Lset30 = .Ltmp472-.Ltmp471
+	.short	.Lset30
+.Ltmp471:
 	.byte	126
 	.byte	32
-.Ltmp471:
+.Ltmp472:
 	.long	0
 	.long	0
 .Ldebug_loc9:
-	.long	.Ltmp198
-	.long	.Ltmp243
-.Lset31 = .Ltmp473-.Ltmp472
+	.long	.Ltmp199
+	.long	.Ltmp246
+.Lset31 = .Ltmp474-.Ltmp473
 	.short	.Lset31
-.Ltmp472:
+.Ltmp473:
 	.byte	16
 	.byte	0
-.Ltmp473:
-	.long	.Ltmp243
-	.long	.Ltmp249
-.Lset32 = .Ltmp475-.Ltmp474
-	.short	.Lset32
 .Ltmp474:
+	.long	.Ltmp246
+	.long	.Ltmp252
+.Lset32 = .Ltmp476-.Ltmp475
+	.short	.Lset32
+.Ltmp475:
 	.byte	16
 	.byte	5
-.Ltmp475:
-	.long	.Ltmp249
-	.long	.Ltmp256
-.Lset33 = .Ltmp477-.Ltmp476
-	.short	.Lset33
 .Ltmp476:
+	.long	.Ltmp252
+	.long	.Ltmp259
+.Lset33 = .Ltmp478-.Ltmp477
+	.short	.Lset33
+.Ltmp477:
 	.byte	16
 	.byte	3
-.Ltmp477:
-	.long	.Ltmp256
-	.long	.Ltmp273
-.Lset34 = .Ltmp479-.Ltmp478
-	.short	.Lset34
 .Ltmp478:
+	.long	.Ltmp259
+	.long	.Ltmp271
+.Lset34 = .Ltmp480-.Ltmp479
+	.short	.Lset34
+.Ltmp479:
 	.byte	16
 	.byte	4
-.Ltmp479:
-	.long	.Ltmp273
-	.long	.Ltmp277
-.Lset35 = .Ltmp481-.Ltmp480
-	.short	.Lset35
 .Ltmp480:
+	.long	.Ltmp271
+	.long	.Ltmp275
+.Lset35 = .Ltmp482-.Ltmp481
+	.short	.Lset35
+.Ltmp481:
 	.byte	16
 	.byte	1
-.Ltmp481:
-	.long	.Ltmp277
-	.long	.Lfunc_end39
-.Lset36 = .Ltmp483-.Ltmp482
-	.short	.Lset36
 .Ltmp482:
+	.long	.Ltmp275
+	.long	.Lfunc_end39
+.Lset36 = .Ltmp484-.Ltmp483
+	.short	.Lset36
+.Ltmp483:
 	.byte	16
 	.byte	2
-.Ltmp483:
+.Ltmp484:
 	.long	0
 	.long	0
 .Ldebug_loc10:
-	.long	.Ltmp198
-	.long	.Ltmp234
-.Lset37 = .Ltmp485-.Ltmp484
+	.long	.Ltmp199
+	.long	.Ltmp205
+.Lset37 = .Ltmp486-.Ltmp485
 	.short	.Lset37
-.Ltmp484:
+.Ltmp485:
 	.byte	16
 	.byte	0
-.Ltmp485:
-	.long	.Ltmp234
-	.long	.Lfunc_end39
-.Lset38 = .Ltmp487-.Ltmp486
-	.short	.Lset38
 .Ltmp486:
+	.long	.Ltmp205
+	.long	.Lfunc_end39
+.Lset38 = .Ltmp488-.Ltmp487
+	.short	.Lset38
+.Ltmp487:
 	.byte	16
 	.byte	1
-.Ltmp487:
+.Ltmp488:
 	.long	0
 	.long	0
 .Ldebug_loc11:
-	.long	.Ltmp198
-	.long	.Ltmp243
-.Lset39 = .Ltmp489-.Ltmp488
+	.long	.Ltmp199
+	.long	.Ltmp246
+.Lset39 = .Ltmp490-.Ltmp489
 	.short	.Lset39
-.Ltmp488:
+.Ltmp489:
 	.byte	16
 	.byte	0
-.Ltmp489:
-	.long	.Ltmp243
-	.long	.Ltmp244
-.Lset40 = .Ltmp491-.Ltmp490
-	.short	.Lset40
 .Ltmp490:
-	.byte	126
-	.byte	48
+	.long	.Ltmp246
+	.long	.Ltmp247
+.Lset40 = .Ltmp492-.Ltmp491
+	.short	.Lset40
 .Ltmp491:
-	.long	.Ltmp249
-	.long	.Ltmp250
-.Lset41 = .Ltmp493-.Ltmp492
-	.short	.Lset41
-.Ltmp492:
 	.byte	126
 	.byte	48
-.Ltmp493:
+.Ltmp492:
+	.long	.Ltmp252
 	.long	.Ltmp253
-	.long	.Ltmp254
-.Lset42 = .Ltmp495-.Ltmp494
-	.short	.Lset42
+.Lset41 = .Ltmp494-.Ltmp493
+	.short	.Lset41
+.Ltmp493:
+	.byte	126
+	.byte	48
 .Ltmp494:
-	.byte	81
-.Ltmp495:
 	.long	.Ltmp256
 	.long	.Ltmp257
-.Lset43 = .Ltmp497-.Ltmp496
-	.short	.Lset43
+.Lset42 = .Ltmp496-.Ltmp495
+	.short	.Lset42
+.Ltmp495:
+	.byte	81
 .Ltmp496:
-	.byte	126
-	.byte	48
+	.long	.Ltmp259
+	.long	.Ltmp260
+.Lset43 = .Ltmp498-.Ltmp497
+	.short	.Lset43
 .Ltmp497:
-	.long	.Ltmp273
-	.long	.Ltmp274
-.Lset44 = .Ltmp499-.Ltmp498
-	.short	.Lset44
+	.byte	126
+	.byte	48
 .Ltmp498:
-	.byte	126
-	.byte	48
+	.long	.Ltmp271
+	.long	.Ltmp272
+.Lset44 = .Ltmp500-.Ltmp499
+	.short	.Lset44
 .Ltmp499:
-	.long	.Ltmp276
-	.long	.Lfunc_end39
-.Lset45 = .Ltmp501-.Ltmp500
-	.short	.Lset45
-.Ltmp500:
 	.byte	126
 	.byte	48
+.Ltmp500:
+	.long	.Ltmp274
+	.long	.Lfunc_end39
+.Lset45 = .Ltmp502-.Ltmp501
+	.short	.Lset45
 .Ltmp501:
+	.byte	126
+	.byte	48
+.Ltmp502:
 	.long	0
 	.long	0
 .Ldebug_loc12:
-	.long	.Ltmp198
-	.long	.Ltmp230
-.Lset46 = .Ltmp503-.Ltmp502
+	.long	.Ltmp199
+	.long	.Ltmp205
+.Lset46 = .Ltmp504-.Ltmp503
 	.short	.Lset46
-.Ltmp502:
-	.byte	16
-	.byte	2
 .Ltmp503:
-	.long	.Ltmp230
-	.long	.Ltmp231
-.Lset47 = .Ltmp505-.Ltmp504
-	.short	.Lset47
+	.byte	16
+	.byte	2
 .Ltmp504:
-	.byte	86
+	.long	.Ltmp205
+	.long	.Ltmp234
+.Lset47 = .Ltmp506-.Ltmp505
+	.short	.Lset47
 .Ltmp505:
-	.long	.Ltmp231
-	.long	.Ltmp238
-.Lset48 = .Ltmp507-.Ltmp506
-	.short	.Lset48
+	.byte	16
+	.byte	60
 .Ltmp506:
-	.byte	16
-	.byte	60
+	.long	.Ltmp234
+	.long	.Ltmp235
+.Lset48 = .Ltmp508-.Ltmp507
+	.short	.Lset48
 .Ltmp507:
-	.long	.Ltmp238
-	.long	.Ltmp252
-.Lset49 = .Ltmp509-.Ltmp508
-	.short	.Lset49
+	.byte	84
 .Ltmp508:
-	.byte	16
-	.byte	2
+	.long	.Ltmp237
+	.long	.Ltmp243
+.Lset49 = .Ltmp510-.Ltmp509
+	.short	.Lset49
 .Ltmp509:
-	.long	.Ltmp252
-	.long	.Ltmp274
-.Lset50 = .Ltmp511-.Ltmp510
-	.short	.Lset50
-.Ltmp510:
 	.byte	16
 	.byte	60
+.Ltmp510:
+	.long	.Ltmp243
+	.long	.Ltmp255
+.Lset50 = .Ltmp512-.Ltmp511
+	.short	.Lset50
 .Ltmp511:
-	.long	.Ltmp274
-	.long	.Lfunc_end39
-.Lset51 = .Ltmp513-.Ltmp512
-	.short	.Lset51
-.Ltmp512:
 	.byte	16
 	.byte	2
+.Ltmp512:
+	.long	.Ltmp255
+	.long	.Ltmp272
+.Lset51 = .Ltmp514-.Ltmp513
+	.short	.Lset51
 .Ltmp513:
+	.byte	16
+	.byte	60
+.Ltmp514:
+	.long	.Ltmp272
+	.long	.Lfunc_end39
+.Lset52 = .Ltmp516-.Ltmp515
+	.short	.Lset52
+.Ltmp515:
+	.byte	16
+	.byte	2
+.Ltmp516:
 	.long	0
 	.long	0
 .Ldebug_loc13:
-	.long	.Ltmp200
 	.long	.Ltmp201
-.Lset52 = .Ltmp515-.Ltmp514
-	.short	.Lset52
-.Ltmp514:
+	.long	.Ltmp202
+.Lset53 = .Ltmp518-.Ltmp517
+	.short	.Lset53
+.Ltmp517:
 	.byte	17
 	.byte	0
-.Ltmp515:
-	.long	.Ltmp201
+.Ltmp518:
+	.long	.Ltmp202
 	.long	.Lfunc_end39
-.Lset53 = .Ltmp517-.Ltmp516
-	.short	.Lset53
-.Ltmp516:
+.Lset54 = .Ltmp520-.Ltmp519
+	.short	.Lset54
+.Ltmp519:
 	.byte	17
 	.byte	1
-.Ltmp517:
+.Ltmp520:
 	.long	0
 	.long	0
 .Ldebug_loc14:
-	.long	.Ltmp203
 	.long	.Ltmp204
-.Lset54 = .Ltmp519-.Ltmp518
-	.short	.Lset54
-.Ltmp518:
-	.byte	89
-.Ltmp519:
+	.long	.Ltmp205
+.Lset55 = .Ltmp522-.Ltmp521
+	.short	.Lset55
+.Ltmp521:
+	.byte	126
+	.byte	60
+.Ltmp522:
 	.long	0
 	.long	0
 .Ldebug_loc15:
-	.long	.Ltmp205
-	.long	.Ltmp210
-.Lset55 = .Ltmp521-.Ltmp520
-	.short	.Lset55
-.Ltmp520:
-	.byte	80
-.Ltmp521:
+	.long	.Ltmp208
+	.long	.Ltmp209
+.Lset56 = .Ltmp524-.Ltmp523
+	.short	.Lset56
+.Ltmp523:
+	.byte	17
+	.byte	0
+.Ltmp524:
+	.long	.Ltmp209
+	.long	.Lfunc_end39
+.Lset57 = .Ltmp526-.Ltmp525
+	.short	.Lset57
+.Ltmp525:
+	.byte	17
+	.byte	1
+.Ltmp526:
 	.long	0
 	.long	0
 .Ldebug_loc16:
 	.long	.Ltmp212
-	.long	.Ltmp213
-.Lset56 = .Ltmp523-.Ltmp522
-	.short	.Lset56
-.Ltmp522:
-	.byte	17
-	.byte	0
-.Ltmp523:
-	.long	.Ltmp213
-	.long	.Lfunc_end39
-.Lset57 = .Ltmp525-.Ltmp524
-	.short	.Lset57
-.Ltmp524:
-	.byte	17
-	.byte	1
-.Ltmp525:
+	.long	.Ltmp216
+.Lset58 = .Ltmp528-.Ltmp527
+	.short	.Lset58
+.Ltmp527:
+	.byte	80
+.Ltmp528:
 	.long	0
 	.long	0
 .Ldebug_loc17:
-	.long	.Ltmp235
-	.long	.Ltmp239
-.Lset58 = .Ltmp527-.Ltmp526
-	.short	.Lset58
-.Ltmp526:
-	.byte	87
-.Ltmp527:
-	.long	.Ltmp258
-	.long	.Ltmp260
-.Lset59 = .Ltmp529-.Ltmp528
+	.long	.Ltmp217
+	.long	.Ltmp218
+.Lset59 = .Ltmp530-.Ltmp529
 	.short	.Lset59
-.Ltmp528:
-	.byte	87
 .Ltmp529:
-	.long	.Ltmp261
-	.long	.Ltmp262
-.Lset60 = .Ltmp531-.Ltmp530
-	.short	.Lset60
+	.byte	17
+	.byte	0
 .Ltmp530:
-	.byte	87
+	.long	.Ltmp218
+	.long	.Lfunc_end39
+.Lset60 = .Ltmp532-.Ltmp531
+	.short	.Lset60
 .Ltmp531:
-	.long	.Ltmp263
-	.long	.Ltmp264
-.Lset61 = .Ltmp533-.Ltmp532
-	.short	.Lset61
+	.byte	17
+	.byte	1
 .Ltmp532:
-	.byte	87
-.Ltmp533:
 	.long	0
 	.long	0
 .Ldebug_loc18:
+	.long	.Ltmp235
 	.long	.Ltmp236
-	.long	.Ltmp237
-.Lset62 = .Ltmp535-.Ltmp534
-	.short	.Lset62
+.Lset61 = .Ltmp534-.Ltmp533
+	.short	.Lset61
+.Ltmp533:
+	.byte	126
+	.byte	40
 .Ltmp534:
-	.byte	86
-.Ltmp535:
 	.long	0
 	.long	0
 .Ldebug_loc19:
-	.long	.Ltmp239
 	.long	.Ltmp240
-.Lset63 = .Ltmp537-.Ltmp536
-	.short	.Lset63
+	.long	.Ltmp244
+.Lset62 = .Ltmp536-.Ltmp535
+	.short	.Lset62
+.Ltmp535:
+	.byte	87
 .Ltmp536:
-	.byte	126
-	.byte	40
+	.long	.Ltmp261
+	.long	.Ltmp263
+.Lset63 = .Ltmp538-.Ltmp537
+	.short	.Lset63
 .Ltmp537:
+	.byte	87
+.Ltmp538:
+	.long	.Ltmp264
+	.long	.Ltmp265
+.Lset64 = .Ltmp540-.Ltmp539
+	.short	.Lset64
+.Ltmp539:
+	.byte	87
+.Ltmp540:
+	.long	.Ltmp266
+	.long	.Ltmp267
+.Lset65 = .Ltmp542-.Ltmp541
+	.short	.Lset65
+.Ltmp541:
+	.byte	87
+.Ltmp542:
 	.long	0
 	.long	0
 .Ldebug_loc20:
+	.long	.Ltmp241
 	.long	.Ltmp242
-	.long	.Ltmp244
-.Lset64 = .Ltmp539-.Ltmp538
-	.short	.Lset64
-.Ltmp538:
-	.byte	126
-	.byte	48
-.Ltmp539:
+.Lset66 = .Ltmp544-.Ltmp543
+	.short	.Lset66
+.Ltmp543:
+	.byte	84
+.Ltmp544:
 	.long	0
 	.long	0
 .Ldebug_loc21:
-	.long	.Ltmp246
-	.long	.Ltmp248
-.Lset65 = .Ltmp541-.Ltmp540
-	.short	.Lset65
-.Ltmp540:
-	.byte	86
-.Ltmp541:
-	.long	.Ltmp250
-	.long	.Ltmp251
-.Lset66 = .Ltmp543-.Ltmp542
-	.short	.Lset66
-.Ltmp542:
-	.byte	86
-.Ltmp543:
-	.long	.Ltmp271
-	.long	.Ltmp272
-.Lset67 = .Ltmp545-.Ltmp544
+	.long	.Ltmp245
+	.long	.Ltmp247
+.Lset67 = .Ltmp546-.Ltmp545
 	.short	.Lset67
-.Ltmp544:
-	.byte	86
 .Ltmp545:
-	.long	.Ltmp275
-	.long	.Lfunc_end39
-.Lset68 = .Ltmp547-.Ltmp546
-	.short	.Lset68
+	.byte	126
+	.byte	48
 .Ltmp546:
-	.byte	86
-.Ltmp547:
 	.long	0
 	.long	0
 .Ldebug_loc22:
+	.long	.Ltmp249
+	.long	.Ltmp251
+.Lset68 = .Ltmp548-.Ltmp547
+	.short	.Lset68
+.Ltmp547:
+	.byte	84
+.Ltmp548:
+	.long	.Ltmp253
+	.long	.Ltmp254
+.Lset69 = .Ltmp550-.Ltmp549
+	.short	.Lset69
+.Ltmp549:
+	.byte	84
+.Ltmp550:
 	.long	.Ltmp269
 	.long	.Ltmp270
-.Lset69 = .Ltmp549-.Ltmp548
-	.short	.Lset69
-.Ltmp548:
-	.byte	17
-	.byte	0
-.Ltmp549:
-	.long	.Ltmp270
-	.long	.Lfunc_end39
-.Lset70 = .Ltmp551-.Ltmp550
+.Lset70 = .Ltmp552-.Ltmp551
 	.short	.Lset70
-.Ltmp550:
-	.byte	17
-	.byte	1
 .Ltmp551:
+	.byte	84
+.Ltmp552:
+	.long	.Ltmp273
+	.long	.Lfunc_end39
+.Lset71 = .Ltmp554-.Ltmp553
+	.short	.Lset71
+.Ltmp553:
+	.byte	84
+.Ltmp554:
 	.long	0
 	.long	0
 .Ldebug_loc23:
 	.long	.Lfunc_begin41
-	.long	.Ltmp290
-.Lset71 = .Ltmp553-.Ltmp552
-	.short	.Lset71
-.Ltmp552:
-	.byte	80
-.Ltmp553:
-	.long	.Ltmp290
-	.long	.Ltmp301
-.Lset72 = .Ltmp555-.Ltmp554
+	.long	.Ltmp288
+.Lset72 = .Ltmp556-.Ltmp555
 	.short	.Lset72
-.Ltmp554:
-	.byte	84
 .Ltmp555:
+	.byte	80
+.Ltmp556:
+	.long	.Ltmp288
+	.long	.Ltmp299
+.Lset73 = .Ltmp558-.Ltmp557
+	.short	.Lset73
+.Ltmp557:
+	.byte	84
+.Ltmp558:
 	.long	0
 	.long	0
 .Ldebug_loc24:
-	.long	.Ltmp298
-	.long	.Ltmp299
-.Lset73 = .Ltmp557-.Ltmp556
-	.short	.Lset73
-.Ltmp556:
+	.long	.Ltmp296
+	.long	.Ltmp297
+.Lset74 = .Ltmp560-.Ltmp559
+	.short	.Lset74
+.Ltmp559:
 	.byte	17
 	.byte	0
-.Ltmp557:
-	.long	.Ltmp299
+.Ltmp560:
+	.long	.Ltmp297
 	.long	.Lfunc_end41
-.Lset74 = .Ltmp559-.Ltmp558
-	.short	.Lset74
-.Ltmp558:
+.Lset75 = .Ltmp562-.Ltmp561
+	.short	.Lset75
+.Ltmp561:
 	.byte	17
 	.byte	1
-.Ltmp559:
+.Ltmp562:
 	.long	0
 	.long	0
 .Ldebug_loc25:
-	.long	.Ltmp321
-	.long	.Ltmp324
-.Lset75 = .Ltmp561-.Ltmp560
-	.short	.Lset75
-.Ltmp560:
+	.long	.Ltmp320
+	.long	.Ltmp323
+.Lset76 = .Ltmp564-.Ltmp563
+	.short	.Lset76
+.Ltmp563:
 	.byte	80
-.Ltmp561:
+.Ltmp564:
 	.long	0
 	.long	0
 .Ldebug_loc26:
+	.long	.Ltmp324
 	.long	.Ltmp325
-	.long	.Ltmp326
-.Lset76 = .Ltmp563-.Ltmp562
-	.short	.Lset76
-.Ltmp562:
+.Lset77 = .Ltmp566-.Ltmp565
+	.short	.Lset77
+.Ltmp565:
 	.byte	17
 	.byte	0
-.Ltmp563:
-	.long	.Ltmp326
+.Ltmp566:
+	.long	.Ltmp325
 	.long	.Lfunc_end46
-.Lset77 = .Ltmp565-.Ltmp564
-	.short	.Lset77
-.Ltmp564:
+.Lset78 = .Ltmp568-.Ltmp567
+	.short	.Lset78
+.Ltmp567:
 	.byte	17
 	.byte	1
-.Ltmp565:
+.Ltmp568:
 	.long	0
 	.long	0
 .Ldebug_loc27:
-	.long	.Ltmp328
-	.long	.Ltmp330
-.Lset78 = .Ltmp567-.Ltmp566
-	.short	.Lset78
-.Ltmp566:
+	.long	.Ltmp327
+	.long	.Ltmp329
+.Lset79 = .Ltmp570-.Ltmp569
+	.short	.Lset79
+.Ltmp569:
 	.byte	80
-.Ltmp567:
+.Ltmp570:
 	.long	0
 	.long	0
 .Ldebug_loc28:
-	.long	.Ltmp329
-	.long	.Ltmp331
-.Lset79 = .Ltmp569-.Ltmp568
-	.short	.Lset79
-.Ltmp568:
+	.long	.Ltmp328
+	.long	.Ltmp330
+.Lset80 = .Ltmp572-.Ltmp571
+	.short	.Lset80
+.Ltmp571:
 	.byte	81
-.Ltmp569:
+.Ltmp572:
 	.long	0
 	.long	0
 .Ldebug_loc29:
+	.long	.Ltmp345
 	.long	.Ltmp346
-	.long	.Ltmp347
-.Lset80 = .Ltmp571-.Ltmp570
-	.short	.Lset80
-.Ltmp570:
+.Lset81 = .Ltmp574-.Ltmp573
+	.short	.Lset81
+.Ltmp573:
 	.byte	17
 	.byte	0
-.Ltmp571:
-	.long	.Ltmp347
+.Ltmp574:
+	.long	.Ltmp346
 	.long	.Lfunc_end47
-.Lset81 = .Ltmp573-.Ltmp572
-	.short	.Lset81
-.Ltmp572:
+.Lset82 = .Ltmp576-.Ltmp575
+	.short	.Lset82
+.Ltmp575:
 	.byte	17
 	.byte	1
-.Ltmp573:
+.Ltmp576:
 	.long	0
 	.long	0
 .Ldebug_loc30:
 	.long	.Ltmp359
 	.long	.Ltmp362
-.Lset82 = .Ltmp575-.Ltmp574
-	.short	.Lset82
-.Ltmp574:
+.Lset83 = .Ltmp578-.Ltmp577
+	.short	.Lset83
+.Ltmp577:
 	.byte	80
-.Ltmp575:
+.Ltmp578:
 	.long	0
 	.long	0
 .Ldebug_loc31:
 	.long	.Ltmp363
 	.long	.Ltmp364
-.Lset83 = .Ltmp577-.Ltmp576
-	.short	.Lset83
-.Ltmp576:
+.Lset84 = .Ltmp580-.Ltmp579
+	.short	.Lset84
+.Ltmp579:
 	.byte	17
 	.byte	0
-.Ltmp577:
+.Ltmp580:
 	.long	.Ltmp364
 	.long	.Lfunc_end48
-.Lset84 = .Ltmp579-.Ltmp578
-	.short	.Lset84
-.Ltmp578:
+.Lset85 = .Ltmp582-.Ltmp581
+	.short	.Lset85
+.Ltmp581:
 	.byte	17
 	.byte	1
-.Ltmp579:
+.Ltmp582:
 	.long	0
 	.long	0
 .Ldebug_loc32:
 	.long	.Ltmp366
 	.long	.Ltmp368
-.Lset85 = .Ltmp581-.Ltmp580
-	.short	.Lset85
-.Ltmp580:
+.Lset86 = .Ltmp584-.Ltmp583
+	.short	.Lset86
+.Ltmp583:
 	.byte	80
-.Ltmp581:
+.Ltmp584:
 	.long	0
 	.long	0
 .Ldebug_loc33:
 	.long	.Ltmp367
 	.long	.Ltmp369
-.Lset86 = .Ltmp583-.Ltmp582
-	.short	.Lset86
-.Ltmp582:
+.Lset87 = .Ltmp586-.Ltmp585
+	.short	.Lset87
+.Ltmp585:
 	.byte	81
-.Ltmp583:
+.Ltmp586:
 	.long	0
 	.long	0
 .Ldebug_loc34:
 	.long	.Ltmp384
 	.long	.Ltmp385
-.Lset87 = .Ltmp585-.Ltmp584
-	.short	.Lset87
-.Ltmp584:
+.Lset88 = .Ltmp588-.Ltmp587
+	.short	.Lset88
+.Ltmp587:
 	.byte	17
 	.byte	0
-.Ltmp585:
+.Ltmp588:
 	.long	.Ltmp385
 	.long	.Lfunc_end49
-.Lset88 = .Ltmp587-.Ltmp586
-	.short	.Lset88
-.Ltmp586:
+.Lset89 = .Ltmp590-.Ltmp589
+	.short	.Lset89
+.Ltmp589:
 	.byte	17
 	.byte	1
-.Ltmp587:
+.Ltmp590:
 	.long	0
 	.long	0
 .Ldebug_loc35:
-	.long	.Ltmp397
-	.long	.Ltmp400
-.Lset89 = .Ltmp589-.Ltmp588
-	.short	.Lset89
-.Ltmp588:
+	.long	.Ltmp398
+	.long	.Ltmp401
+.Lset90 = .Ltmp592-.Ltmp591
+	.short	.Lset90
+.Ltmp591:
 	.byte	80
-.Ltmp589:
+.Ltmp592:
 	.long	0
 	.long	0
 .Ldebug_loc36:
-	.long	.Ltmp401
 	.long	.Ltmp402
-.Lset90 = .Ltmp591-.Ltmp590
-	.short	.Lset90
-.Ltmp590:
+	.long	.Ltmp403
+.Lset91 = .Ltmp594-.Ltmp593
+	.short	.Lset91
+.Ltmp593:
 	.byte	17
 	.byte	0
-.Ltmp591:
-	.long	.Ltmp402
+.Ltmp594:
+	.long	.Ltmp403
 	.long	.Lfunc_end50
-.Lset91 = .Ltmp593-.Ltmp592
-	.short	.Lset91
-.Ltmp592:
+.Lset92 = .Ltmp596-.Ltmp595
+	.short	.Lset92
+.Ltmp595:
 	.byte	17
 	.byte	1
-.Ltmp593:
+.Ltmp596:
 	.long	0
 	.long	0
 .Ldebug_loc37:
-	.long	.Ltmp404
-	.long	.Ltmp406
-.Lset92 = .Ltmp595-.Ltmp594
-	.short	.Lset92
-.Ltmp594:
+	.long	.Ltmp405
+	.long	.Ltmp407
+.Lset93 = .Ltmp598-.Ltmp597
+	.short	.Lset93
+.Ltmp597:
 	.byte	80
-.Ltmp595:
+.Ltmp598:
 	.long	0
 	.long	0
 .Ldebug_loc38:
-	.long	.Ltmp405
-	.long	.Ltmp407
-.Lset93 = .Ltmp597-.Ltmp596
-	.short	.Lset93
-.Ltmp596:
+	.long	.Ltmp406
+	.long	.Ltmp408
+.Lset94 = .Ltmp600-.Ltmp599
+	.short	.Lset94
+.Ltmp599:
 	.byte	81
-.Ltmp597:
+.Ltmp600:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
-.Lset94 = .LpubNames_end0-.LpubNames_begin0
-	.long	.Lset94
+.Lset95 = .LpubNames_end0-.LpubNames_begin0
+	.long	.Lset95
 .LpubNames_begin0:
 	.short	2
 	.long	.L.debug_info_begin0
-.Lset95 = .L.debug_info_end0-.L.debug_info_begin0
-	.long	.Lset95
-	.long	2173
+.Lset96 = .L.debug_info_end0-.L.debug_info_begin0
+	.long	.Lset96
+	.long	2174
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
-	.long	2275
+	.long	2276
 .asciiz"_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog"
-	.long	1848
+	.long	1849
 .asciiz"Temperature_Water_Controller.select.case.0"
-	.long	1888
+	.long	1889
 .asciiz"Temperature_Water_Controller.select.case.1"
-	.long	2751
+	.long	2752
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
-	.long	3184
+	.long	3185
 .asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
-	.long	3086
+	.long	3087
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
-	.long	3294
+	.long	3295
 .asciiz"Temperature_Water_Controller.select.0.enable"
-	.long	1496
+	.long	1497
 .asciiz"Temperature_Water_Controller.select.0.case.0"
-	.long	3066
+	.long	3067
 .asciiz"_i.temperature_water_commands_if._chan.clear_debug_log"
-	.long	3410
+	.long	3411
 .asciiz"Temperature_Water_Controller.fini"
-	.long	2073
+	.long	2074
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	2597
+	.long	2598
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+	.long	2962
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
 	.long	562
 .asciiz"_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_now_regulating_at"
-	.long	2961
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
-	.long	2990
+	.long	2991
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
-	.long	2357
+	.long	2358
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	2482
+	.long	2483
 .asciiz"_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with"
-	.long	2568
+	.long	2569
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
 	.long	733
 .asciiz"Temperature_Water_Controller"
-	.long	2856
+	.long	2857
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
-	.long	3362
+	.long	3363
 .asciiz"Temperature_Water_Controller.select.y.enable"
-	.long	2328
+	.long	2329
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
-	.long	2722
+	.long	2723
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 	.long	528
 .asciiz"_i.temperature_water_commands_if.Temperature_Water_Controller._c0.clear_debug_log"
-	.long	2235
+	.long	2236
 .asciiz"_i.port_heat_light_commands_if._chan.watchdog_retrigger_with"
-	.long	2673
+	.long	2674
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
-	.long	2923
+	.long	2924
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
-	.long	2539
+	.long	2540
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	2044
+	.long	2045
 .asciiz"_i.i2c_external_commands_if._chan.command"
-	.long	2702
+	.long	2703
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
-	.long	3164
+	.long	3165
 .asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
-	.long	2433
+	.long	2434
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
-	.long	2299
+	.long	2300
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
-	.long	2462
+	.long	2463
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
-	.long	1692
+	.long	1693
 .asciiz"Temperature_Water_Controller.select.y.case.1"
-	.long	3318
+	.long	3319
 .asciiz"Temperature_Water_Controller.init.0"
-	.long	3246
+	.long	3247
 .asciiz"delay_milliseconds"
-	.long	2626
+	.long	2627
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
-	.long	1652
+	.long	1653
 .asciiz"Temperature_Water_Controller.select.y.case.0"
-	.long	1223
+	.long	1224
 .asciiz"Temperature_Water_Controller.init.1"
-	.long	3106
+	.long	3107
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
-	.long	2386
+	.long	2387
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
-	.long	3144
+	.long	3145
 .asciiz"_i.temperature_water_commands_if._chan_y.clear_debug_log"
-	.long	2202
+	.long	2203
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 	.long	595
 .asciiz"_i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str"
-	.long	3028
+	.long	3029
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	2894
+	.long	2895
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	3386
-.asciiz"Temperature_Water_Controller.select.enable"
-	.long	3270
+	.long	2790
+.asciiz"_i.temperature_heater_commands_if._chan.get_mean_i2c_temps"
+	.long	3271
 .asciiz"delay_microseconds"
-	.long	2789
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
-	.long	2818
+	.long	3387
+.asciiz"Temperature_Water_Controller.select.enable"
+	.long	2819
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
-	.long	3222
+	.long	3223
 .asciiz"delay_seconds"
-	.long	2515
+	.long	2516
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
-.Lset96 = .LpubTypes_end0-.LpubTypes_begin0
-	.long	.Lset96
+.Lset97 = .LpubTypes_end0-.LpubTypes_begin0
+	.long	.Lset97
 .LpubTypes_begin0:
 	.short	2
 	.long	.L.debug_info_begin0
-.Lset97 = .L.debug_info_end0-.L.debug_info_begin0
-	.long	.Lset97
-	.long	3505
+.Lset98 = .L.debug_info_end0-.L.debug_info_begin0
+	.long	.Lset98
+	.long	3506
 .asciiz"timer"
-	.long	2268
+	.long	2269
 .asciiz"unsigned int"
-	.long	3517
+	.long	3518
 .asciiz"frame.0"
-	.long	3478
+	.long	3479
 .asciiz"int"
 	.long	473
 .asciiz"now_regulating_at_t"
-	.long	2166
+	.long	2167
 .asciiz"short"
 	.long	31
 .asciiz"i2c_command_external_t"
-	.long	3498
+	.long	3499
 .asciiz"interface"
 	.long	452
 .asciiz"__TYPE_4"
-	.long	2106
+	.long	2107
 .asciiz"tag_i2c_temps_t"
 	.long	265
 .asciiz"heater_wires_t"
-	.long	3701
+	.long	3702
 .asciiz"yarg"
-	.long	3684
+	.long	3685
 .asciiz"chanend"
 	.long	419
 .asciiz"iof_temps_t"
-	.long	3461
+	.long	3462
 .asciiz"unsigned char"
 	.long	69
 .asciiz"heat_cable_commands_t"
@@ -10021,8 +10010,8 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.get_temps, "f{0}(chd,&(a(4:si)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan.get_mean_i2c_temps, "f{0}(chd,&(a(3:si)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
@@ -10031,8 +10020,8 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(4:si)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:si)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
@@ -10051,22 +10040,22 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring iprintf, "f{si}(u:q(c:uc),va)"
 	.typestring Temp_OnetenthDegC_To_Str, "f{si,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"
-	.typestring Temperature_Water_Controller, "k:f{0}(is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
+	.typestring Temperature_Water_Controller, "k:f{0}(is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
+	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.get_mean_i2c_temps.fns
 	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
-	.overlay_reference Temperature_Water_Controller,_i.temperature_heater_commands_if.get_temps.fns
 	.typestring Temperature_Water_Controller.select.0.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
+	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.get_mean_i2c_temps.fns
 	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
-	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.get_temps.fns
 	.overlay_reference Temperature_Water_Controller.init.1,_i.temperature_heater_commands_if.__interface_init.fns
-	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_temps){f{0}(&(a(4:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
+	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
 	.typestring Temperature_Water_Controller.select.y.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
+	.overlay_reference Temperature_Water_Controller.select.y.case.0,_i.temperature_heater_commands_if.get_mean_i2c_temps.fns
 	.overlay_reference Temperature_Water_Controller.select.y.case.0,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
-	.overlay_reference Temperature_Water_Controller.select.y.case.0,_i.temperature_heater_commands_if.get_temps.fns
+	.overlay_reference Temperature_Water_Controller.select.case.0,_i.temperature_heater_commands_if.get_mean_i2c_temps.fns
 	.overlay_reference Temperature_Water_Controller.select.case.0,_i.temperature_heater_commands_if.heater_set_temp_degC.fns
-	.overlay_reference Temperature_Water_Controller.select.case.0,_i.temperature_heater_commands_if.get_temps.fns
 	.section	.xtacalltable,"",@progbits
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
@@ -10115,17 +10104,17 @@ Temperature_Water_Controller.select.case.1:
 	.long	103
 	.long	.Lxta.call_labels28
 .cc_bottom cc_6
-.cc_top cc_7,.Lxta.call_labels42
+.cc_top cc_7,.Lxta.call_labels7
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	103
+	.long	.Lxta.call_labels7
+.cc_bottom cc_7
+.cc_top cc_8,.Lxta.call_labels42
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	103
 	.long	.Lxta.call_labels42
-.cc_bottom cc_7
-.cc_top cc_8,.Lxta.call_labels5
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	103
-	.long	.Lxta.call_labels5
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels29
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10139,83 +10128,83 @@ Temperature_Water_Controller.select.case.1:
 	.long	111
 	.long	.Lxta.call_labels43
 .cc_bottom cc_10
-.cc_top cc_11,.Lxta.call_labels6
+.cc_top cc_11,.Lxta.call_labels8
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	111
-	.long	.Lxta.call_labels6
+	.long	.Lxta.call_labels8
 .cc_bottom cc_11
-.cc_top cc_12,.Lxta.call_labels8
+.cc_top cc_12,.Lxta.call_labels10
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	119
-	.long	.Lxta.call_labels8
+	.long	.Lxta.call_labels10
 .cc_bottom cc_12
-.cc_top cc_13,.Lxta.call_labels7
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	125
-	.long	.Lxta.call_labels7
-.cc_bottom cc_13
-.cc_top cc_14,.Lxta.call_labels44
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	125
-	.long	.Lxta.call_labels44
-.cc_bottom cc_14
-.cc_top cc_15,.Lxta.call_labels30
+.cc_top cc_13,.Lxta.call_labels30
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	125
 	.long	.Lxta.call_labels30
-.cc_bottom cc_15
-.cc_top cc_16,.Lxta.call_labels31
+.cc_bottom cc_13
+.cc_top cc_14,.Lxta.call_labels9
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	133
-	.long	.Lxta.call_labels31
-.cc_bottom cc_16
-.cc_top cc_17,.Lxta.call_labels9
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	133
+	.long	125
 	.long	.Lxta.call_labels9
-.cc_bottom cc_17
-.cc_top cc_18,.Lxta.call_labels45
+.cc_bottom cc_14
+.cc_top cc_15,.Lxta.call_labels44
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	125
+	.long	.Lxta.call_labels44
+.cc_bottom cc_15
+.cc_top cc_16,.Lxta.call_labels45
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	133
 	.long	.Lxta.call_labels45
+.cc_bottom cc_16
+.cc_top cc_17,.Lxta.call_labels11
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	133
+	.long	.Lxta.call_labels11
+.cc_bottom cc_17
+.cc_top cc_18,.Lxta.call_labels31
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	133
+	.long	.Lxta.call_labels31
 .cc_bottom cc_18
-.cc_top cc_19,.Lxta.call_labels10
+.cc_top cc_19,.Lxta.call_labels12
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	140
-	.long	.Lxta.call_labels10
+	.long	.Lxta.call_labels12
 .cc_bottom cc_19
-.cc_top cc_20,.Lxta.call_labels12
+.cc_top cc_20,.Lxta.call_labels14
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	146
-	.long	.Lxta.call_labels12
+	.long	.Lxta.call_labels14
 .cc_bottom cc_20
-.cc_top cc_21,.Lxta.call_labels20
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	153
-	.long	.Lxta.call_labels20
-.cc_bottom cc_21
-.cc_top cc_22,.Lxta.call_labels46
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	153
-	.long	.Lxta.call_labels46
-.cc_bottom cc_22
-.cc_top cc_23,.Lxta.call_labels32
+.cc_top cc_21,.Lxta.call_labels32
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	153
 	.long	.Lxta.call_labels32
+.cc_bottom cc_21
+.cc_top cc_22,.Lxta.call_labels20
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	153
+	.long	.Lxta.call_labels20
+.cc_bottom cc_22
+.cc_top cc_23,.Lxta.call_labels46
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	153
+	.long	.Lxta.call_labels46
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels21
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10235,53 +10224,53 @@ Temperature_Water_Controller.select.case.1:
 	.long	174
 	.long	.Lxta.call_labels22
 .cc_bottom cc_26
-.cc_top cc_27,.Lxta.call_labels11
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	191
-	.long	.Lxta.call_labels11
-.cc_bottom cc_27
-.cc_top cc_28,.Lxta.call_labels33
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	191
-	.long	.Lxta.call_labels33
-.cc_bottom cc_28
-.cc_top cc_29,.Lxta.call_labels47
+.cc_top cc_27,.Lxta.call_labels47
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	191
 	.long	.Lxta.call_labels47
-.cc_bottom cc_29
-.cc_top cc_30,.Lxta.call_labels34
+.cc_bottom cc_27
+.cc_top cc_28,.Lxta.call_labels13
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	198
-	.long	.Lxta.call_labels34
-.cc_bottom cc_30
-.cc_top cc_31,.Lxta.call_labels48
+	.long	191
+	.long	.Lxta.call_labels13
+.cc_bottom cc_28
+.cc_top cc_29,.Lxta.call_labels33
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	191
+	.long	.Lxta.call_labels33
+.cc_bottom cc_29
+.cc_top cc_30,.Lxta.call_labels48
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels48
-.cc_bottom cc_31
-.cc_top cc_32,.Lxta.call_labels13
+.cc_bottom cc_30
+.cc_top cc_31,.Lxta.call_labels15
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
-	.long	.Lxta.call_labels13
-.cc_bottom cc_32
-.cc_top cc_33,.Lxta.call_labels14
+	.long	.Lxta.call_labels15
+.cc_bottom cc_31
+.cc_top cc_32,.Lxta.call_labels34
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	199
-	.long	.Lxta.call_labels14
-.cc_bottom cc_33
-.cc_top cc_34,.Lxta.call_labels49
+	.long	198
+	.long	.Lxta.call_labels34
+.cc_bottom cc_32
+.cc_top cc_33,.Lxta.call_labels49
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	199
 	.long	.Lxta.call_labels49
+.cc_bottom cc_33
+.cc_top cc_34,.Lxta.call_labels16
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	.Lxta.call_labels16
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.call_labels35
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10301,11 +10290,11 @@ Temperature_Water_Controller.select.case.1:
 	.long	202
 	.long	.Lxta.call_labels50
 .cc_bottom cc_37
-.cc_top cc_38,.Lxta.call_labels15
+.cc_top cc_38,.Lxta.call_labels17
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	202
-	.long	.Lxta.call_labels15
+	.long	.Lxta.call_labels17
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.call_labels37
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10313,11 +10302,11 @@ Temperature_Water_Controller.select.case.1:
 	.long	207
 	.long	.Lxta.call_labels37
 .cc_bottom cc_39
-.cc_top cc_40,.Lxta.call_labels16
+.cc_top cc_40,.Lxta.call_labels18
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	207
-	.long	.Lxta.call_labels16
+	.long	.Lxta.call_labels18
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.call_labels51
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10337,29 +10326,29 @@ Temperature_Water_Controller.select.case.1:
 	.long	212
 	.long	.Lxta.call_labels38
 .cc_bottom cc_43
-.cc_top cc_44,.Lxta.call_labels17
+.cc_top cc_44,.Lxta.call_labels19
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	212
-	.long	.Lxta.call_labels17
+	.long	.Lxta.call_labels19
 .cc_bottom cc_44
-.cc_top cc_45,.Lxta.call_labels53
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	215
-	.long	.Lxta.call_labels53
-.cc_bottom cc_45
-.cc_top cc_46,.Lxta.call_labels18
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	215
-	.long	.Lxta.call_labels18
-.cc_bottom cc_46
-.cc_top cc_47,.Lxta.call_labels39
+.cc_top cc_45,.Lxta.call_labels39
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	215
 	.long	.Lxta.call_labels39
+.cc_bottom cc_45
+.cc_top cc_46,.Lxta.call_labels53
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	215
+	.long	.Lxta.call_labels53
+.cc_bottom cc_46
+.cc_top cc_47,.Lxta.call_labels4
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	215
+	.long	.Lxta.call_labels4
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.call_labels54
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10367,11 +10356,11 @@ Temperature_Water_Controller.select.case.1:
 	.long	219
 	.long	.Lxta.call_labels54
 .cc_bottom cc_48
-.cc_top cc_49,.Lxta.call_labels19
+.cc_top cc_49,.Lxta.call_labels5
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	219
-	.long	.Lxta.call_labels19
+	.long	.Lxta.call_labels5
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.call_labels40
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10397,11 +10386,11 @@ Temperature_Water_Controller.select.case.1:
 	.long	238
 	.long	.Lxta.call_labels27
 .cc_bottom cc_53
-.cc_top cc_54,.Lxta.call_labels4
+.cc_top cc_54,.Lxta.call_labels6
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	238
-	.long	.Lxta.call_labels4
+	.long	.Lxta.call_labels6
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.call_labels55
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10537,26 +10526,26 @@ Temperature_Water_Controller.select.case.1:
 	.long	80
 	.long	.Lxtalabel0
 .cc_bottom cc_72
-.cc_top cc_73,.Lxtalabel0
+.cc_top cc_73,.Lxtalabel29
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	79
+	.long	80
+	.long	.Lxtalabel29
+.cc_bottom cc_73
+.cc_top cc_74,.Lxtalabel0
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	79
 	.long	80
 	.long	.Lxtalabel0
-.cc_bottom cc_73
-.cc_top cc_74,.Lxtalabel29
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	79
-	.long	80
-	.long	.Lxtalabel29
 .cc_bottom cc_74
-.cc_top cc_75,.Lxtalabel29
+.cc_top cc_75,.Lxtalabel0
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	79
 	.long	80
-	.long	.Lxtalabel29
+	.long	.Lxtalabel0
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel29
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10568,65 +10557,65 @@ Temperature_Water_Controller.select.case.1:
 .cc_top cc_77,.Lxtalabel0
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	79
-	.long	80
+	.long	82
+	.long	82
 	.long	.Lxtalabel0
 .cc_bottom cc_77
-.cc_top cc_78,.Lxtalabel0
+.cc_top cc_78,.Lxtalabel29
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	79
-	.long	80
-	.long	.Lxtalabel0
+	.long	82
+	.long	82
+	.long	.Lxtalabel29
 .cc_bottom cc_78
-.cc_top cc_79,.Lxtalabel29
+.cc_top cc_79,.Lxtalabel0
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	82
-	.long	82
-	.long	.Lxtalabel29
+	.long	84
+	.long	84
+	.long	.Lxtalabel0
 .cc_bottom cc_79
-.cc_top cc_80,.Lxtalabel0
+.cc_top cc_80,.Lxtalabel29
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	82
-	.long	82
-	.long	.Lxtalabel0
+	.long	84
+	.long	84
+	.long	.Lxtalabel29
 .cc_bottom cc_80
-.cc_top cc_81,.Lxtalabel29
+.cc_top cc_81,.Lxtalabel0
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	84
-	.long	84
-	.long	.Lxtalabel29
+	.long	88
+	.long	88
+	.long	.Lxtalabel0
 .cc_bottom cc_81
-.cc_top cc_82,.Lxtalabel0
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	84
-	.long	84
-	.long	.Lxtalabel0
-.cc_bottom cc_82
-.cc_top cc_83,.Lxtalabel0
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	88
-	.long	88
-	.long	.Lxtalabel0
-.cc_bottom cc_83
-.cc_top cc_84,.Lxtalabel29
+.cc_top cc_82,.Lxtalabel29
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	88
 	.long	88
 	.long	.Lxtalabel29
-.cc_bottom cc_84
-.cc_top cc_85,.Lxtalabel1
+.cc_bottom cc_82
+.cc_top cc_83,.Lxtalabel2
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	89
 	.long	90
-	.long	.Lxtalabel1
+	.long	.Lxtalabel2
+.cc_bottom cc_83
+.cc_top cc_84,.Lxtalabel33
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	91
+	.long	92
+	.long	.Lxtalabel33
+.cc_bottom cc_84
+.cc_top cc_85,.Lxtalabel5
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	91
+	.long	92
+	.long	.Lxtalabel5
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel58
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10635,89 +10624,89 @@ Temperature_Water_Controller.select.case.1:
 	.long	92
 	.long	.Lxtalabel58
 .cc_bottom cc_86
-.cc_top cc_87,.Lxtalabel4
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	91
-	.long	92
-	.long	.Lxtalabel4
-.cc_bottom cc_87
-.cc_top cc_88,.Lxtalabel33
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	91
-	.long	92
-	.long	.Lxtalabel33
-.cc_bottom cc_88
-.cc_top cc_89,.Lxtalabel4
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	94
-	.long	94
-	.long	.Lxtalabel4
-.cc_bottom cc_89
-.cc_top cc_90,.Lxtalabel33
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	94
-	.long	94
-	.long	.Lxtalabel33
-.cc_bottom cc_90
-.cc_top cc_91,.Lxtalabel58
+.cc_top cc_87,.Lxtalabel58
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel58
-.cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel5
+.cc_bottom cc_87
+.cc_top cc_88,.Lxtalabel33
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	98
-	.long	98
+	.long	94
+	.long	94
+	.long	.Lxtalabel33
+.cc_bottom cc_88
+.cc_top cc_89,.Lxtalabel5
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	94
+	.long	94
 	.long	.Lxtalabel5
-.cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel7
+.cc_bottom cc_89
+.cc_top cc_90,.Lxtalabel6
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	98
 	.long	98
-	.long	.Lxtalabel7
-.cc_bottom cc_93
-.cc_top cc_94,.Lxtalabel59
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	98
-	.long	98
-	.long	.Lxtalabel59
-.cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel34
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	98
-	.long	98
-	.long	.Lxtalabel34
-.cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel61
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	98
-	.long	98
-	.long	.Lxtalabel61
-.cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel36
+	.long	.Lxtalabel6
+.cc_bottom cc_90
+.cc_top cc_91,.Lxtalabel36
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	98
 	.long	98
 	.long	.Lxtalabel36
-.cc_bottom cc_97
-.cc_top cc_98,.Lxtalabel7
+.cc_bottom cc_91
+.cc_top cc_92,.Lxtalabel61
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	98
+	.long	98
+	.long	.Lxtalabel61
+.cc_bottom cc_92
+.cc_top cc_93,.Lxtalabel59
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	98
+	.long	98
+	.long	.Lxtalabel59
+.cc_bottom cc_93
+.cc_top cc_94,.Lxtalabel34
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	98
+	.long	98
+	.long	.Lxtalabel34
+.cc_bottom cc_94
+.cc_top cc_95,.Lxtalabel8
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	98
+	.long	98
+	.long	.Lxtalabel8
+.cc_bottom cc_95
+.cc_top cc_96,.Lxtalabel8
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	103
 	.long	104
-	.long	.Lxtalabel7
+	.long	.Lxtalabel8
+.cc_bottom cc_96
+.cc_top cc_97,.Lxtalabel6
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	103
+	.long	104
+	.long	.Lxtalabel6
+.cc_bottom cc_97
+.cc_top cc_98,.Lxtalabel59
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	103
+	.long	104
+	.long	.Lxtalabel59
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel36
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10726,40 +10715,40 @@ Temperature_Water_Controller.select.case.1:
 	.long	104
 	.long	.Lxtalabel36
 .cc_bottom cc_99
-.cc_top cc_100,.Lxtalabel59
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	103
-	.long	104
-	.long	.Lxtalabel59
-.cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel5
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	103
-	.long	104
-	.long	.Lxtalabel5
-.cc_bottom cc_101
-.cc_top cc_102,.Lxtalabel61
+.cc_top cc_100,.Lxtalabel61
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	103
 	.long	104
 	.long	.Lxtalabel61
-.cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel34
+.cc_bottom cc_100
+.cc_top cc_101,.Lxtalabel34
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	103
 	.long	104
 	.long	.Lxtalabel34
-.cc_bottom cc_103
-.cc_top cc_104,.Lxtalabel7
+.cc_bottom cc_101
+.cc_top cc_102,.Lxtalabel59
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	107
 	.long	109
-	.long	.Lxtalabel7
+	.long	.Lxtalabel59
+.cc_bottom cc_102
+.cc_top cc_103,.Lxtalabel6
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	107
+	.long	109
+	.long	.Lxtalabel6
+.cc_bottom cc_103
+.cc_top cc_104,.Lxtalabel36
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	107
+	.long	109
+	.long	.Lxtalabel36
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel34
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10768,117 +10757,117 @@ Temperature_Water_Controller.select.case.1:
 	.long	109
 	.long	.Lxtalabel34
 .cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel5
+.cc_top cc_106,.Lxtalabel61
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	107
 	.long	109
-	.long	.Lxtalabel5
+	.long	.Lxtalabel61
 .cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel61
+.cc_top cc_107,.Lxtalabel8
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	107
 	.long	109
-	.long	.Lxtalabel61
+	.long	.Lxtalabel8
 .cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel36
+.cc_top cc_108,.Lxtalabel61
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	107
-	.long	109
-	.long	.Lxtalabel36
+	.long	111
+	.long	111
+	.long	.Lxtalabel61
 .cc_bottom cc_108
-.cc_top cc_109,.Lxtalabel59
+.cc_top cc_109,.Lxtalabel6
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	107
-	.long	109
-	.long	.Lxtalabel59
+	.long	111
+	.long	111
+	.long	.Lxtalabel6
 .cc_bottom cc_109
-.cc_top cc_110,.Lxtalabel59
+.cc_top cc_110,.Lxtalabel34
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	111
 	.long	111
-	.long	.Lxtalabel59
+	.long	.Lxtalabel34
 .cc_bottom cc_110
-.cc_top cc_111,.Lxtalabel34
+.cc_top cc_111,.Lxtalabel36
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	111
 	.long	111
-	.long	.Lxtalabel34
+	.long	.Lxtalabel36
 .cc_bottom cc_111
-.cc_top cc_112,.Lxtalabel61
+.cc_top cc_112,.Lxtalabel59
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	111
 	.long	111
-	.long	.Lxtalabel61
+	.long	.Lxtalabel59
 .cc_bottom cc_112
-.cc_top cc_113,.Lxtalabel36
+.cc_top cc_113,.Lxtalabel8
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	111
 	.long	111
-	.long	.Lxtalabel36
+	.long	.Lxtalabel8
 .cc_bottom cc_113
-.cc_top cc_114,.Lxtalabel7
+.cc_top cc_114,.Lxtalabel8
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	111
-	.long	111
-	.long	.Lxtalabel7
+	.long	113
+	.long	113
+	.long	.Lxtalabel8
 .cc_bottom cc_114
-.cc_top cc_115,.Lxtalabel5
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	111
-	.long	111
-	.long	.Lxtalabel5
-.cc_bottom cc_115
-.cc_top cc_116,.Lxtalabel5
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	113
-	.long	113
-	.long	.Lxtalabel5
-.cc_bottom cc_116
-.cc_top cc_117,.Lxtalabel36
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	113
-	.long	113
-	.long	.Lxtalabel36
-.cc_bottom cc_117
-.cc_top cc_118,.Lxtalabel61
+.cc_top cc_115,.Lxtalabel61
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	113
 	.long	113
 	.long	.Lxtalabel61
-.cc_bottom cc_118
-.cc_top cc_119,.Lxtalabel7
+.cc_bottom cc_115
+.cc_top cc_116,.Lxtalabel34
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	113
 	.long	113
-	.long	.Lxtalabel7
-.cc_bottom cc_119
-.cc_top cc_120,.Lxtalabel59
+	.long	.Lxtalabel34
+.cc_bottom cc_116
+.cc_top cc_117,.Lxtalabel59
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	113
 	.long	113
 	.long	.Lxtalabel59
-.cc_bottom cc_120
-.cc_top cc_121,.Lxtalabel34
+.cc_bottom cc_117
+.cc_top cc_118,.Lxtalabel6
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	113
 	.long	113
-	.long	.Lxtalabel34
+	.long	.Lxtalabel6
+.cc_bottom cc_118
+.cc_top cc_119,.Lxtalabel36
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	113
+	.long	113
+	.long	.Lxtalabel36
+.cc_bottom cc_119
+.cc_top cc_120,.Lxtalabel62
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	116
+	.long	118
+	.long	.Lxtalabel62
+.cc_bottom cc_120
+.cc_top cc_121,.Lxtalabel9
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	116
+	.long	118
+	.long	.Lxtalabel9
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel37
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10887,103 +10876,103 @@ Temperature_Water_Controller.select.case.1:
 	.long	118
 	.long	.Lxtalabel37
 .cc_bottom cc_122
-.cc_top cc_123,.Lxtalabel8
+.cc_top cc_123,.Lxtalabel37
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	116
-	.long	118
-	.long	.Lxtalabel8
+	.long	119
+	.long	119
+	.long	.Lxtalabel37
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel62
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	116
-	.long	118
+	.long	119
+	.long	119
 	.long	.Lxtalabel62
 .cc_bottom cc_124
-.cc_top cc_125,.Lxtalabel8
+.cc_top cc_125,.Lxtalabel9
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	119
 	.long	119
-	.long	.Lxtalabel8
+	.long	.Lxtalabel9
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel37
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	122
+	.long	122
 	.long	.Lxtalabel37
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel62
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	122
+	.long	122
 	.long	.Lxtalabel62
 .cc_bottom cc_127
-.cc_top cc_128,.Lxtalabel37
+.cc_top cc_128,.Lxtalabel9
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	122
 	.long	122
-	.long	.Lxtalabel37
+	.long	.Lxtalabel9
 .cc_bottom cc_128
-.cc_top cc_129,.Lxtalabel62
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	122
-	.long	122
-	.long	.Lxtalabel62
-.cc_bottom cc_129
-.cc_top cc_130,.Lxtalabel8
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	122
-	.long	122
-	.long	.Lxtalabel8
-.cc_bottom cc_130
-.cc_top cc_131,.Lxtalabel60
+.cc_top cc_129,.Lxtalabel60
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	125
 	.long	125
 	.long	.Lxtalabel60
+.cc_bottom cc_129
+.cc_top cc_130,.Lxtalabel35
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	125
+	.long	125
+	.long	.Lxtalabel35
+.cc_bottom cc_130
+.cc_top cc_131,.Lxtalabel7
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	125
+	.long	125
+	.long	.Lxtalabel7
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel35
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	125
-	.long	125
+	.long	126
+	.long	127
 	.long	.Lxtalabel35
 .cc_bottom cc_132
-.cc_top cc_133,.Lxtalabel6
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	125
-	.long	125
-	.long	.Lxtalabel6
-.cc_bottom cc_133
-.cc_top cc_134,.Lxtalabel35
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	126
-	.long	127
-	.long	.Lxtalabel35
-.cc_bottom cc_134
-.cc_top cc_135,.Lxtalabel6
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	126
-	.long	127
-	.long	.Lxtalabel6
-.cc_bottom cc_135
-.cc_top cc_136,.Lxtalabel60
+.cc_top cc_133,.Lxtalabel60
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	126
 	.long	127
 	.long	.Lxtalabel60
+.cc_bottom cc_133
+.cc_top cc_134,.Lxtalabel7
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	126
+	.long	127
+	.long	.Lxtalabel7
+.cc_bottom cc_134
+.cc_top cc_135,.Lxtalabel7
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	130
+	.long	130
+	.long	.Lxtalabel7
+.cc_bottom cc_135
+.cc_top cc_136,.Lxtalabel35
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	130
+	.long	130
+	.long	.Lxtalabel35
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel60
 	.ascii	"../src/temperature_water_controller.xc"
@@ -10992,19 +10981,19 @@ Temperature_Water_Controller.select.case.1:
 	.long	130
 	.long	.Lxtalabel60
 .cc_bottom cc_137
-.cc_top cc_138,.Lxtalabel6
+.cc_top cc_138,.Lxtalabel12
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
-	.long	.Lxtalabel6
+	.long	133
+	.long	133
+	.long	.Lxtalabel12
 .cc_bottom cc_138
-.cc_top cc_139,.Lxtalabel35
+.cc_top cc_139,.Lxtalabel63
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	130
-	.long	130
-	.long	.Lxtalabel35
+	.long	133
+	.long	133
+	.long	.Lxtalabel63
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel38
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11013,186 +11002,186 @@ Temperature_Water_Controller.select.case.1:
 	.long	133
 	.long	.Lxtalabel38
 .cc_bottom cc_140
-.cc_top cc_141,.Lxtalabel63
+.cc_top cc_141,.Lxtalabel12
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	133
-	.long	133
-	.long	.Lxtalabel63
+	.long	135
+	.long	135
+	.long	.Lxtalabel12
 .cc_bottom cc_141
-.cc_top cc_142,.Lxtalabel11
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	133
-	.long	133
-	.long	.Lxtalabel11
-.cc_bottom cc_142
-.cc_top cc_143,.Lxtalabel11
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	135
-	.long	135
-	.long	.Lxtalabel11
-.cc_bottom cc_143
-.cc_top cc_144,.Lxtalabel63
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	135
-	.long	135
-	.long	.Lxtalabel63
-.cc_bottom cc_144
-.cc_top cc_145,.Lxtalabel38
+.cc_top cc_142,.Lxtalabel38
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	135
 	.long	135
 	.long	.Lxtalabel38
+.cc_bottom cc_142
+.cc_top cc_143,.Lxtalabel63
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	135
+	.long	135
+	.long	.Lxtalabel63
+.cc_bottom cc_143
+.cc_top cc_144,.Lxtalabel39
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	136
+	.long	136
+	.long	.Lxtalabel39
+.cc_bottom cc_144
+.cc_top cc_145,.Lxtalabel13
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	136
+	.long	136
+	.long	.Lxtalabel13
 .cc_bottom cc_145
-.cc_top cc_146,.Lxtalabel39
+.cc_top cc_146,.Lxtalabel64
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	136
 	.long	136
-	.long	.Lxtalabel39
+	.long	.Lxtalabel64
 .cc_bottom cc_146
-.cc_top cc_147,.Lxtalabel12
+.cc_top cc_147,.Lxtalabel39
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	136
-	.long	136
-	.long	.Lxtalabel12
+	.long	138
+	.long	139
+	.long	.Lxtalabel39
 .cc_bottom cc_147
-.cc_top cc_148,.Lxtalabel64
+.cc_top cc_148,.Lxtalabel13
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	136
-	.long	136
-	.long	.Lxtalabel64
+	.long	138
+	.long	139
+	.long	.Lxtalabel13
 .cc_bottom cc_148
-.cc_top cc_149,.Lxtalabel39
+.cc_top cc_149,.Lxtalabel64
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	138
 	.long	139
-	.long	.Lxtalabel39
+	.long	.Lxtalabel64
 .cc_bottom cc_149
-.cc_top cc_150,.Lxtalabel64
+.cc_top cc_150,.Lxtalabel39
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	138
-	.long	139
-	.long	.Lxtalabel64
+	.long	140
+	.long	140
+	.long	.Lxtalabel39
 .cc_bottom cc_150
-.cc_top cc_151,.Lxtalabel12
+.cc_top cc_151,.Lxtalabel64
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	138
-	.long	139
-	.long	.Lxtalabel12
+	.long	140
+	.long	140
+	.long	.Lxtalabel64
 .cc_bottom cc_151
-.cc_top cc_152,.Lxtalabel39
+.cc_top cc_152,.Lxtalabel13
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	140
 	.long	140
-	.long	.Lxtalabel39
+	.long	.Lxtalabel13
 .cc_bottom cc_152
-.cc_top cc_153,.Lxtalabel64
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	140
-	.long	140
-	.long	.Lxtalabel64
-.cc_bottom cc_153
-.cc_top cc_154,.Lxtalabel12
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	140
-	.long	140
-	.long	.Lxtalabel12
-.cc_bottom cc_154
-.cc_top cc_155,.Lxtalabel12
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	141
-	.long	141
-	.long	.Lxtalabel12
-.cc_bottom cc_155
-.cc_top cc_156,.Lxtalabel39
+.cc_top cc_153,.Lxtalabel39
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	141
 	.long	141
 	.long	.Lxtalabel39
-.cc_bottom cc_156
-.cc_top cc_157,.Lxtalabel64
+.cc_bottom cc_153
+.cc_top cc_154,.Lxtalabel64
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	141
 	.long	141
 	.long	.Lxtalabel64
+.cc_bottom cc_154
+.cc_top cc_155,.Lxtalabel13
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	141
+	.long	141
+	.long	.Lxtalabel13
+.cc_bottom cc_155
+.cc_top cc_156,.Lxtalabel66
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	142
+	.long	142
+	.long	.Lxtalabel66
+.cc_bottom cc_156
+.cc_top cc_157,.Lxtalabel41
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	142
+	.long	142
+	.long	.Lxtalabel41
 .cc_bottom cc_157
-.cc_top cc_158,.Lxtalabel14
+.cc_top cc_158,.Lxtalabel15
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	142
 	.long	142
-	.long	.Lxtalabel14
+	.long	.Lxtalabel15
 .cc_bottom cc_158
-.cc_top cc_159,.Lxtalabel66
+.cc_top cc_159,.Lxtalabel41
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	142
-	.long	142
-	.long	.Lxtalabel66
+	.long	144
+	.long	145
+	.long	.Lxtalabel41
 .cc_bottom cc_159
-.cc_top cc_160,.Lxtalabel41
+.cc_top cc_160,.Lxtalabel15
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	142
-	.long	142
-	.long	.Lxtalabel41
+	.long	144
+	.long	145
+	.long	.Lxtalabel15
 .cc_bottom cc_160
-.cc_top cc_161,.Lxtalabel41
+.cc_top cc_161,.Lxtalabel66
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	144
 	.long	145
-	.long	.Lxtalabel41
+	.long	.Lxtalabel66
 .cc_bottom cc_161
-.cc_top cc_162,.Lxtalabel66
+.cc_top cc_162,.Lxtalabel15
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	144
-	.long	145
-	.long	.Lxtalabel66
+	.long	146
+	.long	146
+	.long	.Lxtalabel15
 .cc_bottom cc_162
-.cc_top cc_163,.Lxtalabel14
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	144
-	.long	145
-	.long	.Lxtalabel14
-.cc_bottom cc_163
-.cc_top cc_164,.Lxtalabel14
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	146
-	.long	146
-	.long	.Lxtalabel14
-.cc_bottom cc_164
-.cc_top cc_165,.Lxtalabel66
+.cc_top cc_163,.Lxtalabel66
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel66
+.cc_bottom cc_163
+.cc_top cc_164,.Lxtalabel41
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	146
+	.long	146
+	.long	.Lxtalabel41
+.cc_bottom cc_164
+.cc_top cc_165,.Lxtalabel15
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	147
+	.long	147
+	.long	.Lxtalabel15
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel41
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	146
-	.long	146
+	.long	147
+	.long	147
 	.long	.Lxtalabel41
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel66
@@ -11202,250 +11191,250 @@ Temperature_Water_Controller.select.case.1:
 	.long	147
 	.long	.Lxtalabel66
 .cc_bottom cc_167
-.cc_top cc_168,.Lxtalabel14
+.cc_top cc_168,.Lxtalabel42
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	147
-	.long	147
-	.long	.Lxtalabel14
+	.long	153
+	.long	153
+	.long	.Lxtalabel42
 .cc_bottom cc_168
-.cc_top cc_169,.Lxtalabel41
+.cc_top cc_169,.Lxtalabel67
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	147
-	.long	147
-	.long	.Lxtalabel41
+	.long	153
+	.long	153
+	.long	.Lxtalabel67
 .cc_bottom cc_169
-.cc_top cc_170,.Lxtalabel42
+.cc_top cc_170,.Lxtalabel25
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	153
 	.long	153
-	.long	.Lxtalabel42
+	.long	.Lxtalabel25
 .cc_bottom cc_170
-.cc_top cc_171,.Lxtalabel67
+.cc_top cc_171,.Lxtalabel25
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	153
-	.long	153
-	.long	.Lxtalabel67
-.cc_bottom cc_171
-.cc_top cc_172,.Lxtalabel25
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	153
-	.long	153
+	.long	155
+	.long	155
 	.long	.Lxtalabel25
-.cc_bottom cc_172
-.cc_top cc_173,.Lxtalabel67
+.cc_bottom cc_171
+.cc_top cc_172,.Lxtalabel67
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	155
 	.long	155
 	.long	.Lxtalabel67
-.cc_bottom cc_173
-.cc_top cc_174,.Lxtalabel42
+.cc_bottom cc_172
+.cc_top cc_173,.Lxtalabel42
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	155
 	.long	155
 	.long	.Lxtalabel42
-.cc_bottom cc_174
-.cc_top cc_175,.Lxtalabel25
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	155
-	.long	155
-	.long	.Lxtalabel25
-.cc_bottom cc_175
-.cc_top cc_176,.Lxtalabel26
+.cc_bottom cc_173
+.cc_top cc_174,.Lxtalabel26
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel26
-.cc_bottom cc_176
-.cc_top cc_177,.Lxtalabel68
+.cc_bottom cc_174
+.cc_top cc_175,.Lxtalabel68
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel68
-.cc_bottom cc_177
-.cc_top cc_178,.Lxtalabel43
+.cc_bottom cc_175
+.cc_top cc_176,.Lxtalabel43
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel43
-.cc_bottom cc_178
-.cc_top cc_179,.Lxtalabel26
+.cc_bottom cc_176
+.cc_top cc_177,.Lxtalabel26
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel26
-.cc_bottom cc_179
-.cc_top cc_180,.Lxtalabel68
+.cc_bottom cc_177
+.cc_top cc_178,.Lxtalabel43
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	158
 	.long	159
+	.long	.Lxtalabel43
+.cc_bottom cc_178
+.cc_top cc_179,.Lxtalabel68
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	158
+	.long	159
+	.long	.Lxtalabel68
+.cc_bottom cc_179
+.cc_top cc_180,.Lxtalabel68
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	160
+	.long	160
 	.long	.Lxtalabel68
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel43
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	158
-	.long	159
+	.long	160
+	.long	160
 	.long	.Lxtalabel43
 .cc_bottom cc_181
-.cc_top cc_182,.Lxtalabel68
+.cc_top cc_182,.Lxtalabel26
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	160
 	.long	160
-	.long	.Lxtalabel68
+	.long	.Lxtalabel26
 .cc_bottom cc_182
-.cc_top cc_183,.Lxtalabel26
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	160
-	.long	160
-	.long	.Lxtalabel26
-.cc_bottom cc_183
-.cc_top cc_184,.Lxtalabel43
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	160
-	.long	160
-	.long	.Lxtalabel43
-.cc_bottom cc_184
-.cc_top cc_185,.Lxtalabel68
+.cc_top cc_183,.Lxtalabel68
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	161
 	.long	161
 	.long	.Lxtalabel68
-.cc_bottom cc_185
-.cc_top cc_186,.Lxtalabel43
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	161
-	.long	161
-	.long	.Lxtalabel43
-.cc_bottom cc_186
-.cc_top cc_187,.Lxtalabel26
+.cc_bottom cc_183
+.cc_top cc_184,.Lxtalabel26
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	161
 	.long	161
 	.long	.Lxtalabel26
-.cc_bottom cc_187
-.cc_top cc_188,.Lxtalabel45
+.cc_bottom cc_184
+.cc_top cc_185,.Lxtalabel43
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	161
+	.long	161
+	.long	.Lxtalabel43
+.cc_bottom cc_185
+.cc_top cc_186,.Lxtalabel70
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	162
+	.long	162
+	.long	.Lxtalabel70
+.cc_bottom cc_186
+.cc_top cc_187,.Lxtalabel45
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	162
 	.long	162
 	.long	.Lxtalabel45
+.cc_bottom cc_187
+.cc_top cc_188,.Lxtalabel28
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	162
+	.long	162
+	.long	.Lxtalabel28
 .cc_bottom cc_188
 .cc_top cc_189,.Lxtalabel70
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	162
-	.long	162
+	.long	164
+	.long	165
 	.long	.Lxtalabel70
 .cc_bottom cc_189
-.cc_top cc_190,.Lxtalabel28
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	162
-	.long	162
-	.long	.Lxtalabel28
-.cc_bottom cc_190
-.cc_top cc_191,.Lxtalabel70
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	164
-	.long	165
-	.long	.Lxtalabel70
-.cc_bottom cc_191
-.cc_top cc_192,.Lxtalabel28
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	164
-	.long	165
-	.long	.Lxtalabel28
-.cc_bottom cc_192
-.cc_top cc_193,.Lxtalabel45
+.cc_top cc_190,.Lxtalabel45
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	164
 	.long	165
 	.long	.Lxtalabel45
-.cc_bottom cc_193
-.cc_top cc_194,.Lxtalabel70
+.cc_bottom cc_190
+.cc_top cc_191,.Lxtalabel28
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	164
+	.long	165
+	.long	.Lxtalabel28
+.cc_bottom cc_191
+.cc_top cc_192,.Lxtalabel45
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	166
+	.long	166
+	.long	.Lxtalabel45
+.cc_bottom cc_192
+.cc_top cc_193,.Lxtalabel70
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	166
 	.long	166
 	.long	.Lxtalabel70
-.cc_bottom cc_194
-.cc_top cc_195,.Lxtalabel28
+.cc_bottom cc_193
+.cc_top cc_194,.Lxtalabel28
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	166
 	.long	166
 	.long	.Lxtalabel28
+.cc_bottom cc_194
+.cc_top cc_195,.Lxtalabel70
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	167
+	.long	167
+	.long	.Lxtalabel70
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel45
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	166
-	.long	166
+	.long	167
+	.long	167
 	.long	.Lxtalabel45
 .cc_bottom cc_196
-.cc_top cc_197,.Lxtalabel45
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	167
-	.long	167
-	.long	.Lxtalabel45
-.cc_bottom cc_197
-.cc_top cc_198,.Lxtalabel70
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	167
-	.long	167
-	.long	.Lxtalabel70
-.cc_bottom cc_198
-.cc_top cc_199,.Lxtalabel28
+.cc_top cc_197,.Lxtalabel28
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	167
 	.long	167
 	.long	.Lxtalabel28
-.cc_bottom cc_199
-.cc_top cc_200,.Lxtalabel44
+.cc_bottom cc_197
+.cc_top cc_198,.Lxtalabel44
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	173
 	.long	173
 	.long	.Lxtalabel44
-.cc_bottom cc_200
-.cc_top cc_201,.Lxtalabel27
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	173
-	.long	173
-	.long	.Lxtalabel27
-.cc_bottom cc_201
-.cc_top cc_202,.Lxtalabel69
+.cc_bottom cc_198
+.cc_top cc_199,.Lxtalabel69
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	173
 	.long	173
 	.long	.Lxtalabel69
+.cc_bottom cc_199
+.cc_top cc_200,.Lxtalabel27
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	173
+	.long	173
+	.long	.Lxtalabel27
+.cc_bottom cc_200
+.cc_top cc_201,.Lxtalabel69
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	174
+	.long	174
+	.long	.Lxtalabel69
+.cc_bottom cc_201
+.cc_top cc_202,.Lxtalabel27
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	174
+	.long	174
+	.long	.Lxtalabel27
 .cc_bottom cc_202
 .cc_top cc_203,.Lxtalabel44
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11454,19 +11443,19 @@ Temperature_Water_Controller.select.case.1:
 	.long	174
 	.long	.Lxtalabel44
 .cc_bottom cc_203
-.cc_top cc_204,.Lxtalabel69
+.cc_top cc_204,.Lxtalabel27
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	174
-	.long	174
-	.long	.Lxtalabel69
-.cc_bottom cc_204
-.cc_top cc_205,.Lxtalabel27
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	174
-	.long	174
+	.long	177
+	.long	177
 	.long	.Lxtalabel27
+.cc_bottom cc_204
+.cc_top cc_205,.Lxtalabel69
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	177
+	.long	177
+	.long	.Lxtalabel69
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel44
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11475,19 +11464,19 @@ Temperature_Water_Controller.select.case.1:
 	.long	177
 	.long	.Lxtalabel44
 .cc_bottom cc_206
-.cc_top cc_207,.Lxtalabel27
+.cc_top cc_207,.Lxtalabel14
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	177
-	.long	177
-	.long	.Lxtalabel27
+	.long	180
+	.long	180
+	.long	.Lxtalabel14
 .cc_bottom cc_207
-.cc_top cc_208,.Lxtalabel69
+.cc_top cc_208,.Lxtalabel65
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	177
-	.long	177
-	.long	.Lxtalabel69
+	.long	180
+	.long	180
+	.long	.Lxtalabel65
 .cc_bottom cc_208
 .cc_top cc_209,.Lxtalabel40
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11496,222 +11485,222 @@ Temperature_Water_Controller.select.case.1:
 	.long	180
 	.long	.Lxtalabel40
 .cc_bottom cc_209
-.cc_top cc_210,.Lxtalabel13
+.cc_top cc_210,.Lxtalabel40
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	180
-	.long	180
-	.long	.Lxtalabel13
+	.long	183
+	.long	183
+	.long	.Lxtalabel40
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel65
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	180
-	.long	180
+	.long	183
+	.long	183
 	.long	.Lxtalabel65
 .cc_bottom cc_211
-.cc_top cc_212,.Lxtalabel65
+.cc_top cc_212,.Lxtalabel14
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	183
 	.long	183
-	.long	.Lxtalabel65
+	.long	.Lxtalabel14
 .cc_bottom cc_212
-.cc_top cc_213,.Lxtalabel13
+.cc_top cc_213,.Lxtalabel14
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	183
-	.long	183
-	.long	.Lxtalabel13
+	.long	191
+	.long	191
+	.long	.Lxtalabel14
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel40
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	183
-	.long	183
+	.long	191
+	.long	191
 	.long	.Lxtalabel40
 .cc_bottom cc_214
-.cc_top cc_215,.Lxtalabel40
+.cc_top cc_215,.Lxtalabel65
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	191
 	.long	191
-	.long	.Lxtalabel40
+	.long	.Lxtalabel65
 .cc_bottom cc_215
-.cc_top cc_216,.Lxtalabel65
+.cc_top cc_216,.Lxtalabel14
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	191
-	.long	191
-	.long	.Lxtalabel65
+	.long	194
+	.long	194
+	.long	.Lxtalabel14
 .cc_bottom cc_216
-.cc_top cc_217,.Lxtalabel13
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	191
-	.long	191
-	.long	.Lxtalabel13
-.cc_bottom cc_217
-.cc_top cc_218,.Lxtalabel40
+.cc_top cc_217,.Lxtalabel40
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	194
 	.long	194
 	.long	.Lxtalabel40
-.cc_bottom cc_218
-.cc_top cc_219,.Lxtalabel13
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	194
-	.long	194
-	.long	.Lxtalabel13
-.cc_bottom cc_219
-.cc_top cc_220,.Lxtalabel65
+.cc_bottom cc_217
+.cc_top cc_218,.Lxtalabel65
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	194
 	.long	194
 	.long	.Lxtalabel65
+.cc_bottom cc_218
+.cc_top cc_219,.Lxtalabel11
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	198
+	.long	198
+	.long	.Lxtalabel11
+.cc_bottom cc_219
+.cc_top cc_220,.Lxtalabel10
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	198
+	.long	198
+	.long	.Lxtalabel10
 .cc_bottom cc_220
-.cc_top cc_221,.Lxtalabel46
+.cc_top cc_221,.Lxtalabel18
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel46
+	.long	.Lxtalabel18
 .cc_bottom cc_221
-.cc_top cc_222,.Lxtalabel10
+.cc_top cc_222,.Lxtalabel17
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel10
+	.long	.Lxtalabel17
 .cc_bottom cc_222
-.cc_top cc_223,.Lxtalabel17
+.cc_top cc_223,.Lxtalabel46
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel17
+	.long	.Lxtalabel46
 .cc_bottom cc_223
-.cc_top cc_224,.Lxtalabel9
+.cc_top cc_224,.Lxtalabel16
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel9
+	.long	.Lxtalabel16
 .cc_bottom cc_224
-.cc_top cc_225,.Lxtalabel16
+.cc_top cc_225,.Lxtalabel71
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel16
+	.long	.Lxtalabel71
 .cc_bottom cc_225
-.cc_top cc_226,.Lxtalabel15
+.cc_top cc_226,.Lxtalabel47
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel15
+	.long	.Lxtalabel47
 .cc_bottom cc_226
-.cc_top cc_227,.Lxtalabel71
+.cc_top cc_227,.Lxtalabel72
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	198
 	.long	198
-	.long	.Lxtalabel71
+	.long	.Lxtalabel72
 .cc_bottom cc_227
-.cc_top cc_228,.Lxtalabel72
+.cc_top cc_228,.Lxtalabel47
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	198
-	.long	198
-	.long	.Lxtalabel72
+	.long	199
+	.long	199
+	.long	.Lxtalabel47
 .cc_bottom cc_228
-.cc_top cc_229,.Lxtalabel47
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	198
-	.long	198
-	.long	.Lxtalabel47
-.cc_bottom cc_229
-.cc_top cc_230,.Lxtalabel71
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel71
-.cc_bottom cc_230
-.cc_top cc_231,.Lxtalabel47
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel47
-.cc_bottom cc_231
-.cc_top cc_232,.Lxtalabel16
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel16
-.cc_bottom cc_232
-.cc_top cc_233,.Lxtalabel15
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel15
-.cc_bottom cc_233
-.cc_top cc_234,.Lxtalabel10
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel10
-.cc_bottom cc_234
-.cc_top cc_235,.Lxtalabel72
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel72
-.cc_bottom cc_235
-.cc_top cc_236,.Lxtalabel17
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel17
-.cc_bottom cc_236
-.cc_top cc_237,.Lxtalabel9
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	199
-	.long	199
-	.long	.Lxtalabel9
-.cc_bottom cc_237
-.cc_top cc_238,.Lxtalabel46
+.cc_top cc_229,.Lxtalabel46
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	199
 	.long	199
 	.long	.Lxtalabel46
+.cc_bottom cc_229
+.cc_top cc_230,.Lxtalabel72
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel72
+.cc_bottom cc_230
+.cc_top cc_231,.Lxtalabel16
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel16
+.cc_bottom cc_231
+.cc_top cc_232,.Lxtalabel18
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel18
+.cc_bottom cc_232
+.cc_top cc_233,.Lxtalabel17
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel17
+.cc_bottom cc_233
+.cc_top cc_234,.Lxtalabel71
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel71
+.cc_bottom cc_234
+.cc_top cc_235,.Lxtalabel10
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel10
+.cc_bottom cc_235
+.cc_top cc_236,.Lxtalabel11
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	199
+	.long	199
+	.long	.Lxtalabel11
+.cc_bottom cc_236
+.cc_top cc_237,.Lxtalabel18
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	201
+	.long	201
+	.long	.Lxtalabel18
+.cc_bottom cc_237
+.cc_top cc_238,.Lxtalabel11
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	201
+	.long	201
+	.long	.Lxtalabel11
 .cc_bottom cc_238
-.cc_top cc_239,.Lxtalabel71
+.cc_top cc_239,.Lxtalabel47
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	201
+	.long	201
+	.long	.Lxtalabel47
+.cc_bottom cc_239
+.cc_top cc_240,.Lxtalabel71
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	201
 	.long	201
 	.long	.Lxtalabel71
-.cc_bottom cc_239
-.cc_top cc_240,.Lxtalabel10
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	201
-	.long	201
-	.long	.Lxtalabel10
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel17
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11720,19 +11709,19 @@ Temperature_Water_Controller.select.case.1:
 	.long	201
 	.long	.Lxtalabel17
 .cc_bottom cc_241
-.cc_top cc_242,.Lxtalabel9
+.cc_top cc_242,.Lxtalabel46
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	201
 	.long	201
-	.long	.Lxtalabel9
+	.long	.Lxtalabel46
 .cc_bottom cc_242
-.cc_top cc_243,.Lxtalabel47
+.cc_top cc_243,.Lxtalabel16
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	201
 	.long	201
-	.long	.Lxtalabel47
+	.long	.Lxtalabel16
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel72
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11741,110 +11730,110 @@ Temperature_Water_Controller.select.case.1:
 	.long	201
 	.long	.Lxtalabel72
 .cc_bottom cc_244
-.cc_top cc_245,.Lxtalabel46
+.cc_top cc_245,.Lxtalabel10
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	201
 	.long	201
-	.long	.Lxtalabel46
+	.long	.Lxtalabel10
 .cc_bottom cc_245
-.cc_top cc_246,.Lxtalabel16
+.cc_top cc_246,.Lxtalabel48
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	201
-	.long	201
-	.long	.Lxtalabel16
+	.long	202
+	.long	202
+	.long	.Lxtalabel48
 .cc_bottom cc_246
-.cc_top cc_247,.Lxtalabel15
+.cc_top cc_247,.Lxtalabel19
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	201
-	.long	201
-	.long	.Lxtalabel15
+	.long	202
+	.long	202
+	.long	.Lxtalabel19
 .cc_bottom cc_247
-.cc_top cc_248,.Lxtalabel48
+.cc_top cc_248,.Lxtalabel73
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	202
 	.long	202
-	.long	.Lxtalabel48
+	.long	.Lxtalabel73
 .cc_bottom cc_248
-.cc_top cc_249,.Lxtalabel73
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	202
-	.long	202
-	.long	.Lxtalabel73
-.cc_bottom cc_249
-.cc_top cc_250,.Lxtalabel18
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	202
-	.long	202
-	.long	.Lxtalabel18
-.cc_bottom cc_250
-.cc_top cc_251,.Lxtalabel73
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	203
-	.long	203
-	.long	.Lxtalabel73
-.cc_bottom cc_251
-.cc_top cc_252,.Lxtalabel18
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	203
-	.long	203
-	.long	.Lxtalabel18
-.cc_bottom cc_252
-.cc_top cc_253,.Lxtalabel48
+.cc_top cc_249,.Lxtalabel48
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	203
 	.long	203
 	.long	.Lxtalabel48
+.cc_bottom cc_249
+.cc_top cc_250,.Lxtalabel73
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	203
+	.long	203
+	.long	.Lxtalabel73
+.cc_bottom cc_250
+.cc_top cc_251,.Lxtalabel19
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	203
+	.long	203
+	.long	.Lxtalabel19
+.cc_bottom cc_251
+.cc_top cc_252,.Lxtalabel20
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	204
+	.long	204
+	.long	.Lxtalabel20
+.cc_bottom cc_252
+.cc_top cc_253,.Lxtalabel74
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	204
+	.long	204
+	.long	.Lxtalabel74
 .cc_bottom cc_253
-.cc_top cc_254,.Lxtalabel19
+.cc_top cc_254,.Lxtalabel49
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	204
 	.long	204
-	.long	.Lxtalabel19
+	.long	.Lxtalabel49
 .cc_bottom cc_254
-.cc_top cc_255,.Lxtalabel74
+.cc_top cc_255,.Lxtalabel49
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	204
-	.long	204
-	.long	.Lxtalabel74
+	.long	205
+	.long	205
+	.long	.Lxtalabel49
 .cc_bottom cc_255
-.cc_top cc_256,.Lxtalabel49
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	204
-	.long	204
-	.long	.Lxtalabel49
-.cc_bottom cc_256
-.cc_top cc_257,.Lxtalabel19
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	205
-	.long	205
-	.long	.Lxtalabel19
-.cc_bottom cc_257
-.cc_top cc_258,.Lxtalabel74
+.cc_top cc_256,.Lxtalabel74
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	205
 	.long	205
 	.long	.Lxtalabel74
-.cc_bottom cc_258
-.cc_top cc_259,.Lxtalabel49
+.cc_bottom cc_256
+.cc_top cc_257,.Lxtalabel20
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	205
 	.long	205
-	.long	.Lxtalabel49
+	.long	.Lxtalabel20
+.cc_bottom cc_257
+.cc_top cc_258,.Lxtalabel22
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	207
+	.long	207
+	.long	.Lxtalabel22
+.cc_bottom cc_258
+.cc_top cc_259,.Lxtalabel51
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	207
+	.long	207
+	.long	.Lxtalabel51
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel76
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11853,131 +11842,131 @@ Temperature_Water_Controller.select.case.1:
 	.long	207
 	.long	.Lxtalabel76
 .cc_bottom cc_260
-.cc_top cc_261,.Lxtalabel51
+.cc_top cc_261,.Lxtalabel22
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	207
-	.long	207
-	.long	.Lxtalabel51
+	.long	208
+	.long	208
+	.long	.Lxtalabel22
 .cc_bottom cc_261
-.cc_top cc_262,.Lxtalabel21
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	207
-	.long	207
-	.long	.Lxtalabel21
-.cc_bottom cc_262
-.cc_top cc_263,.Lxtalabel76
+.cc_top cc_262,.Lxtalabel76
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	208
 	.long	208
 	.long	.Lxtalabel76
-.cc_bottom cc_263
-.cc_top cc_264,.Lxtalabel51
+.cc_bottom cc_262
+.cc_top cc_263,.Lxtalabel51
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	208
 	.long	208
 	.long	.Lxtalabel51
+.cc_bottom cc_263
+.cc_top cc_264,.Lxtalabel52
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	209
+	.long	209
+	.long	.Lxtalabel52
 .cc_bottom cc_264
-.cc_top cc_265,.Lxtalabel21
+.cc_top cc_265,.Lxtalabel23
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	208
-	.long	208
-	.long	.Lxtalabel21
+	.long	209
+	.long	209
+	.long	.Lxtalabel23
 .cc_bottom cc_265
-.cc_top cc_266,.Lxtalabel22
+.cc_top cc_266,.Lxtalabel77
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	209
 	.long	209
-	.long	.Lxtalabel22
+	.long	.Lxtalabel77
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel77
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	209
-	.long	209
+	.long	210
+	.long	210
 	.long	.Lxtalabel77
 .cc_bottom cc_267
 .cc_top cc_268,.Lxtalabel52
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	209
-	.long	209
+	.long	210
+	.long	210
 	.long	.Lxtalabel52
 .cc_bottom cc_268
-.cc_top cc_269,.Lxtalabel77
+.cc_top cc_269,.Lxtalabel23
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	210
 	.long	210
-	.long	.Lxtalabel77
+	.long	.Lxtalabel23
 .cc_bottom cc_269
-.cc_top cc_270,.Lxtalabel52
+.cc_top cc_270,.Lxtalabel75
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	210
-	.long	210
-	.long	.Lxtalabel52
+	.long	212
+	.long	212
+	.long	.Lxtalabel75
 .cc_bottom cc_270
-.cc_top cc_271,.Lxtalabel22
+.cc_top cc_271,.Lxtalabel50
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	210
-	.long	210
-	.long	.Lxtalabel22
+	.long	212
+	.long	212
+	.long	.Lxtalabel50
 .cc_bottom cc_271
-.cc_top cc_272,.Lxtalabel20
+.cc_top cc_272,.Lxtalabel21
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	212
 	.long	212
-	.long	.Lxtalabel20
+	.long	.Lxtalabel21
 .cc_bottom cc_272
 .cc_top cc_273,.Lxtalabel50
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	212
-	.long	212
+	.long	213
+	.long	213
 	.long	.Lxtalabel50
 .cc_bottom cc_273
-.cc_top cc_274,.Lxtalabel75
+.cc_top cc_274,.Lxtalabel21
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	212
-	.long	212
-	.long	.Lxtalabel75
+	.long	213
+	.long	213
+	.long	.Lxtalabel21
 .cc_bottom cc_274
-.cc_top cc_275,.Lxtalabel20
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	213
-	.long	213
-	.long	.Lxtalabel20
-.cc_bottom cc_275
-.cc_top cc_276,.Lxtalabel50
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	213
-	.long	213
-	.long	.Lxtalabel50
-.cc_bottom cc_276
-.cc_top cc_277,.Lxtalabel75
+.cc_top cc_275,.Lxtalabel75
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	213
 	.long	213
 	.long	.Lxtalabel75
-.cc_bottom cc_277
-.cc_top cc_278,.Lxtalabel54
+.cc_bottom cc_275
+.cc_top cc_276,.Lxtalabel54
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	215
 	.long	215
 	.long	.Lxtalabel54
+.cc_bottom cc_276
+.cc_top cc_277,.Lxtalabel78
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	215
+	.long	215
+	.long	.Lxtalabel78
+.cc_bottom cc_277
+.cc_top cc_278,.Lxtalabel24
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	215
+	.long	215
+	.long	.Lxtalabel24
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel53
 	.ascii	"../src/temperature_water_controller.xc"
@@ -11986,12 +11975,12 @@ Temperature_Water_Controller.select.case.1:
 	.long	215
 	.long	.Lxtalabel53
 .cc_bottom cc_279
-.cc_top cc_280,.Lxtalabel23
+.cc_top cc_280,.Lxtalabel1
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	215
 	.long	215
-	.long	.Lxtalabel23
+	.long	.Lxtalabel1
 .cc_bottom cc_280
 .cc_top cc_281,.Lxtalabel79
 	.ascii	"../src/temperature_water_controller.xc"
@@ -12000,103 +11989,103 @@ Temperature_Water_Controller.select.case.1:
 	.long	215
 	.long	.Lxtalabel79
 .cc_bottom cc_281
-.cc_top cc_282,.Lxtalabel78
+.cc_top cc_282,.Lxtalabel79
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	215
-	.long	215
-	.long	.Lxtalabel78
+	.long	219
+	.long	219
+	.long	.Lxtalabel79
 .cc_bottom cc_282
-.cc_top cc_283,.Lxtalabel24
+.cc_top cc_283,.Lxtalabel53
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	215
-	.long	215
-	.long	.Lxtalabel24
+	.long	219
+	.long	219
+	.long	.Lxtalabel53
 .cc_bottom cc_283
-.cc_top cc_284,.Lxtalabel24
+.cc_top cc_284,.Lxtalabel78
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	219
 	.long	219
-	.long	.Lxtalabel24
+	.long	.Lxtalabel78
 .cc_bottom cc_284
-.cc_top cc_285,.Lxtalabel23
+.cc_top cc_285,.Lxtalabel1
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	219
 	.long	219
-	.long	.Lxtalabel23
+	.long	.Lxtalabel1
 .cc_bottom cc_285
-.cc_top cc_286,.Lxtalabel78
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	219
-	.long	219
-	.long	.Lxtalabel78
-.cc_bottom cc_286
-.cc_top cc_287,.Lxtalabel79
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	219
-	.long	219
-	.long	.Lxtalabel79
-.cc_bottom cc_287
-.cc_top cc_288,.Lxtalabel54
+.cc_top cc_286,.Lxtalabel54
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	219
 	.long	219
 	.long	.Lxtalabel54
-.cc_bottom cc_288
-.cc_top cc_289,.Lxtalabel53
+.cc_bottom cc_286
+.cc_top cc_287,.Lxtalabel24
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	219
 	.long	219
-	.long	.Lxtalabel53
-.cc_bottom cc_289
-.cc_top cc_290,.Lxtalabel24
+	.long	.Lxtalabel24
+.cc_bottom cc_287
+.cc_top cc_288,.Lxtalabel24
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	221
 	.long	221
 	.long	.Lxtalabel24
-.cc_bottom cc_290
-.cc_top cc_291,.Lxtalabel78
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	221
-	.long	221
-	.long	.Lxtalabel78
-.cc_bottom cc_291
-.cc_top cc_292,.Lxtalabel23
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	221
-	.long	221
-	.long	.Lxtalabel23
-.cc_bottom cc_292
-.cc_top cc_293,.Lxtalabel53
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	221
-	.long	221
-	.long	.Lxtalabel53
-.cc_bottom cc_293
-.cc_top cc_294,.Lxtalabel79
+.cc_bottom cc_288
+.cc_top cc_289,.Lxtalabel79
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	221
 	.long	221
 	.long	.Lxtalabel79
-.cc_bottom cc_294
-.cc_top cc_295,.Lxtalabel54
+.cc_bottom cc_289
+.cc_top cc_290,.Lxtalabel78
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	221
+	.long	221
+	.long	.Lxtalabel78
+.cc_bottom cc_290
+.cc_top cc_291,.Lxtalabel53
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	221
+	.long	221
+	.long	.Lxtalabel53
+.cc_bottom cc_291
+.cc_top cc_292,.Lxtalabel1
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	221
+	.long	221
+	.long	.Lxtalabel1
+.cc_bottom cc_292
+.cc_top cc_293,.Lxtalabel54
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	221
 	.long	221
 	.long	.Lxtalabel54
+.cc_bottom cc_293
+.cc_top cc_294,.Lxtalabel53
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	222
+	.long	223
+	.long	.Lxtalabel53
+.cc_bottom cc_294
+.cc_top cc_295,.Lxtalabel79
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	222
+	.long	223
+	.long	.Lxtalabel79
 .cc_bottom cc_295
 .cc_top cc_296,.Lxtalabel54
 	.ascii	"../src/temperature_water_controller.xc"
@@ -12112,33 +12101,33 @@ Temperature_Water_Controller.select.case.1:
 	.long	223
 	.long	.Lxtalabel54
 .cc_bottom cc_297
-.cc_top cc_298,.Lxtalabel79
+.cc_top cc_298,.Lxtalabel54
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	222
+	.long	223
+	.long	.Lxtalabel54
+.cc_bottom cc_298
+.cc_top cc_299,.Lxtalabel79
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
 	.long	.Lxtalabel79
-.cc_bottom cc_298
-.cc_top cc_299,.Lxtalabel53
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel53
 .cc_bottom cc_299
-.cc_top cc_300,.Lxtalabel53
+.cc_top cc_300,.Lxtalabel79
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel53
+	.long	.Lxtalabel79
 .cc_bottom cc_300
-.cc_top cc_301,.Lxtalabel53
+.cc_top cc_301,.Lxtalabel1
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel53
+	.long	.Lxtalabel1
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel53
 	.ascii	"../src/temperature_water_controller.xc"
@@ -12147,40 +12136,40 @@ Temperature_Water_Controller.select.case.1:
 	.long	223
 	.long	.Lxtalabel53
 .cc_bottom cc_302
-.cc_top cc_303,.Lxtalabel54
+.cc_top cc_303,.Lxtalabel53
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel54
+	.long	.Lxtalabel53
 .cc_bottom cc_303
-.cc_top cc_304,.Lxtalabel54
+.cc_top cc_304,.Lxtalabel1
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel54
+	.long	.Lxtalabel1
 .cc_bottom cc_304
-.cc_top cc_305,.Lxtalabel78
+.cc_top cc_305,.Lxtalabel1
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	222
+	.long	223
+	.long	.Lxtalabel1
+.cc_bottom cc_305
+.cc_top cc_306,.Lxtalabel78
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
 	.long	.Lxtalabel78
-.cc_bottom cc_305
-.cc_top cc_306,.Lxtalabel24
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel24
 .cc_bottom cc_306
-.cc_top cc_307,.Lxtalabel24
+.cc_top cc_307,.Lxtalabel78
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel24
+	.long	.Lxtalabel78
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel78
 	.ascii	"../src/temperature_water_controller.xc"
@@ -12189,279 +12178,223 @@ Temperature_Water_Controller.select.case.1:
 	.long	223
 	.long	.Lxtalabel78
 .cc_bottom cc_308
-.cc_top cc_309,.Lxtalabel79
+.cc_top cc_309,.Lxtalabel24
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel79
+	.long	.Lxtalabel24
 .cc_bottom cc_309
-.cc_top cc_310,.Lxtalabel79
+.cc_top cc_310,.Lxtalabel24
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel79
+	.long	.Lxtalabel24
 .cc_bottom cc_310
-.cc_top cc_311,.Lxtalabel78
+.cc_top cc_311,.Lxtalabel24
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	222
 	.long	223
-	.long	.Lxtalabel78
+	.long	.Lxtalabel24
 .cc_bottom cc_311
-.cc_top cc_312,.Lxtalabel24
+.cc_top cc_312,.Lxtalabel55
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel24
+	.long	227
+	.long	227
+	.long	.Lxtalabel55
 .cc_bottom cc_312
-.cc_top cc_313,.Lxtalabel78
+.cc_top cc_313,.Lxtalabel80
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel78
+	.long	227
+	.long	227
+	.long	.Lxtalabel80
 .cc_bottom cc_313
-.cc_top cc_314,.Lxtalabel24
+.cc_top cc_314,.Lxtalabel80
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel24
+	.long	229
+	.long	229
+	.long	.Lxtalabel80
 .cc_bottom cc_314
-.cc_top cc_315,.Lxtalabel23
+.cc_top cc_315,.Lxtalabel55
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel23
+	.long	229
+	.long	229
+	.long	.Lxtalabel55
 .cc_bottom cc_315
-.cc_top cc_316,.Lxtalabel23
+.cc_top cc_316,.Lxtalabel82
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel23
+	.long	234
+	.long	236
+	.long	.Lxtalabel82
 .cc_bottom cc_316
-.cc_top cc_317,.Lxtalabel23
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel23
-.cc_bottom cc_317
-.cc_top cc_318,.Lxtalabel23
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel23
-.cc_bottom cc_318
-.cc_top cc_319,.Lxtalabel79
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	222
-	.long	223
-	.long	.Lxtalabel79
-.cc_bottom cc_319
-.cc_top cc_320,.Lxtalabel80
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	227
-	.long	227
-	.long	.Lxtalabel80
-.cc_bottom cc_320
-.cc_top cc_321,.Lxtalabel55
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	227
-	.long	227
-	.long	.Lxtalabel55
-.cc_bottom cc_321
-.cc_top cc_322,.Lxtalabel80
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	229
-	.long	229
-	.long	.Lxtalabel80
-.cc_bottom cc_322
-.cc_top cc_323,.Lxtalabel55
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	229
-	.long	229
-	.long	.Lxtalabel55
-.cc_bottom cc_323
-.cc_top cc_324,.Lxtalabel3
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel3
-.cc_bottom cc_324
-.cc_top cc_325,.Lxtalabel31
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel31
-.cc_bottom cc_325
-.cc_top cc_326,.Lxtalabel2
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel2
-.cc_bottom cc_326
-.cc_top cc_327,.Lxtalabel81
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel81
-.cc_bottom cc_327
-.cc_top cc_328,.Lxtalabel57
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel57
-.cc_bottom cc_328
-.cc_top cc_329,.Lxtalabel32
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	234
-	.long	236
-	.long	.Lxtalabel32
-.cc_bottom cc_329
-.cc_top cc_330,.Lxtalabel56
+.cc_top cc_317,.Lxtalabel56
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	234
 	.long	236
 	.long	.Lxtalabel56
-.cc_bottom cc_330
-.cc_top cc_331,.Lxtalabel82
+.cc_bottom cc_317
+.cc_top cc_318,.Lxtalabel31
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	234
 	.long	236
-	.long	.Lxtalabel82
-.cc_bottom cc_331
-.cc_top cc_332,.Lxtalabel31
+	.long	.Lxtalabel31
+.cc_bottom cc_318
+.cc_top cc_319,.Lxtalabel81
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	234
+	.long	236
+	.long	.Lxtalabel81
+.cc_bottom cc_319
+.cc_top cc_320,.Lxtalabel4
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	234
+	.long	236
+	.long	.Lxtalabel4
+.cc_bottom cc_320
+.cc_top cc_321,.Lxtalabel3
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	234
+	.long	236
+	.long	.Lxtalabel3
+.cc_bottom cc_321
+.cc_top cc_322,.Lxtalabel57
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	234
+	.long	236
+	.long	.Lxtalabel57
+.cc_bottom cc_322
+.cc_top cc_323,.Lxtalabel32
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	234
+	.long	236
+	.long	.Lxtalabel32
+.cc_bottom cc_323
+.cc_top cc_324,.Lxtalabel57
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	238
+	.long	238
+	.long	.Lxtalabel57
+.cc_bottom cc_324
+.cc_top cc_325,.Lxtalabel31
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	238
 	.long	238
 	.long	.Lxtalabel31
-.cc_bottom cc_332
-.cc_top cc_333,.Lxtalabel82
+.cc_bottom cc_325
+.cc_top cc_326,.Lxtalabel82
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	238
 	.long	238
 	.long	.Lxtalabel82
-.cc_bottom cc_333
-.cc_top cc_334,.Lxtalabel32
+.cc_bottom cc_326
+.cc_top cc_327,.Lxtalabel32
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	238
 	.long	238
 	.long	.Lxtalabel32
-.cc_bottom cc_334
-.cc_top cc_335,.Lxtalabel57
+.cc_bottom cc_327
+.cc_top cc_328,.Lxtalabel4
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	238
 	.long	238
+	.long	.Lxtalabel4
+.cc_bottom cc_328
+.cc_top cc_329,.Lxtalabel56
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	238
+	.long	238
+	.long	.Lxtalabel56
+.cc_bottom cc_329
+.cc_top cc_330,.Lxtalabel81
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	238
+	.long	238
+	.long	.Lxtalabel81
+.cc_bottom cc_330
+.cc_top cc_331,.Lxtalabel3
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	238
+	.long	238
+	.long	.Lxtalabel3
+.cc_bottom cc_331
+.cc_top cc_332,.Lxtalabel31
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	240
+	.long	240
+	.long	.Lxtalabel31
+.cc_bottom cc_332
+.cc_top cc_333,.Lxtalabel32
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	240
+	.long	240
+	.long	.Lxtalabel32
+.cc_bottom cc_333
+.cc_top cc_334,.Lxtalabel56
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	240
+	.long	240
+	.long	.Lxtalabel56
+.cc_bottom cc_334
+.cc_top cc_335,.Lxtalabel57
+	.ascii	"../src/temperature_water_controller.xc"
+	.byte	0
+	.long	240
+	.long	240
 	.long	.Lxtalabel57
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel81
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	238
-	.long	238
+	.long	240
+	.long	240
 	.long	.Lxtalabel81
 .cc_bottom cc_336
-.cc_top cc_337,.Lxtalabel56
+.cc_top cc_337,.Lxtalabel4
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	238
-	.long	238
-	.long	.Lxtalabel56
+	.long	240
+	.long	240
+	.long	.Lxtalabel4
 .cc_bottom cc_337
 .cc_top cc_338,.Lxtalabel3
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
-	.long	238
-	.long	238
+	.long	240
+	.long	240
 	.long	.Lxtalabel3
 .cc_bottom cc_338
-.cc_top cc_339,.Lxtalabel2
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	238
-	.long	238
-	.long	.Lxtalabel2
-.cc_bottom cc_339
-.cc_top cc_340,.Lxtalabel2
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel2
-.cc_bottom cc_340
-.cc_top cc_341,.Lxtalabel56
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel56
-.cc_bottom cc_341
-.cc_top cc_342,.Lxtalabel3
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel3
-.cc_bottom cc_342
-.cc_top cc_343,.Lxtalabel57
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel57
-.cc_bottom cc_343
-.cc_top cc_344,.Lxtalabel81
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel81
-.cc_bottom cc_344
-.cc_top cc_345,.Lxtalabel32
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel32
-.cc_bottom cc_345
-.cc_top cc_346,.Lxtalabel31
-	.ascii	"../src/temperature_water_controller.xc"
-	.byte	0
-	.long	240
-	.long	240
-	.long	.Lxtalabel31
-.cc_bottom cc_346
-.cc_top cc_347,.Lxtalabel82
+.cc_top cc_339,.Lxtalabel82
 	.ascii	"../src/temperature_water_controller.xc"
 	.byte	0
 	.long	240
 	.long	240
 	.long	.Lxtalabel82
-.cc_bottom cc_347
+.cc_bottom cc_339
 .Lentries_end5:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

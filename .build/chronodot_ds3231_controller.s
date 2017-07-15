@@ -46,7 +46,7 @@
 	.globl Chronodot_DS3231_Controller.select.enable.cases.maxchanends
 	.set Chronodot_DS3231_Controller.select.enable.cases,0
 	.globl Chronodot_DS3231_Controller.select.enable.cases
-	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.case.0.nstackwords)
+	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.case.1.nstackwords)
 	.globl Chronodot_DS3231_Controller.select.enable.cases.nstackwords
 	.weak _i.chronodot_ds3231_if.get_time_ok.maxchanends.group
 	.max_reduce _i.chronodot_ds3231_if.get_time_ok.max.maxchanends, _i.chronodot_ds3231_if.get_time_ok.maxchanends.group, 0
@@ -190,18 +190,18 @@
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords, _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.fns, _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxchanends.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxchanends, _i.temperature_heater_commands_if.get_temps.maxchanends.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxcores.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxcores, _i.temperature_heater_commands_if.get_temps.maxcores.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.maxtimers.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.maxtimers, _i.temperature_heater_commands_if.get_temps.maxtimers.group, 0
-	.weak _i.temperature_heater_commands_if.get_temps.nstackwords.group
-	.globl _i.temperature_heater_commands_if.get_temps.nstackwords.group
-	.weak _i.temperature_heater_commands_if.get_temps.fns.group
-	.globl _i.temperature_heater_commands_if.get_temps.fns.group
-	.max_reduce _i.temperature_heater_commands_if.get_temps.max.nstackwords, _i.temperature_heater_commands_if.get_temps.nstackwords.group, 0
-	.max_reduce _i.temperature_heater_commands_if.get_temps.fns, _i.temperature_heater_commands_if.get_temps.fns.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxchanends, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxcores, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.maxtimers, _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group, 0
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
+	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
+	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
+	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords, _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, 0
+	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.fns, _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
 	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, 0
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
@@ -2641,11 +2641,11 @@ _i.temperature_heater_commands_if._chan.get_temp_degC_str:
 	.size	_i.temperature_heater_commands_if._chan.get_temp_degC_str, .Ltmp161-_i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan.get_temps
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan.get_temps,@function
-	.cc_top _i.temperature_heater_commands_if._chan.get_temps.function,_i.temperature_heater_commands_if._chan.get_temps
-_i.temperature_heater_commands_if._chan.get_temps:
+	.type	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps,@function
+	.cc_top _i.temperature_heater_commands_if._chan.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
+_i.temperature_heater_commands_if._chan.get_mean_i2c_temps:
 	.cfi_startproc
 	entsp 4
 .Ltmp162:
@@ -2679,21 +2679,21 @@ _i.temperature_heater_commands_if._chan.get_temps:
 	ldw r4, sp[3]
 	retsp 4
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan.get_temps.function
-	.set	_i.temperature_heater_commands_if._chan.get_temps.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 4)
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.nstackwords
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxcores
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxcores
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxtimers
-	.set	_i.temperature_heater_commands_if._chan.get_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan.get_temps.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan.get_mean_i2c_temps.function
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords,((_i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M __interface_client_call.nstackwords) + 4)
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores,__interface_client_call.maxcores $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxcores
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers,__interface_client_call.maxtimers $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxtimers
+	.set	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends,(1 + __interface_client_call.maxchanends) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps.maxchanends
 .Ltmp166:
-	.size	_i.temperature_heater_commands_if._chan.get_temps, .Ltmp166-_i.temperature_heater_commands_if._chan.get_temps
+	.size	_i.temperature_heater_commands_if._chan.get_mean_i2c_temps, .Ltmp166-_i.temperature_heater_commands_if._chan.get_mean_i2c_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.heater_set_temp_degC
@@ -2946,11 +2946,11 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp191-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_temps,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_temps.function,_i.temperature_heater_commands_if._chan_y.get_temps
-_i.temperature_heater_commands_if._chan_y.get_temps:
+	.type	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,@function
+	.cc_top _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps:
 	.cfi_startproc
 	entsp 5
 .Ltmp192:
@@ -2991,21 +2991,21 @@ _i.temperature_heater_commands_if._chan_y.get_temps:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temps.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temps.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
 .Ltmp197:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temps, .Ltmp197-_i.temperature_heater_commands_if._chan_y.get_temps
+	.size	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, .Ltmp197-_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
@@ -5731,7 +5731,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string86:
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
 .Linfo_string87:
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan.get_mean_i2c_temps"
 .Linfo_string88:
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
 .Linfo_string89:
@@ -5741,7 +5741,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .Linfo_string91:
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 .Linfo_string92:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
 .Linfo_string93:
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
 .Linfo_string94:
@@ -7399,7 +7399,7 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.byte	24
 	.long	1335
 	.byte	0
-	.byte	3
+	.byte	2
 	.byte	0
 	.byte	28
 	.long	265
@@ -8188,8 +8188,6 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.i2c_external_commands_if._chan_y.command"
 	.long	3164
 .asciiz"Chronodot_DS3231_Controller.select.y.enable"
-	.long	3188
-.asciiz"Chronodot_DS3231_Controller.select.enable"
 	.long	1904
 .asciiz"_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog"
 	.long	1555
@@ -8230,10 +8228,10 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 	.long	2226
 .asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+	.long	2590
+.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
 	.long	2884
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
-	.long	2590
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temps"
 	.long	3120
 .asciiz"Chronodot_DS3231_Controller.init.0"
 	.long	2619
@@ -8316,12 +8314,14 @@ Chronodot_DS3231_Controller.init.1.1.init:
 .asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
 	.long	2523
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
-	.long	2904
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+	.long	2418
+.asciiz"_i.temperature_heater_commands_if._chan.get_mean_i2c_temps"
 	.long	3005
 .asciiz"delay_microseconds"
-	.long	2418
-.asciiz"_i.temperature_heater_commands_if._chan.get_temps"
+	.long	3188
+.asciiz"Chronodot_DS3231_Controller.select.enable"
+	.long	2904
+.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 	.long	1102
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 	.long	2447
@@ -8444,8 +8444,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan.get_temps, "f{0}(chd,&(a(4:si)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan.get_mean_i2c_temps, "f{0}(chd,&(a(3:si)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_temp_degC, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
@@ -8454,8 +8454,8 @@ Chronodot_DS3231_Controller.init.1.1.init:
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(4:si)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temps,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:si)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
