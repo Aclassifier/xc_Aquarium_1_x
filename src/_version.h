@@ -12,7 +12,7 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR       "1.0.4" // 15Jul2017 Tagged VER_1_0_3_with_fishes
+#define APPLICATION_VERSION_STR       "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes
                                    // "                    DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
                                    // "1.0.3" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
                                    // "1.0.2" // 11Jul2017 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_2000_mW_ON_WHITE etc) (tested ok)
