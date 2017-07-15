@@ -2604,7 +2604,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.2";
+            char application_version_str [6] = "1.0.4";
 
 
 
@@ -2637,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "11:53:21", "Jul 15 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "16:19:14", "Jul 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "11:53:21", "Jul 15 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "16:19:14", "Jul 15 2017"); } while (0);
             } else {}
         } break;
 
@@ -2954,6 +2954,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_is_on = false;
                            Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
                            context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
+                           context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log();
 
                            if (context.error_bits == 0) {
@@ -3324,7 +3325,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1427 "../src/_Aquarium_1_x.xc"
+# 1428 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3392,6 +3393,7 @@ void System_Task_Data_Handler (
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
             context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
             context.display_screen_name_present = SCREEN_1_AKVARIETEMPERATURER;
+            context.display_sub_editing_seconds_cntdown = 0;
 
         } else {
             context.display_is_on_seconds_cnt++;
@@ -3421,6 +3423,7 @@ void System_Task_Data_Handler (
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
             context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
+
     } else {}
 
 
@@ -3439,7 +3442,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1555 "../src/_Aquarium_1_x.xc"
+# 1558 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 

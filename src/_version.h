@@ -12,8 +12,11 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-                                   // 1.0.0 never printed but its commit is tagged "VER_1_0_0_first_with_fishes"
-                                   // 1.0.1     07Jul2017 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes
-#define APPLICATION_VERSION_STR      "1.0.2" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now causing zero watt and zero percent on
+#define APPLICATION_VERSION_STR       "1.0.4" // 14Jul2017 DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (ok?)
+                                   // "1.0.3" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
+                                   // "1.0.2" // 11Jul2017 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_2000_mW_ON_WHITE etc) (ok)
+                                   // "1.0.1" // 07Jul2017 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (ok)
+                                   //                      Scrolling of hour went all the way to 59, now 23 (ok)
+                                   //  1.0.0  // 21May2017 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" (ok)
 
 #endif /* VERSION_H_ */

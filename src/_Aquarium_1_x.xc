@@ -1026,6 +1026,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_is_on = false;
                            Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
                            context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
+                           context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
 
                            if (context.error_bits == ERROR_BITS_NONE) {
@@ -1491,6 +1492,7 @@ void System_Task_Data_Handler (
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
             context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
             context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a deafult startig point (SCREEN_0_FEIL)
+            context.display_sub_editing_seconds_cntdown = 0;
 
         } else {
             context.display_is_on_seconds_cnt++;
@@ -1520,6 +1522,7 @@ void System_Task_Data_Handler (
             light_sunrise_sunset_context,
             i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
             context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
+
     } else {} // Not now
 
     //}}}  

@@ -85,23 +85,23 @@ Symbols:
   00010e28 00000020 .text                _i.lib_startkit_adc_commands_if._chan.trigger
   00010e48 0000030c .text                System_Task
   00011154 00001124 .text                Handle_Real_Or_Clocked_Button_Actions
-  00012278 000003c0 .text                Handle_Real_Or_Clocked_Buttons
-  00012638 00000508 .text                System_Task_Data_Handler
-  00012b40 000001cc .text                My_startKIT_ADC_Client
-  00012d0c 00000018 .text                Button_Task.init.1
-  00012d24 00000014 .text                Button_Task.init.0
-  00012d38 0000006c .text                Button_Task.select.enable
-  00012da4 00000008 .text                Button_Task.fini
-  00012dac 00000028 .text                Button_Task.select.case.0
-  00012dd4 00000070 .text                Button_Task.select.case.1
-  00012e44 00000078 .text                chronodot_registers_to_datetime
-  00012ebc 00000084 .text                datetime_to_chronodot_registers
-  00012f40 0000012c .text                setPixel_in_buffer
-  0001306c 00000368 .text                Adafruit_SSD1306_i2c_begin
-  000133d4 00000028 .text                writeDisplay_i2c_command
-  000133fc 00000128 .text                writeToDisplay_i2c_all_buffer
-  00013524 00000014 .text                Clear_All_Pixels_In_Buffer
-  00013538 00000020 .text                assert_exception
+  00012278 000003c8 .text                Handle_Real_Or_Clocked_Buttons
+  00012640 00000518 .text                System_Task_Data_Handler
+  00012b58 000001cc .text                My_startKIT_ADC_Client
+  00012d24 00000018 .text                Button_Task.init.1
+  00012d3c 00000014 .text                Button_Task.init.0
+  00012d50 0000006c .text                Button_Task.select.enable
+  00012dbc 00000008 .text                Button_Task.fini
+  00012dc4 00000028 .text                Button_Task.select.case.0
+  00012dec 00000070 .text                Button_Task.select.case.1
+  00012e5c 00000078 .text                chronodot_registers_to_datetime
+  00012ed4 00000084 .text                datetime_to_chronodot_registers
+  00012f58 0000012c .text                setPixel_in_buffer
+  00013084 00000368 .text                Adafruit_SSD1306_i2c_begin
+  000133ec 00000028 .text                writeDisplay_i2c_command
+  00013414 00000128 .text                writeToDisplay_i2c_all_buffer
+  0001353c 00000014 .text                Clear_All_Pixels_In_Buffer
+  00013550 00000020 .text                assert_exception
   00013580 00000088 .text                installExceptionHandler
   00013600 00000000 .text                exception
   00013608 00000006 .text                myExceptionHandler
