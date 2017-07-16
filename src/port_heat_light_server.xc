@@ -106,9 +106,9 @@ typedef enum heat_cable_alternating_t {
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                       0  //  0 [LIGHT_COMPOSITION_0000_mW_OFF][2]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
        }, {
-                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][0]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
-                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][1]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
-                                                         BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_0666_mW_ON][2]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][0]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][1]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
+                                                         BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][2]       LIGHT_COMPOSITION_0666_mW_BACK1_ON
        }, {
                                   BIT_LIGHT_CENTER                     , //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][0] LIGHT_COMPOSITION_2000_mW_BACK2_CENTER1_ON
                                                          BIT_LIGHT_BACK, //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][1] LIGHT_COMPOSITION_2000_mW_BACK2_CENTER1_ON
@@ -169,9 +169,9 @@ typedef enum heat_cable_alternating_t {
                                                                       0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                       0  //  0 [LIGHT_COMPOSITION_0000_mW_OFF][2]      LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
        }, {
-                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][0]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
-                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_ON][1]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
-                                  BIT_LIGHT_CENTER                       //  1 [LIGHT_COMPOSITION_0666_mW_ON][2]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][0]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+                                                                      0, //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][1]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
+                                  BIT_LIGHT_CENTER                       //  1 [LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON][2]       LIGHT_COMPOSITION_0666_mW_CENTER1_ON
        }, {
                                                          BIT_LIGHT_BACK, //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][0] LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
                                   BIT_LIGHT_CENTER,                      //  2 [LIGHT_COMPOSITION_2000_mW_ON_MIXED][1] LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON

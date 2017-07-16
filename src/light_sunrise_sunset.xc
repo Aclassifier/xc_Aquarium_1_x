@@ -332,35 +332,37 @@ Handle_Light_Sunrise_Sunset_Etc (
         if (context.light_change_window_open) {                                     // And when it's day-time'ish
             if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
                 if (context.num_random_sequences_left > 0) {                        // Some left to do
-                    if ((random_number % 2) == 0) {                                 // Every other hour
-                        if (context.light_sensor_diff_state == DIFF_ENOUGH) {
-                            context.light_sensor_diff_state = DIFF_ACTIVE;
-                            debug_set_val_to (print_value,105);
-                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
-                        } else if (context.max_light == MAX_LIGHT_IS_FULL) {
-                            debug_set_val_to (print_value,102);
-                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3000_mW_ON, LIGHT_CONTROL_IS_RANDOM, 102); // Was LIGHT_COMPOSITION_6000_mW_ON in 1.0.0 too little
-                        } else { // MAX_LIGHT_IS_TWO_THIRDS
-                            debug_set_val_to (print_value,104);
-                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_WHITE, LIGHT_CONTROL_IS_RANDOM, 104); // Was LIGHT_COMPOSITION_5666_mW_ON in 1.0.0 too little
-                        }
+                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {           // Handle LYKT first
+                        context.light_sensor_diff_state = DIFF_ACTIVE;
+                        debug_set_val_to (print_value,101);
+                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+                        context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
+                                                                                                  // with the random triggering on the hours and minute in this case
+                        return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
+                        context.num_random_sequences_left--;
+                    } else {
+                        // Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off
+                        unsigned this_random_number_is_new_light_composition =
+                                LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-1)); // 1 + [0..11] = [1..12]
 
-                        if (context.light_sensor_diff_state == DIFF_ACTIVE) {
-                            context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
-                                                                                                      // with the random triggering on the hours and minute in this case
-                            return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
-                        } else {
+                        light_composition_t light_composition_now;
+                        {light_composition_now} = i_port_heat_light_commands.get_light_composition();
+                        if (light_composition_now != this_random_number_is_new_light_composition) { // Light must change so that SKY makes a meaning
+                            // Change, down (more SKY) or even up now allowed (less SKY)! Irregardless of MAX_LIGHT_IS_FULL or MAX_LIGHT_IS_TWO_THIRDS
+                            i_port_heat_light_commands.set_light_composition (this_random_number_is_new_light_composition, LIGHT_CONTROL_IS_RANDOM, 104);
                             context.num_minutes_left_of_random =
                                     NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
                                     (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
+                            context.num_random_sequences_left--;
+                            debug_set_val_to (print_value,102);
+                        } else { // No action
+                            debug_set_val_to (print_value,103); // This time (every 12th time, no action)
                         }
-
-                        context.num_random_sequences_left--;
-                    } else {debug_set_val_to (print_value,1);} // Not this hour, maybe next
-                } else {debug_set_val_to (print_value,2);}     // Done enough today
-            } else {debug_set_val_to (print_value,3);}         // Already doing a random light-down
-        } else {debug_set_val_to (print_value,4);}             // Night-time'ish
-    } else {}                                                  // Nothing if not per the hour
+                    }
+                } else {debug_set_val_to (print_value,2);} // Done enough today
+            } else {debug_set_val_to (print_value,3);}     // Already doing a random light-down
+        } else {debug_set_val_to (print_value,4);}         // Night-time'ish
+    } else {}                                              // Nothing if not per the hour
 
     //}}}  
     //{{{  context.max_light_changed

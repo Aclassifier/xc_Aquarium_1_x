@@ -27,23 +27,23 @@ typedef enum light_composition_t {
     // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
     //
     //                #### mW
-    LIGHT_COMPOSITION_0000_mW_OFF      =  0,  // All windows dark, of course
-    LIGHT_COMPOSITION_0666_mW_ON       =  1 , // Two time windows are fully dark
-    LIGHT_COMPOSITION_2000_mW_ON_MIXED =  2,
-    LIGHT_COMPOSITION_2666_mW_ON       =  3,
-    LIGHT_COMPOSITION_3333_mW_ON       =  4,
-    LIGHT_COMPOSITION_4000_mW_ON       =  5,
-    LIGHT_COMPOSITION_5666_mW_ON       =  6,
-    LIGHT_COMPOSITION_8333_mW_ON       =  7,
-    LIGHT_COMPOSITION_9000_mW_ON       =  8, // All = 9W qwe I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_0000_mW_OFF         =  0,  // All windows dark, of course. IS_FIRST_ON is the next, so this must be in pos 0
+    LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON =  1 , // Two time windows are fully dark
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED    =  2,
+    LIGHT_COMPOSITION_2666_mW_ON          =  3,
+    LIGHT_COMPOSITION_3333_mW_ON          =  4,
+    LIGHT_COMPOSITION_4000_mW_ON          =  5,
+    LIGHT_COMPOSITION_5666_mW_ON          =  6,
+    LIGHT_COMPOSITION_8333_mW_ON          =  7,
+    LIGHT_COMPOSITION_9000_mW_ON          =  8, // All = 9W qwe I can hear a sound from the LEDs!
     //
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
 
-    LIGHT_COMPOSITION_6000_mW_ON       =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_3000_mW_ON       = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_2000_mW_ON_WHITE = 11,
-    LIGHT_COMPOSITION_5000_mW_ON       = 12
-    // NUM_LIGHT_COMPOSITION_LEVELS    = 13
+    LIGHT_COMPOSITION_6000_mW_ON          =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_3000_mW_ON          = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_2000_mW_ON_WHITE    = 11,
+    LIGHT_COMPOSITION_5000_mW_ON          = 12
+    // NUM_LIGHT_COMPOSITION_LEVELS       = 13
 } light_composition_t;
 
 typedef enum light_control_scheme_t {

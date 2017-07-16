@@ -1689,7 +1689,7 @@ typedef enum iof_LED_strip_t {
 typedef enum light_composition_t {
 # 30 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON = 1 ,
     LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
     LIGHT_COMPOSITION_2666_mW_ON = 3,
     LIGHT_COMPOSITION_3333_mW_ON = 4,
@@ -2604,7 +2604,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.4";
+            char application_version_str [6] = "1.0.5";
 
 
 
@@ -2618,7 +2618,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul 15 2017",
+                                   "Jul 16 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2637,7 +2637,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "16:19:14", "Jul 15 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:21:43", "Jul 16 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2686,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "16:19:14", "Jul 15 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "15:21:43", "Jul 16 2017"); } while (0);
             } else {}
         } break;
 

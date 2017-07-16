@@ -1435,7 +1435,7 @@ typedef enum iof_LED_strip_t {
 typedef enum light_composition_t {
 # 30 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON = 1 ,
     LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
     LIGHT_COMPOSITION_2666_mW_ON = 3,
     LIGHT_COMPOSITION_3333_mW_ON = 4,
