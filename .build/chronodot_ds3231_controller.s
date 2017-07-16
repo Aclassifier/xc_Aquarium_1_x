@@ -46,7 +46,7 @@
 	.globl Chronodot_DS3231_Controller.select.enable.cases.maxchanends
 	.set Chronodot_DS3231_Controller.select.enable.cases,0
 	.globl Chronodot_DS3231_Controller.select.enable.cases
-	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.0.nstackwords) $M (Chronodot_DS3231_Controller.select.case.1.nstackwords)
+	.set Chronodot_DS3231_Controller.select.enable.cases.nstackwords, 0 $M (Chronodot_DS3231_Controller.select.case.1.nstackwords) $M (Chronodot_DS3231_Controller.select.case.0.nstackwords)
 	.globl Chronodot_DS3231_Controller.select.enable.cases.nstackwords
 	.weak _i.chronodot_ds3231_if.get_time_ok.maxchanends.group
 	.max_reduce _i.chronodot_ds3231_if.get_time_ok.max.maxchanends, _i.chronodot_ds3231_if.get_time_ok.maxchanends.group, 0

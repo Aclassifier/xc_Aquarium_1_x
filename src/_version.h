@@ -12,7 +12,8 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR       "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off
+#define APPLICATION_VERSION_STR       "1.0.6" // 17Jul2017 SCREEN_0_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again)
+                                   // "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off ()
                                    // "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes
                                    //                      DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
                                    // "1.0.3" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)

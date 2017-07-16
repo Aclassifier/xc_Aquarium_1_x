@@ -46,7 +46,7 @@
 	.globl Temperature_Water_Controller.select.enable.cases.maxchanends
 	.set Temperature_Water_Controller.select.enable.cases,0
 	.globl Temperature_Water_Controller.select.enable.cases
-	.set Temperature_Water_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Water_Controller.select.case.0.nstackwords) $M (Temperature_Water_Controller.select.case.1.nstackwords)
+	.set Temperature_Water_Controller.select.enable.cases.nstackwords, 0 $M (Temperature_Water_Controller.select.case.1.nstackwords) $M (Temperature_Water_Controller.select.case.0.nstackwords)
 	.globl Temperature_Water_Controller.select.enable.cases.nstackwords
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
 	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.maxchanends, _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group, 0

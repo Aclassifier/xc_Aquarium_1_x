@@ -1784,7 +1784,7 @@ typedef struct temp_onetenthDegC_mean_t {
     unsigned temps_num;
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
-# 90 "../src/f_conversions.h"
+# 100 "../src/f_conversions.h"
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
@@ -2174,7 +2174,8 @@ typedef struct handler_context_t {
     bool rr_12_voltage_ok;
     temp_onetenthDegC_t internal_box_temp_onetenthDegC;
     bool internal_box_temp_ok;
-    error_bits_t error_bits;
+    error_bits_t error_bits_now;
+    unsigned error_bits_history;
     bool error_beeper_blip_now_muted;
     bool heat_cables_forced_off_by_watchdog;
 
@@ -2456,7 +2457,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,
                           context.light_composition,
                           left_of_minutes_or_count_str);
-# 521 "../src/_Aquarium_1_x.xc"
+# 522 "../src/_Aquarium_1_x.xc"
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
                     setTextColor(1);
@@ -2604,7 +2605,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.5";
+            char application_version_str [6] = "1.0.6";
 
 
 
@@ -2614,7 +2615,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < (sizeof(context.display_ts1_chars) / sizeof(context.display_ts1_chars[0])); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
-# 690 "../src/_Aquarium_1_x.xc"
+# 691 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
@@ -2637,7 +2638,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "15:21:43", "Jul 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "21:47:10", "Jul 16 2017"); } while (0);
             } else {}
         } break;
 
@@ -2686,7 +2687,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "15:21:43", "Jul 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "21:47:10", "Jul 16 2017"); } while (0);
             } else {}
         } break;
 
@@ -2957,7 +2958,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log();
 
-                           if (context.error_bits == 0) {
+                           if (context.error_bits_now == 0) {
 
                            } else if (context.error_beeper_blip_now_muted) {
 
@@ -3127,7 +3128,8 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_1_AKVARIETEMPERATURER;
-                                    context.error_bits = 0;
+                                    context.error_bits_now = 0;
+                                    context.error_bits_history = 0;
                                     context.error_beeper_blip_now_muted = false;
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {}
@@ -3205,7 +3207,7 @@ void System_Task_Data_Handler (
     int sprintf_return;
     const char takes_press_for_10_seconds_right_button_str [] = {240,0};
 
-    error_bits_t error_bits = 0;
+    error_bits_t error_bits_now = 0;
     caller_t caller = CALLER_IS_REFRESH;
 
 
@@ -3226,67 +3228,68 @@ void System_Task_Data_Handler (
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
 
-        error_bits = error_bits | (1<<ERROR_BIT_I2C_AMBIENT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > 350) {
-        error_bits = error_bits | (1<<ERROR_BIT_AMBIENT_OVERHEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_AMBIENT_OVERHEAT);
     } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
-        error_bits = error_bits | (1<<ERROR_BIT_I2C_WATER);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_I2C_WATER);
 
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > 300) {
-        error_bits = error_bits | (1<<ERROR_BIT_WATER_OVERHEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_WATER_OVERHEAT);
     } else {}
 
     if (! context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
-        error_bits = error_bits | (1<<ERROR_BIT_I2C_HEATER);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > 500) {
-        error_bits = error_bits | (1<<ERROR_BIT_HEATER_OVERHEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_HEATER_OVERHEAT);
     } else {}
 
     if (! context.heater_on_ok) {
-        error_bits = error_bits | (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV < 100) {
-        error_bits = error_bits | (1<<ERROR_BIT_LOW_12V_LIGHT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_LOW_12V_LIGHT);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV > 140) {
-        error_bits = error_bits | (1<<ERROR_BIT_HIGH_12V_LIGHT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_HIGH_12V_LIGHT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV < 220) {
-        error_bits = error_bits | (1<<ERROR_BIT_LOW_24V_HEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_LOW_24V_HEAT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV > 260) {
-        error_bits = error_bits | (1<<ERROR_BIT_HIGH_24V_HEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_HIGH_24V_HEAT);
     } else {}
 
     if (context.internal_box_temp_onetenthDegC > 500) {
-        error_bits = error_bits | (1<<ERROR_BIT_BOX_OVERHEAT);
+        error_bits_now = error_bits_now | (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
     if (context.heat_cables_forced_off_by_watchdog) {
 
 
-        error_bits = error_bits | (1<<ERROR_WATCHDOG_TIMED_OUT);
+        error_bits_now = error_bits_now | (1<<ERROR_WATCHDOG_TIMED_OUT);
     } else {}
 
-    if ((error_bits != 0) && (! context.error_beeper_blip_now_muted)) {
+    if ((error_bits_now != 0) && (! context.error_beeper_blip_now_muted)) {
         context.beeper_blip_now = true;
     } else {}
 
 
 
-    context.error_bits = context.error_bits | error_bits;
+    context.error_bits_now = error_bits_now;
+    context.error_bits_history |= error_bits_now;
 
     if (context.screen_logg.exists) {
 
 
 
-            if (context.error_bits != 0) {
+            if (context.error_bits_history != 0) {
                 if (context.display_sub_context[SCREEN_0_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_SHOW;
                     context.beeper_blip_now = true;
@@ -3306,13 +3309,17 @@ void System_Task_Data_Handler (
 
                     context.display_is_on_seconds_cnt = 0;
 
-                    char ls_byte = context.error_bits & 0xff;
-                    char ms_byte = (context.error_bits >> 8) & 0xff;
+                    char error_bits_now_ls_byte = context.error_bits_now & 0xff;
+                    char error_bits_now_ms_byte = (context.error_bits_now >> 8) & 0xff;
+                    char error_bits_history_ls_byte = context.error_bits_history & 0xff;
+                    char error_bits_history_ms_byte = (context.error_bits_history >> 8) & 0xff;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n F..C B..8 7..4 3..0\nN%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c\nH%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
-                            (ms_byte & 0x80 ? '1' : '0'), (ms_byte & 0x40 ? '1' : '0'), (ms_byte & 0x20 ? '1' : '0'), (ms_byte & 0x10 ? '1' : '0'), (ms_byte & 0x08 ? '1' : '0'), (ms_byte & 0x04 ? '1' : '0'), (ms_byte & 0x02 ? '1' : '0'), (ms_byte & 0x01 ? '1' : '0'),
-                            (ls_byte & 0x80 ? '1' : '0'), (ls_byte & 0x40 ? '1' : '0'), (ls_byte & 0x20 ? '1' : '0'), (ls_byte & 0x10 ? '1' : '0'), (ls_byte & 0x08 ? '1' : '0'), (ls_byte & 0x04 ? '1' : '0'), (ls_byte & 0x02 ? '1' : '0'), (ls_byte & 0x01 ? '1' : '0'));
+                            ((error_bits_now_ms_byte & 0x80) ? '1' : ' '), ((error_bits_now_ms_byte & 0x40) ? '1' : ' '), ((error_bits_now_ms_byte & 0x20) ? '1' : ' '), ((error_bits_now_ms_byte & 0x10) ? '1' : ' '), ((error_bits_now_ms_byte & 0x08) ? '1' : ' '), ((error_bits_now_ms_byte & 0x04) ? '1' : ' '), ((error_bits_now_ms_byte & 0x02) ? '1' : ' '), ((error_bits_now_ms_byte & 0x01) ? '1' : ' '),
+                            ((error_bits_now_ls_byte & 0x80) ? '1' : ' '), ((error_bits_now_ls_byte & 0x40) ? '1' : ' '), ((error_bits_now_ls_byte & 0x20) ? '1' : ' '), ((error_bits_now_ls_byte & 0x10) ? '1' : ' '), ((error_bits_now_ls_byte & 0x08) ? '1' : ' '), ((error_bits_now_ls_byte & 0x04) ? '1' : ' '), ((error_bits_now_ls_byte & 0x02) ? '1' : ' '), ((error_bits_now_ls_byte & 0x01) ? '1' : ' '),
+                            ((error_bits_history_ms_byte & 0x80) ? '1' : ' '), ((error_bits_history_ms_byte & 0x40) ? '1' : ' '), ((error_bits_history_ms_byte & 0x20) ? '1' : ' '), ((error_bits_history_ms_byte & 0x10) ? '1' : ' '), ((error_bits_history_ms_byte & 0x08) ? '1' : ' '), ((error_bits_history_ms_byte & 0x04) ? '1' : ' '), ((error_bits_history_ms_byte & 0x02) ? '1' : ' '), ((error_bits_history_ms_byte & 0x01) ? '1' : ' '),
+                            ((error_bits_history_ls_byte & 0x80) ? '1' : ' '), ((error_bits_history_ls_byte & 0x40) ? '1' : ' '), ((error_bits_history_ls_byte & 0x20) ? '1' : ' '), ((error_bits_history_ls_byte & 0x10) ? '1' : ' '), ((error_bits_history_ls_byte & 0x08) ? '1' : ' '), ((error_bits_history_ls_byte & 0x04) ? '1' : ' '), ((error_bits_history_ls_byte & 0x02) ? '1' : ' '), ((error_bits_history_ls_byte & 0x01) ? '1' : ' '));
 
 
 
@@ -3325,7 +3332,7 @@ void System_Task_Data_Handler (
                     context.screen_logg.display_ts1_chars_num = sprintf_return;
                 } else {}
             } else {}
-# 1428 "../src/_Aquarium_1_x.xc"
+# 1435 "../src/_Aquarium_1_x.xc"
     } else {}
 
 
@@ -3442,7 +3449,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1558 "../src/_Aquarium_1_x.xc"
+# 1565 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3476,7 +3483,8 @@ void System_Task (
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action;
     context.full_light = true;
-    context.error_bits = 0;
+    context.error_bits_now = 0;
+    context.error_bits_history = 0;
     context.error_beeper_blip_now_muted = false;
 
 

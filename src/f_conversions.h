@@ -77,15 +77,25 @@ typedef struct temp_onetenthDegC_mean_t {
 
 
 // http://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
-#define BYTE_TO_BINARY(byte)   \
-    (byte & 0x80 ? '1' : '0'), \
-    (byte & 0x40 ? '1' : '0'), \
-    (byte & 0x20 ? '1' : '0'), \
-    (byte & 0x10 ? '1' : '0'), \
-    (byte & 0x08 ? '1' : '0'), \
-    (byte & 0x04 ? '1' : '0'), \
-    (byte & 0x02 ? '1' : '0'), \
-    (byte & 0x01 ? '1' : '0')
+#define BYTE_TO_BINARY(byte) \
+    ((byte bitand 0x80) ? '1' : '0'), \
+    ((byte bitand 0x40) ? '1' : '0'), \
+    ((byte bitand 0x20) ? '1' : '0'), \
+    ((byte bitand 0x10) ? '1' : '0'), \
+    ((byte bitand 0x08) ? '1' : '0'), \
+    ((byte bitand 0x04) ? '1' : '0'), \
+    ((byte bitand 0x02) ? '1' : '0'), \
+    ((byte bitand 0x01) ? '1' : '0')
+
+#define BYTE_TO_1_SPACE(byte) \
+    ((byte bitand 0x80) ? '1' : ' '), \
+    ((byte bitand 0x40) ? '1' : ' '), \
+    ((byte bitand 0x20) ? '1' : ' '), \
+    ((byte bitand 0x10) ? '1' : ' '), \
+    ((byte bitand 0x08) ? '1' : ' '), \
+    ((byte bitand 0x04) ? '1' : ' '), \
+    ((byte bitand 0x02) ? '1' : ' '), \
+    ((byte bitand 0x01) ? '1' : ' ')
 
 {temp_onetenthDegC_t, bool}  Temp_OnetenthDegC_To_Str                      (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);
 {temp_onetenthDegC_t, bool}  TC1047_Raw_DegC_To_String_Ok                  (const unsigned int adc_val_mean_i,      char (&?temp_degC_str)[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]);

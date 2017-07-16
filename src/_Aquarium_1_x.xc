@@ -226,7 +226,8 @@ typedef struct handler_context_t {
     bool                        rr_12_voltage_ok;
     temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
     bool                        internal_box_temp_ok;
-    error_bits_t                error_bits;
+    error_bits_t                error_bits_now;
+    unsigned                    error_bits_history;
     bool                        error_beeper_blip_now_muted; // Muted on left button when going dark, then screen reappears. Cleared after 10 seconds press of right button
     bool                        heat_cables_forced_off_by_watchdog;
     #ifdef DEBUG_TEST_WATCHDOG
@@ -1029,7 +1030,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
 
-                           if (context.error_bits == ERROR_BITS_NONE) {
+                           if (context.error_bits_now == ERROR_BITS_NONE) {
                                // No code, all fine with no error(s)
                            } else if (context.error_beeper_blip_now_muted) {
                                // No code, already muted
@@ -1199,7 +1200,8 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_DARK;
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
-                                    context.error_bits = ERROR_BITS_NONE; // Only place it's cleared!
+                                    context.error_bits_now = ERROR_BITS_NONE; // Only place it's cleared!
+                                    context.error_bits_history = ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_beeper_blip_now_muted = false; // Only place it's cleared!
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {} // On below
@@ -1277,8 +1279,8 @@ void System_Task_Data_Handler (
     int        sprintf_return;
     const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
 
-    error_bits_t error_bits = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
-    caller_t     caller     = CALLER_IS_REFRESH; // May be overwritten
+    error_bits_t error_bits_now = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
+    caller_t     caller         = CALLER_IS_REFRESH; // May be overwritten
 
     //{{{  Read data and convert some
 
@@ -1297,68 +1299,69 @@ void System_Task_Data_Handler (
     //{{{  HANDLE ERROR SITUATIONS
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
-        // error_bits or_eq (1<<ERROR_BIT_I2C_AMBIENT); Note bt xTIMEcomposer 14.3:
-        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_AMBIENT);
+        // error_bits_now or_eq (1<<ERROR_BIT_I2C_AMBIENT); Note by xTIMEcomposer 14.3:
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_WATER);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_I2C_HEATER);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_HEATER);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER] > TEMP_ONETENTHDEGC_50_0_HEATER_MAX) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
     if (not context.heater_on_ok) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_LOW_12V_LIGHT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_LOW_12V_LIGHT);
     } else {}
 
     if (context.rr_12V_voltage_onetenthV > INNER_RR_12V_MAX_VOLTS_DP1) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_HIGH_12V_LIGHT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HIGH_12V_LIGHT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV < INNER_RR_24V_MIN_VOLTS_DP1) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_LOW_24V_HEAT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_LOW_24V_HEAT);
     } else {}
 
     if (context.rr_24V_voltage_onetenthV > INNER_RR_24V_MAX_VOLTS_DP1) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_HIGH_24V_HEAT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HIGH_24V_HEAT);
     } else {}
 
     if (context.internal_box_temp_onetenthDegC > TEMP_ONETENTHDEGC_50_0_BOX_MAX) {
-        error_bits = error_bits bitor (1<<ERROR_BIT_BOX_OVERHEAT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_BOX_OVERHEAT);
     } else {}
 
     if (context.heat_cables_forced_off_by_watchdog) {
         // This task is mostly watching iself, even if delays elsewhere may also cause this
         // Test with DEBUG_TEST_WATCHDOG
-        error_bits = error_bits bitor (1<<ERROR_WATCHDOG_TIMED_OUT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_WATCHDOG_TIMED_OUT);
     } else {}
 
-    if ((error_bits != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
+    if ((error_bits_now != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
         context.beeper_blip_now = true;
     } else {}
 
-    // No new assignment of local error_bits after here
+    // No new assignment of local error_bits_now after here
 
-    context.error_bits = context.error_bits bitor error_bits; // Add them into a bit-list
+    context.error_bits_now     =     error_bits_now; // Now
+    context.error_bits_history or_eq error_bits_now; // Make them history
 
     if (context.screen_logg.exists) {
         #ifdef SCREEN_LOGG_ERROR_BITS
             //{{{  Start error screen and/or update it
 
-            if (context.error_bits != ERROR_BITS_NONE) {
+            if (context.error_bits_history != ERROR_BITS_NONE) {
                 if (context.display_sub_context[SCREEN_0_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_SHOW;
                     context.beeper_blip_now = true;
@@ -1378,18 +1381,22 @@ void System_Task_Data_Handler (
 
                     context.display_is_on_seconds_cnt = 0; // Never shut off
 
-                    char ls_byte =  context.error_bits       bitand 0xff;
-                    char ms_byte = (context.error_bits >> 8) bitand 0xff;
+                    char error_bits_now_ls_byte     =  context.error_bits_now           bitand 0xff;
+                    char error_bits_now_ms_byte     = (context.error_bits_now     >> 8) bitand 0xff;
+                    char error_bits_history_ls_byte =  context.error_bits_history       bitand 0xff;
+                    char error_bits_history_ms_byte = (context.error_bits_history >> 8) bitand 0xff;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n\n F..C B..8 7..4 3..0\n %c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n F..C B..8 7..4 3..0\nN%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c\nH%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
-                            BYTE_TO_BINARY(ms_byte),
-                            BYTE_TO_BINARY(ls_byte));
+                            BYTE_TO_1_SPACE(error_bits_now_ms_byte),
+                            BYTE_TO_1_SPACE(error_bits_now_ls_byte),
+                            BYTE_TO_1_SPACE(error_bits_history_ms_byte),
+                            BYTE_TO_1_SPACE(error_bits_history_ls_byte));
                     //                                        ..........----------.
                     //                                        X± BIT-FEILMELDINGER
-                    //
                     //                                         F..C B..8 7..4 3..0
-                    //                                         0000 0000 0000 0111 If external I2C cable is out
+                    //                                        N.... .... .... .111 Now:     if external I2C cable is out
+                    //                                        H.... .... .... 1111 History: if --"-- and ERROR_BIT_HEATER_CABLE_UNPLUGGED was present but is now gone
 
                     assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
                     assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
@@ -1588,7 +1595,8 @@ void System_Task (
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
-    context.error_bits = ERROR_BITS_NONE;
+    context.error_bits_now = ERROR_BITS_NONE;
+    context.error_bits_history = ERROR_BITS_NONE;
     context.error_beeper_blip_now_muted = false;
     #ifdef DEBUG_TEST_WATCHDOG
         context.do_watchdog_retrigger_ms_debug = false;
