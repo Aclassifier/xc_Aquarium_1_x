@@ -1494,7 +1494,7 @@ typedef struct tag_startkit_adc_vals {
 } t_startkit_adc_vals;
 # 20 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 62 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
 # 21 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/button_press.h" 1

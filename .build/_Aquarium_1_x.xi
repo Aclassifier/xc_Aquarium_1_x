@@ -1752,7 +1752,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
 # 42 "../src/_Aquarium_1_x.xc" 2
 
 # 1 "../src/_texts_and_constants.h" 1
-# 59 "../src/_texts_and_constants.h"
+# 62 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
 # 43 "../src/_Aquarium_1_x.xc" 2
 
@@ -2605,7 +2605,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.6";
+            char application_version_str [6] = "1.0.7";
 
 
 
@@ -2619,7 +2619,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul 16 2017",
+                                   "Jul 17 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2638,7 +2638,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:47:10", "Jul 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "08:49:03", "Jul 17 2017"); } while (0);
             } else {}
         } break;
 
@@ -2687,7 +2687,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "21:47:10", "Jul 16 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "08:49:03", "Jul 17 2017"); } while (0);
             } else {}
         } break;
 
@@ -3314,7 +3314,7 @@ void System_Task_Data_Handler (
                     char error_bits_history_ls_byte = context.error_bits_history & 0xff;
                     char error_bits_history_ms_byte = (context.error_bits_history >> 8) & 0xff;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n F..C B..8 7..4 3..0\nN%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c\nH%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER B:f..c b..8 7..4 3..0N:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%cF:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
                             ((error_bits_now_ms_byte & 0x80) ? '1' : ' '), ((error_bits_now_ms_byte & 0x40) ? '1' : ' '), ((error_bits_now_ms_byte & 0x20) ? '1' : ' '), ((error_bits_now_ms_byte & 0x10) ? '1' : ' '), ((error_bits_now_ms_byte & 0x08) ? '1' : ' '), ((error_bits_now_ms_byte & 0x04) ? '1' : ' '), ((error_bits_now_ms_byte & 0x02) ? '1' : ' '), ((error_bits_now_ms_byte & 0x01) ? '1' : ' '),
                             ((error_bits_now_ls_byte & 0x80) ? '1' : ' '), ((error_bits_now_ls_byte & 0x40) ? '1' : ' '), ((error_bits_now_ls_byte & 0x20) ? '1' : ' '), ((error_bits_now_ls_byte & 0x10) ? '1' : ' '), ((error_bits_now_ls_byte & 0x08) ? '1' : ' '), ((error_bits_now_ls_byte & 0x04) ? '1' : ' '), ((error_bits_now_ls_byte & 0x02) ? '1' : ' '), ((error_bits_now_ls_byte & 0x01) ? '1' : ' '),

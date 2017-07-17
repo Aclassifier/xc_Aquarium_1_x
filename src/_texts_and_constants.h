@@ -39,9 +39,12 @@
 
 #define SSD1306_TS1_LINE_CHAR_NUM     21 // ABCDEFGHIJKLMNOPQRSTU with TextSize 1 (small, 4 lines in the display)
 #define SSD1306_TS1_LINE_NUMS          4
-#define SSD1306_TS1_DISPLAY_CHAR_NUM (SSD1306_TS1_LINE_CHAR_NUM * SSD1306_TS1_LINE_NUMS) // 84
-#define SSD1306_TS2_DISPLAY_CHAR_NUM (SSD1306_TS1_DISPLAY_CHAR_NUM/2)
-#define SSD1306_TS1_DISPLAY_CHAR_LEN (SSD1306_TS1_DISPLAY_CHAR_NUM + 1) // sprintf overflows flat out without space for NUL. But snprintf is too expensive (12.6KB)
+#define SSD1306_TS1_NEWLINE_CHARS_NUMS (SSD1306_TS1_LINE_NUMS-1) // 3
+#define SSD1306_TS1_DISPLAY_VISIBLE_CHAR_NUM (SSD1306_TS1_LINE_CHAR_NUM * SSD1306_TS1_LINE_NUMS) // 84
+#define SSD1306_TS2_DISPLAY_VISIBLE_CHAR_NUM (SSD1306_TS1_DISPLAY_VISIBLE_CHAR_NUM/2)
+#define SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN (SSD1306_TS1_DISPLAY_VISIBLE_CHAR_NUM + 1) // sprintf overflows flat out without space for NUL. But snprintf is too expensive (12.6KB)
+                                                                                        // Filling "/n" in the string works, but it fills up one char position that's not visible. Rather use this:
+#define SSD1306_TS1_DISPLAY_ALL_CHAR_LEN (SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN + SSD1306_TS1_NEWLINE_CHARS_NUMS) // Spave for three "/n"
 
 #define INNER_MAX_LUX         99 // Used for both "err" and max light (if max light then "ok==false" is not returned)
 #define INNER_MIN_LUX         0

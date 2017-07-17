@@ -129,7 +129,7 @@ typedef enum display_sub_state_t {
 typedef struct screen_logg_t {
     bool     exists;
     unsigned display_ts1_chars_num;
-    char     display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN];
+    char     display_ts1_chars [SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN];
 } screen_logg_t;
 
 typedef enum screen_clock_cursor_at_t {
@@ -196,7 +196,7 @@ typedef struct handler_context_t {
     bool                        display_sub_edited;
     bool                        display_is_on;
     unsigned                    display_is_on_seconds_cnt;   // Counting up from ZERO while display_is_on to DISPLAY_ON_FOR_SECONDS
-    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is use
+    char                        display_ts1_chars [SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is use (use SSD1306_TS1_DISPLAY_ALL_CHAR_LEN for full flexibility)
     screen_logg_t               screen_logg;
     bool                        beeper_blip_now;
     button_state_t              buttons_state [BUTTONS_NUM_CLIENTS];
@@ -1386,7 +1386,7 @@ void System_Task_Data_Handler (
                     char error_bits_history_ls_byte =  context.error_bits_history       bitand 0xff;
                     char error_bits_history_ms_byte = (context.error_bits_history >> 8) bitand 0xff;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER\n F..C B..8 7..4 3..0\nN%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c\nH%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER B:f..c b..8 7..4 3..0N:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%cF:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
                             BYTE_TO_1_SPACE(error_bits_now_ms_byte),
                             BYTE_TO_1_SPACE(error_bits_now_ls_byte),
@@ -1394,9 +1394,9 @@ void System_Task_Data_Handler (
                             BYTE_TO_1_SPACE(error_bits_history_ls_byte));
                     //                                        ..........----------.
                     //                                        X± BIT-FEILMELDINGER
-                    //                                         F..C B..8 7..4 3..0
-                    //                                        N.... .... .... .111 Now:     if external I2C cable is out
-                    //                                        H.... .... .... 1111 History: if --"-- and ERROR_BIT_HEATER_CABLE_UNPLUGGED was present but is now gone
+                    //                                        B:f..c b..8 7..4 3..0
+                    //                                        N:                111 "Nå"  (now):     if external I2C cable is out
+                    //                                        F:               1111 "Før" (eariler): if --"-- and ERROR_BIT_HEATER_CABLE_UNPLUGGED was present but is now gone
 
                     assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
                     assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
@@ -1420,7 +1420,7 @@ void System_Task_Data_Handler (
                         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
                         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
-                if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_CHAR_LEN)) {
+                if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN)) {
                     sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
                     context.screen_logg.display_ts1_chars_num = 4;
                 } else {
