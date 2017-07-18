@@ -1605,7 +1605,7 @@ typedef interface i2c_external_commands_if {
     [[notification]]
     slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+    void trigger (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1636,7 +1636,7 @@ void I2C_External_Server (server i2c_external_commands_if i_i2c_external_command
 
     while (1) {
         select {
-            case i_i2c_external_commands[int index_of_client].command (const i2c_command_external_t command): {
+            case i_i2c_external_commands[int index_of_client].trigger (const i2c_command_external_t command): {
                 switch (command) {
                     case VER_TEMPC_CHIPS: {
                         i2c_external_params._use_dev_address = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_HEATER;

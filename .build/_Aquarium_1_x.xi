@@ -1641,7 +1641,7 @@ typedef interface i2c_external_commands_if {
     [[notification]]
     slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+    void trigger (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1687,10 +1687,10 @@ typedef enum iof_LED_strip_t {
 
 
 typedef enum light_composition_t {
-# 30 "../src/port_heat_light_server.h"
+# 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON = 1 ,
-    LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
+    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM = 2,
     LIGHT_COMPOSITION_2666_mW_ON = 3,
     LIGHT_COMPOSITION_3333_mW_ON = 4,
     LIGHT_COMPOSITION_4000_mW_ON = 5,
@@ -1729,7 +1729,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 80 "../src/port_heat_light_server.h"
+# 81 "../src/port_heat_light_server.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
@@ -2605,7 +2605,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.7";
+            char application_version_str [6] = "1.0.8";
 
 
 
@@ -2619,7 +2619,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 sprintf_return = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul 17 2017",
+                                   "Jul 18 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2638,7 +2638,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "08:49:03", "Jul 17 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "09:49:57", "Jul 18 2017"); } while (0);
             } else {}
         } break;
 
@@ -2687,7 +2687,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "08:49:03", "Jul 17 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "09:49:57", "Jul 18 2017"); } while (0);
             } else {}
         } break;
 
@@ -3449,7 +3449,7 @@ typedef enum system_state_t {
     SYSTEM_STATE_ONE_SECONDS_TICS,
     SYSTEM_STATE_AWAIT_TWO_NOTIFY
 } system_state_t;
-# 1565 "../src/_Aquarium_1_x.xc"
+# 1566 "../src/_Aquarium_1_x.xc"
 [[combinable]]
 
 
@@ -3564,7 +3564,7 @@ void System_Task (
 
 
                 i_startkit_adc_acquire.trigger();
-                i_i2c_external_commands.command (GET_TEMPC_ALL);
+                i_i2c_external_commands.trigger (GET_TEMPC_ALL);
 
                 system_state = SYSTEM_STATE_AWAIT_TWO_NOTIFY;
                 num_notify_expexted = 2;
@@ -3575,7 +3575,7 @@ void System_Task (
 
 
                 {
-                    watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(1000 + 10);
+                    watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(1000 + 100);
 
                 }
 

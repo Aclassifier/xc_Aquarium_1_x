@@ -12,7 +12,12 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR       "1.0.7" // 17Jul2017 SCREEN_0_FEIL layout detail (tested ok)
+#define APPLICATION_VERSION_STR       "1.0.8" // 18Jul2017
+                                   //                      Random light now starts at LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM (2)
+                                   //                      WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing
+                                   //                      Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger
+                                   // "1.0.7" // 17Jul2017 Tagged VER_1_0_7_with_fishes
+                                   //                      SCREEN_0_FEIL layout detail (tested ok)
                                    // "1.0.6" // 16Jul2017 SCREEN_0_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again) (tested ok)
                                    // "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off ()
                                    // "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes

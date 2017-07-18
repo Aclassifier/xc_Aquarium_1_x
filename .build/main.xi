@@ -1554,7 +1554,7 @@ typedef interface i2c_external_commands_if {
     [[notification]]
     slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+    void trigger (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 
@@ -1648,10 +1648,10 @@ typedef enum iof_LED_strip_t {
 
 
 typedef enum light_composition_t {
-# 30 "../src/port_heat_light_server.h"
+# 31 "../src/port_heat_light_server.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON = 1 ,
-    LIGHT_COMPOSITION_2000_mW_ON_MIXED = 2,
+    LIGHT_COMPOSITION_0666_mW_ON = 1 ,
+    LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM = 2,
     LIGHT_COMPOSITION_2666_mW_ON = 3,
     LIGHT_COMPOSITION_3333_mW_ON = 4,
     LIGHT_COMPOSITION_4000_mW_ON = 5,
@@ -1690,7 +1690,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 80 "../src/port_heat_light_server.h"
+# 81 "../src/port_heat_light_server.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);

@@ -1598,7 +1598,7 @@ typedef interface i2c_external_commands_if {
     [[notification]]
     slave void notify (void);
 
-    void command (const i2c_command_external_t command);
+    void trigger (const i2c_command_external_t command);
 } i2c_external_commands_if;
 
 

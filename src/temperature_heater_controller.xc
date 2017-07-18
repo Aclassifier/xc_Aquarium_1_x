@@ -178,7 +178,7 @@ void Temperature_Heater_Controller (
                 } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) { // HERE
                     if (temp_measurement_ticks_cnt == 0) { // Every TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
-                        i_i2c_external_commands.command (GET_TEMPC_ALL); // Trigger
+                        i_i2c_external_commands.trigger (GET_TEMPC_ALL); // Trigger
 
                         is_doing = IS_READING_TEMPS;
                     } else {}

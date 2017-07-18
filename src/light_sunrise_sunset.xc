@@ -321,7 +321,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     // Piggy-back on the random change of light level
     //
     if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
-        // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2000_mW_ON_MIXED because it's quite visible
+        // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM because it's quite visible
         context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
     } else {} // Not enough change
 
@@ -335,15 +335,16 @@ Handle_Light_Sunrise_Sunset_Etc (
                     if (context.light_sensor_diff_state == DIFF_ENOUGH) {           // Handle LYKT first
                         context.light_sensor_diff_state = DIFF_ACTIVE;
                         debug_set_val_to (print_value,101);
-                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
                         context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
                                                                                                   // with the random triggering on the hours and minute in this case
                         return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
                         context.num_random_sequences_left--;
                     } else {
-                        // Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off
+                        // Random light now almost every hour, both lighter (if possible) and darker allowed.
+                        // But not LIGHT_COMPOSITION_0000_mW_OFF or LIGHT_COMPOSITION_0666_mW_ON, darkest is LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM:
                         unsigned this_random_number_is_new_light_composition =
-                                LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-1)); // 1 + [0..11] = [1..12]
+                                LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM)); // 2 + [0..10] = [2..12]
 
                         light_composition_t light_composition_now;
                         {light_composition_now} = i_port_heat_light_commands.get_light_composition();

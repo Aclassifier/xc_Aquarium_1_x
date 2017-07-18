@@ -339,18 +339,18 @@
 	.globl _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords, _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.fns, _i.i2c_external_commands_if.read_temperature_ok.fns.group, 0
-	.weak _i.i2c_external_commands_if.command.maxchanends.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxchanends, _i.i2c_external_commands_if.command.maxchanends.group, 0
-	.weak _i.i2c_external_commands_if.command.maxcores.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxcores, _i.i2c_external_commands_if.command.maxcores.group, 0
-	.weak _i.i2c_external_commands_if.command.maxtimers.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxtimers, _i.i2c_external_commands_if.command.maxtimers.group, 0
-	.weak _i.i2c_external_commands_if.command.nstackwords.group
-	.globl _i.i2c_external_commands_if.command.nstackwords.group
-	.weak _i.i2c_external_commands_if.command.fns.group
-	.globl _i.i2c_external_commands_if.command.fns.group
-	.max_reduce _i.i2c_external_commands_if.command.max.nstackwords, _i.i2c_external_commands_if.command.nstackwords.group, 0
-	.max_reduce _i.i2c_external_commands_if.command.fns, _i.i2c_external_commands_if.command.fns.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxchanends.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxchanends, _i.i2c_external_commands_if.trigger.maxchanends.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxcores.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxcores, _i.i2c_external_commands_if.trigger.maxcores.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxtimers.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxtimers, _i.i2c_external_commands_if.trigger.maxtimers.group, 0
+	.weak _i.i2c_external_commands_if.trigger.nstackwords.group
+	.globl _i.i2c_external_commands_if.trigger.nstackwords.group
+	.weak _i.i2c_external_commands_if.trigger.fns.group
+	.globl _i.i2c_external_commands_if.trigger.fns.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.nstackwords, _i.i2c_external_commands_if.trigger.nstackwords.group, 0
+	.max_reduce _i.i2c_external_commands_if.trigger.fns, _i.i2c_external_commands_if.trigger.fns.group, 0
 	.weak _i.i2c_external_commands_if.__interface_init.maxchanends.group
 	.max_reduce _i.i2c_external_commands_if.__interface_init.max.maxchanends, _i.i2c_external_commands_if.__interface_init.maxchanends.group, 0
 	.weak _i.i2c_external_commands_if.__interface_init.maxcores.group
@@ -662,11 +662,11 @@ _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_
 .Lfunc_end2:
 	.cfi_endproc
 
-	.weak	_i.i2c_external_commands_if._chan.command
+	.weak	_i.i2c_external_commands_if._chan.trigger
 	.align	4
-	.type	_i.i2c_external_commands_if._chan.command,@function
-	.cc_top _i.i2c_external_commands_if._chan.command.function,_i.i2c_external_commands_if._chan.command
-_i.i2c_external_commands_if._chan.command:
+	.type	_i.i2c_external_commands_if._chan.trigger,@function
+	.cc_top _i.i2c_external_commands_if._chan.trigger.function,_i.i2c_external_commands_if._chan.trigger
+_i.i2c_external_commands_if._chan.trigger:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
@@ -681,21 +681,21 @@ _i.i2c_external_commands_if._chan.command:
 	freer res[r2]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan.command.function
-	.set	_i.i2c_external_commands_if._chan.command.nstackwords,0
-	.globl	_i.i2c_external_commands_if._chan.command.nstackwords
-	.weak	_i.i2c_external_commands_if._chan.command.nstackwords
-	.set	_i.i2c_external_commands_if._chan.command.maxcores,1
-	.globl	_i.i2c_external_commands_if._chan.command.maxcores
-	.weak	_i.i2c_external_commands_if._chan.command.maxcores
-	.set	_i.i2c_external_commands_if._chan.command.maxtimers,0
-	.globl	_i.i2c_external_commands_if._chan.command.maxtimers
-	.weak	_i.i2c_external_commands_if._chan.command.maxtimers
-	.set	_i.i2c_external_commands_if._chan.command.maxchanends,1
-	.globl	_i.i2c_external_commands_if._chan.command.maxchanends
-	.weak	_i.i2c_external_commands_if._chan.command.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan.trigger.function
+	.set	_i.i2c_external_commands_if._chan.trigger.nstackwords,0
+	.globl	_i.i2c_external_commands_if._chan.trigger.nstackwords
+	.weak	_i.i2c_external_commands_if._chan.trigger.nstackwords
+	.set	_i.i2c_external_commands_if._chan.trigger.maxcores,1
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxcores
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxcores
+	.set	_i.i2c_external_commands_if._chan.trigger.maxtimers,0
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxtimers
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxtimers
+	.set	_i.i2c_external_commands_if._chan.trigger.maxchanends,1
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxchanends
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxchanends
 .Ltmp40:
-	.size	_i.i2c_external_commands_if._chan.command, .Ltmp40-_i.i2c_external_commands_if._chan.command
+	.size	_i.i2c_external_commands_if._chan.trigger, .Ltmp40-_i.i2c_external_commands_if._chan.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -747,11 +747,11 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp44-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_external_commands_if._chan_y.command
+	.weak	_i.i2c_external_commands_if._chan_y.trigger
 	.align	4
-	.type	_i.i2c_external_commands_if._chan_y.command,@function
-	.cc_top _i.i2c_external_commands_if._chan_y.command.function,_i.i2c_external_commands_if._chan_y.command
-_i.i2c_external_commands_if._chan_y.command:
+	.type	_i.i2c_external_commands_if._chan_y.trigger,@function
+	.cc_top _i.i2c_external_commands_if._chan_y.trigger.function,_i.i2c_external_commands_if._chan_y.trigger
+_i.i2c_external_commands_if._chan_y.trigger:
 	.cfi_startproc
 	entsp 2
 .Ltmp45:
@@ -779,21 +779,21 @@ _i.i2c_external_commands_if._chan_y.command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan_y.command.function
-	.set	_i.i2c_external_commands_if._chan_y.command.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_external_commands_if._chan_y.command.nstackwords
-	.weak	_i.i2c_external_commands_if._chan_y.command.nstackwords
-	.set	_i.i2c_external_commands_if._chan_y.command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxcores
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxcores
-	.set	_i.i2c_external_commands_if._chan_y.command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxtimers
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxtimers
-	.set	_i.i2c_external_commands_if._chan_y.command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxchanends
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan_y.trigger.function
+	.set	_i.i2c_external_commands_if._chan_y.trigger.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxcores
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxcores
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
 .Ltmp48:
-	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp48-_i.i2c_external_commands_if._chan_y.command
+	.size	_i.i2c_external_commands_if._chan_y.trigger, .Ltmp48-_i.i2c_external_commands_if._chan_y.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
@@ -6327,9 +6327,9 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string14:
 .asciiz"LIGHT_COMPOSITION_0000_mW_OFF"
 .Linfo_string15:
-.asciiz"LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON"
+.asciiz"LIGHT_COMPOSITION_0666_mW_ON"
 .Linfo_string16:
-.asciiz"LIGHT_COMPOSITION_2000_mW_ON_MIXED"
+.asciiz"LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM"
 .Linfo_string17:
 .asciiz"LIGHT_COMPOSITION_2666_mW_ON"
 .Linfo_string18:
@@ -6403,7 +6403,7 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string52:
 .asciiz"now_regulating_at_t"
 .Linfo_string53:
-.asciiz"_i.i2c_external_commands_if._chan.command"
+.asciiz"_i.i2c_external_commands_if._chan.trigger"
 .Linfo_string54:
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 .Linfo_string55:
@@ -6417,7 +6417,7 @@ Temperature_Water_Controller.select.case.1:
 .Linfo_string59:
 .asciiz"tag_i2c_temps_t"
 .Linfo_string60:
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
+.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
 .Linfo_string61:
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 .Linfo_string62:
@@ -9812,8 +9812,6 @@ Temperature_Water_Controller.select.case.1:
 	.long	.L.debug_info_begin0
 .Lset96 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset96
-	.long	2174
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
 	.long	2276
 .asciiz"_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog"
 	.long	1849
@@ -9828,6 +9826,8 @@ Temperature_Water_Controller.select.case.1:
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	3295
 .asciiz"Temperature_Water_Controller.select.0.enable"
+	.long	2045
+.asciiz"_i.i2c_external_commands_if._chan.trigger"
 	.long	1497
 .asciiz"Temperature_Water_Controller.select.0.case.0"
 	.long	3067
@@ -9854,6 +9854,8 @@ Temperature_Water_Controller.select.case.1:
 .asciiz"Temperature_Water_Controller"
 	.long	2857
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
+	.long	2236
+.asciiz"_i.port_heat_light_commands_if._chan.watchdog_retrigger_with"
 	.long	3363
 .asciiz"Temperature_Water_Controller.select.y.enable"
 	.long	2329
@@ -9862,16 +9864,12 @@ Temperature_Water_Controller.select.case.1:
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 	.long	528
 .asciiz"_i.temperature_water_commands_if.Temperature_Water_Controller._c0.clear_debug_log"
-	.long	2236
-.asciiz"_i.port_heat_light_commands_if._chan.watchdog_retrigger_with"
 	.long	2674
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
 	.long	2924
 .asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
 	.long	2540
 .asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	2045
-.asciiz"_i.i2c_external_commands_if._chan.command"
 	.long	2703
 .asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
 	.long	3165
@@ -9890,12 +9888,14 @@ Temperature_Water_Controller.select.case.1:
 .asciiz"delay_milliseconds"
 	.long	2627
 .asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
-	.long	1653
-.asciiz"Temperature_Water_Controller.select.y.case.0"
+	.long	2174
+.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
 	.long	1224
 .asciiz"Temperature_Water_Controller.init.1"
 	.long	3107
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
+	.long	1653
+.asciiz"Temperature_Water_Controller.select.y.case.0"
 	.long	2387
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 	.long	3145
@@ -9976,10 +9976,10 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str, "f{0}(&(a(2:ui)),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_water_commands_if.Temperature_Water_Controller._c0.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan.trigger, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
-	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
+	.typestring _i.i2c_external_commands_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.overlay_reference _i.i2c_external_commands_if._chan_y.trigger,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan.watchdog_retrigger_with, "f{ui}(chd,:ui)"
@@ -9987,9 +9987,9 @@ Temperature_Water_Controller.select.case.1:
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
-	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, "f{ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
@@ -10000,11 +10000,11 @@ Temperature_Water_Controller.select.case.1:
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_IS_FIRST_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
+	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{e(){m(false){0},m(true){1}},ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns

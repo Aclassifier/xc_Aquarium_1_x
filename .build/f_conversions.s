@@ -19,18 +19,18 @@
 	.globl _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords, _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.fns, _i.i2c_external_commands_if.read_temperature_ok.fns.group, 0
-	.weak _i.i2c_external_commands_if.command.maxchanends.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxchanends, _i.i2c_external_commands_if.command.maxchanends.group, 0
-	.weak _i.i2c_external_commands_if.command.maxcores.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxcores, _i.i2c_external_commands_if.command.maxcores.group, 0
-	.weak _i.i2c_external_commands_if.command.maxtimers.group
-	.max_reduce _i.i2c_external_commands_if.command.max.maxtimers, _i.i2c_external_commands_if.command.maxtimers.group, 0
-	.weak _i.i2c_external_commands_if.command.nstackwords.group
-	.globl _i.i2c_external_commands_if.command.nstackwords.group
-	.weak _i.i2c_external_commands_if.command.fns.group
-	.globl _i.i2c_external_commands_if.command.fns.group
-	.max_reduce _i.i2c_external_commands_if.command.max.nstackwords, _i.i2c_external_commands_if.command.nstackwords.group, 0
-	.max_reduce _i.i2c_external_commands_if.command.fns, _i.i2c_external_commands_if.command.fns.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxchanends.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxchanends, _i.i2c_external_commands_if.trigger.maxchanends.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxcores.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxcores, _i.i2c_external_commands_if.trigger.maxcores.group, 0
+	.weak _i.i2c_external_commands_if.trigger.maxtimers.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.maxtimers, _i.i2c_external_commands_if.trigger.maxtimers.group, 0
+	.weak _i.i2c_external_commands_if.trigger.nstackwords.group
+	.globl _i.i2c_external_commands_if.trigger.nstackwords.group
+	.weak _i.i2c_external_commands_if.trigger.fns.group
+	.globl _i.i2c_external_commands_if.trigger.fns.group
+	.max_reduce _i.i2c_external_commands_if.trigger.max.nstackwords, _i.i2c_external_commands_if.trigger.nstackwords.group, 0
+	.max_reduce _i.i2c_external_commands_if.trigger.fns, _i.i2c_external_commands_if.trigger.fns.group, 0
 	.weak _i.i2c_external_commands_if.__interface_init.maxchanends.group
 	.max_reduce _i.i2c_external_commands_if.__interface_init.max.maxchanends, _i.i2c_external_commands_if.__interface_init.maxchanends.group, 0
 	.weak _i.i2c_external_commands_if.__interface_init.maxcores.group
@@ -99,11 +99,11 @@
 .Ldebug_range:
 	.file	1 "../src/f_conversions.xc"
 	.text
-	.weak	_i.i2c_external_commands_if._chan.command
+	.weak	_i.i2c_external_commands_if._chan.trigger
 	.align	4
-	.type	_i.i2c_external_commands_if._chan.command,@function
-	.cc_top _i.i2c_external_commands_if._chan.command.function,_i.i2c_external_commands_if._chan.command
-_i.i2c_external_commands_if._chan.command:
+	.type	_i.i2c_external_commands_if._chan.trigger,@function
+	.cc_top _i.i2c_external_commands_if._chan.trigger.function,_i.i2c_external_commands_if._chan.trigger
+_i.i2c_external_commands_if._chan.trigger:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
@@ -118,21 +118,21 @@ _i.i2c_external_commands_if._chan.command:
 	freer res[r2]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan.command.function
-	.set	_i.i2c_external_commands_if._chan.command.nstackwords,0
-	.globl	_i.i2c_external_commands_if._chan.command.nstackwords
-	.weak	_i.i2c_external_commands_if._chan.command.nstackwords
-	.set	_i.i2c_external_commands_if._chan.command.maxcores,1
-	.globl	_i.i2c_external_commands_if._chan.command.maxcores
-	.weak	_i.i2c_external_commands_if._chan.command.maxcores
-	.set	_i.i2c_external_commands_if._chan.command.maxtimers,0
-	.globl	_i.i2c_external_commands_if._chan.command.maxtimers
-	.weak	_i.i2c_external_commands_if._chan.command.maxtimers
-	.set	_i.i2c_external_commands_if._chan.command.maxchanends,1
-	.globl	_i.i2c_external_commands_if._chan.command.maxchanends
-	.weak	_i.i2c_external_commands_if._chan.command.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan.trigger.function
+	.set	_i.i2c_external_commands_if._chan.trigger.nstackwords,0
+	.globl	_i.i2c_external_commands_if._chan.trigger.nstackwords
+	.weak	_i.i2c_external_commands_if._chan.trigger.nstackwords
+	.set	_i.i2c_external_commands_if._chan.trigger.maxcores,1
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxcores
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxcores
+	.set	_i.i2c_external_commands_if._chan.trigger.maxtimers,0
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxtimers
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxtimers
+	.set	_i.i2c_external_commands_if._chan.trigger.maxchanends,1
+	.globl	_i.i2c_external_commands_if._chan.trigger.maxchanends
+	.weak	_i.i2c_external_commands_if._chan.trigger.maxchanends
 .Ltmp0:
-	.size	_i.i2c_external_commands_if._chan.command, .Ltmp0-_i.i2c_external_commands_if._chan.command
+	.size	_i.i2c_external_commands_if._chan.trigger, .Ltmp0-_i.i2c_external_commands_if._chan.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -184,11 +184,11 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp4-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_external_commands_if._chan_y.command
+	.weak	_i.i2c_external_commands_if._chan_y.trigger
 	.align	4
-	.type	_i.i2c_external_commands_if._chan_y.command,@function
-	.cc_top _i.i2c_external_commands_if._chan_y.command.function,_i.i2c_external_commands_if._chan_y.command
-_i.i2c_external_commands_if._chan_y.command:
+	.type	_i.i2c_external_commands_if._chan_y.trigger,@function
+	.cc_top _i.i2c_external_commands_if._chan_y.trigger.function,_i.i2c_external_commands_if._chan_y.trigger
+_i.i2c_external_commands_if._chan_y.trigger:
 	.cfi_startproc
 	entsp 2
 .Ltmp5:
@@ -216,21 +216,21 @@ _i.i2c_external_commands_if._chan_y.command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan_y.command.function
-	.set	_i.i2c_external_commands_if._chan_y.command.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_external_commands_if._chan_y.command.nstackwords
-	.weak	_i.i2c_external_commands_if._chan_y.command.nstackwords
-	.set	_i.i2c_external_commands_if._chan_y.command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxcores
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxcores
-	.set	_i.i2c_external_commands_if._chan_y.command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxtimers
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxtimers
-	.set	_i.i2c_external_commands_if._chan_y.command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.command.maxchanends
-	.weak	_i.i2c_external_commands_if._chan_y.command.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan_y.trigger.function
+	.set	_i.i2c_external_commands_if._chan_y.trigger.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxcores
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxcores
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
+	.set	_i.i2c_external_commands_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
+	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
 .Ltmp8:
-	.size	_i.i2c_external_commands_if._chan_y.command, .Ltmp8-_i.i2c_external_commands_if._chan_y.command
+	.size	_i.i2c_external_commands_if._chan_y.trigger, .Ltmp8-_i.i2c_external_commands_if._chan_y.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
@@ -1421,7 +1421,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string8:
 .asciiz"__TYPE_7"
 .Linfo_string9:
-.asciiz"_i.i2c_external_commands_if._chan.command"
+.asciiz"_i.i2c_external_commands_if._chan.trigger"
 .Linfo_string10:
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 .Linfo_string11:
@@ -1435,7 +1435,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string15:
 .asciiz"tag_i2c_temps_t"
 .Linfo_string16:
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
+.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
 .Linfo_string17:
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 .Linfo_string18:
@@ -3953,16 +3953,12 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.L.debug_info_begin0
 .Lset93 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset93
-	.long	1444
-.asciiz"_i.i2c_external_commands_if._chan_y.command"
 	.long	1473
 .asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
 	.long	176
 .asciiz"Temp_OnetenthDegC_To_Str"
 	.long	1697
 .asciiz"_safe_memset"
-	.long	1315
-.asciiz"_i.i2c_external_commands_if._chan.command"
 	.long	917
 .asciiz"Init_Arithmetic_Mean_Temp_OnetenthDegC"
 	.long	986
@@ -3977,6 +3973,8 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .asciiz"_safe_memmove"
 	.long	1530
 .asciiz"delay_milliseconds"
+	.long	1444
+.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
 	.long	1554
 .asciiz"delay_microseconds"
 	.long	520
@@ -3989,6 +3987,8 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .asciiz"_safe_memcmp"
 	.long	1506
 .asciiz"delay_seconds"
+	.long	1315
+.asciiz"_i.i2c_external_commands_if._chan.trigger"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -4023,10 +4023,10 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .LpubTypes_end0:
 	.cfi_sections .debug_frame
 
-	.typestring _i.i2c_external_commands_if._chan.command, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.typestring _i.i2c_external_commands_if._chan.trigger, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
-	.overlay_reference _i.i2c_external_commands_if._chan_y.command,_i.i2c_external_commands_if._client_call_y.fns
+	.typestring _i.i2c_external_commands_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.overlay_reference _i.i2c_external_commands_if._chan_y.trigger,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring siprintf, "f{si}(u:q(uc),u:q(c:uc),va)"

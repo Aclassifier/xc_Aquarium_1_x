@@ -1552,14 +1552,15 @@ typedef enum system_state_t {
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS 1000
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS * XS1_TIMER_KHZ)
 
-#define WATCHDOG_EXTRA_MS 10 // Name used in comment in Port_Pins_Heat_Light_Server
-//                         0    i_port_heat_light_commands beeps every time
-//                         1    Beeps two of three times
-//                         2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
-//                         5    Using this to get some margin. No, the beep came some times when I used the display (at least when DO_HEAT_PULSING_THROUGH_BOARD_9 was introduced)
-//                              TODO: I also heare it some times when I made EMC by unplugging the air pump
-//                              I also heard it some times during downloading with the debugger!
-//                        10    Trying this 7May2017
+#define WATCHDOG_EXTRA_MS 100 // Name used in comment in Port_Pins_Heat_Light_Server
+//                          0    i_port_heat_light_commands beeps every time
+//                          1    Beeps two of three times
+//                          2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
+//                          5    Using this to get some margin. No, the beep came some times when I used the display (at least when DO_HEAT_PULSING_THROUGH_BOARD_9 was introduced)
+//                               I also heard it some times when I made EMC by unplugging the air pump. I2C retransmit?
+//                               I also heard it some times during downloading with the debugger!
+//                         10    Trying this 7May2017. The beep comes some times when it writes complex data to the display. This is definitively in this loop.
+//                        100    18July2017. To get away with the beep when I press a button for a complex display layout
 //
 
 [[combinable]] // When nested selects combinable not allowed
@@ -1676,15 +1677,15 @@ void System_Task (
 
                 // Fetch data (1)
                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.notify
-                i_i2c_external_commands.command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
+                i_i2c_external_commands.trigger (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
 
                 system_state = SYSTEM_STATE_AWAIT_TWO_NOTIFY;
                 num_notify_expexted = 2;
 
                 #ifdef DEBUG_TEST_WATCHDOG
-                    if (context.do_watchdog_retrigger_ms_debug) {
-                        // No watchdog_retrigger_with
-                    } else
+                if (context.do_watchdog_retrigger_ms_debug) {
+                    // No watchdog_retrigger_with
+                } else
                 #endif
                 {
                     watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS);

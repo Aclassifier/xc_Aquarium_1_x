@@ -58,7 +58,7 @@ Symbols:
   00010934 0000004c .text                _i.i2c_internal_commands_if._chan.write_chronodot_ok
   00010980 0000004c .text                _i.i2c_internal_commands_if._chan.read_chronodot_ok
   000109cc 00000034 .text                _i.i2c_internal_commands_if._chan.write_display_ok
-  00010a00 00000018 .text                _i.i2c_external_commands_if._chan.command
+  00010a00 00000018 .text                _i.i2c_external_commands_if._chan.trigger
   00010a18 00000028 .text                _i.i2c_external_commands_if._chan.read_temperature_ok
   00010a40 0000001c .text                _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
   00010a5c 00000014 .text                _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
