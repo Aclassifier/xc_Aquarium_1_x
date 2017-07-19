@@ -12,20 +12,23 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR       "1.0.8" // 18Jul2017
-                                   //                      Random light now starts at LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM (2)
-                                   //                      WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing
-                                   //                      Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger
-                                   // "1.0.7" // 17Jul2017 Tagged VER_1_0_7_with_fishes
-                                   //                      SCREEN_0_FEIL layout detail (tested ok)
-                                   // "1.0.6" // 16Jul2017 SCREEN_0_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again) (tested ok)
-                                   // "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off ()
-                                   // "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes
-                                   //                      DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
-                                   // "1.0.3" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
-                                   // "1.0.2" // 11Jul2017 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_2000_mW_ON_WHITE etc) (tested ok)
-                                   // "1.0.1" // 07Jul2017 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
-                                   //                      Scrolling of hour went all the way to 59, now 23 (tested ok)
-                                   //  1.0.0  // 21May2017 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()
+#define APPLICATION_VERSION_STR  "1.0.9" // 19Jul2017 Tagged VER_1_0_9_with_fishes
+    //                      Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
+    //                      Max "1.0.12" with 6 visible chars allowed (was 5) (tested ok)
+    // "1.0.8" // 18Jul2017 Tagged VER_1_0_8_with_fishes
+    //                      Random light now starts at LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
+    //                      WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
+    //                      Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
+    // "1.0.7" // 17Jul2017 Tagged VER_1_0_7_with_fishes
+    //                      SCREEN_0_FEIL layout detail (tested ok)
+    // "1.0.6" // 16Jul2017 SCREEN_0_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again) (tested ok)
+    // "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off ()
+    // "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes
+    //                      DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
+    // "1.0.3" // 15Jul2017 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
+    // "1.0.2" // 11Jul2017 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_2000_mW_ON_WHITE etc) (tested ok)
+    // "1.0.1" // 07Jul2017 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
+    //                      Scrolling of hour went all the way to 59, now 23 (tested ok)
+    //  1.0.0  // 21May2017 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()
 
 #endif /* VERSION_H_ */

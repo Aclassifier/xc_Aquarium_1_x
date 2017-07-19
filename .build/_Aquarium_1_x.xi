@@ -2605,7 +2605,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
 
             char xTIMEcomposer_version_str [7] = "14.2.4";
-            char application_version_str [6] = "1.0.8";
+            char application_version_str [7] = "1.0.9";
 
 
 
@@ -2617,9 +2617,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 # 691 "../src/_Aquarium_1_x.xc"
                 sprintf_return = sprintf (context.display_ts1_chars,
-                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s %syvind Teig",
                                    xTIMEcomposer_version_str,
-                                   "Jul 18 2017",
+                                   "Jul 19 2017",
                                    application_version_str,
                                    char_OE_str);
 
@@ -2638,7 +2638,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "09:49:57", "Jul 18 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "09:43:00", "Jul 19 2017"); } while (0);
             } else {}
         } break;
 
@@ -2687,7 +2687,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                do { if(1) printf("Version date %s %s\n", "09:49:57", "Jul 18 2017"); } while (0);
+                do { if(1) printf("Version date %s %s\n", "09:43:00", "Jul 19 2017"); } while (0);
             } else {}
         } break;
 
@@ -3292,7 +3292,7 @@ void System_Task_Data_Handler (
             if (context.error_bits_history != 0) {
                 if (context.display_sub_context[SCREEN_0_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_SHOW;
-                    context.beeper_blip_now = true;
+                    context.beeper_blip_now = (context.error_bits_now != 0);
                     context.display_screen_name_present = SCREEN_0_FEIL;
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
 

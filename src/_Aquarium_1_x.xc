@@ -666,7 +666,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
             // #define TEST_BOOT_FROM_CONFIG // Does not work!
             char xTIMEcomposer_version_str  [7] = XTIMECOMPOSER_VERSION_STR; // Typical "14.2.3"
-            char application_version_str    [6] = APPLICATION_VERSION_STR;   // Typical "1.0.1"
+            char application_version_str    [7] = APPLICATION_VERSION_STR;   // Typical "1.0.12"
 
             #ifdef TEST_BOOT_FROM_CONFIG
                 int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -689,7 +689,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 // EDIT HERE IF XTIMECOMPOSER_VERSION_STR or APPLICATION_VERSION_STR need to change size,
                 // as I didn't think it necessary to code it dynamically as I have done with some of the others
                 sprintf_return = sprintf (context.display_ts1_chars,
-                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s  %syvind Teig",
+                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s %syvind Teig",
                                    xTIMEcomposer_version_str,
                                    __DATE__,
                                    application_version_str,
@@ -697,7 +697,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 //                                            5 BOKS  XMOS startKIT
                 //                                              xTIMEcomp.  v14.2.4
                 //                                              XC KODE Jun 14 2017
-                //                                              v1.0.2  Øyvind Teig
+                //                                              v1.0.12 Øyvind Teig
             #endif
 
             Clear_All_Pixels_In_Buffer();
@@ -1364,7 +1364,7 @@ void System_Task_Data_Handler (
             if (context.error_bits_history != ERROR_BITS_NONE) {
                 if (context.display_sub_context[SCREEN_0_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_FEIL].sub_state = SUB_STATE_SHOW;
-                    context.beeper_blip_now = true;
+                    context.beeper_blip_now = (context.error_bits_now != ERROR_BITS_NONE); // Only beep if existing
                     context.display_screen_name_present = SCREEN_0_FEIL;
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
 
