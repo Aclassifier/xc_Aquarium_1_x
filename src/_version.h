@@ -13,7 +13,7 @@
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
 #define APPLICATION_VERSION_STR "1.0.10"  // 21Jul2017
-    //                      Renaming, all tasks now "Task". Includes renaming of files (Git doesn't follow file renaming)
+    //                      Renaming, all tasks now "Task". Includes renaming of files (Git does follow file renaming!)
     //                      I2C_Internal_Server -> I2C_Internal_Task
     //                          i2c_internal_server.h -> i2c_internal_task.h
     //                          i2c_internal_server.xc -> i2c_internal_task.xc
