@@ -21,7 +21,7 @@
 #include "button_press.h"
 
 #include "i2c.h"
-#include "I2C_External_Server.h"
+#include "I2C_External_Task.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #endif

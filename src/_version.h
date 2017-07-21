@@ -12,7 +12,28 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR  "1.0.9" // 19Jul2017 Tagged VER_1_0_9_with_fishes
+#define APPLICATION_VERSION_STR "1.0.10"  // 21Jul2017
+    //                      Renaming, all tasks now "Task". Includes renaming of files (Git doesn't follow file renaming)
+    //                      I2C_Internal_Server -> I2C_Internal_Task
+    //                          i2c_internal_server.h -> i2c_internal_task.h
+    //                          i2c_internal_server.xc -> i2c_internal_task.xc
+    //                      I2C_External_Server -> I2C_External_Task
+    //                          i2c_external_server.h -> i2c_external_task.h
+    //                          i2c_external_server.xc -> i2c_external_task.xc
+    //                      Temperature_Heater_Controller -> Temperature_Heater_Task
+    //                          temperature_heater_controller.h -> temperature_heater_task.h
+    //                          temperature_heater_controller.xc -> temperature_heater_task.xc
+    //                      Temperature_Water_Controller -> Temperature_Water_Task
+    //                          temperature_water_controller.h -> temperature_water_task.h
+    //                          temperature_water_controller.xc -> temperature_water_task.xc
+    //                      My_startKIT_ADC_Client -> My_startKIT_ADC_Task
+    //                          adc_startKIT_client.h -> my_adc_startkit_task.h
+    //                          adc_startKIT_client.xc -> my_adc_startkit_task.xc
+    //                      Port_Pins_Heat_Light_Server -> Port_Pins_Heat_Light_Task
+    //                          port_heat_light_server.h -> port_heat_light_task.h
+    //                          port_heat_light_server.xc -> port_heat_light_task.xc
+    //                      Also, all files now use only underscore chars in names
+    // "1.0.9" // 19Jul2017 Tagged VER_1_0_9_with_fishes
     //                      Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
     //                      Max "1.0.12" with 6 visible chars allowed (was 5) (tested ok)
     // "1.0.8" // 18Jul2017 Tagged VER_1_0_8_with_fishes

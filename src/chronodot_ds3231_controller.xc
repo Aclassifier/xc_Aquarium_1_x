@@ -20,19 +20,19 @@
 //
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_External_Server.h"
-#include "I2C_Internal_Server.h"          // First this..
+#include "I2C_External_Task.h"
+#include "I2C_Internal_Task.h"          // First this..
 #include "display_ssd1306.h" // ..then this
 #include "core_graphics_font5x8.h"
 #include "core_graphics_adafruit_GFX.h"
 #include "button_press.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "port_heat_light_server.h"
-#include "Temperature_Heater_Controller.h"
-#include "Temperature_Water_Controller.h"
+#include "port_heat_light_task.h"
+#include "temperature_heater_task.h"
+#include "temperature_water_task.h"
 
-#include "Chronodot_DS3231_Controller.h"
+#include "chronodot_ds3231_controller.h"
 #endif
 
 #define DEBUG_PRINT_CHRONODOT_DS3231 0 // Cost 1.3k
@@ -64,7 +64,7 @@ void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231
     chronodot_d3231_registers.registers[DS3231_REG_SECOND]     = Bin_To_BCD_8((uint8_t)  datetime.second);
 }
 
-// When I not made this a separate task, but called I2C_Internal_Server directly from the same client
+// When I not made this a separate task, but called I2C_Internal_Task directly from the same client
 // then I2C_INTERNAL_NUM_CLIENTS went from 2 to 1 and the chronodot_ds3231_if wasn't needed any more, so
 // we saved three chanends and almost saved about 2.1K memory:
 //

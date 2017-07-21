@@ -1,5 +1,5 @@
 /*
- * Temperature_Water_Controller.h
+ * Temperature_Water_Task.h
  *
  *  Created on: 1. feb. 2017
  *      Author: teig
@@ -19,7 +19,7 @@ typedef enum now_regulating_at_t {
     REGULATING_AT_LOST_WATER_SENSOR,   // Displaying "-" in box
     //
     // Not part of regulation index above, only used for displaying special state but still using NOW_REGULATING_AT_CHAR_TEXTS
-    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG, // Displaying "0" in box    Regulator doesn't know, but heating switched off by Port_Pins_Heat_Light_Server
+    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG, // Displaying "0" in box    Regulator doesn't know, but heating switched off by Port_Pins_Heat_Light_Task
     HEAT_CABLE_ERROR                   // Displaying "?" in box    Heating cable is not connected, temperature rise in heating space underneath not seen
 } now_regulating_at_t;
 
@@ -31,7 +31,7 @@ typedef interface temperature_water_commands_if {
 } temperature_water_commands_if;
 
 [[combinable]]
-void Temperature_Water_Controller (
+void Temperature_Water_Task (
     server temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
 

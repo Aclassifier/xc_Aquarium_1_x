@@ -1560,8 +1560,8 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          int nbytes,
                          struct r_i2c &i2c_master);
 # 24 "../src/tempchip_mcp9808.xc" 2
-# 1 "../src/I2C_External_Server.h" 1
-# 10 "../src/I2C_External_Server.h"
+# 1 "../src/I2C_External_Task.h" 1
+# 10 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
 
 
@@ -1604,7 +1604,7 @@ typedef interface i2c_external_commands_if {
 
 
 [[combinable]]
-void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 25 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/defines_adafruit.h" 1
 # 24 "../src/defines_adafruit.h"

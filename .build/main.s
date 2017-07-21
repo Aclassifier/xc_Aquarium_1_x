@@ -8,29 +8,29 @@
 	.globalresource 0x10e00,"inP_button_center","tile[0]"
 	.globalresource 0x10f00,"inP_button_right","tile[0]"
 	.weak _i.temperature_heater_commands_if._client_call_y.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Task.select.0.enable.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Task.select.0.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Task.select.0.enable.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Task.select.0.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Server.select.0.enable.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Task.select.0.enable.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Task.select.0.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.globl _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Server.select.0.enable.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Server.select.0.enable
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Server.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Task.select.0.enable.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Task.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxcores.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.maxcores + __interface_client_call_y_extra.maxcores), Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxtimers.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.maxtimers + __interface_client_call_y_extra.maxtimers), Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.globl _i.temperature_heater_commands_if._client_call_y.nstackwords.group
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Server.select.0.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Server.select.0.enable.cases
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Server.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Task.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.set __main__main_tile_0.savedstate,105
 	.globl __main__main_tile_0.savedstate
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
@@ -1234,115 +1234,115 @@ inP_button_right.info:
 	.set usage.anon.4,0
 	.set usage.anon.5,0
 	.set usage.anon.6,0
-	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:113:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:112:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:111:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
-	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:113:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                              ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:112:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                              ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:111:79: note: object used here\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                              ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:113:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:111:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:113:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:111:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
 	.call usage.anon.6,adc_task
-	.call usage.anon.6,Port_Pins_Heat_Light_Server
-	.call usage.anon.6,My_startKIT_ADC_Client
+	.call usage.anon.6,Port_Pins_Heat_Light_Task
+	.call usage.anon.6,My_startKIT_ADC_Task
 	.call usage.anon.6,Button_Task
 	.call usage.anon.6,Button_Task
 	.call usage.anon.6,Button_Task
-	.call usage.anon.6,Temperature_Water_Controller
-	.call usage.anon.6,Temperature_Heater_Controller
+	.call usage.anon.6,Temperature_Water_Task
+	.call usage.anon.6,Temperature_Heater_Task
 	.call usage.anon.6,System_Task
-	.call usage.anon.6,I2C_External_Server
-	.call usage.anon.6,I2C_Internal_Server
+	.call usage.anon.6,I2C_External_Task
+	.call usage.anon.6,I2C_Internal_Task
 	.call usage.anon.6,installExceptionHandler
 	.call main,usage.anon.5
 	.call main,usage.anon.4
 	.call main,usage.anon.3
 	.call main,installExceptionHandler
 	.call main,adc_task
-	.call main,Temperature_Water_Controller
-	.call main,Temperature_Heater_Controller
+	.call main,Temperature_Water_Task
+	.call main,Temperature_Heater_Task
 	.call main,System_Task
-	.call main,Port_Pins_Heat_Light_Server
-	.call main,My_startKIT_ADC_Client
-	.call main,I2C_Internal_Server
-	.call main,I2C_External_Server
+	.call main,Port_Pins_Heat_Light_Task
+	.call main,My_startKIT_ADC_Task
+	.call main,I2C_Internal_Task
+	.call main,I2C_External_Task
 	.call usage.anon.5,Button_Task
 	.call usage.anon.4,Button_Task
 	.call usage.anon.3,Button_Task
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par installExceptionHandler,I2C_Internal_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,I2C_External_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_Internal_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_External_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par installExceptionHandler,System_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Heater_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Water_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Heater_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Water_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par installExceptionHandler,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par installExceptionHandler,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par installExceptionHandler,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par installExceptionHandler,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,I2C_External_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,System_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Heater_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Temperature_Water_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Server,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,System_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Heater_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Temperature_Water_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Server,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Heater_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Water_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,I2C_External_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,System_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Temperature_Heater_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Temperature_Water_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,System_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Temperature_Heater_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Temperature_Water_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Heater_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Water_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par System_Task,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par System_Task,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par System_Task,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par System_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Temperature_Water_Controller,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Controller,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Controller,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,Temperature_Water_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.3,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.3,usage.anon.4,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.3,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.3,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.4,usage.anon.5,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.4,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,My_startKIT_ADC_Client,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,My_startKIT_ADC_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.par usage.anon.5,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,Port_Pins_Heat_Light_Server,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Client,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Port_Pins_Heat_Light_Server,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Port_Pins_Heat_Light_Task,adc_task,"../src/main.xc:101:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.set main.locnoside, 0
 	.set main.locnochandec, 0
 	.set main.locnoglobalaccess, 0
-	.globpassesref Button_Task, inP_button_right,"../src/main.xc:113:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_center,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_left,"../src/main.xc:111:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Client_9
+	.globpassesref Button_Task, inP_button_right,"../src/main.xc:113:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_center,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_left,"../src/main.xc:111:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Task_9
 
 
 	.section	.debug_info,"",@progbits
@@ -4824,13 +4824,13 @@ __main__main_tile_0:
 	retsp 174
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0.function
-	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords) + 174)
+	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords) + 174)
 	.globl	__main__main_tile_0.nstackwords
-	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_5.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores) $M 1
+	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_5.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxcores) $M 1
 	.globl	__main__main_tile_0.maxcores
-	.set	__main__main_tile_0.maxtimers,(6 + __main__main_tile_0_combined_tile_0_0.maxtimers + __main__main_tile_0_combined_tile_0_4.maxtimers + __main__main_tile_0_combined_tile_0_5.maxtimers + __main__main_tile_0_combined_tile_0_1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxtimers) $M 0
+	.set	__main__main_tile_0.maxtimers,(6 + __main__main_tile_0_combined_tile_0_0.maxtimers + __main__main_tile_0_combined_tile_0_4.maxtimers + __main__main_tile_0_combined_tile_0_5.maxtimers + __main__main_tile_0_combined_tile_0_1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxtimers) $M 0
 	.globl	__main__main_tile_0.maxtimers
-	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_5.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Client_9.maxchanends)) $M 20
+	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_5.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxchanends)) $M 20
 	.globl	__main__main_tile_0.maxchanends
 .Ltmp285:
 	.size	__main__main_tile_0, .Ltmp285-__main__main_tile_0
@@ -4880,7 +4880,7 @@ __main__main_tile_0_combined_tile_0_0:
 .Ltmp295:
 	.cfi_offset 9, -24
 	mov r6, r0
-	ldc r0, I2C_Internal_Server.init.0.savedstate
+	ldc r0, I2C_Internal_Task.init.0.savedstate
 	ldc r1, 4
 	ldaw r0, r1[r0]
 	ldaw r2, sp[0]
@@ -4888,7 +4888,7 @@ __main__main_tile_0_combined_tile_0_0:
 	set sp, r0
 	# ALLOCA 1
 	add r0, r0, 4
-	ldc r2, Temperature_Heater_Controller.init.0.savedstate
+	ldc r2, Temperature_Heater_Task.init.0.savedstate
 	ldaw r1, r1[r2]
 	ldaw r2, sp[0]
 	sub r1, r2, r1
@@ -4909,7 +4909,7 @@ __main__main_tile_0_combined_tile_0_0:
 	extsp 1
 	mov r0, r5
 .Lxta.call_labels0:
-	bl I2C_Internal_Server.init.0
+	bl I2C_Internal_Task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r4, r10[3]
@@ -4926,21 +4926,21 @@ __main__main_tile_0_combined_tile_0_0:
 	extsp 1
 	mov r0, r4
 .Lxta.call_labels1:
-	bl Temperature_Heater_Controller.init.0
+	bl Temperature_Heater_Task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 4
 	extsp 1
 	mov r0, r5
-	bl I2C_Internal_Server.init.1
+	bl I2C_Internal_Task.init.1
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 5
 	extsp 1
 	mov r0, r4
-	bl Temperature_Heater_Controller.init.1
+	bl Temperature_Heater_Task.init.1
 	ldaw sp, sp[1]
 	# STACKDOWN
 	clre
@@ -4959,7 +4959,7 @@ __main__main_tile_0_combined_tile_0_0:
 	extsp 1
 	mov r0, r5
 	mov r9, r5
-	bl I2C_Internal_Server.select.enable
+	bl I2C_Internal_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	mov r6, r0
@@ -4985,7 +4985,7 @@ __main__main_tile_0_combined_tile_0_0:
 	# ALLOCA 10
 	extsp 1
 	mov r0, r9
-	bl I2C_Internal_Server.select.enable
+	bl I2C_Internal_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	mov r6, r0
@@ -4994,7 +4994,7 @@ __main__main_tile_0_combined_tile_0_0:
 	extsp 1
 	mov r0, r5
 .LBB59_1:
-	bl Temperature_Heater_Controller.select.enable
+	bl Temperature_Heater_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r0, r6
@@ -5003,14 +5003,14 @@ __main__main_tile_0_combined_tile_0_0:
 	# ALLOCA 8
 	extsp 1
 	mov r0, r9
-	bl I2C_Internal_Server.fini
+	bl I2C_Internal_Task.fini
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 9
 	extsp 1
 	mov r0, r5
-	bl Temperature_Heater_Controller.fini
+	bl Temperature_Heater_Task.fini
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldaw r0, r10[3]
@@ -5028,10 +5028,10 @@ __main__main_tile_0_combined_tile_0_0:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_0.function
-	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Server.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Controller.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Server.init.0.nstackwords) $M (1 + Temperature_Heater_Controller.init.0.nstackwords) $M (1 + I2C_Internal_Server.init.1.nstackwords) $M (1 + Temperature_Heater_Controller.init.1.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M (1 + I2C_Internal_Server.fini.nstackwords) $M (1 + Temperature_Heater_Controller.fini.nstackwords) $M (1 + I2C_Internal_Server.select.enable.nstackwords) $M (1 + Temperature_Heater_Controller.select.enable.nstackwords) $M I2C_Internal_Server.select.enable.cases.nstackwords $M Temperature_Heater_Controller.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + I2C_Internal_Server.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.fini.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.0.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.init.1.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + Temperature_Heater_Controller.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Server.dynalloc_maxcores) + ((1 * Temperature_Heater_Controller.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + I2C_Internal_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.fini.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.0.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.init.1.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + Temperature_Heater_Controller.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Server.dynalloc_maxtimers) + ((1 * Temperature_Heater_Controller.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + I2C_Internal_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.fini.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.0.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.init.1.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + Temperature_Heater_Controller.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Server.dynalloc_maxchanends) + ((1 * Temperature_Heater_Controller.dynalloc_maxchanends) + 0))
+	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Task.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Task.init.0.nstackwords) $M (1 + Temperature_Heater_Task.init.0.nstackwords) $M (1 + I2C_Internal_Task.init.1.nstackwords) $M (1 + Temperature_Heater_Task.init.1.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M (1 + I2C_Internal_Task.fini.nstackwords) $M (1 + Temperature_Heater_Task.fini.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M I2C_Internal_Task.select.enable.cases.nstackwords $M Temperature_Heater_Task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + 0))
 .Ltmp297:
 	.size	__main__main_tile_0_combined_tile_0_0, .Ltmp297-__main__main_tile_0_combined_tile_0_0
 	.cfi_endproc
@@ -5080,7 +5080,7 @@ __main__main_tile_0_combined_tile_0_4:
 .Ltmp307:
 	.cfi_offset 9, -24
 	mov r4, r0
-	ldc r0, I2C_External_Server.init.0.savedstate
+	ldc r0, I2C_External_Task.init.0.savedstate
 	ldc r1, 4
 	ldaw r0, r1[r0]
 	ldaw r2, sp[0]
@@ -5109,7 +5109,7 @@ __main__main_tile_0_combined_tile_0_4:
 	extsp 1
 	mov r0, r5
 .Lxta.call_labels2:
-	bl I2C_External_Server.init.0
+	bl I2C_External_Task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r6, r10[3]
@@ -5132,7 +5132,7 @@ __main__main_tile_0_combined_tile_0_4:
 	# ALLOCA 4
 	extsp 1
 	mov r0, r5
-	bl I2C_External_Server.init.1
+	bl I2C_External_Task.init.1
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
@@ -5158,7 +5158,7 @@ __main__main_tile_0_combined_tile_0_4:
 	extsp 1
 	mov r0, r5
 	mov r9, r5
-	bl I2C_External_Server.select.enable
+	bl I2C_External_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	stw r0, r10[2]
@@ -5189,7 +5189,7 @@ __main__main_tile_0_combined_tile_0_4:
 	# ALLOCA 10
 	extsp 1
 	mov r0, r9
-	bl I2C_External_Server.select.enable
+	bl I2C_External_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	mov r6, r0
@@ -5207,7 +5207,7 @@ __main__main_tile_0_combined_tile_0_4:
 	# ALLOCA 8
 	extsp 1
 	mov r0, r9
-	bl I2C_External_Server.fini
+	bl I2C_External_Task.fini
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
@@ -5232,10 +5232,10 @@ __main__main_tile_0_combined_tile_0_4:
 	retsp 11
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_4.function
-	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Server.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Server.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Server.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Server.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Server.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Server.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Server.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Server.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Server.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Server.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Server.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Server.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
+	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Task.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Task.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Task.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Task.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
 .Ltmp309:
 	.size	__main__main_tile_0_combined_tile_0_4, .Ltmp309-__main__main_tile_0_combined_tile_0_4
 	.cfi_endproc
@@ -5285,7 +5285,7 @@ __main__main_tile_0_combined_tile_0_5:
 	.cfi_offset 9, -24
 	mov r4, r0
 	stw r4, r10[3]
-	ldc r0, Temperature_Water_Controller.init.0.savedstate
+	ldc r0, Temperature_Water_Task.init.0.savedstate
 	ldc r1, 4
 	ldaw r0, r1[r0]
 	ldaw r2, sp[0]
@@ -5293,7 +5293,7 @@ __main__main_tile_0_combined_tile_0_5:
 	set sp, r0
 	# ALLOCA 1
 	add r0, r0, 4
-	ldc r2, Port_Pins_Heat_Light_Server.init.0.savedstate
+	ldc r2, Port_Pins_Heat_Light_Task.init.0.savedstate
 	ldaw r1, r1[r2]
 	ldaw r2, sp[0]
 	sub r1, r2, r1
@@ -5314,7 +5314,7 @@ __main__main_tile_0_combined_tile_0_5:
 	extsp 1
 	mov r0, r6
 .Lxta.call_labels4:
-	bl Temperature_Water_Controller.init.0
+	bl Temperature_Water_Task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r7, r10[4]
@@ -5325,12 +5325,12 @@ __main__main_tile_0_combined_tile_0_5:
 	extsp 1
 	mov r0, r7
 .Lxta.call_labels5:
-	bl Port_Pins_Heat_Light_Server.init.0
+	bl Port_Pins_Heat_Light_Task.init.0
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldc r0, 420
 	add r1, r4, r0
-	ldap r11, Port_Pins_Heat_Light_Server.select.0.enable
+	ldap r11, Port_Pins_Heat_Light_Task.select.0.enable
 	stw r11, r1[0]
 	ldc r0, 424
 	add r0, r4, r0
@@ -5349,14 +5349,14 @@ __main__main_tile_0_combined_tile_0_5:
 	# ALLOCA 5
 	extsp 1
 	mov r0, r6
-	bl Temperature_Water_Controller.init.1
+	bl Temperature_Water_Task.init.1
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 6
 	extsp 1
 	mov r0, r7
-	bl Port_Pins_Heat_Light_Server.init.1
+	bl Port_Pins_Heat_Light_Task.init.1
 	ldaw sp, sp[1]
 	# STACKDOWN
 	clre
@@ -5375,7 +5375,7 @@ __main__main_tile_0_combined_tile_0_5:
 	extsp 1
 	mov r0, r6
 	mov r8, r6
-	bl Temperature_Water_Controller.select.enable
+	bl Temperature_Water_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	stw r0, r10[2]
@@ -5384,7 +5384,7 @@ __main__main_tile_0_combined_tile_0_5:
 	extsp 1
 	mov r0, r7
 	mov r6, r7
-	bl Port_Pins_Heat_Light_Server.select.enable
+	bl Port_Pins_Heat_Light_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r1, r10[2]
@@ -5406,7 +5406,7 @@ __main__main_tile_0_combined_tile_0_5:
 	# ALLOCA 12
 	extsp 1
 	mov r0, r8
-	bl Temperature_Water_Controller.select.enable
+	bl Temperature_Water_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	mov r7, r0
@@ -5414,7 +5414,7 @@ __main__main_tile_0_combined_tile_0_5:
 	# ALLOCA 13
 	extsp 1
 	mov r0, r6
-	bl Port_Pins_Heat_Light_Server.select.enable
+	bl Port_Pins_Heat_Light_Task.select.enable
 	ldaw sp, sp[1]
 	# STACKDOWN
 	or r0, r0, r7
@@ -5424,14 +5424,14 @@ __main__main_tile_0_combined_tile_0_5:
 	# ALLOCA 9
 	extsp 1
 	mov r0, r8
-	bl Temperature_Water_Controller.fini
+	bl Temperature_Water_Task.fini
 	ldaw sp, sp[1]
 	# STACKDOWN
 	# STACKUP 
 	# ALLOCA 10
 	extsp 1
 	mov r0, r6
-	bl Port_Pins_Heat_Light_Server.fini
+	bl Port_Pins_Heat_Light_Task.fini
 	ldaw sp, sp[1]
 	# STACKDOWN
 	ldw r0, r10[3]
@@ -5461,10 +5461,10 @@ __main__main_tile_0_combined_tile_0_5:
 	retsp 12
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_5.function
-	.set	__main__main_tile_0_combined_tile_0_5.nstackwords,((((((Temperature_Water_Controller.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Server.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Controller.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Controller.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.init.1.nstackwords) $M (1 + Temperature_Water_Controller.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.select.enable.nstackwords) $M (1 + Temperature_Water_Controller.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Controller.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Server.select.enable.nstackwords) $M Port_Pins_Heat_Light_Server.select.enable.cases.nstackwords $M Temperature_Water_Controller.select.enable.cases.nstackwords)) + 12)
-	.set	__main__main_tile_0_combined_tile_0_5.maxcores,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Port_Pins_Heat_Light_Server.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + Temperature_Water_Controller.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxcores) + ((1 * Temperature_Water_Controller.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_5.maxtimers,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Port_Pins_Heat_Light_Server.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + Temperature_Water_Controller.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxtimers) + ((1 * Temperature_Water_Controller.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_5.maxchanends,((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Port_Pins_Heat_Light_Server.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + Temperature_Water_Controller.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Server.dynalloc_maxchanends) + ((1 * Temperature_Water_Controller.dynalloc_maxchanends) + 0))
+	.set	__main__main_tile_0_combined_tile_0_5.nstackwords,((((((Temperature_Water_Task.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Task.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.1.nstackwords) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M (1 + Temperature_Water_Task.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M Temperature_Water_Task.select.enable.cases.nstackwords $M Port_Pins_Heat_Light_Task.select.enable.cases.nstackwords)) + 12)
+	.set	__main__main_tile_0_combined_tile_0_5.maxcores,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_5.maxtimers,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_5.maxchanends,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + 0))
 .Ltmp321:
 	.size	__main__main_tile_0_combined_tile_0_5, .Ltmp321-__main__main_tile_0_combined_tile_0_5
 	.cfi_endproc
@@ -5796,9 +5796,9 @@ __main__main_tile_0_task_System_Task_3:
 	.cfi_endproc
 
 	.align	4
-	.type	__main__main_tile_0_task_My_startKIT_ADC_Client_9,@function
-	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Client_9.function,__main__main_tile_0_task_My_startKIT_ADC_Client_9
-__main__main_tile_0_task_My_startKIT_ADC_Client_9:
+	.type	__main__main_tile_0_task_My_startKIT_ADC_Task_9,@function
+	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Task_9.function,__main__main_tile_0_task_My_startKIT_ADC_Task_9
+__main__main_tile_0_task_My_startKIT_ADC_Task_9:
 .Lfunc_begin65:
 	.loc	1 114 0
 	.cfi_startproc
@@ -5821,17 +5821,17 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	mov r0, r3
 .Ltmp352:
 .Lxta.call_labels11:
-	bl My_startKIT_ADC_Client
+	bl My_startKIT_ADC_Task
 	retsp 1
 	# RETURN_REG_HOLDER
 .Ltmp353:
-	.cc_bottom __main__main_tile_0_task_My_startKIT_ADC_Client_9.function
-	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords,(My_startKIT_ADC_Client.nstackwords + 1)
-	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxcores,My_startKIT_ADC_Client.maxcores $M 1
-	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxtimers,My_startKIT_ADC_Client.maxtimers $M 0
-	.set	__main__main_tile_0_task_My_startKIT_ADC_Client_9.maxchanends,My_startKIT_ADC_Client.maxchanends $M 0
+	.cc_bottom __main__main_tile_0_task_My_startKIT_ADC_Task_9.function
+	.set	__main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords,(My_startKIT_ADC_Task.nstackwords + 1)
+	.set	__main__main_tile_0_task_My_startKIT_ADC_Task_9.maxcores,My_startKIT_ADC_Task.maxcores $M 1
+	.set	__main__main_tile_0_task_My_startKIT_ADC_Task_9.maxtimers,My_startKIT_ADC_Task.maxtimers $M 0
+	.set	__main__main_tile_0_task_My_startKIT_ADC_Task_9.maxchanends,My_startKIT_ADC_Task.maxchanends $M 0
 .Ltmp354:
-	.size	__main__main_tile_0_task_My_startKIT_ADC_Client_9, .Ltmp354-__main__main_tile_0_task_My_startKIT_ADC_Client_9
+	.size	__main__main_tile_0_task_My_startKIT_ADC_Task_9, .Ltmp354-__main__main_tile_0_task_My_startKIT_ADC_Task_9
 .Lfunc_end65:
 	.cfi_endproc
 
@@ -5975,7 +5975,7 @@ __main__main_tile_0_task_My_startKIT_ADC_Client_9:
 	.size	par.desc.1, 56
 par.desc.1:
 	.long	__main__main_tile_0_combined_tile_0_4
-	.long	__main__main_tile_0_task_My_startKIT_ADC_Client_9.nstackwords
+	.long	__main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords
 	.long	__main__main_tile_0_combined_tile_0_5
 	.long	__main__main_tile_0_combined_tile_0_4.nstackwords
 	.long	__main__main_tile_0_combined_tile_0_1
@@ -5987,7 +5987,7 @@ par.desc.1:
 	.long	__main__main_tile_0_combined_tile_0_0
 	.long	__main__main_tile_0_task_System_Task_3.nstackwords
 	.long	0
-	.long	__main__main_tile_0_task_My_startKIT_ADC_Client_9
+	.long	__main__main_tile_0_task_My_startKIT_ADC_Task_9
 	.cc_bottom par.desc.1.data
 	.text
 .Ldebug_end1:
@@ -6238,7 +6238,7 @@ par.desc.1:
 .Linfo_string121:
 .asciiz"__main__main_tile_0_task_System_Task_3"
 .Linfo_string122:
-.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_9"
+.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Task_9"
 .Linfo_string123:
 .asciiz"__main__main_tile_0"
 .Linfo_string124:
@@ -8206,8 +8206,6 @@ par.desc.1:
 .asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
 	.long	564
 .asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
-	.long	421
-.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Client_9"
 	.long	2496
 .asciiz"__main__main_tile_0_combined_tile_0_0"
 	.long	2553
@@ -8234,6 +8232,8 @@ par.desc.1:
 .asciiz"inP_button_right"
 	.long	584
 .asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
+	.long	421
+.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Task_9"
 	.long	357
 .asciiz"__main__main_tile_0_task_installExceptionHandler_0"
 	.long	2046
@@ -8531,38 +8531,38 @@ par.desc.1:
 	.typestring adc_task.init.0, "k:f{0}(u:q(ui),is(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},chd,si)"
 	.typestring adc_task.select.enable, "k:fe{0}()"
 	.typestring adc_task.fini, "k:f{0}(u:q(ui))"
-	.typestring I2C_Internal_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring I2C_Internal_Server.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})))"
-	.typestring I2C_Internal_Server.select.enable, "k:fe{0}()"
-	.typestring I2C_Internal_Server.fini, "k:f{0}(u:q(ui))"
-	.typestring I2C_External_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring I2C_External_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}})))"
-	.typestring I2C_External_Server.select.enable, "k:fe{0}()"
-	.typestring I2C_External_Server.fini, "k:f{0}(u:q(ui))"
+	.typestring I2C_Internal_Task.init.1, "k:f{0}(u:q(ui))"
+	.typestring I2C_Internal_Task.init.0, "k:f{0}(u:q(ui),&(a(1:is(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}})))"
+	.typestring I2C_Internal_Task.select.enable, "k:fe{0}()"
+	.typestring I2C_Internal_Task.fini, "k:f{0}(u:q(ui))"
+	.typestring I2C_External_Task.init.1, "k:f{0}(u:q(ui))"
+	.typestring I2C_External_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}})))"
+	.typestring I2C_External_Task.select.enable, "k:fe{0}()"
+	.typestring I2C_External_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring Button_Task.init.1, "k:f{0}(u:q(ui))"
 	.typestring Button_Task.init.0, "k:f{0}(u:q(ui),:ui,p,chd)"
 	.typestring Button_Task.select.enable, "k:fe{0}()"
 	.typestring Button_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring installExceptionHandler, "f{0}(0)"
-	.typestring Port_Pins_Heat_Light_Server.select.0.enable, "k:fe{0}()"
-	.typestring Port_Pins_Heat_Light_Server.init.1, "k:f{0}(u:q(ui))"
-	.typestring Port_Pins_Heat_Light_Server.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})))"
-	.typestring Port_Pins_Heat_Light_Server.select.enable, "k:fe{0}()"
-	.typestring Port_Pins_Heat_Light_Server.fini, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Heater_Controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Heater_Controller.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
-	.typestring Temperature_Heater_Controller.select.enable, "k:fe{0}()"
-	.typestring Temperature_Heater_Controller.fini, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Water_Controller.init.1, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Water_Controller.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
-	.typestring Temperature_Water_Controller.select.enable, "k:fe{0}()"
-	.typestring Temperature_Water_Controller.fini, "k:f{0}(u:q(ui))"
-	.typestring My_startKIT_ADC_Client, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
+	.typestring Port_Pins_Heat_Light_Task.select.0.enable, "k:fe{0}()"
+	.typestring Port_Pins_Heat_Light_Task.init.1, "k:f{0}(u:q(ui))"
+	.typestring Port_Pins_Heat_Light_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})))"
+	.typestring Port_Pins_Heat_Light_Task.select.enable, "k:fe{0}()"
+	.typestring Port_Pins_Heat_Light_Task.fini, "k:f{0}(u:q(ui))"
+	.typestring Temperature_Heater_Task.init.1, "k:f{0}(u:q(ui))"
+	.typestring Temperature_Heater_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
+	.typestring Temperature_Heater_Task.select.enable, "k:fe{0}()"
+	.typestring Temperature_Heater_Task.fini, "k:f{0}(u:q(ui))"
+	.typestring Temperature_Water_Task.init.1, "k:f{0}(u:q(ui))"
+	.typestring Temperature_Water_Task.init.0, "k:f{0}(u:q(ui),is(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}})"
+	.typestring Temperature_Water_Task.select.enable, "k:fe{0}()"
+	.typestring Temperature_Water_Task.fini, "k:f{0}(u:q(ui))"
+	.typestring My_startKIT_ADC_Task, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
 	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(){m(false){0},m(true){1}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
+	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"

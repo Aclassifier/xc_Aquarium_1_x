@@ -1,5 +1,5 @@
 /*
- * Temperature_Heater_Controller.h
+ * Temperature_Heater_Task.h
  *
  *  Created on: 18. jan. 2017
  *      Author: teig
@@ -37,7 +37,7 @@ typedef interface temperature_heater_commands_if {
 #define HEATER_CONTROLLER_NUM_CLIENTS 2
 
 [[combinable]]
-void Temperature_Heater_Controller (
+void Temperature_Heater_Task (
     server temperature_heater_commands_if i_temperature_heater_commands [HEATER_CONTROLLER_NUM_CLIENTS],
     client i2c_external_commands_if       i_i2c_external_commands,
     client port_heat_light_commands_if    i_port_heat_light_commands);

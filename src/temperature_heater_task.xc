@@ -1,5 +1,5 @@
 /*
- * Temperature_Heater_Controller.xc
+ * Temperature_Heater_Task.xc
  *
  *  Created on: 18. jan. 2017
  *      Author: teig
@@ -21,9 +21,9 @@
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "I2C_External_Server.h"
-#include "port_heat_light_server.h"
-#include "Temperature_Heater_Controller.h"
+#include "I2C_External_Task.h"
+#include "port_heat_light_task.h"
+#include "temperature_heater_task.h"
 #endif
 
 //}}}  
@@ -79,7 +79,7 @@ typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE_UNPLUGGED
 //}}}  
 
 [[combinable]]
-void Temperature_Heater_Controller (
+void Temperature_Heater_Task (
     server temperature_heater_commands_if i_temperature_heater_commands [HEATER_CONTROLLER_NUM_CLIENTS],
     client i2c_external_commands_if       i_i2c_external_commands,
     client port_heat_light_commands_if    i_port_heat_light_commands) {
@@ -130,7 +130,7 @@ void Temperature_Heater_Controller (
 
     cable_heater_mon.state = CABLE_HEATER_OK;
 
-    debug_printf("%s", "Temperature_Heater_Controller started\n");
+    debug_printf("%s", "Temperature_Heater_Task started\n");
 
     tmr :> time;
     //}}}  

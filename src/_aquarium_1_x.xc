@@ -31,22 +31,22 @@
 //
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_Internal_Server.h"
-#include "Chronodot_DS3231_Controller.h"
+#include "I2C_Internal_Task.h"
+#include "chronodot_ds3231_controller.h"
 
 #include "display_ssd1306.h"
 
-#include "I2C_External_Server.h"
+#include "I2C_External_Task.h"
 #include "button_press.h"
 //
-#include "port_heat_light_server.h"
+#include "port_heat_light_task.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "Temperature_Heater_Controller.h"
-#include "Temperature_Water_Controller.h"
+#include "temperature_heater_task.h"
+#include "temperature_water_task.h"
 #include "core_graphics_adafruit_GFX.h"
 #include "core_graphics_font5x8.h"
-#include "adc_startkit_client.h"
+#include "my_adc_startkit_task.h"
 #include "light_sunrise_sunset.h"
 #include "exception_handler.h"
 #include "_version.h"
@@ -361,7 +361,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             char temp_degC_water_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN];
             // Alternatively display context.temperature_water_controller_debug_log as %3u or %03X
-            i_temperature_water_commands.get_temp_degC_str (IOF_TEMPC_WATER, temp_degC_water_str); // As used by Temperature_Water_Controller
+            i_temperature_water_commands.get_temp_degC_str (IOF_TEMPC_WATER, temp_degC_water_str); // As used by Temperature_Water_Task
 
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -1552,7 +1552,7 @@ typedef enum system_state_t {
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS 1000
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS * XS1_TIMER_KHZ)
 
-#define WATCHDOG_EXTRA_MS 100 // Name used in comment in Port_Pins_Heat_Light_Server
+#define WATCHDOG_EXTRA_MS 100 // Name used in comment in Port_Pins_Heat_Light_Task
 //                          0    i_port_heat_light_commands beeps every time
 //                          1    Beeps two of three times
 //                          2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
@@ -1665,7 +1665,7 @@ void System_Task (
 
                 // We need to wait for both replies since i_temperature_water_commands.get_temp_degC_str
                 // calls later (in Handle_Real_Or_Clocked_Button_Actions) on gave a rave and deadlock if we didn't finish here before "the second"
-                // It was a follow-up Temperature_Water_Controller causing i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC)
+                // It was a follow-up Temperature_Water_Task causing i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC)
                 // that caused the deadlock. See logs from "2017 02 15"
                 //
                 bool i_startkit_adc_acquire_complete = false;

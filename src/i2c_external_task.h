@@ -1,11 +1,11 @@
 /*
- * I2C_External_Server.h
+ * I2C_External_Task.h
  *  Created on: 3. okt. 2016
  *      Author: teig
  */
 
-#ifndef I2C_EXTERNAL_SERVER_H_
-#define I2C_EXTERNAL_SERVER_H_
+#ifndef I2C_External_Task_H_
+#define I2C_External_Task_H_
 
 typedef enum i2c_dev_address_external_t {
                                 // Microchip's MCP9808 I2C Temp sensor (three of them)
@@ -49,8 +49,8 @@ typedef interface i2c_external_commands_if {
 #define I2C_EXTERNAL_NUM_CLIENTS 2
 
 [[combinable]]
-void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]);
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]);
 
 #else
-    #error Nested include I2C_EXTERNAL_SERVER_H_
+    #error Nested include I2C_External_Task_H_
 #endif /* I2C_TEMPERATURE_MCP9808_ADAFRUIT_H_ */

@@ -33,11 +33,11 @@
 
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_External_Server.h"
+#include "I2C_External_Task.h"
 #endif
 
-#define DEBUG_PRINT_I2C_EXTERNAL_SERVER 0 // Cost 1.5
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_SERVER) printf(fmt, __VA_ARGS__); } while (0)
+#define DEBUG_PRINT_I2C_External_Task 0 // Cost 1.5
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_External_Task) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_external_config = {
     on tile[0]:XS1_PORT_1G, // X_SCL SCL is at startKIT GPIO header (J7.3) port P1G0, processor pin X0D22
@@ -49,7 +49,7 @@ r_i2c i2c_external_config = {
 };
 
 [[combinable]]
-void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]) {
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]) {
 
     i2c_master_params_t i2c_external_params;
     i2c_temps_t i2c_temps;

@@ -28,7 +28,7 @@ typedef interface lib_startkit_adc_commands_if {
 #ifndef DO_ADC_NESTED_SELECT
 [[combinable]]
 #endif
-void My_startKIT_ADC_Client (
+void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if      i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[ADC_STARTKIT_NUM_CLIENTS],
    const unsigned int                  Num_of_data_sets);

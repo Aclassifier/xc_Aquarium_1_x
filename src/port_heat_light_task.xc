@@ -1,5 +1,5 @@
 /*
- * Port_Pins_Heat_Light_Server.xc
+ * Port_Pins_Heat_Light_Task.xc
  *
  *  Created on: 28. des. 2016
  *      Author: teig
@@ -14,7 +14,7 @@
 #include <iso646.h>
 
 #include "param.h"
-#include "port_heat_light_server.h"
+#include "port_heat_light_task.h"
 #endif
 
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
@@ -268,7 +268,7 @@ typedef enum pin_change_t {
 // soft_change_pwm_window_timer_us inside a PWM window. 24Feb2017
 //
 [[combinable]]
-void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
+void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
 
     uint32_t                 port_value = UINT32_HIGH_BITS;
     timer                    tmr;
@@ -294,7 +294,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
     //      So no DIV in the 1500 us timeouts
     //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
-    debug_printf("%s", "Port_Pins_Heat_Light_Server started\n");
+    debug_printf("%s", "Port_Pins_Heat_Light_Task started\n");
 
     // If DO_HEAT_PULSING_THROUGH_BOARD_9 then this watchdog isn't needed. But it won't hurt!
     unsigned beeper_blip_ticks_cntdown = 0;
@@ -423,7 +423,7 @@ void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat
                         // The client sending heat_cables_command will not know about this but heat_cables_command is regularly called based on temperatures,
                         // so it will become right again when not watchdog timed out any more. This also implies that we might get short heat on blinks immediately
                         // after that call that might be killed here within. This ensures that we don't need a button acknowledge should the cause of the watchdog
-                        // timeout repair itself. So neither the Temperature_Heater_Controller nor the Temperature_Water_Controller will know about this,
+                        // timeout repair itself. So neither the Temperature_Heater_Task nor the Temperature_Water_Task will know about this,
                         // it has by design not been propagated up. However, System_Task will know by the get_heat_cables_forced_off_by_watchdog and will take
                         // appropriate action in the display. Test with DEBUG_TEST_WATCHDOG
 

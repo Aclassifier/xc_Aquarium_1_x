@@ -25,22 +25,22 @@
 //
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_Internal_Server.h"
-#include "Chronodot_DS3231_Controller.h"
+#include "I2C_Internal_Task.h"
+#include "chronodot_ds3231_controller.h"
 
 #include "display_ssd1306.h"
 
-#include "I2C_External_Server.h"
+#include "I2C_External_Task.h"
 #include "button_press.h"
 //
-#include "port_heat_light_server.h"
+#include "port_heat_light_task.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "Temperature_Heater_Controller.h"
-#include "Temperature_Water_Controller.h"
+#include "temperature_heater_task.h"
+#include "temperature_water_task.h"
 #include "core_graphics_adafruit_GFX.h"
 #include "core_graphics_font5x8.h"
-#include "adc_startkit_client.h"
+#include "my_adc_startkit_task.h"
 
 #include "light_sunrise_sunset.h"
 #endif

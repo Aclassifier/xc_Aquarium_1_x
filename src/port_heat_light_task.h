@@ -1,5 +1,5 @@
 /*
- * port_heat_light_server.h
+ * port_heat_light_task.h
  *
  *  Created on: 28. des. 2016
  *      Author: teig
@@ -96,4 +96,4 @@ typedef interface port_heat_light_commands_if {
 #define PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS 2
 
 [[combinable]]
-void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);
+void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);

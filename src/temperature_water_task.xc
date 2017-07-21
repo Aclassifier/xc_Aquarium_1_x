@@ -1,5 +1,5 @@
 /*
- * Temperature_Water_Controller.xc
+ * Temperature_Water_Task.xc
  *
  *  Created on: 1. feb. 2017
  *      Author: teig
@@ -22,11 +22,11 @@
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
-#include "I2C_External_Server.h"
-#include "port_heat_light_server.h"
-#include "Temperature_Heater_Controller.h"
+#include "I2C_External_Task.h"
+#include "port_heat_light_task.h"
+#include "temperature_heater_task.h"
 
-#include "Temperature_Water_Controller.h"
+#include "temperature_water_task.h"
 #endif
 
 //}}}  
@@ -47,7 +47,7 @@
 //}}}  
 
 [[combinable]]
-void Temperature_Water_Controller (
+void Temperature_Water_Task (
     server temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands) {
 
@@ -79,7 +79,7 @@ void Temperature_Water_Controller (
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
-    debug_printf ("%s", "Temperature_Water_Controller started\n");
+    debug_printf ("%s", "Temperature_Water_Task started\n");
 
     tmr :> time;
 
@@ -100,7 +100,7 @@ void Temperature_Water_Controller (
                        raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_10_MINUTES; // May be made faster below
                     #endif
 
-                    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC); // Filtered in Temperature_Heater_Controller
+                    i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC); // Filtered in Temperature_Heater_Task
                     guard_first_value_read = true;
                     // Could deadlock on call i_temperature_water_commands.get_temp_degC_str in _Aquarium_1_x (fixed)
 
@@ -229,7 +229,7 @@ void Temperature_Water_Controller (
             case (guard_first_value_read) => i_temperature_water_commands.get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 //{{{  Fetch temperatures
 
-                // Not filtered here, but in Temperature_Heater_Controller
+                // Not filtered here, but in Temperature_Heater_Task
 
                 char temp_degC_str [EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN] = {GENERIC_TEXT_DEGC};
                 temp_onetenthDegC_t temp_onetenthDegC;

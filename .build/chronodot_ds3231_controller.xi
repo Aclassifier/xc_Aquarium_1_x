@@ -1457,8 +1457,8 @@ int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_maste
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 23 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "../src/I2C_External_Server.h" 1
-# 10 "../src/I2C_External_Server.h"
+# 1 "../src/I2C_External_Task.h" 1
+# 10 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
 
 
@@ -1501,10 +1501,10 @@ typedef interface i2c_external_commands_if {
 
 
 [[combinable]]
-void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 24 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "../src/I2C_Internal_Server.h" 1
-# 11 "../src/I2C_Internal_Server.h"
+# 1 "../src/I2C_Internal_Task.h" 1
+# 11 "../src/I2C_Internal_Task.h"
 typedef enum i2c_dev_address_internal_t {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
@@ -1538,7 +1538,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
+void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 25 "../src/chronodot_ds3231_controller.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
@@ -1712,8 +1712,8 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
 # 31 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "../src/port_heat_light_server.h" 1
-# 10 "../src/port_heat_light_server.h"
+# 1 "../src/port_heat_light_task.h" 1
+# 10 "../src/port_heat_light_task.h"
 typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_FRONT,
     IOF_LED_STRIP_CENTER,
@@ -1724,7 +1724,7 @@ typedef enum iof_LED_strip_t {
 
 
 typedef enum light_composition_t {
-# 31 "../src/port_heat_light_server.h"
+# 31 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
     LIGHT_COMPOSITION_0666_mW_ON = 1 ,
     LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM = 2,
@@ -1766,7 +1766,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 81 "../src/port_heat_light_server.h"
+# 81 "../src/port_heat_light_task.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
@@ -1785,10 +1785,10 @@ typedef interface port_heat_light_commands_if {
 
 
 [[combinable]]
-void Port_Pins_Heat_Light_Server (server port_heat_light_commands_if i_port_heat_light_commands[2]);
+void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 32 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "../src/Temperature_Heater_Controller.h" 1
-# 12 "../src/Temperature_Heater_Controller.h"
+# 1 "../src/temperature_heater_task.h" 1
+# 12 "../src/temperature_heater_task.h"
 typedef enum heater_wires_t {
     HEATER_WIRES_ONE_ALTERNATING_IS_HALF,
     HEATER_WIRES_BOTH_IS_FULL
@@ -1817,13 +1817,13 @@ typedef interface temperature_heater_commands_if {
 
 
 [[combinable]]
-void Temperature_Heater_Controller (
+void Temperature_Heater_Task (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
 # 33 "../src/chronodot_ds3231_controller.xc" 2
-# 1 "../src/Temperature_Water_Controller.h" 1
-# 12 "../src/Temperature_Water_Controller.h"
+# 1 "../src/temperature_water_task.h" 1
+# 12 "../src/temperature_water_task.h"
 typedef enum now_regulating_at_t {
 
     REGULATING_AT_INIT,
@@ -1846,13 +1846,13 @@ typedef interface temperature_water_commands_if {
 } temperature_water_commands_if;
 
 [[combinable]]
-void Temperature_Water_Controller (
+void Temperature_Water_Task (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
 # 34 "../src/chronodot_ds3231_controller.xc" 2
 
-# 1 "../src/Chronodot_DS3231_Controller.h" 1
-# 41 "../src/Chronodot_DS3231_Controller.h"
+# 1 "../src/chronodot_ds3231_controller.h" 1
+# 41 "../src/chronodot_ds3231_controller.h"
 typedef enum {
 
 

@@ -5,17 +5,17 @@
   ../../workspace/_Aquarium_1_x/src/random_conf.h \
   ../../workspace/_Aquarium_1_x/src/defines_adafruit.h \
   ../../workspace/_Aquarium_1_x/src/tempchip_mcp9808.h \
-  ../../workspace/_Aquarium_1_x/src/I2C_Internal_Server.h \
+  ../../workspace/_Aquarium_1_x/src/I2C_Internal_Task.h \
   ../../workspace/_Aquarium_1_x/src/display_ssd1306.h \
-  ../../workspace/_Aquarium_1_x/src/I2C_External_Server.h \
+  ../../workspace/_Aquarium_1_x/src/I2C_External_Task.h \
   ../../workspace/_Aquarium_1_x/src/button_press.h \
   ../../workspace/_Aquarium_1_x/src/_texts_and_constants.h \
   ../../workspace/_Aquarium_1_x/src/f_conversions.h \
-  ../../workspace/_Aquarium_1_x/src/port_heat_light_server.h \
-  ../../workspace/_Aquarium_1_x/src/Temperature_Heater_Controller.h \
-  ../../workspace/_Aquarium_1_x/src/Temperature_Water_Controller.h \
-  ../../workspace/_Aquarium_1_x/src/Chronodot_DS3231_Controller.h \
+  ../../workspace/_Aquarium_1_x/src/port_heat_light_task.h \
+  ../../workspace/_Aquarium_1_x/src/temperature_heater_task.h \
+  ../../workspace/_Aquarium_1_x/src/temperature_water_task.h \
+  ../../workspace/_Aquarium_1_x/src/chronodot_ds3231_controller.h \
   ../../workspace/_Aquarium_1_x/src/exception_handler.h \
-  ../../workspace/_Aquarium_1_x/src/adc_startkit_client.h \
+  ../../workspace/_Aquarium_1_x/src/my_adc_startkit_task.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

@@ -1540,8 +1540,8 @@ int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_maste
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 26 "../src/f_conversions.xc" 2
-# 1 "../src/I2C_External_Server.h" 1
-# 10 "../src/I2C_External_Server.h"
+# 1 "../src/I2C_External_Task.h" 1
+# 10 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
 
 
@@ -1584,7 +1584,7 @@ typedef interface i2c_external_commands_if {
 
 
 [[combinable]]
-void I2C_External_Server (server i2c_external_commands_if i_i2c_external_commands[2]);
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 27 "../src/f_conversions.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"

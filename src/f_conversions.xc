@@ -23,7 +23,7 @@
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_External_Server.h"
+#include "I2C_External_Task.h"
 #include "f_conversions.h"
 #endif
 

@@ -24,7 +24,7 @@
 #include "defines_adafruit.h"
 #include "core_graphics_adafruit_GFX.h"
 
-#include "I2C_Internal_Server.h"
+#include "I2C_Internal_Task.h"
 #include "display_ssd1306.h"
 #endif
 

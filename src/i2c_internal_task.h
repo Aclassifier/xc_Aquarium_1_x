@@ -1,5 +1,5 @@
 /*
- * I2C_Internal_Server.h
+ * I2C_Internal_Task.h
  *
  *  Created on: 27. feb. 2015
  *      Author: Teig
@@ -41,7 +41,7 @@ typedef interface i2c_internal_commands_if {
 #define I2C_INTERNAL_NUM_CLIENTS 1
 
 [[combinable]]
-void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS]);
+void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS]);
 
 #else
     #error Nested include I2C_INTERNAL_SERVER_H_

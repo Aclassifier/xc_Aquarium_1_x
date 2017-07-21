@@ -15,7 +15,7 @@
 #include <xccompat.h> // REFERENCE_PARAMs
 #include "param.h"
 #include "startkit_adc.h"
-#include "adc_startKIT_client.h"
+#include "my_adc_startkit_task.h"
 #endif
 
 #define DEBUG_PRINT_STARTKIT_ADC_CLIENT 0 // Cost 0.3k
@@ -39,7 +39,7 @@ typedef enum t_client_state {
 #error Doesn not work! See Ticket 9964
 [[combinable]]
 #endif
-void My_startKIT_ADC_Client (
+void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if      i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[ADC_STARTKIT_NUM_CLIENTS],
    const unsigned int                  Num_of_data_sets) // NUM_STARTKIT_ADC_NEEDED_DATA_SETS
@@ -50,7 +50,7 @@ void My_startKIT_ADC_Client (
 
     unsigned int data_set_cnt = 0;
 
-    debug_printf("%s", "My_startKIT_ADC_Client started\n");
+    debug_printf("%s", "My_startKIT_ADC_Task started\n");
 
     while(1){
         select{

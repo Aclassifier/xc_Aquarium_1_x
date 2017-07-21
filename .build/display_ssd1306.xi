@@ -1586,8 +1586,8 @@ typedef struct tag_display_param_t {
 extern display_param_t display_param;
 # 26 "../src/display_ssd1306.xc" 2
 
-# 1 "../src/I2C_Internal_Server.h" 1
-# 11 "../src/I2C_Internal_Server.h"
+# 1 "../src/I2C_Internal_Task.h" 1
+# 11 "../src/I2C_Internal_Task.h"
 typedef enum i2c_dev_address_internal_t {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
@@ -1621,7 +1621,7 @@ typedef interface i2c_internal_commands_if {
 
 
 [[combinable]]
-void I2C_Internal_Server (server i2c_internal_commands_if i_i2c_internal_commands[1]);
+void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
 # 28 "../src/display_ssd1306.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 11 "../src/display_ssd1306.h"
