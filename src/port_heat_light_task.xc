@@ -389,7 +389,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     myport_p32 <: port_value; // Let's do all at the same time
 
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0)  {
-                        soft_change_pwm_window_timer_us[iof_light_pwm_window]--; // 1450 down 1 @ 222 Hz takes 6.5 secs
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window]--;
                     } else {
                         // No code. Zero, finished. A LED that's OFF during all three PWM phases _looks_ a little ON when there are
                         // others that are also ON. It must be because of some re-glow from the others. I have scoped it, the pulses
@@ -499,7 +499,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                             pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_NIGHTER;
                         }
 
-                        soft_change_pwm_window_timer_us[iof_light_pwm_window] = (TIME_PER_PWM_WINDOW_MICROSECONDS); // 1500us = 1.5 ms = 222 Hz (100=qwe?)
+                        soft_change_pwm_window_timer_us[iof_light_pwm_window] = (TIME_PER_PWM_WINDOW_MICROSECONDS); // 1500 down by 1 @ 222 Hz takes 6.75 secs (1500/222=6.75)
                     }
 
                 } else {}
@@ -518,15 +518,15 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     {light_composition_t return_light_composition, bool return_stable, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
-                    return_thirds[iof_LED_strip] = 0;
+                    return_thirds[iof_LED_strip] = 0; // Clear first..
                 }
 
                 // Could have picked this out of a table, but I thought this was rather ok:
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
                     unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
-                    if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1;
-                    if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1;
-                    if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1;
+                    if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1; // ..then set
+                    if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1; // ..then set
+                    if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1; // ..then set
                 }
 
                 debug_printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
@@ -538,7 +538,18 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 return_stable = true;
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
-                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) return_stable = false; // one is enough, all muste be zero
+                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) {
+                        //
+                        // In this implementation this value is polled for, since we don't like that a new light composition is set while
+                        // the light is changing. It would ramp the light up/down to a new start value. It did so up to v1.0.10. Instead of of polling this could
+                        // have been a command and notify to abstract this timing away. However, this task is concerned about driving both heat and light pins
+                        // which it rather seems to must (a single port can't be shared), so going for a notify on something with light would seem
+                        // to cause less flexibility on behalf of the heat pins. So I went for this polling.
+                        //
+                        // Polled-for value, must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
+                        //
+                        return_stable = false; // one is enough, all must be zero
+                    } else {} // So it may survive as true
                 }
 
                 return_light_composition = iof_light_composition_level_present;

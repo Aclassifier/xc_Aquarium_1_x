@@ -12,8 +12,11 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-#define APPLICATION_VERSION_STR "1.0.10"  // 21Jul2017
-    //                      Renaming, all tasks now "Task". Includes renaming of files (Git does follow file renaming!)
+// #define FLASH_BLACK_BOARD // NEVER for aquarium!
+#define APPLICATION_VERSION_STR "1.0.11" // 24Jul2017
+    //                      Now softly DOWN not to overtake a started softly UP, but UP then DOWN will happen sequentially (search for light_stable)
+    // "1.0.10"  // 21Jul2017
+    //                      Renaming, all tasks now "Task". Includes renaming of files (Git commits do follow file renaming, but not history)
     //                      I2C_Internal_Server -> I2C_Internal_Task
     //                          i2c_internal_server.h -> i2c_internal_task.h
     //                          i2c_internal_server.xc -> i2c_internal_task.xc
@@ -41,8 +44,8 @@
     //                      WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
     //                      Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
     // "1.0.7" // 17Jul2017 Tagged VER_1_0_7_with_fishes
-    //                      SCREEN_0_FEIL layout detail (tested ok)
-    // "1.0.6" // 16Jul2017 SCREEN_0_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again) (tested ok)
+    //                      SCREEN_0_X_FEIL layout detail (tested ok)
+    // "1.0.6" // 16Jul2017 SCREEN_0_X_FEIL now has two lines: NOW error bits and HISTORY error bits (since a NOW error bit may go off again) (tested ok)
     // "1.0.5" // 16Jul2017 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off ()
     // "1.0.4" // 15Jul2017 Tagged VER_1_0_4_with_fishes
     //                      DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
