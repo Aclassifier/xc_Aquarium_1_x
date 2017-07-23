@@ -134,294 +134,282 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     bool return_beeper_blip = false;
 
-    if (context.light_stable) {
+    const bool                 trigger_minute_changed  = (context.datetime_now.minute != context.datetime_previous.minute);
+    const bool                 trigger_hour_changed    = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
+    const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
+    unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 
-        const bool                 trigger_minute_changed  = (context.datetime_now.minute != context.datetime_previous.minute);
-        const bool                 trigger_hour_changed    = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
-        const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
-        unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
+    #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
+        const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute) +
+            NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(20,52); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
+    #else
+        const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
+    #endif
 
-        #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
-            const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute) +
-                NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(20,52); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
-        #else
-            const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
-        #endif
+    context.light_change_window_open = ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                        (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
-        context.light_change_window_open = ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                            (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
+    // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
+    const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
-        // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
-        const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
+    //{{{  Init once
 
-        //{{{  Init once
+    if (context.do_init) {
+        light_composition_t light_composition_now;
+        const unsigned minutes_into_day = (context.datetime_now.hour * 60) + context.datetime_now.minute;
 
-        if (context.do_init) {
-            light_composition_t light_composition_now;
-            const unsigned minutes_into_day = (context.datetime_now.hour * 60) + context.datetime_now.minute;
+        context.do_init = false;
+        context.num_minutes_left_of_random = 0;
+        context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
+        context.num_minutes_left_of_day_night_action = 0;
 
-            context.do_init = false;
-            context.num_minutes_left_of_random = 0;
-            context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
-            context.num_minutes_left_of_day_night_action = 0;
+        if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_VOID) {              // No FRAM chip?
+            context.max_light = MAX_LIGHT_IS_FULL;                                // Default
+        } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_FULL) {       // A valid value
+            context.max_light = MAX_LIGHT_IS_FULL;                                // As said
+        } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_TWO_THIRDS) { // A valid value
+            context.max_light = MAX_LIGHT_IS_TWO_THIRDS;                          // Modified
+        } else {                                                                  // Not valid value
+            context.max_light = MAX_LIGHT_IS_FULL;                                // Default
+        }
 
-            if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_VOID) {              // No FRAM chip?
-                context.max_light = MAX_LIGHT_IS_FULL;                                // Default
-            } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_FULL) {       // A valid value
-                context.max_light = MAX_LIGHT_IS_FULL;                                // As said
-            } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_TWO_THIRDS) { // A valid value
-                context.max_light = MAX_LIGHT_IS_TWO_THIRDS;                          // Modified
-            } else {                                                                  // Not valid value
-                context.max_light = MAX_LIGHT_IS_FULL;                                // Default
+        context.do_FRAM_write = (context.max_light_in_FRAM_memory != context.max_light);
+        context.max_light_in_FRAM_memory = context.max_light; // Always valid
+
+        context.max_light_changed = false;
+        context.light_sensor_diff_state = DIFF_VOID;
+        debug_set_val_to (context.print_value_previous,0);
+
+        #ifdef DEBUG_TEST_DAY_NIGHT_DAY
+            context.it_is_day_or_night = IT_IS_DAY;
+            context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
+            light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
+            // --------------------- SET FIRST LIGHT LEVEL ---------------------
+            debug_set_val_to (print_value,33);
+            i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33);
+        #else // NORMAL
+            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
+                context.it_is_day_or_night = IT_IS_DAY;
+            } else {
+                context.it_is_day_or_night = IT_IS_NIGHT;
             }
 
-            context.do_FRAM_write = (context.max_light_in_FRAM_memory != context.max_light);
-            context.max_light_in_FRAM_memory = context.max_light; // Always valid
-
-            context.max_light_changed = false;
-            context.light_sensor_diff_state = DIFF_VOID;
-            debug_set_val_to (context.print_value_previous,0);
-
-            #ifdef DEBUG_TEST_DAY_NIGHT_DAY
-                context.it_is_day_or_night = IT_IS_DAY;
+            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
                 context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
                 light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
                 // --------------------- SET FIRST LIGHT LEVEL ---------------------
-                debug_set_val_to (print_value,33);
-                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33);
-            #else // NORMAL
-                if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-                    (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
-                    context.it_is_day_or_night = IT_IS_DAY;
-                } else {
-                    context.it_is_day_or_night = IT_IS_NIGHT;
+                debug_set_val_to (print_value,34);
+                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 34);
+            } else {
+                context.iof_day_night_action_list = IOF_TIMED_NIGHT_TO_DAY_LIST_START;
+                light_composition_now = LIGHT_COMPOSITION_0000_mW_OFF;
+                // --------------------- SET FIRST LIGHT LEVEL ---------------------
+                debug_set_val_to (print_value,35);
+                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35);
+            }
+        #endif
+    } else {}// init done
+
+    //}}}
+    //{{{  trigger_minute_changed
+
+    if (trigger_minute_changed) {
+        unsigned minutes_into_day_of_next_action =
+                (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
+                 hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
+
+        if (context.num_minutes_left_of_day_night_action > 0) {
+            context.num_minutes_left_of_day_night_action--; // Will show 0 the full last minute
+        } else {}
+
+        if (minutes_into_day == minutes_into_day_of_next_action) {
+
+            light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
+            light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
+
+            //{{{  Main state changes done in here
+            if (context.max_light == MAX_LIGHT_IS_FULL) {
+                switch (context.iof_day_night_action_list) {
+                    case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
+                        context.it_is_day_or_night = IT_IS_NIGHT;
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
+                    } break;
+                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
+                    } break;
+                    case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
+                        return_beeper_blip = true;
+                        context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
+                        light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
+                    } break;
+                    case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST: {
+                        context.it_is_day_or_night = IT_IS_DAY;
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_DAY;
+                    } break;
+                    default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                 }
-
-                if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-                    (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
-                    context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
-                    light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
-                    // --------------------- SET FIRST LIGHT LEVEL ---------------------
-                    debug_set_val_to (print_value,34);
-                    i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 34);
-                } else {
-                    context.iof_day_night_action_list = IOF_TIMED_NIGHT_TO_DAY_LIST_START;
-                    light_composition_now = LIGHT_COMPOSITION_0000_mW_OFF;
-                    // --------------------- SET FIRST LIGHT LEVEL ---------------------
-                    debug_set_val_to (print_value,35);
-                    i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35);
+            } else { // MAX_LIGHT_IS_TWO_THIRDS
+                switch (context.iof_day_night_action_list) {
+                    case IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE: {
+                        context.it_is_day_or_night = IT_IS_NIGHT;
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
+                    } break;
+                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
+                    } break;
+                    case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
+                        return_beeper_blip = true;
+                        context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
+                        light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
+                    } break;
+                    case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY: {
+                        context.it_is_day_or_night = IT_IS_DAY;
+                        return_beeper_blip = true;
+                        light_control_scheme = LIGHT_CONTROL_IS_DAY;
+                    } break;
+                    default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                 }
-            #endif
-        } else {}// init done
+            }
+            //}}}
 
-        //}}}
-        //{{{  trigger_minute_changed
+            // ------------ CHANGE LIGHT LEVEL / COLOUR QUALITY ------------
+            light_composition_now = Darker_Light_Composition_Iff (light_composition_now, context.max_light);
+            //
+            debug_set_val_to (print_value,22);
+            i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
 
-        if (trigger_minute_changed) {
-            unsigned minutes_into_day_of_next_action =
+            debug_printf ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
+
+            context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
+
+            // Update for num_minutes_left_of_day_night_action since iof_day_night_action_list has changed
+            minutes_into_day_of_next_action =
                     (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                      hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
+            context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day) - 1; // // So that 0 the full last minute
 
-            if (context.num_minutes_left_of_day_night_action > 0) {
-                context.num_minutes_left_of_day_night_action--; // Will show 0 the full last minute
-            } else {}
+        } else if (context.num_minutes_left_of_random > 0) {
 
-            if (minutes_into_day == minutes_into_day_of_next_action) {
+            context.num_minutes_left_of_random--; // Will show 0 the full last minute
 
-                light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
-                light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
-
-                //{{{  Main state changes done in here
-                if (context.max_light == MAX_LIGHT_IS_FULL) {
-                    switch (context.iof_day_night_action_list) {
-                        case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
-                            context.it_is_day_or_night = IT_IS_NIGHT;
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                        } break;
-                        case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
-                        } break;
-                        case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
-                            return_beeper_blip = true;
-                            context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
-                            light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
-                        } break;
-                        case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST: {
-                            context.it_is_day_or_night = IT_IS_DAY;
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_DAY;
-                        } break;
-                        default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
-                    }
-                } else { // MAX_LIGHT_IS_TWO_THIRDS
-                    switch (context.iof_day_night_action_list) {
-                        case IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE: {
-                            context.it_is_day_or_night = IT_IS_NIGHT;
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                        } break;
-                        case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
-                        } break;
-                        case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
-                            return_beeper_blip = true;
-                            context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
-                            light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
-                        } break;
-                        case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY: {
-                            context.it_is_day_or_night = IT_IS_DAY;
-                            return_beeper_blip = true;
-                            light_control_scheme = LIGHT_CONTROL_IS_DAY;
-                        } break;
-                        default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
-                    }
-                }
-                //}}}
-
-                // ------------ CHANGE LIGHT LEVEL / COLOUR QUALITY ------------
-                light_composition_now = Darker_Light_Composition_Iff (light_composition_now, context.max_light);
-                //
-                debug_set_val_to (print_value,22);
-                i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
-
-                debug_printf ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
-
-                context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
-
-                // Update for num_minutes_left_of_day_night_action since iof_day_night_action_list has changed
-                minutes_into_day_of_next_action =
-                        (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
-                         hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
-                context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day) - 1; // // So that 0 the full last minute
-
-            } else if (context.num_minutes_left_of_random > 0) {
-
-                context.num_minutes_left_of_random--; // Will show 0 the full last minute
-
-                debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random);
-                if (context.num_minutes_left_of_random == 0) {
-                    // ------------------------ CHANGE LIGHT LEVEL BACK TO MAX  ------------------------
-                    debug_set_val_to (print_value,104);
-                    i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.max_light), LIGHT_CONTROL_IS_DAY, 104);
-                    if (context.light_sensor_diff_state == DIFF_ACTIVE) {
-                        context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
-                        return_beeper_blip = true;  // since it was triggered by some human like Anna, Jakob, Filip or Linnéa
-                    } else {}
-                } else {}
-
-            } else {
-                debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action - minutes_into_day);
-            }
-        } else {} // Action only at minute change
-
-        //}}}
-        //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
-
-        // Piggy-back on the random change of light level
-        //
-        if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
-            // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM because it's quite visible
-            context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
-        } else {} // Not enough change
-
-        //}}}
-        //{{{  Trigger_hour_changed or light sensor internally changed
-
-        if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // Start random only once per hours or when light changes
-            if (context.light_change_window_open) {                                     // And when it's day-time'ish
-                if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
-                    if (context.num_random_sequences_left > 0) {                        // Some left to do
-                        if (context.light_sensor_diff_state == DIFF_ENOUGH) {           // Handle LYKT first
-                            context.light_sensor_diff_state = DIFF_ACTIVE;
-                            debug_set_val_to (print_value,101);
-                            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
-                            context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
-                                                                                                      // with the random triggering on the hours and minute in this case
-                            return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
-                            context.num_random_sequences_left--;
-                        } else {
-                            // Random light now almost every hour, both lighter (if possible) and darker allowed.
-                            // But not LIGHT_COMPOSITION_0000_mW_OFF or LIGHT_COMPOSITION_0666_mW_ON, darkest is LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM:
-                            unsigned this_random_number_is_new_light_composition =
-                                    LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM)); // 2 + [0..10] = [2..12]
-
-                            light_composition_t light_composition_now;
-                            {light_composition_now} = i_port_heat_light_commands.get_light_composition();
-                            if (light_composition_now != this_random_number_is_new_light_composition) { // Light must change so that SKY makes a meaning
-                                // Change, down (more SKY) or even up now allowed (less SKY)! Irregardless of MAX_LIGHT_IS_FULL or MAX_LIGHT_IS_TWO_THIRDS
-                                i_port_heat_light_commands.set_light_composition (this_random_number_is_new_light_composition, LIGHT_CONTROL_IS_RANDOM, 104);
-                                context.num_minutes_left_of_random =
-                                        NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
-                                        (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
-                                context.num_random_sequences_left--;
-                                debug_set_val_to (print_value,102);
-                            } else { // No action
-                                debug_set_val_to (print_value,103); // This time (every 12th time, no action)
-                            }
-                        }
-                    } else {debug_set_val_to (print_value,2);} // Done enough today
-                } else {debug_set_val_to (print_value,3);}     // Already doing a random light-down
-            } else {debug_set_val_to (print_value,4);}         // Night-time'ish
-        } else {}                                              // Nothing if not per the hour
-
-        //}}}
-        //{{{  context.max_light_changed
-
-        if (context.max_light_changed) {
-            context.max_light_changed = false; // Action will not be seen if these don't trigger:
+            debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random);
             if (context.num_minutes_left_of_random == 0) {
-                if (context.it_is_day_or_night == IT_IS_DAY) {
-                    light_composition_t light_composition_now;
-                    {light_composition_now} = i_port_heat_light_commands.get_light_composition();
-                    // ------------------- CHANGE LIGHT LEVEL TO MAX IF NEEDED (BRIGHTER OR DARKER) -------------------
-                    light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.max_light);
-                    light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.max_light);
-                    //
-                    debug_set_val_to (print_value,44);
-                    i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_VOID, 44);
-                } else {} // Not nice for the fishes to do this at night
+                // ------------------------ CHANGE LIGHT LEVEL BACK TO MAX  ------------------------
+                debug_set_val_to (print_value,104);
+                i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.max_light), LIGHT_CONTROL_IS_DAY, 104);
+                if (context.light_sensor_diff_state == DIFF_ACTIVE) {
+                    context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
+                    return_beeper_blip = true;  // since it was triggered by some human like Anna, Jakob, Filip or Linnéa
+                } else {}
             } else {}
-            debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
+
+        } else {
+            debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action - minutes_into_day);
+        }
+    } else {} // Action only at minute change
+
+    //}}}
+    //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+
+    // Piggy-back on the random change of light level
+    //
+    if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
+        // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM because it's quite visible
+        context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
+    } else {} // Not enough change
+
+    //}}}
+    //{{{  Trigger_hour_changed or light sensor internally changed
+
+    if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // Start random only once per hours or when light changes
+        if (context.light_change_window_open) {                                     // And when it's day-time'ish
+            if (context.num_minutes_left_of_random == 0) {                          // When it's not doing random already
+                if (context.num_random_sequences_left > 0) {                        // Some left to do
+                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {           // Handle LYKT first
+                        context.light_sensor_diff_state = DIFF_ACTIVE;
+                        debug_set_val_to (print_value,101);
+                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+                        context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
+                                                                                                  // with the random triggering on the hours and minute in this case
+                        return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
+                        context.num_random_sequences_left--;
+                    } else {
+                        // Random light now almost every hour, both lighter (if possible) and darker allowed.
+                        // But not LIGHT_COMPOSITION_0000_mW_OFF or LIGHT_COMPOSITION_0666_mW_ON, darkest is LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM:
+                        unsigned this_random_number_is_new_light_composition =
+                                LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM)); // 2 + [0..10] = [2..12]
+
+                        light_composition_t light_composition_now;
+                        {light_composition_now} = i_port_heat_light_commands.get_light_composition();
+                        if (light_composition_now != this_random_number_is_new_light_composition) { // Light must change so that SKY makes a meaning
+                            // Change, down (more SKY) or even up now allowed (less SKY)! Irregardless of MAX_LIGHT_IS_FULL or MAX_LIGHT_IS_TWO_THIRDS
+                            i_port_heat_light_commands.set_light_composition (this_random_number_is_new_light_composition, LIGHT_CONTROL_IS_RANDOM, 104);
+                            context.num_minutes_left_of_random =
+                                    NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
+                                    (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
+                            context.num_random_sequences_left--;
+                            debug_set_val_to (print_value,102);
+                        } else { // No action
+                            debug_set_val_to (print_value,103); // This time (every 12th time, no action)
+                        }
+                    }
+                } else {debug_set_val_to (print_value,2);} // Done enough today
+            } else {debug_set_val_to (print_value,3);}     // Already doing a random light-down
+        } else {debug_set_val_to (print_value,4);}         // Night-time'ish
+    } else {}                                              // Nothing if not per the hour
+
+    //}}}
+    //{{{  context.max_light_changed
+
+    if (context.max_light_changed) {
+        context.max_light_changed = false; // Action will not be seen if these don't trigger:
+        if (context.num_minutes_left_of_random == 0) {
+            if (context.it_is_day_or_night == IT_IS_DAY) {
+                light_composition_t light_composition_now;
+                {light_composition_now} = i_port_heat_light_commands.get_light_composition();
+                // ------------------- CHANGE LIGHT LEVEL TO MAX IF NEEDED (BRIGHTER OR DARKER) -------------------
+                light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.max_light);
+                light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.max_light);
+                //
+                debug_set_val_to (print_value,44);
+                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_VOID, 44);
+            } else {} // Not nice for the fishes to do this at night
         } else {}
+        debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
+    } else {}
 
-        //}}}
-        //{{{  DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
+    //}}}
+    //{{{  DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
 
-        #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
-            if (context.print_value_previous != print_value) {
-                debug_printf ("Random value %u [%u] with %u and %u. Light=%u\n",
-                       print_value, context.print_value_previous, context.num_minutes_left_of_random,
-                       context.num_random_sequences_left, context.light_sensor_diff_state);
-                context.print_value_previous = print_value;
-            } else {}
-        #endif
-
-        //}}}
-        //{{{  reset light sensor internally if change didn't cause anything in this call
-
-        if (context.light_sensor_diff_state == DIFF_ENOUGH) {
-
-            // Clear here if DIFF_ENOUGH not having caused DIFF_ACTIVE, i.e. we still have DIFF_ENOUGH
-            // If not it will be seen as LIGHT_CONTROL_IS_RANDOM like at HH_RANDOM_EARLIEST:MM_RANDOM_EARLIEST
-            // if there was a light change while not accepted
-            //
-            context.light_sensor_diff_state = DIFF_VOID;
+    #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
+        if (context.print_value_previous != print_value) {
+            debug_printf ("Random value %u [%u] with %u and %u. Light=%u\n",
+                   print_value, context.print_value_previous, context.num_minutes_left_of_random,
+                   context.num_random_sequences_left, context.light_sensor_diff_state);
+            context.print_value_previous = print_value;
         } else {}
+    #endif
 
-        //}}}
-    } else { // not context.light_stable
-        debug_printf ("%s", "light changing\n");
-        // Don't change light_composition while light is changing
-        // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    //}}}
+    //{{{  reset light sensor internally if change didn't cause anything in this call
 
-        // The concrete case where I saw this not handled (in v1.0.10) is when I used the LYKT (flash light) two minutes before the hour,
-        // and when it timed out after two minutes the light was going to be turned softly UP again. But then the random SKY triggered
-        // and it wanted to take the light softly DOWN. What happened is that the last won and took the light abruptly UP and then took
-        // it softly DOWN. Not nice at all. This solution should fix this for v.1.0.11
-    }
+    if (context.light_sensor_diff_state == DIFF_ENOUGH) {
+
+        // Clear here if DIFF_ENOUGH not having caused DIFF_ACTIVE, i.e. we still have DIFF_ENOUGH
+        // If not it will be seen as LIGHT_CONTROL_IS_RANDOM like at HH_RANDOM_EARLIEST:MM_RANDOM_EARLIEST
+        // if there was a light change while not accepted
+        //
+        context.light_sensor_diff_state = DIFF_VOID;
+    } else {}
+
+    //}}}
 
     return return_beeper_blip;
 }

@@ -212,6 +212,7 @@ typedef struct handler_context_t {
     i2c_temps_t                 i2c_temps;
     light_composition_t         light_composition;
     unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
+    bool                        light_stable; // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
@@ -495,20 +496,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
                           "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
-                          takes_press_for_10_seconds_right_button_str,                                                            // "±"                                                                       //  Å
-                          WATTOF_LED_STRIP_FRONT,                                                                                 // "5"
-                          WATTOF_LED_STRIP_CENTER,                                                                                // "2"
-                          WATTOF_LED_STRIP_BACK,                                                                                  // "2"
-                          context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                    // "1"
-                          context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                   // "2"
-                          context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                     // "3"
-                          takes_press_for_10_seconds_right_button_str,                                                            // "±"
-                          (full_light) ? light_strength_full_str : light_strength_weak_str,                                       // "3/3" or "2/3
-                          (control_scheme_add_leading_space) ? " " : "",                                                          // So that " INIT" and "  DAG" will be left aligned first visible char
-                          light_control_scheme_str,                                                                               // "NATT" etc.
-                          (light_sunrise_sunset_context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
-                          context.light_composition,                                                                              // 10
-                          left_of_minutes_or_count_str);                                                                          // M:2 or T:8 or ...
+                          takes_press_for_10_seconds_right_button_str,                                      // "±"                                                                       //  Å
+                          WATTOF_LED_STRIP_FRONT,                                                            // "5"
+                          WATTOF_LED_STRIP_CENTER,                                                           // "2"
+                          WATTOF_LED_STRIP_BACK,                                                             // "2"
+                          context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                               // "1"
+                          context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                              // "2"
+                          context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                // "3"
+                          takes_press_for_10_seconds_right_button_str,                                       // "±"
+                          (full_light) ? light_strength_full_str : light_strength_weak_str,                  // "3/3" or "2/3
+                          (control_scheme_add_leading_space) ? " " : "",                                     // So that " INIT" and "  DAG" will be left aligned first visible char
+                          light_control_scheme_str,                                                          // "NATT" etc.
+                          (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
+                          context.light_composition,                                                         // 10
+                          left_of_minutes_or_count_str);                                                     // M:2 or T:8 or ...
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
@@ -1471,40 +1472,52 @@ void System_Task_Data_Handler (
     } else {}
 
     //}}}  
-    //{{{  Handle control of aquarium top light with respect to time and box internal light sensor
+    //{{{  Handle control of aquarium top LED lights, with respect to time and box internal light sensor
 
-    {light_sunrise_sunset_context.light_stable} = i_port_heat_light_commands.get_light_stable(); // First this..
+    {context.light_stable} = i_port_heat_light_commands.get_light_stable();
 
-    // HANDLE LIGHT INTENSITY
-    context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // ..then this..
+    if (context.light_stable) { // Only pre-condition is interesting, not to set light_stable again if it is set
 
-    //}}}  
-    //{{{  Update FRAM if needed
+        debug_printf ("%s", "Light stable\n");
 
-    if (light_sunrise_sunset_context.do_FRAM_write) {
-        bool write_ok;
-        uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
+        // HANDLE LIGHT INTENSITY
+        context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
-        light_sunrise_sunset_context.do_FRAM_write = false;
-        write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
-        debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
-    } else {}
+        // Update FRAM if needed
 
-    //}}}
-    //{{{  Now, how did it go, how is light controlled right now?
+        if (light_sunrise_sunset_context.do_FRAM_write) {
+            bool write_ok;
+            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
 
-    // .. then these, to get the results as soon as possible
-    {light_sunrise_sunset_context.light_stable}               = i_port_heat_light_commands.get_light_stable();
-    {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
+            light_sunrise_sunset_context.do_FRAM_write = false;
+            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
+            debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+        } else {}
 
-    //}}}  
-    //{{{  Make history, update "previous"
-    if (light_sunrise_sunset_context.light_stable) {
+        // Now, how did it go, how is light controlled right now?
+        // Get the results as soon as possible to show in the display
+        {context.light_stable}                                    = i_port_heat_light_commands.get_light_stable();
+        {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
+
+        // Make history, update "previous"
+        // Post-condition of context.light_stable is not interesting, it may be true now as an effect of set_light_composition in Handle_Light_Sunrise_Sunset_Etc
+
         light_sunrise_sunset_context.datetime_previous               = context.datetime;
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
-    } else {} // Time stands still minute-wise and state-wise while light_unstable
 
+    } else { // not context.light_stable
+
+        debug_printf ("%s", "Light changing\n");
+        // Don't change light_composition while light is changing
+        // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+
+        // The concrete case where I saw this not handled (in v1.0.10) is when I used the LYKT (flash light) two minutes before the hour,
+        // and when it timed out after two minutes the light was going to be turned softly UP again. But then the random SKY triggered
+        // and it wanted to take the light softly DOWN. What happened is that the last won and took the light abruptly UP and then took
+        // it softly DOWN. Not nice at all. This solution should fix this for v.1.0.11
+    }
     //}}}
+
     //{{{  Switch display off automatically after a timeout
 
     if (context.display_is_on == true) {
