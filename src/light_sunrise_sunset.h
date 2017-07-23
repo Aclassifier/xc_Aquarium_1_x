@@ -48,7 +48,7 @@ typedef struct light_sunrise_sunset_context_t {
     light_sensor_diff_state_t light_sensor_diff_state;
     unsigned                  print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
     bool                      do_FRAM_write;
-    bool                      light_stable; // Polled-for value, must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    bool                      light_stable; // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 } light_sunrise_sunset_context_t;
 
 // https://no.wikipedia.org/wiki/Sommertid

@@ -515,7 +515,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]) ->
-                    {light_composition_t return_light_composition, bool return_stable, light_control_scheme_t return_light_control_scheme} : {
+                    {light_composition_t return_light_composition, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
                     return_thirds[iof_LED_strip] = 0; // Clear first..
@@ -536,6 +536,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     return_thirds[IOF_LED_STRIP_BACK],
                     iof_light_composition_level_present);
 
+                return_light_composition = iof_light_composition_level_present;
+                return_light_control_scheme = light_control_scheme;
+            } break;
+
+            case i_port_heat_light_commands[int index_of_client].get_light_stable (void) -> {bool return_stable} : {
                 return_stable = true;
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) {
@@ -546,14 +551,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         // which it rather seems to must (a single port can't be shared), so going for a notify on something with light would seem
                         // to cause less flexibility on behalf of the heat pins. So I went for this polling.
                         //
-                        // Polled-for value, must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
+                        // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
                         //
                         return_stable = false; // one is enough, all must be zero
                     } else {} // So it may survive as true
                 }
-
-                return_light_composition = iof_light_composition_level_present;
-                return_light_control_scheme = light_control_scheme;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {

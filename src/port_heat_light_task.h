@@ -83,10 +83,11 @@ typedef interface port_heat_light_commands_if {
     {light_composition_t} get_light_composition (void);
 
     {   light_composition_t,   // return_light_composition
-        bool,                  // return_is_stable
-                               // Polled-for value, must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
         light_control_scheme_t // return_light_control_scheme
     } get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]);
+
+    {bool} get_light_stable (void); // return_is_stable
+    // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
 
     void set_light_composition                  (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
     void beeper_on_command                      (const bool beeper_on);

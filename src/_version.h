@@ -12,10 +12,11 @@
 //
 #define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
 
-// #define FLASH_BLACK_BOARD // NEVER for aquarium!
+//#define FLASH_BLACK_BOARD // NEVER for aquarium!
 #define APPLICATION_VERSION_STR "1.0.11" // 24Jul2017
     //                      Now softly DOWN not to overtake a started softly UP, but UP then DOWN will happen sequentially (search for light_stable)
     // "1.0.10"  // 21Jul2017
+    //                      get_light_stable now is a separate function
     //                      Renaming, all tasks now "Task". Includes renaming of files (Git commits do follow file renaming, but not history)
     //                      I2C_Internal_Server -> I2C_Internal_Task
     //                          i2c_internal_server.h -> i2c_internal_task.h

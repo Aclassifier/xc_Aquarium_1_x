@@ -415,7 +415,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     } else { // not context.light_stable
         debug_printf ("%s", "light changing\n");
         // Don't change light_composition while light is changing
-        // Polled-for value, must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+        // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 
         // The concrete case where I saw this not handled (in v1.0.10) is when I used the LYKT (flash light) two minutes before the hour,
         // and when it timed out after two minutes the light was going to be turned softly UP again. But then the random SKY triggered

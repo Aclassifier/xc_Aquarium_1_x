@@ -1473,8 +1473,10 @@ void System_Task_Data_Handler (
     //}}}  
     //{{{  Handle control of aquarium top light with respect to time and box internal light sensor
 
+    {light_sunrise_sunset_context.light_stable} = i_port_heat_light_commands.get_light_stable(); // First this..
+
     // HANDLE LIGHT INTENSITY
-    context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // First this..
+    context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // ..then this..
 
     //}}}  
     //{{{  Update FRAM if needed
@@ -1488,18 +1490,21 @@ void System_Task_Data_Handler (
         debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
     } else {}
 
-    //}}}  
-    //{{{  Make history, update "previous"
-
-    light_sunrise_sunset_context.datetime_previous               = context.datetime;
-    light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
-    //}}}  
+    //}}}
     //{{{  Now, how did it go, how is light controlled right now?
 
-    {context.light_composition, light_sunrise_sunset_context.light_stable, context.light_control_scheme} = // .. then this, to get the result as soon as possible
-            i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
+    // .. then these, to get the results as soon as possible
+    {light_sunrise_sunset_context.light_stable}               = i_port_heat_light_commands.get_light_stable();
+    {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
 
     //}}}  
+    //{{{  Make history, update "previous"
+    if (light_sunrise_sunset_context.light_stable) {
+        light_sunrise_sunset_context.datetime_previous               = context.datetime;
+        light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
+    } else {} // Time stands still minute-wise and state-wise while light_unstable
+
+    //}}}
     //{{{  Switch display off automatically after a timeout
 
     if (context.display_is_on == true) {
@@ -1512,7 +1517,7 @@ void System_Task_Data_Handler (
 
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
             context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
-            context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a deafult startig point (SCREEN_0_X_FEIL)
+            context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a default starting point (SCREEN_0_X_FEIL)
             context.display_sub_editing_seconds_cntdown = 0;
 
         } else {
