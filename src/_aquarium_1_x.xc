@@ -212,7 +212,6 @@ typedef struct handler_context_t {
     i2c_temps_t                 i2c_temps;
     light_composition_t         light_composition;
     unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
-    bool                        light_stable; // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
@@ -496,20 +495,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
                           "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
-                          takes_press_for_10_seconds_right_button_str,                                      // "±"                                                                       //  Å
-                          WATTOF_LED_STRIP_FRONT,                                                            // "5"
-                          WATTOF_LED_STRIP_CENTER,                                                           // "2"
-                          WATTOF_LED_STRIP_BACK,                                                             // "2"
-                          context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                               // "1"
-                          context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                              // "2"
-                          context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                // "3"
-                          takes_press_for_10_seconds_right_button_str,                                       // "±"
-                          (full_light) ? light_strength_full_str : light_strength_weak_str,                  // "3/3" or "2/3
-                          (control_scheme_add_leading_space) ? " " : "",                                     // So that " INIT" and "  DAG" will be left aligned first visible char
-                          light_control_scheme_str,                                                          // "NATT" etc.
-                          (context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
-                          context.light_composition,                                                         // 10
-                          left_of_minutes_or_count_str);                                                     // M:2 or T:8 or ...
+                          takes_press_for_10_seconds_right_button_str,                                                            // "±"                                                                       //  Å
+                          WATTOF_LED_STRIP_FRONT,                                                                                 // "5"
+                          WATTOF_LED_STRIP_CENTER,                                                                                // "2"
+                          WATTOF_LED_STRIP_BACK,                                                                                  // "2"
+                          context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                    // "1"
+                          context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                   // "2"
+                          context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                     // "3"
+                          takes_press_for_10_seconds_right_button_str,                                                            // "±"
+                          (full_light) ? light_strength_full_str : light_strength_weak_str,                                       // "3/3" or "2/3
+                          (control_scheme_add_leading_space) ? " " : "",                                                          // So that " INIT" and "  DAG" will be left aligned first visible char
+                          light_control_scheme_str,                                                                               // "NATT" etc.
+                          (light_sunrise_sunset_context.light_stable) ? stable_str : takes_press_for_10_seconds_right_button_str, // "=" or "±"
+                          context.light_composition,                                                                              // 10
+                          left_of_minutes_or_count_str);                                                                          // M:2 or T:8 or ...
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
@@ -789,9 +788,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER, but do it before DISPLAY_SUB_ON_FOR_SECONDS after last keypress
                     if (context.display_sub_edited) {
-                        sprintf_return = sprintf (context.display_ts1_chars, " 6 KLOKKE STILT         Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
+                        sprintf_return = sprintf (context.display_ts1_chars, " NT KLOKKE STILT        Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
                         //                                                     ..........----------.
-                        //                                                     6 KLOKKE STILT      .
+                        //                                                     NT KLOKKE STILT     .
                         //                                                     . Det runde kortet:
                         //                                                     . ChronoDot V2.1    .
                         //                                                     . Batteri: CR1632   .
@@ -1474,9 +1473,9 @@ void System_Task_Data_Handler (
     //}}}  
     //{{{  Handle control of aquarium top LED lights, with respect to time and box internal light sensor
 
-    {context.light_stable} = i_port_heat_light_commands.get_light_stable();
+    {light_sunrise_sunset_context.light_stable} = i_port_heat_light_commands.get_light_stable();
 
-    if (context.light_stable) { // Only pre-condition is interesting, not to set light_stable again if it is set
+    if (light_sunrise_sunset_context.light_stable) { // We won't disturb typically LED slowly DOWN
 
         debug_printf ("%s", "Light stable\n");
 
@@ -1484,7 +1483,6 @@ void System_Task_Data_Handler (
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
         // Update FRAM if needed
-
         if (light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
             uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
@@ -1496,16 +1494,19 @@ void System_Task_Data_Handler (
 
         // Now, how did it go, how is light controlled right now?
         // Get the results as soon as possible to show in the display
-        {context.light_stable}                                    = i_port_heat_light_commands.get_light_stable();
+        {light_sunrise_sunset_context.light_stable}               = i_port_heat_light_commands.get_light_stable();
         {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc (context.light_intensity_thirds);
 
         // Make history, update "previous"
-        // Post-condition of context.light_stable is not interesting, it may be true now as an effect of set_light_composition in Handle_Light_Sunrise_Sunset_Etc
+        if (light_sunrise_sunset_context.light_stable) {
+            light_sunrise_sunset_context.datetime_previous = context.datetime;
+        } else {
+            debug_printf ("%s", "Freeze time\n");
+        }
 
-        light_sunrise_sunset_context.datetime_previous               = context.datetime;
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
 
-    } else { // not context.light_stable
+    } else { // not light_sunrise_sunset_context.light_stable
 
         debug_printf ("%s", "Light changing\n");
         // Don't change light_composition while light is changing

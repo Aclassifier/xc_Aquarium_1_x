@@ -18,6 +18,7 @@
 
 #include "i2c.h"
 
+#include "_version.h"
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "f_conversions.h"
@@ -475,7 +476,9 @@ void Temperature_Heater_Task (
                 unsigned ohm;
 
                 if (rr_24V_voltage_onetenthV == 0) {
-                    debug_printf ("%s", "Zero Watt? V24 may be zero, but always until middle button!\n");
+                    #ifndef FLASH_BLACK_BOARD
+                        debug_printf ("%s", "Zero Watt? V24 may be zero, but always until middle button!\n");
+                    #endif
                 } else {}
 
                 if (first_round) { // temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE] is still "....oC" GENERIC_TEXT_NO_DATA_DEGC

@@ -14,15 +14,14 @@
 #include <iso646.h>
 
 #include "param.h"
+#include "_version.h"
 #include "port_heat_light_task.h"
 #endif
 
-#define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
+#define DEBUG_PRINT_HEAT_LIGHT_SERVER 1 // Cost 0.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DO_HEAT_PULSING_THROUGH_BOARD_9 // Just comment away if you are not using it. That's all
-
-port myport_p32 = XS1_PORT_32A;
 
 // startKIT measurement with and without pull-down on these when output set high:
 // 3.28V  NO pull-down
@@ -47,6 +46,16 @@ port myport_p32 = XS1_PORT_32A;
 #define BIT_BEEPER_LOW   (1<<IOF_BEEPER_LOW)   // On when low output
 
 #define BITS_HEAT_BOTH (BIT_HEAT_1 bitor BIT_HEAT_2)
+#define BITS_LIGHT_ALL (BIT_LIGHT_BACK bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_FRONT)
+
+
+port myport_p32 = XS1_PORT_32A;
+
+#ifdef FLASH_BLACK_BOARD
+    #define DO_MYPORT_P32(pins) (pins xor (BITS_LIGHT_ALL bitor BITS_HEAT_BOTH)) // Yellow LEDS are pull-down active low, so we need to invert all pin bits
+#else
+    #define DO_MYPORT_P32(pins) pins // STANDARD CONTROLLER BOX, MOSFETS are active high
+#endif
 
 typedef enum heat_cable_alternating_t {
     HEAT_1_ON,
@@ -306,7 +315,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
         dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
     #endif
 
-    myport_p32 <: port_value;
+    myport_p32 <: DO_MYPORT_P32(port_value);
 
     tmr :> time;
 
@@ -324,17 +333,17 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     // but it made no difference
                     {
                         if ((mask bitand BIT_LIGHT_FRONT) != 0)  {port_value or_eq BIT_LIGHT_FRONT;}  else {port_value and_eq compl BIT_LIGHT_FRONT;}
-                        myport_p32 <: port_value;
+                        myport_p32 <: DO_MYPORT_P32(port_value);
                         delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> FRONT: 1 of 3
                     }
                     {
                         if ((mask bitand BIT_LIGHT_CENTER) != 0) {port_value or_eq BIT_LIGHT_CENTER;} else {port_value and_eq compl BIT_LIGHT_CENTER;}
-                        myport_p32 <: port_value;
+                        myport_p32 <: DO_MYPORT_P32(port_value);
                         delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> CENTER: 2 of 3
                     }
                     {
                         if ((mask bitand BIT_LIGHT_BACK)  != 0)  {port_value or_eq BIT_LIGHT_BACK;}   else {port_value and_eq compl BIT_LIGHT_BACK;}
-                        myport_p32 <: port_value;
+                        myport_p32 <: DO_MYPORT_P32(port_value);
                         delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // NUMBER_OF_TIME_PER_PIN_OUTPUT_MICROSECONDS -> BACK: 3 of 3
                     }
 
@@ -364,7 +373,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         if ((mask bitand BIT_LIGHT_BACK) != 0) {port_value or_eq BIT_LIGHT_BACK;} else {port_value and_eq compl BIT_LIGHT_BACK;}
                     }
 
-                    myport_p32 <: port_value; // Let's do all at the same time
+                    myport_p32 <: DO_MYPORT_P32(port_value); // Let's do all at the same time
 
                     delay_microseconds (soft_change_pwm_window_timer_us[iof_light_pwm_window]);
 
@@ -386,7 +395,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                             port_value and_eq compl BIT_LIGHT_BACK; // was off from start until off now, for shorter and shorter window
                         } else {} // PIN_SAME_LIGHT
 
-                    myport_p32 <: port_value; // Let's do all at the same time
+                    myport_p32 <: DO_MYPORT_P32(port_value); // Let's do all at the same time
 
                     if (soft_change_pwm_window_timer_us[iof_light_pwm_window] > 0)  {
                         soft_change_pwm_window_timer_us[iof_light_pwm_window]--;
@@ -427,7 +436,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         // it has by design not been propagated up. However, System_Task will know by the get_heat_cables_forced_off_by_watchdog and will take
                         // appropriate action in the display. Test with DEBUG_TEST_WATCHDOG
 
-                        myport_p32 <: port_value; // Out with beep and heat
+                        myport_p32 <: DO_MYPORT_P32(port_value); // Out with beep and heat
                     } else {}
                 } else {}
 
@@ -446,13 +455,13 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                             port_value and_eq compl BIT_HEAT_2; // Pulse low
                         }
                     } else {}
-                    myport_p32 <: port_value; // Out with heat pulse change
+                    myport_p32 <: DO_MYPORT_P32(port_value); // Out with heat pulse change
                 #endif
 
                 if (beeper_blip_ticks_cntdown == 1) {
                     beeper_blip_ticks_cntdown = 0;
                     port_value or_eq BIT_BEEPER_LOW; // BEEPER_OFF: set pin high
-                    myport_p32 <: port_value;
+                    myport_p32 <: DO_MYPORT_P32(port_value);
                 } else {
                     beeper_blip_ticks_cntdown--;
                 } // Do nothing
@@ -564,13 +573,13 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 } else {
                     port_value or_eq BIT_BEEPER_LOW; // BEEPER_OFF: set pin high
                 }
-                myport_p32 <: port_value;
+                myport_p32 <: DO_MYPORT_P32(port_value);
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_blip_command (const unsigned ms): {
 
                 port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
-                myport_p32 <: port_value;
+                myport_p32 <: DO_MYPORT_P32(port_value);
 
                 beeper_blip_ticks_cntdown = NUM_TICKS_FROM_MS(ms);
 
@@ -645,7 +654,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     port_value = port_value_next; // "SET" All bits so that we don't touch the others
 
                     if (heat_1 != heat_1_next) {
-                        myport_p32 <: port_value;
+                        myport_p32 <: DO_MYPORT_P32(port_value);
                         if (heat_1_next) { // Went on
                             delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS); // Power supply must deliver again, give it some time
                         } else { // Went off
@@ -654,7 +663,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     } else {} // Do nothing
 
                     if (heat_2 != heat_2_next) {
-                        myport_p32 <: port_value;
+                        myport_p32 <: DO_MYPORT_P32(port_value);
                         if (heat_2_next or heat_1_no_delay) { // Went on or no delay above
                             delay_microseconds (TIME_PER_PIN_OUTPUT_MICROSECONDS);
                         } else {}
