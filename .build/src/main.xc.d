@@ -14,7 +14,7 @@
   ../../workspace/_Aquarium_1_x/src/port_heat_light_task.h \
   ../../workspace/_Aquarium_1_x/src/temperature_heater_task.h \
   ../../workspace/_Aquarium_1_x/src/temperature_water_task.h \
-  ../../workspace/_Aquarium_1_x/src/chronodot_ds3231_controller.h \
+  ../../workspace/_Aquarium_1_x/src/chronodot_ds3231_task.h \
   ../../workspace/_Aquarium_1_x/src/exception_handler.h \
   ../../workspace/_Aquarium_1_x/src/my_adc_startkit_task.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h

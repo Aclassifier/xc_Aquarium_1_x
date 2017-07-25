@@ -32,7 +32,7 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_Internal_Task.h"
-#include "chronodot_ds3231_controller.h"
+#include "chronodot_ds3231_task.h"
 
 #include "display_ssd1306.h"
 
@@ -971,10 +971,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_7_NT_KLOKKE);
                 context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_is_editable = true;
-                debug_printf("SCREEN_7_NT_KLOKKE %04u.%02u.%02u %02u.%02u.%02u sub_state = %u\n",
-                        context.datetime.year, context.datetime.month,  context.datetime.day,
-                        context.datetime.hour, context.datetime.minute, context.datetime.second,
-                        context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state);
+                debug_printf("SCREEN_7_NT_KLOKKE sub_state = %u\n", context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state);
+                debug_printf_datetime (context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else {}
 
         } break;
@@ -1477,8 +1475,6 @@ void System_Task_Data_Handler (
 
     if (light_sunrise_sunset_context.light_stable) { // We won't disturb typically LED slowly DOWN
 
-        debug_printf ("%s", "Light stable\n");
-
         // HANDLE LIGHT INTENSITY
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);
 
@@ -1516,6 +1512,8 @@ void System_Task_Data_Handler (
         // and when it timed out after two minutes the light was going to be turned softly UP again. But then the random SKY triggered
         // and it wanted to take the light softly DOWN. What happened is that the last won and took the light abruptly UP and then took
         // it softly DOWN. Not nice at all. This solution should fix this for v.1.0.11
+
+        debug_printf_datetime (light_sunrise_sunset_context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
     }
     //}}}
 

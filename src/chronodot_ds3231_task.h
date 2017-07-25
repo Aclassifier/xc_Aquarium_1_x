@@ -1,5 +1,5 @@
 /*
- * Chronodot_DS3231_Controller.h
+ * Chronodot_DS3231_Task.h
  *
  *  Created on: 8. feb. 2017
  *      Author: teig
@@ -95,9 +95,11 @@ typedef interface chronodot_ds3231_if {
                  bool  set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
 
+void debug_printf_datetime (const DateTime_t datetime); // DEBUG_PRINT_DATETIME must be 1
+
 // ========================== NOT USED! ==========================
 [[combinable]]
-void Chronodot_DS3231_Controller (
+void Chronodot_DS3231_Task (
     server chronodot_ds3231_if      i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 

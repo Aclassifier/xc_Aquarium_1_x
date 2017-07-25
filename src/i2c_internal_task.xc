@@ -26,7 +26,7 @@
 
 #include "I2C_Internal_Task.h"
 #include "display_ssd1306.h"
-#include "chronodot_ds3231_controller.h"
+#include "chronodot_ds3231_task.h"
 #endif
 
 #define DEBUG_PRINT_DISPLAY 0 // Cost 0.3k

@@ -18,7 +18,7 @@
 #include "port_heat_light_task.h"
 #endif
 
-#define DEBUG_PRINT_HEAT_LIGHT_SERVER 1 // Cost 0.8k
+#define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DO_HEAT_PULSING_THROUGH_BOARD_9 // Just comment away if you are not using it. That's all
@@ -297,6 +297,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
         bool pulse_heat_2 = false;
     #endif
 
+    unsigned watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
+    bool     watchdog_timed_out     = false;
+
+    unsigned beeper_blip_ticks_cntdown = 0;
+
     // (*1) Could have had one for all and initialised it to TIME_PER_PWM_WINDOW_MICROSECONDS * 3 and then DIV by 3 when used. However
     //      I have avoided division here since it takes more than one cycle and the DIVn instruction share a common division unit with the
     //      other threads. The good point would have been the three PWN windows would have finished once instead of three times.
@@ -304,11 +309,6 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
     //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
     debug_printf("%s", "Port_Pins_Heat_Light_Task started\n");
-
-    // If DO_HEAT_PULSING_THROUGH_BOARD_9 then this watchdog isn't needed. But it won't hurt!
-    unsigned beeper_blip_ticks_cntdown = 0;
-    unsigned watchdog_ticks_cntdown    = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
-    bool     watchdog_timed_out        = false;
 
     #ifdef DUMMY_WIFI
         // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
@@ -419,7 +419,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         watchdog_timed_out = true;
                         watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // Repeat, assuming watchdog_retrigger_with is dead
 
-                        // Simulate beeper_blip_command (200 ms)
+                        // Simulate beeper_blip_command (300 ms)
                         port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
                         beeper_blip_ticks_cntdown = 300; // The longest beep, easily distinguishable
 
@@ -585,6 +585,14 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
             } break;
 
+            // The idea here is to let this task count down ms and do a beep if it reaches zero before watchdog_retrigger_with is called again.
+            //     So if caller stops we get the beep.
+            // Since it also returns how much that has been counted down, the caller is able to monitor that this code runs as well.
+            //     So it this stops we may get a beep, if caller does do this.
+            //     However, the beep is produced with beeper_blip_command _here_, so it's hard to tell whether this is of much value.
+            //     With respect to overheating of the aquarium it's not an issue if DO_HEAT_PULSING_THROUGH_BOARD_9 is defined (yes, it is!).
+            //     It requires active pulses with the monostable hw latch. If pulsing stops the power is switched off. I did a board for this (board 9)
+            //
             case i_port_heat_light_commands[int index_of_client].watchdog_retrigger_with (const unsigned set_new_ms) -> {unsigned return_rest_ms}: {
                 unsigned watchdog_ticks_cntdown_copy = watchdog_ticks_cntdown;
 

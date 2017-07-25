@@ -33,7 +33,7 @@
 #include "port_heat_light_task.h"
 #include "temperature_heater_task.h"
 #include "temperature_water_task.h"
-#include "chronodot_ds3231_controller.h"
+#include "chronodot_ds3231_task.h"
 #include "exception_handler.h"
 //
 #include "my_adc_startkit_task.h"

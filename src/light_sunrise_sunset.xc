@@ -26,7 +26,7 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_Internal_Task.h"
-#include "chronodot_ds3231_controller.h"
+#include "chronodot_ds3231_task.h"
 
 #include "display_ssd1306.h"
 
@@ -153,6 +153,13 @@ Handle_Light_Sunrise_Sunset_Etc (
     // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
+    bool debug_printf_datetime_done = false;
+
+    if (trigger_minute_changed) {
+        debug_printf_datetime(context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+        debug_printf_datetime_done = true;
+    } else {}
+
     //{{{  Init once
 
     if (context.do_init) {
@@ -211,8 +218,30 @@ Handle_Light_Sunrise_Sunset_Etc (
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35);
             }
         #endif
-       {context.light_stable} = i_port_heat_light_commands.get_light_stable(); // AQU=017
+       {context.light_stable} = i_port_heat_light_commands.get_light_stable();
     } else {}// init done
+
+    //}}}
+
+    //{{{  context.max_light_changed by IOF_BUTTON_RIGHT
+
+    if (context.max_light_changed) {
+        context.max_light_changed = false; // Action will not be seen if these don't trigger:
+        if (context.num_minutes_left_of_random == 0) {
+            if (context.it_is_day_or_night == IT_IS_DAY) {
+                light_composition_t light_composition_now;
+                {light_composition_now} = i_port_heat_light_commands.get_light_composition();
+                // ------------------- CHANGE LIGHT LEVEL TO MAX IF NEEDED (BRIGHTER OR DARKER) -------------------
+                light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.max_light);
+                light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.max_light);
+                //
+                debug_set_val_to (print_value,44);
+                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_VOID, 44);
+                {context.light_stable} = i_port_heat_light_commands.get_light_stable();
+            } else {} // Not nice for the fishes to do this at night
+        } else {}
+        debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
+    } else {}
 
     //}}}
     //{{{  trigger_minute_changed
@@ -286,7 +315,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             //
             debug_set_val_to (print_value,22);
             i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
-            {context.light_stable} = i_port_heat_light_commands.get_light_stable(); // AQU=017
+            {context.light_stable} = i_port_heat_light_commands.get_light_stable();
 
             debug_printf ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
 
@@ -302,12 +331,12 @@ Handle_Light_Sunrise_Sunset_Etc (
 
             context.num_minutes_left_of_random--; // Will show 0 the full last minute
 
-            debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // AQU=017 Random countdown 0
+            debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
             if (context.num_minutes_left_of_random == 0) {
                 // ------------------------ CHANGE LIGHT LEVEL BACK TO MAX  ------------------------
                 debug_set_val_to (print_value,104);
                 i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.max_light), LIGHT_CONTROL_IS_DAY, 104);
-                {context.light_stable} = i_port_heat_light_commands.get_light_stable(); // AQU=017
+                {context.light_stable} = i_port_heat_light_commands.get_light_stable();
 
                 if (context.light_sensor_diff_state == DIFF_ACTIVE) {
                     context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
@@ -360,7 +389,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                             NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
                                             (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
                                     context.num_random_sequences_left--;
-                                    debug_set_val_to (print_value,102); // AQU=017: Random value 102 [0] with 28 and 8. Light=0
+                                    debug_set_val_to (print_value,102);
                                 } else { // No action
                                     debug_set_val_to (print_value,103); // This time (every 12th time, no action)
                                 }
@@ -375,30 +404,13 @@ Handle_Light_Sunrise_Sunset_Etc (
     }
 
     //}}}
-    //{{{  context.max_light_changed
-
-    if (context.max_light_changed) {
-        context.max_light_changed = false; // Action will not be seen if these don't trigger:
-        if (context.num_minutes_left_of_random == 0) {
-            if (context.it_is_day_or_night == IT_IS_DAY) {
-                light_composition_t light_composition_now;
-                {light_composition_now} = i_port_heat_light_commands.get_light_composition();
-                // ------------------- CHANGE LIGHT LEVEL TO MAX IF NEEDED (BRIGHTER OR DARKER) -------------------
-                light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.max_light);
-                light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.max_light);
-                //
-                debug_set_val_to (print_value,44);
-                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_VOID, 44);
-            } else {} // Not nice for the fishes to do this at night
-        } else {}
-        debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
-    } else {}
-
-    //}}}
     //{{{  DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
 
     #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
         if (context.print_value_previous != print_value) {
+            if (not debug_printf_datetime_done) {
+                debug_printf_datetime(context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+            } else {}
             debug_printf ("Random value %u [%u] with %u and %u. Boxlightlevel=%u\n",
                    print_value, context.print_value_previous, context.num_minutes_left_of_random,
                    context.num_random_sequences_left, context.light_sensor_diff_state);

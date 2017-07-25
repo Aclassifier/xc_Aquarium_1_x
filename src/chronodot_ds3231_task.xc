@@ -1,5 +1,5 @@
 /*
- * Chronodot_DS3231_Controller.xc
+ * Chronodot_DS3231_Task.xc
  *
  *  Created on: 8. feb. 2017
  *      Author: teig
@@ -32,11 +32,21 @@
 #include "temperature_heater_task.h"
 #include "temperature_water_task.h"
 
-#include "chronodot_ds3231_controller.h"
+#include "chronodot_ds3231_task.h"
 #endif
 
 #define DEBUG_PRINT_CHRONODOT_DS3231 0 // Cost 1.3k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231) printf(fmt, __VA_ARGS__); } while (0)
+
+#define DEBUG_PRINT_DATETIME 1 // Cost ?
+#define debug_printf_dt(fmt, ...) do { if(DEBUG_PRINT_DATETIME) printf(fmt, __VA_ARGS__); } while (0)
+
+void debug_printf_datetime (const DateTime_t datetime) {
+    // Better visible in the log with two leading spaces:
+    debug_printf_dt("  Date:%04u.%02u.%02u Time:%02u.%02u.%02u\n",
+        datetime.year, datetime.month,  datetime.day,
+        datetime.hour, datetime.minute, datetime.second);
+}
 
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers) {
     DateTime_t datetime;
@@ -68,7 +78,7 @@ void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231
 // then I2C_INTERNAL_NUM_CLIENTS went from 2 to 1 and the chronodot_ds3231_if wasn't needed any more, so
 // we saved three chanends and almost saved about 2.1K memory:
 //
-// With Chronodot_DS3231_Controller:
+// With Chronodot_DS3231_Task:
 // Constraint check for tile[0]:
 //   Cores available:            8,   used:          7 .  OKAY
 //   Timers available:          10,   used:          8 .  OKAY
@@ -76,7 +86,7 @@ void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231
 //   Memory available:       65536,   used:      51600 .  OKAY
 //     (Stack: 9708, Code: 36066, Data: 5826)
 //
-// With Chronodot_DS3231_Controller REMOVED:
+// With Chronodot_DS3231_Task REMOVED:
 // Constraint check for tile[0]:
 //   Cores available:            8,   used:          6 .  OKAY
 //   Timers available:          10,   used:          7 .  OKAY
@@ -87,7 +97,7 @@ void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231
 
 // ========================== NOT USED! ==========================
 [[combinable]]
-void Chronodot_DS3231_Controller (
+void Chronodot_DS3231_Task (
     server chronodot_ds3231_if      i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands) {
 
@@ -97,7 +107,7 @@ void Chronodot_DS3231_Controller (
     timer tmr;
     int   time;
 
-    debug_printf ("%s", "Chronodot_DS3231_Controller started\n");  // NOT USED!
+    debug_printf ("%s", "Chronodot_DS3231_Task started\n");  // NOT USED!
 
     tmr :> time;
 
@@ -118,9 +128,8 @@ void Chronodot_DS3231_Controller (
                     datetime.second = BCD_To_Bin_8(chronodot_d3231_registers.registers[DS3231_REG_SECOND] bitand 0x7F);
                 } else {}
 
-                    debug_printf("ChronoDot %u= %04u.%02u.%02u %02u.%02u.%02u\n", ok,
-                            datetime.year, datetime.month,  datetime.day,
-                            datetime.hour, datetime.minute, datetime.second);
+                debug_printf_datetime (datetime);
+
             } break;
 
             case i_chronodot_ds3231.get_time_ok (void) -> {DateTime_t return_datetime, bool return_ok} : {

@@ -1780,8 +1780,8 @@ void Temperature_Water_Task (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
 # 36 "../src/main.xc" 2
-# 1 "../src/chronodot_ds3231_controller.h" 1
-# 41 "../src/chronodot_ds3231_controller.h"
+# 1 "../src/chronodot_ds3231_task.h" 1
+# 41 "../src/chronodot_ds3231_task.h"
 typedef enum {
 
 
@@ -1839,9 +1839,11 @@ typedef interface chronodot_ds3231_if {
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
 
+void debug_printf_datetime (const DateTime_t datetime);
+
 
 [[combinable]]
-void Chronodot_DS3231_Controller (
+void Chronodot_DS3231_Task (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
 # 37 "../src/main.xc" 2
