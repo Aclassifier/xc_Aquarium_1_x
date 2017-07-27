@@ -10,10 +10,21 @@
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR    "14.2.4" // Since I haven't got 14.3.0 to work yet
+#define XTIMECOMPOSER_VERSION_STR "14.2.4" // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
-#define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.12" // 25Jul2017
+// #define FLASH_BLACK_BOARD // NEVER for aquarium!
+#define APPLICATION_VERSION_STR "1.0.13" // 27Jul2017 Tagged VER_1_0_13_with_fishes
+    //                       AQU=021 Testing with xTIMEcomposer 14.3.0 with different Button_Task placements in mains.c. Found no way
+    //                               14.2.4 with 1.0.13:
+    //                               Constraint check for tile[0]:
+    //                                 Cores available:            8,   used:          7 .  OKAY
+    //                                 Timers available:          10,   used:          8 .  OKAY
+    //                                 Chanends available:        32,   used:         27 .  OKAY
+    //                                 Memory available:       65536,   used:      57268 .  OKAY
+    //                                   (Stack: 8616, Code: 41686, Data: 6966)
+    //                       AQU=021 debug_printf_datetime called differently, I saw it missing some places.
+    // "1.0.12" // 25Jul2017
+    //                       AQU=020 Present power presented allow to become aged and go to zero in Temperature_Heater_Task
     //                       AQU=019 Renamed Chronodot_DS3231_Controller -> Chronodot_DS3231_Task (if if I don't use it)
     //                                   chronodot_ds3231_controller.h -> chronodot_ds3231_task.h
     //                                   chronodot_ds3231_controller.xc -> chronodot_ds3231_task.xc
@@ -61,4 +72,6 @@
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)
     //  1.0.0  // 21May2017  AQU=001 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()
 
-#endif /* VERSION_H_ */
+#else
+    #error Nested include VERSION_H_
+#endif

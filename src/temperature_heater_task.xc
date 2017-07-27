@@ -77,6 +77,11 @@ typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE_UNPLUGGED
 
 #define CABLE_HEATER_ASSUMED_POWERED_SECONDS (60 * 3) // It takes some time before the room is heated
 
+#define AGING_OF_DATA_WHILE_OFF_RESTART_0_SEC      0
+#define AGING_OF_DATA_WHILE_OFF_VALID_1800_SECS 1800 // No aging before half an hour
+#define AGING_OF_DATA_WHILE_OFF_UNTIL_3600_SECS 3600
+#define AGING_OF_DATA_WHILE_OFF_AT_1800_SECS   (AGING_OF_DATA_WHILE_OFF_UNTIL_3600_SECS - AGING_OF_DATA_WHILE_OFF_VALID_1800_SECS)
+
 //}}}  
 
 [[combinable]]
@@ -91,18 +96,19 @@ void Temperature_Heater_Task (
     int   time;
 
     unsigned                 raw_timer_interval_cnt_for_one_second = 0;
-    unsigned                 temp_measurement_ticks_cnt = 0;
-    unsigned                 proportional_percent_cnt   = 0;  // [0..99]
-    method_of_on_off_t       method_of_on_off = ON_OFF_TEMPC_HEATER;
-    heater_wires_t           heater_wires     = HEATER_WIRES_BOTH_IS_FULL; // With 99% above you'll only notice the alternating HEAT_1_ON and HEAT_2_ON
-    is_doing_t               is_doing         = IS_CONTROLLING;
-    unsigned                 on_cnt_secs      = 0; // 32 bit value only incremented
-    unsigned                 off_cnt_secs     = 0; // 32 bit value only incremented
-    unsigned                 err_cnt_times    = 0; // 32 bit value only incremented
-    bool                     on_now           = false;
-    bool                     on_now_previous  = false;
-    unsigned                 on_percent       = 0;
-    bool                     first_round      = true;
+    unsigned                 temp_measurement_ticks_cnt            = 0;
+    unsigned                 proportional_percent_cnt              = 0;  // [0..99]
+    method_of_on_off_t       method_of_on_off                      = ON_OFF_TEMPC_HEATER;
+    heater_wires_t           heater_wires                          = HEATER_WIRES_BOTH_IS_FULL; // With 99% above you'll only notice the alternating HEAT_1_ON and HEAT_2_ON
+    is_doing_t               is_doing                              = IS_CONTROLLING;
+    unsigned                 on_cnt_secs                           = 0; // 32 bit value only incremented
+    unsigned                 off_cnt_secs                          = 0; // 32 bit value only incremented
+    unsigned                 err_cnt_times                         = 0; // 32 bit value only incremented
+    bool                     on_now                                = false;
+    unsigned                 on_percent                            = 0;
+    unsigned                 aging_of_data_while_off_secs          = AGING_OF_DATA_WHILE_OFF_RESTART_0_SEC; // AQU=020 Tested with 1775 and 3575 to see passing of 1800 and 3600 (ok)
+    bool                     on_now_previous                       = false;
+    bool                     first_round                           = true;
     cable_heater_mon_t       cable_heater_mon;
 
     unsigned                 temp_onetenthDegC_heater_num = 0;
@@ -146,15 +152,17 @@ void Temperature_Heater_Task (
 
                 time += (RAW_TIMER_INTERVAL_IS_100_MILLISECONDS * XS1_TIMER_KHZ);
                 raw_timer_interval_cnt_for_one_second++;
-                if (raw_timer_interval_cnt_for_one_second == NUM_TIMER_TICKS_PER_SECOND) {
+                if (raw_timer_interval_cnt_for_one_second == NUM_TIMER_TICKS_PER_SECOND) { // Every second
                     raw_timer_interval_cnt_for_one_second = 0;
                     if (on_now) {
                         on_cnt_secs++;
+                        aging_of_data_while_off_secs = AGING_OF_DATA_WHILE_OFF_RESTART_0_SEC; // Clear every second when on
                         if (cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) {
                             cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise++;
                         } else {}
                     } else { // off_now
                         off_cnt_secs++;
+                        aging_of_data_while_off_secs++;
                     }
                 } else {} // No code, counting to 1 sec
 
@@ -179,7 +187,7 @@ void Temperature_Heater_Task (
                 } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) { // HERE
                     if (temp_measurement_ticks_cnt == 0) { // Every TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
-                        i_i2c_external_commands.trigger (GET_TEMPC_ALL); // Trigger
+                        i_i2c_external_commands.trigger (GET_TEMPC_ALL); // Trigger for i_i2c_external_commands.notify
 
                         is_doing = IS_READING_TEMPS;
                     } else {}
@@ -293,7 +301,6 @@ void Temperature_Heater_Task (
                     //{{{  Now switch on or off, handle secondary matters
 
                     if (on_now == true) {  // Into HEATER ON
-
                         if ((cable_heater_mon.state == CABLE_HEATER_OK) or (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
 
                             // No test of temp_onetenthDegC_heater_limit here since when we turn it on, for no matter small rise,
@@ -310,9 +317,7 @@ void Temperature_Heater_Task (
                         } else {
                             debug_printf("%s", " @ Heater history A");
                         }
-
                     } else { // Into HEATER OFF, will also zero on initial raise
-
                         const unsigned sum_on_off_seconds = off_cnt_secs + on_cnt_secs;
                         bool           ok_degC_heater_mean_last_cycle;
 
@@ -472,8 +477,10 @@ void Temperature_Heater_Task (
             //{{{  i_temperature_heater_commands[].get_regulator_data
 
             case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
-                    {bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
+                    {bool return_aged, bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
+
                 unsigned ohm;
+                unsigned aging_factor_after_1800_until_3600_secs = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
 
                 if (rr_24V_voltage_onetenthV == 0) {
                     #ifndef FLASH_BLACK_BOARD
@@ -488,11 +495,7 @@ void Temperature_Heater_Task (
                         return_value_on_percent = 0;
                     }
                 } else {
-                    if ((temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and (on_now == false)) {
-                        return_value_on_percent = 0; // Since it may be seriously outdated
-                    } else {
-                        return_value_on_percent = on_percent; // This is the only place on_percent is used
-                    }
+                    return_value_on_percent = on_percent; // This is the only place on_percent is used
                 }
 
                 if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
@@ -519,6 +522,40 @@ void Temperature_Heater_Task (
 
                 return_value_on_watt = (return_value_on_watt * return_value_on_percent) / 100;
 
+                if (return_value_on_percent == 0) {
+                    // No code. Looks strange to "age" value zero
+                    debug_printf("Heater-x %s no aging (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
+                } else if (aging_of_data_while_off_secs < AGING_OF_DATA_WHILE_OFF_VALID_1800_SECS) {
+                    // No code
+                    // [0..1799] aging_of_data_while_off_secs
+                    // Keep "old" values the first half an hour
+                    debug_printf("Heater-x %s before (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
+                } else { // Allow aging
+                    // [1800.. aging_of_data_while_off_secs
+                    unsigned aging_of_data_while_off_secs_copy = aging_of_data_while_off_secs;
+
+                    aging_of_data_while_off_secs_copy -= AGING_OF_DATA_WHILE_OFF_VALID_1800_SECS;
+                    // Half an hour is 0, the hour is now 1800
+
+                    if (aging_of_data_while_off_secs_copy >= AGING_OF_DATA_WHILE_OFF_AT_1800_SECS) { // After the hour, which is now after 1800
+                        aging_of_data_while_off_secs_copy = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS; // Max one hour
+                    } else {} // Before the hour
+
+                    aging_factor_after_1800_until_3600_secs = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS - aging_of_data_while_off_secs_copy;
+                    // Half an hour is 1800, the hour is now 0
+
+                    debug_printf("Heater-x %s after (%u) %u\n", on_now ? "on?" : "off", aging_of_data_while_off_secs, aging_of_data_while_off_secs_copy);
+                }
+
+                return_value_on_watt = (return_value_on_watt * aging_factor_after_1800_until_3600_secs) / AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
+                //              No aging by factor 1=(1800/1800)
+                // Half an hour is aging by factor 1=(1800/1800)
+                // One     hour is aging by factor 0=(   0/1800)
+
+                return_value_on_percent = (return_value_on_percent * aging_factor_after_1800_until_3600_secs) / AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
+
+                debug_printf("Watt and percent aged by %u/1800\n", aging_factor_after_1800_until_3600_secs);
+
                 if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR) {
                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED;
                     return_on_ok = false;
@@ -528,6 +565,8 @@ void Temperature_Heater_Task (
                 } else {
                     return_on_ok = true;
                 }
+
+                return_aged = not (aging_factor_after_1800_until_3600_secs == AGING_OF_DATA_WHILE_OFF_AT_1800_SECS);
 
             } break;
 

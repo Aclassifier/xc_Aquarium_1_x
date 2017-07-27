@@ -18,6 +18,7 @@
 
 #include "random.h" // xmos. ALso uses "random_conf.h"
 //
+#include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_External_Task.h"

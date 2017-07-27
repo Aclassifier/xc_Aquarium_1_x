@@ -23,6 +23,7 @@
 
 #include "random.h" // xmos. ALso uses "random_conf.h"
 //
+#include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_Internal_Task.h"
@@ -134,17 +135,17 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     bool return_beeper_blip = false;
 
-    const bool                 trigger_minute_changed  = (context.datetime_now.minute != context.datetime_previous.minute);
-    const bool                 trigger_hour_changed    = (context.datetime_now.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
+    const bool                 trigger_minute_changed  = (context.datetime.minute != context.datetime_previous.minute);
+    const bool                 trigger_hour_changed    = (context.datetime.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
     const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
 
     unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
-        const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute) +
+        const unsigned minutes_into_day = ((context.datetime.hour * 60) + context.datetime.minute) +
             NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(20,52); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
     #else
-        const unsigned minutes_into_day = ((context.datetime_now.hour * 60) + context.datetime_now.minute);
+        const unsigned minutes_into_day = ((context.datetime.hour * 60) + context.datetime.minute);
     #endif
 
     context.light_change_window_open = ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
@@ -153,18 +154,11 @@ Handle_Light_Sunrise_Sunset_Etc (
     // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
-    bool debug_printf_datetime_done = false;
-
-    if (trigger_minute_changed) {
-        debug_printf_datetime(context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
-        debug_printf_datetime_done = true;
-    } else {}
-
     //{{{  Init once
 
     if (context.do_init) {
         light_composition_t light_composition_now;
-        const unsigned minutes_into_day = (context.datetime_now.hour * 60) + context.datetime_now.minute;
+        const unsigned minutes_into_day = (context.datetime.hour * 60) + context.datetime.minute;
 
         context.do_init = false;
         context.num_minutes_left_of_random = 0;
@@ -408,9 +402,6 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
         if (context.print_value_previous != print_value) {
-            if (not debug_printf_datetime_done) {
-                debug_printf_datetime(context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
-            } else {}
             debug_printf ("Random value %u [%u] with %u and %u. Boxlightlevel=%u\n",
                    print_value, context.print_value_previous, context.num_minutes_left_of_random,
                    context.num_random_sequences_left, context.light_sensor_diff_state);

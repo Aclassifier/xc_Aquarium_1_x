@@ -29,6 +29,7 @@
 
 #include "random.h" // xmos. ALso uses "random_conf.h"
 //
+#include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_Internal_Task.h"
@@ -49,7 +50,6 @@
 #include "my_adc_startkit_task.h"
 #include "light_sunrise_sunset.h"
 #include "exception_handler.h"
-#include "_version.h"
 
 #include "_Aquarium.h"
 #endif
@@ -218,6 +218,7 @@ typedef struct handler_context_t {
     bool                        heater_on_ok;
     unsigned                    heater_on_percent;
     unsigned                    heater_on_watt;
+    bool                        heater_data_aged;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
     voltage_onetenthV_t         rr_24V_voltage_onetenthV; // Heat
@@ -375,19 +376,21 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 78 chars plus \0
             sprintf_return = sprintf (context.display_ts1_chars,
-                    "2 VANNTEMP-REG %s%sC  P%s       %3u%%        SYKLUS %s%sC        EFFEKT    %2uW",
+                    "2 VANNTEMP-REG %s%sC %sP%s       %3u%%        SYKLUS %s%sC       %sEFFEKT    %2uW",
                     temp_degC_water_str,
                     char_degC_circle_str,
+                    (context.heater_data_aged) ? ">" : " ",
                     char_AA_str,
                     context.heater_on_percent, // PÅ
                     temp_degC_heater_mean_last_cycle_str, // SNITT
                     char_degC_circle_str,
+                    (context.heater_data_aged) ? ">" : " ",
                     context.heater_on_watt); // EFFEKT
             //                                            ..........----------.
             //                                            2 VANNTEMP-REG 24.0oC
-            //                                              PÅ       100%     .
+            //                                             >PÅ       100%     .
             //                                              SNITT  39.6oC   [±]
-            //                                              EFFEKT    48W     .
+            //                                             >EFFEKT    48W     .
 
             if ((context.now_regulating_at == REGULATING_AT_HOTTER_AMBIENT) or
                 (context.heat_cables_forced_off_by_watchdog) or
@@ -1288,14 +1291,36 @@ void System_Task_Data_Handler (
 
     //{{{  Read data and convert some
 
-    {context.chronodot_d3231_registers, context.read_chronodot_ok}              = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
-    {context.now_regulating_at, context.temperature_water_controller_debug_log} = i_temperature_water_commands.get_now_regulating_at ();
-    {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
-    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
-    {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}      = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
-    {context.heater_on_ok, context.heater_on_percent, context.heater_on_watt}   = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+    {context.chronodot_d3231_registers, context.read_chronodot_ok}                                      = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
+    {context.now_regulating_at, context.temperature_water_controller_debug_log}                         = i_temperature_water_commands.get_now_regulating_at ();
+    {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
+    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+    {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}                              = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
+    {context.heater_data_aged, context.heater_on_ok, context.heater_on_percent, context.heater_on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
 
-    context.datetime = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+    // READ DATE AND TIME AND PRINT OUT EVERY MINUTE
+    {
+        DateTime_t datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised. AQU=021
+
+        context.datetime                      = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+        light_sunrise_sunset_context.datetime = context.datetime; // Need a copy there
+
+        // Do init of "previous" of aquarium datetime for light
+        if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
+            light_sunrise_sunset_context.datetime_previous_not_initialised = false;
+
+            light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
+            context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
+            debug_printf("%s", "Init\n");
+            debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+        } else {
+            if (context.datetime.minute != datetime_old.minute) {
+                debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+            } else if (context.heater_data_aged) {
+                debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+            } else {}
+        }
+    }
 
     context.heat_cables_forced_off_by_watchdog = i_port_heat_light_commands.get_heat_cables_forced_off_by_watchdog();
 
@@ -1456,19 +1481,7 @@ void System_Task_Data_Handler (
             light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
         } else {} // Fine
     }
-    //}}}  
-    //{{{  Do init of "previous" of aquarium datetime for light
-
-    light_sunrise_sunset_context.datetime_now = context.datetime; // qwe to just above here?
-
-    if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
-        light_sunrise_sunset_context.datetime_previous_not_initialised = false;
-
-        light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
-        context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
-    } else {}
-
-    //}}}  
+    //}}}
     //{{{  Handle control of aquarium top LED lights, with respect to time and box internal light sensor
 
     {light_sunrise_sunset_context.light_stable} = i_port_heat_light_commands.get_light_stable();
@@ -1513,7 +1526,7 @@ void System_Task_Data_Handler (
         // and it wanted to take the light softly DOWN. What happened is that the last won and took the light abruptly UP and then took
         // it softly DOWN. Not nice at all. This solution should fix this for v.1.0.11
 
-        debug_printf_datetime (light_sunrise_sunset_context.datetime_now); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
+        debug_printf_datetime (context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
     }
     //}}}
 
@@ -1658,7 +1671,7 @@ void System_Task (
     light_sunrise_sunset_context.do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
 
-    debug_printf("%s", "System_Task started\n");
+    debug_printf("\nSystem_Task started with v%s\n", APPLICATION_VERSION_STR);
 
     // Display matters (not internal i2c matters)
     // NEXT

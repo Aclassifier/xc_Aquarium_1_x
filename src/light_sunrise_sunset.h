@@ -30,7 +30,7 @@ typedef enum light_sensor_diff_state_t {
 typedef struct light_sunrise_sunset_context_t {
     bool                      do_init;
     it_is_day_or_night_t      it_is_day_or_night;
-    DateTime_t                datetime_now;
+    DateTime_t                datetime;
     DateTime_t                datetime_previous;
     bool                      datetime_previous_not_initialised;
     bool                      light_change_window_open;

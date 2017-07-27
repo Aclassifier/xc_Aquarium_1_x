@@ -20,6 +20,7 @@
 
 #include "i2c.h"
 
+#include "_version.h"
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "tempchip_mcp9808.h"
