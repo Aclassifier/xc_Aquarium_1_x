@@ -87,11 +87,11 @@ static hour_minute_light_action_list_t hour_minute_light_action_list = {TIMED_DA
 //{{{  Darker_Light_Composition_Iff
 
 light_composition_t
-Darker_Light_Composition_Iff (const light_composition_t light_composition, const max_light_t max_light) {
+Darker_Light_Composition_Iff (const light_composition_t light_composition, const normal_light_t normal_light) {
 
     light_composition_t return_light_composition = light_composition;
 
-    if (max_light == MAX_LIGHT_IS_TWO_THIRDS) {
+    if (normal_light == NORMAL_LIGHT_IS_TWO_THIRDS) {
         if ((light_composition == LIGHT_COMPOSITION_9000_mW_ON) or
             (light_composition == LIGHT_COMPOSITION_8333_mW_ON)) {
             // Required to get darker, do it:
@@ -107,11 +107,11 @@ Darker_Light_Composition_Iff (const light_composition_t light_composition, const
 //{{{  Brighter_Light_Composition_Iff
 
 light_composition_t
-Brighter_Light_Composition_Iff (const light_composition_t light_composition, const max_light_t max_light) {
+Brighter_Light_Composition_Iff (const light_composition_t light_composition, const normal_light_t normal_light) {
 
     light_composition_t return_light_composition = light_composition;
 
-    if (max_light == MAX_LIGHT_IS_FULL) {
+    if (normal_light == NORMAL_LIGHT_IS_FULL) {
         if ((light_composition == LIGHT_COMPOSITION_6000_mW_ON) or
             (light_composition == LIGHT_COMPOSITION_8333_mW_ON)) {
             // Allowed to get brighter, do it:
@@ -165,20 +165,20 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;
 
-        if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_VOID) {              // No FRAM chip?
-            context.max_light = MAX_LIGHT_IS_FULL;                                // Default
-        } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_FULL) {       // A valid value
-            context.max_light = MAX_LIGHT_IS_FULL;                                // As said
-        } else if (context.max_light_in_FRAM_memory == MAX_LIGHT_IS_TWO_THIRDS) { // A valid value
-            context.max_light = MAX_LIGHT_IS_TWO_THIRDS;                          // Modified
+        if (context.normal_light_in_FRAM_memory == NORMAL_LIGHT_IS_VOID) {              // No FRAM chip?
+            context.normal_light = NORMAL_LIGHT_IS_FULL;                                // Default
+        } else if (context.normal_light_in_FRAM_memory == NORMAL_LIGHT_IS_FULL) {       // A valid value
+            context.normal_light = NORMAL_LIGHT_IS_FULL;                                // As said
+        } else if (context.normal_light_in_FRAM_memory == NORMAL_LIGHT_IS_TWO_THIRDS) { // A valid value
+            context.normal_light = NORMAL_LIGHT_IS_TWO_THIRDS;                          // Modified
         } else {                                                                  // Not valid value
-            context.max_light = MAX_LIGHT_IS_FULL;                                // Default
+            context.normal_light = NORMAL_LIGHT_IS_FULL;                                // Default
         }
 
-        context.do_FRAM_write = (context.max_light_in_FRAM_memory != context.max_light);
-        context.max_light_in_FRAM_memory = context.max_light; // Always valid
+        context.do_FRAM_write = (context.normal_light_in_FRAM_memory != context.normal_light);
+        context.normal_light_in_FRAM_memory = context.normal_light; // Always valid
 
-        context.max_light_changed = false;
+        context.normal_light_changed = false;
         context.light_sensor_diff_state = DIFF_VOID;
         debug_set_val_to (context.print_value_previous,0);
 
@@ -217,24 +217,24 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     //}}}
 
-    //{{{  context.max_light_changed by IOF_BUTTON_RIGHT
+    //{{{  context.normal_light_changed by IOF_BUTTON_RIGHT
 
-    if (context.max_light_changed) {
-        context.max_light_changed = false; // Action will not be seen if these don't trigger:
+    if (context.normal_light_changed) {
+        context.normal_light_changed = false; // Action will not be seen if these don't trigger:
         if (context.num_minutes_left_of_random == 0) {
             if (context.it_is_day_or_night == IT_IS_DAY) {
                 light_composition_t light_composition_now;
                 {light_composition_now} = i_port_heat_light_commands.get_light_composition();
                 // ------------------- CHANGE LIGHT LEVEL TO MAX IF NEEDED (BRIGHTER OR DARKER) -------------------
-                light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.max_light);
-                light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.max_light);
+                light_composition_now = Darker_Light_Composition_Iff   (light_composition_now, context.normal_light);
+                light_composition_now = Brighter_Light_Composition_Iff (light_composition_now, context.normal_light);
                 //
                 debug_set_val_to (print_value,44);
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_VOID, 44);
                 {context.light_stable} = i_port_heat_light_commands.get_light_stable();
             } else {} // Not nice for the fishes to do this at night
         } else {}
-        debug_printf ("max_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
+        debug_printf ("normal_light_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
     } else {}
 
     //}}}
@@ -255,7 +255,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
 
             //{{{  Main state changes done in here
-            if (context.max_light == MAX_LIGHT_IS_FULL) {
+            if (context.normal_light == NORMAL_LIGHT_IS_FULL) {
                 switch (context.iof_day_night_action_list) {
                     case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
                         context.it_is_day_or_night = IT_IS_NIGHT;
@@ -278,7 +278,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                     } break;
                     default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                 }
-            } else { // MAX_LIGHT_IS_TWO_THIRDS
+            } else { // NORMAL_LIGHT_IS_TWO_THIRDS
                 switch (context.iof_day_night_action_list) {
                     case IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE: {
                         context.it_is_day_or_night = IT_IS_NIGHT;
@@ -305,7 +305,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             //}}}
 
             // ------------ CHANGE LIGHT LEVEL / COLOUR QUALITY ------------
-            light_composition_now = Darker_Light_Composition_Iff (light_composition_now, context.max_light);
+            light_composition_now = Darker_Light_Composition_Iff (light_composition_now, context.normal_light);
             //
             debug_set_val_to (print_value,22);
             i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
@@ -329,7 +329,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             if (context.num_minutes_left_of_random == 0) {
                 // ------------------------ CHANGE LIGHT LEVEL BACK TO MAX  ------------------------
                 debug_set_val_to (print_value,104);
-                i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.max_light), LIGHT_CONTROL_IS_DAY, 104);
+                i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_9000_mW_ON, context.normal_light), LIGHT_CONTROL_IS_DAY, 104);
                 {context.light_stable} = i_port_heat_light_commands.get_light_stable();
 
                 if (context.light_sensor_diff_state == DIFF_ACTIVE) {
@@ -370,23 +370,46 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 context.num_random_sequences_left--;
                             } else {
                                 // Random light now almost every hour, both lighter (if possible) and darker allowed.
-                                // But not LIGHT_COMPOSITION_0000_mW_OFF or LIGHT_COMPOSITION_0666_mW_ON, darkest is LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM:
-                                unsigned this_random_number_is_new_light_composition =
-                                        LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM + (random_number % (NUM_LIGHT_COMPOSITION_LEVELS-LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM)); // 2 + [0..10] = [2..12]
+                                // However, with AQU=022 we change mostly around max level and very seldom on the darkest
+                                unsigned random_number_0_39 = random_number % NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET;
+                                light_composition_t new_light_composition;
+                                if (random_number_0_39 > 29) {
+                                    if (context.normal_light == NORMAL_LIGHT_IS_FULL) { //        DOWN:           // 10/39:
+                                        new_light_composition = LIGHT_COMPOSITION_6000_mW_ON;                     //        LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON All two thirds
+                                    } else { // NORMAL_LIGHT_IS_TWO_THIRDS -                      UP:
+                                        new_light_composition = LIGHT_COMPOSITION_9000_mW_ON;                     //        LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+                                    }
+                                } else if (random_number_0_39 > 20) { //                          UP or DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_8333_mW_ON;                         //  9/39: LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+                                } else if (random_number_0_39 > 15) { //                          DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_5666_mW_ON;                         //  5/39: LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+                                } else if (random_number_0_39 > 10) { //                          DOWN:
+                                    new_light_composition =  LIGHT_COMPOSITION_5000_mW_ON;                        //  5/39: LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+                                } else if (random_number_0_39 > 7) { //                           DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_4000_mW_ON;                         //  3/39: LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                } else if (random_number_0_39 > 4) { //                           DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_3333_mW_ON;                         //  3/39: LIGHT_COMPOSITION_3333_mW_BACK2_CENTER3_ON
+                                } else if (random_number_0_39 > 2) { //                           DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_3000_mW_ON;                         //  1/39: LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                } else if (random_number_0_39 > 1) { //                           DOWN:
+                                    new_light_composition = LIGHT_COMPOSITION_2666_mW_ON;                         //  1/39: LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
+                                } else if (random_number_0_39 > 0) { //                           DOWN:
+                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_WHITE;                 //  1/39: LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                } else { // == 0                                                  DOWN:
+                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM;  //  1/39: LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
+                                                                                                                  // ------
+                                }                                                                                 // 39/39: is NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET
+                                                                                                                  // ======
+                                // LIGHT_COMPOSITION_0666_mW_ON not used
+                                // LIGHT_COMPOSITION_0000_mW_OFF not used
 
-                                light_composition_t light_composition_now;
-                                {light_composition_now} = i_port_heat_light_commands.get_light_composition();
-                                if (light_composition_now != this_random_number_is_new_light_composition) { // Light must change so that SKY makes a meaning
-                                    // Change, down (more SKY) or even up now allowed (less SKY)! Irregardless of MAX_LIGHT_IS_FULL or MAX_LIGHT_IS_TWO_THIRDS
-                                    i_port_heat_light_commands.set_light_composition (this_random_number_is_new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
-                                    context.num_minutes_left_of_random =
-                                            NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
-                                            (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
-                                    context.num_random_sequences_left--;
-                                    debug_set_val_to (print_value,102);
-                                } else { // No action
-                                    debug_set_val_to (print_value,103); // This time (every 12th time, no action)
-                                }
+                                // Change, down (more SKY) or even up now allowed (less SKY)!
+                                i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
+                                context.num_minutes_left_of_random =
+                                        NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
+                                        (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
+                                context.num_random_sequences_left--;
+                                debug_set_val_to (print_value,102);
                             }
                         } else {debug_set_val_to (print_value,2);} // Done enough today
                     } else {debug_set_val_to (print_value,3);}     // Already doing a random light-down

@@ -15,6 +15,7 @@ typedef enum iof_LED_strip_t {
 
 #define NUM_LIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
 #define NUM_LIGHT_COMPOSITION_LEVELS 13
+#define NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUM_LIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022
 
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme

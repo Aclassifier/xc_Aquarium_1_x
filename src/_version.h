@@ -13,7 +13,9 @@
 #define XTIMECOMPOSER_VERSION_STR "14.2.4" // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
 // #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.13" // 27Jul2017 Tagged VER_1_0_13_with_fishes
+#define APPLICATION_VERSION_STR "1.0.14" // 29Jul2017
+    //                       AQU=022 Random light now more controlled with less dark scenes. And naming "max light" is now "normal light" (since it may go lighter)
+    // "1.0.13" // 27Jul2017 Tagged VER_1_0_13_with_fishes
     //                       AQU=021 Testing with xTIMEcomposer 14.3.0 with different Button_Task placements in mains.c. Found no way
     //                               14.2.4 with 1.0.13:
     //                               Constraint check for tile[0]:

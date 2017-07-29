@@ -97,7 +97,7 @@ typedef enum display_screen_name_t {
 } display_screen_name_t;
 
 typedef enum fram_byte_array_index_t {
-    FRAM_BYTE_MAX_LIGHT
+    FRAM_BYTE_NORMAL_LIGHT
 } fram_byte_array_index_t ;
 
 typedef enum display_sub_state_t {
@@ -445,7 +445,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     const char stable_str   [] = "=";
                     const char unstable_str [] = CHAR_PLUS_MINUS_STR; // "±"
-                    const bool full_light      = (light_sunrise_sunset_context.max_light == MAX_LIGHT_IS_FULL); // Else MAX_LIGHT_IS_TWO_THIRDS
+                    const bool full_light      = (light_sunrise_sunset_context.normal_light == NORMAL_LIGHT_IS_FULL); // Else NORMAL_LIGHT_IS_TWO_THIRDS
 
                     #define CONTROL_SCREEN_TEXT_LEN  5
                     char light_control_scheme_str [CONTROL_SCREEN_TEXT_LEN]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
@@ -497,7 +497,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      MAKS %s            %s%s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      NORM %s            %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                            // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                 // "5"
                           WATTOF_LED_STRIP_CENTER,                                                                                // "2"
@@ -515,7 +515,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:2W B:2W
                     //                                                   1/3  2/3  3/3.
-                    //                                            ±      MAKS 3/3
+                    //                                            ±      NORM 3/3
                     //                                                   INIT ± 10 M:12
                     //                                                    DAG ± 10 M:12
                     //                                                   NATT = 0 T≡8
@@ -545,12 +545,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
                     // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                     // called at least once per minute, in practice once per second
-                    light_sunrise_sunset_context.max_light_changed = (light_sunrise_sunset_context.max_light != light_sunrise_sunset_context.max_light_next);
-                    light_sunrise_sunset_context.max_light         =  light_sunrise_sunset_context.max_light_next;
+                    light_sunrise_sunset_context.normal_light_changed = (light_sunrise_sunset_context.normal_light != light_sunrise_sunset_context.normal_light_next);
+                    light_sunrise_sunset_context.normal_light         =  light_sunrise_sunset_context.normal_light_next;
 
-                    if (light_sunrise_sunset_context.max_light_changed) {
+                    if (light_sunrise_sunset_context.normal_light_changed) {
                         light_sunrise_sunset_context.do_FRAM_write = true;
-                        light_sunrise_sunset_context.max_light_in_FRAM_memory = light_sunrise_sunset_context.max_light;
+                        light_sunrise_sunset_context.normal_light_in_FRAM_memory = light_sunrise_sunset_context.normal_light;
                     } else {}
 
                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
@@ -563,13 +563,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_01: {  // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
                     context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_3_LYSGULERING: SUB_STATE_01 SUB_STATE_02
                     if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_01) {
-                        light_sunrise_sunset_context.max_light_next = light_sunrise_sunset_context.max_light; // Copy in
+                        light_sunrise_sunset_context.normal_light_next = light_sunrise_sunset_context.normal_light; // Copy in
                         // Awaiting IOF_BUTTON_CENTER. Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
                     } else if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_02) {
-                        if (light_sunrise_sunset_context.max_light_next == MAX_LIGHT_IS_FULL) {
-                          light_sunrise_sunset_context.max_light_next = MAX_LIGHT_IS_TWO_THIRDS;
-                        } else { // MAX_LIGHT_IS_TWO_THIRDS
-                          light_sunrise_sunset_context.max_light_next = MAX_LIGHT_IS_FULL;
+                        if (light_sunrise_sunset_context.normal_light_next == NORMAL_LIGHT_IS_FULL) {
+                          light_sunrise_sunset_context.normal_light_next = NORMAL_LIGHT_IS_TWO_THIRDS;
+                        } else { // NORMAL_LIGHT_IS_TWO_THIRDS
+                          light_sunrise_sunset_context.normal_light_next = NORMAL_LIGHT_IS_FULL;
                         }
                     } else {}
 
@@ -582,10 +582,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     setTextSize(2);
                     setCursor(0,14);
 
-                    display_print ("MAKS ", 5);
-                    if (light_sunrise_sunset_context.max_light_next == MAX_LIGHT_IS_FULL) {
+                    display_print ("NORM ", 5);
+                    if (light_sunrise_sunset_context.normal_light_next == NORMAL_LIGHT_IS_FULL) {
                         display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
-                    } else { // MAX_LIGHT_IS_TWO_THIRDS
+                    } else { // NORMAL_LIGHT_IS_TWO_THIRDS
                         display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
                     }
                     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -1494,11 +1494,11 @@ void System_Task_Data_Handler (
         // Update FRAM if needed
         if (light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
-            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.max_light_in_FRAM_memory;
+            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.normal_light_in_FRAM_memory;
 
             light_sunrise_sunset_context.do_FRAM_write = false;
-            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT, write_fram_data);
-            debug_printf ("FRAM max_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, write_fram_data);
+            debug_printf ("FRAM normal_light_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
         } else {}
 
         // Now, how did it go, how is light controlled right now?
@@ -1687,15 +1687,15 @@ void System_Task (
         bool read_ok;
         uint8_t read_fram_data;
 
-        {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_MAX_LIGHT);
+        {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT);
 
         if (not read_ok) {
-            light_sunrise_sunset_context.max_light_in_FRAM_memory = MAX_LIGHT_IS_VOID;
+            light_sunrise_sunset_context.normal_light_in_FRAM_memory = NORMAL_LIGHT_IS_VOID;
         } else {
-            light_sunrise_sunset_context.max_light_in_FRAM_memory = (max_light_t) read_fram_data;
+            light_sunrise_sunset_context.normal_light_in_FRAM_memory = (normal_light_t) read_fram_data;
         }
 
-        debug_printf ("FRAM max_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.max_light_in_FRAM_memory);
+        debug_printf ("FRAM normal_light_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.normal_light_in_FRAM_memory);
     }
     //}}}  
 

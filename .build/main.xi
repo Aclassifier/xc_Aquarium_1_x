@@ -1649,8 +1649,9 @@ typedef enum iof_LED_strip_t {
 
 
 
+
 typedef enum light_composition_t {
-# 31 "../src/port_heat_light_task.h"
+# 32 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
     LIGHT_COMPOSITION_0666_mW_ON = 1 ,
     LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM = 2,
@@ -1692,7 +1693,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 81 "../src/port_heat_light_task.h"
+# 82 "../src/port_heat_light_task.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
