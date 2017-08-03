@@ -35,21 +35,14 @@ typedef struct light_sunrise_sunset_context_t {
     bool                      datetime_previous_not_initialised;
     bool                      light_change_window_open;
     unsigned                  iof_day_night_action_list;
+    unsigned                  num_minutes_left_of_day_night_action; // AQU=024
     random_generator_t        random_number;
-
-    unsigned                  num_minutes_left_of_random; // AQU=023:
-                              // Observe that since light_stable was introduced then time is frozen until light has gone to the correct level, like after 6.75 seconds.
-                              // When that time has passed then num_minutes_left_of_random will be counted down. This means that the first minute lasts only about 7 seconds!
-                              // Also, num_minutes_left_of_random is indeed 1 the last 60 seconds, as is expected. This is shown in the display
-
+    unsigned                  num_minutes_left_of_random; // AQU=023
+    unsigned                  minutes_into_day_of_next_action_random_off; // AQU=023 new
     unsigned                  num_random_sequences_left;
-    unsigned                  num_minutes_left_of_day_night_action; // AQU=024:
-                              // For the same reason as with AQU=023 (since light_stable was introduced) we cannot just decrement this any more (it showed 0 for the two last minutes!)
-                              // We now calculate anew every time
-
-    normal_light_t               normal_light;
-    normal_light_t               normal_light_in_FRAM_memory; // From Fujitsu MB85RC256V
-    normal_light_t               normal_light_next;
+    normal_light_t            normal_light;
+    normal_light_t            normal_light_in_FRAM_memory; // From Fujitsu MB85RC256V
+    normal_light_t            normal_light_next;
     bool                      normal_light_changed;
     light_sensor_range_t      light_sensor_intensity;
     light_sensor_range_t      light_sensor_intensity_previous;

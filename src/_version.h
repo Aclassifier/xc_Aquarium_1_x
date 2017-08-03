@@ -13,7 +13,9 @@
 #define XTIMECOMPOSER_VERSION_STR "14.2.4" // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
 // #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes
+#define APPLICATION_VERSION_STR "1.0.16" // 03Aug2017 Tagged VER_1_0_16_with_fishes
+    //                       AQU=023 (again) Now coded so that it's not decremented (was one decr too quick when light_stable again), but calculated as minutes_into_day_of_next_action_random_off
+    // "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes
     //                       AQU=025 ERROR_BIT_WATER_COLD is new and ERROR_BIT_HEATER_CABLE_UNPLUGGED never signalled (given up at this time) (Tested ok)
     //                       AQU=024 All counting down of minutes shall display 1 minute the last 60 seconds. For into night and into day sequences (Tested ok)
     //                       AQU=023 All counting down of minutes shall display 1 minute the last 60 seconds. RANDOM and SKY (Tested as ok what we had)

@@ -142,14 +142,14 @@ Handle_Light_Sunrise_Sunset_Etc (
     unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
-        const unsigned minutes_into_day = ((context.datetime.hour * 60) + context.datetime.minute) +
+        const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute) +
             NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(20,52); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
     #else
-        const unsigned minutes_into_day = ((context.datetime.hour * 60) + context.datetime.minute);
+        const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
     #endif
 
-    context.light_change_window_open = ((minutes_into_day >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                        (minutes_into_day <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
+    context.light_change_window_open = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                        (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
     // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
@@ -158,7 +158,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     if (context.do_init) {
         light_composition_t light_composition_now;
-        const unsigned minutes_into_day = (context.datetime.hour * 60) + context.datetime.minute;
+        const unsigned minutes_into_day_now = (context.datetime.hour * 60) + context.datetime.minute;
 
         context.do_init = false;
         context.num_minutes_left_of_random = 0;
@@ -190,15 +190,15 @@ Handle_Light_Sunrise_Sunset_Etc (
             debug_set_val_to (print_value,33);
             i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33);
         #else // NORMAL
-            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
+            if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
                 context.it_is_day_or_night = IT_IS_DAY;
             } else {
                 context.it_is_day_or_night = IT_IS_NIGHT;
             }
 
-            if ((minutes_into_day < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-                (minutes_into_day > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
+            if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
+                (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
                 context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
                 light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
                 // --------------------- SET FIRST LIGHT LEVEL ---------------------
@@ -241,13 +241,13 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  trigger_minute_changed
 
     if (trigger_minute_changed and context.light_stable) {
-        unsigned minutes_into_day_of_next_action =
+        unsigned minutes_into_day_of_next_action_listed_darker_or_lighter =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
-        context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action - minutes_into_day; // AQU=024 was just a decrement here
+        context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now; // AQU=024 was just a decrement here
 
-        if (minutes_into_day == minutes_into_day_of_next_action) {
+        if (minutes_into_day_now == minutes_into_day_of_next_action_listed_darker_or_lighter) {
 
             light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
             light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
@@ -314,17 +314,14 @@ Handle_Light_Sunrise_Sunset_Etc (
             context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
 
             // Update for num_minutes_left_of_day_night_action since iof_day_night_action_list has changed
-            minutes_into_day_of_next_action =
+            minutes_into_day_of_next_action_listed_darker_or_lighter =
                     (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                      hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
-            context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action - minutes_into_day; // AQU=024 was -1 here
+            context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now; // AQU=024
 
         } else if (context.num_minutes_left_of_random > 0) {
 
-            context.num_minutes_left_of_random--;
-
-            // Before AQU=023: Will show 1 the full last minute when LYKT and DIFF_ENOUGH
-            // Before AQU=023: Will show 0 the full last minute when
+            context.num_minutes_left_of_random = context.minutes_into_day_of_next_action_random_off - minutes_into_day_now; // AQU=023
 
             debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
             if (context.num_minutes_left_of_random == 0) {
@@ -340,7 +337,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             } else {}
 
         } else {
-            debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action - minutes_into_day);
+            debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now);
         }
     } else {} // Action only at minute change
 
@@ -365,8 +362,11 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 context.light_sensor_diff_state = DIFF_ACTIVE;
                                 debug_set_val_to (print_value,101);
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+
                                 context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
                                                                                                           // with the random triggering on the hours and minute in this case
+                                context.minutes_into_day_of_next_action_random_off = minutes_into_day_now + context.num_minutes_left_of_random;
+
                                 return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
                                 context.num_random_sequences_left--;
                             } else {
@@ -413,6 +413,8 @@ Handle_Light_Sunrise_Sunset_Etc (
                                             NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
                                             (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
                                 #endif
+
+                                context.minutes_into_day_of_next_action_random_off = minutes_into_day_now + context.num_minutes_left_of_random;
 
                                 context.num_random_sequences_left--;
                                 debug_set_val_to (print_value,102);
