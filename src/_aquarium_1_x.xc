@@ -158,7 +158,8 @@ typedef enum error_bits_t {   // 0xHH since binary in display
     ERROR_BIT_I2C_AMBIENT            = 0x00, // BLACK_BOARD SETS IT
     ERROR_BIT_I2C_WATER              = 0x01,
     ERROR_BIT_I2C_HEATER             = 0x02,
-    ERROR_BIT_HEATER_CABLE_UNPLUGGED = 0x03, // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
+    ERROR_BIT_HEATER_CABLE_UNPLUGGED = 0x03, // AQU=025 never signalled (so this bit is now VACANT)
+                                             // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
                                              // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) after the point when the lowest temperature
                                              // has been passed. That's when assumed heat without temperature rise indicates an unplugged cable.
                                              // Is automatically reset when "?" HEAT_CABLE_ERROR is not shown in SCREEN_2_VANNTEMP_REG;
@@ -172,7 +173,7 @@ typedef enum error_bits_t {   // 0xHH since binary in display
     ERROR_BIT_HIGH_24V_HEAT          = 0x07, // INNER_RR_24V_MAX_VOLTS_DP1
     //
     ERROR_BIT_BOX_OVERHEAT           = 0x08, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
-    // VACANT                          0x09
+    ERROR_BIT_WATER_COLD             = 0x09, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
     // VACANT                          0x0A
     // VACANT                          0x0B
     //
@@ -484,9 +485,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //
                     if ((context.light_control_scheme == LIGHT_CONTROL_IS_DAY_TO_NIGHT) or  // " NED"
                         (context.light_control_scheme == LIGHT_CONTROL_IS_NIGHT_TO_DAY)) {  // " OPP"
-                        sprintf (left_of_minutes_or_count_str, "M:%u",  light_sunrise_sunset_context.num_minutes_left_of_day_night_action); // Will show 0 the full last minute
+                        sprintf (left_of_minutes_or_count_str, "M:%u",  light_sunrise_sunset_context.num_minutes_left_of_day_night_action); // AQU=024: is 1 the last 60 seconds
                     } else if (light_sunrise_sunset_context.num_minutes_left_of_random > 0) {
-                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // Will show 0 the full last minute
+                        sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // AQU=023: is 1 the last 60 seconds
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
                                 (light_sunrise_sunset_context.light_change_window_open) ? ":" : char_triple_bar,
@@ -1339,6 +1340,8 @@ void System_Task_Data_Handler (
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) {
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message. Unfiltered, single measurement!
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
@@ -1347,7 +1350,7 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
-    if (not context.heater_on_ok) {
+    if (not context.heater_on_ok) { // AQU=025 now never signalled as false, so never any error message here:
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 

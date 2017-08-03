@@ -29,7 +29,7 @@
 
 //}}}  
 
-#define DEBUG_PRINT_HEATER_CONTROLLER 1 // Cost 1K
+#define DEBUG_PRINT_HEATER_CONTROLLER 0 // Cost 1K
 //{{{  debug_printf
 
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER) printf(fmt, __VA_ARGS__); } while (0)
@@ -48,6 +48,7 @@ typedef enum is_doing_t {
     IS_CONTROLLING
 } is_doing_t;
 
+// AQU=025 this algorithm was dropped. I get the odd error message from it (also seen on v1.0.13)
 //Êcable_heater_mon_state_t
 // Monitors the enclosed space below the aquarium where the heating element tray has been pushed in place and closed.
 // This mechanism does not side effect into any other state. It is simply reported back to a client.
@@ -558,10 +559,10 @@ void Temperature_Heater_Task (
 
                 if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR) {
                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED;
-                    return_on_ok = false;
+                    return_on_ok = true; // AQU=025 was false
                     debug_printf("%s", "Heater error reported\n");
                 } else if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED) {
-                    return_on_ok = false;
+                    return_on_ok = true; // AQU=025 was false
                 } else {
                     return_on_ok = true;
                 }

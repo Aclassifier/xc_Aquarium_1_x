@@ -171,7 +171,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             context.normal_light = NORMAL_LIGHT_IS_FULL;                                // As said
         } else if (context.normal_light_in_FRAM_memory == NORMAL_LIGHT_IS_TWO_THIRDS) { // A valid value
             context.normal_light = NORMAL_LIGHT_IS_TWO_THIRDS;                          // Modified
-        } else {                                                                  // Not valid value
+        } else {                                                                        // Not valid value
             context.normal_light = NORMAL_LIGHT_IS_FULL;                                // Default
         }
 
@@ -245,9 +245,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
-        if (context.num_minutes_left_of_day_night_action > 0) {
-            context.num_minutes_left_of_day_night_action--; // Will show 0 the full last minute
-        } else {}
+        context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action - minutes_into_day; // AQU=024 was just a decrement here
 
         if (minutes_into_day == minutes_into_day_of_next_action) {
 
@@ -319,11 +317,14 @@ Handle_Light_Sunrise_Sunset_Etc (
             minutes_into_day_of_next_action =
                     (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                      hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
-            context.num_minutes_left_of_day_night_action = (minutes_into_day_of_next_action - minutes_into_day) - 1; // So that 0 the full last minute
+            context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action - minutes_into_day; // AQU=024 was -1 here
 
         } else if (context.num_minutes_left_of_random > 0) {
 
-            context.num_minutes_left_of_random--; // Will show 0 the full last minute
+            context.num_minutes_left_of_random--;
+
+            // Before AQU=023: Will show 1 the full last minute when LYKT and DIFF_ENOUGH
+            // Before AQU=023: Will show 0 the full last minute when
 
             debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
             if (context.num_minutes_left_of_random == 0) {
@@ -374,29 +375,29 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 unsigned random_number_0_39 = random_number % NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET;
                                 light_composition_t new_light_composition;
                                 if (random_number_0_39 > 29) {
-                                    if (context.normal_light == NORMAL_LIGHT_IS_FULL) { //        DOWN:           // 10/39:
-                                        new_light_composition = LIGHT_COMPOSITION_6000_mW_ON;                     //        LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON All two thirds
+                                    if (context.normal_light == NORMAL_LIGHT_IS_FULL) { //        DOWN:           //      10/39:
+                                        new_light_composition = LIGHT_COMPOSITION_6000_mW_ON;                     //   [9]       LIGHT_COMPOSITION_6000_mW_BACK2_CENTER2_FRONT2_ON All two thirds
                                     } else { // NORMAL_LIGHT_IS_TWO_THIRDS -                      UP:
-                                        new_light_composition = LIGHT_COMPOSITION_9000_mW_ON;                     //        LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
+                                        new_light_composition = LIGHT_COMPOSITION_9000_mW_ON;                     //   [8]       LIGHT_COMPOSITION_9000_mW_ALL_ALWAYS_ON
                                     }
                                 } else if (random_number_0_39 > 20) { //                          UP or DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_8333_mW_ON;                         //  9/39: LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
+                                    new_light_composition = LIGHT_COMPOSITION_8333_mW_ON;                         //   [7] 9/39: LIGHT_COMPOSITION_8333_mW_BACK3_CENTER3_FRONT2_ON
                                 } else if (random_number_0_39 > 15) { //                          DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_5666_mW_ON;                         //  5/39: LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
+                                    new_light_composition = LIGHT_COMPOSITION_5666_mW_ON;                         //   [6] 5/39: LIGHT_COMPOSITION_5666_mW_BACK3_CENTER3_FRONT1_ON
                                 } else if (random_number_0_39 > 10) { //                          DOWN:
-                                    new_light_composition =  LIGHT_COMPOSITION_5000_mW_ON;                        //  5/39: LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+                                    new_light_composition =  LIGHT_COMPOSITION_5000_mW_ON;                        //  [12] 5/39: LIGHT_COMPOSITION_5000_mW_FRONT3_ON
                                 } else if (random_number_0_39 > 7) { //                           DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_4000_mW_ON;                         //  3/39: LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
+                                    new_light_composition = LIGHT_COMPOSITION_4000_mW_ON;                         //   [5] 3/39: LIGHT_COMPOSITION_4000_mW_BACK3_CENTER3_ON
                                 } else if (random_number_0_39 > 4) { //                           DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_3333_mW_ON;                         //  3/39: LIGHT_COMPOSITION_3333_mW_BACK2_CENTER3_ON
+                                    new_light_composition = LIGHT_COMPOSITION_3333_mW_ON;                         //   [4] 3/39: LIGHT_COMPOSITION_3333_mW_BACK2_CENTER3_ON
                                 } else if (random_number_0_39 > 2) { //                           DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_3000_mW_ON;                         //  1/39: LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
+                                    new_light_composition = LIGHT_COMPOSITION_3000_mW_ON;                         //  [10] 1/39: LIGHT_COMPOSITION_3000_mW_BACK1_CENTER1_FRONT1_ON
                                 } else if (random_number_0_39 > 1) { //                           DOWN:
-                                    new_light_composition = LIGHT_COMPOSITION_2666_mW_ON;                         //  1/39: LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
+                                    new_light_composition = LIGHT_COMPOSITION_2666_mW_ON;                         //   [3] 1/39: LIGHT_COMPOSITION_2666_mW_BACK1_CENTER3_ON
                                 } else if (random_number_0_39 > 0) { //                           DOWN:
-                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_WHITE;                 //  1/39: LIGHT_COMPOSITION_2000_mW_CENTER3_ON
+                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_WHITE;                 //  [11] 1/39: LIGHT_COMPOSITION_2000_mW_CENTER3_ON
                                 } else { // == 0                                                  DOWN:
-                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM;  //  1/39: LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
+                                      new_light_composition = LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM;  //   [2] 1/39: LIGHT_COMPOSITION_2000_mW_BACK1_CENTER2_ON
                                                                                                                   // ------
                                 }                                                                                 // 39/39: is NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET
                                                                                                                   // ======
@@ -405,9 +406,14 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                                 // Change, down (more SKY) or even up now allowed (less SKY)!
                                 i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
-                                context.num_minutes_left_of_random =
-                                        NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
-                                        (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
+                                #ifdef FLASH_BLACK_BOARD
+                                    context.num_minutes_left_of_random = 3; // To test AQU=023
+                                #else
+                                    context.num_minutes_left_of_random =
+                                            NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +
+                                            (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // 10-29
+                                #endif
+
                                 context.num_random_sequences_left--;
                                 debug_set_val_to (print_value,102);
                             }

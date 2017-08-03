@@ -36,9 +36,17 @@ typedef struct light_sunrise_sunset_context_t {
     bool                      light_change_window_open;
     unsigned                  iof_day_night_action_list;
     random_generator_t        random_number;
-    unsigned                  num_minutes_left_of_random;
+
+    unsigned                  num_minutes_left_of_random; // AQU=023:
+                              // Observe that since light_stable was introduced then time is frozen until light has gone to the correct level, like after 6.75 seconds.
+                              // When that time has passed then num_minutes_left_of_random will be counted down. This means that the first minute lasts only about 7 seconds!
+                              // Also, num_minutes_left_of_random is indeed 1 the last 60 seconds, as is expected. This is shown in the display
+
     unsigned                  num_random_sequences_left;
-    unsigned                  num_minutes_left_of_day_night_action;
+    unsigned                  num_minutes_left_of_day_night_action; // AQU=024:
+                              // For the same reason as with AQU=023 (since light_stable was introduced) we cannot just decrement this any more (it showed 0 for the two last minutes!)
+                              // We now calculate anew every time
+
     normal_light_t               normal_light;
     normal_light_t               normal_light_in_FRAM_memory; // From Fujitsu MB85RC256V
     normal_light_t               normal_light_next;
@@ -157,9 +165,10 @@ typedef struct light_sunrise_sunset_context_t {
 #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST   ((HH_RANDOM_LATEST   * 60) + MM_RANDOM_LATEST)
 #define NUM_RANDOM_SEQUENCES_MAX                      10  // With all hitting 1+(20-10)=11 times would have beeen max
 
-#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST       10
-#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      30 // P1 means plus 1, so LATEST is 29 = [10..29]
-#define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF_TRIGGERED  2
+                                                         // AQU=023 for all three of the below
+#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST       10 // ..|..
+#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      30 // ..|.. P1 means plus 1, so LATEST is 29 = [10..29]
+#define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF_TRIGGERED  2 // ..|..
 
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const normal_light_t normal_light);

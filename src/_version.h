@@ -13,7 +13,11 @@
 #define XTIMECOMPOSER_VERSION_STR "14.2.4" // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
 // #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.14" // 29Jul2017
+#define APPLICATION_VERSION_STR "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes
+    //                       AQU=025 ERROR_BIT_WATER_COLD is new and ERROR_BIT_HEATER_CABLE_UNPLUGGED never signalled (given up at this time) (Tested ok)
+    //                       AQU=024 All counting down of minutes shall display 1 minute the last 60 seconds. For into night and into day sequences (Tested ok)
+    //                       AQU=023 All counting down of minutes shall display 1 minute the last 60 seconds. RANDOM and SKY (Tested as ok what we had)
+    // "1.0.14" // 29Jul2017 Tagged VER_1_0_14_with_fishes
     //                       AQU=022 Random light now more controlled with less dark scenes. And naming "max light" is now "normal light" (since it may go lighter)
     // "1.0.13" // 27Jul2017 Tagged VER_1_0_13_with_fishes
     //                       AQU=021 Testing with xTIMEcomposer 14.3.0 with different Button_Task placements in mains.c. Found no way
