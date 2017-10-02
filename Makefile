@@ -33,7 +33,9 @@ VERBOSE = 0
 XMOS_MAKE_PATH ?= ../..
 -include $(XMOS_MAKE_PATH)/xcommon/module_xcommon/build/Makefile.common
 
-# =0 adviced by Larry Snizek (XMOS) on issue #8810 30Mar2016 (=0). Still needed for 14.2.1, 14.2.3
+# =0 adviced by Larry Snizek (XMOS) on issue #8810 30Mar2016 (=0). Still needed for 14.2.1, 14.2.3, 14.3.0
+# Larry 28Sept2017: The original "unrecoverable error" has been fixed in 14.3.0.
+# The "internal compiler error" you are seeing now might be a different issue
 ENABLE_STAGED_BUILD=0
 
 PRINT_LIB_STARTKIT_SUPPORT_ADC = 1

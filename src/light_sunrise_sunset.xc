@@ -200,7 +200,13 @@ Handle_Light_Sunrise_Sunset_Etc (
             if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
                 (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
                 context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
-                light_composition_now = LIGHT_COMPOSITION_9000_mW_ON;
+
+                if (context.normal_light == NORMAL_LIGHT_IS_FULL) {
+                    light_composition_now = LIGHT_COMPOSITION_9000_mW_ON; // AQU=024 this was the only option
+                } else { // NORMAL_LIGHT_IS_TWO_THIRDS
+                    light_composition_now = LIGHT_COMPOSITION_6000_mW_ON; // AQU=024 fix is to also have this
+                }
+
                 // --------------------- SET FIRST LIGHT LEVEL ---------------------
                 debug_set_val_to (print_value,34);
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 34);

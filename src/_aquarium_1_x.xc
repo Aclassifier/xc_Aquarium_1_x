@@ -493,7 +493,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                 (light_sunrise_sunset_context.light_change_window_open) ? ":" : char_triple_bar,
                                  light_sunrise_sunset_context.num_random_sequences_left);
                     } else {
-                        sprintf (left_of_minutes_or_count_str, "...");
+                        sprintf (left_of_minutes_or_count_str, "..."); // In effect, all random sequences used today
                     }
 
                     // FILLS 77 chars plus \0
