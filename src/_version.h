@@ -10,11 +10,19 @@
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR "14.2.4" // Tried 14.3.0 27Jul2017 and found no way in mains.c
+#define XTIMECOMPOSER_VERSION_STR "14.3.1" // Works! Previous that worked was 14.2.4
+                                           // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
 // #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.17"
-    //          // 02Oct2017 AQU=024 When the controller was powered down with max light 2/3 it came up again with max light 2/3 ok but the light values were 3/3 on all three LED strips
+#define APPLICATION_VERSION_STR "1.0.18"
+    //             06Oct2017 AQU=025 Compiled with 14.3.1. Works!
+    //                               Constraint check for tile[0]:
+    //                                 Cores available:            8,   used:          7 .  OKAY
+    //                                 Timers available:          10,   used:          8 .  OKAY
+    //                                 Chanends available:        32,   used:         27 .  OKAY
+    //                                 Memory available:       65536,   used:      52544 .  OKAY (Same code 14.2.4 was 2200 bytes more)
+    //                                   (Stack: 5532, Code: 40970, Data: 6042).
+    // "1.0.17" // 02Oct2017 AQU=024 When the controller was powered down with max light 2/3 it came up again with max light 2/3 ok but the light values were 3/3 on all three LED strips
     // "1.0.16" // 03Aug2017 Tagged VER_1_0_16_with_fishes
     //                       AQU=023 (again) Now coded so that it's not decremented (was one decr too quick when light_stable again), but calculated as minutes_into_day_of_next_action_random_off
     // "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes

@@ -18,7 +18,7 @@
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Task.select.0.enable.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Task.select.0.enable
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable, Port_Pins_Heat_Light_Task.select.0.enable
 	.weak _i.temperature_heater_commands_if._client_call_y.maxchanends.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.maxchanends.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.maxchanends + __interface_client_call_y_extra.maxchanends), Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.weak _i.temperature_heater_commands_if._client_call_y.maxcores.group
@@ -30,7 +30,7 @@
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (Port_Pins_Heat_Light_Task.select.0.enable.cases.nstackwords + __interface_client_call_y_extra.nstackwords), Port_Pins_Heat_Light_Task.select.0.enable.cases
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable.cases
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, Port_Pins_Heat_Light_Task.select.0.enable.cases, Port_Pins_Heat_Light_Task.select.0.enable.cases
 	.set __main__main_tile_0.savedstate,105
 	.globl __main__main_tile_0.savedstate
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
@@ -47,7 +47,7 @@
 	.weak _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.globl _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, _i.i2c_external_commands_if._chan.read_temperature_ok.nstackwords, _i.i2c_external_commands_if._chan.read_temperature_ok
-	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.fns.group, _i.i2c_external_commands_if._chan.read_temperature_ok
+	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.fns.group, _i.i2c_external_commands_if._chan.read_temperature_ok, _i.i2c_external_commands_if._chan.read_temperature_ok
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords, _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.fns, _i.i2c_external_commands_if.read_temperature_ok.fns.group, 0
 	.weak _i.i2c_external_commands_if.trigger.maxchanends.group
@@ -64,7 +64,7 @@
 	.weak _i.i2c_external_commands_if.trigger.fns.group
 	.globl _i.i2c_external_commands_if.trigger.fns.group
 	.add_to_set _i.i2c_external_commands_if.trigger.nstackwords.group, _i.i2c_external_commands_if._chan.trigger.nstackwords, _i.i2c_external_commands_if._chan.trigger
-	.add_to_set _i.i2c_external_commands_if.trigger.fns.group, _i.i2c_external_commands_if._chan.trigger
+	.add_to_set _i.i2c_external_commands_if.trigger.fns.group, _i.i2c_external_commands_if._chan.trigger, _i.i2c_external_commands_if._chan.trigger
 	.max_reduce _i.i2c_external_commands_if.trigger.max.nstackwords, _i.i2c_external_commands_if.trigger.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if.trigger.fns, _i.i2c_external_commands_if.trigger.fns.group, 0
 	.weak _i.i2c_external_commands_if.__interface_init.maxchanends.group
@@ -93,7 +93,7 @@
 	.weak _i.i2c_external_commands_if._client_call_y.fns.group
 	.globl _i.i2c_external_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_external_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.i2c_external_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.i2c_external_commands_if._client_call_y.max.nstackwords, _i.i2c_external_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if._client_call_y.fns, _i.i2c_external_commands_if._client_call_y.fns.group, 0
 	.weak _i.i2c_external_commands_if.read_temperature_ok.maxchanends.group
@@ -107,7 +107,7 @@
 	.weak _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.globl _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, _i.i2c_external_commands_if._chan.read_temperature_ok.nstackwords, _i.i2c_external_commands_if._chan.read_temperature_ok
-	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.fns.group, _i.i2c_external_commands_if._chan.read_temperature_ok
+	.add_to_set _i.i2c_external_commands_if.read_temperature_ok.fns.group, _i.i2c_external_commands_if._chan.read_temperature_ok, _i.i2c_external_commands_if._chan.read_temperature_ok
 	.weak _i.i2c_external_commands_if.trigger.maxchanends.group
 	.add_to_set _i.i2c_external_commands_if.trigger.maxchanends.group, _i.i2c_external_commands_if._chan.trigger.maxchanends, _i.i2c_external_commands_if._chan.trigger
 	.weak _i.i2c_external_commands_if.trigger.maxcores.group
@@ -119,7 +119,7 @@
 	.weak _i.i2c_external_commands_if.trigger.fns.group
 	.globl _i.i2c_external_commands_if.trigger.fns.group
 	.add_to_set _i.i2c_external_commands_if.trigger.nstackwords.group, _i.i2c_external_commands_if._chan.trigger.nstackwords, _i.i2c_external_commands_if._chan.trigger
-	.add_to_set _i.i2c_external_commands_if.trigger.fns.group, _i.i2c_external_commands_if._chan.trigger
+	.add_to_set _i.i2c_external_commands_if.trigger.fns.group, _i.i2c_external_commands_if._chan.trigger, _i.i2c_external_commands_if._chan.trigger
 	.weak _i.i2c_external_commands_if.__interface_init.maxchanends.group
 	.weak _i.i2c_external_commands_if.__interface_init.maxcores.group
 	.weak _i.i2c_external_commands_if.__interface_init.maxtimers.group
@@ -141,7 +141,7 @@
 	.weak _i.i2c_internal_commands_if.write_display_ok.fns.group
 	.globl _i.i2c_internal_commands_if.write_display_ok.fns.group
 	.add_to_set _i.i2c_internal_commands_if.write_display_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.write_display_ok.nstackwords, _i.i2c_internal_commands_if._chan.write_display_ok
-	.add_to_set _i.i2c_internal_commands_if.write_display_ok.fns.group, _i.i2c_internal_commands_if._chan.write_display_ok
+	.add_to_set _i.i2c_internal_commands_if.write_display_ok.fns.group, _i.i2c_internal_commands_if._chan.write_display_ok, _i.i2c_internal_commands_if._chan.write_display_ok
 	.max_reduce _i.i2c_internal_commands_if.write_display_ok.max.nstackwords, _i.i2c_internal_commands_if.write_display_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.write_display_ok.fns, _i.i2c_internal_commands_if.write_display_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.read_chronodot_ok.maxchanends.group
@@ -158,7 +158,7 @@
 	.weak _i.i2c_internal_commands_if.read_chronodot_ok.fns.group
 	.globl _i.i2c_internal_commands_if.read_chronodot_ok.fns.group
 	.add_to_set _i.i2c_internal_commands_if.read_chronodot_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.read_chronodot_ok.nstackwords, _i.i2c_internal_commands_if._chan.read_chronodot_ok
-	.add_to_set _i.i2c_internal_commands_if.read_chronodot_ok.fns.group, _i.i2c_internal_commands_if._chan.read_chronodot_ok
+	.add_to_set _i.i2c_internal_commands_if.read_chronodot_ok.fns.group, _i.i2c_internal_commands_if._chan.read_chronodot_ok, _i.i2c_internal_commands_if._chan.read_chronodot_ok
 	.max_reduce _i.i2c_internal_commands_if.read_chronodot_ok.max.nstackwords, _i.i2c_internal_commands_if.read_chronodot_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.read_chronodot_ok.fns, _i.i2c_internal_commands_if.read_chronodot_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.write_chronodot_ok.maxchanends.group
@@ -175,7 +175,7 @@
 	.weak _i.i2c_internal_commands_if.write_chronodot_ok.fns.group
 	.globl _i.i2c_internal_commands_if.write_chronodot_ok.fns.group
 	.add_to_set _i.i2c_internal_commands_if.write_chronodot_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.write_chronodot_ok.nstackwords, _i.i2c_internal_commands_if._chan.write_chronodot_ok
-	.add_to_set _i.i2c_internal_commands_if.write_chronodot_ok.fns.group, _i.i2c_internal_commands_if._chan.write_chronodot_ok
+	.add_to_set _i.i2c_internal_commands_if.write_chronodot_ok.fns.group, _i.i2c_internal_commands_if._chan.write_chronodot_ok, _i.i2c_internal_commands_if._chan.write_chronodot_ok
 	.max_reduce _i.i2c_internal_commands_if.write_chronodot_ok.max.nstackwords, _i.i2c_internal_commands_if.write_chronodot_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.write_chronodot_ok.fns, _i.i2c_internal_commands_if.write_chronodot_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.maxchanends.group
@@ -192,7 +192,7 @@
 	.weak _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
 	.globl _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group
 	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok.nstackwords, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
-	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
+	.add_to_set _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.read_byte_fram_ok, _i.i2c_internal_commands_if._chan.read_byte_fram_ok
 	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.max.nstackwords, _i.i2c_internal_commands_if.read_byte_fram_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.read_byte_fram_ok.fns, _i.i2c_internal_commands_if.read_byte_fram_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.maxchanends.group
@@ -209,7 +209,7 @@
 	.weak _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
 	.globl _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group
 	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok.nstackwords, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
-	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
+	.add_to_set _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, _i.i2c_internal_commands_if._chan.write_byte_fram_ok, _i.i2c_internal_commands_if._chan.write_byte_fram_ok
 	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.max.nstackwords, _i.i2c_internal_commands_if.write_byte_fram_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if.write_byte_fram_ok.fns, _i.i2c_internal_commands_if.write_byte_fram_ok.fns.group, 0
 	.weak _i.i2c_internal_commands_if.__interface_init.maxchanends.group
@@ -238,7 +238,7 @@
 	.weak _i.i2c_internal_commands_if._client_call_y.fns.group
 	.globl _i.i2c_internal_commands_if._client_call_y.fns.group
 	.add_to_set _i.i2c_internal_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.i2c_internal_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.max.nstackwords, _i.i2c_internal_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.i2c_internal_commands_if._client_call_y.fns, _i.i2c_internal_commands_if._client_call_y.fns.group, 0
 	.weak _i.startkit_adc_acquire_if.trigger.maxchanends.group
@@ -255,7 +255,7 @@
 	.weak _i.startkit_adc_acquire_if.trigger.fns.group
 	.globl _i.startkit_adc_acquire_if.trigger.fns.group
 	.add_to_set _i.startkit_adc_acquire_if.trigger.nstackwords.group, _i.startkit_adc_acquire_if._chan.trigger.nstackwords, _i.startkit_adc_acquire_if._chan.trigger
-	.add_to_set _i.startkit_adc_acquire_if.trigger.fns.group, _i.startkit_adc_acquire_if._chan.trigger
+	.add_to_set _i.startkit_adc_acquire_if.trigger.fns.group, _i.startkit_adc_acquire_if._chan.trigger, _i.startkit_adc_acquire_if._chan.trigger
 	.max_reduce _i.startkit_adc_acquire_if.trigger.max.nstackwords, _i.startkit_adc_acquire_if.trigger.nstackwords.group, 0
 	.max_reduce _i.startkit_adc_acquire_if.trigger.fns, _i.startkit_adc_acquire_if.trigger.fns.group, 0
 	.weak _i.startkit_adc_acquire_if.read.maxchanends.group
@@ -272,7 +272,7 @@
 	.weak _i.startkit_adc_acquire_if.read.fns.group
 	.globl _i.startkit_adc_acquire_if.read.fns.group
 	.add_to_set _i.startkit_adc_acquire_if.read.nstackwords.group, _i.startkit_adc_acquire_if._chan.read.nstackwords, _i.startkit_adc_acquire_if._chan.read
-	.add_to_set _i.startkit_adc_acquire_if.read.fns.group, _i.startkit_adc_acquire_if._chan.read
+	.add_to_set _i.startkit_adc_acquire_if.read.fns.group, _i.startkit_adc_acquire_if._chan.read, _i.startkit_adc_acquire_if._chan.read
 	.max_reduce _i.startkit_adc_acquire_if.read.max.nstackwords, _i.startkit_adc_acquire_if.read.nstackwords.group, 0
 	.max_reduce _i.startkit_adc_acquire_if.read.fns, _i.startkit_adc_acquire_if.read.fns.group, 0
 	.weak _i.startkit_adc_acquire_if.__interface_init.maxchanends.group
@@ -301,7 +301,7 @@
 	.weak _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.globl _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.add_to_set _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.max.nstackwords, _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.fns, _i.startkit_adc_acquire_if._client_call_y.fns.group, 0
 	.weak _i.lib_startkit_adc_commands_if.trigger.maxchanends.group
@@ -318,7 +318,7 @@
 	.weak _i.lib_startkit_adc_commands_if.trigger.fns.group
 	.globl _i.lib_startkit_adc_commands_if.trigger.fns.group
 	.add_to_set _i.lib_startkit_adc_commands_if.trigger.nstackwords.group, _i.lib_startkit_adc_commands_if._chan.trigger.nstackwords, _i.lib_startkit_adc_commands_if._chan.trigger
-	.add_to_set _i.lib_startkit_adc_commands_if.trigger.fns.group, _i.lib_startkit_adc_commands_if._chan.trigger
+	.add_to_set _i.lib_startkit_adc_commands_if.trigger.fns.group, _i.lib_startkit_adc_commands_if._chan.trigger, _i.lib_startkit_adc_commands_if._chan.trigger
 	.max_reduce _i.lib_startkit_adc_commands_if.trigger.max.nstackwords, _i.lib_startkit_adc_commands_if.trigger.nstackwords.group, 0
 	.max_reduce _i.lib_startkit_adc_commands_if.trigger.fns, _i.lib_startkit_adc_commands_if.trigger.fns.group, 0
 	.weak _i.lib_startkit_adc_commands_if.read.maxchanends.group
@@ -335,7 +335,7 @@
 	.weak _i.lib_startkit_adc_commands_if.read.fns.group
 	.globl _i.lib_startkit_adc_commands_if.read.fns.group
 	.add_to_set _i.lib_startkit_adc_commands_if.read.nstackwords.group, _i.lib_startkit_adc_commands_if._chan.read.nstackwords, _i.lib_startkit_adc_commands_if._chan.read
-	.add_to_set _i.lib_startkit_adc_commands_if.read.fns.group, _i.lib_startkit_adc_commands_if._chan.read
+	.add_to_set _i.lib_startkit_adc_commands_if.read.fns.group, _i.lib_startkit_adc_commands_if._chan.read, _i.lib_startkit_adc_commands_if._chan.read
 	.max_reduce _i.lib_startkit_adc_commands_if.read.max.nstackwords, _i.lib_startkit_adc_commands_if.read.nstackwords.group, 0
 	.max_reduce _i.lib_startkit_adc_commands_if.read.fns, _i.lib_startkit_adc_commands_if.read.fns.group, 0
 	.weak _i.lib_startkit_adc_commands_if.__interface_init.maxchanends.group
@@ -364,7 +364,7 @@
 	.weak _i.lib_startkit_adc_commands_if._client_call_y.fns.group
 	.globl _i.lib_startkit_adc_commands_if._client_call_y.fns.group
 	.add_to_set _i.lib_startkit_adc_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.lib_startkit_adc_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.lib_startkit_adc_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords, _i.lib_startkit_adc_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.lib_startkit_adc_commands_if._client_call_y.fns, _i.lib_startkit_adc_commands_if._client_call_y.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
@@ -381,7 +381,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition, _i.port_heat_light_commands_if._chan.get_light_composition
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition.fns, _i.port_heat_light_commands_if.get_light_composition.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
@@ -398,7 +398,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc, _i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.fns, _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_stable.maxchanends.group
@@ -415,7 +415,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_stable.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_stable.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_stable.nstackwords, _i.port_heat_light_commands_if._chan.get_light_stable
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable
+	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable, _i.port_heat_light_commands_if._chan.get_light_stable
 	.max_reduce _i.port_heat_light_commands_if.get_light_stable.max.nstackwords, _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.get_light_stable.fns, _i.port_heat_light_commands_if.get_light_stable.fns.group, 0
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
@@ -432,7 +432,7 @@
 	.weak _i.port_heat_light_commands_if.set_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.set_light_composition.fns.group
 	.add_to_set _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.set_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.set_light_composition
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if._chan.set_light_composition, _i.port_heat_light_commands_if._chan.set_light_composition
 	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.nstackwords, _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.set_light_composition.fns, _i.port_heat_light_commands_if.set_light_composition.fns.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group
@@ -449,7 +449,7 @@
 	.weak _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_on_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_on_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_on_command, _i.port_heat_light_commands_if._chan.beeper_on_command
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.beeper_on_command.fns, _i.port_heat_light_commands_if.beeper_on_command.fns.group, 0
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group
@@ -466,7 +466,7 @@
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_blip_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_blip_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_blip_command, _i.port_heat_light_commands_if._chan.beeper_blip_command
 	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.max.nstackwords, _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.beeper_blip_command.fns, _i.port_heat_light_commands_if.beeper_blip_command.fns.group, 0
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group
@@ -483,7 +483,7 @@
 	.weak _i.port_heat_light_commands_if.heat_cables_command.fns.group
 	.globl _i.port_heat_light_commands_if.heat_cables_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group, _i.port_heat_light_commands_if._chan.heat_cables_command.nstackwords, _i.port_heat_light_commands_if._chan.heat_cables_command
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if._chan.heat_cables_command, _i.port_heat_light_commands_if._chan.heat_cables_command
 	.max_reduce _i.port_heat_light_commands_if.heat_cables_command.max.nstackwords, _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.heat_cables_command.fns, _i.port_heat_light_commands_if.heat_cables_command.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.maxchanends.group
@@ -500,7 +500,7 @@
 	.weak _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group
 	.globl _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.nstackwords.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.nstackwords, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
-	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
+	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
 	.max_reduce _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.max.nstackwords, _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns, _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group, 0
 	.weak _i.port_heat_light_commands_if.watchdog_retrigger_with.maxchanends.group
@@ -517,7 +517,7 @@
 	.weak _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group
 	.globl _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group
 	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.nstackwords.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with.nstackwords, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
-	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
+	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
 	.max_reduce _i.port_heat_light_commands_if.watchdog_retrigger_with.max.nstackwords, _i.port_heat_light_commands_if.watchdog_retrigger_with.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.watchdog_retrigger_with.fns, _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group, 0
 	.weak _i.port_heat_light_commands_if.__interface_init.maxchanends.group
@@ -546,7 +546,7 @@
 	.weak _i.port_heat_light_commands_if._client_call_y.fns.group
 	.globl _i.port_heat_light_commands_if._client_call_y.fns.group
 	.add_to_set _i.port_heat_light_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.port_heat_light_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.port_heat_light_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.max.nstackwords, _i.port_heat_light_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if._client_call_y.fns, _i.port_heat_light_commands_if._client_call_y.fns.group, 0
 	.weak _i.port_heat_light_commands_if.get_light_composition.maxchanends.group
@@ -560,7 +560,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition, _i.port_heat_light_commands_if._chan.get_light_composition
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group
@@ -572,7 +572,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc, _i.port_heat_light_commands_if._chan.get_light_composition_etc
 	.weak _i.port_heat_light_commands_if.get_light_stable.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxchanends, _i.port_heat_light_commands_if._chan.get_light_stable
 	.weak _i.port_heat_light_commands_if.get_light_stable.maxcores.group
@@ -584,7 +584,7 @@
 	.weak _i.port_heat_light_commands_if.get_light_stable.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_stable.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_stable.nstackwords, _i.port_heat_light_commands_if._chan.get_light_stable
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable
+	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable, _i.port_heat_light_commands_if._chan.get_light_stable
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxchanends, _i.port_heat_light_commands_if._chan.set_light_composition
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
@@ -596,7 +596,7 @@
 	.weak _i.port_heat_light_commands_if.set_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.set_light_composition.fns.group
 	.add_to_set _i.port_heat_light_commands_if.set_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.set_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.set_light_composition
-	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if._chan.set_light_composition
+	.add_to_set _i.port_heat_light_commands_if.set_light_composition.fns.group, _i.port_heat_light_commands_if._chan.set_light_composition, _i.port_heat_light_commands_if._chan.set_light_composition
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.maxchanends.group, _i.port_heat_light_commands_if._chan.beeper_on_command.maxchanends, _i.port_heat_light_commands_if._chan.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_on_command.maxcores.group
@@ -608,7 +608,7 @@
 	.weak _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_on_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_on_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_on_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_on_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_on_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_on_command, _i.port_heat_light_commands_if._chan.beeper_on_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.maxchanends.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.maxchanends, _i.port_heat_light_commands_if._chan.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.maxcores.group
@@ -620,7 +620,7 @@
 	.weak _i.port_heat_light_commands_if.beeper_blip_command.fns.group
 	.globl _i.port_heat_light_commands_if.beeper_blip_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.nstackwords.group, _i.port_heat_light_commands_if._chan.beeper_blip_command.nstackwords, _i.port_heat_light_commands_if._chan.beeper_blip_command
-	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_blip_command
+	.add_to_set _i.port_heat_light_commands_if.beeper_blip_command.fns.group, _i.port_heat_light_commands_if._chan.beeper_blip_command, _i.port_heat_light_commands_if._chan.beeper_blip_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.maxchanends.group, _i.port_heat_light_commands_if._chan.heat_cables_command.maxchanends, _i.port_heat_light_commands_if._chan.heat_cables_command
 	.weak _i.port_heat_light_commands_if.heat_cables_command.maxcores.group
@@ -632,7 +632,7 @@
 	.weak _i.port_heat_light_commands_if.heat_cables_command.fns.group
 	.globl _i.port_heat_light_commands_if.heat_cables_command.fns.group
 	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.nstackwords.group, _i.port_heat_light_commands_if._chan.heat_cables_command.nstackwords, _i.port_heat_light_commands_if._chan.heat_cables_command
-	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if._chan.heat_cables_command
+	.add_to_set _i.port_heat_light_commands_if.heat_cables_command.fns.group, _i.port_heat_light_commands_if._chan.heat_cables_command, _i.port_heat_light_commands_if._chan.heat_cables_command
 	.weak _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.maxchanends.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.maxchanends, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
 	.weak _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.maxcores.group
@@ -644,7 +644,7 @@
 	.weak _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group
 	.globl _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.nstackwords.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog.nstackwords, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
-	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
+	.add_to_set _i.port_heat_light_commands_if.get_heat_cables_forced_off_by_watchdog.fns.group, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog
 	.weak _i.port_heat_light_commands_if.watchdog_retrigger_with.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.maxchanends.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with.maxchanends, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
 	.weak _i.port_heat_light_commands_if.watchdog_retrigger_with.maxcores.group
@@ -656,7 +656,7 @@
 	.weak _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group
 	.globl _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group
 	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.nstackwords.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with.nstackwords, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
-	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
+	.add_to_set _i.port_heat_light_commands_if.watchdog_retrigger_with.fns.group, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with, _i.port_heat_light_commands_if._chan.watchdog_retrigger_with
 	.weak _i.port_heat_light_commands_if.__interface_init.maxchanends.group
 	.weak _i.port_heat_light_commands_if.__interface_init.maxcores.group
 	.weak _i.port_heat_light_commands_if.__interface_init.maxtimers.group
@@ -678,7 +678,7 @@
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_proportional.fns.group
 	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, _i.temperature_heater_commands_if._chan.heater_set_proportional.nstackwords, _i.temperature_heater_commands_if._chan.heater_set_proportional
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if._chan.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if._chan.heater_set_proportional, _i.temperature_heater_commands_if._chan.heater_set_proportional
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.max.nstackwords, _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.heater_set_proportional.fns, _i.temperature_heater_commands_if.heater_set_proportional.fns.group, 0
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group
@@ -695,7 +695,7 @@
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, _i.temperature_heater_commands_if._chan.heater_set_temp_degC.nstackwords, _i.temperature_heater_commands_if._chan.heater_set_temp_degC
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if._chan.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if._chan.heater_set_temp_degC, _i.temperature_heater_commands_if._chan.heater_set_temp_degC
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.max.nstackwords, _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.heater_set_temp_degC.fns, _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group
@@ -712,7 +712,7 @@
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
 	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
 	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, _i.temperature_heater_commands_if._chan.get_mean_i2c_temps.nstackwords, _i.temperature_heater_commands_if._chan.get_mean_i2c_temps
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, _i.temperature_heater_commands_if._chan.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, _i.temperature_heater_commands_if._chan.get_mean_i2c_temps, _i.temperature_heater_commands_if._chan.get_mean_i2c_temps
 	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.max.nstackwords, _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.get_mean_i2c_temps.fns, _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
@@ -729,7 +729,7 @@
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
 	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
 	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan.get_temp_degC_str
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan.get_temp_degC_str, _i.temperature_heater_commands_if._chan.get_temp_degC_str
 	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.get_temp_degC_str.fns, _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
@@ -746,7 +746,7 @@
 	.weak _i.temperature_heater_commands_if.get_regulator_data.fns.group
 	.globl _i.temperature_heater_commands_if.get_regulator_data.fns.group
 	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, _i.temperature_heater_commands_if._chan.get_regulator_data.nstackwords, _i.temperature_heater_commands_if._chan.get_regulator_data
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if._chan.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if._chan.get_regulator_data, _i.temperature_heater_commands_if._chan.get_regulator_data
 	.max_reduce _i.temperature_heater_commands_if.get_regulator_data.max.nstackwords, _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if.get_regulator_data.fns, _i.temperature_heater_commands_if.get_regulator_data.fns.group, 0
 	.weak _i.temperature_heater_commands_if.__interface_init.maxchanends.group
@@ -775,69 +775,69 @@
 	.weak _i.temperature_heater_commands_if._client_call_y.fns.group
 	.globl _i.temperature_heater_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_heater_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.temperature_heater_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.max.nstackwords, _i.temperature_heater_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_heater_commands_if._client_call_y.fns, _i.temperature_heater_commands_if._client_call_y.fns.group, 0
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxchanends.group, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxchanends, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxcores, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxcores.group, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxcores, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxtimers, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.maxtimers.group, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxtimers, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group
 	.globl _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group
 	.weak _i.temperature_heater_commands_if.heater_set_proportional.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_proportional.fns.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional.nstackwords, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
-	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.nstackwords.group, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.nstackwords, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional
+	.add_to_set _i.temperature_heater_commands_if.heater_set_proportional.fns.group, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional, _i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxchanends.group, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxchanends, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxcores, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxcores.group, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxcores, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxtimers, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.maxtimers.group, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxtimers, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group
 	.weak _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
 	.globl _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.nstackwords, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
-	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.nstackwords.group, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.nstackwords, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
+	.add_to_set _i.temperature_heater_commands_if.heater_set_temp_degC.fns.group, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC, _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxchanends.group, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxchanends, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxcores.group, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxcores, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.maxtimers.group, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxtimers, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
 	.globl _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
-	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.nstackwords.group, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.nstackwords, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
+	.add_to_set _i.temperature_heater_commands_if.get_mean_i2c_temps.fns.group, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps, _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxchanends.group, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxchanends, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxcores.group, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxcores, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.maxtimers.group, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxtimers, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
 	.globl _i.temperature_heater_commands_if.get_temp_degC_str.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
-	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.nstackwords, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
+	.add_to_set _i.temperature_heater_commands_if.get_temp_degC_str.fns.group, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str, _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxchanends.group, _i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxchanends, _i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxcores.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxcores.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxcores, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxcores.group, _i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxcores, _i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.maxtimers, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.maxtimers.group, _i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxtimers, _i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.weak _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group
 	.globl _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group
 	.weak _i.temperature_heater_commands_if.get_regulator_data.fns.group
 	.globl _i.temperature_heater_commands_if.get_regulator_data.fns.group
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data.nstackwords, _i.temperature_heater_commands_if._chan_y.get_regulator_data
-	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.nstackwords.group, _i.temperature_heater_commands_if._chan_yield.get_regulator_data.nstackwords, _i.temperature_heater_commands_if._chan_yield.get_regulator_data
+	.add_to_set _i.temperature_heater_commands_if.get_regulator_data.fns.group, _i.temperature_heater_commands_if._chan_yield.get_regulator_data, _i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.weak _i.temperature_heater_commands_if.__interface_init.maxchanends.group
 	.weak _i.temperature_heater_commands_if.__interface_init.maxcores.group
 	.weak _i.temperature_heater_commands_if.__interface_init.maxtimers.group
@@ -859,7 +859,7 @@
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.fns.group
 	.globl _i.temperature_water_commands_if.get_temp_degC_str.fns.group
 	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group, _i.temperature_water_commands_if._chan.get_temp_degC_str.nstackwords, _i.temperature_water_commands_if._chan.get_temp_degC_str
-	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.fns.group, _i.temperature_water_commands_if._chan.get_temp_degC_str
+	.add_to_set _i.temperature_water_commands_if.get_temp_degC_str.fns.group, _i.temperature_water_commands_if._chan.get_temp_degC_str, _i.temperature_water_commands_if._chan.get_temp_degC_str
 	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.max.nstackwords, _i.temperature_water_commands_if.get_temp_degC_str.nstackwords.group, 0
 	.max_reduce _i.temperature_water_commands_if.get_temp_degC_str.fns, _i.temperature_water_commands_if.get_temp_degC_str.fns.group, 0
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.maxchanends.group
@@ -876,7 +876,7 @@
 	.weak _i.temperature_water_commands_if.get_now_regulating_at.fns.group
 	.globl _i.temperature_water_commands_if.get_now_regulating_at.fns.group
 	.add_to_set _i.temperature_water_commands_if.get_now_regulating_at.nstackwords.group, _i.temperature_water_commands_if._chan.get_now_regulating_at.nstackwords, _i.temperature_water_commands_if._chan.get_now_regulating_at
-	.add_to_set _i.temperature_water_commands_if.get_now_regulating_at.fns.group, _i.temperature_water_commands_if._chan.get_now_regulating_at
+	.add_to_set _i.temperature_water_commands_if.get_now_regulating_at.fns.group, _i.temperature_water_commands_if._chan.get_now_regulating_at, _i.temperature_water_commands_if._chan.get_now_regulating_at
 	.max_reduce _i.temperature_water_commands_if.get_now_regulating_at.max.nstackwords, _i.temperature_water_commands_if.get_now_regulating_at.nstackwords.group, 0
 	.max_reduce _i.temperature_water_commands_if.get_now_regulating_at.fns, _i.temperature_water_commands_if.get_now_regulating_at.fns.group, 0
 	.weak _i.temperature_water_commands_if.clear_debug_log.maxchanends.group
@@ -893,7 +893,7 @@
 	.weak _i.temperature_water_commands_if.clear_debug_log.fns.group
 	.globl _i.temperature_water_commands_if.clear_debug_log.fns.group
 	.add_to_set _i.temperature_water_commands_if.clear_debug_log.nstackwords.group, _i.temperature_water_commands_if._chan.clear_debug_log.nstackwords, _i.temperature_water_commands_if._chan.clear_debug_log
-	.add_to_set _i.temperature_water_commands_if.clear_debug_log.fns.group, _i.temperature_water_commands_if._chan.clear_debug_log
+	.add_to_set _i.temperature_water_commands_if.clear_debug_log.fns.group, _i.temperature_water_commands_if._chan.clear_debug_log, _i.temperature_water_commands_if._chan.clear_debug_log
 	.max_reduce _i.temperature_water_commands_if.clear_debug_log.max.nstackwords, _i.temperature_water_commands_if.clear_debug_log.nstackwords.group, 0
 	.max_reduce _i.temperature_water_commands_if.clear_debug_log.fns, _i.temperature_water_commands_if.clear_debug_log.fns.group, 0
 	.weak _i.temperature_water_commands_if.__interface_init.maxchanends.group
@@ -922,7 +922,7 @@
 	.weak _i.temperature_water_commands_if._client_call_y.fns.group
 	.globl _i.temperature_water_commands_if._client_call_y.fns.group
 	.add_to_set _i.temperature_water_commands_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.temperature_water_commands_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.temperature_water_commands_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.temperature_water_commands_if._client_call_y.max.nstackwords, _i.temperature_water_commands_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.temperature_water_commands_if._client_call_y.fns, _i.temperature_water_commands_if._client_call_y.fns.group, 0
 	.pushsection .netinfo, "", @netinfo
@@ -1036,7 +1036,7 @@ inP_button_right.info:
 	.weak _i.chronodot_ds3231_if._client_call_y.fns.group
 	.globl _i.chronodot_ds3231_if._client_call_y.fns.group
 	.add_to_set _i.chronodot_ds3231_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.chronodot_ds3231_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.max.nstackwords, _i.chronodot_ds3231_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.chronodot_ds3231_if._client_call_y.fns, _i.chronodot_ds3231_if._client_call_y.fns.group, 0
 	.weak _i.temperature_water_commands_if.get_temp_degC_str.maxchanends.group
@@ -1378,7 +1378,7 @@ inP_button_right.info:
 	.globpassesref Button_Task, inP_button_right,"../src/main.xc:114:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref Button_Task, inP_button_center,"../src/main.xc:113:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globpassesref Button_Task, inP_button_left,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_0, __main__main_tile_0_combined_tile_0_4, __main__main_tile_0_combined_tile_0_5, __main__main_tile_0_combined_tile_0_1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Task_9
+	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_u0, __main__main_tile_0_combined_tile_0_u4, __main__main_tile_0_combined_tile_0_u5, __main__main_tile_0_combined_tile_0_u1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Task_9
 
 
 	.section	.debug_info,"",@progbits
@@ -1503,11 +1503,11 @@ _i.startkit_adc_acquire_if._chan.trigger:
 	.size	_i.startkit_adc_acquire_if._chan.trigger, .Ltmp9-_i.startkit_adc_acquire_if._chan.trigger
 	.cfi_endproc
 
-	.weak	_i.startkit_adc_acquire_if._chan_y.read
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read
 	.align	4
-	.type	_i.startkit_adc_acquire_if._chan_y.read,@function
-	.cc_top _i.startkit_adc_acquire_if._chan_y.read.function,_i.startkit_adc_acquire_if._chan_y.read
-_i.startkit_adc_acquire_if._chan_y.read:
+	.type	_i.startkit_adc_acquire_if._chan_yield.read,@function
+	.cc_top _i.startkit_adc_acquire_if._chan_yield.read.function,_i.startkit_adc_acquire_if._chan_yield.read
+_i.startkit_adc_acquire_if._chan_yield.read:
 	.cfi_startproc
 	entsp 6
 .Ltmp10:
@@ -1555,28 +1555,28 @@ _i.startkit_adc_acquire_if._chan_y.read:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.startkit_adc_acquire_if._chan_y.read.function
-	.set	_i.startkit_adc_acquire_if._chan_y.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.nstackwords
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.nstackwords
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxcores
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxcores
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxtimers
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxtimers
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxchanends
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxchanends
+	.cc_bottom _i.startkit_adc_acquire_if._chan_yield.read.function
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxcores
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxcores
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends
 .Ltmp16:
-	.size	_i.startkit_adc_acquire_if._chan_y.read, .Ltmp16-_i.startkit_adc_acquire_if._chan_y.read
+	.size	_i.startkit_adc_acquire_if._chan_yield.read, .Ltmp16-_i.startkit_adc_acquire_if._chan_yield.read
 	.cfi_endproc
 
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger
 	.align	4
-	.type	_i.startkit_adc_acquire_if._chan_y.trigger,@function
-	.cc_top _i.startkit_adc_acquire_if._chan_y.trigger.function,_i.startkit_adc_acquire_if._chan_y.trigger
-_i.startkit_adc_acquire_if._chan_y.trigger:
+	.type	_i.startkit_adc_acquire_if._chan_yield.trigger,@function
+	.cc_top _i.startkit_adc_acquire_if._chan_yield.trigger.function,_i.startkit_adc_acquire_if._chan_yield.trigger
+_i.startkit_adc_acquire_if._chan_yield.trigger:
 	.cfi_startproc
 	entsp 3
 .Ltmp17:
@@ -1608,21 +1608,21 @@ _i.startkit_adc_acquire_if._chan_y.trigger:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.startkit_adc_acquire_if._chan_y.trigger.function
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends
+	.cc_bottom _i.startkit_adc_acquire_if._chan_yield.trigger.function
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends
 .Ltmp21:
-	.size	_i.startkit_adc_acquire_if._chan_y.trigger, .Ltmp21-_i.startkit_adc_acquire_if._chan_y.trigger
+	.size	_i.startkit_adc_acquire_if._chan_yield.trigger, .Ltmp21-_i.startkit_adc_acquire_if._chan_yield.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_internal_commands_if._chan.write_byte_fram_ok
@@ -1912,11 +1912,11 @@ _i.i2c_internal_commands_if._chan.write_display_ok:
 	.size	_i.i2c_internal_commands_if._chan.write_display_ok, .Ltmp44-_i.i2c_internal_commands_if._chan.write_display_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
-_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
+	.type	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok
+_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok:
 	.cfi_startproc
 	entsp 2
 .Ltmp45:
@@ -1949,28 +1949,28 @@ _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok.maxchanends
 .Ltmp48:
-	.size	_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, .Ltmp48-_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok
+	.size	_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok, .Ltmp48-_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
-_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
+	.type	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.function,_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok
+_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok:
 	.cfi_startproc
 	entsp 2
 .Ltmp49:
@@ -2003,28 +2003,28 @@ _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.function
+	.set	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok.maxchanends
 .Ltmp52:
-	.size	_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, .Ltmp52-_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok
+	.size	_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok, .Ltmp52-_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.write_chronodot_ok.function,_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
+	.type	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.function,_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok
+_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok:
 	.cfi_startproc
 	entsp 11
 .Ltmp53:
@@ -2081,28 +2081,28 @@ _i.i2c_internal_commands_if._chan_y.write_chronodot_ok:
 	ldw r4, sp[10]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_chronodot_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.nstackwords,((memcpy.nstackwords $M sout_char_array.nstackwords $M _i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 11)
-	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M sout_char_array.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M sout_char_array.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.function
+	.set	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.nstackwords,((memcpy.nstackwords $M sout_char_array.nstackwords $M _i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 11)
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M sout_char_array.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M sout_char_array.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok.maxchanends
 .Ltmp60:
-	.size	_i.i2c_internal_commands_if._chan_y.write_chronodot_ok, .Ltmp60-_i.i2c_internal_commands_if._chan_y.write_chronodot_ok
+	.size	_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok, .Ltmp60-_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.read_chronodot_ok.function,_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
+	.type	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.function,_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok
+_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok:
 	.cfi_startproc
 	entsp 11
 .Ltmp61:
@@ -2159,28 +2159,28 @@ _i.i2c_internal_commands_if._chan_y.read_chronodot_ok:
 	ldw r4, sp[10]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.read_chronodot_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords $M memcpy.nstackwords) + 11)
-	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.function
+	.set	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords $M memcpy.nstackwords) + 11)
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok.maxchanends
 .Ltmp68:
-	.size	_i.i2c_internal_commands_if._chan_y.read_chronodot_ok, .Ltmp68-_i.i2c_internal_commands_if._chan_y.read_chronodot_ok
+	.size	_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok, .Ltmp68-_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_display_ok
 	.align	4
-	.type	_i.i2c_internal_commands_if._chan_y.write_display_ok,@function
-	.cc_top _i.i2c_internal_commands_if._chan_y.write_display_ok.function,_i.i2c_internal_commands_if._chan_y.write_display_ok
-_i.i2c_internal_commands_if._chan_y.write_display_ok:
+	.type	_i.i2c_internal_commands_if._chan_yield.write_display_ok,@function
+	.cc_top _i.i2c_internal_commands_if._chan_yield.write_display_ok.function,_i.i2c_internal_commands_if._chan_yield.write_display_ok
+_i.i2c_internal_commands_if._chan_yield.write_display_ok:
 	.cfi_startproc
 	entsp 5
 .Ltmp69:
@@ -2222,21 +2222,21 @@ _i.i2c_internal_commands_if._chan_y.write_display_ok:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_internal_commands_if._chan_y.write_display_ok.function
-	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.nstackwords
-	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxcores
-	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxtimers
-	.set	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
-	.weak	_i.i2c_internal_commands_if._chan_y.write_display_ok.maxchanends
+	.cc_bottom _i.i2c_internal_commands_if._chan_yield.write_display_ok.function
+	.set	_i.i2c_internal_commands_if._chan_yield.write_display_ok.nstackwords,((_i.i2c_internal_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_internal_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_display_ok.nstackwords
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_display_ok.nstackwords
+	.set	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_internal_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxcores
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxcores
+	.set	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_internal_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxtimers
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxtimers
+	.set	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_internal_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxchanends
+	.weak	_i.i2c_internal_commands_if._chan_yield.write_display_ok.maxchanends
 .Ltmp74:
-	.size	_i.i2c_internal_commands_if._chan_y.write_display_ok, .Ltmp74-_i.i2c_internal_commands_if._chan_y.write_display_ok
+	.size	_i.i2c_internal_commands_if._chan_yield.write_display_ok, .Ltmp74-_i.i2c_internal_commands_if._chan_yield.write_display_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.trigger
@@ -2324,11 +2324,11 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp79-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
-	.weak	_i.i2c_external_commands_if._chan_y.trigger
+	.weak	_i.i2c_external_commands_if._chan_yield.trigger
 	.align	4
-	.type	_i.i2c_external_commands_if._chan_y.trigger,@function
-	.cc_top _i.i2c_external_commands_if._chan_y.trigger.function,_i.i2c_external_commands_if._chan_y.trigger
-_i.i2c_external_commands_if._chan_y.trigger:
+	.type	_i.i2c_external_commands_if._chan_yield.trigger,@function
+	.cc_top _i.i2c_external_commands_if._chan_yield.trigger.function,_i.i2c_external_commands_if._chan_yield.trigger
+_i.i2c_external_commands_if._chan_yield.trigger:
 	.cfi_startproc
 	entsp 2
 .Ltmp80:
@@ -2356,28 +2356,28 @@ _i.i2c_external_commands_if._chan_y.trigger:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan_y.trigger.function
-	.set	_i.i2c_external_commands_if._chan_y.trigger.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
-	.weak	_i.i2c_external_commands_if._chan_y.trigger.nstackwords
-	.set	_i.i2c_external_commands_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxcores
-	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxcores
-	.set	_i.i2c_external_commands_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
-	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxtimers
-	.set	_i.i2c_external_commands_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
-	.weak	_i.i2c_external_commands_if._chan_y.trigger.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan_yield.trigger.function
+	.set	_i.i2c_external_commands_if._chan_yield.trigger.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.i2c_external_commands_if._chan_yield.trigger.nstackwords
+	.weak	_i.i2c_external_commands_if._chan_yield.trigger.nstackwords
+	.set	_i.i2c_external_commands_if._chan_yield.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.i2c_external_commands_if._chan_yield.trigger.maxcores
+	.weak	_i.i2c_external_commands_if._chan_yield.trigger.maxcores
+	.set	_i.i2c_external_commands_if._chan_yield.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.i2c_external_commands_if._chan_yield.trigger.maxtimers
+	.weak	_i.i2c_external_commands_if._chan_yield.trigger.maxtimers
+	.set	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends
+	.weak	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends
 .Ltmp83:
-	.size	_i.i2c_external_commands_if._chan_y.trigger, .Ltmp83-_i.i2c_external_commands_if._chan_y.trigger
+	.size	_i.i2c_external_commands_if._chan_yield.trigger, .Ltmp83-_i.i2c_external_commands_if._chan_yield.trigger
 	.cfi_endproc
 
-	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok
+	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok
 	.align	4
-	.type	_i.i2c_external_commands_if._chan_y.read_temperature_ok,@function
-	.cc_top _i.i2c_external_commands_if._chan_y.read_temperature_ok.function,_i.i2c_external_commands_if._chan_y.read_temperature_ok
-_i.i2c_external_commands_if._chan_y.read_temperature_ok:
+	.type	_i.i2c_external_commands_if._chan_yield.read_temperature_ok,@function
+	.cc_top _i.i2c_external_commands_if._chan_yield.read_temperature_ok.function,_i.i2c_external_commands_if._chan_yield.read_temperature_ok
+_i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
 .Ltmp84:
@@ -2413,21 +2413,21 @@ _i.i2c_external_commands_if._chan_y.read_temperature_ok:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan_y.read_temperature_ok.function
-	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords) + 3)
-	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.nstackwords
-	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.nstackwords
-	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxcores
-	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxcores
-	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
-	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxtimers
-	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxtimers
-	.set	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
-	.globl	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
-	.weak	_i.i2c_external_commands_if._chan_y.read_temperature_ok.maxchanends
+	.cc_bottom _i.i2c_external_commands_if._chan_yield.read_temperature_ok.function
+	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords) + 3)
+	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.nstackwords
+	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.nstackwords
+	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
+	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxcores
+	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxcores
+	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
+	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxtimers
+	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxtimers
+	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
+	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
+	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
 .Ltmp88:
-	.size	_i.i2c_external_commands_if._chan_y.read_temperature_ok, .Ltmp88-_i.i2c_external_commands_if._chan_y.read_temperature_ok
+	.size	_i.i2c_external_commands_if._chan_yield.read_temperature_ok, .Ltmp88-_i.i2c_external_commands_if._chan_yield.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.watchdog_retrigger_with
@@ -2763,11 +2763,11 @@ _i.port_heat_light_commands_if._chan.get_light_composition:
 	.size	_i.port_heat_light_commands_if._chan.get_light_composition, .Ltmp100-_i.port_heat_light_commands_if._chan.get_light_composition
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
+	.weak	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.function,_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
-_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with:
+	.type	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.function,_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with
+_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with:
 	.cfi_startproc
 	entsp 2
 .Ltmp101:
@@ -2796,28 +2796,28 @@ _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.function
-	.set	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.function
+	.set	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with.maxchanends
 .Ltmp104:
-	.size	_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, .Ltmp104-_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with
+	.size	_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with, .Ltmp104-_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.function,_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
-_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.function,_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog
+_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog:
 	.cfi_startproc
 	entsp 2
 .Ltmp105:
@@ -2843,28 +2843,28 @@ _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.function
-	.set	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog.maxchanends
 .Ltmp108:
-	.size	_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, .Ltmp108-_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog
+	.size	_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog, .Ltmp108-_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command
+	.weak	_i.port_heat_light_commands_if._chan_yield.heat_cables_command
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.heat_cables_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.heat_cables_command.function,_i.port_heat_light_commands_if._chan_y.heat_cables_command
-_i.port_heat_light_commands_if._chan_y.heat_cables_command:
+	.type	_i.port_heat_light_commands_if._chan_yield.heat_cables_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.heat_cables_command.function,_i.port_heat_light_commands_if._chan_yield.heat_cables_command
+_i.port_heat_light_commands_if._chan_yield.heat_cables_command:
 	.cfi_startproc
 	entsp 2
 .Ltmp109:
@@ -2892,28 +2892,28 @@ _i.port_heat_light_commands_if._chan_y.heat_cables_command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.heat_cables_command.function
-	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.heat_cables_command.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.heat_cables_command.function
+	.set	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.heat_cables_command.maxchanends
 .Ltmp112:
-	.size	_i.port_heat_light_commands_if._chan_y.heat_cables_command, .Ltmp112-_i.port_heat_light_commands_if._chan_y.heat_cables_command
+	.size	_i.port_heat_light_commands_if._chan_yield.heat_cables_command, .Ltmp112-_i.port_heat_light_commands_if._chan_yield.heat_cables_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.beeper_blip_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function,_i.port_heat_light_commands_if._chan_y.beeper_blip_command
-_i.port_heat_light_commands_if._chan_y.beeper_blip_command:
+	.type	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.beeper_blip_command.function,_i.port_heat_light_commands_if._chan_yield.beeper_blip_command
+_i.port_heat_light_commands_if._chan_yield.beeper_blip_command:
 	.cfi_startproc
 	entsp 2
 .Ltmp113:
@@ -2941,28 +2941,28 @@ _i.port_heat_light_commands_if._chan_y.beeper_blip_command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.beeper_blip_command.function
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_blip_command.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.beeper_blip_command.function
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command.maxchanends
 .Ltmp116:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_blip_command, .Ltmp116-_i.port_heat_light_commands_if._chan_y.beeper_blip_command
+	.size	_i.port_heat_light_commands_if._chan_yield.beeper_blip_command, .Ltmp116-_i.port_heat_light_commands_if._chan_yield.beeper_blip_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_on_command
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.beeper_on_command,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.beeper_on_command.function,_i.port_heat_light_commands_if._chan_y.beeper_on_command
-_i.port_heat_light_commands_if._chan_y.beeper_on_command:
+	.type	_i.port_heat_light_commands_if._chan_yield.beeper_on_command,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.beeper_on_command.function,_i.port_heat_light_commands_if._chan_yield.beeper_on_command
+_i.port_heat_light_commands_if._chan_yield.beeper_on_command:
 	.cfi_startproc
 	entsp 2
 .Ltmp117:
@@ -2990,28 +2990,28 @@ _i.port_heat_light_commands_if._chan_y.beeper_on_command:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.beeper_on_command.function
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.beeper_on_command.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.beeper_on_command.function
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.beeper_on_command.maxchanends
 .Ltmp120:
-	.size	_i.port_heat_light_commands_if._chan_y.beeper_on_command, .Ltmp120-_i.port_heat_light_commands_if._chan_y.beeper_on_command
+	.size	_i.port_heat_light_commands_if._chan_yield.beeper_on_command, .Ltmp120-_i.port_heat_light_commands_if._chan_yield.beeper_on_command
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition
+	.weak	_i.port_heat_light_commands_if._chan_yield.set_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.set_light_composition,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.set_light_composition.function,_i.port_heat_light_commands_if._chan_y.set_light_composition
-_i.port_heat_light_commands_if._chan_y.set_light_composition:
+	.type	_i.port_heat_light_commands_if._chan_yield.set_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.set_light_composition.function,_i.port_heat_light_commands_if._chan_yield.set_light_composition
+_i.port_heat_light_commands_if._chan_yield.set_light_composition:
 	.cfi_startproc
 	entsp 2
 .Ltmp121:
@@ -3041,28 +3041,28 @@ _i.port_heat_light_commands_if._chan_y.set_light_composition:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.set_light_composition.function
-	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.set_light_composition.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.set_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_yield.set_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.set_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.set_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.set_light_composition.maxchanends
 .Ltmp124:
-	.size	_i.port_heat_light_commands_if._chan_y.set_light_composition, .Ltmp124-_i.port_heat_light_commands_if._chan_y.set_light_composition
+	.size	_i.port_heat_light_commands_if._chan_yield.set_light_composition, .Ltmp124-_i.port_heat_light_commands_if._chan_yield.set_light_composition
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_stable
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.get_light_stable,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.get_light_stable.function,_i.port_heat_light_commands_if._chan_y.get_light_stable
-_i.port_heat_light_commands_if._chan_y.get_light_stable:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_light_stable,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_stable.function,_i.port_heat_light_commands_if._chan_yield.get_light_stable
+_i.port_heat_light_commands_if._chan_yield.get_light_stable:
 	.cfi_startproc
 	entsp 2
 .Ltmp125:
@@ -3088,28 +3088,28 @@ _i.port_heat_light_commands_if._chan_y.get_light_stable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_light_stable.function
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_stable.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_stable.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_stable.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_stable.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_stable.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends
 .Ltmp128:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_stable, .Ltmp128-_i.port_heat_light_commands_if._chan_y.get_light_stable
+	.size	_i.port_heat_light_commands_if._chan_yield.get_light_stable, .Ltmp128-_i.port_heat_light_commands_if._chan_yield.get_light_stable
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.get_light_composition_etc.function,_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.function,_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
+_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc:
 	.cfi_startproc
 	entsp 3
 .Ltmp129:
@@ -3139,28 +3139,28 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition_etc:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_light_composition_etc.function
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends
 .Ltmp132:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition_etc, .Ltmp132-_i.port_heat_light_commands_if._chan_y.get_light_composition_etc
+	.size	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc, .Ltmp132-_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_y.get_light_composition,@function
-	.cc_top _i.port_heat_light_commands_if._chan_y.get_light_composition.function,_i.port_heat_light_commands_if._chan_y.get_light_composition
-_i.port_heat_light_commands_if._chan_y.get_light_composition:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_light_composition,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_composition.function,_i.port_heat_light_commands_if._chan_yield.get_light_composition
+_i.port_heat_light_commands_if._chan_yield.get_light_composition:
 	.cfi_startproc
 	entsp 2
 .Ltmp133:
@@ -3185,21 +3185,21 @@ _i.port_heat_light_commands_if._chan_y.get_light_composition:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_y.get_light_composition.function
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxcores
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_y.get_light_composition.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_composition.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition.maxchanends
 .Ltmp136:
-	.size	_i.port_heat_light_commands_if._chan_y.get_light_composition, .Ltmp136-_i.port_heat_light_commands_if._chan_y.get_light_composition
+	.size	_i.port_heat_light_commands_if._chan_yield.get_light_composition, .Ltmp136-_i.port_heat_light_commands_if._chan_yield.get_light_composition
 	.cfi_endproc
 
 	.weak	_i.temperature_heater_commands_if._chan.get_regulator_data
@@ -3492,11 +3492,11 @@ _i.temperature_heater_commands_if._chan.heater_set_proportional:
 	.size	_i.temperature_heater_commands_if._chan.heater_set_proportional, .Ltmp164-_i.temperature_heater_commands_if._chan.heater_set_proportional
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_regulator_data,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_regulator_data.function,_i.temperature_heater_commands_if._chan_y.get_regulator_data
-_i.temperature_heater_commands_if._chan_y.get_regulator_data:
+	.type	_i.temperature_heater_commands_if._chan_yield.get_regulator_data,@function
+	.cc_top _i.temperature_heater_commands_if._chan_yield.get_regulator_data.function,_i.temperature_heater_commands_if._chan_yield.get_regulator_data
+_i.temperature_heater_commands_if._chan_yield.get_regulator_data:
 	.cfi_startproc
 	entsp 4
 .Ltmp165:
@@ -3541,28 +3541,28 @@ _i.temperature_heater_commands_if._chan_y.get_regulator_data:
 	ldw r4, sp[3]
 	retsp 4
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_regulator_data.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 4)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_regulator_data.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_yield.get_regulator_data.function
+	.set	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 4)
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxcores
+	.set	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_regulator_data.maxchanends
 .Ltmp170:
-	.size	_i.temperature_heater_commands_if._chan_y.get_regulator_data, .Ltmp170-_i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.size	_i.temperature_heater_commands_if._chan_yield.get_regulator_data, .Ltmp170-_i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
+	.type	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str,@function
+	.cc_top _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.function,_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
+_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
 .Ltmp171:
@@ -3609,28 +3609,28 @@ _i.temperature_heater_commands_if._chan_y.get_temp_degC_str:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_temp_degC_str.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.function
+	.set	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxcores
+	.set	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str.maxchanends
 .Ltmp177:
-	.size	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str, .Ltmp177-_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
+	.size	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str, .Ltmp177-_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
-_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps:
+	.type	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps,@function
+	.cc_top _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.function,_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
+_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps:
 	.cfi_startproc
 	entsp 5
 .Ltmp178:
@@ -3671,28 +3671,28 @@ _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.function
-	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.function
+	.set	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxcores
+	.set	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps.maxchanends
 .Ltmp183:
-	.size	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, .Ltmp183-_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
+	.size	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps, .Ltmp183-_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.function,_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
+	.type	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC,@function
+	.cc_top _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.function,_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
+_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC:
 	.cfi_startproc
 	entsp 5
 .Ltmp184:
@@ -3739,28 +3739,28 @@ _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.function
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.function
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxcores
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC.maxchanends
 .Ltmp190:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, .Ltmp190-_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
+	.size	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC, .Ltmp190-_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
 	.cfi_endproc
 
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.align	4
-	.type	_i.temperature_heater_commands_if._chan_y.heater_set_proportional,@function
-	.cc_top _i.temperature_heater_commands_if._chan_y.heater_set_proportional.function,_i.temperature_heater_commands_if._chan_y.heater_set_proportional
-_i.temperature_heater_commands_if._chan_y.heater_set_proportional:
+	.type	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional,@function
+	.cc_top _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.function,_i.temperature_heater_commands_if._chan_yield.heater_set_proportional
+_i.temperature_heater_commands_if._chan_yield.heater_set_proportional:
 	.cfi_startproc
 	entsp 5
 .Ltmp191:
@@ -3806,21 +3806,21 @@ _i.temperature_heater_commands_if._chan_y.heater_set_proportional:
 	ldw r4, sp[4]
 	retsp 5
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_heater_commands_if._chan_y.heater_set_proportional.function
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.nstackwords
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.nstackwords
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxcores
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxcores
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxtimers
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxtimers
-	.set	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
-	.weak	_i.temperature_heater_commands_if._chan_y.heater_set_proportional.maxchanends
+	.cc_bottom _i.temperature_heater_commands_if._chan_yield.heater_set_proportional.function
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords) $M _i.temperature_heater_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_heater_commands_if._client_call_y.max.nstackwords)) + 5)
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.nstackwords
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.nstackwords
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_heater_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxcores
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxcores
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_heater_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxtimers
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxtimers
+	.set	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_heater_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxchanends
+	.weak	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional.maxchanends
 .Ltmp197:
-	.size	_i.temperature_heater_commands_if._chan_y.heater_set_proportional, .Ltmp197-_i.temperature_heater_commands_if._chan_y.heater_set_proportional
+	.size	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional, .Ltmp197-_i.temperature_heater_commands_if._chan_yield.heater_set_proportional
 	.cfi_endproc
 
 	.weak	_i.temperature_water_commands_if._chan.clear_debug_log
@@ -3975,11 +3975,11 @@ _i.temperature_water_commands_if._chan.get_temp_degC_str:
 	.size	_i.temperature_water_commands_if._chan.get_temp_degC_str, .Ltmp211-_i.temperature_water_commands_if._chan.get_temp_degC_str
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log
+	.weak	_i.temperature_water_commands_if._chan_yield.clear_debug_log
 	.align	4
-	.type	_i.temperature_water_commands_if._chan_y.clear_debug_log,@function
-	.cc_top _i.temperature_water_commands_if._chan_y.clear_debug_log.function,_i.temperature_water_commands_if._chan_y.clear_debug_log
-_i.temperature_water_commands_if._chan_y.clear_debug_log:
+	.type	_i.temperature_water_commands_if._chan_yield.clear_debug_log,@function
+	.cc_top _i.temperature_water_commands_if._chan_yield.clear_debug_log.function,_i.temperature_water_commands_if._chan_yield.clear_debug_log
+_i.temperature_water_commands_if._chan_yield.clear_debug_log:
 	.cfi_startproc
 	entsp 3
 .Ltmp212:
@@ -4012,28 +4012,28 @@ _i.temperature_water_commands_if._chan_y.clear_debug_log:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan_y.clear_debug_log.function
-	.set	_i.temperature_water_commands_if._chan_y.clear_debug_log.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.temperature_water_commands_if._chan_y.clear_debug_log.nstackwords
-	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log.nstackwords
-	.set	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxcores
-	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxcores
-	.set	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxtimers
-	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxtimers
-	.set	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends
-	.weak	_i.temperature_water_commands_if._chan_y.clear_debug_log.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan_yield.clear_debug_log.function
+	.set	_i.temperature_water_commands_if._chan_yield.clear_debug_log.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.temperature_water_commands_if._chan_yield.clear_debug_log.nstackwords
+	.weak	_i.temperature_water_commands_if._chan_yield.clear_debug_log.nstackwords
+	.set	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxcores
+	.weak	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxcores
+	.set	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxtimers
+	.weak	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxtimers
+	.set	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxchanends
+	.weak	_i.temperature_water_commands_if._chan_yield.clear_debug_log.maxchanends
 .Ltmp216:
-	.size	_i.temperature_water_commands_if._chan_y.clear_debug_log, .Ltmp216-_i.temperature_water_commands_if._chan_y.clear_debug_log
+	.size	_i.temperature_water_commands_if._chan_yield.clear_debug_log, .Ltmp216-_i.temperature_water_commands_if._chan_yield.clear_debug_log
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at
+	.weak	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at
 	.align	4
-	.type	_i.temperature_water_commands_if._chan_y.get_now_regulating_at,@function
-	.cc_top _i.temperature_water_commands_if._chan_y.get_now_regulating_at.function,_i.temperature_water_commands_if._chan_y.get_now_regulating_at
-_i.temperature_water_commands_if._chan_y.get_now_regulating_at:
+	.type	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at,@function
+	.cc_top _i.temperature_water_commands_if._chan_yield.get_now_regulating_at.function,_i.temperature_water_commands_if._chan_yield.get_now_regulating_at
+_i.temperature_water_commands_if._chan_yield.get_now_regulating_at:
 	.cfi_startproc
 	entsp 3
 .Ltmp217:
@@ -4068,28 +4068,28 @@ _i.temperature_water_commands_if._chan_y.get_now_regulating_at:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan_y.get_now_regulating_at.function
-	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.nstackwords
-	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.nstackwords
-	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxcores
-	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxcores
-	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxtimers
-	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxtimers
-	.set	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
-	.weak	_i.temperature_water_commands_if._chan_y.get_now_regulating_at.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan_yield.get_now_regulating_at.function
+	.set	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.nstackwords
+	.weak	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.nstackwords
+	.set	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxcores
+	.weak	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxcores
+	.set	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxtimers
+	.weak	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxtimers
+	.set	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxchanends
+	.weak	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at.maxchanends
 .Ltmp221:
-	.size	_i.temperature_water_commands_if._chan_y.get_now_regulating_at, .Ltmp221-_i.temperature_water_commands_if._chan_y.get_now_regulating_at
+	.size	_i.temperature_water_commands_if._chan_yield.get_now_regulating_at, .Ltmp221-_i.temperature_water_commands_if._chan_yield.get_now_regulating_at
 	.cfi_endproc
 
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+	.weak	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str
 	.align	4
-	.type	_i.temperature_water_commands_if._chan_y.get_temp_degC_str,@function
-	.cc_top _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function,_i.temperature_water_commands_if._chan_y.get_temp_degC_str
-_i.temperature_water_commands_if._chan_y.get_temp_degC_str:
+	.type	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str,@function
+	.cc_top _i.temperature_water_commands_if._chan_yield.get_temp_degC_str.function,_i.temperature_water_commands_if._chan_yield.get_temp_degC_str
+_i.temperature_water_commands_if._chan_yield.get_temp_degC_str:
 	.cfi_startproc
 	entsp 6
 .Ltmp222:
@@ -4135,21 +4135,21 @@ _i.temperature_water_commands_if._chan_y.get_temp_degC_str:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.temperature_water_commands_if._chan_y.get_temp_degC_str.function
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.nstackwords
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxcores
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxtimers
-	.set	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
-	.weak	_i.temperature_water_commands_if._chan_y.get_temp_degC_str.maxchanends
+	.cc_bottom _i.temperature_water_commands_if._chan_yield.get_temp_degC_str.function
+	.set	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords) $M _i.temperature_water_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.temperature_water_commands_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.nstackwords
+	.weak	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.nstackwords
+	.set	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.temperature_water_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxcores
+	.weak	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxcores
+	.set	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.temperature_water_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxtimers
+	.weak	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxtimers
+	.set	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.temperature_water_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxchanends
+	.weak	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str.maxchanends
 .Ltmp228:
-	.size	_i.temperature_water_commands_if._chan_y.get_temp_degC_str, .Ltmp228-_i.temperature_water_commands_if._chan_y.get_temp_degC_str
+	.size	_i.temperature_water_commands_if._chan_yield.get_temp_degC_str, .Ltmp228-_i.temperature_water_commands_if._chan_yield.get_temp_degC_str
 	.cfi_endproc
 
 	.weak	_i.chronodot_ds3231_if._chan.set_time_ok
@@ -4289,11 +4289,11 @@ _i.chronodot_ds3231_if._chan.get_time_ok:
 	.size	_i.chronodot_ds3231_if._chan.get_time_ok, .Ltmp243-_i.chronodot_ds3231_if._chan.get_time_ok
 	.cfi_endproc
 
-	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok
+	.weak	_i.chronodot_ds3231_if._chan_yield.set_time_ok
 	.align	4
-	.type	_i.chronodot_ds3231_if._chan_y.set_time_ok,@function
-	.cc_top _i.chronodot_ds3231_if._chan_y.set_time_ok.function,_i.chronodot_ds3231_if._chan_y.set_time_ok
-_i.chronodot_ds3231_if._chan_y.set_time_ok:
+	.type	_i.chronodot_ds3231_if._chan_yield.set_time_ok,@function
+	.cc_top _i.chronodot_ds3231_if._chan_yield.set_time_ok.function,_i.chronodot_ds3231_if._chan_yield.set_time_ok
+_i.chronodot_ds3231_if._chan_yield.set_time_ok:
 	.cfi_startproc
 	entsp 11
 .Ltmp244:
@@ -4343,28 +4343,28 @@ _i.chronodot_ds3231_if._chan_y.set_time_ok:
 	ldw r4, sp[10]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.chronodot_ds3231_if._chan_y.set_time_ok.function
-	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.nstackwords,((__memcpy_4.nstackwords $M sout_char_array.nstackwords $M _i.chronodot_ds3231_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.chronodot_ds3231_if._client_call_y.max.nstackwords)) + 11)
-	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.nstackwords
-	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.nstackwords
-	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.chronodot_ds3231_if._client_call_y.max.maxcores) $M sout_char_array.maxcores $M 1
-	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxcores
-	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxcores
-	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.chronodot_ds3231_if._client_call_y.max.maxtimers) $M sout_char_array.maxtimers $M 0
-	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxtimers
-	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxtimers
-	.set	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
-	.globl	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
-	.weak	_i.chronodot_ds3231_if._chan_y.set_time_ok.maxchanends
+	.cc_bottom _i.chronodot_ds3231_if._chan_yield.set_time_ok.function
+	.set	_i.chronodot_ds3231_if._chan_yield.set_time_ok.nstackwords,((__memcpy_4.nstackwords $M sout_char_array.nstackwords $M _i.chronodot_ds3231_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.chronodot_ds3231_if._client_call_y.max.nstackwords)) + 11)
+	.globl	_i.chronodot_ds3231_if._chan_yield.set_time_ok.nstackwords
+	.weak	_i.chronodot_ds3231_if._chan_yield.set_time_ok.nstackwords
+	.set	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.chronodot_ds3231_if._client_call_y.max.maxcores) $M sout_char_array.maxcores $M 1
+	.globl	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxcores
+	.weak	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxcores
+	.set	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.chronodot_ds3231_if._client_call_y.max.maxtimers) $M sout_char_array.maxtimers $M 0
+	.globl	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxtimers
+	.weak	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxtimers
+	.set	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sout_char_array.maxchanends) $M 1
+	.globl	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxchanends
+	.weak	_i.chronodot_ds3231_if._chan_yield.set_time_ok.maxchanends
 .Ltmp250:
-	.size	_i.chronodot_ds3231_if._chan_y.set_time_ok, .Ltmp250-_i.chronodot_ds3231_if._chan_y.set_time_ok
+	.size	_i.chronodot_ds3231_if._chan_yield.set_time_ok, .Ltmp250-_i.chronodot_ds3231_if._chan_yield.set_time_ok
 	.cfi_endproc
 
-	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok
+	.weak	_i.chronodot_ds3231_if._chan_yield.get_time_ok
 	.align	4
-	.type	_i.chronodot_ds3231_if._chan_y.get_time_ok,@function
-	.cc_top _i.chronodot_ds3231_if._chan_y.get_time_ok.function,_i.chronodot_ds3231_if._chan_y.get_time_ok
-_i.chronodot_ds3231_if._chan_y.get_time_ok:
+	.type	_i.chronodot_ds3231_if._chan_yield.get_time_ok,@function
+	.cc_top _i.chronodot_ds3231_if._chan_yield.get_time_ok.function,_i.chronodot_ds3231_if._chan_yield.get_time_ok
+_i.chronodot_ds3231_if._chan_yield.get_time_ok:
 	.cfi_startproc
 	entsp 12
 .Ltmp251:
@@ -4417,21 +4417,21 @@ _i.chronodot_ds3231_if._chan_y.get_time_ok:
 	ldw r4, sp[11]
 	retsp 12
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.chronodot_ds3231_if._chan_y.get_time_ok.function
-	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.nstackwords,((_i.chronodot_ds3231_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.chronodot_ds3231_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords $M __memcpy_4.nstackwords) + 12)
-	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.nstackwords
-	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.nstackwords
-	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.chronodot_ds3231_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
-	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxcores
-	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxcores
-	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.chronodot_ds3231_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
-	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxtimers
-	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxtimers
-	.set	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
-	.globl	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
-	.weak	_i.chronodot_ds3231_if._chan_y.get_time_ok.maxchanends
+	.cc_bottom _i.chronodot_ds3231_if._chan_yield.get_time_ok.function
+	.set	_i.chronodot_ds3231_if._chan_yield.get_time_ok.nstackwords,((_i.chronodot_ds3231_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.chronodot_ds3231_if._client_call_y.max.nstackwords) $M sin_char_array.nstackwords $M __memcpy_4.nstackwords) + 12)
+	.globl	_i.chronodot_ds3231_if._chan_yield.get_time_ok.nstackwords
+	.weak	_i.chronodot_ds3231_if._chan_yield.get_time_ok.nstackwords
+	.set	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.chronodot_ds3231_if._client_call_y.max.maxcores) $M sin_char_array.maxcores $M 1
+	.globl	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxcores
+	.weak	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxcores
+	.set	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.chronodot_ds3231_if._client_call_y.max.maxtimers) $M sin_char_array.maxtimers $M 0
+	.globl	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxtimers
+	.weak	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxtimers
+	.set	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.chronodot_ds3231_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
+	.globl	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxchanends
+	.weak	_i.chronodot_ds3231_if._chan_yield.get_time_ok.maxchanends
 .Ltmp258:
-	.size	_i.chronodot_ds3231_if._chan_y.get_time_ok, .Ltmp258-_i.chronodot_ds3231_if._chan_y.get_time_ok
+	.size	_i.chronodot_ds3231_if._chan_yield.get_time_ok, .Ltmp258-_i.chronodot_ds3231_if._chan_yield.get_time_ok
 	.cfi_endproc
 
 	.weak	_i.lib_startkit_adc_commands_if._chan.read
@@ -4541,11 +4541,11 @@ _i.lib_startkit_adc_commands_if._chan.trigger:
 	.size	_i.lib_startkit_adc_commands_if._chan.trigger, .Ltmp268-_i.lib_startkit_adc_commands_if._chan.trigger
 	.cfi_endproc
 
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.read
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.read
 	.align	4
-	.type	_i.lib_startkit_adc_commands_if._chan_y.read,@function
-	.cc_top _i.lib_startkit_adc_commands_if._chan_y.read.function,_i.lib_startkit_adc_commands_if._chan_y.read
-_i.lib_startkit_adc_commands_if._chan_y.read:
+	.type	_i.lib_startkit_adc_commands_if._chan_yield.read,@function
+	.cc_top _i.lib_startkit_adc_commands_if._chan_yield.read.function,_i.lib_startkit_adc_commands_if._chan_yield.read
+_i.lib_startkit_adc_commands_if._chan_yield.read:
 	.cfi_startproc
 	entsp 6
 .Ltmp269:
@@ -4594,28 +4594,28 @@ _i.lib_startkit_adc_commands_if._chan_y.read:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.lib_startkit_adc_commands_if._chan_y.read.function
-	.set	_i.lib_startkit_adc_commands_if._chan_y.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords) $M _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.read.nstackwords
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.read.nstackwords
-	.set	_i.lib_startkit_adc_commands_if._chan_y.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.read.maxcores
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.read.maxcores
-	.set	_i.lib_startkit_adc_commands_if._chan_y.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.read.maxtimers
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.read.maxtimers
-	.set	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.read.maxchanends
+	.cc_bottom _i.lib_startkit_adc_commands_if._chan_yield.read.function
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords) $M _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.read.nstackwords
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.read.nstackwords
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.read.maxcores
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.read.maxcores
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.read.maxtimers
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.read.maxtimers
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.read.maxchanends
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.read.maxchanends
 .Ltmp275:
-	.size	_i.lib_startkit_adc_commands_if._chan_y.read, .Ltmp275-_i.lib_startkit_adc_commands_if._chan_y.read
+	.size	_i.lib_startkit_adc_commands_if._chan_yield.read, .Ltmp275-_i.lib_startkit_adc_commands_if._chan_yield.read
 	.cfi_endproc
 
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.trigger
 	.align	4
-	.type	_i.lib_startkit_adc_commands_if._chan_y.trigger,@function
-	.cc_top _i.lib_startkit_adc_commands_if._chan_y.trigger.function,_i.lib_startkit_adc_commands_if._chan_y.trigger
-_i.lib_startkit_adc_commands_if._chan_y.trigger:
+	.type	_i.lib_startkit_adc_commands_if._chan_yield.trigger,@function
+	.cc_top _i.lib_startkit_adc_commands_if._chan_yield.trigger.function,_i.lib_startkit_adc_commands_if._chan_yield.trigger
+_i.lib_startkit_adc_commands_if._chan_yield.trigger:
 	.cfi_startproc
 	entsp 3
 .Ltmp276:
@@ -4647,21 +4647,21 @@ _i.lib_startkit_adc_commands_if._chan_y.trigger:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.lib_startkit_adc_commands_if._chan_y.trigger.function
-	.set	_i.lib_startkit_adc_commands_if._chan_y.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords) $M _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.trigger.nstackwords
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger.nstackwords
-	.set	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxcores
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxcores
-	.set	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxtimers
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxtimers
-	.set	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends
-	.weak	_i.lib_startkit_adc_commands_if._chan_y.trigger.maxchanends
+	.cc_bottom _i.lib_startkit_adc_commands_if._chan_yield.trigger.function
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords) $M _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.lib_startkit_adc_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.trigger.nstackwords
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.trigger.nstackwords
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxcores
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxcores
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxtimers
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxtimers
+	.set	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.lib_startkit_adc_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxchanends
+	.weak	_i.lib_startkit_adc_commands_if._chan_yield.trigger.maxchanends
 .Ltmp280:
-	.size	_i.lib_startkit_adc_commands_if._chan_y.trigger, .Ltmp280-_i.lib_startkit_adc_commands_if._chan_y.trigger
+	.size	_i.lib_startkit_adc_commands_if._chan_yield.trigger, .Ltmp280-_i.lib_startkit_adc_commands_if._chan_yield.trigger
 	.cfi_endproc
 
 	.globl	__main__main_tile_0
@@ -4696,111 +4696,111 @@ __main__main_tile_0:
 	stw r10, sp[167]
 .Ltmp289:
 	.cfi_offset 10, -28
+	getr r4, 2
 	getr r5, 2
+	setd res[r4], r5
+	setd res[r5], r4
 	getr r6, 2
-	setd res[r5], r6
-	setd res[r6], r5
 	getr r7, 2
+	setd res[r6], r7
+	setd res[r7], r6
 	getr r8, 2
-	setd res[r7], r8
-	setd res[r8], r7
 	getr r9, 2
-	getr r10, 2
-	setd res[r9], r10
-	setd res[r10], r9
-	getr r1, 2
+	setd res[r8], r9
+	setd res[r9], r8
 	getr r2, 2
-	setd res[r2], r1
-	setd res[r1], r2
-	stw r1, sp[55]
-	stw r2, sp[56]
-	ldc r4, 0
-	stw r4, sp[57]
+	getr r3, 2
+	setd res[r3], r2
+	setd res[r2], r3
+	stw r2, sp[55]
+	stw r3, sp[56]
+	ldc r1, 0
+	stw r1, sp[57]
 	ldaw r11, cp[.vtable]
 	stw r11, sp[58]
-	stw r1, sp[50]
-	stw r2, sp[53]
-	stw r1, sp[52]
-	mkmsk r1, 1
-	stw r1, sp[54]
-	getr r2, 2
+	stw r2, sp[50]
+	stw r3, sp[53]
+	stw r2, sp[52]
+	mkmsk r2, 1
+	stw r2, sp[54]
 	getr r3, 2
-	setd res[r3], r2
-	setd res[r2], r3
-	stw r2, sp[46]
-	stw r3, sp[47]
-	stw r4, sp[48]
+	getr r10, 2
+	setd res[r10], r3
+	setd res[r3], r10
+	stw r3, sp[46]
+	stw r10, sp[47]
+	stw r1, sp[48]
 	ldaw r11, cp[.vtable12]
 	stw r11, sp[49]
-	stw r2, sp[41]
-	stw r3, sp[44]
-	stw r2, sp[43]
-	stw r1, sp[45]
-	getr r2, 2
-	stw r2, sp[39]
+	stw r3, sp[41]
+	stw r10, sp[44]
+	stw r3, sp[43]
+	stw r2, sp[45]
+	getr r3, 2
+	stw r3, sp[39]
 	ldaw r11, cp[.vtable13]
 	stw r11, sp[40]
-	stw r2, sp[38]
-	getr r2, 2
+	stw r3, sp[38]
 	getr r3, 2
-	setd res[r3], r2
-	setd res[r2], r3
-	stw r2, sp[34]
-	stw r3, sp[35]
-	stw r4, sp[36]
+	getr r10, 2
+	setd res[r10], r3
+	setd res[r3], r10
+	stw r3, sp[34]
+	stw r10, sp[35]
+	stw r1, sp[36]
 	ldaw r11, cp[.vtable14]
 	stw r11, sp[37]
-	stw r2, sp[29]
-	stw r3, sp[32]
-	stw r2, sp[31]
-	stw r1, sp[33]
-	getr r2, 2
+	stw r3, sp[29]
+	stw r10, sp[32]
+	stw r3, sp[31]
+	stw r2, sp[33]
 	getr r3, 2
-	setd res[r3], r2
-	setd res[r2], r3
-	stw r2, sp[25]
-	stw r3, sp[26]
-	stw r4, sp[27]
+	getr r10, 2
+	setd res[r10], r3
+	setd res[r3], r10
+	stw r3, sp[25]
+	stw r10, sp[26]
+	stw r1, sp[27]
 	ldaw r11, cp[.vtable15]
 	stw r11, sp[28]
-	stw r2, sp[20]
-	stw r3, sp[23]
-	stw r2, sp[22]
-	stw r1, sp[24]
-	getr r1, 2
-	stw r1, sp[18]
+	stw r3, sp[20]
+	stw r10, sp[23]
+	stw r3, sp[22]
+	stw r2, sp[24]
+	getr r2, 2
+	stw r2, sp[18]
 	ldaw r11, cp[.vtable16]
 	stw r11, sp[19]
-	stw r1, sp[17]
-	getr r1, 2
-	stw r1, sp[15]
+	stw r2, sp[17]
+	getr r2, 2
+	stw r2, sp[15]
 	ldaw r11, cp[.vtable17]
 	stw r11, sp[16]
-	stw r1, sp[14]
-	getr r1, 2
-	stw r1, sp[12]
+	stw r2, sp[14]
+	getr r2, 2
+	stw r2, sp[12]
 	ldaw r11, cp[.vtable18]
 	stw r11, sp[13]
-	stw r1, sp[11]
-	getr r1, 2
-	stw r1, sp[5]
-	stw r4, sp[6]
-	ldaw r2, sp[5]
-	stw r2, sp[7]
+	stw r2, sp[11]
+	getr r2, 2
+	stw r2, sp[5]
+	stw r1, sp[6]
+	ldaw r1, sp[5]
+	stw r1, sp[7]
 	ldaw r11, cp[.vtable19]
 	stw r11, sp[8]
-	stw r1, sp[4]
+	stw r2, sp[4]
 	getr r1, 2
 	stw r1, sp[2]
 	ldaw r11, cp[.vtable20]
 	stw r11, sp[3]
 	stw r1, sp[1]
-	stw r5, sp[158]
-	stw r6, sp[161]
-	stw r7, sp[159]
-	stw r8, sp[162]
-	stw r9, sp[160]
-	stw r10, sp[163]
+	stw r4, sp[158]
+	stw r5, sp[161]
+	stw r6, sp[159]
+	stw r7, sp[162]
+	stw r8, sp[160]
+	stw r9, sp[163]
 	ldaw r1, sp[50]
 	stw r1, sp[130]
 	ldaw r1, sp[55]
@@ -4845,43 +4845,29 @@ __main__main_tile_0:
 	ldaw r1, dp[par.desc.1]
 	ldaw r0, sp[59]
 	bl __start_other_cores
+	freer res[r4]
 	freer res[r5]
 	freer res[r6]
 	freer res[r7]
 	freer res[r8]
 	freer res[r9]
-	freer res[r10]
 	ldw r0, sp[56]
 	ldw r1, sp[54]
-	bf r1, .LBB60_1
-	ldw r1, sp[52]
-	ldw r2, sp[53]
-	#APP
-	getd r3, res[r1]
-	#NO_APP
-	setd res[r1], r2
-	outct res[r1], 1
-	setd res[r1], r3
-	stw r4, sp[54]
-.LBB60_1:
+	ldw r2, sp[57]
+	eq r1, r1, r2
+	bf r1, .LBB60_2
 	chkct res[r0], 1
+.LBB60_2:
 	freer res[r0]
 	ldw r0, sp[50]
 	freer res[r0]
 	ldw r0, sp[47]
 	ldw r1, sp[45]
-	bf r1, .LBB60_2
-	ldw r1, sp[43]
-	ldw r2, sp[44]
-	#APP
-	getd r3, res[r1]
-	#NO_APP
-	setd res[r1], r2
-	outct res[r1], 1
-	setd res[r1], r3
-	stw r4, sp[45]
-.LBB60_2:
+	ldw r2, sp[48]
+	eq r1, r1, r2
+	bf r1, .LBB60_4
 	chkct res[r0], 1
+.LBB60_4:
 	freer res[r0]
 	ldw r0, sp[41]
 	freer res[r0]
@@ -4889,35 +4875,21 @@ __main__main_tile_0:
 	freer res[r0]
 	ldw r0, sp[35]
 	ldw r1, sp[33]
-	bf r1, .LBB60_3
-	ldw r1, sp[31]
-	ldw r2, sp[32]
-	#APP
-	getd r3, res[r1]
-	#NO_APP
-	setd res[r1], r2
-	outct res[r1], 1
-	setd res[r1], r3
-	stw r4, sp[33]
-.LBB60_3:
+	ldw r2, sp[36]
+	eq r1, r1, r2
+	bf r1, .LBB60_6
 	chkct res[r0], 1
+.LBB60_6:
 	freer res[r0]
 	ldw r0, sp[29]
 	freer res[r0]
 	ldw r0, sp[26]
 	ldw r1, sp[24]
-	bf r1, .LBB60_5
-	ldw r1, sp[22]
-	ldw r2, sp[23]
-	#APP
-	getd r3, res[r1]
-	#NO_APP
-	setd res[r1], r2
-	outct res[r1], 1
-	setd res[r1], r3
-	stw r4, sp[24]
-.LBB60_5:
+	ldw r2, sp[27]
+	eq r1, r1, r2
+	bf r1, .LBB60_8
 	chkct res[r0], 1
+.LBB60_8:
 	freer res[r0]
 	ldw r0, sp[20]
 	freer res[r0]
@@ -4941,13 +4913,13 @@ __main__main_tile_0:
 	retsp 174
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0.function
-	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords) + 174)
+	.set	__main__main_tile_0.nstackwords,((par.extra_stackwords + __main__main_tile_0_combined_tile_0_u0.nstackwords + 1 + __main__main_tile_0_combined_tile_0_u4.nstackwords + 1 + __main__main_tile_0_combined_tile_0_u5.nstackwords + 1 + __main__main_tile_0_combined_tile_0_u1.nstackwords + 1 + __main__main_tile_0_task_installExceptionHandler_0.nstackwords + 1 + __main__main_tile_0_task_System_Task_3.nstackwords + 1 + __main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords) + 174)
 	.globl	__main__main_tile_0.nstackwords
-	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_0.maxcores + __main__main_tile_0_combined_tile_0_4.maxcores + __main__main_tile_0_combined_tile_0_5.maxcores + __main__main_tile_0_combined_tile_0_1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxcores) $M 1
+	.set	__main__main_tile_0.maxcores,(0 + __main__main_tile_0_combined_tile_0_u0.maxcores + __main__main_tile_0_combined_tile_0_u4.maxcores + __main__main_tile_0_combined_tile_0_u5.maxcores + __main__main_tile_0_combined_tile_0_u1.maxcores + __main__main_tile_0_task_installExceptionHandler_0.maxcores + __main__main_tile_0_task_System_Task_3.maxcores + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxcores) $M 1
 	.globl	__main__main_tile_0.maxcores
-	.set	__main__main_tile_0.maxtimers,(6 + __main__main_tile_0_combined_tile_0_0.maxtimers + __main__main_tile_0_combined_tile_0_4.maxtimers + __main__main_tile_0_combined_tile_0_5.maxtimers + __main__main_tile_0_combined_tile_0_1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxtimers) $M 0
+	.set	__main__main_tile_0.maxtimers,(6 + __main__main_tile_0_combined_tile_0_u0.maxtimers + __main__main_tile_0_combined_tile_0_u4.maxtimers + __main__main_tile_0_combined_tile_0_u5.maxtimers + __main__main_tile_0_combined_tile_0_u1.maxtimers + __main__main_tile_0_task_installExceptionHandler_0.maxtimers + __main__main_tile_0_task_System_Task_3.maxtimers + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxtimers) $M 0
 	.globl	__main__main_tile_0.maxtimers
-	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_0.maxchanends + __main__main_tile_0_combined_tile_0_4.maxchanends + __main__main_tile_0_combined_tile_0_5.maxchanends + __main__main_tile_0_combined_tile_0_1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxchanends)) $M 20
+	.set	__main__main_tile_0.maxchanends,(20 + (0 + __main__main_tile_0_combined_tile_0_u0.maxchanends + __main__main_tile_0_combined_tile_0_u4.maxchanends + __main__main_tile_0_combined_tile_0_u5.maxchanends + __main__main_tile_0_combined_tile_0_u1.maxchanends + __main__main_tile_0_task_installExceptionHandler_0.maxchanends + __main__main_tile_0_task_System_Task_3.maxchanends + __main__main_tile_0_task_My_startKIT_ADC_Task_9.maxchanends)) $M 20
 	.globl	__main__main_tile_0.maxchanends
 .Ltmp290:
 	.size	__main__main_tile_0, .Ltmp290-__main__main_tile_0
@@ -4963,9 +4935,9 @@ __main__main_tile_0:
 	.cc_bottom .LCPI61_0.data
 	.text
 	.align	4
-	.type	__main__main_tile_0_combined_tile_0_0,@function
-	.cc_top __main__main_tile_0_combined_tile_0_0.function,__main__main_tile_0_combined_tile_0_0
-__main__main_tile_0_combined_tile_0_0:
+	.type	__main__main_tile_0_combined_tile_0_u0,@function
+	.cc_top __main__main_tile_0_combined_tile_0_u0.function,__main__main_tile_0_combined_tile_0_u0
+__main__main_tile_0_combined_tile_0_u0:
 	.cfi_startproc
 	entsp 11
 .Ltmp291:
@@ -5144,13 +5116,13 @@ __main__main_tile_0_combined_tile_0_0:
 	ldw r10, sp[1]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom __main__main_tile_0_combined_tile_0_0.function
-	.set	__main__main_tile_0_combined_tile_0_0.nstackwords,((((((I2C_Internal_Task.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Task.init.0.nstackwords) $M (1 + Temperature_Heater_Task.init.0.nstackwords) $M (1 + I2C_Internal_Task.init.1.nstackwords) $M (1 + Temperature_Heater_Task.init.1.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M (1 + I2C_Internal_Task.fini.nstackwords) $M (1 + Temperature_Heater_Task.fini.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M I2C_Internal_Task.select.enable.cases.nstackwords $M Temperature_Heater_Task.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_0.maxcores,((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_0.maxtimers,((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_0.maxchanends,((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + 0))
+	.cc_bottom __main__main_tile_0_combined_tile_0_u0.function
+	.set	__main__main_tile_0_combined_tile_0_u0.nstackwords,((((((I2C_Internal_Task.init.0.savedstate << 2) + 4) >> 2) + (((Temperature_Heater_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_Internal_Task.init.0.nstackwords) $M (1 + Temperature_Heater_Task.init.0.nstackwords) $M (1 + I2C_Internal_Task.init.1.nstackwords) $M (1 + Temperature_Heater_Task.init.1.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M (1 + I2C_Internal_Task.fini.nstackwords) $M (1 + Temperature_Heater_Task.fini.nstackwords) $M (1 + I2C_Internal_Task.select.enable.nstackwords) $M (1 + Temperature_Heater_Task.select.enable.nstackwords) $M I2C_Internal_Task.select.enable.cases.nstackwords $M Temperature_Heater_Task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_u0.maxcores,((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + I2C_Internal_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.fini.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.0.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.init.1.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + Temperature_Heater_Task.select.enable.cases.maxcores)) $M ((1 * I2C_Internal_Task.dynalloc_maxcores) + ((1 * Temperature_Heater_Task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_u0.maxtimers,((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + I2C_Internal_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.fini.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.0.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.init.1.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + Temperature_Heater_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_Internal_Task.dynalloc_maxtimers) + ((1 * Temperature_Heater_Task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_u0.maxchanends,((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + I2C_Internal_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.fini.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.0.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.init.1.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + Temperature_Heater_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_Internal_Task.dynalloc_maxchanends) + ((1 * Temperature_Heater_Task.dynalloc_maxchanends) + 0))
 .Ltmp302:
-	.size	__main__main_tile_0_combined_tile_0_0, .Ltmp302-__main__main_tile_0_combined_tile_0_0
+	.size	__main__main_tile_0_combined_tile_0_u0, .Ltmp302-__main__main_tile_0_combined_tile_0_u0
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -5163,9 +5135,9 @@ __main__main_tile_0_combined_tile_0_0:
 	.cc_bottom .LCPI62_0.data
 	.text
 	.align	4
-	.type	__main__main_tile_0_combined_tile_0_4,@function
-	.cc_top __main__main_tile_0_combined_tile_0_4.function,__main__main_tile_0_combined_tile_0_4
-__main__main_tile_0_combined_tile_0_4:
+	.type	__main__main_tile_0_combined_tile_0_u4,@function
+	.cc_top __main__main_tile_0_combined_tile_0_u4.function,__main__main_tile_0_combined_tile_0_u4
+__main__main_tile_0_combined_tile_0_u4:
 	.cfi_startproc
 	entsp 11
 .Ltmp303:
@@ -5348,13 +5320,13 @@ __main__main_tile_0_combined_tile_0_4:
 	ldw r10, sp[1]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom __main__main_tile_0_combined_tile_0_4.function
-	.set	__main__main_tile_0_combined_tile_0_4.nstackwords,((((((I2C_External_Task.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Task.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Task.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Task.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Task.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_4.maxcores,((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_4.maxtimers,((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_4.maxchanends,((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
+	.cc_bottom __main__main_tile_0_combined_tile_0_u4.function
+	.set	__main__main_tile_0_combined_tile_0_u4.nstackwords,((((((I2C_External_Task.init.0.savedstate << 2) + 4) >> 2) + (((adc_task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + I2C_External_Task.init.0.nstackwords) $M (1 + adc_task.init.0.nstackwords) $M (1 + I2C_External_Task.init.1.nstackwords) $M (1 + adc_task.init.1.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M (1 + I2C_External_Task.fini.nstackwords) $M (1 + adc_task.fini.nstackwords) $M (1 + I2C_External_Task.select.enable.nstackwords) $M (1 + adc_task.select.enable.nstackwords) $M adc_task.select.enable.cases.nstackwords $M I2C_External_Task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_u4.maxcores,((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + I2C_External_Task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.fini.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.0.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.init.1.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + adc_task.select.enable.cases.maxcores)) $M ((1 * I2C_External_Task.dynalloc_maxcores) + ((1 * adc_task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_u4.maxtimers,((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + I2C_External_Task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.fini.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.0.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.init.1.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + adc_task.select.enable.cases.maxtimers)) $M ((1 * I2C_External_Task.dynalloc_maxtimers) + ((1 * adc_task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_u4.maxchanends,((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + I2C_External_Task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.fini.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.0.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.init.1.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + adc_task.select.enable.cases.maxchanends)) $M ((1 * I2C_External_Task.dynalloc_maxchanends) + ((1 * adc_task.dynalloc_maxchanends) + 0))
 .Ltmp314:
-	.size	__main__main_tile_0_combined_tile_0_4, .Ltmp314-__main__main_tile_0_combined_tile_0_4
+	.size	__main__main_tile_0_combined_tile_0_u4, .Ltmp314-__main__main_tile_0_combined_tile_0_u4
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -5367,9 +5339,9 @@ __main__main_tile_0_combined_tile_0_4:
 	.cc_bottom .LCPI63_0.data
 	.text
 	.align	4
-	.type	__main__main_tile_0_combined_tile_0_5,@function
-	.cc_top __main__main_tile_0_combined_tile_0_5.function,__main__main_tile_0_combined_tile_0_5
-__main__main_tile_0_combined_tile_0_5:
+	.type	__main__main_tile_0_combined_tile_0_u5,@function
+	.cc_top __main__main_tile_0_combined_tile_0_u5.function,__main__main_tile_0_combined_tile_0_u5
+__main__main_tile_0_combined_tile_0_u5:
 	.cfi_startproc
 	entsp 12
 .Ltmp315:
@@ -5577,13 +5549,13 @@ __main__main_tile_0_combined_tile_0_5:
 	ldw r10, sp[1]
 	retsp 12
 	# RETURN_REG_HOLDER
-	.cc_bottom __main__main_tile_0_combined_tile_0_5.function
-	.set	__main__main_tile_0_combined_tile_0_5.nstackwords,((((((Temperature_Water_Task.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Task.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.1.nstackwords) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M (1 + Temperature_Water_Task.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M Port_Pins_Heat_Light_Task.select.enable.cases.nstackwords $M Temperature_Water_Task.select.enable.cases.nstackwords)) + 12)
-	.set	__main__main_tile_0_combined_tile_0_5.maxcores,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + 1))
-	.set	__main__main_tile_0_combined_tile_0_5.maxtimers,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + 0))
-	.set	__main__main_tile_0_combined_tile_0_5.maxchanends,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + 0))
+	.cc_bottom __main__main_tile_0_combined_tile_0_u5.function
+	.set	__main__main_tile_0_combined_tile_0_u5.nstackwords,((((((Temperature_Water_Task.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Task.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.1.nstackwords) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M (1 + Temperature_Water_Task.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M Port_Pins_Heat_Light_Task.select.enable.cases.nstackwords $M Temperature_Water_Task.select.enable.cases.nstackwords)) + 12)
+	.set	__main__main_tile_0_combined_tile_0_u5.maxcores,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + 1))
+	.set	__main__main_tile_0_combined_tile_0_u5.maxtimers,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + 0))
+	.set	__main__main_tile_0_combined_tile_0_u5.maxchanends,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + 0))
 .Ltmp326:
-	.size	__main__main_tile_0_combined_tile_0_5, .Ltmp326-__main__main_tile_0_combined_tile_0_5
+	.size	__main__main_tile_0_combined_tile_0_u5, .Ltmp326-__main__main_tile_0_combined_tile_0_u5
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -5596,9 +5568,9 @@ __main__main_tile_0_combined_tile_0_5:
 	.cc_bottom .LCPI64_0.data
 	.text
 	.align	4
-	.type	__main__main_tile_0_combined_tile_0_1,@function
-	.cc_top __main__main_tile_0_combined_tile_0_1.function,__main__main_tile_0_combined_tile_0_1
-__main__main_tile_0_combined_tile_0_1:
+	.type	__main__main_tile_0_combined_tile_0_u1,@function
+	.cc_top __main__main_tile_0_combined_tile_0_u1.function,__main__main_tile_0_combined_tile_0_u1
+__main__main_tile_0_combined_tile_0_u1:
 	.cfi_startproc
 	entsp 11
 .Ltmp327:
@@ -5800,13 +5772,13 @@ __main__main_tile_0_combined_tile_0_1:
 	ldw r10, sp[1]
 	retsp 11
 	# RETURN_REG_HOLDER
-	.cc_bottom __main__main_tile_0_combined_tile_0_1.function
-	.set	__main__main_tile_0_combined_tile_0_1.nstackwords,((((((Button_Task.init.0.savedstate << 2) + 4) >> 2) + (((Button_Task.init.0.savedstate << 2) + 4) >> 2) + (((Button_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M Button_Task.select.enable.cases.nstackwords)) + 11)
-	.set	__main__main_tile_0_combined_tile_0_1.maxcores,((3 * Button_Task.dynalloc_maxcores) + Button_Task.fini.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.0.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.1.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.cases.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + 1)
-	.set	__main__main_tile_0_combined_tile_0_1.maxtimers,((3 * Button_Task.dynalloc_maxtimers) + Button_Task.fini.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.0.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.1.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.cases.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + 0)
-	.set	__main__main_tile_0_combined_tile_0_1.maxchanends,((3 * Button_Task.dynalloc_maxchanends) + Button_Task.fini.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.0.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.1.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.cases.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + 0)
+	.cc_bottom __main__main_tile_0_combined_tile_0_u1.function
+	.set	__main__main_tile_0_combined_tile_0_u1.nstackwords,((((((Button_Task.init.0.savedstate << 2) + 4) >> 2) + (((Button_Task.init.0.savedstate << 2) + 4) >> 2) + (((Button_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.0.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.init.1.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.select.enable.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M (1 + Button_Task.fini.nstackwords) $M Button_Task.select.enable.cases.nstackwords)) + 11)
+	.set	__main__main_tile_0_combined_tile_0_u1.maxcores,((3 * Button_Task.dynalloc_maxcores) + Button_Task.fini.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.0.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.init.1.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + Button_Task.select.enable.cases.maxcores) $M ((3 * Button_Task.dynalloc_maxcores) + 1)
+	.set	__main__main_tile_0_combined_tile_0_u1.maxtimers,((3 * Button_Task.dynalloc_maxtimers) + Button_Task.fini.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.0.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.init.1.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + Button_Task.select.enable.cases.maxtimers) $M ((3 * Button_Task.dynalloc_maxtimers) + 0)
+	.set	__main__main_tile_0_combined_tile_0_u1.maxchanends,((3 * Button_Task.dynalloc_maxchanends) + Button_Task.fini.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.0.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.init.1.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + Button_Task.select.enable.cases.maxchanends) $M ((3 * Button_Task.dynalloc_maxchanends) + 0)
 .Ltmp338:
-	.size	__main__main_tile_0_combined_tile_0_1, .Ltmp338-__main__main_tile_0_combined_tile_0_1
+	.size	__main__main_tile_0_combined_tile_0_u1, .Ltmp338-__main__main_tile_0_combined_tile_0_u1
 	.cfi_endproc
 
 	.align	4
@@ -6066,11 +6038,11 @@ __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 	.type	.vtable19,@object
 	.size	.vtable19, 32
 .vtable19:
-	.long	_i.temperature_heater_commands_if._chan_y.heater_set_proportional
-	.long	_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC
-	.long	_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps
-	.long	_i.temperature_heater_commands_if._chan_y.get_temp_degC_str
-	.long	_i.temperature_heater_commands_if._chan_y.get_regulator_data
+	.long	_i.temperature_heater_commands_if._chan_yield.heater_set_proportional
+	.long	_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC
+	.long	_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps
+	.long	_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str
+	.long	_i.temperature_heater_commands_if._chan_yield.get_regulator_data
 	.long	__interface_client_push_yield
 	.long	__interface_client_pop_yield
 	.long	__noop
@@ -6093,27 +6065,27 @@ __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 	.type	par.desc.1,@object
 	.size	par.desc.1, 56
 par.desc.1:
-	.long	__main__main_tile_0_combined_tile_0_4
+	.long	__main__main_tile_0_combined_tile_0_u4
 	.long	__main__main_tile_0_task_My_startKIT_ADC_Task_9.nstackwords
-	.long	__main__main_tile_0_combined_tile_0_5
-	.long	__main__main_tile_0_combined_tile_0_4.nstackwords
-	.long	__main__main_tile_0_combined_tile_0_1
-	.long	__main__main_tile_0_combined_tile_0_5.nstackwords
+	.long	__main__main_tile_0_combined_tile_0_u5
+	.long	__main__main_tile_0_combined_tile_0_u4.nstackwords
+	.long	__main__main_tile_0_combined_tile_0_u1
+	.long	__main__main_tile_0_combined_tile_0_u5.nstackwords
 	.long	__main__main_tile_0_task_installExceptionHandler_0
-	.long	__main__main_tile_0_combined_tile_0_1.nstackwords
+	.long	__main__main_tile_0_combined_tile_0_u1.nstackwords
 	.long	__main__main_tile_0_task_System_Task_3
 	.long	__main__main_tile_0_task_installExceptionHandler_0.nstackwords
-	.long	__main__main_tile_0_combined_tile_0_0
+	.long	__main__main_tile_0_combined_tile_0_u0
 	.long	__main__main_tile_0_task_System_Task_3.nstackwords
 	.long	0
 	.long	__main__main_tile_0_task_My_startKIT_ADC_Task_9
 	.cc_bottom par.desc.1.data
 	.text
 .Ldebug_end1:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.1 (build 25370, Aug-31-2017)"
 .Linfo_string1:
 .asciiz"../src/main.xc"
 .Linfo_string2:
@@ -6215,9 +6187,9 @@ par.desc.1:
 .Linfo_string50:
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 .Linfo_string51:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.read"
 .Linfo_string52:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.trigger"
 .Linfo_string53:
 .asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
 .Linfo_string54:
@@ -6229,15 +6201,15 @@ par.desc.1:
 .Linfo_string57:
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 .Linfo_string58:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok"
 .Linfo_string59:
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok"
 .Linfo_string60:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok"
 .Linfo_string61:
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok"
 .Linfo_string62:
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_display_ok"
 .Linfo_string63:
 .asciiz"_i.i2c_external_commands_if._chan.trigger"
 .Linfo_string64:
@@ -6253,9 +6225,9 @@ par.desc.1:
 .Linfo_string69:
 .asciiz"tag_i2c_temps_t"
 .Linfo_string70:
-.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
+.asciiz"_i.i2c_external_commands_if._chan_yield.trigger"
 .Linfo_string71:
-.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
+.asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
 .Linfo_string72:
 .asciiz"_i.port_heat_light_commands_if._chan.watchdog_retrigger_with"
 .Linfo_string73:
@@ -6277,23 +6249,23 @@ par.desc.1:
 .Linfo_string81:
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string82:
-.asciiz"_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with"
 .Linfo_string83:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog"
 .Linfo_string84:
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.heat_cables_command"
 .Linfo_string85:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.beeper_blip_command"
 .Linfo_string86:
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.beeper_on_command"
 .Linfo_string87:
-.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.set_light_composition"
 .Linfo_string88:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_stable"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_stable"
 .Linfo_string89:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc"
 .Linfo_string90:
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition"
 .Linfo_string91:
 .asciiz"_i.temperature_heater_commands_if._chan.get_regulator_data"
 .Linfo_string92:
@@ -6305,15 +6277,15 @@ par.desc.1:
 .Linfo_string95:
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_proportional"
 .Linfo_string96:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_regulator_data"
 .Linfo_string97:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str"
 .Linfo_string98:
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps"
 .Linfo_string99:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC"
 .Linfo_string100:
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.heater_set_proportional"
 .Linfo_string101:
 .asciiz"_i.temperature_water_commands_if._chan.clear_debug_log"
 .Linfo_string102:
@@ -6321,27 +6293,27 @@ par.desc.1:
 .Linfo_string103:
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 .Linfo_string104:
-.asciiz"_i.temperature_water_commands_if._chan_y.clear_debug_log"
+.asciiz"_i.temperature_water_commands_if._chan_yield.clear_debug_log"
 .Linfo_string105:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
+.asciiz"_i.temperature_water_commands_if._chan_yield.get_now_regulating_at"
 .Linfo_string106:
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
+.asciiz"_i.temperature_water_commands_if._chan_yield.get_temp_degC_str"
 .Linfo_string107:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 .Linfo_string108:
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
 .Linfo_string109:
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
+.asciiz"_i.chronodot_ds3231_if._chan_yield.set_time_ok"
 .Linfo_string110:
-.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
+.asciiz"_i.chronodot_ds3231_if._chan_yield.get_time_ok"
 .Linfo_string111:
 .asciiz"_i.lib_startkit_adc_commands_if._chan.read"
 .Linfo_string112:
 .asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
 .Linfo_string113:
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.read"
+.asciiz"_i.lib_startkit_adc_commands_if._chan_yield.read"
 .Linfo_string114:
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
+.asciiz"_i.lib_startkit_adc_commands_if._chan_yield.trigger"
 .Linfo_string115:
 .asciiz"delay_seconds"
 .Linfo_string116:
@@ -6349,13 +6321,13 @@ par.desc.1:
 .Linfo_string117:
 .asciiz"delay_microseconds"
 .Linfo_string118:
-.asciiz"__main__main_tile_0_combined_tile_0_0"
+.asciiz"__main__main_tile_0_combined_tile_0_u0"
 .Linfo_string119:
-.asciiz"__main__main_tile_0_combined_tile_0_4"
+.asciiz"__main__main_tile_0_combined_tile_0_u4"
 .Linfo_string120:
-.asciiz"__main__main_tile_0_combined_tile_0_5"
+.asciiz"__main__main_tile_0_combined_tile_0_u5"
 .Linfo_string121:
-.asciiz"__main__main_tile_0_combined_tile_0_1"
+.asciiz"__main__main_tile_0_combined_tile_0_u1"
 .Linfo_string122:
 .asciiz"__main__main_tile_0_task_installExceptionHandler_0"
 .Linfo_string123:
@@ -6439,7 +6411,7 @@ par.desc.1:
 .Linfo_string162:
 .asciiz"dest"
 .Linfo_string163:
-.asciiz"last_notification_input"
+.asciiz"clientNotifyFlag"
 .Linfo_string164:
 .asciiz"param2"
 .Linfo_string165:
@@ -6447,9 +6419,9 @@ par.desc.1:
 .Linfo_string166:
 .asciiz"s"
 .Linfo_string167:
-.asciiz"y"
+.asciiz"yield"
 .Linfo_string168:
-.asciiz"yarg"
+.asciiz"yieldArg"
 .Linfo_string169:
 .asciiz"param1"
 .Linfo_string170:
@@ -8335,34 +8307,36 @@ par.desc.1:
 	.long	.L.debug_info_begin0
 .Lset4 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset4
+	.long	2464
+.asciiz"delay_seconds"
+	.long	1693
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc"
 	.long	2612
 .asciiz"__main__main_tile_0"
+	.long	1943
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str"
+	.long	1539
+.asciiz"_i.port_heat_light_commands_if._chan_yield.heat_cables_command"
 	.long	1255
 .asciiz"_i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog"
 	.long	715
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
-	.long	855
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_byte_fram_ok"
-	.long	564
-.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
-	.long	2536
-.asciiz"__main__main_tile_0_combined_tile_0_0"
-	.long	2593
-.asciiz"__main__main_tile_0_combined_tile_0_1"
+	.long	2184
+.asciiz"_i.temperature_water_commands_if._chan_yield.get_now_regulating_at"
+	.long	1722
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition"
 	.long	893
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_chronodot_ok"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok"
 	.long	1771
 .asciiz"_i.temperature_heater_commands_if._chan.get_temp_degC_str"
-	.long	2204
-.asciiz"_i.temperature_water_commands_if._chan_y.get_temp_degC_str"
 	.long	2106
 .asciiz"_i.temperature_water_commands_if._chan.get_now_regulating_at"
 	.long	502
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
-	.long	2555
-.asciiz"__main__main_tile_0_combined_tile_0_4"
-	.long	2574
-.asciiz"__main__main_tile_0_combined_tile_0_5"
+	.long	1153
+.asciiz"_i.i2c_external_commands_if._chan_yield.trigger"
+	.long	1626
+.asciiz"_i.port_heat_light_commands_if._chan_yield.set_light_composition"
 	.long	744
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	1024
@@ -8371,32 +8345,32 @@ par.desc.1:
 .asciiz"inP_button_right"
 	.long	584
 .asciiz"_i.i2c_internal_commands_if._chan.write_byte_fram_ok"
-	.long	421
-.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Task_9"
+	.long	2164
+.asciiz"_i.temperature_water_commands_if._chan_yield.clear_debug_log"
+	.long	1182
+.asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
+	.long	2328
+.asciiz"_i.chronodot_ds3231_if._chan_yield.get_time_ok"
 	.long	357
 .asciiz"__main__main_tile_0_task_installExceptionHandler_0"
 	.long	2086
 .asciiz"_i.temperature_water_commands_if._chan.clear_debug_log"
-	.long	2444
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.trigger"
+	.long	421
+.asciiz"__main__main_tile_0_task_My_startKIT_ADC_Task_9"
+	.long	1981
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps"
 	.long	1053
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	1981
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps"
-	.long	1597
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_on_command"
 	.long	2275
 .asciiz"_i.chronodot_ds3231_if._chan.get_time_ok"
-	.long	2386
-.asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
 	.long	2010
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_temp_degC"
+.asciiz"_i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC"
+	.long	2048
+.asciiz"_i.temperature_heater_commands_if._chan_yield.heater_set_proportional"
 	.long	1337
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
-	.long	1482
-.asciiz"_i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with"
-	.long	1568
-.asciiz"_i.port_heat_light_commands_if._chan_y.beeper_blip_command"
+	.long	2295
+.asciiz"_i.chronodot_ds3231_if._chan_yield.set_time_ok"
 	.long	2242
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	1876
@@ -8407,82 +8381,80 @@ par.desc.1:
 .asciiz"_i.port_heat_light_commands_if._chan.watchdog_retrigger_with"
 	.long	1308
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_blip_command"
-	.long	935
-.asciiz"_i.i2c_internal_commands_if._chan_y.read_chronodot_ok"
+	.long	2386
+.asciiz"_i.lib_startkit_adc_commands_if._chan.trigger"
 	.long	60
 .asciiz"inP_button_center"
-	.long	1693
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition_etc"
+	.long	2536
+.asciiz"__main__main_tile_0_combined_tile_0_u0"
+	.long	2593
+.asciiz"__main__main_tile_0_combined_tile_0_u1"
+	.long	2555
+.asciiz"__main__main_tile_0_combined_tile_0_u4"
+	.long	855
+.asciiz"_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok"
+	.long	2574
+.asciiz"__main__main_tile_0_combined_tile_0_u5"
+	.long	564
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.trigger"
 	.long	389
 .asciiz"__main__main_tile_0_task_System_Task_3"
-	.long	1943
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_temp_degC_str"
-	.long	1539
-.asciiz"_i.port_heat_light_commands_if._chan_y.heat_cables_command"
-	.long	1722
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_composition"
-	.long	2184
-.asciiz"_i.temperature_water_commands_if._chan_y.get_now_regulating_at"
 	.long	1433
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
+	.long	1673
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_stable"
+	.long	2204
+.asciiz"_i.temperature_water_commands_if._chan_yield.get_temp_degC_str"
 	.long	1279
 .asciiz"_i.port_heat_light_commands_if._chan.heat_cables_command"
 	.long	635
 .asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
 	.long	1462
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
-	.long	1673
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_light_stable"
-	.long	2406
-.asciiz"_i.lib_startkit_adc_commands_if._chan_y.read"
 	.long	964
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_display_ok"
-	.long	1153
-.asciiz"_i.i2c_external_commands_if._chan_y.trigger"
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_display_ok"
+	.long	2488
+.asciiz"delay_milliseconds"
+	.long	2406
+.asciiz"_i.lib_startkit_adc_commands_if._chan_yield.read"
+	.long	804
+.asciiz"_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok"
 	.long	673
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	804
-.asciiz"_i.i2c_internal_commands_if._chan_y.write_byte_fram_ok"
 	.long	1413
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_stable"
 	.long	2126
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
-	.long	1626
-.asciiz"_i.port_heat_light_commands_if._chan_y.set_light_composition"
 	.long	2348
 .asciiz"_i.lib_startkit_adc_commands_if._chan.read"
 	.long	1366
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
-	.long	2488
-.asciiz"delay_milliseconds"
-	.long	2164
-.asciiz"_i.temperature_water_commands_if._chan_y.clear_debug_log"
-	.long	1182
-.asciiz"_i.i2c_external_commands_if._chan_y.read_temperature_ok"
-	.long	2328
-.asciiz"_i.chronodot_ds3231_if._chan_y.get_time_ok"
+	.long	2444
+.asciiz"_i.lib_startkit_adc_commands_if._chan_yield.trigger"
+	.long	1597
+.asciiz"_i.port_heat_light_commands_if._chan_yield.beeper_on_command"
 	.long	31
 .asciiz"inP_button_left"
 	.long	522
-.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
-	.long	2048
-.asciiz"_i.temperature_heater_commands_if._chan_y.heater_set_proportional"
-	.long	1914
-.asciiz"_i.temperature_heater_commands_if._chan_y.get_regulator_data"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.read"
+	.long	1482
+.asciiz"_i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with"
+	.long	1568
+.asciiz"_i.port_heat_light_commands_if._chan_yield.beeper_blip_command"
 	.long	1809
 .asciiz"_i.temperature_heater_commands_if._chan.get_mean_i2c_temps"
+	.long	1914
+.asciiz"_i.temperature_heater_commands_if._chan_yield.get_regulator_data"
 	.long	2512
 .asciiz"delay_microseconds"
-	.long	2295
-.asciiz"_i.chronodot_ds3231_if._chan_y.set_time_ok"
 	.long	453
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 	.long	1838
 .asciiz"_i.temperature_heater_commands_if._chan.heater_set_temp_degC"
-	.long	2464
-.asciiz"delay_seconds"
 	.long	1515
-.asciiz"_i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog"
+	.long	935
+.asciiz"_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -8521,8 +8493,6 @@ par.desc.1:
 .asciiz"i2c_command_external_t"
 	.long	3377
 .asciiz"chanend"
-	.long	3447
-.asciiz"yarg"
 	.long	1086
 .asciiz"tag_i2c_temps_t"
 	.long	338
@@ -8561,6 +8531,8 @@ par.desc.1:
 .asciiz"short"
 	.long	2790
 .asciiz"interface"
+	.long	3447
+.asciiz"yieldArg"
 	.long	3479
 .asciiz"unsigned char"
 	.long	173
@@ -8575,31 +8547,31 @@ par.desc.1:
 	.overlay_reference _i.startkit_adc_acquire_if._chan.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan.trigger, "f{0}(chd)"
 	.overlay_reference _i.startkit_adc_acquire_if._chan.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.read, "l:f{si}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,&(a(4:us)))"
-	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
+	.typestring _i.startkit_adc_acquire_if._chan_yield.read, "l:f{si}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),ui,&(a(4:us)))"
+	.overlay_reference _i.startkit_adc_acquire_if._chan_yield.read,_i.startkit_adc_acquire_if._client_call_y.fns
+	.typestring _i.startkit_adc_acquire_if._chan_yield.trigger, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.startkit_adc_acquire_if._chan_yield.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:us,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(chd,:uc,:us)"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
 	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
-	.typestring _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us,:uc)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:us)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_y.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:uc,:uc,&(a(:uc)),ui)"
-	.overlay_reference _i.i2c_internal_commands_if._chan_y.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:us,:uc)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok, "f{uc,e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:us)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_yield.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
+	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
+	.typestring _i.i2c_internal_commands_if._chan_yield.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:uc,&(a(:uc)),ui)"
+	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.trigger, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
-	.typestring _i.i2c_external_commands_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
-	.overlay_reference _i.i2c_external_commands_if._chan_y.trigger,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_y.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yarg){m(dest){chd},m(y){ui}}),ui)"
-	.overlay_reference _i.i2c_external_commands_if._chan_y.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
+	.typestring _i.i2c_external_commands_if._chan_yield.trigger, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"
+	.overlay_reference _i.i2c_external_commands_if._chan_yield.trigger,_i.i2c_external_commands_if._client_call_y.fns
+	.typestring _i.i2c_external_commands_if._chan_yield.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),ui)"
+	.overlay_reference _i.i2c_external_commands_if._chan_yield.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan.watchdog_retrigger_with, "f{ui}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan.heat_cables_command, "f{0}(chd,:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
@@ -8609,24 +8581,24 @@ par.desc.1:
 	.typestring _i.port_heat_light_commands_if._chan.get_light_stable, "f{e(){m(false){0},m(true){1}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
 	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(chd)"
-	.typestring _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with, "f{ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.watchdog_retrigger_with,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_heat_cables_forced_off_by_watchdog,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.heat_cables_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.beeper_blip_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:ui)"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.beeper_on_command, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(){m(false){0},m(true){1}})"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.set_light_composition, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_stable, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_stable,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:ui)))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_y.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_y.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with, "f{ui}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_heat_cables_forced_off_by_watchdog,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.heat_cables_command, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.heat_cables_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.beeper_blip_command, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.beeper_blip_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.beeper_on_command, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(false){0},m(true){1}})"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.set_light_composition, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_stable, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_stable,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(a(3:ui)))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(chd,:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
@@ -8637,42 +8609,42 @@ par.desc.1:
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.heater_set_proportional, "f{0}(chd,:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
 	.overlay_reference _i.temperature_heater_commands_if._chan.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_regulator_data, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(&(s(yarg){m(dest){chd},m(y){ui}}),:si)"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),&(a(3:si)))"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
-	.typestring _i.temperature_heater_commands_if._chan_y.heater_set_proportional, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
-	.overlay_reference _i.temperature_heater_commands_if._chan_y.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_yield.get_regulator_data, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:si)"
+	.overlay_reference _i.temperature_heater_commands_if._chan_yield.get_regulator_data,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_yield.get_temp_degC_str,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(a(3:si)))"
+	.overlay_reference _i.temperature_heater_commands_if._chan_yield.get_mean_i2c_temps,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.overlay_reference _i.temperature_heater_commands_if._chan_yield.heater_set_temp_degC,_i.temperature_heater_commands_if._client_call_y.fns
+	.typestring _i.temperature_heater_commands_if._chan_yield.heater_set_proportional, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)"
+	.overlay_reference _i.temperature_heater_commands_if._chan_yield.heater_set_proportional,_i.temperature_heater_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if._chan.clear_debug_log, "f{0}(chd)"
 	.overlay_reference _i.temperature_water_commands_if._chan.clear_debug_log,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if._chan.get_now_regulating_at, "f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(chd)"
 	.overlay_reference _i.temperature_water_commands_if._chan.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.temperature_water_commands_if._chan.get_temp_degC_str, "f{0}(chd,:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
 	.overlay_reference _i.temperature_water_commands_if._chan.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.clear_debug_log, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.temperature_water_commands_if._chan_y.clear_debug_log,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_now_regulating_at, "f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.temperature_water_commands_if._chan_y.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
-	.typestring _i.temperature_water_commands_if._chan_y.get_temp_degC_str, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
-	.overlay_reference _i.temperature_water_commands_if._chan_y.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
+	.typestring _i.temperature_water_commands_if._chan_yield.clear_debug_log, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.temperature_water_commands_if._chan_yield.clear_debug_log,_i.temperature_water_commands_if._client_call_y.fns
+	.typestring _i.temperature_water_commands_if._chan_yield.get_now_regulating_at, "f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.temperature_water_commands_if._chan_yield.get_now_regulating_at,_i.temperature_water_commands_if._client_call_y.fns
+	.typestring _i.temperature_water_commands_if._chan_yield.get_temp_degC_str, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))"
+	.overlay_reference _i.temperature_water_commands_if._chan_yield.get_temp_degC_str,_i.temperature_water_commands_if._client_call_y.fns
 	.typestring _i.chronodot_ds3231_if._chan.set_time_ok, "f{e(){m(false){0},m(true){1}}}(chd,:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
 	.typestring _i.chronodot_ds3231_if._chan.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(chd)"
-	.typestring _i.chronodot_ds3231_if._chan_y.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
-	.overlay_reference _i.chronodot_ds3231_if._chan_y.set_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
-	.typestring _i.chronodot_ds3231_if._chan_y.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.chronodot_ds3231_if._chan_y.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
+	.typestring _i.chronodot_ds3231_if._chan_yield.set_time_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}})"
+	.overlay_reference _i.chronodot_ds3231_if._chan_yield.set_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
+	.typestring _i.chronodot_ds3231_if._chan_yield.get_time_ok, "f{s(){m(year){ui},m(month){ui},m(day){ui},m(hour){ui},m(minute){ui},m(second){ui}},e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.chronodot_ds3231_if._chan_yield.get_time_ok,_i.chronodot_ds3231_if._client_call_y.fns
 	.typestring _i.lib_startkit_adc_commands_if._chan.read, "l:f{ui,ui}(chd,ui,&(a(4:us)))"
 	.overlay_reference _i.lib_startkit_adc_commands_if._chan.read,_i.lib_startkit_adc_commands_if._client_call_y.fns
 	.typestring _i.lib_startkit_adc_commands_if._chan.trigger, "f{0}(chd)"
 	.overlay_reference _i.lib_startkit_adc_commands_if._chan.trigger,_i.lib_startkit_adc_commands_if._client_call_y.fns
-	.typestring _i.lib_startkit_adc_commands_if._chan_y.read, "l:f{ui,ui}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,&(a(4:us)))"
-	.overlay_reference _i.lib_startkit_adc_commands_if._chan_y.read,_i.lib_startkit_adc_commands_if._client_call_y.fns
-	.typestring _i.lib_startkit_adc_commands_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.lib_startkit_adc_commands_if._chan_y.trigger,_i.lib_startkit_adc_commands_if._client_call_y.fns
+	.typestring _i.lib_startkit_adc_commands_if._chan_yield.read, "l:f{ui,ui}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),ui,&(a(4:us)))"
+	.overlay_reference _i.lib_startkit_adc_commands_if._chan_yield.read,_i.lib_startkit_adc_commands_if._client_call_y.fns
+	.typestring _i.lib_startkit_adc_commands_if._chan_yield.trigger, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.lib_startkit_adc_commands_if._chan_yield.trigger,_i.lib_startkit_adc_commands_if._client_call_y.fns
 	.typestring adc_task.init.1, "k:f{0}(u:q(ui))"
 	.typestring adc_task.init.0, "k:f{0}(u:q(ui),is(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},chd,si)"
 	.typestring adc_task.select.enable, "k:fe{0}()"
@@ -8706,9 +8678,9 @@ par.desc.1:
 	.typestring My_startKIT_ADC_Task, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
 	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_stable){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_2000_mW_ON_WHITE){11},m(LIGHT_COMPOSITION_2666_mW_ON){3},m(LIGHT_COMPOSITION_3000_mW_ON){10},m(LIGHT_COMPOSITION_3333_mW_ON){4},m(LIGHT_COMPOSITION_4000_mW_ON){5},m(LIGHT_COMPOSITION_5000_mW_ON){12},m(LIGHT_COMPOSITION_5666_mW_ON){6},m(LIGHT_COMPOSITION_6000_mW_ON){9},m(LIGHT_COMPOSITION_8333_mW_ON){7},m(LIGHT_COMPOSITION_9000_mW_ON){8}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_pop_yield
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__noop
-	.overlay_reference __main__main_tile_0_combined_tile_0_5,__interface_client_push_yield
+	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_push_yield
+	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__noop
+	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_pop_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"

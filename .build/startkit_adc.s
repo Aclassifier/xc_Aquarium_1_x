@@ -25,18 +25,18 @@
 	.globl adc_task.dynalloc_maxtimers
 	.set adc_task.init.0.savedstate,10
 	.globl adc_task.init.0.savedstate
-	.set adc_task.select.y.enable.savedstate,10
-	.globl adc_task.select.y.enable.savedstate
-	.set adc_task.select.y.enable.cases.maxtimers,0 $M adc_task.select.y.case.3.maxtimers $M adc_task.select.y.case.2.maxtimers $M adc_task.select.y.case.1.maxtimers $M adc_task.select.y.case.0.maxtimers
-	.globl adc_task.select.y.enable.cases.maxtimers
-	.set adc_task.select.y.enable.cases.maxcores,0 $M adc_task.select.y.case.3.maxcores $M adc_task.select.y.case.2.maxcores $M adc_task.select.y.case.1.maxcores $M adc_task.select.y.case.0.maxcores
-	.globl adc_task.select.y.enable.cases.maxcores
-	.set adc_task.select.y.enable.cases.maxchanends,0 $M adc_task.select.y.case.3.maxchanends $M adc_task.select.y.case.2.maxchanends $M adc_task.select.y.case.1.maxchanends $M adc_task.select.y.case.0.maxchanends
-	.globl adc_task.select.y.enable.cases.maxchanends
-	.set adc_task.select.y.enable.cases,0
-	.globl adc_task.select.y.enable.cases
-	.set adc_task.select.y.enable.cases.nstackwords, 0 $M (adc_task.select.y.case.1.nstackwords) $M (adc_task.select.y.case.2.nstackwords) $M (adc_task.select.y.case.0.nstackwords) $M (adc_task.select.y.case.3.nstackwords)
-	.globl adc_task.select.y.enable.cases.nstackwords
+	.set adc_task.select.yield.enable.savedstate,10
+	.globl adc_task.select.yield.enable.savedstate
+	.set adc_task.select.yield.enable.cases.maxtimers,0 $M adc_task.select.yield.case.3.maxtimers $M adc_task.select.yield.case.2.maxtimers $M adc_task.select.yield.case.1.maxtimers $M adc_task.select.yield.case.0.maxtimers
+	.globl adc_task.select.yield.enable.cases.maxtimers
+	.set adc_task.select.yield.enable.cases.maxcores,0 $M adc_task.select.yield.case.3.maxcores $M adc_task.select.yield.case.2.maxcores $M adc_task.select.yield.case.1.maxcores $M adc_task.select.yield.case.0.maxcores
+	.globl adc_task.select.yield.enable.cases.maxcores
+	.set adc_task.select.yield.enable.cases.maxchanends,0 $M adc_task.select.yield.case.3.maxchanends $M adc_task.select.yield.case.2.maxchanends $M adc_task.select.yield.case.1.maxchanends $M adc_task.select.yield.case.0.maxchanends
+	.globl adc_task.select.yield.enable.cases.maxchanends
+	.set adc_task.select.yield.enable.cases,0
+	.globl adc_task.select.yield.enable.cases
+	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.2.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.3.nstackwords)
+	.globl adc_task.select.yield.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate
 	.set adc_task.select.enable.cases.maxtimers,0 $M adc_task.select.case.3.maxtimers $M adc_task.select.case.2.maxtimers $M adc_task.select.case.1.maxtimers $M adc_task.select.case.0.maxtimers
@@ -99,7 +99,7 @@
 	.weak _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.globl _i.startkit_adc_acquire_if._client_call_y.fns.group
 	.add_to_set _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, (__interface_client_call_y_other.nstackwords + __interface_client_call_y_extra.nstackwords), __interface_client_call_y_other
-	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other
+	.add_to_set _i.startkit_adc_acquire_if._client_call_y.fns.group, __interface_client_call_y_other, __interface_client_call_y_other
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.max.nstackwords, _i.startkit_adc_acquire_if._client_call_y.nstackwords.group, 0
 	.max_reduce _i.startkit_adc_acquire_if._client_call_y.fns, _i.startkit_adc_acquire_if._client_call_y.fns.group, 0
 	.set usage.anon.0,0
@@ -432,11 +432,11 @@ _i.startkit_adc_acquire_if._chan.trigger:
 	.size	_i.startkit_adc_acquire_if._chan.trigger, .Ltmp25-_i.startkit_adc_acquire_if._chan.trigger
 	.cfi_endproc
 
-	.weak	_i.startkit_adc_acquire_if._chan_y.read
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read
 	.align	4
-	.type	_i.startkit_adc_acquire_if._chan_y.read,@function
-	.cc_top _i.startkit_adc_acquire_if._chan_y.read.function,_i.startkit_adc_acquire_if._chan_y.read
-_i.startkit_adc_acquire_if._chan_y.read:
+	.type	_i.startkit_adc_acquire_if._chan_yield.read,@function
+	.cc_top _i.startkit_adc_acquire_if._chan_yield.read.function,_i.startkit_adc_acquire_if._chan_yield.read
+_i.startkit_adc_acquire_if._chan_yield.read:
 	.cfi_startproc
 	entsp 6
 .Ltmp26:
@@ -484,28 +484,28 @@ _i.startkit_adc_acquire_if._chan_y.read:
 	ldw r4, sp[5]
 	retsp 6
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.startkit_adc_acquire_if._chan_y.read.function
-	.set	_i.startkit_adc_acquire_if._chan_y.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 6)
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.nstackwords
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.nstackwords
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxcores
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxcores
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxtimers
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxtimers
-	.set	_i.startkit_adc_acquire_if._chan_y.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.read.maxchanends
-	.weak	_i.startkit_adc_acquire_if._chan_y.read.maxchanends
+	.cc_bottom _i.startkit_adc_acquire_if._chan_yield.read.function
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 6)
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.nstackwords
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxcores
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxcores
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxtimers
+	.set	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends
+	.weak	_i.startkit_adc_acquire_if._chan_yield.read.maxchanends
 .Ltmp32:
-	.size	_i.startkit_adc_acquire_if._chan_y.read, .Ltmp32-_i.startkit_adc_acquire_if._chan_y.read
+	.size	_i.startkit_adc_acquire_if._chan_yield.read, .Ltmp32-_i.startkit_adc_acquire_if._chan_yield.read
 	.cfi_endproc
 
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger
 	.align	4
-	.type	_i.startkit_adc_acquire_if._chan_y.trigger,@function
-	.cc_top _i.startkit_adc_acquire_if._chan_y.trigger.function,_i.startkit_adc_acquire_if._chan_y.trigger
-_i.startkit_adc_acquire_if._chan_y.trigger:
+	.type	_i.startkit_adc_acquire_if._chan_yield.trigger,@function
+	.cc_top _i.startkit_adc_acquire_if._chan_yield.trigger.function,_i.startkit_adc_acquire_if._chan_yield.trigger
+_i.startkit_adc_acquire_if._chan_yield.trigger:
 	.cfi_startproc
 	entsp 3
 .Ltmp33:
@@ -537,21 +537,21 @@ _i.startkit_adc_acquire_if._chan_y.trigger:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.startkit_adc_acquire_if._chan_y.trigger.function
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.nstackwords
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxcores
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxtimers
-	.set	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends
-	.weak	_i.startkit_adc_acquire_if._chan_y.trigger.maxchanends
+	.cc_bottom _i.startkit_adc_acquire_if._chan_yield.trigger.function
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords) $M _i.startkit_adc_acquire_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.startkit_adc_acquire_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.nstackwords
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.startkit_adc_acquire_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxcores
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.startkit_adc_acquire_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxtimers
+	.set	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.startkit_adc_acquire_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends
+	.weak	_i.startkit_adc_acquire_if._chan_yield.trigger.maxchanends
 .Ltmp37:
-	.size	_i.startkit_adc_acquire_if._chan_y.trigger, .Ltmp37-_i.startkit_adc_acquire_if._chan_y.trigger
+	.size	_i.startkit_adc_acquire_if._chan_yield.trigger, .Ltmp37-_i.startkit_adc_acquire_if._chan_yield.trigger
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -1141,11 +1141,11 @@ adc_task.init.0:
 	.size	adc_task.init.0, .Ltmp115-adc_task.init.0
 	.cfi_endproc
 
-	.globl	adc_task.select.y.enable
+	.globl	adc_task.select.yield.enable
 	.align	4
-	.type	adc_task.select.y.enable,@function
-	.cc_top adc_task.select.y.enable.function,adc_task.select.y.enable
-adc_task.select.y.enable:
+	.type	adc_task.select.yield.enable,@function
+	.cc_top adc_task.select.yield.enable.function,adc_task.select.yield.enable
+adc_task.select.yield.enable:
 	.cfi_startproc
 	entsp 3
 .Ltmp116:
@@ -1165,7 +1165,7 @@ adc_task.select.y.enable:
 	ldw r0, r4[2]
 	ldw r0, r0[0]
 	bf r0, .LBB10_3
-	ldap r11, adc_task.select.y.case.0
+	ldap r11, adc_task.select.yield.case.0
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -1188,7 +1188,7 @@ adc_task.select.y.enable:
 	stw r2, r3[r11]
 	setd res[r0], r1
 	setc res[r0], 9
-	ldap r11, adc_task.select.y.case.1
+	ldap r11, adc_task.select.yield.case.1
 	setv res[r0], r11
 	mov r11, r4
 	setev res[r0], r11
@@ -1215,7 +1215,7 @@ adc_task.select.y.enable:
 	stw r3, r5[r11]
 	setd res[r1], r2
 	setc res[r1], 9
-	ldap r11, adc_task.select.y.case.2
+	ldap r11, adc_task.select.yield.case.2
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
@@ -1226,7 +1226,7 @@ adc_task.select.y.enable:
 	mkmsk r0, 1
 	bf r1, .LBB10_14
 	ldw r1, r4[3]
-	ldap r11, adc_task.select.y.case.3
+	ldap r11, adc_task.select.yield.case.3
 	setv res[r1], r11
 	mov r11, r4
 	setev res[r1], r11
@@ -1239,17 +1239,17 @@ adc_task.select.y.enable:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom adc_task.select.y.enable.function
-	.set	adc_task.select.y.enable.nstackwords,(adc_task.init.1.nstackwords + 3)
-	.globl	adc_task.select.y.enable.nstackwords
-	.set	adc_task.select.y.enable.maxcores,adc_task.init.1.maxcores $M 1
-	.globl	adc_task.select.y.enable.maxcores
-	.set	adc_task.select.y.enable.maxtimers,adc_task.init.1.maxtimers $M 0
-	.globl	adc_task.select.y.enable.maxtimers
-	.set	adc_task.select.y.enable.maxchanends,adc_task.init.1.maxchanends $M 0
-	.globl	adc_task.select.y.enable.maxchanends
+	.cc_bottom adc_task.select.yield.enable.function
+	.set	adc_task.select.yield.enable.nstackwords,(adc_task.init.1.nstackwords + 3)
+	.globl	adc_task.select.yield.enable.nstackwords
+	.set	adc_task.select.yield.enable.maxcores,adc_task.init.1.maxcores $M 1
+	.globl	adc_task.select.yield.enable.maxcores
+	.set	adc_task.select.yield.enable.maxtimers,adc_task.init.1.maxtimers $M 0
+	.globl	adc_task.select.yield.enable.maxtimers
+	.set	adc_task.select.yield.enable.maxchanends,adc_task.init.1.maxchanends $M 0
+	.globl	adc_task.select.yield.enable.maxchanends
 .Ltmp120:
-	.size	adc_task.select.y.enable, .Ltmp120-adc_task.select.y.enable
+	.size	adc_task.select.yield.enable, .Ltmp120-adc_task.select.yield.enable
 	.cfi_endproc
 
 	.globl	adc_task.select.enable
@@ -2054,9 +2054,9 @@ adc_task.select.0.case.0:
 	.cc_bottom .LCPI19_0.data
 	.text
 	.align	4
-	.type	adc_task.select.y.case.0,@function
-	.cc_top adc_task.select.y.case.0.function,adc_task.select.y.case.0
-adc_task.select.y.case.0:
+	.type	adc_task.select.yield.case.0,@function
+	.cc_top adc_task.select.yield.case.0.function,adc_task.select.yield.case.0
+adc_task.select.yield.case.0:
 .Lfunc_begin19:
 	.loc	1 83 0
 	.cfi_startproc
@@ -2218,13 +2218,13 @@ adc_task.select.y.case.0:
 	ldaw sp, sp[2]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom adc_task.select.y.case.0.function
-	.set	adc_task.select.y.case.0.nstackwords,2
-	.set	adc_task.select.y.case.0.maxcores,1
-	.set	adc_task.select.y.case.0.maxtimers,0
-	.set	adc_task.select.y.case.0.maxchanends,0
+	.cc_bottom adc_task.select.yield.case.0.function
+	.set	adc_task.select.yield.case.0.nstackwords,2
+	.set	adc_task.select.yield.case.0.maxcores,1
+	.set	adc_task.select.yield.case.0.maxtimers,0
+	.set	adc_task.select.yield.case.0.maxchanends,0
 .Ltmp174:
-	.size	adc_task.select.y.case.0, .Ltmp174-adc_task.select.y.case.0
+	.size	adc_task.select.yield.case.0, .Ltmp174-adc_task.select.yield.case.0
 .Lfunc_end19:
 	.cfi_endproc
 
@@ -2238,9 +2238,9 @@ adc_task.select.y.case.0:
 	.cc_bottom .LCPI20_0.data
 	.text
 	.align	4
-	.type	adc_task.select.y.case.1,@function
-	.cc_top adc_task.select.y.case.1.function,adc_task.select.y.case.1
-adc_task.select.y.case.1:
+	.type	adc_task.select.yield.case.1,@function
+	.cc_top adc_task.select.yield.case.1.function,adc_task.select.yield.case.1
+adc_task.select.yield.case.1:
 .Lfunc_begin20:
 	.loc	1 97 0
 	.cfi_startproc
@@ -2297,13 +2297,13 @@ adc_task.select.y.case.1:
 	stw r1, r0[0]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom adc_task.select.y.case.1.function
-	.set	adc_task.select.y.case.1.nstackwords,0
-	.set	adc_task.select.y.case.1.maxcores,1
-	.set	adc_task.select.y.case.1.maxtimers,0
-	.set	adc_task.select.y.case.1.maxchanends,0
+	.cc_bottom adc_task.select.yield.case.1.function
+	.set	adc_task.select.yield.case.1.nstackwords,0
+	.set	adc_task.select.yield.case.1.maxcores,1
+	.set	adc_task.select.yield.case.1.maxtimers,0
+	.set	adc_task.select.yield.case.1.maxchanends,0
 .Ltmp179:
-	.size	adc_task.select.y.case.1, .Ltmp179-adc_task.select.y.case.1
+	.size	adc_task.select.yield.case.1, .Ltmp179-adc_task.select.yield.case.1
 .Lfunc_end20:
 	.cfi_endproc
 
@@ -2317,9 +2317,9 @@ adc_task.select.y.case.1:
 	.cc_bottom .LCPI21_0.data
 	.text
 	.align	4
-	.type	adc_task.select.y.case.2,@function
-	.cc_top adc_task.select.y.case.2.function,adc_task.select.y.case.2
-adc_task.select.y.case.2:
+	.type	adc_task.select.yield.case.2,@function
+	.cc_top adc_task.select.yield.case.2.function,adc_task.select.yield.case.2
+adc_task.select.yield.case.2:
 .Lfunc_begin21:
 	.loc	1 112 0
 	.cfi_startproc
@@ -2381,20 +2381,20 @@ adc_task.select.y.case.2:
 	stw r1, r0[0]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom adc_task.select.y.case.2.function
-	.set	adc_task.select.y.case.2.nstackwords,0
-	.set	adc_task.select.y.case.2.maxcores,1
-	.set	adc_task.select.y.case.2.maxtimers,0
-	.set	adc_task.select.y.case.2.maxchanends,0
+	.cc_bottom adc_task.select.yield.case.2.function
+	.set	adc_task.select.yield.case.2.nstackwords,0
+	.set	adc_task.select.yield.case.2.maxcores,1
+	.set	adc_task.select.yield.case.2.maxtimers,0
+	.set	adc_task.select.yield.case.2.maxchanends,0
 .Ltmp184:
-	.size	adc_task.select.y.case.2, .Ltmp184-adc_task.select.y.case.2
+	.size	adc_task.select.yield.case.2, .Ltmp184-adc_task.select.yield.case.2
 .Lfunc_end21:
 	.cfi_endproc
 
 	.align	4
-	.type	adc_task.select.y.case.3,@function
-	.cc_top adc_task.select.y.case.3.function,adc_task.select.y.case.3
-adc_task.select.y.case.3:
+	.type	adc_task.select.yield.case.3,@function
+	.cc_top adc_task.select.yield.case.3.function,adc_task.select.yield.case.3
+adc_task.select.yield.case.3:
 .Lfunc_begin22:
 	.loc	1 129 0
 	.cfi_startproc
@@ -2458,13 +2458,13 @@ adc_task.select.y.case.3:
 	retsp 0
 	# RETURN_REG_HOLDER
 .Ltmp192:
-	.cc_bottom adc_task.select.y.case.3.function
-	.set	adc_task.select.y.case.3.nstackwords,1
-	.set	adc_task.select.y.case.3.maxcores,1
-	.set	adc_task.select.y.case.3.maxtimers,0
-	.set	adc_task.select.y.case.3.maxchanends,0
+	.cc_bottom adc_task.select.yield.case.3.function
+	.set	adc_task.select.yield.case.3.nstackwords,1
+	.set	adc_task.select.yield.case.3.maxcores,1
+	.set	adc_task.select.yield.case.3.maxtimers,0
+	.set	adc_task.select.yield.case.3.maxchanends,0
 .Ltmp193:
-	.size	adc_task.select.y.case.3, .Ltmp193-adc_task.select.y.case.3
+	.size	adc_task.select.yield.case.3, .Ltmp193-adc_task.select.yield.case.3
 .Lfunc_end22:
 	.cfi_endproc
 
@@ -2911,10 +2911,10 @@ adc_sample:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.2.4/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.2.4 (build 15898, Dec-20-2016)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.1 (build 25370, Aug-31-2017)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
 .Linfo_string2:
@@ -2940,9 +2940,9 @@ adc_sample:
 .Linfo_string12:
 .asciiz"_i.startkit_adc_acquire_if._chan.trigger"
 .Linfo_string13:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.read"
 .Linfo_string14:
-.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.trigger"
 .Linfo_string15:
 .asciiz"delay_seconds"
 .Linfo_string16:
@@ -2964,15 +2964,15 @@ adc_sample:
 .Linfo_string24:
 .asciiz"adc_task.init.0"
 .Linfo_string25:
-.asciiz"adc_task.select.y.case.0"
+.asciiz"adc_task.select.yield.case.0"
 .Linfo_string26:
-.asciiz"adc_task.select.y.case.1"
+.asciiz"adc_task.select.yield.case.1"
 .Linfo_string27:
-.asciiz"adc_task.select.y.case.2"
+.asciiz"adc_task.select.yield.case.2"
 .Linfo_string28:
-.asciiz"adc_task.select.y.case.3"
+.asciiz"adc_task.select.yield.case.3"
 .Linfo_string29:
-.asciiz"adc_task.select.y.enable"
+.asciiz"adc_task.select.yield.enable"
 .Linfo_string30:
 .asciiz"adc_task.select.case.0"
 .Linfo_string31:
@@ -2994,7 +2994,7 @@ adc_sample:
 .Linfo_string39:
 .asciiz"sizetype"
 .Linfo_string40:
-.asciiz"last_notification_input"
+.asciiz"clientNotifyFlag"
 .Linfo_string41:
 .asciiz"adc_val"
 .Linfo_string42:
@@ -3042,9 +3042,9 @@ adc_sample:
 .Linfo_string63:
 .asciiz"s"
 .Linfo_string64:
-.asciiz"y"
+.asciiz"yield"
 .Linfo_string65:
-.asciiz"yarg"
+.asciiz"yieldArg"
 .Linfo_string66:
 .asciiz"delay"
 .Linfo_string67:
@@ -4864,12 +4864,10 @@ adc_sample:
 	.long	.L.debug_info_begin0
 .Lset54 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset54
-	.long	60
-.asciiz"_i.startkit_adc_acquire_if.adc_task._c0.read"
 	.long	31
 .asciiz"adc_sample"
 	.long	1194
-.asciiz"_i.startkit_adc_acquire_if._chan_y.trigger"
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.trigger"
 	.long	748
 .asciiz"adc_task.select.0.case.0"
 	.long	1132
@@ -4888,40 +4886,42 @@ adc_sample:
 .asciiz"get_adc_data"
 	.long	658
 .asciiz"init_adc_periph"
+	.long	1365
+.asciiz"adc_task.select.yield.enable"
 	.long	618
 .asciiz"init_adc_network"
-	.long	1365
-.asciiz"adc_task.select.y.enable"
 	.long	1413
 .asciiz"adc_task.fini"
 	.long	939
 .asciiz"adc_task.select.case.0"
-	.long	986
-.asciiz"adc_task.select.case.1"
+	.long	1152
+.asciiz"_i.startkit_adc_acquire_if._chan_yield.read"
 	.long	1004
 .asciiz"adc_task.select.case.2"
 	.long	1022
 .asciiz"adc_task.select.case.3"
-	.long	1152
-.asciiz"_i.startkit_adc_acquire_if._chan_y.read"
-	.long	125
-.asciiz"_i.startkit_adc_acquire_if.adc_task._c0.trigger"
+	.long	986
+.asciiz"adc_task.select.case.1"
+	.long	795
+.asciiz"adc_task.select.yield.case.0"
+	.long	842
+.asciiz"adc_task.select.yield.case.1"
 	.long	1262
 .asciiz"delay_microseconds"
-	.long	795
-.asciiz"adc_task.select.y.case.0"
-	.long	842
-.asciiz"adc_task.select.y.case.1"
+	.long	860
+.asciiz"adc_task.select.yield.case.2"
 	.long	878
-.asciiz"adc_task.select.y.case.3"
+.asciiz"adc_task.select.yield.case.3"
+	.long	125
+.asciiz"_i.startkit_adc_acquire_if.adc_task._c0.trigger"
 	.long	1083
 .asciiz"_i.startkit_adc_acquire_if._chan.read"
 	.long	1286
 .asciiz"adc_task.select.0.enable"
 	.long	1214
 .asciiz"delay_seconds"
-	.long	860
-.asciiz"adc_task.select.y.case.2"
+	.long	60
+.asciiz"_i.startkit_adc_acquire_if.adc_task._c0.read"
 	.long	0
 .LpubNames_end0:
 	.section	.debug_pubtypes,"",@progbits
@@ -4936,12 +4936,12 @@ adc_sample:
 .asciiz"chanend"
 	.long	1483
 .asciiz"interface"
-	.long	1617
-.asciiz"yarg"
 	.long	1490
 .asciiz"timer"
 	.long	53
 .asciiz"port"
+	.long	1617
+.asciiz"yieldArg"
 	.long	206
 .asciiz"unsigned int"
 	.long	1502
@@ -4960,10 +4960,10 @@ adc_sample:
 	.overlay_reference _i.startkit_adc_acquire_if._chan.read,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring _i.startkit_adc_acquire_if._chan.trigger, "f{0}(chd)"
 	.overlay_reference _i.startkit_adc_acquire_if._chan.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.read, "l:f{si}(&(s(yarg){m(dest){chd},m(y){ui}}),ui,&(a(4:us)))"
-	.overlay_reference _i.startkit_adc_acquire_if._chan_y.read,_i.startkit_adc_acquire_if._client_call_y.fns
-	.typestring _i.startkit_adc_acquire_if._chan_y.trigger, "f{0}(&(s(yarg){m(dest){chd},m(y){ui}}))"
-	.overlay_reference _i.startkit_adc_acquire_if._chan_y.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
+	.typestring _i.startkit_adc_acquire_if._chan_yield.read, "l:f{si}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),ui,&(a(4:us)))"
+	.overlay_reference _i.startkit_adc_acquire_if._chan_yield.read,_i.startkit_adc_acquire_if._client_call_y.fns
+	.typestring _i.startkit_adc_acquire_if._chan_yield.trigger, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.startkit_adc_acquire_if._chan_yield.trigger,_i.startkit_adc_acquire_if._client_call_y.fns
 	.typestring write_sswitch_reg_no_ack, "f{si}(ui,ui,ui)"
 	.typestring read_node_config_reg, "f{si}(cr,ui,&(ui))"
 	.typestring write_node_config_reg, "f{si}(cr,ui,ui)"
@@ -4972,7 +4972,7 @@ adc_sample:
 	.typestring adc_task.select.0.enable, "k:fe{0}()"
 	.typestring adc_task.init.1, "k:f{0}(u:q(ui))"
 	.typestring adc_task.init.0, "k:f{0}(u:q(ui),is(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},chd,si)"
-	.typestring adc_task.select.y.enable, "k:fe{0}()"
+	.typestring adc_task.select.yield.enable, "k:fe{0}()"
 	.typestring adc_task.select.enable, "k:fe{0}()"
 	.typestring adc_task.fini, "k:f{0}(u:q(ui))"
 	.typestring get_adc_data, "f{0}(chd,&(ui))"
