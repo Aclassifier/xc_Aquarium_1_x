@@ -5400,10 +5400,10 @@ slider.select.case.0:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.1 (build 25370, Aug-31-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.2 (build 25550, Sep-30-2017)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
 .Linfo_string2:

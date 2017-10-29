@@ -126,14 +126,14 @@ outP_display_notReset.info:
 	.globread drawHorisontalLine_in_buffer,display_param,17,1,"../src/display_ssd1306.xc:302:13: note: object used here (bytes 17..18)\n    switch (display_param.rotation) {\n            ^~~~~~~~~~~~~~~~~~~~~~"
 	.globread drawHorisontalLine_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:315:17: note: object used here (bytes 2..4)\n            y = display_param.HEIGHT - y - 1;\n                ^~~~~~~~~~~~~~~~~~~~"
 	.globread drawHorisontalLine_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:310:17: note: object used here (bytes 0..2)\n            x = display_param.WIDTH - x - 1;\n                ^~~~~~~~~~~~~~~~~~~"
-	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:297:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:14:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
-	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:297:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:14:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
+	.globread fillSplashScreen_in_buffer,usage.anon.7,"../src/display_ssd1306.xc:297:21: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n                    ^~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:14:44: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                           ^\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:11:57: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                        ^"
+	.globread fillSplashScreen_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:297:13: note: object used here\n    memcpy (buffer, splash_buffer, SSD1306_BUFFER_SIZE);\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:14:40: note: expanded from macro \'memcpy\'\n#define memcpy(s1, s2, n) _safe_memcpy(s1, s2, n)\n                                       ^\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:11:53: note: expanded from macro \'_safe_memcpy\'\n#define _safe_memcpy(s1, s2, n) __builtin_memcpy_xc(s1, s2, n)\n                                                    ^"
 	.globread writeToDisplay_i2c_all_buffer,usage.anon.6,"../src/display_ssd1306.xc:280:23: note: object used here\n            data[x] = buffer[i];\n                      ^~~~~~~~~"
 	.globread setPixel_in_buffer,display_param,2,2,"../src/display_ssd1306.xc:131:21: note: object used here (bytes 2..4)\n                y = display_param.HEIGHT - y - 1;\n                    ^~~~~~~~~~~~~~~~~~~~"
 	.globread setPixel_in_buffer,display_param,0,2,"../src/display_ssd1306.xc:127:21: note: object used here (bytes 0..2)\n                x = display_param.WIDTH - x - 1;\n                    ^~~~~~~~~~~~~~~~~~~"
 	.globwrite drawVerticalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:430:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
 	.globwrite drawHorisontalLineInternal_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:354:30: note: object used here\n    register uint8_t *pBuf = buffer;\n                             ^~~~~~"
-	.globwrite Clear_All_Pixels_In_Buffer,usage.anon.6,"../src/display_ssd1306.xc:292:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:16:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
+	.globwrite Clear_All_Pixels_In_Buffer,usage.anon.6,"../src/display_ssd1306.xc:292:13: note: object used here\n    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));\n            ^~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:16:46: note: expanded from macro \'memset\'\n#define memset(s, c, n) _safe_memset((char *)s, c, n)\n                                             ^"
 	.globwrite setPixel_in_buffer,usage.anon.6,"../src/display_ssd1306.xc:142:27: note: object used here\n            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;\n                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.globwrite Adafruit_SSD1306_i2c_begin,outP_display_notReset,"../src/display_ssd1306.xc:71:5: note: object used here\n    outP_display_notReset <: 1; // High. Didn\'t help remove qwe\n    ^~~~~~~~~~~~~~~~~~~~~"
 	.call drawVerticalLine_in_buffer,drawVerticalLineInternal_in_buffer
@@ -179,8 +179,8 @@ outP_display_notReset.info:
 	.set writeDisplay_i2c_command.locnointerfaceaccess, 0
 	.set writeDisplay_i2c_data.locnointerfaceaccess, 0
 	.set writeToDisplay_i2c_all_buffer.locnointerfaceaccess, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/display_ssd1306.xc:16:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -1146,7 +1146,7 @@ Adafruit_SSD1306_i2c_begin:
 	out res[r7], r5
 .Ltmp93:
 	ldw r0, cp[.LCPI11_0]
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
 	.loc	2 55 0
 .Ltmp94:
 	mov r1, r5
@@ -3515,7 +3515,7 @@ Clear_All_Pixels_In_Buffer:
 .Ltmp424:
 	.cfi_offset 15, 0
 .Ltmp425:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h"
 	.loc	3 21 0 prologue_end
 	ldaw r0, dp[buffer]
 	ldc r1, 0
@@ -4555,7 +4555,7 @@ postmask:
 .Ldebug_end4:
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.1 (build 25370, Aug-31-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.2 (build 25550, Sep-30-2017)"
 .Linfo_string1:
 .asciiz"../src/display_ssd1306.xc"
 .Linfo_string2:
@@ -12945,7 +12945,7 @@ postmask:
 	.long	.Lxta.call_labels76
 .cc_bottom cc_77
 .cc_top cc_78,.Lxta.call_labels2
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
 	.byte	0
 	.long	55
 	.long	.Lxta.call_labels2
@@ -16224,14 +16224,14 @@ postmask:
 	.long	.Lxtalabel78
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel13
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
 	.byte	0
 	.long	55
 	.long	56
 	.long	.Lxtalabel13
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel30
-	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h"
+	.ascii	"/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h"
 	.byte	0
 	.long	19
 	.long	19

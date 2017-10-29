@@ -85,8 +85,8 @@
 	.set Tempchip_MCP9808_Shutdown_Wake_Ok.locnoside, 0
 	.set Tempchip_MCP9808_Write16.locnoside, 0
 	.set Tempchip_MCP9808_Read16.locnoside, 0
-	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
-	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
+	.assert 1,memset.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:21:3: error: passing non-local alias to function `memset\' which accesses a global variable\n  memset(s, c, n);\n  ^~~~~~~~~~~~~~~"
+	.assert 1,memmove.actnoglobalaccess,"In file included from ../src/tempchip_mcp9808.xc:15:\nIn file included from /Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/string.h:5:\n/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h:15:3: error: passing non-local alias to function `memmove\' which accesses a global variable\n  memmove(s1, s2, n);\n  ^~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -769,11 +769,11 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/timer.h"
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.1/target/include/xc/safe/string.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/safe/string.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.1 (build 25370, Aug-31-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.2 (build 25550, Sep-30-2017)"
 .Linfo_string1:
 .asciiz"../src/tempchip_mcp9808.xc"
 .Linfo_string2:

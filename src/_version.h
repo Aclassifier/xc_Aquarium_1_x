@@ -10,12 +10,13 @@
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR "14.3.1" // Works! Previous that worked was 14.2.4
+#define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4
                                            // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
 // #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.18"
-    //             06Oct2017 AQU=025 Compiled with 14.3.1. Works!
+#define APPLICATION_VERSION_STR "1.0.19" // 29Oct2017 back to Mac OS X (macOS) 10.11.6 El Capitan again
+    //                       AQU=026 See http://www.xcore.com/viewtopic.php?f=26&t=6138&p=30866#p30866
+    // "1.0.18" // 06Oct2017 AQU=025 Compiled with 14.3.1. Works!
     //                               Constraint check for tile[0]:
     //                                 Cores available:            8,   used:          7 .  OKAY
     //                                 Timers available:          10,   used:          8 .  OKAY
