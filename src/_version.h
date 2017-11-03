@@ -10,8 +10,8 @@
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4
-                                           // Tried 14.3.0 27Jul2017 and found no way in mains.c
+#define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
+                                           // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
 #define FLASH_BLACK_BOARD // NEVER for aquarium!
 #define APPLICATION_VERSION_STR "1.0.20"
