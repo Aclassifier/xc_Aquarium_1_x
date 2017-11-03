@@ -13,9 +13,9 @@ typedef enum iof_LED_strip_t {
     IOF_LED_STRIP_BACK
 } iof_LED_strip_t;
 
-#define NUM_LIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
-#define NUM_LIGHT_COMPOSITION_LEVELS 13
-#define NUM_LIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUM_LIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022
+#define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
+#define NUMLIGHT_COMPOSITION_LEVELS 13
+#define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022
 
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
@@ -31,21 +31,21 @@ typedef enum light_composition_t {
     //                #### mW                                // depends on value      |
     LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // 0                     | All windows dark, of course
     LIGHT_COMPOSITION_0666_mW_ON                      =  1 , // 1                     | Two time windows are fully dark
-    LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM =  2,  // 2                     |
-    LIGHT_COMPOSITION_2666_mW_ON                      =  3,
-    LIGHT_COMPOSITION_3333_mW_ON                      =  4,
-    LIGHT_COMPOSITION_4000_mW_ON                      =  5,
-    LIGHT_COMPOSITION_5666_mW_ON                      =  6,
-    LIGHT_COMPOSITION_8333_mW_ON                      =  7,
-    LIGHT_COMPOSITION_9000_mW_ON                      =  8, // All = 9W qwe I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM =  2,  // 2                     |
+    LIGHT_COMPOSITION_3333_mW_ON                      =  3,
+    LIGHT_COMPOSITION_4666_mW_ON                      =  4,
+    LIGHT_COMPOSITION_6000_mW_ON                      =  5,
+    LIGHT_COMPOSITION_7666_mW_ON                      =  6,
+    LIGHT_COMPOSITION_10333_mW_ON                     =  7,
+    LIGHT_COMPOSITION_11000_mW_ON                     =  8, // All = 9W qwe I can hear a sound from the LEDs!
     //
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
 
-    LIGHT_COMPOSITION_6000_mW_ON                      =  9, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_3000_mW_ON                      = 10, // NUM_LIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_2000_mW_ON_WHITE                = 11,
+    LIGHT_COMPOSITION_7333_mW_ON                      =  9, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_3666_mW_ON                      = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_4000_mW_ON_WHITE                = 11,
     LIGHT_COMPOSITION_5000_mW_ON                      = 12
-    // NUM_LIGHT_COMPOSITION_LEVELS                   = 13
+    // NUMLIGHT_COMPOSITION_LEVELS                   = 13
 } light_composition_t;
 
 typedef enum light_control_scheme_t {
@@ -59,9 +59,9 @@ typedef enum light_control_scheme_t {
 } light_control_scheme_t;
 
 typedef enum {
-    WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W white  3000K, 380 lm)
-    WATTOF_LED_STRIP_CENTER = 2, // CENTER (2W whiter 3200K)
-    WATTOF_LED_STRIP_BACK   = 2  // BACK   (2W blue   465nm)
+    WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W   white  3000K, 380 lm)
+    WATTOF_LED_STRIP_CENTER = 4, // CENTER (2*2W whiter 3200K) AQU=027: MAX was 9W, now 11W
+    WATTOF_LED_STRIP_BACK   = 2  // BACK   (2W   blue   465nm)
 } wattOf_LED_strip_t;
 
 typedef enum heat_cable_commands_t {

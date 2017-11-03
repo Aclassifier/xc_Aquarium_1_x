@@ -96,18 +96,18 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F) // Latest is when NORMAL_LIGHT_IS_FULL
 
-    // LIGHT_COMPOSITION_3000_mW_ON, LIGHT_COMPOSITION_6000_mW_ON
+    // LIGHT_COMPOSITION_3666_mW_ON, LIGHT_COMPOSITION_7333_mW_ON
     // not using it here because FRONT1 in the sequence is too dominant
 
-    //   hours   minutes                                                    light_composition_t IOF_TIMED
-    //               LIGHT_COMPOSITION_9000_mW_ON                        /* 8            |  */
+    //   hours   minutes                                                 light_composition_t IOF_TIMED
+    //               LIGHT_COMPOSITION_11000_mW_ON                       /* 8            |  */
     #define TIMED_DAY_TO_NIGHT_LIST_INIT                                 /*              |  */\
-        {HH_A, MM_B, LIGHT_COMPOSITION_8333_mW_ON},                      /* 7            IOF_TIMED_DAY_TO_NIGHT_LIST_START muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
-        {  22,    6, LIGHT_COMPOSITION_5666_mW_ON},                      /* 6            IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE */\
-        {  22,    9, LIGHT_COMPOSITION_4000_mW_ON},                      /* 5            2  */\
-        {  22,   12, LIGHT_COMPOSITION_3333_mW_ON},                      /* 4            3  */\
-        {  22,   15, LIGHT_COMPOSITION_2666_mW_ON},                      /* 3            4  */\
-        {  22,   18, LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            5  */\
+        {HH_A, MM_B, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_DAY_TO_NIGHT_LIST_START muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
+        {  22,    6, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE */\
+        {  22,    9, LIGHT_COMPOSITION_6000_mW_ON},                      /* 5            2  */\
+        {  22,   12, LIGHT_COMPOSITION_4666_mW_ON},                      /* 4            3  */\
+        {  22,   15, LIGHT_COMPOSITION_3333_mW_ON},                      /* 3            4  */\
+        {  22,   18, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            5  */\
         {  22,   21, LIGHT_COMPOSITION_0666_mW_ON},                      /* 1            6  */\
         {  22,   30, LIGHT_COMPOSITION_0000_mW_OFF}                      /* 0            IOF_TIMED_DAY_TO_NIGHT_LIST_LAST */
                                                                          /*              |  */
@@ -115,13 +115,13 @@ typedef struct light_sunrise_sunset_context_t {
     //               LIGHT_COMPOSITION_0000_mW_OFF                       /* 0            |  */
     #define TIMED_NIGHT_TO_DAY_LIST_INIT                                 /*              |  */\
         {HH_C, MM_D, LIGHT_COMPOSITION_0666_mW_ON},                      /* 1            IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   8,    3, LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            9  */\
-        {   8,    6, LIGHT_COMPOSITION_2666_mW_ON},                      /* 3            10 */\
-        {   8,    9, LIGHT_COMPOSITION_3333_mW_ON},                      /* 4            11 */\
-        {   8,   12, LIGHT_COMPOSITION_4000_mW_ON},                      /* 5            12 */\
-        {   8,   15, LIGHT_COMPOSITION_5666_mW_ON},                      /* 6            13 */\
-        {   8,   21, LIGHT_COMPOSITION_8333_mW_ON},                      /* 7            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
-        {HH_E, MM_F, LIGHT_COMPOSITION_9000_mW_ON}                       /* 8            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST */
+        {   8,    3, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            9  */\
+        {   8,    6, LIGHT_COMPOSITION_3333_mW_ON},                      /* 3            10 */\
+        {   8,    9, LIGHT_COMPOSITION_4666_mW_ON},                      /* 4            11 */\
+        {   8,   12, LIGHT_COMPOSITION_6000_mW_ON},                      /* 5            12 */\
+        {   8,   15, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            13 */\
+        {   8,   21, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
+        {HH_E, MM_F, LIGHT_COMPOSITION_11000_mW_ON}                      /* 8            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST */
     #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) 0
 
 #else //  DEBUG_TEST_DAY_NIGHT_DAY
@@ -129,27 +129,27 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((22 * 60) + 30)
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 41)
     //   hours   minutes
-    //                   LIGHT_COMPOSITION_9000_mW_ON
+    //                   LIGHT_COMPOSITION_11000_mW_ON
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {    22,     30, LIGHT_COMPOSITION_8333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
-        {    22,     31, LIGHT_COMPOSITION_5666_mW_ON}, \
-        {    22,     34, LIGHT_COMPOSITION_4000_mW_ON}, \
-        {    22,     36, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     37, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     38, LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM}, \
+        {    22,     30, LIGHT_COMPOSITION_10333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
+        {    22,     31, LIGHT_COMPOSITION_7666_mW_ON}, \
+        {    22,     34, LIGHT_COMPOSITION_6000_mW_ON}, \
+        {    22,     36, LIGHT_COMPOSITION_4666_mW_ON}, \
+        {    22,     37, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     38, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, \
         {    22,     39, LIGHT_COMPOSITION_0666_mW_ON}, \
         {    22,     40, LIGHT_COMPOSITION_0000_mW_OFF}
     //   hours   minutes
     //                   LIGHT_COMPOSITION_0000_mW_OFF
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
         {    22,     41, LIGHT_COMPOSITION_0666_mW_ON},  /* NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START */ \
-        {    22,     42, LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM}, \
-        {    22,     43, LIGHT_COMPOSITION_2666_mW_ON}, \
-        {    22,     44, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     45, LIGHT_COMPOSITION_4000_mW_ON}, \
-        {    22,     47, LIGHT_COMPOSITION_5666_mW_ON}, \
-        {    22,     49, LIGHT_COMPOSITION_8333_mW_ON}, \
-        {    22,     53, LIGHT_COMPOSITION_9000_mW_ON}
+        {    22,     42, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, \
+        {    22,     43, LIGHT_COMPOSITION_3333_mW_ON}, \
+        {    22,     44, LIGHT_COMPOSITION_4666_mW_ON}, \
+        {    22,     45, LIGHT_COMPOSITION_6000_mW_ON}, \
+        {    22,     47, LIGHT_COMPOSITION_7666_mW_ON}, \
+        {    22,     49, LIGHT_COMPOSITION_10333_mW_ON}, \
+        {    22,     53, LIGHT_COMPOSITION_11000_mW_ON}
 
         #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) ((NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START-((hour_now*60)+min_now))+1) // +1 so that it will start at DEBUG time, not when passed
 #endif

@@ -13,9 +13,11 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4
                                            // Tried 14.3.0 27Jul2017 and found no way in mains.c
 
-// #define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.19" // 29Oct2017 back to Mac OS X (macOS) 10.11.6 El Capitan again
-    //                       AQU=026 See http://www.xcore.com/viewtopic.php?f=26&t=6138&p=30866#p30866
+#define FLASH_BLACK_BOARD // NEVER for aquarium!
+#define APPLICATION_VERSION_STR "1.0.20"
+    //             03Nov2017 AQU=027 Adding another 3200K LED of type 36-3848 North Light LED strip bought at Clas Ohlson, so the center is now 2*2W=4W. MAX now 11W, not 9W
+    // "1.0.19" // 29Oct2017 AQU=026 Back to Mac OS X (macOS) 10.11.6 El Capitan again
+    //                               See http://www.xcore.com/viewtopic.php?f=26&t=6138&p=30866#p30866
     // "1.0.18" // 06Oct2017 AQU=025 Compiled with 14.3.1. Works!
     //                               Constraint check for tile[0]:
     //                                 Cores available:            8,   used:          7 .  OKAY
@@ -76,7 +78,7 @@
     //                       AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
     //                       AQU=013 Max "1.0.12" with 6 visible chars allowed (was 5) (tested ok)
     // "1.0.8" // 18Jul2017          Tagged VER_1_0_8_with_fishes
-    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_2000_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
+    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
     //                       AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
     //                       AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
     // "1.0.7" // 17Jul2017          Tagged VER_1_0_7_with_fishes
@@ -86,7 +88,7 @@
     // "1.0.4" // 15Jul2017          Tagged VER_1_0_4_with_fishes
     //                       AQU=006 DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
     // "1.0.3" // 15Jul2017  AQU=005 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
-    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_2000_mW_ON_WHITE etc) (tested ok)
+    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_4000_mW_ON_WHITE etc) (tested ok)
     // "1.0.1" // 07Jul2017  AQU=003 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)
     //  1.0.0  // 21May2017  AQU=001 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()

@@ -501,7 +501,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      NORM %s            %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                            // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                 // "5"
-                          WATTOF_LED_STRIP_CENTER,                                                                                // "2"
+                          WATTOF_LED_STRIP_CENTER,                                                                                // "4"
                           WATTOF_LED_STRIP_BACK,                                                                                  // "2"
                           context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                    // "1"
                           context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                   // "2"
@@ -514,7 +514,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           context.light_composition,                                                                              // 10
                           left_of_minutes_or_count_str);                                                                          // M:2 or T:8 or ...
                     //                                            ..........----------.
-                    //                                            ±3 LYS F:5W M:2W B:2W
+                    //                                            ±3 LYS F:5W M:4W B:2W
                     //                                                   1/3  2/3  3/3.
                     //                                            ±      NORM 3/3
                     //                                                   INIT ± 10 M:12
