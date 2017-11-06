@@ -490,7 +490,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // AQU=023: is 1 the last 60 seconds
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
-                                (light_sunrise_sunset_context.light_change_window_open) ? ":" : char_triple_bar,
+                                (light_sunrise_sunset_context.light_change_window_allowed_day_time_by_clock) ? ":" : char_triple_bar,
                                  light_sunrise_sunset_context.num_random_sequences_left);
                     } else {
                         sprintf (left_of_minutes_or_count_str, "..."); // In effect, all random sequences used today
@@ -498,7 +498,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      NORM %s            %s%s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s            %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                            // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                 // "5"
                           WATTOF_LED_STRIP_CENTER,                                                                                // "4"
@@ -507,6 +507,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                   // "2"
                           context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                     // "3"
                           takes_press_for_10_seconds_right_button_str,                                                            // "±"
+                          (light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu) ? "NORM" : "FAST",          // "NORM" or "FAST" (meaning "STEADY")
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                                       // "3/3" or "2/3
                           (control_scheme_add_leading_space) ? " " : "",                                                          // So that " INIT" and "  DAG" will be left aligned first visible char
                           light_control_scheme_str,                                                                               // "NATT" etc.
@@ -546,18 +547,28 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
                     // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                     // called at least once per minute, in practice once per second
-                    light_sunrise_sunset_context.normal_light_changed = (light_sunrise_sunset_context.normal_light != light_sunrise_sunset_context.normal_light_next);
-                    light_sunrise_sunset_context.normal_light         =  light_sunrise_sunset_context.normal_light_next;
+                    light_sunrise_sunset_context.normal_light_changed =
+                        (light_sunrise_sunset_context.normal_light != light_sunrise_sunset_context.normal_light_next);
+                    light_sunrise_sunset_context.normal_light = light_sunrise_sunset_context.normal_light_next;
 
                     if (light_sunrise_sunset_context.normal_light_changed) {
                         light_sunrise_sunset_context.do_FRAM_write = true;
                         light_sunrise_sunset_context.normal_light_in_FRAM_memory = light_sunrise_sunset_context.normal_light;
                     } else {}
 
+                    if ((light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu == true) and (light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next == false)) {
+                        // From normal light change every hour to steady
+                        light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_changed_to_not_allowed = true; // Will be cleared at num_minutes_left_of_random, if not it will be taken at night
+                    } else {}
+                    //
+                    light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu      = light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next;
+                    light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next = false;
+
                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     // context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
                     context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+                    light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
                 } break;
 
                 case SUB_STATE_02:    // Even number from IOF_BUTTON_CENTER ("edit")
@@ -583,7 +594,35 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     setTextSize(2);
                     setCursor(0,14);
 
-                    display_print ("NORM ", 5);
+                    // First this..
+                    if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 == 0) {
+                        light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next = true; // AQU=030 "NORM", but only after sequence abd back again
+                    } else {}
+                    // ..then this..
+                    light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4++; // CNT UP TO 1,2 (="NORM") or 3,4 (="FAST") ie. "STEADY"
+                    // ..then these:
+                    // cnt=  screen_3_lysregulering_center_button_cnt_1to4, one count per center button press:
+                    // cnt=1 displayed as "NORM 3/3" or "NORM 2/3"
+                    // cnt=2 displayed as "NORM 2/3" or "NORM 2/3"
+                    // cnt=3 displayed as "FAST 3/3" or "FAST 2/3"
+                    // cnt=4 displayed as "FAST 2/3" or "FAST 3/3"
+                    // Here it stops and wraps on next center button press.
+                    // When the right button is pressed ("OK") then what we've got is copied back and into Handle_Light_Sunrise_Sunset_Etc
+                    //
+                    if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 >= 3) {
+                        light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next = false; // AQU=030 "FAST"
+                    } else {}
+                    if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 == 4) {
+                        // Wrap around but don't touch light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next before we enter next time
+                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+                    } else {}
+                    // ..finally this:
+                    if (light_sunrise_sunset_context.light_change_window_allowed_day_time_by_menu_next) {
+                        display_print ("NORM ", 5);
+                    } else {
+                        display_print ("FAST ", 5); // Meaning "STEADY", ie. no LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
+                    }
+
                     if (light_sunrise_sunset_context.normal_light_next == NORMAL_LIGHT_IS_FULL) {
                         display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
                     } else { // NORMAL_LIGHT_IS_TWO_THIRDS
@@ -1031,6 +1070,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
                            context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
+                           light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
 
                            if (context.error_bits_now == ERROR_BITS_NONE) {
                                // No code, all fine with no error(s)
@@ -1547,6 +1587,7 @@ void System_Task_Data_Handler (
             context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
             context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a default starting point (SCREEN_0_X_FEIL)
             context.display_sub_editing_seconds_cntdown = 0;
+            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
 
         } else {
             context.display_is_on_seconds_cnt++;

@@ -33,7 +33,11 @@ typedef struct light_sunrise_sunset_context_t {
     DateTime_t                datetime;
     DateTime_t                datetime_previous;
     bool                      datetime_previous_not_initialised;
-    bool                      light_change_window_open;
+    bool                      light_change_window_allowed_day_time_by_clock;
+    bool                      light_change_window_allowed_day_time_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                      light_change_window_allowed_day_time_by_menu_next; // AQU=030 new
+    bool                      light_change_window_allowed_day_time_by_menu_changed_to_not_allowed; // AQU=030 new
+    unsigned                  screen_3_lysregulering_center_button_cnt_1to4; // AQU=030 new
     unsigned                  iof_day_night_action_list;
     unsigned                  num_minutes_left_of_day_night_action; // AQU=024
     random_generator_t        random_number;
@@ -44,11 +48,12 @@ typedef struct light_sunrise_sunset_context_t {
     normal_light_t            normal_light_in_FRAM_memory; // From Fujitsu MB85RC256V
     normal_light_t            normal_light_next;
     bool                      normal_light_changed;
+
     light_sensor_range_t      light_sensor_intensity;
     light_sensor_range_t      light_sensor_intensity_previous;
     light_sensor_diff_state_t light_sensor_diff_state;
     unsigned                  print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
-    bool                      do_FRAM_write;
+    bool                      do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL. AQU=030: Not when light_change_window_allowed_day_time_by_menu_changed_to_not_allowed because it lasts only a day
     bool                      light_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 } light_sunrise_sunset_context_t;
 
@@ -96,11 +101,11 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F) // Latest is when NORMAL_LIGHT_IS_FULL
 
-    // LIGHT_COMPOSITION_3666_mW_ON, LIGHT_COMPOSITION_7333_mW_ON
+    // LIGHT_COMPOSITION_3666_mW_ON, LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS
     // not using it here because FRONT1 in the sequence is too dominant
 
     //   hours   minutes                                                 light_composition_t IOF_TIMED
-    //               LIGHT_COMPOSITION_11000_mW_ON                       /* 8            |  */
+    //               LIGHT_COMPOSITION_11000_mW_ON_FULL                  /* 8            |  */
     #define TIMED_DAY_TO_NIGHT_LIST_INIT                                 /*              |  */\
         {HH_A, MM_B, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_DAY_TO_NIGHT_LIST_START muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
         {  22,    6, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE */\
@@ -121,7 +126,7 @@ typedef struct light_sunrise_sunset_context_t {
         {   8,   12, LIGHT_COMPOSITION_6000_mW_ON},                      /* 5            12 */\
         {   8,   15, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            13 */\
         {   8,   21, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
-        {HH_E, MM_F, LIGHT_COMPOSITION_11000_mW_ON}                      /* 8            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST */
+        {HH_E, MM_F, LIGHT_COMPOSITION_11000_mW_ON_FULL}                 /* 8            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST */
     #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) 0
 
 #else //  DEBUG_TEST_DAY_NIGHT_DAY
@@ -129,7 +134,7 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((22 * 60) + 30)
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 41)
     //   hours   minutes
-    //                   LIGHT_COMPOSITION_11000_mW_ON
+    //                   LIGHT_COMPOSITION_11000_mW_ON_FULL
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
         {    22,     30, LIGHT_COMPOSITION_10333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
         {    22,     31, LIGHT_COMPOSITION_7666_mW_ON}, \
@@ -149,7 +154,7 @@ typedef struct light_sunrise_sunset_context_t {
         {    22,     45, LIGHT_COMPOSITION_6000_mW_ON}, \
         {    22,     47, LIGHT_COMPOSITION_7666_mW_ON}, \
         {    22,     49, LIGHT_COMPOSITION_10333_mW_ON}, \
-        {    22,     53, LIGHT_COMPOSITION_11000_mW_ON}
+        {    22,     53, LIGHT_COMPOSITION_11000_mW_ON_FULL}
 
         #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) ((NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START-((hour_now*60)+min_now))+1) // +1 so that it will start at DEBUG time, not when passed
 #endif
@@ -159,8 +164,8 @@ typedef struct light_sunrise_sunset_context_t {
 #define NUM_RANDOM_SEQUENCES_MAX                      10  // With all hitting 1+(20-10)=11 times would have beeen max
 
                                                          // AQU=023 for all three of the below
-#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST       10 // ..|..
-#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      30 // ..|.. P1 means plus 1, so LATEST is 29 = [10..29]
+#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST        5 // ..|.. AQU=028 was 10
+#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      16 // ..|.. AQU=028 was 30 P1 means plus 1, so LATEST is 15 = [5..15]
 #define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF_TRIGGERED  2 // ..|..
 
 light_composition_t

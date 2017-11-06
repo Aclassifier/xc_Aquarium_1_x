@@ -14,8 +14,8 @@ typedef enum iof_LED_strip_t {
 } iof_LED_strip_t;
 
 #define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
-#define NUMLIGHT_COMPOSITION_LEVELS 13
-#define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022
+#define NUMLIGHT_COMPOSITION_LEVELS 14 // AQU=029 new level LIGHT_COMPOSITION_7000_mW_ON lighter
+#define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022. AQU=029 was 39 is 42
 
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
@@ -37,15 +37,15 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_6000_mW_ON                      =  5,
     LIGHT_COMPOSITION_7666_mW_ON                      =  6,
     LIGHT_COMPOSITION_10333_mW_ON                     =  7,
-    LIGHT_COMPOSITION_11000_mW_ON                     =  8, // All = 9W qwe I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_11000_mW_ON_FULL                =  8, // All = 11W I can hear a sound from the LEDs!
     //
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
-
-    LIGHT_COMPOSITION_7333_mW_ON                      =  9, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_3666_mW_ON                      = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_4000_mW_ON_WHITE                = 11,
-    LIGHT_COMPOSITION_5000_mW_ON                      = 12
-    // NUMLIGHT_COMPOSITION_LEVELS                   = 13
+    LIGHT_COMPOSITION_7000_mW_ON                      =  9, // AQU=029 new level with less 3000K and more 3200K. ie. lighter
+    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS                      = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_3666_mW_ON                      = 11, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_4000_mW_ON_WHITE                = 12,
+    LIGHT_COMPOSITION_5000_mW_ON                      = 13
+    // NUMLIGHT_COMPOSITION_LEVELS                    = 14
 } light_composition_t;
 
 typedef enum light_control_scheme_t {

@@ -13,9 +13,14 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD // NEVER for aquarium!
-#define APPLICATION_VERSION_STR "1.0.20"
-    //             03Nov2017 AQU=027 Adding another 3200K LED of type 36-3848 North Light LED strip bought at Clas Ohlson, so the center is now 2*2W=4W. MAX now 11W, not 9W
+//#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
+//#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
+
+#define APPLICATION_VERSION_STR "1.0.21"
+    // "1.0.21" // 06Nov2017 AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
+    //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour
+    //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])
+    // "1.0.20" // 03Nov2017 AQU=027 Adding another 3200K LED of type 36-3848 North Light LED strip bought at Clas Ohlson, so the center is now 2*2W=4W. MAX now 11W, not 9W
     // "1.0.19" // 29Oct2017 AQU=026 Back to Mac OS X (macOS) 10.11.6 El Capitan again
     //                               See http://www.xcore.com/viewtopic.php?f=26&t=6138&p=30866#p30866
     // "1.0.18" // 06Oct2017 AQU=025 Compiled with 14.3.1. Works!

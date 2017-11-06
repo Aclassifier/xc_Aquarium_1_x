@@ -35,7 +35,7 @@
 	.globl adc_task.select.yield.enable.cases.maxchanends
 	.set adc_task.select.yield.enable.cases,0
 	.globl adc_task.select.yield.enable.cases
-	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.3.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.2.nstackwords)
+	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.2.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.3.nstackwords) $M (adc_task.select.yield.case.1.nstackwords)
 	.globl adc_task.select.yield.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate
@@ -47,7 +47,7 @@
 	.globl adc_task.select.enable.cases.maxchanends
 	.set adc_task.select.enable.cases,0
 	.globl adc_task.select.enable.cases
-	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.2.nstackwords) $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.1.nstackwords) $M (adc_task.select.case.3.nstackwords)
+	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.1.nstackwords) $M (adc_task.select.case.2.nstackwords) $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.3.nstackwords)
 	.globl adc_task.select.enable.cases.nstackwords
 	.weak _i.startkit_adc_acquire_if.trigger.maxchanends.group
 	.max_reduce _i.startkit_adc_acquire_if.trigger.max.maxchanends, _i.startkit_adc_acquire_if.trigger.maxchanends.group, 0
