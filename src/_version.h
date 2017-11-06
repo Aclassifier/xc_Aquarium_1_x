@@ -16,7 +16,7 @@
 //#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
 
-#define APPLICATION_VERSION_STR "1.0.21"
+#define APPLICATION_VERSION_STR "1.0.21" // Tagged VER_1_0_21_with_fishes
     // "1.0.21" // 06Nov2017 AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
     //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour
     //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])
