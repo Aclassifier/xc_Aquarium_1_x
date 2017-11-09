@@ -361,7 +361,7 @@ par {
     // System_Task started
     // New heater lim=150 tenths_degC
     // Temperature_Water_Task started
-    // FRAM normal_or_steady_light_amount_in_FRAM_memory read ok=1 value=1
+    // FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=1 value=1
     // (No more logs)
 
     /* Constraint check for tile[0]:
@@ -396,7 +396,7 @@ par {
     // System_Task started
     // New heater lim=150 tenths_degC
     // Temperature_Water_Task started
-    // FRAM normal_or_steady_light_amount_in_FRAM_memory read ok=1 value=1
+    // FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=1 value=1
     // (No more logs)
 
     /* Constraint check for tile[0]:

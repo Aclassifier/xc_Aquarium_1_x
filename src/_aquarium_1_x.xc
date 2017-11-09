@@ -447,7 +447,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     const char stable_str   [] = "=";
                     const char unstable_str [] = CHAR_PLUS_MINUS_STR; // "±"
-                    const bool full_light      = (light_sunrise_sunset_context.normal_or_steady_light_amount == NORMAL_LIGHT_IS_FULL); // Else NORMAL_LIGHT_IS_TWO_THIRDS
+                    const bool full_light      = (light_sunrise_sunset_context.light_amount_full_or_two_thirds == NORMAL_LIGHT_IS_FULL); // Else NORMAL_LIGHT_IS_TWO_THIRDS
 
                     #define CONTROL_SCREEN_TEXT_LEN  5
                     char light_control_scheme_str [CONTROL_SCREEN_TEXT_LEN]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
@@ -549,21 +549,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     } else {}
                 } break;
 
-                // qwe
+                // AQU=030 and AQU=031 much new here
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
                     // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                     // called at least once per minute, in practice once per second
-                    light_sunrise_sunset_context.normal_or_steady_light_amount_changed =
-                        (light_sunrise_sunset_context.normal_or_steady_light_amount != light_sunrise_sunset_context.normal_or_steady_light_amount_next);
-                    light_sunrise_sunset_context.normal_or_steady_light_amount = light_sunrise_sunset_context.normal_or_steady_light_amount_next;
+                    light_sunrise_sunset_context.do_light_amount_full_or_two_thirds_by_menu = true;
+                    light_sunrise_sunset_context.light_amount_full_or_two_thirds = light_sunrise_sunset_context.light_amount_full_or_two_thirds_next;
 
-                    if (light_sunrise_sunset_context.normal_or_steady_light_amount_changed) {
-                        light_sunrise_sunset_context.do_FRAM_write = true;
-                        light_sunrise_sunset_context.normal_or_steady_light_amount_in_FRAM_memory = light_sunrise_sunset_context.normal_or_steady_light_amount;
-                    } else {}
+                    light_sunrise_sunset_context.do_FRAM_write = true;
+                    light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = light_sunrise_sunset_context.light_amount_full_or_two_thirds;
 
-                    light_sunrise_sunset_context.allow_normal_light_change_by_menu      = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
-                    light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
+                    light_sunrise_sunset_context.allow_normal_light_change_by_menu = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
 
                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     // context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
@@ -580,9 +576,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_3_LYSGULERING: SUB_STATE_01 SUB_STATE_02
                     if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_01) {
                         if (context.light_control_scheme == LIGHT_CONTROL_IS_DAY) {
-                            // DAY and unstable when light returns
-                            light_sunrise_sunset_context.normal_or_steady_light_amount_next = light_sunrise_sunset_context.normal_or_steady_light_amount; // Copy in
-                            // Awaiting IOF_BUTTON_CENTER. Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+                            // No code here. Awaiting IOF_BUTTON_CENTER. But print in display (below)
                         } else if ((context.light_control_scheme == LIGHT_CONTROL_IS_RANDOM) or (context.light_control_scheme == LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE)) {
                             // RANDOM change of light is active. Now beep and let light softly enter DAY again
                             light_is_ready_for_new_change = false;
@@ -593,11 +587,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             light_is_ready_for_new_change = false;
                         }
                     } else if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_02) {
-                        if (light_sunrise_sunset_context.normal_or_steady_light_amount_next == NORMAL_LIGHT_IS_FULL) {
-                            light_sunrise_sunset_context.normal_or_steady_light_amount_next = NORMAL_LIGHT_IS_TWO_THIRDS;
-                        } else { // NORMAL_LIGHT_IS_TWO_THIRDS
-                            light_sunrise_sunset_context.normal_or_steady_light_amount_next = NORMAL_LIGHT_IS_FULL;
-                        }
+                        // No code ehere, see switch/case below
                     } else {
                         light_is_ready_for_new_change = false;
                     }
@@ -623,41 +613,44 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         setTextSize(2);
                         setCursor(0,14);
 
-                        // First this..
-                        if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 == 0) {
-                            light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true; // AQU=030 "NORM", but only after sequence and back again
-                        } else {}
-                        // ..then this..
-                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4++; // CNT UP TO 1,2 (="NORM") or 3,4 (="FAST") ie. "STEADY"
-                        // ..then these:
-                        // cnt=  screen_3_lysregulering_center_button_cnt_1to4, one count per center button press:
-                        // cnt=1 displayed as "NORM 3/3" or "NORM 2/3"
-                        // cnt=2 displayed as "NORM 2/3" or "NORM 2/3"
-                        // cnt=3 displayed as "FAST 3/3" or "FAST 2/3" where "FAST" (Norwegian) = steady
-                        // cnt=4 displayed as "FAST 2/3" or "FAST 3/3" where "FAST" (Norwegian) = steady
-                        // Here it stops and wraps on next center button press.
-                        // When the right button is pressed ("OK") then what we've got is copied back and into Handle_Light_Sunrise_Sunset_Etc
-                        //
-                        if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 >= 3) {
-                            light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false; // AQU=030 "FAST"
-                        } else {}
-                        if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 == 4) {
-                            // Wrap around but don't touch light_sunrise_sunset_context.allow_normal_light_change_by_menu_next before we enter next time
-                            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
-                        } else {}
-                        // ..finally this:
-                        if (light_sunrise_sunset_context.allow_normal_light_change_by_menu_next) {
-                            display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
-                        } else {
-                            display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
-                        }
-                        display_print (" ", 1);
+                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4++;
 
-                        if (light_sunrise_sunset_context.normal_or_steady_light_amount_next == NORMAL_LIGHT_IS_FULL) {
-                            display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
-                        } else { // NORMAL_LIGHT_IS_TWO_THIRDS
-                            display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+                        switch (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4) {
+                            case 1: { // NORM 2/3
+                                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_TWO_THIRDS;
+                                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true;
+                                display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
+                                display_print (" ", 1);
+                                display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+                            } break;
+
+                            case 2: { // NORM 3/3
+                                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_FULL;
+                                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true;
+                                display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
+                                display_print (" ", 1);
+                                display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
+                            } break;
+
+                            case 3: { // FAST 2/3
+                                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_TWO_THIRDS;
+                                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
+                                display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
+                                display_print (" ", 1);
+                                display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+                            } break;
+
+                            default: // Should not happen
+                            case 4: { // FAST 3/3
+                                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_FULL;
+                                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
+                                light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0; // Wrap around
+                                display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
+                                display_print (" ", 1);
+                                display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
+                            } break;
                         }
+
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                     }
                 } break;
@@ -1568,11 +1561,11 @@ void System_Task_Data_Handler (
         // Update FRAM if needed
         if (light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
-            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.normal_or_steady_light_amount_in_FRAM_memory;
+            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory;
 
             light_sunrise_sunset_context.do_FRAM_write = false;
             write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, write_fram_data);
-            debug_printf ("FRAM normal_or_steady_light_amount_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+            debug_printf ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
         } else {}
 
         // Now, how did it go, how is light controlled right now?
@@ -1766,12 +1759,12 @@ void System_Task (
         {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT);
 
         if (not read_ok) {
-            light_sunrise_sunset_context.normal_or_steady_light_amount_in_FRAM_memory = NORMAL_LIGHT_IS_VOID;
+            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = NORMAL_LIGHT_IS_VOID;
         } else {
-            light_sunrise_sunset_context.normal_or_steady_light_amount_in_FRAM_memory = (normal_or_steady_light_amount_t) read_fram_data;
+            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = (light_amount_full_or_two_thirds_t) read_fram_data;
         }
 
-        debug_printf ("FRAM normal_or_steady_light_amount_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.normal_or_steady_light_amount_in_FRAM_memory);
+        debug_printf ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory);
     }
     //}}}  
 

@@ -1658,11 +1658,13 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_11000_mW_ON_FULL = 8,
 
 
-    LIGHT_COMPOSITION_7000_mW_ON = 9,
-    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS = 10,
+    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS = 9,
+    LIGHT_COMPOSITION_7000_mW_ON = 10,
     LIGHT_COMPOSITION_3666_mW_ON = 11,
     LIGHT_COMPOSITION_4000_mW_ON_WHITE = 12,
     LIGHT_COMPOSITION_5000_mW_ON = 13
+
+
 
 } light_composition_t;
 
@@ -1688,7 +1690,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 82 "../src/port_heat_light_task.h"
+# 84 "../src/port_heat_light_task.h"
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);

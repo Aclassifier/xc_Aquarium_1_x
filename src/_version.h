@@ -13,13 +13,14 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
+//#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
 
 #define APPLICATION_VERSION_STR "1.0.22"
-    // "1.0.22" // 07Nov2017 // Tagged VER_1_0_22_with_fishes
-    //                       AQU=031 Setting to FAST didn't update light index :-(
-    // "1.0.21" // 06Nov2017 // Tagged VER_1_0_21_with_fishes
+    // "1.0.22" // 10Nov2017 Tagged VER_1_0_22_with_fishes
+    //                       AQU=031 Setting to FAST didn't update light index. Also redesign so that SCREEN_3_LYSREGULERING will not interfere with SKY or LYKT
+    //                               and that if SKY or LYKT when changing will first take light up to DAY agin
+    // "1.0.21" // 06Nov2017 Tagged VER_1_0_21_with_fishes
     //                       AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
     //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour
     //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])

@@ -28,7 +28,7 @@ typedef enum light_composition_t {
     // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
     //
     //                                                       // Darkest random coding |
-    //                #### mW                                // depends on value      |
+    //                #### mW         See below: FATAL! ##   // depends on value      |
     LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // 0                     | All windows dark, of course
     LIGHT_COMPOSITION_0666_mW_ON                      =  1 , // 1                     | Two time windows are fully dark
     LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM =  2,  // 2                     |
@@ -38,14 +38,16 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_7666_mW_ON                      =  6,
     LIGHT_COMPOSITION_10333_mW_ON                     =  7,
     LIGHT_COMPOSITION_11000_mW_ON_FULL                =  8, // All = 11W I can hear a sound from the LEDs!
-    //
+    //                                 See below: FATAL! ##
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
-    LIGHT_COMPOSITION_7000_mW_ON                      =  9, // AQU=029 new level with less 3000K and more 3200K. ie. lighter
-    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS                      = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS           =  9, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_7000_mW_ON                      = 10, // AQU=029 new level with less 3000K and more 3200K. ie. lighter
     LIGHT_COMPOSITION_3666_mW_ON                      = 11, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
     LIGHT_COMPOSITION_4000_mW_ON_WHITE                = 12,
     LIGHT_COMPOSITION_5000_mW_ON                      = 13
     // NUMLIGHT_COMPOSITION_LEVELS                    = 14
+    //                                           FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
+    //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
 
 typedef enum light_control_scheme_t {
