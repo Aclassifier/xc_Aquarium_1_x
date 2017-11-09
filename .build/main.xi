@@ -1695,9 +1695,10 @@ typedef interface port_heat_light_commands_if {
 
     { light_composition_t,
         light_control_scheme_t
-    } get_light_composition_etc (unsigned return_thirds [3]);
+    } get_light_composition_etc_sync_internal (unsigned return_thirds [3]);
 
-    {bool} get_light_stable (void);
+    {bool} get_light_is_stable_sync_internal (void);
+
 
 
     void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);

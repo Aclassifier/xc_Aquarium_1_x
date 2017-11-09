@@ -13,11 +13,14 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-//#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
+#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
 
-#define APPLICATION_VERSION_STR "1.0.21" // Tagged VER_1_0_21_with_fishes
-    // "1.0.21" // 06Nov2017 AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
+#define APPLICATION_VERSION_STR "1.0.22"
+    // "1.0.22" // 07Nov2017 // Tagged VER_1_0_22_with_fishes
+    //                       AQU=031 Setting to FAST didn't update light index :-(
+    // "1.0.21" // 06Nov2017 // Tagged VER_1_0_21_with_fishes
+    //                       AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
     //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour
     //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])
     // "1.0.20" // 03Nov2017 AQU=027 Adding another 3200K LED of type 36-3848 North Light LED strip bought at Clas Ohlson, so the center is now 2*2W=4W. MAX now 11W, not 9W
@@ -32,7 +35,7 @@
     //                                   (Stack: 5532, Code: 40970, Data: 6042).
     // "1.0.17" // 02Oct2017 AQU=024 When the controller was powered down with max light 2/3 it came up again with max light 2/3 ok but the light values were 3/3 on all three LED strips
     // "1.0.16" // 03Aug2017 Tagged VER_1_0_16_with_fishes
-    //                       AQU=023 (again) Now coded so that it's not decremented (was one decr too quick when light_stable again), but calculated as minutes_into_day_of_next_action_random_off
+    //                       AQU=023 (again) Now coded so that it's not decremented (was one decr too quick when light_is_stable again), but calculated as minutes_into_day_of_next_action_random_off
     // "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes
     //                       AQU=025 ERROR_BIT_WATER_COLD is new and ERROR_BIT_HEATER_CABLE_UNPLUGGED never signalled (given up at this time) (Tested ok)
     //                       AQU=024 All counting down of minutes shall display 1 minute the last 60 seconds. For into night and into day sequences (Tested ok)
@@ -56,9 +59,9 @@
     //                                   chronodot_ds3231_controller.xc -> chronodot_ds3231_task.xc
     //                       AQU=018 debug_printf_datetime is new, so that I now get printouts of Date: Time: easier
     // "1.0.11" // 24Jul2017
-    //                       AQU=017 "LYKT" 2 minutes before "SKY" shall accpet both LYKTs light up again and SKY's DOWN (search for light_stable) (tested ok, log exists)
+    //                       AQU=017 "LYKT" 2 minutes before "SKY" shall accpet both LYKTs light up again and SKY's DOWN (search for light_is_stable) (tested ok, log exists)
     // "1.0.10" // 21Jul2017
-    //                       AQU=016 get_light_stable now is a separate function (ok)
+    //                       AQU=016 get_light_is_stable_sync_internal now is a separate function (ok)
     //                       AQU=015 Renaming, all tasks now "Task". Includes renaming of files (Git commits do follow file renaming, but not history) (ok)
     //                               I2C_Internal_Server -> I2C_Internal_Task
     //                                   i2c_internal_server.h -> i2c_internal_task.h

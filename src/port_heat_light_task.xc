@@ -188,6 +188,28 @@ typedef enum pin_change_t {
 #define NUM_TICKS_FROM_MS(ms)  ((ms * 1000) / TIME_PER_PWM_WINDOW_MICROSECONDS)   // Formula..
 #define NUM_MS_FROM_TICS(tics) ((tics * TIME_PER_PWM_WINDOW_MICROSECONDS) / 1000) // ..inverse formula
 
+typedef unsigned soft_change_pwm_window_timer_us_t [NUM_PWM_TIME_WINDOWS]; // AQU=031
+
+bool Is_Stable (const soft_change_pwm_window_timer_us_t soft_change_pwm_window_timer_us) {
+    bool return_stable = true;
+    for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
+        if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) {
+            //
+            // In this implementation this value is polled for, since we don't like that a new light composition is set while
+            // the light is changing. It would ramp the light up/down to a new start value. It did so up to v1.0.10. Instead of of polling this could
+            // have been a command and notify to abstract this timing away. However, this task is concerned about driving both heat and light pins
+            // which it rather seems to must (a single port can't be shared), so going for a notify on something with light would seem
+            // to cause less flexibility on behalf of the heat pins. So I went for this polling.
+            //
+            // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
+            //
+            return_stable = false; // one is enough, all must be zero
+        } else {} // So it may survive as true
+    }
+    return return_stable;
+}
+
+
 // ---------------------------------------------------------------------------------------------------
 // DISCRETE LIGHT INTENSITY FOR THREE INDIVIDUAL LED STRIPS WITH DIFFERENT COLOUR RANGE
 // AND CONTINUOUS CHANGE FROM ONE DESCRETE LEVEL TO THE OTHER.
@@ -227,9 +249,10 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                                                                               // (even if the cables are mounted beside each other all the way)
                                                                               // And spread load and temperature increase of plugs and cable
 
-    unsigned               soft_change_pwm_window_timer_us [NUM_PWM_TIME_WINDOWS] = {0,0,0}; // (*1) No need to initialise..
-    pin_change_t           pin_change      [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS];           // .. this, since we did the above
-    light_control_scheme_t light_control_scheme = LIGHT_CONTROL_IS_VOID;
+    soft_change_pwm_window_timer_us_t soft_change_pwm_window_timer_us = {0,0,0};         // (*1) No need to initialise..
+    pin_change_t                      pin_change [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS]; // .. this, since we did the above
+    light_control_scheme_t            light_control_scheme      = LIGHT_CONTROL_IS_VOID;
+    light_control_scheme_t            light_control_scheme_next = LIGHT_CONTROL_IS_VOID; // AQU=031 new After soft change in same cases
 
     #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
         bool pulse_heat_1 = false;
@@ -413,7 +436,29 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 debug_printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
 
-                if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) light_control_scheme = light_control_scheme_in;
+                if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) {
+                    if (light_control_scheme_in == LIGHT_CONTROL_IS_DAY) {
+
+                        // AQU=031: KEEP OLD "DOWN" light_control_scheme until it's finished with UP  #### JUST FOR THE DISPLAY! Not for PWM!
+                        //                                                                            ####
+                        //                              NOT HERE                                      HERE
+                        //                              Light DOWN phase is OK, "SKY" NOE             Light UP phase would start "DAY" now if not it's taken care of here
+                        //                              LIGHT_CONTROL_IS_RANDOM                       NEW LIGHT_CONTROL_IS_DAY, light UP
+                        //                              |                                             |
+                        // =====LIGHT_CONTROL_IS_DAY=====                                             |   |=====LIGHT_CONTROL_IS_DAY=====
+                        //                              |\ DOWN                                       |UP/|
+                        //                              | \                                           | / |
+                        //                              |  ============================================   |
+                        //                              |--------ALL OF THIS SHAL BE SEEN AS "SKY"--------|
+                        //                                       = LIGHT_CONTROL_IS_RANDOM
+
+                        // Observe that iof_light_composition_level_present is not (and shall not) be given the same "delay" as it's used by the PWM
+                        light_control_scheme_next = light_control_scheme_in; // Use LIGHT_CONTROL_IS_DAY when Is_Stable later on (let compiler make one statement of this..)
+                    } else {
+                        light_control_scheme      = light_control_scheme_in;
+                        light_control_scheme_next = light_control_scheme_in; // So that _next is always valid (..and this)
+                    }
+                } else {} // LIGHT_CONTROL_IS_VOID, do nothing
 
                 if (iof_light_composition_level_present != iof_light_composition_level) {
                     for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
@@ -462,7 +507,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc (unsigned return_thirds [NUM_LED_STRIPS]) ->
+            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc_sync_internal (unsigned return_thirds [NUM_LED_STRIPS]) ->
                     {light_composition_t return_light_composition, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {
@@ -485,25 +530,19 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     iof_light_composition_level_present);
 
                 return_light_composition = iof_light_composition_level_present;
+
+                if (Is_Stable (soft_change_pwm_window_timer_us)) { // synch_internal
+                    light_control_scheme = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
+                } else {}
+
                 return_light_control_scheme = light_control_scheme;
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_stable (void) -> {bool return_stable} : {
-                return_stable = true;
-                for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
-                    if (soft_change_pwm_window_timer_us[iof_light_pwm_window] != 0) {
-                        //
-                        // In this implementation this value is polled for, since we don't like that a new light composition is set while
-                        // the light is changing. It would ramp the light up/down to a new start value. It did so up to v1.0.10. Instead of of polling this could
-                        // have been a command and notify to abstract this timing away. However, this task is concerned about driving both heat and light pins
-                        // which it rather seems to must (a single port can't be shared), so going for a notify on something with light would seem
-                        // to cause less flexibility on behalf of the heat pins. So I went for this polling.
-                        //
-                        // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
-                        //
-                        return_stable = false; // one is enough, all must be zero
-                    } else {} // So it may survive as true
-                }
+            case i_port_heat_light_commands[int index_of_client].get_light_is_stable_sync_internal (void) -> {bool return_is_stable} : {
+                return_is_stable = Is_Stable (soft_change_pwm_window_timer_us); // OBS my issue 10576 with XMOS here (8Nov2017)
+                if (return_is_stable) { // synch_internal
+                    light_control_scheme = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
+                } else {}
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {

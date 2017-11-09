@@ -384,40 +384,40 @@
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition, _i.port_heat_light_commands_if._chan.get_light_composition
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, 0
 	.max_reduce _i.port_heat_light_commands_if.get_light_composition.fns, _i.port_heat_light_commands_if.get_light_composition.fns.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.max.maxchanends, _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.max.maxcores, _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.max.maxtimers, _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, 0
-	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc.fns, _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxchanends, _i.port_heat_light_commands_if._chan.get_light_stable
-	.max_reduce _i.port_heat_light_commands_if.get_light_stable.max.maxchanends, _i.port_heat_light_commands_if.get_light_stable.maxchanends.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxcores, _i.port_heat_light_commands_if._chan.get_light_stable
-	.max_reduce _i.port_heat_light_commands_if.get_light_stable.max.maxcores, _i.port_heat_light_commands_if.get_light_stable.maxcores.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxtimers, _i.port_heat_light_commands_if._chan.get_light_stable
-	.max_reduce _i.port_heat_light_commands_if.get_light_stable.max.maxtimers, _i.port_heat_light_commands_if.get_light_stable.maxtimers.group, 0
-	.weak _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_stable.nstackwords, _i.port_heat_light_commands_if._chan.get_light_stable
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable, _i.port_heat_light_commands_if._chan.get_light_stable
-	.max_reduce _i.port_heat_light_commands_if.get_light_stable.max.nstackwords, _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, 0
-	.max_reduce _i.port_heat_light_commands_if.get_light_stable.fns, _i.port_heat_light_commands_if.get_light_stable.fns.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.max.maxchanends, _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.max.maxcores, _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.max.maxtimers, _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.max.nstackwords, _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns, _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxchanends, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.max.maxchanends, _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxcores, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.max.maxcores, _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxtimers, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.max.maxtimers, _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group, 0
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.nstackwords, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.max_reduce _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.max.nstackwords, _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group, 0
+	.max_reduce _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns, _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group, 0
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxchanends, _i.port_heat_light_commands_if._chan.set_light_composition
 	.max_reduce _i.port_heat_light_commands_if.set_light_composition.max.maxchanends, _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, 0
@@ -561,30 +561,30 @@
 	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition
 	.add_to_set _i.port_heat_light_commands_if.get_light_composition.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition, _i.port_heat_light_commands_if._chan.get_light_composition
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc, _i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxchanends.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxchanends, _i.port_heat_light_commands_if._chan.get_light_stable
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxcores.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxcores, _i.port_heat_light_commands_if._chan.get_light_stable
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxtimers.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_stable.maxtimers, _i.port_heat_light_commands_if._chan.get_light_stable
-	.weak _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.fns.group
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_stable.nstackwords, _i.port_heat_light_commands_if._chan.get_light_stable
-	.add_to_set _i.port_heat_light_commands_if.get_light_stable.fns.group, _i.port_heat_light_commands_if._chan.get_light_stable, _i.port_heat_light_commands_if._chan.get_light_stable
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxchanends, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxcores, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxtimers, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.nstackwords, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.add_to_set _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal, _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxchanends, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxcores, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxtimers, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.nstackwords, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+	.add_to_set _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal, _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
 	.add_to_set _i.port_heat_light_commands_if.set_light_composition.maxchanends.group, _i.port_heat_light_commands_if._chan.set_light_composition.maxchanends, _i.port_heat_light_commands_if._chan.set_light_composition
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
@@ -1116,20 +1116,20 @@ inP_button_right.info:
 	.globl _i.port_heat_light_commands_if.get_light_composition.nstackwords.group
 	.weak _i.port_heat_light_commands_if.get_light_composition.fns.group
 	.globl _i.port_heat_light_commands_if.get_light_composition.fns.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxchanends.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxcores.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.maxtimers.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_composition_etc.fns.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxchanends.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxcores.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.maxtimers.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.nstackwords.group
-	.weak _i.port_heat_light_commands_if.get_light_stable.fns.group
-	.globl _i.port_heat_light_commands_if.get_light_stable.fns.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxchanends.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxcores.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.maxtimers.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_composition_etc_sync_internal.fns.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxchanends.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxcores.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.maxtimers.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.nstackwords.group
+	.weak _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
+	.globl _i.port_heat_light_commands_if.get_light_is_stable_sync_internal.fns.group
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxchanends.group
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxcores.group
 	.weak _i.port_heat_light_commands_if.set_light_composition.maxtimers.group
@@ -2647,11 +2647,11 @@ _i.port_heat_light_commands_if._chan.set_light_composition:
 	.size	_i.port_heat_light_commands_if._chan.set_light_composition, .Ltmp94-_i.port_heat_light_commands_if._chan.set_light_composition
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan.get_light_stable
+	.weak	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan.get_light_stable,@function
-	.cc_top _i.port_heat_light_commands_if._chan.get_light_stable.function,_i.port_heat_light_commands_if._chan.get_light_stable
-_i.port_heat_light_commands_if._chan.get_light_stable:
+	.type	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal,@function
+	.cc_top _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.function,_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
+_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal:
 	.cfi_startproc
 	getr r1, 2
 	setd res[r1], r0
@@ -2664,28 +2664,28 @@ _i.port_heat_light_commands_if._chan.get_light_stable:
 	freer res[r1]
 	retsp 0
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_stable.function
-	.set	_i.port_heat_light_commands_if._chan.get_light_stable.nstackwords,0
-	.globl	_i.port_heat_light_commands_if._chan.get_light_stable.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan.get_light_stable.nstackwords
-	.set	_i.port_heat_light_commands_if._chan.get_light_stable.maxcores,1
-	.globl	_i.port_heat_light_commands_if._chan.get_light_stable.maxcores
-	.weak	_i.port_heat_light_commands_if._chan.get_light_stable.maxcores
-	.set	_i.port_heat_light_commands_if._chan.get_light_stable.maxtimers,0
-	.globl	_i.port_heat_light_commands_if._chan.get_light_stable.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan.get_light_stable.maxtimers
-	.set	_i.port_heat_light_commands_if._chan.get_light_stable.maxchanends,1
-	.globl	_i.port_heat_light_commands_if._chan.get_light_stable.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan.get_light_stable.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.function
+	.set	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.nstackwords,0
+	.globl	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxcores,1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxcores
+	.set	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxtimers,0
+	.globl	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxchanends,1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal.maxchanends
 .Ltmp95:
-	.size	_i.port_heat_light_commands_if._chan.get_light_stable, .Ltmp95-_i.port_heat_light_commands_if._chan.get_light_stable
+	.size	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal, .Ltmp95-_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan.get_light_composition_etc,@function
-	.cc_top _i.port_heat_light_commands_if._chan.get_light_composition_etc.function,_i.port_heat_light_commands_if._chan.get_light_composition_etc
-_i.port_heat_light_commands_if._chan.get_light_composition_etc:
+	.type	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal,@function
+	.cc_top _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.function,_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal:
 	.cfi_startproc
 	entsp 3
 .Ltmp96:
@@ -2713,21 +2713,21 @@ _i.port_heat_light_commands_if._chan.get_light_composition_etc:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_composition_etc.function
-	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords,(__interface_client_call.nstackwords + 3)
-	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.nstackwords
-	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores,__interface_client_call.maxcores $M 1
-	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores
-	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxcores
-	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers,__interface_client_call.maxtimers $M 0
-	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxtimers
-	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
-	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.function
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.nstackwords,(__interface_client_call.nstackwords + 3)
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.nstackwords
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxcores,__interface_client_call.maxcores $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxcores
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxcores
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxtimers,__interface_client_call.maxtimers $M 0
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxtimers
+	.set	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxchanends,(1 + __interface_client_call.maxchanends) $M 1
+	.globl	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal.maxchanends
 .Ltmp99:
-	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc, .Ltmp99-_i.port_heat_light_commands_if._chan.get_light_composition_etc
+	.size	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal, .Ltmp99-_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan.get_light_composition
@@ -3058,11 +3058,11 @@ _i.port_heat_light_commands_if._chan_yield.set_light_composition:
 	.size	_i.port_heat_light_commands_if._chan_yield.set_light_composition, .Ltmp124-_i.port_heat_light_commands_if._chan_yield.set_light_composition
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_yield.get_light_stable,@function
-	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_stable.function,_i.port_heat_light_commands_if._chan_yield.get_light_stable
-_i.port_heat_light_commands_if._chan_yield.get_light_stable:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.function,_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal
+_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal:
 	.cfi_startproc
 	entsp 2
 .Ltmp125:
@@ -3088,28 +3088,28 @@ _i.port_heat_light_commands_if._chan_yield.get_light_stable:
 	ldw r4, sp[1]
 	retsp 2
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_stable.function
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxcores
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_stable.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 2)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal.maxchanends
 .Ltmp128:
-	.size	_i.port_heat_light_commands_if._chan_yield.get_light_stable, .Ltmp128-_i.port_heat_light_commands_if._chan_yield.get_light_stable
+	.size	_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal, .Ltmp128-_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal
 	.cfi_endproc
 
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal
 	.align	4
-	.type	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc,@function
-	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.function,_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
-_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc:
+	.type	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal,@function
+	.cc_top _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.function,_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal
+_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal:
 	.cfi_startproc
 	entsp 3
 .Ltmp129:
@@ -3139,21 +3139,21 @@ _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc:
 	ldw r4, sp[2]
 	retsp 3
 	# RETURN_REG_HOLDER
-	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.function
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.nstackwords
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxcores
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxtimers
-	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends
-	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc.maxchanends
+	.cc_bottom _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.function
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.nstackwords,((_i.port_heat_light_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.port_heat_light_commands_if._client_call_y.max.nstackwords)) + 3)
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.nstackwords
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.nstackwords
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.port_heat_light_commands_if._client_call_y.max.maxcores) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxcores
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxcores
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.port_heat_light_commands_if._client_call_y.max.maxtimers) $M 0
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxtimers
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxtimers
+	.set	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.port_heat_light_commands_if._client_call_y.max.maxchanends)) $M 1
+	.globl	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxchanends
+	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal.maxchanends
 .Ltmp132:
-	.size	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc, .Ltmp132-_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc
+	.size	_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal, .Ltmp132-_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal
 	.cfi_endproc
 
 	.weak	_i.port_heat_light_commands_if._chan_yield.get_light_composition
@@ -5989,8 +5989,8 @@ __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 	.size	.vtable16, 48
 .vtable16:
 	.long	_i.port_heat_light_commands_if._chan.get_light_composition
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.long	_i.port_heat_light_commands_if._chan.get_light_stable
+	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.long	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
 	.long	_i.port_heat_light_commands_if._chan.set_light_composition
 	.long	_i.port_heat_light_commands_if._chan.beeper_on_command
 	.long	_i.port_heat_light_commands_if._chan.beeper_blip_command
@@ -6007,8 +6007,8 @@ __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 	.size	.vtable17, 48
 .vtable17:
 	.long	_i.port_heat_light_commands_if._chan.get_light_composition
-	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc
-	.long	_i.port_heat_light_commands_if._chan.get_light_stable
+	.long	_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal
+	.long	_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal
 	.long	_i.port_heat_light_commands_if._chan.set_light_composition
 	.long	_i.port_heat_light_commands_if._chan.beeper_on_command
 	.long	_i.port_heat_light_commands_if._chan.beeper_blip_command
@@ -6245,9 +6245,9 @@ par.desc.1:
 .Linfo_string79:
 .asciiz"_i.port_heat_light_commands_if._chan.set_light_composition"
 .Linfo_string80:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_stable"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal"
 .Linfo_string81:
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal"
 .Linfo_string82:
 .asciiz"_i.port_heat_light_commands_if._chan.get_light_composition"
 .Linfo_string83:
@@ -6263,9 +6263,9 @@ par.desc.1:
 .Linfo_string88:
 .asciiz"_i.port_heat_light_commands_if._chan_yield.set_light_composition"
 .Linfo_string89:
-.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_stable"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal"
 .Linfo_string90:
-.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc"
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal"
 .Linfo_string91:
 .asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition"
 .Linfo_string92:
@@ -8314,10 +8314,12 @@ par.desc.1:
 	.long	.Lset4
 	.long	2470
 .asciiz"delay_seconds"
-	.long	1699
-.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc"
+	.long	1679
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal"
 	.long	2618
 .asciiz"__main__main_tile_0"
+	.long	1439
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal"
 	.long	1949
 .asciiz"_i.temperature_heater_commands_if._chan_yield.get_temp_degC_str"
 	.long	1545
@@ -8376,6 +8378,8 @@ par.desc.1:
 .asciiz"_i.port_heat_light_commands_if._chan.beeper_on_command"
 	.long	2301
 .asciiz"_i.chronodot_ds3231_if._chan_yield.set_time_ok"
+	.long	1699
+.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal"
 	.long	2248
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	1882
@@ -8402,12 +8406,8 @@ par.desc.1:
 .asciiz"__main__main_tile_0_combined_tile_0_u5"
 	.long	570
 .asciiz"_i.startkit_adc_acquire_if._chan_yield.trigger"
-	.long	395
-.asciiz"__main__main_tile_0_task_System_Task_3"
-	.long	1439
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_composition_etc"
-	.long	1679
-.asciiz"_i.port_heat_light_commands_if._chan_yield.get_light_stable"
+	.long	1419
+.asciiz"_i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal"
 	.long	2210
 .asciiz"_i.temperature_water_commands_if._chan_yield.get_temp_degC_str"
 	.long	1285
@@ -8426,8 +8426,8 @@ par.desc.1:
 .asciiz"_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok"
 	.long	679
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	1419
-.asciiz"_i.port_heat_light_commands_if._chan.get_light_stable"
+	.long	395
+.asciiz"__main__main_tile_0_task_System_Task_3"
 	.long	2132
 .asciiz"_i.temperature_water_commands_if._chan.get_temp_degC_str"
 	.long	2354
@@ -8583,8 +8583,8 @@ par.desc.1:
 	.typestring _i.port_heat_light_commands_if._chan.beeper_blip_command, "f{0}(chd,:ui)"
 	.typestring _i.port_heat_light_commands_if._chan.beeper_on_command, "f{0}(chd,:e(){m(false){0},m(true){1}})"
 	.typestring _i.port_heat_light_commands_if._chan.set_light_composition, "f{0}(chd,:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_stable, "f{e(){m(false){0},m(true){1}}}(chd)"
-	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_is_stable_sync_internal, "f{e(){m(false){0},m(true){1}}}(chd)"
+	.typestring _i.port_heat_light_commands_if._chan.get_light_composition_etc_sync_internal, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(chd,&(a(3:ui)))"
 	.typestring _i.port_heat_light_commands_if._chan.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(chd)"
 	.typestring _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with, "f{ui}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_yield.watchdog_retrigger_with,_i.port_heat_light_commands_if._client_call_y.fns
@@ -8598,10 +8598,10 @@ par.desc.1:
 	.overlay_reference _i.port_heat_light_commands_if._chan_yield.beeper_on_command,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_yield.set_light_composition, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)"
 	.overlay_reference _i.port_heat_light_commands_if._chan_yield.set_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_stable, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_stable,_i.port_heat_light_commands_if._client_call_y.fns
-	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(a(3:ui)))"
-	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_is_stable_sync_internal,_i.port_heat_light_commands_if._client_call_y.fns
+	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(a(3:ui)))"
+	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_composition_etc_sync_internal,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.port_heat_light_commands_if._chan_yield.get_light_composition, "f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}))"
 	.overlay_reference _i.port_heat_light_commands_if._chan_yield.get_light_composition,_i.port_heat_light_commands_if._client_call_y.fns
 	.typestring _i.temperature_heater_commands_if._chan.get_regulator_data, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(chd,:si)"
@@ -8669,11 +8669,11 @@ par.desc.1:
 	.typestring installExceptionHandler, "f{0}(0)"
 	.typestring Port_Pins_Heat_Light_Task.select.0.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Task.init.1, "k:f{0}(u:q(ui))"
-	.typestring Port_Pins_Heat_Light_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_stable){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})))"
+	.typestring Port_Pins_Heat_Light_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc_sync_internal){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_is_stable_sync_internal){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})))"
 	.typestring Port_Pins_Heat_Light_Task.select.enable, "k:fe{0}()"
 	.typestring Port_Pins_Heat_Light_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Heater_Task.init.1, "k:f{0}(u:q(ui))"
-	.typestring Temperature_Heater_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_stable){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
+	.typestring Temperature_Heater_Task.init.0, "k:f{0}(u:q(ui),&(a(2:is(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}})),ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc_sync_internal){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_is_stable_sync_internal){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}})"
 	.typestring Temperature_Heater_Task.select.enable, "k:fe{0}()"
 	.typestring Temperature_Heater_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring Temperature_Water_Task.init.1, "k:f{0}(u:q(ui))"
@@ -8681,11 +8681,11 @@ par.desc.1:
 	.typestring Temperature_Water_Task.select.enable, "k:fe{0}()"
 	.typestring Temperature_Water_Task.fini, "k:f{0}(u:q(ui))"
 	.typestring My_startKIT_ADC_Task, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
-	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_stable){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
+	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}}}(0)},m(get_light_composition_etc_sync_internal){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_is_stable_sync_internal){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){7},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){8},m(LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM){2},m(LIGHT_COMPOSITION_3333_mW_ON){3},m(LIGHT_COMPOSITION_3666_mW_ON){11},m(LIGHT_COMPOSITION_4000_mW_ON_WHITE){12},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON){13},m(LIGHT_COMPOSITION_6000_mW_ON){5},m(LIGHT_COMPOSITION_7000_mW_ON){9},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){6}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
+	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_pop_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_push_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__noop
-	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_pop_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"
