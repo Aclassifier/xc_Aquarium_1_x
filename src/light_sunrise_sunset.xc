@@ -149,7 +149,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
    #endif
 
-   context.light_change_window_allowed_day_time_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+   context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
                                        (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
    // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
@@ -222,11 +222,10 @@ Handle_Light_Sunrise_Sunset_Etc (
       {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
       // AQU=030 init them here:
-      context.light_change_window_allowed_day_time_by_menu = true;
-      context.light_change_window_allowed_day_time_by_menu_next = false;
+      context.allow_normal_light_change_by_menu = true;
+      context.allow_normal_light_change_by_menu_next = false;
       context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
-      context.light_change_window_allowed_day_time_by_menu_changed = false;
-      context.terminate_light_change_window = false;
+      context.stop_normal_light_changed_by_menu = false;
 
    } else {}// init done
 
@@ -250,8 +249,8 @@ Handle_Light_Sunrise_Sunset_Etc (
            } else {} // Not nice for the fishes to do this at night
        } else {}
        debug_printf ("normal_or_steady_light_amount_changed r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // IT_IS_DAY is 0, IT_IS_NIGHT is 1
-   } else if (context.terminate_light_change_window) {
-       context.terminate_light_change_window = false;
+   } else if (context.stop_normal_light_changed_by_menu) {
+       context.stop_normal_light_changed_by_menu = false;
        context.num_minutes_left_of_random = 0;
        i_port_heat_light_commands.set_light_composition (Darker_Light_Composition_Iff(LIGHT_COMPOSITION_11000_mW_ON_FULL, context.normal_or_steady_light_amount), LIGHT_CONTROL_IS_DAY, 104);
        {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
@@ -279,8 +278,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_NIGHT;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.light_change_window_allowed_day_time_by_menu = true; // AQU=030 all new here: won't allow more than one day
-                       context.light_change_window_allowed_day_time_by_menu_changed = false; // AQU=030 At night in case not cleared by num_minutes_left_of_random
+                       context.allow_normal_light_change_by_menu = true; // AQU=030 all new here: won't allow more than one day
                    } break;
                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                        return_beeper_blip = true;
@@ -304,8 +302,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_NIGHT;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.light_change_window_allowed_day_time_by_menu = true; // AQU=030 all new here: won't allow more than one day
-                       context.light_change_window_allowed_day_time_by_menu_changed = false; // AQU=030 At night in case not cleared by num_minutes_left_of_random
+                       context.allow_normal_light_change_by_menu = true; // AQU=030 all new here: won't allow more than one day
                    } break;
                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                        return_beeper_blip = true;
@@ -345,19 +342,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
        } else if (context.num_minutes_left_of_random > 0) {
 
-           if (context.light_change_window_allowed_day_time_by_menu_changed) {
-               // AQU=030 Force terminate random sequence started by any cause if we changed from "NORM" to "FAST" (="STEADY") in menu
-               // Will be done within one minute. This may be good enough since there is so much timing with light going up or down, seen in context.light_is_stable
-
-               // If it's not cleared here (not done in the else below) it will be cleared at night:
-               context.light_change_window_allowed_day_time_by_menu_changed = false;
-
-               // AQU=031 Must update something here, or...
-
-               context.num_minutes_left_of_random = 0;
-           } else {
-               context.num_minutes_left_of_random = context.minutes_into_day_of_next_action_random_off - minutes_into_day_now; // AQU=023
-           }
+           context.num_minutes_left_of_random = context.minutes_into_day_of_next_action_random_off - minutes_into_day_now; // AQU=023
 
            debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
            if (context.num_minutes_left_of_random == 0) {
@@ -380,7 +365,7 @@ Handle_Light_Sunrise_Sunset_Etc (
    //}}}
    //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
 
-   if (context.now_is_display_screen_3_lysregulering) {
+   if (context.now_is_display_screen_3_lysregulering_menu) {
        // No code. No change of level from change of light level (with a torch!) when we're in SCREEN_3_LYSGULERING
    } else {
        // Piggy-back on the random change of light level
@@ -395,8 +380,8 @@ Handle_Light_Sunrise_Sunset_Etc (
    //{{{  Trigger_hour_changed or light sensor internally changed
    if (context.light_is_stable) {                                                         // L1: Light is not changing right now
        if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once per hour or when light changes
-           if (context.light_change_window_allowed_day_time_by_clock) {                // L3: And when it's day-time'ish
-               if (context.light_change_window_allowed_day_time_by_menu) {             // L4: AQU=030 additional. Default or allowed again by menu
+           if (context.allow_normal_light_change_by_clock) {                // L3: And when it's day-time'ish
+               if (context.allow_normal_light_change_by_menu) {             // L4: AQU=030 additional. Default or allowed again by menu
                    if (context.num_minutes_left_of_random == 0) {                      // L5: When it's not doing random already
                        if (context.num_random_sequences_left > 0) {                    // L6: Some left to do
                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {       // L7: Handle LYKT first

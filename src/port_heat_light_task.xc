@@ -517,9 +517,9 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 // Could have picked this out of a table, but I thought this was rather ok:
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
                     unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
-                    if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1; // ..then set
-                    if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1; // ..then set
-                    if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1; // ..then set
+                    if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1; // ..then conditionally increment
+                    if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1; // ..then conditionally increment
+                    if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1; // ..then conditionally increment
                 }
 
                 debug_printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",

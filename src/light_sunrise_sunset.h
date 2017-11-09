@@ -33,10 +33,9 @@ typedef struct light_sunrise_sunset_context_t {
     DateTime_t                      datetime;
     DateTime_t                      datetime_previous;
     bool                            datetime_previous_not_initialised;
-    bool                            light_change_window_allowed_day_time_by_clock;
-    bool                            light_change_window_allowed_day_time_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                            light_change_window_allowed_day_time_by_menu_next; // AQU=030 new
-    bool                            light_change_window_allowed_day_time_by_menu_changed; // AQU=030 new
+    bool                            allow_normal_light_change_by_clock;
+    bool                            allow_normal_light_change_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                            allow_normal_light_change_by_menu_next; // AQU=030 new
     unsigned                        screen_3_lysregulering_center_button_cnt_1to4; // AQU=030 new
     unsigned                        iof_day_night_action_list;
     unsigned                        num_minutes_left_of_day_night_action; // AQU=024
@@ -48,14 +47,14 @@ typedef struct light_sunrise_sunset_context_t {
     normal_or_steady_light_amount_t normal_or_steady_light_amount_in_FRAM_memory; // From Fujitsu MB85RC256V
     normal_or_steady_light_amount_t normal_or_steady_light_amount_next;
     bool                            normal_or_steady_light_amount_changed;
-    bool                            terminate_light_change_window; // AQU=031
-    bool                            now_is_display_screen_3_lysregulering; // AQU=031
+    bool                            stop_normal_light_changed_by_menu; // menu=SCREEN_3_LYSGULERING AQU=031
+    bool                            now_is_display_screen_3_lysregulering_menu; // AQU=031
 
     light_sensor_range_t            light_sensor_intensity;
     light_sensor_range_t            light_sensor_intensity_previous;
     light_sensor_diff_state_t       light_sensor_diff_state;
     unsigned                        print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
-    bool                            do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL. AQU=030: Not when light_change_window_allowed_day_time_by_menu_changed because it lasts only a day
+    bool                            do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
     bool                            light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 } light_sunrise_sunset_context_t;
 
