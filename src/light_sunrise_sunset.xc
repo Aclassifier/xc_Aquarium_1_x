@@ -289,7 +289,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_NIGHT;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.allow_normal_light_change_by_menu = true; // AQU=030 all new here: won't allow more than one day
+                       context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
                    } break;
                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                        return_beeper_blip = true;
@@ -304,6 +304,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_DAY;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY;
+                       context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
                    } break;
                    default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                }
@@ -313,7 +314,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_NIGHT;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.allow_normal_light_change_by_menu = true; // AQU=030 all new here: won't allow more than one day
+                       context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
                    } break;
                    case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                        return_beeper_blip = true;
@@ -328,6 +329,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                        context.it_is_day_or_night = IT_IS_DAY;
                        return_beeper_blip = true;
                        light_control_scheme = LIGHT_CONTROL_IS_DAY;
+                       context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
                    } break;
                    default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                }

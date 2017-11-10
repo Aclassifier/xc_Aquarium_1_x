@@ -13,10 +13,14 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-//#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
-//#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
+#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
+#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
 
-#define APPLICATION_VERSION_STR "1.0.22"
+#define APPLICATION_VERSION_STR "1.0.23" // Present version
+    // "1.0.24" // 10Nov2017 ??
+    //                       AQU=033 LIGHT GOES SLOWLY OFF AFTER STARTUP IN BOX, BUT NOT ON LOOSE startKIT
+    // "1.0.23" // 10Nov2017 Tagged VER_1_0_23_with_fishes
+    //                       AQU=032 Make stronger criterion to make setting FAST possible? No. Instead also remove FAST in the morning
     // "1.0.22" // 10Nov2017 Tagged VER_1_0_22_with_fishes
     //                       AQU=031 Setting to FAST didn't update light index. Also redesign so that SCREEN_3_LYSREGULERING will not interfere with SKY or LYKT
     //                               and that if SKY or LYKT when changing will first take light up to DAY agin
