@@ -13,12 +13,16 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       // NEVER for aquarium!
-#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Only valid if above is also defined
+#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
+#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.0.23" // Present version
-    // "1.0.24" // 10Nov2017 ??
-    //                       AQU=033 LIGHT GOES SLOWLY OFF AFTER STARTUP IN BOX, BUT NOT ON LOOSE startKIT
+#define APPLICATION_VERSION_STR "1.1.2"
+    // "1.1.2"
+    //                       AQU=035 ERROR_BIT_WRONG_CODE_STARTKIT is now bit 0xFF instead of bit 0x0A and the other bits pushed down
+    // "1.1.1"  // 11Nov2017 AQU=034 WRONG_CODE_STARTKIT new error message
+    // "1.1.0"  // 10Nov2017 Tagged VER_1_1_0_with_fishes
+    //                       AQU=033 LIGHT GOES SLOWLY OFF AFTER STARTUP IN BOX, BUT NOT ON LOOSE startKIT ->
+    //                               I had compiled with FLASH_BLACK_BOARD and USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM
     // "1.0.23" // 10Nov2017 Tagged VER_1_0_23_with_fishes
     //                       AQU=032 Make stronger criterion to make setting FAST possible? No. Instead also remove FAST in the morning
     // "1.0.22" // 10Nov2017 Tagged VER_1_0_22_with_fishes

@@ -94,9 +94,9 @@ Symbols:
   00010e58 00000040 .text                _i.lib_startkit_adc_commands_if._chan.read
   00010e98 00000020 .text                _i.lib_startkit_adc_commands_if._chan.trigger
   00010eb8 00000328 .text                System_Task
-  000111e0 0000123c .text                Handle_Real_Or_Clocked_Button_Actions
-  0001241c 000003e4 .text                Handle_Real_Or_Clocked_Buttons
-  00012800 00000778 .text                System_Task_Data_Handler
+  000111e0 00001244 .text                Handle_Real_Or_Clocked_Button_Actions
+  00012424 000003e4 .text                Handle_Real_Or_Clocked_Buttons
+  00012808 00000770 .text                System_Task_Data_Handler
   00012f78 00000018 .text                Button_Task.init.1
   00012f90 00000014 .text                Button_Task.init.0
   00012fa4 0000006c .text                Button_Task.select.enable
@@ -375,7 +375,7 @@ Symbols:
   0001a5a8 00000016 .cp.rodata           .str144
   0001a5c0 00000051 .cp.rodata           .str159
   0001a614 00000042 .cp.rodata           .str168
-  0001a658 00000007 .cp.rodata           .str176
+  0001a658 00000006 .cp.rodata           .str176
   0001a660 00000045 .cp.rodata           .str179
   0001a6a8 0000000c .cp.rodata           .str182
   0001a6b4 00000014 .cp.rodata           .str189

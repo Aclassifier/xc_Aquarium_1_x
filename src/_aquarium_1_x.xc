@@ -166,21 +166,18 @@ typedef enum error_bits_t {   // 0xHH since binary in display
                                              // when the heating cable has been connected.
                                              // Heating elements not below the aquarium but on the table may also trigger this alarm,
                                              // but only 1.0 degC is very little and is easily observed even in that case!
-    //
     ERROR_BIT_LOW_12V_LIGHT          = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
     ERROR_BIT_HIGH_12V_LIGHT         = 0x05, // INNER_RR_12V_MAX_VOLTS_DP1
     ERROR_BIT_LOW_24V_HEAT           = 0x06, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
     ERROR_BIT_HIGH_24V_HEAT          = 0x07, // INNER_RR_24V_MAX_VOLTS_DP1
-    //
     ERROR_BIT_BOX_OVERHEAT           = 0x08, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
     ERROR_BIT_WATER_COLD             = 0x09, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
-    // VACANT                          0x0A
-    // VACANT                          0x0B
-    //
-    ERROR_BIT_AMBIENT_OVERHEAT       = 0x0C, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX
-    ERROR_BIT_WATER_OVERHEAT         = 0x0D, // TEMP_ONETENTHDEGC_30_0_WATER_MAX
-    ERROR_BIT_HEATER_OVERHEAT        = 0x0E, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX
-    ERROR_WATCHDOG_TIMED_OUT         = 0x0F  // HEAT CABLES FAILED TO SAFE: OFF
+    ERROR_BIT_AMBIENT_OVERHEAT       = 0x0A, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX AQU=035
+    ERROR_BIT_WATER_OVERHEAT         = 0x0B, // TEMP_ONETENTHDEGC_30_0_WATER_MAX AQU=035
+    ERROR_BIT_HEATER_OVERHEAT        = 0x0C, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
+    ERROR_BIT_WATCHDOG_TIMED_OUT     = 0x0D, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
+    // VACANT                          0x0E
+    ERROR_BIT_WRONG_CODE_STARTKIT    = 0x0F  // WRONG_CODE_STARTKITT AQU=033 AQU=035
 } error_bits_t;
 
 #define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
@@ -1391,6 +1388,10 @@ void System_Task_Data_Handler (
     //}}}  
     //{{{  HANDLE ERROR SITUATIONS
 
+    #if ((defined FLASH_BLACK_BOARD) or (defined USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM))
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WRONG_CODE_STARTKIT); // AQU=034 new
+    #endif
+
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT]) {
         // error_bits_now or_eq (1<<ERROR_BIT_I2C_AMBIENT); Note by xTIMEcomposer 14.3:
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_AMBIENT);
@@ -1440,7 +1441,7 @@ void System_Task_Data_Handler (
     if (context.heat_cables_forced_off_by_watchdog) {
         // This task is mostly watching iself, even if delays elsewhere may also cause this
         // Test with DEBUG_TEST_WATCHDOG
-        error_bits_now = error_bits_now bitor (1<<ERROR_WATCHDOG_TIMED_OUT);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATCHDOG_TIMED_OUT);
     } else {}
 
     // No new assignment of local error_bits_now after here
