@@ -235,6 +235,19 @@ typedef struct handler_context_t {
 } handler_context_t;
 
 //}}}  
+
+//{{{  Set_Dont_Disturb_Screen_3_Lysregulering
+
+bool Set_Dont_Disturb_Screen_3_Lysregulering (handler_context_t &context) { // New with AQU=036
+
+    // dont_disturb_screen_3_lysregulering = SCREEN_3_LYSGULERING and (DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE)
+    // Read as DONT DISTURB SCREEN_3_LYSREGULERING WITH LYKT IF IT'S VISIBILE
+
+    return ((context.display_screen_name_present == SCREEN_3_LYSGULERING) and (context.display_appear_state != DISPLAY_APPEAR_BLACK));
+}
+
+//}}}
+
 //{{{  Clear_All_Screen_Sub_Is_Editable_Except
 
 // The purpose of Clear_All_Screen_Sub_Is_Editable_Except is to have a single tear-down function
@@ -1556,7 +1569,7 @@ void System_Task_Data_Handler (
     if (light_sunrise_sunset_context.light_is_stable) { // We won't disturb typically LED slowly DOWN
 
         // HANDLE LIGHT INTENSITY
-        light_sunrise_sunset_context.now_is_display_screen_3_lysregulering_menu = (context.display_screen_name_present == SCREEN_3_LYSGULERING); // First this..
+        light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = Set_Dont_Disturb_Screen_3_Lysregulering (context); // First this..
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands); // ..then this
 
         // Update FRAM if needed
@@ -1739,7 +1752,7 @@ void System_Task (
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
     light_sunrise_sunset_context.do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
-    light_sunrise_sunset_context.now_is_display_screen_3_lysregulering_menu = (context.display_screen_name_present == SCREEN_3_LYSGULERING);
+    light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
 
     debug_printf("\nSystem_Task started with v%s\n", APPLICATION_VERSION_STR);
 

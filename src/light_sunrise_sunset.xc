@@ -378,7 +378,7 @@ Handle_Light_Sunrise_Sunset_Etc (
    //}}}
    //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
 
-   if (context.now_is_display_screen_3_lysregulering_menu) {
+   if (context.dont_disturb_screen_3_lysregulering) {
        // No code. No change of level from change of light level (with a torch!) when we're in SCREEN_3_LYSGULERING
    } else {
        // Piggy-back on the random change of light level

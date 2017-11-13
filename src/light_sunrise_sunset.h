@@ -48,7 +48,7 @@ typedef struct light_sunrise_sunset_context_t {
     light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds_next;
     bool                              do_light_amount_full_or_two_thirds_by_menu;
     bool                              stop_normal_light_changed_by_menu; // menu=SCREEN_3_LYSGULERING AQU=031
-    bool                              now_is_display_screen_3_lysregulering_menu; // AQU=031
+    bool                              dont_disturb_screen_3_lysregulering; // AQU=031 AQU=036
 
     light_sensor_range_t              light_sensor_intensity;
     light_sensor_range_t              light_sensor_intensity_previous;
