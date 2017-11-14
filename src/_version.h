@@ -13,12 +13,13 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-// #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
-// #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
+//#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
+//#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.2"
-    // "1.1.2"  // 13Nov2017
-    //                       AQU=036 SCREEN_3_LYSREGULERING also as dark stops LYKT. Fixed
+#define APPLICATION_VERSION_STR "1.1.3"
+    // "1.1.3"  // 14Nov2017 Tagged VER_1_1_3_with_fishes
+    ///                      AQU=037 No code change just testing XFLASH from command line
+    // "1.1.2"  // 13Nov2017 AQU=036 SCREEN_3_LYSREGULERING also as dark stops LYKT. Fixed
     //                       AQU=035 ERROR_BIT_WRONG_CODE_STARTKIT is now bit 0xFF instead of bit 0x0A and the other bits pushed down. Fixed
     // "1.1.1"  // 11Nov2017 AQU=034 WRONG_CODE_STARTKIT new error message
     // "1.1.0"  // 10Nov2017 Tagged VER_1_1_0_with_fishes
