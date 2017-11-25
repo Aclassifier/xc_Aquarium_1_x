@@ -55,6 +55,15 @@
 #define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET) val=to;                   } while (0)
 
 //}}}  
+
+#ifdef FLASH_BLACK_BOARD
+    // No code
+#else
+    #ifdef DEBUG_TEST_DAY_NIGHT_DAY
+        #error DEBUG_TEST_DAY_NIGHT_DAY cannot be defined for controller box
+    #endif
+#endif
+
 //{{{  definitions
 
 //------ NOT USED SINCE IT'S HOPELESS TO INITIALISE NICELY ------
@@ -163,15 +172,10 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
 
-   #ifdef DEBUG_TEST_DAY_NIGHT_DAY // Put a test in here as well (not needed), but it's easier to see then
-       const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute) +
-           NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(20,52); // NOW-TIME IN DISPLAY PLUS COMPILE/LOAD-TIME LIKE 2-3 MINUTES INTO THE FUTURE
-   #else
-       const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
-   #endif
+   const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
 
    context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                       (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
+                                                 (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
    // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
    const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
@@ -276,6 +280,10 @@ Handle_Light_Sunrise_Sunset_Etc (
                 hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
 
        context.num_minutes_left_of_day_night_action = minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now; // AQU=024 was just a decrement here
+       //
+       // OBSERVE THAT THE MATHEMATICS HERE REQUIRES NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START TO BE SOME HIGH NUMBER
+       // AND NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST TO BE SOME SMALL NUMBER. BETWEEN THEM THE NUMBER CIRCLE MUST
+       // WRAP AROUND TO ZERO (=MIDNIGHT). THIS IS ILLUSTRATED WITH THE DATA SET USED WHEN DEBUG_TEST_DAY_NIGHT_DAY
 
        if (minutes_into_day_now == minutes_into_day_of_next_action_listed_darker_or_lighter) {
 
@@ -283,57 +291,33 @@ Handle_Light_Sunrise_Sunset_Etc (
            light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
 
            //{{{  Main state changes done in here
-           if (context.light_amount_full_or_two_thirds == NORMAL_LIGHT_IS_FULL) {
-               switch (context.iof_day_night_action_list) {
-                   case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
-                       context.it_is_day_or_night = IT_IS_NIGHT;
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
-                   } break;
-                   case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
-                   } break;
-                   case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
-                       return_beeper_blip = true;
-                       context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
-                       light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
-                   } break;
-                   case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST: {
-                       context.it_is_day_or_night = IT_IS_DAY;
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_DAY;
-                       context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
-                   } break;
-                   default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
-               }
-           } else { // NORMAL_LIGHT_IS_TWO_THIRDS
-               switch (context.iof_day_night_action_list) {
-                   case IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE: {
-                       context.it_is_day_or_night = IT_IS_NIGHT;
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
-                       context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
-                   } break;
-                   case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
-                   } break;
-                   case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
-                       return_beeper_blip = true;
-                       context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
-                       light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
-                   } break;
-                   case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY: {
-                       context.it_is_day_or_night = IT_IS_DAY;
-                       return_beeper_blip = true;
-                       light_control_scheme = LIGHT_CONTROL_IS_DAY;
-                       context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
-                   } break;
-                   default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
-               }
+
+           switch (context.iof_day_night_action_list) {
+               case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
+                   context.it_is_day_or_night = IT_IS_NIGHT;
+                   return_beeper_blip = true;
+                   light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
+                   context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
+               } break;
+               case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
+                   return_beeper_blip = true;
+                   light_control_scheme = LIGHT_CONTROL_IS_NIGHT;
+               } break;
+               case IOF_TIMED_NIGHT_TO_DAY_LIST_START: {
+                   return_beeper_blip = true;
+                   context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
+                   light_control_scheme = LIGHT_CONTROL_IS_NIGHT_TO_DAY;
+               } break;
+               case IOF_TIMED_NIGHT_TO_DAY_LIST_LAST: {
+                   context.it_is_day_or_night = IT_IS_DAY;
+                   return_beeper_blip = true;
+                   light_control_scheme = LIGHT_CONTROL_IS_DAY;
+                   context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
+                   // Darker_Light_Composition_Iff below applies
+               } break;
+               default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
            }
+
            //}}}
 
            // ------------ CHANGE LIGHT LEVEL / COLOUR QUALITY ------------
@@ -384,7 +368,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        // Piggy-back on the random change of light level
        //
        if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
-           // If it's randomly taken below then we always go to LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM because it's quite visible
+           // If it's randomly taken below then we always go to LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM because it's quite visible
            context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
        } else {} // Not enough change
    }
@@ -400,7 +384,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {       // L7: Handle LYKT first
                                context.light_sensor_diff_state = DIFF_ACTIVE;
                                debug_set_val_to (print_value,101);
-                               i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
+                               i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
 
                                context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
                                                                                                          // with the random triggering on the hours and minute in this case
@@ -414,27 +398,28 @@ Handle_Light_Sunrise_Sunset_Etc (
                                unsigned random_number_0_17 = random_number % 18; // AQU=029 was function of NUMLIGHT_COMPOSITION_LEVELS, but that makes no sense
                                light_composition_t new_light_composition;
                                if (random_number_0_17 > 8) { // 9 10 11 12 13 14 15 16 17
-                                   // AQU=029 no function of NORMAL_LIGHT_IS_FULL or NORMAL_LIGHT_IS_TWO_THIRDS and then always the whiter light, for 50% of occasions
-                                   new_light_composition = LIGHT_COMPOSITION_7000_mW_ON;                         //  [10]  9/18  LIGHT_COMPOSITION_7000_mW_BACK2_CENTER3_FRONT1_ON
+                                   // AQU=029 no function of NORMAL_LIGHT_IS_FULL or NORMAL_LIGHT_IS_TWO_THIRDS but it's used here for 50% of occasions
+                                   // AQU=038 takes FRONT as whitest (all 6000K) and the 2700K has been disconnected. So FRONT now means "cold" nor "warm"
+                                   new_light_composition = LIGHT_COMPOSITION_7000_mW_ON;                         //  [11]  9/18  LIGHT_COMPOSITION_7000_mW_BACK2_CENTER3_FRONT1_ON
                                                                                                                   //             LIGHT_COMPOSITION_7000_mW_ON only used here, but that's quite "often"
                                } else if (random_number_0_17 == 8) { //                          UP or DOWN:                     UP if NORMAL_LIGHT_IS_TWO_THIRDS
-                                   new_light_composition = LIGHT_COMPOSITION_10333_mW_ON;                        //   [7]  1/18: LIGHT_COMPOSITION_10333_mW_BACK3_CENTER3_FRONT2_ON
+                                   new_light_composition = LIGHT_COMPOSITION_10333_mW_ON;                        //   [8]  1/18: LIGHT_COMPOSITION_10333_mW_BACK3_CENTER3_FRONT2_ON
                                } else if (random_number_0_17 == 7) { //                          UP or DOWN:                     UP if NORMAL_LIGHT_IS_TWO_THIRDS
-                                   new_light_composition = LIGHT_COMPOSITION_7666_mW_ON;                         //   [6]  1/18: LIGHT_COMPOSITION_7666_mW_BACK3_CENTER3_FRONT1_ON
+                                   new_light_composition = LIGHT_COMPOSITION_7666_mW_ON;                         //   [7]  1/18: LIGHT_COMPOSITION_7666_mW_BACK3_CENTER3_FRONT1_ON
                                } else if (random_number_0_17 == 6) { //                          DOWN:
-                                   new_light_composition =  LIGHT_COMPOSITION_5000_mW_ON;                        //  [13]  1/18: LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+                                   new_light_composition =  LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K;             //  [14]  1/18: LIGHT_COMPOSITION_5000_mW_FRONT3_ON
                                } else if (random_number_0_17 == 5) { //                          DOWN:
-                                   new_light_composition = LIGHT_COMPOSITION_6000_mW_ON;                         //   [5]  1/18: LIGHT_COMPOSITION_6000_mW_BACK3_CENTER3_ON
+                                   new_light_composition = LIGHT_COMPOSITION_6000_mW_ON;                         //   [6]  1/18: LIGHT_COMPOSITION_6000_mW_BACK3_CENTER3_ON
                                } else if (random_number_0_17 == 4) { //                          DOWN:
-                                   new_light_composition = LIGHT_COMPOSITION_4666_mW_ON;                         //   [4]  1/18: LIGHT_COMPOSITION_4666_mW_BACK2_CENTER3_ON
+                                   new_light_composition = LIGHT_COMPOSITION_5333_mW_ON;                         //   [5]  1/18: LIGHT_COMPOSITION_5333_mW_BACK2_CENTER3_ON
                                } else if (random_number_0_17 == 3) { //                          DOWN:
-                                   new_light_composition = LIGHT_COMPOSITION_3666_mW_ON;                         //  [11]  1/18: LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON
+                                   new_light_composition = LIGHT_COMPOSITION_3666_mW_ON;                         //  [12]  1/18: LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON
                                } else if (random_number_0_17 == 2) { //                          DOWN:
-                                   new_light_composition = LIGHT_COMPOSITION_3333_mW_ON;                         //   [3]  1/18: LIGHT_COMPOSITION_3333_mW_BACK1_CENTER3_ON
+                                   new_light_composition = LIGHT_COMPOSITION_4666_mW_ON;                         //   [4]  1/18: LIGHT_COMPOSITION_4666_mW_BACK1_CENTER3_ON
                                } else if (random_number_0_17 == 1) { //                          DOWN:
-                                     new_light_composition = LIGHT_COMPOSITION_4000_mW_ON_WHITE;                 //  [12]  1/18: LIGHT_COMPOSITION_4000_mW_CENTER3_ON
+                                     new_light_composition = LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K;            //  [13]  1/18: LIGHT_COMPOSITION_4000_mW_CENTER3_ON
                                } else {                   // == 0                                DOWN:
-                                     new_light_composition = LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM;  //   [2]  1/18: LIGHT_COMPOSITION_2666_mW_BACK1_CENTER2_ON
+                                     new_light_composition = LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM;  //   [3]  1/18: LIGHT_COMPOSITION_3333_mW_BACK1_CENTER2_ON
                                                                                                                  //       -----
                                }                                                                                 //       18/18
                                                                                                                  //       =====

@@ -8,7 +8,7 @@
 #ifndef LIGHT_DAY_NIGHT_H_
 #define LIGHT_DAY_NIGHT_H_
 
-// #define DEBUG_TEST_DAY_NIGHT_DAY // If defined, set time start in light_sunrise_sunset.xc
+// #define DEBUG_TEST_DAY_NIGHT_DAY // Just set the clock to just before midnight. Detail below
 
 typedef enum it_is_day_or_night_t {
     IT_IS_DAY,
@@ -67,15 +67,13 @@ typedef struct light_sunrise_sunset_context_t {
 
 // I would never put this on my fishes and plants!
 
-#define TIME_ACTION_ENTRY_LINE_NUMS 3
+#define TIME_ACTION_ENTRY_LINE_NUMS 3 // hour, minutes, light_composition
 //
-#define IOF_TIMED_DAY_TO_NIGHT_LIST_START       0 // if NORMAL_LIGHT_IS_FULL
-#define IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE  1 // if NORMAL_LIGHT_IS_TWO_THIRDS
-#define IOF_TIMED_DAY_TO_NIGHT_LIST_LAST        7
-#define IOF_TIMED_NIGHT_TO_DAY_LIST_START       8
-#define IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY 14
-#define IOF_TIMED_NIGHT_TO_DAY_LIST_LAST       15
-#define TIME_ACTION_ENTRY_NUMS (IOF_TIMED_NIGHT_TO_DAY_LIST_LAST+1) // 16
+#define IOF_TIMED_DAY_TO_NIGHT_LIST_START 0 // if NORMAL_LIGHT_IS_FULL or NORMAL_LIGHT_IS_TWO_THIRDS new with AQU=039
+#define IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  3
+#define IOF_TIMED_NIGHT_TO_DAY_LIST_START 4
+#define IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  7
+#define TIME_ACTION_ENTRY_NUMS (IOF_TIMED_NIGHT_TO_DAY_LIST_LAST+1) // 8 AQU=039 was 16
 
 //                         HH MM // IF YOU CHANGE THIS, THE COMPLETE LISTS MUST BE CHANGED!
 #define HH_RANDOM_LATEST   20    // Increasing round the clock from evening and first..
@@ -98,66 +96,46 @@ typedef struct light_sunrise_sunset_context_t {
 // In any case it looks strange in the summer since it' so light in Norway then
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((HH_A * 60) + MM_B) // Earliest is for NORMAL_LIGHT_IS_FULL
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((HH_A * 60) + MM_B)
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F) // Latest is when NORMAL_LIGHT_IS_FULL
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F)
 
-    // LIGHT_COMPOSITION_3666_mW_ON, LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS
-    // not using it here because FRONT1 in the sequence is too dominant
+    // AQU=039 We used to have 8 levels per up/down. This was too messy with respect to colour temperature and power. Also, the first level down at 22.00 was
+    // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.
 
-    //   hours   minutes                                                 light_composition_t IOF_TIMED
-    //               LIGHT_COMPOSITION_11000_mW_ON_FULL                  /* 8            |  */
-    #define TIMED_DAY_TO_NIGHT_LIST_INIT                                 /*              |  */\
-        {HH_A, MM_B, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_DAY_TO_NIGHT_LIST_START muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
-        {  22,    6, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            IOF_TIMED_DAY_TO_NIGHT_LIST_START_LATE */\
-        {  22,    9, LIGHT_COMPOSITION_6000_mW_ON},                      /* 5            2  */\
-        {  22,   12, LIGHT_COMPOSITION_4666_mW_ON},                      /* 4            3  */\
-        {  22,   15, LIGHT_COMPOSITION_3333_mW_ON},                      /* 3            4  */\
-        {  22,   18, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            5  */\
-        {  22,   21, LIGHT_COMPOSITION_0666_mW_ON},                      /* 1            6  */\
-        {  22,   30, LIGHT_COMPOSITION_0000_mW_OFF}                      /* 0            IOF_TIMED_DAY_TO_NIGHT_LIST_LAST */
-                                                                         /*              |  */
-    //   hours   minutes                                                 /*              |  */
-    //               LIGHT_COMPOSITION_0000_mW_OFF                       /* 0            |  */
-    #define TIMED_NIGHT_TO_DAY_LIST_INIT                                 /*              |  */\
-        {HH_C, MM_D, LIGHT_COMPOSITION_0666_mW_ON},                      /* 1            IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   8,    3, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, /* 2            9  */\
-        {   8,    6, LIGHT_COMPOSITION_3333_mW_ON},                      /* 3            10 */\
-        {   8,    9, LIGHT_COMPOSITION_4666_mW_ON},                      /* 4            11 */\
-        {   8,   12, LIGHT_COMPOSITION_6000_mW_ON},                      /* 5            12 */\
-        {   8,   15, LIGHT_COMPOSITION_7666_mW_ON},                      /* 6            13 */\
-        {   8,   21, LIGHT_COMPOSITION_10333_mW_ON},                     /* 7            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST_EARLY muted if NORMAL_LIGHT_IS_TWO_THIRDS */\
-        {HH_E, MM_F, LIGHT_COMPOSITION_11000_mW_ON_FULL}                 /* 8            IOF_TIMED_NIGHT_TO_DAY_LIST_LAST */
-    #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) 0
-
-#else //  DEBUG_TEST_DAY_NIGHT_DAY
-
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((22 * 60) + 30)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((22 * 60) + 41)
-    //   hours   minutes
-    //                   LIGHT_COMPOSITION_11000_mW_ON_FULL
+    //   hours   minutes                                        IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {    22,     30, LIGHT_COMPOSITION_10333_mW_ON}, /* NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START */ \
-        {    22,     31, LIGHT_COMPOSITION_7666_mW_ON}, \
-        {    22,     34, LIGHT_COMPOSITION_6000_mW_ON}, \
-        {    22,     36, LIGHT_COMPOSITION_4666_mW_ON}, \
-        {    22,     37, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     38, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, \
-        {    22,     39, LIGHT_COMPOSITION_0666_mW_ON}, \
-        {    22,     40, LIGHT_COMPOSITION_0000_mW_OFF}
+        {HH_A, MM_B, LIGHT_COMPOSITION_3666_mW_ON},          /* [12] LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {  22,   10, LIGHT_COMPOSITION_2666_mW_ON},          /*  [2] LIGHT_COMPOSITION_2666_mW_CENTER2_ON                                                 */\
+        {  22,   20, LIGHT_COMPOSITION_0666_mW_ON},          /*  [1] LIGHT_COMPOSITION_0666_mW_CENTER1_ON               Surprisingly light!               */\
+        {  22,   30, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //   hours   minutes
-    //                   LIGHT_COMPOSITION_0000_mW_OFF
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {    22,     41, LIGHT_COMPOSITION_0666_mW_ON},  /* NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START */ \
-        {    22,     42, LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM}, \
-        {    22,     43, LIGHT_COMPOSITION_3333_mW_ON}, \
-        {    22,     44, LIGHT_COMPOSITION_4666_mW_ON}, \
-        {    22,     45, LIGHT_COMPOSITION_6000_mW_ON}, \
-        {    22,     47, LIGHT_COMPOSITION_7666_mW_ON}, \
-        {    22,     49, LIGHT_COMPOSITION_10333_mW_ON}, \
-        {    22,     53, LIGHT_COMPOSITION_11000_mW_ON_FULL}
+        {HH_C, MM_D, LIGHT_COMPOSITION_0666_mW_ON},          /*  [1] LIGHT_COMPOSITION_0666_mW_CENTER1_ON               IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+        {   8,   10, LIGHT_COMPOSITION_2666_mW_ON},          /*  [2] LIGHT_COMPOSITION_2666_mW_CENTER2_ON                                                 */\
+        {   8,   20, LIGHT_COMPOSITION_3666_mW_ON},          /* [12] LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {HH_E, MM_F, LIGHT_COMPOSITION_11000_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        //           LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS    [10] may set it to 2/3
 
-        #define NUM_MINUTES_LEFT_BEFORE_ACTION_TEST(hour_now,min_now) ((NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START-((hour_now*60)+min_now))+1) // +1 so that it will start at DEBUG time, not when passed
+#else // DEBUG_TEST_DAY_NIGHT_DAY. Just set the clock to 23.55.00 on the FLASH_BLACK_BOARD!
+
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START  ((23 * 60) + 56) // THE MATHEMATICS LATER REQUIRES THIS TO BE LATE (LARGE NUMBER) AND..
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START  ((0  * 60) +  1) // ..THIS TO BE EARLY (SMALL NUMBER). SO NIGHT IS AT MIDNIGHT!
+    //   hours   minutes                                        IOF_TIMED light_composition_t
+    #define TIMED_DAY_TO_NIGHT_LIST_INIT \
+        {  23,   56, LIGHT_COMPOSITION_3666_mW_ON},          /* [12] LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {  23,   57, LIGHT_COMPOSITION_2666_mW_ON},          /*  [2] LIGHT_COMPOSITION_2666_mW_CENTER2_ON                                                 */\
+        {  23,   58, LIGHT_COMPOSITION_0666_mW_ON},          /*  [1] LIGHT_COMPOSITION_0666_mW_CENTER1_ON               Surprisingly light!               */\
+        {  23,   59, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
+    //      0     0  DEBUG_TEST_DAY_NIGHT_DAY MIDNIGHT IS NIGHT, SEE REASON ABOVE
+    //   hours   minutes
+    #define TIMED_NIGHT_TO_DAY_LIST_INIT \
+        {   0,    1, LIGHT_COMPOSITION_0666_mW_ON},          /*  [1] LIGHT_COMPOSITION_0666_mW_CENTER1_ON               IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+        {   0,    2, LIGHT_COMPOSITION_2666_mW_ON},          /*  [2] LIGHT_COMPOSITION_2666_mW_CENTER2_ON                                                 */\
+        {   0,    3, LIGHT_COMPOSITION_3666_mW_ON},          /* [12] LIGHT_COMPOSITION_3666_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {   0,    4, LIGHT_COMPOSITION_11000_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        //           LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS    [10] may set it to 2/3
+
 #endif
 
 #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST ((HH_RANDOM_EARLIEST * 60) + MM_RANDOM_EARLIEST)

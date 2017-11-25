@@ -16,7 +16,11 @@
 //#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.3"
+#define APPLICATION_VERSION_STR "1.1.4"
+    // "1.1.4"     25Nov2017 Tagged as VER_1_1_4_with_fishes
+    //                       AQU=039 After AQU=038 then the first light down at night after the beep wasn't visible enough.
+    //                               Complete rethinking into _less_ fancy into-night and into-day lists, and the same for half hour both for 3/3 and 2/3
+    //                       AQU=038 5W 3000K LED strip replaced with three 6000K LED strips of 5W. Just comments
     // "1.1.3"  // 14Nov2017 Tagged VER_1_1_3_with_fishes
     ///                      AQU=037 No code change just testing XFLASH from command line
     // "1.1.2"  // 13Nov2017 AQU=036 SCREEN_3_LYSREGULERING also as dark stops LYKT. Fixed
@@ -32,7 +36,7 @@
     //                               and that if SKY or LYKT when changing will first take light up to DAY agin
     // "1.0.21" // 06Nov2017 Tagged VER_1_0_21_with_fishes
     //                       AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
-    //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour
+    //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour. This effect is removed with AQU=038 where FRONT became coldest, not warmest
     //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])
     // "1.0.20" // 03Nov2017 AQU=027 Adding another 3200K LED of type 36-3848 North Light LED strip bought at Clas Ohlson, so the center is now 2*2W=4W. MAX now 11W, not 9W
     // "1.0.19" // 29Oct2017 AQU=026 Back to Mac OS X (macOS) 10.11.6 El Capitan again
@@ -97,7 +101,7 @@
     //                       AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
     //                       AQU=013 Max "1.0.12" with 6 visible chars allowed (was 5) (tested ok)
     // "1.0.8" // 18Jul2017          Tagged VER_1_0_8_with_fishes
-    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
+    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
     //                       AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
     //                       AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
     // "1.0.7" // 17Jul2017          Tagged VER_1_0_7_with_fishes
@@ -107,7 +111,7 @@
     // "1.0.4" // 15Jul2017          Tagged VER_1_0_4_with_fishes
     //                       AQU=006 DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
     // "1.0.3" // 15Jul2017  AQU=005 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
-    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_4000_mW_ON_WHITE etc) (tested ok)
+    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K etc) (tested ok)
     // "1.0.1" // 07Jul2017  AQU=003 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)
     //  1.0.0  // 21May2017  AQU=001 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()

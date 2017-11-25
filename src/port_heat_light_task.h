@@ -7,14 +7,20 @@
 
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK; often in a two-dim array with NUM_PWM_TIME_WINDOWS (so not using NUM_ELEMENTS)
 
-typedef enum iof_LED_strip_t {
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
+typedef enum iof_LED_strip_t { //     STRIPS #1 to #6 = 6 of them AQU=038
+    IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#3,#4 | 6000K | 5W = 1.4W + 2.2W + 1.4W | 150lm + 240lm + 150lm = 540lm AQU=038
+    IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3    | 3200K | 4W = 2W + 2W
+    IOF_LED_STRIP_BACK    // "BACK"   STRIP # 6       | 465nm | 2W
+} iof_LED_strip_t; //                                           ##
+//                                                              ##
+typedef enum { //                                               ##
+    WATTOF_LED_STRIP_FRONT  = 5, // ->                       -> ##
+    WATTOF_LED_STRIP_CENTER = 4, // ->                       -> ##
+    WATTOF_LED_STRIP_BACK   = 2  // ->                       -> ##
+} wattOf_LED_strip_t;
 
-#define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 9
-#define NUMLIGHT_COMPOSITION_LEVELS 14 // AQU=029 new level LIGHT_COMPOSITION_7000_mW_ON lighter
+#define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 10 // AQU=039
+#define NUMLIGHT_COMPOSITION_LEVELS 15 // AQU=039 AQU=029 new level LIGHT_COMPOSITION_7000_mW_ON lighter
 #define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022. AQU=029 was 39 is 42
 
 typedef enum light_composition_t {
@@ -27,25 +33,25 @@ typedef enum light_composition_t {
     // MONOTONOUS COLOUR AND INTENSITY INCREASE:
     // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
     //
-    //                                                       // Darkest random coding |
-    //                #### mW         See below: FATAL! ##   // depends on value      |
-    LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // 0                     | All windows dark, of course
-    LIGHT_COMPOSITION_0666_mW_ON                      =  1 , // 1                     | Two time windows are fully dark
-    LIGHT_COMPOSITION_2666_mW_ON_MIXED_DARKEST_RANDOM =  2,  // 2                     |
-    LIGHT_COMPOSITION_3333_mW_ON                      =  3,
+    //                #### mW         See below: FATAL! ##   //
+    LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // All windows dark, of course
+    LIGHT_COMPOSITION_0666_mW_ON                      =  1,  // Two time windows are fully dark
+    LIGHT_COMPOSITION_2666_mW_ON                      =  2,  // AQU=039 new
+    LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM =  3,  //
     LIGHT_COMPOSITION_4666_mW_ON                      =  4,
-    LIGHT_COMPOSITION_6000_mW_ON                      =  5,
-    LIGHT_COMPOSITION_7666_mW_ON                      =  6,
-    LIGHT_COMPOSITION_10333_mW_ON                     =  7,
-    LIGHT_COMPOSITION_11000_mW_ON_FULL                =  8, // All = 11W I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_5333_mW_ON                      =  5,
+    LIGHT_COMPOSITION_6000_mW_ON                      =  6,
+    LIGHT_COMPOSITION_7666_mW_ON                      =  7,
+    LIGHT_COMPOSITION_10333_mW_ON                     =  8,
+    LIGHT_COMPOSITION_11000_mW_ON_FULL                =  9, // All = 11W I can hear a sound from the LEDs!
     //                                 See below: FATAL! ##
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
-    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS           =  9, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_7000_mW_ON                      = 10, // AQU=029 new level with less 3000K and more 3200K. ie. lighter
-    LIGHT_COMPOSITION_3666_mW_ON                      = 11, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_4000_mW_ON_WHITE                = 12,
-    LIGHT_COMPOSITION_5000_mW_ON                      = 13
-    // NUMLIGHT_COMPOSITION_LEVELS                    = 14
+    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS           = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_7000_mW_ON                      = 11,
+    LIGHT_COMPOSITION_3666_mW_ON                      = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K           = 13,
+    LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K           = 14
+    // NUMLIGHT_COMPOSITION_LEVELS                    = 15
     //                                           FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
     //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
@@ -59,12 +65,6 @@ typedef enum light_control_scheme_t {
     LIGHT_CONTROL_IS_RANDOM,             // " SKY" Starting every hour
     LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // "LYKT" Conditional and random (i.e. limited)
 } light_control_scheme_t;
-
-typedef enum {
-    WATTOF_LED_STRIP_FRONT  = 5, // FRONT  (5W   white  3000K, 380 lm)
-    WATTOF_LED_STRIP_CENTER = 4, // CENTER (2*2W whiter 3200K) AQU=027: MAX was 9W, now 11W
-    WATTOF_LED_STRIP_BACK   = 2  // BACK   (2W   blue   465nm)
-} wattOf_LED_strip_t;
 
 typedef enum heat_cable_commands_t {
     HEAT_CABLES_VOID, // Just to trigger a change on first call on heat_cables_command
