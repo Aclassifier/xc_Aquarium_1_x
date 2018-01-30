@@ -1538,7 +1538,7 @@ void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_par
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 27 "../src/f_conversions.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
-# 10 "../src/I2C_External_Task.h"
+# 26 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
 
 

@@ -1,4 +1,20 @@
 /*
+ * i2c_temperature_mcp9808_adafruit.xc
+ *
+ *  Created on: 3. okt. 2016
+ *      Porting author: teig
+ *      Ported from "tempchip_mcp9808.cpp"
+ *
+ *      @author   K.Townsend (Adafruit Industries)
+ *      @license  BSD (see license.txt)
+ *
+ *      I2C Driver for Microchip's MCP9808 I2C Temp sensor
+ *
+ *      This is a library for the Adafruit MCP9808 breakout
+ *      ----> http://www.adafruit.com/products/1782
+ */
+
+/*
  * I2C_External_Task.h
  *  Created on: 3. okt. 2016
  *      Author: teig

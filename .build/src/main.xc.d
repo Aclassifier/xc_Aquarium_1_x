@@ -2,8 +2,6 @@
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/module_i2c_master/src/i2c.h \
   ../../workspace/lib_startkit_support/api/startkit_adc.h \
-  ../../workspace/module_random/src/random.h \
-  ../../workspace/_Aquarium_1_x/src/random_conf.h \
   ../../workspace/_Aquarium_1_x/src/defines_adafruit.h \
   ../../workspace/_Aquarium_1_x/src/tempchip_mcp9808.h \
   ../../workspace/_Aquarium_1_x/src/I2C_Internal_Task.h \

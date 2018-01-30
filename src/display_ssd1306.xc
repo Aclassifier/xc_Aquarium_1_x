@@ -1,9 +1,28 @@
+/*********************************************************************
+This is a library for our Monochrome OLEDs based on SSD1306 drivers
+
+  Pick one up today in the adafruit shop!
+  ------> http://www.adafruit.com/category/63_98
+
+These displays use SPI to communicate, 4 or 5 pins are required to
+interface
+
+Adafruit invests time and resources providing this open source code,
+please support Adafruit and open-source hardware by purchasing
+products from Adafruit!
+
+Written by Limor Fried/Ladyada  for Adafruit Industries.
+BSD license, check license.txt for more information
+All text above, and the splash screen below must be included in any redistribution
+*********************************************************************/
+// TODO See "2018 01 30 A Maxim Liadov at prosound.ixbt.com XMOS  OLED.pdf" found some errors in code
 /*
  * display_ssd1306.xc
  *
  *  Created on: 9. feb. 2017
  *      Author: teig
  */
+
 #define INCLUDES
 #ifdef INCLUDES
 #include <platform.h>
@@ -82,7 +101,7 @@ bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYCLOCKDIV);  // 0xD5
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);                        // the suggested ratio 0x80
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETMULTIPLEX);        // 0xA8
-        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
+        error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_LCDHEIGHT-1);         // 0x1F
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETDISPLAYOFFSET);    // 0xD3
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);                         // no offset
         error = error bitor not writeDisplay_i2c_command(i_i2c_internal_commands, SSD1306_SETSTARTLINE | 0x0);  // line #0

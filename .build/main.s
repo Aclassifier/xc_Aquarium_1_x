@@ -930,7 +930,7 @@
 	main.parinfo.debugstring0:
 	.asciiz "# -1 \"\""
 	main.parinfo.debugstring1:
-	.asciiz "# 504 \"../src/main.xc\""
+	.asciiz "# 502 \"../src/main.xc\""
 	.cc_top main.parinfo.cc, main.parinfo
 	.globl main.parinfo
 	.type main.parinfo, @object
@@ -1270,12 +1270,12 @@ inP_button_right.info:
 	.set usage.anon.4,0
 	.set usage.anon.5,0
 	.set usage.anon.6,0
-	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:114:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:113:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
-	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:114:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:113:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
-	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_right,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_center,"../src/main.xc:111:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.6,inP_button_left,"../src/main.xc:110:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
+	.globwrite usage.anon.5,inP_button_right,"../src/main.xc:112:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                                                                          ^~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.4,inP_button_center,"../src/main.xc:111:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                                                                          ^~~~~~~~~~~~~~~~~"
+	.globwrite usage.anon.3,inP_button_left,"../src/main.xc:110:75: note: object used here\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                                                                          ^~~~~~~~~~~~~~~"
 	.call usage.anon.6,adc_task
 	.call usage.anon.6,Port_Pins_Heat_Light_Task
 	.call usage.anon.6,My_startKIT_ADC_Task
@@ -1306,78 +1306,78 @@ inP_button_right.info:
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par installExceptionHandler,I2C_Internal_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,I2C_External_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,System_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Heater_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Temperature_Water_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par installExceptionHandler,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,I2C_External_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,System_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,Temperature_Heater_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,Temperature_Water_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_Internal_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,System_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,Temperature_Heater_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,Temperature_Water_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par I2C_External_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Heater_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Temperature_Water_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par System_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,Temperature_Water_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Heater_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,usage.anon.3,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Temperature_Water_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.4,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.3,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,usage.anon.5,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.4,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,My_startKIT_ADC_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par usage.anon.5,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par My_startKIT_ADC_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
-	.par Port_Pins_Heat_Light_Task,adc_task,"../src/main.xc:102:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_Internal_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,I2C_External_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Heater_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Temperature_Water_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par installExceptionHandler,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,I2C_External_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Temperature_Heater_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Temperature_Water_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_Internal_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,System_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Temperature_Heater_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Temperature_Water_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par I2C_External_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Heater_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Temperature_Water_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par System_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,Temperature_Water_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Heater_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.3,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Temperature_Water_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.4,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.3,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,usage.anon.5,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.4,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,My_startKIT_ADC_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par usage.anon.5,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Task,Port_Pins_Heat_Light_Task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par My_startKIT_ADC_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
+	.par Port_Pins_Heat_Light_Task,adc_task,"../src/main.xc:100:5: error: use of `%s\' violates parallel usage rules\n    par {\n    ^~~"
 	.set main.locnoside, 0
 	.set main.locnochandec, 0
 	.set main.locnoglobalaccess, 0
-	.globpassesref Button_Task, inP_button_right,"../src/main.xc:114:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_center,"../src/main.xc:113:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref Button_Task, inP_button_left,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_right,"../src/main.xc:112:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_right\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  c_buttons[IOF_BUTTON_RIGHT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_center,"../src/main.xc:111:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_center\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, c_buttons[IOF_BUTTON_CENTER]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref Button_Task, inP_button_left,"../src/main.xc:110:29: error: call to `Button_Task\' in `main\' makes alias of global \'inP_button_left\'\n        on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   c_buttons[IOF_BUTTON_LEFT]);\n                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	.overlay_subgraph_conflict __main__main_tile_0_combined_tile_0_u0, __main__main_tile_0_combined_tile_0_u4, __main__main_tile_0_combined_tile_0_u5, __main__main_tile_0_combined_tile_0_u1, __main__main_tile_0_task_installExceptionHandler_0, __main__main_tile_0_task_System_Task_3, __main__main_tile_0_task_My_startKIT_ADC_Task_9
 
 
@@ -5550,7 +5550,7 @@ __main__main_tile_0_combined_tile_0_u5:
 	retsp 12
 	# RETURN_REG_HOLDER
 	.cc_bottom __main__main_tile_0_combined_tile_0_u5.function
-	.set	__main__main_tile_0_combined_tile_0_u5.nstackwords,((((((Temperature_Water_Task.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Task.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.1.nstackwords) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M (1 + Temperature_Water_Task.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M Port_Pins_Heat_Light_Task.select.enable.cases.nstackwords $M Temperature_Water_Task.select.enable.cases.nstackwords)) + 12)
+	.set	__main__main_tile_0_combined_tile_0_u5.nstackwords,((((((Temperature_Water_Task.init.0.savedstate << 2) + 4) >> 2) + (((Port_Pins_Heat_Light_Task.init.0.savedstate << 2) + 4) >> 2)) + ((1 + Temperature_Water_Task.init.0.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.0.nstackwords) $M (1 + (__interface_client_push_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.init.1.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.init.1.nstackwords) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M (1 + Temperature_Water_Task.fini.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.fini.nstackwords) $M (1 + (__interface_client_pop_yield.nstackwords $M __noop.nstackwords)) $M (1 + Temperature_Water_Task.select.enable.nstackwords) $M (1 + Port_Pins_Heat_Light_Task.select.enable.nstackwords) $M Temperature_Water_Task.select.enable.cases.nstackwords $M Port_Pins_Heat_Light_Task.select.enable.cases.nstackwords)) + 12)
 	.set	__main__main_tile_0_combined_tile_0_u5.maxcores,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Port_Pins_Heat_Light_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.fini.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.0.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.init.1.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + Temperature_Water_Task.select.enable.cases.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_pop_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __interface_client_push_yield.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + __noop.maxcores)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxcores) + ((1 * Temperature_Water_Task.dynalloc_maxcores) + 1))
 	.set	__main__main_tile_0_combined_tile_0_u5.maxtimers,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Port_Pins_Heat_Light_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.fini.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.0.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.init.1.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + Temperature_Water_Task.select.enable.cases.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_pop_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __interface_client_push_yield.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + __noop.maxtimers)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxtimers) + ((1 * Temperature_Water_Task.dynalloc_maxtimers) + 0))
 	.set	__main__main_tile_0_combined_tile_0_u5.maxchanends,((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Port_Pins_Heat_Light_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.fini.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.0.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.init.1.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + Temperature_Water_Task.select.enable.cases.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_pop_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __interface_client_push_yield.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + __noop.maxchanends)) $M ((1 * Port_Pins_Heat_Light_Task.dynalloc_maxchanends) + ((1 * Temperature_Water_Task.dynalloc_maxchanends) + 0))
@@ -5786,14 +5786,14 @@ __main__main_tile_0_combined_tile_0_u1:
 	.cc_top __main__main_tile_0_task_installExceptionHandler_0.function,__main__main_tile_0_task_installExceptionHandler_0
 __main__main_tile_0_task_installExceptionHandler_0:
 .Lfunc_begin65:
-	.loc	1 103 0
+	.loc	1 101 0
 	.cfi_startproc
 	entsp 1
 .Ltmp339:
 	.cfi_def_cfa_offset 4
 .Ltmp340:
 	.cfi_offset 15, 0
-	.loc	1 103 0 prologue_end
+	.loc	1 101 0 prologue_end
 .Ltmp341:
 .Lxta.call_labels9:
 	bl installExceptionHandler
@@ -5816,7 +5816,7 @@ __main__main_tile_0_task_installExceptionHandler_0:
 	.cc_top __main__main_tile_0_task_System_Task_3.function,__main__main_tile_0_task_System_Task_3
 __main__main_tile_0_task_System_Task_3:
 .Lfunc_begin66:
-	.loc	1 107 0
+	.loc	1 105 0
 	.cfi_startproc
 	entsp 7
 .Ltmp345:
@@ -5833,35 +5833,35 @@ __main__main_tile_0_task_System_Task_3:
 .Ltmp349:
 	.cfi_offset 6, -12
 	ldc r1, 260
-	.loc	1 107 0 prologue_end
+	.loc	1 105 0 prologue_end
 .Ltmp350:
 	add r1, r0, r1
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r11, r1[0]
 	ldc r1, 292
-	.loc	1 107 0
+	.loc	1 105 0
 	add r1, r0, r1
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r1, r1[0]
 	ldc r2, 152
-	.loc	1 107 0
+	.loc	1 105 0
 	add r2, r0, r2
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r2, r2[0]
 	ldc r3, 100
-	.loc	1 107 0
+	.loc	1 105 0
 	add r3, r0, r3
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r3, r3[0]
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r4, r0[9]
-	.loc	1 107 0
+	.loc	1 105 0
 	ldw r5, r0[1]
 	ldc r6, 396
-	.loc	1 107 0
+	.loc	1 105 0
 	add r0, r0, r6
 .Ltmp351:
-	.loc	1 107 0
+	.loc	1 105 0
 	stw r0, sp[3]
 	stw r5, sp[2]
 	stw r4, sp[1]
@@ -5889,7 +5889,7 @@ __main__main_tile_0_task_System_Task_3:
 	.cc_top __main__main_tile_0_task_My_startKIT_ADC_Task_9.function,__main__main_tile_0_task_My_startKIT_ADC_Task_9
 __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 .Lfunc_begin67:
-	.loc	1 115 0
+	.loc	1 113 0
 	.cfi_startproc
 	entsp 1
 .Ltmp354:
@@ -5897,16 +5897,16 @@ __main__main_tile_0_task_My_startKIT_ADC_Task_9:
 .Ltmp355:
 	.cfi_offset 15, 0
 	ldc r1, 208
-	.loc	1 115 0 prologue_end
+	.loc	1 113 0 prologue_end
 .Ltmp356:
 	add r1, r0, r1
-	.loc	1 115 0
+	.loc	1 113 0
 	ldw r3, r1[0]
 	ldc r1, 148
-	.loc	1 115 0
+	.loc	1 113 0
 	add r1, r0, r1
 	ldc r2, 1000
-	.loc	1 115 0
+	.loc	1 113 0
 	mov r0, r3
 .Ltmp357:
 .Lxta.call_labels11:
@@ -6474,7 +6474,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	45
+	.byte	43
 	.byte	5
 	.byte	3
 	.long	inP_button_left
@@ -6488,7 +6488,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	46
+	.byte	44
 	.byte	5
 	.byte	3
 	.long	inP_button_center
@@ -6498,7 +6498,7 @@ par.desc.1:
 	.long	53
 	.byte	1
 	.byte	1
-	.byte	47
+	.byte	45
 	.byte	5
 	.byte	3
 	.long	inP_button_right
@@ -6647,7 +6647,7 @@ par.desc.1:
 	.long	.Linfo_string124
 	.long	.Linfo_string124
 	.byte	1
-	.byte	103
+	.byte	101
 	.byte	7
 	.long	.Ldebug_loc0
 	.long	.Linfo_string128
@@ -6661,7 +6661,7 @@ par.desc.1:
 	.long	.Linfo_string125
 	.long	.Linfo_string125
 	.byte	1
-	.byte	107
+	.byte	105
 	.byte	7
 	.long	.Ldebug_loc1
 	.long	.Linfo_string128
@@ -6675,7 +6675,7 @@ par.desc.1:
 	.long	.Linfo_string126
 	.long	.Linfo_string126
 	.byte	1
-	.byte	115
+	.byte	113
 	.byte	7
 	.long	.Ldebug_loc2
 	.long	.Linfo_string128
@@ -8688,9 +8688,9 @@ par.desc.1:
 	.typestring My_startKIT_ADC_Task, "f{0}(ic(startkit_adc_acquire_if){m(trigger){f{0}(0)},m(read){l:f{si}(&(a(4:us)))},m(complete){st:f{0}(0)}},&(a(1:is(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}})),:ui)"
 	.typestring System_Task, "k:f{0}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{uc,e(){m(false){0},m(true){1}}}(:uc,:us)},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,:uc)}},ic(i2c_external_commands_if){m(read_temperature_ok){l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(0)},m(notify){st:f{0}(0)},m(trigger){f{0}(:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})}},ic(lib_startkit_adc_commands_if){m(trigger){f{0}(0)},m(read){l:f{ui,ui}(&(a(4:us)))},m(notify){st:f{0}(0)}},ic(port_heat_light_commands_if){m(get_light_composition){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){8},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){9},m(LIGHT_COMPOSITION_2666_mW_ON){2},m(LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM){3},m(LIGHT_COMPOSITION_3666_mW_ON){12},m(LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K){13},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K){14},m(LIGHT_COMPOSITION_5333_mW_ON){5},m(LIGHT_COMPOSITION_6000_mW_ON){6},m(LIGHT_COMPOSITION_7000_mW_ON){11},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){7}}}(0)},m(get_light_composition_etc_sync_internal){f{e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){8},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){9},m(LIGHT_COMPOSITION_2666_mW_ON){2},m(LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM){3},m(LIGHT_COMPOSITION_3666_mW_ON){12},m(LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K){13},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K){14},m(LIGHT_COMPOSITION_5333_mW_ON){5},m(LIGHT_COMPOSITION_6000_mW_ON){6},m(LIGHT_COMPOSITION_7000_mW_ON){11},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){7}},e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}}}(&(a(3:ui)))},m(get_light_is_stable_sync_internal){f{e(){m(false){0},m(true){1}}}(0)},m(set_light_composition){f{0}(:e(light_composition_t){m(LIGHT_COMPOSITION_0000_mW_OFF){0},m(LIGHT_COMPOSITION_0666_mW_ON){1},m(LIGHT_COMPOSITION_10333_mW_ON){8},m(LIGHT_COMPOSITION_11000_mW_ON_FULL){9},m(LIGHT_COMPOSITION_2666_mW_ON){2},m(LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM){3},m(LIGHT_COMPOSITION_3666_mW_ON){12},m(LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K){13},m(LIGHT_COMPOSITION_4666_mW_ON){4},m(LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K){14},m(LIGHT_COMPOSITION_5333_mW_ON){5},m(LIGHT_COMPOSITION_6000_mW_ON){6},m(LIGHT_COMPOSITION_7000_mW_ON){11},m(LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS){10},m(LIGHT_COMPOSITION_7666_mW_ON){7}},:e(light_control_scheme_t){m(LIGHT_CONTROL_IS_DAY){1},m(LIGHT_CONTROL_IS_DAY_TO_NIGHT){2},m(LIGHT_CONTROL_IS_NIGHT){3},m(LIGHT_CONTROL_IS_NIGHT_TO_DAY){4},m(LIGHT_CONTROL_IS_RANDOM){5},m(LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE){6},m(LIGHT_CONTROL_IS_VOID){0}},:ui)},m(beeper_on_command){f{0}(:e(){m(false){0},m(true){1}})},m(beeper_blip_command){f{0}(:ui)},m(heat_cables_command){f{0}(:e(heat_cable_commands_t){m(HEAT_CABLES_BOTH_ON){3},m(HEAT_CABLES_OFF){1},m(HEAT_CABLES_ONE_ON){2},m(HEAT_CABLES_VOID){0}})},m(get_heat_cables_forced_off_by_watchdog){f{e(){m(false){0},m(true){1}}}(0)},m(watchdog_retrigger_with){f{ui}(:ui)}},ic(temperature_heater_commands_if){m(heater_set_proportional){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(heater_set_temp_degC){f{0}(:e(heater_wires_t){m(HEATER_WIRES_BOTH_IS_FULL){1},m(HEATER_WIRES_ONE_ALTERNATING_IS_HALF){0}},:si)},m(get_mean_i2c_temps){f{0}(&(a(3:si)))},m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_regulator_data){f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}},ui,ui}(:si)}},ic(temperature_water_commands_if){m(get_temp_degC_str){f{0}(:e(iof_temps_t){m(IOF_TEMPC_AMBIENT){1},m(IOF_TEMPC_HEATER){0},m(IOF_TEMPC_HEATER_MEAN_LAST_CYCLE){3},m(IOF_TEMPC_WATER){2}},&(a(5:uc)))},m(get_now_regulating_at){f{e(now_regulating_at_t){m(HEAT_CABLE_ERROR){7},m(HEAT_CABLE_FORCED_OFF_BY_WATCHDOG){6},m(REGULATING_AT_BOILING){1},m(REGULATING_AT_HOTTER_AMBIENT){4},m(REGULATING_AT_INIT){0},m(REGULATING_AT_LOST_WATER_SENSOR){5},m(REGULATING_AT_SIMMERING){2},m(REGULATING_AT_TEMP_REACHED){3}},ui}(0)},m(clear_debug_log){f{0}(0)}},&(a(3:chd)))"
 	.typestring __main__main_tile_0, "f{0}(chd)"
+	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_push_yield
 	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__noop
 	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_pop_yield
-	.overlay_reference __main__main_tile_0_combined_tile_0_u5,__interface_client_push_yield
 	.typestring inP_button_left, "p"
 	.typestring inP_button_center, "p"
 	.typestring inP_button_right, "p"
@@ -8703,73 +8703,73 @@ par.desc.1:
 .cc_top cc_0,.Lxta.call_labels9
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	103
+	.long	101
 	.long	.Lxta.call_labels9
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels0
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	105
+	.long	103
 	.long	.Lxta.call_labels0
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels2
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	106
+	.long	104
 	.long	.Lxta.call_labels2
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels10
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	107
+	.long	105
 	.long	.Lxta.call_labels10
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels1
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	110
+	.long	108
 	.long	.Lxta.call_labels1
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels4
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	111
+	.long	109
 	.long	.Lxta.call_labels4
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels6
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	112
+	.long	110
 	.long	.Lxta.call_labels6
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels7
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	113
+	.long	111
 	.long	.Lxta.call_labels7
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels8
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	114
+	.long	112
 	.long	.Lxta.call_labels8
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels11
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	115
+	.long	113
 	.long	.Lxta.call_labels11
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels5
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	116
+	.long	114
 	.long	.Lxta.call_labels5
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels3
 	.ascii	"../src/main.xc"
 	.byte	0
-	.long	117
+	.long	115
 	.long	.Lxta.call_labels3
 .cc_bottom cc_11
 .Lentries_end1:

@@ -13,7 +13,7 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-//#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
+#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
 #define APPLICATION_VERSION_STR "1.1.4"

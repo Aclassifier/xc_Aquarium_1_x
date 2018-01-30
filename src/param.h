@@ -67,11 +67,16 @@ typedef struct tag_startkit_adc_vals {
 
 // System time tag of printf in xTIMEcomposer debug console
 // http://www.xcore.com/viewtopic.php?p=28195#p28195
+// 32-bit 100 MHz system counter. Examples:
+//     1194933268
+//     11.9 seconds, next is 12.1
+//    -2111493615
+//     21.1 seconds, next is 20.1 (since ot goes full circle through negative values)
 // Needs #include <print.h>
 #define timed_printf \
-  { timer t; int u; t :> u; /* GETTIME instruction */ \
-    printint(u); printstr(" "); \
-  } printf
+    { timer t; int u; t :> u; /* GETTIME instruction */ \
+        printint(u); printstr(" "); \
+    } printf
 
 #define DUMMY_WIFI
 #define DO_ADC_NESTED_SELECT

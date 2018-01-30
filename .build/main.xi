@@ -1404,37 +1404,11 @@ typedef interface startkit_adc_acquire_if {
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
 # 23 "../src/main.xc" 2
 
-# 1 "/Users/teig/workspace/module_random/src/random.h" 1
-
-
-
-
-
-
-# 1 "../src/random_conf.h" 1
-# 8 "/Users/teig/workspace/module_random/src/random.h" 2
-# 20 "/Users/teig/workspace/module_random/src/random.h"
-typedef unsigned random_generator_t;
-
-
-
-
-
-
-
-random_generator_t random_create_generator_from_seed(unsigned seed);
-# 38 "/Users/teig/workspace/module_random/src/random.h"
-random_generator_t random_create_generator_from_hw_seed(void);
-# 49 "/Users/teig/workspace/module_random/src/random.h"
-unsigned
-random_get_random_number(random_generator_t &g);
-# 25 "../src/main.xc" 2
-
 # 1 "../src/defines_adafruit.h" 1
-# 24 "../src/defines_adafruit.h"
+# 42 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 27 "../src/main.xc" 2
+# 25 "../src/main.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
@@ -1442,7 +1416,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 28 "../src/main.xc" 2
+# 26 "../src/main.xc" 2
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
 typedef enum i2c_dev_address_internal_t {
@@ -1479,9 +1453,9 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 29 "../src/main.xc" 2
+# 27 "../src/main.xc" 2
 # 1 "../src/display_ssd1306.h" 1
-# 11 "../src/display_ssd1306.h"
+# 29 "../src/display_ssd1306.h"
 typedef enum i2c_display_reg_address_internal_t {
     DISPLAY_REG_ADDR_COMMAND = 0x00,
     DISPLAY_REG_ADDR_DATA = 0x40
@@ -1512,9 +1486,9 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 30 "../src/main.xc" 2
+# 28 "../src/main.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
-# 10 "../src/I2C_External_Task.h"
+# 26 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
 
 
@@ -1558,7 +1532,7 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 31 "../src/main.xc" 2
+# 29 "../src/main.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1581,11 +1555,11 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 32 "../src/main.xc" 2
+# 30 "../src/main.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 62 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
-# 33 "../src/main.xc" 2
+# 31 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 12 "../src/f_conversions.h"
 void installExceptionHandler(void);
@@ -1632,7 +1606,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 34 "../src/main.xc" 2
+# 32 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
 # 10 "../src/port_heat_light_task.h"
 typedef enum iof_LED_strip_t {
@@ -1718,7 +1692,7 @@ typedef interface port_heat_light_commands_if {
 
 [[combinable]]
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 35 "../src/main.xc" 2
+# 33 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
 # 12 "../src/temperature_heater_task.h"
 typedef enum heater_wires_t {
@@ -1753,7 +1727,7 @@ void Temperature_Heater_Task (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 36 "../src/main.xc" 2
+# 34 "../src/main.xc" 2
 # 1 "../src/temperature_water_task.h" 1
 # 12 "../src/temperature_water_task.h"
 typedef enum now_regulating_at_t {
@@ -1781,7 +1755,7 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Task (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 37 "../src/main.xc" 2
+# 35 "../src/main.xc" 2
 # 1 "../src/chronodot_ds3231_task.h" 1
 # 41 "../src/chronodot_ds3231_task.h"
 typedef enum {
@@ -1848,13 +1822,13 @@ void debug_printf_datetime (const DateTime_t datetime);
 void Chronodot_DS3231_Task (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 38 "../src/main.xc" 2
+# 36 "../src/main.xc" 2
 # 1 "../src/exception_handler.h" 1
 # 15 "../src/exception_handler.h"
 void assert_exception (bool assert_this);
 void installExceptionHandler(void);
 void myExceptionHandler(void);
-# 39 "../src/main.xc" 2
+# 37 "../src/main.xc" 2
 
 # 1 "../src/my_adc_startkit_task.h" 1
 # 13 "../src/my_adc_startkit_task.h"
@@ -1868,7 +1842,7 @@ void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[1],
    const unsigned int Num_of_data_sets);
-# 41 "../src/main.xc" 2
+# 39 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
 # 15 "../src/_Aquarium.h"
@@ -1881,7 +1855,7 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     chanend c_button_in[3]);
-# 43 "../src/main.xc" 2
+# 41 "../src/main.xc" 2
 
 
 port inP_button_left = on tile[0]:0x10d00;
@@ -1901,7 +1875,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 102 "../src/main.xc"
+# 100 "../src/main.xc"
     par {
         on tile[0]: installExceptionHandler();
 
@@ -1920,6 +1894,6 @@ int main() {
         on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
                             startkit_adc (c_analogue);
     }
-# 503 "../src/main.xc"
+# 501 "../src/main.xc"
     return 0;
 }

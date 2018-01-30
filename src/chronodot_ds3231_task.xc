@@ -16,8 +16,6 @@
 #include "i2c.h"
 #include "startkit_adc.h"
 
-#include "random.h" // xmos. ALso uses "random_conf.h"
-//
 #include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"

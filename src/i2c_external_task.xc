@@ -13,6 +13,13 @@
  *      This is a library for the Adafruit MCP9808 breakout
  *      ----> http://www.adafruit.com/products/1782
  */
+
+/*
+ * I2C_External_Task.xc
+ *  Created on: 3. okt. 2016
+ *      Author: teig
+ */
+
 #define INCLUDES
 #ifdef INCLUDES
 #include <platform.h>
