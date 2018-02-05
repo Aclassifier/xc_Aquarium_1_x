@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
+#include "_globals.h"
 #include "param.h"
 #include "startkit_adc.h"
 #include "my_adc_startkit_task.h"

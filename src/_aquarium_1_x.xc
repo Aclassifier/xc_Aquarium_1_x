@@ -24,6 +24,7 @@
 #include "xassert.h"
 
 #include "i2c.h"
+#include "_globals.h"
 #include "param.h"
 #include "startkit_adc.h"
 

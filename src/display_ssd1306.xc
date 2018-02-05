@@ -35,6 +35,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include <string.h>   // memset
 #include <timer.h>    // For delay_milliseconds (but it compiles without?)
 
+#include "_globals.h"
 #include "param.h"
 #include "button_press.h"
 
@@ -142,7 +143,7 @@ void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color) {
         // check rotation, move pixel around if necessary
         switch (getRotation()) {
             case 1:
-                swap(x, y);
+                t_swap(int16_t,x, y);
                 x = display_param.WIDTH - x - 1;
                 break;
             case 2:
@@ -150,7 +151,7 @@ void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color) {
                 y = display_param.HEIGHT - y - 1;
                 break;
             case 3:
-                swap(x, y);
+                t_swap(int16_t,x, y);
                 y = display_param.HEIGHT - y - 1;
                 break;
         }
@@ -158,9 +159,9 @@ void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color) {
         // x is which column
         switch (color)
         {
-            case WHITE:   buffer[x + (y/8)*SSD1306_LCDWIDTH] |=  (1 << (y&7)); break;
-            case BLACK:   buffer[x + (y/8)*SSD1306_LCDWIDTH] &= ~(1 << (y&7)); break;
-            case INVERSE: buffer[x + (y/8)*SSD1306_LCDWIDTH] ^=  (1 << (y&7)); break;
+            case WHITE:   buffer[x + (y/8)*width()] |=  (1 << (y&7)); break;
+            case BLACK:   buffer[x + (y/8)*width()] &= ~(1 << (y&7)); break;
+            case INVERSE: buffer[x + (y/8)*width()] ^=  (1 << (y&7)); break;
         }
     }
 }
@@ -295,7 +296,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         int nbytes = SSD1306_WRITE_CHUNK_SIZE;
         unsigned char data[SSD1306_WRITE_CHUNK_SIZE];
 
-        for (uint8_t x=0; x<NUM_ELEMENTS(data); x++) {
+        for (uint16_t x=0; x<NUM_ELEMENTS(data); x++) { // Thanks, Maxim! (was uint8_t)
             data[x] = buffer[i];
             i++;
         }
@@ -325,7 +326,7 @@ void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t col
         case 1:
             // 90 degree rotation, swap x & y for rotation, then invert x
             bSwap = true;
-            swap(x, y);
+            t_swap(int16_t,x, y);
             x = display_param.WIDTH - x - 1;
             break;
         case 2:
@@ -338,7 +339,7 @@ void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t col
             // 270 degree rotation, swap x & y for rotation,
             // then invert y and adjust y for w (not to become h)
             bSwap = true;
-            swap(x, y);
+            t_swap(int16_t,x, y);
             y = display_param.HEIGHT - y - 1;
             y -= (w-1);
             break;
@@ -394,7 +395,7 @@ void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color
         case 1:
             // 90 degree rotation, swap x & y for rotation, then invert x and adjust x for h (now to become w)
             bSwap = true;
-            swap(x, y);
+            t_swap(int16_t,x, y);
             x = display_param.WIDTH - x - 1;
             x -= (h-1);
             break;
@@ -407,7 +408,7 @@ void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color
         case 3:
             // 270 degree rotation, swap x & y for rotation, then invert y
             bSwap = true;
-            swap(x, y);
+            t_swap(int16_t,x, y);
             y = display_param.HEIGHT - y - 1;
             break;
   }

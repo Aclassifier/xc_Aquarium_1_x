@@ -17,6 +17,7 @@
 #include <xccompat.h> // REFERENCE_PARAMs
 
 #include "_version.h"
+#include "_globals.h"
 #include "param.h"
 #include "i2c.h"
 #include "startkit_adc.h"

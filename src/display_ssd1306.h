@@ -63,12 +63,22 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 
 #define SSD1306_128_32
 
-#if defined SSD1306_128_32
-    #define SSD1306_LCDWIDTH        128
-    #define SSD1306_LCDHEIGHT        32
-    #define SSD1306_BUFFER_SIZE      ((SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT)/8) // 32*128=4096 pixels fit into div 8 = 512 bytes
-    #define SSD1306_WRITE_CHUNK_SIZE 16
+#if defined SSD1306_128_64
+    #define SSD1306_LCDWIDTH  128
+    #define SSD1306_LCDHEIGHT  64
+#elif defined SSD1306_128_32
+    #define SSD1306_LCDWIDTH  128
+    #define SSD1306_LCDHEIGHT  32
+#elif defined SSD1306_128_16
+    #define SSD1306_LCDWIDTH  128
+    #define SSD1306_LCDHEIGHT  16
+#else
+    #error Display not defined
 #endif
+
+#define SSD1306_BUFFER_SIZE      ((SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT)/8) // 512 ot 1024 bytes
+#define SSD1306_WRITE_CHUNK_SIZE 16
+
 
 #define SSD1306_SETCONTRAST         0x81 // Value is set to 7Fh by display at reset. 256 step contrast brightness current control
 #define SSD1306_DISPLAYALLON_RESUME 0xA4
@@ -93,6 +103,7 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 #define SSD1306_COMSCANDEC          0xC8
 #define SSD1306_SEGREMAP            0xA0
 #define SSD1306_CHARGEPUMP          0x8D
+#define SSD1306_DEACTIVATE_SCROLL   0x2E
 
 //      Contrast 0..255 appearantly doesn't work on the monochrome
 //      https://forums.adafruit.com/viewtopic.php?f=47&t=30322&hilit=+oled+contrast#p172367

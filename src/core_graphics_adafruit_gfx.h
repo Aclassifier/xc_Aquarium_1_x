@@ -43,8 +43,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 // #include "WProgram.h"
 
-#define swap(a,b) {int16_t t = a; a = b; b = t;}
-
 extern void Adafruit_GFX_constructor (int16_t w, int16_t h); // Constructor
 
 // This MUST be defined by the subclass:

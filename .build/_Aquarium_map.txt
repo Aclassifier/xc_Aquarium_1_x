@@ -15,17 +15,17 @@ Sections:
   .cp.const4           0001ae84 00000028
   .cp.rodata.const4    0001aeac 00000004
   .cp.rodata.cst16     0001aeb0 00000020
-  .cp.rodata.cst4      0001aed0 000000f8
-  .cp.rodata.cst8      0001afc8 00000008
-  .cp.rodata.string    0001afd0 00000076
-  .ctors               0001b048 00000038
-  .dtors               0001b080 00000030
-  .bss                 0001b0b0 00000000
-  .dp.data             0001b0b0 000005a4
-  .dp.rodata           0001b654 00000024
-  .dp.bss              0001b678 000003b4
-  .dp.bss.4            0001ba2c 00000000
-  .dp.bss.large        0001ba2c 00000000
+  .cp.rodata.cst4      0001aed0 000000f4
+  .cp.rodata.cst8      0001afc4 00000008
+  .cp.rodata.string    0001afcc 00000076
+  .ctors               0001b044 00000038
+  .dtors               0001b07c 00000030
+  .bss                 0001b0ac 00000000
+  .dp.data             0001b0ac 000005a4
+  .dp.rodata           0001b650 00000024
+  .dp.bss              0001b674 000003b4
+  .dp.bss.4            0001ba28 00000000
+  .dp.bss.large        0001ba28 00000000
 
 Symbols:
 
@@ -106,12 +106,12 @@ Symbols:
   000130cc 00000078 .text                chronodot_registers_to_datetime
   00013144 00000084 .text                datetime_to_chronodot_registers
   000131c8 00000024 .text                debug_printf_datetime
-  000131ec 0000012c .text                setPixel_in_buffer
-  00013318 00000368 .text                Adafruit_SSD1306_i2c_begin
-  00013680 00000028 .text                writeDisplay_i2c_command
-  000136a8 00000128 .text                writeToDisplay_i2c_all_buffer
-  000137d0 00000014 .text                Clear_All_Pixels_In_Buffer
-  000137e4 00000020 .text                assert_exception
+  000131ec 00000140 .text                setPixel_in_buffer
+  0001332c 00000368 .text                Adafruit_SSD1306_i2c_begin
+  00013694 00000028 .text                writeDisplay_i2c_command
+  000136bc 00000124 .text                writeToDisplay_i2c_all_buffer
+  000137e0 00000014 .text                Clear_All_Pixels_In_Buffer
+  000137f4 00000020 .text                assert_exception
   00013880 00000088 .text                installExceptionHandler
   00013900 00000000 .text                exception
   00013908 00000006 .text                myExceptionHandler
@@ -487,65 +487,65 @@ Symbols:
   0001aeac 00000000 .cp.rodata.const4    __core_ids_addr
   0001aeb0 00000010 .cp.rodata.cst16     Handle_Real_Or_Clocked_Button_Actions.0.init
   0001aec0 00000010 .cp.rodata.cst16     Temperature_Heater_Task.init.1.2.init
-  0001afc8 00000008 .cp.rodata.cst8      My_startKIT_ADC_Task.0.init
-  0001afd4 00000003 .cp.rodata.string    .str148
-  0001b000 00000007 .cp.rodata.string    .str175
-  0001b008 00000003 .cp.rodata.string    .str49
-  0001b00c 00000005 .cp.rodata.string    .str55
-  0001b00c 00000005 .cp.rodata.string    .str276
-  0001b014 00000005 .cp.rodata.string    .str75
-  0001b01c 00000005 .cp.rodata.string    .str43
-  0001b024 00000005 .cp.rodata.string    .str74
-  0001b048 00000000 .ctors               _CTOR_LIST_
-  0001b080 00000000 .dtors               _DTOR_LIST_
-  0001b080 00000000 .ctors               _CTOR_END_
-  0001b0b0 00000000 .dp.data             _dp
-  0001b0b0 00000000 .bss                 _fbss
-  0001b0b0 00000000 .dtors               _DTOR_END_
-  0001b0b0 000004fb .dp.data             font
-  0001b0b0 00000000 .bss                 _ebss
-  0001b5ac 0000000c .dp.data             i2c_external_config
-  0001b5b8 0000000c .dp.data             i2c_internal_config
-  0001b5c4 00000038 .dp.data             par.desc.1
-  0001b5fc 00000020 .dp.data             __timers
-  0001b61c 00000004 .dp.data             XSCOPE_REDIRECT_IO
-  0001b620 00000004 .dp.data             __sodChan
-  0001b624 00000004 .dp.data             xscope_ref_clk
-  0001b628 00000004 .dp.data             __stdin
-  0001b62c 00000004 .dp.data             __stdout
-  0001b630 00000004 .dp.data             __stderr
-  0001b634 00000008 .dp.data             __sfp_lock
-  0001b63c 00000008 .dp.data             __sinit_lock
-  0001b644 00000004 .dp.data             __malloc_limit
-  0001b648 00000004 .dp.data             __malloc_end
-  0001b64c 00000000 .dp.data             __sodFlag
-  0001b650 00000000 .dp.data             __sodEnd
-  0001b654 00000004 .dp.rodata           outP_display_notReset
-  0001b658 00000004 .dp.rodata           __localPortInitializer1
-  0001b65c 00000004 .dp.rodata           __localPortInitializer2
-  0001b660 00000004 .dp.rodata           __localPortInitializer3
-  0001b664 00000004 .dp.rodata           __localPortInitializer4
-  0001b668 00000004 .dp.rodata           inP_button_left
-  0001b66c 00000004 .dp.rodata           inP_button_center
-  0001b670 00000004 .dp.rodata           inP_button_right
-  0001b674 00000004 .dp.rodata           dummy_wify_ctrl_port
-  0001b678 00000000 .dp.bss              _fdp.bss
-  0001b678 00000018 .dp.bss              display_param
-  0001b690 00000200 .dp.bss              buffer
-  0001b890 00000004 .dp.bss              xscope_lock
-  0001b894 00000020 .dp.bss              __timer_base
-  0001b8b4 00000020 .dp.bss              __timer_delta
-  0001b8d4 00000004 .dp.bss              __libc_hwlock
-  0001b8d8 00000004 .dp.bss              xscope_tmr
-  0001b8dc 00000004 .dp.bss              __sdidinit
-  0001b8e0 0000000c .dp.bss              __sglue
-  0001b8ec 00000114 .dp.bss              __sf
-  0001ba00 00000020 .dp.bss              _errno
-  0001ba20 00000004 .dp.bss              __malloc_freelist
-  0001ba24 00000008 .dp.bss              __malloc_lock_object
-  0001ba2c 00000000 .dp.bss.large        _fdp.bss.large
-  0001ba2c 00000000 .dp.bss.large        _edp.bss.large
-  0001ba2c 00000000 .dp.bss.4            _edp.bss
+  0001afc4 00000008 .cp.rodata.cst8      My_startKIT_ADC_Task.0.init
+  0001afd0 00000003 .cp.rodata.string    .str148
+  0001affc 00000007 .cp.rodata.string    .str175
+  0001b004 00000003 .cp.rodata.string    .str49
+  0001b008 00000005 .cp.rodata.string    .str55
+  0001b008 00000005 .cp.rodata.string    .str276
+  0001b010 00000005 .cp.rodata.string    .str75
+  0001b018 00000005 .cp.rodata.string    .str43
+  0001b020 00000005 .cp.rodata.string    .str74
+  0001b044 00000000 .ctors               _CTOR_LIST_
+  0001b07c 00000000 .dtors               _DTOR_LIST_
+  0001b07c 00000000 .ctors               _CTOR_END_
+  0001b0ac 00000000 .dp.data             _dp
+  0001b0ac 00000000 .bss                 _fbss
+  0001b0ac 00000000 .dtors               _DTOR_END_
+  0001b0ac 000004fb .dp.data             font
+  0001b0ac 00000000 .bss                 _ebss
+  0001b5a8 0000000c .dp.data             i2c_external_config
+  0001b5b4 0000000c .dp.data             i2c_internal_config
+  0001b5c0 00000038 .dp.data             par.desc.1
+  0001b5f8 00000020 .dp.data             __timers
+  0001b618 00000004 .dp.data             XSCOPE_REDIRECT_IO
+  0001b61c 00000004 .dp.data             __sodChan
+  0001b620 00000004 .dp.data             xscope_ref_clk
+  0001b624 00000004 .dp.data             __stdin
+  0001b628 00000004 .dp.data             __stdout
+  0001b62c 00000004 .dp.data             __stderr
+  0001b630 00000008 .dp.data             __sfp_lock
+  0001b638 00000008 .dp.data             __sinit_lock
+  0001b640 00000004 .dp.data             __malloc_limit
+  0001b644 00000004 .dp.data             __malloc_end
+  0001b648 00000000 .dp.data             __sodFlag
+  0001b64c 00000000 .dp.data             __sodEnd
+  0001b650 00000004 .dp.rodata           outP_display_notReset
+  0001b654 00000004 .dp.rodata           __localPortInitializer1
+  0001b658 00000004 .dp.rodata           __localPortInitializer2
+  0001b65c 00000004 .dp.rodata           __localPortInitializer3
+  0001b660 00000004 .dp.rodata           __localPortInitializer4
+  0001b664 00000004 .dp.rodata           inP_button_left
+  0001b668 00000004 .dp.rodata           inP_button_center
+  0001b66c 00000004 .dp.rodata           inP_button_right
+  0001b670 00000004 .dp.rodata           dummy_wify_ctrl_port
+  0001b674 00000000 .dp.bss              _fdp.bss
+  0001b674 00000018 .dp.bss              display_param
+  0001b68c 00000200 .dp.bss              buffer
+  0001b88c 00000004 .dp.bss              xscope_lock
+  0001b890 00000020 .dp.bss              __timer_base
+  0001b8b0 00000020 .dp.bss              __timer_delta
+  0001b8d0 00000004 .dp.bss              __libc_hwlock
+  0001b8d4 00000004 .dp.bss              xscope_tmr
+  0001b8d8 00000004 .dp.bss              __sdidinit
+  0001b8dc 0000000c .dp.bss              __sglue
+  0001b8e8 00000114 .dp.bss              __sf
+  0001b9fc 00000020 .dp.bss              _errno
+  0001ba1c 00000004 .dp.bss              __malloc_freelist
+  0001ba20 00000008 .dp.bss              __malloc_lock_object
+  0001ba28 00000000 .dp.bss.large        _fdp.bss.large
+  0001ba28 00000000 .dp.bss.large        _edp.bss.large
+  0001ba28 00000000 .dp.bss.4            _edp.bss
 
 
 Memory map for node 32769, tile 0

@@ -1411,15 +1411,13 @@ size_t _safe_strnlen(const char s[], size_t n);
 # 36 "../src/display_ssd1306.xc" 2
 
 
-# 1 "../src/param.h" 1
-# 17 "../src/param.h"
+# 1 "../src/_globals.h" 1
+# 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
+# 39 "../src/display_ssd1306.xc" 2
+# 1 "../src/param.h" 1
+# 13 "../src/param.h"
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
-
-
 
 
 
@@ -1438,11 +1436,11 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 54 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 39 "../src/display_ssd1306.xc" 2
+# 40 "../src/display_ssd1306.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1465,7 +1463,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 40 "../src/display_ssd1306.xc" 2
+# 41 "../src/display_ssd1306.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1505,15 +1503,15 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 42 "../src/display_ssd1306.xc" 2
+# 43 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
 # 42 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 44 "../src/display_ssd1306.xc" 2
+# 45 "../src/display_ssd1306.xc" 2
 # 1 "../src/core_graphics_adafruit_GFX.h" 1
-# 48 "../src/core_graphics_adafruit_GFX.h"
+# 46 "../src/core_graphics_adafruit_GFX.h"
 extern void Adafruit_GFX_constructor (int16_t w, int16_t h);
 
 
@@ -1572,7 +1570,7 @@ typedef struct tag_display_param_t {
 
 
 extern display_param_t display_param;
-# 45 "../src/display_ssd1306.xc" 2
+# 46 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
@@ -1610,7 +1608,7 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 47 "../src/display_ssd1306.xc" 2
+# 48 "../src/display_ssd1306.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 29 "../src/display_ssd1306.h"
 typedef enum i2c_display_reg_address_internal_t {
@@ -1643,7 +1641,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 48 "../src/display_ssd1306.xc" 2
+# 49 "../src/display_ssd1306.xc" 2
 
 
 out port outP_display_notReset =
@@ -1700,7 +1698,7 @@ bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD5);
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x80);
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xA8);
-        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x1F);
+        error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 32 -1);
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0xD3);
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x0);
         error = error | ! writeDisplay_i2c_command(i_i2c_internal_commands, 0x40 | 0x0);
@@ -1757,9 +1755,9 @@ void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color) {
 
         switch (color)
         {
-            case 1: buffer[x + (y/8)*128] |= (1 << (y&7)); break;
-            case 0: buffer[x + (y/8)*128] &= ~(1 << (y&7)); break;
-            case 2: buffer[x + (y/8)*128] ^= (1 << (y&7)); break;
+            case 1: buffer[x + (y/8)*width()] |= (1 << (y&7)); break;
+            case 0: buffer[x + (y/8)*width()] &= ~(1 << (y&7)); break;
+            case 2: buffer[x + (y/8)*width()] ^= (1 << (y&7)); break;
         }
     }
 }
@@ -1894,7 +1892,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
         int nbytes = 16;
         unsigned char data[16];
 
-        for (uint8_t x=0; x<(sizeof(data) / sizeof(data[0])); x++) {
+        for (uint16_t x=0; x<(sizeof(data) / sizeof(data[0])); x++) {
             data[x] = buffer[i];
             i++;
         }

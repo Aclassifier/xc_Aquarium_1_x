@@ -16,6 +16,7 @@
 #include <iso646.h>
 #include <errno.h>
 
+#include "_globals.h"
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "button_press.h"

@@ -16,6 +16,7 @@
 #include <string.h>   // memset
 #include <timer.h>    // For delay_milliseconds (but it compiles without?)
 
+#include "_globals.h"
 #include "param.h"
 #include "button_press.h"
 

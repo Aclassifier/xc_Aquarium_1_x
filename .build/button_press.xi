@@ -1304,15 +1304,13 @@ typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
 # 16 "../src/button_press.xc" 2
 
-# 1 "../src/param.h" 1
-# 17 "../src/param.h"
+# 1 "../src/_globals.h" 1
+# 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
+# 18 "../src/button_press.xc" 2
+# 1 "../src/param.h" 1
+# 13 "../src/param.h"
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
-
-
 
 
 
@@ -1331,11 +1329,11 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 54 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 18 "../src/button_press.xc" 2
+# 19 "../src/button_press.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1358,8 +1356,8 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 19 "../src/button_press.xc" 2
-# 39 "../src/button_press.xc"
+# 20 "../src/button_press.xc" 2
+# 40 "../src/button_press.xc"
 [[combinable]]
 void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
 

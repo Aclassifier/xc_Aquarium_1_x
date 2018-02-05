@@ -302,7 +302,7 @@ _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.cc_top Tempchip_MCP9808_Begin_Ok.function,Tempchip_MCP9808_Begin_Ok
 Tempchip_MCP9808_Begin_Ok:
 .Lfunc_begin4:
-	.loc	1 32 0
+	.loc	1 33 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 3
@@ -320,18 +320,18 @@ Tempchip_MCP9808_Begin_Ok:
 .Ltmp18:
 	mov r5, r0
 .Ltmp19:
-	.loc	1 35 0 prologue_end
+	.loc	1 36 0 prologue_end
 	ldc r0, 0
 	st8 r2, r4[r0]
 	ldc r2, 6
 .Ltmp20:
-	.loc	1 37 0
+	.loc	1 38 0
 	mov r0, r5
 .Lxta.call_labels0:
 	bl Tempchip_MCP9808_Read16
-	.loc	1 38 5
+	.loc	1 39 5
 	ldw r1, r4[1]
-	.loc	1 38 5
+	.loc	1 39 5
 	eq r1, r1, 1
 	bf r1, .LBB4_3
 .Ltmp21:
@@ -342,19 +342,19 @@ Tempchip_MCP9808_Begin_Ok:
 .Ltmp22:
 .Lxtalabel2:
 	mkmsk r2, 3
-	.loc	1 40 0
+	.loc	1 41 0
 	mov r0, r5
 	mov r1, r4
 .Lxta.call_labels1:
 	bl Tempchip_MCP9808_Read16
-	.loc	1 41 9
+	.loc	1 42 9
 	ldw r1, r4[1]
-	.loc	1 41 9
+	.loc	1 42 9
 	eq r1, r1, 1
 	ldc r2, 1024
-	.loc	1 41 9
+	.loc	1 42 9
 	eq r0, r0, r2
-	.loc	1 41 9
+	.loc	1 42 9
 	and r0, r1, r0
 	bu .LBB4_4
 .Ltmp23:
@@ -396,7 +396,7 @@ Tempchip_MCP9808_Begin_Ok:
 	.cc_top Tempchip_MCP9808_ReadTempC.function,Tempchip_MCP9808_ReadTempC
 Tempchip_MCP9808_ReadTempC:
 .Lfunc_begin5:
-	.loc	1 56 0
+	.loc	1 57 0
 	.cfi_startproc
 .Lxtalabel5:
 	entsp 3
@@ -415,34 +415,34 @@ Tempchip_MCP9808_ReadTempC:
 	mov r5, r1
 .Ltmp30:
 	ldc r2, 5
-	.loc	1 58 0 prologue_end
+	.loc	1 59 0 prologue_end
 .Ltmp31:
 .Lxta.call_labels2:
 	bl Tempchip_MCP9808_Read16
 .Ltmp32:
-	.loc	1 60 5
+	.loc	1 61 5
 	ldw r1, r5[1]
-	.loc	1 60 5
+	.loc	1 61 5
 	eq r1, r1, 1
 	bf r1, .LBB5_5
 .Ltmp33:
 .Lxtalabel6:
 	ldc r1, 4096
-	.loc	1 61 9
+	.loc	1 62 9
 	and r1, r0, r1
-	.loc	1 61 9
+	.loc	1 62 9
 	bf r1, .LBB5_2
 .Ltmp34:
 .Lxtalabel7:
 	ldc r0, 0
-	.loc	1 76 0
+	.loc	1 77 0
 	stw r0, r4[0]
 	bu .LBB5_4
 .Ltmp35:
 .LBB5_5:
 .Lxtalabel8:
 	ldc r0, 0
-	.loc	1 81 0
+	.loc	1 82 0
 	stw r0, r4[0]
 	ldc r0, 999
 	bu .LBB5_4
@@ -450,22 +450,22 @@ Tempchip_MCP9808_ReadTempC:
 .LBB5_2:
 .Lxtalabel9:
 	ldc r1, 4095
-	.loc	1 63 0
+	.loc	1 64 0
 .Ltmp37:
 	and r0, r0, r1
 .Ltmp38:
 	ldc r1, 100
-	.loc	1 70 0
+	.loc	1 71 0
 	mul r0, r0, r1
 .Ltmp39:
 	ldc r1, 0
 	ldw r2, cp[.LCPI5_0]
-	.loc	1 71 0
+	.loc	1 72 0
 	lmul r0, r1, r0, r2, r1, r1
 	shr r0, r0, 7
 .Ltmp40:
 	mkmsk r1, 1
-	.loc	1 73 0
+	.loc	1 74 0
 	stw r1, r4[0]
 .Ltmp41:
 .LBB5_4:
@@ -494,7 +494,7 @@ Tempchip_MCP9808_ReadTempC:
 	.cc_top Tempchip_MCP9808_Write16.function,Tempchip_MCP9808_Write16
 Tempchip_MCP9808_Write16:
 .Lfunc_begin6:
-	.loc	1 108 0
+	.loc	1 109 0
 	.cfi_startproc
 .Lxtalabel10:
 	entsp 7
@@ -514,27 +514,27 @@ Tempchip_MCP9808_Write16:
 .Ltmp48:
 	mov r4, r1
 .Ltmp49:
-	.loc	1 113 0 prologue_end
+	.loc	1 114 0 prologue_end
 	ldc r5, 0
 .Ltmp50:
-	.loc	1 109 0
+	.loc	1 110 0
 	ld8u r1, r4[r5]
-	.loc	1 111 0
+	.loc	1 112 0
 .Ltmp51:
 	shr r6, r3, 8
 	ldaw r11, sp[3]
-	.loc	1 113 0
+	.loc	1 114 0
 .Ltmp52:
 	st8 r6, r11[r5]
 	mkmsk r6, 1
-	.loc	1 113 0
+	.loc	1 114 0
 	or r6, r11, r6
-	.loc	1 113 0
+	.loc	1 114 0
 	st8 r3, r6[r5]
 .Ltmp53:
 	ldc r3, 2
 .Ltmp54:
-	.loc	1 116 0
+	.loc	1 117 0
 	stw r3, sp[2]
 	stw r0, sp[1]
 	mov r0, r1
@@ -545,7 +545,7 @@ Tempchip_MCP9808_Write16:
 .Lxta.call_labels3:
 	bl i2c_master_write_reg
 .Ltmp57:
-	.loc	1 116 0
+	.loc	1 117 0
 	stw r0, r4[1]
 	ldw r6, sp[4]
 	ldw r5, sp[5]
@@ -574,7 +574,7 @@ Tempchip_MCP9808_Write16:
 	.cc_top Tempchip_MCP9808_Read16.function,Tempchip_MCP9808_Read16
 Tempchip_MCP9808_Read16:
 .Lfunc_begin7:
-	.loc	1 121 0
+	.loc	1 122 0
 	.cfi_startproc
 .Lxtalabel11:
 	entsp 7
@@ -594,18 +594,18 @@ Tempchip_MCP9808_Read16:
 .Ltmp66:
 	mov r4, r1
 .Ltmp67:
-	.loc	1 133 0 prologue_end
+	.loc	1 134 0 prologue_end
 	ldc r6, 0
 .Ltmp68:
-	.loc	1 122 0
+	.loc	1 123 0
 	ld8u r1, r4[r6]
 	ldaw r5, sp[3]
-	.loc	1 124 0
+	.loc	1 125 0
 .Ltmp69:
 	st16 r6, r5[r6]
 .Ltmp70:
 	ldc r3, 2
-	.loc	1 128 0
+	.loc	1 129 0
 .Ltmp71:
 	stw r3, sp[2]
 	stw r0, sp[1]
@@ -617,16 +617,16 @@ Tempchip_MCP9808_Read16:
 .Lxta.call_labels4:
 	bl i2c_master_read_reg
 .Ltmp74:
-	.loc	1 128 0
+	.loc	1 129 0
 	stw r0, r4[1]
-	.loc	1 133 0
+	.loc	1 134 0
 .Ltmp75:
 	ld16s r0, r5[r6]
 	zext r0, 16
-	.loc	1 133 0
+	.loc	1 134 0
 	shl r1, r0, 8
 	shr r0, r0, 8
-	.loc	1 135 0
+	.loc	1 136 0
 .Ltmp76:
 	or r0, r1, r0
 	zext r0, 16
@@ -657,7 +657,7 @@ Tempchip_MCP9808_Read16:
 	.cc_top Tempchip_MCP9808_Shutdown_Wake_Ok.function,Tempchip_MCP9808_Shutdown_Wake_Ok
 Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lfunc_begin8:
-	.loc	1 89 0
+	.loc	1 90 0
 	.cfi_startproc
 .Lxtalabel12:
 	entsp 8
@@ -684,24 +684,24 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	mov r6, r0
 .Ltmp88:
 	mkmsk r5, 1
-	.loc	1 92 0 prologue_end
+	.loc	1 93 0 prologue_end
 .Ltmp89:
 	mov r2, r5
 .Lxta.call_labels5:
 	bl Tempchip_MCP9808_Read16
-	.loc	1 94 5
+	.loc	1 95 5
 	ldw r1, r4[1]
-	.loc	1 94 5
+	.loc	1 95 5
 	eq r1, r1, 1
 	bf r1, .LBB8_1
 .Ltmp90:
 .Lxtalabel13:
 	ldc r1, 256
-	.loc	1 95 9
+	.loc	1 96 9
 	bf r7, .LBB8_4
 .Ltmp91:
 .Lxtalabel14:
-	.loc	1 96 0
+	.loc	1 97 0
 	or r2, r0, r1
 	bu .LBB8_5
 .LBB8_1:
@@ -709,29 +709,29 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	bu .LBB8_6
 .LBB8_4:
 .Lxtalabel15:
-	.loc	1 99 0
+	.loc	1 100 0
 	xor r2, r0, r1
 .LBB8_5:
 .Ltmp92:
-	.loc	1 113 0
+	.loc	1 114 0
 	ldc r3, 0
 .Ltmp93:
-	.loc	1 109 0
+	.loc	1 110 0
 	ld8u r1, r4[r3]
 .Ltmp94:
-	.loc	1 111 0
+	.loc	1 112 0
 	shr r11, r2, 8
 	ldaw r2, sp[3]
 .Ltmp95:
-	.loc	1 113 0
+	.loc	1 114 0
 	st8 r11, r2[r3]
-	.loc	1 113 0
+	.loc	1 114 0
 	or r11, r2, r5
-	.loc	1 113 0
+	.loc	1 114 0
 	st8 r0, r11[r3]
 .Ltmp96:
 	ldc r3, 2
-	.loc	1 116 0
+	.loc	1 117 0
 .Ltmp97:
 	stw r3, sp[2]
 .Ltmp98:
@@ -741,10 +741,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lxta.call_labels6:
 	bl i2c_master_write_reg
 .Ltmp99:
-	.loc	1 116 0
+	.loc	1 117 0
 	stw r0, r4[1]
 .Ltmp100:
-	.loc	1 102 9
+	.loc	1 103 9
 	eq r0, r0, 1
 .Ltmp101:
 .LBB8_6:
@@ -961,7 +961,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -973,7 +973,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string12
 	.byte	4
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	3
 	.long	.Linfo_string9
 	.byte	0
@@ -988,7 +988,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	56
+	.byte	57
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1000,7 +1000,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	89
+	.byte	90
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1016,33 +1016,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string51
 	.long	.Linfo_string51
 	.byte	1
-	.byte	32
+	.byte	33
 	.long	69
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc0
 	.long	.Linfo_string20
 	.byte	1
-	.byte	32
+	.byte	33
 	.long	849
 	.byte	6
 	.long	.Ldebug_loc1
 	.long	.Linfo_string14
 	.byte	1
-	.byte	32
+	.byte	33
 	.long	804
 	.byte	6
 	.long	.Ldebug_loc2
 	.long	.Linfo_string55
 	.byte	1
-	.byte	32
+	.byte	33
 	.long	842
 	.byte	7
 	.long	.Ldebug_ranges1
 	.byte	8
 	.long	.Linfo_string56
 	.byte	1
-	.byte	34
+	.byte	35
 	.long	913
 	.byte	0
 	.byte	0
@@ -1054,33 +1054,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string52
 	.long	.Linfo_string52
 	.byte	1
-	.byte	56
+	.byte	57
 	.long	1239
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc3
 	.long	.Linfo_string20
 	.byte	1
-	.byte	56
+	.byte	57
 	.long	849
 	.byte	6
 	.long	.Ldebug_loc4
 	.long	.Linfo_string14
 	.byte	1
-	.byte	56
+	.byte	57
 	.long	804
 	.byte	6
 	.long	.Ldebug_loc5
 	.long	.Linfo_string57
 	.byte	1
-	.byte	56
+	.byte	57
 	.long	1535
 	.byte	7
 	.long	.Ldebug_ranges4
 	.byte	8
 	.long	.Linfo_string56
 	.byte	1
-	.byte	58
+	.byte	59
 	.long	913
 	.byte	7
 	.long	.Ldebug_ranges3
@@ -1088,7 +1088,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Ldebug_loc6
 	.long	.Linfo_string58
 	.byte	1
-	.byte	63
+	.byte	64
 	.long	1540
 	.byte	0
 	.byte	0
@@ -1155,33 +1155,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string54
 	.long	.Linfo_string54
 	.byte	1
-	.byte	121
+	.byte	122
 	.long	913
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc12
 	.long	.Linfo_string20
 	.byte	1
-	.byte	121
+	.byte	122
 	.long	849
 	.byte	6
 	.long	.Ldebug_loc13
 	.long	.Linfo_string14
 	.byte	1
-	.byte	121
+	.byte	122
 	.long	804
 	.byte	6
 	.long	.Ldebug_loc14
 	.long	.Linfo_string19
 	.byte	1
-	.byte	121
+	.byte	122
 	.long	842
 	.byte	7
 	.long	.Ldebug_ranges19
 	.byte	8
 	.long	.Linfo_string29
 	.byte	1
-	.byte	122
+	.byte	123
 	.long	920
 	.byte	7
 	.long	.Ldebug_ranges18
@@ -1189,14 +1189,14 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Ldebug_loc15
 	.long	.Linfo_string31
 	.byte	1
-	.byte	123
+	.byte	124
 	.long	920
 	.byte	7
 	.long	.Ldebug_ranges17
 	.byte	8
 	.long	.Linfo_string34
 	.byte	1
-	.byte	124
+	.byte	125
 	.long	927
 	.byte	7
 	.long	.Ldebug_ranges16
@@ -1204,28 +1204,28 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	2
 	.long	.Linfo_string36
 	.byte	1
-	.byte	125
+	.byte	126
 	.long	920
 	.byte	7
 	.long	.Ldebug_ranges15
 	.byte	8
 	.long	.Linfo_string60
 	.byte	1
-	.byte	126
+	.byte	127
 	.long	913
 	.byte	7
 	.long	.Ldebug_ranges14
 	.byte	8
 	.long	.Linfo_string32
 	.byte	1
-	.byte	133
+	.byte	134
 	.long	913
 	.byte	7
 	.long	.Ldebug_ranges13
 	.byte	8
 	.long	.Linfo_string33
 	.byte	1
-	.byte	134
+	.byte	135
 	.long	913
 	.byte	0
 	.byte	0
@@ -1239,64 +1239,64 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string13
 	.long	.Linfo_string13
 	.byte	1
-	.byte	108
+	.byte	109
 	.byte	1
 	.byte	1
 	.byte	18
 	.long	.Linfo_string14
 	.byte	1
-	.byte	108
+	.byte	109
 	.long	804
 	.byte	18
 	.long	.Linfo_string19
 	.byte	1
-	.byte	108
+	.byte	109
 	.long	842
 	.byte	18
 	.long	.Linfo_string20
 	.byte	1
-	.byte	108
+	.byte	109
 	.long	849
 	.byte	18
 	.long	.Linfo_string27
 	.byte	1
-	.byte	108
+	.byte	109
 	.long	913
 	.byte	19
 	.byte	8
 	.long	.Linfo_string29
 	.byte	1
-	.byte	109
+	.byte	110
 	.long	920
 	.byte	19
 	.byte	8
 	.long	.Linfo_string31
 	.byte	1
-	.byte	110
+	.byte	111
 	.long	920
 	.byte	19
 	.byte	8
 	.long	.Linfo_string32
 	.byte	1
-	.byte	111
+	.byte	112
 	.long	842
 	.byte	19
 	.byte	8
 	.long	.Linfo_string33
 	.byte	1
-	.byte	112
+	.byte	113
 	.long	842
 	.byte	19
 	.byte	8
 	.long	.Linfo_string34
 	.byte	1
-	.byte	113
+	.byte	114
 	.long	927
 	.byte	19
 	.byte	8
 	.long	.Linfo_string36
 	.byte	1
-	.byte	114
+	.byte	115
 	.long	920
 	.byte	0
 	.byte	0
@@ -1311,18 +1311,18 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string18
 	.byte	8
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	22
 	.long	.Linfo_string15
 	.long	842
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	0
 	.byte	22
 	.long	.Linfo_string17
 	.long	90
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	4
 	.byte	0
 	.byte	23
@@ -1335,24 +1335,24 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string26
 	.byte	12
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	22
 	.long	.Linfo_string21
 	.long	899
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	0
 	.byte	22
 	.long	.Linfo_string23
 	.long	899
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	4
 	.byte	22
 	.long	.Linfo_string24
 	.long	906
 	.byte	1
-	.byte	32
+	.byte	33
 	.byte	8
 	.byte	0
 	.byte	23
@@ -1390,46 +1390,46 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string53
 	.long	.Linfo_string53
 	.byte	1
-	.byte	89
+	.byte	90
 	.long	138
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc16
 	.long	.Linfo_string20
 	.byte	1
-	.byte	89
+	.byte	90
 	.long	849
 	.byte	6
 	.long	.Ldebug_loc17
 	.long	.Linfo_string14
 	.byte	1
-	.byte	89
+	.byte	90
 	.long	804
 	.byte	6
 	.long	.Ldebug_loc18
 	.long	.Linfo_string61
 	.byte	1
-	.byte	89
+	.byte	90
 	.long	138
 	.byte	7
 	.long	.Ldebug_ranges26
 	.byte	8
 	.long	.Linfo_string62
 	.byte	1
-	.byte	91
+	.byte	92
 	.long	913
 	.byte	7
 	.long	.Ldebug_ranges25
 	.byte	8
 	.long	.Linfo_string63
 	.byte	1
-	.byte	92
+	.byte	93
 	.long	913
 	.byte	27
 	.long	668
 	.long	.Ldebug_ranges21
 	.byte	1
-	.byte	100
+	.byte	101
 	.byte	11
 	.long	.Ldebug_loc19
 	.long	681
@@ -2683,43 +2683,43 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .cc_top cc_0,.Lxta.call_labels0
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	37
+	.long	38
 	.long	.Lxta.call_labels0
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels1
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	40
+	.long	41
 	.long	.Lxta.call_labels1
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels2
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	58
+	.long	59
 	.long	.Lxta.call_labels2
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels5
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	92
+	.long	93
 	.long	.Lxta.call_labels5
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels3
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	117
+	.long	118
 	.long	.Lxta.call_labels3
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels6
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	117
+	.long	118
 	.long	.Lxta.call_labels6
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels4
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	129
+	.long	130
 	.long	.Lxta.call_labels4
 .cc_bottom cc_6
 .Lentries_end1:
@@ -2732,288 +2732,288 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .cc_top cc_7,.Lxtalabel0
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	34
 	.long	35
+	.long	36
 	.long	.Lxtalabel0
 .cc_bottom cc_7
 .cc_top cc_8,.Lxtalabel1
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	34
 	.long	35
+	.long	36
 	.long	.Lxtalabel1
 .cc_bottom cc_8
 .cc_top cc_9,.Lxtalabel0
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	37
 	.long	38
+	.long	39
 	.long	.Lxtalabel0
 .cc_bottom cc_9
 .cc_top cc_10,.Lxtalabel1
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	37
 	.long	38
+	.long	39
 	.long	.Lxtalabel1
 .cc_bottom cc_10
 .cc_top cc_11,.Lxtalabel2
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	40
 	.long	41
+	.long	42
 	.long	.Lxtalabel2
 .cc_bottom cc_11
 .cc_top cc_12,.Lxtalabel2
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	42
 	.long	43
+	.long	44
 	.long	.Lxtalabel2
 .cc_bottom cc_12
 .cc_top cc_13,.Lxtalabel2
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	44
 	.long	45
+	.long	46
 	.long	.Lxtalabel2
 .cc_bottom cc_13
 .cc_top cc_14,.Lxtalabel3
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	47
 	.long	48
+	.long	49
 	.long	.Lxtalabel3
 .cc_bottom cc_14
 .cc_top cc_15,.Lxtalabel4
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	47
 	.long	48
+	.long	49
 	.long	.Lxtalabel4
 .cc_bottom cc_15
 .cc_top cc_16,.Lxtalabel5
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	58
-	.long	58
+	.long	59
+	.long	59
 	.long	.Lxtalabel5
 .cc_bottom cc_16
 .cc_top cc_17,.Lxtalabel5
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	60
-	.long	60
+	.long	61
+	.long	61
 	.long	.Lxtalabel5
 .cc_bottom cc_17
 .cc_top cc_18,.Lxtalabel6
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	61
-	.long	61
+	.long	62
+	.long	62
 	.long	.Lxtalabel6
 .cc_bottom cc_18
 .cc_top cc_19,.Lxtalabel9
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	63
-	.long	63
+	.long	64
+	.long	64
 	.long	.Lxtalabel9
 .cc_bottom cc_19
 .cc_top cc_20,.Lxtalabel9
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	70
 	.long	71
+	.long	72
 	.long	.Lxtalabel9
 .cc_bottom cc_20
 .cc_top cc_21,.Lxtalabel9
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	73
-	.long	75
+	.long	74
+	.long	76
 	.long	.Lxtalabel9
 .cc_bottom cc_21
 .cc_top cc_22,.Lxtalabel7
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	76
-	.long	78
+	.long	77
+	.long	79
 	.long	.Lxtalabel7
 .cc_bottom cc_22
 .cc_top cc_23,.Lxtalabel8
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	80
-	.long	83
+	.long	81
+	.long	84
 	.long	.Lxtalabel8
 .cc_bottom cc_23
 .cc_top cc_24,.Lxtalabel12
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	91
 	.long	92
+	.long	93
 	.long	.Lxtalabel12
 .cc_bottom cc_24
 .cc_top cc_25,.Lxtalabel12
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	94
-	.long	94
+	.long	95
+	.long	95
 	.long	.Lxtalabel12
 .cc_bottom cc_25
 .cc_top cc_26,.Lxtalabel13
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	95
-	.long	95
+	.long	96
+	.long	96
 	.long	.Lxtalabel13
 .cc_bottom cc_26
 .cc_top cc_27,.Lxtalabel14
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	96
-	.long	98
+	.long	97
+	.long	99
 	.long	.Lxtalabel14
 .cc_bottom cc_27
 .cc_top cc_28,.Lxtalabel15
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	99
-	.long	101
+	.long	100
+	.long	102
 	.long	.Lxtalabel15
 .cc_bottom cc_28
 .cc_top cc_29,.Lxtalabel12
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	104
 	.long	105
+	.long	106
 	.long	.Lxtalabel12
 .cc_bottom cc_29
 .cc_top cc_30,.Lxtalabel14
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	109
-	.long	114
+	.long	110
+	.long	115
 	.long	.Lxtalabel14
 .cc_bottom cc_30
 .cc_top cc_31,.Lxtalabel10
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	109
-	.long	114
+	.long	110
+	.long	115
 	.long	.Lxtalabel10
 .cc_bottom cc_31
 .cc_top cc_32,.Lxtalabel15
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	109
-	.long	114
+	.long	110
+	.long	115
 	.long	.Lxtalabel15
 .cc_bottom cc_32
 .cc_top cc_33,.Lxtalabel15
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	116
 	.long	117
+	.long	118
 	.long	.Lxtalabel15
 .cc_bottom cc_33
 .cc_top cc_34,.Lxtalabel14
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	116
 	.long	117
+	.long	118
 	.long	.Lxtalabel14
 .cc_bottom cc_34
 .cc_top cc_35,.Lxtalabel10
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	116
 	.long	117
+	.long	118
 	.long	.Lxtalabel10
 .cc_bottom cc_35
 .cc_top cc_36,.Lxtalabel15
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	119
+	.long	119
 	.long	.Lxtalabel15
 .cc_bottom cc_36
 .cc_top cc_37,.Lxtalabel10
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	119
+	.long	119
 	.long	.Lxtalabel10
 .cc_bottom cc_37
 .cc_top cc_38,.Lxtalabel14
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	119
+	.long	119
 	.long	.Lxtalabel14
 .cc_bottom cc_38
 .cc_top cc_39,.Lxtalabel10
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	120
+	.long	120
 	.long	.Lxtalabel10
 .cc_bottom cc_39
 .cc_top cc_40,.Lxtalabel14
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	120
+	.long	120
 	.long	.Lxtalabel14
 .cc_bottom cc_40
 .cc_top cc_41,.Lxtalabel15
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	119
-	.long	119
+	.long	120
+	.long	120
 	.long	.Lxtalabel15
 .cc_bottom cc_41
 .cc_top cc_42,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	122
-	.long	126
+	.long	123
+	.long	127
 	.long	.Lxtalabel11
 .cc_bottom cc_42
 .cc_top cc_43,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	128
 	.long	129
+	.long	130
 	.long	.Lxtalabel11
 .cc_bottom cc_43
 .cc_top cc_44,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	130
-	.long	130
+	.long	131
+	.long	131
 	.long	.Lxtalabel11
 .cc_bottom cc_44
 .cc_top cc_45,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	133
-	.long	135
+	.long	134
+	.long	136
 	.long	.Lxtalabel11
 .cc_bottom cc_45
 .cc_top cc_46,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	137
-	.long	137
+	.long	138
+	.long	138
 	.long	.Lxtalabel11
 .cc_bottom cc_46
 .cc_top cc_47,.Lxtalabel11
 	.ascii	"../src/tempchip_mcp9808.xc"
 	.byte	0
-	.long	139
 	.long	140
+	.long	141
 	.long	.Lxtalabel11
 .cc_bottom cc_47
 .Lentries_end3:

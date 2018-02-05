@@ -21,6 +21,7 @@
 #include "i2c.h"
 
 #include "_version.h"
+#include "_globals.h"
 #include "param.h"
 #include "_texts_and_constants.h"
 #include "tempchip_mcp9808.h"
@@ -30,6 +31,8 @@
 
 #define DEBUG_PRINT_F_CONVERSIONS_MEAN 0 // Cost 1.3k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN) printf(fmt, __VA_ARGS__); } while (0)
+
+#define INDEX_VOID (-1)
 
 // Init_Arithmetic_Mean_Temp_OnetenthDegC
 // Arithmetic_mean_value = (xn + xn-1 + xn-2 + xn-3 + ...x) / n_of_temps (or during filling, divide by how many there are)
@@ -83,9 +86,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_t temp_return;           // Always set
     temp_onetenthDegC_t temps_sum              = 0;
     temp_onetenthDegC_t temp_largest           = INT_MIN;
-    int                 index_of_temp_largest  = UNDEFINED_INDEX;
+    int                 index_of_temp_largest  = INDEX_VOID;
     temp_onetenthDegC_t temp_smallest          = INT_MAX;
-    int                 index_of_temp_smallest = UNDEFINED_INDEX;
+    int                 index_of_temp_smallest = INDEX_VOID;
 
     // Store new data and set where to write the next
     temps_onetenthDegC_mean_array.temps_onetenthDegC          [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;
@@ -150,13 +153,13 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
             remove_n_of_temps,
             temps_onetenthDeg,
            (temps_onetenthDeg!=temp_return));
-    if (index_of_temp_largest == UNDEFINED_INDEX) {
+    if (index_of_temp_largest == INDEX_VOID) {
         debug_printf ("&s", "none ");
     } else {
         debug_printf ("%d ", temp_largest);
     }
     if (temp_largest != temp_smallest) {
-        if (index_of_temp_smallest == UNDEFINED_INDEX) {
+        if (index_of_temp_smallest == INDEX_VOID) {
             debug_printf ("&s", "none ");
         } else {
             debug_printf ("%d ", temp_smallest);

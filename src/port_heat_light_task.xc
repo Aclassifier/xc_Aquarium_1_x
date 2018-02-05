@@ -13,6 +13,7 @@
 #include <timer.h>
 #include <iso646.h>
 
+#include "_globals.h"
 #include "param.h"
 #include "_version.h"
 #include "port_heat_light_task.h"

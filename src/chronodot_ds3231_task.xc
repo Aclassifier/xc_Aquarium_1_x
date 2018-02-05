@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iso646.h>
 
+#include "_globals.h"
 #include "param.h"
 #include "i2c.h"
 #include "startkit_adc.h"

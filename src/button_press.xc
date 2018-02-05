@@ -14,6 +14,7 @@
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAM
 
+#include "_globals.h"
 #include "param.h"
 #include "button_press.h"
 #endif

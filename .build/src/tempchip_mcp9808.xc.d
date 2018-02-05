@@ -1,4 +1,5 @@
 .build/src/tempchip_mcp9808.xc.d .build/src/tempchip_mcp9808.xc.o .build/src/tempchip_mcp9808.xc.pca.xml: ./src/tempchip_mcp9808.xc \
+  ../../workspace/_Aquarium_1_x/src/_globals.h \
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/_Aquarium_1_x/src/_texts_and_constants.h \
   ../../workspace/_Aquarium_1_x/src/button_press.h \

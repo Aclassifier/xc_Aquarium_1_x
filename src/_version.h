@@ -16,7 +16,8 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.4"
+#define APPLICATION_VERSION_STR "1.1.5"
+    // "1.1.5"      4Feb2018 testing some changes that Mac«xim initiated
     // "1.1.4"     25Nov2017 Tagged as VER_1_1_4_with_fishes
     //                       AQU=039 After AQU=038 then the first light down at night after the beep wasn't visible enough.
     //                               Complete rethinking into _less_ fancy into-night and into-day lists, and the same for half hour both for 3/3 and 2/3

@@ -312,7 +312,7 @@ _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.cc_top Temp_OnetenthDegC_To_Str.function,Temp_OnetenthDegC_To_Str
 Temp_OnetenthDegC_To_Str:
 .Lfunc_begin4:
-	.loc	1 175 0
+	.loc	1 178 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 6
@@ -342,7 +342,7 @@ Temp_OnetenthDegC_To_Str:
 .Ltmp23:
 	ldw r0, cp[.LCPI4_0]
 	ldc r1, 0
-	.loc	1 177 0 prologue_end
+	.loc	1 180 0 prologue_end
 .Ltmp24:
 	mov r2, r1
 	maccs r1, r2, r5, r0
@@ -352,47 +352,47 @@ Temp_OnetenthDegC_To_Str:
 	add r2, r1, r0
 .Ltmp25:
 	ldw r0, cp[.LCPI4_1]
-	.loc	1 178 0
+	.loc	1 181 0
 .Ltmp26:
 	mul r0, r2, r0
-	.loc	1 178 0
+	.loc	1 181 0
 	add r3, r0, r5
 .Ltmp27:
-	.loc	1 185 0
+	.loc	1 188 0
 	add r0, r5, 9
 	zext r0, 16
 	ldc r1, 10008
-	.loc	1 185 0
+	.loc	1 188 0
 	lsu r7, r1, r0
 	ldc r0, 9
-	.loc	1 186 0
+	.loc	1 189 0
 	lsu r8, r0, r3
-	.loc	1 188 0
+	.loc	1 191 0
 	ldaw r11, cp[.str36]
 	mov r0, r4
 	mov r1, r11
 .Lxta.call_labels0:
 	bl siprintf
 .Ltmp28:
-	.loc	1 189 0
+	.loc	1 192 0
 	eq r1, r0, 4
 	eq r1, r1, 0
-	.loc	1 190 0
+	.loc	1 193 0
 	shr r0, r0, r6
 .Ltmp29:
-	.loc	1 186 0
+	.loc	1 189 0
 	or r0, r0, r7
 .Ltmp30:
-	.loc	1 189 0
+	.loc	1 192 0
 	or r0, r0, r1
 .Ltmp31:
-	.loc	1 190 0
+	.loc	1 193 0
 	or r6, r0, r8
 .Ltmp32:
 	bf r6, .LBB4_2
 .Ltmp33:
 .Lxtalabel1:
-	.loc	1 194 0
+	.loc	1 197 0
 	ldaw r11, cp[.str43]
 	ldc r2, 5
 	mov r0, r4
@@ -404,7 +404,7 @@ Temp_OnetenthDegC_To_Str:
 .LBB4_2:
 .Lxtalabel2:
 	mkmsk r0, 1
-	.loc	1 198 5
+	.loc	1 201 5
 	xor r1, r6, r0
 	mov r0, r5
 	ldw r8, sp[1]
@@ -480,7 +480,7 @@ Temp_OnetenthDegC_To_Str:
 	.cc_top TC1047_Raw_DegC_To_String_Ok.function,TC1047_Raw_DegC_To_String_Ok
 TC1047_Raw_DegC_To_String_Ok:
 .Lfunc_begin5:
-	.loc	1 204 0
+	.loc	1 207 0
 	.cfi_startproc
 .Lxtalabel3:
 	entsp 6
@@ -506,24 +506,24 @@ TC1047_Raw_DegC_To_String_Ok:
 	mov r5, r1
 .Ltmp46:
 	ldc r1, 100
-	.loc	1 221 0 prologue_end
+	.loc	1 224 0 prologue_end
 .Ltmp47:
 	mul r0, r0, r1
 .Ltmp48:
 	ldw r1, cp[.LCPI5_0]
-	.loc	1 221 0
+	.loc	1 224 0
 	add r0, r0, r1
 	ldc r6, 0
 	ldw r1, cp[.LCPI5_1]
-	.loc	1 221 0
+	.loc	1 224 0
 	lmul r0, r1, r0, r1, r6, r6
 	shr r0, r0, 6
 	ldw r1, cp[.LCPI5_2]
-	.loc	1 221 0
+	.loc	1 224 0
 	add r4, r0, r1
 .Ltmp49:
 	ldw r1, cp[.LCPI5_3]
-	.loc	1 225 0
+	.loc	1 228 0
 .Ltmp50:
 	mov r2, r6
 	mov r3, r6
@@ -534,51 +534,51 @@ TC1047_Raw_DegC_To_String_Ok:
 	add r2, r2, r1
 .Ltmp51:
 	ldw r1, cp[.LCPI5_4]
-	.loc	1 226 0
+	.loc	1 229 0
 .Ltmp52:
 	mul r1, r2, r1
-	.loc	1 226 0
+	.loc	1 229 0
 	add r3, r1, r4
 .Ltmp53:
 	ldw r1, cp[.LCPI5_5]
 .Ltmp54:
-	.loc	1 230 0
+	.loc	1 233 0
 	add r0, r0, r1
 	ldc r1, 1008
-	.loc	1 230 0
+	.loc	1 233 0
 	lsu r0, r1, r0
 	ldc r1, 9
-	.loc	1 231 0
+	.loc	1 234 0
 	lsu r1, r1, r3
-	.loc	1 231 0
+	.loc	1 234 0
 	or r8, r1, r0
-	.loc	1 233 5
+	.loc	1 236 5
 	bf r5, .LBB5_1
 .Ltmp55:
 .Lxtalabel4:
-	.loc	1 235 0
+	.loc	1 238 0
 	ldaw r11, cp[.str42]
 	mov r0, r5
 	mov r1, r11
 .Lxta.call_labels1:
 	bl siprintf
 .Ltmp56:
-	.loc	1 236 0
+	.loc	1 239 0
 	eq r1, r0, 4
 	eq r1, r1, 0
-	.loc	1 237 0
+	.loc	1 240 0
 	shr r0, r0, r7
 .Ltmp57:
-	.loc	1 236 0
+	.loc	1 239 0
 	or r0, r0, r8
 .Ltmp58:
-	.loc	1 237 0
+	.loc	1 240 0
 	or r7, r0, r1
 .Ltmp59:
 	bf r7, .LBB5_3
 .Ltmp60:
 .Lxtalabel5:
-	.loc	1 240 0
+	.loc	1 243 0
 	ldaw r11, cp[.str43]
 	ldc r2, 5
 	mov r0, r5
@@ -593,7 +593,7 @@ TC1047_Raw_DegC_To_String_Ok:
 .LBB5_3:
 .Lxtalabel6:
 .Ltmp63:
-	.loc	1 244 5
+	.loc	1 247 5
 	eq r1, r6, 0
 	bf r6, .LBB5_5
 .Ltmp64:
@@ -637,7 +637,7 @@ TC1047_Raw_DegC_To_String_Ok:
 	.cc_top Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok.function,Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok:
 .Lfunc_begin6:
-	.loc	1 254 0
+	.loc	1 257 0
 	.cfi_startproc
 .Lxtalabel8:
 	entsp 5
@@ -661,19 +661,19 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok:
 .Ltmp72:
 	ldc r7, 0
 	ldw r1, cp[.LCPI6_0]
-	.loc	1 266 0 prologue_end
+	.loc	1 269 0 prologue_end
 .Ltmp73:
 	lmul r0, r1, r0, r1, r7, r7
 .Ltmp74:
 	shr r0, r0, 8
 .Ltmp75:
 	ldc r4, 99
-	.loc	1 267 5
+	.loc	1 270 5
 	lsu r1, r4, r0
 	bt r1, .LBB6_2
 .Ltmp76:
 .Lxtalabel9:
-	.loc	1 267 5
+	.loc	1 270 5
 	mov r4, r0
 .Ltmp77:
 .LBB6_2:
@@ -682,7 +682,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok:
 	bf r5, .LBB6_4
 .Ltmp78:
 .Lxtalabel11:
-	.loc	1 275 0
+	.loc	1 278 0
 	ldaw r11, cp[.str48]
 	mov r0, r5
 	mov r1, r11
@@ -690,20 +690,20 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok:
 .Lxta.call_labels2:
 	bl siprintf
 .Ltmp79:
-	.loc	1 276 0
+	.loc	1 279 0
 	eq r1, r0, 2
 	eq r1, r1, 0
 	mkmsk r2, 5
-	.loc	1 277 0
+	.loc	1 280 0
 	shr r0, r0, r2
 .Ltmp80:
-	.loc	1 277 0
+	.loc	1 280 0
 	or r0, r1, r0
 .Ltmp81:
 	bf r0, .LBB6_4
 .Ltmp82:
 .Lxtalabel12:
-	.loc	1 281 0
+	.loc	1 284 0
 	ldaw r11, cp[.str49]
 	mkmsk r2, 2
 	mov r0, r5
@@ -785,7 +785,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok:
 	.cc_top RR_12V_24V_To_String_Ok.function,RR_12V_24V_To_String_Ok
 RR_12V_24V_To_String_Ok:
 .Lfunc_begin7:
-	.loc	1 296 0
+	.loc	1 299 0
 	.cfi_startproc
 .Lxtalabel16:
 	entsp 6
@@ -810,44 +810,44 @@ RR_12V_24V_To_String_Ok:
 	.cfi_offset 8, -20
 	mov r5, r1
 .Ltmp93:
-	.loc	1 310 0 prologue_end
+	.loc	1 313 0 prologue_end
 	shr r0, r0, 4
 .Ltmp94:
 	ldc r1, 100
-	.loc	1 310 0
+	.loc	1 313 0
 	mul r0, r0, r1
 	ldc r6, 0
 	ldw r1, cp[.LCPI7_0]
-	.loc	1 310 0
+	.loc	1 313 0
 	lmul r1, r2, r0, r1, r6, r6
 	ldc r11, 9
 	shr r4, r1, r11
 .Ltmp95:
 	ldw r1, cp[.LCPI7_1]
-	.loc	1 314 0
+	.loc	1 317 0
 .Ltmp96:
 	lmul r1, r2, r0, r1, r6, r6
 	ldc r2, 13
 	shr r2, r1, r2
 .Ltmp97:
 	ldw r1, cp[.LCPI7_2]
-	.loc	1 315 0
+	.loc	1 318 0
 .Ltmp98:
 	mul r1, r2, r1
-	.loc	1 315 0
+	.loc	1 318 0
 	add r3, r1, r4
 .Ltmp99:
 	ldw r1, cp[.LCPI7_3]
 .Ltmp100:
-	.loc	1 320 0
+	.loc	1 323 0
 	lsu r7, r0, r1
 	ldw r1, cp[.LCPI7_4]
 	lsu r0, r1, r0
 	ldc r1, 10
-	.loc	1 321 0
+	.loc	1 324 0
 	lsu r8, r3, r1
 	lsu r1, r11, r3
-	.loc	1 323 5
+	.loc	1 326 5
 	and r11, r8, r7
 .Ltmp101:
 	bt r11, .LBB7_2
@@ -857,35 +857,35 @@ RR_12V_24V_To_String_Ok:
 .Ltmp103:
 .LBB7_2:
 .Lxtalabel18:
-	.loc	1 321 0
+	.loc	1 324 0
 	or r7, r1, r0
 	bf r5, .LBB7_5
 .Ltmp104:
 .Lxtalabel19:
-	.loc	1 328 0
+	.loc	1 331 0
 	ldaw r11, cp[.str54]
 	mov r0, r5
 	mov r1, r11
 .Lxta.call_labels3:
 	bl siprintf
 .Ltmp105:
-	.loc	1 329 0
+	.loc	1 332 0
 	eq r1, r0, 4
 	eq r1, r1, 0
 	mkmsk r2, 5
-	.loc	1 330 0
+	.loc	1 333 0
 	shr r0, r0, r2
 .Ltmp106:
-	.loc	1 329 0
+	.loc	1 332 0
 	or r0, r0, r7
 .Ltmp107:
-	.loc	1 330 0
+	.loc	1 333 0
 	or r7, r0, r1
 .Ltmp108:
 	bf r7, .LBB7_6
 .Ltmp109:
 .Lxtalabel20:
-	.loc	1 334 0
+	.loc	1 337 0
 	ldaw r11, cp[.str55]
 	ldc r2, 5
 	mov r0, r5
@@ -898,7 +898,7 @@ RR_12V_24V_To_String_Ok:
 .Ltmp111:
 .LBB7_6:
 .Lxtalabel22:
-	.loc	1 338 5
+	.loc	1 341 5
 	eq r1, r6, 0
 	mov r0, r4
 	ldw r8, sp[1]
@@ -938,15 +938,15 @@ RR_12V_24V_To_String_Ok:
 	.cc_top BCD_To_Bin_8.function,BCD_To_Bin_8
 BCD_To_Bin_8:
 .Lfunc_begin8:
-	.loc	1 344 0
+	.loc	1 347 0
 	.cfi_startproc
 .Lxtalabel23:
-	.loc	1 345 5 prologue_end
+	.loc	1 348 5 prologue_end
 	shr r1, r0, 4
 	ldw r2, cp[.LCPI8_0]
-	.loc	1 345 5
+	.loc	1 348 5
 	mul r1, r1, r2
-	.loc	1 345 5
+	.loc	1 348 5
 	add r0, r1, r0
 .Ltmp114:
 	zext r0, 8
@@ -982,19 +982,19 @@ BCD_To_Bin_8:
 	.cc_top Bin_To_BCD_8.function,Bin_To_BCD_8
 Bin_To_BCD_8:
 .Lfunc_begin9:
-	.loc	1 348 0
+	.loc	1 351 0
 	.cfi_startproc
 .Lxtalabel24:
 	ldc r1, 0
 	ldw r2, cp[.LCPI9_0]
-	.loc	1 349 5 prologue_end
+	.loc	1 352 5 prologue_end
 .Ltmp117:
 	lmul r1, r2, r0, r2, r1, r1
 	shr r1, r1, 3
 	ldc r2, 6
-	.loc	1 349 5
+	.loc	1 352 5
 	mul r1, r1, r2
-	.loc	1 349 5
+	.loc	1 352 5
 	add r0, r1, r0
 .Ltmp118:
 	zext r0, 8
@@ -1021,7 +1021,7 @@ Bin_To_BCD_8:
 	.cc_top Init_Arithmetic_Mean_Temp_OnetenthDegC.function,Init_Arithmetic_Mean_Temp_OnetenthDegC
 Init_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lfunc_begin10:
-	.loc	1 42 0
+	.loc	1 45 0
 	.cfi_startproc
 .Lxtalabel25:
 	extsp 1
@@ -1039,16 +1039,16 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp125:
 .LBB10_2:
 .Lxtalabel26:
-	.loc	1 45 0 prologue_end
+	.loc	1 48 0 prologue_end
 	lsu r4, r3, r2
 .Ltrap_info0:
 	ecallt r4
-	.loc	1 45 0
+	.loc	1 48 0
 	stw r11, r0[r2]
-	.loc	1 44 0
+	.loc	1 47 0
 	add r2, r2, 1
 .Ltmp126:
-	.loc	1 44 0
+	.loc	1 47 0
 	lsu r4, r2, r1
 .Lxta.loop_labels0:
 	# LOOPMARKER 0
@@ -1057,9 +1057,9 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC:
 .LBB10_3:
 .Lxtalabel27:
 	ldc r1, 0
-	.loc	1 48 0
+	.loc	1 51 0
 	stw r1, r0[8]
-	.loc	1 49 0
+	.loc	1 52 0
 	stw r1, r0[9]
 	ldw r4, sp[0]
 	ldaw sp, sp[1]
@@ -1102,7 +1102,7 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC:
 	.cc_top Do_Arithmetic_Mean_Temp_OnetenthDegC.function,Do_Arithmetic_Mean_Temp_OnetenthDegC
 Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lfunc_begin11:
-	.loc	1 78 0
+	.loc	1 81 0
 	.cfi_startproc
 .Lxtalabel28:
 	extsp 7
@@ -1130,47 +1130,47 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp137:
 	.cfi_offset 10, -28
 .Ltmp138:
-	.loc	1 91 0 prologue_end
+	.loc	1 94 0 prologue_end
 	ldw r11, r0[8]
 	mkmsk r3, 3
 .Ltmp139:
-	.loc	1 91 0
+	.loc	1 94 0
 	lsu r4, r3, r11
 .Ltrap_info1:
 	ecallt r4
 .Ltmp140:
-	.loc	1 82 0
+	.loc	1 85 0
 	ldw r4, r0[9]
-	.loc	1 82 0
+	.loc	1 85 0
 	lsu r4, r4, r1
-	.loc	1 91 0
+	.loc	1 94 0
 .Ltmp141:
 	stw r2, r0[r11]
-	.loc	1 92 0
+	.loc	1 95 0
 	ldw r11, r0[8]
-	.loc	1 92 0
+	.loc	1 95 0
 	add r11, r11, 1
-	.loc	1 92 0
+	.loc	1 95 0
 	remu r11, r11, r1
-	.loc	1 92 0
+	.loc	1 95 0
 	stw r11, r0[8]
-	.loc	1 95 5
+	.loc	1 98 5
 	bf r4, .LBB11_2
 .Ltmp142:
 .Lxtalabel29:
-	.loc	1 96 0
+	.loc	1 99 0
 	ldw r1, r0[9]
-	.loc	1 96 0
+	.loc	1 99 0
 	add r1, r1, 1
 .Ltmp143:
-	.loc	1 96 0
+	.loc	1 99 0
 	stw r1, r0[9]
 	bu .LBB11_5
 .Ltmp144:
 .LBB11_2:
 .Lxtalabel30:
 	ldc r11, 0
-	.loc	1 102 0
+	.loc	1 105 0
 .Ltmp145:
 	bf r1, .LBB11_3
 .Ltmp146:
@@ -1182,17 +1182,17 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .LBB11_7:
 .Lxtalabel31:
 	mkmsk r2, 3
-	.loc	1 104 0
+	.loc	1 107 0
 .Ltmp148:
 	lsu r2, r2, r11
 .Ltrap_info2:
 	ecallt r2
-	.loc	1 104 0
+	.loc	1 107 0
 	ldw r8, r0[r11]
 .Ltmp149:
-	.loc	1 106 13
+	.loc	1 109 13
 	lss r4, r9, r8
-	.loc	1 106 13
+	.loc	1 109 13
 	mov r10, r8
 	bt r4, .LBB11_9
 .Ltmp150:
@@ -1201,7 +1201,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp151:
 .LBB11_9:
 .Lxtalabel33:
-	.loc	1 106 13
+	.loc	1 109 13
 	mov r2, r11
 	bt r4, .LBB11_11
 .Ltmp152:
@@ -1210,17 +1210,17 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp153:
 .LBB11_11:
 .Lxtalabel35:
-	.loc	1 111 13
+	.loc	1 114 13
 	lss r7, r8, r5
 	bt r7, .LBB11_13
 .Ltmp154:
 .Lxtalabel36:
-	.loc	1 111 13
+	.loc	1 114 13
 	mov r8, r5
 .Ltmp155:
 .LBB11_13:
 .Lxtalabel37:
-	.loc	1 111 13
+	.loc	1 114 13
 	mov r4, r11
 	bt r7, .LBB11_15
 .Ltmp156:
@@ -1229,10 +1229,10 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp157:
 .LBB11_15:
 .Lxtalabel39:
-	.loc	1 102 0
+	.loc	1 105 0
 	add r11, r11, 1
 .Ltmp158:
-	.loc	1 102 0
+	.loc	1 105 0
 	lsu r3, r11, r1
 .Ltmp159:
 .Lxta.loop_labels1:
@@ -1249,25 +1249,25 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp161:
 .LBB11_17:
 .Lxtalabel40:
-	.loc	1 129 13
+	.loc	1 132 13
 	eq r3, r2, r11
 .Ltmp162:
 	bf r3, .LBB11_19
 .Ltmp163:
 .Lxtalabel41:
-	.loc	1 131 0
+	.loc	1 134 0
 	add r5, r5, 1
 .Ltmp164:
 	bu .LBB11_22
 .Ltmp165:
 .LBB11_19:
-	.loc	1 132 20
+	.loc	1 135 20
 	eq r3, r4, r11
 .Ltmp166:
 	bf r3, .LBB11_21
 .Ltmp167:
 .Lxtalabel42:
-	.loc	1 134 0
+	.loc	1 137 0
 	add r5, r5, 1
 .Ltmp168:
 	bu .LBB11_22
@@ -1276,23 +1276,23 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lxtalabel43:
 	mkmsk r3, 3
 .Ltmp170:
-	.loc	1 136 0
+	.loc	1 139 0
 	lsu r3, r3, r11
 .Ltrap_info3:
 	ecallt r3
 .Ltmp171:
-	.loc	1 136 0
+	.loc	1 139 0
 	ldw r3, r0[r11]
 .Ltmp172:
-	.loc	1 136 0
+	.loc	1 139 0
 	add r6, r3, r6
 .Ltmp173:
 .LBB11_22:
 .Lxtalabel44:
-	.loc	1 127 0
+	.loc	1 130 0
 	add r11, r11, 1
 .Ltmp174:
-	.loc	1 127 0
+	.loc	1 130 0
 	lsu r3, r11, r1
 .Ltmp175:
 .Lxta.loop_labels2:
@@ -1309,9 +1309,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp179:
 .LBB11_4:
 .Lxtalabel45:
-	.loc	1 140 0
+	.loc	1 143 0
 	sub r0, r11, r5
-	.loc	1 140 0
+	.loc	1 143 0
 	divu r2, r6, r0
 .Ltmp180:
 .LBB11_5:
@@ -1570,7 +1570,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .asciiz"c"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	1936
+	.long	1939
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -1605,7 +1605,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	82
+	.byte	85
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1617,7 +1617,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	183
+	.byte	186
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1629,19 +1629,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.byte	228
-	.byte	3
-	.long	.Linfo_string6
-	.byte	0
-	.byte	3
-	.long	.Linfo_string7
-	.byte	1
-	.byte	0
-	.byte	5
-	.long	.Linfo_string8
-	.byte	4
-	.byte	1
-	.short	270
+	.byte	231
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1653,7 +1641,19 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string8
 	.byte	4
 	.byte	1
-	.short	318
+	.short	273
+	.byte	3
+	.long	.Linfo_string6
+	.byte	0
+	.byte	3
+	.long	.Linfo_string7
+	.byte	1
+	.byte	0
+	.byte	5
+	.long	.Linfo_string8
+	.byte	4
+	.byte	1
+	.short	321
 	.byte	3
 	.long	.Linfo_string6
 	.byte	0
@@ -1669,67 +1669,67 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string28
 	.long	.Linfo_string28
 	.byte	1
-	.byte	175
+	.byte	178
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc0
 	.long	.Linfo_string34
 	.byte	1
-	.byte	174
-	.long	1747
+	.byte	177
+	.long	1750
 	.byte	7
 	.long	.Ldebug_loc1
 	.long	.Linfo_string35
 	.byte	1
-	.byte	175
-	.long	1752
+	.byte	178
+	.long	1755
 	.byte	8
 	.long	.Ldebug_ranges6
 	.byte	9
 	.long	.Ldebug_loc3
 	.long	.Linfo_string37
 	.byte	1
-	.byte	177
-	.long	1628
+	.byte	180
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges5
 	.byte	9
 	.long	.Ldebug_loc5
 	.long	.Linfo_string39
 	.byte	1
-	.byte	178
-	.long	1628
+	.byte	181
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges4
 	.byte	9
 	.long	.Ldebug_loc2
 	.long	.Linfo_string36
 	.byte	1
-	.byte	180
-	.long	1628
+	.byte	183
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges3
 	.byte	9
 	.long	.Ldebug_loc6
 	.long	.Linfo_string40
 	.byte	1
-	.byte	182
-	.long	1628
+	.byte	185
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges2
 	.byte	9
 	.long	.Ldebug_loc4
 	.long	.Linfo_string38
 	.byte	1
-	.byte	183
+	.byte	186
 	.long	90
 	.byte	8
 	.long	.Ldebug_ranges1
 	.byte	10
 	.long	.Linfo_string41
 	.byte	1
-	.byte	193
-	.long	1757
+	.byte	196
+	.long	1760
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1745,51 +1745,51 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string29
 	.long	.Linfo_string29
 	.byte	1
-	.byte	204
+	.byte	207
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc7
 	.long	.Linfo_string42
 	.byte	1
-	.byte	203
-	.long	1770
+	.byte	206
+	.long	1773
 	.byte	7
 	.long	.Ldebug_loc8
 	.long	.Linfo_string35
 	.byte	1
-	.byte	204
-	.long	1752
+	.byte	207
+	.long	1755
 	.byte	8
 	.long	.Ldebug_ranges13
 	.byte	9
 	.long	.Ldebug_loc9
 	.long	.Linfo_string34
 	.byte	1
-	.byte	221
-	.long	1628
+	.byte	224
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges12
 	.byte	9
 	.long	.Ldebug_loc10
 	.long	.Linfo_string37
 	.byte	1
-	.byte	225
-	.long	1628
+	.byte	228
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges11
 	.byte	9
 	.long	.Ldebug_loc11
 	.long	.Linfo_string39
 	.byte	1
-	.byte	226
-	.long	1628
+	.byte	229
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges10
 	.byte	9
 	.long	.Ldebug_loc12
 	.long	.Linfo_string38
 	.byte	1
-	.byte	228
+	.byte	231
 	.long	111
 	.byte	8
 	.long	.Ldebug_ranges9
@@ -1797,15 +1797,15 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Ldebug_loc13
 	.long	.Linfo_string40
 	.byte	1
-	.byte	234
-	.long	1628
+	.byte	237
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges8
 	.byte	10
 	.long	.Linfo_string41
 	.byte	1
-	.byte	239
-	.long	1757
+	.byte	242
+	.long	1760
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1813,7 +1813,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	6
+	.byte	11
 	.long	.Ldebug_ranges14
 	.byte	1
 	.byte	94
@@ -1821,57 +1821,57 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string30
 	.long	.Linfo_string30
 	.byte	1
-	.byte	254
+	.short	257
 	.byte	1
-	.byte	7
+	.byte	12
 	.long	.Ldebug_loc14
 	.long	.Linfo_string42
 	.byte	1
-	.byte	253
-	.long	1770
-	.byte	7
+	.short	256
+	.long	1773
+	.byte	12
 	.long	.Ldebug_loc15
 	.long	.Linfo_string44
 	.byte	1
-	.byte	254
-	.long	1782
+	.short	257
+	.long	1785
 	.byte	8
 	.long	.Ldebug_ranges18
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc16
 	.long	.Linfo_string45
 	.byte	1
-	.short	266
-	.long	1628
+	.short	269
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges17
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc18
 	.long	.Linfo_string40
 	.byte	1
-	.short	269
-	.long	1628
+	.short	272
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges16
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc17
 	.long	.Linfo_string38
 	.byte	1
-	.short	270
+	.short	273
 	.long	132
 	.byte	8
 	.long	.Ldebug_ranges15
-	.byte	12
+	.byte	14
 	.long	.Linfo_string41
 	.byte	1
-	.short	280
-	.long	1787
+	.short	283
+	.long	1790
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	13
+	.byte	11
 	.long	.Ldebug_ranges19
 	.byte	1
 	.byte	94
@@ -1879,67 +1879,67 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string31
 	.long	.Linfo_string31
 	.byte	1
-	.short	296
+	.short	299
 	.byte	1
-	.byte	14
+	.byte	12
 	.long	.Ldebug_loc19
 	.long	.Linfo_string42
 	.byte	1
-	.short	295
-	.long	1770
-	.byte	14
+	.short	298
+	.long	1773
+	.byte	12
 	.long	.Ldebug_loc20
 	.long	.Linfo_string46
 	.byte	1
-	.short	296
-	.long	1752
+	.short	299
+	.long	1755
 	.byte	8
 	.long	.Ldebug_ranges25
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc21
 	.long	.Linfo_string47
 	.byte	1
-	.short	310
-	.long	1628
+	.short	313
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges24
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc22
 	.long	.Linfo_string48
 	.byte	1
-	.short	314
-	.long	1628
+	.short	317
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges23
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc23
 	.long	.Linfo_string49
 	.byte	1
-	.short	315
-	.long	1628
+	.short	318
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges22
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc25
 	.long	.Linfo_string40
 	.byte	1
-	.short	317
-	.long	1628
+	.short	320
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges21
-	.byte	11
+	.byte	13
 	.long	.Ldebug_loc24
 	.long	.Linfo_string38
 	.byte	1
-	.short	318
+	.short	321
 	.long	154
 	.byte	8
 	.long	.Ldebug_ranges20
-	.byte	12
+	.byte	14
 	.long	.Linfo_string41
 	.byte	1
-	.short	333
-	.long	1757
+	.short	336
+	.long	1760
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1955,15 +1955,15 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string32
 	.long	.Linfo_string32
 	.byte	1
-	.short	344
-	.long	1690
+	.short	347
+	.long	1693
 	.byte	1
-	.byte	14
+	.byte	12
 	.long	.Ldebug_loc26
 	.long	.Linfo_string50
 	.byte	1
-	.short	343
-	.long	1690
+	.short	346
+	.long	1693
 	.byte	0
 	.byte	15
 	.long	.Ldebug_ranges27
@@ -1973,15 +1973,15 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string33
 	.long	.Linfo_string33
 	.byte	1
-	.short	348
-	.long	1690
+	.short	351
+	.long	1693
 	.byte	1
-	.byte	14
+	.byte	12
 	.long	.Ldebug_loc27
 	.long	.Linfo_string50
 	.byte	1
-	.short	347
-	.long	1690
+	.short	350
+	.long	1693
 	.byte	0
 	.byte	6
 	.long	.Ldebug_ranges28
@@ -1991,29 +1991,29 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string26
 	.long	.Linfo_string26
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	1
 	.byte	16
 	.byte	1
 	.byte	80
 	.long	.Linfo_string51
 	.byte	1
-	.byte	41
-	.long	1800
+	.byte	44
+	.long	1803
 	.byte	7
 	.long	.Ldebug_loc28
 	.long	.Linfo_string57
 	.byte	1
-	.byte	42
-	.long	1770
+	.byte	45
+	.long	1773
 	.byte	8
 	.long	.Ldebug_ranges29
 	.byte	9
 	.long	.Ldebug_loc29
 	.long	.Linfo_string58
 	.byte	1
-	.byte	44
-	.long	1775
+	.byte	47
+	.long	1778
 	.byte	0
 	.byte	0
 	.byte	17
@@ -2024,55 +2024,55 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string27
 	.long	.Linfo_string27
 	.byte	1
-	.byte	78
-	.long	1628
+	.byte	81
+	.long	1631
 	.byte	1
 	.byte	7
 	.long	.Ldebug_loc30
 	.long	.Linfo_string51
 	.byte	1
-	.byte	75
-	.long	1800
+	.byte	78
+	.long	1803
 	.byte	7
 	.long	.Ldebug_loc31
 	.long	.Linfo_string57
 	.byte	1
-	.byte	76
-	.long	1770
+	.byte	79
+	.long	1773
 	.byte	7
 	.long	.Ldebug_loc32
 	.long	.Linfo_string59
 	.byte	1
-	.byte	77
-	.long	1875
+	.byte	80
+	.long	1878
 	.byte	7
 	.long	.Ldebug_loc33
 	.long	.Linfo_string60
 	.byte	1
-	.byte	78
-	.long	1770
+	.byte	81
+	.long	1773
 	.byte	8
 	.long	.Ldebug_ranges42
 	.byte	9
 	.long	.Ldebug_loc34
 	.long	.Linfo_string61
 	.byte	1
-	.byte	80
-	.long	1775
+	.byte	83
+	.long	1778
 	.byte	8
 	.long	.Ldebug_ranges41
 	.byte	9
 	.long	.Ldebug_loc35
 	.long	.Linfo_string62
 	.byte	1
-	.byte	81
-	.long	1775
+	.byte	84
+	.long	1778
 	.byte	8
 	.long	.Ldebug_ranges40
 	.byte	10
 	.long	.Linfo_string70
 	.byte	1
-	.byte	82
+	.byte	85
 	.long	69
 	.byte	8
 	.long	.Ldebug_ranges39
@@ -2080,64 +2080,64 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Ldebug_loc43
 	.long	.Linfo_string69
 	.byte	1
-	.byte	83
-	.long	1628
+	.byte	86
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges38
 	.byte	9
 	.long	.Ldebug_loc36
 	.long	.Linfo_string63
 	.byte	1
-	.byte	84
-	.long	1628
+	.byte	87
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges37
 	.byte	9
 	.long	.Ldebug_loc37
 	.long	.Linfo_string64
 	.byte	1
-	.byte	85
-	.long	1628
+	.byte	88
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges36
 	.byte	9
 	.long	.Ldebug_loc38
 	.long	.Linfo_string65
 	.byte	1
-	.byte	86
-	.long	1628
+	.byte	89
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges35
 	.byte	9
 	.long	.Ldebug_loc39
 	.long	.Linfo_string66
 	.byte	1
-	.byte	87
-	.long	1628
+	.byte	90
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges34
 	.byte	18
 	.byte	127
 	.long	.Linfo_string67
 	.byte	1
-	.byte	88
-	.long	1628
+	.byte	91
+	.long	1631
 	.byte	8
 	.long	.Ldebug_ranges32
 	.byte	9
 	.long	.Ldebug_loc40
 	.long	.Linfo_string58
 	.byte	1
-	.byte	102
-	.long	1775
+	.byte	105
+	.long	1778
 	.byte	8
 	.long	.Ldebug_ranges31
 	.byte	9
 	.long	.Ldebug_loc41
 	.long	.Linfo_string68
 	.byte	1
-	.byte	104
-	.long	1628
+	.byte	107
+	.long	1631
 	.byte	0
 	.byte	0
 	.byte	8
@@ -2146,8 +2146,8 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Ldebug_loc42
 	.long	.Linfo_string58
 	.byte	1
-	.byte	127
-	.long	1775
+	.byte	130
+	.long	1778
 	.byte	0
 	.byte	0
 	.byte	0
@@ -2165,39 +2165,39 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	1
 	.byte	20
 	.long	.Linfo_string71
-	.long	1880
+	.long	1883
 	.byte	20
 	.long	.Linfo_string73
-	.long	1887
+	.long	1890
 	.byte	0
 	.byte	21
 	.long	.Linfo_string10
 	.long	.Linfo_string10
-	.long	1377
+	.long	1380
 	.byte	1
 	.byte	20
 	.long	.Linfo_string71
-	.long	1880
+	.long	1883
 	.byte	20
 	.long	.Linfo_string74
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	22
 	.long	.Linfo_string15
 	.byte	20
 	.byte	23
 	.long	.Linfo_string11
-	.long	1404
+	.long	1407
 	.byte	0
 	.byte	23
 	.long	.Linfo_string13
-	.long	1424
+	.long	1427
 	.byte	12
 	.byte	0
 	.byte	24
 	.long	50
 	.byte	25
-	.long	1417
+	.long	1420
 	.byte	0
 	.byte	2
 	.byte	0
@@ -2206,9 +2206,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	8
 	.byte	7
 	.byte	24
-	.long	1437
+	.long	1440
 	.byte	25
-	.long	1417
+	.long	1420
 	.byte	0
 	.byte	2
 	.byte	0
@@ -2222,22 +2222,22 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	1
 	.byte	20
 	.long	.Linfo_string75
-	.long	1892
+	.long	1895
 	.byte	20
 	.long	.Linfo_string73
-	.long	1887
+	.long	1890
 	.byte	0
 	.byte	21
 	.long	.Linfo_string17
 	.long	.Linfo_string17
-	.long	1377
+	.long	1380
 	.byte	1
 	.byte	20
 	.long	.Linfo_string75
-	.long	1892
+	.long	1895
 	.byte	20
 	.long	.Linfo_string74
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	28
 	.long	.Linfo_string18
@@ -2249,7 +2249,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string78
 	.byte	2
 	.byte	46
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	28
 	.long	.Linfo_string19
@@ -2261,7 +2261,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string78
 	.byte	2
 	.byte	54
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	28
 	.long	.Linfo_string20
@@ -2273,30 +2273,30 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string78
 	.byte	2
 	.byte	62
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	30
 	.long	.Linfo_string21
 	.long	.Linfo_string21
 	.byte	3
 	.byte	8
-	.long	1628
+	.long	1631
 	.byte	1
 	.byte	29
 	.long	.Linfo_string79
 	.byte	3
 	.byte	8
-	.long	1924
+	.long	1927
 	.byte	29
 	.long	.Linfo_string80
 	.byte	3
 	.byte	8
-	.long	1924
+	.long	1927
 	.byte	29
 	.long	.Linfo_string81
 	.byte	3
 	.byte	8
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	27
 	.long	.Linfo_string22
@@ -2307,26 +2307,26 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string23
 	.byte	3
 	.byte	12
-	.long	1685
+	.long	1688
 	.byte	1
 	.byte	29
 	.long	.Linfo_string79
 	.byte	3
 	.byte	12
-	.long	1685
+	.long	1688
 	.byte	29
 	.long	.Linfo_string80
 	.byte	3
 	.byte	12
-	.long	1924
+	.long	1927
 	.byte	29
 	.long	.Linfo_string81
 	.byte	3
 	.byte	12
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	31
-	.long	1690
+	.long	1693
 	.byte	27
 	.long	.Linfo_string24
 	.byte	8
@@ -2336,91 +2336,91 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.Linfo_string25
 	.byte	3
 	.byte	18
-	.long	1685
+	.long	1688
 	.byte	1
 	.byte	29
 	.long	.Linfo_string75
 	.byte	3
 	.byte	18
-	.long	1685
+	.long	1688
 	.byte	29
 	.long	.Linfo_string82
 	.byte	3
 	.byte	18
-	.long	1628
+	.long	1631
 	.byte	29
 	.long	.Linfo_string81
 	.byte	3
 	.byte	18
-	.long	1775
+	.long	1778
 	.byte	0
 	.byte	32
-	.long	1437
+	.long	1440
 	.byte	33
-	.long	1757
+	.long	1760
 	.byte	24
-	.long	1690
+	.long	1693
 	.byte	25
-	.long	1417
+	.long	1420
 	.byte	0
 	.byte	4
 	.byte	0
 	.byte	32
-	.long	1775
+	.long	1778
 	.byte	27
 	.long	.Linfo_string43
 	.byte	7
 	.byte	4
 	.byte	33
-	.long	1787
+	.long	1790
 	.byte	24
-	.long	1690
+	.long	1693
 	.byte	25
-	.long	1417
+	.long	1420
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	33
-	.long	1805
+	.long	1808
 	.byte	34
 	.long	.Linfo_string56
 	.byte	44
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	35
 	.long	.Linfo_string52
-	.long	1862
+	.long	1865
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	0
 	.byte	35
 	.long	.Linfo_string53
-	.long	1775
+	.long	1778
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	32
 	.byte	35
 	.long	.Linfo_string54
-	.long	1775
+	.long	1778
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	36
 	.byte	35
 	.long	.Linfo_string55
-	.long	1628
+	.long	1631
 	.byte	1
-	.byte	42
+	.byte	45
 	.byte	40
 	.byte	0
 	.byte	24
-	.long	1628
+	.long	1631
 	.byte	25
-	.long	1417
+	.long	1420
 	.byte	0
 	.byte	7
 	.byte	0
 	.byte	32
-	.long	1628
+	.long	1631
 	.byte	27
 	.long	.Linfo_string72
 	.byte	7
@@ -2428,25 +2428,25 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	32
 	.long	31
 	.byte	33
-	.long	1897
+	.long	1900
 	.byte	22
 	.long	.Linfo_string77
 	.byte	8
 	.byte	23
 	.long	.Linfo_string71
-	.long	1880
+	.long	1883
 	.byte	0
 	.byte	23
 	.long	.Linfo_string76
-	.long	1775
+	.long	1778
 	.byte	4
 	.byte	0
 	.byte	33
-	.long	1929
+	.long	1932
 	.byte	36
-	.long	1934
+	.long	1937
 	.byte	32
-	.long	1690
+	.long	1693
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -2583,34 +2583,6 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	0
 	.byte	0
 	.byte	11
-	.byte	52
-	.byte	0
-	.byte	2
-	.byte	6
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	5
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	12
-	.byte	52
-	.byte	0
-	.byte	3
-	.byte	14
-	.byte	58
-	.byte	11
-	.byte	59
-	.byte	5
-	.byte	73
-	.byte	19
-	.byte	0
-	.byte	0
-	.byte	13
 	.byte	46
 	.byte	1
 	.byte	85
@@ -2631,11 +2603,39 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.byte	12
 	.byte	0
 	.byte	0
-	.byte	14
+	.byte	12
 	.byte	5
 	.byte	0
 	.byte	2
 	.byte	6
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
+	.byte	73
+	.byte	19
+	.byte	0
+	.byte	0
+	.byte	13
+	.byte	52
+	.byte	0
+	.byte	2
+	.byte	6
+	.byte	3
+	.byte	14
+	.byte	58
+	.byte	11
+	.byte	59
+	.byte	5
+	.byte	73
+	.byte	19
+	.byte	0
+	.byte	0
+	.byte	14
+	.byte	52
+	.byte	0
 	.byte	3
 	.byte	14
 	.byte	58
@@ -3953,41 +3953,41 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.L.debug_info_begin0
 .Lset93 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset93
-	.long	1473
+	.long	1476
 .asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
 	.long	176
 .asciiz"Temp_OnetenthDegC_To_Str"
-	.long	1697
+	.long	1700
 .asciiz"_safe_memset"
-	.long	917
+	.long	920
 .asciiz"Init_Arithmetic_Mean_Temp_OnetenthDegC"
-	.long	986
+	.long	989
 .asciiz"Do_Arithmetic_Mean_Temp_OnetenthDegC"
-	.long	1344
+	.long	1347
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	654
+	.long	657
 .asciiz"RR_12V_24V_To_String_Ok"
 	.long	348
 .asciiz"TC1047_Raw_DegC_To_String_Ok"
-	.long	1635
+	.long	1638
 .asciiz"_safe_memmove"
-	.long	1444
+	.long	1447
 .asciiz"_i.i2c_external_commands_if._chan_yield.trigger"
-	.long	1530
+	.long	1533
 .asciiz"delay_milliseconds"
-	.long	1554
+	.long	1557
 .asciiz"delay_microseconds"
 	.long	520
 .asciiz"Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok"
-	.long	835
+	.long	838
 .asciiz"BCD_To_Bin_8"
-	.long	876
+	.long	879
 .asciiz"Bin_To_BCD_8"
-	.long	1578
+	.long	1581
 .asciiz"_safe_memcmp"
-	.long	1506
+	.long	1509
 .asciiz"delay_seconds"
-	.long	1315
+	.long	1318
 .asciiz"_i.i2c_external_commands_if._chan.trigger"
 	.long	0
 .LpubNames_end0:
@@ -3999,25 +3999,25 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	.L.debug_info_begin0
 .Lset95 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset95
-	.long	1437
+	.long	1440
 .asciiz"short"
 	.long	31
 .asciiz"i2c_command_external_t"
-	.long	1880
+	.long	1883
 .asciiz"chanend"
-	.long	1805
+	.long	1808
 .asciiz"temp_onetenthDegC_mean_t"
-	.long	1377
+	.long	1380
 .asciiz"tag_i2c_temps_t"
 	.long	154
 .asciiz"__TYPE_7"
-	.long	1897
+	.long	1900
 .asciiz"yieldArg"
-	.long	1775
+	.long	1778
 .asciiz"unsigned int"
-	.long	1628
+	.long	1631
 .asciiz"int"
-	.long	1690
+	.long	1693
 .asciiz"unsigned char"
 	.long	0
 .LpubTypes_end0:
@@ -4047,25 +4047,25 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_top cc_0,.Lxta.call_labels0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	188
+	.long	191
 	.long	.Lxta.call_labels0
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	235
+	.long	238
 	.long	.Lxta.call_labels1
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	275
+	.long	278
 	.long	.Lxta.call_labels2
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	328
+	.long	331
 	.long	.Lxta.call_labels3
 .cc_bottom cc_3
 .Lentries_end1:
@@ -4078,1163 +4078,1163 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_top cc_4,.Lxtalabel25
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	44
-	.long	44
+	.long	47
+	.long	47
 	.long	.Lxtalabel25
 .cc_bottom cc_4
 .cc_top cc_5,.Lxtalabel26
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	45
-	.long	46
+	.long	48
+	.long	49
 	.long	.Lxtalabel26
 .cc_bottom cc_5
 .cc_top cc_6,.Lxtalabel27
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	48
-	.long	50
+	.long	51
+	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_6
 .cc_top cc_7,.Lxtalabel28
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	80
-	.long	88
+	.long	83
+	.long	91
 	.long	.Lxtalabel28
 .cc_bottom cc_7
 .cc_top cc_8,.Lxtalabel28
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	91
-	.long	92
+	.long	94
+	.long	95
 	.long	.Lxtalabel28
 .cc_bottom cc_8
 .cc_top cc_9,.Lxtalabel28
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	95
-	.long	95
+	.long	98
+	.long	98
 	.long	.Lxtalabel28
 .cc_bottom cc_9
 .cc_top cc_10,.Lxtalabel29
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	96
-	.long	98
+	.long	99
+	.long	101
 	.long	.Lxtalabel29
 .cc_bottom cc_10
 .cc_top cc_11,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	99
-	.long	99
+	.long	102
+	.long	102
 	.long	.Lxtalabel30
 .cc_bottom cc_11
 .cc_top cc_12,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	102
-	.long	102
+	.long	105
+	.long	105
 	.long	.Lxtalabel30
 .cc_bottom cc_12
 .cc_top cc_13,.Lxtalabel31
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	104
-	.long	104
+	.long	107
+	.long	107
 	.long	.Lxtalabel31
 .cc_bottom cc_13
 .cc_top cc_14,.Lxtalabel31
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	106
-	.long	106
+	.long	109
+	.long	109
 	.long	.Lxtalabel31
 .cc_bottom cc_14
 .cc_top cc_15,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel35
 .cc_bottom cc_15
 .cc_top cc_16,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel33
 .cc_bottom cc_16
 .cc_top cc_17,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel37
 .cc_bottom cc_17
 .cc_top cc_18,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel34
 .cc_bottom cc_18
 .cc_top cc_19,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel38
 .cc_bottom cc_19
 .cc_top cc_20,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel36
 .cc_bottom cc_20
 .cc_top cc_21,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel39
 .cc_bottom cc_21
 .cc_top cc_22,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	107
-	.long	109
+	.long	110
+	.long	112
 	.long	.Lxtalabel32
 .cc_bottom cc_22
 .cc_top cc_23,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel32
 .cc_bottom cc_23
 .cc_top cc_24,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel37
 .cc_bottom cc_24
 .cc_top cc_25,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel34
 .cc_bottom cc_25
 .cc_top cc_26,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel39
 .cc_bottom cc_26
 .cc_top cc_27,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel36
 .cc_bottom cc_27
 .cc_top cc_28,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel38
 .cc_bottom cc_28
 .cc_top cc_29,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel33
 .cc_bottom cc_29
 .cc_top cc_30,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	111
+	.long	114
+	.long	114
 	.long	.Lxtalabel35
 .cc_bottom cc_30
 .cc_top cc_31,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel32
 .cc_bottom cc_31
 .cc_top cc_32,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel33
 .cc_bottom cc_32
 .cc_top cc_33,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel35
 .cc_bottom cc_33
 .cc_top cc_34,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel36
 .cc_bottom cc_34
 .cc_top cc_35,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel34
 .cc_bottom cc_35
 .cc_top cc_36,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel39
 .cc_bottom cc_36
 .cc_top cc_37,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel37
 .cc_bottom cc_37
 .cc_top cc_38,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	115
-	.long	115
+	.long	118
+	.long	118
 	.long	.Lxtalabel38
 .cc_bottom cc_38
 .cc_top cc_39,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel34
 .cc_bottom cc_39
 .cc_top cc_40,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel38
 .cc_bottom cc_40
 .cc_top cc_41,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel37
 .cc_bottom cc_41
 .cc_top cc_42,.Lxtalabel29
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel29
 .cc_bottom cc_42
 .cc_top cc_43,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel33
 .cc_bottom cc_43
 .cc_top cc_44,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel35
 .cc_bottom cc_44
 .cc_top cc_45,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel30
 .cc_bottom cc_45
 .cc_top cc_46,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel39
 .cc_bottom cc_46
 .cc_top cc_47,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel36
 .cc_bottom cc_47
 .cc_top cc_48,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	118
-	.long	118
+	.long	121
+	.long	121
 	.long	.Lxtalabel32
 .cc_bottom cc_48
 .cc_top cc_49,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel33
 .cc_bottom cc_49
 .cc_top cc_50,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel32
 .cc_bottom cc_50
 .cc_top cc_51,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel39
 .cc_bottom cc_51
 .cc_top cc_52,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel34
 .cc_bottom cc_52
 .cc_top cc_53,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel38
 .cc_bottom cc_53
 .cc_top cc_54,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel35
 .cc_bottom cc_54
 .cc_top cc_55,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel30
 .cc_bottom cc_55
 .cc_top cc_56,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel37
 .cc_bottom cc_56
 .cc_top cc_57,.Lxtalabel29
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel29
 .cc_bottom cc_57
 .cc_top cc_58,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	119
-	.long	120
+	.long	122
+	.long	123
 	.long	.Lxtalabel36
 .cc_bottom cc_58
 .cc_top cc_59,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel34
 .cc_bottom cc_59
 .cc_top cc_60,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel35
 .cc_bottom cc_60
 .cc_top cc_61,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel36
 .cc_bottom cc_61
 .cc_top cc_62,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel32
 .cc_bottom cc_62
 .cc_top cc_63,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel37
 .cc_bottom cc_63
 .cc_top cc_64,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel33
 .cc_bottom cc_64
 .cc_top cc_65,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel38
 .cc_bottom cc_65
 .cc_top cc_66,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel39
 .cc_bottom cc_66
 .cc_top cc_67,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	127
-	.long	127
+	.long	130
+	.long	130
 	.long	.Lxtalabel30
 .cc_bottom cc_67
 .cc_top cc_68,.Lxtalabel40
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	129
-	.long	129
+	.long	132
+	.long	132
 	.long	.Lxtalabel40
 .cc_bottom cc_68
 .cc_top cc_69,.Lxtalabel41
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	131
-	.long	132
+	.long	134
+	.long	135
 	.long	.Lxtalabel41
 .cc_bottom cc_69
 .cc_top cc_70,.Lxtalabel42
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	134
-	.long	135
+	.long	137
+	.long	138
 	.long	.Lxtalabel42
 .cc_bottom cc_70
 .cc_top cc_71,.Lxtalabel43
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	136
-	.long	137
+	.long	139
+	.long	140
 	.long	.Lxtalabel43
 .cc_bottom cc_71
 .cc_top cc_72,.Lxtalabel44
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	138
-	.long	138
+	.long	141
+	.long	141
 	.long	.Lxtalabel44
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel45
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	140
-	.long	141
+	.long	143
+	.long	144
 	.long	.Lxtalabel45
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	144
-	.long	144
+	.long	147
+	.long	147
 	.long	.Lxtalabel46
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	146
-	.long	146
+	.long	149
+	.long	149
 	.long	.Lxtalabel46
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	153
-	.long	153
+	.long	156
+	.long	156
 	.long	.Lxtalabel46
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	154
-	.long	154
+	.long	157
+	.long	157
 	.long	.Lxtalabel46
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	155
-	.long	155
+	.long	158
+	.long	158
 	.long	.Lxtalabel46
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	156
-	.long	156
+	.long	159
+	.long	159
 	.long	.Lxtalabel46
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	157
-	.long	157
+	.long	160
+	.long	160
 	.long	.Lxtalabel46
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	158
-	.long	158
+	.long	161
+	.long	161
 	.long	.Lxtalabel46
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	159
-	.long	159
+	.long	162
+	.long	162
 	.long	.Lxtalabel46
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	160
-	.long	160
+	.long	163
+	.long	163
 	.long	.Lxtalabel46
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	161
-	.long	161
+	.long	164
+	.long	164
 	.long	.Lxtalabel46
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	162
-	.long	162
+	.long	165
+	.long	165
 	.long	.Lxtalabel46
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	163
-	.long	163
+	.long	166
+	.long	166
 	.long	.Lxtalabel46
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	165
-	.long	165
+	.long	168
+	.long	168
 	.long	.Lxtalabel46
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	167
-	.long	168
+	.long	170
+	.long	171
 	.long	.Lxtalabel46
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	177
-	.long	178
+	.long	180
+	.long	181
 	.long	.Lxtalabel0
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	180
-	.long	180
+	.long	183
+	.long	183
 	.long	.Lxtalabel0
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	182
-	.long	183
+	.long	185
+	.long	186
 	.long	.Lxtalabel0
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	185
-	.long	186
+	.long	188
+	.long	189
 	.long	.Lxtalabel0
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	188
-	.long	190
+	.long	191
+	.long	193
 	.long	.Lxtalabel0
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	192
-	.long	192
+	.long	195
+	.long	195
 	.long	.Lxtalabel0
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	193
-	.long	193
+	.long	196
+	.long	196
 	.long	.Lxtalabel1
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	194
-	.long	194
+	.long	197
+	.long	197
 	.long	.Lxtalabel1
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	195
-	.long	196
+	.long	198
+	.long	199
 	.long	.Lxtalabel1
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	198
-	.long	199
+	.long	201
+	.long	202
 	.long	.Lxtalabel2
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	221
-	.long	221
+	.long	224
+	.long	224
 	.long	.Lxtalabel3
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	225
-	.long	226
+	.long	228
+	.long	229
 	.long	.Lxtalabel3
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	228
-	.long	228
+	.long	231
+	.long	231
 	.long	.Lxtalabel3
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	230
-	.long	231
+	.long	233
+	.long	234
 	.long	.Lxtalabel3
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	233
-	.long	233
+	.long	236
+	.long	236
 	.long	.Lxtalabel3
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel4
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	234
-	.long	238
+	.long	237
+	.long	241
 	.long	.Lxtalabel4
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel5
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	239
-	.long	239
+	.long	242
+	.long	242
 	.long	.Lxtalabel5
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel5
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	240
-	.long	240
+	.long	243
+	.long	243
 	.long	.Lxtalabel5
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel5
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	241
-	.long	241
+	.long	244
+	.long	244
 	.long	.Lxtalabel5
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel6
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	244
-	.long	244
+	.long	247
+	.long	247
 	.long	.Lxtalabel6
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel7
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	244
-	.long	244
+	.long	247
+	.long	247
 	.long	.Lxtalabel7
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel6
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	245
-	.long	246
+	.long	248
+	.long	249
 	.long	.Lxtalabel6
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel7
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	245
-	.long	246
+	.long	248
+	.long	249
 	.long	.Lxtalabel7
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel6
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	248
-	.long	249
+	.long	251
+	.long	252
 	.long	.Lxtalabel6
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel7
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	248
-	.long	249
+	.long	251
+	.long	252
 	.long	.Lxtalabel7
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	266
-	.long	267
+	.long	269
+	.long	270
 	.long	.Lxtalabel8
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	266
-	.long	267
+	.long	269
+	.long	270
 	.long	.Lxtalabel10
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	266
-	.long	267
+	.long	269
+	.long	270
 	.long	.Lxtalabel9
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
+	.long	272
+	.long	273
 	.long	.Lxtalabel9
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
+	.long	272
+	.long	273
 	.long	.Lxtalabel10
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
+	.long	272
+	.long	273
 	.long	.Lxtalabel8
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	272
-	.long	272
+	.long	275
+	.long	275
 	.long	.Lxtalabel9
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	272
-	.long	272
+	.long	275
+	.long	275
 	.long	.Lxtalabel10
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	272
-	.long	272
+	.long	275
+	.long	275
 	.long	.Lxtalabel8
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	277
+	.long	277
 	.long	.Lxtalabel8
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	277
+	.long	277
 	.long	.Lxtalabel9
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	274
-	.long	274
+	.long	277
+	.long	277
 	.long	.Lxtalabel10
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel11
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	275
-	.long	277
+	.long	278
+	.long	280
 	.long	.Lxtalabel11
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel11
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	279
-	.long	279
+	.long	282
+	.long	282
 	.long	.Lxtalabel11
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	280
-	.long	280
+	.long	283
+	.long	283
 	.long	.Lxtalabel12
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	281
-	.long	281
+	.long	284
+	.long	284
 	.long	.Lxtalabel12
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	282
-	.long	283
+	.long	285
+	.long	286
 	.long	.Lxtalabel12
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel13
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	286
-	.long	286
+	.long	289
+	.long	289
 	.long	.Lxtalabel13
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel14
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	286
-	.long	286
+	.long	289
+	.long	289
 	.long	.Lxtalabel14
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel15
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	286
-	.long	286
+	.long	289
+	.long	289
 	.long	.Lxtalabel15
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel13
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	287
-	.long	288
+	.long	290
+	.long	291
 	.long	.Lxtalabel13
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel14
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	287
-	.long	288
+	.long	290
+	.long	291
 	.long	.Lxtalabel14
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel15
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	287
-	.long	288
+	.long	290
+	.long	291
 	.long	.Lxtalabel15
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel13
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	293
+	.long	294
 	.long	.Lxtalabel13
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel14
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	293
+	.long	294
 	.long	.Lxtalabel14
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel15
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
+	.long	293
+	.long	294
 	.long	.Lxtalabel15
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	310
-	.long	310
+	.long	313
+	.long	313
 	.long	.Lxtalabel16
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	310
-	.long	310
+	.long	313
+	.long	313
 	.long	.Lxtalabel18
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	310
-	.long	310
+	.long	313
+	.long	313
 	.long	.Lxtalabel17
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	314
-	.long	315
+	.long	317
+	.long	318
 	.long	.Lxtalabel16
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	314
-	.long	315
+	.long	317
+	.long	318
 	.long	.Lxtalabel18
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	314
-	.long	315
+	.long	317
+	.long	318
 	.long	.Lxtalabel17
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	317
-	.long	318
+	.long	320
+	.long	321
 	.long	.Lxtalabel16
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	317
-	.long	318
+	.long	320
+	.long	321
 	.long	.Lxtalabel18
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	317
-	.long	318
+	.long	320
+	.long	321
 	.long	.Lxtalabel17
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	323
+	.long	324
 	.long	.Lxtalabel17
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	323
+	.long	324
 	.long	.Lxtalabel18
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	323
+	.long	324
 	.long	.Lxtalabel16
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	323
-	.long	323
+	.long	326
+	.long	326
 	.long	.Lxtalabel17
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	323
-	.long	323
+	.long	326
+	.long	326
 	.long	.Lxtalabel18
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	323
-	.long	323
+	.long	326
+	.long	326
 	.long	.Lxtalabel16
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	324
-	.long	325
+	.long	327
+	.long	328
 	.long	.Lxtalabel18
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	324
-	.long	325
+	.long	327
+	.long	328
 	.long	.Lxtalabel17
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	324
-	.long	325
+	.long	327
+	.long	328
 	.long	.Lxtalabel16
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	327
-	.long	327
+	.long	330
+	.long	330
 	.long	.Lxtalabel17
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	327
-	.long	327
+	.long	330
+	.long	330
 	.long	.Lxtalabel16
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	327
-	.long	327
+	.long	330
+	.long	330
 	.long	.Lxtalabel18
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel19
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	328
-	.long	330
+	.long	331
+	.long	333
 	.long	.Lxtalabel19
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel19
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	332
-	.long	332
+	.long	335
+	.long	335
 	.long	.Lxtalabel19
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	333
-	.long	333
+	.long	336
+	.long	336
 	.long	.Lxtalabel20
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	334
-	.long	334
+	.long	337
+	.long	337
 	.long	.Lxtalabel20
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	335
-	.long	335
+	.long	338
+	.long	338
 	.long	.Lxtalabel20
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel21
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	338
-	.long	339
+	.long	341
+	.long	342
 	.long	.Lxtalabel21
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel22
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	338
-	.long	339
+	.long	341
+	.long	342
 	.long	.Lxtalabel22
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel23
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	344
-	.long	346
+	.long	347
+	.long	349
 	.long	.Lxtalabel23
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel24
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	348
-	.long	350
+	.long	351
+	.long	353
 	.long	.Lxtalabel24
 .cc_bottom cc_169
 .Lentries_end3:
@@ -5247,50 +5247,50 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_top cc_170,.Lxta.loop_labels0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	45
-	.long	46
+	.long	48
+	.long	49
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_170
 .cc_top cc_171,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	104
-	.long	104
+	.long	107
+	.long	107
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_171
 .cc_top cc_172,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	106
 	.long	109
+	.long	112
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_172
 .cc_top cc_173,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	111
-	.long	115
+	.long	114
+	.long	118
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_173
 .cc_top cc_174,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	129
-	.long	129
+	.long	132
+	.long	132
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_174
 .cc_top cc_175,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	131
-	.long	132
+	.long	134
+	.long	135
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_175
 .cc_top cc_176,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	134
-	.long	138
+	.long	137
+	.long	141
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_176
 .Lentries_end5:
@@ -5300,7 +5300,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"../src/f_conversions.xc:45:9: error: out of bounds array access\n        temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array] = 0;\n        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/f_conversions.xc:48:9: error: out of bounds array access\n        temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array] = 0;\n        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -5308,7 +5308,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"../src/f_conversions.xc:91:5: error: out of bounds array access\n    temps_onetenthDegC_mean_array.temps_onetenthDegC          [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/f_conversions.xc:94:5: error: out of bounds array access\n    temps_onetenthDegC_mean_array.temps_onetenthDegC          [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;\n    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -5316,7 +5316,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"../src/f_conversions.xc:104:41: error: out of bounds array access\n            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];\n                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/f_conversions.xc:107:41: error: out of bounds array access\n            temp_onetenthDegC_t value = temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];\n                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -5324,7 +5324,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"../src/f_conversions.xc:136:30: error: out of bounds array access\n                temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+.asciiz"../src/f_conversions.xc:139:30: error: out of bounds array access\n                temps_sum += temps_onetenthDegC_mean_array.temps_onetenthDegC[index_of_array];\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3

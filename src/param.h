@@ -10,18 +10,8 @@
 #ifndef PARAM_H_
 #define PARAM_H_
 
-#define min(a,b) (((a)<(b))?(a):(b))
-#define max(a,b) (((a)>(b))?(a):(b))
-
-// BOOLEAN #include <stdbool.h> if C99
-typedef enum {false,true} bool; // 0,1
-
-#define NUM_ELEMENTS(array) (sizeof(array) / sizeof(array[0])) // Kernighan & Pike p22
-
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t; // Two first from usage in XMOS module_i2c_master
 // Typically, in i2c_master_do_rx does return 0; for error from floatWires(i2c) else return 1; for ok
-
-#define UNDEFINED_INDEX (-1)
 
 #define UINT32_HIGH_BITS 0xffffffff // As INT_MIN or -2147483648 in <limits.h>
 

@@ -1456,15 +1456,13 @@ int * alias _safe_errno_addr(void);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/xc/errno.h" 2 3
 # 18 "../src/tempchip_mcp9808.xc" 2
 
-# 1 "../src/param.h" 1
-# 17 "../src/param.h"
+# 1 "../src/_globals.h" 1
+# 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
+# 20 "../src/tempchip_mcp9808.xc" 2
+# 1 "../src/param.h" 1
+# 13 "../src/param.h"
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
-
-
 
 
 
@@ -1483,15 +1481,15 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 54 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 20 "../src/tempchip_mcp9808.xc" 2
+# 21 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
 # 62 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
-# 21 "../src/tempchip_mcp9808.xc" 2
+# 22 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1514,7 +1512,7 @@ typedef struct {
 } buttons_t;
 
 [[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-# 22 "../src/tempchip_mcp9808.xc" 2
+# 23 "../src/tempchip_mcp9808.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
@@ -1554,7 +1552,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 24 "../src/tempchip_mcp9808.xc" 2
+# 25 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
 # 26 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
@@ -1600,12 +1598,12 @@ typedef interface i2c_external_commands_if {
 
 [[combinable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 25 "../src/tempchip_mcp9808.xc" 2
+# 26 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/defines_adafruit.h" 1
 # 42 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 26 "../src/tempchip_mcp9808.xc" 2
+# 27 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
@@ -1613,7 +1611,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 27 "../src/tempchip_mcp9808.xc" 2
+# 28 "../src/tempchip_mcp9808.xc" 2
 
 
 

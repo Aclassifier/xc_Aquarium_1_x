@@ -15,6 +15,7 @@
 #include <xccompat.h> // REFERENCE_PARAMs
 #include "xassert.h"
 
+#include "_globals.h"
 #include "param.h"
 #endif
 
