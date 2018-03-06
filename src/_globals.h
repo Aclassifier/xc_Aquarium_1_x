@@ -10,7 +10,7 @@
 #define GLOBALS_H_
 
 // See http://www.teigfam.net/oyvind/home/technology/165-xc-code-examples/#bool
-typedef enum {false,true} bool; // 0,1
+typedef enum {false,true} bool; // 0,1 This typedef matches any integer-type type like long, int, unsigned, char, bool
 
 #define min(a,b) (((a)<(b))?(a):(b))
 #define max(a,b) (((a)>(b))?(a):(b))

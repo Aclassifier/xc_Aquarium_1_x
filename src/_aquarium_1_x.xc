@@ -155,30 +155,30 @@ typedef enum display_appear_state_t {
 
 #define ERROR_BITS_NONE 0
 typedef enum error_bits_t {   // 0xHH since binary in display
-                                       // LIMITS
-    ERROR_BIT_I2C_AMBIENT            = 0x00, // BLACK_BOARD SETS IT
-    ERROR_BIT_I2C_WATER              = 0x01,
-    ERROR_BIT_I2C_HEATER             = 0x02,
-    ERROR_BIT_HEATER_CABLE_UNPLUGGED = 0x03, // AQU=025 never signalled (so this bit is now VACANT)
-                                             // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
-                                             // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) after the point when the lowest temperature
-                                             // has been passed. That's when assumed heat without temperature rise indicates an unplugged cable.
-                                             // Is automatically reset when "?" HEAT_CABLE_ERROR is not shown in SCREEN_2_VANNTEMP_REG;
-                                             // when the heating cable has been connected.
-                                             // Heating elements not below the aquarium but on the table may also trigger this alarm,
-                                             // but only 1.0 degC is very little and is easily observed even in that case!
-    ERROR_BIT_LOW_12V_LIGHT          = 0x04, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
-    ERROR_BIT_HIGH_12V_LIGHT         = 0x05, // INNER_RR_12V_MAX_VOLTS_DP1
-    ERROR_BIT_LOW_24V_HEAT           = 0x06, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
-    ERROR_BIT_HIGH_24V_HEAT          = 0x07, // INNER_RR_24V_MAX_VOLTS_DP1
-    ERROR_BIT_BOX_OVERHEAT           = 0x08, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
-    ERROR_BIT_WATER_COLD             = 0x09, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
-    ERROR_BIT_AMBIENT_OVERHEAT       = 0x0A, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX AQU=035
-    ERROR_BIT_WATER_OVERHEAT         = 0x0B, // TEMP_ONETENTHDEGC_30_0_WATER_MAX AQU=035
-    ERROR_BIT_HEATER_OVERHEAT        = 0x0C, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
-    ERROR_BIT_WATCHDOG_TIMED_OUT     = 0x0D, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
-    // VACANT                          0x0E
-    ERROR_BIT_WRONG_CODE_STARTKIT    = 0x0F  // WRONG_CODE_STARTKITT AQU=033 AQU=035
+                                        // LIMITS
+    ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
+    ERROR_BIT_I2C_WATER              =  1,
+    ERROR_BIT_I2C_HEATER             =  2,
+    ERROR_BIT_HEATER_CABLE_UNPLUGGED =  3, // AQU=025 never signalled (so this bit is now VACANT)
+                                           // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
+                                           // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) after the point when the lowest temperature
+                                           // has been passed. That's when assumed heat without temperature rise indicates an unplugged cable.
+                                           // Is automatically reset when "?" HEAT_CABLE_ERROR is not shown in SCREEN_2_VANNTEMP_REG;
+                                           // when the heating cable has been connected.
+                                           // Heating elements not below the aquarium but on the table may also trigger this alarm,
+                                           // but only 1.0 degC is very little and is easily observed even in that case!
+    ERROR_BIT_LOW_12V_LIGHT          =  4, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
+    ERROR_BIT_HIGH_12V_LIGHT         =  5, // INNER_RR_12V_MAX_VOLTS_DP1
+    ERROR_BIT_LOW_24V_HEAT           =  6, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
+    ERROR_BIT_HIGH_24V_HEAT          =  7, // INNER_RR_24V_MAX_VOLTS_DP1
+    ERROR_BIT_BOX_OVERHEAT           =  8, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
+    ERROR_BIT_WATER_COLD             =  9, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
+    ERROR_BIT_AMBIENT_OVERHEAT       = 10, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX AQU=035
+    ERROR_BIT_WATER_OVERHEAT         = 11, // TEMP_ONETENTHDEGC_30_0_WATER_MAX AQU=035
+    ERROR_BIT_HEATER_OVERHEAT        = 12, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
+    ERROR_BIT_WATCHDOG_TIMED_OUT     = 13, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
+    // VACANT                          14
+    ERROR_BIT_WRONG_CODE_STARTKIT    = 15  // WRONG_CODE_STARTKITT AQU=033 AQU=035
 } error_bits_t;
 
 #define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
