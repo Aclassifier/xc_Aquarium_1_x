@@ -154,7 +154,7 @@ typedef enum display_appear_state_t {
 } display_appear_state_t;
 
 #define ERROR_BITS_NONE 0
-typedef enum error_bits_t {   // 0xHH since binary in display
+typedef enum error_bits_t {
                                         // LIMITS
     ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
     ERROR_BIT_I2C_WATER              =  1,

@@ -32,7 +32,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include <stdio.h>
 #include <xccompat.h> // REFERENCE_PARAM
 #include <iso646.h>
-#include <string.h>   // memset
+#include <string.h>   // memset. TODO Consider safestring
 #include <timer.h>    // For delay_milliseconds (but it compiles without?)
 
 #include "_globals.h"

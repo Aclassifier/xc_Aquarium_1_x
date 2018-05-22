@@ -66,7 +66,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.set usage.anon.0,0
 	.set usage.anon.1,0
@@ -1535,10 +1535,10 @@ Button_Task.select.case.1:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.2 (build 25550, Sep-30-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
 .Linfo_string1:
 .asciiz"../src/button_press.xc"
 .Linfo_string2:

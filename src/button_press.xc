@@ -65,7 +65,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
     bool     is_stable   = true;
     timer    tmr;
     unsigned timeout;
-        int      current_time;
+    int      current_time;
 
     // ¯yvind's matters:
     bool initial_released_stopped = false; // Since it would do BUTTON_ACTION_RELEASED always after start
