@@ -19,6 +19,6 @@ typedef enum {false,true} bool; // 0,1 This typedef matches any integer-type typ
 
 #define NUM_ELEMENTS(array) (sizeof(array) / sizeof(array[0])) // Kernighan & Pike p22
 
-#define MAP_PAR_COMBINE 0
+#define MAP_PAR_COMBINE 1
 
 #endif /* GLOBALS_H_ */

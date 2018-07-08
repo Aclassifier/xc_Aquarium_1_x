@@ -1879,26 +1879,41 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 106 "../src/main.xc"
+
+
+
+
     par {
-        on tile[0]: installExceptionHandler();
+        par {
+            Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
+            installExceptionHandler();
+            My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
 
-        on tile[0].core[0]: I2C_Internal_Task (i_i2c_internal_commands);
-        on tile[0].core[4]: I2C_External_Task (i_i2c_external_commands);
-        on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
-                                                       i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                       i_buttons);
-        on tile[0].core[0]: Temperature_Heater_Task (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-        on tile[0].core[5]: Temperature_Water_Task (i_temperature_water_commands, i_temperature_heater_commands[1]);
-        on tile[0].core[1]: Button_Task (0, inP_button_left, i_buttons[0]);
-        on tile[0].core[1]: Button_Task (1, inP_button_center, i_buttons[1]);
-        on tile[0].core[1]: Button_Task (2, inP_button_right, i_buttons[2]);
-        on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
-        on tile[0].core[5]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-        on tile[0].core[4]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
-                            startkit_adc (c_analogue);
+
+            Button_Task (0, inP_button_left, i_buttons[0]);
+            Button_Task (1, inP_button_center, i_buttons[1]);
+            Button_Task (2, inP_button_right, i_buttons[2]);
+        }
+        [[combine]]
+        par {
+
+
+            I2C_Internal_Task (i_i2c_internal_commands);
+            I2C_External_Task (i_i2c_external_commands);
+            System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
+                                       i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
+                                       i_buttons);
+            Temperature_Heater_Task (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
+            Temperature_Water_Task (i_temperature_water_commands, i_temperature_heater_commands[1]);
+
+
+
+            adc_task (i_startkit_adc_acquire, c_analogue, 0);
+        }
+        par {
+
+        }
     }
-
-
+# 126 "../src/main.xc"
     return 0;
 }
