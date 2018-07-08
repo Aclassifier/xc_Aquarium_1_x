@@ -15,6 +15,14 @@ typedef enum {
                            // know state pressed_now. So we can't filter it in Button_Task
 } button_action_t;
 
+typedef interface button_if {
+    // caused the potentially recursive call to cause error from the linker:
+    // Error: Meta information. Error: lower bound could not be calculated (function is recursive?).
+    //
+    [[guarded]] void button (const button_action_t button_action); // timerafter-driven
+
+} button_if;
+
 #define DEBOUNCE_TIMEOUT_10000_MS 10000 // 10 seconds
 
 #define IOF_BUTTON_LEFT   0
@@ -29,14 +37,11 @@ typedef struct {
     bool inhibit_released_once;  // Only IOF_BUTTON_RIGHT used, since it's the only that takes long pushes
 } button_state_t;
 
-// NOT USED
-typedef struct {
-    button_action_t button_action;
-    int             iof_button;
-} buttons_t;
-
-[[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
-// [[combinable]] void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out);
+[[combinable]]
+void Button_Task (
+        const unsigned   button_n,
+        port             p_button,
+        client button_if i_button_out);
 
 #else
     #error Nested include BUTTON_PRESS_H_

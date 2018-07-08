@@ -246,6 +246,7 @@ bool Is_Stable (const soft_change_pwm_window_timer_us_t soft_change_pwm_window_t
 // PWM start late and then start earlier and earlier until full. It took me a _long_ time to invent this. The clue is to to do
 // soft_change_pwm_window_timer_us inside a PWM window. 24Feb2017
 //
+
 [[combinable]]
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
 

@@ -22,44 +22,16 @@
 #define DEBUG_PRINT_BUTTON_PRESS 0 // Cost 1.8k
 #define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS) printf(fmt, __VA_ARGS__); } while (0)
 
-// On 10Feb2017 I inserted this process but it took two extra channel ends, so I let final client do it instead
-// With this process:
-//     Constraint check for tile[0]:
-//       Chanends available:        32,   used:         33 .  FAILED
-//     Error: Constraints check FAILED for tile[0].
-//     xmake[1]: *** [bin//_Aquarium_1_x.xe] Error 1
-//     xmake: *** [bin//_Aquarium_1_x.xe] Error 2
-//
-// Without this process:
-//     Constraint check for tile[0]:
-//       Chanends available:        32,   used:         31 .  OKAY
-//     Constraints checks PASSED.
-//     Build Complete
-//
-// NOT USED
-[[combinable]]
-void Mux_Button_Task (chanend c_button_in[BUTTONS_NUM_CLIENTS], chanend c_button_out) {
-
-    button_action_t button_action_in;
-    buttons_t       buttons_out;
-
-    while (1) {
-        select {
-            case c_button_in[int index] :> button_action_in: {
-
-                buttons_out.button_action = button_action_in;
-                buttons_out.iof_button    = index;
-
-                c_button_out <: buttons_out;
-            } break;
-        }
-    }
-}
 
 #define DEBOUNCE_TIMEOUT_50_MS 50
 
 [[combinable]]
-void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
+void Button_Task (
+        const unsigned   button_n,
+        port             p_button,
+        client button_if i_button_out // See http://www.teigfam.net/oyvind/home/technology/141-xc-is-c-plus-x/#the_combined_code_6_to_zero_channels
+        ) {
+
     // From XMOS-Programming-Guide.
     int      current_val = 0;
     bool     is_stable   = true;
@@ -100,7 +72,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                         initial_released_stopped = true;       // Not if BUTTON_ACTION_PRESSED was sent first
                         pressed_but_not_released = true;       // ONLY PLACE IT'S SET
 
-                        c_button_out <: BUTTON_ACTION_PRESSED; // Button down
+                        i_button_out.button(BUTTON_ACTION_PRESSED); // Button down
                         debug_printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
                         tmr :> current_time;
                         timeout = current_time + (DEBOUNCE_TIMEOUT_10000_MS * XS1_TIMER_KHZ);
@@ -111,7 +83,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                             debug_printf(" Button %u filtered away\n", button_n);
                         } else {
                             pressed_but_not_released = false;
-                            c_button_out <: BUTTON_ACTION_RELEASED;
+                            i_button_out.button(BUTTON_ACTION_RELEASED);
                             debug_printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
                         }
                     }
@@ -120,7 +92,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                     // xTIMEcomposer 14.2.4 works fine
                     // xTIMEcomposer 14.3.0 does 880997 times in 30 seconds with DEBUG_PRINT_BUTTON_PRESS==0, yields about 30000 per second probably livelocked (but printed in receiver)
                     pressed_but_not_released = false;
-                    c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
+                    i_button_out.button(BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
                     debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n);
                 }
             } break;

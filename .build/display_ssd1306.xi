@@ -1449,20 +1449,26 @@ typedef enum {
     BUTTON_ACTION_RELEASED
 
 } button_action_t;
-# 26 "../src/button_press.h"
+
+typedef interface button_if {
+
+
+
+    [[guarded]] void button (const button_action_t button_action);
+
+} button_if;
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
     bool pressed_for_10_seconds;
     bool inhibit_released_once;
 } button_state_t;
 
-
-typedef struct {
-    button_action_t button_action;
-    int iof_button;
-} buttons_t;
-
-[[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
+[[combinable]]
+void Button_Task (
+        const unsigned button_n,
+        port p_button,
+        client button_if i_button_out);
 # 41 "../src/display_ssd1306.xc" 2
 
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1

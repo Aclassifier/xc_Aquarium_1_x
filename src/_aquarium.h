@@ -20,6 +20,6 @@ extern void System_Task (
     client  port_heat_light_commands_if    i_port_heat_light_commands,
     client  temperature_heater_commands_if i_temperature_heater_commands,
     client  temperature_water_commands_if  i_temperature_water_commands,
-    chanend                                c_button_in[BUTTONS_NUM_CLIENTS]);
+    server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS]);
 
 #endif /* AQUARIUM_H_ */

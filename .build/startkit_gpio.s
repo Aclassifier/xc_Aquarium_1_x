@@ -114,7 +114,7 @@
 	.globl startkit_gpio_driver_aux.select.yield.enable.cases.maxchanends
 	.set startkit_gpio_driver_aux.select.yield.enable.cases,0
 	.globl startkit_gpio_driver_aux.select.yield.enable.cases
-	.set startkit_gpio_driver_aux.select.yield.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.yield.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.0.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.2.nstackwords)
+	.set startkit_gpio_driver_aux.select.yield.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.yield.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.yield.case.0.nstackwords)
 	.globl startkit_gpio_driver_aux.select.yield.enable.cases.nstackwords
 	.set startkit_gpio_driver_aux.select.enable.savedstate,29
 	.globl startkit_gpio_driver_aux.select.enable.savedstate
@@ -8979,10 +8979,10 @@ map:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.2/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.2 (build 25550, Sep-30-2017)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
 .Linfo_string2:

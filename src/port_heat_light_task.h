@@ -105,5 +105,6 @@ typedef interface port_heat_light_commands_if {
 
 #define PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS 2
 
+
 [[combinable]]
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);

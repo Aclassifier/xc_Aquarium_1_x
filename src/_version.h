@@ -10,13 +10,15 @@
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR "14.3.2" // Works! Previous that worked was 14.3.1 and then 14.2.4.
+#define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.5"
+#define APPLICATION_VERSION_STR "1.1.6"
+    // "1.1.6"      3Jul2018 Testing [[combine]] (with MAP_PAR_COMBINE) and interface from button instead of channels
+    //                       Interface button_if instead of chan with Button_Task
     // "1.1.5"      5Feb2018 testing some changes that Maxim initiated
     // "1.1.4"     25Nov2017 Tagged as VER_1_1_4_with_fishes
     //                       AQU=039 After AQU=038 then the first light down at night after the beep wasn't visible enough.

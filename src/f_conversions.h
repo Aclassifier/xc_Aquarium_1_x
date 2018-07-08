@@ -9,8 +9,8 @@
 #ifndef F_CONVERSIONS_H_
 #define F_CONVERSIONS_H_
 
-void installExceptionHandler(void);
-void myExceptionHandler(void);
+//void installExceptionHandler(void);
+//void myExceptionHandler(void);
 
 typedef int temp_onetenthDegC_t; // 25.1 DegC is 251 (as is i2c_temp_onetenthDegC_t)
 typedef int voltage_onetenthV_t; // 12.1 Volt is 121

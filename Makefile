@@ -17,7 +17,7 @@ USED_MODULES = lib_startkit_support lib_xassert module_i2c_master module_random
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
 # -02 is default
-XCC_FLAGS = -O2 -g -fxscope -save-temps
+XCC_FLAGS = -O2 -g -fxscope -save-temps -DWARNINGS=1
 # -DXASSERT_ENABLE_ASSERTIONS=1   is default
 # -DXASSERT_ENABLE_LINE_NUMBERS=1 very expensive
 # -DXASSERT_ENABLE_DEBUG=1        very expensive

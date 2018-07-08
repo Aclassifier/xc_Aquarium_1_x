@@ -1690,10 +1690,10 @@ typedef enum system_state_t {
 //                        100    18July2017. To get away with the beep when I press a button for a complex display layout
 //
 
-[[combinable]] // When nested selects combinable not allowed
-               // When removng nested select and adding combinable it didn't give any extra chanends
+               // When nested selects [[combinable]] not allowed
+               // When removing nested select and adding combinable it didn't give any extra chanends
                // I have to place it on a logical core to get fewer chanends
-               // By the way "main select in combinable function cannot have default case" so I made System_Task_Data_Handler instead
+[[combinable]] // By the way "main select in combinable function cannot have default case" so I made System_Task_Data_Handler instead
 void System_Task (
     client  i2c_internal_commands_if       i_i2c_internal_commands,
     client  i2c_external_commands_if       i_i2c_external_commands,
@@ -1701,7 +1701,7 @@ void System_Task (
     client  port_heat_light_commands_if    i_port_heat_light_commands,
     client  temperature_heater_commands_if i_temperature_heater_commands,
     client  temperature_water_commands_if  i_temperature_water_commands,
-    chanend                                c_button_in[BUTTONS_NUM_CLIENTS])
+    server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS])
 {
     // Time keeping
     int   time;
@@ -1709,7 +1709,6 @@ void System_Task (
 
     system_state_t                 system_state = SYSTEM_STATE_ONE_SECONDS_TICS;
     unsigned                       num_notify_expexted = 0; // While SYSTEM_STATE_AWAIT_TWO_NOTIFY
-    button_action_t                button_action;
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
     unsigned                       watchdog_rest_ms;
@@ -1851,7 +1850,8 @@ void System_Task (
                 //}}}  
             } break;
 
-            case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => c_button_in[int iof_button] :> button_action: {
+            case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => i_button_in[int iof_button].button (const button_action_t button_action) : {
+            //case i_button_in[int iof_button].button (const button_action_t button_action) : {
                 //{{{  Button pressed (the asynch data sets only cause unnoticed delays)
 
                 bool display_is_on_pre = context.display_is_on;

@@ -1342,45 +1342,42 @@ typedef enum {
     BUTTON_ACTION_RELEASED
 
 } button_action_t;
-# 26 "../src/button_press.h"
+
+typedef interface button_if {
+
+
+
+    [[guarded]] void button (const button_action_t button_action);
+
+} button_if;
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
     bool pressed_for_10_seconds;
     bool inhibit_released_once;
 } button_state_t;
 
-
-typedef struct {
-    button_action_t button_action;
-    int iof_button;
-} buttons_t;
-
-[[combinable]] void Button_Task (const unsigned button_n, port p_button, chanend c_button_out);
+[[combinable]]
+void Button_Task (
+        const unsigned button_n,
+        port p_button,
+        client button_if i_button_out);
 # 20 "../src/button_press.xc" 2
-# 40 "../src/button_press.xc"
-[[combinable]]
-void Mux_Button_Task (chanend c_button_in[3], chanend c_button_out) {
 
-    button_action_t button_action_in;
-    buttons_t buttons_out;
 
-    while (1) {
-        select {
-            case c_button_in[int index] :> button_action_in: {
 
-                buttons_out.button_action = button_action_in;
-                buttons_out.iof_button = index;
 
-                c_button_out <: buttons_out;
-            } break;
-        }
-    }
-}
+
 
 
 
 [[combinable]]
-void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) {
+void Button_Task (
+        const unsigned button_n,
+        port p_button,
+        client button_if i_button_out
+        ) {
+
 
     int current_val = 0;
     bool is_stable = true;
@@ -1421,7 +1418,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                         initial_released_stopped = true;
                         pressed_but_not_released = true;
 
-                        c_button_out <: BUTTON_ACTION_PRESSED;
+                        i_button_out.button(BUTTON_ACTION_PRESSED);
                         do { if(0) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
@@ -1432,7 +1429,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
                             do { if(0) printf(" Button %u filtered away\n", button_n); } while (0);
                         } else {
                             pressed_but_not_released = false;
-                            c_button_out <: BUTTON_ACTION_RELEASED;
+                            i_button_out.button(BUTTON_ACTION_RELEASED);
                             do { if(0) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
                         }
                     }
@@ -1441,7 +1438,7 @@ void Button_Task (const unsigned button_n, port p_button, chanend c_button_out) 
 
 
                     pressed_but_not_released = false;
-                    c_button_out <: BUTTON_ACTION_PRESSED_FOR_10_SECONDS;
+                    i_button_out.button(BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
                     do { if(0) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
                 }
             } break;

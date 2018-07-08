@@ -13,5 +13,7 @@
 #endif /* EXCEPTION_HANDLER_H_ */
 
 void assert_exception (bool assert_this);
+
 void installExceptionHandler(void);
+
 void myExceptionHandler(void);
