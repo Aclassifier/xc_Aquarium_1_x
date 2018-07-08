@@ -1887,7 +1887,7 @@ int main() {
         par {
             Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
             installExceptionHandler();
-            My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
+
 
 
             Button_Task (0, inP_button_left, i_buttons[0]);

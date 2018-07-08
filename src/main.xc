@@ -66,7 +66,7 @@ int main() {
         par {
             Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
             installExceptionHandler();
-            My_startKIT_ADC_Task      (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+            //My_startKIT_ADC_Task      (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
             //startkit_adc              (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
             // ^~~~~~~~~~~~ error: service called in non multi-tile function
             Button_Task (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);
