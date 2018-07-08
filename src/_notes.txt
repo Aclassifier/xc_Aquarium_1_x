@@ -1,0 +1,57 @@
+8July2018
+
+======== Commit 2c58354:
+
+..and this has unrecoverable error:
+../src/main.xc:90:64: warning: `c_analogue' not used in two parallel
+statements [-Wunusual-code]
+            adc_task                  (i_startkit_adc_acquire,
+c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+                                                               ^~~~~~~~~~
+../src/main.xc:90:40: warning: `i_startkit_adc_acquire' not used in two
+parallel statements [-Wunusual-code]
+            adc_task                  (i_startkit_adc_acquire,
+c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+                                       ^~~~~~~~~~~~~~~~~~~~~~
+../src/main.xc:82:96: warning: `i_lib_startkit_adc_commands' not used in
+two parallel statements [-Wunusual-code]
+            System_Task               (i_i2c_internal_commands[0],
+i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
+                                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xcc1: terminated due to internal unrecoverable error
+
+
+
+======== Change: main.xc
+                 My_startKIT_ADC_Task (..)
+                 Commented away above here
+
+======== Commit 51281aa:
+
+..and this has another meta error:
+../src/main.xc:90:64: warning: `c_analogue' not used in two parallel
+statements [-Wunusual-code]
+            adc_task                  (i_startkit_adc_acquire,
+c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+
+../src/main.xc:90:64: warning: `c_analogue' not used in two parallel statements [-Wunusual-code]
+            adc_task                  (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+
+../src/main.xc:(.dp.data+0x4): Error: Meta information ("Temperature_Water_Task.init.1.nstackwords") for function "Temperature_Water_Task.init.1" cannot be determined.
+../src/main.xc:(.dp.data+0x4): Error:   lower bound could not be calculated (function is recursive?).
+
+
+
+======== Change: _global.h
+                #define MAP_PAR_COMBINE 1 above here
+
+======== Commit b03b01e:
+
+Guarded button_if call "button" will not build. Does
+
+Creating _aquarium_1_x.xe
+../src/main.xc:(.dp.data+0x1c): Error: Meta information ("_i.button_if.button.max.nstackwords") for function "_i.button_if.button.max" cannot be determined.
+../src/main.xc:(.dp.data+0x1c): Error:   lower bound could not be calculated (function is recursive?).
+
+Keeping this for XMOS reporting
+
