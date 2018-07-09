@@ -36,10 +36,10 @@
 #endif
 
 #define DEBUG_PRINT_CHRONODOT_DS3231 0
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231 and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_DATETIME 1
-#define debug_printf_dt(fmt, ...) do { if(DEBUG_PRINT_DATETIME and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf_dt(fmt, ...) do { if(DEBUG_PRINT_DATETIME and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 void debug_printf_datetime (const DateTime_t datetime) {
     // Better visible in the log with two leading spaces:

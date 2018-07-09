@@ -31,13 +31,13 @@
 #endif
 
 #define DEBUG_PRINT_DISPLAY 0 // Cost 0.3k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_DISPLAY and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_DISPLAY and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_CHRONODOT1 0 // Cost 0.1k
-#define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1 and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_FRAM 1 // Cost ?
-#define y_debug_printf(fmt, ...) do { if(DEBUG_PRINT_FRAM and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define y_debug_printf(fmt, ...) do { if(DEBUG_PRINT_FRAM and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_internal_config = { // For display and ChronoDot
     on tile[0]:XS1_PORT_1E, // I_SCL SCL is at startKIT GPIO header (J7.4) port P1E0, processor pin X0D12

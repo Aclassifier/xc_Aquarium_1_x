@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #ifdef FLASH_BLACK_BOARD
     // No Board 9, ok to see red LEDs go on and off

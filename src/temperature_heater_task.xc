@@ -33,7 +33,7 @@
 #define DEBUG_PRINT_HEATER_CONTROLLER 0 // Cost 1K
 //{{{  debug_printf
 
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 //}}}  
 
