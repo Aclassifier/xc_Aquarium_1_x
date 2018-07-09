@@ -69,10 +69,10 @@ void Button_Task (
             case (pressed_but_not_released or (is_stable == false)) => tmr when timerafter(timeout) :> void: {
                 if (is_stable == false) {
                     if (current_val == 0) {
-                        initial_released_stopped = true;       // Not if BUTTON_ACTION_PRESSED was sent first
-                        pressed_but_not_released = true;       // ONLY PLACE IT'S SET
+                        initial_released_stopped = true; // Not if BUTTON_ACTION_PRESSED was sent first
+                        pressed_but_not_released = true; // ONLY PLACE IT'S SET
 
-                        i_button_out.button(BUTTON_ACTION_PRESSED); // Button down
+                        i_button_out.button (BUTTON_ACTION_PRESSED); // Button down
                         debug_printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
                         tmr :> current_time;
                         timeout = current_time + (DEBOUNCE_TIMEOUT_10000_MS * XS1_TIMER_KHZ);
@@ -83,7 +83,7 @@ void Button_Task (
                             debug_printf(" Button %u filtered away\n", button_n);
                         } else {
                             pressed_but_not_released = false;
-                            i_button_out.button(BUTTON_ACTION_RELEASED);
+                            i_button_out.button (BUTTON_ACTION_RELEASED);
                             debug_printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
                         }
                     }
@@ -92,7 +92,7 @@ void Button_Task (
                     // xTIMEcomposer 14.2.4 works fine
                     // xTIMEcomposer 14.3.0 does 880997 times in 30 seconds with DEBUG_PRINT_BUTTON_PRESS==0, yields about 30000 per second probably livelocked (but printed in receiver)
                     pressed_but_not_released = false;
-                    i_button_out.button(BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
+                    i_button_out.button (BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
                     debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n);
                 }
             } break;

@@ -19,7 +19,8 @@ typedef interface button_if {
     // caused the potentially recursive call to cause error from the linker:
     // Error: Meta information. Error: lower bound could not be calculated (function is recursive?).
     //
-    [[guarded]] void button (const button_action_t button_action); // timerafter-driven
+    //[[guarded]] void button (const button_action_t button_action); // timerafter-driven
+    void button (const button_action_t button_action); // timerafter-driven
 
 } button_if;
 

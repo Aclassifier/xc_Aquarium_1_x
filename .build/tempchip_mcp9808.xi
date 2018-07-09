@@ -1503,10 +1503,11 @@ typedef interface button_if {
 
 
 
-    [[guarded]] void button (const button_action_t button_action);
+
+    void button (const button_action_t button_action);
 
 } button_if;
-# 34 "../src/button_press.h"
+# 35 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
     bool pressed_for_10_seconds;

@@ -152,50 +152,33 @@
 	.cc_top _i.button_if._chan.button.function,_i.button_if._chan.button
 _i.button_if._chan.button:
 	.cfi_startproc
-	entsp 3
-.Ltmp0:
-	.cfi_def_cfa_offset 12
-.Ltmp1:
-	.cfi_offset 15, 0
-	stw r4, sp[2]
-.Ltmp2:
-	.cfi_offset 4, -4
-	stw r5, sp[1]
-.Ltmp3:
-	.cfi_offset 5, -8
-	mov r4, r1
-	getr r5, 2
-	setd res[r5], r0
-	out res[r5], r5
-	outct res[r5], 2
-	ldc r1, 0
-	mov r0, r5
-	bl __interface_wait_and_yield
-	chkct res[r5], 1
-	out res[r5], r4
-	outct res[r5], 2
-	in r0, res[r5]
-	chkct res[r5], 1
-	freer res[r5]
-	ldw r5, sp[1]
-	ldw r4, sp[2]
-	retsp 3
+	getr r2, 2
+	setd res[r2], r0
+	out res[r2], r2
+	outct res[r2], 2
+	chkct res[r2], 1
+	out res[r2], r1
+	outct res[r2], 2
+	in r0, res[r2]
+	chkct res[r2], 1
+	freer res[r2]
+	retsp 0
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.button_if._chan.button.function
-	.set	_i.button_if._chan.button.nstackwords,((_i.button_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 3)
+	.set	_i.button_if._chan.button.nstackwords,0
 	.globl	_i.button_if._chan.button.nstackwords
 	.weak	_i.button_if._chan.button.nstackwords
-	.set	_i.button_if._chan.button.maxcores,($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
+	.set	_i.button_if._chan.button.maxcores,1
 	.globl	_i.button_if._chan.button.maxcores
 	.weak	_i.button_if._chan.button.maxcores
-	.set	_i.button_if._chan.button.maxtimers,($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
+	.set	_i.button_if._chan.button.maxtimers,0
 	.globl	_i.button_if._chan.button.maxtimers
 	.weak	_i.button_if._chan.button.maxtimers
-	.set	_i.button_if._chan.button.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
+	.set	_i.button_if._chan.button.maxchanends,1
 	.globl	_i.button_if._chan.button.maxchanends
 	.weak	_i.button_if._chan.button.maxchanends
-.Ltmp4:
-	.size	_i.button_if._chan.button, .Ltmp4-_i.button_if._chan.button
+.Ltmp0:
+	.size	_i.button_if._chan.button, .Ltmp0-_i.button_if._chan.button
 	.cfi_endproc
 
 	.weak	_i.button_if._chan_yield.button
@@ -204,59 +187,46 @@ _i.button_if._chan.button:
 	.cc_top _i.button_if._chan_yield.button.function,_i.button_if._chan_yield.button
 _i.button_if._chan_yield.button:
 	.cfi_startproc
-	entsp 4
-.Ltmp5:
-	.cfi_def_cfa_offset 16
-.Ltmp6:
+	entsp 2
+.Ltmp1:
+	.cfi_def_cfa_offset 8
+.Ltmp2:
 	.cfi_offset 15, 0
-	stw r4, sp[3]
-.Ltmp7:
+	stw r4, sp[1]
+.Ltmp3:
 	.cfi_offset 4, -4
-	stw r5, sp[2]
-.Ltmp8:
-	.cfi_offset 5, -8
-	stw r6, sp[1]
-.Ltmp9:
-	.cfi_offset 6, -12
-	mov r4, r1
-	ldw r1, r0[0]
-	getr r5, 2
-	setd res[r5], r1
-	out res[r5], r5
-	outct res[r5], 2
-	ldw r6, r0[1]
-	mov r0, r5
-	mov r1, r6
-	bl __interface_wait_and_yield
-	chkct res[r5], 1
-	out res[r5], r4
-	outct res[r5], 2
+	ldw r2, r0[0]
+	getr r4, 2
+	setd res[r4], r2
+	out res[r4], r4
+	outct res[r4], 2
+	chkct res[r4], 1
+	out res[r4], r1
+	outct res[r4], 2
+	ldw r2, r0[1]
 	ldc r1, 0
-	mov r0, r5
-	mov r2, r6
+	mov r0, r4
 	bl __interface_client_call_y
-	chkct res[r5], 1
-	freer res[r5]
-	ldw r6, sp[1]
-	ldw r5, sp[2]
-	ldw r4, sp[3]
-	retsp 4
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.button_if._chan_yield.button.function
-	.set	_i.button_if._chan_yield.button.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.button_if._client_call_y.max.nstackwords) $M _i.button_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 4)
+	.set	_i.button_if._chan_yield.button.nstackwords,((_i.button_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 2)
 	.globl	_i.button_if._chan_yield.button.nstackwords
 	.weak	_i.button_if._chan_yield.button.nstackwords
-	.set	_i.button_if._chan_yield.button.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.button_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
+	.set	_i.button_if._chan_yield.button.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
 	.globl	_i.button_if._chan_yield.button.maxcores
 	.weak	_i.button_if._chan_yield.button.maxcores
-	.set	_i.button_if._chan_yield.button.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
+	.set	_i.button_if._chan_yield.button.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
 	.globl	_i.button_if._chan_yield.button.maxtimers
 	.weak	_i.button_if._chan_yield.button.maxtimers
-	.set	_i.button_if._chan_yield.button.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
+	.set	_i.button_if._chan_yield.button.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.button_if._chan_yield.button.maxchanends
 	.weak	_i.button_if._chan_yield.button.maxchanends
-.Ltmp10:
-	.size	_i.button_if._chan_yield.button, .Ltmp10-_i.button_if._chan_yield.button
+.Ltmp4:
+	.size	_i.button_if._chan_yield.button, .Ltmp4-_i.button_if._chan_yield.button
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.trigger
@@ -291,8 +261,8 @@ _i.i2c_external_commands_if._chan.trigger:
 	.set	_i.i2c_external_commands_if._chan.trigger.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.trigger.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.trigger.maxchanends
-.Ltmp11:
-	.size	_i.i2c_external_commands_if._chan.trigger, .Ltmp11-_i.i2c_external_commands_if._chan.trigger
+.Ltmp5:
+	.size	_i.i2c_external_commands_if._chan.trigger, .Ltmp5-_i.i2c_external_commands_if._chan.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -302,12 +272,12 @@ _i.i2c_external_commands_if._chan.trigger:
 _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp12:
+.Ltmp6:
 	.cfi_def_cfa_offset 8
-.Ltmp13:
+.Ltmp7:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp14:
+.Ltmp8:
 	.cfi_offset 4, -4
 	mov r3, r0
 	getr r4, 2
@@ -340,8 +310,8 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
-.Ltmp15:
-	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp15-_i.i2c_external_commands_if._chan.read_temperature_ok
+.Ltmp9:
+	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp9-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.trigger
@@ -351,12 +321,12 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 _i.i2c_external_commands_if._chan_yield.trigger:
 	.cfi_startproc
 	entsp 2
-.Ltmp16:
+.Ltmp10:
 	.cfi_def_cfa_offset 8
-.Ltmp17:
+.Ltmp11:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp18:
+.Ltmp12:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -389,8 +359,8 @@ _i.i2c_external_commands_if._chan_yield.trigger:
 	.set	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.trigger.maxchanends
-.Ltmp19:
-	.size	_i.i2c_external_commands_if._chan_yield.trigger, .Ltmp19-_i.i2c_external_commands_if._chan_yield.trigger
+.Ltmp13:
+	.size	_i.i2c_external_commands_if._chan_yield.trigger, .Ltmp13-_i.i2c_external_commands_if._chan_yield.trigger
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok
@@ -400,15 +370,15 @@ _i.i2c_external_commands_if._chan_yield.trigger:
 _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
-.Ltmp20:
+.Ltmp14:
 	.cfi_def_cfa_offset 12
-.Ltmp21:
+.Ltmp15:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp22:
+.Ltmp16:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp23:
+.Ltmp17:
 	.cfi_offset 5, -8
 	mov r4, r0
 	ldw r0, r1[0]
@@ -446,8 +416,8 @@ _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
-.Ltmp24:
-	.size	_i.i2c_external_commands_if._chan_yield.read_temperature_ok, .Ltmp24-_i.i2c_external_commands_if._chan_yield.read_temperature_ok
+.Ltmp18:
+	.size	_i.i2c_external_commands_if._chan_yield.read_temperature_ok, .Ltmp18-_i.i2c_external_commands_if._chan_yield.read_temperature_ok
 	.cfi_endproc
 
 	.globl	Tempchip_MCP9808_Begin_Ok
@@ -460,25 +430,25 @@ Tempchip_MCP9808_Begin_Ok:
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 3
-.Ltmp25:
+.Ltmp19:
 	.cfi_def_cfa_offset 12
-.Ltmp26:
+.Ltmp20:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp27:
+.Ltmp21:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp28:
+.Ltmp22:
 	.cfi_offset 5, -8
 	mov r4, r1
-.Ltmp29:
+.Ltmp23:
 	mov r5, r0
-.Ltmp30:
+.Ltmp24:
 	.loc	1 36 0 prologue_end
 	ldc r0, 0
 	st8 r2, r4[r0]
 	ldc r2, 6
-.Ltmp31:
+.Ltmp25:
 	.loc	1 38 0
 	mov r0, r5
 .Lxta.call_labels0:
@@ -488,12 +458,12 @@ Tempchip_MCP9808_Begin_Ok:
 	.loc	1 39 5
 	eq r1, r1, 1
 	bf r1, .LBB6_3
-.Ltmp32:
+.Ltmp26:
 .Lxtalabel1:
 	ldc r1, 84
 	eq r0, r0, r1
 	bf r0, .LBB6_3
-.Ltmp33:
+.Ltmp27:
 .Lxtalabel2:
 	mkmsk r2, 3
 	.loc	1 41 0
@@ -511,7 +481,7 @@ Tempchip_MCP9808_Begin_Ok:
 	.loc	1 42 9
 	and r0, r1, r0
 	bu .LBB6_4
-.Ltmp34:
+.Ltmp28:
 .LBB6_3:
 .Lxtalabel3:
 	ldc r0, 0
@@ -530,8 +500,8 @@ Tempchip_MCP9808_Begin_Ok:
 	.globl	Tempchip_MCP9808_Begin_Ok.maxtimers
 	.set	Tempchip_MCP9808_Begin_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Begin_Ok.maxchanends
-.Ltmp35:
-	.size	Tempchip_MCP9808_Begin_Ok, .Ltmp35-Tempchip_MCP9808_Begin_Ok
+.Ltmp29:
+	.size	Tempchip_MCP9808_Begin_Ok, .Ltmp29-Tempchip_MCP9808_Begin_Ok
 .Lfunc_end6:
 	.cfi_endproc
 
@@ -554,45 +524,45 @@ Tempchip_MCP9808_ReadTempC:
 	.cfi_startproc
 .Lxtalabel5:
 	entsp 3
-.Ltmp36:
+.Ltmp30:
 	.cfi_def_cfa_offset 12
-.Ltmp37:
+.Ltmp31:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp38:
+.Ltmp32:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp39:
+.Ltmp33:
 	.cfi_offset 5, -8
 	mov r4, r2
-.Ltmp40:
+.Ltmp34:
 	mov r5, r1
-.Ltmp41:
+.Ltmp35:
 	ldc r2, 5
 	.loc	1 59 0 prologue_end
-.Ltmp42:
+.Ltmp36:
 .Lxta.call_labels2:
 	bl Tempchip_MCP9808_Read16
-.Ltmp43:
+.Ltmp37:
 	.loc	1 61 5
 	ldw r1, r5[1]
 	.loc	1 61 5
 	eq r1, r1, 1
 	bf r1, .LBB7_5
-.Ltmp44:
+.Ltmp38:
 .Lxtalabel6:
 	ldc r1, 4096
 	.loc	1 62 9
 	and r1, r0, r1
 	.loc	1 62 9
 	bf r1, .LBB7_2
-.Ltmp45:
+.Ltmp39:
 .Lxtalabel7:
 	ldc r0, 0
 	.loc	1 77 0
 	stw r0, r4[0]
 	bu .LBB7_4
-.Ltmp46:
+.Ltmp40:
 .LBB7_5:
 .Lxtalabel8:
 	ldc r0, 0
@@ -600,28 +570,28 @@ Tempchip_MCP9808_ReadTempC:
 	stw r0, r4[0]
 	ldc r0, 999
 	bu .LBB7_4
-.Ltmp47:
+.Ltmp41:
 .LBB7_2:
 .Lxtalabel9:
 	ldc r1, 4095
 	.loc	1 64 0
-.Ltmp48:
+.Ltmp42:
 	and r0, r0, r1
-.Ltmp49:
+.Ltmp43:
 	ldc r1, 100
 	.loc	1 71 0
 	mul r0, r0, r1
-.Ltmp50:
+.Ltmp44:
 	ldc r1, 0
 	ldw r2, cp[.LCPI7_0]
 	.loc	1 72 0
 	lmul r0, r1, r0, r2, r1, r1
 	shr r0, r0, 7
-.Ltmp51:
+.Ltmp45:
 	mkmsk r1, 1
 	.loc	1 74 0
 	stw r1, r4[0]
-.Ltmp52:
+.Ltmp46:
 .LBB7_4:
 	sext r0, 16
 	ldw r5, sp[1]
@@ -637,8 +607,8 @@ Tempchip_MCP9808_ReadTempC:
 	.globl	Tempchip_MCP9808_ReadTempC.maxtimers
 	.set	Tempchip_MCP9808_ReadTempC.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
 	.globl	Tempchip_MCP9808_ReadTempC.maxchanends
-.Ltmp53:
-	.size	Tempchip_MCP9808_ReadTempC, .Ltmp53-Tempchip_MCP9808_ReadTempC
+.Ltmp47:
+	.size	Tempchip_MCP9808_ReadTempC, .Ltmp47-Tempchip_MCP9808_ReadTempC
 .Lfunc_end7:
 	.cfi_endproc
 
@@ -652,62 +622,62 @@ Tempchip_MCP9808_Write16:
 	.cfi_startproc
 .Lxtalabel10:
 	entsp 7
-.Ltmp54:
+.Ltmp48:
 	.cfi_def_cfa_offset 28
-.Ltmp55:
+.Ltmp49:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp56:
+.Ltmp50:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp57:
+.Ltmp51:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp58:
+.Ltmp52:
 	.cfi_offset 6, -12
-.Ltmp59:
+.Ltmp53:
 	mov r4, r1
-.Ltmp60:
+.Ltmp54:
 	.loc	1 114 0 prologue_end
 	ldc r5, 0
-.Ltmp61:
+.Ltmp55:
 	.loc	1 110 0
 	ld8u r1, r4[r5]
 	.loc	1 112 0
-.Ltmp62:
+.Ltmp56:
 	shr r6, r3, 8
 	ldaw r11, sp[3]
 	.loc	1 114 0
-.Ltmp63:
+.Ltmp57:
 	st8 r6, r11[r5]
 	mkmsk r6, 1
 	.loc	1 114 0
 	or r6, r11, r6
 	.loc	1 114 0
 	st8 r3, r6[r5]
-.Ltmp64:
+.Ltmp58:
 	ldc r3, 2
-.Ltmp65:
+.Ltmp59:
 	.loc	1 117 0
 	stw r3, sp[2]
 	stw r0, sp[1]
 	mov r0, r1
-.Ltmp66:
+.Ltmp60:
 	mov r1, r2
-.Ltmp67:
+.Ltmp61:
 	mov r2, r11
 .Lxta.call_labels3:
 	bl i2c_master_write_reg
-.Ltmp68:
+.Ltmp62:
 	.loc	1 117 0
 	stw r0, r4[1]
 	ldw r6, sp[4]
 	ldw r5, sp[5]
 	ldw r4, sp[6]
-.Ltmp69:
+.Ltmp63:
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp70:
+.Ltmp64:
 	.cc_bottom Tempchip_MCP9808_Write16.function
 	.set	Tempchip_MCP9808_Write16.nstackwords,(i2c_master_write_reg.nstackwords + 7)
 	.globl	Tempchip_MCP9808_Write16.nstackwords
@@ -717,8 +687,8 @@ Tempchip_MCP9808_Write16:
 	.globl	Tempchip_MCP9808_Write16.maxtimers
 	.set	Tempchip_MCP9808_Write16.maxchanends,i2c_master_write_reg.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Write16.maxchanends
-.Ltmp71:
-	.size	Tempchip_MCP9808_Write16, .Ltmp71-Tempchip_MCP9808_Write16
+.Ltmp65:
+	.size	Tempchip_MCP9808_Write16, .Ltmp65-Tempchip_MCP9808_Write16
 .Lfunc_end8:
 	.cfi_endproc
 
@@ -732,65 +702,65 @@ Tempchip_MCP9808_Read16:
 	.cfi_startproc
 .Lxtalabel11:
 	entsp 7
-.Ltmp72:
+.Ltmp66:
 	.cfi_def_cfa_offset 28
-.Ltmp73:
+.Ltmp67:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp74:
+.Ltmp68:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp75:
+.Ltmp69:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp76:
+.Ltmp70:
 	.cfi_offset 6, -12
-.Ltmp77:
+.Ltmp71:
 	mov r4, r1
-.Ltmp78:
+.Ltmp72:
 	.loc	1 134 0 prologue_end
 	ldc r6, 0
-.Ltmp79:
+.Ltmp73:
 	.loc	1 123 0
 	ld8u r1, r4[r6]
 	ldaw r5, sp[3]
 	.loc	1 125 0
-.Ltmp80:
+.Ltmp74:
 	st16 r6, r5[r6]
-.Ltmp81:
+.Ltmp75:
 	ldc r3, 2
 	.loc	1 129 0
-.Ltmp82:
+.Ltmp76:
 	stw r3, sp[2]
 	stw r0, sp[1]
 	mov r0, r1
-.Ltmp83:
+.Ltmp77:
 	mov r1, r2
-.Ltmp84:
+.Ltmp78:
 	mov r2, r5
 .Lxta.call_labels4:
 	bl i2c_master_read_reg
-.Ltmp85:
+.Ltmp79:
 	.loc	1 129 0
 	stw r0, r4[1]
 	.loc	1 134 0
-.Ltmp86:
+.Ltmp80:
 	ld16s r0, r5[r6]
 	zext r0, 16
 	.loc	1 134 0
 	shl r1, r0, 8
 	shr r0, r0, 8
 	.loc	1 136 0
-.Ltmp87:
+.Ltmp81:
 	or r0, r1, r0
 	zext r0, 16
 	ldw r6, sp[4]
 	ldw r5, sp[5]
 	ldw r4, sp[6]
-.Ltmp88:
+.Ltmp82:
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp89:
+.Ltmp83:
 	.cc_bottom Tempchip_MCP9808_Read16.function
 	.set	Tempchip_MCP9808_Read16.nstackwords,(i2c_master_read_reg.nstackwords + 7)
 	.globl	Tempchip_MCP9808_Read16.nstackwords
@@ -800,8 +770,8 @@ Tempchip_MCP9808_Read16:
 	.globl	Tempchip_MCP9808_Read16.maxtimers
 	.set	Tempchip_MCP9808_Read16.maxchanends,i2c_master_read_reg.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Read16.maxchanends
-.Ltmp90:
-	.size	Tempchip_MCP9808_Read16, .Ltmp90-Tempchip_MCP9808_Read16
+.Ltmp84:
+	.size	Tempchip_MCP9808_Read16, .Ltmp84-Tempchip_MCP9808_Read16
 .Lfunc_end9:
 	.cfi_endproc
 
@@ -815,31 +785,31 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.cfi_startproc
 .Lxtalabel12:
 	entsp 8
-.Ltmp91:
+.Ltmp85:
 	.cfi_def_cfa_offset 32
-.Ltmp92:
+.Ltmp86:
 	.cfi_offset 15, 0
 	stw r4, sp[7]
-.Ltmp93:
+.Ltmp87:
 	.cfi_offset 4, -4
 	stw r5, sp[6]
-.Ltmp94:
+.Ltmp88:
 	.cfi_offset 5, -8
 	stw r6, sp[5]
-.Ltmp95:
+.Ltmp89:
 	.cfi_offset 6, -12
 	stw r7, sp[4]
-.Ltmp96:
+.Ltmp90:
 	.cfi_offset 7, -16
 	mov r7, r2
-.Ltmp97:
+.Ltmp91:
 	mov r4, r1
-.Ltmp98:
+.Ltmp92:
 	mov r6, r0
-.Ltmp99:
+.Ltmp93:
 	mkmsk r5, 1
 	.loc	1 93 0 prologue_end
-.Ltmp100:
+.Ltmp94:
 	mov r2, r5
 .Lxta.call_labels5:
 	bl Tempchip_MCP9808_Read16
@@ -848,12 +818,12 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.loc	1 95 5
 	eq r1, r1, 1
 	bf r1, .LBB10_1
-.Ltmp101:
+.Ltmp95:
 .Lxtalabel13:
 	ldc r1, 256
 	.loc	1 96 9
 	bf r7, .LBB10_4
-.Ltmp102:
+.Ltmp96:
 .Lxtalabel14:
 	.loc	1 97 0
 	or r2, r0, r1
@@ -866,41 +836,41 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.loc	1 100 0
 	xor r2, r0, r1
 .LBB10_5:
-.Ltmp103:
+.Ltmp97:
 	.loc	1 114 0
 	ldc r3, 0
-.Ltmp104:
+.Ltmp98:
 	.loc	1 110 0
 	ld8u r1, r4[r3]
-.Ltmp105:
+.Ltmp99:
 	.loc	1 112 0
 	shr r11, r2, 8
 	ldaw r2, sp[3]
-.Ltmp106:
+.Ltmp100:
 	.loc	1 114 0
 	st8 r11, r2[r3]
 	.loc	1 114 0
 	or r11, r2, r5
 	.loc	1 114 0
 	st8 r0, r11[r3]
-.Ltmp107:
+.Ltmp101:
 	ldc r3, 2
 	.loc	1 117 0
-.Ltmp108:
+.Ltmp102:
 	stw r3, sp[2]
-.Ltmp109:
+.Ltmp103:
 	stw r6, sp[1]
 	mov r0, r1
 	mov r1, r5
 .Lxta.call_labels6:
 	bl i2c_master_write_reg
-.Ltmp110:
+.Ltmp104:
 	.loc	1 117 0
 	stw r0, r4[1]
-.Ltmp111:
+.Ltmp105:
 	.loc	1 103 9
 	eq r0, r0, 1
-.Ltmp112:
+.Ltmp106:
 .LBB10_6:
 	ldw r7, sp[4]
 	ldw r6, sp[5]
@@ -917,8 +887,8 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxtimers
 	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M i2c_master_write_reg.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends
-.Ltmp113:
-	.size	Tempchip_MCP9808_Shutdown_Wake_Ok, .Ltmp113-Tempchip_MCP9808_Shutdown_Wake_Ok
+.Ltmp107:
+	.size	Tempchip_MCP9808_Shutdown_Wake_Ok, .Ltmp107-Tempchip_MCP9808_Shutdown_Wake_Ok
 .Lfunc_end10:
 	.cfi_endproc
 
@@ -2322,8 +2292,8 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Ltmp30
-	.long	.Ltmp34
+	.long	.Ltmp24
+	.long	.Ltmp28
 	.long	0
 	.long	0
 .Ldebug_ranges2:
@@ -2332,13 +2302,13 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	0
 	.long	0
 .Ldebug_ranges3:
-	.long	.Ltmp48
-	.long	.Ltmp52
+	.long	.Ltmp42
+	.long	.Ltmp46
 	.long	0
 	.long	0
 .Ldebug_ranges4:
-	.long	.Ltmp42
-	.long	.Ltmp52
+	.long	.Ltmp36
+	.long	.Ltmp46
 	.long	0
 	.long	0
 .Ldebug_ranges5:
@@ -2347,41 +2317,41 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	0
 	.long	0
 .Ldebug_ranges6:
-	.long	.Ltmp65
-	.long	.Ltmp70
+	.long	.Ltmp59
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges7:
-	.long	.Ltmp60
-	.long	.Ltmp61
-	.long	.Ltmp63
-	.long	.Ltmp70
+	.long	.Ltmp54
+	.long	.Ltmp55
+	.long	.Ltmp57
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges8:
-	.long	.Ltmp60
-	.long	.Ltmp61
-	.long	.Ltmp63
-	.long	.Ltmp70
+	.long	.Ltmp54
+	.long	.Ltmp55
+	.long	.Ltmp57
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges9:
-	.long	.Ltmp60
-	.long	.Ltmp61
-	.long	.Ltmp62
-	.long	.Ltmp70
+	.long	.Ltmp54
+	.long	.Ltmp55
+	.long	.Ltmp56
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges10:
-	.long	.Ltmp60
-	.long	.Ltmp61
-	.long	.Ltmp62
-	.long	.Ltmp70
+	.long	.Ltmp54
+	.long	.Ltmp55
+	.long	.Ltmp56
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges11:
-	.long	.Ltmp60
-	.long	.Ltmp70
+	.long	.Ltmp54
+	.long	.Ltmp64
 	.long	0
 	.long	0
 .Ldebug_ranges12:
@@ -2390,48 +2360,48 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	0
 	.long	0
 .Ldebug_ranges13:
-	.long	.Ltmp87
-	.long	.Ltmp89
+	.long	.Ltmp81
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges14:
-	.long	.Ltmp78
-	.long	.Ltmp79
-	.long	.Ltmp86
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp73
+	.long	.Ltmp80
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges15:
-	.long	.Ltmp78
-	.long	.Ltmp79
-	.long	.Ltmp82
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp73
+	.long	.Ltmp76
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges16:
-	.long	.Ltmp78
-	.long	.Ltmp79
-	.long	.Ltmp82
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp73
+	.long	.Ltmp76
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges17:
-	.long	.Ltmp78
-	.long	.Ltmp79
-	.long	.Ltmp80
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp73
+	.long	.Ltmp74
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges18:
-	.long	.Ltmp78
-	.long	.Ltmp79
-	.long	.Ltmp80
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp73
+	.long	.Ltmp74
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges19:
-	.long	.Ltmp78
-	.long	.Ltmp89
+	.long	.Ltmp72
+	.long	.Ltmp83
 	.long	0
 	.long	0
 .Ldebug_ranges20:
@@ -2440,346 +2410,346 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	0
 	.long	0
 .Ldebug_ranges21:
-	.long	.Ltmp103
-	.long	.Ltmp111
+	.long	.Ltmp97
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges22:
-	.long	.Ltmp108
-	.long	.Ltmp111
+	.long	.Ltmp102
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges23:
-	.long	.Ltmp103
-	.long	.Ltmp104
-	.long	.Ltmp106
-	.long	.Ltmp111
+	.long	.Ltmp97
+	.long	.Ltmp98
+	.long	.Ltmp100
+	.long	.Ltmp105
 	.long	0
 	.long	0
 .Ldebug_ranges24:
-	.long	.Ltmp103
-	.long	.Ltmp104
+	.long	.Ltmp97
+	.long	.Ltmp98
+	.long	.Ltmp99
 	.long	.Ltmp105
-	.long	.Ltmp111
 	.long	0
 	.long	0
 .Ldebug_ranges25:
-	.long	.Ltmp100
-	.long	.Ltmp112
+	.long	.Ltmp94
+	.long	.Ltmp106
 	.long	0
 	.long	0
 .Ldebug_ranges26:
-	.long	.Ltmp100
-	.long	.Ltmp112
+	.long	.Ltmp94
+	.long	.Ltmp106
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin6
-	.long	.Ltmp30
-.Lset0 = .Ltmp115-.Ltmp114
+	.long	.Ltmp24
+.Lset0 = .Ltmp109-.Ltmp108
 	.short	.Lset0
-.Ltmp114:
+.Ltmp108:
 	.byte	80
-.Ltmp115:
-	.long	.Ltmp30
-	.long	.Ltmp34
-.Lset1 = .Ltmp117-.Ltmp116
+.Ltmp109:
+	.long	.Ltmp24
+	.long	.Ltmp28
+.Lset1 = .Ltmp111-.Ltmp110
 	.short	.Lset1
-.Ltmp116:
+.Ltmp110:
 	.byte	85
-.Ltmp117:
+.Ltmp111:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin6
-	.long	.Ltmp29
-.Lset2 = .Ltmp119-.Ltmp118
+	.long	.Ltmp23
+.Lset2 = .Ltmp113-.Ltmp112
 	.short	.Lset2
-.Ltmp118:
+.Ltmp112:
 	.byte	81
-.Ltmp119:
-	.long	.Ltmp29
-	.long	.Ltmp34
-.Lset3 = .Ltmp121-.Ltmp120
+.Ltmp113:
+	.long	.Ltmp23
+	.long	.Ltmp28
+.Lset3 = .Ltmp115-.Ltmp114
 	.short	.Lset3
-.Ltmp120:
+.Ltmp114:
 	.byte	84
-.Ltmp121:
+.Ltmp115:
 	.long	0
 	.long	0
 .Ldebug_loc2:
 	.long	.Lfunc_begin6
-	.long	.Ltmp31
-.Lset4 = .Ltmp123-.Ltmp122
+	.long	.Ltmp25
+.Lset4 = .Ltmp117-.Ltmp116
 	.short	.Lset4
-.Ltmp122:
+.Ltmp116:
 	.byte	82
-.Ltmp123:
+.Ltmp117:
 	.long	0
 	.long	0
 .Ldebug_loc3:
 	.long	.Lfunc_begin7
-	.long	.Ltmp43
-.Lset5 = .Ltmp125-.Ltmp124
+	.long	.Ltmp37
+.Lset5 = .Ltmp119-.Ltmp118
 	.short	.Lset5
-.Ltmp124:
+.Ltmp118:
 	.byte	80
-.Ltmp125:
+.Ltmp119:
 	.long	0
 	.long	0
 .Ldebug_loc4:
 	.long	.Lfunc_begin7
-	.long	.Ltmp41
-.Lset6 = .Ltmp127-.Ltmp126
+	.long	.Ltmp35
+.Lset6 = .Ltmp121-.Ltmp120
 	.short	.Lset6
-.Ltmp126:
+.Ltmp120:
 	.byte	81
-.Ltmp127:
-	.long	.Ltmp41
-	.long	.Ltmp44
-.Lset7 = .Ltmp129-.Ltmp128
+.Ltmp121:
+	.long	.Ltmp35
+	.long	.Ltmp38
+.Lset7 = .Ltmp123-.Ltmp122
 	.short	.Lset7
-.Ltmp128:
+.Ltmp122:
 	.byte	85
-.Ltmp129:
+.Ltmp123:
 	.long	0
 	.long	0
 .Ldebug_loc5:
 	.long	.Lfunc_begin7
-	.long	.Ltmp40
-.Lset8 = .Ltmp131-.Ltmp130
+	.long	.Ltmp34
+.Lset8 = .Ltmp125-.Ltmp124
 	.short	.Lset8
-.Ltmp130:
+.Ltmp124:
 	.byte	82
-.Ltmp131:
-	.long	.Ltmp40
-	.long	.Ltmp52
-.Lset9 = .Ltmp133-.Ltmp132
+.Ltmp125:
+	.long	.Ltmp34
+	.long	.Ltmp46
+.Lset9 = .Ltmp127-.Ltmp126
 	.short	.Lset9
-.Ltmp132:
+.Ltmp126:
 	.byte	84
-.Ltmp133:
+.Ltmp127:
 	.long	0
 	.long	0
 .Ldebug_loc6:
-	.long	.Ltmp49
-	.long	.Ltmp50
-.Lset10 = .Ltmp135-.Ltmp134
+	.long	.Ltmp43
+	.long	.Ltmp44
+.Lset10 = .Ltmp129-.Ltmp128
 	.short	.Lset10
-.Ltmp134:
+.Ltmp128:
 	.byte	80
-.Ltmp135:
-	.long	.Ltmp51
-	.long	.Ltmp52
-.Lset11 = .Ltmp137-.Ltmp136
+.Ltmp129:
+	.long	.Ltmp45
+	.long	.Ltmp46
+.Lset11 = .Ltmp131-.Ltmp130
 	.short	.Lset11
-.Ltmp136:
+.Ltmp130:
 	.byte	80
-.Ltmp137:
+.Ltmp131:
 	.long	0
 	.long	0
 .Ldebug_loc7:
 	.long	.Lfunc_begin8
-	.long	.Ltmp66
-.Lset12 = .Ltmp139-.Ltmp138
+	.long	.Ltmp60
+.Lset12 = .Ltmp133-.Ltmp132
 	.short	.Lset12
-.Ltmp138:
+.Ltmp132:
 	.byte	80
-.Ltmp139:
+.Ltmp133:
 	.long	0
 	.long	0
 .Ldebug_loc8:
 	.long	.Lfunc_begin8
-	.long	.Ltmp60
-.Lset13 = .Ltmp141-.Ltmp140
+	.long	.Ltmp54
+.Lset13 = .Ltmp135-.Ltmp134
 	.short	.Lset13
-.Ltmp140:
+.Ltmp134:
 	.byte	81
-.Ltmp141:
-	.long	.Ltmp60
-	.long	.Ltmp69
-.Lset14 = .Ltmp143-.Ltmp142
+.Ltmp135:
+	.long	.Ltmp54
+	.long	.Ltmp63
+.Lset14 = .Ltmp137-.Ltmp136
 	.short	.Lset14
-.Ltmp142:
+.Ltmp136:
 	.byte	84
-.Ltmp143:
+.Ltmp137:
 	.long	0
 	.long	0
 .Ldebug_loc9:
 	.long	.Lfunc_begin8
-	.long	.Ltmp67
-.Lset15 = .Ltmp145-.Ltmp144
+	.long	.Ltmp61
+.Lset15 = .Ltmp139-.Ltmp138
 	.short	.Lset15
+.Ltmp138:
+	.byte	82
+.Ltmp139:
+	.long	.Ltmp61
+	.long	.Ltmp62
+.Lset16 = .Ltmp141-.Ltmp140
+	.short	.Lset16
+.Ltmp140:
+	.byte	81
+.Ltmp141:
+	.long	0
+	.long	0
+.Ldebug_loc10:
+	.long	.Lfunc_begin8
+	.long	.Ltmp59
+.Lset17 = .Ltmp143-.Ltmp142
+	.short	.Lset17
+.Ltmp142:
+	.byte	83
+.Ltmp143:
+	.long	0
+	.long	0
+.Ldebug_loc11:
+	.long	.Ltmp53
+	.long	.Ltmp61
+.Lset18 = .Ltmp145-.Ltmp144
+	.short	.Lset18
 .Ltmp144:
 	.byte	82
 .Ltmp145:
-	.long	.Ltmp67
-	.long	.Ltmp68
-.Lset16 = .Ltmp147-.Ltmp146
-	.short	.Lset16
+	.long	.Ltmp61
+	.long	.Ltmp62
+.Lset19 = .Ltmp147-.Ltmp146
+	.short	.Lset19
 .Ltmp146:
 	.byte	81
 .Ltmp147:
 	.long	0
 	.long	0
-.Ldebug_loc10:
-	.long	.Lfunc_begin8
-	.long	.Ltmp65
-.Lset17 = .Ltmp149-.Ltmp148
-	.short	.Lset17
-.Ltmp148:
-	.byte	83
-.Ltmp149:
-	.long	0
-	.long	0
-.Ldebug_loc11:
-	.long	.Ltmp59
-	.long	.Ltmp67
-.Lset18 = .Ltmp151-.Ltmp150
-	.short	.Lset18
-.Ltmp150:
-	.byte	82
-.Ltmp151:
-	.long	.Ltmp67
-	.long	.Ltmp68
-.Lset19 = .Ltmp153-.Ltmp152
-	.short	.Lset19
-.Ltmp152:
-	.byte	81
-.Ltmp153:
-	.long	0
-	.long	0
 .Ldebug_loc12:
 	.long	.Lfunc_begin9
-	.long	.Ltmp83
-.Lset20 = .Ltmp155-.Ltmp154
+	.long	.Ltmp77
+.Lset20 = .Ltmp149-.Ltmp148
 	.short	.Lset20
-.Ltmp154:
+.Ltmp148:
 	.byte	80
-.Ltmp155:
+.Ltmp149:
 	.long	0
 	.long	0
 .Ldebug_loc13:
 	.long	.Lfunc_begin9
-	.long	.Ltmp78
-.Lset21 = .Ltmp157-.Ltmp156
+	.long	.Ltmp72
+.Lset21 = .Ltmp151-.Ltmp150
 	.short	.Lset21
-.Ltmp156:
+.Ltmp150:
 	.byte	81
-.Ltmp157:
-	.long	.Ltmp78
-	.long	.Ltmp88
-.Lset22 = .Ltmp159-.Ltmp158
+.Ltmp151:
+	.long	.Ltmp72
+	.long	.Ltmp82
+.Lset22 = .Ltmp153-.Ltmp152
 	.short	.Lset22
-.Ltmp158:
+.Ltmp152:
 	.byte	84
-.Ltmp159:
+.Ltmp153:
 	.long	0
 	.long	0
 .Ldebug_loc14:
 	.long	.Lfunc_begin9
-	.long	.Ltmp84
-.Lset23 = .Ltmp161-.Ltmp160
+	.long	.Ltmp78
+.Lset23 = .Ltmp155-.Ltmp154
 	.short	.Lset23
-.Ltmp160:
+.Ltmp154:
 	.byte	82
-.Ltmp161:
-	.long	.Ltmp84
-	.long	.Ltmp85
-.Lset24 = .Ltmp163-.Ltmp162
+.Ltmp155:
+	.long	.Ltmp78
+	.long	.Ltmp79
+.Lset24 = .Ltmp157-.Ltmp156
 	.short	.Lset24
-.Ltmp162:
+.Ltmp156:
 	.byte	81
-.Ltmp163:
+.Ltmp157:
 	.long	0
 	.long	0
 .Ldebug_loc15:
-	.long	.Ltmp77
-	.long	.Ltmp84
-.Lset25 = .Ltmp165-.Ltmp164
+	.long	.Ltmp71
+	.long	.Ltmp78
+.Lset25 = .Ltmp159-.Ltmp158
 	.short	.Lset25
-.Ltmp164:
+.Ltmp158:
 	.byte	82
-.Ltmp165:
-	.long	.Ltmp84
-	.long	.Ltmp85
-.Lset26 = .Ltmp167-.Ltmp166
+.Ltmp159:
+	.long	.Ltmp78
+	.long	.Ltmp79
+.Lset26 = .Ltmp161-.Ltmp160
 	.short	.Lset26
-.Ltmp166:
+.Ltmp160:
 	.byte	81
-.Ltmp167:
+.Ltmp161:
 	.long	0
 	.long	0
 .Ldebug_loc16:
 	.long	.Lfunc_begin10
-	.long	.Ltmp99
-.Lset27 = .Ltmp169-.Ltmp168
+	.long	.Ltmp93
+.Lset27 = .Ltmp163-.Ltmp162
 	.short	.Lset27
-.Ltmp168:
+.Ltmp162:
 	.byte	80
-.Ltmp169:
-	.long	.Ltmp99
-	.long	.Ltmp102
-.Lset28 = .Ltmp171-.Ltmp170
+.Ltmp163:
+	.long	.Ltmp93
+	.long	.Ltmp96
+.Lset28 = .Ltmp165-.Ltmp164
 	.short	.Lset28
-.Ltmp170:
+.Ltmp164:
 	.byte	86
-.Ltmp171:
+.Ltmp165:
 	.long	0
 	.long	0
 .Ldebug_loc17:
 	.long	.Lfunc_begin10
-	.long	.Ltmp98
-.Lset29 = .Ltmp173-.Ltmp172
+	.long	.Ltmp92
+.Lset29 = .Ltmp167-.Ltmp166
 	.short	.Lset29
-.Ltmp172:
+.Ltmp166:
 	.byte	81
-.Ltmp173:
-	.long	.Ltmp98
-	.long	.Ltmp102
-.Lset30 = .Ltmp175-.Ltmp174
+.Ltmp167:
+	.long	.Ltmp92
+	.long	.Ltmp96
+.Lset30 = .Ltmp169-.Ltmp168
 	.short	.Lset30
+.Ltmp168:
+	.byte	84
+.Ltmp169:
+	.long	0
+	.long	0
+.Ldebug_loc18:
+	.long	.Lfunc_begin10
+	.long	.Ltmp91
+.Lset31 = .Ltmp171-.Ltmp170
+	.short	.Lset31
+.Ltmp170:
+	.byte	82
+.Ltmp171:
+	.long	.Ltmp91
+	.long	.Ltmp96
+.Lset32 = .Ltmp173-.Ltmp172
+	.short	.Lset32
+.Ltmp172:
+	.byte	87
+.Ltmp173:
+	.long	0
+	.long	0
+.Ldebug_loc19:
+	.long	.Ltmp97
+	.long	.Ltmp106
+.Lset33 = .Ltmp175-.Ltmp174
+	.short	.Lset33
 .Ltmp174:
 	.byte	84
 .Ltmp175:
 	.long	0
 	.long	0
-.Ldebug_loc18:
-	.long	.Lfunc_begin10
-	.long	.Ltmp97
-.Lset31 = .Ltmp177-.Ltmp176
-	.short	.Lset31
-.Ltmp176:
-	.byte	82
-.Ltmp177:
-	.long	.Ltmp97
-	.long	.Ltmp102
-.Lset32 = .Ltmp179-.Ltmp178
-	.short	.Lset32
-.Ltmp178:
-	.byte	87
-.Ltmp179:
-	.long	0
-	.long	0
-.Ldebug_loc19:
-	.long	.Ltmp103
-	.long	.Ltmp112
-.Lset33 = .Ltmp181-.Ltmp180
-	.short	.Lset33
-.Ltmp180:
-	.byte	84
-.Ltmp181:
-	.long	0
-	.long	0
 .Ldebug_loc20:
-	.long	.Ltmp109
-	.long	.Ltmp112
-.Lset34 = .Ltmp183-.Ltmp182
+	.long	.Ltmp103
+	.long	.Ltmp106
+.Lset34 = .Ltmp177-.Ltmp176
 	.short	.Lset34
-.Ltmp182:
+.Ltmp176:
 	.byte	86
-.Ltmp183:
+.Ltmp177:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -2871,7 +2841,6 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.cfi_sections .debug_frame
 
 	.typestring _i.button_if._chan.button, "f{0}(chd,:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
-	.overlay_reference _i.button_if._chan.button,_i.button_if._client_call_y.fns
 	.typestring _i.button_if._chan_yield.button, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.overlay_reference _i.button_if._chan_yield.button,_i.button_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.trigger, "f{0}(chd,:e(i2c_command_external_t){m(GET_TEMPC_ALL){1},m(VER_TEMPC_CHIPS){0}})"

@@ -1347,10 +1347,11 @@ typedef interface button_if {
 
 
 
-    [[guarded]] void button (const button_action_t button_action);
+
+    void button (const button_action_t button_action);
 
 } button_if;
-# 34 "../src/button_press.h"
+# 35 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
     bool pressed_for_10_seconds;
@@ -1418,7 +1419,7 @@ void Button_Task (
                         initial_released_stopped = true;
                         pressed_but_not_released = true;
 
-                        i_button_out.button(BUTTON_ACTION_PRESSED);
+                        i_button_out.button (BUTTON_ACTION_PRESSED);
                         do { if(0) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
@@ -1429,7 +1430,7 @@ void Button_Task (
                             do { if(0) printf(" Button %u filtered away\n", button_n); } while (0);
                         } else {
                             pressed_but_not_released = false;
-                            i_button_out.button(BUTTON_ACTION_RELEASED);
+                            i_button_out.button (BUTTON_ACTION_RELEASED);
                             do { if(0) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
                         }
                     }
@@ -1438,7 +1439,7 @@ void Button_Task (
 
 
                     pressed_but_not_released = false;
-                    i_button_out.button(BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
+                    i_button_out.button (BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
                     do { if(0) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
                 }
             } break;

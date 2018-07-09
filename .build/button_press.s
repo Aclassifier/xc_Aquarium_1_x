@@ -22,7 +22,7 @@
 	.globl Button_Task.select.yield.enable.cases.maxchanends
 	.set Button_Task.select.yield.enable.cases,0
 	.globl Button_Task.select.yield.enable.cases
-	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.1.nstackwords) $M (Button_Task.select.yield.case.0.nstackwords)
+	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.0.nstackwords) $M (Button_Task.select.yield.case.1.nstackwords)
 	.globl Button_Task.select.yield.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
@@ -111,50 +111,33 @@
 	.cc_top _i.button_if._chan.button.function,_i.button_if._chan.button
 _i.button_if._chan.button:
 	.cfi_startproc
-	entsp 3
-.Ltmp0:
-	.cfi_def_cfa_offset 12
-.Ltmp1:
-	.cfi_offset 15, 0
-	stw r4, sp[2]
-.Ltmp2:
-	.cfi_offset 4, -4
-	stw r5, sp[1]
-.Ltmp3:
-	.cfi_offset 5, -8
-	mov r4, r1
-	getr r5, 2
-	setd res[r5], r0
-	out res[r5], r5
-	outct res[r5], 2
-	ldc r1, 0
-	mov r0, r5
-	bl __interface_wait_and_yield
-	chkct res[r5], 1
-	out res[r5], r4
-	outct res[r5], 2
-	in r0, res[r5]
-	chkct res[r5], 1
-	freer res[r5]
-	ldw r5, sp[1]
-	ldw r4, sp[2]
-	retsp 3
+	getr r2, 2
+	setd res[r2], r0
+	out res[r2], r2
+	outct res[r2], 2
+	chkct res[r2], 1
+	out res[r2], r1
+	outct res[r2], 2
+	in r0, res[r2]
+	chkct res[r2], 1
+	freer res[r2]
+	retsp 0
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.button_if._chan.button.function
-	.set	_i.button_if._chan.button.nstackwords,((_i.button_if._client_call_y.max.nstackwords $M ($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 3)
+	.set	_i.button_if._chan.button.nstackwords,0
 	.globl	_i.button_if._chan.button.nstackwords
 	.weak	_i.button_if._chan.button.nstackwords
-	.set	_i.button_if._chan.button.maxcores,($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
+	.set	_i.button_if._chan.button.maxcores,1
 	.globl	_i.button_if._chan.button.maxcores
 	.weak	_i.button_if._chan.button.maxcores
-	.set	_i.button_if._chan.button.maxtimers,($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
+	.set	_i.button_if._chan.button.maxtimers,0
 	.globl	_i.button_if._chan.button.maxtimers
 	.weak	_i.button_if._chan.button.maxtimers
-	.set	_i.button_if._chan.button.maxchanends,(1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
+	.set	_i.button_if._chan.button.maxchanends,1
 	.globl	_i.button_if._chan.button.maxchanends
 	.weak	_i.button_if._chan.button.maxchanends
-.Ltmp4:
-	.size	_i.button_if._chan.button, .Ltmp4-_i.button_if._chan.button
+.Ltmp0:
+	.size	_i.button_if._chan.button, .Ltmp0-_i.button_if._chan.button
 	.cfi_endproc
 
 	.weak	_i.button_if._chan_yield.button
@@ -163,59 +146,46 @@ _i.button_if._chan.button:
 	.cc_top _i.button_if._chan_yield.button.function,_i.button_if._chan_yield.button
 _i.button_if._chan_yield.button:
 	.cfi_startproc
-	entsp 4
-.Ltmp5:
-	.cfi_def_cfa_offset 16
-.Ltmp6:
+	entsp 2
+.Ltmp1:
+	.cfi_def_cfa_offset 8
+.Ltmp2:
 	.cfi_offset 15, 0
-	stw r4, sp[3]
-.Ltmp7:
+	stw r4, sp[1]
+.Ltmp3:
 	.cfi_offset 4, -4
-	stw r5, sp[2]
-.Ltmp8:
-	.cfi_offset 5, -8
-	stw r6, sp[1]
-.Ltmp9:
-	.cfi_offset 6, -12
-	mov r4, r1
-	ldw r1, r0[0]
-	getr r5, 2
-	setd res[r5], r1
-	out res[r5], r5
-	outct res[r5], 2
-	ldw r6, r0[1]
-	mov r0, r5
-	mov r1, r6
-	bl __interface_wait_and_yield
-	chkct res[r5], 1
-	out res[r5], r4
-	outct res[r5], 2
+	ldw r2, r0[0]
+	getr r4, 2
+	setd res[r4], r2
+	out res[r4], r4
+	outct res[r4], 2
+	chkct res[r4], 1
+	out res[r4], r1
+	outct res[r4], 2
+	ldw r2, r0[1]
 	ldc r1, 0
-	mov r0, r5
-	mov r2, r6
+	mov r0, r4
 	bl __interface_client_call_y
-	chkct res[r5], 1
-	freer res[r5]
-	ldw r6, sp[1]
-	ldw r5, sp[2]
-	ldw r4, sp[3]
-	retsp 4
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[1]
+	retsp 2
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.button_if._chan_yield.button.function
-	.set	_i.button_if._chan_yield.button.nstackwords,((($D __interface_wait_and_yield.nstackwords ? __interface_wait_and_yield.nstackwords $: _i.button_if._client_call_y.max.nstackwords) $M _i.button_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 4)
+	.set	_i.button_if._chan_yield.button.nstackwords,((_i.button_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.button_if._client_call_y.max.nstackwords)) + 2)
 	.globl	_i.button_if._chan_yield.button.nstackwords
 	.weak	_i.button_if._chan_yield.button.nstackwords
-	.set	_i.button_if._chan_yield.button.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.button_if._client_call_y.max.maxcores) $M ($D __interface_wait_and_yield.maxcores ? __interface_wait_and_yield.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
+	.set	_i.button_if._chan_yield.button.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.button_if._client_call_y.max.maxcores) $M 1
 	.globl	_i.button_if._chan_yield.button.maxcores
 	.weak	_i.button_if._chan_yield.button.maxcores
-	.set	_i.button_if._chan_yield.button.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M ($D __interface_wait_and_yield.maxtimers ? __interface_wait_and_yield.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
+	.set	_i.button_if._chan_yield.button.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.button_if._client_call_y.max.maxtimers) $M 0
 	.globl	_i.button_if._chan_yield.button.maxtimers
 	.weak	_i.button_if._chan_yield.button.maxtimers
-	.set	_i.button_if._chan_yield.button.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M (1 + ($D __interface_wait_and_yield.maxchanends ? __interface_wait_and_yield.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
+	.set	_i.button_if._chan_yield.button.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.button_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.button_if._chan_yield.button.maxchanends
 	.weak	_i.button_if._chan_yield.button.maxchanends
-.Ltmp10:
-	.size	_i.button_if._chan_yield.button, .Ltmp10-_i.button_if._chan_yield.button
+.Ltmp4:
+	.size	_i.button_if._chan_yield.button, .Ltmp4-_i.button_if._chan_yield.button
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -244,38 +214,38 @@ Button_Task:
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 10
-.Ltmp11:
+.Ltmp5:
 	.cfi_def_cfa_offset 40
-.Ltmp12:
+.Ltmp6:
 	.cfi_offset 15, 0
 	stw r4, sp[9]
-.Ltmp13:
+.Ltmp7:
 	.cfi_offset 4, -4
 	stw r5, sp[8]
-.Ltmp14:
+.Ltmp8:
 	.cfi_offset 5, -8
 	stw r6, sp[7]
-.Ltmp15:
+.Ltmp9:
 	.cfi_offset 6, -12
 	stw r7, sp[6]
-.Ltmp16:
+.Ltmp10:
 	.cfi_offset 7, -16
 	stw r8, sp[5]
-.Ltmp17:
+.Ltmp11:
 	.cfi_offset 8, -20
 	stw r9, sp[4]
-.Ltmp18:
+.Ltmp12:
 	.cfi_offset 9, -24
 	stw r10, sp[3]
-.Ltmp19:
+.Ltmp13:
 	.cfi_offset 10, -28
 	mov r4, r2
-.Ltmp20:
+.Ltmp14:
 	mov r5, r1
-.Ltmp21:
+.Ltmp15:
 	get r11, id
 	ldaw r0, dp[__timers]
-.Ltmp22:
+.Ltmp16:
 	ldw r9, r0[r11]
 	ldc r1, 0
 	mkmsk r7, 1
@@ -284,12 +254,12 @@ Button_Task:
 	stw r1, sp[2]
 	mov r6, r1
 	bu .LBB2_1
-.Ltmp23:
+.Ltmp17:
 .LBB2_11:
 .Lxtalabel1:
 	.loc	1 86 0 prologue_end
 	ldw r0, r4[0]
-.Ltmp24:
+.Ltmp18:
 	.loc	1 86 0
 	ldw r1, r4[1]
 	.loc	1 86 0
@@ -299,16 +269,16 @@ Button_Task:
 .Lxta.call_labels0:
 	bla r2
 	mov r0, r6
-.Ltmp25:
+.Ltmp19:
 .LBB2_1:
 	mov r8, r7
 	bu .LBB2_2
-.Ltmp26:
+.Ltmp20:
 .LBB2_13:
 .Lxtalabel2:
 	.loc	1 95 0
 	ldw r0, r4[0]
-.Ltmp27:
+.Ltmp21:
 	.loc	1 95 0
 	ldw r1, r4[1]
 	.loc	1 95 0
@@ -318,87 +288,87 @@ Button_Task:
 .Lxta.call_labels1:
 	bla r2
 	mov r0, r6
-.Ltmp28:
+.Ltmp22:
 .LBB2_2:
 .Lxtalabel3:
 	clre
 	bf r8, .LBB2_4
-.Ltmp29:
+.Ltmp23:
 	ldw r1, sp[2]
 	setd res[r5], r1
 	setc res[r5], 25
-	ldap r11, .Ltmp30
+	ldap r11, .Ltmp24
 	setv res[r5], r11
 	eeu res[r5]
 	bf r0, .LBB2_5
-.Ltmp31:
+.Ltmp25:
 .LBB2_4:
 	setd res[r9], r10
 	setc res[r9], 9
-	ldap r11, .Ltmp32
+	ldap r11, .Ltmp26
 	setv res[r9], r11
 	eeu res[r9]
-.Ltmp33:
+.Ltmp27:
 .LBB2_5:
 	.loc	1 98 0
 
 	.xtabranch .LBB2_12, .LBB2_6
 	waiteu
-.Ltmp34:
-.Ltmp32:
+.Ltmp28:
+.Ltmp26:
 .LBB2_6:
 .Lxtalabel4:
 	.loc	1 69 0
 .Lxta.endpoint_labels0:
 	in r1, res[r9]
-.Ltmp35:
+.Ltmp29:
 	.loc	1 70 17
 	bt r8, .LBB2_13
 	bu .LBB2_7
-.Ltmp36:
 .Ltmp30:
+.Ltmp24:
 .LBB2_12:
 .Lxtalabel5:
 	.loc	1 51 0
 .Lxta.endpoint_labels1:
 	in r0, res[r5]
-.Ltmp37:
+.Ltmp31:
 	.loc	1 61 0
 	stw r0, sp[2]
 	setc res[r9], 1
 	.loc	1 61 0
 .Lxta.endpoint_labels2:
 	in r0, res[r9]
-.Ltmp38:
+.Ltmp32:
 	ldw r1, cp[.LCPI2_1]
 	.loc	1 64 0
 	add r10, r0, r1
-.Ltmp39:
+.Ltmp33:
 	mov r0, r6
-.Ltmp40:
+.Ltmp34:
 	mov r8, r6
 	bu .LBB2_2
-.Ltmp41:
+.Ltmp35:
 .LBB2_7:
 .Lxtalabel6:
 	.loc	1 71 21
 	ldw r1, sp[2]
 	bf r1, .LBB2_8
-.Ltmp42:
+.Ltmp36:
 .Lxtalabel7:
 	.loc	1 81 25
 	ldw r1, sp[1]
 	zext r1, 1
 	bf r1, .LBB2_11
-.Ltmp43:
+.Ltmp37:
 	stw r6, sp[1]
 	bu .LBB2_1
-.Ltmp44:
+.Ltmp38:
 .LBB2_8:
 .Lxtalabel8:
 	.loc	1 75 0
 	ldw r0, r4[0]
-.Ltmp45:
+.Ltmp39:
 	.loc	1 75 0
 	ldw r1, r4[1]
 	.loc	1 75 0
@@ -412,17 +382,17 @@ Button_Task:
 	.loc	1 77 0
 .Lxta.endpoint_labels3:
 	in r0, res[r9]
-.Ltmp46:
+.Ltmp40:
 	ldw r1, cp[.LCPI2_0]
 	.loc	1 78 0
 	add r10, r0, r1
-.Ltmp47:
+.Ltmp41:
 	stw r6, sp[1]
 	mov r0, r7
-.Ltmp48:
+.Ltmp42:
 	stw r6, sp[2]
 	bu .LBB2_1
-.Ltmp49:
+.Ltmp43:
 	.cc_bottom Button_Task.function
 	.set	Button_Task.nstackwords,(_i.button_if.button.max.nstackwords + 10)
 	.globl	Button_Task.nstackwords
@@ -432,8 +402,8 @@ Button_Task:
 	.globl	Button_Task.maxtimers
 	.set	Button_Task.maxchanends,_i.button_if.button.max.maxchanends $M 0
 	.globl	Button_Task.maxchanends
-.Ltmp50:
-	.size	Button_Task, .Ltmp50-Button_Task
+.Ltmp44:
+	.size	Button_Task, .Ltmp44-Button_Task
 .Lfunc_end2:
 	.cfi_endproc
 
@@ -452,20 +422,20 @@ Button_Task.init.1:
 	ldc r1, 0
 	stw r1, r0[1]
 	.loc	1 36 0 prologue_end
-.Ltmp51:
+.Ltmp45:
 	stw r1, r0[5]
 	mkmsk r2, 1
 	.loc	1 37 0
-.Ltmp52:
+.Ltmp46:
 	stw r2, r0[6]
 	.loc	1 43 0
-.Ltmp53:
+.Ltmp47:
 	stw r1, r0[9]
 	.loc	1 44 0
-.Ltmp54:
+.Ltmp48:
 	stw r1, r0[10]
 	stw r2, r0[0]
-.Ltmp55:
+.Ltmp49:
 .LBB3_2:
 	retsp 0
 	# RETURN_REG_HOLDER
@@ -478,8 +448,8 @@ Button_Task.init.1:
 	.globl	Button_Task.init.1.maxtimers
 	.set	Button_Task.init.1.maxchanends,0
 	.globl	Button_Task.init.1.maxchanends
-.Ltmp56:
-	.size	Button_Task.init.1, .Ltmp56-Button_Task.init.1
+.Ltmp50:
+	.size	Button_Task.init.1, .Ltmp50-Button_Task.init.1
 .Lfunc_end3:
 	.cfi_endproc
 
@@ -508,8 +478,8 @@ Button_Task.init.0:
 	.globl	Button_Task.init.0.maxtimers
 	.set	Button_Task.init.0.maxchanends,0
 	.globl	Button_Task.init.0.maxchanends
-.Ltmp57:
-	.size	Button_Task.init.0, .Ltmp57-Button_Task.init.0
+.Ltmp51:
+	.size	Button_Task.init.0, .Ltmp51-Button_Task.init.0
 	.cfi_endproc
 
 	.globl	Button_Task.select.yield.enable
@@ -519,15 +489,15 @@ Button_Task.init.0:
 Button_Task.select.yield.enable:
 	.cfi_startproc
 	entsp 3
-.Ltmp58:
+.Ltmp52:
 	.cfi_def_cfa_offset 12
-.Ltmp59:
+.Ltmp53:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp60:
+.Ltmp54:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp61:
+.Ltmp55:
 	.cfi_offset 5, -8
 	mov r4, r0
 	bl Button_Task.init.1
@@ -588,8 +558,8 @@ Button_Task.select.yield.enable:
 	.globl	Button_Task.select.yield.enable.maxtimers
 	.set	Button_Task.select.yield.enable.maxchanends,Button_Task.init.1.maxchanends $M 0
 	.globl	Button_Task.select.yield.enable.maxchanends
-.Ltmp62:
-	.size	Button_Task.select.yield.enable, .Ltmp62-Button_Task.select.yield.enable
+.Ltmp56:
+	.size	Button_Task.select.yield.enable, .Ltmp56-Button_Task.select.yield.enable
 	.cfi_endproc
 
 	.globl	Button_Task.select.enable
@@ -599,13 +569,13 @@ Button_Task.select.yield.enable:
 Button_Task.select.enable:
 	.cfi_startproc
 	extsp 2
-.Ltmp63:
+.Ltmp57:
 	.cfi_def_cfa_offset 8
 	stw r4, sp[1]
-.Ltmp64:
+.Ltmp58:
 	.cfi_offset 4, -4
 	stw r5, sp[0]
-.Ltmp65:
+.Ltmp59:
 	.cfi_offset 5, -8
 	ldw r1, r0[0]
 	bf r1, .LBB6_1
@@ -666,8 +636,8 @@ Button_Task.select.enable:
 	.globl	Button_Task.select.enable.maxtimers
 	.set	Button_Task.select.enable.maxchanends,0
 	.globl	Button_Task.select.enable.maxchanends
-.Ltmp66:
-	.size	Button_Task.select.enable, .Ltmp66-Button_Task.select.enable
+.Ltmp60:
+	.size	Button_Task.select.enable, .Ltmp60-Button_Task.select.enable
 	.cfi_endproc
 
 	.globl	Button_Task.fini
@@ -692,8 +662,8 @@ Button_Task.fini:
 	.globl	Button_Task.fini.maxtimers
 	.set	Button_Task.fini.maxchanends,0
 	.globl	Button_Task.fini.maxchanends
-.Ltmp67:
-	.size	Button_Task.fini, .Ltmp67-Button_Task.fini
+.Ltmp61:
+	.size	Button_Task.fini, .Ltmp61-Button_Task.fini
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
@@ -716,7 +686,7 @@ Button_Task.select.yield.case.0:
 	get r11, ed
 	mov r0, r11
 	.loc	1 51 0 prologue_end
-.Ltmp68:
+.Ltmp62:
 	ldw r1, r0[3]
 	.loc	1 51 0
 .Lxta.endpoint_labels4:
@@ -748,14 +718,14 @@ Button_Task.select.yield.case.0:
 	stw r1, r0[7]
 	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp69:
+.Ltmp63:
 	.cc_bottom Button_Task.select.yield.case.0.function
 	.set	Button_Task.select.yield.case.0.nstackwords,0
 	.set	Button_Task.select.yield.case.0.maxcores,1
 	.set	Button_Task.select.yield.case.0.maxtimers,0
 	.set	Button_Task.select.yield.case.0.maxchanends,0
-.Ltmp70:
-	.size	Button_Task.select.yield.case.0, .Ltmp70-Button_Task.select.yield.case.0
+.Ltmp64:
+	.size	Button_Task.select.yield.case.0, .Ltmp64-Button_Task.select.yield.case.0
 .Lfunc_end8:
 	.cfi_endproc
 
@@ -777,30 +747,30 @@ Button_Task.select.yield.case.1:
 	.cfi_startproc
 .Lxtalabel12:
 	entsp 3
-.Ltmp71:
+.Ltmp65:
 	.cfi_def_cfa_offset 12
-.Ltmp72:
+.Ltmp66:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp73:
+.Ltmp67:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp74:
+.Ltmp68:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
 	.loc	1 69 0 prologue_end
-.Ltmp75:
+.Ltmp69:
 	get r11, id
 	.loc	1 69 0
 	ldaw r0, dp[__timers]
 	.loc	1 69 0
 	ldw r5, r0[r11]
 	.loc	1 69 0
-.Ltmp76:
+.Ltmp70:
 .Lxta.endpoint_labels6:
 	in r0, res[r5]
-.Ltmp77:
+.Ltmp71:
 	.loc	1 70 17
 	ldw r0, r4[6]
 	.loc	1 70 17
@@ -892,7 +862,7 @@ Button_Task.select.yield.case.1:
 	mkmsk r0, 1
 	.loc	1 90 0
 	stw r0, r4[6]
-.Ltmp78:
+.Ltmp72:
 .LBB9_8:
 .Lxtalabel20:
 	ldw r5, sp[1]
@@ -904,8 +874,8 @@ Button_Task.select.yield.case.1:
 	.set	Button_Task.select.yield.case.1.maxcores,_i.button_if.button.max.maxcores $M 1
 	.set	Button_Task.select.yield.case.1.maxtimers,_i.button_if.button.max.maxtimers $M 0
 	.set	Button_Task.select.yield.case.1.maxchanends,_i.button_if.button.max.maxchanends $M 0
-.Ltmp79:
-	.size	Button_Task.select.yield.case.1, .Ltmp79-Button_Task.select.yield.case.1
+.Ltmp73:
+	.size	Button_Task.select.yield.case.1, .Ltmp73-Button_Task.select.yield.case.1
 .Lfunc_end9:
 	.cfi_endproc
 
@@ -929,7 +899,7 @@ Button_Task.select.case.0:
 	get r11, ed
 	mov r0, r11
 	.loc	1 51 0 prologue_end
-.Ltmp80:
+.Ltmp74:
 	ldw r1, r0[3]
 	.loc	1 51 0
 .Lxta.endpoint_labels8:
@@ -961,14 +931,14 @@ Button_Task.select.case.0:
 	stw r1, r0[7]
 	retsp 0
 	# RETURN_REG_HOLDER
-.Ltmp81:
+.Ltmp75:
 	.cc_bottom Button_Task.select.case.0.function
 	.set	Button_Task.select.case.0.nstackwords,0
 	.set	Button_Task.select.case.0.maxcores,1
 	.set	Button_Task.select.case.0.maxtimers,0
 	.set	Button_Task.select.case.0.maxchanends,0
-.Ltmp82:
-	.size	Button_Task.select.case.0, .Ltmp82-Button_Task.select.case.0
+.Ltmp76:
+	.size	Button_Task.select.case.0, .Ltmp76-Button_Task.select.case.0
 .Lfunc_end10:
 	.cfi_endproc
 
@@ -990,30 +960,30 @@ Button_Task.select.case.1:
 	.cfi_startproc
 .Lxtalabel22:
 	entsp 3
-.Ltmp83:
+.Ltmp77:
 	.cfi_def_cfa_offset 12
-.Ltmp84:
+.Ltmp78:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp85:
+.Ltmp79:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp86:
+.Ltmp80:
 	.cfi_offset 5, -8
 	get r11, ed
 	mov r4, r11
 	.loc	1 69 0 prologue_end
-.Ltmp87:
+.Ltmp81:
 	get r11, id
 	.loc	1 69 0
 	ldaw r0, dp[__timers]
 	.loc	1 69 0
 	ldw r5, r0[r11]
 	.loc	1 69 0
-.Ltmp88:
+.Ltmp82:
 .Lxta.endpoint_labels10:
 	in r0, res[r5]
-.Ltmp89:
+.Ltmp83:
 	.loc	1 70 17
 	ldw r0, r4[6]
 	.loc	1 70 17
@@ -1105,7 +1075,7 @@ Button_Task.select.case.1:
 	mkmsk r0, 1
 	.loc	1 90 0
 	stw r0, r4[6]
-.Ltmp90:
+.Ltmp84:
 .LBB11_8:
 .Lxtalabel30:
 	ldw r5, sp[1]
@@ -1117,8 +1087,8 @@ Button_Task.select.case.1:
 	.set	Button_Task.select.case.1.maxcores,_i.button_if.button.max.maxcores $M 1
 	.set	Button_Task.select.case.1.maxtimers,_i.button_if.button.max.maxtimers $M 0
 	.set	Button_Task.select.case.1.maxchanends,_i.button_if.button.max.maxchanends $M 0
-.Ltmp91:
-	.size	Button_Task.select.case.1, .Ltmp91-Button_Task.select.case.1
+.Ltmp85:
+	.size	Button_Task.select.case.1, .Ltmp85-Button_Task.select.case.1
 .Lfunc_end11:
 	.cfi_endproc
 
@@ -1993,38 +1963,38 @@ Button_Task.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges2:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges3:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges4:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges5:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges6:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges7:
-	.long	.Ltmp23
-	.long	.Ltmp49
+	.long	.Ltmp17
+	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges8:
@@ -2033,38 +2003,38 @@ Button_Task.select.case.1:
 	.long	0
 	.long	0
 .Ldebug_ranges9:
-	.long	.Ltmp54
-	.long	.Ltmp55
+	.long	.Ltmp48
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges10:
-	.long	.Ltmp53
-	.long	.Ltmp55
+	.long	.Ltmp47
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges11:
-	.long	.Ltmp53
-	.long	.Ltmp55
+	.long	.Ltmp47
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges12:
-	.long	.Ltmp53
-	.long	.Ltmp55
+	.long	.Ltmp47
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges13:
-	.long	.Ltmp53
-	.long	.Ltmp55
+	.long	.Ltmp47
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges14:
-	.long	.Ltmp52
-	.long	.Ltmp55
+	.long	.Ltmp46
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges15:
-	.long	.Ltmp51
-	.long	.Ltmp55
+	.long	.Ltmp45
+	.long	.Ltmp49
 	.long	0
 	.long	0
 .Ldebug_ranges16:
@@ -2090,184 +2060,184 @@ Button_Task.select.case.1:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 	.long	.Lfunc_begin2
-	.long	.Ltmp22
-.Lset0 = .Ltmp93-.Ltmp92
+	.long	.Ltmp16
+.Lset0 = .Ltmp87-.Ltmp86
 	.short	.Lset0
+.Ltmp86:
+	.byte	80
+.Ltmp87:
+	.long	.Ltmp17
+	.long	.Ltmp18
+.Lset1 = .Ltmp89-.Ltmp88
+	.short	.Lset1
+.Ltmp88:
+	.byte	80
+.Ltmp89:
+	.long	.Ltmp19
+	.long	.Ltmp21
+.Lset2 = .Ltmp91-.Ltmp90
+	.short	.Lset2
+.Ltmp90:
+	.byte	80
+.Ltmp91:
+	.long	.Ltmp22
+	.long	.Ltmp31
+.Lset3 = .Ltmp93-.Ltmp92
+	.short	.Lset3
 .Ltmp92:
 	.byte	80
 .Ltmp93:
-	.long	.Ltmp23
-	.long	.Ltmp24
-.Lset1 = .Ltmp95-.Ltmp94
-	.short	.Lset1
+	.long	.Ltmp35
+	.long	.Ltmp39
+.Lset4 = .Ltmp95-.Ltmp94
+	.short	.Lset4
 .Ltmp94:
 	.byte	80
 .Ltmp95:
-	.long	.Ltmp25
-	.long	.Ltmp27
-.Lset2 = .Ltmp97-.Ltmp96
-	.short	.Lset2
-.Ltmp96:
-	.byte	80
-.Ltmp97:
-	.long	.Ltmp28
-	.long	.Ltmp37
-.Lset3 = .Ltmp99-.Ltmp98
-	.short	.Lset3
-.Ltmp98:
-	.byte	80
-.Ltmp99:
-	.long	.Ltmp41
-	.long	.Ltmp45
-.Lset4 = .Ltmp101-.Ltmp100
-	.short	.Lset4
-.Ltmp100:
-	.byte	80
-.Ltmp101:
 	.long	0
 	.long	0
 .Ldebug_loc1:
 	.long	.Lfunc_begin2
-	.long	.Ltmp21
-.Lset5 = .Ltmp103-.Ltmp102
+	.long	.Ltmp15
+.Lset5 = .Ltmp97-.Ltmp96
 	.short	.Lset5
-.Ltmp102:
+.Ltmp96:
 	.byte	81
-.Ltmp103:
-	.long	.Ltmp21
+.Ltmp97:
+	.long	.Ltmp15
 	.long	.Lfunc_end2
-.Lset6 = .Ltmp105-.Ltmp104
+.Lset6 = .Ltmp99-.Ltmp98
 	.short	.Lset6
-.Ltmp104:
+.Ltmp98:
 	.byte	85
-.Ltmp105:
+.Ltmp99:
 	.long	0
 	.long	0
 .Ldebug_loc2:
 	.long	.Lfunc_begin2
-	.long	.Ltmp20
-.Lset7 = .Ltmp107-.Ltmp106
+	.long	.Ltmp14
+.Lset7 = .Ltmp101-.Ltmp100
 	.short	.Lset7
-.Ltmp106:
+.Ltmp100:
 	.byte	82
-.Ltmp107:
-	.long	.Ltmp20
+.Ltmp101:
+	.long	.Ltmp14
 	.long	.Lfunc_end2
-.Lset8 = .Ltmp109-.Ltmp108
+.Lset8 = .Ltmp103-.Ltmp102
 	.short	.Lset8
-.Ltmp108:
+.Ltmp102:
 	.byte	84
-.Ltmp109:
+.Ltmp103:
 	.long	0
 	.long	0
 .Ldebug_loc3:
-	.long	.Ltmp21
-	.long	.Ltmp44
-.Lset9 = .Ltmp111-.Ltmp110
+	.long	.Ltmp15
+	.long	.Ltmp38
+.Lset9 = .Ltmp105-.Ltmp104
 	.short	.Lset9
-.Ltmp110:
+.Ltmp104:
 	.byte	16
 	.byte	0
-.Ltmp111:
-	.long	.Ltmp44
+.Ltmp105:
+	.long	.Ltmp38
 	.long	.Lfunc_end2
-.Lset10 = .Ltmp113-.Ltmp112
+.Lset10 = .Ltmp107-.Ltmp106
 	.short	.Lset10
+.Ltmp106:
+	.byte	16
+	.byte	1
+.Ltmp107:
+	.long	0
+	.long	0
+.Ldebug_loc4:
+	.long	.Ltmp15
+	.long	.Ltmp38
+.Lset11 = .Ltmp109-.Ltmp108
+	.short	.Lset11
+.Ltmp108:
+	.byte	16
+	.byte	0
+.Ltmp109:
+	.long	.Ltmp38
+	.long	.Lfunc_end2
+.Lset12 = .Ltmp111-.Ltmp110
+	.short	.Lset12
+.Ltmp110:
+	.byte	16
+	.byte	1
+.Ltmp111:
+	.long	0
+	.long	0
+.Ldebug_loc5:
+	.long	.Ltmp15
+	.long	.Ltmp31
+.Lset13 = .Ltmp113-.Ltmp112
+	.short	.Lset13
 .Ltmp112:
 	.byte	16
 	.byte	1
 .Ltmp113:
-	.long	0
-	.long	0
-.Ldebug_loc4:
-	.long	.Ltmp21
-	.long	.Ltmp44
-.Lset11 = .Ltmp115-.Ltmp114
-	.short	.Lset11
+	.long	.Ltmp31
+	.long	.Lfunc_end2
+.Lset14 = .Ltmp115-.Ltmp114
+	.short	.Lset14
 .Ltmp114:
 	.byte	16
 	.byte	0
 .Ltmp115:
-	.long	.Ltmp44
-	.long	.Lfunc_end2
-.Lset12 = .Ltmp117-.Ltmp116
-	.short	.Lset12
-.Ltmp116:
-	.byte	16
-	.byte	1
-.Ltmp117:
-	.long	0
-	.long	0
-.Ldebug_loc5:
-	.long	.Ltmp21
-	.long	.Ltmp37
-.Lset13 = .Ltmp119-.Ltmp118
-	.short	.Lset13
-.Ltmp118:
-	.byte	16
-	.byte	1
-.Ltmp119:
-	.long	.Ltmp37
-	.long	.Lfunc_end2
-.Lset14 = .Ltmp121-.Ltmp120
-	.short	.Lset14
-.Ltmp120:
-	.byte	16
-	.byte	0
-.Ltmp121:
 	.long	0
 	.long	0
 .Ldebug_loc6:
-	.long	.Ltmp21
-	.long	.Ltmp37
-.Lset15 = .Ltmp123-.Ltmp122
+	.long	.Ltmp15
+	.long	.Ltmp31
+.Lset15 = .Ltmp117-.Ltmp116
 	.short	.Lset15
-.Ltmp122:
+.Ltmp116:
 	.byte	17
 	.byte	0
-.Ltmp123:
-	.long	.Ltmp37
-	.long	.Ltmp41
-.Lset16 = .Ltmp125-.Ltmp124
+.Ltmp117:
+	.long	.Ltmp31
+	.long	.Ltmp35
+.Lset16 = .Ltmp119-.Ltmp118
 	.short	.Lset16
-.Ltmp124:
+.Ltmp118:
 	.byte	126
 	.byte	8
-.Ltmp125:
+.Ltmp119:
 	.long	0
 	.long	0
 .Ldebug_loc7:
-	.long	.Ltmp38
-	.long	.Ltmp40
-.Lset17 = .Ltmp127-.Ltmp126
+	.long	.Ltmp32
+	.long	.Ltmp34
+.Lset17 = .Ltmp121-.Ltmp120
 	.short	.Lset17
-.Ltmp126:
+.Ltmp120:
 	.byte	80
-.Ltmp127:
-	.long	.Ltmp46
-	.long	.Ltmp48
-.Lset18 = .Ltmp129-.Ltmp128
+.Ltmp121:
+	.long	.Ltmp40
+	.long	.Ltmp42
+.Lset18 = .Ltmp123-.Ltmp122
 	.short	.Lset18
-.Ltmp128:
+.Ltmp122:
 	.byte	80
-.Ltmp129:
+.Ltmp123:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Ltmp39
-	.long	.Ltmp41
-.Lset19 = .Ltmp131-.Ltmp130
+	.long	.Ltmp33
+	.long	.Ltmp35
+.Lset19 = .Ltmp125-.Ltmp124
 	.short	.Lset19
-.Ltmp130:
+.Ltmp124:
 	.byte	90
-.Ltmp131:
-	.long	.Ltmp47
+.Ltmp125:
+	.long	.Ltmp41
 	.long	.Lfunc_end2
-.Lset20 = .Ltmp133-.Ltmp132
+.Lset20 = .Ltmp127-.Ltmp126
 	.short	.Lset20
-.Ltmp132:
+.Ltmp126:
 	.byte	90
-.Ltmp133:
+.Ltmp127:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -2343,7 +2313,6 @@ Button_Task.select.case.1:
 	.cfi_sections .debug_frame
 
 	.typestring _i.button_if._chan.button, "f{0}(chd,:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
-	.overlay_reference _i.button_if._chan.button,_i.button_if._client_call_y.fns
 	.typestring _i.button_if._chan_yield.button, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.overlay_reference _i.button_if._chan_yield.button,_i.button_if._client_call_y.fns
 	.typestring Button_Task, "k:f{0}(:ui,p,ic(button_if){m(button){f{0}(:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})}})"

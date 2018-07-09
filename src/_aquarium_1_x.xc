@@ -1850,8 +1850,8 @@ void System_Task (
                 //}}}  
             } break;
 
-            case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => i_button_in[int iof_button].button (const button_action_t button_action) : {
-            //case i_button_in[int iof_button].button (const button_action_t button_action) : {
+            //case (system_state == SYSTEM_STATE_ONE_SECONDS_TICS) => i_button_in[int iof_button].button (const button_action_t button_action) : {
+            case i_button_in[int iof_button].button (const button_action_t button_action) : {
                 //{{{  Button pressed (the asynch data sets only cause unnoticed delays)
 
                 bool display_is_on_pre = context.display_is_on;
