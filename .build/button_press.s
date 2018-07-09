@@ -106,7 +106,7 @@
 	.file	1 "../src/button_press.xc"
 	.text
 	.weak	_i.button_if._chan.button
-	.align	4
+	.align	2
 	.type	_i.button_if._chan.button,@function
 	.cc_top _i.button_if._chan.button.function,_i.button_if._chan.button
 _i.button_if._chan.button:
@@ -141,7 +141,7 @@ _i.button_if._chan.button:
 	.cfi_endproc
 
 	.weak	_i.button_if._chan_yield.button
-	.align	4
+	.align	2
 	.type	_i.button_if._chan_yield.button,@function
 	.cc_top _i.button_if._chan_yield.button.function,_i.button_if._chan_yield.button
 _i.button_if._chan_yield.button:
@@ -205,7 +205,7 @@ _i.button_if._chan_yield.button:
 	.cc_bottom .LCPI2_1.data
 	.text
 	.globl	Button_Task
-	.align	4
+	.align	2
 	.type	Button_Task,@function
 	.cc_top Button_Task.function,Button_Task
 Button_Task:
@@ -412,7 +412,7 @@ Button_Task:
 	.cfi_endproc
 
 	.globl	Button_Task.init.1
-	.align	4
+	.align	2
 	.type	Button_Task.init.1,@function
 	.cc_top Button_Task.init.1.function,Button_Task.init.1
 Button_Task.init.1:
@@ -458,7 +458,7 @@ Button_Task.init.1:
 	.cfi_endproc
 
 	.globl	Button_Task.init.0
-	.align	4
+	.align	2
 	.type	Button_Task.init.0,@function
 	.cc_top Button_Task.init.0.function,Button_Task.init.0
 Button_Task.init.0:
@@ -487,7 +487,7 @@ Button_Task.init.0:
 	.cfi_endproc
 
 	.globl	Button_Task.select.yield.enable
-	.align	4
+	.align	2
 	.type	Button_Task.select.yield.enable,@function
 	.cc_top Button_Task.select.yield.enable.function,Button_Task.select.yield.enable
 Button_Task.select.yield.enable:
@@ -567,7 +567,7 @@ Button_Task.select.yield.enable:
 	.cfi_endproc
 
 	.globl	Button_Task.select.enable
-	.align	4
+	.align	2
 	.type	Button_Task.select.enable,@function
 	.cc_top Button_Task.select.enable.function,Button_Task.select.enable
 Button_Task.select.enable:
@@ -645,7 +645,7 @@ Button_Task.select.enable:
 	.cfi_endproc
 
 	.globl	Button_Task.fini
-	.align	4
+	.align	2
 	.type	Button_Task.fini,@function
 	.cc_top Button_Task.fini.function,Button_Task.fini
 Button_Task.fini:
@@ -679,7 +679,7 @@ Button_Task.fini:
 	.long	5000000
 	.cc_bottom .LCPI8_0.data
 	.text
-	.align	4
+	.align	2
 	.type	Button_Task.select.yield.case.0,@function
 	.cc_top Button_Task.select.yield.case.0.function,Button_Task.select.yield.case.0
 Button_Task.select.yield.case.0:
@@ -742,7 +742,7 @@ Button_Task.select.yield.case.0:
 	.long	1000000000
 	.cc_bottom .LCPI9_0.data
 	.text
-	.align	4
+	.align	2
 	.type	Button_Task.select.yield.case.1,@function
 	.cc_top Button_Task.select.yield.case.1.function,Button_Task.select.yield.case.1
 Button_Task.select.yield.case.1:
@@ -892,7 +892,7 @@ Button_Task.select.yield.case.1:
 	.long	5000000
 	.cc_bottom .LCPI10_0.data
 	.text
-	.align	4
+	.align	2
 	.type	Button_Task.select.case.0,@function
 	.cc_top Button_Task.select.case.0.function,Button_Task.select.case.0
 Button_Task.select.case.0:
@@ -955,7 +955,7 @@ Button_Task.select.case.0:
 	.long	1000000000
 	.cc_bottom .LCPI11_0.data
 	.text
-	.align	4
+	.align	2
 	.type	Button_Task.select.case.1,@function
 	.cc_top Button_Task.select.case.1.function,Button_Task.select.case.1
 Button_Task.select.case.1:

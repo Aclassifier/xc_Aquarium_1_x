@@ -17,7 +17,7 @@
 	.file	1 "/Users/teig/workspace/module_random/src/random_init.c"
 	.text
 	.globl	random_simple_init_seed
-	.align	4
+	.align	2
 	.type	random_simple_init_seed,@function
 	.cc_top random_simple_init_seed.function,random_simple_init_seed
 random_simple_init_seed:

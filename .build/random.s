@@ -46,7 +46,7 @@
 	.cc_bottom .LCPI0_0.data
 	.text
 	.globl	random_create_generator_from_seed
-	.align	4
+	.align	2
 	.type	random_create_generator_from_seed,@function
 	.cc_top random_create_generator_from_seed.function,random_create_generator_from_seed
 random_create_generator_from_seed:
@@ -87,7 +87,7 @@ random_create_generator_from_seed:
 	.cc_bottom .LCPI1_0.data
 	.text
 	.globl	random_create_generator_from_hw_seed
-	.align	4
+	.align	2
 	.type	random_create_generator_from_hw_seed,@function
 	.cc_top random_create_generator_from_hw_seed.function,random_create_generator_from_hw_seed
 random_create_generator_from_hw_seed:
@@ -133,7 +133,7 @@ random_create_generator_from_hw_seed:
 	.cc_bottom .LCPI2_0.data
 	.text
 	.globl	random_get_random_number
-	.align	4
+	.align	2
 	.type	random_get_random_number,@function
 	.cc_top random_get_random_number.function,random_get_random_number
 random_get_random_number:
