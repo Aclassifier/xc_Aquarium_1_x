@@ -21,4 +21,6 @@ typedef enum {false,true} bool; // 0,1 This typedef matches any integer-type typ
 
 #define MAP_PAR_COMBINE 1
 
+#define DEBUG_PRINT_GLOBAL 0
+
 #endif /* GLOBALS_H_ */

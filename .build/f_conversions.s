@@ -1086,14 +1086,14 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC:
 	.type	.LCPI11_0,@object
 	.size	.LCPI11_0, 4
 .LCPI11_0:
-	.long	2147483647
+	.long	2147483648
 	.cc_bottom .LCPI11_0.data
 	.cc_top .LCPI11_1.data,.LCPI11_1
 	.align	4
 	.type	.LCPI11_1,@object
 	.size	.LCPI11_1, 4
 .LCPI11_1:
-	.long	2147483648
+	.long	2147483647
 	.cc_bottom .LCPI11_1.data
 	.text
 	.globl	Do_Arithmetic_Mean_Temp_OnetenthDegC
@@ -1174,10 +1174,10 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp145:
 	bf r1, .LBB11_3
 .Ltmp146:
-	ldw r5, cp[.LCPI11_0]
-	mkmsk r7, 32
-	ldw r9, cp[.LCPI11_1]
-	mov r6, r7
+	ldw r7, cp[.LCPI11_0]
+	ldw r5, cp[.LCPI11_1]
+	mkmsk r6, 32
+	mov r10, r6
 .Ltmp147:
 .LBB11_7:
 .Lxtalabel31:
@@ -1191,41 +1191,41 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	ldw r8, r0[r11]
 .Ltmp149:
 	.loc	1 109 13
-	lss r4, r9, r8
+	lss r4, r7, r8
 	.loc	1 109 13
-	mov r10, r8
+	mov r2, r11
 	bt r4, .LBB11_9
 .Ltmp150:
 .Lxtalabel32:
-	mov r10, r9
+	mov r2, r10
 .Ltmp151:
 .LBB11_9:
 .Lxtalabel33:
 	.loc	1 109 13
-	mov r2, r11
+	mov r9, r8
 	bt r4, .LBB11_11
 .Ltmp152:
 .Lxtalabel34:
-	mov r2, r7
+	mov r9, r7
 .Ltmp153:
 .LBB11_11:
 .Lxtalabel35:
 	.loc	1 114 13
 	lss r7, r8, r5
+	.loc	1 114 13
+	mov r4, r11
 	bt r7, .LBB11_13
 .Ltmp154:
 .Lxtalabel36:
-	.loc	1 114 13
-	mov r8, r5
+	mov r4, r6
 .Ltmp155:
 .LBB11_13:
 .Lxtalabel37:
-	.loc	1 114 13
-	mov r4, r11
 	bt r7, .LBB11_15
 .Ltmp156:
 .Lxtalabel38:
-	mov r4, r6
+	.loc	1 114 13
+	mov r8, r5
 .Ltmp157:
 .LBB11_15:
 .Lxtalabel39:
@@ -1237,15 +1237,15 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp159:
 .Lxta.loop_labels1:
 	# LOOPMARKER 0
-	mov r9, r10
-	mov r7, r2
-	mov r5, r8
 	mov r6, r4
+	mov r5, r8
+	mov r10, r2
+	mov r7, r9
 	bt r3, .LBB11_7
 .Ltmp160:
-	ldc r5, 0
-	mov r6, r5
-	mov r11, r5
+	ldc r11, 0
+	mov r5, r11
+	mov r6, r11
 .Ltmp161:
 .LBB11_17:
 .Lxtalabel40:
@@ -1256,7 +1256,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp163:
 .Lxtalabel41:
 	.loc	1 134 0
-	add r5, r5, 1
+	add r6, r6, 1
 .Ltmp164:
 	bu .LBB11_22
 .Ltmp165:
@@ -1268,7 +1268,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Ltmp167:
 .Lxtalabel42:
 	.loc	1 137 0
-	add r5, r5, 1
+	add r6, r6, 1
 .Ltmp168:
 	bu .LBB11_22
 .Ltmp169:
@@ -1285,7 +1285,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	ldw r3, r0[r11]
 .Ltmp172:
 	.loc	1 139 0
-	add r6, r3, r6
+	add r5, r3, r5
 .Ltmp173:
 .LBB11_22:
 .Lxtalabel44:
@@ -1310,9 +1310,9 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .LBB11_4:
 .Lxtalabel45:
 	.loc	1 143 0
-	sub r0, r11, r5
+	sub r0, r11, r6
 	.loc	1 143 0
-	divu r2, r6, r0
+	divu r2, r5, r0
 .Ltmp180:
 .LBB11_5:
 .Lxtalabel46:
@@ -3774,14 +3774,14 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lset72 = .Ltmp327-.Ltmp326
 	.short	.Lset72
 .Ltmp326:
-	.byte	85
+	.byte	86
 .Ltmp327:
 	.long	.Ltmp168
 	.long	.Ltmp169
 .Lset73 = .Ltmp329-.Ltmp328
 	.short	.Lset73
 .Ltmp328:
-	.byte	85
+	.byte	86
 .Ltmp329:
 	.long	.Ltmp179
 	.long	.Lfunc_end11
@@ -3807,7 +3807,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lset76 = .Ltmp335-.Ltmp334
 	.short	.Lset76
 .Ltmp334:
-	.byte	86
+	.byte	85
 .Ltmp335:
 	.long	.Ltmp179
 	.long	.Lfunc_end11
@@ -3829,7 +3829,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.ascii	"\200\200\200\200x"
 .Ltmp339:
 	.long	.Ltmp149
-	.long	.Ltmp154
+	.long	.Ltmp156
 .Lset79 = .Ltmp341-.Ltmp340
 	.short	.Lset79
 .Ltmp340:
@@ -3881,7 +3881,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.ascii	"\377\377\377\377\007"
 .Ltmp351:
 	.long	.Ltmp149
-	.long	.Ltmp154
+	.long	.Ltmp156
 .Lset85 = .Ltmp353-.Ltmp352
 	.short	.Lset85
 .Ltmp352:
@@ -3917,7 +3917,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	0
 .Ldebug_loc41:
 	.long	.Ltmp149
-	.long	.Ltmp154
+	.long	.Ltmp156
 .Lset89 = .Ltmp361-.Ltmp360
 	.short	.Lset89
 .Ltmp360:
@@ -4152,12 +4152,12 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	109
 	.long	.Lxtalabel31
 .cc_bottom cc_14
-.cc_top cc_15,.Lxtalabel35
+.cc_top cc_15,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	110
 	.long	112
-	.long	.Lxtalabel35
+	.long	.Lxtalabel32
 .cc_bottom cc_15
 .cc_top cc_16,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
@@ -4166,26 +4166,26 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	112
 	.long	.Lxtalabel33
 .cc_bottom cc_16
-.cc_top cc_17,.Lxtalabel37
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	110
-	.long	112
-	.long	.Lxtalabel37
-.cc_bottom cc_17
-.cc_top cc_18,.Lxtalabel34
+.cc_top cc_17,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	110
 	.long	112
 	.long	.Lxtalabel34
-.cc_bottom cc_18
-.cc_top cc_19,.Lxtalabel38
+.cc_bottom cc_17
+.cc_top cc_18,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	110
 	.long	112
-	.long	.Lxtalabel38
+	.long	.Lxtalabel35
+.cc_bottom cc_18
+.cc_top cc_19,.Lxtalabel39
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	110
+	.long	112
+	.long	.Lxtalabel39
 .cc_bottom cc_19
 .cc_top cc_20,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
@@ -4194,33 +4194,33 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	112
 	.long	.Lxtalabel36
 .cc_bottom cc_20
-.cc_top cc_21,.Lxtalabel39
+.cc_top cc_21,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	110
 	.long	112
-	.long	.Lxtalabel39
-.cc_bottom cc_21
-.cc_top cc_22,.Lxtalabel32
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	110
-	.long	112
-	.long	.Lxtalabel32
-.cc_bottom cc_22
-.cc_top cc_23,.Lxtalabel32
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	114
-	.long	114
-	.long	.Lxtalabel32
-.cc_bottom cc_23
-.cc_top cc_24,.Lxtalabel37
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	114
-	.long	114
 	.long	.Lxtalabel37
+.cc_bottom cc_21
+.cc_top cc_22,.Lxtalabel38
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	110
+	.long	112
+	.long	.Lxtalabel38
+.cc_bottom cc_22
+.cc_top cc_23,.Lxtalabel35
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	114
+	.long	114
+	.long	.Lxtalabel35
+.cc_bottom cc_23
+.cc_top cc_24,.Lxtalabel38
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	114
+	.long	114
+	.long	.Lxtalabel38
 .cc_bottom cc_24
 .cc_top cc_25,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
@@ -4236,68 +4236,68 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	114
 	.long	.Lxtalabel39
 .cc_bottom cc_26
-.cc_top cc_27,.Lxtalabel36
+.cc_top cc_27,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	114
 	.long	114
-	.long	.Lxtalabel36
+	.long	.Lxtalabel33
 .cc_bottom cc_27
-.cc_top cc_28,.Lxtalabel38
+.cc_top cc_28,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	114
 	.long	114
-	.long	.Lxtalabel38
-.cc_bottom cc_28
-.cc_top cc_29,.Lxtalabel33
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	114
-	.long	114
-	.long	.Lxtalabel33
-.cc_bottom cc_29
-.cc_top cc_30,.Lxtalabel35
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	114
-	.long	114
-	.long	.Lxtalabel35
-.cc_bottom cc_30
-.cc_top cc_31,.Lxtalabel32
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	118
-	.long	118
-	.long	.Lxtalabel32
-.cc_bottom cc_31
-.cc_top cc_32,.Lxtalabel33
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	118
-	.long	118
-	.long	.Lxtalabel33
-.cc_bottom cc_32
-.cc_top cc_33,.Lxtalabel35
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	118
-	.long	118
-	.long	.Lxtalabel35
-.cc_bottom cc_33
-.cc_top cc_34,.Lxtalabel36
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	118
-	.long	118
 	.long	.Lxtalabel36
-.cc_bottom cc_34
-.cc_top cc_35,.Lxtalabel34
+.cc_bottom cc_28
+.cc_top cc_29,.Lxtalabel32
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	114
+	.long	114
+	.long	.Lxtalabel32
+.cc_bottom cc_29
+.cc_top cc_30,.Lxtalabel37
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	114
+	.long	114
+	.long	.Lxtalabel37
+.cc_bottom cc_30
+.cc_top cc_31,.Lxtalabel33
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	118
+	.long	118
+	.long	.Lxtalabel33
+.cc_bottom cc_31
+.cc_top cc_32,.Lxtalabel37
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	118
+	.long	118
+	.long	.Lxtalabel37
+.cc_bottom cc_32
+.cc_top cc_33,.Lxtalabel34
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	118
 	.long	118
 	.long	.Lxtalabel34
+.cc_bottom cc_33
+.cc_top cc_34,.Lxtalabel32
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	118
+	.long	118
+	.long	.Lxtalabel32
+.cc_bottom cc_34
+.cc_top cc_35,.Lxtalabel36
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	118
+	.long	118
+	.long	.Lxtalabel36
 .cc_bottom cc_35
 .cc_top cc_36,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
@@ -4306,103 +4306,103 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	118
 	.long	.Lxtalabel39
 .cc_bottom cc_36
-.cc_top cc_37,.Lxtalabel37
+.cc_top cc_37,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	118
 	.long	118
-	.long	.Lxtalabel37
+	.long	.Lxtalabel38
 .cc_bottom cc_37
-.cc_top cc_38,.Lxtalabel38
+.cc_top cc_38,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	118
 	.long	118
-	.long	.Lxtalabel38
-.cc_bottom cc_38
-.cc_top cc_39,.Lxtalabel34
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel34
-.cc_bottom cc_39
-.cc_top cc_40,.Lxtalabel38
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel38
-.cc_bottom cc_40
-.cc_top cc_41,.Lxtalabel37
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel37
-.cc_bottom cc_41
-.cc_top cc_42,.Lxtalabel29
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel29
-.cc_bottom cc_42
-.cc_top cc_43,.Lxtalabel33
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel33
-.cc_bottom cc_43
-.cc_top cc_44,.Lxtalabel35
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
 	.long	.Lxtalabel35
-.cc_bottom cc_44
-.cc_top cc_45,.Lxtalabel30
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel30
-.cc_bottom cc_45
-.cc_top cc_46,.Lxtalabel39
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	121
-	.long	121
-	.long	.Lxtalabel39
-.cc_bottom cc_46
-.cc_top cc_47,.Lxtalabel36
+.cc_bottom cc_38
+.cc_top cc_39,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	121
 	.long	121
 	.long	.Lxtalabel36
-.cc_bottom cc_47
-.cc_top cc_48,.Lxtalabel32
+.cc_bottom cc_39
+.cc_top cc_40,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	121
 	.long	121
-	.long	.Lxtalabel32
-.cc_bottom cc_48
-.cc_top cc_49,.Lxtalabel33
+	.long	.Lxtalabel39
+.cc_bottom cc_40
+.cc_top cc_41,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	122
-	.long	123
+	.long	121
+	.long	121
+	.long	.Lxtalabel38
+.cc_bottom cc_41
+.cc_top cc_42,.Lxtalabel33
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
 	.long	.Lxtalabel33
-.cc_bottom cc_49
-.cc_top cc_50,.Lxtalabel32
+.cc_bottom cc_42
+.cc_top cc_43,.Lxtalabel30
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel30
+.cc_bottom cc_43
+.cc_top cc_44,.Lxtalabel34
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel34
+.cc_bottom cc_44
+.cc_top cc_45,.Lxtalabel35
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel35
+.cc_bottom cc_45
+.cc_top cc_46,.Lxtalabel32
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel32
+.cc_bottom cc_46
+.cc_top cc_47,.Lxtalabel37
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel37
+.cc_bottom cc_47
+.cc_top cc_48,.Lxtalabel29
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	121
+	.long	121
+	.long	.Lxtalabel29
+.cc_bottom cc_48
+.cc_top cc_49,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	122
 	.long	123
-	.long	.Lxtalabel32
+	.long	.Lxtalabel35
+.cc_bottom cc_49
+.cc_top cc_50,.Lxtalabel30
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	122
+	.long	123
+	.long	.Lxtalabel30
 .cc_bottom cc_50
 .cc_top cc_51,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
@@ -4418,68 +4418,68 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	123
 	.long	.Lxtalabel34
 .cc_bottom cc_52
-.cc_top cc_53,.Lxtalabel38
+.cc_top cc_53,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	122
 	.long	123
-	.long	.Lxtalabel38
+	.long	.Lxtalabel36
 .cc_bottom cc_53
-.cc_top cc_54,.Lxtalabel35
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	122
-	.long	123
-	.long	.Lxtalabel35
-.cc_bottom cc_54
-.cc_top cc_55,.Lxtalabel30
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	122
-	.long	123
-	.long	.Lxtalabel30
-.cc_bottom cc_55
-.cc_top cc_56,.Lxtalabel37
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	122
-	.long	123
-	.long	.Lxtalabel37
-.cc_bottom cc_56
-.cc_top cc_57,.Lxtalabel29
+.cc_top cc_54,.Lxtalabel29
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	122
 	.long	123
 	.long	.Lxtalabel29
-.cc_bottom cc_57
-.cc_top cc_58,.Lxtalabel36
+.cc_bottom cc_54
+.cc_top cc_55,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	122
 	.long	123
-	.long	.Lxtalabel36
+	.long	.Lxtalabel32
+.cc_bottom cc_55
+.cc_top cc_56,.Lxtalabel38
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	122
+	.long	123
+	.long	.Lxtalabel38
+.cc_bottom cc_56
+.cc_top cc_57,.Lxtalabel37
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	122
+	.long	123
+	.long	.Lxtalabel37
+.cc_bottom cc_57
+.cc_top cc_58,.Lxtalabel33
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	122
+	.long	123
+	.long	.Lxtalabel33
 .cc_bottom cc_58
-.cc_top cc_59,.Lxtalabel34
+.cc_top cc_59,.Lxtalabel39
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel34
+	.long	.Lxtalabel39
 .cc_bottom cc_59
-.cc_top cc_60,.Lxtalabel35
+.cc_top cc_60,.Lxtalabel37
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel35
+	.long	.Lxtalabel37
 .cc_bottom cc_60
-.cc_top cc_61,.Lxtalabel36
+.cc_top cc_61,.Lxtalabel38
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel36
+	.long	.Lxtalabel38
 .cc_bottom cc_61
 .cc_top cc_62,.Lxtalabel32
 	.ascii	"../src/f_conversions.xc"
@@ -4488,33 +4488,33 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	130
 	.long	.Lxtalabel32
 .cc_bottom cc_62
-.cc_top cc_63,.Lxtalabel37
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	130
-	.long	130
-	.long	.Lxtalabel37
-.cc_bottom cc_63
-.cc_top cc_64,.Lxtalabel33
+.cc_top cc_63,.Lxtalabel33
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
 	.long	.Lxtalabel33
+.cc_bottom cc_63
+.cc_top cc_64,.Lxtalabel34
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	130
+	.long	130
+	.long	.Lxtalabel34
 .cc_bottom cc_64
-.cc_top cc_65,.Lxtalabel38
+.cc_top cc_65,.Lxtalabel36
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel38
+	.long	.Lxtalabel36
 .cc_bottom cc_65
-.cc_top cc_66,.Lxtalabel39
+.cc_top cc_66,.Lxtalabel35
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	130
 	.long	130
-	.long	.Lxtalabel39
+	.long	.Lxtalabel35
 .cc_bottom cc_66
 .cc_top cc_67,.Lxtalabel30
 	.ascii	"../src/f_conversions.xc"
@@ -4589,654 +4589,598 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .cc_top cc_77,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	157
-	.long	157
+	.long	161
+	.long	161
 	.long	.Lxtalabel46
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	158
-	.long	158
+	.long	162
+	.long	162
 	.long	.Lxtalabel46
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	159
-	.long	159
+	.long	168
+	.long	168
 	.long	.Lxtalabel46
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel46
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	160
-	.long	160
-	.long	.Lxtalabel46
-.cc_bottom cc_80
-.cc_top cc_81,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	161
-	.long	161
-	.long	.Lxtalabel46
-.cc_bottom cc_81
-.cc_top cc_82,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	162
-	.long	162
-	.long	.Lxtalabel46
-.cc_bottom cc_82
-.cc_top cc_83,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	163
-	.long	163
-	.long	.Lxtalabel46
-.cc_bottom cc_83
-.cc_top cc_84,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	164
-	.long	164
-	.long	.Lxtalabel46
-.cc_bottom cc_84
-.cc_top cc_85,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	165
-	.long	165
-	.long	.Lxtalabel46
-.cc_bottom cc_85
-.cc_top cc_86,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	166
-	.long	166
-	.long	.Lxtalabel46
-.cc_bottom cc_86
-.cc_top cc_87,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	168
-	.long	168
-	.long	.Lxtalabel46
-.cc_bottom cc_87
-.cc_top cc_88,.Lxtalabel46
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
 	.long	170
 	.long	171
 	.long	.Lxtalabel46
-.cc_bottom cc_88
-.cc_top cc_89,.Lxtalabel0
+.cc_bottom cc_80
+.cc_top cc_81,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	180
 	.long	181
 	.long	.Lxtalabel0
-.cc_bottom cc_89
-.cc_top cc_90,.Lxtalabel0
+.cc_bottom cc_81
+.cc_top cc_82,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	183
 	.long	183
 	.long	.Lxtalabel0
-.cc_bottom cc_90
-.cc_top cc_91,.Lxtalabel0
+.cc_bottom cc_82
+.cc_top cc_83,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	185
 	.long	186
 	.long	.Lxtalabel0
-.cc_bottom cc_91
-.cc_top cc_92,.Lxtalabel0
+.cc_bottom cc_83
+.cc_top cc_84,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	188
 	.long	189
 	.long	.Lxtalabel0
-.cc_bottom cc_92
-.cc_top cc_93,.Lxtalabel0
+.cc_bottom cc_84
+.cc_top cc_85,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	191
 	.long	193
 	.long	.Lxtalabel0
-.cc_bottom cc_93
-.cc_top cc_94,.Lxtalabel0
+.cc_bottom cc_85
+.cc_top cc_86,.Lxtalabel0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	195
 	.long	195
 	.long	.Lxtalabel0
-.cc_bottom cc_94
-.cc_top cc_95,.Lxtalabel1
+.cc_bottom cc_86
+.cc_top cc_87,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	196
 	.long	196
 	.long	.Lxtalabel1
-.cc_bottom cc_95
-.cc_top cc_96,.Lxtalabel1
+.cc_bottom cc_87
+.cc_top cc_88,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	197
 	.long	197
 	.long	.Lxtalabel1
-.cc_bottom cc_96
-.cc_top cc_97,.Lxtalabel1
+.cc_bottom cc_88
+.cc_top cc_89,.Lxtalabel1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	198
 	.long	199
 	.long	.Lxtalabel1
-.cc_bottom cc_97
-.cc_top cc_98,.Lxtalabel2
+.cc_bottom cc_89
+.cc_top cc_90,.Lxtalabel2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	201
 	.long	202
 	.long	.Lxtalabel2
-.cc_bottom cc_98
-.cc_top cc_99,.Lxtalabel3
+.cc_bottom cc_90
+.cc_top cc_91,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	224
 	.long	224
 	.long	.Lxtalabel3
-.cc_bottom cc_99
-.cc_top cc_100,.Lxtalabel3
+.cc_bottom cc_91
+.cc_top cc_92,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	228
 	.long	229
 	.long	.Lxtalabel3
-.cc_bottom cc_100
-.cc_top cc_101,.Lxtalabel3
+.cc_bottom cc_92
+.cc_top cc_93,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	231
 	.long	231
 	.long	.Lxtalabel3
-.cc_bottom cc_101
-.cc_top cc_102,.Lxtalabel3
+.cc_bottom cc_93
+.cc_top cc_94,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	233
 	.long	234
 	.long	.Lxtalabel3
-.cc_bottom cc_102
-.cc_top cc_103,.Lxtalabel3
+.cc_bottom cc_94
+.cc_top cc_95,.Lxtalabel3
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	236
 	.long	236
 	.long	.Lxtalabel3
-.cc_bottom cc_103
-.cc_top cc_104,.Lxtalabel4
+.cc_bottom cc_95
+.cc_top cc_96,.Lxtalabel4
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	237
 	.long	241
 	.long	.Lxtalabel4
+.cc_bottom cc_96
+.cc_top cc_97,.Lxtalabel5
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	242
+	.long	242
+	.long	.Lxtalabel5
+.cc_bottom cc_97
+.cc_top cc_98,.Lxtalabel5
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	243
+	.long	243
+	.long	.Lxtalabel5
+.cc_bottom cc_98
+.cc_top cc_99,.Lxtalabel5
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	244
+	.long	244
+	.long	.Lxtalabel5
+.cc_bottom cc_99
+.cc_top cc_100,.Lxtalabel6
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	247
+	.long	247
+	.long	.Lxtalabel6
+.cc_bottom cc_100
+.cc_top cc_101,.Lxtalabel7
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	247
+	.long	247
+	.long	.Lxtalabel7
+.cc_bottom cc_101
+.cc_top cc_102,.Lxtalabel6
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	248
+	.long	249
+	.long	.Lxtalabel6
+.cc_bottom cc_102
+.cc_top cc_103,.Lxtalabel7
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	248
+	.long	249
+	.long	.Lxtalabel7
+.cc_bottom cc_103
+.cc_top cc_104,.Lxtalabel7
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	251
+	.long	252
+	.long	.Lxtalabel7
 .cc_bottom cc_104
-.cc_top cc_105,.Lxtalabel5
+.cc_top cc_105,.Lxtalabel6
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	242
-	.long	242
-	.long	.Lxtalabel5
+	.long	251
+	.long	252
+	.long	.Lxtalabel6
 .cc_bottom cc_105
-.cc_top cc_106,.Lxtalabel5
+.cc_top cc_106,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	243
-	.long	243
-	.long	.Lxtalabel5
+	.long	269
+	.long	270
+	.long	.Lxtalabel8
 .cc_bottom cc_106
-.cc_top cc_107,.Lxtalabel5
+.cc_top cc_107,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	244
-	.long	244
-	.long	.Lxtalabel5
+	.long	269
+	.long	270
+	.long	.Lxtalabel10
 .cc_bottom cc_107
-.cc_top cc_108,.Lxtalabel6
+.cc_top cc_108,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	247
-	.long	247
-	.long	.Lxtalabel6
+	.long	269
+	.long	270
+	.long	.Lxtalabel9
 .cc_bottom cc_108
-.cc_top cc_109,.Lxtalabel7
+.cc_top cc_109,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	247
-	.long	247
-	.long	.Lxtalabel7
+	.long	272
+	.long	273
+	.long	.Lxtalabel9
 .cc_bottom cc_109
-.cc_top cc_110,.Lxtalabel6
+.cc_top cc_110,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	248
-	.long	249
-	.long	.Lxtalabel6
+	.long	272
+	.long	273
+	.long	.Lxtalabel10
 .cc_bottom cc_110
-.cc_top cc_111,.Lxtalabel7
+.cc_top cc_111,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	248
-	.long	249
-	.long	.Lxtalabel7
+	.long	272
+	.long	273
+	.long	.Lxtalabel8
 .cc_bottom cc_111
-.cc_top cc_112,.Lxtalabel6
+.cc_top cc_112,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	251
-	.long	252
-	.long	.Lxtalabel6
+	.long	275
+	.long	275
+	.long	.Lxtalabel10
 .cc_bottom cc_112
-.cc_top cc_113,.Lxtalabel7
+.cc_top cc_113,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	251
-	.long	252
-	.long	.Lxtalabel7
+	.long	275
+	.long	275
+	.long	.Lxtalabel9
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
+	.long	275
+	.long	275
 	.long	.Lxtalabel8
 .cc_bottom cc_114
-.cc_top cc_115,.Lxtalabel10
+.cc_top cc_115,.Lxtalabel8
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
-	.long	.Lxtalabel10
+	.long	277
+	.long	277
+	.long	.Lxtalabel8
 .cc_bottom cc_115
-.cc_top cc_116,.Lxtalabel9
+.cc_top cc_116,.Lxtalabel10
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	269
-	.long	270
-	.long	.Lxtalabel9
+	.long	277
+	.long	277
+	.long	.Lxtalabel10
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel9
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	272
-	.long	273
+	.long	277
+	.long	277
 	.long	.Lxtalabel9
 .cc_bottom cc_117
-.cc_top cc_118,.Lxtalabel10
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	272
-	.long	273
-	.long	.Lxtalabel10
-.cc_bottom cc_118
-.cc_top cc_119,.Lxtalabel8
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	272
-	.long	273
-	.long	.Lxtalabel8
-.cc_bottom cc_119
-.cc_top cc_120,.Lxtalabel9
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	275
-	.long	275
-	.long	.Lxtalabel9
-.cc_bottom cc_120
-.cc_top cc_121,.Lxtalabel10
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	275
-	.long	275
-	.long	.Lxtalabel10
-.cc_bottom cc_121
-.cc_top cc_122,.Lxtalabel8
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	275
-	.long	275
-	.long	.Lxtalabel8
-.cc_bottom cc_122
-.cc_top cc_123,.Lxtalabel8
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	277
-	.long	277
-	.long	.Lxtalabel8
-.cc_bottom cc_123
-.cc_top cc_124,.Lxtalabel9
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	277
-	.long	277
-	.long	.Lxtalabel9
-.cc_bottom cc_124
-.cc_top cc_125,.Lxtalabel10
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	277
-	.long	277
-	.long	.Lxtalabel10
-.cc_bottom cc_125
-.cc_top cc_126,.Lxtalabel11
+.cc_top cc_118,.Lxtalabel11
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	278
 	.long	280
 	.long	.Lxtalabel11
-.cc_bottom cc_126
-.cc_top cc_127,.Lxtalabel11
+.cc_bottom cc_118
+.cc_top cc_119,.Lxtalabel11
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	282
 	.long	282
 	.long	.Lxtalabel11
-.cc_bottom cc_127
-.cc_top cc_128,.Lxtalabel12
+.cc_bottom cc_119
+.cc_top cc_120,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	283
 	.long	283
 	.long	.Lxtalabel12
-.cc_bottom cc_128
-.cc_top cc_129,.Lxtalabel12
+.cc_bottom cc_120
+.cc_top cc_121,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	284
 	.long	284
 	.long	.Lxtalabel12
-.cc_bottom cc_129
-.cc_top cc_130,.Lxtalabel12
+.cc_bottom cc_121
+.cc_top cc_122,.Lxtalabel12
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	285
 	.long	286
 	.long	.Lxtalabel12
+.cc_bottom cc_122
+.cc_top cc_123,.Lxtalabel13
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	289
+	.long	289
+	.long	.Lxtalabel13
+.cc_bottom cc_123
+.cc_top cc_124,.Lxtalabel15
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	289
+	.long	289
+	.long	.Lxtalabel15
+.cc_bottom cc_124
+.cc_top cc_125,.Lxtalabel14
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	289
+	.long	289
+	.long	.Lxtalabel14
+.cc_bottom cc_125
+.cc_top cc_126,.Lxtalabel14
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	290
+	.long	291
+	.long	.Lxtalabel14
+.cc_bottom cc_126
+.cc_top cc_127,.Lxtalabel13
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	290
+	.long	291
+	.long	.Lxtalabel13
+.cc_bottom cc_127
+.cc_top cc_128,.Lxtalabel15
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	290
+	.long	291
+	.long	.Lxtalabel15
+.cc_bottom cc_128
+.cc_top cc_129,.Lxtalabel13
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	293
+	.long	294
+	.long	.Lxtalabel13
+.cc_bottom cc_129
+.cc_top cc_130,.Lxtalabel15
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	293
+	.long	294
+	.long	.Lxtalabel15
 .cc_bottom cc_130
-.cc_top cc_131,.Lxtalabel13
+.cc_top cc_131,.Lxtalabel14
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	289
-	.long	289
-	.long	.Lxtalabel13
+	.long	293
+	.long	294
+	.long	.Lxtalabel14
 .cc_bottom cc_131
-.cc_top cc_132,.Lxtalabel14
+.cc_top cc_132,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	289
-	.long	289
-	.long	.Lxtalabel14
+	.long	313
+	.long	313
+	.long	.Lxtalabel16
 .cc_bottom cc_132
-.cc_top cc_133,.Lxtalabel15
+.cc_top cc_133,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	289
-	.long	289
-	.long	.Lxtalabel15
+	.long	313
+	.long	313
+	.long	.Lxtalabel18
 .cc_bottom cc_133
-.cc_top cc_134,.Lxtalabel13
+.cc_top cc_134,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
-	.long	.Lxtalabel13
+	.long	313
+	.long	313
+	.long	.Lxtalabel17
 .cc_bottom cc_134
-.cc_top cc_135,.Lxtalabel14
+.cc_top cc_135,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
-	.long	.Lxtalabel14
+	.long	317
+	.long	318
+	.long	.Lxtalabel17
 .cc_bottom cc_135
-.cc_top cc_136,.Lxtalabel15
+.cc_top cc_136,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	290
-	.long	291
-	.long	.Lxtalabel15
+	.long	317
+	.long	318
+	.long	.Lxtalabel18
 .cc_bottom cc_136
-.cc_top cc_137,.Lxtalabel13
+.cc_top cc_137,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	293
-	.long	294
-	.long	.Lxtalabel13
+	.long	317
+	.long	318
+	.long	.Lxtalabel16
 .cc_bottom cc_137
-.cc_top cc_138,.Lxtalabel14
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	293
-	.long	294
-	.long	.Lxtalabel14
-.cc_bottom cc_138
-.cc_top cc_139,.Lxtalabel15
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	293
-	.long	294
-	.long	.Lxtalabel15
-.cc_bottom cc_139
-.cc_top cc_140,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	313
-	.long	313
-	.long	.Lxtalabel16
-.cc_bottom cc_140
-.cc_top cc_141,.Lxtalabel18
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	313
-	.long	313
-	.long	.Lxtalabel18
-.cc_bottom cc_141
-.cc_top cc_142,.Lxtalabel17
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	313
-	.long	313
-	.long	.Lxtalabel17
-.cc_bottom cc_142
-.cc_top cc_143,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	317
-	.long	318
-	.long	.Lxtalabel16
-.cc_bottom cc_143
-.cc_top cc_144,.Lxtalabel18
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	317
-	.long	318
-	.long	.Lxtalabel18
-.cc_bottom cc_144
-.cc_top cc_145,.Lxtalabel17
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	317
-	.long	318
-	.long	.Lxtalabel17
-.cc_bottom cc_145
-.cc_top cc_146,.Lxtalabel16
+.cc_top cc_138,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	320
 	.long	321
+	.long	.Lxtalabel17
+.cc_bottom cc_138
+.cc_top cc_139,.Lxtalabel16
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	320
+	.long	321
+	.long	.Lxtalabel16
+.cc_bottom cc_139
+.cc_top cc_140,.Lxtalabel18
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	320
+	.long	321
+	.long	.Lxtalabel18
+.cc_bottom cc_140
+.cc_top cc_141,.Lxtalabel17
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel17
+.cc_bottom cc_141
+.cc_top cc_142,.Lxtalabel18
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel18
+.cc_bottom cc_142
+.cc_top cc_143,.Lxtalabel16
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	323
+	.long	324
+	.long	.Lxtalabel16
+.cc_bottom cc_143
+.cc_top cc_144,.Lxtalabel17
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	326
+	.long	326
+	.long	.Lxtalabel17
+.cc_bottom cc_144
+.cc_top cc_145,.Lxtalabel18
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	326
+	.long	326
+	.long	.Lxtalabel18
+.cc_bottom cc_145
+.cc_top cc_146,.Lxtalabel16
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	326
+	.long	326
 	.long	.Lxtalabel16
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel18
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	320
-	.long	321
+	.long	327
+	.long	328
 	.long	.Lxtalabel18
 .cc_bottom cc_147
-.cc_top cc_148,.Lxtalabel17
+.cc_top cc_148,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	320
-	.long	321
-	.long	.Lxtalabel17
+	.long	327
+	.long	328
+	.long	.Lxtalabel16
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	323
-	.long	324
+	.long	327
+	.long	328
 	.long	.Lxtalabel17
 .cc_bottom cc_149
-.cc_top cc_150,.Lxtalabel18
+.cc_top cc_150,.Lxtalabel16
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	323
-	.long	324
-	.long	.Lxtalabel18
-.cc_bottom cc_150
-.cc_top cc_151,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	323
-	.long	324
+	.long	330
+	.long	330
 	.long	.Lxtalabel16
+.cc_bottom cc_150
+.cc_top cc_151,.Lxtalabel18
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	330
+	.long	330
+	.long	.Lxtalabel18
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel17
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
-	.long	326
-	.long	326
+	.long	330
+	.long	330
 	.long	.Lxtalabel17
 .cc_bottom cc_152
-.cc_top cc_153,.Lxtalabel18
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	326
-	.long	326
-	.long	.Lxtalabel18
-.cc_bottom cc_153
-.cc_top cc_154,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	326
-	.long	326
-	.long	.Lxtalabel16
-.cc_bottom cc_154
-.cc_top cc_155,.Lxtalabel18
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	327
-	.long	328
-	.long	.Lxtalabel18
-.cc_bottom cc_155
-.cc_top cc_156,.Lxtalabel17
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	327
-	.long	328
-	.long	.Lxtalabel17
-.cc_bottom cc_156
-.cc_top cc_157,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	327
-	.long	328
-	.long	.Lxtalabel16
-.cc_bottom cc_157
-.cc_top cc_158,.Lxtalabel17
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	330
-	.long	330
-	.long	.Lxtalabel17
-.cc_bottom cc_158
-.cc_top cc_159,.Lxtalabel16
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	330
-	.long	330
-	.long	.Lxtalabel16
-.cc_bottom cc_159
-.cc_top cc_160,.Lxtalabel18
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	330
-	.long	330
-	.long	.Lxtalabel18
-.cc_bottom cc_160
-.cc_top cc_161,.Lxtalabel19
+.cc_top cc_153,.Lxtalabel19
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	331
 	.long	333
 	.long	.Lxtalabel19
-.cc_bottom cc_161
-.cc_top cc_162,.Lxtalabel19
+.cc_bottom cc_153
+.cc_top cc_154,.Lxtalabel19
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	335
 	.long	335
 	.long	.Lxtalabel19
-.cc_bottom cc_162
-.cc_top cc_163,.Lxtalabel20
+.cc_bottom cc_154
+.cc_top cc_155,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	336
 	.long	336
 	.long	.Lxtalabel20
-.cc_bottom cc_163
-.cc_top cc_164,.Lxtalabel20
+.cc_bottom cc_155
+.cc_top cc_156,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	337
 	.long	337
 	.long	.Lxtalabel20
-.cc_bottom cc_164
-.cc_top cc_165,.Lxtalabel20
+.cc_bottom cc_156
+.cc_top cc_157,.Lxtalabel20
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	338
 	.long	338
 	.long	.Lxtalabel20
-.cc_bottom cc_165
-.cc_top cc_166,.Lxtalabel21
-	.ascii	"../src/f_conversions.xc"
-	.byte	0
-	.long	341
-	.long	342
-	.long	.Lxtalabel21
-.cc_bottom cc_166
-.cc_top cc_167,.Lxtalabel22
+.cc_bottom cc_157
+.cc_top cc_158,.Lxtalabel22
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	341
 	.long	342
 	.long	.Lxtalabel22
-.cc_bottom cc_167
-.cc_top cc_168,.Lxtalabel23
+.cc_bottom cc_158
+.cc_top cc_159,.Lxtalabel21
+	.ascii	"../src/f_conversions.xc"
+	.byte	0
+	.long	341
+	.long	342
+	.long	.Lxtalabel21
+.cc_bottom cc_159
+.cc_top cc_160,.Lxtalabel23
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	347
 	.long	349
 	.long	.Lxtalabel23
-.cc_bottom cc_168
-.cc_top cc_169,.Lxtalabel24
+.cc_bottom cc_160
+.cc_top cc_161,.Lxtalabel24
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	351
 	.long	353
 	.long	.Lxtalabel24
-.cc_bottom cc_169
+.cc_bottom cc_161
 .Lentries_end3:
 	.section	.xtalooplabeltable,"",@progbits
 .Lentries_start4:
@@ -5244,55 +5188,55 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.long	0
 	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
 	.byte	0
-.cc_top cc_170,.Lxta.loop_labels0
+.cc_top cc_162,.Lxta.loop_labels0
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	48
 	.long	49
 	.long	.Lxta.loop_labels0
-.cc_bottom cc_170
-.cc_top cc_171,.Lxta.loop_labels1
+.cc_bottom cc_162
+.cc_top cc_163,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	107
 	.long	107
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_171
-.cc_top cc_172,.Lxta.loop_labels1
+.cc_bottom cc_163
+.cc_top cc_164,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	109
 	.long	112
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_172
-.cc_top cc_173,.Lxta.loop_labels1
+.cc_bottom cc_164
+.cc_top cc_165,.Lxta.loop_labels1
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	114
 	.long	118
 	.long	.Lxta.loop_labels1
-.cc_bottom cc_173
-.cc_top cc_174,.Lxta.loop_labels2
+.cc_bottom cc_165
+.cc_top cc_166,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	132
 	.long	132
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_174
-.cc_top cc_175,.Lxta.loop_labels2
+.cc_bottom cc_166
+.cc_top cc_167,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	134
 	.long	135
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_175
-.cc_top cc_176,.Lxta.loop_labels2
+.cc_bottom cc_167
+.cc_top cc_168,.Lxta.loop_labels2
 	.ascii	"../src/f_conversions.xc"
 	.byte	0
 	.long	137
 	.long	141
 	.long	.Lxta.loop_labels2
-.cc_bottom cc_176
+.cc_bottom cc_168
 .Lentries_end5:
 	.section	.trap_info,"",@progbits
 .Ltrap_info_entries_start0:

@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_STARTKIT_ADC_CLIENT 0 // Cost 0.3k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_STARTKIT_ADC_CLIENT) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_STARTKIT_ADC_CLIENT and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 typedef struct tag_startkit_adc_user_vals {
     unsigned short        x[NUM_STARTKIT_ADC_INPUTS]; // 16 bits as sizeof (unsiged short) is 2

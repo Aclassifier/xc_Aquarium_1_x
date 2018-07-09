@@ -52,8 +52,8 @@
 
 #define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 1 // Cost 0.4k
 //
-#define debug_printf(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET) printf(fmt, __VA_ARGS__); } while (0)
-#define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET) val=to;                   } while (0)
+#define debug_printf(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL==1)) val=to;                   } while (0)
 
 //}}}  
 

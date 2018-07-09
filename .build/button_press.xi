@@ -1390,16 +1390,16 @@ void Button_Task (
     bool initial_released_stopped = false;
     bool pressed_but_not_released = false;
 
-    do { if(0) printf("inP_Button_Task[%u] started\n", button_n); } while (0);
+    do { if(1 && (0==1)) printf("inP_Button_Task[%u] started\n", button_n); } while (0);
 
     while(1) {
         select {
 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
                 if (current_val == 0) {
-                    do { if(0) printf(": Button %u pressed\n", button_n); } while (0);
+                    do { if(1 && (0==1)) printf(": Button %u pressed\n", button_n); } while (0);
                 } else {
-                    do { if(0) printf(": Button %u released\n", button_n); } while (0);
+                    do { if(1 && (0==1)) printf(": Button %u released\n", button_n); } while (0);
                 }
 
                 pressed_but_not_released = false;
@@ -1420,18 +1420,18 @@ void Button_Task (
                         pressed_but_not_released = true;
 
                         i_button_out.button (BUTTON_ACTION_PRESSED);
-                        do { if(0) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
+                        do { if(1 && (0==1)) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
                     }
                     else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
-                            do { if(0) printf(" Button %u filtered away\n", button_n); } while (0);
+                            do { if(1 && (0==1)) printf(" Button %u filtered away\n", button_n); } while (0);
                         } else {
                             pressed_but_not_released = false;
                             i_button_out.button (BUTTON_ACTION_RELEASED);
-                            do { if(0) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
+                            do { if(1 && (0==1)) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
                         }
                     }
                     is_stable = true;
@@ -1440,7 +1440,7 @@ void Button_Task (
 
                     pressed_but_not_released = false;
                     i_button_out.button (BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
-                    do { if(0) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
+                    do { if(1 && (0==1)) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
                 }
             } break;
 

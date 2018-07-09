@@ -1710,7 +1710,7 @@ void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_par
 
     i2c_external_params._result =
         i2c_master_write_reg (device, reg_addr, data, nbytes, i2c_external_config);
-    do { if(0) printf("I2C:W %u %u\n", device, i2c_external_params._result); } while (0);
+    do { if(0 && (0==1)) printf("I2C:W %u %u\n", device, i2c_external_params._result); } while (0);
 }
 
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg) {
@@ -1722,14 +1722,14 @@ uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_
 
     i2c_external_params._result =
         i2c_master_read_reg (device, reg_addr, data, nbytes, i2c_external_config);
-    do { if(0) printf("I2C:R %u %u\n", device, i2c_external_params._result); } while (0);
+    do { if(0 && (0==1)) printf("I2C:R %u %u\n", device, i2c_external_params._result); } while (0);
 
 
     uint16_t msb = ((uint16_t) data[0]) << 8;
     uint16_t lsb = (uint16_t) data[1];
     return_val = msb + lsb;
 
-    do { if(0) printf("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params._result, device, reg_addr, return_val); } while (0);
+    do { if(0 && (0==1)) printf("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params._result, device, reg_addr, return_val); } while (0);
 
     return return_val;
 }

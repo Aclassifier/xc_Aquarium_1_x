@@ -44,8 +44,8 @@
 #include "I2C_External_Task.h"
 #endif
 
-#define DEBUG_PRINT_I2C_External_Task 0 // Cost 1.5
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_External_Task) printf(fmt, __VA_ARGS__); } while (0)
+#define DEBUG_PRINT_I2C_EXTERNAL_TASK 0 // Cost 1.5
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_TASK and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_external_config = {
     on tile[0]:XS1_PORT_1G, // X_SCL SCL is at startKIT GPIO header (J7.3) port P1G0, processor pin X0D22

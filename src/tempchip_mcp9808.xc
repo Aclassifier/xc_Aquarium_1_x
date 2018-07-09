@@ -28,7 +28,7 @@
 #endif
 
 #define DEBUG_PRINT_MCP9898 0 // Cost 1.5k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_MCP9898) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_MCP9898 and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 bool Tempchip_MCP9808_Begin_Ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t address) {
 
