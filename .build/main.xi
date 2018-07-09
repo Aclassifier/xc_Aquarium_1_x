@@ -1850,8 +1850,7 @@ void My_startKIT_ADC_Task (
 # 40 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
-# 15 "../src/_Aquarium.h"
-[[combinable]]
+# 16 "../src/_Aquarium.h"
 extern void System_Task (
     client i2c_internal_commands_if i_i2c_internal_commands,
     client i2c_external_commands_if i_i2c_external_commands,
