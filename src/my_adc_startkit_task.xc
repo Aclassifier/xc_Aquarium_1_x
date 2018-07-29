@@ -37,7 +37,7 @@ typedef enum t_client_state {
 } t_client_state;
 
 #if (DO_ADC_NESTED_SELECT == 0)
-// #error Doesn not work! See Ticket 9964
+#warning NOT TESTED with distributable. See Ticket 9964
 [[distributable]] // [[combinable]]
 #endif
 void My_startKIT_ADC_Task (
@@ -67,7 +67,7 @@ void My_startKIT_ADC_Task (
 
                 data_set_cnt = 1; // First set
 
-            #if (DO_ADC_NESTED_SELECT == 0) // This works
+            #if (DO_ADC_NESTED_SELECT == 1) // This works
 
                 while (data_set_cnt <= Num_of_data_sets) {
                     i_startkit_adc_down.trigger(); // Get next data set
