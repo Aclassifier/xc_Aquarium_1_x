@@ -25,8 +25,8 @@ typedef interface lib_startkit_adc_commands_if {
 //
 #define ADC_STARTKIT_NUM_CLIENTS 1
 
-#ifndef DO_ADC_NESTED_SELECT
-[[combinable]]
+#if (DO_ADC_NESTED_SELECT == 0)
+[[distributable]] // [[combinable]]
 #endif
 void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if      i_startkit_adc_down,

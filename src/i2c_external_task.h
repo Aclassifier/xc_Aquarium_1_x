@@ -64,7 +64,7 @@ typedef interface i2c_external_commands_if {
 
 #define I2C_EXTERNAL_NUM_CLIENTS 2
 
-[[combinable]]
+[[distributable]] // [[combinable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]);
 
 #else

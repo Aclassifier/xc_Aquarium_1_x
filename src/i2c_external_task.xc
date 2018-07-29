@@ -56,7 +56,7 @@ r_i2c i2c_external_config = {
                             //  300 * 10ns =  3.000 ns =  3 us -> 333.33 kbit/s operation
 };
 
-[[combinable]]
+[[distributable]] // [[combinable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]) {
 
     i2c_master_params_t i2c_external_params;

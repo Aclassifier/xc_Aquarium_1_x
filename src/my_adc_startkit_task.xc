@@ -36,9 +36,9 @@ typedef enum t_client_state {
     ADC_AWAIT_READ_FROM_UP
 } t_client_state;
 
-#ifndef DO_ADC_NESTED_SELECT
-#error Doesn not work! See Ticket 9964
-[[combinable]]
+#if (DO_ADC_NESTED_SELECT == 0)
+// #error Doesn not work! See Ticket 9964
+[[distributable]] // [[combinable]]
 #endif
 void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if      i_startkit_adc_down,
@@ -67,7 +67,7 @@ void My_startKIT_ADC_Task (
 
                 data_set_cnt = 1; // First set
 
-            #ifdef DO_ADC_NESTED_SELECT // This works
+            #if (DO_ADC_NESTED_SELECT == 0) // This works
 
                 while (data_set_cnt <= Num_of_data_sets) {
                     i_startkit_adc_down.trigger(); // Get next data set

@@ -86,7 +86,7 @@
 	.call usage.anon.0,delay_ticks_longlong
 	.set Button_Task.locnoside, 0
 	.set Button_Task.locnointerfaceaccess, 0
-	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:96:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:23:94: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL==1)) printf(fmt, __VA_ARGS__); } while (0)\n                                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:96:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_printf(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:23:98: note: expanded from here\n#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)\n                                                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits

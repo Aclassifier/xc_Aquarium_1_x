@@ -1578,7 +1578,7 @@ typedef interface i2c_external_commands_if {
 
 
 
-[[combinable]]
+[[distributable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 29 "../src/f_conversions.xc" 2
 # 1 "../src/f_conversions.h" 1

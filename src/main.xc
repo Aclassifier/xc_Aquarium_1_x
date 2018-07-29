@@ -46,7 +46,7 @@ port inP_button_center = on tile[0]: XS1_PORT_1O; // P1O0, X0D38 B_Center
 port inP_button_right  = on tile[0]: XS1_PORT_1P; // P11P, X0D39 B_Right
 
 int main() {
-    interface button_if i_buttons[BUTTONS_NUM_CLIENTS]; // Individual
+    button_if i_buttons[BUTTONS_NUM_CLIENTS]; // Individual
     chan c_analogue;
 
     // The declarations are typedefs of interface types to connect the tasks together (XMOS Programming guide p92)

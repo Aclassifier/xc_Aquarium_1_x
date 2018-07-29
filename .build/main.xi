@@ -1528,7 +1528,7 @@ typedef interface i2c_external_commands_if {
 
 
 
-[[combinable]]
+[[distributable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 30 "../src/main.xc" 2
 # 1 "../src/button_press.h" 1
@@ -1842,7 +1842,9 @@ typedef interface lib_startkit_adc_commands_if {
     [[guarded]] [[clears_notification]] {unsigned int, unsigned int} read (unsigned short adc_val[4]);
     [[notification]] slave void notify (void);
 } lib_startkit_adc_commands_if;
-# 31 "../src/my_adc_startkit_task.h"
+# 29 "../src/my_adc_startkit_task.h"
+[[distributable]]
+
 void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[1],
@@ -1867,7 +1869,7 @@ port inP_button_center = on tile[0]: 0x10e00;
 port inP_button_right = on tile[0]: 0x10f00;
 
 int main() {
-    interface button_if i_buttons[3];
+    button_if i_buttons[3];
     chan c_analogue;
 
 
