@@ -1,45 +1,58 @@
----- Commit 0c5989e 29Jul2018 begin 
+ONLY 
+spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
+compiled in.
 
-Constraint check for tile[0]:
-  Cores available:            8,   used:          6 .  OKAY
-  Timers available:          10,   used:          7 .  OKAY
-  Chanends available:        32,   used:         23 .  OKAY
-  Memory available:       65536,   used:      46560 .  OKAY
-    (Stack: 5192, Code: 36694, Data: 4674)
-Constraints checks PASSED
+But this looks extremely hopeful!
 
-#define MAP_PAR_COMBINE 1
-[[distributable]] void I2C_External_Task
-
-Constraint check for tile[0]:
-  Cores available:            8,   used:          6 .  OKAY
-  Timers available:          10,   used:          7 .  OKAY
-  Chanends available:        32,   used:         23 .  OKAY
-  Memory available:       65536,   used:      46592 .  OKAY
-    (Stack: 5200, Code: 36718, Data: 4674)
-
-
-MAP_CHANENDS_25_C
-#define MAP_PAR_COMBINE 0
-[[distributable]] void I2C_External_Task
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_rfm69_xc(0.8.1) lib_spi(3.0.2-branch-startKIT) lib_startkit_support(2.0.0) lib_xassert(3.0.0) module_i2c_master module_random
+Creating dependencies for temperature_water_task.xc
+Creating dependencies for temperature_heater_task.xc
+Creating dependencies for tempchip_mcp9808.xc
+Creating dependencies for port_heat_light_task.xc
+Creating dependencies for my_adc_startkit_task.xc
+Creating dependencies for main.xc
+Creating dependencies for light_sunrise_sunset.xc
+Creating dependencies for i2c_internal_task.xc
+Creating dependencies for i2c_external_task.xc
+Creating dependencies for f_conversions.xc
+Creating dependencies for exception_handler.xc
+Creating dependencies for display_ssd1306.xc
+Creating dependencies for chronodot_ds3231_task.xc
+Creating dependencies for button_press.xc
+Creating dependencies for _aquarium_1_x.xc
+Creating dependencies for core_graphics_adafruit_gfx.c
+Compiling core_graphics_adafruit_gfx.c
+Compiling _aquarium_1_x.xc
+Compiling button_press.xc
+Compiling chronodot_ds3231_task.xc
+Compiling display_ssd1306.xc
+Compiling exception_handler.xc
+Compiling f_conversions.xc
+Compiling i2c_external_task.xc
+Compiling i2c_internal_task.xc
+Compiling light_sunrise_sunset.xc
+Compiling main.xc
+../src/main.xc:216:19: warning: unused variable `i_radio' [-Wunused-variable]
+    radio_if_t    i_radio;
+                  ^~~~~~~
+../src/main.xc:217:19: warning: unused variable `i_irq' [-Wunused-variable]
+    irq_if_t      i_irq;
+                  ^~~~~
+../src/main.xc:278:35: warning: `i_spi' not used in two parallel statements [-Wunusual-code]
+                    spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
+                                  ^~~~~
+Compiling my_adc_startkit_task.xc
+Compiling port_heat_light_task.xc
+Compiling tempchip_mcp9808.xc
+Compiling temperature_heater_task.xc
+Compiling temperature_water_task.xc
+Creating _aquarium_1_x.xe
 Constraint check for tile[0]:
   Cores available:            8,   used:          7 .  OKAY
   Timers available:          10,   used:          8 .  OKAY
-  Chanends available:        32,   used:         25 .  OKAY
-  Memory available:       65536,   used:      45624 .  OKAY
-    (Stack: 5652, Code: 35290, Data: 4682)
+  Chanends available:        32,   used:         24 .  OKAY
+  Memory available:       65536,   used:      49532 .  OKAY
+    (Stack: 5436, Code: 38538, Data: 5558)
 Constraints checks PASSED.
-
-
-#define MAP_PAR_COMBINE 1
-[[distributable]] void I2C_External_Task
-[[distributable]] void My_startKIT_ADC_Task NOT TESTED!
-
-Constraint check for tile[0]:
-  Cores available:            8,   used:          5 .  OKAY
-  Timers available:          10,   used:          6 .  OKAY
-  Chanends available:        32,   used:         21 .  OKAY
-  Memory available:       65536,   used:      47460 .  OKAY
-    (Stack: 5708, Code: 37086, Data: 4666)
-    
- ---- Commit 0c5989e 29Jul2018 end 

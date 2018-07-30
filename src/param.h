@@ -68,7 +68,7 @@ typedef struct tag_startkit_adc_vals {
         printint(u); printstr(" "); \
     } printf
 
-#define DUMMY_WIFI
+#define DUMMY_WIFI           0 // TODO, remove when lib_rfm69_xc is up, and remove code
 #define DO_ADC_NESTED_SELECT 1 // 1 compiles with [[distributable]] My_startKIT_ADC_Task, but does not run. Would be best with chanends!
                                // 0 needed
 

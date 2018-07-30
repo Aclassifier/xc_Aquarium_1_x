@@ -17,5 +17,10 @@
   ../../workspace/_Aquarium_1_x/src/chronodot_ds3231_task.h \
   ../../workspace/_Aquarium_1_x/src/exception_handler.h \
   ../../workspace/_Aquarium_1_x/src/my_adc_startkit_task.h \
+  ../../workspace/lib_spi/api/spi.h \
+  ../../workspace/lib_rfm69_xc/api/rfm69_globals.h \
+  ../../workspace/lib_rfm69_xc/api/rfm69_crc.h \
+  ../../workspace/lib_rfm69_xc/api/rfm69_commprot.h \
+  ../../workspace/lib_rfm69_xc/api/rfm69_xc.h \
   ../../workspace/_Aquarium_1_x/src/_Aquarium.h
 

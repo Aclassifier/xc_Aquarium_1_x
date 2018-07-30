@@ -186,7 +186,7 @@ typedef enum pin_change_t {
     PIN_LIGHTER
 } pin_change_t;
 
-#ifdef DUMMY_WIFI
+#if (DUMMY_WIFI == 1)
     // XS1_PORT_4C two lower bits are also BIT28 and BIT29 on XS1_PORT_32A
     // Now those two bits have precedence
     // See"Introduction to XS1 ports" chapter 7.1 "Port precedence"
@@ -282,7 +282,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
     debug_printf("%s", "Port_Pins_Heat_Light_Task started\n");
 
-    #ifdef DUMMY_WIFI
+    #if (DUMMY_WIFI == 1)
         // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
         dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
     #endif

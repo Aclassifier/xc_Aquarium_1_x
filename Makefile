@@ -9,7 +9,7 @@ TARGET = STARTKIT
 APP_NAME = _aquarium_1_x
 
 # The USED_MODULES variable lists other module used by the application.
-USED_MODULES = lib_startkit_support lib_xassert module_i2c_master module_random
+USED_MODULES = lib_rfm69_xc lib_spi lib_startkit_support lib_xassert module_i2c_master module_random
 
 # The flags passed to xcc when building the application
 # You can also set the following to override flags for a particular language:
@@ -22,7 +22,7 @@ XCC_FLAGS = -Os -g -fxscope -save-temps -DWARNINGS=1
 # -DXASSERT_ENABLE_ASSERTIONS=1   is default
 # -DXASSERT_ENABLE_LINE_NUMBERS=1 very expensive
 # -DXASSERT_ENABLE_DEBUG=1        very expensive
-XCC_MAP_FLAGS = -Xmapper --map -Xmapper _Aquarium_map.txt -Xmapper -report
+XCC_MAP_FLAGS = -Xmapper --map -Xmapper _app_rfm69_on_xmos_native.txt -report
 
 # The XCORE_ARM_PROJECT variable, if set to 1, configures this
 # project to create both xCORE and ARM binaries.

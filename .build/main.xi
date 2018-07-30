@@ -1849,6 +1849,431 @@ void My_startKIT_ADC_Task (
    const unsigned int Num_of_data_sets);
 # 40 "../src/main.xc" 2
 
+# 1 "/Users/teig/workspace/lib_spi/api/spi.h" 1
+
+
+
+
+
+# 1 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/clang/stddef.h" 1 3
+# 7 "/Users/teig/workspace/lib_spi/api/spi.h" 2
+
+
+typedef enum spi_mode_t {
+      SPI_MODE_0,
+      SPI_MODE_1,
+      SPI_MODE_2,
+      SPI_MODE_3,
+} spi_mode_t;
+
+
+
+typedef interface spi_master_if {
+# 29 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void await_spi_port_init (void);
+# 43 "/Users/teig/workspace/lib_spi/api/spi.h"
+  [[guarded]]
+  void begin_transaction(unsigned device_index,
+                         unsigned speed_in_khz, spi_mode_t mode);
+
+
+
+
+
+
+  void end_transaction(unsigned ss_deassert_time);
+# 63 "/Users/teig/workspace/lib_spi/api/spi.h"
+  uint8_t transfer8(uint8_t data);
+# 74 "/Users/teig/workspace/lib_spi/api/spi.h"
+  uint32_t transfer32(uint32_t data);
+
+} spi_master_if;
+
+
+typedef struct
+{
+    unsigned maskof_cs;
+    unsigned maskof_en;
+    unsigned maskof_probe_inner;
+    unsigned maskof_probe_outer;
+
+} maskof_spi_and_probe_pins_t;
+# 134 "/Users/teig/workspace/lib_spi/api/spi.h"
+[[distributable]]
+void spi_master_2(server interface spi_master_if i[num_clients],
+        static const size_t num_clients,
+        out buffered port:32 sclk,
+        out buffered port:32 ?mosi,
+        in buffered port:32 ?miso,
+        __clock_t ?cb,
+        out port p_cs_en,
+
+
+
+
+        maskof_spi_and_probe_pins_t masks [num_spi_slaves],
+        static const unsigned num_spi_slaves);
+# 172 "/Users/teig/workspace/lib_spi/api/spi.h"
+[[distributable]]
+void spi_master(server interface spi_master_if i[num_clients],
+        static const size_t num_clients,
+        out buffered port:32 sclk,
+        out buffered port:32 ?mosi,
+        in buffered port:32 ?miso,
+        out port p_ss[num_slaves],
+        static const size_t num_slaves,
+        __clock_t ?clk);
+
+
+
+
+
+
+typedef interface spi_master_async_if {
+# 200 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void begin_transaction(unsigned device_index,
+                         unsigned speed_in_khz, spi_mode_t mode);
+# 213 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void end_transaction(unsigned ss_deassert_time);
+# 230 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void init_transfer_array_8(uint8_t * movable inbuf,
+                             uint8_t * movable outbuf,
+                             size_t nbytes);
+# 249 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void init_transfer_array_32(uint32_t * movable inbuf,
+                              uint32_t * movable outbuf,
+                              size_t nwords);
+
+
+
+
+
+
+  [[notification]]
+  slave void transfer_complete(void);
+# 272 "/Users/teig/workspace/lib_spi/api/spi.h"
+  [[clears_notification]]
+  void retrieve_transfer_buffers_8(uint8_t * movable &inbuf,
+                                   uint8_t * movable &outbuf);
+# 288 "/Users/teig/workspace/lib_spi/api/spi.h"
+  [[clears_notification]]
+  void retrieve_transfer_buffers_32(uint32_t * movable &inbuf,
+                                    uint32_t * movable &outbuf);
+} spi_master_async_if;
+# 311 "/Users/teig/workspace/lib_spi/api/spi.h"
+[[combinable]]
+void spi_master_async(server interface spi_master_async_if i[num_clients],
+        static const size_t num_clients,
+        out buffered port:32 sclk,
+        out buffered port:32 ?mosi,
+        in buffered port:32 miso,
+        out port p_ss[num_slaves],
+        static const size_t num_slaves,
+        __clock_t clk0,
+        __clock_t clk1);
+
+
+
+
+
+
+typedef interface spi_slave_callback_if {
+
+
+
+
+  void master_ends_transaction(void);
+# 345 "/Users/teig/workspace/lib_spi/api/spi.h"
+  uint32_t master_requires_data(void);
+# 356 "/Users/teig/workspace/lib_spi/api/spi.h"
+  void master_supplied_data(uint32_t datum, uint32_t valid_bits);
+
+} spi_slave_callback_if;
+
+
+
+typedef enum spi_transfer_type_t {
+  SPI_TRANSFER_SIZE_8,
+  SPI_TRANSFER_SIZE_32
+} spi_transfer_type_t;
+# 383 "/Users/teig/workspace/lib_spi/api/spi.h"
+ [[combinable]]
+  void spi_slave(client spi_slave_callback_if spi_i,
+                 in port p_sclk,
+                 in buffered port:32 p_mosi,
+                 out buffered port:32 ?p_miso,
+                 in port p_ss,
+                 __clock_t clk,
+                 static const spi_mode_t mode,
+                 static const spi_transfer_type_t transfer_type);
+# 42 "../src/main.xc" 2
+# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
+# 68 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+typedef enum {low,high} pin_e;
+
+typedef enum {
+    logic_normal,
+    logic_inverted
+} logic_e;
+# 88 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+typedef struct {
+    union {
+        uint32_t value;
+        uint8_t bytes[4];
+    } u;
+# 110 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+} fourbytes_u;
+# 43 "../src/main.xc" 2
+# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
+# 11 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h"
+typedef uint32_t crc32_t;
+
+
+crc32_t
+calc_CRC32 (
+        uint32_t data[], static const int num_words,
+        crc32_t expected_crc);
+# 44 "../src/main.xc" 2
+# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
+# 72 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+typedef uint8_t lenm1_t;
+
+
+typedef struct {
+
+    lenm1_t PACKETLEN;
+    uint8_t TARGETID;
+    uint8_t SENDERID;
+    uint8_t padding_03;
+} RFM69_comm_header32_t;
+
+
+
+
+
+
+
+typedef struct {
+
+    uint8_t numbytes_of_full_payload_10;
+    uint8_t version_of_full_payload_11;
+    uint8_t num_of_this_app_payload_NN;
+    uint8_t padding_13;
+} app_heading32_t;
+
+
+
+
+
+
+
+typedef struct {
+    uint8_t noAccess_arr[(sizeof(RFM69_comm_header32_t))];
+
+
+    app_heading32_t appHeading;
+    uint8_t appNODEID;
+    uint8_t appPowerLevel_dBm;
+    uint8_t appPadding_22;
+    uint8_t appPadding_23;
+    uint32_t appSeqCnt;
+
+    crc32_t appCRC32;
+# 124 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+} packet_u3_t;
+# 137 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+typedef struct {
+    RFM69_comm_header32_t CommHeaderRFM69;
+    uint8_t appPayload_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
+    crc32_t appCRC32;
+} packet_u0_t;
+
+typedef struct {
+    union {
+        packet_u0_t packet_u0;
+        uint8_t packet_u1_uint8_arr[(sizeof(packet_u3_t))];
+        uint32_t packet_u2_uint32_arr[((sizeof(packet_u3_t))/4)];
+
+        packet_u3_t packet_u3;
+    } u;
+} packet_t;
+# 45 "../src/main.xc" 2
+# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
+# 20 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+typedef enum {
+
+    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_1 = 0,
+    ERROR_BIT_REG_SYNCVALUE1_AA = 1,
+    ERROR_BIT_REG_SYNCVALUE1_55 = 2,
+    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_3 = 3,
+    ERROR_BIT_NO_RF69_MODE_SLEEP_EXIT = 4,
+    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_2 = 5,
+    ERROR_BIT_WAIT_FOR_CSMA_LIMIT_SET_MS = 6,
+    ERROR_BIT_RF_OSC1_RCCAL_DONE = 7,
+    ERROR_BIT_RF_TEMP1_MEAS_RUNNING = 8,
+    ERROR_BIT_REG_RSSICONFIG = 9,
+    ERROR_BIT_SETMODE_FAILED = 10,
+    ERROR_BIT_DEVICE_TYPE = 11,
+
+    ERROR_BIT_RF_IRQFLAGS2_MODEREADY = 12,
+
+} error_bits_e;
+
+typedef enum {NO_ERR, IS_ERR} is_error_e;
+# 77 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+typedef struct {
+
+    uint8_t preamble0;
+    uint8_t preamble1;
+    uint8_t preamble2;
+
+    uint8_t SYN0;
+    uint8_t SYN1;
+
+
+    uint8_t header0;
+
+
+    uint8_t header1;
+    uint8_t header2;
+    uint8_t header3;
+    uint8_t PACKET[((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)))];
+
+    uint8_t CRC16_LSB;
+    uint8_t CRC16_MSB;
+# 112 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+} rfm69_packet_t;
+
+typedef enum {
+    no_IRQExpected,
+    messagePacketSent_IRQExpected,
+    messagePacketNotSent_ErrorIRQNotExpected
+
+} waitForIRQInterruptCause_e;
+
+typedef enum {
+    void_IRQ = 0,
+    messagePacketSentOk_IRQ = 1,
+    messagePacketSentOkNotAlone_IRQ = 2,
+    messagePacketSentNotExpected_IRQ = 3,
+    messagePacketSentNotExpectedNotAlone_IRQ = 4,
+    messageReceivedOk_IRQ = 5,
+    messageNotExpectedBy_IRQ = 6,
+    messagePacketLenErr_IRQ = 7,
+
+    messageNotForThisNode_IRQ = 8,
+    messageRadioCRC16Err_IRQ = 9,
+
+    messageAppCRC32Err_IRQ = 10,
+    messageRadioCRC16AppCRC32Errs_IRQ = 11
+
+} interruptAndParsingResult_e;
+
+typedef enum {
+    RF69_315MHZ,
+    RF69_433MHZ,
+    RF69_868MHZ,
+    RF69_915MHZ
+
+} freqBand_e;
+
+
+typedef struct {
+    uint8_t nodeID;
+    freqBand_e freqBand;
+    uint8_t key[16];
+    bool isRFM69HW;
+
+} rfm69_params_t;
+
+typedef struct {
+    uint8_t APPPROTLEN;
+    uint8_t PACKETLEN;
+    uint8_t SENDERID;
+    uint8_t TARGETID;
+    error_bits_e error_bits;
+    uint8_t RegIrqFlags2;
+
+} some_rfm69_internals_t;
+# 188 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+typedef enum {
+    FORCETRIGGER_OFF,
+    FORCETRIGGER_ON
+} forceTrigger_t;
+
+typedef enum {
+    RX_TX_IRQ,
+    RX_IRQ
+} handleIRQ_t;
+# 215 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+typedef interface radio_if_t {
+# 232 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+    void do_spi_aux_adafruit_rfm69hcw_RST_pulse
+                                                            (const unsigned maskof_pin);
+
+    void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
+
+    void initialize (const rfm69_params_t init);
+
+    bool canSend (void);
+    void encrypt16 (const char key[], unsigned const static len);
+    {error_bits_e, is_error_e} getAndClearErrorBits (void);
+    uint8_t getDeviceType (void);
+    {some_rfm69_internals_t,
+        packet_t} getSomeRadioInternals (void);
+    {some_rfm69_internals_t,
+        packet_t,
+        interruptAndParsingResult_e} handleSPIInterrupt (void);
+    void setListenToAll (const bool doListenToAll);
+    void rcCalibration (void);
+    int16_t readRSSI_dBm (const forceTrigger_t forceTrigger);
+    int8_t readTemperature_degC (const int8_t calOffset);
+    bool receiveDone (void);
+    waitForIRQInterruptCause_e send (const uint8_t TARGETID_toAddress,
+                                                             const packet_t PACKET);
+    uint8_t setNODEID (const uint8_t newNODEID);
+
+    void setHighPower (const bool isHighPowerOn);
+
+    void setMode (const uint8_t newMode);
+    void setPowerLevel_dBm (const uint8_t powerLevel_dBm);
+    void sleep (void);
+# 270 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+} radio_if_t;
+
+
+[[distributable]]
+void RFM69_driver (
+        server radio_if_t i_radio,
+               out port p_spi_aux,
+        client spi_master_if i_spi,
+               unsigned spi_client);
+
+
+typedef interface irq_if_t {
+    void pin_rising (const int16_t value);
+} irq_if_t;
+
+
+[[combinable]]
+void IRQ_detect_task (
+        client irq_if_t i_irq,
+               in port p_irq,
+               out port p_probe4
+        );
+
+
+[[combinable]]
+void IRQ_detect_and_RSSI_task (
+        client irq_if_t i_irq,
+               in port p_irq,
+               out port p_probe4,
+        client spi_master_if i_spi,
+
+               unsigned iof_spi_client
+        );
+# 46 "../src/main.xc" 2
+
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
 extern void System_Task (
@@ -1859,7 +2284,29 @@ extern void System_Task (
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
     server button_if i_button_in[3]);
-# 42 "../src/main.xc" 2
+# 48 "../src/main.xc" 2
+# 85 "../src/main.xc"
+in buffered port:32 p_miso = on tile[0]: 0x10a00;
+out buffered port:32 p_sclk = on tile[0]: 0x10800;
+out buffered port:32 p_mosi = on tile[0]: 0x10900;
+__clock_t clk_spi = on tile[0]: 0x106;
+# 118 "../src/main.xc"
+maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
+{
+    { 0x01, 0x02, 0x04, 0x08 }
+
+
+
+
+
+
+};
+# 200 "../src/main.xc"
+out port p_spi_cs_en = on tile[0]:0x40200;
+out port p_spi_aux = on tile[0]:0x40300;
+in port p_spi_irq = on tile[0]:0x10b00;
+
+
 
 
 port inP_button_left = on tile[0]: 0x10d00;
@@ -1870,6 +2317,10 @@ int main() {
     button_if i_buttons[3];
     chan c_analogue;
 
+    spi_master_if i_spi[1];
+    radio_if_t i_radio;
+    irq_if_t i_irq;
+
 
 
     i2c_external_commands_if i_i2c_external_commands[2];
@@ -1879,7 +2330,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 78 "../src/main.xc"
+# 245 "../src/main.xc"
         par {
             on tile[0]: installExceptionHandler();
             par {
@@ -1910,7 +2361,14 @@ int main() {
                     Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
                 }
             }
+            on tile[0]: {
+                [[combine]]
+                par {
+                    spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+                }
+
+            }
         }
-# 170 "../src/main.xc"
+# 344 "../src/main.xc"
     return 0;
 }
