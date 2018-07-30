@@ -16,7 +16,10 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.6"
+#define APPLICATION_VERSION_STR "1.1.7"
+    // "1.1.7"     30Jul2018 [[distributable]] void I2C_External_Task
+    //                       [[distributable]] void My_startKIT_ADC_Task compiles with DO_ADC_NESTED_SELECT 0, but will not run.
+    //                       My_startKIT_ADC_Task now compiled with neither [[distributable]] nor [[combinable]] and DO_ADC_NESTED_SELECT=1
     // "1.1.6"      3Jul2018 Testing [[combine]] (with MAP_PAR_COMBINE) and interface from button instead of channels
     //                       Interface button_if instead of chan with Button_Task
     // "1.1.5"      5Feb2018 testing some changes that Maxim initiated

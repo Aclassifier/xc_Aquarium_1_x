@@ -1,3 +1,5 @@
+---- Commit 0c5989e 29Jul2018 begin 
+
 Constraint check for tile[0]:
   Cores available:            8,   used:          6 .  OKAY
   Timers available:          10,   used:          7 .  OKAY
@@ -39,3 +41,5 @@ Constraint check for tile[0]:
   Chanends available:        32,   used:         21 .  OKAY
   Memory available:       65536,   used:      47460 .  OKAY
     (Stack: 5708, Code: 37086, Data: 4666)
+    
+ ---- Commit 0c5989e 29Jul2018 end 

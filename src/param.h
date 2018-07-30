@@ -69,7 +69,8 @@ typedef struct tag_startkit_adc_vals {
     } printf
 
 #define DUMMY_WIFI
-#define DO_ADC_NESTED_SELECT 0
+#define DO_ADC_NESTED_SELECT 1 // 1 compiles with [[distributable]] My_startKIT_ADC_Task, but does not run. Would be best with chanends!
+                               // 0 needed
 
 #else
     #error Nested include PARAM_H_

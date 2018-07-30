@@ -36,10 +36,8 @@ typedef enum t_client_state {
     ADC_AWAIT_READ_FROM_UP
 } t_client_state;
 
-#if (DO_ADC_NESTED_SELECT == 0)
-#warning NOT TESTED with distributable. See Ticket 9964
-[[distributable]] // [[combinable]]
-#endif
+
+// Never: [[combinable]] [[distributable]]
 void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if      i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[ADC_STARTKIT_NUM_CLIENTS],

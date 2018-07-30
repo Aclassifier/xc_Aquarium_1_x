@@ -448,7 +448,7 @@ void Temperature_Heater_Task (
             //{{{  i_temperature_heater_commands[].get_mean_i2c_temps
 
             case i_temperature_heater_commands[int index_of_client].get_mean_i2c_temps (temp_onetenthDegC_t return_temps_onetenthDegC [NUM_I2C_TEMPERATURES]) : {
-                for (int iof_temps=0; iof_temps < NUM_TEMPERATURES; iof_temps++) {
+                for (int iof_temps=0; iof_temps < NUM_I2C_TEMPERATURES; iof_temps++) { // Was NUM_TEMPERATURES, caught at runtime by 14.3.3 but not earlier versions
                     return_temps_onetenthDegC[iof_temps] = temps_onetenthDegC[iof_temps]; // Arithmetic mean of ARITHMETIC_MEAN_N_OF_TEMPS values
                 }
                 // IOF_TEMPC_HEATER_MEAN_LAST_CYCLE not returned here
