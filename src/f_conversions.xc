@@ -30,7 +30,7 @@
 #endif
 
 #define DEBUG_PRINT_F_CONVERSIONS_MEAN 0 // Cost 1.3k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define INDEX_VOID (-1)
 
@@ -143,10 +143,10 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
         temp_return = (temps_sum / (use_n_of_temps - remove_n_of_temps)); // arithmetic mean
     }
 
-    // --- Debug only code, trying debug_printf here too, instead of #fdef block
+    // --- Debug only code, trying debug_print here too, instead of #fdef block
     char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW;
 
-    debug_printf ("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ",
+    debug_print ("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ",
             is2_temps_first_chars[index_for_printf],
             temp_return,
             temps_onetenthDegC_mean_array.temps_num,
@@ -154,18 +154,18 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
             temps_onetenthDeg,
            (temps_onetenthDeg!=temp_return));
     if (index_of_temp_largest == INDEX_VOID) {
-        debug_printf ("&s", "none ");
+        debug_print ("&s", "none ");
     } else {
-        debug_printf ("%d ", temp_largest);
+        debug_print ("%d ", temp_largest);
     }
     if (temp_largest != temp_smallest) {
         if (index_of_temp_smallest == INDEX_VOID) {
-            debug_printf ("&s", "none ");
+            debug_print ("&s", "none ");
         } else {
-            debug_printf ("%d ", temp_smallest);
+            debug_print ("%d ", temp_smallest);
         }
     } else {}
-    debug_printf ("%s", "\n");
+    debug_print ("%s", "\n");
 
     return temp_return;
 }

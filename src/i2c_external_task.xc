@@ -45,7 +45,7 @@
 #endif
 
 #define DEBUG_PRINT_I2C_EXTERNAL_TASK 0 // Cost 1.5
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_TASK and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_TASK and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_external_config = {
     on tile[0]:XS1_PORT_1G, // X_SCL SCL is at startKIT GPIO header (J7.3) port P1G0, processor pin X0D22
@@ -82,7 +82,7 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                     } break;
 
                     case GET_TEMPC_ALL:  {
-                        debug_printf ("I2C: GET_TEMPC_ALL A %u\n", index_of_client);
+                        debug_print ("I2C: GET_TEMPC_ALL A %u\n", index_of_client);
                         i2c_external_params._use_dev_address               = (i2c_dev_address_t) I2C_ADDRESS_OF_TEMPC_HEATER;
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER]  = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
@@ -101,17 +101,17 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                     } break;
                 }
 
-                debug_printf ("I2C: GET_TEMPC_ALL R %u\n", index_of_client);
+                debug_print ("I2C: GET_TEMPC_ALL R %u\n", index_of_client);
                 i_i2c_external_commands[index_of_client].notify();
-                debug_printf ("I2C: GET_TEMPC_ALL S %u\n", index_of_client);
+                debug_print ("I2C: GET_TEMPC_ALL S %u\n", index_of_client);
             } break;
 
             // clears_notification
             case i_i2c_external_commands[int index_of_client].read_temperature_ok (void) -> i2c_temps_t return_i2c_temps: {
-                debug_printf ("%s", "i2c-x read_temperature_ok\n");
-                debug_printf ("I2C: GET_TEMPC_ALL X %u\n", index_of_client);
+                debug_print ("%s", "i2c-x read_temperature_ok\n");
+                debug_print ("I2C: GET_TEMPC_ALL X %u\n", index_of_client);
                 return_i2c_temps = i2c_temps;
-                debug_printf ("I2C: GET_TEMPC_ALL Y %u\n", index_of_client);
+                debug_print ("I2C: GET_TEMPC_ALL Y %u\n", index_of_client);
             } break;
         }
     }

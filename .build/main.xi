@@ -1302,6 +1302,20 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+# 27 "../src/_globals.h"
+typedef struct {
+    uint8_t payload_1;
+    uint8_t payload_2;
+    uint8_t payload_3;
+    uint8_t payload_4;
+} payload_u0_t;
+
+typedef struct {
+    union {
+        payload_u0_t payload_u0;
+        uint8_t payload_u1_uint8_arr[4];
+    } u;
+} payload_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -2058,7 +2072,7 @@ typedef struct {
     uint8_t numbytes_of_full_payload_10;
     uint8_t version_of_full_payload_11;
     uint8_t num_of_this_app_payload_NN;
-    uint8_t padding_13;
+    uint8_t app_padding_13;
 } app_heading32_t;
 
 
@@ -2076,12 +2090,13 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
+    uint8_t appPayload_arr[4];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 124 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 125 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 137 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 138 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2255,11 +2270,16 @@ typedef interface irq_if_t {
 } irq_if_t;
 
 
+typedef struct probe_pins_t {
+    out port probe_when_irq;
+} probe_pins_t;
+
+
 [[combinable]]
 void IRQ_detect_task (
         client irq_if_t i_irq,
                in port p_irq,
-               out port p_probe4
+               probe_pins_t &?p_probe
         );
 
 
@@ -2267,7 +2287,7 @@ void IRQ_detect_task (
 void IRQ_detect_and_RSSI_task (
         client irq_if_t i_irq,
                in port p_irq,
-               out port p_probe4,
+               probe_pins_t &?p_probe,
         client spi_master_if i_spi,
 
                unsigned iof_spi_client
@@ -2283,14 +2303,16 @@ extern void System_Task (
     client port_heat_light_commands_if i_port_heat_light_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
-    server button_if i_button_in[3]);
+    server button_if i_button_in[3],
+    server irq_if_t i_irq,
+    client radio_if_t i_radio);
 # 48 "../src/main.xc" 2
-# 85 "../src/main.xc"
+# 78 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 118 "../src/main.xc"
+# 107 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2301,11 +2323,15 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 200 "../src/main.xc"
+# 188 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
 
+
+probe_pins_t probe_config = {
+    on tile[0]:0x10300
+};
 
 
 
@@ -2330,7 +2356,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 245 "../src/main.xc"
+# 237 "../src/main.xc"
         par {
             on tile[0]: installExceptionHandler();
             par {
@@ -2338,7 +2364,7 @@ int main() {
                 on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
                 on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
                                                   i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                  i_buttons);
+                                                  i_buttons, i_irq, i_radio);
                 on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
             }
             on tile[0]: {
@@ -2364,11 +2390,13 @@ int main() {
             on tile[0]: {
                 [[combine]]
                 par {
+                    RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
                     spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+                    IRQ_detect_task (i_irq, p_spi_irq, probe_config);
                 }
 
             }
         }
-# 344 "../src/main.xc"
+# 338 "../src/main.xc"
     return 0;
 }

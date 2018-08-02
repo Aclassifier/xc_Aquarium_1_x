@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #ifdef FLASH_BLACK_BOARD
     // No Board 9, ok to see red LEDs go on and off
@@ -280,7 +280,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
     //      So no DIV in the 1500 us timeouts
     //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
-    debug_printf("%s", "Port_Pins_Heat_Light_Task started\n");
+    debug_print("%s", "Port_Pins_Heat_Light_Task started\n");
 
     #if (DUMMY_WIFI == 1)
         // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
@@ -446,7 +446,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 bool do_light_always_if_first = (light_control_scheme == LIGHT_CONTROL_IS_VOID);
 
-                debug_printf ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
+                debug_print ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
 
                 if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) {
                     if (light_control_scheme_in == LIGHT_CONTROL_IS_DAY) {
@@ -534,7 +534,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1; // ..then conditionally increment
                 }
 
-                debug_printf ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
+                debug_print ("i_port_heat_light_commands[%u] front %u/3, center %u/3, back %u/3 at %u\n",
                     index_of_client,
                     return_thirds[IOF_LED_STRIP_FRONT],
                     return_thirds[IOF_LED_STRIP_CENTER],
@@ -588,7 +588,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 return_rest_ms         = NUM_MS_FROM_TICS(watchdog_ticks_cntdown);
                 watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(set_new_ms);
-                debug_printf ("NEW=%ums->%ucnt, OLD=%ucnt->%ums\n", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);
+                debug_print ("NEW=%ums->%ucnt, OLD=%ucnt->%ums\n", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);
                 // There are 1500 in the formulae, so they are bound to be non-linear:
                 // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=1cnt->1ms
                 // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=2cnt->3ms

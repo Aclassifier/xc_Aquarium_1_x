@@ -31,9 +31,9 @@
 //}}}  
 
 #define DEBUG_PRINT_HEATER_CONTROLLER 0 // Cost 1K
-//{{{  debug_printf
+//{{{  debug_print
 
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_HEATER_CONTROLLER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 //}}}  
 
@@ -139,7 +139,7 @@ void Temperature_Heater_Task (
 
     cable_heater_mon.state = CABLE_HEATER_OK;
 
-    debug_printf("%s", "Temperature_Heater_Task started\n");
+    debug_print("%s", "Temperature_Heater_Task started\n");
 
     tmr :> time;
     //}}}  
@@ -247,7 +247,7 @@ void Temperature_Heater_Task (
                         // temps_degC_str[iof_i2c_temp] is ok with error texts
                     }
 
-                    debug_printf("Heater I=%u @ ok=%u, onetenthDegC=%u\n", iof_i2c_temp, ok_degC_i2cs[iof_i2c_temp], temps_onetenthDegC[iof_i2c_temp]);
+                    debug_print("Heater I=%u @ ok=%u, onetenthDegC=%u\n", iof_i2c_temp, ok_degC_i2cs[iof_i2c_temp], temps_onetenthDegC[iof_i2c_temp]);
                 }
 
                 //}}}  
@@ -266,7 +266,7 @@ void Temperature_Heater_Task (
                             on_now = false; // HEATER OFF
                             if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED) {
                                 cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK; // Auto reset when OK again
-                                debug_printf("%s", " @ Heater assumed ok again\n");
+                                debug_print("%s", " @ Heater assumed ok again\n");
                             } else {}
                         } else {} // Stay on, let it heat (but continue to cool i.e. undershoot for a while when it's just been switched on)
                     } else { // off_now
@@ -278,7 +278,7 @@ void Temperature_Heater_Task (
                     err_cnt_times++;
                     on_now = false; // HEATER OFF
                     // temp_onetenthDegC_heater_sum = 0; // xcore-5662 not any more
-                    debug_printf ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
+                    debug_print ("Error heater i2c ok=%d, convert ok=%d :: ", ok_degC_i2cs[IOF_TEMPC_HEATER], ok_degC_converts[IOF_TEMPC_HEATER]);
                 }
 
                 //}}}  
@@ -286,14 +286,14 @@ void Temperature_Heater_Task (
 
                 if (on_now) {
                     if (heater_wires == HEATER_WIRES_ONE_ALTERNATING_IS_HALF) {
-                        debug_printf ("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                        debug_print ("t=%s HEAT_CABLES_ONE_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
                         i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_ONE_ON);  // 50% is 12W, 100% is 24W @24V
                     } else { // HEATER_WIRES_BOTH_IS_FULL
-                        debug_printf ("t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                        debug_print ("t=%s HEAT_CABLES_BOTH_ON on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
                         i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_BOTH_ON); // 50% is 24W, 100% is 48W @24V
                     }
                 } else { // off_now
-                    debug_printf ("t=%s HEAT_CABLES_OFF on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
+                    debug_print ("t=%s HEAT_CABLES_OFF on=%d off=%d err=%d ", temps_degC_str[IOF_TEMPC_HEATER], on_cnt_secs, off_cnt_secs, err_cnt_times);
                     i_port_heat_light_commands.heat_cables_command (HEAT_CABLES_OFF);
                 }
 
@@ -315,9 +315,9 @@ void Temperature_Heater_Task (
                             cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on      = temps_onetenthDegC[IOF_TEMPC_HEATER];
                             cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
-                            debug_printf(" @ Heater assumed on from now, starting at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
+                            debug_print(" @ Heater assumed on from now, starting at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
                         } else {
-                            debug_printf("%s", " @ Heater history A");
+                            debug_print("%s", " @ Heater history A");
                         }
                     } else { // Into HEATER OFF, will also zero on initial raise
                         const unsigned sum_on_off_seconds = off_cnt_secs + on_cnt_secs;
@@ -340,7 +340,7 @@ void Temperature_Heater_Task (
                         {temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], ok_degC_heater_mean_last_cycle} =
                              Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
 
-                        debug_printf ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
+                        debug_print ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
                              temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],
                              temp_onetenthDegC_heater_num,
                              temp_onetenthDegC_heater_num * NUM_TIMER_TICKS_PER_SECOND,
@@ -351,9 +351,9 @@ void Temperature_Heater_Task (
 
                         if ((cable_heater_mon.state == CABLE_HEATER_ASSUMED_POWERED) or (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_SEEN_OK)) {
                             cable_heater_mon.state = CABLE_HEATER_OK;
-                            debug_printf("%s", " @ Heater assumed ok now");
+                            debug_print("%s", " @ Heater assumed ok now");
                         } else {
-                            debug_printf("%s", " @ Heater off");
+                            debug_print("%s", " @ Heater off");
                         }
                     }
 
@@ -379,21 +379,21 @@ void Temperature_Heater_Task (
                                 cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on      = temps_onetenthDegC[IOF_TEMPC_HEATER];
                                 cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise = 0;
 
-                                debug_printf(" @ Heater assumed on from now, undershoot at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
+                                debug_print(" @ Heater assumed on from now, undershoot at %u", cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on);
 
                             } else if (cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise >= CABLE_HEATER_ASSUMED_POWERED_SECONDS) {
 
                                 if (temps_onetenthDegC[IOF_TEMPC_HEATER] > (cable_heater_mon.temp_onetenthDegC_heater_when_assumed_on + TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE)) {
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_SEEN_OK;
-                                    debug_printf("%s", " @ Heater temp rise ok now");
+                                    debug_print("%s", " @ Heater temp rise ok now");
                                 } else {
                                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR;
-                                    debug_printf("%s", " @ Heater temp rise not seen");
+                                    debug_print("%s", " @ Heater temp rise not seen");
                                 }
 
                             } else {
 
-                                debug_printf(" @ Heater temp rise monitored for %u seconds, temp now %u", cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise, temps_onetenthDegC[IOF_TEMPC_HEATER]);
+                                debug_print(" @ Heater temp rise monitored for %u seconds, temp now %u", cable_heater_mon.on_cnt_secs_since_temperature_assumed_to_rise, temps_onetenthDegC[IOF_TEMPC_HEATER]);
 
                             }
 
@@ -404,7 +404,7 @@ void Temperature_Heater_Task (
                     //}}}  
                 }
 
-                debug_printf ("%s", "\n");
+                debug_print ("%s", "\n");
 
                 is_doing = IS_CONTROLLING;
             } break;
@@ -428,20 +428,20 @@ void Temperature_Heater_Task (
                 method_of_on_off = ON_OFF_TEMPC_HEATER;
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
-                    debug_printf ("%s", "Same");
+                    debug_print ("%s", "Same");
                 } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
-                    debug_printf ("%s", "High");
+                    debug_print ("%s", "High");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
                 } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
-                    debug_printf ("%s", "Low");
+                    debug_print ("%s", "Low");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
                 } else {
                     // Also == TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_15_0_FAST_COOLING in here when new
-                    debug_printf ("%s", "New");
+                    debug_print ("%s", "New");
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;
                 }
 
-                debug_printf (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
+                debug_print (" heater lim=%u tenths_degC\n", temp_onetenthDegC_heater_limit);
             } break;
 
             //}}}  
@@ -486,7 +486,7 @@ void Temperature_Heater_Task (
 
                 if (rr_24V_voltage_onetenthV == 0) {
                     #ifndef FLASH_BLACK_BOARD
-                        debug_printf ("%s", "Zero Watt? V24 may be zero, but always until middle button!\n");
+                        debug_print ("%s", "Zero Watt? V24 may be zero, but always until middle button!\n");
                     #endif
                 } else {}
 
@@ -526,12 +526,12 @@ void Temperature_Heater_Task (
 
                 if (return_value_on_percent == 0) {
                     // No code. Looks strange to "age" value zero
-                    debug_printf("Heater-x %s no aging (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
+                    debug_print("Heater-x %s no aging (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
                 } else if (aging_of_data_while_off_secs < AGING_OF_DATA_WHILE_OFF_VALID_1800_SECS) {
                     // No code
                     // [0..1799] aging_of_data_while_off_secs
                     // Keep "old" values the first half an hour
-                    debug_printf("Heater-x %s before (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
+                    debug_print("Heater-x %s before (%u)\n", on_now ? "on!" : "off", aging_of_data_while_off_secs);
                 } else { // Allow aging
                     // [1800.. aging_of_data_while_off_secs
                     unsigned aging_of_data_while_off_secs_copy = aging_of_data_while_off_secs;
@@ -546,7 +546,7 @@ void Temperature_Heater_Task (
                     aging_factor_after_1800_until_3600_secs = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS - aging_of_data_while_off_secs_copy;
                     // Half an hour is 1800, the hour is now 0
 
-                    debug_printf("Heater-x %s after (%u) %u\n", on_now ? "on?" : "off", aging_of_data_while_off_secs, aging_of_data_while_off_secs_copy);
+                    debug_print("Heater-x %s after (%u) %u\n", on_now ? "on?" : "off", aging_of_data_while_off_secs, aging_of_data_while_off_secs_copy);
                 }
 
                 return_value_on_watt = (return_value_on_watt * aging_factor_after_1800_until_3600_secs) / AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
@@ -556,12 +556,12 @@ void Temperature_Heater_Task (
 
                 return_value_on_percent = (return_value_on_percent * aging_factor_after_1800_until_3600_secs) / AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
 
-                debug_printf("Watt and percent aged by %u/1800\n", aging_factor_after_1800_until_3600_secs);
+                debug_print("Watt and percent aged by %u/1800\n", aging_factor_after_1800_until_3600_secs);
 
                 if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR) {
                     cable_heater_mon.state = CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED;
                     return_on_ok = true; // AQU=025 was false
-                    debug_printf("%s", "Heater error reported\n");
+                    debug_print("%s", "Heater error reported\n");
                 } else if (cable_heater_mon.state == CABLE_HEATER_TEMP_RISE_NOT_SEEN_ERROR_REPORTED) {
                     return_on_ok = true; // AQU=025 was false
                 } else {

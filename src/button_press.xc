@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_BUTTON_PRESS 1
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 
 #define DEBOUNCE_TIMEOUT_50_MS 50
@@ -43,16 +43,16 @@ void Button_Task (
     bool initial_released_stopped = false; // Since it would do BUTTON_ACTION_RELEASED always after start
     bool pressed_but_not_released = false;
 
-    debug_printf("inP_Button_Task[%u] started\n", button_n);
+    debug_print("inP_Button_Task[%u] started\n", button_n);
 
     while(1) {
         select {
             // If the button is "stable", react when the I/O pin changes value
             case is_stable => p_button when pinsneq(current_val) :> current_val: {
                 if (current_val == 0) {
-                    debug_printf(": Button %u pressed\n", button_n);
+                    debug_print(": Button %u pressed\n", button_n);
                 } else {
-                    debug_printf(": Button %u released\n", button_n);
+                    debug_print(": Button %u released\n", button_n);
                 }
 
                 pressed_but_not_released = false;
@@ -73,18 +73,18 @@ void Button_Task (
                         pressed_but_not_released = true; // ONLY PLACE IT'S SET
 
                         i_button_out.button (BUTTON_ACTION_PRESSED); // Button down
-                        debug_printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
+                        debug_print(" BUTTON_ACTION_PRESSED %u sent\n", button_n);
                         tmr :> current_time;
                         timeout = current_time + (DEBOUNCE_TIMEOUT_10000_MS * XS1_TIMER_KHZ);
                     }
                     else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
-                            debug_printf(" Button %u filtered away\n", button_n);
+                            debug_print(" Button %u filtered away\n", button_n);
                         } else {
                             pressed_but_not_released = false;
                             i_button_out.button (BUTTON_ACTION_RELEASED);
-                            debug_printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
+                            debug_print(" BUTTON_ACTION_RELEASED %u sent\n", button_n);
                         }
                     }
                     is_stable = true;
@@ -93,7 +93,7 @@ void Button_Task (
                     // xTIMEcomposer 14.3.0 does 880997 times in 30 seconds with DEBUG_PRINT_BUTTON_PRESS==0, yields about 30000 per second probably livelocked (but printed in receiver)
                     pressed_but_not_released = false;
                     i_button_out.button (BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
-                    debug_printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n);
+                    debug_print(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n);
                 }
             } break;
 

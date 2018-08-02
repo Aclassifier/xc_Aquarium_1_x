@@ -53,7 +53,7 @@ typedef struct light_sunrise_sunset_context_t {
     light_sensor_range_t              light_sensor_intensity;
     light_sensor_range_t              light_sensor_intensity_previous;
     light_sensor_diff_state_t         light_sensor_diff_state;
-    unsigned                          print_value_previous; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
+    unsigned                          print_value_previous; // With debug_print this value must be visible, but even this will removed and not complained about not being used
     bool                              do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
     bool                              light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 } light_sunrise_sunset_context_t;

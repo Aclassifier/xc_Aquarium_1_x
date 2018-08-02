@@ -48,11 +48,11 @@
 #endif
 
 //}}}  
-//{{{  debug_printf
+//{{{  debug_print
 
 #define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 1 // Cost 0.4k
 //
-#define debug_printf(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 #define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) val=to;                   } while (0)
 
 //}}}  
@@ -106,7 +106,7 @@ Darker_Light_Composition_Iff (const light_composition_t light_composition, const
             (light_composition == LIGHT_COMPOSITION_10333_mW_ON)) {
             // Required to get darker, do it:
             return_light_composition = LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS;
-            debug_printf ("Darker_Light_Composition_Iff from %u to %u\n", light_composition, return_light_composition);
+            debug_print ("Darker_Light_Composition_Iff from %u to %u\n", light_composition, return_light_composition);
         } else {} // Is Brighter_Light_Composition_Iff
     } else {}
 
@@ -126,7 +126,7 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
             (light_composition == LIGHT_COMPOSITION_10333_mW_ON)) {
             // Allowed to get brighter, do it:
             return_light_composition = LIGHT_COMPOSITION_11000_mW_ON_FULL;
-            debug_printf ("Brighter_Light_Composition_Iff from %u to %u\n", light_composition, return_light_composition);
+            debug_print ("Brighter_Light_Composition_Iff from %u to %u\n", light_composition, return_light_composition);
         } else {} // Is Darker_Light_Composition_Iff
     } else {}
 
@@ -149,7 +149,7 @@ Light_Composition_Full_Or_Two_Thirds (const light_amount_full_or_two_thirds_t li
         return_light_composition = LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS;
     }
 
-    debug_printf ("Light_Composition to %u\n", return_light_composition);
+    debug_print ("Light_Composition to %u\n", return_light_composition);
 
     return return_light_composition;
 }
@@ -171,7 +171,7 @@ Handle_Light_Sunrise_Sunset_Etc (
    const bool                 trigger_hour_changed    = (context.datetime.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
    const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
 
-   unsigned print_value = 0; // With debug_printf this value must be visible, but even this will removed and not complained about not being used
+   unsigned print_value = 0; // With debug_print this value must be visible, but even this will removed and not complained about not being used
 
    const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
 
@@ -262,7 +262,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44);
        {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
-       debug_printf ("do_light_amount_full_or_two_thirds_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
+       debug_print ("do_light_amount_full_or_two_thirds_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
 
    } else if (context.stop_normal_light_changed_by_menu) {
        light_composition_t light_composition_now = Light_Composition_Full_Or_Two_Thirds (context.light_amount_full_or_two_thirds);
@@ -328,7 +328,7 @@ Handle_Light_Sunrise_Sunset_Etc (
            i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
            {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
-           debug_printf ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
+           debug_print ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
 
            context.iof_day_night_action_list = (context.iof_day_night_action_list + 1) % TIME_ACTION_ENTRY_NUMS;
 
@@ -342,7 +342,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
            context.num_minutes_left_of_random = context.minutes_into_day_of_next_action_random_off - minutes_into_day_now; // AQU=023
 
-           debug_printf ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
+           debug_print ("Random countdown %u\n", context.num_minutes_left_of_random); // Random countdown 0
            if (context.num_minutes_left_of_random == 0) {
                // ------------------------ CHANGE LIGHT LEVEL BACK TO "NORM" ------------------------
                debug_set_val_to (print_value,104);
@@ -356,7 +356,7 @@ Handle_Light_Sunrise_Sunset_Etc (
            } else {}
 
        } else {
-           debug_printf ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now);
+           debug_print ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now);
        }
    } else {} // Action only at minute change
 
@@ -459,7 +459,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
        if (context.print_value_previous != print_value) {
-           debug_printf ("Random value %u [%u] with %u and %u. Boxlightlevel=%u\n",
+           debug_print ("Random value %u [%u] with %u and %u. Boxlightlevel=%u\n",
                   print_value, context.print_value_previous, context.num_minutes_left_of_random,
                   context.num_random_sequences_left, context.light_sensor_diff_state);
            context.print_value_previous = print_value;

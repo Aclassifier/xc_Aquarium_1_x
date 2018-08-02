@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_STARTKIT_ADC_CLIENT 0 // Cost 0.3k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_STARTKIT_ADC_CLIENT and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_STARTKIT_ADC_CLIENT and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 typedef struct tag_startkit_adc_user_vals {
     unsigned short        x[NUM_STARTKIT_ADC_INPUTS]; // 16 bits as sizeof (unsiged short) is 2
@@ -49,13 +49,13 @@ void My_startKIT_ADC_Task (
 
     unsigned int data_set_cnt = 0;
 
-    debug_printf("%s", "My_startKIT_ADC_Task started\n");
+    debug_print("%s", "My_startKIT_ADC_Task started\n");
 
     while(1){
         select{
             case (client_state == ADC_AWAIT_TRIGGER_FROM_UP) => i_startkit_adc_up[int index_of_client].trigger(): {
                 present_index_of_client = index_of_client;
-                debug_printf ("ADC %d values?\n", Num_of_data_sets);
+                debug_print ("ADC %d values?\n", Num_of_data_sets);
                 for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
                     adc_vals.mean_sum[i] = 0;
                 }
@@ -72,13 +72,13 @@ void My_startKIT_ADC_Task (
                     select {
                         case i_startkit_adc_down.complete(): {
                             if (i_startkit_adc_down.read (adc_vals.x)) {
-                                debug_printf ("ADC raw [%d]=", data_set_cnt);
+                                debug_print ("ADC raw [%d]=", data_set_cnt);
                                 for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
-                                    debug_printf ("(%d,", adc_vals.x[i]);
+                                    debug_print ("(%d,", adc_vals.x[i]);
                                     adc_vals.mean_sum[i] += adc_vals.x[i];
-                                    debug_printf ("%d) ", adc_vals.mean_sum[i]);
+                                    debug_print ("%d) ", adc_vals.mean_sum[i]);
                                 }
-                                debug_printf ("%s", "\n");
+                                debug_print ("%s", "\n");
                                 adc_vals.mean_cnt++; // Equally many for each
                                 adc_vals.adc_cnt++;
                             } else {
@@ -86,7 +86,7 @@ void My_startKIT_ADC_Task (
                             }
 
                             if (data_set_cnt == Num_of_data_sets) {
-                                debug_printf ("ADC %d values ready\n", Num_of_data_sets);
+                                debug_print ("ADC %d values ready\n", Num_of_data_sets);
                                 i_startkit_adc_up[index_of_client].notify();
                             } else {
                                 // No code: get next data with i_startkit_adc_down.trigger above
@@ -107,13 +107,13 @@ void My_startKIT_ADC_Task (
             case i_startkit_adc_down.complete(): {
 
                 if (i_startkit_adc_down.read (adc_vals.x)) {
-                    debug_printf ("ADC raw [%d]=", data_set_cnt);
+                    debug_print ("ADC raw [%d]=", data_set_cnt);
                     for (int i=0; i < NUM_ELEMENTS(adc_vals.mean_sum); i++) {
-                        debug_printf ("(%d,", adc_vals.x[i]);
+                        debug_print ("(%d,", adc_vals.x[i]);
                         adc_vals.mean_sum[i] += adc_vals.x[i];
-                        debug_printf ("%d) ", adc_vals.mean_sum[i]);
+                        debug_print ("%d) ", adc_vals.mean_sum[i]);
                     }
-                    debug_printf ("%s", "\n");
+                    debug_print ("%s", "\n");
                     adc_vals.mean_cnt++; // Equally many for each
                     adc_vals.adc_cnt++;
                  } else {
@@ -121,7 +121,7 @@ void My_startKIT_ADC_Task (
                  }
 
                  if (data_set_cnt == Num_of_data_sets) {
-                     debug_printf ("ADC %d values ready\n", Num_of_data_sets);
+                     debug_print ("ADC %d values ready\n", Num_of_data_sets);
                      i_startkit_adc_up[present_index_of_client].notify();
                      client_state = ADC_AWAIT_READ_FROM_UP;
                  } else {
@@ -135,7 +135,7 @@ void My_startKIT_ADC_Task (
 
             case (client_state == ADC_AWAIT_READ_FROM_UP) => i_startkit_adc_up[int index_of_client].read (unsigned short return_adc_mean_vals[NUM_STARTKIT_ADC_INPUTS]) -> {unsigned int adc_cnt, unsigned int no_adc_cnt}: {
                 present_index_of_client = index_of_client; // Not needed
-                debug_printf ("ADC %d values: ", Num_of_data_sets);
+                debug_print ("ADC %d values: ", Num_of_data_sets);
                 unsigned short offsets [NUM_STARTKIT_ADC_INPUTS] = {OFFSET_ADC_INPUTS_STARTKIT};
 
                 for (int i=0; i<NUM_ELEMENTS(return_adc_mean_vals); i++) {
@@ -151,10 +151,10 @@ void My_startKIT_ADC_Task (
                         } else {
                             return_adc_mean_vals[i] -= offsets[i];
                         }
-                        debug_printf ("(%d,%d) ", adc_vals.mean_sum[i], (unsigned short) (adc_vals.mean_sum[i]/adc_vals.mean_cnt));
+                        debug_print ("(%d,%d) ", adc_vals.mean_sum[i], (unsigned short) (adc_vals.mean_sum[i]/adc_vals.mean_cnt));
                     }
                 }
-                debug_printf ("%s", "\n");
+                debug_print ("%s", "\n");
                 client_state = ADC_AWAIT_TRIGGER_FROM_UP;
                 {adc_cnt = adc_vals.adc_cnt; no_adc_cnt = adc_vals.no_adc_cnt;} // return
             } break;

@@ -47,20 +47,12 @@
 #include "_Aquarium.h"
 #endif
 
-// FROM _app_rfm69_on_xmos_native.xc (start)
+// FROM main.xc in _app_rfm69_on_xmos_native (start)
 
 #define SEMANTICS_DO_RSSI_IN_IRQ_DETECT_TASK 0 // # chanends ---MEM---  (relative values)
                                                // 1 :     2    700 bytes  Does it faster after IRQ line (good if much logging in RFM69_driver)
                                                //                         DOES NOT WORK WITH xTIMEcomposer 13.3.3, see XMOS ticket 31286
                                                // 0 :     0      0        RSSI may be measured too late if much logging in RFM69_driver
-
-
-//           ##                Same number then related
-#define TEST_01_FOLLOW_ADDRESS 1 // Testet OK 04Apr2018
-#define TEST_01_LISTENTOALL    0 // Tested OK 04Apr2018
-
-#define ONE_SECOND_TICKS                        (1000 * XS1_TIMER_KHZ) // Expands to clock frequency = 100 mill = 100 * 1000 * 1000
-#define SEND_PACKET_ON_NO_CHANGE_TIMOEUT_SECONDS 1                     // MINIMUM 1! For sendPacket_seconds_cntdown
 
 // http://www.xcore.com/viewtopic.php?f=26&t=6331
 #define CAT3(a,b,c) a##b##c
@@ -79,6 +71,7 @@
                                 // XS1_PORT_4D   X0D17 P4D1      PCIe-B11 GPIO-PIN29  MASKOF_SPI_AUX0_PROBE3_IRQ
 #define SPI_IRQ   XS1_PORT(1,L) // XS1_PORT_1L   X0D35 P1L       PCIe-A15 GPIO-PIN17  IRQ, "GPIO 0", DIO0
 #define PROBE4    XS1_PORT(1,F) // XS1_PORT_1F   X0D13 P1F  J7.1 PCIe-B2  GPIO-PIN37  "PROBE1", "PROBE2" & "PROBE3" are in bitmasks
+#define PROBE5    XS1_PORT(1,D) // XS1_PORT_1D   X0D11 P1D  J3.21 LED-D2   SPI-MOSI   "PROBE1", "PROBE2" & "PROBE3" are in bitmasks
 
 // From spi_lib spi.pdf
 //                            32 bits over 1 bit:        // New as above | As spi_master_interface in main.xc in _app_tiwisl_simple_webserver
@@ -106,10 +99,6 @@ clock                clk_spi = on tile[0]: XS1_CLKBLK_1; // See USE_CLOCK_BLOCK
 #define MASKOF_SPI_SLAVE0_PROBE1_INNER 0x04 // Inner scope pin on piggy-board
 #define MASKOF_SPI_SLAVE0_PROBE2_OUTER 0x08 // Outer scope pin on piggy-board
 
-//      SPI_AUX bits:
-#define MASKOF_SPI_AUX0_RST        0x01 // RST is port SPI_AUX BIT0. Search for SPI_AUX0_RST to see HW-defined timing
-#define MASKOF_SPI_AUX0_PROBE3_IRQ 0x02 // Test pin for IRQ. "LED1"
-//
 
 #define MASKOF_SPI_AND_PROBE_PINTS_INIT { MASKOF_SPI_SLAVE0_CS, MASKOF_SPI_SLAVE0_EN, MASKOF_SPI_SLAVE0_PROBE1_INNER, MASKOF_SPI_SLAVE0_PROBE2_OUTER }
 //#define MASKOF_SPI_AND_PROBE_PINTS_INIT {(0x01),(0x02),0x04,0x08} // error: parse error before numeric constant
@@ -190,9 +179,8 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [NUM_SPI_CS_SETS] = // (*)
 
 #endif
 
-#define FREQUENCY      RF69_433MHZ // Shared with ¯M11 (1) indoor/outdoor thermometer and (2) kitchen light switch over the table
-#define KEY            MY_KEY      // From _commprot.h
-#define IS_RFM69HW_HCW true        // 1 for Adafruit RFM69HCW (high power)
+
+#define DO_PLACED 1 // 1 is least code
 
 // Observe that I have no control of the ports during xTIMEcomposer downloading
 // I have observed a 700-800 ms low on signal pins before my code starts
@@ -200,9 +188,13 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [NUM_SPI_CS_SETS] = // (*)
 out port p_spi_cs_en = on tile[0]:SPI_CS_EN;
 out port p_spi_aux   = on tile[0]:SPI_AUX;
 in  port p_spi_irq   = on tile[0]:SPI_IRQ;
-//out port p_probe4    = on tile[0]:PROBE4;
 
-// FROM _app_rfm69_on_xmos_native.xc (end)
+// Another way of doing it. Used as nullable parameter, so may be dropped
+probe_pins_t probe_config = {
+    on tile[0]:PROBE5
+};
+
+// FROM main.xc in _app_rfm69_on_xmos_native (end)
 
 port inP_button_left   = on tile[0]: XS1_PORT_1N; // P1N0, X0D37 B_Left
 port inP_button_center = on tile[0]: XS1_PORT_1O; // P1O0, X0D38 B_Center
@@ -249,7 +241,7 @@ int main() {
                 on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
                 on tile[0]: System_Task          (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
                                                   i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                  i_buttons);
+                                                  i_buttons, i_irq, i_radio);
                 on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
             }
             on tile[0]: {
@@ -275,7 +267,9 @@ int main() {
             on tile[0]: {
                 [[combine]]
                 par {
+                    RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // Is [[combineable]]
                     spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
+                    IRQ_detect_task (i_irq, p_spi_irq, probe_config);
                 }
 
             }

@@ -35,7 +35,7 @@
 //{{{  defines
 
 #define DEBUG_PRINT_WATER_CONTROLLER 1
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_WATER_CONTROLLER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_WATER_CONTROLLER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define RAW_TIMER_INTERVAL_IS_1_SECOND 1000
 #define NUM_TIMER_TICKS_PER_MINUTE       60
@@ -81,7 +81,7 @@ void Temperature_Water_Task (
         temps_onetenthDegC_prev[index_of_temp] = temps_onetenthDegC[index_of_temp];
     }
 
-    debug_printf ("%s", "Temperature_Water_Task started\n");
+    debug_print ("%s", "Temperature_Water_Task started\n");
 
     tmr :> time;
 
@@ -110,7 +110,7 @@ void Temperature_Water_Task (
                     temp_onetenthDegC_water_ambient_diff = temps_onetenthDegC[IOF_TEMPC_WATER] - temps_onetenthDegC[IOF_TEMPC_AMBIENT];
                     temp_onetenthDegC_water_wanted_diff  = temps_onetenthDegC[IOF_TEMPC_WATER] - temp_onetenthDegC_water_wanted;
 
-                    debug_printf ("DIFF with wanted %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temp_onetenthDegC_water_wanted, temp_onetenthDegC_water_wanted_diff);
+                    debug_print ("DIFF with wanted %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temp_onetenthDegC_water_wanted, temp_onetenthDegC_water_wanted_diff);
 
                     if (temps_onetenthDegC[IOF_TEMPC_WATER] == EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC) {
                         //{{{   Water sensor I2C error
@@ -118,13 +118,13 @@ void Temperature_Water_Task (
                         debug_log or_eq 0x004;
                         temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // OFF
                         now_regulating_at = REGULATING_AT_LOST_WATER_SENSOR; // Displaying "-" in box. In addition we have the ERROR_BIT_I2C_WATER message in the display
-                        debug_printf ("%s", "lost water sensor ");
+                        debug_print ("%s", "lost water sensor ");
 
                         //}}}  
                     } else if (temps_onetenthDegC[IOF_TEMPC_WATER] == 0) { // TODO I needed this for FLASHED version to avoid it starting off in REGULATING_AT_BOILING. Why?
                         //{{{  First time run
 
-                        debug_printf ("%s", "zero! ");
+                        debug_print ("%s", "zero! ");
                         temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
                         raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_2_SECONDS; // Faster
 
@@ -132,40 +132,40 @@ void Temperature_Water_Task (
                     } else if (temp_onetenthDegC_water_wanted_diff > 0) {
                         //{{{  Water is warmer than wanted
 
-                        debug_printf ("%s", "above: ");
+                        debug_print ("%s", "above: ");
 
                         if (temp_onetenthDegC_water_ambient_diff > 0) {
                             debug_log or_eq 0x001;
                             // Water warmer than ambient air
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_24_5_SLOW_COOLING; // SOME
                             now_regulating_at = REGULATING_AT_TEMP_REACHED; // Displaying "=" in box
-                            debug_printf ("%s", "slow cool ");
+                            debug_print ("%s", "slow cool ");
                         } else {
                             debug_log or_eq 0x002;
                             // Water colder than ambient air (hot summer or burning wood?)
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // OFF
                             now_regulating_at = REGULATING_AT_HOTTER_AMBIENT; // Displaying "H" in box
-                            debug_printf ("%s", "fast cool ");
+                            debug_print ("%s", "fast cool ");
                         }
 
                         //}}}  
                     } else if (temp_onetenthDegC_water_wanted_diff < 0) {
                         //{{{  Water temp is colder than wanted
 
-                        debug_printf ("%s"," below: ");
+                        debug_print ("%s"," below: ");
 
                         if (temp_onetenthDegC_water_wanted_diff <= (-TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
                             debug_log or_eq 0x020;
                             // Water is much colder than wanted (forget about ambient temperature)
                             temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
                             now_regulating_at = REGULATING_AT_BOILING; // Displaying "2" in box
-                            debug_printf ("%s", " fast heat");
+                            debug_print ("%s", " fast heat");
                         } else {
                            debug_log or_eq 0x010;
                            // Water is a little colder than wanted (forget about ambient temperature)
                            temp_onetenthDegC_heater_limit = temp_onetenthDegC_water_wanted + (temp_onetenthDegC_water_ambient_diff * AMBIENT_WATER_FACTOR_SLOW_HEATING_3);
                            now_regulating_at = REGULATING_AT_SIMMERING; // Displaying "1" in box
-                           debug_printf ("%s", " slow heat");
+                           debug_print ("%s", " slow heat");
                         }
 
                         //}}}  
@@ -173,7 +173,7 @@ void Temperature_Water_Task (
                         //{{{  Water temp not changed an first time
 
                         raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_2_SECONDS; // Much faster
-                        debug_printf ("%s", "soon ");
+                        debug_print ("%s", "soon ");
 
                         //}}}  
                     } else {
@@ -190,31 +190,31 @@ void Temperature_Water_Task (
                             debug_log or_eq 0x100;
                         }
 
-                        debug_printf ("%s", "same "); // Equal, don't touch temp_onetenthDegC_heater_limit
+                        debug_print ("%s", "same "); // Equal, don't touch temp_onetenthDegC_heater_limit
 
                         //}}}  
                     }
 
                     //{{{  Logging
 
-                    debug_printf ("%s", "\n");
-                    debug_printf ("DELTA since last %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temps_onetenthDegC_prev[IOF_TEMPC_WATER], temp_onetenthDegC_water_delta);
+                    debug_print ("%s", "\n");
+                    debug_print ("DELTA since last %u-%u=%d tenths_degC ", temps_onetenthDegC[IOF_TEMPC_WATER], temps_onetenthDegC_prev[IOF_TEMPC_WATER], temp_onetenthDegC_water_delta);
 
                     if (temp_onetenthDegC_water_delta > 0) {
-                        debug_printf ("%s", "increasing ");
+                        debug_print ("%s", "increasing ");
                         if (temp_onetenthDegC_water_delta >= TEMP_ONETENTHDEGC_00_2_HYSTERESIS) {
-                            debug_printf ("%s", "enough ");
+                            debug_print ("%s", "enough ");
                         } else {} // Not increasing enough
                     } else if (temp_onetenthDegC_water_delta < 0) {
-                        debug_printf ("%s", "falling ");
+                        debug_print ("%s", "falling ");
                         if (temp_onetenthDegC_water_delta <= (-TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
-                            debug_printf ("%s", "enough ");
+                            debug_print ("%s", "enough ");
                         } else {} // Not falling enough
                     } else {
-                        debug_printf ("%s", "same "); // Equal
+                        debug_print ("%s", "same "); // Equal
                     }
 
-                    debug_printf ("%s", "\n");
+                    debug_print ("%s", "\n");
 
                     //}}}  
 

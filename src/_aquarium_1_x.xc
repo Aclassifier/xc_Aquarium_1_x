@@ -52,6 +52,12 @@
 #include "light_sunrise_sunset.h"
 #include "exception_handler.h"
 
+#include <spi.h>
+#include <rfm69_globals.h>
+#include <rfm69_crc.h>
+#include <rfm69_commprot.h>
+#include <rfm69_xc.h>
+
 #include "_Aquarium.h"
 #endif
 
@@ -59,11 +65,11 @@
 
 // #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
-// debug_printf and DEBUG_TEST_WATCHDOG
+// debug_print and DEBUG_TEST_WATCHDOG
 
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
 #define DEBUG_PRINT_AQUARIUM 0 // Cost 1.2k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_AQUARIUM_EVERY_SECOND 0 // Cost < 100 bytes
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM_EVERY_SECOND and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
@@ -153,7 +159,7 @@ typedef enum display_appear_state_t {
     DISPLAY_APPEAR_EDITABLE
 } display_appear_state_t;
 
-#define ERROR_BITS_NONE 0
+#define AQUARIUM_ERROR_BITS_NONE 0
 typedef enum error_bits_t {
                                         // LIMITS
     ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
@@ -184,6 +190,25 @@ typedef enum error_bits_t {
 #define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
 #define DISPLAY_SUB_ON_FOR_SECONDS (2*60) // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
                                           // Should be larger than 1 minute since seconds are not set when we set the clock at SCREEN_7_NT_KLOKKE.SUB_STATE_12, and wee need to wait for the next minute
+
+// FROM main.xc in _app_rfm69_on_xmos_native (start)
+
+//      SPI_AUX bits:
+#define MASKOF_SPI_AUX0_RST        0x01 // RST is port SPI_AUX BIT0. Search for SPI_AUX0_RST to see HW-defined timing
+#define MASKOF_SPI_AUX0_PROBE3_IRQ 0x02 // Test pin for IRQ. "LED1"
+
+//           ##                Same number then related
+#define TEST_01_FOLLOW_ADDRESS 1 // Testet OK 04Apr2018
+#define TEST_01_LISTENTOALL    0 // Tested OK 04Apr2018
+
+#define ONE_SECOND_TICKS                        (1000 * XS1_TIMER_KHZ) // Expands to clock frequency = 100 mill = 100 * 1000 * 1000
+#define SEND_PACKET_ON_NO_CHANGE_TIMOEUT_SECONDS 1                     // MINIMUM 1! For sendPacket_seconds_cntdown
+
+#define FREQUENCY      RF69_433MHZ // Shared with ØM11 (1) indoor/outdoor thermometer and (2) kitchen light switch over the table
+#define KEY            MY_KEY      // From _commprot.h
+#define IS_RFM69HW_HCW true        // 1 for Adafruit RFM69HCW (high power)
+
+// FROM main.xc in _app_rfm69_on_xmos_native (end)
 
 //
 // handler_context_t
@@ -311,7 +336,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 if (caller != CALLER_IS_REFRESH) {
                     context.screen_logg.display_ts1_chars[context.screen_logg.display_ts1_chars_num] = 0; // NUL
-                    debug_printf("SCREEN_0_X_FEIL:\n%s%s", context.screen_logg.display_ts1_chars, "\n");
+                    debug_print("SCREEN_0_X_FEIL:\n%s%s", context.screen_logg.display_ts1_chars, "\n");
                 } else {}
             } else {}
             writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
@@ -361,7 +386,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
+                debug_print("AKVARIETEMPERATURER: VANN %sC, LUFT %sC, VARMEELMENT %sC\n", temp_degC_water_str, temp_degC_ambient_str, temp_degC_heater_str);
             } else {}
         } break;
 
@@ -435,7 +460,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.heater_on_percent, temp_degC_heater_mean_last_cycle_str, context.heater_on_watt);
+                debug_print ("VARMEREGULERING: PÅ %u%%, SNITT %s, EFFEKT %uW\n", context.heater_on_percent, temp_degC_heater_mean_last_cycle_str, context.heater_on_watt);
             } else {}
         } break;
 
@@ -551,7 +576,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     if (caller != CALLER_IS_REFRESH) {
                         Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_3_LYSGULERING);
                         context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = true;
-                        debug_printf ("LYS: %u %u %u @ %u, %u\n",
+                        debug_print ("LYS: %u %u %u @ %u, %u\n",
                             context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
                             context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
                             context.light_intensity_thirds[IOF_LED_STRIP_BACK],
@@ -669,7 +694,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 default: break; // Error, not used
             }
             if (caller != CALLER_IS_REFRESH) {
-                debug_printf ("%s", "SCREEN_3_LYSGULERING\n");
+                debug_print ("%s", "SCREEN_3_LYSGULERING\n");
             } else {}
 
         } break;
@@ -729,7 +754,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // TODO lux_str vises ikke!
+                debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // TODO lux_str vises ikke!
                 #ifdef DEBUG_TEST_WATCHDOG
                     // If you do this while heating is on then you will observe that it goes off
                     context.do_watchdog_retrigger_ms_debug = not context.do_watchdog_retrigger_ms_debug;
@@ -787,7 +812,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf("Version date %s %s\n", __TIME__, __DATE__);
+                debug_print("Version date %s %s\n", __TIME__, __DATE__);
             } else {}
         } break;
 
@@ -836,7 +861,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_printf("Version date %s %s\n", __TIME__, __DATE__);
+                debug_print("Version date %s %s\n", __TIME__, __DATE__);
             } else {}
         } break;
 
@@ -1048,7 +1073,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_7_NT_KLOKKE);
                 context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_is_editable = true;
-                debug_printf("SCREEN_7_NT_KLOKKE sub_state = %u\n", context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state);
+                debug_print("SCREEN_7_NT_KLOKKE sub_state = %u\n", context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state);
                 debug_printf_datetime (context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else {}
 
@@ -1106,7 +1131,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
                            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
 
-                           if (context.error_bits_now == ERROR_BITS_NONE) {
+                           if (context.error_bits_now == AQUARIUM_ERROR_BITS_NONE) {
                                // No code, all fine with no error(s)
                            } else if (context.error_beeper_blip_now_muted) {
                                // No code, already muted
@@ -1276,8 +1301,8 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
                                     context.beeper_blip_now = true;
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
-                                    context.error_bits_now = ERROR_BITS_NONE; // Only place it's cleared!
-                                    context.error_bits_history = ERROR_BITS_NONE; // Only place it's cleared!
+                                    context.error_bits_now = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
+                                    context.error_bits_history = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_beeper_blip_now_muted = false; // Only place it's cleared!
                                     #ifdef FLASH_BLACK_BOARD
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = not context.screen_logg.disabled_toggled_on_acknowledge_10secs;
@@ -1313,7 +1338,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                                debug_printf ("%s", "SCREEN_3_LYSGULERING\n");
+                                debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
                         } break;
                         case SCREEN_4_BOKSDATA: { // 4
@@ -1333,7 +1358,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                                debug_printf ("%s","  SCREEN_7_NT_KLOKKE\n");
+                                debug_print ("%s","  SCREEN_7_NT_KLOKKE\n");
                             } else {}
                         } break;
                         default: break;
@@ -1361,7 +1386,7 @@ void System_Task_Data_Handler (
     int        sprintf_return;
     const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
 
-    error_bits_t error_bits_now = ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
+    error_bits_t error_bits_now = AQUARIUM_ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
     caller_t     caller         = CALLER_IS_REFRESH; // May be overwritten
 
     // Read data and convert some
@@ -1386,7 +1411,7 @@ void System_Task_Data_Handler (
 
             light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
             context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
-            debug_printf("%s", "Init\n");
+            debug_print("%s", "Init\n");
             debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
         } else {
             if (context.datetime.minute != datetime_old.minute) {
@@ -1467,7 +1492,7 @@ void System_Task_Data_Handler (
     else
     #endif
     {
-        if ((error_bits_now != ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
+        if ((error_bits_now != AQUARIUM_ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
             context.beeper_blip_now = true;
         } else {}
 
@@ -1479,10 +1504,10 @@ void System_Task_Data_Handler (
         #ifdef SCREEN_LOGG_ERROR_BITS
             // Start error screen and/or update it
 
-            if (context.error_bits_history != ERROR_BITS_NONE) {
+            if (context.error_bits_history != AQUARIUM_ERROR_BITS_NONE) {
                 if (context.display_sub_context[SCREEN_0_X_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_SHOW;
-                    context.beeper_blip_now = (context.error_bits_now != ERROR_BITS_NONE); // Only beep if existing
+                    context.beeper_blip_now = (context.error_bits_now != AQUARIUM_ERROR_BITS_NONE); // Only beep if existing
                     context.display_screen_name_present = SCREEN_0_X_FEIL;
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
 
@@ -1580,7 +1605,7 @@ void System_Task_Data_Handler (
 
             light_sunrise_sunset_context.do_FRAM_write = false;
             write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, write_fram_data);
-            debug_printf ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+            debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
         } else {}
 
         // Now, how did it go, how is light controlled right now?
@@ -1592,14 +1617,14 @@ void System_Task_Data_Handler (
         if (light_sunrise_sunset_context.light_is_stable) {
             light_sunrise_sunset_context.datetime_previous = context.datetime;
         } else {
-            debug_printf ("%s", "Freeze time\n");
+            debug_print ("%s", "Freeze time\n");
         }
 
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
 
     } else { // not light_sunrise_sunset_context.light_is_stable
 
-        debug_printf ("%s", "Light changing\n");
+        debug_print ("%s", "Light changing\n");
         // Don't change light_composition while light is changing
         // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 
@@ -1696,7 +1721,9 @@ void System_Task (
     client  port_heat_light_commands_if    i_port_heat_light_commands,
     client  temperature_heater_commands_if i_temperature_heater_commands,
     client  temperature_water_commands_if  i_temperature_water_commands,
-    server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS])
+    server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
+    server  irq_if_t                       i_irq,
+    client  radio_if_t                     i_radio)
 {
     // Time keeping
     int   time;
@@ -1708,6 +1735,82 @@ void System_Task (
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
+    // Radio
+
+    uint8_t device_type;
+    bool    doListenToAll = false; // Set to 'true' to sniff all packets on the same network
+
+    packet_t            PACKET;
+    #define RX_PACKET_U PACKET
+    #define TX_PACKET_U PACKET
+
+    #if (WARNINGS==1)
+        #if (IS_MYTARGET==IS_MYTARGET_STARTKIT)
+           #warning IS STARTKIT
+        #endif
+        #if (S_MYTARGET_MASTER==1)
+           #warning IS MASTER
+        #endif
+    #endif
+
+    #if (IS_MYTARGET_MASTER==1)
+       uint8_t                    TX_appPowerLevel_dBm = APPPPOWERLEVEL_MAX_DBM;
+       uint8_t                    TX_gatewayid = GATEWAYID;
+       uint32_t                   TX_appSeqCnt = 0;
+       unsigned                   sendPacket_seconds_cntdown = 0; // Down from SEND_PACKET_ON_NO_CHANGE_TIMOEUT_SECONDS
+       waitForIRQInterruptCause_e waitForIRQInterruptCause = no_IRQExpected;
+    #else
+       #error ONLY MASTER CODED HERE
+    #endif
+
+    const rfm69_params_t radio_init = {
+           NODEID,
+           FREQUENCY,
+           {KEY},
+           IS_RFM69HW_HCW // Must be true or else my Adafruit high power module won't work!
+    };
+
+    some_rfm69_internals_t RX_some_rfm69_internals;
+    uint32_t               interruptCnt = 0;
+
+    #if ((PACKET_LEN_FACIT % 4) != 0)
+        #error sizeof packet_u1_t must be word aligned (12, 16, 20 ...)
+    #endif
+
+    if (PACKET_LEN08 > MAX_SX1231H_PACKET_LEN) {
+        fail ("SX1231H LIMIT"); // Stops the code also when flashed, but there's no restart
+    } else if (PACKET_LEN08 != PACKET_LEN_FACIT) {
+        fail ("PACKET_LEN_FACIT"); // Stops the code also when flashed, but there's no restart
+    } else {
+        debug_print ("packet_t %u bytes\n", PACKET_LEN08);
+    }
+
+    debug_print ("Built %s [%s] with read RSSI %s and radio CRC %s IRQ and %s sent\n\n",
+            __DATE__,
+            __TIME__,
+            (SEMANTICS_DO_RSSI_IN_IRQ_DETECT_TASK == 1) ? "in IRQ_detect_task" : "by RFM69_client",
+            (SEMANTICS_DO_CRC_ERR_NO_IRQ == 1) ? "no" : "with",
+            (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
+
+    i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
+
+    i_radio.initialize (radio_init);
+
+    device_type = i_radio.getDeviceType(); // ERROR_BIT_DEVICE_TYPE if not 0x24
+    debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
+
+    i_radio.setHighPower (radio_init.isRFM69HW);
+    i_radio.encrypt16 (radio_init.key, KEY_LEN);
+    i_radio.setListenToAll (doListenToAll);
+
+    uint32_t frequencyHz = MY_RF69_INIT_FREQUENCY_433;
+
+    debug_print ("TX/RX at %d MHz (%u) with PACKET %u bytes\n", FREQUENCY==RF69_433MHZ ? 433 : FREQUENCY==RF69_868MHZ ? 868 : 915, frequencyHz, PACKET_LEN08);
+
+    i_radio.getAndClearErrorBits(); // {error_bits, is_new_error} not used
+
+    i_radio.receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
+
     // Init and clear display
 
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
@@ -1716,8 +1819,8 @@ void System_Task (
     context.display_is_on_seconds_cnt = 0;
     context.iof_button_last_taken_action; // No init here ok since not read before set
     context.full_light = true;
-    context.error_bits_now = ERROR_BITS_NONE;
-    context.error_bits_history = ERROR_BITS_NONE;
+    context.error_bits_now = AQUARIUM_ERROR_BITS_NONE;
+    context.error_bits_history = AQUARIUM_ERROR_BITS_NONE;
     context.error_beeper_blip_now_muted = false;
     #ifdef DEBUG_TEST_WATCHDOG
         context.do_watchdog_retrigger_ms_debug = false;
@@ -1748,7 +1851,7 @@ void System_Task (
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
 
-    debug_printf("\nSystem_Task started with v%s\n", APPLICATION_VERSION_STR);
+    debug_print("\nSystem_Task started with v%s\n", APPLICATION_VERSION_STR);
 
     // Display matters (not internal i2c matters)
     // NEXT
@@ -1772,7 +1875,7 @@ void System_Task (
             light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = (light_amount_full_or_two_thirds_t) read_fram_data;
         }
 
-        debug_printf ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory);
+        debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory);
     }
     //
 
@@ -1810,7 +1913,7 @@ void System_Task (
                 #endif
                 {
                     watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS);
-                    // debug_printf ("watchdog_rest_ms %u\n", watchdog_rest_ms);
+                    // debug_print ("watchdog_rest_ms %u\n", watchdog_rest_ms);
                 }
 
                 while (num_notify_expexted > 0) {
@@ -1841,7 +1944,7 @@ void System_Task (
                 context.beeper_blip_now = false;
 
                 debug_button_cnt++;
-                debug_printf ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
+                debug_print ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
 
                 context.display_is_on_seconds_cnt = 0; // Display always goes on in the call:
 
@@ -1877,6 +1980,10 @@ void System_Task (
                 } else {}
 
                 //
+            } break;
+
+            case i_irq.pin_rising (const int16_t value) : { // PROTOCOL: int16_t chan_value
+
             } break;
         }
     }

@@ -31,7 +31,7 @@
 #endif
 
 #define DEBUG_PRINT_DISPLAY 0 // Cost 0.3k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_DISPLAY and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_DISPLAY and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_CHRONODOT1 0 // Cost 0.1k
 #define x_debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT1 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
@@ -59,7 +59,7 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
     i2c_master_init (i2c_internal_config); // XMOS library
 
     // PRINT
-    debug_printf("%s", "I2C_Internal_Task started\n");
+    debug_print("%s", "I2C_Internal_Task started\n");
 
     while (1) {
         select {
@@ -72,17 +72,17 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
                     unsigned      send_nbytes = nbytes;
                     unsigned char send_data[SSD1306_WRITE_CHUNK_SIZE];
 
-                    debug_printf ("i2c-i dev:%02x reg:%02x len:%d:", (int)dev_addr, reg_addr, (int)send_nbytes);
+                    debug_print ("i2c-i dev:%02x reg:%02x len:%d:", (int)dev_addr, reg_addr, (int)send_nbytes);
 
                     for (uint8_t x=0; x<send_nbytes; x++) {
                         send_data[x] = data[x];
 
                         #ifdef DEBUG_PRINT_DISPLAY // Keep it
                             if (x==(send_nbytes-1)) {
-                                debug_printf("%02x",data[x]); // Last, no comma
+                                debug_print("%02x",data[x]); // Last, no comma
                             }
                             else {
-                                debug_printf("%02x ",data[x]);
+                                debug_print("%02x ",data[x]);
                             }
                         #endif
                     }
@@ -90,7 +90,7 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
 
                     #ifdef DEBUG_PRINT_DISPLAY // Keep it
                         num_chars += send_nbytes;
-                        debug_printf(" #%u\n", num_chars);
+                        debug_print(" #%u\n", num_chars);
                     #endif
 
                 } else {

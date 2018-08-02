@@ -36,7 +36,7 @@
 #endif
 
 #define DEBUG_PRINT_CHRONODOT_DS3231 0
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_CHRONODOT_DS3231 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define DEBUG_PRINT_DATETIME 1
 #define debug_printf_dt(fmt, ...) do { if(DEBUG_PRINT_DATETIME and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
@@ -107,7 +107,7 @@ void Chronodot_DS3231_Task (
     timer tmr;
     int   time;
 
-    debug_printf ("%s", "Chronodot_DS3231_Task started\n");  // NOT USED!
+    debug_print ("%s", "Chronodot_DS3231_Task started\n");  // NOT USED!
 
     tmr :> time;
 

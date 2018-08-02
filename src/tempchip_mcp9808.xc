@@ -28,7 +28,7 @@
 #endif
 
 #define DEBUG_PRINT_MCP9898 0 // Cost 1.5k
-#define debug_printf(fmt, ...) do { if(DEBUG_PRINT_MCP9898 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if(DEBUG_PRINT_MCP9898 and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 bool Tempchip_MCP9808_Begin_Ok (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t address) {
 
@@ -116,7 +116,7 @@ void Tempchip_MCP9808_Write16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config)
 
     i2c_external_params._result =
         i2c_master_write_reg (device, reg_addr, data, nbytes, i2c_external_config); // Will hang if not pull-up resistors! Will report to XMOS
-    debug_printf ("I2C:W %u %u\n", device, i2c_external_params._result);
+    debug_print ("I2C:W %u %u\n", device, i2c_external_params._result);
 }
 
 uint16_t Tempchip_MCP9808_Read16 (REFERENCE_PARAM(struct r_i2c,i2c_external_config), i2c_master_params_t &i2c_external_params, uint8_t reg) {
@@ -128,14 +128,14 @@ uint16_t Tempchip_MCP9808_Read16 (REFERENCE_PARAM(struct r_i2c,i2c_external_conf
 
     i2c_external_params._result =
         i2c_master_read_reg (device, reg_addr, data, nbytes, i2c_external_config); // Will hang if not pull-up resistors! Will report to XMOS
-    debug_printf ("I2C:R %u %u\n", device, i2c_external_params._result);
+    debug_print ("I2C:R %u %u\n", device, i2c_external_params._result);
 
     // let's do it independent of if i2c_external_params._result because of the printf
     uint16_t msb = ((uint16_t) data[0]) << 8; // msb is the first that was read
     uint16_t lsb =  (uint16_t) data[1];
     return_val = msb + lsb;
 
-    debug_printf ("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params._result, device, reg_addr, return_val);
+    debug_print ("Tempchip_MCP9808_Read16 res:%d dev:%02x reg:%d val:%04x\n", i2c_external_params._result, device, reg_addr, return_val);
 
     return return_val;
 }
