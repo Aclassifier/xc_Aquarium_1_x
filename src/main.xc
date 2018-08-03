@@ -49,11 +49,6 @@
 
 // FROM main.xc in _app_rfm69_on_xmos_native (start)
 
-#define SEMANTICS_DO_RSSI_IN_IRQ_DETECT_TASK 0 // # chanends ---MEM---  (relative values)
-                                               // 1 :     2    700 bytes  Does it faster after IRQ line (good if much logging in RFM69_driver)
-                                               //                         DOES NOT WORK WITH xTIMEcomposer 13.3.3, see XMOS ticket 31286
-                                               // 0 :     0      0        RSSI may be measured too late if much logging in RFM69_driver
-
 // http://www.xcore.com/viewtopic.php?f=26&t=6331
 #define CAT3(a,b,c) a##b##c
 #define XS1_PORT(WIDTH,LETTER) CAT3(XS1_PORT_,WIDTH,LETTER) // XS1_PORT_ is a string here, not some #define from the woods!
@@ -80,20 +75,17 @@ out buffered port:32 p_sclk  = on tile[0]: SPI_CLK;      // New as above | Was X
 out buffered port:32 p_mosi  = on tile[0]: SPI_MOSI;     // New as above | Was XS1_PORT_1D, but that's for sliceKIT
 clock                clk_spi = on tile[0]: XS1_CLKBLK_1; // See USE_CLOCK_BLOCK
 
-#if (SEMANTICS_DO_RSSI_IN_IRQ_DETECT_TASK==1)
-    #define NUM_SPI_CLIENT_USERS 2 // Number of users per board
-#else
-    #define NUM_SPI_CLIENT_USERS 1 // Number of users per board
-#endif
 
-#define                     SPI_CLIENT_0     0 // BOTH HERE: Remember a call to i_spi.await_spi_port_init(); before use of spi_master_if (by i_spi)
-#define                     SPI_CLIENT_1     1 // AND HERE:  --"--
-#define NUM_SPI_CS_SETS NUM_SPI_CLIENT_USERS   // See (*) below. Actually number of different SPI boards, but since both clients use the same chip, the sets are equal
+#define NUM_SPI_CLIENT_USERS 1 // Number of users per board
+
+#define                     SPI_CLIENT_0    0 // BOTH HERE: Remember a call to i_spi.await_spi_port_init_by_all_clients(); before use of spi_master_if (by i_spi)
+#define                     SPI_CLIENT_VOID 0 // Any value
+#define NUM_SPI_CS_SETS NUM_SPI_CLIENT_USERS  // See (*) below. Actually number of different SPI boards, but since both clients use the same chip, the sets are equal
 
 // https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/pinouts
 //      SPI_CS_EN bits:
-#define MASKOF_SPI_SLAVE0_CS          0x01  // Chip select SS/CS is port SPI_CS_EN BIT0 low (Called "NSS pin" in Semtech manual)
-#define MASKOF_SPI_SLAVE0_EN          0x02  // Power enable EN   is port SPI_CS_EN BIT1 high
+#define MASKOF_SPI_SLAVE0_CS           0x01 // Chip select SS/CS is port SPI_CS_EN BIT0 low (Called "NSS pin" in Semtech manual)
+#define MASKOF_SPI_SLAVE0_EN           0x02 // Power enable EN   is port SPI_CS_EN BIT1 high
                                             // EN - connected to the enable pin of the regulator. Pulled high to Vin by default,
                                             //      pull low to completely cut power to the RX_some_rfm69_internals.
 #define MASKOF_SPI_SLAVE0_PROBE1_INNER 0x04 // Inner scope pin on piggy-board
@@ -269,7 +261,7 @@ int main() {
                 par {
                     RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // Is [[combineable]]
                     spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
-                    IRQ_detect_task (i_irq, p_spi_irq, probe_config);
+                    IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
                 }
 
             }

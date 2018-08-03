@@ -76,12 +76,12 @@ typedef enum {
 #define DATETIME_YEAR_OFFSET 2000
 
 typedef struct {
-    unsigned year;
-    unsigned month;
-    unsigned day;
-    unsigned hour;
-    unsigned minute;
-    unsigned second;
+    uint16_t year;
+    uint8_t  month;
+    uint8_t  day;
+    uint8_t  hour;
+    uint8_t  minute;
+    uint8_t  second;
 } DateTime_t;
 
 #define DATETIME_INIT(dt) dt.year=1950; dt.month=6; dt.day=14; dt.hour=0; dt.minute=0; dt.second=0;

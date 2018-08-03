@@ -3688,7 +3688,7 @@ postmask:
 .Linfo_string13:
 .asciiz"BUTTON_ACTION_RELEASED"
 .Linfo_string14:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_9"
 .Linfo_string15:
 .asciiz"false"
 .Linfo_string16:
@@ -7165,12 +7165,8 @@ postmask:
 	.long	.L.debug_info_begin0
 .Lset106 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset106
-	.long	188
-.asciiz"__TYPE_12"
 	.long	53
 .asciiz"port"
-	.long	358
-.asciiz"display_vccstate_t"
 	.long	3185
 .asciiz"chronodot_d3231_registers_t"
 	.long	811
@@ -7179,6 +7175,8 @@ postmask:
 .asciiz"int"
 	.long	3081
 .asciiz"unsigned short"
+	.long	358
+.asciiz"display_vccstate_t"
 	.long	3074
 .asciiz"short"
 	.long	3088
@@ -7189,6 +7187,8 @@ postmask:
 .asciiz"yieldArg"
 	.long	699
 .asciiz"__TYPE_7"
+	.long	188
+.asciiz"__TYPE_9"
 	.long	95
 .asciiz"unsigned char"
 	.long	0

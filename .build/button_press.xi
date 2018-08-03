@@ -1307,20 +1307,6 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-# 27 "../src/_globals.h"
-typedef struct {
-    uint8_t payload_1;
-    uint8_t payload_2;
-    uint8_t payload_3;
-    uint8_t payload_4;
-} payload_u0_t;
-
-typedef struct {
-    union {
-        payload_u0_t payload_u0;
-        uint8_t payload_u1_uint8_arr[4];
-    } u;
-} payload_t;
 # 18 "../src/button_press.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1404,16 +1390,16 @@ void Button_Task (
     bool initial_released_stopped = false;
     bool pressed_but_not_released = false;
 
-    do { if(1 && (0==1)) printf("inP_Button_Task[%u] started\n", button_n); } while (0);
+    do { if(0 && (0==1)) printf("inP_Button_Task[%u] started\n", button_n); } while (0);
 
     while(1) {
         select {
 
             case is_stable => p_button when __builtin_pins_ne(current_val) :> current_val: {
                 if (current_val == 0) {
-                    do { if(1 && (0==1)) printf(": Button %u pressed\n", button_n); } while (0);
+                    do { if(0 && (0==1)) printf(": Button %u pressed\n", button_n); } while (0);
                 } else {
-                    do { if(1 && (0==1)) printf(": Button %u released\n", button_n); } while (0);
+                    do { if(0 && (0==1)) printf(": Button %u released\n", button_n); } while (0);
                 }
 
                 pressed_but_not_released = false;
@@ -1434,18 +1420,18 @@ void Button_Task (
                         pressed_but_not_released = true;
 
                         i_button_out.button (BUTTON_ACTION_PRESSED);
-                        do { if(1 && (0==1)) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
+                        do { if(0 && (0==1)) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
                     }
                     else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
-                            do { if(1 && (0==1)) printf(" Button %u filtered away\n", button_n); } while (0);
+                            do { if(0 && (0==1)) printf(" Button %u filtered away\n", button_n); } while (0);
                         } else {
                             pressed_but_not_released = false;
                             i_button_out.button (BUTTON_ACTION_RELEASED);
-                            do { if(1 && (0==1)) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
+                            do { if(0 && (0==1)) printf(" BUTTON_ACTION_RELEASED %u sent\n", button_n); } while (0);
                         }
                     }
                     is_stable = true;
@@ -1454,7 +1440,7 @@ void Button_Task (
 
                     pressed_but_not_released = false;
                     i_button_out.button (BUTTON_ACTION_PRESSED_FOR_10_SECONDS);
-                    do { if(1 && (0==1)) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
+                    do { if(0 && (0==1)) printf(" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\n", button_n); } while (0);
                 }
             } break;
 

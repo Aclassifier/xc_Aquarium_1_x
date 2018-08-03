@@ -24,24 +24,4 @@ typedef enum {false,true} bool; // 0,1 This typedef matches any integer-type typ
 #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                  // 1: controlled locally in each xc file
 
-typedef struct { // Size must be modulo 4
-    uint8_t payload_1;
-    uint8_t payload_2;
-    uint8_t payload_3;
-    uint8_t payload_4;
-} payload_u0_t;
-
-typedef struct {  // Size must be modulo 4
-    union {
-        payload_u0_t payload_u0;
-        uint8_t      payload_u1_uint8_arr[_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08]; // Size must be modulo 4
-    } u;
-} payload_t;
-
-#define SEMANTICS_DO_RSSI_IN_IRQ_DETECT_TASK 0 // # chanends ---MEM---  (relative values)
-                                               // 1 :     2    700 bytes  Does it faster after IRQ line (good if much logging in RFM69_driver)
-                                               //                         DOES NOT WORK WITH xTIMEcomposer 13.3.3, see XMOS ticket 31286
-                                               // 0 :     0      0        RSSI may be measured too late if much logging in RFM69_driver
-
-
 #endif /* GLOBALS_H_ */

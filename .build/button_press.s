@@ -1112,7 +1112,7 @@ Button_Task.select.case.1:
 .Linfo_string5:
 .asciiz"BUTTON_ACTION_RELEASED"
 .Linfo_string6:
-.asciiz"__TYPE_12"
+.asciiz"__TYPE_9"
 .Linfo_string7:
 .asciiz"false"
 .Linfo_string8:
@@ -2337,20 +2337,20 @@ Button_Task.select.case.1:
 	.long	.L.debug_info_begin0
 .Lset30 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset30
-	.long	998
-.asciiz"yieldArg"
 	.long	838
 .asciiz"interface"
-	.long	31
-.asciiz"__TYPE_12"
 	.long	852
 .asciiz"timer"
+	.long	981
+.asciiz"chanend"
 	.long	831
 .asciiz"port"
 	.long	119
 .asciiz"__TYPE_7"
-	.long	981
-.asciiz"chanend"
+	.long	998
+.asciiz"yieldArg"
+	.long	31
+.asciiz"__TYPE_9"
 	.long	775
 .asciiz"unsigned int"
 	.long	864

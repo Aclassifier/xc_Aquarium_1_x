@@ -50,7 +50,7 @@
 //}}}  
 //{{{  debug_print
 
-#define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 1 // Cost 0.4k
+#define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 0 // Cost 0.4k
 //
 #define debug_print(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 #define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) val=to;                   } while (0)

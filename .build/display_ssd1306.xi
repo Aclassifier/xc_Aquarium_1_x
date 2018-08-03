@@ -1414,20 +1414,6 @@ size_t _safe_strnlen(const char s[], size_t n);
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-# 27 "../src/_globals.h"
-typedef struct {
-    uint8_t payload_1;
-    uint8_t payload_2;
-    uint8_t payload_3;
-    uint8_t payload_4;
-} payload_u0_t;
-
-typedef struct {
-    union {
-        payload_u0_t payload_u0;
-        uint8_t payload_u1_uint8_arr[4];
-    } u;
-} payload_t;
 # 39 "../src/display_ssd1306.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
