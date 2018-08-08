@@ -1712,7 +1712,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
     char is2_temps_first_chars [3][2] = {"H","A","W"};;
 
-    do { if(0 && (0==1)) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
+    do { if(0 && (1==1)) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
 
 
 
@@ -1720,18 +1720,18 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
 
     if (index_of_temp_largest == (-1)) {
-        do { if(0 && (0==1)) printf("&s", "none "); } while (0);
+        do { if(0 && (1==1)) printf("&s", "none "); } while (0);
     } else {
-        do { if(0 && (0==1)) printf("%d ", temp_largest); } while (0);
+        do { if(0 && (1==1)) printf("%d ", temp_largest); } while (0);
     }
     if (temp_largest != temp_smallest) {
         if (index_of_temp_smallest == (-1)) {
-            do { if(0 && (0==1)) printf("&s", "none "); } while (0);
+            do { if(0 && (1==1)) printf("&s", "none "); } while (0);
         } else {
-            do { if(0 && (0==1)) printf("%d ", temp_smallest); } while (0);
+            do { if(0 && (1==1)) printf("%d ", temp_smallest); } while (0);
         }
     } else {}
-    do { if(0 && (0==1)) printf("%s", "\n"); } while (0);
+    do { if(0 && (1==1)) printf("%s", "\n"); } while (0);
 
     return temp_return;
 }

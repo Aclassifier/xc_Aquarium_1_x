@@ -2008,20 +2008,20 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 42 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 68 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 48 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
     logic_normal,
     logic_inverted
 } logic_e;
-# 88 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 68 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 110 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 90 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 43 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2035,7 +2035,7 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 72 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 95 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2076,13 +2076,13 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_arr[20];
+    uint8_t appPayload_arr[4];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 125 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 148 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 138 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 166 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2100,7 +2100,7 @@ typedef struct {
 } packet_t;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
-# 20 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 18 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
 
     ERROR_BIT_RF_IRQFLAGS1_MODEREADY_1 = 0,
@@ -2121,7 +2121,7 @@ typedef enum {
 } error_bits_e;
 
 typedef enum {NO_ERR, IS_ERR} is_error_e;
-# 77 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 75 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
 
     uint8_t preamble0;
@@ -2142,7 +2142,7 @@ typedef struct {
 
     uint8_t CRC16_LSB;
     uint8_t CRC16_MSB;
-# 112 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 110 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } rfm69_packet_t;
 
 typedef enum {
@@ -2169,19 +2169,10 @@ typedef enum {
     messageRadioCRC16AppCRC32Errs_IRQ = 11
 
 } interruptAndParsingResult_e;
-
-typedef enum {
-    RF69_315MHZ,
-    RF69_433MHZ,
-    RF69_868MHZ,
-    RF69_915MHZ
-
-} freqBand_e;
-
-
+# 146 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     uint8_t nodeID;
-    freqBand_e freqBand;
+    uint32_t RegFrf;
     uint8_t key[16];
     bool isRFM69HW;
 
@@ -2196,7 +2187,7 @@ typedef struct {
     uint8_t RegIrqFlags2;
 
 } some_rfm69_internals_t;
-# 188 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     FORCETRIGGER_OFF,
     FORCETRIGGER_ON
@@ -2206,11 +2197,14 @@ typedef enum {
     RX_TX_IRQ,
     RX_IRQ
 } handleIRQ_t;
-# 215 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 270 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+unsigned freq_register_value_to_Hz (const uint32_t register_value);
+uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
+
 typedef interface radio_if_t {
-# 232 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 290 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_adafruit_rfm69hcw_RST_pulse
-                                                            (const unsigned maskof_pin);
+                                                           (const unsigned maskof_pin);
 
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
 
@@ -2231,7 +2225,7 @@ typedef interface radio_if_t {
     int8_t readTemperature_degC (const int8_t calOffset);
     bool receiveDone (void);
     waitForIRQInterruptCause_e send (const uint8_t TARGETID_toAddress,
-                                                             const packet_t PACKET);
+                                                            const packet_t PACKET);
     uint8_t setNODEID (const uint8_t newNODEID);
 
     void setHighPower (const bool isHighPowerOn);
@@ -2239,7 +2233,13 @@ typedef interface radio_if_t {
     void setMode (const uint8_t newMode);
     void setPowerLevel_dBm (const uint8_t powerLevel_dBm);
     void sleep (void);
-# 270 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+    void setFrequencyRegister (const uint32_t register_value);
+    uint32_t getFrequencyRegister (void);
+
+
+
+
+
 } radio_if_t;
 
 
@@ -2291,7 +2291,7 @@ in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 99 "../src/main.xc"
+# 97 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2302,7 +2302,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 180 "../src/main.xc"
+# 178 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
@@ -2335,7 +2335,7 @@ int main() {
     port_heat_light_commands_if i_port_heat_light_commands[2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 229 "../src/main.xc"
+# 227 "../src/main.xc"
         par {
             on tile[0]: installExceptionHandler();
             par {
@@ -2373,9 +2373,8 @@ int main() {
                     spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
                     IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
                 }
-
             }
         }
-# 330 "../src/main.xc"
+# 327 "../src/main.xc"
     return 0;
 }

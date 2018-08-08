@@ -92,18 +92,16 @@ clock                clk_spi = on tile[0]: XS1_CLKBLK_1; // See USE_CLOCK_BLOCK
 #define MASKOF_SPI_SLAVE0_PROBE2_OUTER 0x08 // Outer scope pin on piggy-board
 
 
-#define MASKOF_SPI_AND_PROBE_PINTS_INIT { MASKOF_SPI_SLAVE0_CS, MASKOF_SPI_SLAVE0_EN, MASKOF_SPI_SLAVE0_PROBE1_INNER, MASKOF_SPI_SLAVE0_PROBE2_OUTER }
-//#define MASKOF_SPI_AND_PROBE_PINTS_INIT {(0x01),(0x02),0x04,0x08} // error: parse error before numeric constant
-//#define MASKOF_SPI_AND_PROBE_PINTS_INIT {0x01,(0x02),0x04,0x08} // NOT: error: parse error before numeric constant TODO
+#define MASKOF_SPI_AND_PROBE_PINS_INIT { MASKOF_SPI_SLAVE0_CS, MASKOF_SPI_SLAVE0_EN, MASKOF_SPI_SLAVE0_PROBE1_INNER, MASKOF_SPI_SLAVE0_PROBE2_OUTER }
 
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [NUM_SPI_CS_SETS] = // (*)
 {
-    MASKOF_SPI_AND_PROBE_PINTS_INIT
+    MASKOF_SPI_AND_PROBE_PINS_INIT
     #if (NUM_SPI_CS_SETS == 2)
         // (*) Observe that compiler will not warn if there's too little in init field, only too much
         //     This caused (Running)CDTDebugModelPresentation.12=signal that I wasn't able to trace, but I found it.
         //     It was solved with the array overflow check and "fail" call in spi_sync.xc in lib_spi
-        , MASKOF_SPI_AND_PROBE_PINTS_INIT
+        , MASKOF_SPI_AND_PROBE_PINS_INIT
     #endif
 };
 
@@ -256,14 +254,13 @@ int main() {
                     Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
                 }
             }
-            on tile[0]: {
+            on tile[0]: { // To avoid Error:   lower bound could not be calculated
                 [[combine]]
                 par {
-                    RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // Is [[combineable]]
+                    RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // Is [[combinable]]
                     spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
                     IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
                 }
-
             }
         }
     #elif defined MAP_CHANENDS_25_B
