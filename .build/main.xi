@@ -1302,45 +1302,6 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-# 29 "../src/_globals.h"
-typedef uint8_t month_t;
-typedef uint8_t day_t;
-typedef uint8_t hour_t;
-typedef uint8_t minute_t;
-typedef uint8_t second_t;
-typedef uint8_t heater_on_percent_t;
-typedef uint8_t heater_on_watt_t;
-typedef uint16_t year_t;
-typedef uint16_t error_bits_now_t;
-typedef int16_t onetenthDegC_t;
-
-
-typedef struct {
-    month_t month;
-    day_t day;
-    hour_t hour;
-    minute_t minute;
-    second_t second;
-    heater_on_percent_t heater_on_percent;
-    heater_on_watt_t heater_on_watt;
-    uint8_t padding_byte_13;
-    year_t year;
-    error_bits_now_t error_bits_now;
-    onetenthDegC_t i2c_temp_heater_onetenthDegC;
-    onetenthDegC_t i2c_temp_ambient_onetenthDegC;
-    onetenthDegC_t i2c_temp_water_onetenthDegC;
-    onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC;
-
-
-
-} payload_u0_t;
-
-typedef struct {
-    union {
-        payload_u0_t payload_u0;
-        uint8_t payload_u1_uint8_arr[20];
-    } u;
-} payload_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1607,8 +1568,8 @@ typedef char now_regulating_at_char_t [8][2];
 # 32 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
-typedef int temp_onetenthDegC_t;
-typedef int voltage_onetenthV_t;
+typedef int16_t temp_onetenthDegC_t;
+typedef int16_t voltage_onetenthV_t;
 typedef int light_sensor_range_t;
 # 74 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
@@ -1761,7 +1722,7 @@ typedef interface temperature_heater_commands_if {
                 {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, bool, unsigned, unsigned}
-                         get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                                      get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -2117,7 +2078,7 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_arr[20];
+    uint8_t appPayload_uint8_arr[28];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
@@ -2126,7 +2087,7 @@ typedef struct {
 # 166 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
-    uint8_t appPayload_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
+    uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
     crc32_t appCRC32;
 } packet_u0_t;
 

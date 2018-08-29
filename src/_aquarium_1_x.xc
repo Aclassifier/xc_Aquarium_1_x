@@ -17,14 +17,16 @@
 #include <platform.h>
 #include <xs1.h>
 #include <stdlib.h>
-#include <stdint.h>
+#include <stdint.h> // uint8_t
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
 #include "xassert.h"
 
+#include "_rfm69_commprot.h"
 #include "i2c.h"
 #include "_globals.h"
+
 #include "param.h"
 #include "startkit_adc.h"
 
@@ -255,9 +257,9 @@ typedef struct handler_context_t {
     bool                        heater_data_aged;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
-    voltage_onetenthV_t         rr_24V_voltage_onetenthV; // Heat
+    voltage_onetenthV_t         rr_24V_heat_onetenthV;
     bool                        rr_24_voltage_ok;
-    voltage_onetenthV_t         rr_12V_voltage_onetenthV; // Light
+    voltage_onetenthV_t         rr_12V_LEDlight_onetenthV;
     bool                        rr_12_voltage_ok;
     temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
     bool                        internal_box_temp_ok;
@@ -1407,10 +1409,10 @@ void System_Task_Data_Handler (
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok}                                      = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log}                         = i_temperature_water_commands.get_now_regulating_at ();
-    {context.rr_12V_voltage_onetenthV, context.rr_12_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
-    {context.rr_24V_voltage_onetenthV, context.rr_24_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+    {context.rr_12V_LEDlight_onetenthV, context.rr_12_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
+    {context.rr_24V_heat_onetenthV, context.rr_24_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
     {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}                              = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
-    {context.heater_data_aged, context.heater_on_ok, context.heater_on_percent, context.heater_on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_voltage_onetenthV);
+    {context.heater_data_aged, context.heater_on_ok, context.heater_on_percent, context.heater_on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_heat_onetenthV);
 
     // READ DATE AND TIME AND PRINT OUT EVERY MINUTE
     {
@@ -1473,19 +1475,19 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
     } else {}
 
-    if (context.rr_12V_voltage_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
+    if (context.rr_12V_LEDlight_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_LOW_12V_LIGHT);
     } else {}
 
-    if (context.rr_12V_voltage_onetenthV > INNER_RR_12V_MAX_VOLTS_DP1) {
+    if (context.rr_12V_LEDlight_onetenthV > INNER_RR_12V_MAX_VOLTS_DP1) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HIGH_12V_LIGHT);
     } else {}
 
-    if (context.rr_24V_voltage_onetenthV < INNER_RR_24V_MIN_VOLTS_DP1) {
+    if (context.rr_24V_heat_onetenthV < INNER_RR_24V_MIN_VOLTS_DP1) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_LOW_24V_HEAT);
     } else {}
 
-    if (context.rr_24V_voltage_onetenthV > INNER_RR_24V_MAX_VOLTS_DP1) {
+    if (context.rr_24V_heat_onetenthV > INNER_RR_24V_MAX_VOLTS_DP1) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HIGH_24V_HEAT);
     } else {}
 
@@ -1761,7 +1763,6 @@ void System_Task (
     bool     doListenToAll = false; // Set to 'true' to sniff all packets on the same network
 
     packet_t   TX_PACKET_U;
-    payload_t  TX_radio_payload;
     uint8_t    TX_gatewayid = GATEWAYID;
     uint32_t   TX_appSeqCnt = 0;
     is_error_e is_new_error;
@@ -1978,35 +1979,57 @@ void System_Task (
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
                     if (not context.radio_board_fault) {
+
+                        TX_appSeqCnt++;
+
+                        // ---- Empty full payload ----
+
                         for (unsigned index = 0; index < PACKET_LEN32; index++) {
                               TX_PACKET_U.u.packet_u2_uint32_arr[index] = PACKET_INIT_VAL32;
                         }
+
+                        // ---- General payload part ----
 
                         TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload_10 = PACKET_LEN08;
                         TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload_11  = VERSION_OF_APP_PAYLOAD_01;
                         TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload_NN  = NUM_OF_THIS_APP_PAYLOAD_01;
 
-                        TX_PACKET_U.u.packet_u3.appNODEID = NODEID;
+                        TX_PACKET_U.u.packet_u3.appNODEID         = NODEID;
                         TX_PACKET_U.u.packet_u3.appPowerLevel_dBm = APPPOWERLEVEL_MIN_DBM;
-                        TX_appSeqCnt++;
-                        TX_PACKET_U.u.packet_u3.appSeqCnt = TX_appSeqCnt;
+                        TX_PACKET_U.u.packet_u3.appSeqCnt         = TX_appSeqCnt;
 
-                        TX_radio_payload.u.payload_u0.year                                           = (year_t)           context.datetime.year;
-                        TX_radio_payload.u.payload_u0.month                                          = (month_t)          context.datetime.month;
-                        TX_radio_payload.u.payload_u0.day                                            = (day_t)            context.datetime.day;
-                        TX_radio_payload.u.payload_u0.hour                                           = (hour_t)           context.datetime.hour;
-                        TX_radio_payload.u.payload_u0.minute                                         = (minute_t)         context.datetime.minute;
-                        TX_radio_payload.u.payload_u0.second                                         = (second_t)         context.datetime.second;
-                        TX_radio_payload.u.payload_u0.error_bits_now                                 = (error_bits_now_t) context.error_bits_now;
-                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC                   = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
-                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC                  = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
-                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC                    = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
+                        // ---- User payload part ----
 
-                        {(onetenthDegC_t) TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC} =  i_temperature_heater_commands.get_mean_last_cycle_temp();
+                        payload_t  TX_radio_payload;
+
+                        TX_radio_payload.u.payload_u0.year                           = (year_r)              context.datetime.year;
+                        TX_radio_payload.u.payload_u0.month                          = (month_r)             context.datetime.month;
+                        TX_radio_payload.u.payload_u0.day                            = (day_r)               context.datetime.day;
+                        TX_radio_payload.u.payload_u0.hour                           = (hour_r)              context.datetime.hour;
+                        TX_radio_payload.u.payload_u0.minute                         = (minute_r)            context.datetime.minute;
+                        TX_radio_payload.u.payload_u0.second                         = (second_r)            context.datetime.second;
+                        TX_radio_payload.u.payload_u0.heater_on_percent              = (heater_on_percent_r) context.heater_on_percent;
+                        TX_radio_payload.u.payload_u0.heater_on_watt                 = (heater_on_watt_r)    context.heater_on_watt;
+                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_now_r)    context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC   = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
+                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC  = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
+                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC    = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
+                        TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC = (onetenthDegC_r)      context.internal_box_temp_onetenthDegC;
+                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV          = (voltage_onetenthV_r) context.rr_24V_heat_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV      = (voltage_onetenthV_r) context.rr_12V_LEDlight_onetenthV;
+
+                        { // To avoid XMOS Product Bug #31533
+                            temp_onetenthDegC_t degC;
+                            {degC} = i_temperature_heater_commands.get_mean_last_cycle_temp();
+                            TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC = (onetenthDegC_r) degC;
+                        }
 
                         for (unsigned index = 0; index < _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08; index++) {
-                            TX_PACKET_U.u.packet_u3.appPayload_arr[index] = TX_radio_payload.u.payload_u1_uint8_arr[index];
+                            // padding_xx inits not necessarry since PACKET_INIT_VAL32 setting (above) will have overlapped
+                            TX_PACKET_U.u.packet_u3.appPayload_uint8_arr[index] = TX_radio_payload.u.payload_u1_uint8_arr[index];
                         }
+
+                        // ---- Send ----
 
                         waitForIRQInterruptCause_e waitForIRQInterruptCause;
 

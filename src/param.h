@@ -19,7 +19,7 @@ typedef uint8_t i2c_dev_address_t;
 typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t; // 25.1 is 251 (as is temp_onetenthDegC_t).
-                                         // Observe must equal radio onetenthDegC_t
+                                         // Observe must equal radio onetenthDegC_r
 
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;

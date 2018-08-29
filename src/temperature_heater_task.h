@@ -32,7 +32,7 @@ typedef interface temperature_heater_commands_if {
                 {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
                 void                  get_temp_degC_str        (const iof_temps_t         iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]); // Also mean value. All NUM_TEMPERATURES [0..3]
     {bool, bool, unsigned, unsigned} // return_aged, return_on_ok (AQU=025 always true), return_value_on_percent, return_value_on_watt
-                         get_regulator_data       (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                                      get_regulator_data       (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 #define HEATER_CONTROLLER_NUM_CLIENTS 2

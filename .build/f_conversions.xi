@@ -1496,45 +1496,6 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-# 29 "../src/_globals.h"
-typedef uint8_t month_t;
-typedef uint8_t day_t;
-typedef uint8_t hour_t;
-typedef uint8_t minute_t;
-typedef uint8_t second_t;
-typedef uint8_t heater_on_percent_t;
-typedef uint8_t heater_on_watt_t;
-typedef uint16_t year_t;
-typedef uint16_t error_bits_now_t;
-typedef int16_t onetenthDegC_t;
-
-
-typedef struct {
-    month_t month;
-    day_t day;
-    hour_t hour;
-    minute_t minute;
-    second_t second;
-    heater_on_percent_t heater_on_percent;
-    heater_on_watt_t heater_on_watt;
-    uint8_t padding_byte_13;
-    year_t year;
-    error_bits_now_t error_bits_now;
-    onetenthDegC_t i2c_temp_heater_onetenthDegC;
-    onetenthDegC_t i2c_temp_ambient_onetenthDegC;
-    onetenthDegC_t i2c_temp_water_onetenthDegC;
-    onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC;
-
-
-
-} payload_u0_t;
-
-typedef struct {
-    union {
-        payload_u0_t payload_u0;
-        uint8_t payload_u1_uint8_arr[20];
-    } u;
-} payload_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1623,8 +1584,8 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
 # 29 "../src/f_conversions.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
-typedef int temp_onetenthDegC_t;
-typedef int voltage_onetenthV_t;
+typedef int16_t temp_onetenthDegC_t;
+typedef int16_t voltage_onetenthV_t;
 typedef int light_sensor_range_t;
 # 74 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
@@ -1686,14 +1647,16 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     const temp_onetenthDegC_t temps_onetenthDeg,
     const unsigned index_for_printf) {
 
+
+
     unsigned use_n_of_temps;
     unsigned remove_n_of_temps = 0;
     bool not_full = (temps_onetenthDegC_mean_array.temps_num < n_of_temps);
-    temp_onetenthDegC_t temp_return;
-    temp_onetenthDegC_t temps_sum = 0;
-    temp_onetenthDegC_t temp_largest = (-2147483647 -1);
+    int temp_return;
+    int temps_sum = 0;
+    int temp_largest = (-2147483647 -1);
     int index_of_temp_largest = (-1);
-    temp_onetenthDegC_t temp_smallest = 2147483647;
+    int temp_smallest = 2147483647;
     int index_of_temp_smallest = (-1);
 
 
@@ -1773,7 +1736,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     } else {}
     do { if(0 && (0==1)) printf("%s", "\n"); } while (0);
 
-    return temp_return;
+    return (temp_onetenthDegC_t) temp_return;
 }
 
 
@@ -1811,8 +1774,8 @@ Temp_OnetenthDegC_To_Str (
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?temp_degC_str)[5]) {
-# 224 "../src/f_conversions.xc"
-    temp_onetenthDegC_t degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
+# 228 "../src/f_conversions.xc"
+    int degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
 
 
@@ -1839,14 +1802,14 @@ TC1047_Raw_DegC_To_String_Ok (
         degC_dp1 = 999;
     } else {}
 
-    return {degC_dp1, ! error};
+    return {(temp_onetenthDegC_t) degC_dp1, ! error};
 }
 
 {light_sensor_range_t, bool}
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
-# 269 "../src/f_conversions.xc"
+# 273 "../src/f_conversions.xc"
     light_sensor_range_t light_sensor_range = adc_val_mean_i/407;
     if (light_sensor_range > 99) light_sensor_range = 99;
 
@@ -1878,8 +1841,8 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
-# 313 "../src/f_conversions.xc"
-    voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
+# 319 "../src/f_conversions.xc"
+    int volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
 
 
@@ -1905,9 +1868,9 @@ RR_12V_24V_To_String_Ok (
             char error_text [] = "??.?";
             __builtin_memcpy_xc(rr_12V_24V_str, error_text, sizeof(error_text));
         } else {}
-    }
+    } else {}
 
-    return {volt_dp1, ! error};
+    return {(voltage_onetenthV_t) volt_dp1, ! error};
 }
 
 

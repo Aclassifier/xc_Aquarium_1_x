@@ -79,16 +79,18 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     const unsigned             n_of_temps,
     const temp_onetenthDegC_t  temps_onetenthDeg, // next value
     const unsigned             index_for_printf) {
+    
+    // ints needed to avoid overflow in calculations
 
-    unsigned            use_n_of_temps;        // Init ok
-    unsigned            remove_n_of_temps      = 0;
-    bool                not_full               = (temps_onetenthDegC_mean_array.temps_num < n_of_temps);
-    temp_onetenthDegC_t temp_return;           // Always set
-    temp_onetenthDegC_t temps_sum              = 0;
-    temp_onetenthDegC_t temp_largest           = INT_MIN;
-    int                 index_of_temp_largest  = INDEX_VOID;
-    temp_onetenthDegC_t temp_smallest          = INT_MAX;
-    int                 index_of_temp_smallest = INDEX_VOID;
+    unsigned use_n_of_temps;        // Init ok
+    unsigned remove_n_of_temps      = 0;
+    bool     not_full               = (temps_onetenthDegC_mean_array.temps_num < n_of_temps);
+    int      temp_return;           // Always set
+    int      temps_sum              = 0;
+    int      temp_largest           = INT_MIN;
+    int      index_of_temp_largest  = INDEX_VOID;
+    int      temp_smallest          = INT_MAX;
+    int      index_of_temp_smallest = INDEX_VOID;
 
     // Store new data and set where to write the next
     temps_onetenthDegC_mean_array.temps_onetenthDegC          [temps_onetenthDegC_mean_array.temps_index_next_to_write] = temps_onetenthDeg;
@@ -167,7 +169,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     } else {}
     debug_print ("%s", "\n");
 
-    return temp_return;
+    return (temp_onetenthDegC_t) temp_return;
 }
 
 // Convert to a signed value with one decimal, seen as an integer
@@ -221,9 +223,11 @@ TC1047_Raw_DegC_To_String_Ok (
      // 650 mV delta =  65 degC = ((65520/3300)*650) = 12905,4545454545425
      //                     12905,4545454545425/65   =   198,5454545454545
 
-    temp_onetenthDegC_t degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - INNER_TEMPERATURE_OFFSET_DEGC_DP1;
-                        // 25.0 degC is 250 here since it includes one decimal point dp1
-                        // Also observe that we have subtracted INNER_TEMPERATURE_OFFSET_DEGC_DP1 in the mean valued dataset
+    // ints needed to avoid overflow in calculations
+    
+    int degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - INNER_TEMPERATURE_OFFSET_DEGC_DP1; 
+                   // 25.0 degC is 250 here since it includes one decimal point dp1
+                   // Also observe that we have subtracted INNER_TEMPERATURE_OFFSET_DEGC_DP1 in the mean valued dataset
 
     int  degC_Unary_Part   = degC_dp1/10;
     int  degC_Decimal_Part = degC_dp1 - (degC_Unary_Part*10);
@@ -248,7 +252,7 @@ TC1047_Raw_DegC_To_String_Ok (
         degC_dp1 = EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC;
     } else {} // No code: ok
 
-    return {degC_dp1, not error};
+    return {(temp_onetenthDegC_t) degC_dp1, not error};
 }
 
 {light_sensor_range_t, bool}
@@ -310,9 +314,11 @@ RR_12V_24V_To_String_Ok (
     // may be positioned to the right, when 5V is connected to both 12V and 24V circuits via 1K on the
     // Large connection board. In that case we measure about 4.1V on both 12V and 24V
 
-    voltage_onetenthV_t volt_dp1 = (adc_val_mean_i/16)*100/1229;
-                        // 24V is 1229*2.4 = 2949
-                        // 2949*100/1229 = 239 dp1 = 23.9V
+    // ints needed to avoid overflow in calculations
+    
+    int volt_dp1 = (adc_val_mean_i/16)*100/1229; // int needed to avoid overflow in calculations
+                   // 24V is 1229*2.4 = 2949
+                   // 2949*100/1229 = 239 dp1 = 23.9V
 
     int  volt_Unary_Part   = volt_dp1/10;
     int  volt_Decimal_Part = volt_dp1 - (volt_Unary_Part*10);
@@ -336,9 +342,9 @@ RR_12V_24V_To_String_Ok (
             char error_text [] = INNER_RR_12V_24V_ERROR_TEXT;
             memcpy (rr_12V_24V_str, error_text, sizeof(error_text));
         } else {} // No code: ok
-    }
-
-    return {volt_dp1, not error};
+    } else {}
+    
+    return {(voltage_onetenthV_t) volt_dp1, not error};
 }
 
 // BINARY-CODED DECIMAL - DATA WITH CHRONODOT IS BCD - ONE NIBBLE PER

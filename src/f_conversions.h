@@ -12,9 +12,9 @@
 //void installExceptionHandler(void);
 //void myExceptionHandler(void);
 
-typedef int temp_onetenthDegC_t; // 25.1 DegC is 251 (as is i2c_temp_onetenthDegC_t)
-typedef int voltage_onetenthV_t; // 12.1 Volt is 121
-typedef int light_sensor_range_t;       // [0..99] = [00..INNER_MAX_LUX]
+typedef int16_t temp_onetenthDegC_t;  // 25.1 DegC is 251 (as is i2c_temp_onetenthDegC_t)
+typedef int16_t voltage_onetenthV_t;  // 12.1 Volt is 121
+typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
 #define LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL ((INNER_MAX_LUX+1) / 5) // 20
 #define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF    2 // 1-2 minutes
 
