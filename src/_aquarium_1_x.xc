@@ -1991,21 +1991,18 @@ void System_Task (
                         TX_appSeqCnt++;
                         TX_PACKET_U.u.packet_u3.appSeqCnt = TX_appSeqCnt;
 
-                        TX_radio_payload.u.payload_u0.year                                         = (year_t)           context.datetime.year;
-                        TX_radio_payload.u.payload_u0.month                                        = (month_t)          context.datetime.month;
-                        TX_radio_payload.u.payload_u0.day                                          = (day_t)            context.datetime.day;
-                        TX_radio_payload.u.payload_u0.hour                                         = (hour_t)           context.datetime.hour;
-                        TX_radio_payload.u.payload_u0.minute                                       = (minute_t)         context.datetime.minute;
-                        TX_radio_payload.u.payload_u0.second                                       = (second_t)         context.datetime.second;
-                        TX_radio_payload.u.payload_u0.error_bits_now                               = (error_bits_now_t) context.error_bits_now;
-                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC                 = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
-                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC                = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
-                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC                  = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
+                        TX_radio_payload.u.payload_u0.year                                           = (year_t)           context.datetime.year;
+                        TX_radio_payload.u.payload_u0.month                                          = (month_t)          context.datetime.month;
+                        TX_radio_payload.u.payload_u0.day                                            = (day_t)            context.datetime.day;
+                        TX_radio_payload.u.payload_u0.hour                                           = (hour_t)           context.datetime.hour;
+                        TX_radio_payload.u.payload_u0.minute                                         = (minute_t)         context.datetime.minute;
+                        TX_radio_payload.u.payload_u0.second                                         = (second_t)         context.datetime.second;
+                        TX_radio_payload.u.payload_u0.error_bits_now                                 = (error_bits_now_t) context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC                   = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
+                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC                  = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
+                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC                    = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
 
-                        // More than just get_temp_degC_str needed:
-
-
-                        TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC = (onetenthDegC_t) i_temperature_heater_commands.get_mean_last_cycle_temp();
+                        {(onetenthDegC_t) TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC} =  i_temperature_heater_commands.get_mean_last_cycle_temp();
 
                         for (unsigned index = 0; index < _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08; index++) {
                             TX_PACKET_U.u.packet_u3.appPayload_arr[index] = TX_radio_payload.u.payload_u1_uint8_arr[index];
