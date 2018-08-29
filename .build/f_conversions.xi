@@ -1496,6 +1496,45 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+# 29 "../src/_globals.h"
+typedef uint8_t month_t;
+typedef uint8_t day_t;
+typedef uint8_t hour_t;
+typedef uint8_t minute_t;
+typedef uint8_t second_t;
+typedef uint8_t heater_on_percent_t;
+typedef uint8_t heater_on_watt_t;
+typedef uint16_t year_t;
+typedef uint16_t error_bits_now_t;
+typedef int16_t onetenthDegC_t;
+
+
+typedef struct {
+    month_t month;
+    day_t day;
+    hour_t hour;
+    minute_t minute;
+    second_t second;
+    heater_on_percent_t heater_on_percent;
+    heater_on_watt_t heater_on_watt;
+    uint8_t padding_byte_13;
+    year_t year;
+    error_bits_now_t error_bits_now;
+    onetenthDegC_t i2c_temp_heater_onetenthDegC;
+    onetenthDegC_t i2c_temp_ambient_onetenthDegC;
+    onetenthDegC_t i2c_temp_water_onetenthDegC;
+    onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC;
+
+
+
+} payload_u0_t;
+
+typedef struct {
+    union {
+        payload_u0_t payload_u0;
+        uint8_t payload_u1_uint8_arr[20];
+    } u;
+} payload_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1509,6 +1548,7 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
+
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1518,7 +1558,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 44 "../src/param.h"
+# 45 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1712,7 +1752,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
     char is2_temps_first_chars [3][2] = {"H","A","W"};;
 
-    do { if(0 && (1==1)) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
+    do { if(0 && (0==1)) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
 
 
 
@@ -1720,18 +1760,18 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
 
     if (index_of_temp_largest == (-1)) {
-        do { if(0 && (1==1)) printf("&s", "none "); } while (0);
+        do { if(0 && (0==1)) printf("&s", "none "); } while (0);
     } else {
-        do { if(0 && (1==1)) printf("%d ", temp_largest); } while (0);
+        do { if(0 && (0==1)) printf("%d ", temp_largest); } while (0);
     }
     if (temp_largest != temp_smallest) {
         if (index_of_temp_smallest == (-1)) {
-            do { if(0 && (1==1)) printf("&s", "none "); } while (0);
+            do { if(0 && (0==1)) printf("&s", "none "); } while (0);
         } else {
-            do { if(0 && (1==1)) printf("%d ", temp_smallest); } while (0);
+            do { if(0 && (0==1)) printf("%d ", temp_smallest); } while (0);
         }
     } else {}
-    do { if(0 && (1==1)) printf("%s", "\n"); } while (0);
+    do { if(0 && (0==1)) printf("%s", "\n"); } while (0);
 
     return temp_return;
 }

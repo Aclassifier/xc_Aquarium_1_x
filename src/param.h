@@ -18,7 +18,8 @@ typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t; // Two first from us
 typedef uint8_t i2c_dev_address_t;
 typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
-typedef int16_t i2c_temp_onetenthDegC_t; // 25.1 is 251 (as is temp_onetenthDegC_t)
+typedef int16_t i2c_temp_onetenthDegC_t; // 25.1 is 251 (as is temp_onetenthDegC_t).
+                                         // Observe must equal radio onetenthDegC_t
 
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;

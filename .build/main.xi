@@ -1302,6 +1302,45 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+# 29 "../src/_globals.h"
+typedef uint8_t month_t;
+typedef uint8_t day_t;
+typedef uint8_t hour_t;
+typedef uint8_t minute_t;
+typedef uint8_t second_t;
+typedef uint8_t heater_on_percent_t;
+typedef uint8_t heater_on_watt_t;
+typedef uint16_t year_t;
+typedef uint16_t error_bits_now_t;
+typedef int16_t onetenthDegC_t;
+
+
+typedef struct {
+    month_t month;
+    day_t day;
+    hour_t hour;
+    minute_t minute;
+    second_t second;
+    heater_on_percent_t heater_on_percent;
+    heater_on_watt_t heater_on_watt;
+    uint8_t padding_byte_13;
+    year_t year;
+    error_bits_now_t error_bits_now;
+    onetenthDegC_t i2c_temp_heater_onetenthDegC;
+    onetenthDegC_t i2c_temp_ambient_onetenthDegC;
+    onetenthDegC_t i2c_temp_water_onetenthDegC;
+    onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC;
+
+
+
+} payload_u0_t;
+
+typedef struct {
+    union {
+        payload_u0_t payload_u0;
+        uint8_t payload_u1_uint8_arr[20];
+    } u;
+} payload_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1315,6 +1354,7 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
+
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1324,7 +1364,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 44 "../src/param.h"
+# 45 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1718,6 +1758,7 @@ typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
+                temp_onetenthDegC_t get_mean_last_cycle_temp (void);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
     {bool, bool, unsigned, unsigned}
                          get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
@@ -2076,7 +2117,7 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_arr[4];
+    uint8_t appPayload_arr[20];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
@@ -2103,25 +2144,34 @@ typedef struct {
 # 18 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
 
-    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_1 = 0,
-    ERROR_BIT_REG_SYNCVALUE1_AA = 1,
-    ERROR_BIT_REG_SYNCVALUE1_55 = 2,
-    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_3 = 3,
-    ERROR_BIT_NO_RF69_MODE_SLEEP_EXIT = 4,
-    ERROR_BIT_RF_IRQFLAGS1_MODEREADY_2 = 5,
-    ERROR_BIT_WAIT_FOR_CSMA_LIMIT_SET_MS = 6,
-    ERROR_BIT_RF_OSC1_RCCAL_DONE = 7,
-    ERROR_BIT_RF_TEMP1_MEAS_RUNNING = 8,
-    ERROR_BIT_REG_RSSICONFIG = 9,
-    ERROR_BIT_SETMODE_FAILED = 10,
-    ERROR_BIT_DEVICE_TYPE = 11,
+    ERROR_NO_SPI_UNIT_CONNECTED = 0,
+    ERROR_BITNUM_DEVICE_TYPE = 1,
 
-    ERROR_BIT_RF_IRQFLAGS2_MODEREADY = 12,
+
+
+
+
+
+
+    ERROR_BITNUM_RF_IRQFLAGS1_MODEREADY_1 = 2,
+    ERROR_BITNUM_REG_SYNCVALUE1_AA = 3,
+    ERROR_BITNUM_REG_SYNCVALUE1_55 = 4,
+    ERROR_BITNUM_RF_IRQFLAGS1_MODEREADY_3 = 5,
+    ERROR_BITNUM_NO_RF69_MODE_SLEEP_EXIT = 6,
+    ERROR_BITNUM_RF_IRQFLAGS1_MODEREADY_2 = 7,
+    ERROR_BITNUM_WAIT_FOR_CSMA_LIMIT_SET_MS = 8,
+
+    ERROR_BITNUM_RF_OSC1_RCCAL_DONE = 9,
+    ERROR_BITNUM_RF_TEMP1_MEAS_RUNNING = 10,
+    ERROR_BITNUM_REG_RSSICONFIG = 11,
+    ERROR_BITNUM_SETMODE_FAILED = 12,
+
+    ERROR_BITNUM_RF_IRQFLAGS2_MODEREADY = 13,
 
 } error_bits_e;
 
 typedef enum {NO_ERR, IS_ERR} is_error_e;
-# 75 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 84 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
 
     uint8_t preamble0;
@@ -2142,7 +2192,7 @@ typedef struct {
 
     uint8_t CRC16_LSB;
     uint8_t CRC16_MSB;
-# 110 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 119 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } rfm69_packet_t;
 
 typedef enum {
@@ -2169,7 +2219,7 @@ typedef enum {
     messageRadioCRC16AppCRC32Errs_IRQ = 11
 
 } interruptAndParsingResult_e;
-# 146 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 155 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     uint8_t nodeID;
     uint32_t RegFrf;
@@ -2187,7 +2237,7 @@ typedef struct {
     uint8_t RegIrqFlags2;
 
 } some_rfm69_internals_t;
-# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 195 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     FORCETRIGGER_OFF,
     FORCETRIGGER_ON
@@ -2197,12 +2247,12 @@ typedef enum {
     RX_TX_IRQ,
     RX_IRQ
 } handleIRQ_t;
-# 270 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 280 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
 
 typedef interface radio_if_t {
-# 290 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 300 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_adafruit_rfm69hcw_RST_pulse
                                                            (const unsigned maskof_pin);
 
@@ -2286,12 +2336,12 @@ extern void System_Task (
     server irq_if_t i_irq,
     client radio_if_t i_radio);
 # 48 "../src/main.xc" 2
-# 73 "../src/main.xc"
+# 72 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 97 "../src/main.xc"
+# 96 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2302,7 +2352,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 178 "../src/main.xc"
+# 177 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
@@ -2319,62 +2369,64 @@ port inP_button_center = on tile[0]: 0x10e00;
 port inP_button_right = on tile[0]: 0x10f00;
 
 int main() {
-    button_if i_buttons[3];
     chan c_analogue;
 
-    spi_master_if i_spi[1];
+
+    button_if i_buttons[3];
+    spi_master_if i_spi [1];
     radio_if_t i_radio;
     irq_if_t i_irq;
-
-
-
-    i2c_external_commands_if i_i2c_external_commands[2];
-    i2c_internal_commands_if i_i2c_internal_commands[1];
+    i2c_external_commands_if i_i2c_external_commands [2];
+    i2c_internal_commands_if i_i2c_internal_commands [1];
     startkit_adc_acquire_if i_startkit_adc_acquire;
-    lib_startkit_adc_commands_if i_lib_startkit_adc_commands[1];
-    port_heat_light_commands_if i_port_heat_light_commands[2];
+    lib_startkit_adc_commands_if i_lib_startkit_adc_commands [1];
+    port_heat_light_commands_if i_port_heat_light_commands [2];
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
-# 227 "../src/main.xc"
+
+    par {
+        on tile[0]: installExceptionHandler();
         par {
-            on tile[0]: installExceptionHandler();
+                        startkit_adc (c_analogue);
+            on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands,
+                                              1000);
+            on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0],
+                                              i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
+                                              i_temperature_heater_commands[0], i_temperature_water_commands,
+                                              i_buttons, i_irq, i_radio);
+            on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
+                                              0);
+        }
+        on tile[0]: {
+            [[combine]]
             par {
-                            startkit_adc (c_analogue);
-                on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, 1000);
-                on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
-                                                  i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                  i_buttons, i_irq, i_radio);
-                on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue, 0);
-            }
-            on tile[0]: {
-                [[combine]]
-                par {
-                    Button_Task (0, inP_button_left, i_buttons[0]);
-                    Button_Task (1, inP_button_center, i_buttons[1]);
-                    Button_Task (2, inP_button_right, i_buttons[2]);
-                }
-            }
-            on tile[0]: {
-                [[combine]]
-                par {
-                    I2C_Internal_Task (i_i2c_internal_commands);
-                    I2C_External_Task (i_i2c_external_commands);
-
-                    Temperature_Heater_Task (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-                    Temperature_Water_Task (i_temperature_water_commands, i_temperature_heater_commands[1]);
-
-                    Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-                }
-            }
-            on tile[0]: {
-                [[combine]]
-                par {
-                    RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
-                    spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
-                    IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
-                }
+                Button_Task (0, inP_button_left, i_buttons[0]);
+                Button_Task (1, inP_button_center, i_buttons[1]);
+                Button_Task (2, inP_button_right, i_buttons[2]);
             }
         }
-# 327 "../src/main.xc"
+        on tile[0]: {
+            [[combine]]
+            par {
+                I2C_Internal_Task (i_i2c_internal_commands);
+                I2C_External_Task (i_i2c_external_commands);
+                Temperature_Heater_Task (i_temperature_heater_commands,
+                                           i_i2c_external_commands[1],
+                                           i_port_heat_light_commands[1]);
+                Temperature_Water_Task (i_temperature_water_commands,
+                                           i_temperature_heater_commands[1]);
+                Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
+            }
+        }
+        on tile[0]: {
+            [[combine]]
+            par {
+                RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
+                spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
+                                null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+                IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
+            }
+        }
+    }
     return 0;
 }

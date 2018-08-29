@@ -34,7 +34,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.weak _i.button_if.button.maxchanends.group
 	.max_reduce _i.button_if.button.max.maxchanends, _i.button_if.button.maxchanends.group, 0
@@ -1112,7 +1112,7 @@ Button_Task.select.case.1:
 .Linfo_string5:
 .asciiz"BUTTON_ACTION_RELEASED"
 .Linfo_string6:
-.asciiz"__TYPE_9"
+.asciiz"__TYPE_12"
 .Linfo_string7:
 .asciiz"false"
 .Linfo_string8:
@@ -2337,20 +2337,20 @@ Button_Task.select.case.1:
 	.long	.L.debug_info_begin0
 .Lset30 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset30
+	.long	998
+.asciiz"yieldArg"
 	.long	838
 .asciiz"interface"
+	.long	31
+.asciiz"__TYPE_12"
 	.long	852
 .asciiz"timer"
-	.long	981
-.asciiz"chanend"
 	.long	831
 .asciiz"port"
 	.long	119
 .asciiz"__TYPE_7"
-	.long	998
-.asciiz"yieldArg"
-	.long	31
-.asciiz"__TYPE_9"
+	.long	981
+.asciiz"chanend"
 	.long	775
 .asciiz"unsigned int"
 	.long	864

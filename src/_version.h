@@ -16,7 +16,10 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.7"
+#define APPLICATION_VERSION_STR "1.1.9"
+    // "1.1.9"     29Aug2018 Rather complete data structure defined
+    // "1.1.8"     10Aug2018 First that sends with the RFM69 radio board. Only sequence counter so far!
+    //                       As flashed it ran for 18 days before I had to stop it to continue development
     // "1.1.7"     30Jul2018 [[distributable]] void I2C_External_Task
     //                       [[distributable]] void My_startKIT_ADC_Task compiles with DO_ADC_NESTED_SELECT 0, but will not run.
     //                       My_startKIT_ADC_Task now compiled with neither [[distributable]] nor [[combinable]] and DO_ADC_NESTED_SELECT=1

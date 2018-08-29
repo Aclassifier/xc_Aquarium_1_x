@@ -882,7 +882,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string5:
 .asciiz"BUTTON_ACTION_RELEASED"
 .Linfo_string6:
-.asciiz"__TYPE_9"
+.asciiz"__TYPE_12"
 .Linfo_string7:
 .asciiz"VER_TEMPC_CHIPS"
 .Linfo_string8:
@@ -902,7 +902,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string15:
 .asciiz"I2C_PARAM_ERR"
 .Linfo_string16:
-.asciiz"__TYPE_8"
+.asciiz"__TYPE_11"
 .Linfo_string17:
 .asciiz"_i.button_if._chan.button"
 .Linfo_string18:
@@ -2605,8 +2605,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.L.debug_info_begin0
 .Lset37 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset37
-	.long	1504
-.asciiz"yieldArg"
+	.long	115
+.asciiz"__TYPE_11"
+	.long	31
+.asciiz"__TYPE_12"
 	.long	1410
 .asciiz"port"
 	.long	1429
@@ -2631,10 +2633,8 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .asciiz"tag_i2c_temps_t"
 	.long	163
 .asciiz"__TYPE_7"
-	.long	115
-.asciiz"__TYPE_8"
-	.long	31
-.asciiz"__TYPE_9"
+	.long	1504
+.asciiz"yieldArg"
 	.long	1296
 .asciiz"unsigned char"
 	.long	0

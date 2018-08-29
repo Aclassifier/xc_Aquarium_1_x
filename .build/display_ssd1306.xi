@@ -1414,6 +1414,45 @@ size_t _safe_strnlen(const char s[], size_t n);
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+# 29 "../src/_globals.h"
+typedef uint8_t month_t;
+typedef uint8_t day_t;
+typedef uint8_t hour_t;
+typedef uint8_t minute_t;
+typedef uint8_t second_t;
+typedef uint8_t heater_on_percent_t;
+typedef uint8_t heater_on_watt_t;
+typedef uint16_t year_t;
+typedef uint16_t error_bits_now_t;
+typedef int16_t onetenthDegC_t;
+
+
+typedef struct {
+    month_t month;
+    day_t day;
+    hour_t hour;
+    minute_t minute;
+    second_t second;
+    heater_on_percent_t heater_on_percent;
+    heater_on_watt_t heater_on_watt;
+    uint8_t padding_byte_13;
+    year_t year;
+    error_bits_now_t error_bits_now;
+    onetenthDegC_t i2c_temp_heater_onetenthDegC;
+    onetenthDegC_t i2c_temp_ambient_onetenthDegC;
+    onetenthDegC_t i2c_temp_water_onetenthDegC;
+    onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC;
+
+
+
+} payload_u0_t;
+
+typedef struct {
+    union {
+        payload_u0_t payload_u0;
+        uint8_t payload_u1_uint8_arr[20];
+    } u;
+} payload_t;
 # 39 "../src/display_ssd1306.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1427,6 +1466,7 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
+
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1436,7 +1476,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 44 "../src/param.h"
+# 45 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;

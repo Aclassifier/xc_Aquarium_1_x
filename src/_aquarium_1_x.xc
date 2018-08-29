@@ -74,7 +74,7 @@
 #define DEBUG_PRINT_X 0
 #define debug_print_x(fmt, ...) do { if(DEBUG_PRINT_X and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_Y 1
+#define DEBUG_PRINT_Y 0
 #define debug_print_y(fmt, ...) do { if(DEBUG_PRINT_Y and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 // #define DEBUG_TEST_WATCHDOG // Toggles on/off in SCREEN_4_BOKSDATA. Name used in comment in another file
@@ -188,7 +188,8 @@ typedef enum error_bits_t {
     ERROR_BIT_WATCHDOG_TIMED_OUT     = 13, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
     ERROR_BIT_RADIO_BOARD            = 14, // From board not plugged in to other errors
     ERROR_BIT_WRONG_CODE_STARTKIT    = 15  // WRONG_CODE_STARTKITT AQU=033 AQU=035
-} error_bits_t;
+    //
+} error_bits_t; // Observe must equal error_bits_now_t
 
 #define DISPLAY_ON_FOR_SECONDS    (10*60) // Counting UP TO: 10 minutes
 #define DISPLAY_SUB_ON_FOR_SECONDS (2*60) // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
@@ -270,33 +271,6 @@ typedef struct handler_context_t {
     bool                        radio_board_fault;
     bool                        radio_send_data;
 } handler_context_t;
-
-// radio
-//
-typedef struct { // Size must be modulo 4                                 // WORD ALIGN
-    uint8_t                 month;                                        // 01
-    uint8_t                 day;                                          //    02
-    uint8_t                 hour;                                         //       03
-    uint8_t                 minute;                                       //          04
-    uint8_t                 second;                                       // 05
-    uint8_t                 heater_on_percent;                            //    06
-    uint8_t                 heater_on_watt;                               //       07
-    uint8_t                 padding_byte_13;                              //          08
-    uint16_t                year;                                         // 01,02
-    uint16_t                error_bits_now;                               //       09,10
-    i2c_temp_onetenthDegC_t i2c_temp_heater_onetenthDegC;                 // 13,14
-    i2c_temp_onetenthDegC_t i2c_temp_ambient_onetenthDegC;                //       15,16
-    i2c_temp_onetenthDegC_t i2c_temp_water_onetenthDegC;                  // 17,18
-    i2c_temp_onetenthDegC_t i2c_temp_heater_mean_last_cycle_onetenthDegC; //       19,20
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                       20 -> SET IN makefile -> Size must be modulo 4
-} payload_u0_t;
-
-typedef struct {  // Size must be modulo 4
-    union {
-        // payload_u0_t payload_u0;
-        uint8_t      payload_u1_uint8_arr[_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08]; // Size must be modulo 4
-    } u;
-} payload_t;
 
 
 // Set_Dont_Disturb_Screen_3_Lysregulering
@@ -1787,6 +1761,7 @@ void System_Task (
     bool     doListenToAll = false; // Set to 'true' to sniff all packets on the same network
 
     packet_t   TX_PACKET_U;
+    payload_t  TX_radio_payload;
     uint8_t    TX_gatewayid = GATEWAYID;
     uint32_t   TX_appSeqCnt = 0;
     is_error_e is_new_error;
@@ -1850,25 +1825,33 @@ void System_Task (
     i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
     i_radio.initialize (radio_init);
 
-    device_type = i_radio.getDeviceType(); // ERROR_BIT_DEVICE_TYPE if not 0x24
+    device_type = i_radio.getDeviceType(); // ERROR_BITNUM_DEVICE_TYPE if not 0x24
     debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
 
     {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // Was cleared in RFM69_driver at init
 
     if (RX_some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
+
         i_radio.setHighPower (radio_init.isRFM69HW);
         i_radio.encrypt16 (radio_init.key, KEY_LEN);
         i_radio.setListenToAll (doListenToAll);
         i_radio.setPowerLevel_dBm (APPPOWERLEVEL_MIN_DBM);
         //i_radio.setFrequencyRegister (MY_RFM69_FREQ_REGS);
 
-        debug_print_y ("TX/RX at %u Hz with reg %06X and packet len %u\n", MY_RFM69_FREQ_HZ, MY_RFM69_FREQ_REGS, PACKET_LEN08);
+        debug_print_y ("TX/RX at %u Hz with reg %04X and packet len %u\n", MY_RFM69_FREQ_HZ, MY_RFM69_FREQ_REGS, PACKET_LEN08);
 
         i_radio.receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
 
+        {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
+
+        if (RX_some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+            debug_print_y ("RFM69 err2 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
+            context.radio_board_fault = true; // Some other error, let's just give up. Aquarium is most important
+        }
+
     } else {
+        debug_print_y ("No radio board: RFM69 err1 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
         context.radio_board_fault = true; // Probably not plugged in
-        debug_print_y ("%s", "No radio board\n");
     }
 
     // Init and clear display
@@ -1994,30 +1977,56 @@ void System_Task (
 
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
+                    if (not context.radio_board_fault) {
+                        for (unsigned index = 0; index < PACKET_LEN32; index++) {
+                              TX_PACKET_U.u.packet_u2_uint32_arr[index] = PACKET_INIT_VAL32;
+                        }
 
-                    for (unsigned index = 0; index < PACKET_LEN32; index++) {
-                         TX_PACKET_U.u.packet_u2_uint32_arr[index] = PACKET_INIT_VAL32;
-                    }
+                        TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload_10 = PACKET_LEN08;
+                        TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload_11  = VERSION_OF_APP_PAYLOAD_01;
+                        TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload_NN  = NUM_OF_THIS_APP_PAYLOAD_01;
 
-                    TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload_10 = PACKET_LEN08;
-                    TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload_11  = VERSION_OF_APP_PAYLOAD_01;
-                    TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload_NN  = NUM_OF_THIS_APP_PAYLOAD_01;
+                        TX_PACKET_U.u.packet_u3.appNODEID = NODEID;
+                        TX_PACKET_U.u.packet_u3.appPowerLevel_dBm = APPPOWERLEVEL_MIN_DBM;
+                        TX_appSeqCnt++;
+                        TX_PACKET_U.u.packet_u3.appSeqCnt = TX_appSeqCnt;
 
-                    TX_PACKET_U.u.packet_u3.appNODEID = NODEID;
-                    TX_PACKET_U.u.packet_u3.appPowerLevel_dBm = APPPOWERLEVEL_MIN_DBM;
-                    TX_appSeqCnt++;
-                    TX_PACKET_U.u.packet_u3.appSeqCnt = TX_appSeqCnt;
+                        TX_radio_payload.u.payload_u0.year                                         = (year_t)           context.datetime.year;
+                        TX_radio_payload.u.payload_u0.month                                        = (month_t)          context.datetime.month;
+                        TX_radio_payload.u.payload_u0.day                                          = (day_t)            context.datetime.day;
+                        TX_radio_payload.u.payload_u0.hour                                         = (hour_t)           context.datetime.hour;
+                        TX_radio_payload.u.payload_u0.minute                                       = (minute_t)         context.datetime.minute;
+                        TX_radio_payload.u.payload_u0.second                                       = (second_t)         context.datetime.second;
+                        TX_radio_payload.u.payload_u0.error_bits_now                               = (error_bits_now_t) context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC                 = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
+                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC                = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
+                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC                  = (onetenthDegC_t)   context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
 
-                    waitForIRQInterruptCause_e waitForIRQInterruptCause;
+                        // More than just get_temp_degC_str needed:
 
-                    waitForIRQInterruptCause = i_radio.send (
-                            TX_gatewayid,
-                            TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
 
-                    {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
-                    debug_print_y ("TX %u err%u=%08X\n", TX_appSeqCnt, is_new_error, RX_some_rfm69_internals.error_bits);
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC = (onetenthDegC_t) i_temperature_heater_commands.get_mean_last_cycle_temp();
+
+                        for (unsigned index = 0; index < _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08; index++) {
+                            TX_PACKET_U.u.packet_u3.appPayload_arr[index] = TX_radio_payload.u.payload_u1_uint8_arr[index];
+                        }
+
+                        waitForIRQInterruptCause_e waitForIRQInterruptCause;
+
+                        waitForIRQInterruptCause = i_radio.send (
+                             TX_gatewayid,
+                             TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
+
+                        {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
+
+                        if (RX_some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                         debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
+                         // Don't set context.radio_board_fault here since some errors may not appear next time
+                        } else {
+                         debug_print_y ("TX %u\n", TX_appSeqCnt);
+                        }
+                    } else {} // Never send (any more)
                 } else {}
-
             } break;
 
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
@@ -2084,7 +2093,7 @@ void System_Task (
                     default: {} break;
                 }
 
-                i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in ncoming to disturn us!
+                i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
 
             } break;
         }

@@ -234,7 +234,7 @@ void Temperature_Heater_Task (
                         {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} = // Don't care about OK here
                             Temp_OnetenthDegC_To_Str (
                                     temps_onetenthDegC[iof_i2c_temp],
-                                    temps_degC_str[iof_i2c_temp]); // // For get_temp_degC_str. Overvwritten
+                                    temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. Overwritten
                     } else {
                         ok_degC_i2cs[iof_i2c_temp] = false; // Will propagate ok_degC_converts over (won't happen after Temp_OnetenthDegC_To_Str function test)
                         temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted; // EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC
@@ -454,7 +454,19 @@ void Temperature_Heater_Task (
                 // IOF_TEMPC_HEATER_MEAN_LAST_CYCLE not returned here
             } break;
 
-            //}}}  
+            //}}}
+            //{{{  i_temperature_heater_commands[].get_mean_last_cycle_temp
+
+            case i_temperature_heater_commands[int index_of_client].get_mean_last_cycle_temp (void) -> {temp_onetenthDegC_t return_temp_onetenthDegC} : {
+                if ((temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and
+                    (on_now == false)) {
+                    return_temp_onetenthDegC = 0; // See comment below, in get_temp_degC_str
+                } else {
+                    return_temp_onetenthDegC = temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE];
+                }
+            } break;
+
+            //}}}
             //{{{  i_temperature_heater_commands[].get_temp_degC_str
 
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {

@@ -65,7 +65,6 @@
 #define SPI_AUX   XS1_PORT(4,D) // XS1_PORT_4D   X0D16 P4D0      PCIe-B9  GPIO-PIN31  MASKOF_SPI_AUX0_RST           RST Restart is port BIT0
                                 // XS1_PORT_4D   X0D17 P4D1      PCIe-B11 GPIO-PIN29  MASKOF_SPI_AUX0_PROBE3_IRQ
 #define SPI_IRQ   XS1_PORT(1,L) // XS1_PORT_1L   X0D35 P1L       PCIe-A15 GPIO-PIN17  IRQ, "GPIO 0", DIO0
-#define PROBE4    XS1_PORT(1,F) // XS1_PORT_1F   X0D13 P1F  J7.1 PCIe-B2  GPIO-PIN37  "PROBE1", "PROBE2" & "PROBE3" are in bitmasks
 #define PROBE5    XS1_PORT(1,D) // XS1_PORT_1D   X0D11 P1D  J3.21 LED-D2   SPI-MOSI   "PROBE1", "PROBE2" & "PROBE3" are in bitmasks
 
 // From spi_lib spi.pdf
@@ -181,7 +180,7 @@ in  port p_spi_irq   = on tile[0]:SPI_IRQ;
 
 // Another way of doing it. Used as nullable parameter, so may be dropped
 probe_pins_t probe_config = {
-    on tile[0]:PROBE5
+    on tile[0]:PROBE5 // LED D2 will blink on each IRQ (also on sending)
 };
 
 // FROM main.xc in _app_rfm69_on_xmos_native (end)
@@ -191,138 +190,64 @@ port inP_button_center = on tile[0]: XS1_PORT_1O; // P1O0, X0D38 B_Center
 port inP_button_right  = on tile[0]: XS1_PORT_1P; // P11P, X0D39 B_Right
 
 int main() {
-    button_if i_buttons[BUTTONS_NUM_CLIENTS]; // Individual
-    chan c_analogue;
+    chan c_analogue; // chans always untyped
 
-    spi_master_if i_spi[NUM_SPI_CLIENT_USERS];
-    radio_if_t    i_radio;
-    irq_if_t      i_irq;
-
-    // The declarations are typedefs of interface types to connect the tasks together (XMOS Programming guide p92)
-    // delay_if                    i_delay;
-    i2c_external_commands_if       i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS];
-    i2c_internal_commands_if       i_i2c_internal_commands[I2C_INTERNAL_NUM_CLIENTS];
+    // interfaces:
+    button_if                      i_buttons[BUTTONS_NUM_CLIENTS];
+    spi_master_if                  i_spi    [NUM_SPI_CLIENT_USERS];
+    radio_if_t                     i_radio;
+    irq_if_t                       i_irq;
+    i2c_external_commands_if       i_i2c_external_commands [I2C_EXTERNAL_NUM_CLIENTS];
+    i2c_internal_commands_if       i_i2c_internal_commands [I2C_INTERNAL_NUM_CLIENTS];
     startkit_adc_acquire_if        i_startkit_adc_acquire;
-    lib_startkit_adc_commands_if   i_lib_startkit_adc_commands[ADC_STARTKIT_NUM_CLIENTS];
-    port_heat_light_commands_if    i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS];
+    lib_startkit_adc_commands_if   i_lib_startkit_adc_commands  [ADC_STARTKIT_NUM_CLIENTS];
+    port_heat_light_commands_if    i_port_heat_light_commands   [PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS];
     temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
     temperature_water_commands_if  i_temperature_water_commands;
 
-    #define MAP_CHANENDS_25_C // If MAP_PAR_COMBINE == 0
-
-    // TODO: 9July2018. It is difficult to find a combination of main par where I get any or much advantage from
-    // using button_if interface for chan (like I dont' save 6 chanends). I also get that meta error on different places,
-    // not only where the button function is [[guarded]] in button_if
-
-    #if (MAP_PAR_COMBINE == 1) // 24
-        /*
-        Constraint check for tile[0]:
-          Cores available:            8,   used:          6 .  OKAY
-          Timers available:          10,   used:          7 .  OKAY
-          Chanends available:        32,   used:         23 .  OKAY
-          Memory available:       65536,   used:      46580 .  OKAY
-            (Stack: 5200, Code: 36706, Data: 4674)
-        Constraints checks PASSED.
-        */
+    par {
+        on tile[0]: installExceptionHandler();
         par {
-            on tile[0]: installExceptionHandler();
+                        startkit_adc         (c_analogue);                                            // Is none since a "service"/hardware
+            on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands,    // Is none since contains a nested select
+                                              NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+            on tile[0]: System_Task          (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
+                                              i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
+                                              i_temperature_heater_commands[0], i_temperature_water_commands,
+                                              i_buttons, i_irq, i_radio);
+            on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
+                                              ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+        }
+        on tile[0]: {
+            [[combine]]
             par {
-                            startkit_adc         (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
-                on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
-                on tile[0]: System_Task          (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
-                                                  i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                  i_buttons, i_irq, i_radio);
-                on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
-            }
-            on tile[0]: {
-                [[combine]]
-                par {
-                    Button_Task (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);
-                    Button_Task (IOF_BUTTON_CENTER, inP_button_center, i_buttons[IOF_BUTTON_CENTER]);
-                    Button_Task (IOF_BUTTON_RIGHT,  inP_button_right,  i_buttons[IOF_BUTTON_RIGHT]);
-                }
-            }
-            on tile[0]: {
-                [[combine]]
-                par {
-                    I2C_Internal_Task         (i_i2c_internal_commands);
-                    I2C_External_Task         (i_i2c_external_commands);
-
-                    Temperature_Heater_Task   (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-                    Temperature_Water_Task    (i_temperature_water_commands, i_temperature_heater_commands[1]);
-
-                    Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-                }
-            }
-            on tile[0]: { // To avoid Error:   lower bound could not be calculated
-                [[combine]]
-                par {
-                    RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // Is [[combinable]]
-                    spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
-                    IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
-                }
+                Button_Task (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);   // [[combinable]]
+                Button_Task (IOF_BUTTON_CENTER, inP_button_center, i_buttons[IOF_BUTTON_CENTER]); // [[combinable]]
+                Button_Task (IOF_BUTTON_RIGHT,  inP_button_right,  i_buttons[IOF_BUTTON_RIGHT]);  // [[combinable]]
             }
         }
-    #elif defined MAP_CHANENDS_25_B
-        // WORKS
-        /* Constraint check for tile[0]:
-          Cores available:            8,   used:          5 .  OKAY
-          Timers available:          10,   used:          6 .  OKAY
-          Chanends available:        32,   used:         25 .  OKAY
-          Memory available:       65536,   used:      53100 .  OKAY
-            (Stack: 6748, Code: 39602, Data: 6750)
-        Constraints checks PASSED.
-        Build Complete */
-        par {
-            on tile[0]: installExceptionHandler();
-
-            on tile[0].core[0]: I2C_Internal_Task              (i_i2c_internal_commands);
-            on tile[0].core[0]: I2C_External_Task              (i_i2c_external_commands);
-            on tile[0]:         System_Task                    (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
-                                                                i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                                i_buttons);
-            on tile[0].core[0]: Temperature_Heater_Task       (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-            on tile[0].core[0]: Temperature_Water_Task        (i_temperature_water_commands, i_temperature_heater_commands[1]);
-            on tile[0].core[0]: Button_Task                   (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);
-            on tile[0].core[0]: Button_Task                   (IOF_BUTTON_CENTER, inP_button_center, i_buttons[IOF_BUTTON_CENTER]);
-            on tile[0].core[0]: Button_Task                   (IOF_BUTTON_RIGHT,  inP_button_right,  i_buttons[IOF_BUTTON_RIGHT]);
-            on tile[0]:         My_startKIT_ADC_Task          (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
-            on tile[0].core[0]: Port_Pins_Heat_Light_Task     (i_port_heat_light_commands);
-            on tile[0].core[4]: adc_task                      (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
-                                startkit_adc                  (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
+        on tile[0]: {
+            [[combine]]
+            par {
+                I2C_Internal_Task         (i_i2c_internal_commands);          // [[combinable]]
+                I2C_External_Task         (i_i2c_external_commands);          // [[distributable]]
+                Temperature_Heater_Task   (i_temperature_heater_commands,     // [[combinable]]
+                                           i_i2c_external_commands[1],
+                                           i_port_heat_light_commands[1]);
+                Temperature_Water_Task    (i_temperature_water_commands,      // [[combinable]]
+                                           i_temperature_heater_commands[1]);
+                Port_Pins_Heat_Light_Task (i_port_heat_light_commands);       // [[combinable]]
+            }
         }
-    #elif defined MAP_CHANENDS_25_C
-        // WORKS and LIGHT STABLE
-        /* Constraint check for tile[0]:
-          Cores available:            8,   used:          7 .  OKAY
-          Timers available:          10,   used:          8 .  OKAY
-          Chanends available:        32,   used:         27 .  OKAY
-          Memory available:       65536,   used:      52772 .  OKAY
-            (Stack: 8212, Code: 38342, Data: 6218)
-        Constraints checks PASSED.
-        Build Complete */
-
-        par {
-            on tile[0]: installExceptionHandler();
-
-            on tile[0].core[0]: I2C_Internal_Task         (i_i2c_internal_commands);
-            on tile[0].core[4]: I2C_External_Task         (i_i2c_external_commands);
-
-                    //.core[0]  causes 24 chanends byt 3K more code!
-            on tile[0]:         System_Task               (i_i2c_internal_commands[0], i_i2c_external_commands[0], i_lib_startkit_adc_commands[0],
-                                                           i_port_heat_light_commands[0], i_temperature_heater_commands[0], i_temperature_water_commands,
-                                                           i_buttons);
-            on tile[0].core[0]: Temperature_Heater_Task   (i_temperature_heater_commands, i_i2c_external_commands[1], i_port_heat_light_commands[1]);
-            on tile[0].core[5]: Temperature_Water_Task    (i_temperature_water_commands, i_temperature_heater_commands[1]);
-            on tile[0].core[1]: Button_Task               (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);
-            on tile[0].core[1]: Button_Task               (IOF_BUTTON_CENTER, inP_button_center, i_buttons[IOF_BUTTON_CENTER]);
-            on tile[0].core[1]: Button_Task               (IOF_BUTTON_RIGHT,  inP_button_right,  i_buttons[IOF_BUTTON_RIGHT]);
-            on tile[0]:         My_startKIT_ADC_Task      (i_startkit_adc_acquire, i_lib_startkit_adc_commands, NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
-            on tile[0].core[5]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-            on tile[0].core[4]: adc_task                  (i_startkit_adc_acquire, c_analogue, ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
-                                startkit_adc              (c_analogue); // Declare the ADC service (this is the ADC hardware, not a task)
+        on tile[0]: { // To avoid Error: lower bound could not be calculated (xTIMEcomposer 14.3.3)
+            [[combine]]
+            par {
+                RFM69_driver    (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[distributable]]
+                spi_master_2    (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]]
+                                SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);                           // [[combinable]]
+            }
         }
-
-    #endif
+    }
     return 0;
 }
