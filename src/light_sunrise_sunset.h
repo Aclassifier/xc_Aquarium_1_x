@@ -56,6 +56,7 @@ typedef struct light_sunrise_sunset_context_t {
     unsigned                          print_value_previous; // With debug_print this value must be visible, but even this will removed and not complained about not being used
     bool                              do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
     bool                              light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    uint16_t                          num_days_since_start; // Done for radio, instead of the longer date of start
 } light_sunrise_sunset_context_t;
 
 // https://no.wikipedia.org/wiki/Sommertid

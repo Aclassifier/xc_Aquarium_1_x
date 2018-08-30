@@ -2000,7 +2000,7 @@ void System_Task (
 
                         // ---- User payload part ----
 
-                        payload_t  TX_radio_payload;
+                        payload_t TX_radio_payload; // Work on it and copy it in rather than typecast
 
                         TX_radio_payload.u.payload_u0.year                           = (year_r)                 context.datetime.year;
                         TX_radio_payload.u.payload_u0.month                          = (month_r)                context.datetime.month;
@@ -2023,6 +2023,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center  = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_back    = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_BACK];
                         TX_radio_payload.u.payload_u0.light_composition              = (light_composition_r)    context.light_composition;
+                        TX_radio_payload.u.payload_u0.num_days_since_start           = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

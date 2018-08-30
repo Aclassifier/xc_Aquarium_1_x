@@ -185,7 +185,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    if (context.do_init) {
        light_composition_t light_composition_now;
-       const unsigned minutes_into_day_now = (context.datetime.hour * 60) + context.datetime.minute;
+       // const unsigned minutes_into_day_now = (context.datetime.hour * 60) + context.datetime.minute;
 
        context.do_init = false;
        context.num_minutes_left_of_random = 0;
@@ -247,10 +247,15 @@ Handle_Light_Sunrise_Sunset_Etc (
       context.allow_normal_light_change_by_menu_next = false;
       context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
       context.stop_normal_light_changed_by_menu = false;
+      context.num_days_since_start = 0;
 
    } else {}// init done
 
    //}}}
+
+   if (context.datetime.day != context.datetime_previous.day) {
+       context.num_days_since_start++;
+   } else {}
 
    //{{{  context.do_light_amount_full_or_two_thirds_by_menu by IOF_BUTTON_RIGHT
 

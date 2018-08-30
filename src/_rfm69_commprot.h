@@ -25,6 +25,7 @@ typedef uint16_t voltage_onetenthV_r;
 typedef uint16_t application_version_num_r;
 typedef uint8_t  light_intensity_thirds_r;
 typedef uint8_t  light_composition_r;
+typedef uint16_t num_days_since_start_r;
 
 typedef struct { // Size must be modulo 4                                 // WORD ALIGN
     month_r                   month;                                        // 01
@@ -49,12 +50,17 @@ typedef struct { // Size must be modulo 4                                 // WOR
     light_intensity_thirds_r  light_intensity_thirds_center;                //    30
     light_intensity_thirds_r  light_intensity_thirds_back;                  //       31
     light_composition_r       light_composition;                            //          32
+    num_days_since_start_r    num_days_since_start;                         // 33,34
+    uint8_t                   padding_35;                                   //       35
+    uint8_t                   padding_36;                                   //          36
     //                                                                                  ##
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                         32 -> SET IN makefile -> Must be modulo 4
+    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                         36 -> SET IN makefile -> Must be modulo 4
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task               ##
     //                            and may cause low code size if it fails               ##
-    // If LEN of packet_t in lib_rfm69_xc is 20 and                                     ##
-    //                                    MAX_SX1231H_PACKET_LEN is 61 then max here is 41
+    // If PACKET_LEN08 of packet_t in /lib_rfm69_xc/rfm69_commmprot.h is 20 a           ##
+    //                                MAX_SX1231H_PACKET_LEN is 61 then max here is:    41
+    // Also there: PACKET_LEN_FACIT (20 + _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08)
+    //
 } payload_u0_t;
 
 typedef struct {  // Size must be modulo 4
