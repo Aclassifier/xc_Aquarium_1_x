@@ -1668,14 +1668,16 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 84 "../src/port_heat_light_task.h"
+# 83 "../src/port_heat_light_task.h"
+typedef uint8_t light_intensity_thirds_t;
+
 typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
 
     { light_composition_t,
         light_control_scheme_t
-    } get_light_composition_etc_sync_internal (unsigned return_thirds [3]);
+    } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [3]);
 
     {bool} get_light_is_stable_sync_internal (void);
 
@@ -2078,7 +2080,7 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_uint8_arr[28];
+    uint8_t appPayload_uint8_arr[32];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;

@@ -10,6 +10,7 @@ APP_NAME = _aquarium_1_x
 
 # The USED_MODULES variable lists other module used by the application.
 USED_MODULES = lib_rfm69_xc lib_spi lib_startkit_support lib_xassert module_i2c_master module_random
+# lib_startkit_support: Compiling capsens.xc, slider.xc, startkit_adc.xc, startkit_gpio.xc, startkit_slider.xc BUT not used and so NO CODE either
 
 # The flags passed to xcc when building the application
 # You can also set the following to override flags for a particular language:
@@ -17,7 +18,7 @@ USED_MODULES = lib_rfm69_xc lib_spi lib_startkit_support lib_xassert module_i2c_
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
 # -02 is default
-XCC_FLAGS = -Os -g -fxscope -save-temps -DMYTARGET=STARKIT -DISMASTER=1 -DWARNINGS=0 -D_USERMAKEFILE_LIB_RFM69_XC_USER=2 -D_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08=28 -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_PRINT_GLOBAL=0 -D_USERMAKEFILE_LIB_RFM69_XC_RADIO_IF_READALLREGS=0
+XCC_FLAGS = -Os -g -fxscope -save-temps -DMYTARGET=STARKIT -DISMASTER=1 -DWARNINGS=0 -D_USERMAKEFILE_LIB_RFM69_XC_USER=2 -D_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08=32 -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_PRINT_GLOBAL=0 -D_USERMAKEFILE_LIB_RFM69_XC_RADIO_IF_READALLREGS=0
 
 # -Os (46560) or -O2 (47952) or -O3 (48224) or no opt (xmap: Error: Program is too large (0x1c308 bytes) for node "0" tile 0 (0x10000 bytes))
 # -DXASSERT_ENABLE_ASSERTIONS=1   is default

@@ -519,7 +519,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc_sync_internal (unsigned return_thirds [NUM_LED_STRIPS]) ->
+            case i_port_heat_light_commands[int index_of_client].get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [NUM_LED_STRIPS]) ->
                     {light_composition_t return_light_composition, light_control_scheme_t return_light_control_scheme} : {
 
                 for (unsigned iof_LED_strip=0; iof_LED_strip < NUM_LED_STRIPS; iof_LED_strip++) {

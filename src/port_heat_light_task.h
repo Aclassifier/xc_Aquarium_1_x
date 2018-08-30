@@ -80,6 +80,7 @@ typedef enum heat_cable_commands_t {
 #define SCALE_LIGHTS_ALL_ON_ALWAYS 9
 
 #define WATCHDOG_TICKS_TIMEOUT_MS 10000 // Every 10 seconds. This is also how often it would beep if watchdog_retrigger_with fails
+typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
 
@@ -87,7 +88,7 @@ typedef interface port_heat_light_commands_if {
 
     {   light_composition_t,   // return_light_composition
         light_control_scheme_t // return_light_control_scheme
-    } get_light_composition_etc_sync_internal (unsigned return_thirds [NUM_LED_STRIPS]);
+    } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [NUM_LED_STRIPS]);
 
     {bool} get_light_is_stable_sync_internal (void); // return_is_stable
     // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)

@@ -16,7 +16,8 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.9"
+#define APPLICATION_VERSION_STR "1.1.09" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1109
     // "1.1.9"     29Aug2018 Rather complete data structure defined
     // "1.1.8"     10Aug2018 First that sends with the RFM69 radio board. Only sequence counter so far!
     //                       As flashed it ran for 18 days before I had to stop it to continue development

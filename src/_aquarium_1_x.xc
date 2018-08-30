@@ -247,7 +247,7 @@ typedef struct handler_context_t {
     bool                        read_chronodot_ok;
     i2c_temps_t                 i2c_temps;
     light_composition_t         light_composition;
-    unsigned                    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
+    light_intensity_thirds_t    light_intensity_thirds [NUM_LED_STRIPS]; // 1, 2, 3 for 1/3 , 2/3 and 3/3
     unsigned int                adc_cnt;
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
@@ -2002,21 +2002,27 @@ void System_Task (
 
                         payload_t  TX_radio_payload;
 
-                        TX_radio_payload.u.payload_u0.year                           = (year_r)              context.datetime.year;
-                        TX_radio_payload.u.payload_u0.month                          = (month_r)             context.datetime.month;
-                        TX_radio_payload.u.payload_u0.day                            = (day_r)               context.datetime.day;
-                        TX_radio_payload.u.payload_u0.hour                           = (hour_r)              context.datetime.hour;
-                        TX_radio_payload.u.payload_u0.minute                         = (minute_r)            context.datetime.minute;
-                        TX_radio_payload.u.payload_u0.second                         = (second_r)            context.datetime.second;
-                        TX_radio_payload.u.payload_u0.heater_on_percent              = (heater_on_percent_r) context.heater_on_percent;
-                        TX_radio_payload.u.payload_u0.heater_on_watt                 = (heater_on_watt_r)    context.heater_on_watt;
-                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_now_r)    context.error_bits_now;
-                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC   = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
-                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC  = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
-                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC    = (onetenthDegC_r)      context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
-                        TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC = (onetenthDegC_r)      context.internal_box_temp_onetenthDegC;
-                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV          = (voltage_onetenthV_r) context.rr_24V_heat_onetenthV;
-                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV      = (voltage_onetenthV_r) context.rr_12V_LEDlight_onetenthV;
+                        TX_radio_payload.u.payload_u0.year                           = (year_r)                 context.datetime.year;
+                        TX_radio_payload.u.payload_u0.month                          = (month_r)                context.datetime.month;
+                        TX_radio_payload.u.payload_u0.day                            = (day_r)                  context.datetime.day;
+                        TX_radio_payload.u.payload_u0.hour                           = (hour_r)                 context.datetime.hour;
+                        TX_radio_payload.u.payload_u0.minute                         = (minute_r)               context.datetime.minute;
+                        TX_radio_payload.u.payload_u0.second                         = (second_r)               context.datetime.second;
+                        TX_radio_payload.u.payload_u0.heater_on_percent              = (heater_on_percent_r)    context.heater_on_percent;
+                        TX_radio_payload.u.payload_u0.heater_on_watt                 = (heater_on_watt_r)       context.heater_on_watt;
+                        TX_radio_payload.u.payload_u0.light_control_scheme           = (light_control_scheme_r) context.light_control_scheme;
+                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_now_r)       context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC   = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
+                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC  = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
+                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC    = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
+                        TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC = (onetenthDegC_r)         context.internal_box_temp_onetenthDegC;
+                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV          = (voltage_onetenthV_r)    context.rr_24V_heat_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV      = (voltage_onetenthV_r)    context.rr_12V_LEDlight_onetenthV;
+                        TX_radio_payload.u.payload_u0.application_version_num        =                          APPLICATION_VERSION_NUM;
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_front   = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_center  = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_back    = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_BACK];
+                        TX_radio_payload.u.payload_u0.light_composition              = (light_composition_r)    context.light_composition;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;
