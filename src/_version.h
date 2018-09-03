@@ -16,8 +16,10 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.10" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1110
+#define APPLICATION_VERSION_STR "1.1.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1111
+    // "1.1.11"     3Sep2018 AQU=041 Two 2W LEDs out, one three-colour and one 4200 K LED in. Called "LED lights (6)" in "Drawing 10 - LED lights ...pages" document
+    //                       p32_bits_for_light_composition_pwm_windows now semantics with new mW naming
     // "1.1.10"     3Sep2018 AQU=040 Internal I2C must work and then test read_chronodot_ok if num_days_since_start should make sense
     // "1.1.9"     29Aug2018 Rather complete data structure defined
     // "1.1.8"     10Aug2018 First that sends with the RFM69 radio board. Only sequence counter so far!
@@ -112,7 +114,7 @@
     //                       AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
     //                       AQU=013 Max "1.0.12" with 6 visible chars allowed (was 5) (tested ok)
     // "1.0.8" // 18Jul2017          Tagged VER_1_0_8_with_fishes
-    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
+    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
     //                       AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
     //                       AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
     // "1.0.7" // 17Jul2017          Tagged VER_1_0_7_with_fishes
@@ -122,7 +124,7 @@
     // "1.0.4" // 15Jul2017          Tagged VER_1_0_4_with_fishes
     //                       AQU=006 DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
     // "1.0.3" // 15Jul2017  AQU=005 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
-    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K etc) (tested ok)
+    // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K etc) (tested ok)
     // "1.0.1" // 07Jul2017  AQU=003 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)
     //  1.0.0  // 21May2017  AQU=001 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()

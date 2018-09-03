@@ -1613,6 +1613,7 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
 # 1 "../src/port_heat_light_task.h" 1
 # 10 "../src/port_heat_light_task.h"
 typedef enum iof_LED_strip_t {
+
     IOF_LED_STRIP_FRONT,
     IOF_LED_STRIP_CENTER,
     IOF_LED_STRIP_BACK
@@ -1621,7 +1622,7 @@ typedef enum iof_LED_strip_t {
 typedef enum {
     WATTOF_LED_STRIP_FRONT = 5,
     WATTOF_LED_STRIP_CENTER = 4,
-    WATTOF_LED_STRIP_BACK = 2
+    WATTOF_LED_STRIP_BACK = 3
 } wattOf_LED_strip_t;
 
 
@@ -1629,23 +1630,23 @@ typedef enum {
 
 
 typedef enum light_composition_t {
-# 37 "../src/port_heat_light_task.h"
+# 38 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_0666_mW_ON = 1,
-    LIGHT_COMPOSITION_2666_mW_ON = 2,
-    LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM = 3,
-    LIGHT_COMPOSITION_4666_mW_ON = 4,
-    LIGHT_COMPOSITION_5333_mW_ON = 5,
-    LIGHT_COMPOSITION_6000_mW_ON = 6,
-    LIGHT_COMPOSITION_7666_mW_ON = 7,
-    LIGHT_COMPOSITION_10333_mW_ON = 8,
-    LIGHT_COMPOSITION_11000_mW_ON_FULL = 9,
+    LIGHT_COMPOSITION_1083_mW_ON = 1,
+    LIGHT_COMPOSITION_2166_mW_ON = 2,
+    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 3,
+    LIGHT_COMPOSITION_4383_mW_ON = 4,
+    LIGHT_COMPOSITION_5516_mW_ON = 5,
+    LIGHT_COMPOSITION_6650_mW_ON = 6,
+    LIGHT_COMPOSITION_8316_mW_ON = 7,
+    LIGHT_COMPOSITION_9983_mW_ON = 8,
+    LIGHT_COMPOSITION_11650_mW_ON_FULL = 9,
 
 
-    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS = 10,
-    LIGHT_COMPOSITION_7000_mW_ON = 11,
-    LIGHT_COMPOSITION_3666_mW_ON = 12,
-    LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K = 13,
+    LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS = 10,
+    LIGHT_COMPOSITION_7182_mW_ON = 11,
+    LIGHT_COMPOSITION_3882_mW_ON = 12,
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K = 13,
     LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K = 14
 
 
@@ -1668,7 +1669,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 83 "../src/port_heat_light_task.h"
+# 84 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {

@@ -7,26 +7,27 @@
 
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK; often in a two-dim array with NUM_PWM_TIME_WINDOWS (so not using NUM_ELEMENTS)
 
-typedef enum iof_LED_strip_t { //     STRIPS #1 to #6 = 6 of them AQU=038
-    IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#3,#4 | 6000K | 5W = 1.4W + 2.2W + 1.4W | 150lm + 240lm + 150lm = 540lm AQU=038
-    IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3    | 3200K | 4W = 2W + 2W
-    IOF_LED_STRIP_BACK    // "BACK"   STRIP # 6       | 465nm | 2W
-} iof_LED_strip_t; //                                           ##
-//                                                              ##
-typedef enum { //                                               ##
-    WATTOF_LED_STRIP_FRONT  = 5, // ->                       -> ##
-    WATTOF_LED_STRIP_CENTER = 4, // ->                       -> ##
-    WATTOF_LED_STRIP_BACK   = 2  // ->                       -> ##
+typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
+    //                                                |        |  1/3  |  2/3  |  FULL
+    IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#5,#6 | 6000K  | 1666  | 3333  |  5000  5W    = 1.4W + 2.2W + 1.4W | 150lm + 240lm + 150lm = 540lm AQU=038
+    IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour | 1083  | 2166  |  3250  3.25W = 1.12W RED + 1.12W BLUE + 1W GREEN                  AQU=041
+    IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K  | 1133  | 2266  |  3400  3.4W                       | 440lm                         AQU=041
+} iof_LED_strip_t; //                                                             ##
+//                                                                               11650 -> "12W"
+typedef enum { //                                                                 ##
+    WATTOF_LED_STRIP_FRONT  = 5, // ->                                         -> ##
+    WATTOF_LED_STRIP_CENTER = 4, // ->                                         -> ##
+    WATTOF_LED_STRIP_BACK   = 3  // ->                                         -> ##
 } wattOf_LED_strip_t;
 
 #define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 10 // AQU=039
-#define NUMLIGHT_COMPOSITION_LEVELS 15 // AQU=039 AQU=029 new level LIGHT_COMPOSITION_7000_mW_ON lighter
+#define NUMLIGHT_COMPOSITION_LEVELS 15 // AQU=039 AQU=029 new level LIGHT_COMPOSITION_7182_mW_ON lighter
 #define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022. AQU=029 was 39 is 42
 
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
     // (where all off in any time window is avoided as much as possible)
-    // So I found that any 0-100% (in any number of steps except 3) scheme is more "boring", with blue, white and whiter not visible
+    // So I found that any 0-100% (in any number of steps except 3) scheme is more "boring", with colour, white and whiter not visible
     // individually. With the scheme below the aquarium would be blue at the lowest level, and the blue component is always on.
     // I call this "MONOTONOUS COLOUR AND INTENSITY INCREASE":
     //
@@ -35,21 +36,21 @@ typedef enum light_composition_t {
     //
     //                #### mW         See below: FATAL! ##   //
     LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // All windows dark, of course
-    LIGHT_COMPOSITION_0666_mW_ON                      =  1,  // Two time windows are fully dark
-    LIGHT_COMPOSITION_2666_mW_ON                      =  2,  // AQU=039 new
-    LIGHT_COMPOSITION_3333_mW_ON_MIXED_DARKEST_RANDOM =  3,  //
-    LIGHT_COMPOSITION_4666_mW_ON                      =  4,
-    LIGHT_COMPOSITION_5333_mW_ON                      =  5,
-    LIGHT_COMPOSITION_6000_mW_ON                      =  6,
-    LIGHT_COMPOSITION_7666_mW_ON                      =  7,
-    LIGHT_COMPOSITION_10333_mW_ON                     =  8,
-    LIGHT_COMPOSITION_11000_mW_ON_FULL                =  9, // All = 11W I can hear a sound from the LEDs!
+    LIGHT_COMPOSITION_1083_mW_ON                      =  1,  // Two time windows are fully dark
+    LIGHT_COMPOSITION_2166_mW_ON                      =  2,  // AQU=039 new
+    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM =  3,  //
+    LIGHT_COMPOSITION_4383_mW_ON                      =  4,
+    LIGHT_COMPOSITION_5516_mW_ON                      =  5,
+    LIGHT_COMPOSITION_6650_mW_ON                      =  6,
+    LIGHT_COMPOSITION_8316_mW_ON                      =  7,
+    LIGHT_COMPOSITION_9983_mW_ON                     =  8,
+    LIGHT_COMPOSITION_11650_mW_ON_FULL                =  9, // All = 12W I can hear a sound from the LEDs!
     //                                 See below: FATAL! ##
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
-    LIGHT_COMPOSITION_7333_mW_ON_TWO_THIRDS           = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_7000_mW_ON                      = 11,
-    LIGHT_COMPOSITION_3666_mW_ON                      = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_4000_mW_ON_ONLY_3000K           = 13,
+    LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS           = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
+    LIGHT_COMPOSITION_7182_mW_ON                      = 11,
+    LIGHT_COMPOSITION_3882_mW_ON                      = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K           = 13,
     LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K           = 14
     // NUMLIGHT_COMPOSITION_LEVELS                    = 15
     //                                           FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
