@@ -1409,14 +1409,14 @@ void System_Task_Data_Handler (
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok}                                      = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log}                         = i_temperature_water_commands.get_now_regulating_at ();
-    {context.rr_12V_LEDlight_onetenthV, context.rr_12_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
-    {context.rr_24V_heat_onetenthV, context.rr_24_voltage_ok}                                        = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
+    {context.rr_12V_LEDlight_onetenthV, context.rr_12_voltage_ok}                                       = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
+    {context.rr_24V_heat_onetenthV, context.rr_24_voltage_ok}                                           = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
     {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}                              = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
     {context.heater_data_aged, context.heater_on_ok, context.heater_on_percent, context.heater_on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_heat_onetenthV);
 
     // READ DATE AND TIME AND PRINT OUT EVERY MINUTE
-    {
-        DateTime_t datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised. AQU=021
+    if (context.read_chronodot_ok) { // AQU=040 testing on it!
+        DateTime_t datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised, see below
 
         context.datetime                      = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
         light_sunrise_sunset_context.datetime = context.datetime; // Need a copy there
@@ -1438,7 +1438,7 @@ void System_Task_Data_Handler (
 
             context.radio_send_data = ((context.datetime.second % MY_RFM69_REPEAT_SEND_EVERY_SEC) == 0);
         }
-    }
+    } else {} // Must just wait until internal I2C works!
 
     context.heat_cables_forced_off_by_watchdog = i_port_heat_light_commands.get_heat_cables_forced_off_by_watchdog();
 
@@ -2002,9 +2002,7 @@ void System_Task (
 
                         payload_t TX_radio_payload; // Work on it and copy it in rather than typecast
 
-                        TX_radio_payload.u.payload_u0.year                           = (year_r)                 context.datetime.year;
-                        TX_radio_payload.u.payload_u0.month                          = (month_r)                context.datetime.month;
-                        TX_radio_payload.u.payload_u0.day                            = (day_r)                  context.datetime.day;
+                        TX_radio_payload.u.payload_u0.num_days_since_start           = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
                         TX_radio_payload.u.payload_u0.hour                           = (hour_r)                 context.datetime.hour;
                         TX_radio_payload.u.payload_u0.minute                         = (minute_r)               context.datetime.minute;
                         TX_radio_payload.u.payload_u0.second                         = (second_r)               context.datetime.second;
@@ -2023,7 +2021,6 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center  = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_back    = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_BACK];
                         TX_radio_payload.u.payload_u0.light_composition              = (light_composition_r)    context.light_composition;
-                        TX_radio_payload.u.payload_u0.num_days_since_start           = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

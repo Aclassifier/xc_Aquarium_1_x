@@ -2039,7 +2039,7 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 95 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 96 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2080,13 +2080,13 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_uint8_arr[36];
+    uint8_t appPayload_uint8_arr[32];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 148 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 149 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 166 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 167 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2098,6 +2098,7 @@ typedef struct {
         packet_u0_t packet_u0;
         uint8_t packet_u1_uint8_arr[(sizeof(packet_u3_t))];
         uint32_t packet_u2_uint32_arr[((sizeof(packet_u3_t))/4)];
+
 
         packet_u3_t packet_u3;
     } u;
