@@ -166,7 +166,7 @@ typedef enum display_appear_state_t {
 
 #define AQUARIUM_ERROR_BITS_NONE 0
 typedef enum error_bits_t {
-                                        // LIMITS
+                                           // LIMITS
     ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
     ERROR_BIT_I2C_WATER              =  1,
     ERROR_BIT_I2C_HEATER             =  2,
@@ -2009,7 +2009,8 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.heater_on_percent              = (heater_on_percent_r)    context.heater_on_percent;
                         TX_radio_payload.u.payload_u0.heater_on_watt                 = (heater_on_watt_r)       context.heater_on_watt;
                         TX_radio_payload.u.payload_u0.light_control_scheme           = (light_control_scheme_r) context.light_control_scheme;
-                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_now_r)       context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_r)           context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.error_bits_history             = (error_bits_r)           context.error_bits_history;
                         TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC   = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
                         TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC  = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
                         TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC    = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
@@ -2025,7 +2026,7 @@ void System_Task (
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;
                             {degC} = i_temperature_heater_commands.get_mean_last_cycle_temp();
-                            TX_radio_payload.u.payload_u0.i2c_temp_heater_mean_last_cycle_onetenthDegC = (onetenthDegC_r) degC;
+                            TX_radio_payload.u.payload_u0.temp_heater_mean_last_cycle_onetenthDegC = (onetenthDegC_r) degC;
                         }
 
                         for (unsigned index = 0; index < _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08; index++) {

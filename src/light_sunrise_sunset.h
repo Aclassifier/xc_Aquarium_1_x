@@ -108,7 +108,7 @@ typedef struct light_sunrise_sunset_context_t {
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
         {HH_A, MM_B, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
         {  22,   10, LIGHT_COMPOSITION_2166_mW_ON},          /*  [2] LIGHT_COMPOSITION_2166_mW_CENTER2_ON                                                 */\
-        {  22,   20, LIGHT_COMPOSITION_1083_mW_ON},          /*  [1] LIGHT_COMPOSITION_1083_mW_CENTER1_ON               Surprisingly light!               */\
+        {  22,   20, LIGHT_COMPOSITION_1083_mW_ON},          /*  [1] LIGHT_COMPOSITION_1083_mW_CENTER1_ON                                                 */\
         {  22,   30, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \

@@ -16,8 +16,9 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1111
+#define APPLICATION_VERSION_STR "1.1.12" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1112
+    // "1.1.12"     7Sep2018 error_bits_history also exported in payload_u0_t;
     // "1.1.11"     3Sep2018 AQU=041 Two 2W LEDs out, one three-colour and one 4200 K LED in. Called "LED lights (6)" in "Drawing 10 - LED lights ...pages" document
     //                       p32_bits_for_light_composition_pwm_windows now semantics with new mW naming
     // "1.1.10"     3Sep2018 AQU=040 Internal I2C must work and then test read_chronodot_ok if num_days_since_start should make sense

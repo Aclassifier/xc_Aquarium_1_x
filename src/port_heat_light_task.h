@@ -13,7 +13,7 @@ typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
     IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour | 1083  | 2166  |  3250  3.25W = 1.12W RED + 1.12W BLUE + 1W GREEN                  AQU=041
     IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K  | 1133  | 2266  |  3400  3.4W                       | 440lm                         AQU=041
 } iof_LED_strip_t; //                                                             ##
-//                                                                               11650 -> "12W"
+//                                                                                11650 -> "12W"
 typedef enum { //                                                                 ##
     WATTOF_LED_STRIP_FRONT  = 5, // ->                                         -> ##
     WATTOF_LED_STRIP_CENTER = 4, // ->                                         -> ##
@@ -43,7 +43,7 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_5516_mW_ON                      =  5,
     LIGHT_COMPOSITION_6650_mW_ON                      =  6,
     LIGHT_COMPOSITION_8316_mW_ON                      =  7,
-    LIGHT_COMPOSITION_9983_mW_ON                     =  8,
+    LIGHT_COMPOSITION_9983_mW_ON                      =  8,
     LIGHT_COMPOSITION_11650_mW_ON_FULL                =  9, // All = 12W I can hear a sound from the LEDs!
     //                                 See below: FATAL! ##
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
