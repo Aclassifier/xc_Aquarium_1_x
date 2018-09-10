@@ -13,11 +13,12 @@
 #define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
+//#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.12" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1112
+#define APPLICATION_VERSION_STR "1.1.13" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1113
+    // "1.1.13"    10sep2018 now_regulating_at also exported in payload_u0_t;
     // "1.1.12"     7Sep2018 error_bits_history also exported in payload_u0_t;
     // "1.1.11"     3Sep2018 AQU=041 Two 2W LEDs out, one three-colour and one 4200 K LED in. Called "LED lights (6)" in "Drawing 10 - LED lights ...pages" document
     //                       p32_bits_for_light_composition_pwm_windows now semantics with new mW naming

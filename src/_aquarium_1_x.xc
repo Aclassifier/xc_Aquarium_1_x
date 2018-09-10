@@ -2022,6 +2022,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center  = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_back    = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_BACK];
                         TX_radio_payload.u.payload_u0.light_composition              = (light_composition_r)    context.light_composition;
+                        TX_radio_payload.u.payload_u0.now_regulating_at              = (now_regulating_at_r)    context.now_regulating_at;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

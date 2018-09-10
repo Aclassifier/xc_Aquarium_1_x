@@ -2081,7 +2081,7 @@ typedef struct {
     uint8_t appPowerLevel_dBm;
     uint8_t appPadding_22;
     uint8_t appPadding_23;
-    uint8_t appPayload_uint8_arr[32];
+    uint8_t appPayload_uint8_arr[36];
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
