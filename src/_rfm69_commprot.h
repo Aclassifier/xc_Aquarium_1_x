@@ -39,7 +39,7 @@ typedef struct { // Size must be modulo 4                                   // W
     onetenthDegC_r            i2c_temp_ambient_onetenthDegC;                //       15-16
     onetenthDegC_r            i2c_temp_water_onetenthDegC;                  // 17-18
     onetenthDegC_r            temp_heater_mean_last_cycle_onetenthDegC;     //       19-20
-    onetenthDegC_r            internal_box_temp_onetenthDegC;               // 21-22
+    onetenthDegC_r            internal_box_temp_onetenthDegC;               // 21-22        // light_sensor_intensity not exported
     voltage_onetenthV_r       rr_24V_heat_onetenthV;                        //       23-24
     voltage_onetenthV_r       rr_12V_LEDlight_onetenthV;                    // 25-26
     application_version_num_r application_version_num;                      //       27-28
@@ -61,11 +61,14 @@ typedef struct { // Size must be modulo 4                                   // W
     //
 } payload_u0_t;
 
+#ifndef PACKET_INIT_VAL08
+    #define PACKET_INIT_VAL08 0x00
+#endif
 
 typedef struct {  // Size must be modulo 4
     union {
         payload_u0_t payload_u0;
-        uint8_t      payload_u1_uint8_arr[_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08];
+        uint8_t      payload_u1_uint8_arr[_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08]; // Init to PACKET_INIT_VAL08
     } u;
 } payload_t;
 

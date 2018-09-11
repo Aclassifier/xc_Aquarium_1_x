@@ -431,7 +431,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                                                                                                  //       =====
                                // LIGHT_COMPOSITION_11650_mW_ON_FULL      [8] not used here after AQU=029
                                // LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS [9] not used here after AQU=029
-                               // LIGHT_COMPOSITION_1083_mW_ON            [1] not used here
+                               // LIGHT_COMPOSITION_1133_mW_ON            [1] not used here
                                // LIGHT_COMPOSITION_0000_mW_OFF           [0] not used here
 
                                // Change, down (more SKY) or even up now allowed (less SKY)!

@@ -117,6 +117,7 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSI
     //   IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour | 1083  | 2166  |  3250
     //   IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K  | 1133  | 2266  |  3400
     //                                                                                11650 -> "12W"
+    //                                                                1666 +  1133                   =  _2799_
     //                                                                1133 +  2166                   =  _3299_
     //                                                                1133 +           3250          =  _4383_
     //                                                                        2266 +   3250          =  _5516_
@@ -134,14 +135,14 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSI
                                                                    0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]                     LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                    0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]                     LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                    0  //  0 [LIGHT_COMPOSITION_0000_mW_OFF][2]                     LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
-    }, {                                                              // ##
-                                                                   0, //  1 [LIGHT_COMPOSITION_1083_mW_ON][0]                      LIGHT_COMPOSITION_1083_mW_CENTER1_ON
-                                                                   0, //  1 [LIGHT_COMPOSITION_1083_mW_ON][1]                      LIGHT_COMPOSITION_1083_mW_CENTER1_ON
-                               BIT_LIGHT_CENTER                       //  1 [LIGHT_COMPOSITION_1083_mW_ON][2]                      LIGHT_COMPOSITION_1083_mW_CENTER1_ON
-    }, {                                                              // ## AQU=039 new:
-                                                                   0, //  2 [LIGHT_COMPOSITION_2166_mW_ON][0]                      LIGHT_COMPOSITION_2166_mW_CENTER2_ON
-                               BIT_LIGHT_CENTER,                      //  2 [LIGHT_COMPOSITION_2166_mW_ON][1]                      LIGHT_COMPOSITION_2166_mW_CENTER2_ON
-                               BIT_LIGHT_CENTER                       //  2 [LIGHT_COMPOSITION_2166_mW_ON][2]                      LIGHT_COMPOSITION_2166_mW_CENTER2_ON
+    }, {                                                              // ## AQU=042 removed CENTER:
+                                                                   0, //  1 [LIGHT_COMPOSITION_1133_mW_ON][0]                      LIGHT_COMPOSITION_1133_mW_BACK1_ON
+                                                                   0, //  1 [LIGHT_COMPOSITION_1133_mW_ON][1]                      LIGHT_COMPOSITION_1133_mW_BACK1_ON
+                                                      BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_1133_mW_ON][2]                      LIGHT_COMPOSITION_1133_mW_BACK1_ON
+    }, {                                                              // ## AQU=039 new. AQU=042 removed CENTER:
+            BIT_LIGHT_FRONT,                                          //  2 [LIGHT_COMPOSITION_2799_mW_ON][0]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
+                                                                   0, //  2 [LIGHT_COMPOSITION_2799_mW_ON][1]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
+                                                      BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_2799_mW_ON][2]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
      },{                                                              // ##
                                                       BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM][0] LIGHT_COMPOSITION_3299_mW_BACK1_CENTER2_ON
                                BIT_LIGHT_CENTER,                      //  3 [LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM][1] LIGHT_COMPOSITION_3299_mW_BACK1_CENTER2_ON

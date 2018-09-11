@@ -36,8 +36,8 @@ typedef enum light_composition_t {
     //
     //                #### mW         See below: FATAL! ##   //
     LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // All windows dark, of course
-    LIGHT_COMPOSITION_1083_mW_ON                      =  1,  // Two time windows are fully dark
-    LIGHT_COMPOSITION_2166_mW_ON                      =  2,  // AQU=039 new
+    LIGHT_COMPOSITION_1133_mW_ON                      =  1,  // Two time windows are fully dark
+    LIGHT_COMPOSITION_2799_mW_ON                      =  2,  // AQU=039 new
     LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM =  3,  //
     LIGHT_COMPOSITION_4383_mW_ON                      =  4,
     LIGHT_COMPOSITION_5516_mW_ON                      =  5,
