@@ -1,5 +1,5 @@
 /*
- * Temperature_Heater_Task.xc
+ * temperature_heater_task.xc
  *
  *  Created on: 18. jan. 2017
  *      Author: teig
@@ -76,6 +76,7 @@ typedef struct cable_heater_mon_t { // For ERROR_BIT_HEATER_CABLE_UNPLUGGED
 #define TEMP_MEASURE_INTERVAL_IS_10_SECONDS    ((NUM_TIMER_TICKS_PER_SECOND * 1000) / RAW_TIMER_INTERVAL_IS_100_MILLISECONDS)
                                                // 100 yields 10 seconds
                                                // Observe ARITHMETIC_MEAN_N_OF_TEMPS
+                                               // MY_RFM69_REPEAT_SEND_EVERY_SEC should oversample this
 
 #define CABLE_HEATER_ASSUMED_POWERED_SECONDS (60 * 3) // It takes some time before the room is heated
 

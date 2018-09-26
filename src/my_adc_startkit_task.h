@@ -1,5 +1,5 @@
 /*
- * adc_startKIT_client.h
+ * my_adc_startkit_task.h
  *
  *  Created on: 28. mars 2016
  *      Author: ¯yvind Teig

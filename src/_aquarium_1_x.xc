@@ -215,7 +215,12 @@ typedef enum error_bits_t {
                                                               // Only needed for printouts and to check calculator-accurate calculation of these hex values:
 #define MY_RFM69_FREQ_REGS            RF_FRF_433_433705993    // Is 0x006C6D2F
 
-#define MY_RFM69_REPEAT_SEND_EVERY_SEC 10 // [1..59]
+// Sending on the radio should oversample TEMP_MEASURE_INTERVAL_IS_10_SECONDS in temperature_heater_task.xc
+// Sending additionally when there is a change is counter the idea of radio: never any guarantee that a packet comes across,
+// and such a scheme would need code to avoid sending too often.
+// No need to jiggle the time a sending is done to avoid collision with my breadboard lab-bench aquarium since the radio won't send if it sees traffic
+//
+#define MY_RFM69_REPEAT_SEND_EVERY_SEC 4 // Legal: [1..59] See above: oversample TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
 #define KEY                MY_KEY               // From _commprot.h
 #define IS_RFM69HW_HCW     true                 // 1 for Adafruit RFM69HCW (high power)
@@ -1436,6 +1441,7 @@ void System_Task_Data_Handler (
                 debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else {}
 
+            // Every second after init
             context.radio_send_data = ((context.datetime.second % MY_RFM69_REPEAT_SEND_EVERY_SEC) == 0);
         }
     } else {} // Must just wait until internal I2C works!

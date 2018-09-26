@@ -1,5 +1,5 @@
 /*
- * Temperature_Heater_Task.h
+ * temperature_heater_task.h
  *
  *  Created on: 18. jan. 2017
  *      Author: teig
