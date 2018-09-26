@@ -1302,6 +1302,13 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+
+
+
+
+
+
+typedef signed int time32_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -2013,20 +2020,20 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 42 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 48 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 51 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
     logic_normal,
     logic_inverted
 } logic_e;
-# 68 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 71 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 90 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 93 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 43 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1

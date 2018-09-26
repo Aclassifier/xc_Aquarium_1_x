@@ -178,7 +178,6 @@ Handle_Light_Sunrise_Sunset_Etc (
    context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
                                                  (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
-   // ONLY USED IF DEBUG_TEST_DAY_NIGHT_DAY hh mm NOW
    const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
    //{{{  Init once
@@ -381,13 +380,16 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    //}}}
    //{{{  Trigger_hour_changed or light sensor internally changed
-   if (context.light_is_stable) {                                                      // L1: Light is not changing right now
-       if (trigger_hour_changed or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once per hour or when light changes
-           if (context.allow_normal_light_change_by_clock) {                           // L3: And when it's day-time'ish
-               if (context.allow_normal_light_change_by_menu) {                        // L4: AQU=030 additional. Default or allowed again by menu
-                   if (context.num_minutes_left_of_random == 0) {                      // L5: When it's not doing random already
-                       if (context.num_random_sequences_left > 0) {                    // L6: Some left to do
-                           if (context.light_sensor_diff_state == DIFF_ENOUGH) {       // L7: Handle LYKT first
+   
+   const bool trigger_hour_changed_random = trigger_hour_changed and ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
+
+   if (context.light_is_stable) {                                                             // L1: Light is not changing right now
+       if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
+           if (context.allow_normal_light_change_by_clock) {                                  // L3: And when it's day-time'ish
+               if (context.allow_normal_light_change_by_menu) {                               // L4: AQU=030 additional. Default or allowed again by menu
+                   if (context.num_minutes_left_of_random == 0) {                             // L5: When it's not doing random already
+                       if (context.num_random_sequences_left > 0) {                           // L6: Some left to do
+                           if (context.light_sensor_diff_state == DIFF_ENOUGH) {              // L7: Handle LYKT first
                                context.light_sensor_diff_state = DIFF_ACTIVE;
                                debug_set_val_to (print_value,101);
                                i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);
@@ -409,7 +411,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                    new_light_composition = LIGHT_COMPOSITION_7182_mW_ON;                         //  [11]  9/18  LIGHT_COMPOSITION_7182_mW_BACK2_CENTER3_FRONT1_ON
                                                                                                                   //             LIGHT_COMPOSITION_7182_mW_ON only used here, but that's quite "often"
                                } else if (random_number_0_17 == 8) { //                          UP or DOWN:                     UP if NORMAL_LIGHT_IS_TWO_THIRDS
-                                   new_light_composition = LIGHT_COMPOSITION_9983_mW_ON;                        //   [8]  1/18: LIGHT_COMPOSITION_9983_mW_BACK3_CENTER3_FRONT2_ON
+                                   new_light_composition = LIGHT_COMPOSITION_9983_mW_ON;                         //   [8]  1/18: LIGHT_COMPOSITION_9983_mW_BACK3_CENTER3_FRONT2_ON
                                } else if (random_number_0_17 == 7) { //                          UP or DOWN:                     UP if NORMAL_LIGHT_IS_TWO_THIRDS
                                    new_light_composition = LIGHT_COMPOSITION_8316_mW_ON;                         //   [7]  1/18: LIGHT_COMPOSITION_8316_mW_BACK3_CENTER3_FRONT1_ON
                                } else if (random_number_0_17 == 6) { //                          DOWN:
@@ -440,8 +442,8 @@ Handle_Light_Sunrise_Sunset_Etc (
                                    context.num_minutes_left_of_random = 3; // To test AQU=023
                                #else
                                    context.num_minutes_left_of_random =
-                                           NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +                                                               // 5
-                                           (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // + [0..10] = [5..15]
+                                           NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST +                                                               // 3
+                                           (random_number % (NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1 - NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST)); // + ran % (11-3) = ran % 8 = [0..7]
                                #endif
 
                                context.minutes_into_day_of_next_action_random_off = minutes_into_day_now + context.num_minutes_left_of_random;

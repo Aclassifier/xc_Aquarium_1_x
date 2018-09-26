@@ -1496,6 +1496,13 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+
+
+
+
+
+
+typedef signed int time32_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

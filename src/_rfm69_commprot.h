@@ -48,6 +48,7 @@ typedef struct { // Size must be modulo 4                                   // W
     light_intensity_thirds_r  light_intensity_thirds_back;                  //       31
     light_composition_r       light_composition;                            //          32
     now_regulating_at_r       now_regulating_at;                            // 33
+    // TODO: Send over two_thirds bool, may be  bit in light_control_scheme?
     uint8_t                   padding_34;                                   //    34
     uint8_t                   padding_35;                                   //       35
     uint8_t                   padding_36;                                   //          36

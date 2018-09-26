@@ -145,8 +145,8 @@ typedef struct light_sunrise_sunset_context_t {
 #define NUM_RANDOM_SEQUENCES_MAX                      10  // With all hitting 1+(20-10)=11 times would have beeen max
 
                                                          // AQU=023 for all three of the below
-#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST        5 // ..|.. AQU=028 was 10
-#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      16 // ..|.. AQU=028 was 30 P1 means plus 1, so LATEST is 15 = [5..15]
+#define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST        3 // ..|.. AQU=044 was  5, AQU=028 was 10
+#define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      11 // ..|.. AQU=044 was 16, AQU=028 was 30 P1 means plus 1, so LATEST is 10 = [3..10]
 #define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF_TRIGGERED  2 // ..|..
 
 light_composition_t

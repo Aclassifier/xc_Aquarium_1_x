@@ -1459,6 +1459,13 @@ int * alias _safe_errno_addr(void);
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
+
+
+
+
+
+
+typedef signed int time32_t;
 # 20 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

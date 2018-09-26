@@ -298,7 +298,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
     debug_print("%s", "Port_Pins_Heat_Light_Task started\n");
 
-    #if (DUMMY_WIFI == 1)
+    #if (DUMMY_WIFI == 1) // TODO remove
         // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
         dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
     #endif
