@@ -16,10 +16,11 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.15" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1115
-
-    // "1.1.??     ??Sep2018 AQU=043 See "2018 09 12 A fail IRQ 7 still not solved.txt" TODO
+#define APPLICATION_VERSION_STR "1.1.18" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1118
+    // "1.1.18"    27Sep2018 AQU=046 light_amount_full_or_two_thirds_t new values 32 and 33. Also NORMAL_LIGHT_IS_VOID is 30
+    // "1.1.16"    27Sep2018 AQU=045 light_amount_full_or_two_thirds over the radio.
+    // "1.1.??     ??Sep2018 AQU=043 See "2018 09 12 A fail IRQ 7 still not solved.txt". But this is on client RX side. TODO
     // "1.1.15"    26Sep2018 AQU=044 Setting down light intensity less often again..
     // "1.1.14"    11Sep2018 AQU=042 To avoid using any colured LED strips alone when UP and down (it looked eerie):
     //                               LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_1133_mW_BACK1_ON
@@ -38,6 +39,7 @@
     // "1.1.6"      3Jul2018 Testing [[combine]] (with MAP_PAR_COMBINE) and interface from button instead of channels
     //                       Interface button_if instead of chan with Button_Task
     // "1.1.5"      5Feb2018 testing some changes that Maxim initiated
+    //             --------- Running from 25Nov2017 to Sep2018. Compiled with 14.3.2:
     // "1.1.4"     25Nov2017 Tagged as VER_1_1_4_with_fishes
     //                       AQU=039 After AQU=038 then the first light down at night after the beep wasn't visible enough.
     //                               Complete rethinking into _less_ fancy into-night and into-day lists, and the same for half hour both for 3/3 and 2/3

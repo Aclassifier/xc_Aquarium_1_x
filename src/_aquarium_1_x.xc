@@ -772,7 +772,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // TODO lux_str vises ikke!
+                debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // TODO lux_str vises ikke! 27Sep2018: did not understand!
                 #ifdef DEBUG_TEST_WATCHDOG
                     // If you do this while heating is on then you will observe that it goes off
                     context.do_watchdog_retrigger_ms_debug = not context.do_watchdog_retrigger_ms_debug;
@@ -2008,27 +2008,28 @@ void System_Task (
 
                         payload_t TX_radio_payload; // Work on it and copy it in rather than typecast
 
-                        TX_radio_payload.u.payload_u0.num_days_since_start           = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
-                        TX_radio_payload.u.payload_u0.hour                           = (hour_r)                 context.datetime.hour;
-                        TX_radio_payload.u.payload_u0.minute                         = (minute_r)               context.datetime.minute;
-                        TX_radio_payload.u.payload_u0.second                         = (second_r)               context.datetime.second;
-                        TX_radio_payload.u.payload_u0.heater_on_percent              = (heater_on_percent_r)    context.heater_on_percent;
-                        TX_radio_payload.u.payload_u0.heater_on_watt                 = (heater_on_watt_r)       context.heater_on_watt;
-                        TX_radio_payload.u.payload_u0.light_control_scheme           = (light_control_scheme_r) context.light_control_scheme;
-                        TX_radio_payload.u.payload_u0.error_bits_now                 = (error_bits_r)           context.error_bits_now;
-                        TX_radio_payload.u.payload_u0.error_bits_history             = (error_bits_r)           context.error_bits_history;
-                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC   = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
-                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC  = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
-                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC    = (onetenthDegC_r)         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
-                        TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC = (onetenthDegC_r)         context.internal_box_temp_onetenthDegC;
-                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV          = (voltage_onetenthV_r)    context.rr_24V_heat_onetenthV;
-                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV      = (voltage_onetenthV_r)    context.rr_12V_LEDlight_onetenthV;
-                        TX_radio_payload.u.payload_u0.application_version_num        =                          APPLICATION_VERSION_NUM;
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_front   = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_center  = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_back    = (light_control_scheme_r) context.light_intensity_thirds[IOF_LED_STRIP_BACK];
-                        TX_radio_payload.u.payload_u0.light_composition              = (light_composition_r)    context.light_composition;
-                        TX_radio_payload.u.payload_u0.now_regulating_at              = (now_regulating_at_r)    context.now_regulating_at;
+                        TX_radio_payload.u.payload_u0.num_days_since_start            = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
+                        TX_radio_payload.u.payload_u0.hour                            = (hour_r)                            context.datetime.hour;
+                        TX_radio_payload.u.payload_u0.minute                          = (minute_r)                          context.datetime.minute;
+                        TX_radio_payload.u.payload_u0.second                          = (second_r)                          context.datetime.second;
+                        TX_radio_payload.u.payload_u0.heater_on_percent               = (heater_on_percent_r)               context.heater_on_percent;
+                        TX_radio_payload.u.payload_u0.heater_on_watt                  = (heater_on_watt_r)                  context.heater_on_watt;
+                        TX_radio_payload.u.payload_u0.light_control_scheme            = (light_control_scheme_r)            context.light_control_scheme;
+                        TX_radio_payload.u.payload_u0.error_bits_now                  = (error_bits_r)                      context.error_bits_now;
+                        TX_radio_payload.u.payload_u0.error_bits_history              = (error_bits_r)                      context.error_bits_history;
+                        TX_radio_payload.u.payload_u0.i2c_temp_heater_onetenthDegC    = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER];
+                        TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC   = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
+                        TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC     = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
+                        TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC  = (onetenthDegC_r)                    context.internal_box_temp_onetenthDegC;
+                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV           = (voltage_onetenthV_r)               context.rr_24V_heat_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV       = (voltage_onetenthV_r)               context.rr_12V_LEDlight_onetenthV;
+                        TX_radio_payload.u.payload_u0.application_version_num         =                                     APPLICATION_VERSION_NUM;
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_front    = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_center   = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_back     = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_BACK];
+                        TX_radio_payload.u.payload_u0.light_composition               = (light_composition_r)               context.light_composition;
+                        TX_radio_payload.u.payload_u0.now_regulating_at               = (now_regulating_at_r)               context.now_regulating_at;
+                        TX_radio_payload.u.payload_u0.light_amount_full_or_two_thirds = (light_amount_full_or_two_thirds_r) light_sunrise_sunset_context.light_amount_full_or_two_thirds;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

@@ -16,10 +16,10 @@ typedef enum it_is_day_or_night_t {
 } it_is_day_or_night_t;
 
 typedef enum light_amount_full_or_two_thirds_t { // AQU=031 needed a better name (was normal_light_t)
-    NORMAL_LIGHT_IS_FULL,
-    NORMAL_LIGHT_IS_TWO_THIRDS,
-    NORMAL_LIGHT_IS_VOID // Only used for light_amount_full_or_two_thirds_in_FRAM_memory
-} light_amount_full_or_two_thirds_t;
+    NORMAL_LIGHT_IS_VOID       = (NORMAL_LIGHT_THIRDS_OFFSET + 0), // 30 Only used for light_amount_full_or_two_thirds_in_FRAM_memory
+    NORMAL_LIGHT_IS_TWO_THIRDS = (NORMAL_LIGHT_THIRDS_OFFSET + 2), // 32 reads 2/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET til get 2)
+    NORMAL_LIGHT_IS_FULL       = (NORMAL_LIGHT_THIRDS_OFFSET + 3)  // 33 reads 3/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET til get 3)
+} light_amount_full_or_two_thirds_t; // AQU=046 new values
 
 typedef enum light_sensor_diff_state_t {
     DIFF_VOID,

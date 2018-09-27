@@ -18,6 +18,7 @@
 #include <xccompat.h> // REFERENCE_PARAMs
 
 #include "i2c.h"
+#include "_rfm69_commprot.h"
 #include "_globals.h"
 #include "param.h"
 #include "startkit_adc.h"
@@ -191,7 +192,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
        context.num_minutes_left_of_day_night_action = 0;
 
-       if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_VOID) {              // No FRAM chip?
+       if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_VOID) {              // No FRAM chip? Set if read failed
            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default
        } else if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_FULL) {       // A valid value
            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // As said
