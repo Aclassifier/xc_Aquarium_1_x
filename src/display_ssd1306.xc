@@ -15,7 +15,6 @@ Written by Limor Fried/Ladyada  for Adafruit Industries.
 BSD license, check license.txt for more information
 All text above, and the splash screen below must be included in any redistribution
 *********************************************************************/
-// TODO See "2018 01 30 A Maxim Liadov at prosound.ixbt.com XMOS  OLED.pdf" found some errors in code
 /*
  * display_ssd1306.xc
  *
@@ -32,7 +31,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include <stdio.h>
 #include <xccompat.h> // REFERENCE_PARAM
 #include <iso646.h>
-#include <string.h>   // memset. TODO Consider safestring
+#include <string.h>   // memset. TODO Consider safestring. All over the project!
 #include <timer.h>    // For delay_milliseconds (but it compiles without?)
 
 #include "_globals.h"

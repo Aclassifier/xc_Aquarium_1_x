@@ -40,7 +40,7 @@
 #define RAW_TIMER_INTERVAL_IS_1_SECOND 1000
 #define NUM_TIMER_TICKS_PER_MINUTE       60
 
-#define DEBUG_TEMP_FAST // TODO undefine!
+#define DEBUG_TEMP_FAST 0 // AQU=047
 
 #define TEMP_MEASURE_INTERVAL_IS_10_MINUTES (10 * NUM_TIMER_TICKS_PER_MINUTE)
 #define TEMP_MEASURE_INTERVAL_IS_1_MINUTE   ( 1 * NUM_TIMER_TICKS_PER_MINUTE)
@@ -96,10 +96,10 @@ void Temperature_Water_Task (
                 if (raw_timer_interval_cntdown_seconds == 0) {
                     //{{{  REGULATOR - but not too often
 
-                    #ifdef DEBUG_TEMP_FAST
-                       raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_1_MINUTE;
+                    #if (DEBUG_TEMP_FAST==1)
+                       raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_1_MINUTE; // Before AQU=047
                     #else
-                       raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_10_MINUTES; // May be made faster below
+                       raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_10_MINUTES; // With AQU=047. May be made faster below
                     #endif
 
                     i_temperature_heater_commands.get_mean_i2c_temps (temps_onetenthDegC); // Filtered in Temperature_Heater_Task

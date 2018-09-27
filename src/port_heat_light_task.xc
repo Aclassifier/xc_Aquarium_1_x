@@ -202,13 +202,6 @@ typedef enum pin_change_t {
     PIN_LIGHTER
 } pin_change_t;
 
-#if (DUMMY_WIFI == 1)
-    // XS1_PORT_4C two lower bits are also BIT28 and BIT29 on XS1_PORT_32A
-    // Now those two bits have precedence
-    // See"Introduction to XS1 ports" chapter 7.1 "Port precedence"
-    out port dummy_wify_ctrl_port = on tile[0]: XS1_PORT_4C; // CS - Bit0, Power enable - Bit1
-#endif
-
 //      There are 1500 in the formulae, so they are bound to be non-linear (dropping some numbers in the calculated result):
 #define NUM_TICKS_FROM_MS(ms)  ((ms * 1000) / TIME_PER_PWM_WINDOW_MICROSECONDS)   // Formula..
 #define NUM_MS_FROM_TICS(tics) ((tics * TIME_PER_PWM_WINDOW_MICROSECONDS) / 1000) // ..inverse formula
@@ -297,11 +290,6 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
     //      See The-XMOS-XS1-Architecture_1.0.pdf for discussion of cycle counts
 
     debug_print("%s", "Port_Pins_Heat_Light_Task started\n");
-
-    #if (DUMMY_WIFI == 1) // TODO remove
-        // The four bits were connected to XS1_PORT_4C above, now we give the pins a static value
-        dummy_wify_ctrl_port <: 0x01; // Only need to set CS (BIT0) high (off)
-    #endif
 
     myport_p32 <: DO_MYPORT_P32(port_value);
 

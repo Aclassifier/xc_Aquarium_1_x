@@ -6,9 +6,6 @@
  *      Author: teig
  */
 
-
-// TODO Full frakboling på kontoret, se på alle skjermene
-
 // #include
 
 #define INCLUDES

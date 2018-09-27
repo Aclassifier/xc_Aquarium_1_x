@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <xccompat.h> // REFERENCE_PARAM
-#include <string.h>   // memset. TODO Consider safestring
+#include <string.h>   // memset.
 #include <iso646.h>
 #include <errno.h>
 

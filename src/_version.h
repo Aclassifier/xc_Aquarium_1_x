@@ -16,8 +16,10 @@
 #define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.18" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1118
+#define APPLICATION_VERSION_STR "1.1.19" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1119
+    // "1.1.19"    27Sep2018 AQU=047 DEBUG_TEMP_FAST set to 0, meaning that TEMP_MEASURE_INTERVAL_IS_1_MINUTE has been in use over a year,
+    //                               it's now set to TEMP_MEASURE_INTERVAL_IS_10_MINUTES, which was the intention always
     // "1.1.18"    27Sep2018 AQU=046 light_amount_full_or_two_thirds_t new values 32 and 33. Also NORMAL_LIGHT_IS_VOID is 30
     // "1.1.16"    27Sep2018 AQU=045 light_amount_full_or_two_thirds over the radio.
     // "1.1.??     ??Sep2018 AQU=043 See "2018 09 12 A fail IRQ 7 still not solved.txt". But this is on client RX side. TODO
