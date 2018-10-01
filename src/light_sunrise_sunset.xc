@@ -124,6 +124,14 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
 
 //}}}
 
+light_daytime_hours_t
+Daytime_Hours_From_List (const light_daytime_hours_index_t index) {
+
+    light_daytime_hours_t return_hours = light_daytime_hours_list[index]; // 14,12,10,8
+
+    return return_hours;
+}
+
 {light_daytime_hours_index_t, light_daytime_hours_t}
 Next_Daytime_Hours (const light_daytime_hours_index_t index) {
 
@@ -140,7 +148,7 @@ Next_Daytime_Hours (const light_daytime_hours_index_t index) {
 }
 
 void
-Update_Daytime_Hours (light_sunrise_sunset_context_t &context) {
+Update_Daytime_Hours (light_sunrise_sunset_context_t &context) { // No & compiles fine, but no update would happen!
 
     // context.light_daytime_hours_index is input param
 
@@ -221,7 +229,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        }
 
        if (context.light_daytime_hours_index_in_FRAM_memory == IOF_HH_IS_VOID) {
-           context.light_daytime_hours_index = IOF_HH_12_IS_DAY_DEFAULT;
+           context.light_daytime_hours_index = IOF_HH_12_IS_DAY;
        } else {
            context.light_daytime_hours_index = context.light_daytime_hours_index_in_FRAM_memory;
        }
@@ -274,7 +282,7 @@ Handle_Light_Sunrise_Sunset_Etc (
       // AQU=030 init them here:
       context.allow_normal_light_change_by_menu = true;
       context.allow_normal_light_change_by_menu_next = false;
-      context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+      context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
       context.stop_normal_light_changed_by_menu = false;
       context.num_days_since_start = 0;
 

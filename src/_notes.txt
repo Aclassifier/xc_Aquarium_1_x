@@ -1,58 +1,94 @@
-ONLY 
-spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
-compiled in.
+ case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
 
-But this looks extremely hopeful!
+    context.display_sub_context[SCREEN_4_BOKSDATA].sub_state = SUB_STATE_SHOW;
+    // context.display_sub_context[SCREEN_4_BOKSDATA].sub_is_editable = false; NOT this since we want to do it again from same screen
+    context.display_sub_editing_seconds_cntdown = 0; // SCREEN_4_BOKSDATA: SUB_STATE_03
+    context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+} break;
 
-xmake CONFIG=Default all 
-Checking build modules
-Using build modules: lib_rfm69_xc(0.8.1) lib_spi(3.0.2-branch-startKIT) lib_startkit_support(2.0.0) lib_xassert(3.0.0) module_i2c_master module_random
-Creating dependencies for temperature_water_task.xc
-Creating dependencies for temperature_heater_task.xc
-Creating dependencies for tempchip_mcp9808.xc
-Creating dependencies for port_heat_light_task.xc
-Creating dependencies for my_adc_startkit_task.xc
-Creating dependencies for main.xc
-Creating dependencies for light_sunrise_sunset.xc
-Creating dependencies for i2c_internal_task.xc
-Creating dependencies for i2c_external_task.xc
-Creating dependencies for f_conversions.xc
-Creating dependencies for exception_handler.xc
-Creating dependencies for display_ssd1306.xc
-Creating dependencies for chronodot_ds3231_task.xc
-Creating dependencies for button_press.xc
-Creating dependencies for _aquarium_1_x.xc
-Creating dependencies for core_graphics_adafruit_gfx.c
-Compiling core_graphics_adafruit_gfx.c
-Compiling _aquarium_1_x.xc
-Compiling button_press.xc
-Compiling chronodot_ds3231_task.xc
-Compiling display_ssd1306.xc
-Compiling exception_handler.xc
-Compiling f_conversions.xc
-Compiling i2c_external_task.xc
-Compiling i2c_internal_task.xc
-Compiling light_sunrise_sunset.xc
-Compiling main.xc
-../src/main.xc:216:19: warning: unused variable `i_radio' [-Wunused-variable]
-    radio_if_t    i_radio;
-                  ^~~~~~~
-../src/main.xc:217:19: warning: unused variable `i_irq' [-Wunused-variable]
-    irq_if_t      i_irq;
-                  ^~~~~
-../src/main.xc:278:35: warning: `i_spi' not used in two parallel statements [-Wunusual-code]
-                    spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS); // Is [[distributable]]
-                                  ^~~~~
-Compiling my_adc_startkit_task.xc
-Compiling port_heat_light_task.xc
-Compiling tempchip_mcp9808.xc
-Compiling temperature_heater_task.xc
-Compiling temperature_water_task.xc
-Creating _aquarium_1_x.xe
-Constraint check for tile[0]:
-  Cores available:            8,   used:          7 .  OKAY
-  Timers available:          10,   used:          8 .  OKAY
-  Chanends available:        32,   used:         24 .  OKAY
-  Memory available:       65536,   used:      49532 .  OKAY
-    (Stack: 5436, Code: 38538, Data: 5558)
-Constraints checks PASSED.
+case SUB_STATE_02:    // Even number from IOF_BUTTON_CENTER ("edit")
+case SUB_STATE_01: {  // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+
+    bool light_is_ready_for_new_change = true;
+
+    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_4_BOKSDATA: SUB_STATE_01 SUB_STATE_02
+    if (context.display_sub_context[SCREEN_4_BOKSDATA].sub_state == SUB_STATE_01) {
+        if (context.light_control_scheme == LIGHT_CONTROL_IS_DAY) {
+            // No code here. Awaiting IOF_BUTTON_CENTER. But print in display (below)
+        } else if ((context.light_control_scheme == LIGHT_CONTROL_IS_RANDOM) or (context.light_control_scheme == LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE)) {
+            // RANDOM change of light is active. Now beep and let light softly enter DAY again
+            light_is_ready_for_new_change = false;
+
+            light_sunrise_sunset_context.stop_normal_light_changed_by_menu = true;
+            light_sunrise_sunset_context.allow_normal_light_change_by_menu = false; // Enters "FAST" (steady)
+        } else {
+            light_is_ready_for_new_change = false;
+        }
+    } else if (context.display_sub_context[SCREEN_4_BOKSDATA].sub_state == SUB_STATE_02) {
+        // No code ehere, see switch/case below
+    } else {
+        light_is_ready_for_new_change = false;
+    }
+
+    if (not light_is_ready_for_new_change) {
+        context.beeper_blip_now = true;
+        context.display_sub_context[SCREEN_4_BOKSDATA].sub_state = SUB_STATE_SHOW;
+        context.display_sub_editing_seconds_cntdown = 0; // SCREEN_4_BOKSDATA: SUB_STATE_03
+        context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
+        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+    } else {
+
+        for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
+          context.display_ts1_chars [index_of_char] = ' ';
+        }
+
+        sprintf_return = sprintf (context.display_ts1_chars, "%s3 LYS P%s", takes_press_for_10_seconds_right_button_str, char_AA_str);
+        Clear_All_Pixels_In_Buffer();
+        setTextSize(1);
+        setTextColor(WHITE);
+        setCursor(0,0);
+        display_print (context.display_ts1_chars, sprintf_return); // num chars not including NUL
+        setTextSize(2);
+        setCursor(0,14);
+
+        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4++;
+
+        switch (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4) {
+            case 1: { // NORM 2/3
+                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_TWO_THIRDS;
+                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true;
+                display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
+                display_print (" ", 1);
+                display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+            } break;
+
+            case 2: { // NORM 3/3
+                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_FULL;
+                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true;
+                display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
+                display_print (" ", 1);
+                display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
+            } break;
+
+            case 3: { // FAST 2/3
+                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_TWO_THIRDS;
+                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
+                display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
+                display_print (" ", 1);
+                display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+            } break;
+
+            default: // Should not happen
+            case 4: { // FAST 3/3
+                light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_FULL;
+                light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
+                light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0; // Wrap around
+                display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
+                display_print (" ", 1);
+                display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
+            } break;
+        }
+
+        writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+    }
+} break;

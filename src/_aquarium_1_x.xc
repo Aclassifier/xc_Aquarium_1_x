@@ -121,7 +121,7 @@ typedef enum display_sub_state_t {
     SUB_STATE_SHOW, // MUST BE ZERO!     DAYLY
     SUB_STATE_01,   // MUST BE ONE etc.. INIT after pressing right button for 10 seconds. First display
     SUB_STATE_02,   // Even number is center button for edit values
-    SUB_STATE_03,   // Odd  number is right  button for next field. LAST VALUE FOR SCREEN_3_LYSGULERING
+    SUB_STATE_03,   // Odd  number is right  button for next field. LAST VALUE FOR SCREEN_3_LYSGULERING prior to AQU=049
     SUB_STATE_04,   // Even number is center button for edit values
     SUB_STATE_05,   // Odd  number is right  button for next field
     SUB_STATE_06,   // Even number is center button for edit values
@@ -608,25 +608,30 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 // AQU=030 and AQU=031 much new here
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
-                    // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
-                    // called at least once per minute, in practice once per second
-                    light_sunrise_sunset_context.do_light_amount_full_or_two_thirds_by_menu = true;
-                    light_sunrise_sunset_context.light_amount_full_or_two_thirds = light_sunrise_sunset_context.light_amount_full_or_two_thirds_next;
 
-                    light_sunrise_sunset_context.do_FRAM_write = true;
-                    light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = light_sunrise_sunset_context.light_amount_full_or_two_thirds;
+                    if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 <= 4) {
+                        // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
+                        // called at least once per minute, in practice once per second
+                        light_sunrise_sunset_context.do_light_amount_full_or_two_thirds_by_menu = true;
+                        light_sunrise_sunset_context.light_amount_full_or_two_thirds = light_sunrise_sunset_context.light_amount_full_or_two_thirds_next;
 
-                    light_sunrise_sunset_context.allow_normal_light_change_by_menu = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
+                        light_sunrise_sunset_context.do_FRAM_write = true;
+                        light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = light_sunrise_sunset_context.light_amount_full_or_two_thirds;
+
+                        light_sunrise_sunset_context.allow_normal_light_change_by_menu = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
+                    } else { // ..to8
+
+                    }
 
                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
                     // context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
                     context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                    light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+                    light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
                 } break;
 
-                case SUB_STATE_02:    // Even number from IOF_BUTTON_CENTER ("edit")
-                case SUB_STATE_01: {  // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
+                case SUB_STATE_02:   // Even number from IOF_BUTTON_CENTER ("edit")
+                case SUB_STATE_01: { // Entering state from IOF_BUTTON_RIGHT BUTTON_ACTION_PRESSED_FOR_10_SECONDS
 
                     bool light_is_ready_for_new_change = true;
 
@@ -654,7 +659,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
                         context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
-                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
                     } else {
 
                         for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
@@ -670,9 +675,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         setTextSize(2);
                         setCursor(0,14);
 
-                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4++;
+                        light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8++;
 
-                        switch (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4) {
+                        switch (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8) {
                             case 1: { // NORM 2/3
                                 light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_TWO_THIRDS;
                                 light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = true;
@@ -697,14 +702,35 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                 display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
                             } break;
 
-                            default: // Should not happen
+                            default: // Should not happen TODO move down?
                             case 4: { // FAST 3/3
                                 light_sunrise_sunset_context.light_amount_full_or_two_thirds_next = NORMAL_LIGHT_IS_FULL;
                                 light_sunrise_sunset_context.allow_normal_light_change_by_menu_next = false;
-                                light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0; // Wrap around
+
                                 display_print (light_control_steady_str, LIGHT_CONTROL_TEXT_NUM);
                                 display_print (" ", 1);
                                 display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
+                            } break;
+
+                            case 5:   // "DAG 16t"
+                            case 6:   // "DAG 12t"
+                            case 7:   // "DAG 10t"
+                            case 8: { // "DAG 8t"
+
+                                char display_ts2_chars [7];
+                                for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(display_ts2_chars); index_of_char++) {
+                                  display_ts2_chars [index_of_char] = ' ';
+                                }
+
+                                light_daytime_hours_t light_daytime_hours =
+                                        Daytime_Hours_From_List (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 - 5);
+
+                                sprintf_return = sprintf (display_ts2_chars, "%s %ut", "DAG", light_daytime_hours);
+                                display_print (display_ts2_chars, sprintf_return); // num chars not including NUL
+
+                                if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 == 8) {
+                                    light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0; // Wrap around
+                                } else {}
                             } break;
                         }
 
@@ -1153,7 +1179,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
                            context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
-                           light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+                           light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
 
                            if (context.error_bits_now == AQUARIUM_ERROR_BITS_NONE) {
                                // No code, all fine with no error(s)
@@ -1683,7 +1709,7 @@ void System_Task_Data_Handler (
             context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
             context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // As a default starting point (SCREEN_0_X_FEIL)
             context.display_sub_editing_seconds_cntdown = 0;
-            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4 = 0;
+            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
 
         } else {
             context.display_is_on_seconds_cnt++;

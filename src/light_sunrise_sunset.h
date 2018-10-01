@@ -30,28 +30,28 @@ typedef enum light_sensor_diff_state_t {
 typedef uint16_t num_days_since_start_t;
 
 
-#define HH_14_IS_DAY         14
-#define HH_12_IS_DAY_DEFAULT 12
-#define HH_10_IS_DAY         10
-#define HH_08_IS_DAY          8
+#define HH_14_IS_DAY 14
+#define HH_12_IS_DAY 12 // Default since IOF_HH_12_IS_DAY is
+#define HH_10_IS_DAY 10
+#define HH_08_IS_DAY  8
 //
 #define TIMED_HH_DAY_LIST_NUMS 4
 //
-#define TIMED_HH_DAY_LIST_INIT {HH_14_IS_DAY, HH_12_IS_DAY_DEFAULT, HH_10_IS_DAY, HH_08_IS_DAY} // Indexed by light_daytime_hours_list_offset:
+#define TIMED_HH_DAY_LIST_INIT {HH_14_IS_DAY, HH_12_IS_DAY, HH_10_IS_DAY, HH_08_IS_DAY} // Indexed by light_daytime_hours_list_offset:
 //
-#define IOF_HH_14_IS_DAY         0
-#define IOF_HH_12_IS_DAY_DEFAULT 1
-#define IOF_HH_10_IS_DAY         2
-#define IOF_HH_08_IS_DAY         3
-#define IOF_HH_IS_VOID           4 // If FRAM read fails
+#define IOF_HH_14_IS_DAY 0
+#define IOF_HH_12_IS_DAY 1 // Default
+#define IOF_HH_10_IS_DAY 2
+#define IOF_HH_08_IS_DAY 3
+#define IOF_HH_IS_VOID   4 // If FRAM read fails
 //
 typedef unsigned light_daytime_hours_index_t; // Index 0,1,2,3 is also hours later in the morning and ALSO earlier in the afternoo
 //
 typedef enum light_daytime_hours_e {
-    HH_14_IS_DAY_VAL         = HH_14_IS_DAY,
-    HH_12_IS_DAY_DEFAULT_VAL = HH_12_IS_DAY_DEFAULT, // By code, not by HH_DAY_SHORTER when it's 0
-    HH_10_IS_DAY_VAL         = HH_10_IS_DAY,
-    HH_08_IS_DAY_VAL         = HH_08_IS_DAY
+    HH_14_IS_DAY_VAL = HH_14_IS_DAY,
+    HH_12_IS_DAY_VAL = HH_12_IS_DAY, // By code, not by HH_DAY_SHORTER when it's 0
+    HH_10_IS_DAY_VAL = HH_10_IS_DAY,
+    HH_08_IS_DAY_VAL = HH_08_IS_DAY
 } light_daytime_hours_e;
 //
 typedef light_daytime_hours_e light_daytime_hours_t;
@@ -63,21 +63,21 @@ typedef struct light_sunrise_sunset_context_t {
     DateTime_t                         datetime_previous;
     bool                               datetime_previous_not_initialised;
     bool                               allow_normal_light_change_by_clock;
-    bool                               allow_normal_light_change_by_menu;              // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                               allow_normal_light_change_by_menu_next;         // AQU=030 new
-    unsigned                           screen_3_lysregulering_center_button_cnt_1to4;  // AQU=030 new
+    bool                               allow_normal_light_change_by_menu;                // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                               allow_normal_light_change_by_menu_next;           // AQU=030 new
+    unsigned                           screen_3_lysregulering_center_button_cnt_1to4to8; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
     unsigned                           iof_day_night_action_list;
-    unsigned                           num_minutes_left_of_day_night_action;           // AQU=024
+    unsigned                           num_minutes_left_of_day_night_action;             // AQU=024
     random_generator_t                 random_number;
-    unsigned                           num_minutes_left_of_random;                     // AQU=023
-    unsigned                           minutes_into_day_of_next_action_random_off;     // AQU=023 new
+    unsigned                           num_minutes_left_of_random;                       // AQU=023
+    unsigned                           minutes_into_day_of_next_action_random_off;       // AQU=023 new
     unsigned                           num_random_sequences_left;
     light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds;
-    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_in_FRAM_memory; // From Fujitsu MB85RC256V
+    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_in_FRAM_memory;   // From Fujitsu MB85RC256V
     light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_next;
     bool                               do_light_amount_full_or_two_thirds_by_menu;
-    bool                               stop_normal_light_changed_by_menu;               // menu=SCREEN_3_LYSGULERING AQU=031
-    bool                               dont_disturb_screen_3_lysregulering;             // AQU=031 AQU=036
+    bool                               stop_normal_light_changed_by_menu;                 // menu=SCREEN_3_LYSGULERING AQU=031
+    bool                               dont_disturb_screen_3_lysregulering;               // AQU=031 AQU=036
     light_sensor_range_t               light_sensor_intensity;
     light_sensor_range_t               light_sensor_intensity_previous;
     light_sensor_diff_state_t          light_sensor_diff_state;
@@ -199,6 +199,9 @@ typedef struct light_sunrise_sunset_context_t {
 #define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST        3 // ..|.. AQU=044 was  5, AQU=028 was 10
 #define NUM_MINUTES_RANDOM_ALLOWED_END_LATEST_P1      11 // ..|.. AQU=044 was 16, AQU=028 was 30 P1 means plus 1, so LATEST is 10 = [3..10]
 #define NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF_TRIGGERED  2 // ..|..
+
+light_daytime_hours_t
+Daytime_Hours_From_List (const light_daytime_hours_index_t index);
 
 light_composition_t
 Mute_Light_Composition (const light_composition_t light_composition, const light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds);
