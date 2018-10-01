@@ -108,7 +108,7 @@ void Temperature_Heater_Task (
     unsigned                 off_cnt_secs                          = 0; // 32 bit value only incremented
     unsigned                 err_cnt_times                         = 0; // 32 bit value only incremented
     bool                     on_now                                = false;
-    unsigned                 on_percent                            = 0;
+    heater_on_percent_t      on_percent                            = 0;
     unsigned                 aging_of_data_while_off_secs          = AGING_OF_DATA_WHILE_OFF_RESTART_0_SEC; // AQU=020 Tested with 1775 and 3575 to see passing of 1800 and 3600 (ok)
     bool                     on_now_previous                       = false;
     bool                     first_round                           = true;
@@ -492,7 +492,7 @@ void Temperature_Heater_Task (
             //{{{  i_temperature_heater_commands[].get_regulator_data
 
             case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
-                    {bool return_aged, bool return_on_ok, unsigned return_value_on_percent, unsigned return_value_on_watt}: {
+                    {bool return_aged, bool return_on_ok, heater_on_percent_t return_value_on_percent, heater_on_watt_t return_value_on_watt}: {
 
                 unsigned ohm;
                 unsigned aging_factor_after_1800_until_3600_secs = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;

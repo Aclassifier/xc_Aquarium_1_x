@@ -1298,6 +1298,8 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 18 "../src/main.xc" 2
 
 # 1 "../src/_version.h" 1
+# 11 "../src/_version.h"
+typedef uint16_t application_version_num_t;
 # 20 "../src/main.xc" 2
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
@@ -1441,6 +1443,9 @@ typedef struct chronodot_d3231_registers_t {
 
 
 
+
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
@@ -1448,8 +1453,8 @@ typedef interface i2c_internal_commands_if {
 
 
 
-    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
-    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
+     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
 
 
 
@@ -1708,7 +1713,7 @@ typedef interface port_heat_light_commands_if {
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 34 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
-# 12 "../src/temperature_heater_task.h"
+# 11 "../src/temperature_heater_task.h"
 typedef enum heater_wires_t {
     HEATER_WIRES_ONE_ALTERNATING_IS_HALF,
     HEATER_WIRES_BOTH_IS_FULL
@@ -1725,13 +1730,17 @@ typedef struct temps_t {
     i2c_temp_onetenthDegC_t temp_onetenthDegC [3];
 } temps_t;
 
+typedef unsigned heater_on_percent_t;
+typedef unsigned heater_on_watt_t;
+
 typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
-    {bool, bool, unsigned, unsigned}
+
+                {bool, bool, heater_on_percent_t, heater_on_watt_t}
                                       get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
@@ -1772,7 +1781,7 @@ void Temperature_Water_Task (
     client temperature_heater_commands_if i_temperature_heater_commands);
 # 36 "../src/main.xc" 2
 # 1 "../src/chronodot_ds3231_task.h" 1
-# 41 "../src/chronodot_ds3231_task.h"
+# 40 "../src/chronodot_ds3231_task.h"
 typedef enum {
 
 
@@ -1810,13 +1819,20 @@ typedef enum {
 
 
 
+typedef uint16_t year_t;
+typedef uint8_t month_t;
+typedef uint8_t day_t;
+typedef uint8_t hour_t;
+typedef uint8_t minute_t;
+typedef uint8_t second_t;
+
 typedef struct {
-    uint16_t year;
-    uint8_t month;
-    uint8_t day;
-    uint8_t hour;
-    uint8_t minute;
-    uint8_t second;
+    year_t year;
+    month_t month;
+    day_t day;
+    hour_t hour;
+    minute_t minute;
+    second_t second;
 } DateTime_t;
 
 

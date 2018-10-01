@@ -3,6 +3,10 @@
  *
  *  Created on: 29. aug. 2018
  *      Author: teig
+ *
+ *      ===============================================================================================
+ *      THIS FILE IS ALSO INCLUDED BY THE RADIO CLIENT SW. MUST INCLUDE ONLY WHAT IS NEEDED BOTH PLACES
+ *      ===============================================================================================
  */
 
 #ifndef _RFM69_COMMPROT_H_
@@ -10,25 +14,32 @@
 
 // radio
 //
-typedef uint8_t  hour_r;
-typedef uint8_t  minute_r;
-typedef uint8_t  second_r;
-typedef uint8_t  heater_on_percent_r;
-typedef uint8_t  heater_on_watt_r;
-typedef uint8_t  light_control_scheme_r;
-typedef uint16_t error_bits_r;
-typedef int16_t  onetenthDegC_r;
-typedef uint16_t voltage_onetenthV_r;
-typedef uint16_t application_version_num_r;
-typedef uint8_t  light_intensity_thirds_r;
-typedef uint8_t  light_composition_r;
-typedef uint16_t num_days_since_start_r;
-typedef uint8_t  now_regulating_at_r;
-typedef uint8_t light_amount_full_or_two_thirds_r;
+// Derived typedefs, was meant to be shorter version of the original _t types (like uint8_t for unsigned if that's ok)
+// A short radio packet must be as crammed as possible - within reason (we haven't packed any bits yet)
+//
+//                                                     DERIVED FROM                      DEFINED IN FILE
+typedef uint16_t application_version_num_r;         // application_version_num_t         _version.h
+typedef uint16_t error_bits_r;                      // error_bits_t                      _aquarium_1_x.xc
+typedef uint8_t  heater_on_percent_r;               // heater_on_percent_t               temperature_heater_task.h
+typedef uint8_t  heater_on_watt_r;                  // heater_on_watt_t                  temperature_heater_task.h
+typedef uint8_t  now_regulating_at_r;               // now_regulating_at_t               temperature_water_task.h
+typedef uint8_t  hour_r;                            // hour_t                            chronodot_ds3231_task.h
+typedef uint8_t  minute_r;                          // minute_t                          chronodot_ds3231_task.h
+typedef uint8_t  second_r;                          // second_t                          chronodot_ds3231_task.h
+typedef uint8_t  light_control_scheme_r;            // light_control_scheme_t            port_heat_light_task.h
+typedef uint8_t  light_intensity_thirds_r;          // light_intensity_thirds_t          port_heat_light_task.h
+typedef uint8_t  light_composition_r;               // light_composition_t               port_heat_light_task.h
+typedef int16_t  onetenthDegC_r;                    // i2c_temp_onetenthDegC_t           param.h
+typedef uint16_t voltage_onetenthV_r;               // voltage_onetenthV_t               f_conversions.h
+typedef uint16_t num_days_since_start_r;            // num_days_since_start_t            light_sunrise_sunset.h
+typedef uint8_t  light_amount_full_or_two_thirds_r; // light_amount_full_or_two_thirds_t light_sunrise_sunset.h
+typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t             light_sunrise_sunset.h
 
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
 
-typedef struct { // Size must be modulo 4                                   // WORD ALIGN
+// To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
+
+typedef struct { // Size must be modulo 4                                           // WORD ALIGN
     num_days_since_start_r            num_days_since_start;                         // 01,02       Saving 4 bytes for year, month and day (start date is seen in SCREEN_6_KONSTANTER)
     hour_r                            hour;                                         //       03
     minute_r                          minute;                                       //          04
@@ -52,14 +63,14 @@ typedef struct { // Size must be modulo 4                                   // W
     light_composition_r               light_composition;                            //          32
     now_regulating_at_r               now_regulating_at;                            // 33
     light_amount_full_or_two_thirds_r light_amount_full_or_two_thirds;              //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
-    uint8_t                           padding_35;                                   //       35
+    light_daytime_hours_r             light_daytime_hours;                          //       35
     uint8_t                           padding_36;                                   //          36
-    //                                                                                  ##
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                         36 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task               ##
-    //                            and may cause low code size if it fails               ##
-    // If PACKET_LEN08 of packet_t in /lib_rfm69_xc/rfm69_commmprot.h is 20 a           ##
-    //                                MAX_SX1231H_PACKET_LEN is 61 then max here is:    41 (ie. 40 for modulo 4 requirement)
+    //                                                                                          ##
+    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 36 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
+    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task                       ##
+    //                            and may cause low code size if it fails                       ##
+    // If PACKET_LEN08 of packet_t in /lib_rfm69_xc/rfm69_commmprot.h is 20 a                   ##
+    //                                MAX_SX1231H_PACKET_LEN is 61 then max here is:            41 (ie. 40 for modulo 4 requirement)
     // Also there: PACKET_LEN_FACIT (20 + _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08)
     //
 } payload_u0_t;

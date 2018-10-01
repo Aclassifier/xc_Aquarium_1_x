@@ -8,16 +8,20 @@
 #ifndef VERSION_H_
 #define VERSION_H_
 
+typedef uint16_t application_version_num_t;
+
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
 #define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
+#define FLASH_BLACK_BOARD                         // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.19" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1119
+#define APPLICATION_VERSION_STR "1.1.22" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1122  // Is "application_version_num_t"
+    // "1.1.22"    01Oct2018 AQU=049 Possible to set day-time to 14, 12, 10 or 8 hours by menu. read_byte_fram_ok and write_byte_fram_ok also modified
+    // "1.1.20"    28Sep2018 AQU=048 Shorter day to counter algae growth. From 13.5 hours with some light to 11.5 hours. HH_DAY_SHORTER is new
     // "1.1.19"    27Sep2018 AQU=047 DEBUG_TEMP_FAST set to 0, meaning that TEMP_MEASURE_INTERVAL_IS_1_MINUTE has been in use over a year,
     //                               it's now set to TEMP_MEASURE_INTERVAL_IS_10_MINUTES, which was the intention always
     // "1.1.18"    27Sep2018 AQU=046 light_amount_full_or_two_thirds_t new values 32 and 33. Also NORMAL_LIGHT_IS_VOID is 30

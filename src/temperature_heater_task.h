@@ -5,7 +5,6 @@
  *      Author: teig
  */
 
-
 #ifndef TEMPERATURE_HEAT_CONTROLLER_H_
 #define TEMPERATURE_HEAT_CONTROLLER_H_
 
@@ -25,13 +24,17 @@ typedef struct temps_t {
     i2c_temp_onetenthDegC_t temp_onetenthDegC [NUM_I2C_TEMPERATURES];
 } temps_t;
 
+typedef unsigned heater_on_percent_t;
+typedef unsigned heater_on_watt_t;
+
 typedef interface temperature_heater_commands_if {
     [[guarded]] void                  heater_set_proportional  (const heater_wires_t      heater_wires, const int heat_percentage);
     [[guarded]] void                  heater_set_temp_degC     (const heater_wires_t      heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void                  get_mean_i2c_temps       (      temp_onetenthDegC_t return_temps_onetenthDegC [NUM_I2C_TEMPERATURES]); // Mean values
                 {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
                 void                  get_temp_degC_str        (const iof_temps_t         iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]); // Also mean value. All NUM_TEMPERATURES [0..3]
-    {bool, bool, unsigned, unsigned} // return_aged, return_on_ok (AQU=025 always true), return_value_on_percent, return_value_on_watt
+
+                {bool, bool, heater_on_percent_t, heater_on_watt_t} // return_aged, return_on_ok (AQU=025 always true) etc.
                                       get_regulator_data       (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 

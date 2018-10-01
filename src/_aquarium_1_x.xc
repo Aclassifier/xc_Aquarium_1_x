@@ -60,8 +60,6 @@
 #include "_Aquarium.h"
 #endif
 
-//
-
 // #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
 // debug_print and DEBUG_TEST_WATCHDOG
@@ -75,6 +73,12 @@
 
 #define DEBUG_PRINT_Y 0
 #define debug_print_y(fmt, ...) do { if(DEBUG_PRINT_Y and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+
+#ifndef FLASH_BLACK_BOARD
+    #if (DEBUG_PRINT_Y==1)
+        #error CODE DROPPED!
+    #endif
+#endif
 
 // #define DEBUG_TEST_WATCHDOG // Toggles on/off in SCREEN_4_BOKSDATA. Name used in comment in another file
 
@@ -254,8 +258,8 @@ typedef struct handler_context_t {
     unsigned int                no_adc_cnt;
     t_startkit_adc_vals         adc_vals_for_use;
     bool                        heater_on_ok;
-    unsigned                    heater_on_percent;
-    unsigned                    heater_on_watt;
+    heater_on_percent_t         heater_on_percent;
+    heater_on_watt_t            heater_on_watt;
     bool                        heater_data_aged;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
@@ -274,6 +278,7 @@ typedef struct handler_context_t {
     #endif
     bool                        radio_board_fault;
     bool                        radio_send_data;
+    uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
 } handler_context_t;
 
 
@@ -554,7 +559,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s            %s%s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s  %02ut       %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                                          // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                               // "5"
                           WATTOF_LED_STRIP_CENTER,                                                                                              // "4"
@@ -565,6 +570,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           takes_press_for_10_seconds_right_button_str,                                                                          // "±"
                           (light_sunrise_sunset_context.allow_normal_light_change_by_menu) ? light_control_norm_str : light_control_steady_str, // "NORM" or "FAST"
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                                                     // "3/3" or "2/3
+                          light_sunrise_sunset_context.light_daytime_hours,                                                                     // 14t,12t,10t,08t
                           (control_scheme_add_leading_space) ? " " : "",                                                                        // So that " INIT" and "  DAG" will be left aligned first visible char
                           light_control_scheme_str,                                                                                             // "NATT" etc.
                           (light_sunrise_sunset_context.light_is_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,            // "=" or "±"
@@ -783,7 +789,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         case SCREEN_5_VERSJON: {
             // #define TEST_BOOT_FROM_CONFIG // Does not work!
             char xTIMEcomposer_version_str  [7] = XTIMECOMPOSER_VERSION_STR; // Typical "14.2.3"
-            char application_version_str    [7] = APPLICATION_VERSION_STR;   // Typical "1.0.12"
+            char application_version_str    [7] = APPLICATION_VERSION_STR;   // Typical "1.0.12" (Aside: APPLICATION_VERSION_NUM as a number like 1012, not used here)
 
             #ifdef TEST_BOOT_FROM_CONFIG
                 int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -901,8 +907,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             switch (context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state) {
 
-                #if (DEBUG_PRINT_Y == 0)
-                // SUB_STATE_..
+                #if (DEBUG_PRINT_Y==0)
+                // SUB_STATE_.. remove this code to get space for printf
 
                 case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER, but do it before DISPLAY_SUB_ON_FOR_SECONDS after last keypress
                     if (context.display_sub_edited) {
@@ -1626,11 +1632,13 @@ void System_Task_Data_Handler (
         // Update FRAM if needed
         if (light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
-            uint8_t write_fram_data = (uint8_t) light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory;
+            context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY]  = (uint8_t) light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory;
+            context.fram_data[IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY] = (uint8_t) light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory;
 
             light_sunrise_sunset_context.do_FRAM_write = false;
-            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, write_fram_data);
-            debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u value=%u\n", write_ok, write_fram_data);
+            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+            if (not write_ok) {fail();} // TODO qwe fail
+            debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u\n", write_ok);
         } else {}
 
         // Now, how did it go, how is light controlled right now?
@@ -1911,17 +1919,19 @@ void System_Task (
     // Read from FRAM module
     {
         bool read_ok;
-        uint8_t read_fram_data;
 
-        {read_fram_data, read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT);
+        {read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
 
         if (not read_ok) {
-            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = NORMAL_LIGHT_IS_VOID;
+            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = NORMAL_LIGHT_IS_VOID;
+            light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory = IOF_HH_IS_VOID;
+            fail(); // TODO qwe remove
         } else {
-            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = (light_amount_full_or_two_thirds_t) read_fram_data;
+            light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = (light_amount_full_or_two_thirds_t)  context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
+            light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory = (light_daytime_cutoff_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY];
         }
 
-        debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory read ok=%u value=%u\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory);
+        debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory);
     }
 
     tmr :> time;
@@ -1983,6 +1993,9 @@ void System_Task (
                     context.radio_send_data = false;
                     if (not context.radio_board_fault) {
 
+                        // No extra code as using the VALUE directly. However, more systematic in my view:
+                        const application_version_num_t application_version_num = APPLICATION_VERSION_NUM; // Using APPLICATION_VERSION_STR would have been more expensive
+
                         TX_appSeqCnt++;
 
                         // ---- Empty full payload ----
@@ -2005,7 +2018,7 @@ void System_Task (
 
                         payload_t TX_radio_payload; // Work on it and copy it in rather than typecast
 
-                        TX_radio_payload.u.payload_u0.num_days_since_start            = (num_days_since_start_r) light_sunrise_sunset_context.num_days_since_start;
+                        TX_radio_payload.u.payload_u0.num_days_since_start            = (num_days_since_start_r)            light_sunrise_sunset_context.num_days_since_start;
                         TX_radio_payload.u.payload_u0.hour                            = (hour_r)                            context.datetime.hour;
                         TX_radio_payload.u.payload_u0.minute                          = (minute_r)                          context.datetime.minute;
                         TX_radio_payload.u.payload_u0.second                          = (second_r)                          context.datetime.second;
@@ -2020,13 +2033,14 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC  = (onetenthDegC_r)                    context.internal_box_temp_onetenthDegC;
                         TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV           = (voltage_onetenthV_r)               context.rr_24V_heat_onetenthV;
                         TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV       = (voltage_onetenthV_r)               context.rr_12V_LEDlight_onetenthV;
-                        TX_radio_payload.u.payload_u0.application_version_num         =                                     APPLICATION_VERSION_NUM;
+                        TX_radio_payload.u.payload_u0.application_version_num         = (application_version_num_r)         application_version_num;
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_front    = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center   = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_back     = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_BACK];
                         TX_radio_payload.u.payload_u0.light_composition               = (light_composition_r)               context.light_composition;
                         TX_radio_payload.u.payload_u0.now_regulating_at               = (now_regulating_at_r)               context.now_regulating_at;
                         TX_radio_payload.u.payload_u0.light_amount_full_or_two_thirds = (light_amount_full_or_two_thirds_r) light_sunrise_sunset_context.light_amount_full_or_two_thirds;
+                        TX_radio_payload.u.payload_u0.light_daytime_hours             = (light_daytime_hours_r)             light_sunrise_sunset_context.light_daytime_hours;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

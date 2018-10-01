@@ -5,9 +5,8 @@
  *      Author: teig
  */
 
-
-#ifndef CHRONODOT_DS3231_CONTROLLER_H_
-#define CHRONODOT_DS3231_CONTROLLER_H_
+#ifndef CHRONODOT_DS3231_TASK_H_
+#define CHRONODOT_DS3231_TASK_H_
 
 // DS3231 Extremely Accurate I2C-Integrated RTC/TCXO/Crystal by Maxim
 //     http://datasheets.maximintegrated.com/en/ds/DS3231.pdf
@@ -75,13 +74,20 @@ typedef enum {
 
 #define DATETIME_YEAR_OFFSET 2000
 
+typedef uint16_t year_t;
+typedef uint8_t  month_t;
+typedef uint8_t  day_t;
+typedef uint8_t  hour_t;
+typedef uint8_t  minute_t;
+typedef uint8_t  second_t;
+
 typedef struct {
-    uint16_t year;
-    uint8_t  month;
-    uint8_t  day;
-    uint8_t  hour;
-    uint8_t  minute;
-    uint8_t  second;
+    year_t   year;
+    month_t  month;
+    day_t    day;
+    hour_t   hour;
+    minute_t minute;
+    second_t second;
 } DateTime_t;
 
 #define DATETIME_INIT(dt) dt.year=1950; dt.month=6; dt.day=14; dt.hour=0; dt.minute=0; dt.second=0;

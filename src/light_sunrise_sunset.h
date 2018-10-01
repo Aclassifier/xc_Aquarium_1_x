@@ -27,36 +27,67 @@ typedef enum light_sensor_diff_state_t {
     DIFF_ACTIVE
 } light_sensor_diff_state_t;
 
-typedef struct light_sunrise_sunset_context_t {
-    bool                              do_init;
-    it_is_day_or_night_t              it_is_day_or_night;
-    DateTime_t                        datetime;
-    DateTime_t                        datetime_previous;
-    bool                              datetime_previous_not_initialised;
-    bool                              allow_normal_light_change_by_clock;
-    bool                              allow_normal_light_change_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                              allow_normal_light_change_by_menu_next; // AQU=030 new
-    unsigned                          screen_3_lysregulering_center_button_cnt_1to4; // AQU=030 new
-    unsigned                          iof_day_night_action_list;
-    unsigned                          num_minutes_left_of_day_night_action; // AQU=024
-    random_generator_t                random_number;
-    unsigned                          num_minutes_left_of_random; // AQU=023
-    unsigned                          minutes_into_day_of_next_action_random_off; // AQU=023 new
-    unsigned                          num_random_sequences_left;
-    light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds;
-    light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds_in_FRAM_memory; // From Fujitsu MB85RC256V
-    light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds_next;
-    bool                              do_light_amount_full_or_two_thirds_by_menu;
-    bool                              stop_normal_light_changed_by_menu; // menu=SCREEN_3_LYSGULERING AQU=031
-    bool                              dont_disturb_screen_3_lysregulering; // AQU=031 AQU=036
+typedef uint16_t num_days_since_start_t;
 
-    light_sensor_range_t              light_sensor_intensity;
-    light_sensor_range_t              light_sensor_intensity_previous;
-    light_sensor_diff_state_t         light_sensor_diff_state;
-    unsigned                          print_value_previous; // With debug_print this value must be visible, but even this will removed and not complained about not being used
-    bool                              do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
-    bool                              light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
-    uint16_t                          num_days_since_start; // Done for radio, instead of the longer date of start
+#define HH_14_IS_DAY         14
+#define HH_12_IS_DAY_DEFAULT 12
+#define HH_10_IS_DAY         10
+#define HH_08_IS_DAY          8
+//
+#define TIMED_HH_DAY_LIST_NUMS 4
+//
+#define TIMED_HH_DAY_LIST_INIT {HH_14_IS_DAY, HH_12_IS_DAY_DEFAULT, HH_10_IS_DAY, HH_08_IS_DAY} // Indexed by light_daytime_hours_list_offset:
+//
+#define IOF_HH_14_IS_DAY         0
+#define IOF_HH_12_IS_DAY_DEFAULT 1
+#define IOF_HH_10_IS_DAY         2
+#define IOF_HH_08_IS_DAY         3
+#define IOF_HH_IS_VOID           4 // If FRAM read fails
+//
+typedef unsigned light_daytime_cutoff_hours_index_t; // Index 0,1,2,3 is also hours later in the morning and ALSO earlier in the afternoo
+//
+typedef enum light_daytime_hours_e {
+    HH_14_IS_DAY_VAL         = HH_14_IS_DAY,
+    HH_12_IS_DAY_DEFAULT_VAL = HH_12_IS_DAY_DEFAULT, // By code, not by HH_DAY_SHORTER when it's 0
+    HH_10_IS_DAY_VAL         = HH_10_IS_DAY,
+    HH_08_IS_DAY_VAL         = HH_08_IS_DAY
+} light_daytime_hours_e;
+//
+typedef light_daytime_hours_e light_daytime_hours_t;
+
+typedef struct light_sunrise_sunset_context_t {
+    bool                               do_init;
+    it_is_day_or_night_t               it_is_day_or_night;
+    DateTime_t                         datetime;
+    DateTime_t                         datetime_previous;
+    bool                               datetime_previous_not_initialised;
+    bool                               allow_normal_light_change_by_clock;
+    bool                               allow_normal_light_change_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                               allow_normal_light_change_by_menu_next; // AQU=030 new
+    unsigned                           screen_3_lysregulering_center_button_cnt_1to4; // AQU=030 new
+    unsigned                           iof_day_night_action_list;
+    unsigned                           num_minutes_left_of_day_night_action; // AQU=024
+    random_generator_t                 random_number;
+    unsigned                           num_minutes_left_of_random; // AQU=023
+    unsigned                           minutes_into_day_of_next_action_random_off; // AQU=023 new
+    unsigned                           num_random_sequences_left;
+    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds;
+    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_in_FRAM_memory; // From Fujitsu MB85RC256V
+    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_next;
+    bool                               do_light_amount_full_or_two_thirds_by_menu;
+    bool                               stop_normal_light_changed_by_menu; // menu=SCREEN_3_LYSGULERING AQU=031
+    bool                               dont_disturb_screen_3_lysregulering; // AQU=031 AQU=036
+
+    light_sensor_range_t               light_sensor_intensity;
+    light_sensor_range_t               light_sensor_intensity_previous;
+    light_sensor_diff_state_t          light_sensor_diff_state;
+    unsigned                           print_value_previous; // With debug_print this value must be visible, but even this will removed and not complained about not being used
+    bool                               do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
+    bool                               light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    num_days_since_start_t             num_days_since_start; // Done for radio, instead of the longer date of start
+    light_daytime_cutoff_hours_index_t light_daytime_cutoff_hours_index; // AQU=049
+    light_daytime_cutoff_hours_index_t light_daytime_cutoff_hours_index_in_FRAM_memory; // AQU=049
+    light_daytime_hours_t              light_daytime_hours; // AQU=049
 } light_sunrise_sunset_context_t;
 
 // https://no.wikipedia.org/wiki/Sommertid
@@ -76,48 +107,67 @@ typedef struct light_sunrise_sunset_context_t {
 #define IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  7
 #define TIME_ACTION_ENTRY_NUMS (IOF_TIMED_NIGHT_TO_DAY_LIST_LAST+1) // 8 AQU=039 was 16
 
-//                         HH MM // IF YOU CHANGE THIS, THE COMPLETE LISTS MUST BE CHANGED!
-#define HH_RANDOM_LATEST   20    // Increasing round the clock from evening and first..
-#define MM_RANDOM_LATEST       0
-#define HH_A               22    // ..increasing..
-#define MM_B                   0
-#define HH_C                8    // ..to day increasing..
-#define MM_D                   0
-#define HH_E                8    // ..increasing..
-#define MM_F                  30
-#define HH_RANDOM_EARLIEST 10    // ..increasing and last
-#define MM_RANDOM_EARLIEST     0
+// Standard day is light on 08.00 full day 08.30, light off 22.00 night 22.30 = 14 hours day
 
 // "Normaltid/vintertid" is always normal time/winter time (no need to set to summer time "sommertid", fishes won't need it!)
 // Since we don't think changing clock to summer time here is a good idea, this is how it would appear:
 //
-// WINTER: On start 08.00 until 08.30 - DAY - off start 22.00 until 22.30 - NIGHT
-// SUMMER: On start 09.00 until 09.30 - DAY - off start 23.00 until 23.30 - NIGHT
+// WINTER: On start 08.00 until 08.30 - DAY - off start 22.00 until 22.30 - NIGHT = 13.5 hours with some light
+// SUMMER: On start 09.00 until 09.30 - DAY - off start 23.00 until 23.30 - NIGHT = 13.5 hours with some light
 //
 // In any case it looks strange in the summer since it' so light in Norway then
+//
+// This makes the day shorter by 1 hour in the morning and 1 hour at night, to TWO HOURS IF VALUE == 1
+// https://www.thesprucepets.com/how-long-should-aquarium-lights-be-left-on-1380774
+//     Plants require as much as 12 hours of light per day, but the precise length of time will depend on the aquarium setup and species of plants.
+//     Tropical plants that will thrive on roughly 12 hours of light each day, all year long..
+//     If excess algae is a problem in the tank, a contributing factor is usually too much light.
+//     Reducing the time the aquarium lights are on to eight hours, or a bit less if necessary, will help reduce the algae growth.
+//     Monitoring algae levels can, therefore, help you determine if your lighting levels are appropriate. If you begin to see excessive algae,
+//     shorten the periods of light to retard the algae growth. But remember that it's also possible to have too little algae in an aquarium.
+// In other words, 14 was too much anyhow!
+//
+
+#define HH_20_NIGHT_RANDOM_LATEST  20
+#define MM_00_NIGHT_RANDOM_LATEST         0
+#define HH_22_NIGHT                22
+#define MM_00_NIGHT                       0
+#define MM_10_NIGHT                      10
+#define MM_20_NIGHT                      20
+#define MM_30_NIGHT                      30
+#define HH_08_DAY                   8
+#define MM_00_DAY                         0
+#define MM_10_DAY                        10
+#define MM_20_DAY                        20
+#define MM_30_DAY                        30
+#define HH_10_DAY_RANDOM_EARLIEST  10
+#define MM_00_DAY_RANDOM_EARLIEST         0
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START ((HH_A * 60) + MM_B)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START ((HH_C * 60) + MM_D)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  ((HH_E * 60) + MM_F)
+    // After AQU=049 we need run-time calculations, the preprocessor can't do it alone:
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_cutoff_hours_index) * 60) + MM_00_NIGHT)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_cutoff_hours_index) * 60) + MM_00_DAY)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  (((HH_08_DAY                 + context.light_daytime_cutoff_hours_index) * 60) + MM_30_DAY)
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST    (((HH_10_DAY_RANDOM_EARLIEST + context.light_daytime_cutoff_hours_index) * 60) + MM_00_DAY_RANDOM_EARLIEST)
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST      (((HH_20_NIGHT_RANDOM_LATEST - context.light_daytime_cutoff_hours_index) * 60) + MM_00_NIGHT_RANDOM_LATEST)
 
     // AQU=039 We used to have 8 levels per up/down. This was too messy with respect to colour temperature and power. Also, the first level down at 22.00 was
     // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.
     // AQU=042 Removed CENTER cycles to avoid coloured LED strips being alone
 
-    //   hours   minutes                                        IOF_TIMED light_composition_t
+    //   hours                                      minutes                                          IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {HH_A, MM_B, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {  22,   10, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                                 */\
-        {  22,   20, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                                                 */\
-        {  22,   30, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
+        {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_3882_mW_ON},   /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_2799_mW_ON},   /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
+        {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_1133_mW_ON},   /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                                                   */\
+        {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_0000_mW_OFF}   /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {HH_C, MM_D, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   8,   10, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                                 */\
-        {   8,   20, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON                                    */\
-        {HH_E, MM_F, LIGHT_COMPOSITION_11650_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
-        //           LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS    [10] may set it to 2/3
+        {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_1133_mW_ON},       /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+        {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_2799_mW_ON},       /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
+        {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_3882_mW_ON},       /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {HH_08_DAY, MM_30_DAY, LIGHT_COMPOSITION_11650_mW_ON_FULL}  /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        //                     LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS [10] may set it to 2/3
 
 #else // DEBUG_TEST_DAY_NIGHT_DAY. Just set the clock to 23.55.00 on the FLASH_BLACK_BOARD!
 
@@ -126,23 +176,21 @@ typedef struct light_sunrise_sunset_context_t {
     //   hours   minutes                                        IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
         {  23,   56, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {  23,   57, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                                 */\
+        {  23,   57, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
         {  23,   58, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 Surprisingly light!               */\
         {  23,   59, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //      0     0  DEBUG_TEST_DAY_NIGHT_DAY MIDNIGHT IS NIGHT, SEE REASON ABOVE
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
         {   0,    1, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   0,    2, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                                 */\
+        {   0,    2, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
         {   0,    3, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON                                    */\
         {   0,    4, LIGHT_COMPOSITION_11650_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
         //           LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS    [10] may set it to 2/3
 
 #endif
 
-#define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST ((HH_RANDOM_EARLIEST * 60) + MM_RANDOM_EARLIEST)
-#define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST   ((HH_RANDOM_LATEST   * 60) + MM_RANDOM_LATEST)
-#define NUM_RANDOM_SEQUENCES_MAX                      10  // With all hitting 1+(20-10)=11 times would have beeen max
+#define NUM_RANDOM_SEQUENCES_MAX 10 // With all hitting 1+(20-10)=11 times would have beeen max
 
                                                          // AQU=023 for all three of the below
 #define NUM_MINUTES_RANDOM_ALLOWED_END_EARLIEST        3 // ..|.. AQU=044 was  5, AQU=028 was 10
@@ -156,7 +204,7 @@ Mute_Light_Composition (const light_composition_t light_composition, const light
 //
 bool // beeper_blip_now
 Handle_Light_Sunrise_Sunset_Etc (
-    light_sunrise_sunset_context_t &light_sunrise_sunset_context,
+    light_sunrise_sunset_context_t     &light_sunrise_sunset_context,
     client port_heat_light_commands_if i_port_heat_light_commands);
 
 #else

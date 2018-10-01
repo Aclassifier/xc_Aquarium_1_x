@@ -1605,6 +1605,9 @@ typedef struct chronodot_d3231_registers_t {
 
 
 
+
+
+
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
     {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
@@ -1612,8 +1615,8 @@ typedef interface i2c_internal_commands_if {
 
 
 
-    {uint8_t, bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address);
-    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
+     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
 
 
 

@@ -22,7 +22,10 @@ typedef struct chronodot_d3231_registers_t {
     uint8_t registers [D3231_NUM_REGISTERS];
 } chronodot_d3231_registers_t;
 
-#define FRAM_NUM_REGISTERS 3
+// AQU=049 had to expand and then also change read and write function call params:
+#define IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY  0
+#define IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY 1
+#define NUM_BYTES_IN_FRAM_MEMORY                            2
 
 typedef interface i2c_internal_commands_if {
     bool                                write_display_ok       (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
@@ -31,8 +34,8 @@ typedef interface i2c_internal_commands_if {
 
     // TODO Make this general
     // When trying to make this completely general (because it is), I had to issue this: Ticket XMOS_9916 variable length array causes unrecoverable error
-    {uint8_t, bool} read_byte_fram_ok  (const i2c_dev_address_t dev_addr, const uint16_t address);
-    bool            write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t send_data);
+    {bool} read_byte_fram_ok  (const i2c_dev_address_t dev_addr, const uint16_t address,       uint8_t read_data  [NUM_BYTES_IN_FRAM_MEMORY]);
+     bool  write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [NUM_BYTES_IN_FRAM_MEMORY]);
     // Also, reading device_id from FRAM is not possible with the I2C library I use (module_i2c_master). The newer (lib_i2c) opens for non-stop inside an I2C message
     // TODO Install and rewrite for and with lib_i2c
 

@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
+#include "xassert.h"
 
 #include "i2c.h"
 #include "_rfm69_commprot.h"
@@ -68,31 +69,18 @@
 
 //{{{  definitions
 
-//------ NOT USED SINCE IT'S HOPELESS TO INITIALISE NICELY ------
-typedef struct hour_minute_light_t {
-    unsigned hour;
-    unsigned minute;
-    unsigned iof_light;
-}hour_minute_light_t;
-typedef struct hour_minute_light_arrray_t {
-    hour_minute_light_t at;
-}hour_minute_light_arrray_t;
-typedef struct _hour_minute_light_action_list_t {
-    hour_minute_light_arrray_t elem [TIME_ACTION_ENTRY_NUMS];
-}_hour_minute_light_action_list_t;
-//------ END ------
-
 #define IOF_HOUR_INLIST      0
 #define IOF_MINUTES_INLIST   1
 #define IOF_IOF_LIGHT_INLIST 2 // Yes two IOF
-
-typedef unsigned hour_minute_light_action_list_t[TIME_ACTION_ENTRY_NUMS][TIME_ACTION_ENTRY_LINE_NUMS];
-//}}}  
-//{{{  static (!)
-
+//
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
 //
-static hour_minute_light_action_list_t hour_minute_light_action_list = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
+typedef unsigned hour_minute_light_action_list_t[TIME_ACTION_ENTRY_NUMS][TIME_ACTION_ENTRY_LINE_NUMS];
+
+static       hour_minute_light_action_list_t hour_minute_light_action_list       = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
+static const hour_minute_light_action_list_t hour_minute_light_action_list_const = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
+
+const static light_daytime_hours_t light_daytime_hours_list [TIMED_HH_DAY_LIST_NUMS] = TIMED_HH_DAY_LIST_INIT; // AQU=049 new
 
 //}}}  
 //{{{  Darker_Light_Composition_Iff
@@ -136,6 +124,38 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
 
 //}}}
 
+{light_daytime_cutoff_hours_index_t, light_daytime_hours_t}
+Next_Hours_Daytime (const light_daytime_cutoff_hours_index_t cutoff_index) {
+
+    light_daytime_cutoff_hours_index_t return_index = cutoff_index;
+    light_daytime_hours_t              light_daytime_hours;
+
+    return_index++;
+
+    if (return_index == TIMED_HH_DAY_LIST_NUMS) {return_index = 0;}
+
+    light_daytime_hours = light_daytime_hours_list[return_index]; // 14,12,10,8
+
+    return {return_index, light_daytime_hours};
+}
+
+void
+Update_Hours_Daytime (light_sunrise_sunset_context_t &context) {
+
+    // context.light_daytime_cutoff_hours_index is input param
+
+    for (unsigned index = IOF_TIMED_DAY_TO_NIGHT_LIST_START; index < TIME_ACTION_ENTRY_NUMS; index++) {
+        if (index < IOF_TIMED_NIGHT_TO_DAY_LIST_START) { // 0..3
+            hour_minute_light_action_list[index][IOF_HOUR_INLIST] =
+                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] + context.light_daytime_cutoff_hours_index; // Later
+        } else {
+            hour_minute_light_action_list[index][IOF_HOUR_INLIST] =
+                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] - context.light_daytime_cutoff_hours_index; // Earlier
+        }
+    }
+
+    context.light_daytime_hours = light_daytime_hours_list[context.light_daytime_cutoff_hours_index];
+}
 
 //{{{  Light_Composition
 
@@ -163,8 +183,8 @@ Light_Composition_Full_Or_Two_Thirds (const light_amount_full_or_two_thirds_t li
 //
 bool // beeper_blip_now
 Handle_Light_Sunrise_Sunset_Etc (
-           light_sunrise_sunset_context_t  &context,
-    client port_heat_light_commands_if     i_port_heat_light_commands) {
+           light_sunrise_sunset_context_t &context,
+    client port_heat_light_commands_if    i_port_heat_light_commands) {
 
    bool return_beeper_blip = false;
 
@@ -175,9 +195,6 @@ Handle_Light_Sunrise_Sunset_Etc (
    unsigned print_value = 0; // With debug_print this value must be visible, but even this will removed and not complained about not being used
 
    const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
-
-   context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                                 (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
    const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
@@ -202,8 +219,19 @@ Handle_Light_Sunrise_Sunset_Etc (
            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default
        }
 
-       context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory != context.light_amount_full_or_two_thirds);
-       context.light_amount_full_or_two_thirds_in_FRAM_memory = context.light_amount_full_or_two_thirds; // Always valid
+       if (context.light_daytime_cutoff_hours_index_in_FRAM_memory == IOF_HH_IS_VOID) {
+           context.light_daytime_cutoff_hours_index = IOF_HH_12_IS_DAY_DEFAULT;
+       } else {
+           context.light_daytime_cutoff_hours_index = context.light_daytime_cutoff_hours_index_in_FRAM_memory;
+       }
+
+       Update_Hours_Daytime (context); // Uses context.light_daytime_cutoff_hours_index, also sets light_daytime_hours
+
+       context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
+                               (context.light_daytime_cutoff_hours_index_in_FRAM_memory != context.light_daytime_cutoff_hours_index);
+
+       context.light_amount_full_or_two_thirds_in_FRAM_memory  = context.light_amount_full_or_two_thirds;  // Always valid
+       context.light_daytime_cutoff_hours_index_in_FRAM_memory = context.light_daytime_cutoff_hours_index; // Always valid
 
        context.do_light_amount_full_or_two_thirds_by_menu = false;
        context.light_sensor_diff_state = DIFF_VOID;
@@ -217,15 +245,15 @@ Handle_Light_Sunrise_Sunset_Etc (
            debug_set_val_to (print_value,33);
            i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33);
        #else // NORMAL
-           if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-               (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30
+           if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00 before AQU=048
+               (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST)) {   // After  08.30 before AQU=048
                context.it_is_day_or_night = IT_IS_DAY;
            } else {
                context.it_is_day_or_night = IT_IS_NIGHT;
            }
 
-           if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00
-               (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00
+           if ((minutes_into_day_now < NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START) and // Before 22.00 before AQU=048
+               (minutes_into_day_now > NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START)) {  // After   8.00 before AQU=048
                context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
 
                light_composition_now = Light_Composition_Full_Or_Two_Thirds (context.light_amount_full_or_two_thirds);
@@ -252,6 +280,9 @@ Handle_Light_Sunrise_Sunset_Etc (
    } else {}// init done
 
    //}}}
+
+   context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                                 (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
    if (context.datetime.day != context.datetime_previous.day) {
        context.num_days_since_start++;

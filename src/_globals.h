@@ -42,7 +42,7 @@ typedef signed int time32_t; // signed int (=signed) or unsigned int (=unsigned)
 
 #define MAP_PAR_COMBINE 1
 
-#define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
+#define DEBUG_PRINT_GLOBAL_APP 1 // 0: all printf off
                                  // 1: controlled locally in each xc file
 
 #endif /* GLOBALS_H_ */
