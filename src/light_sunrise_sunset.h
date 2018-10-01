@@ -29,6 +29,7 @@ typedef enum light_sensor_diff_state_t {
 
 typedef uint16_t num_days_since_start_t;
 
+
 #define HH_14_IS_DAY         14
 #define HH_12_IS_DAY_DEFAULT 12
 #define HH_10_IS_DAY         10
@@ -127,21 +128,23 @@ typedef struct light_sunrise_sunset_context_t {
 //     shorten the periods of light to retard the algae growth. But remember that it's also possible to have too little algae in an aquarium.
 // In other words, 14 was too much anyhow!
 //
-
-#define HH_20_NIGHT_RANDOM_LATEST  20
-#define MM_00_NIGHT_RANDOM_LATEST         0
-#define HH_22_NIGHT                22
-#define MM_00_NIGHT                       0
-#define MM_10_NIGHT                      10
-#define MM_20_NIGHT                      20
-#define MM_30_NIGHT                      30
-#define HH_08_DAY                   8
-#define MM_00_DAY                         0
-#define MM_10_DAY                        10
-#define MM_20_DAY                        20
-#define MM_30_DAY                        30
+//                                 HH    MM    # Don't cross the hour since light_daytime_cutoff_hours_index_t adds only on the hour
+#define HH_22_NIGHT                22       // #
+#define MM_00_NIGHT                       0 // #
+#define MM_10_NIGHT                      10 // #
+#define MM_20_NIGHT                      20 // #
+#define MM_30_NIGHT                      30 // #
+//
+#define HH_08_DAY                   8       // #
+#define MM_00_DAY                         0 // #
+#define MM_10_DAY                        10 // #
+#define MM_20_DAY                        20 // #
+#define MM_30_DAY                        30 // #
+//
 #define HH_10_DAY_RANDOM_EARLIEST  10
 #define MM_00_DAY_RANDOM_EARLIEST         0
+#define HH_20_NIGHT_RANDOM_LATEST  20
+#define MM_00_NIGHT_RANDOM_LATEST         0
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
     // After AQU=049 we need run-time calculations, the preprocessor can't do it alone:

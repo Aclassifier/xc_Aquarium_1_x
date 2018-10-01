@@ -54,7 +54,7 @@
 
 #define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 0 // Cost 0.4k
 //
-#define debug_print(fmt, ...)   do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...)    do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 #define debug_set_val_to(val,to) do { if(DEBUG_PRINT_LIGHT_SUNRISE_SUNSET and (DEBUG_PRINT_GLOBAL_APP==1)) val=to;                   } while (0)
 
 //}}}  
@@ -78,7 +78,7 @@
 typedef unsigned hour_minute_light_action_list_t[TIME_ACTION_ENTRY_NUMS][TIME_ACTION_ENTRY_LINE_NUMS];
 
 static       hour_minute_light_action_list_t hour_minute_light_action_list       = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
-static const hour_minute_light_action_list_t hour_minute_light_action_list_const = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
+static const hour_minute_light_action_list_t hour_minute_light_action_list_const = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT}; // Only [IOF_HOUR_INLIST] values used, as defaut
 
 const static light_daytime_hours_t light_daytime_hours_list [TIMED_HH_DAY_LIST_NUMS] = TIMED_HH_DAY_LIST_INIT; // AQU=049 new
 
@@ -125,7 +125,7 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
 //}}}
 
 {light_daytime_cutoff_hours_index_t, light_daytime_hours_t}
-Next_Hours_Daytime (const light_daytime_cutoff_hours_index_t cutoff_index) {
+Next_Daytime_Hours (const light_daytime_cutoff_hours_index_t cutoff_index) {
 
     light_daytime_cutoff_hours_index_t return_index = cutoff_index;
     light_daytime_hours_t              light_daytime_hours;
@@ -140,11 +140,12 @@ Next_Hours_Daytime (const light_daytime_cutoff_hours_index_t cutoff_index) {
 }
 
 void
-Update_Hours_Daytime (light_sunrise_sunset_context_t &context) {
+Update_Daytime_Hours (light_sunrise_sunset_context_t &context) {
 
     // context.light_daytime_cutoff_hours_index is input param
 
     for (unsigned index = IOF_TIMED_DAY_TO_NIGHT_LIST_START; index < TIME_ACTION_ENTRY_NUMS; index++) {
+        // Any time sequence does not cross the hour so it's ok to add/subtract just the IOF_HOUR_INLIST, not IOF_MINUTES_INLIST
         if (index < IOF_TIMED_NIGHT_TO_DAY_LIST_START) { // 0..3
             hour_minute_light_action_list[index][IOF_HOUR_INLIST] =
                     hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] + context.light_daytime_cutoff_hours_index; // Later
@@ -225,7 +226,7 @@ Handle_Light_Sunrise_Sunset_Etc (
            context.light_daytime_cutoff_hours_index = context.light_daytime_cutoff_hours_index_in_FRAM_memory;
        }
 
-       Update_Hours_Daytime (context); // Uses context.light_daytime_cutoff_hours_index, also sets light_daytime_hours
+       Update_Daytime_Hours (context); // Uses context.light_daytime_cutoff_hours_index, also sets light_daytime_hours
 
        context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
                                (context.light_daytime_cutoff_hours_index_in_FRAM_memory != context.light_daytime_cutoff_hours_index);
