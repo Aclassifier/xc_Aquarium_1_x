@@ -1633,11 +1633,10 @@ void System_Task_Data_Handler (
         if (light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
             context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY]  = (uint8_t) light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory;
-            context.fram_data[IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY] = (uint8_t) light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory;
+            context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY]        = (uint8_t) light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
 
             light_sunrise_sunset_context.do_FRAM_write = false;
             write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
-            if (not write_ok) {fail();} // TODO qwe fail
             debug_print ("FRAM light_amount_full_or_two_thirds_in_FRAM_memory written ok=%u\n", write_ok);
         } else {}
 
@@ -1924,14 +1923,13 @@ void System_Task (
 
         if (not read_ok) {
             light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = NORMAL_LIGHT_IS_VOID;
-            light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory = IOF_HH_IS_VOID;
-            fail(); // TODO qwe remove
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory = IOF_HH_IS_VOID;
         } else {
             light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = (light_amount_full_or_two_thirds_t)  context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
-            light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory = (light_daytime_cutoff_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY];
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory        = (light_daytime_hours_index_t)        context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
         }
 
-        debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_cutoff_hours_index_in_FRAM_memory);
+        debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
     }
 
     tmr :> time;

@@ -45,7 +45,7 @@ typedef uint16_t num_days_since_start_t;
 #define IOF_HH_08_IS_DAY         3
 #define IOF_HH_IS_VOID           4 // If FRAM read fails
 //
-typedef unsigned light_daytime_cutoff_hours_index_t; // Index 0,1,2,3 is also hours later in the morning and ALSO earlier in the afternoo
+typedef unsigned light_daytime_hours_index_t; // Index 0,1,2,3 is also hours later in the morning and ALSO earlier in the afternoo
 //
 typedef enum light_daytime_hours_e {
     HH_14_IS_DAY_VAL         = HH_14_IS_DAY,
@@ -63,32 +63,32 @@ typedef struct light_sunrise_sunset_context_t {
     DateTime_t                         datetime_previous;
     bool                               datetime_previous_not_initialised;
     bool                               allow_normal_light_change_by_clock;
-    bool                               allow_normal_light_change_by_menu; // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                               allow_normal_light_change_by_menu_next; // AQU=030 new
-    unsigned                           screen_3_lysregulering_center_button_cnt_1to4; // AQU=030 new
+    bool                               allow_normal_light_change_by_menu;              // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                               allow_normal_light_change_by_menu_next;         // AQU=030 new
+    unsigned                           screen_3_lysregulering_center_button_cnt_1to4;  // AQU=030 new
     unsigned                           iof_day_night_action_list;
-    unsigned                           num_minutes_left_of_day_night_action; // AQU=024
+    unsigned                           num_minutes_left_of_day_night_action;           // AQU=024
     random_generator_t                 random_number;
-    unsigned                           num_minutes_left_of_random; // AQU=023
-    unsigned                           minutes_into_day_of_next_action_random_off; // AQU=023 new
+    unsigned                           num_minutes_left_of_random;                     // AQU=023
+    unsigned                           minutes_into_day_of_next_action_random_off;     // AQU=023 new
     unsigned                           num_random_sequences_left;
     light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds;
     light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_in_FRAM_memory; // From Fujitsu MB85RC256V
     light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_next;
     bool                               do_light_amount_full_or_two_thirds_by_menu;
-    bool                               stop_normal_light_changed_by_menu; // menu=SCREEN_3_LYSGULERING AQU=031
-    bool                               dont_disturb_screen_3_lysregulering; // AQU=031 AQU=036
-
+    bool                               stop_normal_light_changed_by_menu;               // menu=SCREEN_3_LYSGULERING AQU=031
+    bool                               dont_disturb_screen_3_lysregulering;             // AQU=031 AQU=036
     light_sensor_range_t               light_sensor_intensity;
     light_sensor_range_t               light_sensor_intensity_previous;
     light_sensor_diff_state_t          light_sensor_diff_state;
-    unsigned                           print_value_previous; // With debug_print this value must be visible, but even this will removed and not complained about not being used
-    bool                               do_FRAM_write; // When NORMAL light changes to TWO_THIRDS or FULL
-    bool                               light_is_stable; // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
-    num_days_since_start_t             num_days_since_start; // Done for radio, instead of the longer date of start
-    light_daytime_cutoff_hours_index_t light_daytime_cutoff_hours_index; // AQU=049
-    light_daytime_cutoff_hours_index_t light_daytime_cutoff_hours_index_in_FRAM_memory; // AQU=049
-    light_daytime_hours_t              light_daytime_hours; // AQU=049
+    unsigned                           print_value_previous;                     // With debug_print this value must be visible, but even this will removed and not complained about not being used
+    bool                               do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
+    bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    num_days_since_start_t             num_days_since_start;                     // Done for radio, instead of the longer date of start
+    light_daytime_hours_index_t        light_daytime_hours_index;                // AQU=049
+    light_daytime_hours_t              light_daytime_hours;                      // AQU=049
+    light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // AQU=049
+    //
 } light_sunrise_sunset_context_t;
 
 // https://no.wikipedia.org/wiki/Sommertid
@@ -128,7 +128,7 @@ typedef struct light_sunrise_sunset_context_t {
 //     shorten the periods of light to retard the algae growth. But remember that it's also possible to have too little algae in an aquarium.
 // In other words, 14 was too much anyhow!
 //
-//                                 HH    MM    # Don't cross the hour since light_daytime_cutoff_hours_index_t adds only on the hour
+//                                 HH    MM    # Don't cross the hour since light_daytime_hours_index_t adds only on the hour
 #define HH_22_NIGHT                22       // #
 #define MM_00_NIGHT                       0 // #
 #define MM_10_NIGHT                      10 // #
@@ -147,12 +147,12 @@ typedef struct light_sunrise_sunset_context_t {
 #define MM_00_NIGHT_RANDOM_LATEST         0
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
-    // After AQU=049 we need run-time calculations, the preprocessor can't do it alone:
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_cutoff_hours_index) * 60) + MM_00_NIGHT)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_cutoff_hours_index) * 60) + MM_00_DAY)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  (((HH_08_DAY                 + context.light_daytime_cutoff_hours_index) * 60) + MM_30_DAY)
-    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST    (((HH_10_DAY_RANDOM_EARLIEST + context.light_daytime_cutoff_hours_index) * 60) + MM_00_DAY_RANDOM_EARLIEST)
-    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST      (((HH_20_NIGHT_RANDOM_LATEST - context.light_daytime_cutoff_hours_index) * 60) + MM_00_NIGHT_RANDOM_LATEST)
+    // After AQU=049 we need run-time calculations, the preprocessor can't do it alone. MUL is one cycle
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_hours_index) * 60) + MM_00_NIGHT)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_00_DAY)
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_30_DAY)
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST    (((HH_10_DAY_RANDOM_EARLIEST + context.light_daytime_hours_index) * 60) + MM_00_DAY_RANDOM_EARLIEST)
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST      (((HH_20_NIGHT_RANDOM_LATEST - context.light_daytime_hours_index) * 60) + MM_00_NIGHT_RANDOM_LATEST)
 
     // AQU=039 We used to have 8 levels per up/down. This was too messy with respect to colour temperature and power. Also, the first level down at 22.00 was
     // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.

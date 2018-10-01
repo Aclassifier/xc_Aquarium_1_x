@@ -24,7 +24,7 @@ typedef struct chronodot_d3231_registers_t {
 
 // AQU=049 had to expand and then also change read and write function call params:
 #define IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY  0
-#define IOF_LIGHT_DAYTIME_CUTOFF_HOURS_INDEX_IN_FRAM_MEMORY 1
+#define IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY        1
 #define NUM_BYTES_IN_FRAM_MEMORY                            2
 
 typedef interface i2c_internal_commands_if {

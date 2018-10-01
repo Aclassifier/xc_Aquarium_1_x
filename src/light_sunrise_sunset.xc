@@ -124,11 +124,11 @@ Brighter_Light_Composition_Iff (const light_composition_t light_composition, con
 
 //}}}
 
-{light_daytime_cutoff_hours_index_t, light_daytime_hours_t}
-Next_Daytime_Hours (const light_daytime_cutoff_hours_index_t cutoff_index) {
+{light_daytime_hours_index_t, light_daytime_hours_t}
+Next_Daytime_Hours (const light_daytime_hours_index_t index) {
 
-    light_daytime_cutoff_hours_index_t return_index = cutoff_index;
-    light_daytime_hours_t              light_daytime_hours;
+    light_daytime_hours_index_t return_index = index;
+    light_daytime_hours_t       light_daytime_hours;
 
     return_index++;
 
@@ -142,20 +142,20 @@ Next_Daytime_Hours (const light_daytime_cutoff_hours_index_t cutoff_index) {
 void
 Update_Daytime_Hours (light_sunrise_sunset_context_t &context) {
 
-    // context.light_daytime_cutoff_hours_index is input param
+    // context.light_daytime_hours_index is input param
 
     for (unsigned index = IOF_TIMED_DAY_TO_NIGHT_LIST_START; index < TIME_ACTION_ENTRY_NUMS; index++) {
         // Any time sequence does not cross the hour so it's ok to add/subtract just the IOF_HOUR_INLIST, not IOF_MINUTES_INLIST
         if (index < IOF_TIMED_NIGHT_TO_DAY_LIST_START) { // 0..3
             hour_minute_light_action_list[index][IOF_HOUR_INLIST] =
-                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] + context.light_daytime_cutoff_hours_index; // Later
+                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] + context.light_daytime_hours_index; // Later
         } else {
             hour_minute_light_action_list[index][IOF_HOUR_INLIST] =
-                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] - context.light_daytime_cutoff_hours_index; // Earlier
+                    hour_minute_light_action_list_const[index][IOF_HOUR_INLIST] - context.light_daytime_hours_index; // Earlier
         }
     }
 
-    context.light_daytime_hours = light_daytime_hours_list[context.light_daytime_cutoff_hours_index];
+    context.light_daytime_hours = light_daytime_hours_list[context.light_daytime_hours_index];
 }
 
 //{{{  Light_Composition
@@ -220,19 +220,19 @@ Handle_Light_Sunrise_Sunset_Etc (
            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default
        }
 
-       if (context.light_daytime_cutoff_hours_index_in_FRAM_memory == IOF_HH_IS_VOID) {
-           context.light_daytime_cutoff_hours_index = IOF_HH_12_IS_DAY_DEFAULT;
+       if (context.light_daytime_hours_index_in_FRAM_memory == IOF_HH_IS_VOID) {
+           context.light_daytime_hours_index = IOF_HH_12_IS_DAY_DEFAULT;
        } else {
-           context.light_daytime_cutoff_hours_index = context.light_daytime_cutoff_hours_index_in_FRAM_memory;
+           context.light_daytime_hours_index = context.light_daytime_hours_index_in_FRAM_memory;
        }
 
-       Update_Daytime_Hours (context); // Uses context.light_daytime_cutoff_hours_index, also sets light_daytime_hours
+       Update_Daytime_Hours (context); // Uses context.light_daytime_hours_index, also sets light_daytime_hours
 
        context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
-                               (context.light_daytime_cutoff_hours_index_in_FRAM_memory != context.light_daytime_cutoff_hours_index);
+                               (context.light_daytime_hours_index_in_FRAM_memory != context.light_daytime_hours_index);
 
        context.light_amount_full_or_two_thirds_in_FRAM_memory  = context.light_amount_full_or_two_thirds;  // Always valid
-       context.light_daytime_cutoff_hours_index_in_FRAM_memory = context.light_daytime_cutoff_hours_index; // Always valid
+       context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index; // Always valid
 
        context.do_light_amount_full_or_two_thirds_by_menu = false;
        context.light_sensor_diff_state = DIFF_VOID;
