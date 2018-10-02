@@ -93,8 +93,8 @@ extern unsigned char font[];
 //}}}
 
 #define CHAR_SMILEY        2 // Alternatively 1
-#define CHAR_RIGHT_ARROW  26 // <-
-#define CHAR_LEFT_ARROW   27 // <-
+#define CHAR_RIGHT_ARROW  26 // -> but nicer
+#define CHAR_LEFT_ARROW   27 // <- but nicer
 #define CHAR_aa          132 // å MODIFIED, was a-umlaut ä
 #define CHAR_AA          143 // Å MODIFIED, was A-ring (but a dot)
 #define CHAR_ae          145 // æ MODIFIED, was o-umlaut ö

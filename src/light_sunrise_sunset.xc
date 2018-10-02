@@ -132,6 +132,26 @@ Daytime_Hours_From_List (const light_daytime_hours_index_t index) {
     return return_hours;
 }
 
+light_daytime_hours_index_t
+Daytime_Hours_Index_By_List (const light_daytime_hours_t light_daytime_hours) {
+
+    light_daytime_hours_index_t return_index;
+    bool found = false;
+    unsigned index = 0;
+
+    while (not found) {
+        // index 0,1,2,3 (TIMED_HH_DAY_LIST_NUMS==4)
+        if (light_daytime_hours == light_daytime_hours_list[index]) {
+            found = true;
+            return_index = index;
+        } else {
+            index ++; // 1,2,3
+            xassert (index != TIMED_HH_DAY_LIST_NUMS);
+        }
+    }
+    return return_index;
+}
+
 {light_daytime_hours_index_t, light_daytime_hours_t}
 Next_Daytime_Hours (const light_daytime_hours_index_t index) {
 
@@ -236,11 +256,13 @@ Handle_Light_Sunrise_Sunset_Etc (
 
        Update_Daytime_Hours (context); // Uses context.light_daytime_hours_index, also sets light_daytime_hours
 
+       context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
+
        context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
                                (context.light_daytime_hours_index_in_FRAM_memory != context.light_daytime_hours_index);
 
        context.light_amount_full_or_two_thirds_in_FRAM_memory  = context.light_amount_full_or_two_thirds;  // Always valid
-       context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index; // Always valid
+       context.light_daytime_hours_index_in_FRAM_memory        = context.light_daytime_hours_index; // Always valid
 
        context.do_light_amount_full_or_two_thirds_by_menu = false;
        context.light_sensor_diff_state = DIFF_VOID;
@@ -290,12 +312,22 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    //}}}
 
-   context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                                 (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
-
    if (context.datetime.day != context.datetime_previous.day) {
        context.num_days_since_start++;
+       if (context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
+
+           // NUM_MINUTES_INTO_DAY_ macros use the light_daytime_hours_index value so preferably use them after here
+           context.light_daytime_hours_index = Daytime_Hours_Index_By_List (context.light_daytime_hours_by_menu.light_daytime_hours);
+
+           context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID; // Invalidates context.light_daytime_hours_by_menu.light_daytime_hours
+
+           context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index;
+           context.do_FRAM_write = true;
+       } else {}
    } else {}
+
+   context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                                 (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
    //{{{  context.do_light_amount_full_or_two_thirds_by_menu by IOF_BUTTON_RIGHT
 

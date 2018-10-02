@@ -56,6 +56,17 @@ typedef enum light_daytime_hours_e {
 //
 typedef light_daytime_hours_e light_daytime_hours_t;
 
+typedef enum {
+    LIGHT_DAYTIME_HOURS_VOID,
+    LIGHT_DAYTIME_HOURS_NEXT_BY_MENU,
+    LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU // New light_daytime_hours_index updated at midnight, changes
+} state_light_daytime_hours_by_menu_e;
+
+typedef struct light_daytime_hours_by_menu_t {
+    state_light_daytime_hours_by_menu_e state;
+    light_daytime_hours_t               light_daytime_hours; // Valid if LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU
+} light_daytime_hours_by_menu_t;
+
 typedef struct light_sunrise_sunset_context_t {
     bool                               do_init;
     it_is_day_or_night_t               it_is_day_or_night;
@@ -88,6 +99,7 @@ typedef struct light_sunrise_sunset_context_t {
     light_daytime_hours_index_t        light_daytime_hours_index;                // AQU=049
     light_daytime_hours_t              light_daytime_hours;                      // AQU=049
     light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // AQU=049
+    light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // AQU=049
     //
 } light_sunrise_sunset_context_t;
 

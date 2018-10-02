@@ -328,10 +328,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
     int  sprintf_return = 0; // If OK, number of chars excluding \0 written, if < 0 error
 
     const char char_degC_circle_str[]                        = DEGC_CIRCLE_STR;
-    const char char_AA_str[]                                 = CHAR_AA_STR; // A
-    const char char_OE_str[]                                 = CHAR_OE_STR; // Ø
-    const char takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR; // "±"
-    const char char_triple_bar[]                             = CHAR_TRIPLE_BAR_STR; // ≡
+    const char char_AA_str[]                                 = CHAR_AA_STR;          // A
+    const char char_OE_str[]                                 = CHAR_OE_STR;          // Ø
+    const char takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR;  // ±
+    const char char_triple_bar_str[]                         = CHAR_TRIPLE_BAR_STR;  // ≡
+    const char char_right_arrow_str[]                        = CHAR_RIGHT_ARROW_STR; // →
 
     debug_print_x ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
@@ -510,7 +511,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     bool  control_scheme_add_leading_space = false; // When light_control_scheme_str has 4 visible chars like "INIT"
 
                     for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
-                      context.display_ts1_chars [index_of_char] = ' ';
+                        context.display_ts1_chars [index_of_char] = ' ';
                     }
 
                     switch (context.light_control_scheme) {
@@ -551,7 +552,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         sprintf (left_of_minutes_or_count_str, "M:%u", light_sunrise_sunset_context.num_minutes_left_of_random); // AQU=023: is 1 the last 60 seconds
                     } else if (light_sunrise_sunset_context.num_random_sequences_left > 0) {
                         sprintf (left_of_minutes_or_count_str, "T%s%u",
-                                (light_sunrise_sunset_context.allow_normal_light_change_by_clock) ? ":" : char_triple_bar,
+                                (light_sunrise_sunset_context.allow_normal_light_change_by_clock) ? ":" : char_triple_bar_str,
                                  light_sunrise_sunset_context.num_random_sequences_left);
                     } else {
                         sprintf (left_of_minutes_or_count_str, "..."); // In effect, all random sequences used today
@@ -559,7 +560,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // FILLS 77 chars plus \0
                     sprintf_return = sprintf (context.display_ts1_chars,
-                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s  %02ut       %s%s %s %u %s",
+                          "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s %s%2ut       %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                                          // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                               // "5"
                           WATTOF_LED_STRIP_CENTER,                                                                                              // "4"
@@ -570,7 +571,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           takes_press_for_10_seconds_right_button_str,                                                                          // "±"
                           (light_sunrise_sunset_context.allow_normal_light_change_by_menu) ? light_control_norm_str : light_control_steady_str, // "NORM" or "FAST"
                           (full_light) ? light_strength_full_str : light_strength_weak_str,                                                     // "3/3" or "2/3
-                          light_sunrise_sunset_context.light_daytime_hours,                                                                     // 14t,12t,10t,08t
+                          (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
+                                  char_right_arrow_str :
+                                  "=",
+                          (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?         //
+                                  light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours :                                // "→14t", "→12t", "→10t", "→ 8t" (space allowed before 8, cheapest)
+                                  light_sunrise_sunset_context.light_daytime_hours ,                                                            // "=14t", "=12t", "=10t", "= 8t" (space allowed before 8, cheapest)
                           (control_scheme_add_leading_space) ? " " : "",                                                                        // So that " INIT" and "  DAG" will be left aligned first visible char
                           light_control_scheme_str,                                                                                             // "NATT" etc.
                           (light_sunrise_sunset_context.light_is_stable) ? stable_str : takes_press_for_10_seconds_right_button_str,            // "=" or "±"
@@ -579,7 +585,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:4W B:2W
                     //                                                   1/3  2/3  3/3.
-                    //                                            ±      NORM 3/3
+                    //                                            ±      NORM 3/3 =14t
                     //                                                   INIT ± 10 M:12
                     //                                                    DAG ± 10 M:12
                     //                                                   NATT = 0 T≡8
@@ -609,7 +615,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 // AQU=030 and AQU=031 much new here
                 case SUB_STATE_03: { // Odd number from IOF_BUTTON_RIGHT ("next")
 
-                    if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 <= 4) {
+                    if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_NEXT_BY_MENU) {
+                        light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU; // Now shown like "→14"
+                        // light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours already set
+                    } else {
                         // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                         // called at least once per minute, in practice once per second
                         light_sunrise_sunset_context.do_light_amount_full_or_two_thirds_by_menu = true;
@@ -619,8 +628,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory = light_sunrise_sunset_context.light_amount_full_or_two_thirds;
 
                         light_sunrise_sunset_context.allow_normal_light_change_by_menu = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
-                    } else { // ..to8
-
                     }
 
                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
@@ -663,7 +670,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     } else {
 
                         for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
-                          context.display_ts1_chars [index_of_char] = ' ';
+                            context.display_ts1_chars [index_of_char] = ' ';
                         }
 
                         sprintf_return = sprintf (context.display_ts1_chars, "%s3 LYS P%s", takes_press_for_10_seconds_right_button_str, char_AA_str);
@@ -684,6 +691,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                 display_print (light_control_norm_str, LIGHT_CONTROL_TEXT_NUM);
                                 display_print (" ", 1);
                                 display_print (light_strength_weak_str, LIGHT_STRENGTH_TEXT_NUM);
+
+                                if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state != LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
+                                    light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
+                                } else {}
                             } break;
 
                             case 2: { // NORM 3/3
@@ -712,25 +723,30 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                 display_print (light_strength_full_str, LIGHT_STRENGTH_TEXT_NUM);
                             } break;
 
-                            case 5:   // "DAG 16t"
-                            case 6:   // "DAG 12t"
-                            case 7:   // "DAG 10t"
-                            case 8: { // "DAG 8t"
+                            case 5:   // "DAG →16t"
+                            case 6:   // "DAG →12t"
+                            case 7:   // "DAG →10t"
+                            case 8: { // "DAG →8t"
 
-                                char display_ts2_chars [7];
+                                char display_ts2_chars [8];
                                 for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(display_ts2_chars); index_of_char++) {
-                                  display_ts2_chars [index_of_char] = ' ';
+                                    display_ts2_chars [index_of_char] = ' ';
                                 }
 
                                 light_daytime_hours_t light_daytime_hours =
                                         Daytime_Hours_From_List (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 - 5);
 
-                                sprintf_return = sprintf (display_ts2_chars, "%s %ut", "DAG", light_daytime_hours);
+                                sprintf_return = sprintf (display_ts2_chars, "%s %s%ut", "DAG", char_right_arrow_str, light_daytime_hours);
+                                // "DAG →12" to tell it's going to happen at midnight if LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU
+
                                 display_print (display_ts2_chars, sprintf_return); // num chars not including NUL
 
                                 if (light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 == 8) {
                                     light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0; // Wrap around
                                 } else {}
+
+                                light_sunrise_sunset_context.light_daytime_hours_by_menu.state               = LIGHT_DAYTIME_HOURS_NEXT_BY_MENU;
+                                light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours = light_daytime_hours;
                             } break;
                         }
 
@@ -1180,6 +1196,10 @@ void Handle_Real_Or_Clocked_Buttons (
                            context.display_sub_editing_seconds_cntdown = 0;
                            i_temperature_water_commands.clear_debug_log(); // Not when we turn display on because it also gets off at timeout
                            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8 = 0;
+
+                           if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state != LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
+                               light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
+                           } else {} // Don't touch LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU
 
                            if (context.error_bits_now == AQUARIUM_ERROR_BITS_NONE) {
                                // No code, all fine with no error(s)
