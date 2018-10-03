@@ -314,15 +314,18 @@ Handle_Light_Sunrise_Sunset_Etc (
 
    if (context.datetime.day != context.datetime_previous.day) {
        context.num_days_since_start++;
+
        if (context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
 
            // NUM_MINUTES_INTO_DAY_ macros use the light_daytime_hours_index value so preferably use them after here
            context.light_daytime_hours_index = Daytime_Hours_Index_By_List (context.light_daytime_hours_by_menu.light_daytime_hours);
+           Update_Daytime_Hours (context);
 
            context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID; // Invalidates context.light_daytime_hours_by_menu.light_daytime_hours
 
            context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index;
            context.do_FRAM_write = true;
+
        } else {}
    } else {}
 
