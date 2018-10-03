@@ -324,7 +324,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     client temperature_heater_commands_if  i_temperature_heater_commands, // SCREEN_2_VANNTEMP_REG
     const  caller_t                        caller)
 {
-    int  sprintf_return = 0; // If OK, number of chars excluding \0 written, if < 0 error
+    int sprintf_numchars = 0; // If OK, number of chars excluding \0 written, if < 0 error
 
     const char char_degC_circle_str[]                        = DEGC_CIRCLE_STR;
     const char char_AA_str[]                                 = CHAR_AA_STR;          // A
@@ -383,7 +383,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER,  temp_degC_heater_str);
 
             // FILLS 84 chars plus \0
-            sprintf_return = sprintf (context.display_ts1_chars,
+            sprintf_numchars = sprintf (context.display_ts1_chars,
                     "1%s AKVARIETERMOMETERE%s          VANN %s%sC          LUFT %s%sC   VARME UNDER %s%sC",
                     context.screen_logg.exists ? takes_press_for_10_seconds_right_button_str : "",
                     context.screen_logg.exists ? "" : " ",
@@ -432,7 +432,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str); // Value or GENERIC_TEXT_NO_DATA_DEGC
 
             // FILLS 78 chars plus \0
-            sprintf_return = sprintf (context.display_ts1_chars,
+            sprintf_numchars = sprintf (context.display_ts1_chars,
                     "2 VANNTEMP-REG %s%sC %sP%s       %3u%%        SYKLUS %s%sC       %sEFFEKT    %2uW",
                     temp_degC_water_str,
                     char_degC_circle_str,
@@ -558,7 +558,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     // FILLS 77 chars plus \0
-                    sprintf_return = sprintf (context.display_ts1_chars,
+                    sprintf_numchars = sprintf (context.display_ts1_chars,
                           "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %s %s%2ut       %s%s %s %u %s",
                           takes_press_for_10_seconds_right_button_str,                                                                          // "±"                                                                       //  Å
                           WATTOF_LED_STRIP_FRONT,                                                                                               // "5"
@@ -671,20 +671,19 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             context.display_ts1_chars [index_of_char] = ' ';
                         }
 
-                        sprintf_return = sprintf (context.display_ts1_chars, "%s3 LYS P%s", takes_press_for_10_seconds_right_button_str, char_AA_str);
+                        sprintf_numchars = sprintf (context.display_ts1_chars, "%s3 LYS P%s", takes_press_for_10_seconds_right_button_str, char_AA_str);
                         Clear_All_Pixels_In_Buffer();
                         setTextSize(1);
                         setTextColor(WHITE);
                         setCursor(0,0);
-                        display_print (context.display_ts1_chars, sprintf_return); // num chars not including NUL
+                        display_print (context.display_ts1_chars, sprintf_numchars); // num chars not including NUL
                         setTextSize(2);
                         setCursor(0,14);
 
                         light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8++;
 
-                        char display_ts2_chars [9]; // "FAST=2/3" has 8 and is largest, one extra for EOL
-                        for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(display_ts2_chars); index_of_char++) {
-                            display_ts2_chars [index_of_char] = ' ';
+                        for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
+                            context.display_ts1_chars [index_of_char] = ' ';
                         }
 
                         const unsigned case_val = light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to4to8;
@@ -721,7 +720,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                                            (allow_normal_prev == light_sunrise_sunset_context.allow_normal_light_change_by_menu_next);
                                 const bool is_full_light = (light_sunrise_sunset_context.light_amount_full_or_two_thirds_next == NORMAL_LIGHT_IS_FULL); // Else NORMAL_LIGHT_IS_TWO_THIRDS
 
-                                sprintf_return = sprintf (display_ts2_chars, "%s%s%s", // "NORM=3/3"
+                                sprintf_numchars = sprintf (context.display_ts1_chars, "%s%s%s", // "NORM=3/3"
                                         (is_norm) ? light_control_norm_str : light_control_steady_str, // "NORM" or "FAST"
                                         (is_no_change) ? "=" : " ", // ">" does not look nice, not char_right_arrow_str "→", reserving it for timed change
                                         (is_full_light) ? light_strength_full_str : light_strength_weak_str); // "3/3" or "2/3"
@@ -742,7 +741,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                                 bool const is_no_change = (light_daytime_hours == light_sunrise_sunset_context.light_daytime_hours);
 
-                                sprintf_return = sprintf (display_ts2_chars, "%s%s%ut%s",
+                                sprintf_numchars = sprintf (context.display_ts1_chars, "%s%s%ut%s",
                                         "DAG",
                                         is_no_change ? "=" : " ",
                                         light_daytime_hours,
@@ -763,7 +762,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             default: fail(); break; // Should not happen!
                         }
 
-                        display_print (display_ts2_chars, sprintf_return); // num chars not including NUL
+                        display_print (context.display_ts1_chars, sprintf_numchars); // num chars not including NUL
                         writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
                     }
                 } break;
@@ -807,7 +806,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
 
             // FILLS 84 chars plus \0
-            sprintf_return = sprintf (context.display_ts1_chars,
+            sprintf_numchars = sprintf (context.display_ts1_chars,
                     "4 BOKS     LYS %sV          VARME %sV      LYSSTYRKE %u%s       TEMPERATUR %s%sC",
                     rr_12V_str,
                     rr_24V_str,
@@ -858,7 +857,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             #ifdef TEST_BOOT_FROM_CONFIG
-                sprintf_return = sprintf (context.display_ts1_chars,
+                sprintf_numchars = sprintf (context.display_ts1_chars,
                                    "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
                                    reg_value,
                                    __DATE__,
@@ -867,7 +866,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             #else
                 // EDIT HERE IF XTIMECOMPOSER_VERSION_STR or APPLICATION_VERSION_STR need to change size,
                 // as I didn't think it necessary to code it dynamically as I have done with some of the others
-                sprintf_return = sprintf (context.display_ts1_chars,
+                sprintf_numchars = sprintf (context.display_ts1_chars,
                                    "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s %syvind Teig",
                                    xTIMEcomposer_version_str,
                                    __DATE__,
@@ -912,7 +911,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             // Max Watts and requried voltages are technical matters, out of scope here. This is about the fish and plant living environment:
 
             // FILLS 84 chars plus \0
-            sprintf_return = sprintf (context.display_ts1_chars,
+            sprintf_numchars = sprintf (context.display_ts1_chars,
                     "6 KONSTANTER           %s%sC VANN OG MAX   %s%sC UNDERVARME    %04u.%02u.%02u BOKS P%s",
                     temp_water_degc_str,
                     char_degC_circle_str,
@@ -968,12 +967,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                 case SUB_STATE_12: { // Here only by pressing and holding IOF_BUTTON_RIGHT then press IOF_BUTTON_CENTER, but do it before DISPLAY_SUB_ON_FOR_SECONDS after last keypress
                     if (context.display_sub_edited) {
-                        sprintf_return = sprintf (context.display_ts1_chars, " NT KLOKKE STILT        Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
-                        //                                                     ..........----------.
-                        //                                                     NT KLOKKE STILT     .
-                        //                                                     . Det runde kortet:
-                        //                                                     . ChronoDot V2.1    .
-                        //                                                     . Batteri: CR1632   .
+                        sprintf_numchars = sprintf (context.display_ts1_chars, " NT KLOKKE STILT        Det runde kortet:    ChronoDot V2.1       Batteri: CR1632");
+                        //                                                       ..........----------.
+                        //                                                       NT KLOKKE STILT     .
+                        //                                                       . Det runde kortet:
+                        //                                                       . ChronoDot V2.1    .
+                        //                                                       . Batteri: CR1632   .
                         displayed_result_done = true;
 
                         datetime_to_chronodot_registers (context.datetime_editable, context.chronodot_d3231_registers);
@@ -1128,7 +1127,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 // FILLS 20 chars plus \0
                 //       2017.03.01 11.49.01
                 //       2018<03.01 11.49.01
-                sprintf_return = sprintf (context.display_ts1_chars,
+                sprintf_numchars = sprintf (context.display_ts1_chars,
                         "%04u%s%02u%s%02u  %02u%s%02u%s%02u",
                         datetime_show.year,
                         (screen_clock_cursor_at == CURSOR_POINTING_AT_YEAR) ? editable_separator_left_arrow_str : show_separator_str,
@@ -1169,8 +1168,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
     // When I replaced all sprintf with the safe version snprintf 12.6KB code was the cost! See http://www.xcore.com/viewtopic.php?f=26&t=563
 
     // By switching -DXASSERT_ENABLE_ASSERTIONS=0 or 1 I saw that these two assert cost 100 bytes
-    assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
-    assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
+    assert_exception((not(sprintf_numchars < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
+    assert_exception((not((sprintf_numchars+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
 }
 //
 // Handle_Real_Or_Clocked_Buttons
@@ -1467,7 +1466,7 @@ void System_Task_Data_Handler (
  client temperature_water_commands_if  i_temperature_water_commands,
  client temperature_heater_commands_if i_temperature_heater_commands)
 {
-    int        sprintf_return;
+    int        sprintf_numchars;
     const char takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
 
     error_bits_t error_bits_now = AQUARIUM_ERROR_BITS_NONE; // So that beeping stops when error is gone, but not bits in display
@@ -1620,7 +1619,7 @@ void System_Task_Data_Handler (
                     char error_bits_history_ls_byte =  context.error_bits_history       bitand 0xff;
                     char error_bits_history_ms_byte = (context.error_bits_history >> 8) bitand 0xff;
 
-                    sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER B:f..c b..8 7..4 3..0N:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%cF:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
+                    sprintf_numchars = sprintf (context.screen_logg.display_ts1_chars, "X%s BIT-FEILMELDINGER B:f..c b..8 7..4 3..0N:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%cF:%c%c%c%c %c%c%c%c %c%c%c%c %c%c%c%c",
                             takes_press_for_10_seconds_right_button_str,
                             BYTE_TO_1_SPACE(error_bits_now_ms_byte),
                             BYTE_TO_1_SPACE(error_bits_now_ls_byte),
@@ -1632,10 +1631,10 @@ void System_Task_Data_Handler (
                     //                                        N:                111 "Nå"  (now):     if external I2C cable is out
                     //                                        F:               1111 "Før" (eariler): if --"-- and ERROR_BIT_HEATER_CABLE_UNPLUGGED was present but is now gone
 
-                    assert_exception((not(sprintf_return < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
-                    assert_exception((not((sprintf_return+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
+                    assert_exception((not(sprintf_numchars < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
+                    assert_exception((not((sprintf_numchars+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
 
-                    context.screen_logg.display_ts1_chars_num = sprintf_return;
+                    context.screen_logg.display_ts1_chars_num = sprintf_numchars;
                 } else {}
             } else {}
 
@@ -1648,17 +1647,17 @@ void System_Task_Data_Handler (
 
                 context.display_is_on_seconds_cnt = 0; // Never shut off
 
-                sprintf_return = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
+                sprintf_numchars = sprintf (context.screen_logg.display_ts1_chars, "0%s LOGG 1/10 GRAD\n  VANN  %u OK:%u\n  LUFT  %u OK:%u\n  VARME %u OK:%u",
                         takes_press_for_10_seconds_right_button_str,
                         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER],   context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER],
                         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT], context.i2c_temps.i2c_temp_ok[IOF_TEMPC_AMBIENT],
                         context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_HEATER],  context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]);
 
-                if ((sprintf_return < 0) or (sprintf_return > SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN)) {
+                if ((sprintf_numchars < 0) or (sprintf_numchars > SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN)) {
                     sprintf (context.screen_logg.display_ts1_chars, "%s","Feil");
                     context.screen_logg.display_ts1_chars_num = 4;
                 } else {
-                    context.screen_logg.display_ts1_chars_num = sprintf_return;
+                    context.screen_logg.display_ts1_chars_num = sprintf_numchars;
                 }
             } else {}
 

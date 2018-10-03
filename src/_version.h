@@ -18,9 +18,9 @@ typedef uint16_t application_version_num_t;
 #define FLASH_BLACK_BOARD                         // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
 //#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.26" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1126  // Is "application_version_num_t"
-    // "1.1.26"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
+#define APPLICATION_VERSION_STR "1.1.27" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1127  // Is "application_version_num_t"
+    // "1.1.27"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
     // "1.1.22"    01Oct2018 AQU=049 Day-time to 14, 12, 10 or 8 hours defined. read_byte_fram_ok and write_byte_fram_ok also modified
     // "1.1.20"    28Sep2018 AQU=048 Shorter day to counter algae growth. From 13.5 hours with some light to 11.5 hours. HH_DAY_SHORTER is new
     // "1.1.19"    27Sep2018 AQU=047 DEBUG_TEMP_FAST set to 0, meaning that TEMP_MEASURE_INTERVAL_IS_1_MINUTE has been in use over a year,
