@@ -65,8 +65,12 @@ typedef struct { // Size must be modulo 4                                       
     light_amount_full_or_two_thirds_r light_amount_full_or_two_thirds;              //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
     light_daytime_hours_r             light_daytime_hours;                          //       35
     uint8_t                           debug;                                        //          36
+    uint8_t                           day_start_light_hour;                         // 37
+    uint8_t                           night_start_dark_hour;                        //    38
+    uint8_t                           padding_39;                                   //       39
+    uint8_t                           padding_40;                                   //          40
     //                                                                                          ##
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 36 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
+    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 40 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task                       ##
     //                            and may cause low code size if it fails                       ##
     // If PACKET_LEN08 of packet_t in /lib_rfm69_xc/rfm69_commmprot.h is 20 a                   ##

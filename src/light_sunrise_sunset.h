@@ -96,10 +96,13 @@ typedef struct light_sunrise_sunset_context_t {
     bool                               do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
     bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
     num_days_since_start_t             num_days_since_start;                     // Done for radio, instead of the longer date of start
-    light_daytime_hours_index_t        light_daytime_hours_index;                // AQU=049
-    light_daytime_hours_t              light_daytime_hours;                      // AQU=049
-    light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // AQU=049
-    light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // AQU=049
+                                                                                 // All four AQU=049 new:
+    light_daytime_hours_index_t        light_daytime_hours_index;                // This is the offset in hours (0,1,2,3) which is the same as the index of the list of daytime hours (AQU=049 new)
+    light_daytime_hours_t              light_daytime_hours;                      // Daytime hours (14,12,10,8)
+    light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // Daytime hours as used to store or get from FRAM (parameter)
+    light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // State and daytime hours, as used by SCREEN_3_LYSGULERING
+    hour_t                             day_start_light_hour;                     // AQU=051
+    hour_t                             night_start_dark_hour;                    // AQU=051
     //
 } light_sunrise_sunset_context_t;
 
@@ -160,11 +163,11 @@ typedef struct light_sunrise_sunset_context_t {
 
 #ifndef DEBUG_TEST_DAY_NIGHT_DAY
     // After AQU=049 we need run-time calculations, the preprocessor can't do it alone. MUL is one cycle
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_hours_index) * 60) + MM_00_NIGHT)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_00_DAY)
-    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_30_DAY)
-    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST    (((HH_10_DAY_RANDOM_EARLIEST + context.light_daytime_hours_index) * 60) + MM_00_DAY_RANDOM_EARLIEST)
-    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST      (((HH_20_NIGHT_RANDOM_LATEST - context.light_daytime_hours_index) * 60) + MM_00_NIGHT_RANDOM_LATEST)
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_hours_index) * 60) + MM_00_NIGHT)               // Earlier so subtract
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_00_DAY)                 // Later so add
+    #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_LAST  (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_30_DAY)                 // Later so add
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST    (((HH_10_DAY_RANDOM_EARLIEST + context.light_daytime_hours_index) * 60) + MM_00_DAY_RANDOM_EARLIEST) // Later so add
+    #define NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST      (((HH_20_NIGHT_RANDOM_LATEST - context.light_daytime_hours_index) * 60) + MM_00_NIGHT_RANDOM_LATEST) // Earlier so subtract
 
     // AQU=039 We used to have 8 levels per up/down. This was too messy with respect to colour temperature and power. Also, the first level down at 22.00 was
     // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.

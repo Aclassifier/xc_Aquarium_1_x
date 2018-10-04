@@ -2104,6 +2104,8 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.light_amount_full_or_two_thirds = (light_amount_full_or_two_thirds_r) light_sunrise_sunset_context.light_amount_full_or_two_thirds;
                         TX_radio_payload.u.payload_u0.light_daytime_hours             = (light_daytime_hours_r)             light_sunrise_sunset_context.light_daytime_hours;
                         TX_radio_payload.u.payload_u0.debug                           =                                     0;
+                        TX_radio_payload.u.payload_u0.day_start_light_hour            = (hour_r)                            light_sunrise_sunset_context.day_start_light_hour;
+                        TX_radio_payload.u.payload_u0.night_start_dark_hour           = (hour_r)                            light_sunrise_sunset_context.night_start_dark_hour;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;
