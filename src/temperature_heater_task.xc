@@ -498,7 +498,7 @@ void Temperature_Heater_Task (
                 unsigned aging_factor_after_1800_until_3600_secs = AGING_OF_DATA_WHILE_OFF_AT_1800_SECS;
 
                 if (rr_24V_voltage_onetenthV == 0) {
-                    #ifndef FLASH_BLACK_BOARD
+                    #if (FLASH_BLACK_BOARD==0)
                         debug_print ("%s", "Zero Watt? V24 may be zero, but always until middle button!\n");
                     #endif
                 } else {}

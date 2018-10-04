@@ -15,12 +15,15 @@ typedef uint16_t application_version_num_t;
 #define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                         // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
-//#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM // Causing WRONG_CODE_STARTKIT
+#define FLASH_BLACK_BOARD                       0 // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
+#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // Causing WRONG_CODE_STARTKIT
 
-#define APPLICATION_VERSION_STR "1.1.30" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1130  // Is "application_version_num_t"
-    // "1.1.30"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
+//                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
+#define APPLICATION_VERSION_STR "1.1.32" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1132  // Is "application_version_num_t"
+    // "1.1.32"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
+    //                               FLASH_BLACK_BOARD==1 63808 used
+    //                               FLASH_BLACK_BOARD==0 63936 used
     // "1.1.22"    01Oct2018 AQU=049 Day-time to 14, 12, 10 or 8 hours defined. read_byte_fram_ok and write_byte_fram_ok also modified
     // "1.1.20"    28Sep2018 AQU=048 Shorter day to counter algae growth. From 13.5 hours with some light to 11.5 hours. HH_DAY_SHORTER is new
     // "1.1.19"    27Sep2018 AQU=047 DEBUG_TEMP_FAST set to 0, meaning that TEMP_MEASURE_INTERVAL_IS_1_MINUTE has been in use over a year,

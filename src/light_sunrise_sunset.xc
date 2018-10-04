@@ -59,7 +59,7 @@
 
 //}}}  
 
-#ifdef FLASH_BLACK_BOARD
+#if (FLASH_BLACK_BOARD==1)
     // No code
 #else
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY
@@ -256,7 +256,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
        #define FORCE_FRAM_TO_14_HOURS 0
        #if (FORCE_FRAM_TO_14_HOURS==1)
-           #ifndef FLASH_BLACK_BOARD
+           #if (FLASH_BLACK_BOARD==0)
                #error FORCE_FRAM_TO_14_HOURS set
            #endif
            context.light_daytime_hours_index = IOF_HH_14_IS_DAY; // override above
@@ -269,7 +269,6 @@ Handle_Light_Sunrise_Sunset_Etc (
        Update_Daytime_Hours (context); // Uses context.light_daytime_hours_index, also sets light_daytime_hours
 
        context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
-       context.debug or_eq 0x10;
 
        context.light_amount_full_or_two_thirds_in_FRAM_memory  = context.light_amount_full_or_two_thirds;  // Always valid
        context.light_daytime_hours_index_in_FRAM_memory        = context.light_daytime_hours_index; // Always valid
@@ -332,7 +331,6 @@ Handle_Light_Sunrise_Sunset_Etc (
            Update_Daytime_Hours (context);
 
            context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID; // Invalidates context.light_daytime_hours_by_menu.light_daytime_hours
-           context.debug or_eq 0x20;
            context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index;
            context.do_FRAM_write = true;
 
@@ -524,7 +522,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                                // Change, down (more SKY) or even up now allowed (less SKY)!
                                i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
-                               #if ((defined FLASH_BLACK_BOARD) and (not defined USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM))
+                               #if ((FLASH_BLACK_BOARD==1) and (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==0))
                                    context.num_minutes_left_of_random = 3; // To test AQU=023
                                #else
                                    context.num_minutes_left_of_random =

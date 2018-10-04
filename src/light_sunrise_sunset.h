@@ -100,7 +100,6 @@ typedef struct light_sunrise_sunset_context_t {
     light_daytime_hours_t              light_daytime_hours;                      // AQU=049
     light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // AQU=049
     light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // AQU=049
-    uint8_t                            debug;
     //
 } light_sunrise_sunset_context_t;
 

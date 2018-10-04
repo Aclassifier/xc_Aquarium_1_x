@@ -74,7 +74,7 @@
 #define DEBUG_PRINT_Y 0
 #define debug_print_y(fmt, ...) do { if(DEBUG_PRINT_Y and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#ifndef FLASH_BLACK_BOARD
+#if (FLASH_BLACK_BOARD==0)
     #if (DEBUG_PRINT_Y==1)
         #error CODE DROPPED!
     #endif
@@ -141,7 +141,7 @@ typedef enum display_sub_state_t {
 
 typedef struct screen_logg_t {
     bool     exists;
-    bool     disabled_toggled_on_acknowledge_10secs; // Just so that the display will not be on all the time (if FLASH_BLACK_BOARD)
+    bool     disabled_toggled_on_acknowledge_10secs; // Just so that the display will not be on all the time (if FLASH_BLACK_BOARD==1)
     unsigned display_ts1_chars_num;
     char     display_ts1_chars [SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN];
 } screen_logg_t;
@@ -620,7 +620,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_NEXT_BY_MENU) {
                         light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU; // Now shown like "14→"
-                        light_sunrise_sunset_context.debug = 0x01; // Clears all other bits
                     } else {
                         // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                         // called at least once per minute, in practice once per second
@@ -733,7 +732,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
                                 // Clean up 5-8
                                 if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state != LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
                                     light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
-                                    light_sunrise_sunset_context.debug or_eq 0x02;
                                 } else {}
                             } break;
 
@@ -759,13 +757,10 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                                 if (is_no_change) { // The only way to regret
                                     light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
-                                    light_sunrise_sunset_context.debug or_eq 0x04;
                                 } else if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
                                     // Do nothing
-                                    light_sunrise_sunset_context.debug or_eq 0x40;
                                 } else {
                                     light_sunrise_sunset_context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_NEXT_BY_MENU;
-                                    light_sunrise_sunset_context.debug or_eq 0x08;
                                     light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours = light_daytime_hours;
                                 }
                             } break;
@@ -1398,7 +1393,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.error_bits_now = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_beeper_blip_now_muted = false; // Only place it's cleared!
-                                    #ifdef FLASH_BLACK_BOARD
+                                    #if (FLASH_BLACK_BOARD==1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = not context.screen_logg.disabled_toggled_on_acknowledge_10secs;
                                     #endif
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
@@ -1414,7 +1409,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
                                     } else {}
-                                    #ifdef FLASH_BLACK_BOARD
+                                    #if (FLASH_BLACK_BOARD==1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = false;
                                     #endif
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
@@ -1524,7 +1519,7 @@ void System_Task_Data_Handler (
     //
     // HANDLE ERROR SITUATIONS
 
-    #if ((defined FLASH_BLACK_BOARD) or (defined USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM))
+    #if ((FLASH_BLACK_BOARD==1) or (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==1))
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WRONG_CODE_STARTKIT); // AQU=034 new
     #endif
 
@@ -1586,7 +1581,7 @@ void System_Task_Data_Handler (
 
     // No new assignment of local error_bits_now after here
 
-    #ifdef FLASH_BLACK_BOARD
+    #if (FLASH_BLACK_BOARD==1)
     if (context.screen_logg.disabled_toggled_on_acknowledge_10secs) {
         // error_bits already cleared, don't use error_bits_now
     }
@@ -1945,7 +1940,6 @@ void System_Task (
     context.error_bits_now = AQUARIUM_ERROR_BITS_NONE;
     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE;
     context.error_beeper_blip_now_muted = false;
-    light_sunrise_sunset_context.debug = 0;
     #ifdef DEBUG_TEST_WATCHDOG
         context.do_watchdog_retrigger_ms_debug = false;
     #endif
@@ -2109,7 +2103,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.now_regulating_at               = (now_regulating_at_r)               context.now_regulating_at;
                         TX_radio_payload.u.payload_u0.light_amount_full_or_two_thirds = (light_amount_full_or_two_thirds_r) light_sunrise_sunset_context.light_amount_full_or_two_thirds;
                         TX_radio_payload.u.payload_u0.light_daytime_hours             = (light_daytime_hours_r)             light_sunrise_sunset_context.light_daytime_hours;
-                        TX_radio_payload.u.payload_u0.debug                           =                                     light_sunrise_sunset_context.debug;
+                        TX_radio_payload.u.payload_u0.debug                           =                                     0;
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;

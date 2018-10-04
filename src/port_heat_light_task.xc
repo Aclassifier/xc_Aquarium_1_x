@@ -22,7 +22,7 @@
 #define DEBUG_PRINT_HEAT_LIGHT_SERVER 0 // Cost 0.8k
 #define debug_print(fmt, ...) do { if(DEBUG_PRINT_HEAT_LIGHT_SERVER and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
-#ifdef FLASH_BLACK_BOARD
+#if (FLASH_BLACK_BOARD==1)
     // No Board 9, ok to see red LEDs go on and off
 #else
     #define DO_HEAT_PULSING_THROUGH_BOARD_9 // Board 9 is mounted inside the controller box by th eaquarium, so this MUST be defined
@@ -56,7 +56,7 @@
 
 port myport_p32 = XS1_PORT_32A;
 
-#ifdef FLASH_BLACK_BOARD
+#if (FLASH_BLACK_BOARD==1)
     #define DO_MYPORT_P32(pins) (pins xor (BITS_LIGHT_ALL bitor BITS_HEAT_BOTH)) // Yellow LEDS are pull-down active low, so we need to invert all pin bits
 #else
     #define DO_MYPORT_P32(pins) pins // STANDARD CONTROLLER BOX, MOSFETS are active high
