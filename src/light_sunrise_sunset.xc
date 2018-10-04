@@ -254,12 +254,22 @@ Handle_Light_Sunrise_Sunset_Etc (
            context.light_daytime_hours_index = context.light_daytime_hours_index_in_FRAM_memory;
        }
 
+       #define FORCE_FRAM_TO_14_HOURS 0
+       #if (FORCE_FRAM_TO_14_HOURS==1)
+           #ifndef FLASH_BLACK_BOARD
+               #error FORCE_FRAM_TO_14_HOURS set
+           #endif
+           context.light_daytime_hours_index = IOF_HH_14_IS_DAY; // override above
+           context.do_FRAM_write = true;
+       #else
+           context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
+                                   (context.light_daytime_hours_index_in_FRAM_memory != context.light_daytime_hours_index);
+       #endif
+
        Update_Daytime_Hours (context); // Uses context.light_daytime_hours_index, also sets light_daytime_hours
 
        context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID;
-
-       context.do_FRAM_write = (context.light_amount_full_or_two_thirds_in_FRAM_memory  != context.light_amount_full_or_two_thirds) or
-                               (context.light_daytime_hours_index_in_FRAM_memory != context.light_daytime_hours_index);
+       context.debug or_eq 0x10;
 
        context.light_amount_full_or_two_thirds_in_FRAM_memory  = context.light_amount_full_or_two_thirds;  // Always valid
        context.light_daytime_hours_index_in_FRAM_memory        = context.light_daytime_hours_index; // Always valid
@@ -322,7 +332,7 @@ Handle_Light_Sunrise_Sunset_Etc (
            Update_Daytime_Hours (context);
 
            context.light_daytime_hours_by_menu.state = LIGHT_DAYTIME_HOURS_VOID; // Invalidates context.light_daytime_hours_by_menu.light_daytime_hours
-
+           context.debug or_eq 0x20;
            context.light_daytime_hours_index_in_FRAM_memory = context.light_daytime_hours_index;
            context.do_FRAM_write = true;
 

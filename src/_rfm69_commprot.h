@@ -64,7 +64,7 @@ typedef struct { // Size must be modulo 4                                       
     now_regulating_at_r               now_regulating_at;                            // 33
     light_amount_full_or_two_thirds_r light_amount_full_or_two_thirds;              //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
     light_daytime_hours_r             light_daytime_hours;                          //       35
-    uint8_t                           padding_36;                                   //          36
+    uint8_t                           debug;                                        //          36
     //                                                                                          ##
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 36 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task                       ##
