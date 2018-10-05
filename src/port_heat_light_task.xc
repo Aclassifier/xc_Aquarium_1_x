@@ -256,7 +256,9 @@ bool Is_Stable (const soft_change_pwm_window_timer_us_t soft_change_pwm_window_t
 // soft_change_pwm_window_timer_us inside a PWM window. 24Feb2017
 //
 
+#if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==1)
 [[combinable]]
+#endif
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]) {
 
     uint32_t                 port_value = UINT32_HIGH_BITS;

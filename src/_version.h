@@ -19,9 +19,10 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // Causing WRONG_CODE_STARTKIT
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.1.33" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1133  // Is "application_version_num_t"
-    // "1.1.33"    04Oct2018 AQU=051 daytime hours offset was wrong, now available for radio for debug (printf not available)
+#define APPLICATION_VERSION_STR "1.1.35" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1135  // Is "application_version_num_t"
+    // "1.1.35"    05Oct2018 AQU=052 PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE 0 for NOT [[combinable]] so that Port_Pins_Heat_Light_Task runs on a core by itself
+    // "1.1.34"    05Oct2018 AQU=051 daytime hours offset was wrong, now available for radio for debug (printf not available)
     // "1.1.32"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
     //                               FLASH_BLACK_BOARD==1 63808 used
     //                               FLASH_BLACK_BOARD==0 63936 used

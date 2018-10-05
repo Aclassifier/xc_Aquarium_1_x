@@ -77,9 +77,7 @@
 //
 typedef unsigned hour_minute_light_action_list_t[TIME_ACTION_ENTRY_NUMS][TIME_ACTION_ENTRY_LINE_NUMS];
 
-static       hour_minute_light_action_list_t hour_minute_light_action_list       = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
-static const hour_minute_light_action_list_t hour_minute_light_action_list_const = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT}; // Only [IOF_HOUR_INLIST] values used, as defaut
-
+static       hour_minute_light_action_list_t hour_minute_light_action_list           = {TIMED_DAY_TO_NIGHT_LIST_INIT,TIMED_NIGHT_TO_DAY_LIST_INIT};
 const static light_daytime_hours_t light_daytime_hours_list [TIMED_HH_DAY_LIST_NUMS] = TIMED_HH_DAY_LIST_INIT; // AQU=049 new
 
 //}}}  
@@ -161,8 +159,8 @@ Update_Daytime_Hours (light_sunrise_sunset_context_t &context) { // No & compile
     // Besides, all four DAY_TO_NIGHT (like 22) and all four NIGHT_TO_DAY (like 08) are the same
     // (AQU=051 fix)
     //
-    context.day_start_light_hour  = hour_minute_light_action_list_const[IOF_TIMED_NIGHT_TO_DAY_LIST_START][IOF_HOUR_INLIST] + context.light_daytime_hours_index; // Later so add
-    context.night_start_dark_hour = hour_minute_light_action_list_const[IOF_TIMED_DAY_TO_NIGHT_LIST_START][IOF_HOUR_INLIST] - context.light_daytime_hours_index; // Earlier so subtract
+    context.day_start_light_hour  = HH_08_DAY   + context.light_daytime_hours_index; // Later so add
+    context.night_start_dark_hour = HH_22_NIGHT - context.light_daytime_hours_index; // Earlier so subtract
 
     for (unsigned index = IOF_TIMED_DAY_TO_NIGHT_LIST_START; index <= IOF_TIMED_NIGHT_TO_DAY_LIST_LAST; index++) {
 

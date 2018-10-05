@@ -105,8 +105,12 @@ typedef interface port_heat_light_commands_if {
 
 } port_heat_light_commands_if;
 
+
+#define PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE 0 // AQU=052 Use 0 for NOT [[combinable]] so that Port_Pins_Heat_Light_Task runs on a core by itself
+
 #define PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS 2
 
-
-[[combinable]]
+#if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==1)
+    [[combinable]]
+#endif
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS]);

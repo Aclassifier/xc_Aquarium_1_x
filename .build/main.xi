@@ -1705,11 +1705,7 @@ typedef interface port_heat_light_commands_if {
     unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
-
-
-
-
-[[combinable]]
+# 116 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 34 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
@@ -2384,6 +2380,9 @@ int main() {
                                               i_buttons, i_irq, i_radio);
             on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
                                               0);
+
+                on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
+# 235 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2403,7 +2402,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-                Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
+# 266 "../src/main.xc"
             }
         }
         on tile[0]: {

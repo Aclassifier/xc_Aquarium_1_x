@@ -217,6 +217,21 @@ int main() {
                                               i_buttons, i_irq, i_radio);
             on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
                                               ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+            #if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==0)
+                on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
+
+                // USE THIS
+
+                // ON A SEPARATE CORE! 8,9,27 (7,8,26 when [[combined]]), but less code!
+                // I guess that blinking of the light is smoothest when the select is not shared with other tasks!
+                /*
+                Cores available:            8,   used:          8 .  OKAY
+                Timers available:          10,   used:          9 .  OKAY
+                Chanends available:        32,   used:         27 .  OKAY
+                Memory available:       65536,   used:      62484 .  OKAY
+                  (Stack: 6796, Code: 49866, Data: 5822)
+                */
+            #endif
         }
         on tile[0]: {
             [[combine]]
@@ -236,7 +251,18 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task    (i_temperature_water_commands,      // [[combinable]]
                                            i_temperature_heater_commands[1]);
-                Port_Pins_Heat_Light_Task (i_port_heat_light_commands);       // [[combinable]]
+                #if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==1)
+                    Port_Pins_Heat_Light_Task (i_port_heat_light_commands); // [[combinable]]
+                    // SHARED CORE! 7,8,26 (8,9,27 when NOT [[combined]]), but more code!
+                    // I guess that blinking of the light is NOT that well "protected" against delays when the select is shared with other tasks?
+                    /*
+                    Cores available:            8,   used:          7 .  OKAY
+                    Timers available:          10,   used:          8 .  OKAY
+                    Chanends available:        32,   used:         26 .  OKAY
+                    Memory available:       65536,   used:      63768 .  OKAY
+                      (Stack: 6880, Code: 51074, Data: 5814)
+                    */
+                #endif
             }
         }
         on tile[0]: { // To avoid Error: lower bound could not be calculated (xTIMEcomposer 14.3.3)
