@@ -15,12 +15,13 @@ typedef uint16_t application_version_num_t;
 #define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       1 // Causing WRONG_CODE_STARTKIT if in real use. Observe yellow LEDS for LED are also inverted
-#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // Causing WRONG_CODE_STARTKIT
+#define FLASH_BLACK_BOARD                       0 // 1 is causing WRONG_CODE_STARTKIT if in real use. ==> Observe yellow LEDS for LED are also inverted
+#define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.1.35" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1135  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.2.00" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1200  // Is "application_version_num_t"
+    // "1.2.00"    06Oct2018 Diffed with "1.1.4". VERSION_OF_APP_PAYLOAD_01 is 1
     // "1.1.35"    05Oct2018 AQU=052 PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE 0 for NOT [[combinable]] so that Port_Pins_Heat_Light_Task runs on a core by itself
     // "1.1.34"    05Oct2018 AQU=051 daytime hours offset was wrong, now available for radio for debug (printf not available)
     // "1.1.32"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
@@ -153,8 +154,11 @@ typedef uint16_t application_version_num_t;
 
     // FOR ONE-ONE connection MASTER/SLAVE
     //                ### MUST BE UNIQUE
-    #define MASTER_ID  99
-    #define SHARED_ID  98 // SENDTO_ADDRESS == RECEIVER_ADDRESS
+    #if (FLASH_BLACK_BOARD==1)
+        #define MASTER_ID  99
+    #else
+        #define MASTER_ID  98 // Aquarium
+    #endif
 
     #define IS_MYTARGET_VOID     0
     #define IS_MYTARGET_STARTKIT 1

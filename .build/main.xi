@@ -1705,7 +1705,7 @@ typedef interface port_heat_light_commands_if {
     unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
-# 116 "../src/port_heat_light_task.h"
+# 117 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 34 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
@@ -2079,9 +2079,9 @@ typedef struct {
 
 typedef struct {
 
-    uint8_t numbytes_of_full_payload_10;
-    uint8_t version_of_full_payload_11;
-    uint8_t num_of_this_app_payload_NN;
+    uint8_t numbytes_of_full_payload;
+    uint8_t version_of_full_payload;
+    uint8_t num_of_this_app_payload;
     uint8_t app_padding_13;
 } app_heading32_t;
 

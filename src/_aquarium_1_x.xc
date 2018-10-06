@@ -2033,6 +2033,7 @@ void System_Task (
                     // debug_print ("watchdog_rest_ms %u\n", watchdog_rest_ms);
                 }
 
+                // Nested select OK since this is not a [[combinable]] task anyhow and will use its own core:
                 while (num_notify_expexted > 0) {
                     select {
                         case i_i2c_external_commands.notify(): {
@@ -2068,9 +2069,9 @@ void System_Task (
 
                         // ---- General payload part ----
 
-                        TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload_10 = PACKET_LEN08;
-                        TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload_11  = VERSION_OF_APP_PAYLOAD_01;
-                        TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload_NN  = NUM_OF_THIS_APP_PAYLOAD_01;
+                        TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload = PACKET_LEN08;
+                        TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload  = VERSION_OF_APP_PAYLOAD_01;
+                        TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload  = NUM_OF_THIS_APP_PAYLOAD_01;
 
                         TX_PACKET_U.u.packet_u3.appNODEID         = NODEID;
                         TX_PACKET_U.u.packet_u3.appPowerLevel_dBm = APPPOWERLEVEL_MIN_DBM;

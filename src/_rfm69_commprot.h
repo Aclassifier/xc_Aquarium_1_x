@@ -40,6 +40,9 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 // To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
 
 typedef struct { // Size must be modulo 4                                           // WORD ALIGN
+
+    // For VERSION_OF_APP_PAYLOAD_01 == 1
+
     num_days_since_start_r            num_days_since_start;                         // 01,02       Saving 4 bytes for year, month and day (start date is seen in SCREEN_6_KONSTANTER)
     hour_r                            hour;                                         //       03
     minute_r                          minute;                                       //          04
@@ -64,11 +67,11 @@ typedef struct { // Size must be modulo 4                                       
     now_regulating_at_r               now_regulating_at;                            // 33
     light_amount_full_or_two_thirds_r light_amount_full_or_two_thirds;              //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
     light_daytime_hours_r             light_daytime_hours;                          //       35
-    uint8_t                           debug;                                        //          36
-    uint8_t                           day_start_light_hour;                         // 37
-    uint8_t                           night_start_dark_hour;                        //    38
-    uint8_t                           padding_39;                                   //       39
-    uint8_t                           padding_40;                                   //          40
+    uint8_t                           debug;                                        //          36 SPARE 1
+    uint8_t                           day_start_light_hour;                         // 37          SPARE 2 since light_daytime_hours reflects the same
+    uint8_t                           night_start_dark_hour;                        //    38       SPARE 3 since light_daytime_hours reflects the same
+    uint8_t                           padding_39;                                   //       39    SPARE 4
+    uint8_t                           padding_40;                                   //          40 SPARE 6
     //                                                                                          ##
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 40 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task                       ##
@@ -82,6 +85,8 @@ typedef struct { // Size must be modulo 4                                       
 #ifndef PACKET_INIT_VAL08
     #define PACKET_INIT_VAL08 0x00
 #endif
+
+#define SHARED_ID 90 // SENDTO_ADDRESS == RECEIVER_ADDRESS
 
 typedef struct {  // Size must be modulo 4
     union {
