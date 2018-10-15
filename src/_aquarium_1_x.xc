@@ -32,8 +32,10 @@
 #include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
+#include "chronodot_ds3231.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
+
 
 #include "display_ssd1306.h"
 
@@ -500,40 +502,23 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     const char unstable_str [] = CHAR_PLUS_MINUS_STR; // "±"
                     const bool is_full_light   = (light_sunrise_sunset_context.light_amount_full_or_two_thirds == NORMAL_LIGHT_IS_FULL); // Else NORMAL_LIGHT_IS_TWO_THIRDS
 
-                    #define CONTROL_SCREEN_TEXT_LEN  5
-                    char light_control_scheme_str [CONTROL_SCREEN_TEXT_LEN]; // Init plus \0 FOR RIGHT MARGIN, FILL LEADING SPACE
-                    bool  control_scheme_add_leading_space = false; // When light_control_scheme_str has 4 visible chars like "INIT"
+                    bool light_control_scheme_add_leading_space = false; // true if light_control_scheme_strings has 4 visible chars like "INIT"
 
                     for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                         context.display_ts1_chars [index_of_char] = ' ';
                     }
 
+                    const char light_control_scheme_strings [][LIGHT_CONTROL_SCHEME_TEXT_TOTLEN] = LIGHT_CONTROL_SCHEME_STRINGS; // AQU=055
+
+                    // strlen cannot be used because "INIT" and " DAY" have the same strlen of 4:
+
                     switch (context.light_control_scheme) {
-                      case LIGHT_CONTROL_IS_VOID : {
-                          sprintf (light_control_scheme_str, "%s", "INIT");
-                          control_scheme_add_leading_space = true;
-                      } break;
-                      case LIGHT_CONTROL_IS_DAY : {
-                          sprintf (light_control_scheme_str, "%s", " DAG");
-                       } break;
-                      case LIGHT_CONTROL_IS_DAY_TO_NIGHT : {
-                          sprintf (light_control_scheme_str, "%s", " NED");
-                       } break;
-                      case LIGHT_CONTROL_IS_NIGHT : {
-                          sprintf (light_control_scheme_str, "%s", "NATT");
-                          control_scheme_add_leading_space = true;
-                       } break;
-                      case LIGHT_CONTROL_IS_NIGHT_TO_DAY : {
-                          sprintf (light_control_scheme_str, "%s", " OPP");
-                       } break;
-                      case LIGHT_CONTROL_IS_RANDOM : {
-                          sprintf (light_control_scheme_str, "%s", " SKY");
-                      } break;
-                      case LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE : {
-                          sprintf (light_control_scheme_str, "%s", "LYKT");
-                          control_scheme_add_leading_space = true;
-                      } break;
-                      default: break;
+                        case LIGHT_CONTROL_IS_VOID :
+                        case LIGHT_CONTROL_IS_NIGHT :
+                        case LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE : {
+                            light_control_scheme_add_leading_space = true;
+                        } break;
+                        default: break;
                     }
 
                     #define LEFT_OF_RANDOM_TEXT_LEN 5
@@ -580,8 +565,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* M */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
                                        char_right_arrow_str : " ",
                           /* N */ (light_daytime_hours_add_trailing_space) ? " " : "",                                                            // "=14t", "12t→", "10t→", "8t→ "
-                          /* O */ (control_scheme_add_leading_space)       ? " " : "",                                                            // So that " INIT" and "  DAG" will be left aligned first visible char
-                          /* P */ light_control_scheme_str,                                                                                       // "NATT" etc.
+                          /* O */ (light_control_scheme_add_leading_space) ? " " : "",                                                            // So that " INIT" and "  DAG" will be left aligned first visible char
+                          /* P */ light_control_scheme_strings[context.light_control_scheme],                                                     // "NATT" etc.
                           /* Q */ (light_sunrise_sunset_context.light_is_stable) ? stable_str : char_takes_press_for_10_seconds_right_button_str, // "=" or "±"
                           /* R */ context.light_composition,                                                                                      // 10
                           /* S */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
@@ -1987,7 +1972,7 @@ void System_Task (
 
         if (not read_ok) {
             light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = NORMAL_LIGHT_IS_VOID;
-            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory = IOF_HH_IS_VOID;
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory        = IOF_HH_IS_VOID;
         } else {
             light_sunrise_sunset_context.light_amount_full_or_two_thirds_in_FRAM_memory  = (light_amount_full_or_two_thirds_t)  context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory        = (light_daytime_hours_index_t)        context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];

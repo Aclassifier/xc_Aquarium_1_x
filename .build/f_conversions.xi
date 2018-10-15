@@ -1498,12 +1498,7 @@ typedef uint16_t application_version_num_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
-
-
-
+# 24 "../src/_globals.h"
 typedef signed int time32_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
@@ -1518,7 +1513,6 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
-
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1528,7 +1522,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 45 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1537,60 +1531,6 @@ typedef struct tag_startkit_adc_vals {
 # 62 "../src/_texts_and_constants.h"
 typedef char now_regulating_at_char_t [8][2];
 # 27 "../src/f_conversions.xc" 2
-# 1 "../src/tempchip_mcp9808.h" 1
-# 36 "../src/tempchip_mcp9808.h"
-bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
-i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, bool &ok);
-int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
-void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
-uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 28 "../src/f_conversions.xc" 2
-# 1 "../src/I2C_External_Task.h" 1
-# 26 "../src/I2C_External_Task.h"
-typedef enum i2c_dev_address_external_t {
-
-
-    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
-    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
-    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
-
-
-
-
-typedef enum iof_temps_t {
-    IOF_TEMPC_HEATER,
-    IOF_TEMPC_AMBIENT,
-    IOF_TEMPC_WATER,
-    IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
-} iof_temps_t;
-
-
-typedef struct tag_i2c_temps_t {
-    bool i2c_temp_ok [3];
-    i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
-} i2c_temps_t;
-
-typedef enum i2c_command_external_t {
-    VER_TEMPC_CHIPS,
-    GET_TEMPC_ALL
-} i2c_command_external_t;
-
-typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
-
-    [[notification]]
-    slave void notify (void);
-
-    void trigger (const i2c_command_external_t command);
-} i2c_external_commands_if;
-
-
-
-[[distributable]]
-void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 29 "../src/f_conversions.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
 typedef int16_t temp_onetenthDegC_t;
@@ -1633,9 +1573,9 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
-                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 30 "../src/f_conversions.xc" 2
-# 42 "../src/f_conversions.xc"
+                                                          const temp_onetenthDegC_t temps_onetenthDeg);
+# 28 "../src/f_conversions.xc" 2
+# 40 "../src/f_conversions.xc"
 void
 Init_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
@@ -1648,13 +1588,12 @@ Init_Arithmetic_Mean_Temp_OnetenthDegC (
     temps_onetenthDegC_mean_array.temps_index_next_to_write = 0;
     temps_onetenthDegC_mean_array.temps_num = 0;
 }
-# 76 "../src/f_conversions.xc"
+# 74 "../src/f_conversions.xc"
 temp_onetenthDegC_t
 Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array,
     const unsigned n_of_temps,
-    const temp_onetenthDegC_t temps_onetenthDeg,
-    const unsigned index_for_printf) {
+    const temp_onetenthDegC_t temps_onetenthDeg) {
 
 
 
@@ -1722,28 +1661,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     }
 
 
-    char is2_temps_first_chars [3][2] = {"H","A","W"};;
 
-    do { if(0 && (1==1)) printf("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ", is2_temps_first_chars[index_for_printf], temp_return, temps_onetenthDegC_mean_array.temps_num, remove_n_of_temps, temps_onetenthDeg, (temps_onetenthDeg!=temp_return)); } while (0);
-
-
-
-
-
-
-    if (index_of_temp_largest == (-1)) {
-        do { if(0 && (1==1)) printf("&s", "none "); } while (0);
-    } else {
-        do { if(0 && (1==1)) printf("%d ", temp_largest); } while (0);
-    }
-    if (temp_largest != temp_smallest) {
-        if (index_of_temp_smallest == (-1)) {
-            do { if(0 && (1==1)) printf("&s", "none "); } while (0);
-        } else {
-            do { if(0 && (1==1)) printf("%d ", temp_smallest); } while (0);
-        }
-    } else {}
-    do { if(0 && (1==1)) printf("%s", "\n"); } while (0);
 
     return (temp_onetenthDegC_t) temp_return;
 }
@@ -1783,7 +1701,7 @@ Temp_OnetenthDegC_To_Str (
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?temp_degC_str)[5]) {
-# 228 "../src/f_conversions.xc"
+# 204 "../src/f_conversions.xc"
     int degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
 
@@ -1818,7 +1736,7 @@ TC1047_Raw_DegC_To_String_Ok (
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
-# 273 "../src/f_conversions.xc"
+# 249 "../src/f_conversions.xc"
     light_sensor_range_t light_sensor_range = adc_val_mean_i/407;
     if (light_sensor_range > 99) light_sensor_range = 99;
 
@@ -1850,7 +1768,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
-# 319 "../src/f_conversions.xc"
+# 295 "../src/f_conversions.xc"
     int volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
 

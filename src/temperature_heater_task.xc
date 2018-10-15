@@ -230,8 +230,7 @@ void Temperature_Heater_Task (
                                 Do_Arithmetic_Mean_Temp_OnetenthDegC (
                                 temps_onetenthDegC_mean[iof_i2c_temp],
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
-                                temps_onetenthDegC_converted,
-                                iof_i2c_temp);
+                                temps_onetenthDegC_converted);
                         {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} = // Don't care about OK here
                             Temp_OnetenthDegC_To_Str (
                                     temps_onetenthDegC[iof_i2c_temp],

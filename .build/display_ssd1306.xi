@@ -1414,12 +1414,7 @@ size_t _safe_strnlen(const char s[], size_t n);
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
-
-
-
+# 24 "../src/_globals.h"
 typedef signed int time32_t;
 # 38 "../src/display_ssd1306.xc" 2
 # 1 "../src/param.h" 1
@@ -1434,7 +1429,6 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
-
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1444,7 +1438,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 45 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1587,6 +1581,74 @@ typedef struct tag_display_param_t {
 extern display_param_t display_param;
 # 45 "../src/display_ssd1306.xc" 2
 
+# 1 "../src/chronodot_ds3231.h" 1
+# 41 "../src/chronodot_ds3231.h"
+typedef enum {
+
+
+
+
+    DS3231_REG_SECOND = 0x00,
+    DS3231_REG_MINUTE = 0x01,
+    DS3231_REG_HOUR = 0x02,
+
+    DS3231_REG_DAYOFWEEK = 0x03,
+    DS3231_REG_DAYOFMONTH = 0x04,
+    DS3231_REG_MONTH = 0x05,
+
+    DS3231_REG_YEAR = 0x06,
+    DS3231_REG_A1SECOND = 0x07,
+    DS3231_REG_A1MINUTE = 0x08,
+    DS3231_REG_A1HOURS = 0x09,
+
+    DS3231_REG_A1DAYDATE = 0x0A,
+
+    DS3231_REG_A2MINUTE = 0x0B,
+    DS3231_REG_A2HOUR = 0x0C,
+
+    DS3231_REG_A2DAYDATE = 0x0D,
+
+    DS3231_REG_CONTROL = 0x0E,
+    DS3231_REG_STATUS_CTL = 0x0F,
+    DS3231_REG_AGING = 0x10,
+    DS3231_REG_TEMP_MSB = 0x11,
+    DS3231_REG_TEMP_LSB = 0x12
+
+} chronodot_d3231_index_of_registers_t;
+
+
+
+
+
+typedef uint16_t year_t;
+typedef uint8_t month_t;
+typedef uint8_t day_t;
+typedef uint8_t hour_t;
+typedef uint8_t minute_t;
+typedef uint8_t second_t;
+
+typedef struct {
+    year_t year;
+    month_t month;
+    day_t day;
+    hour_t hour;
+    minute_t minute;
+    second_t second;
+} DateTime_t;
+
+
+
+
+
+typedef struct chronodot_d3231_registers_t {
+    uint8_t registers [19];
+} chronodot_d3231_registers_t;
+
+typedef interface chronodot_ds3231_if {
+    {DateTime_t, bool} get_time_ok (void);
+                 bool set_time_ok (const DateTime_t datetime);
+} chronodot_ds3231_if;
+# 47 "../src/display_ssd1306.xc" 2
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
 typedef enum i2c_dev_address_internal_t {
@@ -1597,11 +1659,6 @@ typedef enum i2c_dev_address_internal_t {
     I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_t;
-
-
-typedef struct chronodot_d3231_registers_t {
-    uint8_t registers [19];
-} chronodot_d3231_registers_t;
 
 
 
@@ -1616,7 +1673,7 @@ typedef interface i2c_internal_commands_if {
 
 
     {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
-     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
 
 
 
@@ -1626,7 +1683,7 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 47 "../src/display_ssd1306.xc" 2
+# 48 "../src/display_ssd1306.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 29 "../src/display_ssd1306.h"
 typedef enum i2c_display_reg_address_internal_t {
@@ -1659,7 +1716,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 48 "../src/display_ssd1306.xc" 2
+# 49 "../src/display_ssd1306.xc" 2
 
 
 out port outP_display_notReset =

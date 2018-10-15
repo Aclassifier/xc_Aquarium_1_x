@@ -57,14 +57,15 @@ typedef enum light_composition_t {
     //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
 
-typedef enum light_control_scheme_t {
-    LIGHT_CONTROL_IS_VOID,               // "INIT" and when we, in a call, don't want to modify it
-    LIGHT_CONTROL_IS_DAY,                // " DAG"
-    LIGHT_CONTROL_IS_DAY_TO_NIGHT,       // " NED"
-    LIGHT_CONTROL_IS_NIGHT,              // "NATT"
-    LIGHT_CONTROL_IS_NIGHT_TO_DAY,       // " OPP"
-    LIGHT_CONTROL_IS_RANDOM,             // " SKY" Starting every hour
-    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // "LYKT" Conditional and random (i.e. limited)
+typedef enum light_control_scheme_t {    //    #### LIGHT_CONTROL_SCHEME_STRINGS
+                                         //    ####
+    LIGHT_CONTROL_IS_VOID,               // 0 "INIT" and when we, in a call, don't want to modify it
+    LIGHT_CONTROL_IS_DAY,                // 1 " DAG"
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT,       // 2 " NED"
+    LIGHT_CONTROL_IS_NIGHT,              // 3 "NATT"
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY,       // 4 " OPP"
+    LIGHT_CONTROL_IS_RANDOM,             // 5 " SKY" Starting on the hours, but not necessarily each time
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE // 6 "LYKT" Conditional and random (i.e. limited)
 } light_control_scheme_t;
 
 typedef enum heat_cable_commands_t {

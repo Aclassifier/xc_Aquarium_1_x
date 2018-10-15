@@ -1304,12 +1304,7 @@ typedef uint16_t application_version_num_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
-
-
-
+# 24 "../src/_globals.h"
 typedef signed int time32_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
@@ -1324,7 +1319,6 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
-
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1334,7 +1328,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 45 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
@@ -1425,359 +1419,8 @@ int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_maste
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
 # 27 "../src/main.xc" 2
-# 1 "../src/I2C_Internal_Task.h" 1
-# 11 "../src/I2C_Internal_Task.h"
-typedef enum i2c_dev_address_internal_t {
-
-    I2C_ADDRESS_OF_DISPLAY = 0x3C,
-    I2C_ADDRESS_OF_FRAM = 0x50,
-    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
-    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
-    I2C_ADDRESS_OF_CHRONODOT = 0x68
-} i2c_dev_address_internal_t;
-
-
-typedef struct chronodot_d3231_registers_t {
-    uint8_t registers [19];
-} chronodot_d3231_registers_t;
-
-
-
-
-
-
-typedef interface i2c_internal_commands_if {
-    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
-    {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
-    bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
-
-
-
-    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
-     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
-
-
-
-} i2c_internal_commands_if;
-
-
-
-[[combinable]]
-void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 28 "../src/main.xc" 2
-# 1 "../src/display_ssd1306.h" 1
-# 29 "../src/display_ssd1306.h"
-typedef enum i2c_display_reg_address_internal_t {
-    DISPLAY_REG_ADDR_COMMAND = 0x00,
-    DISPLAY_REG_ADDR_DATA = 0x40
-} i2c_display_reg_address_internal_t;
-
-typedef enum display_vccstate_t {
-    SSD1306_EXTERNALVCC = 0x01,
-    SSD1306_SWITCHCAPVCC = 0x02
-} display_vccstate_t;
-
-extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
-
-extern bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
-extern bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
-extern bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t i);
-extern bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
-extern bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
-extern bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
-extern bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
-extern bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_commands);
-
-extern bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_internal_commands);
-
-extern void Clear_All_Pixels_In_Buffer (void);
-extern void fillSplashScreen_in_buffer (void);
-extern void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color);
-extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
-extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
-extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 29 "../src/main.xc" 2
-# 1 "../src/I2C_External_Task.h" 1
-# 26 "../src/I2C_External_Task.h"
-typedef enum i2c_dev_address_external_t {
-
-
-    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
-    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
-    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
-
-
-
-
-typedef enum iof_temps_t {
-    IOF_TEMPC_HEATER,
-    IOF_TEMPC_AMBIENT,
-    IOF_TEMPC_WATER,
-    IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
-} iof_temps_t;
-
-
-typedef struct tag_i2c_temps_t {
-    bool i2c_temp_ok [3];
-    i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
-} i2c_temps_t;
-
-typedef enum i2c_command_external_t {
-    VER_TEMPC_CHIPS,
-    GET_TEMPC_ALL
-} i2c_command_external_t;
-
-typedef interface i2c_external_commands_if {
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
-
-    [[notification]]
-    slave void notify (void);
-
-    void trigger (const i2c_command_external_t command);
-} i2c_external_commands_if;
-
-
-
-[[distributable]]
-void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 30 "../src/main.xc" 2
-# 1 "../src/button_press.h" 1
-# 11 "../src/button_press.h"
-typedef enum {
-    BUTTON_ACTION_PRESSED,
-    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
-    BUTTON_ACTION_RELEASED
-
-} button_action_t;
-
-typedef interface button_if {
-
-
-
-
-    void button (const button_action_t button_action);
-
-} button_if;
-# 35 "../src/button_press.h"
-typedef struct {
-    bool pressed_now;
-    bool pressed_for_10_seconds;
-    bool inhibit_released_once;
-} button_state_t;
-
-[[combinable]]
-void Button_Task (
-        const unsigned button_n,
-        port p_button,
-        client button_if i_button_out);
-# 31 "../src/main.xc" 2
-# 1 "../src/_texts_and_constants.h" 1
-# 62 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [8][2];
-# 32 "../src/main.xc" 2
-# 1 "../src/f_conversions.h" 1
-# 15 "../src/f_conversions.h"
-typedef int16_t temp_onetenthDegC_t;
-typedef int16_t voltage_onetenthV_t;
-typedef int light_sensor_range_t;
-# 74 "../src/f_conversions.h"
-typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
-
-typedef struct temp_degC_strings_t {
-    char temp_degC_heater_str [5];
-    char temp_degC_ambient_str [5];
-    char temp_degC_water_str [5];
-} temp_degC_strings_t;
-
-
-
-
-typedef struct temp_onetenthDegC_mean_t {
-
-
-    temp_onetenthDegC_t temps_onetenthDegC[8];
-    unsigned temps_index_next_to_write;
-    unsigned temps_num;
-    temp_onetenthDegC_t temps_sum_mten_previous;
-} temp_onetenthDegC_mean_t;
-# 117 "../src/f_conversions.h"
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
-{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
-{light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
-
-uint8_t BCD_To_Bin_8 (uint8_t val);
-uint8_t Bin_To_BCD_8 (uint8_t val);
-
-void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps);
-
-
-
-
-
-
-temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
-                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
-# 33 "../src/main.xc" 2
-# 1 "../src/port_heat_light_task.h" 1
-# 10 "../src/port_heat_light_task.h"
-typedef enum iof_LED_strip_t {
-
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
-
-typedef enum {
-    WATTOF_LED_STRIP_FRONT = 5,
-    WATTOF_LED_STRIP_CENTER = 4,
-    WATTOF_LED_STRIP_BACK = 3
-} wattOf_LED_strip_t;
-
-
-
-
-
-typedef enum light_composition_t {
-# 38 "../src/port_heat_light_task.h"
-    LIGHT_COMPOSITION_0000_mW_OFF = 0,
-    LIGHT_COMPOSITION_1133_mW_ON = 1,
-    LIGHT_COMPOSITION_2799_mW_ON = 2,
-    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 3,
-    LIGHT_COMPOSITION_4383_mW_ON = 4,
-    LIGHT_COMPOSITION_5516_mW_ON = 5,
-    LIGHT_COMPOSITION_6650_mW_ON = 6,
-    LIGHT_COMPOSITION_8316_mW_ON = 7,
-    LIGHT_COMPOSITION_9983_mW_ON = 8,
-    LIGHT_COMPOSITION_11650_mW_ON_FULL = 9,
-
-
-    LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS = 10,
-    LIGHT_COMPOSITION_7182_mW_ON = 11,
-    LIGHT_COMPOSITION_3882_mW_ON = 12,
-    LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K = 13,
-    LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K = 14
-
-
-
-} light_composition_t;
-
-typedef enum light_control_scheme_t {
-    LIGHT_CONTROL_IS_VOID,
-    LIGHT_CONTROL_IS_DAY,
-    LIGHT_CONTROL_IS_DAY_TO_NIGHT,
-    LIGHT_CONTROL_IS_NIGHT,
-    LIGHT_CONTROL_IS_NIGHT_TO_DAY,
-    LIGHT_CONTROL_IS_RANDOM,
-    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE
-} light_control_scheme_t;
-
-typedef enum heat_cable_commands_t {
-    HEAT_CABLES_VOID,
-    HEAT_CABLES_OFF,
-    HEAT_CABLES_ONE_ON,
-    HEAT_CABLES_BOTH_ON
-} heat_cable_commands_t;
-# 84 "../src/port_heat_light_task.h"
-typedef uint8_t light_intensity_thirds_t;
-
-typedef interface port_heat_light_commands_if {
-
-    {light_composition_t} get_light_composition (void);
-
-    { light_composition_t,
-        light_control_scheme_t
-    } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [3]);
-
-    {bool} get_light_is_stable_sync_internal (void);
-
-
-
-    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
-    void beeper_on_command (const bool beeper_on);
-    void beeper_blip_command (const unsigned ms);
-    void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
-    bool get_heat_cables_forced_off_by_watchdog (void);
-
-    unsigned watchdog_retrigger_with (const unsigned ms);
-
-} port_heat_light_commands_if;
-# 117 "../src/port_heat_light_task.h"
-void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 34 "../src/main.xc" 2
-# 1 "../src/temperature_heater_task.h" 1
-# 11 "../src/temperature_heater_task.h"
-typedef enum heater_wires_t {
-    HEATER_WIRES_ONE_ALTERNATING_IS_HALF,
-    HEATER_WIRES_BOTH_IS_FULL
-} heater_wires_t;
-
-typedef enum regulate_by_t{
-     REGULATE_BY_ONLY_HEATER_MAX_TEMP,
-     REGULATE_BY_WATER_TEMP,
-     REGULATE_BY_WATER_AND_AIR_TEMP
-} regulate_by_t;
-
-typedef struct temps_t {
-    bool temp_ok [3];
-    i2c_temp_onetenthDegC_t temp_onetenthDegC [3];
-} temps_t;
-
-typedef unsigned heater_on_percent_t;
-typedef unsigned heater_on_watt_t;
-
-typedef interface temperature_heater_commands_if {
-    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
-    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
-                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
-                {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
-                void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
-
-                {bool, bool, heater_on_percent_t, heater_on_watt_t}
-                                      get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
-} temperature_heater_commands_if;
-
-
-
-[[combinable]]
-void Temperature_Heater_Task (
-    server temperature_heater_commands_if i_temperature_heater_commands [2],
-    client i2c_external_commands_if i_i2c_external_commands,
-    client port_heat_light_commands_if i_port_heat_light_commands);
-# 35 "../src/main.xc" 2
-# 1 "../src/temperature_water_task.h" 1
-# 12 "../src/temperature_water_task.h"
-typedef enum now_regulating_at_t {
-
-    REGULATING_AT_INIT,
-    REGULATING_AT_BOILING,
-    REGULATING_AT_SIMMERING,
-    REGULATING_AT_TEMP_REACHED,
-    REGULATING_AT_HOTTER_AMBIENT,
-    REGULATING_AT_LOST_WATER_SENSOR,
-
-
-    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG,
-    HEAT_CABLE_ERROR
-} now_regulating_at_t;
-
-typedef interface temperature_water_commands_if {
-    [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
-    [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
-
-    [[guarded]] void clear_debug_log (void);
-} temperature_water_commands_if;
-
-[[combinable]]
-void Temperature_Water_Task (
-    server temperature_water_commands_if i_temperature_water_commands,
-    client temperature_heater_commands_if i_temperature_heater_commands);
-# 36 "../src/main.xc" 2
-# 1 "../src/chronodot_ds3231_task.h" 1
-# 40 "../src/chronodot_ds3231_task.h"
+# 1 "../src/chronodot_ds3231.h" 1
+# 41 "../src/chronodot_ds3231.h"
 typedef enum {
 
 
@@ -1834,13 +1477,367 @@ typedef struct {
 
 
 
-DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
-void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers);
+
+typedef struct chronodot_d3231_registers_t {
+    uint8_t registers [19];
+} chronodot_d3231_registers_t;
 
 typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
+# 28 "../src/main.xc" 2
+# 1 "../src/I2C_Internal_Task.h" 1
+# 11 "../src/I2C_Internal_Task.h"
+typedef enum i2c_dev_address_internal_t {
+
+    I2C_ADDRESS_OF_DISPLAY = 0x3C,
+    I2C_ADDRESS_OF_FRAM = 0x50,
+    I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
+    I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
+    I2C_ADDRESS_OF_CHRONODOT = 0x68
+} i2c_dev_address_internal_t;
+
+
+
+
+
+
+typedef interface i2c_internal_commands_if {
+    bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes);
+    {chronodot_d3231_registers_t, bool} read_chronodot_ok (const i2c_dev_address_t dev_addr);
+    bool write_chronodot_ok (const i2c_dev_address_t dev_addr, const chronodot_d3231_registers_t chronodot_d3231_registers);
+
+
+
+    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
+
+
+
+} i2c_internal_commands_if;
+
+
+
+[[combinable]]
+void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
+# 29 "../src/main.xc" 2
+# 1 "../src/display_ssd1306.h" 1
+# 29 "../src/display_ssd1306.h"
+typedef enum i2c_display_reg_address_internal_t {
+    DISPLAY_REG_ADDR_COMMAND = 0x00,
+    DISPLAY_REG_ADDR_DATA = 0x40
+} i2c_display_reg_address_internal_t;
+
+typedef enum display_vccstate_t {
+    SSD1306_EXTERNALVCC = 0x01,
+    SSD1306_SWITCHCAPVCC = 0x02
+} display_vccstate_t;
+
+extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
+
+extern bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
+extern bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
+extern bool tellDisplay_i2c_invert (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t i);
+extern bool tellDisplay_i2c_startscrollright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
+extern bool tellDisplay_i2c_startscrollleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
+extern bool tellDisplay_i2c_startscrolldiagright (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
+extern bool tellDisplay_i2c_startscrolldiagleft (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t start, uint8_t stop);
+extern bool tellDisplay_i2c_stopscroll (client i2c_internal_commands_if i_i2c_internal_commands);
+
+extern bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_internal_commands);
+
+extern void Clear_All_Pixels_In_Buffer (void);
+extern void fillSplashScreen_in_buffer (void);
+extern void setPixel_in_buffer (int16_t x, int16_t y, uint16_t color);
+extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
+extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
+extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
+extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
+# 30 "../src/main.xc" 2
+# 1 "../src/I2C_External_Task.h" 1
+# 26 "../src/I2C_External_Task.h"
+typedef enum i2c_dev_address_external_t {
+
+
+    I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
+    I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
+} i2c_dev_address_external_t;
+
+
+
+
+typedef enum iof_temps_t {
+    IOF_TEMPC_HEATER,
+    IOF_TEMPC_AMBIENT,
+    IOF_TEMPC_WATER,
+    IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
+} iof_temps_t;
+
+
+typedef struct tag_i2c_temps_t {
+    bool i2c_temp_ok [3];
+    i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
+} i2c_temps_t;
+
+typedef enum i2c_command_external_t {
+    VER_TEMPC_CHIPS,
+    GET_TEMPC_ALL
+} i2c_command_external_t;
+
+typedef interface i2c_external_commands_if {
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
+
+    [[notification]]
+    slave void notify (void);
+
+    void trigger (const i2c_command_external_t command);
+} i2c_external_commands_if;
+
+
+
+[[distributable]]
+void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
+# 31 "../src/main.xc" 2
+# 1 "../src/button_press.h" 1
+# 11 "../src/button_press.h"
+typedef enum {
+    BUTTON_ACTION_PRESSED,
+    BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
+    BUTTON_ACTION_RELEASED
+
+} button_action_t;
+
+typedef interface button_if {
+
+
+
+
+    void button (const button_action_t button_action);
+
+} button_if;
+# 35 "../src/button_press.h"
+typedef struct {
+    bool pressed_now;
+    bool pressed_for_10_seconds;
+    bool inhibit_released_once;
+} button_state_t;
+
+[[combinable]]
+void Button_Task (
+        const unsigned button_n,
+        port p_button,
+        client button_if i_button_out);
+# 32 "../src/main.xc" 2
+# 1 "../src/_texts_and_constants.h" 1
+# 62 "../src/_texts_and_constants.h"
+typedef char now_regulating_at_char_t [8][2];
+# 33 "../src/main.xc" 2
+# 1 "../src/f_conversions.h" 1
+# 15 "../src/f_conversions.h"
+typedef int16_t temp_onetenthDegC_t;
+typedef int16_t voltage_onetenthV_t;
+typedef int light_sensor_range_t;
+# 74 "../src/f_conversions.h"
+typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
+
+typedef struct temp_degC_strings_t {
+    char temp_degC_heater_str [5];
+    char temp_degC_ambient_str [5];
+    char temp_degC_water_str [5];
+} temp_degC_strings_t;
+
+
+
+
+typedef struct temp_onetenthDegC_mean_t {
+
+
+    temp_onetenthDegC_t temps_onetenthDegC[8];
+    unsigned temps_index_next_to_write;
+    unsigned temps_num;
+    temp_onetenthDegC_t temps_sum_mten_previous;
+} temp_onetenthDegC_mean_t;
+# 117 "../src/f_conversions.h"
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
+{light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
+{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
+
+uint8_t BCD_To_Bin_8 (uint8_t val);
+uint8_t Bin_To_BCD_8 (uint8_t val);
+
+void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps);
+
+
+
+
+
+
+temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
+                                                          const temp_onetenthDegC_t temps_onetenthDeg);
+# 34 "../src/main.xc" 2
+# 1 "../src/port_heat_light_task.h" 1
+# 10 "../src/port_heat_light_task.h"
+typedef enum iof_LED_strip_t {
+
+    IOF_LED_STRIP_FRONT,
+    IOF_LED_STRIP_CENTER,
+    IOF_LED_STRIP_BACK
+} iof_LED_strip_t;
+
+typedef enum {
+    WATTOF_LED_STRIP_FRONT = 5,
+    WATTOF_LED_STRIP_CENTER = 4,
+    WATTOF_LED_STRIP_BACK = 3
+} wattOf_LED_strip_t;
+
+
+
+
+
+typedef enum light_composition_t {
+# 38 "../src/port_heat_light_task.h"
+    LIGHT_COMPOSITION_0000_mW_OFF = 0,
+    LIGHT_COMPOSITION_1133_mW_ON = 1,
+    LIGHT_COMPOSITION_2799_mW_ON = 2,
+    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 3,
+    LIGHT_COMPOSITION_4383_mW_ON = 4,
+    LIGHT_COMPOSITION_5516_mW_ON = 5,
+    LIGHT_COMPOSITION_6650_mW_ON = 6,
+    LIGHT_COMPOSITION_8316_mW_ON = 7,
+    LIGHT_COMPOSITION_9983_mW_ON = 8,
+    LIGHT_COMPOSITION_11650_mW_ON_FULL = 9,
+
+
+    LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS = 10,
+    LIGHT_COMPOSITION_7182_mW_ON = 11,
+    LIGHT_COMPOSITION_3882_mW_ON = 12,
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K = 13,
+    LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K = 14
+
+
+
+} light_composition_t;
+
+typedef enum light_control_scheme_t {
+
+    LIGHT_CONTROL_IS_VOID,
+    LIGHT_CONTROL_IS_DAY,
+    LIGHT_CONTROL_IS_DAY_TO_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT,
+    LIGHT_CONTROL_IS_NIGHT_TO_DAY,
+    LIGHT_CONTROL_IS_RANDOM,
+    LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE
+} light_control_scheme_t;
+
+typedef enum heat_cable_commands_t {
+    HEAT_CABLES_VOID,
+    HEAT_CABLES_OFF,
+    HEAT_CABLES_ONE_ON,
+    HEAT_CABLES_BOTH_ON
+} heat_cable_commands_t;
+# 85 "../src/port_heat_light_task.h"
+typedef uint8_t light_intensity_thirds_t;
+
+typedef interface port_heat_light_commands_if {
+
+    {light_composition_t} get_light_composition (void);
+
+    { light_composition_t,
+        light_control_scheme_t
+    } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [3]);
+
+    {bool} get_light_is_stable_sync_internal (void);
+
+
+
+    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
+    void beeper_on_command (const bool beeper_on);
+    void beeper_blip_command (const unsigned ms);
+    void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
+    bool get_heat_cables_forced_off_by_watchdog (void);
+
+    unsigned watchdog_retrigger_with (const unsigned ms);
+
+} port_heat_light_commands_if;
+# 118 "../src/port_heat_light_task.h"
+void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
+# 35 "../src/main.xc" 2
+# 1 "../src/temperature_heater_task.h" 1
+# 11 "../src/temperature_heater_task.h"
+typedef enum heater_wires_t {
+    HEATER_WIRES_ONE_ALTERNATING_IS_HALF,
+    HEATER_WIRES_BOTH_IS_FULL
+} heater_wires_t;
+
+typedef enum regulate_by_t{
+     REGULATE_BY_ONLY_HEATER_MAX_TEMP,
+     REGULATE_BY_WATER_TEMP,
+     REGULATE_BY_WATER_AND_AIR_TEMP
+} regulate_by_t;
+
+typedef struct temps_t {
+    bool temp_ok [3];
+    i2c_temp_onetenthDegC_t temp_onetenthDegC [3];
+} temps_t;
+
+typedef unsigned heater_on_percent_t;
+typedef unsigned heater_on_watt_t;
+
+typedef interface temperature_heater_commands_if {
+    [[guarded]] void heater_set_proportional (const heater_wires_t heater_wires, const int heat_percentage);
+    [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
+                void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
+                {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
+                void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
+
+                {bool, bool, heater_on_percent_t, heater_on_watt_t}
+                                      get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+} temperature_heater_commands_if;
+
+
+
+[[combinable]]
+void Temperature_Heater_Task (
+    server temperature_heater_commands_if i_temperature_heater_commands [2],
+    client i2c_external_commands_if i_i2c_external_commands,
+    client port_heat_light_commands_if i_port_heat_light_commands);
+# 36 "../src/main.xc" 2
+# 1 "../src/temperature_water_task.h" 1
+# 12 "../src/temperature_water_task.h"
+typedef enum now_regulating_at_t {
+
+    REGULATING_AT_INIT,
+    REGULATING_AT_BOILING,
+    REGULATING_AT_SIMMERING,
+    REGULATING_AT_TEMP_REACHED,
+    REGULATING_AT_HOTTER_AMBIENT,
+    REGULATING_AT_LOST_WATER_SENSOR,
+
+
+    HEAT_CABLE_FORCED_OFF_BY_WATCHDOG,
+    HEAT_CABLE_ERROR
+} now_regulating_at_t;
+
+typedef interface temperature_water_commands_if {
+    [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
+    [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
+
+    [[guarded]] void clear_debug_log (void);
+} temperature_water_commands_if;
+
+[[combinable]]
+void Temperature_Water_Task (
+    server temperature_water_commands_if i_temperature_water_commands,
+    client temperature_heater_commands_if i_temperature_heater_commands);
+# 37 "../src/main.xc" 2
+# 1 "../src/chronodot_ds3231_task.h" 1
+# 13 "../src/chronodot_ds3231_task.h"
+DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
+void datetime_to_chronodot_registers (const DateTime_t datetime, chronodot_d3231_registers_t &chronodot_d3231_registers);
 
 void debug_printf_datetime (const DateTime_t datetime);
 
@@ -1849,7 +1846,7 @@ void debug_printf_datetime (const DateTime_t datetime);
 void Chronodot_DS3231_Task (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 37 "../src/main.xc" 2
+# 38 "../src/main.xc" 2
 # 1 "../src/exception_handler.h" 1
 # 15 "../src/exception_handler.h"
 void assert_exception (bool assert_this);
@@ -1857,7 +1854,7 @@ void assert_exception (bool assert_this);
 void installExceptionHandler(void);
 
 void myExceptionHandler(void);
-# 38 "../src/main.xc" 2
+# 39 "../src/main.xc" 2
 
 # 1 "../src/my_adc_startkit_task.h" 1
 # 13 "../src/my_adc_startkit_task.h"
@@ -1871,7 +1868,7 @@ void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[1],
    const unsigned int Num_of_data_sets);
-# 40 "../src/main.xc" 2
+# 41 "../src/main.xc" 2
 
 # 1 "/Users/teig/workspace/lib_spi/api/spi.h" 1
 
@@ -2030,7 +2027,7 @@ typedef enum spi_transfer_type_t {
                  __clock_t clk,
                  static const spi_mode_t mode,
                  static const spi_transfer_type_t transfer_type);
-# 42 "../src/main.xc" 2
+# 43 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
 # 51 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
@@ -2047,7 +2044,7 @@ typedef struct {
     } u;
 # 93 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
-# 43 "../src/main.xc" 2
+# 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
 # 11 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h"
 typedef uint32_t crc32_t;
@@ -2057,7 +2054,7 @@ crc32_t
 calc_CRC32 (
         uint32_t data[], static const int num_words,
         crc32_t expected_crc);
-# 44 "../src/main.xc" 2
+# 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
 # 96 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
@@ -2123,7 +2120,7 @@ typedef struct {
         packet_u3_t packet_u3;
     } u;
 } packet_t;
-# 45 "../src/main.xc" 2
+# 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
 # 18 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
@@ -2305,7 +2302,7 @@ void IRQ_detect_task (
 
                unsigned iof_spi_client
         );
-# 46 "../src/main.xc" 2
+# 47 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
@@ -2319,13 +2316,13 @@ extern void System_Task (
     server button_if i_button_in[3],
     server irq_if_t i_irq,
     client radio_if_t i_radio);
-# 48 "../src/main.xc" 2
-# 72 "../src/main.xc"
+# 49 "../src/main.xc" 2
+# 73 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 96 "../src/main.xc"
+# 97 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2336,7 +2333,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 177 "../src/main.xc"
+# 178 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
@@ -2382,7 +2379,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 235 "../src/main.xc"
+# 236 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2402,7 +2399,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 266 "../src/main.xc"
+# 267 "../src/main.xc"
             }
         }
         on tile[0]: {

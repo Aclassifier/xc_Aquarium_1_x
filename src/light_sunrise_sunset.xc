@@ -29,6 +29,7 @@
 #include "_version.h"
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
+#include "chronodot_ds3231.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 
@@ -173,7 +174,7 @@ Update_Daytime_Hours (light_sunrise_sunset_context_t &context) { // No & compile
         }
     }
 
-    context.light_daytime_hours = light_daytime_hours_list[context.light_daytime_hours_index];
+    context.light_daytime_hours = light_daytime_hours_list[context.light_daytime_hours_index]; // AQU=053 Overflowed with value 21 with FRAM from 1.1.4
 }
 
 //{{{  Light_Composition
@@ -230,22 +231,22 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_minutes_left_of_day_night_action = 0;
 
         if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_VOID) {              // No FRAM chip? Set if read failed
-            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default
+            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default. Will trigger do_FRAM_write
         } else if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_FULL) {       // A valid value
             context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // As said
         } else if (context.light_amount_full_or_two_thirds_in_FRAM_memory == NORMAL_LIGHT_IS_TWO_THIRDS) { // A valid value
             context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_TWO_THIRDS;                          // Modified
         } else {                                                                                           // Not valid value
-            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Default
+            context.light_amount_full_or_two_thirds = NORMAL_LIGHT_IS_FULL;                                // Will trigger do_FRAM_write
         }
 
-        if (context.light_daytime_hours_index_in_FRAM_memory == IOF_HH_IS_VOID) {
-            context.light_daytime_hours_index = IOF_HH_12_IS_DAY;
+        if (context.light_daytime_hours_index_in_FRAM_memory >= IOF_HH_IS_VOID) { // AQU=053 fix (from == to >=)
+            context.light_daytime_hours_index = IOF_HH_12_IS_DAY; // Will trigger do_FRAM_write
         } else {
             context.light_daytime_hours_index = context.light_daytime_hours_index_in_FRAM_memory;
         }
 
-        #define FORCE_FRAM_TO_14_HOURS 0
+        #define FORCE_FRAM_TO_14_HOURS 0 // _14_ four places
         #if (FORCE_FRAM_TO_14_HOURS==1)
             #if (FLASH_BLACK_BOARD==0)
                 #error FORCE_FRAM_TO_14_HOURS set
@@ -315,6 +316,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     if (context.datetime.day != context.datetime_previous.day) {
         context.num_days_since_start++;
 
+        //  AQU=054 tested here with minute instead and did a lot with buttons for SCREEN_3_LYSGULERING. Always taken when it should:
         if (context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
 
             // NUM_MINUTES_INTO_DAY_ macros use the light_daytime_hours_index value so preferably use them after here

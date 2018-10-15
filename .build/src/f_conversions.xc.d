@@ -4,7 +4,5 @@
   ../../workspace/_Aquarium_1_x/src/_globals.h \
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/_Aquarium_1_x/src/_texts_and_constants.h \
-  ../../workspace/_Aquarium_1_x/src/tempchip_mcp9808.h \
-  ../../workspace/_Aquarium_1_x/src/I2C_External_Task.h \
   ../../workspace/_Aquarium_1_x/src/f_conversions.h
 

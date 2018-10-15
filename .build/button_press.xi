@@ -1307,12 +1307,7 @@ typedef out buffered port:32 out_buffered_port_32_t;
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
 typedef enum {false,true} bool;
-
-
-
-
-
-
+# 24 "../src/_globals.h"
 typedef signed int time32_t;
 # 18 "../src/button_press.xc" 2
 # 1 "../src/param.h" 1
@@ -1327,7 +1322,6 @@ typedef uint8_t i2c_reg_address_t;
 typedef uint8_t i2c_reg_data_t;
 typedef int16_t i2c_temp_onetenthDegC_t;
 
-
 typedef struct tag_i2c_dev_address_reg_address_t {
     i2c_dev_address_t _dev_address;
     i2c_reg_address_t _reg_address;
@@ -1337,7 +1331,7 @@ typedef struct tag_i2c_master_param_t {
     i2c_dev_address_t _use_dev_address;
     i2c_result_t _result;
 } i2c_master_params_t;
-# 45 "../src/param.h"
+# 44 "../src/param.h"
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;

@@ -24,8 +24,6 @@
 #include "_globals.h"
 #include "param.h"
 #include "_texts_and_constants.h"
-#include "tempchip_mcp9808.h"
-#include "I2C_External_Task.h"
 #include "f_conversions.h"
 #endif
 
@@ -77,8 +75,7 @@ temp_onetenthDegC_t
 Do_Arithmetic_Mean_Temp_OnetenthDegC (
     temp_onetenthDegC_mean_t   &temps_onetenthDegC_mean_array, // i/o
     const unsigned             n_of_temps,
-    const temp_onetenthDegC_t  temps_onetenthDeg, // next value
-    const unsigned             index_for_printf) {
+    const temp_onetenthDegC_t  temps_onetenthDeg) { // Next value
     
     // ints needed to avoid overflow in calculations
 
@@ -146,28 +143,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
     }
 
     // --- Debug only code, trying debug_print here too, instead of #fdef block
-    char is2_temps_first_chars [NUM_I2C_TEMPERATURES][2] = I2C_TEMPS_FIRST_CHARS_HAW;
-
-    debug_print ("  mean(%s)=%d over (%u-%u) with input %d changed=%u dropped ",
-            is2_temps_first_chars[index_for_printf],
-            temp_return,
-            temps_onetenthDegC_mean_array.temps_num,
-            remove_n_of_temps,
-            temps_onetenthDeg,
-           (temps_onetenthDeg!=temp_return));
-    if (index_of_temp_largest == INDEX_VOID) {
-        debug_print ("&s", "none ");
-    } else {
-        debug_print ("%d ", temp_largest);
-    }
-    if (temp_largest != temp_smallest) {
-        if (index_of_temp_smallest == INDEX_VOID) {
-            debug_print ("&s", "none ");
-        } else {
-            debug_print ("%d ", temp_smallest);
-        }
-    } else {}
-    debug_print ("%s", "\n");
+    // Removed 15Oct2018 in _Aquarium_1_x AQU=056 (also neededtempchip_mcp9808.h, not good for reuse)
 
     return (temp_onetenthDegC_t) temp_return;
 }

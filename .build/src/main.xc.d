@@ -5,6 +5,7 @@
   ../../workspace/lib_startkit_support/api/startkit_adc.h \
   ../../workspace/_Aquarium_1_x/src/defines_adafruit.h \
   ../../workspace/_Aquarium_1_x/src/tempchip_mcp9808.h \
+  ../../workspace/_Aquarium_1_x/src/chronodot_ds3231.h \
   ../../workspace/_Aquarium_1_x/src/I2C_Internal_Task.h \
   ../../workspace/_Aquarium_1_x/src/display_ssd1306.h \
   ../../workspace/_Aquarium_1_x/src/I2C_External_Task.h \

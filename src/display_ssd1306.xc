@@ -43,6 +43,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include "defines_adafruit.h"
 #include "core_graphics_adafruit_GFX.h"
 
+#include "chronodot_ds3231.h"
 #include "I2C_Internal_Task.h"
 #include "display_ssd1306.h"
 #endif

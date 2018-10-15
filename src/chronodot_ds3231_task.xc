@@ -21,8 +21,9 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "I2C_External_Task.h"
-#include "I2C_Internal_Task.h"          // First this..
-#include "display_ssd1306.h" // ..then this
+#include "chronodot_ds3231.h"
+#include "I2C_Internal_Task.h" // First this..
+#include "display_ssd1306.h"   // ..then this
 #include "core_graphics_font5x8.h"
 #include "core_graphics_adafruit_GFX.h"
 #include "button_press.h"

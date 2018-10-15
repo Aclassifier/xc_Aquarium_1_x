@@ -35,7 +35,27 @@ typedef uint16_t num_days_since_start_r;            // num_days_since_start_t   
 typedef uint8_t  light_amount_full_or_two_thirds_r; // light_amount_full_or_two_thirds_t light_sunrise_sunset.h
 typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t             light_sunrise_sunset.h
 
+// Needs <limits.h>
+#define HEATER_ON_PERCENT_R_MAX UCHAR_MAX
+#define HEATER_ON_PERCENT_R_MIN CHAR_MIN
+//
+#define HEATER_ON_WATT_R_MAX    UCHAR_MAX
+#define HEATER_ON_WATT_R_MIN    CHAR_MIN
+//
+#define ONETENTHDEGC_R_MAX      SHRT_MAX
+#define ONETENTHDEGC_R_MIN      SHRT_MIN
+
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
+
+// AQU=055
+#define LIGHT_CONTROL_SCHEME_TEXT_TOTLEN  5 // Including nul terminating char. ALSO USED IN DISPLAY WHERE LEADING SPACE IS HANDLED THERE
+#define LIGHT_CONTROL_SCHEME_STRINGS {"INIT", " DAG", " NED", "NATT", " OPP", " SKY", "LYKT"} // Indexed with light_control_scheme_t
+
+#define NOW_REGULATING_AT_TEXT_TOTLEN
+#define NOW_REGULATING_AT_STRINGS // now_regulating_at_t
+
+
+// light_control_scheme_t
 
 // To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
 

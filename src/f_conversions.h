@@ -130,7 +130,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 // modulo 10 rest and pushed up or down), but it didn't look as nice. And then I tried throwing away values, which seems more adequate
 //
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
-                                                          const temp_onetenthDegC_t temps_onetenthDeg, const unsigned index);
+                                                          const temp_onetenthDegC_t temps_onetenthDeg);
 #else
     #error Nested include F_CONVERSIONS_H_
 #endif /* F_CONVERSIONS_H_ */
