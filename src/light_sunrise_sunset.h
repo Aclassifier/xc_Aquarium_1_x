@@ -173,19 +173,19 @@ typedef struct light_sunrise_sunset_context_t {
     // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.
     // AQU=042 Removed CENTER cycles to avoid coloured LED strips being alone
 
-    //   hours                                      minutes                                          IOF_TIMED light_composition_t
+    //   hours        minutes                                          IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_3882_mW_ON},   /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_2799_mW_ON},   /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
+        {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_5082_mW_ON},   /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_3999_mW_ON},   /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
         {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_1133_mW_ON},   /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                                                   */\
         {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_0000_mW_OFF}   /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
         {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_1133_mW_ON},       /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_2799_mW_ON},       /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
-        {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_3882_mW_ON},       /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON                                    */\
-        {HH_08_DAY, MM_30_DAY, LIGHT_COMPOSITION_11650_mW_ON_FULL}  /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
-        //                     LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS [10] may set it to 2/3
+        {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_3999_mW_ON},       /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_5082_mW_ON},       /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {HH_08_DAY, MM_30_DAY, LIGHT_COMPOSITION_15250_mW_ON_FULL}  /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        //                     LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS [10] may set it to 2/3
 
 #else // DEBUG_TEST_DAY_NIGHT_DAY. Just set the clock to 23.55.00 on the FLASH_BLACK_BOARD!
 
@@ -193,18 +193,18 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START  ((0  * 60) +  1) // ..THIS TO BE EARLY (SMALL NUMBER). SO NIGHT IS AT MIDNIGHT!
     //   hours   minutes                                        IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {  23,   56, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {  23,   57, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
+        {  23,   56, LIGHT_COMPOSITION_5082_mW_ON},          /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {  23,   57, LIGHT_COMPOSITION_3999_mW_ON},          /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
         {  23,   58, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 Surprisingly light!               */\
         {  23,   59, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //      0     0  DEBUG_TEST_DAY_NIGHT_DAY MIDNIGHT IS NIGHT, SEE REASON ABOVE
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
         {   0,    1, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   0,    2, LIGHT_COMPOSITION_2799_mW_ON},          /*  [2] LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON                                            */\
-        {   0,    3, LIGHT_COMPOSITION_3882_mW_ON},          /* [12] LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON                                    */\
-        {   0,    4, LIGHT_COMPOSITION_11650_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
-        //           LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS    [10] may set it to 2/3
+        {   0,    2, LIGHT_COMPOSITION_3999_mW_ON},          /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {   0,    3, LIGHT_COMPOSITION_5082_mW_ON},          /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {   0,    4, LIGHT_COMPOSITION_15250_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        //           LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS    [10] may set it to 2/3
 
 #endif
 

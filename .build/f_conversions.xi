@@ -1497,9 +1497,9 @@ typedef uint16_t application_version_num_t;
 # 24 "../src/f_conversions.xc" 2
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
-typedef enum {false,true} bool;
+    typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
-typedef signed int time32_t;
+    typedef signed int time32_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

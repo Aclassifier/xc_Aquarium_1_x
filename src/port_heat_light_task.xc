@@ -111,26 +111,7 @@ typedef enum heat_cable_alternating_t {
 
 static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
 {
-    //   MONOTONOUS COLOUR AND INTENSITY INCREASE:
-    //                                                     |        |  1/3  |  2/3  |  FULL
-    //   IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#5,#6 | 6000K  | 1666  | 3333  |  5000
-    //   IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour | 1083  | 2166  |  3250
-    //   IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K  | 1133  | 2266  |  3400
-    //                                                                                11650 -> "12W"
-    //                                                                1666 +  1133                   =  _2799_
-    //                                                                1133 +  2166                   =  _3299_
-    //                                                                1133 +           3250          =  _4383_
-    //                                                                        2266 +   3250          =  _5516_
-    //                                                                                 3250 + 3400   =  _6650_
-    //                                                                1666 +           6650          =  _8316_
-    //                                                                        3333 +   6650          =  _9983_
-    //                                                                               s11650          = _11650_
-    //                                                                       s7765                   =  _7765_
-    //                                                                1666 +  2266 +   3250          =  _7182_
-    //                                                               s3882                           =  _3882_
-    //                                                                                 3250          =  _3250_
-    //                                                                                 5000          =  _5000_
-    {                                                                 //
+    {
         //                                             See below: FATAL! ##                    #### mW                             Concise but less general name
                                                                    0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][0]                     LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
                                                                    0, //  0 [LIGHT_COMPOSITION_0000_mW_OFF][1]                     LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
@@ -140,9 +121,9 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSI
                                                                    0, //  1 [LIGHT_COMPOSITION_1133_mW_ON][1]                      LIGHT_COMPOSITION_1133_mW_BACK1_ON
                                                       BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_1133_mW_ON][2]                      LIGHT_COMPOSITION_1133_mW_BACK1_ON
     }, {                                                              // ## AQU=039 new. AQU=042 removed CENTER:
-            BIT_LIGHT_FRONT,                                          //  2 [LIGHT_COMPOSITION_2799_mW_ON][0]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
-                                                                   0, //  2 [LIGHT_COMPOSITION_2799_mW_ON][1]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
-                                                      BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_2799_mW_ON][2]                      LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
+            BIT_LIGHT_FRONT,                                          //  2 [LIGHT_COMPOSITION_3999_mW_ON][0]                      LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON
+                                                                   0, //  2 [LIGHT_COMPOSITION_3999_mW_ON][1]                      LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON
+                                                      BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_3999_mW_ON][2]                      LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON
      },{                                                              // ##
                                                       BIT_LIGHT_BACK, //  3 [LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM][0] LIGHT_COMPOSITION_3299_mW_BACK1_CENTER2_ON
                                BIT_LIGHT_CENTER,                      //  3 [LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM][1] LIGHT_COMPOSITION_3299_mW_BACK1_CENTER2_ON
@@ -160,41 +141,41 @@ static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSI
                                BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  6 [LIGHT_COMPOSITION_6650_mW_ON][1]                      LIGHT_COMPOSITION_6650_mW_BACK3_CENTER3_ON
                                BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_6650_mW_ON][2]                      LIGHT_COMPOSITION_6650_mW_BACK3_CENTER3_ON
     }, {                                                              // ##
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8316_mW_ON][0]                      LIGHT_COMPOSITION_8316_mW_BACK3_CENTER3_FRONT1_ON
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_8316_mW_ON][1]                      LIGHT_COMPOSITION_8316_mW_BACK3_CENTER3_FRONT1_ON
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_8316_mW_ON][2]                      LIGHT_COMPOSITION_8316_mW_BACK3_CENTER3_FRONT1_ON
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_9516_mW_ON][0]                      LIGHT_COMPOSITION_9516_mW_BACK3_CENTER3_FRONT1_ON
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_9516_mW_ON][1]                      LIGHT_COMPOSITION_9516_mW_BACK3_CENTER3_FRONT1_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_9516_mW_ON][2]                      LIGHT_COMPOSITION_9516_mW_BACK3_CENTER3_FRONT1_ON
     }, {                                                              // ##
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9983_mW_ON][0]                      LIGHT_COMPOSITION_9983_mW_BACK3_CENTER3_FRONT2_ON
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_9983_mW_ON][1]                      LIGHT_COMPOSITION_9983_mW_BACK3_CENTER3_FRONT2_ON
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_9983_mW_ON][2]                      LIGHT_COMPOSITION_9983_mW_BACK3_CENTER3_FRONT2_ON
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_12383_mW_ON][0]                     LIGHT_COMPOSITION_12383_mW_BACK3_CENTER3_FRONT2_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  8 [LIGHT_COMPOSITION_12383_mW_ON][1]                     LIGHT_COMPOSITION_12383_mW_BACK3_CENTER3_FRONT2_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_12383_mW_ON][2]                     LIGHT_COMPOSITION_12383_mW_BACK3_CENTER3_FRONT2_ON
     }, {                                                              // ##
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_11650_mW_ON_FULL][0]                LIGHT_COMPOSITION_11650_mW_ALL_ALWAYS_ON AQU=027 MAX WAS 9W
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_11650_mW_ON_FULL][1]                LIGHT_COMPOSITION_11650_mW_ALL_ALWAYS_ON
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_11650_mW_ON_FULL][2]                LIGHT_COMPOSITION_11650_mW_ALL_ALWAYS_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_15250_mW_ON_FULL][0]                LIGHT_COMPOSITION_15250_mW_ALL_ALWAYS_ON AQU=027 MAX WAS 9W
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_15250_mW_ON_FULL][1]                LIGHT_COMPOSITION_15250_mW_ALL_ALWAYS_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_15250_mW_ON_FULL][2]                LIGHT_COMPOSITION_15250_mW_ALL_ALWAYS_ON
     },                                                                // ##
     //   NON-MONOTONOUS COLOUR AND INTENSITY:          See below: FATAL! ##
     {                                                                 // ##                    #### mW                             Concise but less general name
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , // 10 [LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS][0]           LIGHT_COMPOSITION_7765_mW_BACK2_CENTER2_FRONT2_ON
-         BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, // 10 [LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS][1]           LIGHT_COMPOSITION_7765_mW_BACK2_CENTER2_FRONT2_ON
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 10 [LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS][2]           LIGHT_COMPOSITION_7765_mW_BACK2_CENTER2_FRONT2_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , // 10 [LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS][0]          LIGHT_COMPOSITION_10165_mW_BACK2_CENTER2_FRONT2_ON
+         BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, // 10 [LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS][1]          LIGHT_COMPOSITION_10165_mW_BACK2_CENTER2_FRONT2_ON
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 10 [LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS][2]          LIGHT_COMPOSITION_10165_mW_BACK2_CENTER2_FRONT2_ON
     }, {                                                              // ##
-                               BIT_LIGHT_CENTER                     , // 11 [LIGHT_COMPOSITION_7182_mW_ON][0]                      LIGHT_COMPOSITION_7182_mW_BACK2_CENTER3_FRONT1_ON AQU=029
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_7182_mW_ON][1]                      LIGHT_COMPOSITION_7182_mW_BACK2_CENTER3_FRONT1_ON AQU=029
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 11 [LIGHT_COMPOSITION_7182_mW_ON][2]                      LIGHT_COMPOSITION_7182_mW_BACK2_CENTER3_FRONT1_ON
+                               BIT_LIGHT_CENTER                     , // 11 [LIGHT_COMPOSITION_8382_mW_ON][0]                      LIGHT_COMPOSITION_8382_mW_BACK2_CENTER3_FRONT1_ON AQU=029
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_8382_mW_ON][1]                      LIGHT_COMPOSITION_8382_mW_BACK2_CENTER3_FRONT1_ON AQU=029
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 11 [LIGHT_COMPOSITION_8382_mW_ON][2]                      LIGHT_COMPOSITION_8382_mW_BACK2_CENTER3_FRONT1_ON
     }, {                                                              // ##
-         BIT_LIGHT_FRONT                                            , // 12 [LIGHT_COMPOSITION_3882_mW_ON][0]                      LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON
-                               BIT_LIGHT_CENTER                     , // 12 [LIGHT_COMPOSITION_3882_mW_ON][1]                      LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON
-                                                      BIT_LIGHT_BACK  // 12 [LIGHT_COMPOSITION_3882_mW_ON][2]                      LIGHT_COMPOSITION_3882_mW_BACK1_CENTER1_FRONT1_ON
+         BIT_LIGHT_FRONT                                            , // 12 [LIGHT_COMPOSITION_5082_mW_ON][0]                      LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON
+                               BIT_LIGHT_CENTER                     , // 12 [LIGHT_COMPOSITION_5082_mW_ON][1]                      LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON
+                                                      BIT_LIGHT_BACK  // 12 [LIGHT_COMPOSITION_5082_mW_ON][2]                      LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON
     }, {                                                              // ##
-                               BIT_LIGHT_CENTER,                      // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K][0]           LIGHT_COMPOSITION_3250_mW_CENTER3_ON
-                               BIT_LIGHT_CENTER,                      // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K][1]           LIGHT_COMPOSITION_3250_mW_CENTER3_ON
-                               BIT_LIGHT_CENTER                       // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K][2]           LIGHT_COMPOSITION_3250_mW_CENTER3_ON
+                               BIT_LIGHT_CENTER,                      // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER][0]          LIGHT_COMPOSITION_3250_mW_CENTER3_ON
+                               BIT_LIGHT_CENTER,                      // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER][1]          LIGHT_COMPOSITION_3250_mW_CENTER3_ON
+                               BIT_LIGHT_CENTER                       // 13 [LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER][2]          LIGHT_COMPOSITION_3250_mW_CENTER3_ON
     }, {                                                              // ##
-         BIT_LIGHT_FRONT,                                             // 14 [LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K][0]           LIGHT_COMPOSITION_5000_mW_FRONT3_ON
-         BIT_LIGHT_FRONT,                                             // 14 [LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K][1]           LIGHT_COMPOSITION_5000_mW_FRONT3_ON
-         BIT_LIGHT_FRONT                                              // 14 [LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K][2]           LIGHT_COMPOSITION_5000_mW_FRONT3_ON
+         BIT_LIGHT_FRONT,                                             // 14 [LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT][0]           LIGHT_COMPOSITION_8600_mW_FRONT3_ON
+         BIT_LIGHT_FRONT,                                             // 14 [LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT][1]           LIGHT_COMPOSITION_8600_mW_FRONT3_ON
+         BIT_LIGHT_FRONT                                              // 14 [LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT][2]           LIGHT_COMPOSITION_8600_mW_FRONT3_ON
     } //                                                                 ##
-}; //                                                             FATAL! ## IF THESE DON'T CORRESPOND WITH THE VALUES IN light_composition_t, ALSO SEEN HERE, LIKE LIGHT_COMPOSITION_7182_mW_ON
+}; //                                                             FATAL! ## IF THESE DON'T CORRESPOND WITH THE VALUES IN light_composition_t, ALSO SEEN HERE, LIKE LIGHT_COMPOSITION_8382_mW_ON
 
 typedef enum pin_change_t {
     PIN_SAME_LIGHT,

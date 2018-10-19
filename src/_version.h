@@ -19,10 +19,25 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.04" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1204  // Is "application_version_num_t"
-    // "1.2.04"    15Oct2018
-    //                       AQU=057 Reuse matter: chronodot_ds3231.h is new needed file to have interface and chrodot params separate
+#define APPLICATION_VERSION_STR "1.2.05" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1205  // Is "application_version_num_t"
+    // "1.2.05"    19Oct2018 AQU=058 New light regime again. One 1.4W 6000K Inspired LED out and the 5W North Light 3000K in again. This was
+    //                               also used Aug-Nov 2017. Still have 3.6W of 6000K left. The last regime probably was too white, it looked
+    //                               like nothing but algae would grow in it!
+    //                                  All names with _FRONTX_ changed by 1200,2400 or 3600 since we now have 3600 mW more on _FRONTN_:
+    //                                  _2799_  + 1200  =>  _3999_    _FRONT1_
+    //                                  _3882_  + 1200  =>  _5082_    _FRONT1_
+    //                                  _5000_  + 3600  =>  _8600_    _FRONT3_
+    //                                  _7182_  + 1200  =>  _8382_    _FRONT1_
+    //                                  _7765_  + 2400  => _10165_    _FRONT2_
+    //                                  _8316_  + 1200  =>  _9516_    _FRONT1_
+    //                                  _9983_  + 2400  => _12383_    _FRONT2_
+    //                                  _11650_ + 3600  => _15250_    _ALL_ALWAYS_ON
+    //                                  _ON_ONLY_3000K  =>            _ON_ONLY_CENTER (was wrong, now more general)
+    //                                  _ON_ONLY_6000K  =>            _ON_ONLY_FRONT  (more general name)
+    //
+    //                               8,9,27: 62360 (Cores,timers,chanends,memory)
+    // "1.2.04"    15Oct2018 AQU=057 Reuse matter: chronodot_ds3231.h is new needed file to have interface and chrodot params separate
     //                       AQU=056 Reuse matter: A debug print removed in f_conversions.xc
     // "1.2.03"    09Oct2018 AQU=055 Exporting strings. It even saved 120 bytes!
     // "1.2.02"    08Oct2018 AQU=054 Investigateing failing setting of day? Seems to be OK
@@ -157,33 +172,6 @@ typedef uint16_t application_version_num_t;
     // "1.0.1" // 07Jul2017  AQU=003 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)
     //  1.0.0  // 21May2017  AQU=001 Never printed but its commit is tagged "VER_1_0_0_first_with_fishes" ()
-
-    // FOR ONE-ONE connection MASTER/SLAVE
-    //                ### MUST BE UNIQUE
-    #if (FLASH_BLACK_BOARD==1)
-        #define MASTER_ID  99
-    #else
-        #define MASTER_ID  98 // Aquarium
-    #endif
-
-    #define IS_MYTARGET_VOID     0
-    #define IS_MYTARGET_STARTKIT 1
-
-    #if (MYTARGET==STARTKIT)
-        #define IS_MYTARGET IS_MYTARGET_STARTKIT
-    #else
-        #error NO TARGET DEFINED
-    #endif
-
-    #if (ISMASTER==1) // Doesn't seem like words like SLAVE or MASTER or _SLAVE or _MASTER work. Using 0 or 1 instead
-        #define IS_MYTARGET_MASTER 1
-
-        #define NODEID    MASTER_ID
-        #define GATEWAYID SHARED_ID // Since MASTER it knows this SENDTO_ADDRESS
-    #else
-        #error NO ROLE DEFINED
-    #endif
-
 #else
     #error Nested include VERSION_H_
 #endif

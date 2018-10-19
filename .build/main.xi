@@ -1303,9 +1303,9 @@ typedef uint16_t application_version_num_t;
 # 20 "../src/main.xc" 2
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
-typedef enum {false,true} bool;
+    typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
-typedef signed int time32_t;
+    typedef signed int time32_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
@@ -1680,7 +1680,7 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
 # 34 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
-# 10 "../src/port_heat_light_task.h"
+# 11 "../src/port_heat_light_task.h"
 typedef enum iof_LED_strip_t {
 
     IOF_LED_STRIP_FRONT,
@@ -1689,7 +1689,7 @@ typedef enum iof_LED_strip_t {
 } iof_LED_strip_t;
 
 typedef enum {
-    WATTOF_LED_STRIP_FRONT = 5,
+    WATTOF_LED_STRIP_FRONT = 8,
     WATTOF_LED_STRIP_CENTER = 4,
     WATTOF_LED_STRIP_BACK = 3
 } wattOf_LED_strip_t;
@@ -1699,24 +1699,24 @@ typedef enum {
 
 
 typedef enum light_composition_t {
-# 38 "../src/port_heat_light_task.h"
+# 39 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
     LIGHT_COMPOSITION_1133_mW_ON = 1,
-    LIGHT_COMPOSITION_2799_mW_ON = 2,
+    LIGHT_COMPOSITION_3999_mW_ON = 2,
     LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 3,
     LIGHT_COMPOSITION_4383_mW_ON = 4,
     LIGHT_COMPOSITION_5516_mW_ON = 5,
     LIGHT_COMPOSITION_6650_mW_ON = 6,
-    LIGHT_COMPOSITION_8316_mW_ON = 7,
-    LIGHT_COMPOSITION_9983_mW_ON = 8,
-    LIGHT_COMPOSITION_11650_mW_ON_FULL = 9,
+    LIGHT_COMPOSITION_9516_mW_ON = 7,
+    LIGHT_COMPOSITION_12383_mW_ON = 8,
+    LIGHT_COMPOSITION_15250_mW_ON_FULL = 9,
 
 
-    LIGHT_COMPOSITION_7765_mW_ON_TWO_THIRDS = 10,
-    LIGHT_COMPOSITION_7182_mW_ON = 11,
-    LIGHT_COMPOSITION_3882_mW_ON = 12,
-    LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K = 13,
-    LIGHT_COMPOSITION_5000_mW_ON_ONLY_6000K = 14
+    LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS = 10,
+    LIGHT_COMPOSITION_8382_mW_ON = 11,
+    LIGHT_COMPOSITION_5082_mW_ON = 12,
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER = 13,
+    LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT = 14
 
 
 
@@ -1739,7 +1739,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 85 "../src/port_heat_light_task.h"
+# 86 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
@@ -1763,7 +1763,7 @@ typedef interface port_heat_light_commands_if {
     unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
-# 118 "../src/port_heat_light_task.h"
+# 119 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 35 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
@@ -2232,8 +2232,17 @@ typedef enum {
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
 
+
+typedef enum {
+    iof_RegOpMode = 0,
+    iof_RegIrqFlags1 = 1,
+    iof_RegIrqFlags2 = 2,
+    iof_radio_mode = 3,
+    iof_waitForIRQInterruptCause = 4
+} iof_debug_bytes_e;
+
 typedef interface radio_if_t {
-# 300 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 309 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_adafruit_rfm69hcw_RST_pulse
                                                            (const unsigned maskof_pin);
 
@@ -2266,11 +2275,7 @@ typedef interface radio_if_t {
     void sleep (void);
     void setFrequencyRegister (const uint32_t register_value);
     uint32_t getFrequencyRegister (void);
-
-
-
-
-
+# 350 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } radio_if_t;
 
 

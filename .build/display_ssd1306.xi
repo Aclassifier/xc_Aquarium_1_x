@@ -1413,9 +1413,9 @@ size_t _safe_strnlen(const char s[], size_t n);
 
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
-typedef enum {false,true} bool;
+    typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
-typedef signed int time32_t;
+    typedef signed int time32_t;
 # 38 "../src/display_ssd1306.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
