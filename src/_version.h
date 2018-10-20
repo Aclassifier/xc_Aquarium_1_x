@@ -167,7 +167,7 @@ typedef uint16_t application_version_num_t;
     // "1.0.5" // 16Jul2017  AQU=007 Random light now almost every hour, both lighter (if possible) and darker allowed. Plus all light levels except off (tested ok)
     // "1.0.4" // 15Jul2017          Tagged VER_1_0_4_with_fishes
     //                       AQU=006 DISPLAY_SUB_ON_FOR_SECONDS now terminated also when display goes dark (tested ok)
-    // "1.0.3" // 15Jul2017  AQU=005 TEMP_ONETENTHDEGC_15_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
+    // "1.0.3" // 15Jul2017  AQU=005 TEMP_ONETENTHDEGC_10_0_FAST_COOLING now displaying zero watt and zero percent on if heater is off (ok?)
     // "1.0.2" // 11Jul2017  AQU=004 Random every second hour: now it gets darker, so it's noticable (now LIGHT_COMPOSITION_3250_mW_ON_ONLY_3000K etc) (tested ok)
     // "1.0.1" // 07Jul2017  AQU=003 Setting of clock on next minute needed, to DISPLAY_SUB_ON_FOR_SECONDS now two minutes (tested ok)
     //                       AQU=002 Scrolling of hour went all the way to 59, now 23 (tested ok)

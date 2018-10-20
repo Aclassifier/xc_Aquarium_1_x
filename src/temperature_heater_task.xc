@@ -432,11 +432,11 @@ void Temperature_Heater_Task (
                 } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
                     debug_print ("%s", "High");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
-                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_15_0_FAST_COOLING) {
+                } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_10_0_FAST_COOLING) {
                     debug_print ("%s", "Low");
-                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
+                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING;
                 } else {
-                    // Also == TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_15_0_FAST_COOLING in here when new
+                    // Also == TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_10_0_FAST_COOLING in here when new
                     debug_print ("%s", "New");
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;
                 }
@@ -458,7 +458,7 @@ void Temperature_Heater_Task (
             //{{{  i_temperature_heater_commands[].get_mean_last_cycle_temp
 
             case i_temperature_heater_commands[int index_of_client].get_mean_last_cycle_temp (void) -> {temp_onetenthDegC_t return_temp_onetenthDegC} : {
-                if ((temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and
+                if ((temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_10_0_FAST_COOLING) and
                     (on_now == false)) {
                     return_temp_onetenthDegC = 0; // See comment below, in get_temp_degC_str
                 } else {
@@ -472,7 +472,7 @@ void Temperature_Heater_Task (
             case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
 
                 if ((iof_temp == IOF_TEMPC_HEATER_MEAN_LAST_CYCLE) and
-                    (temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_15_0_FAST_COOLING) and
+                    (temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_10_0_FAST_COOLING) and
                     (on_now == false)) {
 
                     // This is soon becoming outdated meaning that it may be a long time since the heater was on. It looks rather strange to display that outdated value

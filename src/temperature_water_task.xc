@@ -69,7 +69,7 @@ void Temperature_Water_Task (
     temp_onetenthDegC_t temp_onetenthDegC_water_ambient_diff;
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted_diff;
     temp_onetenthDegC_t temp_onetenthDegC_water_wanted = TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT;
-    temp_onetenthDegC_t temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // So that it would never start off with elements on
+    temp_onetenthDegC_t temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING; // So that it would never start off with elements on
 
     //}}}  
     //{{{  Init
@@ -116,7 +116,7 @@ void Temperature_Water_Task (
                         //{{{   Water sensor I2C error
 
                         debug_log or_eq 0x004;
-                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // OFF
+                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING; // OFF
                         now_regulating_at = REGULATING_AT_LOST_WATER_SENSOR; // Displaying "-" in box. In addition we have the ERROR_BIT_I2C_WATER message in the display
                         debug_print ("%s", "lost water sensor ");
 
@@ -125,7 +125,7 @@ void Temperature_Water_Task (
                         //{{{  First time run
 
                         debug_print ("%s", "zero! ");
-                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING;
+                        temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING;
                         raw_timer_interval_cntdown_seconds = TEMP_MEASURE_INTERVAL_IS_2_SECONDS; // Faster
 
                         //}}}  
@@ -143,7 +143,7 @@ void Temperature_Water_Task (
                         } else {
                             debug_log or_eq 0x002;
                             // Water colder than ambient air (hot summer or burning wood?)
-                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_15_0_FAST_COOLING; // OFF
+                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING; // OFF
                             now_regulating_at = REGULATING_AT_HOTTER_AMBIENT; // Displaying "H" in box
                             debug_print ("%s", "fast cool ");
                         }

@@ -16,7 +16,7 @@ typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
 } iof_LED_strip_t; //                                                                  ##
 //                                                                                     15250 -> "15W"
 typedef enum { //                                                                      ##
-    WATTOF_LED_STRIP_FRONT  = 8, // ->                                              -> ## AQU=058
+    WATTOF_LED_STRIP_FRONT  = 8, // ->                                              -> ## AQU=058 TODO: Check 3000K from InspiredLED instead. Only get 380 lm from 5W here
     WATTOF_LED_STRIP_CENTER = 4, // ->                                              -> ##
     WATTOF_LED_STRIP_BACK   = 3  // ->                                              -> ##
 } wattOf_LED_strip_t;
