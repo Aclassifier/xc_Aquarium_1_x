@@ -27,7 +27,7 @@
 #include "param.h"
 #include "startkit_adc.h"
 
-#include "random.h" // xmos. ALso uses "random_conf.h"
+#include "random.h" // xmos. A file "random_conf.h" here with #define RANDOM_ENABLE_HW_SEED 1 needs to be defined
 //
 #include "_version.h"
 #include "defines_adafruit.h"
@@ -1848,7 +1848,7 @@ void System_Task (
            IS_RFM69HW_HCW // Must be true or else my Adafruit high power module won't work!
     };
 
-    some_rfm69_internals_t RX_some_rfm69_internals;
+    some_rfm69_internals_t some_rfm69_internals;
 
     #if ((PACKET_LEN_FACIT % 4) != 0)
         #error sizeof packet_u1_t must be word aligned (12, 16, 20 ...)
@@ -1889,9 +1889,9 @@ void System_Task (
     device_type = i_radio.getDeviceType(); // ERROR_BITNUM_DEVICE_TYPE if not 0x24
     debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
 
-    {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // Was cleared in RFM69_driver at init
+    {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // Was cleared in RFM69_driver at init
 
-    if (RX_some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
+    if (some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
 
         i_radio.setHighPower (radio_init.isRFM69HW);
         i_radio.encrypt16 (radio_init.key, KEY_LEN);
@@ -1903,15 +1903,15 @@ void System_Task (
 
         i_radio.receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
 
-        {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
+        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
 
-        if (RX_some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-            debug_print_y ("RFM69 err2 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
+        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+            debug_print_y ("RFM69 err2 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
             context.radio_board_fault = true; // Some other error, let's just give up. Aquarium is most important
         }
 
     } else {
-        debug_print_y ("No radio board: RFM69 err1 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
+        debug_print_y ("No radio board: RFM69 err1 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
         context.radio_board_fault = true; // Probably not plugged in
     }
 
@@ -2112,10 +2112,10 @@ void System_Task (
                              TX_gatewayid,
                              TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
 
-                        {RX_some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
+                        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
 
-                        if (RX_some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                         debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, RX_some_rfm69_internals.error_bits);
+                        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                         debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
                          // Don't set context.radio_board_fault here since some errors may not appear next time
                         } else {
                          debug_print_y ("TX %u\n", TX_appSeqCnt);
@@ -2179,7 +2179,7 @@ void System_Task (
 
                 nowRSSI = i_radio.readRSSI_dBm (FORCETRIGGER_OFF);
 
-                {RX_some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.handleSPIInterrupt();
+                {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.handleSPIInterrupt();
 
                 switch (interruptAndParsingResult) {
                     case messageReceivedOk_IRQ: {

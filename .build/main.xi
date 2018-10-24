@@ -2186,9 +2186,9 @@ typedef enum {
 typedef enum {
     void_IRQ = 0,
     messagePacketSentOk_IRQ = 1,
-    messagePacketSentOkNotAlone_IRQ = 2,
-    messagePacketSentNotExpected_IRQ = 3,
-    messagePacketSentNotExpectedNotAlone_IRQ = 4,
+    messagePacketSentOk2_IRQ = 2,
+    messagePacketSentOkMissing_IRQ = 3,
+    messagePacketSentOkMissing2_IRQ = 4,
     messageReceivedOk_IRQ = 5,
     messageNotExpectedBy_IRQ = 6,
     messagePacketLenErr_IRQ = 7,
