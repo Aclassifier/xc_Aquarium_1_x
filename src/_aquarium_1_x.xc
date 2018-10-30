@@ -223,10 +223,10 @@ typedef enum error_bits_t {
 // and such a scheme would need code to avoid sending too often.
 // No need to jiggle the time a sending is done to avoid collision with my breadboard lab-bench aquarium since the radio won't send if it sees traffic
 //
-#define MY_RFM69_REPEAT_SEND_EVERY_SEC 4 // Legal: [1..59] See above: oversample TEMP_MEASURE_INTERVAL_IS_10_SECONDS
+#define MY_RFM69_REPEAT_SEND_EVERY_SEC AQUARIUM_RFM69_REPEAT_SEND_EVERY_SEC // Legal: [1..59] See above: oversample TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
-#define KEY                MY_KEY               // From _commprot.h
-#define IS_RFM69HW_HCW     true                 // 1 for Adafruit RFM69HCW (high power)
+#define KEY             MY_KEY // From _commprot.h
+#define IS_RFM69HW_HCW  true   // 1 for Adafruit RFM69HCW (high power)
 
 // FROM main.xc in _app_rfm69_on_xmos_native (end)
 
@@ -1803,6 +1803,7 @@ void System_Task (
     client  port_heat_light_commands_if    i_port_heat_light_commands,
     client  temperature_heater_commands_if i_temperature_heater_commands,
     client  temperature_water_commands_if  i_temperature_water_commands,
+    out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
     server  irq_if_t                       i_irq,
     client  radio_if_t                     i_radio)
@@ -1959,7 +1960,7 @@ void System_Task (
     // Display matters (not internal i2c matters)
     // NEXT
     Adafruit_GFX_constructor (SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT);
-    Adafruit_SSD1306_i2c_begin (i_i2c_internal_commands);
+    Adafruit_SSD1306_i2c_begin (i_i2c_internal_commands, p_display_notReset);
 
     Clear_All_Pixels_In_Buffer();
     writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);

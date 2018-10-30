@@ -1696,7 +1696,7 @@ typedef enum display_vccstate_t {
     SSD1306_SWITCHCAPVCC = 0x02
 } display_vccstate_t;
 
-extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
+extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands, out port outP_display_notReset);
 
 extern bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
 extern bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
@@ -1717,14 +1717,6 @@ extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint1
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 # 49 "../src/display_ssd1306.xc" 2
-
-
-out port outP_display_notReset =
-
-    on tile[0]:0x10c00;
-
-
-
 
 
 
@@ -1752,20 +1744,23 @@ bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_comma
     return ! error;
 }
 
-bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands) {
+bool Adafruit_SSD1306_i2c_begin (
+        client i2c_internal_commands_if i_i2c_internal_commands,
+        out port p_display_notReset)
+{
 
     bool error = false;
 
 
     const display_vccstate_t vccstate = SSD1306_SWITCHCAPVCC;
 
-    outP_display_notReset <: 1;
+    p_display_notReset <: 1;
 
 
 
-    outP_display_notReset <: 0;
+    p_display_notReset <: 0;
     delay_milliseconds(10);
-    outP_display_notReset <: 1;
+    p_display_notReset <: 1;
 
 
 

@@ -1534,7 +1534,7 @@ typedef enum display_vccstate_t {
     SSD1306_SWITCHCAPVCC = 0x02
 } display_vccstate_t;
 
-extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands);
+extern bool Adafruit_SSD1306_i2c_begin (client i2c_internal_commands_if i_i2c_internal_commands, out port outP_display_notReset);
 
 extern bool writeDisplay_i2c_command (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
 extern bool writeDisplay_i2c_data (client i2c_internal_commands_if i_i2c_internal_commands, uint8_t c);
@@ -2034,15 +2034,17 @@ typedef enum {low,high} pin_e;
 
 typedef enum {
     logic_normal,
+
     logic_inverted
+
 } logic_e;
-# 71 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 73 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 93 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 95 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2056,7 +2058,7 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 96 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 99 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2101,9 +2103,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 149 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 152 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 167 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 170 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2148,11 +2150,12 @@ typedef enum {
     ERROR_BITNUM_SETMODE_FAILED = 12,
 
     ERROR_BITNUM_RF_IRQFLAGS2_MODEREADY = 13,
+    ERROR_BITNUM_RF_IRQFLAGS2_FIFONOTEMPTY = 14,
 
 } error_bits_e;
 
 typedef enum {NO_ERR, IS_ERR} is_error_e;
-# 84 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 85 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
 
     uint8_t preamble0;
@@ -2173,7 +2176,7 @@ typedef struct {
 
     uint8_t CRC16_LSB;
     uint8_t CRC16_MSB;
-# 119 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 120 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } rfm69_packet_t;
 
 typedef enum {
@@ -2200,7 +2203,7 @@ typedef enum {
     messageRadioCRC16AppCRC32Errs_IRQ = 11
 
 } interruptAndParsingResult_e;
-# 155 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 156 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     uint8_t nodeID;
     uint32_t RegFrf;
@@ -2218,7 +2221,7 @@ typedef struct {
     uint8_t RegIrqFlags2;
 
 } some_rfm69_internals_t;
-# 195 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 196 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     FORCETRIGGER_OFF,
     FORCETRIGGER_ON
@@ -2228,7 +2231,7 @@ typedef enum {
     RX_TX_IRQ,
     RX_IRQ
 } handleIRQ_t;
-# 280 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 281 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
 
@@ -2242,7 +2245,7 @@ typedef enum {
 } iof_debug_bytes_e;
 
 typedef interface radio_if_t {
-# 309 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 310 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_adafruit_rfm69hcw_RST_pulse
                                                            (const unsigned maskof_pin);
 
@@ -2275,7 +2278,7 @@ typedef interface radio_if_t {
     void sleep (void);
     void setFrequencyRegister (const uint32_t register_value);
     uint32_t getFrequencyRegister (void);
-# 350 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 351 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } radio_if_t;
 
 
@@ -2318,6 +2321,7 @@ extern void System_Task (
     client port_heat_light_commands_if i_port_heat_light_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
     client temperature_water_commands_if i_temperature_water_commands,
+    out port p_display_notReset,
     server button_if i_button_in[3],
     server irq_if_t i_irq,
     client radio_if_t i_radio);
@@ -2354,6 +2358,13 @@ port inP_button_left = on tile[0]: 0x10d00;
 port inP_button_center = on tile[0]: 0x10e00;
 port inP_button_right = on tile[0]: 0x10f00;
 
+
+out port p_display_notReset = on tile[0]:0x10c00;
+
+
+
+
+
 int main() {
     chan c_analogue;
 
@@ -2379,12 +2390,13 @@ int main() {
             on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0],
                                               i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
                                               i_temperature_heater_commands[0], i_temperature_water_commands,
+                                              p_display_notReset,
                                               i_buttons, i_irq, i_radio);
             on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 236 "../src/main.xc"
+# 244 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2404,7 +2416,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 267 "../src/main.xc"
+# 275 "../src/main.xc"
             }
         }
         on tile[0]: {

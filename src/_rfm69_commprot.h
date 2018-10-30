@@ -108,6 +108,8 @@ typedef struct { // Size must be modulo 4                                       
 
 #define SHARED_ID 90 // SENDTO_ADDRESS == RECEIVER_ADDRESS
 
+#define AQUARIUM_RFM69_REPEAT_SEND_EVERY_SEC 4
+
 typedef struct {  // Size must be modulo 4
     union {
         payload_u0_t payload_u0;

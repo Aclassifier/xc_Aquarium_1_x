@@ -20,6 +20,7 @@ extern void System_Task (
     client  port_heat_light_commands_if    i_port_heat_light_commands,
     client  temperature_heater_commands_if i_temperature_heater_commands,
     client  temperature_water_commands_if  i_temperature_water_commands,
+    out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
     server  irq_if_t                       i_irq,
     client  radio_if_t                     i_radio);

@@ -190,6 +190,13 @@ port inP_button_left   = on tile[0]: XS1_PORT_1N; // P1N0, X0D37 B_Left
 port inP_button_center = on tile[0]: XS1_PORT_1O; // P1O0, X0D38 B_Center
 port inP_button_right  = on tile[0]: XS1_PORT_1P; // P11P, X0D39 B_Right
 
+// AQU=059 moved from display_ssd1306.xc
+out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT GPIO header (J7) port P1M0, processor pin X0D22, socket GPIO 3
+    // on adafruit monochrome 128x32 I2C OLED graphic display PRODUCT ID: 931, containing
+    // module UG-2832HSWEG02 with chip SSD1306 from Univision Technology Inc. Data sheet often says 128 x 64 bits
+    // as it looks like much of the logic is the same as for 128 z 32 bits.
+    // At least 3 us low to reset
+
 int main() {
     chan c_analogue; // chans always untyped
 
@@ -215,6 +222,7 @@ int main() {
             on tile[0]: System_Task          (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
                                               i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
                                               i_temperature_heater_commands[0], i_temperature_water_commands,
+                                              p_display_notReset,
                                               i_buttons, i_irq, i_radio);
             on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
                                               ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);

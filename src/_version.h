@@ -19,8 +19,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.05" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1205  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.2.06" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1206  // Is "application_version_num_t"
+    // "1.2.06"    30Oct2018 AQU=059 outP_display_notReset -> p_display_notReset and parameterised. A trend to parameterise ports! COST: 200 bytes!
     // "1.2.05"    19Oct2018 AQU=058 New light regime again. One 1.4W 6000K Inspired LED out and the 5W North Light 3000K in again. This was
     //                               also used Aug-Nov 2017. Still have 3.6W of 6000K left. The last regime probably was too white, it looked
     //                               like nothing but algae would grow in it!
