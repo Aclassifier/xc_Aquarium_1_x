@@ -1952,7 +1952,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
 
 
 
-    for (uint16_t i=0; i<(((128*32)/8)); i++) {
+    for (uint16_t i=0; i<((128*32)/8); i++) {
 
 
 
@@ -1975,7 +1975,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
 
 
 void Clear_All_Pixels_In_Buffer (void) {
-    _safe_memset((char *)buffer, 0, (((128*32)/8)));
+    _safe_memset((char *)buffer, 0, ((128*32)/8));
 }
 
 void fillSplashScreen_in_buffer (void) {
