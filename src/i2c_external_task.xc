@@ -41,7 +41,7 @@
 
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "I2C_External_Task.h"
+#include "i2c_external_task.h"
 #endif
 
 #define DEBUG_PRINT_I2C_EXTERNAL_TASK 0 // Cost 1.5

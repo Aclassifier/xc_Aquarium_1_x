@@ -281,10 +281,10 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
     #endif
 
     // I2C
-    for (uint16_t i=0; i<(SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8); i++) {
+    for (uint16_t i=0; i<(SSD1306_BUFFER_SIZE); i++) {
         // send a bunch of data in one transmission
         // I2C
-        #if (((SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8) % SSD1306_WRITE_CHUNK_SIZE) != 0)
+        #if (((SSD1306_BUFFER_SIZE) % SSD1306_WRITE_CHUNK_SIZE) != 0)
             #error Display buffer not multiple of 16
         #endif
 
@@ -304,7 +304,7 @@ bool writeToDisplay_i2c_all_buffer (client i2c_internal_commands_if i_i2c_intern
 
 // clear everything
 void Clear_All_Pixels_In_Buffer (void) {
-    memset (buffer, 0, (SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8));
+    memset (buffer, 0, (SSD1306_BUFFER_SIZE));
 }
 
 void fillSplashScreen_in_buffer (void) {

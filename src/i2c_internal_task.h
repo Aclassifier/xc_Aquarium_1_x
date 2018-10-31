@@ -1,5 +1,5 @@
 /*
- * I2C_internal_task.h
+ * i2c_internal_task.h
  *
  *  Created on: 27. feb. 2015
  *      Author: Teig

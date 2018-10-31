@@ -23,10 +23,10 @@
 #include "i2c.h"
 
 #include "defines_adafruit.h"            // DISPLAY
-#include "core_graphics_adafruit_GFX.h"  // DISPLAY
+#include "core_graphics_adafruit_gfx.h"  // DISPLAY
 
 #include "chronodot_ds3231.h"           // CLOCK/CALENDAR ChronoDot basic types
-#include "I2C_Internal_Task.h"
+#include "i2c_internal_task.h"
 #include "display_ssd1306.h"            // DISPLAY with I2C knowledge
 #include "chronodot_ds3231_task.h"      // CLOCK/CALENDAR ChronoDot with I2C knowledge
 #endif

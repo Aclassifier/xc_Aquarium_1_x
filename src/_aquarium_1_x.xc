@@ -36,7 +36,6 @@
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 
-
 #include "display_ssd1306.h"
 
 #include "I2C_External_Task.h"
