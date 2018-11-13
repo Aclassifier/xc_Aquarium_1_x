@@ -182,7 +182,8 @@ Temp_OnetenthDegC_To_Str (
 {temp_onetenthDegC_t, bool}
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?temp_degC_str)[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) {
+    char (&?temp_degC_str)[EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN]) // AQU=060 "NULL" worked, but "null" is correct
+{
 
      // Internal A/D-converter
      // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -234,7 +235,7 @@ TC1047_Raw_DegC_To_String_Ok (
 {light_sensor_range_t, bool}
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?lux_str)[INNER_LUX_TEXT_LEN]) {
+    char (&?lux_str)[INNER_LUX_TEXT_LEN]) { // AQU=060 "NULL" worked, but "null" is correct
 
     // Internal A/D-converter
     // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero
@@ -276,7 +277,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 {voltage_onetenthV_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]) {
+    char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]) { // AQU=060 "NULL" worked, but "null" is correct
 
     // Internal A/D-converter
     // 0 to 65520 (0xFFF0) Actual ADC is 12 bit so bottom 4 bits always zero

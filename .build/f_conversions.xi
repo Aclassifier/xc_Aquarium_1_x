@@ -1700,8 +1700,9 @@ Temp_OnetenthDegC_To_Str (
 {temp_onetenthDegC_t, bool}
 TC1047_Raw_DegC_To_String_Ok (
     const unsigned int adc_val_mean_i,
-    char (&?temp_degC_str)[5]) {
-# 204 "../src/f_conversions.xc"
+    char (&?temp_degC_str)[5])
+{
+# 205 "../src/f_conversions.xc"
     int degC_dp1 = ((((adc_val_mean_i*100) - 198545) / 1985) - 400) - 18;
 
 
@@ -1736,7 +1737,7 @@ TC1047_Raw_DegC_To_String_Ok (
 Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?lux_str)[3]) {
-# 249 "../src/f_conversions.xc"
+# 250 "../src/f_conversions.xc"
     light_sensor_range_t light_sensor_range = adc_val_mean_i/407;
     if (light_sensor_range > 99) light_sensor_range = 99;
 
@@ -1768,7 +1769,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
-# 295 "../src/f_conversions.xc"
+# 296 "../src/f_conversions.xc"
     int volt_dp1 = (adc_val_mean_i/16)*100/1229;
 
 

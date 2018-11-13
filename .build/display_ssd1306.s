@@ -4221,7 +4221,7 @@ postmask:
 .asciiz"s2"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3457
+	.long	3452
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -5508,7 +5508,7 @@ postmask:
 	.long	3440
 	.byte	37
 	.long	.Linfo_string105
-	.long	782
+	.long	3450
 	.byte	0
 	.byte	38
 	.long	.Linfo_string38
@@ -5590,7 +5590,7 @@ postmask:
 	.long	3440
 	.byte	37
 	.long	.Linfo_string105
-	.long	782
+	.long	3450
 	.byte	0
 	.byte	39
 	.long	.Linfo_string43
@@ -5627,12 +5627,12 @@ postmask:
 	.long	.Linfo_string106
 	.byte	3
 	.byte	8
-	.long	3450
+	.long	3440
 	.byte	16
 	.long	.Linfo_string107
 	.byte	3
 	.byte	8
-	.long	3450
+	.long	3440
 	.byte	16
 	.long	.Linfo_string25
 	.byte	3
@@ -5655,7 +5655,7 @@ postmask:
 	.long	.Linfo_string107
 	.byte	3
 	.byte	12
-	.long	3450
+	.long	3440
 	.byte	16
 	.long	.Linfo_string25
 	.byte	3
@@ -5786,11 +5786,9 @@ postmask:
 	.byte	42
 	.long	3445
 	.byte	45
-	.long	66
-	.byte	42
-	.long	3455
-	.byte	45
 	.long	3359
+	.byte	41
+	.long	782
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -7670,7 +7668,7 @@ postmask:
 	.typestring _i.i2c_internal_commands_if._chan.read_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:us,&(a(2:uc)))"
 	.typestring _i.i2c_internal_commands_if._chan.write_chronodot_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})"
 	.typestring _i.i2c_internal_commands_if._chan.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(chd,:uc)"
-	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan.write_display_ok, "f{e(){m(false){0},m(true){1}}}(chd,:uc,:uc,&(a(:c:uc)),:ui)"
 	.typestring _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:us,&(a(2:c:uc)))"
 	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:us,&(a(2:uc)))"
@@ -7679,25 +7677,25 @@ postmask:
 	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok, "f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_yield.read_chronodot_ok,_i.i2c_internal_commands_if._client_call_y.fns
-	.typestring _i.i2c_internal_commands_if._chan_yield.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:uc,&(a(:uc)),ui)"
+	.typestring _i.i2c_internal_commands_if._chan_yield.write_display_ok, "f{e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:uc,:uc,&(a(:c:uc)),:ui)"
 	.overlay_reference _i.i2c_internal_commands_if._chan_yield.write_display_ok,_i.i2c_internal_commands_if._client_call_y.fns
 	.typestring delay_ticks_longlong, "f{0}(ull)"
 	.typestring setPixel_in_buffer, "f{0}(ss,ss,us)"
 	.typestring height, "f{ss}(0)"
 	.typestring width, "f{ss}(0)"
 	.typestring getRotation, "f{uc}(0)"
-	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},o:p)"
-	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
+	.typestring Adafruit_SSD1306_i2c_begin, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},o:p)"
+	.typestring writeDisplay_i2c_command, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
 	.overlay_reference writeDisplay_i2c_command,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
+	.typestring writeDisplay_i2c_data, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
 	.overlay_reference writeDisplay_i2c_data,_i.i2c_internal_commands_if.write_display_ok.fns
-	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
-	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
-	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
-	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}})"
-	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:uc)),ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}})"
+	.typestring tellDisplay_i2c_invert, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc)"
+	.typestring tellDisplay_i2c_startscrollright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrollleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagright, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
+	.typestring tellDisplay_i2c_startscrolldiagleft, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}},uc,uc)"
+	.typestring tellDisplay_i2c_stopscroll, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}})"
+	.typestring writeToDisplay_i2c_all_buffer, "f{e(){m(false){0},m(true){1}}}(ic(i2c_internal_commands_if){m(write_display_ok){f{e(){m(false){0},m(true){1}}}(:uc,:uc,&(a(:c:uc)),:ui)},m(read_chronodot_ok){f{s(chronodot_d3231_registers_t){m(registers){a(19:uc)}},e(){m(false){0},m(true){1}}}(:uc)},m(write_chronodot_ok){f{e(){m(false){0},m(true){1}}}(:uc,:s(chronodot_d3231_registers_t){m(registers){a(19:uc)}})},m(read_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:uc)))},m(write_byte_fram_ok){f{e(){m(false){0},m(true){1}}}(:uc,:us,&(a(2:c:uc)))}})"
 	.overlay_reference writeToDisplay_i2c_all_buffer,_i.i2c_internal_commands_if.write_display_ok.fns
 	.typestring Clear_All_Pixels_In_Buffer, "f{0}(0)"
 	.typestring fillSplashScreen_in_buffer, "f{0}(0)"

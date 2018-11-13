@@ -65,7 +65,11 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
     while (1) {
         select {
 
-            case i_i2c_internal_commands[int index_of_client].write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, unsigned char data[], unsigned nbytes) -> bool ok: {
+            case i_i2c_internal_commands[int index_of_client].write_display_ok (
+                    const i2c_dev_address_t dev_addr,
+                    const i2c_reg_address_t reg_addr,
+                    const unsigned char data[],
+                    const unsigned nbytes) -> bool ok: {
 
                 i2c_result_t i2c_result;
 

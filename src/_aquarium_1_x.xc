@@ -13,7 +13,7 @@
 
 #include <platform.h>
 #include <xs1.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <stdint.h> // uint8_t
 #include <stdio.h>
 #include <iso646.h>
@@ -793,7 +793,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V],         rr_24V_str);
 
             {light_sensor_intensity, light_sensor_intensity_ok} =
-                Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
+                Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], null);
 
             // FILLS 84 chars plus \0
             sprintf_numchars = sprintf (context.display_ts1_chars,
@@ -1466,9 +1466,9 @@ void System_Task_Data_Handler (
 
     {context.chronodot_d3231_registers, context.read_chronodot_ok}                                      = i_i2c_internal_commands.read_chronodot_ok (I2C_ADDRESS_OF_CHRONODOT);
     {context.now_regulating_at, context.temperature_water_controller_debug_log}                         = i_temperature_water_commands.get_now_regulating_at ();
-    {context.rr_12V_LEDlight_onetenthV, context.rr_12_voltage_ok}                                       = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], NULL);
-    {context.rr_24V_heat_onetenthV, context.rr_24_voltage_ok}                                           = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], NULL);
-    {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}                              = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], NULL);
+    {context.rr_12V_LEDlight_onetenthV, context.rr_12_voltage_ok}                                       = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_12V], null);
+    {context.rr_24V_heat_onetenthV, context.rr_24_voltage_ok}                                           = RR_12V_24V_To_String_Ok      (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_24V], null);
+    {context.internal_box_temp_onetenthDegC, context.internal_box_temp_ok}                              = TC1047_Raw_DegC_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_TEMPERATURE], null);
     {context.heater_data_aged, context.heater_on_ok, context.heater_on_percent, context.heater_on_watt} = i_temperature_heater_commands.get_regulator_data (context.rr_24V_heat_onetenthV);
 
     // READ DATE AND TIME AND PRINT OUT EVERY MINUTE
@@ -1662,7 +1662,7 @@ void System_Task_Data_Handler (
     {
         bool light_sensor_intensity_ok;
         {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
-            Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], NULL);
+            Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], null);
         if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.do_init) {
             light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
         } else {} // Fine
