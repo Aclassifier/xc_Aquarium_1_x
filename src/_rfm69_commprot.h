@@ -35,15 +35,16 @@ typedef uint16_t num_days_since_start_r;            // num_days_since_start_t   
 typedef uint8_t  light_amount_full_or_two_thirds_r; // light_amount_full_or_two_thirds_t light_sunrise_sunset.h
 typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t             light_sunrise_sunset.h
 
-// Needs <limits.h>
-#define HEATER_ON_PERCENT_R_MAX UCHAR_MAX
-#define HEATER_ON_PERCENT_R_MIN CHAR_MIN
+//                                          #####_###  Needs <limits.h>. But this is not ok for the display:
+//                              ###                   Physical and num chars in display
+#define HEATER_ON_PERCENT_R_MAX 100 //      UCHAR_MAX
+#define HEATER_ON_PERCENT_R_MIN   0 //      CHAR_MIN
 //
-#define HEATER_ON_WATT_R_MAX    UCHAR_MAX
-#define HEATER_ON_WATT_R_MIN    CHAR_MIN
+#define HEATER_ON_WATT_R_MAX     99 //      UCHAR_MAX
+#define HEATER_ON_WATT_R_MIN      0 //      CHAR_MIN
 //
-#define ONETENTHDEGC_R_MAX      SHRT_MAX
-#define ONETENTHDEGC_R_MIN      SHRT_MIN
+#define ONETENTHDEGC_R_MAX      990 // 99.0 SHRT_MAX
+#define ONETENTHDEGC_R_MIN        0 //      SHRT_MIN
 
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
 
