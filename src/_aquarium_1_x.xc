@@ -428,7 +428,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             Clear_All_Pixels_In_Buffer();
 
-            now_regulating_at_char_t now_regulating_at_char = NOW_REGULATING_AT_CHAR_TEXTS;
+            //now_regulating_at_char_t now_regulating_at_char = NOW_REGULATING_AT_CHAR_TEXTS;
+            const char now_regulating_at_char[][2] = {"#", "2", "1", "=", "H", "-", "0", "?"};
 
             i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str); // Value or GENERIC_TEXT_NO_DATA_DEGC
 
@@ -465,11 +466,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
             setCursor(101,14);
 
             if (context.heat_cables_forced_off_by_watchdog) {
-                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],REGULATING_AT_NUMS_TEXT_LEN);
+                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
             } else if (not context.heater_on_ok) {
-                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],REGULATING_AT_NUMS_TEXT_LEN);
+                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
             } else {
-                display_print (now_regulating_at_char[context.now_regulating_at],REGULATING_AT_NUMS_TEXT_LEN);
+                display_print (now_regulating_at_char[context.now_regulating_at],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
             }
 
             setTextSize(1);
@@ -507,7 +508,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.display_ts1_chars [index_of_char] = ' ';
                     }
 
-                    const char light_control_scheme_strings [][LIGHT_CONTROL_SCHEME_TEXT_TOTLEN] = LIGHT_CONTROL_SCHEME_STRINGS; // AQU=055
+                    const char light_control_scheme_strings [][LIGHT_CONTROL_SCHEME_CHAR_TEXTS_LENGTH] = LIGHT_CONTROL_SCHEME_CHAR_TEXTS; // AQU=055
 
                     // strlen cannot be used because "INIT" and " DAY" have the same strlen of 4:
 

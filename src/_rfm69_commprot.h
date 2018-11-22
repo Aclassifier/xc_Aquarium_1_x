@@ -48,18 +48,29 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
 
-// AQU=055
-#define LIGHT_CONTROL_SCHEME_TEXT_TOTLEN  5 // Including nul terminating char. ALSO USED IN DISPLAY WHERE LEADING SPACE IS HANDLED THERE
-#define LIGHT_CONTROL_SCHEME_STRINGS {"INIT", " DAG", " NED", "NATT", " OPP", " SKY", "LYKT"} // Indexed with light_control_scheme_t
+// AQU=055, AQU=061
+// light_control_scheme_t in port_heat_light_task.h
+//
+#define LIGHT_CONTROL_SCHEME_CHAR_TEXTS_LENGTH  5 // Including nul terminating char. ALSO USED IN DISPLAY WHERE LEADING SPACE IS HANDLED THERE
+#define LIGHT_CONTROL_SCHEME_CHAR_TEXTS         {"INIT", " DAG", " NED", "NATT", " OPP", " SKY", "LYKT"} // Indexed with light_control_scheme_t
 
-#define NOW_REGULATING_AT_TEXT_TOTLEN
-#define NOW_REGULATING_AT_STRINGS // now_regulating_at_t
-
-
-// light_control_scheme_t
+// now_regulating_at_t in temperature_water_task.h AQU=061
+//
+// # REGULATING_AT_INIT
+// 2 REGULATING_AT_BOILING
+// 1 REGULATING_AT_SIMMERING
+// = REGULATING_AT_TEMP_REACHED
+// H REGULATING_AT_HOTTER_AMBIENT ("H" means "hot" for kitchen stoves, i.e. "Het" in Norwegian)
+// - REGULATING_AT_LOST_WATER_SENSOR
+//
+// Not part of regulation index above, only used for displaying special state in aquarium box
+// 0 HEAT_CABLE_FORCED_OFF_BY_WATCHDOG
+// ? HEAT_CABLE_ERROR
+#define NOW_REGULATING_AT_CHAR_TEXTS_LENGTH 2 // One char plus NUL at the end
+#define NOW_REGULATING_AT_CHAR_TEXTS        {"#", "2", "1", "=", "H", "-", "0", "?"}
 
 // To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
-
+//
 typedef struct { // Size must be modulo 4                                           // WORD ALIGN
 
     // For VERSION_OF_APP_PAYLOAD_01 == 1

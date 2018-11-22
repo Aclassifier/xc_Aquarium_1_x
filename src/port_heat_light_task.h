@@ -58,7 +58,7 @@ typedef enum light_composition_t {
     //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
 
-typedef enum light_control_scheme_t {    //    #### LIGHT_CONTROL_SCHEME_STRINGS
+typedef enum light_control_scheme_t {    //    #### REGULATING_AT_CHAR_TEXTS
                                          //    ####
     LIGHT_CONTROL_IS_VOID,               // 0 "INIT" and when we, in a call, don't want to modify it
     LIGHT_CONTROL_IS_DAY,                // 1 " DAG"

@@ -1632,8 +1632,6 @@ void Button_Task (
         client button_if i_button_out);
 # 32 "../src/main.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
-# 62 "../src/_texts_and_constants.h"
-typedef char now_regulating_at_char_t [8][2];
 # 33 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"

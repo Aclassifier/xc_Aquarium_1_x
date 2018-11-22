@@ -56,20 +56,6 @@
 #define EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN    GENERIC_DEGC_TEXT_LEN
 #define EXTERNAL_TEMPERATURE_ERROR_TEXT       "Feil" // EXTERNAL_TEMPERATURE_DEGC_TEXT_LEN also includes NUL at the end
 
-// Depending of now_regulating_at_t
-#define REGULATING_AT_NUMS          8
-#define REGULATING_AT_NUMS_TEXT_LEN 2 // One char plus NUL at the end
-typedef char now_regulating_at_char_t [REGULATING_AT_NUMS][REGULATING_AT_NUMS_TEXT_LEN];
-// ? REGULATING_AT_INIT
-// 2 REGULATING_AT_BOILING
-// 1 REGULATING_AT_SIMMERING
-// = REGULATING_AT_TEMP_REACHED
-// H REGULATING_AT_HOTTER_AMBIENT ("H" means "hot" for kitchen stoves, i.e. "Het" in Norwegian)
-// - REGULATING_AT_MINUS
-// 0 HEAT_CABLE_FORCED_OFF_BY_WATCHDOG
-// ? HEAT_CABLE_ERROR
-#define NOW_REGULATING_AT_CHAR_TEXTS {"#", "2", "1", "=", "H", "-", "0", "?"}
-
 #else
     #error Nested include TEXTS_AND_CONSTANTS_H_
 #endif
