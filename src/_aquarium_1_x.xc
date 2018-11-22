@@ -428,8 +428,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             Clear_All_Pixels_In_Buffer();
 
-            //now_regulating_at_char_t now_regulating_at_char = NOW_REGULATING_AT_CHAR_TEXTS;
-            const char now_regulating_at_char[][2] = {"#", "2", "1", "=", "H", "-", "0", "?"};
+            const char now_regulating_at_char[][2] = NOW_REGULATING_AT_CHAR_TEXTS;
 
             i_temperature_heater_commands.get_temp_degC_str (IOF_TEMPC_HEATER_MEAN_LAST_CYCLE, temp_degC_heater_mean_last_cycle_str); // Value or GENERIC_TEXT_NO_DATA_DEGC
 
