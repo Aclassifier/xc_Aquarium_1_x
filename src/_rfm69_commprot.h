@@ -46,13 +46,17 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 #define ONETENTHDEGC_R_MAX      990 // 99.0 SHRT_MAX
 #define ONETENTHDEGC_R_MIN        0 //      SHRT_MIN
 
+#define RSSI_DB_STRONGEST           0 // -100 is weaker
+#define RSSI_DB_WEAKEST      SHRT_MIN //  -80 is stronger
+
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
 
 // AQU=055, AQU=061
 // light_control_scheme_t in port_heat_light_task.h
 //
 #define LIGHT_CONTROL_SCHEME_CHAR_TEXTS_LENGTH  5 // Including nul terminating char. ALSO USED IN DISPLAY WHERE LEADING SPACE IS HANDLED THERE
-#define LIGHT_CONTROL_SCHEME_CHAR_TEXTS         {"INIT", " DAG", " NED", "NATT", " OPP", " SKY", "LYKT"} // Indexed with light_control_scheme_t
+#define LIGHT_CONTROL_SCHEME_CHAR_TEXTS         {"INIT", " DAG", " NED",  "NATT", " OPP", " SKY",  "LYKT"} // Indexed with light_control_scheme_t
+#define LIGHT_CONTROL_SCHEME_CHAR_TEXTS_LA      {"INIT",  "DAG ", "NED ", "NATT",  "OPP ", "SKY ", "LYKT"} // Left aligned
 
 // now_regulating_at_t in temperature_water_task.h AQU=061
 //
