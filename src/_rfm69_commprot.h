@@ -80,7 +80,7 @@ typedef struct { // Size must be modulo 4                                       
     // For VERSION_OF_APP_PAYLOAD_01 == 1
 
     num_days_since_start_r            num_days_since_start;                         // 01,02        Saving 4 bytes for year, month and day (start date is seen in SCREEN_6_KONSTANTER)
-                                                                                    //              SPARE 1: May be caculated from appSeqCnt in packet_u3_t
+                                                                                    //              SPARE 1 since it may be calculated from appSeqCnt in packet_u3_t
     hour_r                            hour;                                         //       03
     minute_r                          minute;                                       //          04
     second_r                          second;                                       // 05
