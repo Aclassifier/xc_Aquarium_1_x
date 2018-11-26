@@ -20,7 +20,7 @@
 #endif
 
 #define DEBUG_PRINT_BUTTON_PRESS 0
-#define debug_print(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if((DEBUG_PRINT_BUTTON_PRESS==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 
 #define DEBOUNCE_TIMEOUT_50_MS 50

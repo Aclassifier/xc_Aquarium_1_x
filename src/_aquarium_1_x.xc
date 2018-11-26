@@ -67,13 +67,13 @@
 
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
 #define DEBUG_PRINT_AQUARIUM 0
-#define debug_print(fmt, ...) do { if(DEBUG_PRINT_AQUARIUM and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+#define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_X 0
-#define debug_print_x(fmt, ...) do { if(DEBUG_PRINT_X and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+#define debug_print_x(fmt, ...) do { if((DEBUG_PRINT_X==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_Y 0
-#define debug_print_y(fmt, ...) do { if(DEBUG_PRINT_Y and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
+#define debug_print_y(fmt, ...) do { if((DEBUG_PRINT_Y==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #if (FLASH_BLACK_BOARD==0)
     #if (DEBUG_PRINT_Y==1)

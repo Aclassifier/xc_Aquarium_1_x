@@ -45,7 +45,7 @@
 #endif
 
 #define DEBUG_PRINT_I2C_EXTERNAL_TASK 0 // Cost 1.5
-#define debug_print(fmt, ...) do { if(DEBUG_PRINT_I2C_EXTERNAL_TASK and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if((DEBUG_PRINT_I2C_EXTERNAL_TASK==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 r_i2c i2c_external_config = {
     on tile[0]:XS1_PORT_1G, // X_SCL SCL is at startKIT GPIO header (J7.3) port P1G0, processor pin X0D22

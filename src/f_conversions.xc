@@ -28,7 +28,7 @@
 #endif
 
 #define DEBUG_PRINT_F_CONVERSIONS_MEAN 0 // Cost 1.3k
-#define debug_print(fmt, ...) do { if(DEBUG_PRINT_F_CONVERSIONS_MEAN and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
+#define debug_print(fmt, ...) do { if((DEBUG_PRINT_F_CONVERSIONS_MEAN==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 
 #define INDEX_VOID (-1)
 
