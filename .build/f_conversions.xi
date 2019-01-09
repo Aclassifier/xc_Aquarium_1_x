@@ -1555,7 +1555,7 @@ typedef struct temp_onetenthDegC_mean_t {
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
 # 121 "../src/f_conversions.h"
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_String (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
@@ -1667,7 +1667,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC (
 
 
 {temp_onetenthDegC_t, bool}
-Temp_OnetenthDegC_To_Str (
+Temp_OnetenthDegC_To_String (
     const i2c_temp_onetenthDegC_t degC_dp1,
     char temp_degC_str[5]) {
 

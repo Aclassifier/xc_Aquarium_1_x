@@ -221,7 +221,7 @@ void Temperature_Heater_Task (
                     // -- CONVERT TO temps_onetenthDegC and temps_degC_str ---
                     //
                     {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} =
-                        Temp_OnetenthDegC_To_Str (
+                        Temp_OnetenthDegC_To_String (
                                 i2c_temps.i2c_temp_onetenthDegC[iof_i2c_temp],
                                 temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. May be overwritten with mean value below
 
@@ -232,11 +232,11 @@ void Temperature_Heater_Task (
                                 ARITHMETIC_MEAN_N_OF_TEMPS,
                                 temps_onetenthDegC_converted);
                         {temps_onetenthDegC_converted, ok_degC_converts[iof_i2c_temp]} = // Don't care about OK here
-                            Temp_OnetenthDegC_To_Str (
+                            Temp_OnetenthDegC_To_String (
                                     temps_onetenthDegC[iof_i2c_temp],
                                     temps_degC_str[iof_i2c_temp]); // For get_temp_degC_str. Overwritten
                     } else {
-                        ok_degC_i2cs[iof_i2c_temp] = false; // Will propagate ok_degC_converts over (won't happen after Temp_OnetenthDegC_To_Str function test)
+                        ok_degC_i2cs[iof_i2c_temp] = false; // Will propagate ok_degC_converts over (won't happen after Temp_OnetenthDegC_To_String function test)
                         temps_onetenthDegC[iof_i2c_temp] = temps_onetenthDegC_converted; // EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC
                         // Error with data, init filter
                         Init_Arithmetic_Mean_Temp_OnetenthDegC (
@@ -338,7 +338,7 @@ void Temperature_Heater_Task (
                         }
 
                         {temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], ok_degC_heater_mean_last_cycle} =
-                             Temp_OnetenthDegC_To_Str (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
+                             Temp_OnetenthDegC_To_String (temps_onetenthDegC[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE], temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE]);
 
                         debug_print ("==> T=%s and last round with %d values for %d seconds and on %d percent of the time",
                              temps_degC_str[IOF_TEMPC_HEATER_MEAN_LAST_CYCLE],

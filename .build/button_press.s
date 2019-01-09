@@ -86,7 +86,7 @@
 	.call usage.anon.0,delay_ticks_longlong
 	.set Button_Task.locnoside, 0
 	.set Button_Task.locnointerfaceaccess, 0
-	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:96:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_print(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:23:97: note: expanded from here\n#define debug_print(fmt, ...) do { if(DEBUG_PRINT_BUTTON_PRESS and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)\n                                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,printf.actnonotificationselect,"../src/button_press.xc:97:21: error: call to function `printf\' which selects on a notification in a combinable function select case\n                    debug_print(\" BUTTON_ACTION_PRESSED_FOR_10_SECONDS %u sent\\n\", button_n);\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n../src/button_press.xc:23:102: note: expanded from here\n#define debug_print(fmt, ...) do { if((DEBUG_PRINT_BUTTON_PRESS==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)\n                                                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -299,7 +299,7 @@ Button_Task:
 	eeu res[r9]
 .Ltmp27:
 .LBB2_4:
-	.loc	1 98 0
+	.loc	1 99 0
 
 	.xtabranch .LBB2_10, .LBB2_5
 	waiteu
@@ -347,20 +347,20 @@ Button_Task:
 .Lxtalabel7:
 	ldw r1, sp[2]
 .Ltmp37:
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r0, r1[0]
 .Ltmp38:
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r1, r1[1]
 .Ltmp39:
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r2, r1[0]
-	.loc	1 95 0
+	.loc	1 96 0
 	mov r1, r10
 .Lxta.call_labels1:
 	bla r2
 	ldc r0, 0
-	mov r1, r4
+	mov r1, r0
 	bu .LBB2_1
 .Ltmp40:
 .LBB2_7:
@@ -784,15 +784,17 @@ Button_Task.select.yield.case.1:
 	.loc	1 94 0
 	stw r0, r4[10]
 	.loc	1 95 0
+	stw r0, r4[9]
+	.loc	1 96 0
 	ldw r1, r4[4]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r0, r1[0]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r1, r1[1]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r2, r1[0]
 	mkmsk r1, 1
-	.loc	1 95 0
+	.loc	1 96 0
 .Lxta.call_labels3:
 	bla r2
 	bu .LBB9_8
@@ -997,15 +999,17 @@ Button_Task.select.case.1:
 	.loc	1 94 0
 	stw r0, r4[10]
 	.loc	1 95 0
+	stw r0, r4[9]
+	.loc	1 96 0
 	ldw r1, r4[4]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r0, r1[0]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r1, r1[1]
-	.loc	1 95 0
+	.loc	1 96 0
 	ldw r2, r1[0]
 	mkmsk r1, 1
-	.loc	1 95 0
+	.loc	1 96 0
 .Lxta.call_labels6:
 	bla r2
 	bu .LBB11_8
@@ -2418,19 +2422,19 @@ Button_Task.select.case.1:
 .cc_top cc_6,.Lxta.call_labels3
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	95
+	.long	96
 	.long	.Lxta.call_labels3
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels1
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	95
+	.long	96
 	.long	.Lxta.call_labels1
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels6
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	95
+	.long	96
 	.long	.Lxta.call_labels6
 .cc_bottom cc_8
 .Lentries_end1:
@@ -2957,70 +2961,70 @@ Button_Task.select.case.1:
 	.ascii	"../src/button_press.xc"
 	.byte	0
 	.long	94
-	.long	95
+	.long	96
 	.long	.Lxtalabel23
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel7
 	.ascii	"../src/button_press.xc"
 	.byte	0
 	.long	94
-	.long	95
+	.long	96
 	.long	.Lxtalabel7
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel13
 	.ascii	"../src/button_press.xc"
 	.byte	0
 	.long	94
-	.long	95
+	.long	96
 	.long	.Lxtalabel13
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel23
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	96
-	.long	96
+	.long	97
+	.long	97
 	.long	.Lxtalabel23
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel13
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	96
-	.long	96
+	.long	97
+	.long	97
 	.long	.Lxtalabel13
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel7
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	96
-	.long	96
+	.long	97
+	.long	97
 	.long	.Lxtalabel7
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel20
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	98
-	.long	98
+	.long	99
+	.long	99
 	.long	.Lxtalabel20
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel30
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	98
-	.long	98
+	.long	99
+	.long	99
 	.long	.Lxtalabel30
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel20
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	100
-	.long	100
+	.long	101
+	.long	101
 	.long	.Lxtalabel20
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel30
 	.ascii	"../src/button_press.xc"
 	.byte	0
-	.long	100
-	.long	100
+	.long	101
+	.long	101
 	.long	.Lxtalabel30
 .cc_bottom cc_92
 .Lentries_end5:

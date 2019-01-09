@@ -1659,7 +1659,7 @@ typedef struct temp_onetenthDegC_mean_t {
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
 # 121 "../src/f_conversions.h"
-{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_Str (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
+{temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_String (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
 {voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
@@ -2056,7 +2056,7 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 99 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 103 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2101,9 +2101,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 152 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 156 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 170 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 174 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2122,7 +2122,7 @@ typedef struct {
 } packet_t;
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
-# 18 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 27 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
 
     ERROR_NO_SPI_UNIT_CONNECTED = 0,
@@ -2153,7 +2153,7 @@ typedef enum {
 } error_bits_e;
 
 typedef enum {NO_ERR, IS_ERR} is_error_e;
-# 85 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 94 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
 
     uint8_t preamble0;
@@ -2174,7 +2174,7 @@ typedef struct {
 
     uint8_t CRC16_LSB;
     uint8_t CRC16_MSB;
-# 120 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 129 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } rfm69_packet_t;
 
 typedef enum {
@@ -2197,11 +2197,10 @@ typedef enum {
     messageNotForThisNode_IRQ = 8,
     messageRadioCRC16Err_IRQ = 9,
 
-    messageAppCRC32Err_IRQ = 10,
-    messageRadioCRC16AppCRC32Errs_IRQ = 11
+    messageAppCRC32Err_IRQ = 10
 
 } interruptAndParsingResult_e;
-# 156 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 164 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     uint8_t nodeID;
     uint32_t RegFrf;
@@ -2219,7 +2218,7 @@ typedef struct {
     uint8_t RegIrqFlags2;
 
 } some_rfm69_internals_t;
-# 196 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 204 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     FORCETRIGGER_OFF,
     FORCETRIGGER_ON
@@ -2229,7 +2228,7 @@ typedef enum {
     RX_TX_IRQ,
     RX_IRQ
 } handleIRQ_t;
-# 281 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 289 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
 
@@ -2242,8 +2241,16 @@ typedef enum {
     iof_waitForIRQInterruptCause = 4
 } iof_debug_bytes_e;
 
+typedef enum {
+    debug_none,
+    debug_just_read_some_registers,
+    debug_flush_RegIrqFlags2,
+    debug_mode_0_1,
+    debug_void
+} debug_state_e;
+
 typedef interface radio_if_t {
-# 310 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 326 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_adafruit_rfm69hcw_RST_pulse
                                                            (const unsigned maskof_pin);
 
@@ -2276,7 +2283,9 @@ typedef interface radio_if_t {
     void sleep (void);
     void setFrequencyRegister (const uint32_t register_value);
     uint32_t getFrequencyRegister (void);
-# 351 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+
+    void ultimateIRQclear (void);
+# 369 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } radio_if_t;
 
 
@@ -2288,10 +2297,15 @@ void RFM69_driver (
                unsigned spi_client);
 
 
-typedef interface irq_if_t {
-    void pin_rising (const int16_t value);
-} irq_if_t;
+typedef struct {
+    pin_e pin_value;
+    unsigned time_since_last_change_sec;
+    int16_t RSSI_value;
+} irq_t;
 
+typedef interface irq_if_t {
+    void irq_pin_state (const irq_t irq);
+} irq_if_t;
 
 typedef struct probe_pins_t {
     out port probe_when_irq;
@@ -2300,6 +2314,17 @@ typedef struct probe_pins_t {
 
 [[combinable]]
 void IRQ_detect_task (
+        client irq_if_t i_irq,
+               in port p_irq,
+               probe_pins_t &?p_probe,
+        client spi_master_if ?i_spi,
+
+
+               unsigned iof_spi_client
+        );
+
+[[combinable]]
+void IRQ_detect_poll_task (
         client irq_if_t i_irq,
                in port p_irq,
                probe_pins_t &?p_probe,

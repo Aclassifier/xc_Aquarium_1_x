@@ -237,7 +237,7 @@ void Temperature_Water_Task (
                 temp_onetenthDegC_t temp_onetenthDegC;
                 bool ok_degC_convert; // if false then temp_onetenthDegC has error value, ok to drop testing
 
-                {temp_onetenthDegC, ok_degC_convert} = Temp_OnetenthDegC_To_Str (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
+                {temp_onetenthDegC, ok_degC_convert} = Temp_OnetenthDegC_To_String (temps_onetenthDegC[i2c_iof_temps], temp_degC_str);
 
                 for (int iof_char=0; iof_char < GENERIC_DEGC_TEXT_LEN; iof_char++) {
                     return_value_string[iof_char] = temp_degC_str[iof_char];

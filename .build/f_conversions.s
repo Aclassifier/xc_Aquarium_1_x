@@ -16,7 +16,7 @@
 	.call RR_12V_24V_To_String_Ok,sprintf
 	.call Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok,sprintf
 	.call TC1047_Raw_DegC_To_String_Ok,sprintf
-	.call Temp_OnetenthDegC_To_Str,sprintf
+	.call Temp_OnetenthDegC_To_String,sprintf
 	.call usage.anon.5,memset
 	.call usage.anon.4,memmove
 	.call usage.anon.3,memcmp
@@ -60,11 +60,11 @@
 	.long	4294967286
 	.cc_bottom .LCPI0_1.data
 	.text
-	.globl	Temp_OnetenthDegC_To_Str
+	.globl	Temp_OnetenthDegC_To_String
 	.align	2
-	.type	Temp_OnetenthDegC_To_Str,@function
-	.cc_top Temp_OnetenthDegC_To_Str.function,Temp_OnetenthDegC_To_Str
-Temp_OnetenthDegC_To_Str:
+	.type	Temp_OnetenthDegC_To_String,@function
+	.cc_top Temp_OnetenthDegC_To_String.function,Temp_OnetenthDegC_To_String
+Temp_OnetenthDegC_To_String:
 .Lfunc_begin0:
 	.loc	1 156 0
 	.cfi_startproc
@@ -170,17 +170,17 @@ Temp_OnetenthDegC_To_Str:
 	retsp 6
 	# RETURN_REG_HOLDER
 .Ltmp23:
-	.cc_bottom Temp_OnetenthDegC_To_Str.function
-	.set	Temp_OnetenthDegC_To_Str.nstackwords,((siprintf.nstackwords $M memcpy.nstackwords) + 6)
-	.globl	Temp_OnetenthDegC_To_Str.nstackwords
-	.set	Temp_OnetenthDegC_To_Str.maxcores,siprintf.maxcores $M 1
-	.globl	Temp_OnetenthDegC_To_Str.maxcores
-	.set	Temp_OnetenthDegC_To_Str.maxtimers,siprintf.maxtimers $M 0
-	.globl	Temp_OnetenthDegC_To_Str.maxtimers
-	.set	Temp_OnetenthDegC_To_Str.maxchanends,siprintf.maxchanends $M 0
-	.globl	Temp_OnetenthDegC_To_Str.maxchanends
+	.cc_bottom Temp_OnetenthDegC_To_String.function
+	.set	Temp_OnetenthDegC_To_String.nstackwords,((siprintf.nstackwords $M memcpy.nstackwords) + 6)
+	.globl	Temp_OnetenthDegC_To_String.nstackwords
+	.set	Temp_OnetenthDegC_To_String.maxcores,siprintf.maxcores $M 1
+	.globl	Temp_OnetenthDegC_To_String.maxcores
+	.set	Temp_OnetenthDegC_To_String.maxtimers,siprintf.maxtimers $M 0
+	.globl	Temp_OnetenthDegC_To_String.maxtimers
+	.set	Temp_OnetenthDegC_To_String.maxchanends,siprintf.maxchanends $M 0
+	.globl	Temp_OnetenthDegC_To_String.maxchanends
 .Ltmp24:
-	.size	Temp_OnetenthDegC_To_Str, .Ltmp24-Temp_OnetenthDegC_To_Str
+	.size	Temp_OnetenthDegC_To_String, .Ltmp24-Temp_OnetenthDegC_To_String
 .Lfunc_end0:
 	.cfi_endproc
 
@@ -1168,7 +1168,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string16:
 .asciiz"short"
 .Linfo_string17:
-.asciiz"Temp_OnetenthDegC_To_Str"
+.asciiz"Temp_OnetenthDegC_To_String"
 .Linfo_string18:
 .asciiz"TC1047_Raw_DegC_To_String_Ok"
 .Linfo_string19:
@@ -3333,7 +3333,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lset76 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset76
 	.long	137
-.asciiz"Temp_OnetenthDegC_To_Str"
+.asciiz"Temp_OnetenthDegC_To_String"
 	.long	612
 .asciiz"RR_12V_24V_To_String_Ok"
 	.long	1447
@@ -3387,7 +3387,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 	.cfi_sections .debug_frame
 
 	.typestring siprintf, "f{si}(u:q(uc),u:q(c:uc),va)"
-	.typestring Temp_OnetenthDegC_To_Str, "f{ss,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"
+	.typestring Temp_OnetenthDegC_To_String, "f{ss,e(){m(false){0},m(true){1}}}(:ss,&(a(5:uc)))"
 	.typestring TC1047_Raw_DegC_To_String_Ok, "f{ss,e(){m(false){0},m(true){1}}}(:ui,n:&(a(5:uc)))"
 	.typestring Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok, "f{si,e(){m(false){0},m(true){1}}}(:ui,n:&(a(3:uc)))"
 	.typestring RR_12V_24V_To_String_Ok, "f{ss,e(){m(false){0},m(true){1}}}(:ui,n:&(a(5:uc)))"

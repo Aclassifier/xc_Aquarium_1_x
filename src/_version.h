@@ -19,8 +19,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.08" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1208  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.2.09" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1209  // Is "application_version_num_t"
+    // "1.2.09"    29Nov2018 AQU=062 Button_Task opdated
     // "1.2.08"    22Nov2018 AQU=061 New light and heating regulating names of text constants. NŒ change in code size
     // "1.2.07"    13Nov2018 AQU=060 Replaced "NULL" with "null" when nullable type as parameter.
     //                               See http://www.teigfam.net/oyvind/home/technology/141-xc-is-c-plus-x/#nullable_types_null_and_null

@@ -47,7 +47,7 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 #define ONETENTHDEGC_R_MIN        0 //      SHRT_MIN
 
 #define RSSI_DB_STRONGEST           0 // -100 is weaker
-#define RSSI_DB_WEAKEST      SHRT_MIN //  -80 is stronger
+#define RSSI_DB_WEAKEST          -300 //  -80 is stronger
 
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
 

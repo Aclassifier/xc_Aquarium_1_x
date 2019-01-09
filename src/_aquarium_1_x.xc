@@ -891,8 +891,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool ok;
             i2c_temp_onetenthDegC_t value;
 
-            {value, ok} = Temp_OnetenthDegC_To_Str (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT, temp_water_degc_str);
-            {value, ok} = Temp_OnetenthDegC_To_Str (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, temp_heater_degc_str);
+            {value, ok} = Temp_OnetenthDegC_To_String (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT, temp_water_degc_str);
+            {value, ok} = Temp_OnetenthDegC_To_String (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, temp_heater_degc_str);
 
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -2171,24 +2171,25 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case i_irq.pin_rising (const int16_t value) : { // value not used since IRQ_detect_task does not send RSSI on it
+            case i_irq.irq_pin_state (const irq_t irq) : { // AQU=062
 
-                packet_t                    RX_PACKET_U;
-                int16_t                     nowRSSI;
-                interruptAndParsingResult_e interruptAndParsingResult;
+                if (irq.pin_value == high) {
+                    packet_t                    RX_PACKET_U;
+                    int16_t                     nowRSSI;
+                    interruptAndParsingResult_e interruptAndParsingResult;
 
-                nowRSSI = i_radio.readRSSI_dBm (FORCETRIGGER_OFF);
+                    nowRSSI = i_radio.readRSSI_dBm (FORCETRIGGER_OFF);
 
-                {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.handleSPIInterrupt();
+                    {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.handleSPIInterrupt();
 
-                switch (interruptAndParsingResult) {
-                    case messageReceivedOk_IRQ: {
-                        if (i_radio.receiveDone()) {}
-                    } break;
-                    default: {} break;
-                }
-
-                i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
+                    switch (interruptAndParsingResult) {
+                        case messageReceivedOk_IRQ: {
+                            if (i_radio.receiveDone()) {}
+                        } break;
+                        default: {} break;
+                    }
+                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
+                } else {}
 
             } break;
         }
