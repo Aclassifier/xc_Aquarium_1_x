@@ -92,20 +92,21 @@ extern unsigned char font[];
 
 //}}}
 
-#define CHAR_SMILEY        2 // Alternatively 1
-#define CHAR_UP_ARROW     24 // ↑
-#define CHAR_DOWN_ARROW   25 // ↓
-#define CHAR_RIGHT_ARROW  26 // -> but nicer
-#define CHAR_LEFT_ARROW   27 // <- but nicer
-#define CHAR_aa          132 // å MODIFIED, was a-umlaut ä
-#define CHAR_AA          143 // Å MODIFIED, was A-ring (but a dot)
-#define CHAR_ae          145 // æ MODIFIED, was o-umlaut ö
-#define CHAR_AE          146 // Æ
-#define CHAR_oe          148 // ø
-#define CHAR_OE          236 // Ø
-#define CHAR_TRIPLE_BAR  239 // ≡
-#define CHAR_PLUS_MINUS  240 // ±
-#define CHAR_CIRCLE      247 // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
+#define CHAR_SMILEY              2 // Alternatively 1
+#define CHAR_FILLED_RIGHT_ARROW 16
+#define CHAR_UP_ARROW           24 // ↑
+#define CHAR_DOWN_ARROW         25 // ↓
+#define CHAR_RIGHT_ARROW        26 // -> but nicer
+#define CHAR_LEFT_ARROW         27 // <- but nicer
+#define CHAR_aa                132 // å MODIFIED, was a-umlaut ä
+#define CHAR_AA                143 // Å MODIFIED, was A-ring (but a dot)
+#define CHAR_ae                145 // æ MODIFIED, was o-umlaut ö
+#define CHAR_AE                146 // Æ
+#define CHAR_oe                148 // ø
+#define CHAR_OE                236 // Ø
+#define CHAR_TRIPLE_BAR        239 // ≡
+#define CHAR_PLUS_MINUS        240 // ±
+#define CHAR_CIRCLE            247 // Not 176 as in https://en.wikipedia.org/wiki/Degree_symbol. See file "Drawing 8 - ASCII_FONT5X8 pictures" (Pages,PDF,JPG)
 
 //  Original characters, MODIFIED in ASCII_FONT5X8
 /*  0x22, 0x54, 0x54, 0x78, 0x42,   132 a-umlaut           */

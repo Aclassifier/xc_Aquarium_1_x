@@ -191,7 +191,7 @@ typedef enum error_bits_t {
     ERROR_BIT_HEATER_OVERHEAT        = 12, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
     ERROR_BIT_WATCHDOG_TIMED_OUT     = 13, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
     ERROR_BIT_RADIO_BOARD            = 14, // From board not plugged in to other errors
-    ERROR_BIT_WRONG_CODE_STARTKIT    = 15  // WRONG_CODE_STARTKITT AQU=033 AQU=035
+    ERROR_BIT_WRONG_CODE_STARTKIT    = 15  // WRONG_CODE_STARTKIT AQU=033 AQU=035
     //
 } error_bits_t; // Observe must equal error_bits_now_t
 
@@ -278,6 +278,7 @@ typedef struct handler_context_t {
     #endif
     bool                        radio_board_fault;
     bool                        radio_send_data;
+    bool                        radio_sent_data_display_it;
     uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
 } handler_context_t;
 
@@ -333,6 +334,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR;  // ±
     const char char_triple_bar_str[]                              = CHAR_TRIPLE_BAR_STR;  // ≡
     const char char_right_arrow_str[]                             = CHAR_RIGHT_ARROW_STR; // → for timed change
+    const char char_filled_right_arrow_str[]                      = CHAR_FILLED_RIGHT_ARROW_STR;
 
     debug_print_x ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
@@ -892,7 +894,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             i2c_temp_onetenthDegC_t value;
 
             {value, ok} = Temp_OnetenthDegC_To_String (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT, temp_water_degc_str);
-            {value, ok} = Temp_OnetenthDegC_To_String (TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, temp_heater_degc_str);
+            {value, ok} = Temp_OnetenthDegC_To_String (TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING, temp_heater_degc_str);
 
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
@@ -1099,7 +1101,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     datetime_show.year = 1950;
                 } break; // Error, not used
 
-                //
             }
 
             Clear_All_Pixels_In_Buffer();
@@ -1113,10 +1114,16 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 setTextSize(1);
                 setTextColor(WHITE);
                 setCursor(0,0);
-                display_print ("\n\n\nNT", 7); // "Normaltid/vintertid" is always normal time/winter time (no need to set to summer time "sommertid", fishes won't need it!)
+                sprintf_numchars = sprintf (context.display_ts1_chars,
+                        "\n\n\nNT                  %s", // Displayed after large seconds
+                        (context.radio_sent_data_display_it) ? char_filled_right_arrow_str : " ");
+                display_print (context.display_ts1_chars, sprintf_numchars);
+                context.radio_sent_data_display_it = false;
+                // display_print ("\n\n\nNT%s", 8); // "Normaltid/vintertid" is always normal time/winter time (no need to set to summer time "sommertid", fishes won't need it!)
                 // FILLS 20 chars plus \0
-                //       2017.03.01 11.49.01
-                //       2018<03.01 11.49.01
+                //       2017.03.01
+                //       NT 11.49.01               or:
+                //       NT 2018<03.01 11.49.01
                 sprintf_numchars = sprintf (context.display_ts1_chars,
                         "%04u%s%02u%s%02u  %02u%s%02u%s%02u",
                         datetime_show.year,
@@ -1493,7 +1500,7 @@ void System_Task_Data_Handler (
                 debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else {}
 
-            // Every second after init
+            // Regularly after init
             context.radio_send_data = ((context.datetime.second % MY_RFM69_REPEAT_SEND_EVERY_SEC) == 0);
         }
     } else {} // Must just wait until internal I2C works!
@@ -1882,6 +1889,7 @@ void System_Task (
 
     context.radio_board_fault = false;
     context.radio_send_data   = false;
+    context.radio_sent_data_display_it   = false;
 
     i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
     i_radio.initialize (radio_init);
@@ -2186,6 +2194,12 @@ void System_Task (
                         case messageReceivedOk_IRQ: {
                             if (i_radio.receiveDone()) {}
                         } break;
+
+                        case messagePacketSentOk_IRQ:
+                        case messagePacketSentOk2_IRQ: {
+                            context.radio_sent_data_display_it = true;
+                        } break;
+
                         default: {} break;
                     }
                     i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!

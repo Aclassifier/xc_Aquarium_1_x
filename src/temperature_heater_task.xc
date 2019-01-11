@@ -429,14 +429,14 @@ void Temperature_Heater_Task (
 
                 if (temp_onetenthDegC == temp_onetenthDegC_heater_limit) {
                     debug_print ("%s", "Same");
-                } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING) {
+                } else if (temp_onetenthDegC > TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING) {
                     debug_print ("%s", "High");
-                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
+                    temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING;
                 } else if (temp_onetenthDegC < TEMP_ONETENTHDEGC_10_0_FAST_COOLING) {
                     debug_print ("%s", "Low");
                     temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_10_0_FAST_COOLING;
                 } else {
-                    // Also == TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_10_0_FAST_COOLING in here when new
+                    // Also == TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING, TEMP_ONETENTHDEGC_10_0_FAST_COOLING in here when new
                     debug_print ("%s", "New");
                     temp_onetenthDegC_heater_limit = temp_onetenthDegC;
                 }

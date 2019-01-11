@@ -157,7 +157,7 @@ void Temperature_Water_Task (
                         if (temp_onetenthDegC_water_wanted_diff <= (-TEMP_ONETENTHDEGC_00_2_HYSTERESIS)) {
                             debug_log or_eq 0x020;
                             // Water is much colder than wanted (forget about ambient temperature)
-                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING;
+                            temp_onetenthDegC_heater_limit = TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING;
                             now_regulating_at = REGULATING_AT_BOILING; // Displaying "2" in box
                             debug_print ("%s", " fast heat");
                         } else {

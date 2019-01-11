@@ -14,7 +14,7 @@ typedef enum heater_wires_t {
 } heater_wires_t;
 
 typedef enum regulate_by_t{
-     REGULATE_BY_ONLY_HEATER_MAX_TEMP, // Water temp gets what it gives at typically temp_onetenthDegC_heater_limit max TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
+     REGULATE_BY_ONLY_HEATER_MAX_TEMP, // Water temp gets what it gives at typically temp_onetenthDegC_heater_limit max TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
      REGULATE_BY_WATER_TEMP,           // Power only controlled by changing temp_onetenthDegC_heater_limit as a function of water temperature
      REGULATE_BY_WATER_AND_AIR_TEMP    // Power only controlled by changing temp_onetenthDegC_heater_limit as a function of water and air temperature
 } regulate_by_t;

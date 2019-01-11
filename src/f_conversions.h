@@ -28,8 +28,8 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
     //       40 degC too high (?) when still water? "Burning" roots?
     //       25 degC too low  (?) since 15.25W LED heats the aquarium to fex 25.4 degC in the afternoons even when cold outside (see log 2018 10 20)? But all books say 25.0 degC!
 
-    #define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400                                                 // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
-                                                                                                                  //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
+    #define TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING 350                                                 // 35.0 degC Was AQU=063 before 40.0 degC
+                                                                                                                  //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
                                                                                                                   //           holding temp of 60 degC and max temp should then be 84-30=54 degC
     #define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           (150 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 15.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED.
     #define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 14.5 degC half a degree below limit. Bad econmics to let i cool completely
@@ -40,8 +40,8 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
 
 #else // STANDARD
 
-    #define TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING 400                                                 // 40.0 degC Why not 45 or 50 or 54? Would probably not have been any problem.
-                                                                                                                  //           But observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
+    #define TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING 350                                                 // 40.0 degC Was AQU=063 before 40.0 degC
+                                                                                                                  //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
                                                                                                                   //           holding temp of 60 degC and max temp should then be 84-30=54 degC
     #define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           (250 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
     #define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 24.5 degC half a degree below limit. Bad econmics to let i cool completely
@@ -61,9 +61,9 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
 // Some will be lost down to the shelf also
 #define AMBIENT_WATER_FACTOR_SLOW_HEATING_3  3 // No decimal point!    #
 // 24.0 in water and ambient 22.5 diff = 1.5 so heat with 24 + (1.5 X  3) = 28.5
-// 24.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X  3) = 39.0 almost TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
+// 25.0 in water and ambient 20.0 diff = 5.0 so heat with 24 + (5.0 X  3) = 39.0 above TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
 #define AMBIENT_WATER_FACTOR_FAST_HEATING_15 15 // No decimal point!   #
-// 25.0 in water and ambient 24.0 diff = 1.0 so heat with 25 + (1.0 X 15) = 40.0 which is TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING
+// 25.0 in water and ambient 24.0 diff = 1.0 so heat with 25 + (1.0 X 15) = 40.0 above TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
 //                                                                  REPORT BIT
 #define INNER_RR_12V_MIN_VOLTS_DP1         100 // 10.0 V            ERROR_BIT_LOW_12V_LIGHT
 #define INNER_RR_12V_MAX_VOLTS_DP1         140 // 14.0 V            ERROR_BIT_HIGH_12V_LIGHT

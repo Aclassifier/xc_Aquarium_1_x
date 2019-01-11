@@ -123,7 +123,12 @@ typedef struct { // Size must be modulo 4                                       
     #define PACKET_INIT_VAL08 0x00
 #endif
 
-#define SHARED_ID 90 // SENDTO_ADDRESS == RECEIVER_ADDRESS
+#define SHARED_ID 90 // SENDTO_ADDRESS == RECEIVER_ADDRESS. This is also used by CLIENT where NODEID take this value
+
+// FOR ONE-ONE connection MASTER/SLAVE MUST BE UNIQUE
+
+#define MASTER_ID_BLACK_BOARD 99 // SENDFROM_ADDRESS
+#define MASTER_ID_AQUARIUM    98 // SENDFROM_ADDRESS
 
 #define AQUARIUM_RFM69_REPEAT_SEND_EVERY_SEC 4
 

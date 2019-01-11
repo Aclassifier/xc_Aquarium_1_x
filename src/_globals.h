@@ -40,12 +40,11 @@
     //     otherwise it may behave incorrectly due to overlow or underflow. This means that a timer can be used to
     //     measure up to a total of 2exp31 / (100 mill) = 21s.
 
-    // FOR ONE-ONE connection MASTER/SLAVE
-    //                ### MUST BE UNIQUE
+    // FOR ONE-ONE connection MASTER/SLAVE MUST BE UNIQUE
     #if (FLASH_BLACK_BOARD==1)
-        #define MASTER_ID  99
+        #define MASTER_ID  MASTER_ID_BLACK_BOARD
     #else
-        #define MASTER_ID  98 // Aquarium
+        #define MASTER_ID  MASTER_ID_AQUARIUM
     #endif
 
     #define IS_MYTARGET_VOID     0
@@ -65,7 +64,6 @@
     #else
         #error NO ROLE DEFINED
     #endif
-
 
     #define DEBUG_PRINT_GLOBAL_APP 1 // 0: all printf off
                                      // 1: controlled locally in each xc file

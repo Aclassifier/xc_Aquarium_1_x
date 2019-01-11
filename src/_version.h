@@ -19,8 +19,19 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.09" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1209  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.2.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1211  // Is "application_version_num_t"
+    // "1.2.11"    11Jan2019         radio_sent_data_display_it is new
+    // "1.2.10"    09Jan2019         Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
+    //                        AQU=063 Set max temp in heating compartment from 40 to 35 deg?
+    //                               TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING -> TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
+    //                               With 40 degC we had (from "2019 01 02-04 Log.txt")
+    //                                   MAX: On: 16% @ Watt: 7 - Heater:40.9 Ambient:24.5 Water:25.1 Mean:39.7 Box:28.7
+    //                                   NOW: On: 16% @ Watt: 7 - Heater:28.1 Ambient:24.4 Water:25.1 Mean:39.5 Box:28.4
+    //                                   MIN: On:  0% @ Watt: 0 - Heater:24.9 Ambient:21.6 Water:24.8 Mean:25.6 Box:25.1
+    //                               This probably opens for testing out 35.0 degC, also since we have had so little new leaves. But the
+    //                               roots look ok, but no plant growth. Light? CO2? Too hot roots? But now I have seen one leaf now,
+    //                               after 2.5 months by the plant Echinodorus 'Bleherae’
     // "1.2.09"    09Jan2019 AQU=062 Button_Task opdated. Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
     // "1.2.08"    22Nov2018 AQU=061 New light and heating regulating names of text constants. Nå change in code size
     // "1.2.07"    13Nov2018 AQU=060 Replaced "NULL" with "null" when nullable type as parameter.
