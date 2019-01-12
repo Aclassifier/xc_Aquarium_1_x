@@ -41,10 +41,19 @@
     //     measure up to a total of 2exp31 / (100 mill) = 21s.
 
     // FOR ONE-ONE connection MASTER/SLAVE MUST BE UNIQUE
-    #if (FLASH_BLACK_BOARD==1)
-        #define MASTER_ID  MASTER_ID_BLACK_BOARD
-    #else
+
+    #ifndef ISAQUARIUM
+        #error must be defined in makefile
+    #endif
+
+    #if (ISAQUARIUM==1) // some make problem, ended up with values like 0 and 1
+        #define FLASH_BLACK_BOARD 0
         #define MASTER_ID  MASTER_ID_AQUARIUM
+    #elif (ISAQUARIUM==0)
+        #define FLASH_BLACK_BOARD 1
+        #define MASTER_ID  MASTER_ID_BLACK_BOARD // causing WRONG_CODE_STARTKIT since we cannot have this in
+    #else
+        #error
     #endif
 
     #define IS_MYTARGET_VOID     0
@@ -56,7 +65,7 @@
         #error NO TARGET DEFINED
     #endif
 
-    #if (ISMASTER==1) // Doesn't seem like words like SLAVE or MASTER or _SLAVE or _MASTER work. Using 0 or 1 instead
+    #if (ISMASTER==1) // some make problem, ended up with values like 0 and 1
         #define IS_MYTARGET_MASTER 1
 
         #define NODEID    MASTER_ID

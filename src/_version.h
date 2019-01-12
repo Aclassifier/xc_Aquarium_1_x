@@ -15,15 +15,15 @@ typedef uint16_t application_version_num_t;
 #define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
-#define FLASH_BLACK_BOARD                       1 // 1 is causing WRONG_CODE_STARTKIT if in real use. ==> Observe yellow LEDS for LED are also inverted
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1211  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.2.12" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1212  // Is "application_version_num_t"
+    // "1.2.12"    12Jan2019         ISAQUARIUM to be defined in makefile to avoid header-file sequence problems
     // "1.2.11"    11Jan2019         radio_sent_data_display_it is new
     // "1.2.10"    09Jan2019         Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
-    //                        AQU=063 Set max temp in heating compartment from 40 to 35 deg?
+    //                       AQU=063 Set max temp in heating compartment from 40 to 35 deg?
     //                               TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING -> TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
     //                               With 40 degC we had (from "2019 01 02-04 Log.txt")
     //                                   MAX: On: 16% @ Watt: 7 - Heater:40.9 Ambient:24.5 Water:25.1 Mean:39.7 Box:28.7
