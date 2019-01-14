@@ -1700,11 +1700,11 @@ typedef enum light_composition_t {
 # 39 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
     LIGHT_COMPOSITION_1133_mW_ON = 1,
-    LIGHT_COMPOSITION_3999_mW_ON = 2,
-    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 3,
+    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 2,
+    LIGHT_COMPOSITION_3999_mW_ON = 3,
     LIGHT_COMPOSITION_4383_mW_ON = 4,
     LIGHT_COMPOSITION_5516_mW_ON = 5,
-    LIGHT_COMPOSITION_6650_mW_ON = 6,
+    LIGHT_COMPOSITION_7949_mW_ON_HALF = 6,
     LIGHT_COMPOSITION_9516_mW_ON = 7,
     LIGHT_COMPOSITION_12383_mW_ON = 8,
     LIGHT_COMPOSITION_15250_mW_ON_FULL = 9,
@@ -1712,7 +1712,7 @@ typedef enum light_composition_t {
 
     LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS = 10,
     LIGHT_COMPOSITION_8382_mW_ON = 11,
-    LIGHT_COMPOSITION_5082_mW_ON = 12,
+    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD = 12,
     LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER = 13,
     LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT = 14
 
@@ -2056,7 +2056,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 103 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 89 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+typedef uint8_t version_of_app_payload_t;
+# 104 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2077,7 +2079,7 @@ typedef struct {
 typedef struct {
 
     uint8_t numbytes_of_full_payload;
-    uint8_t version_of_full_payload;
+    version_of_app_payload_t version_of_full_payload;
     uint8_t num_of_this_app_payload;
     uint8_t app_padding_13;
 } app_heading32_t;
@@ -2101,9 +2103,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 156 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 174 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 175 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];

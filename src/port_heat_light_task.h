@@ -38,11 +38,11 @@ typedef enum light_composition_t {
     //                #### mW         See below: FATAL! ##   //
     LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // All windows dark, of course
     LIGHT_COMPOSITION_1133_mW_ON                      =  1,  // Two time windows are fully dark
-    LIGHT_COMPOSITION_3999_mW_ON                      =  2,  // AQU=039 new
-    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM =  3,  //
+    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM =  2,
+    LIGHT_COMPOSITION_3999_mW_ON                      =  3,  // AQU=039 new
     LIGHT_COMPOSITION_4383_mW_ON                      =  4,
     LIGHT_COMPOSITION_5516_mW_ON                      =  5,
-    LIGHT_COMPOSITION_6650_mW_ON                      =  6,
+    LIGHT_COMPOSITION_7949_mW_ON_HALF                 =  6,
     LIGHT_COMPOSITION_9516_mW_ON                      =  7,
     LIGHT_COMPOSITION_12383_mW_ON                     =  8,
     LIGHT_COMPOSITION_15250_mW_ON_FULL                =  9, // All = 12W I can hear a sound from the LEDs!
@@ -50,7 +50,7 @@ typedef enum light_composition_t {
     // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
     LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS          = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
     LIGHT_COMPOSITION_8382_mW_ON                      = 11,
-    LIGHT_COMPOSITION_5082_mW_ON                      = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
+    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD            = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
     LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER          = 13,
     LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT           = 14
     // NUMLIGHT_COMPOSITION_LEVELS                    = 15

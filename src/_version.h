@@ -18,8 +18,10 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.2.12" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1212  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.3.0" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM   1300  // Is "application_version_num_t"
+    // "1.3.00"    14Jan2019 AQU=064 Allow for light_amount_t of half and one third
+    //                               Compiled for VERSION_OF_APP_PAYLOAD_02
     // "1.2.12"    12Jan2019         ISAQUARIUM to be defined in makefile to avoid header-file sequence problems
     // "1.2.11"    11Jan2019         radio_sent_data_display_it is new
     // "1.2.10"    09Jan2019         Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
@@ -69,8 +71,8 @@ typedef uint16_t application_version_num_t;
     // "1.1.20"    28Sep2018 AQU=048 Shorter day to counter algae growth. From 13.5 hours with some light to 11.5 hours. HH_DAY_SHORTER is new
     // "1.1.19"    27Sep2018 AQU=047 DEBUG_TEMP_FAST set to 0, meaning that TEMP_MEASURE_INTERVAL_IS_1_MINUTE has been in use over a year,
     //                               it's now set to TEMP_MEASURE_INTERVAL_IS_10_MINUTES, which was the intention always
-    // "1.1.18"    27Sep2018 AQU=046 light_amount_full_or_two_thirds_t new values 32 and 33. Also NORMAL_LIGHT_IS_VOID is 30
-    // "1.1.16"    27Sep2018 AQU=045 light_amount_full_or_two_thirds over the radio.
+    // "1.1.18"    27Sep2018 AQU=046 light_amount_t new values 32 and 33. Also NORMAL_LIGHT_IS_VOID_F0N is 30
+    // "1.1.16"    27Sep2018 AQU=045 light_amount over the radio.
     // "1.1.??     ??Sep2018 AQU=043 See "2018 09 12 A fail IRQ 7 still not solved.txt". But this is on client RX side. TODO
     // "1.1.15"    26Sep2018 AQU=044 Setting down light intensity less often again..
     // "1.1.14"    11Sep2018 AQU=042 To avoid using any colured LED strips alone when UP and down (it looked eerie):

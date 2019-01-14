@@ -1,5 +1,5 @@
 /*
- * _rfm69_commprot.h
+ * rfm69_commprot.h
  *
  *  Created on: 29. aug. 2018
  *      Author: teig
@@ -13,11 +13,21 @@
 #define _RFM69_COMMPROT_H_
 
 // radio
-//
+
+#define VERSION_OF_APP_PAYLOAD_01  1
+#define VERSION_OF_APP_PAYLOAD_02  2
+
+//      VERSION_OF_APP_PAYLOAD_01:
+#define NORMAL_LIGHT_THIRDS_OFFSET 30
+//      VERSION_OF_APP_PAYLOAD_02: (do/while macros not possible here:)
+#define GET_NUMERATOR(two_nibbles)    (two_nibbles >> 4)        // Move most significant nibble into place
+#define GET_DENOMINATOR(two_nibbles)  (two_nibbles bitand 0x0f) // Only keep least signifcant nibble
+
 // Derived typedefs, was meant to be shorter version of the original _t types (like uint8_t for unsigned if that's ok)
 // A short radio packet must be as crammed as possible - within reason (we haven't packed any bits yet)
 //
 //                                                     DERIVED FROM                      DEFINED IN FILE
+typedef uint8_t  version_of_app_payload_r;          // version_of_app_payload_t          rfm69_commprot.h in lib_rfm69_xc
 typedef uint16_t application_version_num_r;         // application_version_num_t         _version.h
 typedef uint16_t error_bits_r;                      // error_bits_t                      _aquarium_1_x.xc
 typedef uint8_t  heater_on_percent_r;               // heater_on_percent_t               temperature_heater_task.h
@@ -32,7 +42,14 @@ typedef uint8_t  light_composition_r;               // light_composition_t      
 typedef int16_t  onetenthDegC_r;                    // i2c_temp_onetenthDegC_t           param.h
 typedef uint16_t voltage_onetenthV_r;               // voltage_onetenthV_t               f_conversions.h
 typedef uint16_t num_days_since_start_r;            // num_days_since_start_t            light_sunrise_sunset.h
-typedef uint8_t  light_amount_full_or_two_thirds_r; // light_amount_full_or_two_thirds_t light_sunrise_sunset.h
+typedef uint8_t  light_amount_with_offset_30_r;     // light_amount_with_offset_30_t     light_sunrise_sunset.h VERSION_OF_APP_PAYLOAD_01
+typedef uint8_t  light_amount_fraction_2_nibbles_r; // light_amount_fraction_2_nibbles_t light_sunrise_sunset.h VERSION_OF_APP_PAYLOAD_02
+typedef struct {
+    union {
+        light_amount_with_offset_30_r     with_offset_30;     // Like 32   for 2/3. That 30 is NORMAL_LIGHT_THIRDS_OFFSET
+        light_amount_fraction_2_nibbles_r fraction_2_nibbles; // Like 0x23 for 2/3
+    } u;
+} light_amount_r;                                   // light_amount_t                    light_sunrise_sunset.h
 typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t             light_sunrise_sunset.h
 
 //                                          #####_###  Needs <limits.h>. But this is not ok for the display:
@@ -49,7 +66,6 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 #define RSSI_DB_STRONGEST           0 // -100 is weaker
 #define RSSI_DB_WEAKEST          -300 //  -80 is stronger
 
-#define NORMAL_LIGHT_THIRDS_OFFSET 30
 
 // AQU=055, AQU=061
 // light_control_scheme_t in port_heat_light_task.h
@@ -72,6 +88,8 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 // ? HEAT_CABLE_ERROR
 #define NOW_REGULATING_AT_CHAR_TEXTS_LENGTH 2 // One char plus NUL at the end
 #define NOW_REGULATING_AT_CHAR_TEXTS        {"#", "2", "1", "=", "H", "-", "0", "?"}
+
+
 
 // To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
 //
@@ -102,7 +120,7 @@ typedef struct { // Size must be modulo 4                                       
     light_intensity_thirds_r          light_intensity_thirds_back;                  //       31
     light_composition_r               light_composition;                            //          32
     now_regulating_at_r               now_regulating_at;                            // 33
-    light_amount_full_or_two_thirds_r light_amount_full_or_two_thirds;              //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
+    light_amount_r                    light_amount;                                 //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
     light_daytime_hours_r             light_daytime_hours;                          //       35
     uint8_t                           debug;                                        //          36 SPARE 2
     uint8_t                           day_start_light_hour;                         // 37          SPARE 3 since light_daytime_hours reflects the same

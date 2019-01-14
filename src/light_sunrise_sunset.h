@@ -15,11 +15,30 @@ typedef enum it_is_day_or_night_t {
     IT_IS_NIGHT
 } it_is_day_or_night_t;
 
-typedef enum light_amount_full_or_two_thirds_t { // AQU=031 needed a better name (was normal_light_t)
+// VERSION_OF_APP_PAYLOAD_01:
+typedef enum light_amount_with_offset_30_t {
     NORMAL_LIGHT_IS_VOID       = (NORMAL_LIGHT_THIRDS_OFFSET + 0), // 30 Only used for light_amount_full_or_two_thirds_in_FRAM_memory
-    NORMAL_LIGHT_IS_TWO_THIRDS = (NORMAL_LIGHT_THIRDS_OFFSET + 2), // 32 reads 2/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET til get 2)
-    NORMAL_LIGHT_IS_FULL       = (NORMAL_LIGHT_THIRDS_OFFSET + 3)  // 33 reads 3/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET til get 3)
-} light_amount_full_or_two_thirds_t; // AQU=046 new values
+    NORMAL_LIGHT_IS_TWO_THIRDS = (NORMAL_LIGHT_THIRDS_OFFSET + 2), // 32 reads 2/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET to get 2)
+    NORMAL_LIGHT_IS_FULL       = (NORMAL_LIGHT_THIRDS_OFFSET + 3)  // 33 reads 3/3 (subtract NORMAL_LIGHT_THIRDS_OFFSET to get 3)
+} light_amount_with_offset_30_t; // AQU=064 new name
+
+// VERSION_OF_APP_PAYLOAD_02:
+typedef enum light_amount_fraction_2_nibbles_t {
+    //                                    #   Unit     [1..9] since string unpack should only be one char
+    //                                     #  Fraction [1..9] since string unpack should only be one char
+    NORMAL_LIGHT_IS_VOID_F0N              = 0x00, // "_F0N" ending -> no fraction meaning. Only used for light_amount_in_FRAM_memory when FRAM error
+    NORMAL_LIGHT_IS_ONE_THIRD_F2N         = 0x13, // 1/3
+    NORMAL_LIGHT_IS_HALF_RANDOM_F2N       = 0x12, // 1/2 WILL NOT RUN RANDOM ON SOME HOURS
+    NORMAL_LIGHT_IS_TWO_THIRDS_F2N        = 0x23, // 2/3
+    NORMAL_LIGHT_IS_FULL_F2N              = 0x33  // 3/3
+} light_amount_fraction_2_nibbles_t; // fraction_2_nibbles = "_F2N" ending above
+
+typedef struct {
+    union {
+        light_amount_with_offset_30_t     with_offset_30;  // VERSION_OF_APP_PAYLOAD_01. That 30 is NORMAL_LIGHT_THIRDS_OFFSET
+        light_amount_fraction_2_nibbles_t fraction_2_nibbles; // VERSION_OF_APP_PAYLOAD_02
+    } u;
+} light_amount_t;
 
 typedef enum light_sensor_diff_state_t {
     DIFF_VOID,
@@ -67,6 +86,20 @@ typedef struct light_daytime_hours_by_menu_t {
     light_daytime_hours_t               light_daytime_hours; // Valid if LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU
 } light_daytime_hours_by_menu_t;
 
+typedef enum {
+    CNT_0  =  0,
+    CNT_1  =  1,
+    CNT_2  =  2,
+    CNT_3  =  3,
+    CNT_4  =  4,
+    CNT_5  =  5,
+    CNT_6  =  6,
+    CNT_7  =  7,
+    CNT_8  =  8,
+    CNT_9  =  9,
+    CNT_10 = 10
+} cnt_10_t; // Since they are hand-coded so much
+
 typedef struct light_sunrise_sunset_context_t {
     bool                               do_init;
     it_is_day_or_night_t               it_is_day_or_night;
@@ -74,19 +107,19 @@ typedef struct light_sunrise_sunset_context_t {
     DateTime_t                         datetime_previous;
     bool                               datetime_previous_not_initialised;
     bool                               allow_normal_light_change_by_clock;
-    bool                               allow_normal_light_change_by_menu;                // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                               allow_normal_light_change_by_menu_next;           // AQU=030 new
-    unsigned                           screen_3_lysregulering_center_button_cnt_1to4to8; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
+    bool                               allow_normal_light_change_by_menu;                  // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                               allow_normal_light_change_by_menu_next;             // AQU=030 new
+    cnt_10_t                           screen_3_lysregulering_center_button_cnt_1to6_to10; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
     unsigned                           iof_day_night_action_list;
-    unsigned                           num_minutes_left_of_day_night_action;             // AQU=024
+    unsigned                           num_minutes_left_of_day_night_action;               // AQU=024
     random_generator_t                 random_number;
-    unsigned                           num_minutes_left_of_random;                       // AQU=023
-    unsigned                           minutes_into_day_of_next_action_random_off;       // AQU=023 new
+    unsigned                           num_minutes_left_of_random;                         // AQU=023
+    unsigned                           minutes_into_day_of_next_action_random_off;         // AQU=023 new
     unsigned                           num_random_sequences_left;
-    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds;
-    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_in_FRAM_memory;   // From Fujitsu MB85RC256V
-    light_amount_full_or_two_thirds_t  light_amount_full_or_two_thirds_next;
-    bool                               do_light_amount_full_or_two_thirds_by_menu;
+    light_amount_t                     light_amount;
+    light_amount_t                     light_amount_in_FRAM_memory;                        // From Fujitsu MB85RC256V
+    light_amount_t                     light_amount_next;
+    bool                               do_light_amount_by_menu;
     bool                               stop_normal_light_changed_by_menu;                 // menu=SCREEN_3_LYSGULERING AQU=031
     bool                               dont_disturb_screen_3_lysregulering;               // AQU=031 AQU=036
     light_sensor_range_t               light_sensor_intensity;
@@ -117,7 +150,7 @@ typedef struct light_sunrise_sunset_context_t {
 
 #define TIME_ACTION_ENTRY_LINE_NUMS 3 // hour, minutes, light_composition
 //
-#define IOF_TIMED_DAY_TO_NIGHT_LIST_START 0 // if NORMAL_LIGHT_IS_FULL or NORMAL_LIGHT_IS_TWO_THIRDS new with AQU=039
+#define IOF_TIMED_DAY_TO_NIGHT_LIST_START 0 // if NORMAL_LIGHT_IS_FULL_F2N or NORMAL_LIGHT_IS_TWO_THIRDS_F2N new with AQU=039
 #define IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  3
 #define IOF_TIMED_NIGHT_TO_DAY_LIST_START 4
 #define IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  7
@@ -175,16 +208,16 @@ typedef struct light_sunrise_sunset_context_t {
 
     //   hours        minutes                                          IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_5082_mW_ON},   /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_3999_mW_ON},   /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
-        {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_1133_mW_ON},   /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                                                   */\
-        {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_0000_mW_OFF}   /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
+        {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD}, /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_3999_mW_ON},           /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_1133_mW_ON},           /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                                                   */\
+        {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_0000_mW_OFF}           /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_1133_mW_ON},       /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_3999_mW_ON},       /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
-        {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_5082_mW_ON},       /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
-        {HH_08_DAY, MM_30_DAY, LIGHT_COMPOSITION_15250_mW_ON_FULL}  /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_1133_mW_ON},               /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+        {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_3999_mW_ON},               /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD},     /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {HH_08_DAY, MM_30_DAY, LIGHT_COMPOSITION_15250_mW_ON_FULL}          /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
         //                     LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS [10] may set it to 2/3
 
 #else // DEBUG_TEST_DAY_NIGHT_DAY. Just set the clock to 23.55.00 on the FLASH_BLACK_BOARD!
@@ -193,17 +226,17 @@ typedef struct light_sunrise_sunset_context_t {
     #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START  ((0  * 60) +  1) // ..THIS TO BE EARLY (SMALL NUMBER). SO NIGHT IS AT MIDNIGHT!
     //   hours   minutes                                        IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-        {  23,   56, LIGHT_COMPOSITION_5082_mW_ON},          /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-        {  23,   57, LIGHT_COMPOSITION_3999_mW_ON},          /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
-        {  23,   58, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 Surprisingly light!               */\
-        {  23,   59, LIGHT_COMPOSITION_0000_mW_OFF}          /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
+        {  23,   56, LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD},  /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+        {  23,   57, LIGHT_COMPOSITION_3999_mW_ON},            /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {  23,   58, LIGHT_COMPOSITION_1133_mW_ON},            /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 Surprisingly light!               */\
+        {  23,   59, LIGHT_COMPOSITION_0000_mW_OFF}            /*  [0] LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF           IOF_TIMED_DAY_TO_NIGHT_LIST_LAST  */
     //      0     0  DEBUG_TEST_DAY_NIGHT_DAY MIDNIGHT IS NIGHT, SEE REASON ABOVE
     //   hours   minutes
     #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-        {   0,    1, LIGHT_COMPOSITION_1133_mW_ON},          /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-        {   0,    2, LIGHT_COMPOSITION_3999_mW_ON},          /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
-        {   0,    3, LIGHT_COMPOSITION_5082_mW_ON},          /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
-        {   0,    4, LIGHT_COMPOSITION_15250_mW_ON_FULL}     /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
+        {   0,    1, LIGHT_COMPOSITION_1133_mW_ON},           /*  [1] LIGHT_COMPOSITION_1133_mW_BACK1_ON                 IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+        {   0,    2, LIGHT_COMPOSITION_3999_mW_ON},           /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
+        {   0,    3, LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD}, /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON                                    */\
+        {   0,    4, LIGHT_COMPOSITION_15250_mW_ON_FULL}      /*  [9] This, or Darker_Light_Composition_Iff call         IOF_TIMED_NIGHT_TO_DAY_LIST_LAST  */
         //           LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS    [10] may set it to 2/3
 
 #endif
@@ -219,7 +252,7 @@ light_daytime_hours_t
 Daytime_Hours_From_List (const light_daytime_hours_index_t index);
 
 light_composition_t
-Mute_Light_Composition (const light_composition_t light_composition, const light_amount_full_or_two_thirds_t light_amount_full_or_two_thirds);
+Mute_Light_Composition (const light_composition_t light_composition, const light_amount_t light_amount);
 
 // This is not a task, it's a function that's called regularly, at least once per minute, probably once per second
 //
