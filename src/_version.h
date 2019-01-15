@@ -18,9 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.3.0" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM   1300  // Is "application_version_num_t"
-    // "1.3.00"    14Jan2019 AQU=064 Allow for light_amount_t of half and one third
+#define APPLICATION_VERSION_STR "1.3.1" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM   1301  // Is "application_version_num_t"
+    // "1.3.01"    15Jan2019 AQU=064 Allow for light_amount_t of half and one third
     //                               Compiled for VERSION_OF_APP_PAYLOAD_02
     // "1.2.12"    12Jan2019         ISAQUARIUM to be defined in makefile to avoid header-file sequence problems
     // "1.2.11"    11Jan2019         radio_sent_data_display_it is new

@@ -37,7 +37,7 @@ typedef uint8_t  hour_r;                            // hour_t                   
 typedef uint8_t  minute_r;                          // minute_t                          chronodot_ds3231_task.h
 typedef uint8_t  second_r;                          // second_t                          chronodot_ds3231_task.h
 typedef uint8_t  light_control_scheme_r;            // light_control_scheme_t            port_heat_light_task.h
-typedef uint8_t  light_intensity_thirds_r;          // light_intensity_thirds_t          port_heat_light_task.h
+typedef uint8_t  light_intensity_thirds_r;          // light_intensity_thirds_t          port_heat_light_task.h (Since "thirds" in the name just use "3" to show "n/3")
 typedef uint8_t  light_composition_r;               // light_composition_t               port_heat_light_task.h
 typedef int16_t  onetenthDegC_r;                    // i2c_temp_onetenthDegC_t           param.h
 typedef uint16_t voltage_onetenthV_r;               // voltage_onetenthV_t               f_conversions.h
@@ -115,24 +115,24 @@ typedef struct { // Size must be modulo 4                                       
     voltage_onetenthV_r               rr_24V_heat_onetenthV;                        //       23-24
     voltage_onetenthV_r               rr_12V_LEDlight_onetenthV;                    // 25-26
     application_version_num_r         application_version_num;                      //       27-28
-    light_intensity_thirds_r          light_intensity_thirds_front;                 // 29
-    light_intensity_thirds_r          light_intensity_thirds_center;                //    30
-    light_intensity_thirds_r          light_intensity_thirds_back;                  //       31
+    light_intensity_thirds_r          light_intensity_thirds_front;                 // 29           Since "thirds" in the name just use "3" to show "n/3"
+    light_intensity_thirds_r          light_intensity_thirds_center;                //    30        --"--
+    light_intensity_thirds_r          light_intensity_thirds_back;                  //       31     --"--
     light_composition_r               light_composition;                            //          32
     now_regulating_at_r               now_regulating_at;                            // 33
-    light_amount_r                    light_amount;                                 //    34       Observe NORMAL_LIGHT_THIRDS_OFFSET
+    light_amount_r                    light_amount;                                 //    34        Observe union by VERSION_OF_APP_PAYLOAD_01 and VERSION_OF_APP_PAYLOAD_02
     light_daytime_hours_r             light_daytime_hours;                          //       35
-    uint8_t                           debug;                                        //          36 SPARE 2
-    uint8_t                           day_start_light_hour;                         // 37          SPARE 3 since light_daytime_hours reflects the same
-    uint8_t                           night_start_dark_hour;                        //    38       SPARE 4 since light_daytime_hours reflects the same
-    uint8_t                           padding_39;                                   //       39    SPARE 5
-    uint8_t                           padding_40;                                   //          40 SPARE 6
+    uint8_t                           debug;                                        //          36  SPARE 2
+    uint8_t                           day_start_light_hour;                         // 37           SPARE 3 since light_daytime_hours reflects the same
+    uint8_t                           night_start_dark_hour;                        //    38        SPARE 4 since light_daytime_hours reflects the same
+    uint8_t                           padding_39;                                   //       39     SPARE 5
+    uint8_t                           padding_40;                                   //          40  SPARE 6
     //                                                                                          ##
-    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 40 -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
+    // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 40  -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08 is checked by System_Task                       ##
     //                            and may cause low code size if it fails                       ##
     // If PACKET_LEN08 of packet_t in /lib_rfm69_xc/rfm69_commmprot.h is 20 a                   ##
-    //                                MAX_SX1231H_PACKET_LEN is 61 then max here is:            41 (ie. 40 for modulo 4 requirement)
+    //                                MAX_SX1231H_PACKET_LEN is 61 then max here is:            41  (ie. 40 for modulo 4 requirement)
     // Also there: PACKET_LEN_FACIT (20 + _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08)
     //
 } payload_u0_t;

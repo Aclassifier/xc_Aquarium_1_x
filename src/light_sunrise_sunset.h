@@ -27,8 +27,8 @@ typedef enum light_amount_fraction_2_nibbles_t {
     //                                    #   Unit     [1..9] since string unpack should only be one char
     //                                     #  Fraction [1..9] since string unpack should only be one char
     NORMAL_LIGHT_IS_VOID_F0N              = 0x00, // "_F0N" ending -> no fraction meaning. Only used for light_amount_in_FRAM_memory when FRAM error
-    NORMAL_LIGHT_IS_ONE_THIRD_F2N         = 0x13, // 1/3
-    NORMAL_LIGHT_IS_HALF_RANDOM_F2N       = 0x12, // 1/2 WILL NOT RUN RANDOM ON SOME HOURS
+    NORMAL_LIGHT_IS_ONE_THIRD_F2N         = 0x13, // 1/3 AQU=064 new
+    NORMAL_LIGHT_IS_HALF_RANDOM_F2N       = 0x12, // 1/2 AQU=064 new. WILL NOT RUN: RANDOM CHANGE THAT MAY HAPPEN ON SOME HOURS, FOR SOME MINUTES
     NORMAL_LIGHT_IS_TWO_THIRDS_F2N        = 0x23, // 2/3
     NORMAL_LIGHT_IS_FULL_F2N              = 0x33  // 3/3
 } light_amount_fraction_2_nibbles_t; // fraction_2_nibbles = "_F2N" ending above
