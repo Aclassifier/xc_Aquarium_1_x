@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.3.1" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM   1301  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.3.2" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM   1302  // Is "application_version_num_t"
+    // "1.3.02"    15Jan2019 AQU=064 Had forgotton to include allow_normal_light_change_by_clock in trigger_hour_changed_half_light
     // "1.3.01"    15Jan2019 AQU=064 Allow for light_amount_t of half and one third
     //                               Compiled for VERSION_OF_APP_PAYLOAD_02
     // "1.2.12"    12Jan2019         ISAQUARIUM to be defined in makefile to avoid header-file sequence problems

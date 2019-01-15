@@ -549,8 +549,8 @@ Handle_Light_Sunrise_Sunset_Etc (
     const bool trigger_hour_changed_half_light =
             trigger_hour_changed and
             (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
-            (context.allow_normal_light_change_by_menu) and
-            (context.allow_normal_light_change_by_menu); // AQU=064 new
+            (context.allow_normal_light_change_by_clock) and
+            (context.allow_normal_light_change_by_menu);
 
     light_composition_t new_light_composition;
 

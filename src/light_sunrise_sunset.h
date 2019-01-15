@@ -206,7 +206,7 @@ typedef struct light_sunrise_sunset_context_t {
     // barely visible after AQU=038. Also now I have one change per 10 minutes which may be more fun, possible to remember.
     // AQU=042 Removed CENTER cycles to avoid coloured LED strips being alone
 
-    //   hours        minutes                                          IOF_TIMED light_composition_t
+    //   hours        minutes                                                  IOF_TIMED light_composition_t
     #define TIMED_DAY_TO_NIGHT_LIST_INIT \
         {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD}, /* [12] LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON  IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
         {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_3999_mW_ON},           /*  [2] LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON                                            */\
