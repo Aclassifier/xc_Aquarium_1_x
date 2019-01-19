@@ -290,8 +290,6 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  
     bool return_beeper_blip = false;
 
-    const bool                 trigger_minute_changed  = (context.datetime_copy.minute != context.datetime_previous.minute);
-    const bool                 trigger_hour_changed    = (context.datetime_copy.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
     const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
 
     unsigned print_value = 0; // With debug_print this value must be visible, but even this will removed and not complained about not being used
@@ -398,7 +396,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     //}}}  
 
-    if (context.datetime_copy.day != context.datetime_previous.day) {
+    if (context.trigger_day_changed_stick) {
         context.num_days_since_start++;
 
         //  AQU=054 tested here with minute instead and did a lot with buttons for SCREEN_3_LYSGULERING. Always taken when it should:
@@ -439,9 +437,9 @@ Handle_Light_Sunrise_Sunset_Etc (
     } else {}
 
     //}}}  
-    //{{{  trigger_minute_changed
+    //{{{  context.trigger_minute_changed_stick
 
-    if (trigger_minute_changed and context.light_is_stable) {
+    if (context.trigger_minute_changed_stick and context.light_is_stable) {
         // light_is_stable is modified above, so this test needed, even if Handle_Light_Sunrise_Sunset_Etc
         // is not called if not light_is_stable
         unsigned minutes_into_day_of_next_action_listed_darker_or_lighter =
@@ -546,16 +544,16 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  Trigger_hour_changed or light sensor internally changed or NORMAL_LIGHT_IS_HALF_RANDOM_F2N
 
     const bool trigger_hour_changed_random =
-            trigger_hour_changed and
+            context.trigger_hour_changed_stick and
             ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
 
-    if (trigger_hour_changed)                                                         {context.debug or_eq 0x01;} else {}
+    if (context.trigger_hour_changed_stick)                                           {context.debug or_eq 0x01;} else {}
     if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {context.debug or_eq 0x02;} else {}
     if (context.allow_normal_light_change_by_clock)                                   {context.debug or_eq 0x04;} else {}
     if (context.allow_normal_light_change_by_menu)                                    {context.debug or_eq 0x08;} else {}
 
     const bool trigger_hour_changed_half_light =
-            (trigger_hour_changed) and
+            (context.trigger_hour_changed_stick) and
             (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
             (context.allow_normal_light_change_by_clock) and
             (context.allow_normal_light_change_by_menu);
@@ -636,7 +634,13 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.light_sensor_diff_state = DIFF_VOID;
     } else {}
 
-    //}}}  
+    //}}}
+
+    // Now they should have been properly used (and testing them in the right sequence), let's dispose of them.
+    // They wont' stick any more:
+    context.trigger_minute_changed_stick = false;
+    context.trigger_hour_changed_stick   = false;
+    context.trigger_day_changed_stick    = false;
 
     //}}}  
     return return_beeper_blip;

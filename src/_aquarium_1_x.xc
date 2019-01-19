@@ -1504,11 +1504,20 @@ void System_Task_Data_Handler (
         if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
             light_sunrise_sunset_context.datetime_previous_not_initialised = false;
 
-            light_sunrise_sunset_context.datetime_previous = context.datetime; // Will cause no diffs
+            light_sunrise_sunset_context.trigger_minute_changed_stick = false;
+            light_sunrise_sunset_context.trigger_hour_changed_stick   = false;
+            light_sunrise_sunset_context.trigger_day_changed_stick    = false;
+
             context.datetime_at_startup                    = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
             debug_print("%s", "Init\n");
             debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
         } else {
+
+            light_sunrise_sunset_context.trigger_minute_changed_stick or_eq (context.datetime.minute != datetime_old.minute);
+            light_sunrise_sunset_context.trigger_hour_changed_stick   or_eq (context.datetime.hour   != datetime_old.hour);
+            light_sunrise_sunset_context.trigger_day_changed_stick    or_eq (context.datetime.day    != datetime_old.day);
+
+
             if (context.datetime.minute != datetime_old.minute) {
                 debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else if (context.heater_data_aged) {
@@ -1717,11 +1726,12 @@ void System_Task_Data_Handler (
         {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc_sync_internal (context.light_intensity_thirds);
 
         // Make history, update "previous"
-        if (light_sunrise_sunset_context.light_is_stable) { // AQU=066 is this test the real problem?
-            light_sunrise_sunset_context.datetime_previous = context.datetime;
-        } else {
-            debug_print ("%s", "Freeze time\n");
-        }
+        // AQU=066 removed:
+        // if (light_sunrise_sunset_context.light_is_stable) { // AQU=066 is this test the real problem?
+        //     light_sunrise_sunset_context.datetime_previous = context.datetime; // The only place it's set after init
+        // } else {
+        //     debug_print ("%s", "Freeze time\n");
+        // }
 
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
 

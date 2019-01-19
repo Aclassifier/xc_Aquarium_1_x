@@ -104,7 +104,10 @@ typedef struct light_sunrise_sunset_context_t {
     bool                               do_init;
     it_is_day_or_night_t               it_is_day_or_night;
     DateTime_t                         datetime_copy;
-    DateTime_t                         datetime_previous;
+    // DateTime_t                      datetime_previous;                                  // AQU=066
+    bool                               trigger_minute_changed_stick;                       // AQU=66 moved trigger_minute_changed out to here
+    bool                               trigger_hour_changed_stick;                         // AQU=66 moved trigger_hour_changed out to here
+    bool                               trigger_day_changed_stick;                          // AQU=66 new
     bool                               datetime_previous_not_initialised;
     bool                               allow_normal_light_change_by_clock;
     bool                               allow_normal_light_change_by_menu;                  // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
