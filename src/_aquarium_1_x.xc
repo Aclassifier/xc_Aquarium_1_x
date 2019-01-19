@@ -1725,20 +1725,12 @@ void System_Task_Data_Handler (
         {light_sunrise_sunset_context.light_is_stable}            = i_port_heat_light_commands.get_light_is_stable_sync_internal();
         {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc_sync_internal (context.light_intensity_thirds);
 
-        // Make history, update "previous"
-        // AQU=066 removed:
-        // if (light_sunrise_sunset_context.light_is_stable) { // AQU=066 is this test the real problem?
-        //     light_sunrise_sunset_context.datetime_previous = context.datetime; // The only place it's set after init
-        // } else {
-        //     debug_print ("%s", "Freeze time\n");
-        // }
-
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;
 
     } else { // not light_sunrise_sunset_context.light_is_stable
 
         debug_print ("%s", "Light changing\n");
-        // Don't change light_composition while light is changing. I guess this was the main problem seen with AQU=066
+        // Don't change light_composition while light is changing.
         // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 
         // The concrete case where I saw this not handled (in v1.0.10) is when I used the LYKT (flash light) two minutes before the hour,

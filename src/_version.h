@@ -21,7 +21,7 @@ typedef uint16_t application_version_num_t;
 #define APPLICATION_VERSION_STR "1.3.4" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
 #define APPLICATION_VERSION_NUM   1304  // Is "application_version_num_t"
     // "1.3.04"    19Jan2019 AQU=066 trigger_hour_changed data race since Handle_Light_Sunrise_Sunset_Etc only ran when light_is_stable
-    //                               See "2019 01 18 B AQU=066 problem seen.txt"
+    //                               See "2019 01 18 B AQU=066 problem seen.txt". Comments seen in commit f1c1a01
     // "1.3.03"    17Jan2019         Triggers every some three minutes every hour. Sending off .debug
     // "1.3.02"    15Jan2019 AQU=064 Had forgotton to include allow_normal_light_change_by_clock in trigger_hour_changed_half_light
     // "1.3.01"    15Jan2019 AQU=064 Allow for light_amount_t of half and one third

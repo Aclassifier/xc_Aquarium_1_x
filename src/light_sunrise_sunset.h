@@ -104,7 +104,6 @@ typedef struct light_sunrise_sunset_context_t {
     bool                               do_init;
     it_is_day_or_night_t               it_is_day_or_night;
     DateTime_t                         datetime_copy;
-    // DateTime_t                      datetime_previous;                                  // AQU=066
     bool                               trigger_minute_changed_stick;                       // AQU=66 moved trigger_minute_changed out to here
     bool                               trigger_hour_changed_stick;                         // AQU=66 moved trigger_hour_changed out to here
     bool                               trigger_day_changed_stick;                          // AQU=66 new
@@ -131,7 +130,6 @@ typedef struct light_sunrise_sunset_context_t {
     unsigned                           print_value_previous;                     // With debug_print this value must be visible, but even this will removed and not complained about not being used
     bool                               do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
     bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc
-                                                                                 // We saw that with AQU=066 light_is_stable is a problem. What should we allow to not start when it's true?
     num_days_since_start_t             num_days_since_start;                     // Done for radio, instead of the longer date of start
                                                                                  // All four AQU=049 new:
     light_daytime_hours_index_t        light_daytime_hours_index;                // This is the offset in hours (0,1,2,3) which is the same as the index of the list of daytime hours (AQU=049 new)
