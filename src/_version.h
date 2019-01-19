@@ -18,8 +18,11 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.3.2" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM   1302  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.3.4" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM   1304  // Is "application_version_num_t"
+    // "1.3.04"    19Jan2019 AQU=066 trigger_hour_changed data race since Handle_Light_Sunrise_Sunset_Etc only ran when light_is_stable
+    //                               See "2019 01 18 B AQU=066 problem seen.txt"
+    // "1.3.03"    17Jan2019         Triggers every some three minutes every hour. Sending off .debug
     // "1.3.02"    15Jan2019 AQU=064 Had forgotton to include allow_normal_light_change_by_clock in trigger_hour_changed_half_light
     // "1.3.01"    15Jan2019 AQU=064 Allow for light_amount_t of half and one third
     //                               Compiled for VERSION_OF_APP_PAYLOAD_02
@@ -63,6 +66,14 @@ typedef uint16_t application_version_num_t;
     // "1.2.02"    08Oct2018 AQU=054 Investigateing failing setting of day? Seems to be OK
     // "1.2.01"    06Oct2018 AQU=053 Value overflow on old FRAM
     // "1.2.00"    06Oct2018         Diffed with "1.1.4". VERSION_OF_APP_PAYLOAD_01 is 1
+    //  TODO       17Jan2019 AQU=065 1.2.00 all of a sudden stoppped. It beeped every like 5 secs. No buttons, display or radio. Power off/on ok
+    //                               I was working with BLACK_BAORD that I restarted, so that it would send full power for some ms
+    //                               Was this the problem? Is SPI asynch?
+    //                               Happened again on 19Jan2019, when BLACK_BOARD was also sending. A beep every 10 seconds.
+    //                               LED D2 (IRQ for radio/SPI) was always on and D1 (seen 1-sec tick by ADC conversion once per second) was always off. By the way, D2 is always
+    //                               on also if I remove the RFM69 board (which I did). But it continues to run and blink D1. But that's when the startKIT was
+    //                               started with the radio board out.
+    //                               Hear file (and read in Sound Studio: "2019 01 18 AQU=065 10 sek mellom hvert pip.m4a"
     // "1.1.35"    05Oct2018 AQU=052 PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE 0 for NOT [[combinable]] so that Port_Pins_Heat_Light_Task runs on a core by itself
     // "1.1.34"    05Oct2018 AQU=051 daytime hours offset was wrong, now available for radio for debug (printf not available)
     // "1.1.32"    03Oct2018 AQU=050 Possible to set day-time to 14, 12, 10 or 8 hours by menu.
@@ -79,39 +90,39 @@ typedef uint16_t application_version_num_t;
     // "1.1.14"    11Sep2018 AQU=042 To avoid using any colured LED strips alone when UP and down (it looked eerie):
     //                               LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_1133_mW_BACK1_ON
     //                               LIGHT_COMPOSITION_2166_mW_CENTER2_ON -> LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
-    // "1.1.13"    10Sep2018 now_regulating_at also exported in payload_u0_t;
-    // "1.1.12"     7Sep2018 error_bits_history also exported in payload_u0_t;
+    // "1.1.13"    10Sep2018         now_regulating_at also exported in payload_u0_t;
+    // "1.1.12"     7Sep2018         error_bits_history also exported in payload_u0_t;
     // "1.1.11"     3Sep2018 AQU=041 Two 2W LEDs out, one three-colour and one 4200 K LED in. Called "LED lights (6)" in "Drawing 10 - LED lights ...pages" document
-    //                       p32_bits_for_light_composition_pwm_windows now semantics with new mW naming
+    //                               p32_bits_for_light_composition_pwm_windows now semantics with new mW naming
     // "1.1.10"     3Sep2018 AQU=040 Internal I2C must work and then test read_chronodot_ok if num_days_since_start should make sense
-    // "1.1.9"     29Aug2018 Rather complete data structure defined
-    // "1.1.8"     10Aug2018 First that sends with the RFM69 radio board. Only sequence counter so far!
-    //                       As flashed it ran for 18 days before I had to stop it to continue development
-    // "1.1.7"     30Jul2018 [[distributable]] void I2C_External_Task
-    //                       [[distributable]] void My_startKIT_ADC_Task compiles with DO_ADC_NESTED_SELECT 0, but will not run.
-    //                       My_startKIT_ADC_Task now compiled with neither [[distributable]] nor [[combinable]] and DO_ADC_NESTED_SELECT=1
-    // "1.1.6"      3Jul2018 Testing [[combine]] (with MAP_PAR_COMBINE) and interface from button instead of channels
-    //                       Interface button_if instead of chan with Button_Task
-    // "1.1.5"      5Feb2018 testing some changes that Maxim initiated
+    // "1.1.9"     29Aug2018         Rather complete data structure defined
+    // "1.1.8"     10Aug2018         First that sends with the RFM69 radio board. Only sequence counter so far!
+    //                               As flashed it ran for 18 days before I had to stop it to continue development
+    // "1.1.7"     30Jul2018         [[distributable]] void I2C_External_Task
+    //                               [[distributable]] void My_startKIT_ADC_Task compiles with DO_ADC_NESTED_SELECT 0, but will not run.
+    //                               My_startKIT_ADC_Task now compiled with neither [[distributable]] nor [[combinable]] and DO_ADC_NESTED_SELECT=1
+    // "1.1.6"      3Jul2018         Testing [[combine]] (with MAP_PAR_COMBINE) and interface from button instead of channels
+    //                               Interface button_if instead of chan with Button_Task
+    // "1.1.5"      5Feb2018         testing some changes that Maxim initiated
     //             --------- Running from 25Nov2017 to Sep2018. Compiled with 14.3.2:
-    // "1.1.4"     25Nov2017 Tagged as VER_1_1_4_with_fishes
+    // "1.1.4"     25Nov2017         Tagged as VER_1_1_4_with_fishes
     //                       AQU=039 After AQU=038 then the first light down at night after the beep wasn't visible enough.
     //                               Complete rethinking into _less_ fancy into-night and into-day lists, and the same for half hour both for 3/3 and 2/3
     //                       AQU=038 5W 3000K LED strip replaced with three 6000K LED strips of 5W. Just comments
-    // "1.1.3"  // 14Nov2017 Tagged VER_1_1_3_with_fishes
+    // "1.1.3"  // 14Nov2017         Tagged VER_1_1_3_with_fishes
     ///                      AQU=037 No code change just testing XFLASH from command line
     // "1.1.2"  // 13Nov2017 AQU=036 SCREEN_3_LYSREGULERING also as dark stops LYKT. Fixed
     //                       AQU=035 ERROR_BIT_WRONG_CODE_STARTKIT is now bit 0xFF instead of bit 0x0A and the other bits pushed down. Fixed
     // "1.1.1"  // 11Nov2017 AQU=034 WRONG_CODE_STARTKIT new error message
-    // "1.1.0"  // 10Nov2017 Tagged VER_1_1_0_with_fishes
+    // "1.1.0"  // 10Nov2017         Tagged VER_1_1_0_with_fishes
     //                       AQU=033 LIGHT GOES SLOWLY OFF AFTER STARTUP IN BOX, BUT NOT ON LOOSE startKIT ->
     //                               I had compiled with FLASH_BLACK_BOARD and USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM
-    // "1.0.23" // 10Nov2017 Tagged VER_1_0_23_with_fishes
+    // "1.0.23" // 10Nov2017         Tagged VER_1_0_23_with_fishes
     //                       AQU=032 Make stronger criterion to make setting FAST possible? No. Instead also remove FAST in the morning
-    // "1.0.22" // 10Nov2017 Tagged VER_1_0_22_with_fishes
+    // "1.0.22" // 10Nov2017         Tagged VER_1_0_22_with_fishes
     //                       AQU=031 Setting to FAST didn't update light index. Also redesign so that SCREEN_3_LYSREGULERING will not interfere with SKY or LYKT
     //                               and that if SKY or LYKT when changing will first take light up to DAY agin
-    // "1.0.21" // 06Nov2017 Tagged VER_1_0_21_with_fishes
+    // "1.0.21" // 06Nov2017         Tagged VER_1_0_21_with_fishes
     //                       AQU=030 Menu in SCREEN_3_LYSGULERING disable LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE ("LYKT") or LIGHT_CONTROL_IS_RANDOM ("SKY")
     //                       AQU=029 Less warm white light, more 3200K. Different random distribution almost every hour. This effect is removed with AQU=038 where FRONT became coldest, not warmest
     //                       AQU=028 Less time to random light level (now [5..15] min instead of [10..29])
@@ -126,15 +137,15 @@ typedef uint16_t application_version_num_t;
     //                                 Memory available:       65536,   used:      52544 .  OKAY (Same code 14.2.4 was 2200 bytes more)
     //                                   (Stack: 5532, Code: 40970, Data: 6042).
     // "1.0.17" // 02Oct2017 AQU=024 When the controller was powered down with max light 2/3 it came up again with max light 2/3 ok but the light values were 3/3 on all three LED strips
-    // "1.0.16" // 03Aug2017 Tagged VER_1_0_16_with_fishes
+    // "1.0.16" // 03Aug2017         Tagged VER_1_0_16_with_fishes
     //                       AQU=023 (again) Now coded so that it's not decremented (was one decr too quick when light_is_stable again), but calculated as minutes_into_day_of_next_action_random_off
-    // "1.0.15" // 03Aug2017 Tagged VER_1_0_15_with_fishes
+    // "1.0.15" // 03Aug2017         Tagged VER_1_0_15_with_fishes
     //                       AQU=025 ERROR_BIT_WATER_COLD is new and ERROR_BIT_HEATER_CABLE_UNPLUGGED never signalled (given up at this time) (Tested ok)
     //                       AQU=024 All counting down of minutes shall display 1 minute the last 60 seconds. For into night and into day sequences (Tested ok)
     //                       AQU=023 All counting down of minutes shall display 1 minute the last 60 seconds. RANDOM and SKY (Tested as ok what we had)
-    // "1.0.14" // 29Jul2017 Tagged VER_1_0_14_with_fishes
+    // "1.0.14" // 29Jul2017         Tagged VER_1_0_14_with_fishes
     //                       AQU=022 Random light now more controlled with less dark scenes. And naming "max light" is now "normal light" (since it may go lighter)
-    // "1.0.13" // 27Jul2017 Tagged VER_1_0_13_with_fishes
+    // "1.0.13" // 27Jul2017         Tagged VER_1_0_13_with_fishes
     //                       AQU=021 Testing with xTIMEcomposer 14.3.0 with different Button_Task placements in mains.c. Found no way
     //                               14.2.4 with 1.0.13:
     //                               Constraint check for tile[0]:

@@ -103,7 +103,7 @@ typedef enum {
 typedef struct light_sunrise_sunset_context_t {
     bool                               do_init;
     it_is_day_or_night_t               it_is_day_or_night;
-    DateTime_t                         datetime;
+    DateTime_t                         datetime_copy;
     DateTime_t                         datetime_previous;
     bool                               datetime_previous_not_initialised;
     bool                               allow_normal_light_change_by_clock;
@@ -127,7 +127,8 @@ typedef struct light_sunrise_sunset_context_t {
     light_sensor_diff_state_t          light_sensor_diff_state;
     unsigned                           print_value_previous;                     // With debug_print this value must be visible, but even this will removed and not complained about not being used
     bool                               do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
-    bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
+    bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc
+                                                                                 // We saw that with AQU=066 light_is_stable is a problem. What should we allow to not start when it's true?
     num_days_since_start_t             num_days_since_start;                     // Done for radio, instead of the longer date of start
                                                                                  // All four AQU=049 new:
     light_daytime_hours_index_t        light_daytime_hours_index;                // This is the offset in hours (0,1,2,3) which is the same as the index of the list of daytime hours (AQU=049 new)
@@ -136,6 +137,7 @@ typedef struct light_sunrise_sunset_context_t {
     light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // State and daytime hours, as used by SCREEN_3_LYSGULERING
     hour_t                             day_start_light_hour;                     // AQU=051
     hour_t                             night_start_dark_hour;                    // AQU=051
+    uint8_t                            debug;
     //
 } light_sunrise_sunset_context_t;
 

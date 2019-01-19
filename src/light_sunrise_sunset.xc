@@ -211,7 +211,7 @@ Get_Random_Light_Composition_For_Half_Light (const random_generator_t random_num
 }
 
 light_composition_t
-Get_Random_Light_Composition_For_Some_Hours (const random_generator_t random_number) {
+Get_Random_Light_Composition_For_Some_HourChanges (const random_generator_t random_number) {
     light_composition_t return_light_composition;
 
     // This will cause the light amount to increase or decrease, depending on the present setting
@@ -248,7 +248,7 @@ Get_Random_Light_Composition_For_Some_Hours (const random_generator_t random_num
     // LIGHT_COMPOSITION_1133_mW_ON             [1] not used here
     // LIGHT_COMPOSITION_0000_mW_OFF            [0] not used here
 
-    debug_print ("Get_Random_Light_Composition_For_Some_Hours to %u\n", return_light_composition);
+    debug_print ("Get_Random_Light_Composition_For_Some_HourChanges to %u\n", return_light_composition);
     return return_light_composition;
 }
 
@@ -290,13 +290,13 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  
     bool return_beeper_blip = false;
 
-    const bool                 trigger_minute_changed  = (context.datetime.minute != context.datetime_previous.minute);
-    const bool                 trigger_hour_changed    = (context.datetime.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
+    const bool                 trigger_minute_changed  = (context.datetime_copy.minute != context.datetime_previous.minute);
+    const bool                 trigger_hour_changed    = (context.datetime_copy.hour   != context.datetime_previous.hour); // When true trigger_minute_changed always also true
     const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
 
     unsigned print_value = 0; // With debug_print this value must be visible, but even this will removed and not complained about not being used
 
-    const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
+    const unsigned minutes_into_day_now = ((context.datetime_copy.hour * 60) + context.datetime_copy.minute);
 
     const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round
 
@@ -304,12 +304,12 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     if (context.do_init) {
         light_composition_t light_composition_now;
-        // const unsigned minutes_into_day_now = (context.datetime.hour * 60) + context.datetime.minute;
 
         context.do_init = false;
         context.num_minutes_left_of_random = 0;
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;
+        context.debug = 0;
 
         if (context.light_amount_in_FRAM_memory.u.fraction_2_nibbles == NORMAL_LIGHT_IS_VOID_F0N) {               // No FRAM chip? Set if read failed
             context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_FULL_F2N;                                 // Default. Will trigger do_FRAM_write
@@ -398,7 +398,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     //}}}  
 
-    if (context.datetime.day != context.datetime_previous.day) {
+    if (context.datetime_copy.day != context.datetime_previous.day) {
         context.num_days_since_start++;
 
         //  AQU=054 tested here with minute instead and did a lot with buttons for SCREEN_3_LYSGULERING. Always taken when it should:
@@ -442,6 +442,8 @@ Handle_Light_Sunrise_Sunset_Etc (
     //{{{  trigger_minute_changed
 
     if (trigger_minute_changed and context.light_is_stable) {
+        // light_is_stable is modified above, so this test needed, even if Handle_Light_Sunrise_Sunset_Etc
+        // is not called if not light_is_stable
         unsigned minutes_into_day_of_next_action_listed_darker_or_lighter =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
@@ -546,8 +548,14 @@ Handle_Light_Sunrise_Sunset_Etc (
     const bool trigger_hour_changed_random =
             trigger_hour_changed and
             ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
+
+    if (trigger_hour_changed)                                                         {context.debug or_eq 0x01;} else {}
+    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {context.debug or_eq 0x02;} else {}
+    if (context.allow_normal_light_change_by_clock)                                   {context.debug or_eq 0x04;} else {}
+    if (context.allow_normal_light_change_by_menu)                                    {context.debug or_eq 0x08;} else {}
+
     const bool trigger_hour_changed_half_light =
-            trigger_hour_changed and
+            (trigger_hour_changed) and
             (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
             (context.allow_normal_light_change_by_clock) and
             (context.allow_normal_light_change_by_menu);
@@ -557,6 +565,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     if (context.light_is_stable) {                                                                    // L1: Light is not changing right now
         if (trigger_hour_changed_half_light) {
             new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number);
+            context.debug or_eq (new_light_composition << 4);
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
         } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
             if (context.allow_normal_light_change_by_clock) {                                         // L3: And when it's day-time'ish
@@ -577,7 +586,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 context.num_random_sequences_left--;
                             } else { // L7:
                                 // Random light now almost every hour
-                                new_light_composition = Get_Random_Light_Composition_For_Some_Hours (random_number);
+                                new_light_composition = Get_Random_Light_Composition_For_Some_HourChanges (random_number);
                                 // Change, down (more SKY) or even up now allowed (less SKY)!
                                 i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
                                 #if ((FLASH_BLACK_BOARD==1) and (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==0))

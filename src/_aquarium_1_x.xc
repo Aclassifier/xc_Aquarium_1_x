@@ -1497,8 +1497,8 @@ void System_Task_Data_Handler (
     if (context.read_chronodot_ok) { // AQU=040 testing on it!
         DateTime_t datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised, see below
 
-        context.datetime                      = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
-        light_sunrise_sunset_context.datetime = context.datetime; // Need a copy there
+        context.datetime                           = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
+        light_sunrise_sunset_context.datetime_copy = context.datetime; // Need a copy there. Only place it's modified
 
         // Do init of "previous" of aquarium datetime for light
         if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
@@ -1717,7 +1717,7 @@ void System_Task_Data_Handler (
         {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc_sync_internal (context.light_intensity_thirds);
 
         // Make history, update "previous"
-        if (light_sunrise_sunset_context.light_is_stable) {
+        if (light_sunrise_sunset_context.light_is_stable) { // AQU=066 is this test the real problem?
             light_sunrise_sunset_context.datetime_previous = context.datetime;
         } else {
             debug_print ("%s", "Freeze time\n");
@@ -1728,13 +1728,13 @@ void System_Task_Data_Handler (
     } else { // not light_sunrise_sunset_context.light_is_stable
 
         debug_print ("%s", "Light changing\n");
-        // Don't change light_composition while light is changing
+        // Don't change light_composition while light is changing. I guess this was the main problem seen with AQU=066
         // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc.
 
         // The concrete case where I saw this not handled (in v1.0.10) is when I used the LYKT (flash light) two minutes before the hour,
         // and when it timed out after two minutes the light was going to be turned softly UP again. But then the random SKY triggered
         // and it wanted to take the light softly DOWN. What happened is that the last won and took the light abruptly UP and then took
-        // it softly DOWN. Not nice at all. This solution should fix this for v.1.0.11
+        // it softly DOWN. Not nice at all. This solution (testing for light_is_stable) should fix this for v.1.0.11
 
         debug_printf_datetime (context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
     }
@@ -2105,16 +2105,18 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (voltage_onetenthV_r)               context.rr_24V_heat_onetenthV;
                         TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (voltage_onetenthV_r)               context.rr_12V_LEDlight_onetenthV;
                         TX_radio_payload.u.payload_u0.application_version_num            = (application_version_num_r)         application_version_num;
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_front       = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_center      = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
-                        TX_radio_payload.u.payload_u0.light_intensity_thirds_back        = (light_control_scheme_r)            context.light_intensity_thirds[IOF_LED_STRIP_BACK];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_front       = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_center      = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
+                        TX_radio_payload.u.payload_u0.light_intensity_thirds_back        = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_BACK];
                         TX_radio_payload.u.payload_u0.light_composition                  = (light_composition_r)               context.light_composition;
                         TX_radio_payload.u.payload_u0.now_regulating_at                  = (now_regulating_at_r)               context.now_regulating_at;
                         TX_radio_payload.u.payload_u0.light_amount.u.fraction_2_nibbles  =                                     light_sunrise_sunset_context.light_amount.u.fraction_2_nibbles;
                         TX_radio_payload.u.payload_u0.light_daytime_hours                = (light_daytime_hours_r)             light_sunrise_sunset_context.light_daytime_hours;
-                        TX_radio_payload.u.payload_u0.debug                              =                                     0;
+                        TX_radio_payload.u.payload_u0.debug                              =                                     light_sunrise_sunset_context.debug;
                         TX_radio_payload.u.payload_u0.day_start_light_hour               = (hour_r)                            light_sunrise_sunset_context.day_start_light_hour;
                         TX_radio_payload.u.payload_u0.night_start_dark_hour              = (hour_r)                            light_sunrise_sunset_context.night_start_dark_hour;
+
+                        light_sunrise_sunset_context.debug = 0; // Clear it adter sending
 
                         { // To avoid XMOS Product Bug #31533
                             temp_onetenthDegC_t degC;
@@ -2138,10 +2140,10 @@ void System_Task (
                         {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
 
                         if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                         debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
-                         // Don't set context.radio_board_fault here since some errors may not appear next time
+                           debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+                           // Don't set context.radio_board_fault here since some errors may not appear next time
                         } else {
-                         debug_print_y ("TX %u\n", TX_appSeqCnt);
+                           debug_print_y ("TX %u\n", TX_appSeqCnt);
                         }
                     } else {} // Never send (any more)
                 } else {}
