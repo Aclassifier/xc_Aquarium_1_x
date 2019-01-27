@@ -274,7 +274,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     return {light_sensor_range, not error};
 }
 
-{voltage_onetenthV_t, bool}
+{onetenthVolt_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[INNER_RR_12V_24V_TEXT_LEN]) { // AQU=060 "NULL" worked, but "null" is correct
@@ -321,7 +321,7 @@ RR_12V_24V_To_String_Ok (
         } else {} // No code: ok
     } else {}
     
-    return {(voltage_onetenthV_t) volt_dp1, not error};
+    return {(onetenthVolt_t) volt_dp1, not error};
 }
 
 // BINARY-CODED DECIMAL - DATA WITH CHRONODOT IS BCD - ONE NIBBLE PER

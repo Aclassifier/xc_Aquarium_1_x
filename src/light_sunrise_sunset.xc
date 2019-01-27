@@ -547,11 +547,6 @@ Handle_Light_Sunrise_Sunset_Etc (
             context.trigger_hour_changed_stick and
             ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
 
-    if (context.trigger_hour_changed_stick)                                           {context.debug or_eq 0x01;} else {}
-    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {context.debug or_eq 0x02;} else {}
-    if (context.allow_normal_light_change_by_clock)                                   {context.debug or_eq 0x04;} else {}
-    if (context.allow_normal_light_change_by_menu)                                    {context.debug or_eq 0x08;} else {}
-
     const bool trigger_hour_changed_half_light =
             (context.trigger_hour_changed_stick) and
             (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
@@ -562,8 +557,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     if (context.light_is_stable) {                                                                    // L1: Light is not changing right now
         if (trigger_hour_changed_half_light) {
-            new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number);
-            context.debug or_eq (new_light_composition << 4);
+            new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number); // Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
         } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
             if (context.allow_normal_light_change_by_clock) {                                         // L3: And when it's day-time'ish

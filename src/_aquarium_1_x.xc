@@ -92,9 +92,6 @@ typedef enum {
     CALLER_IS_ERROR_WAKEUP // Simulated CALLER_IS_BUTTON for IOF_BUTTON_LEFT
 } caller_t;
 
-#define SCREEN_NAME_NUMS      8
-#define SCREEN_NORMALLY_FIRST SCREEN_1_AKVARIETEMPERATURER
-
 typedef enum display_screen_name_t {
     // English-Norwegian here because the screens are in Norwegian
     //                            // # sub_is_editable | char_takes_press_for_10_seconds_right_button_str | String                             | OTHER
@@ -107,8 +104,12 @@ typedef enum display_screen_name_t {
     SCREEN_5_VERSJON,             // 5 NO              | NO                                               | display_ts1_chars                  |
     SCREEN_6_KONSTANTER,          // 6 NO              | NO                                               | display_ts1_chars                  |
     SCREEN_7_NT_KLOKKE,           // 7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
-    SCREEN_X_NONE,                // 8 No screen, just a special parameter for "except none" == "all"
+    SCREEN_8_RADIO,               // 8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
+    SCREEN_X_NONE,                // 9 No screen, just a special parameter for "except none" == "all"
 } display_screen_name_t;
+
+#define SCREEN_NORMALLY_FIRST SCREEN_1_AKVARIETEMPERATURER
+#define SCREEN_NAME_NUMS      SCREEN_X_NONE // =9. Not counting SCREEN_X_NONE
 
 typedef enum fram_byte_array_index_t {
     FRAM_BYTE_NORMAL_LIGHT
@@ -263,9 +264,9 @@ typedef struct handler_context_t {
     bool                        heater_data_aged;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
-    voltage_onetenthV_t         rr_24V_heat_onetenthV;
+    onetenthVolt_t         rr_24V_heat_onetenthV;
     bool                        rr_24_voltage_ok;
-    voltage_onetenthV_t         rr_12V_LEDlight_onetenthV;
+    onetenthVolt_t         rr_12V_LEDlight_onetenthV;
     bool                        rr_12_voltage_ok;
     temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
     bool                        internal_box_temp_ok;
@@ -280,6 +281,7 @@ typedef struct handler_context_t {
     bool                        radio_send_data;
     bool                        radio_sent_data_display_it;
     uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
+    unsigned                    ultimateIRQclearCnt; // AQU=065 new
 } handler_context_t;
 
 
@@ -328,6 +330,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 {
     int sprintf_numchars = 0; // If OK, number of chars excluding \0 written, if < 0 error
 
+    // TODO these const char are quite expensive! With a %s it's possible to use CHAR_CIRCLE instead of char_degC_circle_str
+    //      The eol must then not be present. Check this
     const char char_degC_circle_str[]                             = DEGC_CIRCLE_STR;
     const char char_AA_str[]                                      = CHAR_AA_STR;          // A
     const char char_OE_str[]                                      = CHAR_OE_STR;          // Ø
@@ -849,9 +853,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
         // SCREEN_5_VERSJON
 
         case SCREEN_5_VERSJON: {
-            // #define TEST_BOOT_FROM_CONFIG // Does not work!
-            char xTIMEcomposer_version_str  [7] = XTIMECOMPOSER_VERSION_STR; // Typical "14.2.3"
-            char application_version_str    [7] = APPLICATION_VERSION_STR;   // Typical "1.0.12" (Aside: APPLICATION_VERSION_NUM as a number like 1012, not used here)
 
             #ifdef TEST_BOOT_FROM_CONFIG
                 int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
@@ -862,28 +863,16 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            // FILLS 84 chars plus \0
-            #ifdef TEST_BOOT_FROM_CONFIG
-                sprintf_numchars = sprintf (context.display_ts1_chars,
-                                   "5 BOKS %08X        KODE %s     XC p%s XMOS startKIT  %syvind Teig   ",
-                                   reg_value,
-                                   __DATE__,
-                                   char_aa_str,
-                                   char_OE_str);      .
-            #else
-                // EDIT HERE IF XTIMECOMPOSER_VERSION_STR or APPLICATION_VERSION_STR need to change size,
-                // as I didn't think it necessary to code it dynamically as I have done with some of the others
-                sprintf_numchars = sprintf (context.display_ts1_chars,
-                                   "5 BOKS  XMOS startKIT  xTIMEcomp.  v%s  XC KODE %s  v%s %syvind Teig",
-                                   xTIMEcomposer_version_str,
-                                   __DATE__,
-                                   application_version_str,
-                                   char_OE_str);
-                //                                            5 BOKS  XMOS startKIT
-                //                                              xTIMEcomp.  v14.2.4
-                //                                              XC KODE Jun 14 2017
-                //                                              v1.0.12 Øyvind Teig
-            #endif
+            sprintf_numchars = sprintf (context.display_ts1_chars,
+                               "5 BOKS XMOS startKIT\n  XC KODE %s  A%s  R%s\n  %syvind Teig",
+                               __DATE__,
+                               APPLICATION_VERSION_STR,
+                               RFM69_DRIVER_VERSION_STR,
+                               char_OE_str);
+            //                                            5 BOKS  XMOS startKIT
+            //                                              XC KODE Jun 14 2017
+            //                                              A:1.0.12  R:0.8.5
+            //                                              Øyvind Teig
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1171,6 +1160,28 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
 
         //
+        // SCREEN_8_RADIO
+
+        case SCREEN_8_RADIO: {
+            for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
+            sprintf_numchars = sprintf (context.display_ts1_chars,
+                    "8 RADIO\n\n  IRQ HENG %u",
+                    context.ultimateIRQclearCnt);
+                    //                                            ..........----------.
+                    //                                            7 RADIO
+                    //
+                    //                                              IRQ HENG 123567
+
+            Clear_All_Pixels_In_Buffer();
+            setTextSize(1);
+            setTextColor(WHITE);
+            setCursor(0,0);
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
+        } break;
 
         default: {
             unreachable("display_screen_name_present");
@@ -1456,6 +1467,13 @@ void Handle_Real_Or_Clocked_Buttons (
                                 debug_print ("%s","  SCREEN_7_NT_KLOKKE\n");
                             } else {}
                         } break;
+
+                        case SCREEN_8_RADIO: { // 8
+                            context.ultimateIRQclearCnt = 0;
+                            context.beeper_blip_now = true;
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        } break;
+
                         default: break;
                     }
                 } break;
@@ -1828,7 +1846,7 @@ void System_Task (
     client  temperature_water_commands_if  i_temperature_water_commands,
     out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
-    server  irq_if_t                       i_irq,
+            chanend                        c_irq_update,
     client  radio_if_t                     i_radio)
 {
     // Time keeping
@@ -1850,6 +1868,8 @@ void System_Task (
     uint8_t    TX_gatewayid = GATEWAYID;
     uint32_t   TX_appSeqCnt = 0;
     is_error_e is_new_error;
+
+    irq_update_e irq_update;
 
     #if (IS_MYTARGET_MASTER==0)
        #error ONLY MASTER CODED HERE
@@ -1950,6 +1970,8 @@ void System_Task (
     context.error_bits_now = AQUARIUM_ERROR_BITS_NONE;
     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE;
     context.error_beeper_blip_now_muted = false;
+    context.ultimateIRQclearCnt = 0;
+
     #ifdef DEBUG_TEST_WATCHDOG
         context.do_watchdog_retrigger_ms_debug = false;
     #endif
@@ -2104,8 +2126,8 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC      = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
                         TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC        = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
                         TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC     = (onetenthDegC_r)                    context.internal_box_temp_onetenthDegC;
-                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (voltage_onetenthV_r)               context.rr_24V_heat_onetenthV;
-                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (voltage_onetenthV_r)               context.rr_12V_LEDlight_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (onetenthVolt_r)               context.rr_24V_heat_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (onetenthVolt_r)               context.rr_12V_LEDlight_onetenthV;
                         TX_radio_payload.u.payload_u0.application_version_num            = (application_version_num_r)         application_version_num;
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_front       = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center      = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
@@ -2114,7 +2136,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.now_regulating_at                  = (now_regulating_at_r)               context.now_regulating_at;
                         TX_radio_payload.u.payload_u0.light_amount.u.fraction_2_nibbles  =                                     light_sunrise_sunset_context.light_amount.u.fraction_2_nibbles;
                         TX_radio_payload.u.payload_u0.light_daytime_hours                = (light_daytime_hours_r)             light_sunrise_sunset_context.light_daytime_hours;
-                        TX_radio_payload.u.payload_u0.debug                              =                                     light_sunrise_sunset_context.debug;
+                        TX_radio_payload.u.payload_u0.debug                              = (uint8_t)                           (context.ultimateIRQclearCnt bitand 0xff); // This bitand generates no code
                         TX_radio_payload.u.payload_u0.day_start_light_hour               = (hour_r)                            light_sunrise_sunset_context.day_start_light_hour;
                         TX_radio_payload.u.payload_u0.night_start_dark_hour              = (hour_r)                            light_sunrise_sunset_context.night_start_dark_hour;
 
@@ -2198,9 +2220,9 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case i_irq.irq_pin_state (const irq_t irq) : { // AQU=062
+            case c_irq_update :> irq_update : {
 
-                if (irq.pin_value == high) {
+                if (irq_update == pin_high) {
                     packet_t                    RX_PACKET_U;
                     int16_t                     nowRSSI;
                     interruptAndParsingResult_e interruptAndParsingResult;
@@ -2222,8 +2244,12 @@ void System_Task (
                         default: {} break;
                     }
                     i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
-                } else {}
-
+                } else if (irq_update == pin_low) {
+                    // No code
+                } else if (irq_update == pin_high_timeout) {
+                    i_radio.ultimateIRQclear();
+                    context.ultimateIRQclearCnt++;
+                } else {} // Never here
             } break;
         }
     }

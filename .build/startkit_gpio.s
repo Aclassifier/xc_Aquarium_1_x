@@ -126,7 +126,7 @@
 	.globl startkit_gpio_driver_aux.select.enable.cases.maxchanends
 	.set startkit_gpio_driver_aux.select.enable.cases,0
 	.globl startkit_gpio_driver_aux.select.enable.cases
-	.set startkit_gpio_driver_aux.select.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.case.0.nstackwords)
+	.set startkit_gpio_driver_aux.select.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.case.0.nstackwords)
 	.globl startkit_gpio_driver_aux.select.enable.cases.nstackwords
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.add_to_set _i.slider_query_if.filter.maxchanends.group, _i.slider_query_if.slider._c0.filter.maxchanends, _i.slider_query_if.slider._c0.filter

@@ -12,8 +12,8 @@ typedef enum i2c_dev_address_internal_t {
                                      // NO SOLDERING NEEDED ON ANY OF THESE BOARDS
     I2C_ADDRESS_OF_DISPLAY   = 0x3C, // UG-2832HSWEG02 with chip SSD1306 from Univision Technology Inc.
     I2C_ADDRESS_OF_FRAM      = 0x50, // Fujitsu MB85RC256V (MB85RC)
-    I2C_ADDRESS_OF_FRAM_F8   = 0xF8, // Fujitsu MB85RC256V Device ID first address
-    I2C_ADDRESS_OF_FRAM_F9   = 0xF9, // Fujitsu MB85RC256V Device ID second address
+    I2C_ADDRESS_OF_FRAM_F8   = 0xF8, // Fujitsu MB85RC256V Device ID first address (Not used)
+    I2C_ADDRESS_OF_FRAM_F9   = 0xF9, // Fujitsu MB85RC256V Device ID second address (Not used)
     I2C_ADDRESS_OF_CHRONODOT = 0x68  // DS3231 Extremely Accurate I2C-Integrated RTC/TCXO/Crystal by Maxim
 } i2c_dev_address_internal_t; // i2c_dev_address_t
 

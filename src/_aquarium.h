@@ -22,7 +22,7 @@ extern void System_Task (
     client  temperature_water_commands_if  i_temperature_water_commands,
     out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
-    server  irq_if_t                       i_irq,
+            chanend                        c_irq_update,
     client  radio_if_t                     i_radio);
 
 #endif /* AQUARIUM_H_ */

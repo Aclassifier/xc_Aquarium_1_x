@@ -490,7 +490,7 @@ void Temperature_Heater_Task (
             //}}}  
             //{{{  i_temperature_heater_commands[].get_regulator_data
 
-            case i_temperature_heater_commands[int index_of_client].get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV) ->
+            case i_temperature_heater_commands[int index_of_client].get_regulator_data (const onetenthVolt_t rr_24V_voltage_onetenthV) ->
                     {bool return_aged, bool return_on_ok, heater_on_percent_t return_value_on_percent, heater_on_watt_t return_value_on_watt}: {
 
                 unsigned ohm;

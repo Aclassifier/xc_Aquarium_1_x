@@ -1532,7 +1532,7 @@ typedef struct tag_startkit_adc_vals {
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
 typedef int16_t temp_onetenthDegC_t;
-typedef int16_t voltage_onetenthV_t;
+typedef int16_t onetenthVolt_t;
 typedef int light_sensor_range_t;
 # 78 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
@@ -1558,7 +1558,7 @@ typedef struct temp_onetenthDegC_mean_t {
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_String (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
+{onetenthVolt_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
@@ -1763,7 +1763,7 @@ Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (
     return {light_sensor_range, ! error};
 }
 
-{voltage_onetenthV_t, bool}
+{onetenthVolt_t, bool}
 RR_12V_24V_To_String_Ok (
     const unsigned int adc_val_mean_i,
     char (&?rr_12V_24V_str)[5]) {
@@ -1796,7 +1796,7 @@ RR_12V_24V_To_String_Ok (
         } else {}
     } else {}
 
-    return {(voltage_onetenthV_t) volt_dp1, ! error};
+    return {(onetenthVolt_t) volt_dp1, ! error};
 }
 
 

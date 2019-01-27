@@ -1636,7 +1636,7 @@ void Button_Task (
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
 typedef int16_t temp_onetenthDegC_t;
-typedef int16_t voltage_onetenthV_t;
+typedef int16_t onetenthVolt_t;
 typedef int light_sensor_range_t;
 # 78 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
@@ -1662,7 +1662,7 @@ typedef struct temp_onetenthDegC_mean_t {
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_String (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
-{voltage_onetenthV_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
+{onetenthVolt_t, bool} RR_12V_24V_To_String_Ok (const unsigned int adc_val_mean_i, char (&?rr_12V_24V_str)[5]);
 
 uint8_t BCD_To_Bin_8 (uint8_t val);
 uint8_t Bin_To_BCD_8 (uint8_t val);
@@ -1793,7 +1793,7 @@ typedef interface temperature_heater_commands_if {
                 void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
 
                 {bool, bool, heater_on_percent_t, heater_on_watt_t}
-                                      get_regulator_data (const voltage_onetenthV_t rr_24V_voltage_onetenthV);
+                                      get_regulator_data (const onetenthVolt_t rr_24V_voltage_onetenthV);
 } temperature_heater_commands_if;
 
 
@@ -2056,9 +2056,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 89 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 100 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 104 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 115 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2103,9 +2103,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 168 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 175 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2309,6 +2309,33 @@ typedef interface irq_if_t {
     void irq_pin_state (const irq_t irq);
 } irq_if_t;
 
+
+typedef interface irq_high_if_t {
+    void irq_pin_high (void);
+} irq_high_if_t;
+
+
+typedef struct {
+    pin_e pin_value;
+    bool pin_delayed_high_event_next;
+    bool pin_was_high_too_long;
+} irq_val_t;
+
+typedef enum {
+    pin_low,
+    pin_high,
+    pin_high_timeout
+} irq_update_e;
+
+typedef enum {
+    initial_must_read_irq_val_and_tick_state,
+    delayed_no_read_irq_val_and_tick_state
+} c_irq_high_event_e;
+
+typedef interface irq_val_if_t {
+    irq_val_t read_irq_val_and_tick_state (void);
+} irq_val_if_t;
+
 typedef struct probe_pins_t {
     out port probe_when_irq;
 } probe_pins_t;
@@ -2326,7 +2353,7 @@ void IRQ_detect_task (
         );
 
 [[combinable]]
-void IRQ_detect_poll_task (
+void IRQ_detect_and_follow_task (
         client irq_if_t i_irq,
                in port p_irq,
                probe_pins_t &?p_probe,
@@ -2334,6 +2361,33 @@ void IRQ_detect_poll_task (
 
 
                unsigned iof_spi_client
+        );
+
+[[combinable]]
+void IRQ_detect_and_poll_task (
+        client irq_high_if_t i_irq_high,
+        server irq_val_if_t i_irq_val,
+               in port p_irq,
+               probe_pins_t &?p_probe,
+               unsigned iof_spi_client
+        );
+
+[[combinable]]
+void IRQ_detect_and_poll_task_2 (
+               chanend c_irq_high_event,
+        server irq_val_if_t i_irq_val,
+               in port p_irq,
+               probe_pins_t &?p_probe,
+               unsigned iof_spi_client,
+        const unsigned irq_high_max_time_millis
+        );
+
+[[combinable]]
+void IRQ_detect_and_follow_task_2 (
+                chanend c_irq_update,
+                in port p_irq,
+                probe_pins_t &?p_probe,
+         const unsigned irq_high_max_time_ms
         );
 # 47 "../src/main.xc" 2
 
@@ -2348,7 +2402,7 @@ extern void System_Task (
     client temperature_water_commands_if i_temperature_water_commands,
     out port p_display_notReset,
     server button_if i_button_in[3],
-    server irq_if_t i_irq,
+            chanend c_irq_update,
     client radio_if_t i_radio);
 # 49 "../src/main.xc" 2
 # 73 "../src/main.xc"
@@ -2373,7 +2427,7 @@ out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
 
 
-probe_pins_t probe_config = {
+probe_pins_t probe_led_d2 = {
     on tile[0]:0x10300
 };
 
@@ -2390,6 +2444,8 @@ out port p_display_notReset = on tile[0]:0x10c00;
 
 
 
+
+
 int main() {
     chan c_analogue;
 
@@ -2397,7 +2453,7 @@ int main() {
     button_if i_buttons[3];
     spi_master_if i_spi [1];
     radio_if_t i_radio;
-    irq_if_t i_irq;
+    chan c_irq_update;
     i2c_external_commands_if i_i2c_external_commands [2];
     i2c_internal_commands_if i_i2c_internal_commands [1];
     startkit_adc_acquire_if i_startkit_adc_acquire;
@@ -2416,12 +2472,12 @@ int main() {
                                               i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
                                               i_temperature_heater_commands[0], i_temperature_water_commands,
                                               p_display_notReset,
-                                              i_buttons, i_irq, i_radio);
+                                              i_buttons, c_irq_update, i_radio);
             on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 244 "../src/main.xc"
+# 246 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2441,7 +2497,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 275 "../src/main.xc"
+# 277 "../src/main.xc"
             }
         }
         on tile[0]: {
@@ -2449,8 +2505,9 @@ int main() {
             par {
                 RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
                 spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
-                                null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
-                IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);
+                                      null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+
+                IRQ_detect_and_follow_task_2 (c_irq_update, p_spi_irq, null, 2000);
             }
         }
     }

@@ -180,7 +180,7 @@ out port p_spi_aux   = on tile[0]:SPI_AUX;
 in  port p_spi_irq   = on tile[0]:SPI_IRQ;
 
 // Another way of doing it. Used as nullable parameter, so may be dropped
-probe_pins_t probe_config = {
+probe_pins_t probe_led_d2 = {
     on tile[0]:PROBE5 // LED D2 will blink on each IRQ (also on sending)
 };
 
@@ -197,6 +197,8 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
+#define IRQ_HIGH_MAX_TIME_MILLIS 2000 // This is not critical, but having a value that would display a real stuck IRQ would be most correct I guess
+
 int main() {
     chan c_analogue; // chans always untyped
 
@@ -204,7 +206,7 @@ int main() {
     button_if                      i_buttons[BUTTONS_NUM_CLIENTS];
     spi_master_if                  i_spi    [NUM_SPI_CLIENT_USERS];
     radio_if_t                     i_radio;
-    irq_if_t                       i_irq;
+    chan                           c_irq_update; // AQU=067
     i2c_external_commands_if       i_i2c_external_commands [I2C_EXTERNAL_NUM_CLIENTS];
     i2c_internal_commands_if       i_i2c_internal_commands [I2C_INTERNAL_NUM_CLIENTS];
     startkit_adc_acquire_if        i_startkit_adc_acquire;
@@ -223,7 +225,7 @@ int main() {
                                               i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
                                               i_temperature_heater_commands[0], i_temperature_water_commands,
                                               p_display_notReset,
-                                              i_buttons, i_irq, i_radio);
+                                              i_buttons, c_irq_update, i_radio);
             on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
                                               ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
             #if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==0)
@@ -277,10 +279,11 @@ int main() {
         on tile[0]: { // To avoid Error: lower bound could not be calculated (xTIMEcomposer 14.3.3)
             [[combine]]
             par {
-                RFM69_driver    (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[distributable]]
-                spi_master_2    (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]]
-                                SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
-                IRQ_detect_task (i_irq, p_spi_irq, probe_config, null, 0);                           // [[combinable]]
+                RFM69_driver         (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[distributable]]
+                spi_master_2         (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]]
+                                      SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+
+                IRQ_detect_and_follow_task_2 (c_irq_update, p_spi_irq, null, IRQ_HIGH_MAX_TIME_MILLIS); // null since IRQ has a separate LED. New with AQU=067
             }
         }
     }
