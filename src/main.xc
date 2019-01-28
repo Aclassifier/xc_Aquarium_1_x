@@ -283,7 +283,7 @@ int main() {
                 spi_master_2         (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]]
                                       SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
 
-                IRQ_detect_and_follow_task_2 (c_irq_update, p_spi_irq, null, IRQ_HIGH_MAX_TIME_MILLIS); // null since IRQ has a separate LED. New with AQU=067
+                IRQ_interrupt_task (c_irq_update, p_spi_irq, null, IRQ_HIGH_MAX_TIME_MILLIS); // null since IRQ has a separate LED. New with AQU=067
             }
         }
     }

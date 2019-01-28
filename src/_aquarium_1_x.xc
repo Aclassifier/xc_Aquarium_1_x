@@ -2222,7 +2222,7 @@ void System_Task (
             // Interrupt from radio board:
             case c_irq_update :> irq_update : {
 
-                if (irq_update == pin_high) {
+                if (irq_update == pin_gone_high) {
                     packet_t                    RX_PACKET_U;
                     int16_t                     nowRSSI;
                     interruptAndParsingResult_e interruptAndParsingResult;
@@ -2244,9 +2244,9 @@ void System_Task (
                         default: {} break;
                     }
                     i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
-                } else if (irq_update == pin_low) {
+                } else if (irq_update == pin_gone_low) {
                     // No code
-                } else if (irq_update == pin_high_timeout) {
+                } else if (irq_update == pin_still_high_timeout) {
                     i_radio.ultimateIRQclear();
                     context.ultimateIRQclearCnt++;
                 } else {} // Never here

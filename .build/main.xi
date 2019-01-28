@@ -1694,31 +1694,31 @@ typedef enum {
 
 
 
-
-
 typedef enum light_composition_t {
-# 39 "../src/port_heat_light_task.h"
+# 37 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_OFF = 0,
     LIGHT_COMPOSITION_1133_mW_ON = 1,
-    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM = 2,
-    LIGHT_COMPOSITION_3999_mW_ON = 3,
-    LIGHT_COMPOSITION_4383_mW_ON = 4,
-    LIGHT_COMPOSITION_5516_mW_ON = 5,
-    LIGHT_COMPOSITION_7949_mW_ON_HALF = 6,
-    LIGHT_COMPOSITION_9516_mW_ON = 7,
-    LIGHT_COMPOSITION_12383_mW_ON = 8,
-    LIGHT_COMPOSITION_15250_mW_ON_FULL = 9,
-
-
-    LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS = 10,
-    LIGHT_COMPOSITION_8382_mW_ON = 11,
-    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD = 12,
-    LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER = 13,
-    LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT = 14
-
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER = 2,
+    LIGHT_COMPOSITION_3299_mW_ON = 3,
+    LIGHT_COMPOSITION_3999_mW_ON_DARKEST_RANDOM = 4,
+    LIGHT_COMPOSITION_4383_mW_ON = 5,
+    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD = 6,
+    LIGHT_COMPOSITION_5516_mW_ON = 7,
+    LIGHT_COMPOSITION_7949_mW_ON_HALF = 8,
+    LIGHT_COMPOSITION_8382_mW_ON = 9,
+    LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT = 10,
+    LIGHT_COMPOSITION_9516_mW_ON = 11,
+    LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS = 12,
+    LIGHT_COMPOSITION_12383_mW_ON = 13,
+    LIGHT_COMPOSITION_15250_mW_ON_FULL = 14,
+    NUMLIGHT_COMPOSITION_LEVELS_ = 15
 
 
 } light_composition_t;
+
+
+
+
 
 typedef enum light_control_scheme_t {
 
@@ -2056,9 +2056,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 100 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 101 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 115 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 116 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2103,9 +2103,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 168 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 169 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 187 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2290,6 +2290,22 @@ typedef interface radio_if_t {
 # 369 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } radio_if_t;
 
+typedef struct {
+    pin_e pin_value;
+    bool pin_delayed_high_event_next;
+    bool pin_was_high_too_long;
+} irq_val_t;
+
+typedef enum {
+    pin_gone_low,
+    pin_gone_high,
+    pin_still_high_timeout
+} irq_update_e;
+
+typedef struct probe_pins_t {
+    out port probe_when_irq;
+} probe_pins_t;
+
 
 [[distributable]]
 void RFM69_driver (
@@ -2298,92 +2314,8 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client);
 
-
-typedef struct {
-    pin_e pin_value;
-    unsigned time_since_last_change_sec;
-    int16_t RSSI_value;
-} irq_t;
-
-typedef interface irq_if_t {
-    void irq_pin_state (const irq_t irq);
-} irq_if_t;
-
-
-typedef interface irq_high_if_t {
-    void irq_pin_high (void);
-} irq_high_if_t;
-
-
-typedef struct {
-    pin_e pin_value;
-    bool pin_delayed_high_event_next;
-    bool pin_was_high_too_long;
-} irq_val_t;
-
-typedef enum {
-    pin_low,
-    pin_high,
-    pin_high_timeout
-} irq_update_e;
-
-typedef enum {
-    initial_must_read_irq_val_and_tick_state,
-    delayed_no_read_irq_val_and_tick_state
-} c_irq_high_event_e;
-
-typedef interface irq_val_if_t {
-    irq_val_t read_irq_val_and_tick_state (void);
-} irq_val_if_t;
-
-typedef struct probe_pins_t {
-    out port probe_when_irq;
-} probe_pins_t;
-
-
 [[combinable]]
-void IRQ_detect_task (
-        client irq_if_t i_irq,
-               in port p_irq,
-               probe_pins_t &?p_probe,
-        client spi_master_if ?i_spi,
-
-
-               unsigned iof_spi_client
-        );
-
-[[combinable]]
-void IRQ_detect_and_follow_task (
-        client irq_if_t i_irq,
-               in port p_irq,
-               probe_pins_t &?p_probe,
-        client spi_master_if ?i_spi,
-
-
-               unsigned iof_spi_client
-        );
-
-[[combinable]]
-void IRQ_detect_and_poll_task (
-        client irq_high_if_t i_irq_high,
-        server irq_val_if_t i_irq_val,
-               in port p_irq,
-               probe_pins_t &?p_probe,
-               unsigned iof_spi_client
-        );
-
-[[combinable]]
-void IRQ_detect_and_poll_task_2 (
-               chanend c_irq_high_event,
-        server irq_val_if_t i_irq_val,
-               in port p_irq,
-               probe_pins_t &?p_probe,
-               unsigned iof_spi_client,
-        const unsigned irq_high_max_time_millis
-        );
-
-[[combinable]]
-void IRQ_detect_and_follow_task_2 (
+void IRQ_interrupt_task (
                 chanend c_irq_update,
                 in port p_irq,
                 probe_pins_t &?p_probe,
@@ -2507,7 +2439,7 @@ int main() {
                 spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
                                       null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
 
-                IRQ_detect_and_follow_task_2 (c_irq_update, p_spi_irq, null, 2000);
+                IRQ_interrupt_task (c_irq_update, p_spi_irq, null, 2000);
             }
         }
     }

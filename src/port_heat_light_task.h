@@ -21,42 +21,42 @@ typedef enum { //                                                               
     WATTOF_LED_STRIP_BACK   = 3  // ->                                              -> ##
 } wattOf_LED_strip_t;
 
-#define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 10 // AQU=039
-#define NUMLIGHT_COMPOSITION_LEVELS 15 // AQU=039 AQU=029 new level LIGHT_COMPOSITION_8382_mW_ON lighter
-#define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022. AQU=029 was 39 is 42
+
 
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
     // (where all off in any time window is avoided as much as possible)
-    // So I found that any 0-100% (in any number of steps except 3) scheme is more "boring", with colour, white and whiter not visible
-    // individually. With the scheme below the aquarium would be blue at the lowest level, and the blue component is always on.
-    // I call this "MONOTONOUS COLOUR AND INTENSITY INCREASE":
+
+    // AQU=068 Since there is not any one output that controls a single colour, but all are more or less white, we order
+    // this table accordning to wattage only. This would doung UP and DOWN easier in the case where HALF could end up
+    // with a value priror to DOWN as "lower" and after UP as "higher" than the immediate next value.
+
     //
-    // MONOTONOUS COLOUR AND INTENSITY INCREASE:
-    // From off to full in N steps starting with increasing. Observe blue alone only 1/3 else it looks too blue
-    //
-    //                #### mW         See below: FATAL! ##   //
-    LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  // All windows dark, of course
-    LIGHT_COMPOSITION_1133_mW_ON                      =  1,  // Two time windows are fully dark
-    LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM =  2,
-    LIGHT_COMPOSITION_3999_mW_ON                      =  3,  // AQU=039 new
-    LIGHT_COMPOSITION_4383_mW_ON                      =  4,
-    LIGHT_COMPOSITION_5516_mW_ON                      =  5,
-    LIGHT_COMPOSITION_7949_mW_ON_HALF                 =  6,
-    LIGHT_COMPOSITION_9516_mW_ON                      =  7,
-    LIGHT_COMPOSITION_12383_mW_ON                     =  8,
-    LIGHT_COMPOSITION_15250_mW_ON_FULL                =  9, // All = 12W I can hear a sound from the LEDs!
-    //                                 See below: FATAL! ##
-    // NON-MONOTONOUS COLOUR AN INTENSITY INCREASE:
-    LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS          = 10, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All two thirds
-    LIGHT_COMPOSITION_8382_mW_ON                      = 11,
-    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD            = 12, // NUMLIGHT_COMPOSITION_ALL_ON_EQUALLY All one third
-    LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER          = 13,
-    LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT           = 14
-    // NUMLIGHT_COMPOSITION_LEVELS                    = 15
+    //                #### mW         See below: FATAL! ##   // Before
+    //                                                       // AQU=068
+    LIGHT_COMPOSITION_0000_mW_OFF                     =  0,  //   0    LIGHT_COMPOSITION_0000_mW_ALL_ALWAYS_OFF
+    LIGHT_COMPOSITION_1133_mW_ON                      =  1,  //   1    LIGHT_COMPOSITION_1133_mW_BACK1_ON
+    LIGHT_COMPOSITION_3250_mW_ON_ONLY_CENTER          =  2,  //  13    LIGHT_COMPOSITION_3250_mW_CENTER3_ON
+    LIGHT_COMPOSITION_3299_mW_ON                      =  3,  //   2    LIGHT_COMPOSITION_3299_mW_BACK1_CENTER2_ON
+    LIGHT_COMPOSITION_3999_mW_ON_DARKEST_RANDOM       =  4,  //   3    LIGHT_COMPOSITION_3999_mW_FRONT1_BACK1_ON
+    LIGHT_COMPOSITION_4383_mW_ON                      =  5,  //   4    LIGHT_COMPOSITION_4383_mW_BACK1_CENTER3_ON
+    LIGHT_COMPOSITION_5082_mW_ON_ONE_THIRD            =  6,  //  12    LIGHT_COMPOSITION_5082_mW_BACK1_CENTER1_FRONT1_ON
+    LIGHT_COMPOSITION_5516_mW_ON                      =  7,  //   5    LIGHT_COMPOSITION_5516_mW_BACK2_CENTER3_ON
+    LIGHT_COMPOSITION_7949_mW_ON_HALF                 =  8,  //   6    LIGHT_COMPOSITION_7949_mW_BACK1_CENTER1_FRONT2_ON
+    LIGHT_COMPOSITION_8382_mW_ON                      =  9,  //  11    LIGHT_COMPOSITION_8382_mW_BACK2_CENTER3_FRONT1_ON
+    LIGHT_COMPOSITION_8600_mW_ON_ONLY_FRONT           = 10,  //  14    LIGHT_COMPOSITION_8600_mW_FRONT3_ON
+    LIGHT_COMPOSITION_9516_mW_ON                      = 11,  //   7    LIGHT_COMPOSITION_9516_mW_BACK3_CENTER3_FRONT1_ON
+    LIGHT_COMPOSITION_10165_mW_ON_TWO_THIRDS          = 12,  //  10    LIGHT_COMPOSITION_10165_mW_BACK2_CENTER2_FRONT2_ON
+    LIGHT_COMPOSITION_12383_mW_ON                     = 13,  //   8    LIGHT_COMPOSITION_12383_mW_BACK3_CENTER3_FRONT2_ON
+    LIGHT_COMPOSITION_15250_mW_ON_FULL                = 14,  //   9    LIGHT_COMPOSITION_15250_mW_ALL_ALWAYS_ON (I might hear a sound from the LEDs?)
+    NUMLIGHT_COMPOSITION_LEVELS_                      = 15   //  15
     //                                           FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
     //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
+
+#define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 10
+#define NUMLIGHT_COMPOSITION_LEVELS NUMLIGHT_COMPOSITION_LEVELS_ // 15
+#define NUMLIGHT_COMPOSITION_LEVELS_RANDOM_SET (NUMLIGHT_COMPOSITION_LEVELS * 3) // New with AQU=022. AQU=029 was 39 is 42
 
 typedef enum light_control_scheme_t {    //    #### REGULATING_AT_CHAR_TEXTS
                                          //    ####

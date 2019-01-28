@@ -18,9 +18,14 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.00" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1400  // Is "application_version_num_t"
-    //  1.4.00     27jan2019 AQU=067 New IRQ handling function IRQ_detect_and_follow_task_2 by several iterations with lib_rfm69 and the EXPLORER_BOX client
+#define APPLICATION_VERSION_STR "1.4.01" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1401  // Is "application_version_num_t"
+    //  1.4.01     27Jan2019 AQU=068 Renumbering of light_composition_t to increasing wattage only
+    //                               Making darkest random value above all light levels for UP and DOWN
+    //                               Darker_Light_Composition_Iff and Brighter_Light_Composition_Iff removed
+    //                               DEBUG_TEST_DAY_NIGHT_DAY removed
+    //                               Get_Light_Composition -> Get_Normal_Light_Composition
+    //  1.4.00     27jan2019 AQU=067 New IRQ handling function IRQ_interrupt_task by several iterations with lib_rfm69 and the EXPLORER_BOX client
     //  1.3.05     20Jan2019         irq.time_since_last_change_sec trying to fix deadlock? see in  2019 01 20 A Hang between rfm69 and aquarium-sw.jpeg  etc.
     //  1.3.04     19Jan2019 AQU=066 trigger_hour_changed data race since Handle_Light_Sunrise_Sunset_Etc only ran when light_is_stable
     //                               See  2019 01 18 B AQU=066 problem seen.txt . Comments seen in commit f1c1a01
@@ -193,7 +198,7 @@ typedef uint16_t application_version_num_t;
     //                       AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
     //                       AQU=013 Max  1.0.12  with 6 visible chars allowed (was 5) (tested ok)
     //  1.0.8  // 18Jul2017          Tagged VER_1_0_8_with_fishes
-    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_3299_mW_ON_MIXED_DARKEST_RANDOM (2) (tested ok)
+    //                       AQU=012 Random light now starts at LIGHT_COMPOSITION_3299_mW_ON (2) (tested ok)
     //                       AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
     //                       AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
     //  1.0.7  // 17Jul2017          Tagged VER_1_0_7_with_fishes
