@@ -69,7 +69,7 @@
 #define DEBUG_PRINT_AQUARIUM 0
 #define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_X 0
+#define DEBUG_PRINT_X 1 // AQU=069 remove a couple of debug_print_x calls as well
 #define debug_print_x(fmt, ...) do { if((DEBUG_PRINT_X==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_Y 0
@@ -649,7 +649,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             light_is_ready_for_new_change = false;
                         }
                     } else if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_02) {
-                        // No code ehere, see switch/case below
+                        // No code here, see switch/case below
                     } else {
                         light_is_ready_for_new_change = false;
                     }
@@ -1978,7 +1978,7 @@ void System_Task (
 
     for (unsigned iof_button = 0; iof_button < NUM_ELEMENTS(context.buttons_state); iof_button++) {
         context.buttons_state[iof_button].pressed_now = false;
-        context.buttons_state[iof_button].pressed_for_10_seconds = false;
+        //context.buttons_state[iof_button].pressed_for_10_seconds = false;
         context.buttons_state[iof_button].inhibit_released_once = false;
     }
 
@@ -2176,32 +2176,35 @@ void System_Task (
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
                 // Button pressed (the asynch data sets only cause unnoticed delays)
 
+                // Comented-out code here is AQU=069 TODO remove
                 bool display_is_on_pre = context.display_is_on;
-                bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled
+                // bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled
                 context.beeper_blip_now = false;
 
                 debug_button_cnt++;
-                debug_print ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
+                debug_print_x ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
 
                 context.display_is_on_seconds_cnt = 0; // Display always goes on in the call:
 
                 switch (button_action) {
                     case BUTTON_ACTION_RELEASED: {
-                        if (context.buttons_state[iof_button].pressed_for_10_seconds) {
-                            do_handle_button = false; // Action BUTTON_ACTION_PRESSED_FOR_10_SECONDS already taken on this button
-                        } else {}
+                        // if (context.buttons_state[iof_button].pressed_for_10_seconds) {
+                        //     do_handle_button = false; // Action BUTTON_ACTION_PRESSED_FOR_10_SECONDS already taken on this button
+                        //     debug_print_x ("%s\n", "OBS");
+                        // } else {}
                         context.buttons_state[iof_button].pressed_now = false;
-                        context.buttons_state[iof_button].pressed_for_10_seconds = false;
+                        // context.buttons_state[iof_button].pressed_for_10_seconds = false;
                     } break;
                     case BUTTON_ACTION_PRESSED: {
                         context.buttons_state[iof_button].pressed_now = true;
                     } break;
                     case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                        context.buttons_state[iof_button].pressed_for_10_seconds = true;
+                        // context.buttons_state[iof_button].pressed_for_10_seconds = true;
                     } break;
                 }
 
-                if (do_handle_button) {
+
+                // if (do_handle_button) {
                     Handle_Real_Or_Clocked_Buttons (context,
                         light_sunrise_sunset_context,
                         i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
@@ -2214,7 +2217,7 @@ void System_Task (
                     if (context.beeper_blip_now) {
                         i_port_heat_light_commands.beeper_blip_command (100);
                     } else {} // No blip
-                } else {}
+                // } else {}
 
                 //
             } break;

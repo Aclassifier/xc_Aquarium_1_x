@@ -34,7 +34,7 @@ typedef interface button_if {
 
 typedef struct {
     bool pressed_now;            // Set by BUTTON_ACTION_PRESSED,                cleared by BUTTON_ACTION_RELEASED
-    bool pressed_for_10_seconds; // Set by BUTTON_ACTION_PRESSED_FOR_10_SECONDS, cleared by BUTTON_ACTION_RELEASED
+    // bool pressed_for_10_seconds; // AQU=069 Set by BUTTON_ACTION_PRESSED_FOR_10_SECONDS, cleared by BUTTON_ACTION_RELEASED
     bool inhibit_released_once;  // Only IOF_BUTTON_RIGHT used, since it's the only that takes long pushes
 } button_state_t;
 

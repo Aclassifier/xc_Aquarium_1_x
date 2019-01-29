@@ -1463,7 +1463,7 @@ typedef interface button_if {
 # 35 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
-    bool pressed_for_10_seconds;
+
     bool inhibit_released_once;
 } button_state_t;
 
