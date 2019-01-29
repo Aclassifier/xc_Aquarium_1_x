@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.02" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1402  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.03" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1403  // Is "application_version_num_t"
+    //  1.4.03     29Jan2019         NORMAL_LIGHT_IS_ONE_THIRD_F2N no random change, just low all the time
     //  1.4.02     27Jan2019         New names like LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT
     //  1.4.01     27Jan2019 AQU=068 Renumbering of light_composition_t to increasing wattage only
     //                               Making darkest random value above all light levels for UP and DOWN

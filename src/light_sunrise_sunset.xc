@@ -150,9 +150,9 @@ Get_Random_Light_Composition_For_Half_Light (const random_generator_t random_num
     } else if (random_number_0_9 == 6) {
         return_light_composition =  LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT;    //  [10]  1/10
     } else if (random_number_0_9 == 5) {
-        return_light_composition = LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF;           //   [8]  1/10
+        return_light_composition = LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF;           //   [8]  1/10 HERE..
     } else if (random_number_0_9 == 4) {
-        return_light_composition = LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF;           //   [8]  1/10
+        return_light_composition = LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF;           //   [8]  1/10 ..AND HERE
     } else if (random_number_0_9 == 3) {
         return_light_composition = LIGHT_COMPOSITION_5516_mW_FMB_032_ON;                //   [7]  1/10
     } else if (random_number_0_9 == 2) {
@@ -161,8 +161,8 @@ Get_Random_Light_Composition_For_Half_Light (const random_generator_t random_num
         return_light_composition = LIGHT_COMPOSITION_4383_mW_FMB_031_ON;                //   [5]  1/10
     } else {                  // == 0
         return_light_composition = LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM; //   [4]  1/10
-        //                                          =====                       //        -----
-    }   //                                      SUM 80672 / 10 = 8067 is half good enough
+        //                                          =====                               //        -----
+    }   //                                      SUM 80672 / 10 = 8067 is half good enough         10/10
 
     debug_print ("Get_Random_Light_Composition_For_Half_Light to %u\n", return_light_composition);
     return return_light_composition;
@@ -173,10 +173,9 @@ Get_Random_Light_Composition_For_Some_HourChanges (const random_generator_t rand
     light_composition_t return_light_composition;
 
     // This will cause the light amount to increase or decrease, depending on the present setting
+    // Random light now almost every hour
 
-    // Random light now almost every hour.
-    // With AQU=029 we now make the distribution 50% and then 1/18 for all the others (obsoleting AQU=022 scheme)
-    unsigned random_number_0_17 = random_number % 18; // AQU=029 was function of NUMLIGHT_COMPOSITION_LEVELS, but that makes no sense
+    unsigned random_number_0_17 = random_number % 18;
     if (random_number_0_17 > 8) { // 9 10 11 12 13 14 15 16 17
         return_light_composition = LIGHT_COMPOSITION_8382_mW_FMB_132_ON;                      //  [9]  9/18
     } else if (random_number_0_17 == 8) {
@@ -197,9 +196,9 @@ Get_Random_Light_Composition_For_Some_HourChanges (const random_generator_t rand
         return_light_composition = LIGHT_COMPOSITION_4383_mW_FMB_031_ON;                      //  [5]  1/18
     } else {                   // == 0
         return_light_composition = LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM;       //  [4]  1/18
-                                                                                      //       -----
-    }                                                                                 //       18/18
-                                                                                      //       =====
+                                                                                              //       -----
+    }                                                                                         //       18/18
+                                                                                              //       =====
     debug_print ("Get_Random_Light_Composition_For_Some_HourChanges to %u\n", return_light_composition);
     return return_light_composition;
 }
@@ -492,21 +491,23 @@ Handle_Light_Sunrise_Sunset_Etc (
     //}}}  
     //{{{  Trigger_hour_changed or light sensor internally changed or NORMAL_LIGHT_IS_HALF_RANDOM_F2N
 
-    const bool trigger_hour_changed_random =
-            context.trigger_hour_changed_stick and
-            ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
-
-    const bool trigger_hour_changed_half_light =
-            (context.trigger_hour_changed_stick) and
-            (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
-            (context.allow_normal_light_change_by_clock) and
-            (context.allow_normal_light_change_by_menu);
-
     light_composition_t new_light_composition;
 
-    if (context.light_is_stable) {                                                                    // L1: Light is not changing right now
+    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
+        // No code, no automatic change if light
+    } else if (context.light_is_stable) {                                                             // L1: Light is not changing right now
+        const bool trigger_hour_changed_random =
+                context.trigger_hour_changed_stick and
+                ((random_number % 2) == 0); // AQU=044 New (or really, reintroduced) once every two hours
+
+        const bool trigger_hour_changed_half_light =
+                (context.trigger_hour_changed_stick) and
+                (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
+                (context.allow_normal_light_change_by_clock) and
+                (context.allow_normal_light_change_by_menu);
+
         if (trigger_hour_changed_half_light) {
-            new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number); // Once every 10 it would come out unchanged. OK!
+            new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number);      //     Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
         } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
             if (context.allow_normal_light_change_by_clock) {                                         // L3: And when it's day-time'ish
