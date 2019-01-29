@@ -247,7 +247,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     const unsigned minutes_into_day_now = ((context.datetime_copy.hour * 60) + context.datetime_copy.minute);
 
-    const random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round. AQU=070 NO!
+    random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round. AQU=070 NO const removed!
 
     //{{{  Init once
 
