@@ -69,7 +69,7 @@
 #define DEBUG_PRINT_AQUARIUM 0
 #define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_X 1 // AQU=069 remove a couple of debug_print_x calls as well
+#define DEBUG_PRINT_X 1
 #define debug_print_x(fmt, ...) do { if((DEBUG_PRINT_X==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_Y 0
@@ -264,9 +264,9 @@ typedef struct handler_context_t {
     bool                        heater_data_aged;
     now_regulating_at_t         now_regulating_at;
     unsigned int                temperature_water_controller_debug_log; // Not displayed at the moment
-    onetenthVolt_t         rr_24V_heat_onetenthV;
+    onetenthVolt_t              rr_24V_heat_onetenthV;
     bool                        rr_24_voltage_ok;
-    onetenthVolt_t         rr_12V_LEDlight_onetenthV;
+    onetenthVolt_t              rr_12V_LEDlight_onetenthV;
     bool                        rr_12_voltage_ok;
     temp_onetenthDegC_t         internal_box_temp_onetenthDegC;
     bool                        internal_box_temp_ok;
@@ -282,6 +282,8 @@ typedef struct handler_context_t {
     bool                        radio_sent_data_display_it;
     uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
     unsigned                    ultimateIRQclearCnt; // AQU=065 new
+    uint32_t                    TX_appSeqCnt;
+    uint32_t                    RX_messageNotForThisNode_cnt;
 } handler_context_t;
 
 
@@ -340,7 +342,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
     const char char_right_arrow_str[]                             = CHAR_RIGHT_ARROW_STR; // → for timed change
     const char char_filled_right_arrow_str[]                      = CHAR_FILLED_RIGHT_ARROW_STR;
 
-    debug_print_x ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
+    debug_print ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
     switch (context.display_screen_name_present) {
 
@@ -864,14 +866,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "5 BOKS XMOS startKIT\n  XC KODE %s  A%s  R%s\n  %syvind Teig",
+                               "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig",
                                __DATE__,
                                APPLICATION_VERSION_STR,
                                RFM69_DRIVER_VERSION_STR,
                                char_OE_str);
             //                                            5 BOKS  XMOS startKIT
             //                                              XC KODE Jun 14 2017
-            //                                              A:1.0.12  R:0.8.5
+            //                                              A:1.0.12  R:0.9.00
             //                                              Øyvind Teig
 
             Clear_All_Pixels_In_Buffer();
@@ -1167,12 +1169,16 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO\n\n  IRQ HENG %u",
+                    "8 RADIO \n  TX %u\n  RX %u\n  %us %u",
+                    context.TX_appSeqCnt,
+                    context.RX_messageNotForThisNode_cnt,
+                    IRQ_HIGH_MAX_TIME_MILLIS/1000,
                     context.ultimateIRQclearCnt);
                     //                                            ..........----------.
                     //                                            7 RADIO
-                    //
-                    //                                              IRQ HENG 123567
+                    //                                              TX 1234
+                    //                                              RX 0
+                    //                                              2s 0                // SI-unit is small 's'
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1866,7 +1872,6 @@ void System_Task (
 
     packet_t   TX_PACKET_U;
     uint8_t    TX_gatewayid = GATEWAYID;
-    uint32_t   TX_appSeqCnt = 0;
     is_error_e is_new_error;
 
     irq_update_e irq_update;
@@ -1924,9 +1929,11 @@ void System_Task (
             (SEMANTICS_DO_CRC_ERR_NO_IRQ == 1) ? "no" : "with",
             (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
 
-    context.radio_board_fault = false;
-    context.radio_send_data   = false;
+    context.radio_board_fault            = false;
+    context.radio_send_data              = false;
     context.radio_sent_data_display_it   = false;
+    context.RX_messageNotForThisNode_cnt = 0;
+    context.TX_appSeqCnt                 = 0;
 
     i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
     i_radio.initialize (radio_init);
@@ -2091,7 +2098,7 @@ void System_Task (
                         // No extra code as using the VALUE directly. However, more systematic in my view:
                         const application_version_num_t application_version_num = APPLICATION_VERSION_NUM; // Using APPLICATION_VERSION_STR would have been more expensive
 
-                        TX_appSeqCnt++;
+                        context.TX_appSeqCnt++;
 
                         // ---- Empty full payload ----
 
@@ -2107,7 +2114,7 @@ void System_Task (
 
                         TX_PACKET_U.u.packet_u3.appNODEID         = NODEID;
                         TX_PACKET_U.u.packet_u3.appPowerLevel_dBm = APPPOWERLEVEL_MIN_DBM;
-                        TX_PACKET_U.u.packet_u3.appSeqCnt         = TX_appSeqCnt;
+                        TX_PACKET_U.u.packet_u3.appSeqCnt         = context.TX_appSeqCnt;
 
                         // ---- User payload part ----
 
@@ -2126,8 +2133,8 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.i2c_temp_ambient_onetenthDegC      = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT];
                         TX_radio_payload.u.payload_u0.i2c_temp_water_onetenthDegC        = (onetenthDegC_r)                    context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER];
                         TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC     = (onetenthDegC_r)                    context.internal_box_temp_onetenthDegC;
-                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (onetenthVolt_r)               context.rr_24V_heat_onetenthV;
-                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (onetenthVolt_r)               context.rr_12V_LEDlight_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (onetenthVolt_r)                    context.rr_24V_heat_onetenthV;
+                        TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (onetenthVolt_r)                    context.rr_12V_LEDlight_onetenthV;
                         TX_radio_payload.u.payload_u0.application_version_num            = (application_version_num_r)         application_version_num;
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_front       = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center      = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
@@ -2167,7 +2174,7 @@ void System_Task (
                            debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
                            // Don't set context.radio_board_fault here since some errors may not appear next time
                         } else {
-                           debug_print_y ("TX %u\n", TX_appSeqCnt);
+                           debug_print_y ("TX %u\n", context.TX_appSeqCnt);
                         }
                     } else {} // Never send (any more)
                 } else {}
@@ -2182,7 +2189,7 @@ void System_Task (
                 context.beeper_blip_now = false;
 
                 debug_button_cnt++;
-                debug_print_x ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
+                debug_print ("Button [%u] with %u for %u times\n", iof_button, button_action, debug_button_cnt);
 
                 context.display_is_on_seconds_cnt = 0; // Display always goes on in the call:
 
@@ -2190,7 +2197,7 @@ void System_Task (
                     case BUTTON_ACTION_RELEASED: {
                         // if (context.buttons_state[iof_button].pressed_for_10_seconds) {
                         //     do_handle_button = false; // Action BUTTON_ACTION_PRESSED_FOR_10_SECONDS already taken on this button
-                        //     debug_print_x ("%s\n", "OBS");
+                        //     debug_print ("%s\n", "OBS");
                         // } else {}
                         context.buttons_state[iof_button].pressed_now = false;
                         // context.buttons_state[iof_button].pressed_for_10_seconds = false;
@@ -2236,7 +2243,7 @@ void System_Task (
 
                     switch (interruptAndParsingResult) {
                         case messageReceivedOk_IRQ: {
-                            if (i_radio.receiveDone()) {}
+                            if (i_radio.receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.handleSPIInterrupt
                         } break;
 
                         case messagePacketSentOk_IRQ:
@@ -2244,7 +2251,13 @@ void System_Task (
                             context.radio_sent_data_display_it = true;
                         } break;
 
-                        default: {} break;
+                        case messageNotForThisNode_IRQ: {
+                            context.RX_messageNotForThisNode_cnt++; // If AQUARIUM probably from BLACK_BOARD and vice versa
+                        } break;
+
+                        default: {
+
+                        } break;
                     }
                     i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
                 } else if (irq_update == pin_gone_low) {

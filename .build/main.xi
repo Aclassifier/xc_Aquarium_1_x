@@ -1307,6 +1307,77 @@ typedef uint16_t application_version_num_t;
 # 24 "../src/_globals.h"
     typedef signed int time32_t;
 # 21 "../src/main.xc" 2
+# 1 "../src/_rfm69_commprot.h" 1
+# 30 "../src/_rfm69_commprot.h"
+typedef uint8_t version_of_app_payload_r;
+typedef uint16_t application_version_num_r;
+typedef uint16_t error_bits_r;
+typedef uint8_t heater_on_percent_r;
+typedef uint8_t heater_on_watt_r;
+typedef uint8_t now_regulating_at_r;
+typedef uint8_t hour_r;
+typedef uint8_t minute_r;
+typedef uint8_t second_r;
+typedef uint8_t light_control_scheme_r;
+typedef uint8_t light_intensity_thirds_r;
+typedef uint8_t light_composition_r;
+typedef int16_t onetenthDegC_r;
+typedef uint16_t onetenthVolt_r;
+typedef uint16_t num_days_since_start_r;
+typedef uint8_t light_amount_with_offset_30_r;
+typedef uint8_t light_amount_fraction_2_nibbles_r;
+typedef struct {
+    union {
+        light_amount_with_offset_30_r with_offset_30;
+        light_amount_fraction_2_nibbles_r fraction_2_nibbles;
+    } u;
+} light_amount_r;
+typedef uint8_t light_daytime_hours_r;
+# 98 "../src/_rfm69_commprot.h"
+typedef struct {
+
+
+
+    num_days_since_start_r num_days_since_start;
+
+    hour_r hour;
+    minute_r minute;
+    second_r second;
+    heater_on_percent_r heater_on_percent;
+    heater_on_watt_r heater_on_watt;
+    light_control_scheme_r light_control_scheme;
+    error_bits_r error_bits_now;
+    error_bits_r error_bits_history;
+    onetenthDegC_r i2c_temp_heater_onetenthDegC;
+    onetenthDegC_r i2c_temp_ambient_onetenthDegC;
+    onetenthDegC_r i2c_temp_water_onetenthDegC;
+    onetenthDegC_r temp_heater_mean_last_cycle_onetenthDegC;
+    onetenthDegC_r internal_box_temp_onetenthDegC;
+    onetenthVolt_r rr_24V_heat_onetenthV;
+    onetenthVolt_r rr_12V_LEDlight_onetenthV;
+    application_version_num_r application_version_num;
+    light_intensity_thirds_r light_intensity_thirds_front;
+    light_intensity_thirds_r light_intensity_thirds_center;
+    light_intensity_thirds_r light_intensity_thirds_back;
+    light_composition_r light_composition;
+    now_regulating_at_r now_regulating_at;
+    light_amount_r light_amount;
+    light_daytime_hours_r light_daytime_hours;
+    uint8_t debug;
+    uint8_t day_start_light_hour;
+    uint8_t night_start_dark_hour;
+    uint8_t padding_39;
+    uint8_t padding_40;
+# 140 "../src/_rfm69_commprot.h"
+} payload_u0_t;
+# 155 "../src/_rfm69_commprot.h"
+typedef struct {
+    union {
+        payload_u0_t payload_u0;
+        uint8_t payload_u1_uint8_arr[40];
+    } u;
+} payload_t;
+# 22 "../src/main.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"
 typedef enum {I2C_ERR, I2C_OK, I2C_PARAM_ERR} i2c_result_t;
@@ -1332,7 +1403,7 @@ typedef struct tag_i2c_master_param_t {
 typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
-# 22 "../src/main.xc" 2
+# 23 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
 # 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
 typedef struct r_i2c {
@@ -1371,7 +1442,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 23 "../src/main.xc" 2
+# 24 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
 # 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
 typedef interface startkit_adc_acquire_if {
@@ -1404,13 +1475,13 @@ typedef interface startkit_adc_acquire_if {
 
 [[combinable]]
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
-# 24 "../src/main.xc" 2
+# 25 "../src/main.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
 # 42 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
-# 26 "../src/main.xc" 2
+# 27 "../src/main.xc" 2
 # 1 "../src/tempchip_mcp9808.h" 1
 # 36 "../src/tempchip_mcp9808.h"
 bool Tempchip_MCP9808_Begin_Ok (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t a);
@@ -1418,7 +1489,7 @@ i2c_temp_onetenthDegC_t Tempchip_MCP9808_ReadTempC (struct r_i2c &i2c_external_c
 int Tempchip_MCP9808_Shutdown_Wake (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t sw_ID);
 void Tempchip_MCP9808_Write16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg, uint16_t val);
 uint16_t Tempchip_MCP9808_Read16 (struct r_i2c &i2c_external_config, i2c_master_params_t &i2c_external_params, uint8_t reg);
-# 27 "../src/main.xc" 2
+# 28 "../src/main.xc" 2
 # 1 "../src/chronodot_ds3231.h" 1
 # 41 "../src/chronodot_ds3231.h"
 typedef enum {
@@ -1486,7 +1557,7 @@ typedef interface chronodot_ds3231_if {
     {DateTime_t, bool} get_time_ok (void);
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
-# 28 "../src/main.xc" 2
+# 29 "../src/main.xc" 2
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
 typedef enum i2c_dev_address_internal_t {
@@ -1521,7 +1592,7 @@ typedef interface i2c_internal_commands_if {
 
 [[combinable]]
 void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[1]);
-# 29 "../src/main.xc" 2
+# 30 "../src/main.xc" 2
 # 1 "../src/display_ssd1306.h" 1
 # 29 "../src/display_ssd1306.h"
 typedef enum i2c_display_reg_address_internal_t {
@@ -1554,7 +1625,7 @@ extern void drawVerticalLine_in_buffer (int16_t x, int16_t y, int16_t h, uint16_
 extern void drawHorisontalLine_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
 extern void drawVerticalLineInternal_in_buffer (int16_t x, int16_t y, int16_t h, uint16_t color);
 extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t w, uint16_t color);
-# 30 "../src/main.xc" 2
+# 31 "../src/main.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
 # 26 "../src/I2C_External_Task.h"
 typedef enum i2c_dev_address_external_t {
@@ -1600,7 +1671,7 @@ typedef interface i2c_external_commands_if {
 
 [[distributable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
-# 31 "../src/main.xc" 2
+# 32 "../src/main.xc" 2
 # 1 "../src/button_press.h" 1
 # 11 "../src/button_press.h"
 typedef enum {
@@ -1630,9 +1701,9 @@ void Button_Task (
         const unsigned button_n,
         port p_button,
         client button_if i_button_out);
-# 32 "../src/main.xc" 2
-# 1 "../src/_texts_and_constants.h" 1
 # 33 "../src/main.xc" 2
+# 1 "../src/_texts_and_constants.h" 1
+# 34 "../src/main.xc" 2
 # 1 "../src/f_conversions.h" 1
 # 15 "../src/f_conversions.h"
 typedef int16_t temp_onetenthDegC_t;
@@ -1676,7 +1747,7 @@ void Init_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_one
 
 temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean_t &temps_onetenthDegC_mean_array, const unsigned n_of_temps,
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
-# 34 "../src/main.xc" 2
+# 35 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
 # 11 "../src/port_heat_light_task.h"
 typedef enum iof_LED_strip_t {
@@ -1763,7 +1834,7 @@ typedef interface port_heat_light_commands_if {
 } port_heat_light_commands_if;
 # 119 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
-# 35 "../src/main.xc" 2
+# 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
 # 11 "../src/temperature_heater_task.h"
 typedef enum heater_wires_t {
@@ -1803,7 +1874,7 @@ void Temperature_Heater_Task (
     server temperature_heater_commands_if i_temperature_heater_commands [2],
     client i2c_external_commands_if i_i2c_external_commands,
     client port_heat_light_commands_if i_port_heat_light_commands);
-# 36 "../src/main.xc" 2
+# 37 "../src/main.xc" 2
 # 1 "../src/temperature_water_task.h" 1
 # 12 "../src/temperature_water_task.h"
 typedef enum now_regulating_at_t {
@@ -1831,7 +1902,7 @@ typedef interface temperature_water_commands_if {
 void Temperature_Water_Task (
     server temperature_water_commands_if i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands);
-# 37 "../src/main.xc" 2
+# 38 "../src/main.xc" 2
 # 1 "../src/chronodot_ds3231_task.h" 1
 # 13 "../src/chronodot_ds3231_task.h"
 DateTime_t chronodot_registers_to_datetime (const chronodot_d3231_registers_t chronodot_d3231_registers);
@@ -1844,7 +1915,7 @@ void debug_printf_datetime (const DateTime_t datetime);
 void Chronodot_DS3231_Task (
     server chronodot_ds3231_if i_chronodot_ds3231,
     client i2c_internal_commands_if i_i2c_internal_commands);
-# 38 "../src/main.xc" 2
+# 39 "../src/main.xc" 2
 # 1 "../src/exception_handler.h" 1
 # 15 "../src/exception_handler.h"
 void assert_exception (bool assert_this);
@@ -1852,7 +1923,7 @@ void assert_exception (bool assert_this);
 void installExceptionHandler(void);
 
 void myExceptionHandler(void);
-# 39 "../src/main.xc" 2
+# 40 "../src/main.xc" 2
 
 # 1 "../src/my_adc_startkit_task.h" 1
 # 13 "../src/my_adc_startkit_task.h"
@@ -1866,7 +1937,7 @@ void My_startKIT_ADC_Task (
    client startkit_adc_acquire_if i_startkit_adc_down,
    server lib_startkit_adc_commands_if i_startkit_adc_up[1],
    const unsigned int Num_of_data_sets);
-# 41 "../src/main.xc" 2
+# 42 "../src/main.xc" 2
 
 # 1 "/Users/teig/workspace/lib_spi/api/spi.h" 1
 
@@ -2025,7 +2096,7 @@ typedef enum spi_transfer_type_t {
                  __clock_t clk,
                  static const spi_mode_t mode,
                  static const spi_transfer_type_t transfer_type);
-# 43 "../src/main.xc" 2
+# 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
 # 51 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
@@ -2044,7 +2115,7 @@ typedef struct {
     } u;
 # 95 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
-# 44 "../src/main.xc" 2
+# 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
 # 11 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h"
 typedef uint32_t crc32_t;
@@ -2054,7 +2125,7 @@ crc32_t
 calc_CRC32 (
         uint32_t data[], static const int num_words,
         crc32_t expected_crc);
-# 45 "../src/main.xc" 2
+# 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
 # 101 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
@@ -2122,7 +2193,7 @@ typedef struct {
         packet_u3_t packet_u3;
     } u;
 } packet_t;
-# 46 "../src/main.xc" 2
+# 47 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
 # 27 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
@@ -2321,7 +2392,7 @@ void IRQ_interrupt_task (
                 probe_pins_t &?p_probe,
          const unsigned irq_high_max_time_ms
         );
-# 47 "../src/main.xc" 2
+# 48 "../src/main.xc" 2
 
 # 1 "../src/_Aquarium.h" 1
 # 16 "../src/_Aquarium.h"
@@ -2336,13 +2407,13 @@ extern void System_Task (
     server button_if i_button_in[3],
             chanend c_irq_update,
     client radio_if_t i_radio);
-# 49 "../src/main.xc" 2
-# 73 "../src/main.xc"
+# 50 "../src/main.xc" 2
+# 74 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 97 "../src/main.xc"
+# 98 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2353,7 +2424,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 178 "../src/main.xc"
+# 179 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
@@ -2371,8 +2442,6 @@ port inP_button_right = on tile[0]: 0x10f00;
 
 
 out port p_display_notReset = on tile[0]:0x10c00;
-
-
 
 
 
@@ -2409,7 +2478,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 246 "../src/main.xc"
+# 245 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2429,7 +2498,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 277 "../src/main.xc"
+# 276 "../src/main.xc"
             }
         }
         on tile[0]: {
@@ -2439,7 +2508,7 @@ int main() {
                 spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
                                       null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
 
-                IRQ_interrupt_task (c_irq_update, p_spi_irq, null, 2000);
+                IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, 2000);
             }
         }
     }

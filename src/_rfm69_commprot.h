@@ -90,6 +90,8 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 #define NOW_REGULATING_AT_CHAR_TEXTS        {"#", "2", "1", "=", "H", "-", "0", "?"}
 
 
+#define IRQ_HIGH_MAX_TIME_MILLIS 2000 // This is not critical, but having a value that would display a real stuck IRQ would be most correct I guess
+                                      // SCREEN_8_RADIO shows only full second, for 2000 it shows 2
 
 // To avoid padding in the struct (other than at the bottom) we have just trown in the values here so that they align well
 //

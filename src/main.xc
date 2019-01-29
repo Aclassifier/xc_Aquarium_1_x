@@ -18,6 +18,7 @@
 
 #include "_version.h"
 #include "_globals.h"
+#include "_rfm69_commprot.h"
 #include "param.h"
 #include "i2c.h"
 #include "startkit_adc.h"
@@ -197,8 +198,6 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
-#define IRQ_HIGH_MAX_TIME_MILLIS 2000 // This is not critical, but having a value that would display a real stuck IRQ would be most correct I guess
-
 int main() {
     chan c_analogue; // chans always untyped
 
@@ -283,7 +282,7 @@ int main() {
                 spi_master_2         (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]]
                                       SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
 
-                IRQ_interrupt_task (c_irq_update, p_spi_irq, null, IRQ_HIGH_MAX_TIME_MILLIS); // null since IRQ has a separate LED. New with AQU=067
+                IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS); // null since IRQ has a separate LED. New with AQU=067
             }
         }
     }
