@@ -18,8 +18,10 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.06" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1406  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.07" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1407  // Is "application_version_num_t"
+    //             --------- Running from 30Jan2019
+    //  1.4.07     30Jan2019         Compiled with ISAQUARIUM=1
     //  1.4.06     29Jan2019 AQU=070 trigger_hour_changed_random uses a randdom_number but we cammot reuse it!
     //  1.4.05     29Jan2019         SCREEN_8_RADIO changed, some other screen layout
     //  1.4.04     29Jan2019 AQU=069 pressed_for_10_seconds removed TODO remove the code as well, just commented out by now
@@ -77,7 +79,7 @@ typedef uint16_t application_version_num_t;
     //  1.2.03     09Oct2018 AQU=055 Exporting strings. It even saved 120 bytes!
     //  1.2.02     08Oct2018 AQU=054 Investigateing failing setting of day? Seems to be OK
     //  1.2.01     06Oct2018 AQU=053 Value overflow on old FRAM
-    //             --------- Running from Sep2018 to Jan2019
+    //             --------- Running from 06Oct2018 to 30Jan2019
     //  1.2.00     06Oct2018         Diffed with  1.1.4 . VERSION_OF_APP_PAYLOAD_01 is 1
     //                               Linked with lib_rfm69_xc  0.8.0  of 08Aug2018
     //  TODO       17Jan2019 AQU=065 1.2.00 all of a sudden stoppped. It beeped every like 5 secs. No buttons, display or radio. Power off/on ok
