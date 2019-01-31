@@ -40,7 +40,7 @@ typedef uint8_t  light_control_scheme_r;            // light_control_scheme_t   
 typedef uint8_t  light_intensity_thirds_r;          // light_intensity_thirds_t          port_heat_light_task.h (Since "thirds" in the name just use "3" to show "n/3")
 typedef uint8_t  light_composition_r;               // light_composition_t               port_heat_light_task.h
 typedef int16_t  onetenthDegC_r;                    // i2c_temp_onetenthDegC_t           param.h
-typedef uint16_t onetenthVolt_r;               // onetenthVolt_t               f_conversions.h
+typedef uint16_t onetenthVolt_r;                    // onetenthVolt_t                    f_conversions.h
 typedef uint16_t num_days_since_start_r;            // num_days_since_start_t            light_sunrise_sunset.h
 typedef uint8_t  light_amount_with_offset_30_r;     // light_amount_with_offset_30_t     light_sunrise_sunset.h VERSION_OF_APP_PAYLOAD_01
 typedef uint8_t  light_amount_fraction_2_nibbles_r; // light_amount_fraction_2_nibbles_t light_sunrise_sunset.h VERSION_OF_APP_PAYLOAD_02

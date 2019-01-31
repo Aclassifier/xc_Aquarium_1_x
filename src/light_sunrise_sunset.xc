@@ -343,7 +343,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        context.stop_normal_light_changed_by_menu = false;
        context.num_days_since_start = 0;
 
-    } else {}// init done
+    } else {} // init done
 
     //}}}  
 
@@ -405,7 +405,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
         if (minutes_into_day_now == minutes_into_day_of_next_action_listed_darker_or_lighter) {
 
-            light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST];
+            light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST]; // AQU=071 If NUMLIGHT_COMPOSITION_LEVELS it's overwritten below
             light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
 
             //{{{  Main state changes done in here
@@ -431,6 +431,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                     return_beeper_blip = true;
                     light_control_scheme = LIGHT_CONTROL_IS_DAY;
                     context.allow_normal_light_change_by_menu = true; // AQU=032 won't allow more than one day
+                    light_composition_now = Get_Normal_Light_Composition (context.light_amount); // NUMLIGHT_COMPOSITION_LEVELS overwritten. AQU=071
                 } break;
                 default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
             }

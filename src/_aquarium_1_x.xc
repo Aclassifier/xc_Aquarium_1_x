@@ -61,6 +61,14 @@
 #include "_Aquarium.h"
 #endif
 
+#if (ISAQUARIUM==1)
+    // OK, no warning
+#elif (ISAQUARIUM==0)
+    #warning BLACK_BOARD. GOOD! NO ADDRESS CRASH WITH AQUARIUM!
+#else
+    #error
+#endif
+
 // #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
 // debug_print and DEBUG_TEST_WATCHDOG

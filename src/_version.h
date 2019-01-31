@@ -18,8 +18,15 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.07" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1407  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.09" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1409  // Is "application_version_num_t"
+    //  1.4.09     31Jan2019 AQU=071 First stable light in the day was wrong, using last element of the night-to-day table. Now a new value is calculated
+    //  1.4.08     31Jan2019         Testing assert_exception. There is no rest
+    //             30Jan2019 AQU=065 Same error that I have worked with below.
+    //                               1.4.07 all of a sudden stoppped and beeped in the AQUARIUM box.
+    //                               BLACK_BOARD was also sending at the same frequency
+    //                               Unpower and power necessary
+    //                               Display was not on, so it's not IIC
     //             --------- Running from 30Jan2019
     //  1.4.07     30Jan2019         Compiled with ISAQUARIUM=1
     //  1.4.06     29Jan2019 AQU=070 trigger_hour_changed_random uses a randdom_number but we cammot reuse it!
