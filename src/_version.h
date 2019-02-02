@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1411  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.12" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1412  // Is "application_version_num_t"
+    //  1.4.12     02Feb2019         Same as below with ISAQUARIUM=1
     //  1.4.11     02Feb2019 AQU=072 radio_enabled_state is nw, and it may be set from the right button 10 seconds press
     //  1.4.10     31Jan2019         context.radio_board_fault also flushes c_irq_update
     //                               Constraints: C:8/8 T:10/9 C:32/27 M:60540 S:6732 C:47958 D:5850
