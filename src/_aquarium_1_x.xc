@@ -61,14 +61,6 @@
 #include "_Aquarium.h"
 #endif
 
-#if (ISAQUARIUM==1)
-    // OK, no warning
-#elif (ISAQUARIUM==0)
-    #warning BLACK_BOARD. GOOD! NO ADDRESS CRASH WITH AQUARIUM!
-#else
-    #error
-#endif
-
 // #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
 // debug_print and DEBUG_TEST_WATCHDOG
@@ -240,6 +232,7 @@ typedef enum error_bits_t {
 
 //
 // handler_context_t
+typedef enum { radio_enabled, radio_disabled_pending, radio_disabled } radio_enabled_state_e; // Coding depending on this being three cases only!
 
 typedef struct handler_context_t {
     display_appear_state_t      display_appear_state;
@@ -292,6 +285,7 @@ typedef struct handler_context_t {
     unsigned                    ultimateIRQclearCnt; // AQU=065 new
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
+    radio_enabled_state_e       radio_enabled_state; // AQU=072 new
 } handler_context_t;
 
 
@@ -1176,17 +1170,21 @@ void Handle_Real_Or_Clocked_Button_Actions (
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
+
+            const char pa_str [] = {'P', CHAR_AA, 0};
+
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO \n  TX %u\n  RX %u\n  %us %u",
+                    "8 RADIO %s\n  #TX %u\n  #RX %u\n  #%us %u",
+                    (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
                     context.TX_appSeqCnt,
                     context.RX_messageNotForThisNode_cnt,
                     IRQ_HIGH_MAX_TIME_MILLIS/1000,
                     context.ultimateIRQclearCnt);
                     //                                            ..........----------.
-                    //                                            7 RADIO
-                    //                                              TX 1234
-                    //                                              RX 0
-                    //                                              2s 0                // SI-unit is small 's'
+                    //                                            7 RADIO AV            // RADIO PÅ
+                    //                                              #TX 1234
+                    //                                              #RX 0
+                    //                                              #2s 0                // SI-unit is small 's'
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1483,8 +1481,15 @@ void Handle_Real_Or_Clocked_Buttons (
                         } break;
 
                         case SCREEN_8_RADIO: { // 8
-                            context.ultimateIRQclearCnt = 0;
                             context.beeper_blip_now = true;
+                            if (context.radio_enabled_state == radio_enabled) {
+                                context.radio_enabled_state = radio_disabled_pending;
+                            } else { // radio_disabled or radio_disabled_pending
+                                context.radio_enabled_state = radio_enabled;
+                            }
+                            context.TX_appSeqCnt = 0;
+                            context.RX_messageNotForThisNode_cnt = 0;
+                            context.ultimateIRQclearCnt = 0;
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
@@ -1975,6 +1980,8 @@ void System_Task (
         context.radio_board_fault = true; // Probably not plugged in
     }
 
+    context.radio_enabled_state = radio_disabled_pending; // So that after the init it must be handled by menu
+
     // Init and clear display
 
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
@@ -2101,7 +2108,11 @@ void System_Task (
 
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
-                    if (not context.radio_board_fault) {
+                    if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
+                        // No code
+                    } else if (context.radio_board_fault) {
+                        // No code. If no board then this pin is high by HW design. Don't use i_radio
+                    } else if (not context.radio_board_fault) {
 
                         // No extra code as using the VALUE directly. However, more systematic in my view:
                         const application_version_num_t application_version_num = APPLICATION_VERSION_NUM; // Using APPLICATION_VERSION_STR would have been more expensive
@@ -2184,7 +2195,7 @@ void System_Task (
                         } else {
                            debug_print_y ("TX %u\n", context.TX_appSeqCnt);
                         }
-                    } else {} // Never send (any more)
+                    }
                 } else {}
             } break;
 
@@ -2203,44 +2214,42 @@ void System_Task (
 
                 switch (button_action) {
                     case BUTTON_ACTION_RELEASED: {
-                        // if (context.buttons_state[iof_button].pressed_for_10_seconds) {
-                        //     do_handle_button = false; // Action BUTTON_ACTION_PRESSED_FOR_10_SECONDS already taken on this button
-                        //     debug_print ("%s\n", "OBS");
-                        // } else {}
                         context.buttons_state[iof_button].pressed_now = false;
-                        // context.buttons_state[iof_button].pressed_for_10_seconds = false;
                     } break;
                     case BUTTON_ACTION_PRESSED: {
                         context.buttons_state[iof_button].pressed_now = true;
                     } break;
                     case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
-                        // context.buttons_state[iof_button].pressed_for_10_seconds = true;
                     } break;
                 }
 
+                Handle_Real_Or_Clocked_Buttons (context,
+                    light_sunrise_sunset_context,
+                    i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
+                    iof_button, button_action, CALLER_IS_BUTTON);
 
-                // if (do_handle_button) {
-                    Handle_Real_Or_Clocked_Buttons (context,
-                        light_sunrise_sunset_context,
-                        i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
-                        iof_button, button_action, CALLER_IS_BUTTON);
+                if (display_is_on_pre != context.display_is_on) {
+                    i_port_heat_light_commands.beeper_blip_command (50); // Display on or off
+                } else {} // No code
 
-                    if (display_is_on_pre != context.display_is_on) {
-                        i_port_heat_light_commands.beeper_blip_command (50); // Display on or off
-                    } else {} // No code
-
-                    if (context.beeper_blip_now) {
-                        i_port_heat_light_commands.beeper_blip_command (100);
-                    } else {} // No blip
-                // } else {}
+                if (context.beeper_blip_now) {
+                    i_port_heat_light_commands.beeper_blip_command (100);
+                } else {} // No blip
 
                 //
             } break;
 
             // Interrupt from radio board:
-            case c_irq_update :> irq_update : {
+            case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
-                if (irq_update == pin_gone_high) {
+                if (context.radio_enabled_state == radio_disabled) {
+                    if (irq_update == pin_still_high_timeout) {
+                        context.ultimateIRQclearCnt++; // Only the count, not to do any i_radio call
+                    } else {}
+                // radio_enabled or radio_disabled_pending:
+                } else if (context.radio_board_fault) {
+                    // No code. If no board then this pin is high by HW design. Don't use i_radio
+                } else if (irq_update == pin_gone_high) {
                     packet_t                    RX_PACKET_U;
                     int16_t                     nowRSSI;
                     interruptAndParsingResult_e interruptAndParsingResult;
@@ -2274,6 +2283,10 @@ void System_Task (
                     i_radio.ultimateIRQclear();
                     context.ultimateIRQclearCnt++;
                 } else {} // Never here
+
+                if (context.radio_enabled_state == radio_disabled_pending) {
+                    context.radio_enabled_state = radio_disabled;
+                } else {}
             } break;
         }
     }

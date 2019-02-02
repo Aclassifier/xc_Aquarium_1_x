@@ -100,6 +100,7 @@ extern unsigned char font[];
 #define CHAR_LEFT_ARROW         27 // <- but nicer
 #define CHAR_aa                132 // å MODIFIED, was a-umlaut ä
 #define CHAR_AA                143 // Å MODIFIED, was A-ring (but a dot)
+#define CHAR_AA_hex           0x8f // Å MODIFIED, was A-ring (but a dot)
 #define CHAR_ae                145 // æ MODIFIED, was o-umlaut ö
 #define CHAR_AE                146 // Æ
 #define CHAR_oe                148 // ø

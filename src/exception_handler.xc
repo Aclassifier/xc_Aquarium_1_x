@@ -38,7 +38,7 @@ void assert_exception (bool assert_this) {
         // Code generated:
         // ecallf (1r)     r4
 
-        // http://www.xcore.com/viewtopic.php?f=44&t=5083
+        // http://www.xcore.com/viewtopic.php?f=44&t=5083 "An error pin?"
         // DOES NOT WORK
         int boot_from_jtag = ((getps(XS1_PS_BOOT_CONFIG) & 0x4) >> 2); // Is XS1_G_PS_BOOT_CONFIG 0x30b
         //
@@ -49,11 +49,12 @@ void assert_exception (bool assert_this) {
             asm(" ecallf %0" :: "r" (0)); // This just raises an exception (like div by zero)
         }
 
-        // http://www.xmos.com/download/private/XS1-U16A-128-FB217-Datasheet%281.10%29.pdf
-
         // Observe that even if the data sheet of the startKIT controller does show a HW watchdog, this is not available
         // for the use it has on a startKIT. SO THERE IS NO HW WATCHDOG! See
-        // https://www.xcore.com/viewtopic.php?f=44&t=5738&hilit=watchdog
+        // https://www.xcore.com/viewtopic.php?f=44&t=5738&hilit=watchdog "Watchdog on startKIT processor"
+
+        // New on 31Jan2019:
+        // https://www.xcore.com/viewtopic.php?f=44&t=7065 "Restarting a startKIT from SW?"
     }
 }
 

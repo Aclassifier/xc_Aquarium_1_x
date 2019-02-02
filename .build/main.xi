@@ -1965,16 +1965,11 @@ typedef interface spi_master_if {
   [[guarded]]
   void begin_transaction(unsigned device_index,
                          unsigned speed_in_khz, spi_mode_t mode);
-
-
-
-
-
-
+# 58 "/Users/teig/workspace/lib_spi/api/spi.h"
   void end_transaction(unsigned ss_deassert_time);
-# 63 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 69 "/Users/teig/workspace/lib_spi/api/spi.h"
   uint8_t transfer8(uint8_t data);
-# 74 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 80 "/Users/teig/workspace/lib_spi/api/spi.h"
   uint32_t transfer32(uint32_t data);
 
 } spi_master_if;
@@ -1988,7 +1983,7 @@ typedef struct
     unsigned maskof_probe_outer;
 
 } maskof_spi_and_probe_pins_t;
-# 134 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 140 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master_2(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -2003,7 +1998,7 @@ void spi_master_2(server interface spi_master_if i[num_clients],
 
         maskof_spi_and_probe_pins_t masks [num_spi_slaves],
         static const unsigned num_spi_slaves);
-# 172 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 178 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -2020,16 +2015,16 @@ void spi_master(server interface spi_master_if i[num_clients],
 
 
 typedef interface spi_master_async_if {
-# 200 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 206 "/Users/teig/workspace/lib_spi/api/spi.h"
   void begin_transaction(unsigned device_index,
                          unsigned speed_in_khz, spi_mode_t mode);
-# 213 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 219 "/Users/teig/workspace/lib_spi/api/spi.h"
   void end_transaction(unsigned ss_deassert_time);
-# 230 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 236 "/Users/teig/workspace/lib_spi/api/spi.h"
   void init_transfer_array_8(uint8_t * movable inbuf,
                              uint8_t * movable outbuf,
                              size_t nbytes);
-# 249 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 255 "/Users/teig/workspace/lib_spi/api/spi.h"
   void init_transfer_array_32(uint32_t * movable inbuf,
                               uint32_t * movable outbuf,
                               size_t nwords);
@@ -2041,16 +2036,16 @@ typedef interface spi_master_async_if {
 
   [[notification]]
   slave void transfer_complete(void);
-# 272 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 278 "/Users/teig/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_8(uint8_t * movable &inbuf,
                                    uint8_t * movable &outbuf);
-# 288 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 294 "/Users/teig/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_32(uint32_t * movable &inbuf,
                                     uint32_t * movable &outbuf);
 } spi_master_async_if;
-# 311 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 317 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[combinable]]
 void spi_master_async(server interface spi_master_async_if i[num_clients],
         static const size_t num_clients,
@@ -2073,9 +2068,9 @@ typedef interface spi_slave_callback_if {
 
 
   void master_ends_transaction(void);
-# 345 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 351 "/Users/teig/workspace/lib_spi/api/spi.h"
   uint32_t master_requires_data(void);
-# 356 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 362 "/Users/teig/workspace/lib_spi/api/spi.h"
   void master_supplied_data(uint32_t datum, uint32_t valid_bits);
 
 } spi_slave_callback_if;
@@ -2086,7 +2081,7 @@ typedef enum spi_transfer_type_t {
   SPI_TRANSFER_SIZE_8,
   SPI_TRANSFER_SIZE_32
 } spi_transfer_type_t;
-# 383 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 389 "/Users/teig/workspace/lib_spi/api/spi.h"
  [[combinable]]
   void spi_slave(client spi_slave_callback_if spi_i,
                  in port p_sclk,
@@ -2127,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 101 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 102 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 116 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 117 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2174,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 169 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 170 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 187 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 188 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];

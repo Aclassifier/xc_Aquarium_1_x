@@ -18,15 +18,28 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                   ## Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.09" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1409  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.11" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1411  // Is "application_version_num_t"
+    //  1.4.11     02Feb2019 AQU=072 radio_enabled_state is nw, and it may be set from the right button 10 seconds press
+    //  1.4.10     31Jan2019         context.radio_board_fault also flushes c_irq_update
+    //                               Constraints: C:8/8 T:10/9 C:32/27 M:60540 S:6732 C:47958 D:5850
     //  1.4.09     31Jan2019 AQU=071 First stable light in the day was wrong, using last element of the night-to-day table. Now a new value is calculated
     //  1.4.08     31Jan2019         Testing assert_exception. There is no rest
     //             30Jan2019 AQU=065 Same error that I have worked with below.
     //                               1.4.07 all of a sudden stoppped and beeped in the AQUARIUM box.
     //                               BLACK_BOARD was also sending at the same frequency
-    //                               Unpower and power necessary
+    //                               Unpower and power was necessary
     //                               Display was not on, so it's not IIC
+    //                               Can this be interference from the radio the the SPI bus?
+    //                               This has happended several times. IRQ LED is high. LED D1 (ADC) off and D2 (IRQ line seen as high) is low,
+    //                               the LEDS are pulsed OK and the beeper beeds every 10 seconds. Heat id off. Main loop has stopped, obviously.
+    //                               DISCUSSION: At first I guess I must be able to detect the problem, the later to fix it.
+    //                               I could use the asynchronous version of spi_master_2 (the spi_master_async) but
+    //                               it would not help if it's the RFM69_driver protocol that is the problem. Every call to
+    //                               the latter uses is an RPC call, and if it blocks forever (in the SPI call or in some
+    //                               functional call talking with the radio (but I have a timeout on all loops). See this
+    //                               discussed by searching for RFM69=009 in lib_rfm69_xc. I will try to see if I have
+    //                               space for another task to isolate everything with the radio, like an RFM69_driver_asynch
     //             --------- Running from 30Jan2019
     //  1.4.07     30Jan2019         Compiled with ISAQUARIUM=1
     //  1.4.06     29Jan2019 AQU=070 trigger_hour_changed_random uses a randdom_number but we cammot reuse it!
