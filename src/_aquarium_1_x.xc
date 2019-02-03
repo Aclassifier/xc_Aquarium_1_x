@@ -1980,7 +1980,12 @@ void System_Task (
         context.radio_board_fault = true; // Probably not plugged in
     }
 
-    context.radio_enabled_state = radio_disabled_pending; // So that after the init it must be handled by menu
+    // Modify with right button pressed for 10 seconds when SCREEN_8_RADIO:
+    #if (FLASH_BLACK_BOARD == 1)
+        context.radio_enabled_state = radio_enabled;
+    #else
+        context.radio_enabled_state = radio_disabled_pending;
+    #endif
 
     // Init and clear display
 
