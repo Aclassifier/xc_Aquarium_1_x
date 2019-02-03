@@ -364,8 +364,12 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {}
     } else {}
 
-    context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                                  (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
+    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {
+        context.allow_normal_light_change_by_clock = (context.it_is_day_or_night == IT_IS_DAY); // AQU=074
+    } else {
+        context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                                      (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
+    }
 
     //{{{  context.do_light_amount_by_menu by IOF_BUTTON_RIGHT
 
@@ -495,7 +499,7 @@ Handle_Light_Sunrise_Sunset_Etc (
     light_composition_t new_light_composition;
 
     if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
-        // No code, no automatic change if light
+        // No code, no automatic change of light
     } else if (context.light_is_stable) {                                                             // L1: Light is not changing right now
         const bool trigger_hour_changed_random =
                 context.trigger_hour_changed_stick and
@@ -508,6 +512,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.allow_normal_light_change_by_menu);
 
         if (trigger_hour_changed_half_light) {
+            // random_number is not already used in condition
             new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number);      //     Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
         } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
@@ -527,7 +532,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                 return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
                                 context.num_random_sequences_left--;
                             } else { // L7:
-                                // Random light change
+                                // random_number already used in condition, we have to get a new value:
                                 random_number = random_get_random_number(context.random_number); // AQU=070 we want all, not just the even numbered ones!
                                 new_light_composition = Get_Random_Light_Composition_For_Some_HourChanges (random_number);
                                 // Change, down (more SKY) or even up now allowed (less SKY)!

@@ -74,6 +74,12 @@
         #error NO ROLE DEFINED
     #endif
 
+    #ifdef _USERMAKEFILE_LIB_RFM69_XC_TNG // AQU=073 new
+        #define ALLOW_TRANSACTION_TYPE_TNG _USERMAKEFILE_LIB_RFM69_XC_TNG
+    #else
+        #define ALLOW_TRANSACTION_TYPE_TNG 0
+    #endif
+
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
 

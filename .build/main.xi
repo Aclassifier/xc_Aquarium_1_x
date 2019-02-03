@@ -2093,7 +2093,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 51 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 57 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2102,13 +2102,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 73 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 79 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 95 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 101 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2353,7 +2353,16 @@ typedef interface radio_if_t {
     uint32_t getFrequencyRegister (void);
 
     void ultimateIRQclear (void);
-# 369 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 371 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+        void send_start_tng (const uint8_t TARGETID_toAddress, const packet_t PACKET);
+
+
+        [[notification]]
+            slave void send_done_tng (void);
+        [[clears_notification]]
+            waitForIRQInterruptCause_e send_get_result_tng (void);
+
+
 } radio_if_t;
 
 typedef struct {
@@ -2373,7 +2382,9 @@ typedef struct probe_pins_t {
 } probe_pins_t;
 
 
-[[distributable]]
+   [[combinable]]
+
+
 void RFM69_driver (
         server radio_if_t i_radio,
                out port p_spi_aux,

@@ -275,9 +275,6 @@ typedef struct handler_context_t {
     unsigned                    error_bits_history;
     bool                        error_beeper_blip_now_muted; // Muted on left button when going dark, then screen reappears. Cleared after 10 seconds press of right button
     bool                        heat_cables_forced_off_by_watchdog;
-    #ifdef DEBUG_TEST_WATCHDOG
-        bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
-    #endif
     bool                        radio_board_fault;
     bool                        radio_send_data;
     bool                        radio_sent_data_display_it;
@@ -286,6 +283,10 @@ typedef struct handler_context_t {
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
+    int                         awaiting_send_done_cnt_tng; // Signed! AQU=073 new
+    #ifdef DEBUG_TEST_WATCHDOG
+        bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
+    #endif
 } handler_context_t;
 
 
@@ -1174,14 +1175,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char pa_str [] = {'P', CHAR_AA, 0};
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO %s\n  #TX %u\n  #RX %u\n  #%us %u",
+                    "8 RADIO %s (%d)\n  #TX %u\n  #RX %u\n  #%us %u",
                     (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
+                    context.awaiting_send_done_cnt_tng,
                     context.TX_appSeqCnt,
                     context.RX_messageNotForThisNode_cnt,
                     IRQ_HIGH_MAX_TIME_MILLIS/1000,
                     context.ultimateIRQclearCnt);
                     //                                            ..........----------.
-                    //                                            7 RADIO AV            // RADIO PÅ
+                    //                                            7 RADIO AV  (1)       // RADIO PÅ
                     //                                              #TX 1234
                     //                                              #RX 0
                     //                                              #2s 0                // SI-unit is small 's'
@@ -1490,6 +1492,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             context.TX_appSeqCnt = 0;
                             context.RX_messageNotForThisNode_cnt = 0;
                             context.ultimateIRQclearCnt = 0;
+                            context.awaiting_send_done_cnt_tng = 0;
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
@@ -1947,6 +1950,7 @@ void System_Task (
     context.radio_sent_data_display_it   = false;
     context.RX_messageNotForThisNode_cnt = 0;
     context.TX_appSeqCnt                 = 0;
+    context.awaiting_send_done_cnt_tng   = 0;
 
     i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
     i_radio.initialize (radio_init);
@@ -2113,7 +2117,9 @@ void System_Task (
 
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
-                    if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
+                    if (context.awaiting_send_done_cnt_tng != 0) {
+                        // No code
+                    } else if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
                         // No code
                     } else if (context.radio_board_fault) {
                         // No code. If no board then this pin is high by HW design. Don't use i_radio
@@ -2186,23 +2192,53 @@ void System_Task (
 
                         // ---- Send ----
 
-                        waitForIRQInterruptCause_e waitForIRQInterruptCause;
-
-                        waitForIRQInterruptCause = i_radio.send (
-                             TX_gatewayid,
-                             TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
-
-                        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
-
-                        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                           debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
-                           // Don't set context.radio_board_fault here since some errors may not appear next time
-                        } else {
-                           debug_print_y ("TX %u\n", context.TX_appSeqCnt);
+                        #if (ALLOW_TRANSACTION_TYPE_TNG==1)
+                        {
+                            context.awaiting_send_done_cnt_tng += 1;
+                            i_radio.send_start_tng (
+                                 TX_gatewayid,
+                                 TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
                         }
+                        #elif (ALLOW_TRANSACTION_TYPE_TNG==0)
+                        {
+                               waitForIRQInterruptCause_e waitForIRQInterruptCause;
+
+                               waitForIRQInterruptCause = i_radio.send (
+                                    TX_gatewayid,
+                                    TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
+                               awaiting_send_done_tng = true;
+
+                               {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+
+                               if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                                   debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+                                   // Don't set context.radio_board_fault here since some errors may not appear next time
+                               } else {
+                                   debug_print_y ("TX %u\n", context.TX_appSeqCnt);
+                               }
+                           }
+                        #endif
                     }
                 } else {}
             } break;
+
+            #if (ALLOW_TRANSACTION_TYPE_TNG==1)
+                case i_radio.send_done_tng () : {
+                    context.awaiting_send_done_cnt_tng -= 1;
+
+                    waitForIRQInterruptCause_e waitForIRQInterruptCause;
+                    waitForIRQInterruptCause = i_radio.send_get_result_tng ();
+
+                    {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+
+                    if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                        debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+                        // Don't set context.radio_board_fault here since some errors may not appear next time
+                    } else {
+                        debug_print_y ("TX %u\n", context.TX_appSeqCnt);
+                    }
+                } break;
+            #endif
 
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
                 // Button pressed (the asynch data sets only cause unnoticed delays)
@@ -2245,7 +2281,7 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+            case (context.awaiting_send_done_cnt_tng == 0) => c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
