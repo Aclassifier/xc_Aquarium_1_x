@@ -18,10 +18,14 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.14" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1414  // Is "application_version_num_t"s
+#define APPLICATION_VERSION_STR "1.4.16" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1416  // Is "application_version_num_t"s
+// 1.4.16     05Feb2019         Asynch on more, but still not on IRQ handling
+// 1.4.15     04Feb2019 AQU=075 Now the lib_rfm69_xc call using _trans1 starts _trans2 does any spi action and _trans3 delivers result are truly asynchronous and non-blocking
+//                      AQU=065 I got this one when I pushed the buttons fast. Right button. But the solution burnt in 1.4.15 does not do the asynch lib_rfm60_xc calls on all calls
+//                              But then, I also get this error when the aquarium is just standing tehre and handling the radio
 // 1.4.14     03Feb2019 AQU=074 When NORMAL_LIGHT_IS_HALF_RANDOM_F2N light change always legal when IT_IS_DAY
-//                      AQU=073 ALLOW_TRANSACTION_TYPE_TNG is new
+//                      AQU=073 CLIENT_ALLOW_SESSION_TYPE_TRANS is new. This should make it possible to detect AQU=065 without main loop stopping
 // 1.4.13     03Feb2019         radio_enabled when FLASH_BLACK_BOARD
 //            --------- Running from 2Feb2019
 // 1.4.12     02Feb2019         Same as below with ISAQUARIUM=1

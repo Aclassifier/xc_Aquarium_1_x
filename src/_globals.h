@@ -74,10 +74,10 @@
         #error NO ROLE DEFINED
     #endif
 
-    #ifdef _USERMAKEFILE_LIB_RFM69_XC_TNG // AQU=073 new
-        #define ALLOW_TRANSACTION_TYPE_TNG _USERMAKEFILE_LIB_RFM69_XC_TNG
+    #ifdef _USERMAKEFILE_LIB_RFM69_XC_TRANS // AQU=073 new
+        #define CLIENT_ALLOW_SESSION_TYPE_TRANS _USERMAKEFILE_LIB_RFM69_XC_TRANS
     #else
-        #define ALLOW_TRANSACTION_TYPE_TNG 0
+        #define CLIENT_ALLOW_SESSION_TYPE_TRANS 0
     #endif
 
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off

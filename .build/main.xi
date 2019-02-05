@@ -1832,7 +1832,7 @@ typedef interface port_heat_light_commands_if {
     unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
-# 119 "../src/port_heat_light_task.h"
+# 120 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
@@ -2122,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 102 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 103 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 117 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 118 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 170 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 171 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 188 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 189 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2317,50 +2317,73 @@ typedef enum {
     debug_void
 } debug_state_e;
 
+typedef int16_t dBm_t;
+
+typedef enum {
+    from_none_void_trans,
+    from_send_trans1,
+    from_readRSSI_dBm_trans1,
+    from_handleSPIInterrupt_trans1,
+    from_ultimateIRQclear_trans1
+} session_trans1_id_e;
+
+typedef struct {
+    some_rfm69_internals_t return_some_rfm69_internals;
+    packet_t return_PACKET;
+    interruptAndParsingResult_e return_interruptAndParsingResult;
+} from_handleSPIInterrupt_t;
+
+typedef struct {
+    session_trans1_id_e session_trans1_id;
+    union {
+        waitForIRQInterruptCause_e waitForIRQInterruptCause;
+        dBm_t return_rssi_dBm;
+        from_handleSPIInterrupt_t from_handleSPIInterrupt;
+    } u;
+} session_return_from_trans3_t;
+
 typedef interface radio_if_t {
-# 326 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
-    void do_spi_aux_adafruit_rfm69hcw_RST_pulse
-                                                           (const unsigned maskof_pin);
+# 352 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+    void uspi_do_aux_adafruit_rfm69hcw_RST_pulse
+                                                            (const unsigned maskof_pin);
 
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
+    void uspi_initialize (const rfm69_params_t init);
 
-    void initialize (const rfm69_params_t init);
-
-    bool canSend (void);
-    void encrypt16 (const char key[], unsigned const static len);
+    bool uspi_canSend (void);
+    void uspi_encrypt16 (const char key[], unsigned const static len);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
-    uint8_t getDeviceType (void);
+    uint8_t uspi_getDeviceType (void);
     {some_rfm69_internals_t,
         packet_t} getSomeRadioInternals (void);
     {some_rfm69_internals_t,
         packet_t,
-        interruptAndParsingResult_e} handleSPIInterrupt (void);
+        interruptAndParsingResult_e} uspi_handleSPIInterrupt (void);
     void setListenToAll (const bool doListenToAll);
-    void rcCalibration (void);
-    int16_t readRSSI_dBm (const forceTrigger_t forceTrigger);
-    int8_t readTemperature_degC (const int8_t calOffset);
-    bool receiveDone (void);
-    waitForIRQInterruptCause_e send (const uint8_t TARGETID_toAddress,
-                                                            const packet_t PACKET);
+    void uspi_rcCalibration (void);
+    dBm_t uspi_readRSSI_dBm (const forceTrigger_t forceTrigger);
+    int8_t uspi_readTemperature_degC (const int8_t calOffset);
+    bool uspi_receiveDone (void);
+    waitForIRQInterruptCause_e uspi_send (const uint8_t TARGETID_toAddress,
+                                                                const packet_t PACKET);
     uint8_t setNODEID (const uint8_t newNODEID);
 
-    void setHighPower (const bool isHighPowerOn);
+    void uspi_setHighPower (const bool isHighPowerOn);
 
-    void setMode (const uint8_t newMode);
-    void setPowerLevel_dBm (const uint8_t powerLevel_dBm);
-    void sleep (void);
-    void setFrequencyRegister (const uint32_t register_value);
-    uint32_t getFrequencyRegister (void);
+    void uspi_setMode (const uint8_t newMode);
+    void uspi_setPowerLevel_dBm (const uint8_t powerLevel_dBm);
+    void uspi_sleep (void);
+    void uspi_setFrequencyRegister (const uint32_t register_value);
+    uint32_t uspi_getFrequencyRegister (void);
 
-    void ultimateIRQclear (void);
-# 371 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
-        void send_start_tng (const uint8_t TARGETID_toAddress, const packet_t PACKET);
-
-
-        [[notification]]
-            slave void send_done_tng (void);
-        [[clears_notification]]
-            waitForIRQInterruptCause_e send_get_result_tng (void);
+    void uspi_ultimateIRQclear (void);
+# 398 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+                                      void send_trans1 (const uint8_t TARGETID_toAddress, const packet_t PACKET);
+                                      void readRSSI_dBm_trans1 (const forceTrigger_t forceTrigger);
+                                      void handleSPIInterrupt_trans1 (void);
+                                      void ultimateIRQclear_trans1 (void);
+        [[notification]] slave void session_trans2 (void);
+        [[clears_notification]] session_return_from_trans3_t session_trans3 (void);
 
 
 } radio_if_t;
@@ -2508,12 +2531,12 @@ int main() {
             }
         }
         on tile[0]: {
+
             [[combine]]
             par {
                 RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
                 spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
-                                      null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
-
+                                    null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
                 IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, 2000);
             }
         }

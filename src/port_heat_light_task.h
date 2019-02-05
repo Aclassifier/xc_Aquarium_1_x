@@ -111,6 +111,7 @@ typedef interface port_heat_light_commands_if {
 #define PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE 0 // AQU=052 Use 0 for NOT [[combinable]] so that Port_Pins_Heat_Light_Task runs on a core by itself
                                                // However, it has "always" had its own core! Here's how it was done in 1.1.4 (25Nov2017):
                                                // it was [[combinable]], but [[combined]] was not used in "par" and it was "on tile[0].core[5]"
+                                               // The fact that thsi has its own core may have "helped" AQU=065 with the watchdog & beeper function intact
 #define PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS 2
 
 #if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==1)

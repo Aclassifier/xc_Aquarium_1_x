@@ -283,7 +283,7 @@ typedef struct handler_context_t {
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
-    int                         awaiting_send_done_cnt_tng; // Signed! AQU=073 new
+    bool                        awaiting_trans2; // AQU=073 new
     #ifdef DEBUG_TEST_WATCHDOG
         bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
     #endif
@@ -1175,15 +1175,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char pa_str [] = {'P', CHAR_AA, 0};
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO %s (%d)\n  #TX %u\n  #RX %u\n  #%us %u",
+                    "8 RADIO %s (%u)\n  #TX %u\n  #RX %u\n  #%us %u",
                     (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
-                    context.awaiting_send_done_cnt_tng,
+                    context.awaiting_trans2,
                     context.TX_appSeqCnt,
                     context.RX_messageNotForThisNode_cnt,
                     IRQ_HIGH_MAX_TIME_MILLIS/1000,
                     context.ultimateIRQclearCnt);
                     //                                            ..........----------.
-                    //                                            7 RADIO AV  (1)       // RADIO PÅ
+                    //                                            7 RADIO AV  (0)       // RADIO PÅ
                     //                                              #TX 1234
                     //                                              #RX 0
                     //                                              #2s 0                // SI-unit is small 's'
@@ -1492,7 +1492,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             context.TX_appSeqCnt = 0;
                             context.RX_messageNotForThisNode_cnt = 0;
                             context.ultimateIRQclearCnt = 0;
-                            context.awaiting_send_done_cnt_tng = 0;
+                            context.awaiting_trans2 = false;
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
@@ -1950,27 +1950,27 @@ void System_Task (
     context.radio_sent_data_display_it   = false;
     context.RX_messageNotForThisNode_cnt = 0;
     context.TX_appSeqCnt                 = 0;
-    context.awaiting_send_done_cnt_tng   = 0;
+    context.awaiting_trans2              = false;
 
-    i_radio.do_spi_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
-    i_radio.initialize (radio_init);
+    i_radio.uspi_do_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
+    i_radio.uspi_initialize (radio_init);
 
-    device_type = i_radio.getDeviceType(); // ERROR_BITNUM_DEVICE_TYPE if not 0x24
+    device_type = i_radio.uspi_getDeviceType(); // ERROR_BITNUM_DEVICE_TYPE if not 0x24
     debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
 
     {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // Was cleared in RFM69_driver at init
 
     if (some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
 
-        i_radio.setHighPower (radio_init.isRFM69HW);
-        i_radio.encrypt16 (radio_init.key, KEY_LEN);
+        i_radio.uspi_setHighPower (radio_init.isRFM69HW);
+        i_radio.uspi_encrypt16 (radio_init.key, KEY_LEN);
         i_radio.setListenToAll (doListenToAll);
-        i_radio.setPowerLevel_dBm (APPPOWERLEVEL_MIN_DBM);
-        //i_radio.setFrequencyRegister (MY_RFM69_FREQ_REGS);
+        i_radio.uspi_setPowerLevel_dBm (APPPOWERLEVEL_MIN_DBM);
+        //i_radio.uspi_setFrequencyRegister (MY_RFM69_FREQ_REGS);
 
         debug_print_y ("TX/RX at %u Hz with reg %04X and packet len %u\n", MY_RFM69_FREQ_HZ, MY_RFM69_FREQ_REGS, PACKET_LEN08);
 
-        i_radio.receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
+        i_radio.uspi_receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
 
         {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits();
 
@@ -2117,8 +2117,8 @@ void System_Task (
 
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
-                    if (context.awaiting_send_done_cnt_tng != 0) {
-                        // No code
+                    if (context.awaiting_trans2) {
+                        // No code. No error message. Receiver would detect that sending has stopped. Follow it in SCREEN_8_RADIO
                     } else if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
                         // No code
                     } else if (context.radio_board_fault) {
@@ -2192,21 +2192,20 @@ void System_Task (
 
                         // ---- Send ----
 
-                        #if (ALLOW_TRANSACTION_TYPE_TNG==1)
+                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         {
-                            context.awaiting_send_done_cnt_tng += 1;
-                            i_radio.send_start_tng (
+                            context.awaiting_trans2 = true;
+                            i_radio.send_trans1 (
                                  TX_gatewayid,
                                  TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
                         }
-                        #elif (ALLOW_TRANSACTION_TYPE_TNG==0)
+                        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==0)
                         {
                                waitForIRQInterruptCause_e waitForIRQInterruptCause;
 
-                               waitForIRQInterruptCause = i_radio.send (
+                               waitForIRQInterruptCause = i_radio.uspi_send (
                                     TX_gatewayid,
                                     TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
-                               awaiting_send_done_tng = true;
 
                                {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
 
@@ -2222,12 +2221,13 @@ void System_Task (
                 } else {}
             } break;
 
-            #if (ALLOW_TRANSACTION_TYPE_TNG==1)
-                case i_radio.send_done_tng () : {
-                    context.awaiting_send_done_cnt_tng -= 1;
+            #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                case i_radio.session_trans2 () : {
+                    context.awaiting_trans2 = false;
 
-                    waitForIRQInterruptCause_e waitForIRQInterruptCause;
-                    waitForIRQInterruptCause = i_radio.send_get_result_tng ();
+                    session_return_from_trans3_t session_return_from_trans3;
+
+                    session_return_from_trans3 = i_radio.session_trans3 ();
 
                     {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
 
@@ -2281,7 +2281,7 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case (context.awaiting_send_done_cnt_tng == 0) => c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+            case (not context.awaiting_trans2) => c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
@@ -2295,13 +2295,13 @@ void System_Task (
                     int16_t                     nowRSSI;
                     interruptAndParsingResult_e interruptAndParsingResult;
 
-                    nowRSSI = i_radio.readRSSI_dBm (FORCETRIGGER_OFF);
+                    nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
 
-                    {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.handleSPIInterrupt();
+                    {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
                     switch (interruptAndParsingResult) {
                         case messageReceivedOk_IRQ: {
-                            if (i_radio.receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.handleSPIInterrupt
+                            if (i_radio.uspi_receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
                         } break;
 
                         case messagePacketSentOk_IRQ:
@@ -2321,7 +2321,7 @@ void System_Task (
                 } else if (irq_update == pin_gone_low) {
                     // No code
                 } else if (irq_update == pin_still_high_timeout) {
-                    i_radio.ultimateIRQclear();
+                    i_radio.uspi_ultimateIRQclear();
                     context.ultimateIRQclearCnt++;
                 } else {} // Never here
 
