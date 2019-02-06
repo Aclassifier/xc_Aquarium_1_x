@@ -1414,6 +1414,35 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_PRESSED_FOR_10_SECONDS: {
+                    // AQU=076 code
+                    //void device_reboot(void)
+                    {
+                        unsigned int pllVal;
+                        unsigned int localTileId = get_local_tile_id();
+                        unsigned int tileId;
+                        unsigned int tileArrayLength;
+
+                        asm volatile ("ldc %0, tile.globound":"=r"(tileArrayLength));
+
+                        /* Reset all remote tiles */
+                        for(int i = 0; i < tileArrayLength; i++)
+                        {
+                            /* Cannot cast tileref to unsigned */
+                            tileId = get_tile_id(tile[i]);
+
+                            /* Do not reboot local tile yet */
+                            if (localTileId != tileId)
+                            {
+                                read_sswitch_reg(tileId, 6, pllVal);
+                                write_sswitch_reg_no_ack(tileId, 6, pllVal);
+                            }
+                        }
+
+                        /* Finally reboot this tile */
+                        read_sswitch_reg(localTileId, 6, pllVal);
+                        write_sswitch_reg_no_ack(localTileId, 6, pllVal);
+
+                    }
                     switch (context.display_screen_name_present) {
                         case SCREEN_0_X_FEIL: { // 0
                             if (context.screen_logg.exists) {
