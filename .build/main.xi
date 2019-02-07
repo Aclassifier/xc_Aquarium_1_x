@@ -2093,7 +2093,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 57 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 90 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2102,13 +2102,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 79 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 112 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 101 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 134 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2122,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 103 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 104 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 118 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 119 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 171 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 172 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 189 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 190 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2386,6 +2386,10 @@ typedef interface radio_if_t {
         [[clears_notification]] session_return_from_trans3_t session_trans3 (void);
 
 
+
+
+
+
 } radio_if_t;
 
 typedef struct {
@@ -2412,7 +2416,11 @@ void RFM69_driver (
         server radio_if_t i_radio,
                out port p_spi_aux,
         client spi_master_if i_spi,
-               unsigned spi_client);
+               unsigned spi_client
+);
+
+
+unsigned get_radio_log_value (unsigned *unsafe log_value_ptr);
 
 [[combinable]]
 void IRQ_interrupt_task (

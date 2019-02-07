@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.18" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1418  // Is "application_version_num_t"s
+#define APPLICATION_VERSION_STR "1.4.19" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1419  // Is "application_version_num_t"s
+// 1.4.19     07Feb2019         Use of get_radio_log_value and i_radio.get_radio_log_value_ptr is new
 // 1.4.18     06Feb2019         Undoing AQU=076
 // 1.4.17     06Feb2019 AQU=076 testing with code to restart, see https://www.xcore.com/viewtopic.php?f=44&t=7065
 // 1.4.16     05Feb2019         Just today's
