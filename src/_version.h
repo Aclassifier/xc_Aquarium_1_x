@@ -20,7 +20,7 @@ typedef uint16_t application_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define APPLICATION_VERSION_STR "1.4.20" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
 #define APPLICATION_VERSION_NUM    1420  // Is "application_version_num_t"
-// 1.4.20     11Feb2019         do_sessions_trans2to3 is now called all places inside while(1) in System_Task
+// 1.4.20     11Feb2019         do_sessions_trans2to3 is now called all places inside while(1) in System_Task. RFM69_DRIVER_VERSION_STR=0.9.09
 // 1.4.19     07Feb2019         Use of get_radio_log_value and i_radio.get_radio_log_value_ptr is new
 // 1.4.18     06Feb2019         Undoing AQU=076
 // 1.4.17     06Feb2019 AQU=076 testing with code to restart, see https://www.xcore.com/viewtopic.php?f=44&t=7065
