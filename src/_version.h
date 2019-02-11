@@ -18,15 +18,14 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.19" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1419  // Is "application_version_num_t"s
+#define APPLICATION_VERSION_STR "1.4.20" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1420  // Is "application_version_num_t"
+// 1.4.20     11Feb2019         do_sessions_trans2to3 is now called all places inside while(1) in System_Task
 // 1.4.19     07Feb2019         Use of get_radio_log_value and i_radio.get_radio_log_value_ptr is new
 // 1.4.18     06Feb2019         Undoing AQU=076
 // 1.4.17     06Feb2019 AQU=076 testing with code to restart, see https://www.xcore.com/viewtopic.php?f=44&t=7065
 // 1.4.16     05Feb2019         Just today's
 // 1.4.15     04Feb2019 AQU=075 Now the lib_rfm69_xc call using _trans1 starts _trans2 does any spi action and _trans3 delivers result are truly asynchronous and non-blocking
-//                      AQU=065 I got this one when I pushed the buttons fast. Right button. But the solution burnt in 1.4.15 does not do the asynch lib_rfm60_xc calls on all calls
-//                              But then, I also get this error when the aquarium is just standing tehre and handling the radio
 // 1.4.14     03Feb2019 AQU=074 When NORMAL_LIGHT_IS_HALF_RANDOM_F2N light change always legal when IT_IS_DAY
 //                      AQU=073 CLIENT_ALLOW_SESSION_TYPE_TRANS is new. This should make it possible to detect AQU=065 without main loop stopping
 // 1.4.13     03Feb2019         radio_enabled when FLASH_BLACK_BOARD
@@ -52,6 +51,9 @@ typedef uint16_t application_version_num_t;
 //                              functional call talking with the radio (but I have a timeout on all loops). See this
 //                              discussed by searching for RFM69=009 in lib_rfm69_xc. I will try to see if I have
 //                              space for another task to isolate everything with the radio, like an RFM69_driver_asynch
+//                              - I got this one when I pushed the buttons fast. Right button. But the solution burnt in 1.4.15 does not do the asynch lib_rfm60_xc calls on all calls
+//                              But then, I also get this error when the aquarium is just standing there and handling the radio
+//                              - I heard it beep, but the IRQ was still black! Then, after 1-2 seconds the IRQ lit. I had to restart. (9Feb2019)
 //            --------- Running from 30Jan2019
 // 1.4.07     30Jan2019         Compiled with ISAQUARIUM=1
 // 1.4.06     29Jan2019 AQU=070 trigger_hour_changed_random uses a randdom_number but we cammot reuse it!

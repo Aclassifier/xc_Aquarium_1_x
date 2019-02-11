@@ -283,9 +283,12 @@ typedef struct handler_context_t {
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
-    bool                        awaiting_trans2; // AQU=073 new
     #ifdef DEBUG_TEST_WATCHDOG
         bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
+    #endif
+    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+        timing_transx_t timing_transx;
+        return_trans3_t return_trans3;
     #endif
 } handler_context_t;
 
@@ -846,7 +849,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-                debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity); // TODO lux_str vises ikke! 27Sep2018: did not understand!
+                debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity);
                 #ifdef DEBUG_TEST_WATCHDOG
                     // If you do this while heating is on then you will observe that it goes off
                     context.do_watchdog_retrigger_ms_debug = not context.do_watchdog_retrigger_ms_debug;
@@ -1175,15 +1178,16 @@ void Handle_Real_Or_Clocked_Button_Actions (
             const char pa_str [] = {'P', CHAR_AA, 0};
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO %s (%u)\n  #TX %u\n  #RX %u\n  #%us %u",
+                    "8 RADIO %s %s%ums\n  #TX %u\n  #RX %u\n  #%us %u",
                     (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
-                    context.awaiting_trans2,
+                    (context.timing_transx.timed_out_trans1to2) ? "!" : "=",
+                     context.timing_transx.maxtime_used_us_trans1to2/1000,
                     context.TX_appSeqCnt,
                     context.RX_messageNotForThisNode_cnt,
                     IRQ_HIGH_MAX_TIME_MILLIS/1000,
                     context.ultimateIRQclearCnt);
                     //                                            ..........----------.
-                    //                                            7 RADIO AV  (0)       // RADIO PÅ
+                    //                                            7 RADIO AV =123ms      // RADIO PÅ
                     //                                              #TX 1234
                     //                                              #RX 0
                     //                                              #2s 0                // SI-unit is small 's'
@@ -1489,11 +1493,14 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.radio_enabled_state = radio_disabled_pending;
                             } else { // radio_disabled or radio_disabled_pending
                                 context.radio_enabled_state = radio_enabled;
+                                #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                                    context.timing_transx.timed_out_trans1to2       = false; // Set       by do_sessions_trans2to3, but we need to clear it first
+                                    context.timing_transx.maxtime_used_us_trans1to2 = 0;     // Increased by do_sessions_trans2to3, but we need to zero it first
+                                #endif
                             }
                             context.TX_appSeqCnt = 0;
                             context.RX_messageNotForThisNode_cnt = 0;
                             context.ultimateIRQclearCnt = 0;
-                            context.awaiting_trans2 = false;
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
@@ -1906,7 +1913,6 @@ void System_Task (
         #endif
     #endif
 
-
     const rfm69_params_t radio_init = {
            NODEID,
            MY_RFM69_FREQ_REGS,
@@ -1951,7 +1957,12 @@ void System_Task (
     context.radio_sent_data_display_it   = false;
     context.RX_messageNotForThisNode_cnt = 0;
     context.TX_appSeqCnt                 = 0;
-    context.awaiting_trans2              = false;
+
+    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+        context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
+        context.timing_transx.maxtime_used_us_trans1to2    = 0;     // Increased by do_sessions_trans2to3, but we need to zero it first
+        context.timing_transx.maxtime_allowed_ms_trans1to2 = CLIENT_WAIT_FOR_RADIO_MAX_MS; // Set only here
+    #endif
 
     i_radio.uspi_do_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
     i_radio.uspi_initialize (radio_init);
@@ -2050,11 +2061,11 @@ void System_Task (
         {read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
 
         if (not read_ok) {
-            light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles  = NORMAL_LIGHT_IS_VOID_F0N;
-            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory       = IOF_HH_IS_VOID;
+            light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = NORMAL_LIGHT_IS_VOID_F0N;
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = IOF_HH_IS_VOID;
         } else {
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles  =                               context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
-            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory       = (light_daytime_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory          = (light_daytime_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
         }
 
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
@@ -2063,6 +2074,11 @@ void System_Task (
     tmr :> time;
 
     while(1) {
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+            // OK! No blocking calls with RFM69_driver -> SPI_Master_2 here
+        #else
+            #warning BLOCKING CALLS!
+        #endif
         select {
             case tmr when timerafter(time) :> void: {
                 // Once per second
@@ -2098,7 +2114,7 @@ void System_Task (
                 }
 
                 // Nested select OK since this is not a [[combinable]] task anyhow and will use its own core:
-                while (num_notify_expexted > 0) {
+                while (num_notify_expexted > 0) { // AQU=065 should not be caused by this, as this ran for 1.5 years OK, but only whne the radio appared did we see that problem
                     select {
                         case i_i2c_external_commands.notify(): {
                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
@@ -2118,9 +2134,7 @@ void System_Task (
 
                 if (context.radio_send_data) {
                     context.radio_send_data = false;
-                    if (context.awaiting_trans2) {
-                        // No code. No error message. Receiver would detect that sending has stopped. Follow it in SCREEN_8_RADIO
-                    } else if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
+                    if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
                         // No code
                     } else if (context.radio_board_fault) {
                         // No code. If no board then this pin is high by HW design. Don't use i_radio
@@ -2195,58 +2209,39 @@ void System_Task (
 
                         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         {
-                            context.awaiting_trans2 = true;
-                            i_radio.send_trans1 (
-                                 TX_gatewayid,
-                                 TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
+                            // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
+                            context.timing_transx.start_time_trans1 =
+                                    i_radio.send_trans1 (context.timing_transx.timed_out_trans1to2, TX_gatewayid, TX_PACKET_U);
+                            // MUST be run now:
+                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                            // Return value not picked out, since not used
                         }
-                        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==0)
+                        #else
                         {
-                               waitForIRQInterruptCause_e waitForIRQInterruptCause;
+                               waitForIRQInterruptCause_e waitForIRQInterruptCause; // Not used
 
                                waitForIRQInterruptCause = i_radio.uspi_send (
                                     TX_gatewayid,
                                     TX_PACKET_U); // element CommHeaderRFM69 is not taken from here, so don't fill it in
-
-                               {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
-
-                               if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                                   debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
-                                   // Don't set context.radio_board_fault here since some errors may not appear next time
-                               } else {
-                                   debug_print_y ("TX %u\n", context.TX_appSeqCnt);
-                               }
                            }
                         #endif
+
+                        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+
+                        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                            debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+                            // Don't set context.radio_board_fault here since some errors may not appear next time
+                        } else {
+                            debug_print_y ("TX %u\n", context.TX_appSeqCnt);
+                        }
                     }
                 } else {}
             } break;
 
-            #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                case i_radio.session_trans2 () : {
-                    context.awaiting_trans2 = false;
-
-                    session_return_from_trans3_t session_return_from_trans3;
-
-                    session_return_from_trans3 = i_radio.session_trans3 ();
-
-                    {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
-
-                    if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                        debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
-                        // Don't set context.radio_board_fault here since some errors may not appear next time
-                    } else {
-                        debug_print_y ("TX %u\n", context.TX_appSeqCnt);
-                    }
-                } break;
-            #endif
-
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
                 // Button pressed (the asynch data sets only cause unnoticed delays)
 
-                // Comented-out code here is AQU=069 TODO remove
                 bool display_is_on_pre = context.display_is_on;
-                // bool do_handle_button = true; // To filter BUTTON_ACTION_RELEASED if BUTTON_ACTION_PRESSED_FOR_10_SECONDS already handled
                 context.beeper_blip_now = false;
 
                 debug_button_cnt++;
@@ -2282,7 +2277,7 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case (not context.awaiting_trans2) => c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+            case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
@@ -2296,13 +2291,41 @@ void System_Task (
                     int16_t                     nowRSSI;
                     interruptAndParsingResult_e interruptAndParsingResult;
 
-                    nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
+                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                        // FIRST ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
 
-                    {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                        context.timing_transx.start_time_trans1 = i_radio.readRSSI_dBm_trans1 (context.timing_transx.timed_out_trans1to2, FORCETRIGGER_OFF);
+                        // MUST be run now:
+                        do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+
+                        nowRSSI = context.return_trans3.u_return.rssi_dBm;
+
+                        // SECOND ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
+
+                        context.timing_transx.start_time_trans1 = i_radio.handleSPIInterrupt_trans1 (context.timing_transx.timed_out_trans1to2);
+                        // MUST be run now:
+                        do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+
+                        some_rfm69_internals      = context.return_trans3.u_return.handleSPIInterrupt.return_some_rfm69_internals;
+                        RX_PACKET_U               = context.return_trans3.u_return.handleSPIInterrupt.return_PACKET;
+                        interruptAndParsingResult = context.return_trans3.u_return.handleSPIInterrupt.return_interruptAndParsingResult;
+
+                    #else
+                        nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
+
+                        {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                    #endif
 
                     switch (interruptAndParsingResult) {
                         case messageReceivedOk_IRQ: {
-                            if (i_radio.uspi_receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
+                            #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                                // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
+                                context.timing_transx.start_time_trans1 = i_radio.receiveDone_trans1 (context.timing_transx.timed_out_trans1to2);
+                                // MUST be run now:
+                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                            #else
+                                if (i_radio.uspi_receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
+                            #endif
                         } break;
 
                         case messagePacketSentOk_IRQ:
@@ -2318,11 +2341,19 @@ void System_Task (
 
                         } break;
                     }
-                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us!
+                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                 } else if (irq_update == pin_gone_low) {
-                    // No code
+                    // No cod
                 } else if (irq_update == pin_still_high_timeout) {
-                    i_radio.uspi_ultimateIRQclear();
+                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                      // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
+                       context.timing_transx.start_time_trans1 = i_radio.ultimateIRQclear_trans1 (context.timing_transx.timed_out_trans1to2);
+                       // MUST be run now:
+                       do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                    #else
+                       i_radio.uspi_ultimateIRQclear();
+                    #endif
+
                     context.ultimateIRQclearCnt++;
                 } else {} // Never here
 

@@ -2093,7 +2093,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 90 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 100 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2102,13 +2102,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 112 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 122 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 134 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 144 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2122,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 104 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 108 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 119 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 123 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 172 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 176 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 190 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 194 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2324,28 +2324,43 @@ typedef enum {
     from_send_trans1,
     from_readRSSI_dBm_trans1,
     from_handleSPIInterrupt_trans1,
-    from_ultimateIRQclear_trans1
-} session_trans1_id_e;
+    from_ultimateIRQclear_trans1,
+    from_receiveDone_trans1
+} session_transx_id_e;
 
-typedef struct {
-    some_rfm69_internals_t return_some_rfm69_internals;
-    packet_t return_PACKET;
-    interruptAndParsingResult_e return_interruptAndParsingResult;
-} from_handleSPIInterrupt_t;
 
-typedef struct {
-    session_trans1_id_e session_trans1_id;
-    union {
-        waitForIRQInterruptCause_e waitForIRQInterruptCause;
-        dBm_t return_rssi_dBm;
-        from_handleSPIInterrupt_t from_handleSPIInterrupt;
-    } u;
-} session_return_from_trans3_t;
+
+
+
+
+    typedef struct {
+        some_rfm69_internals_t return_some_rfm69_internals;
+        packet_t return_PACKET;
+        interruptAndParsingResult_e return_interruptAndParsingResult;
+    } from_handleSPIInterrupt_t;
+
+    typedef struct {
+        time32_t start_time_trans1;
+        unsigned maxtime_allowed_ms_trans1to2;
+        unsigned maxtime_used_us_trans1to2;
+        bool timed_out_trans1to2;
+    } timing_transx_t;
+
+    typedef struct {
+        session_transx_id_e id_trans1;
+        union {
+            waitForIRQInterruptCause_e waitForIRQInterruptCause;
+            dBm_t rssi_dBm;
+            from_handleSPIInterrupt_t handleSPIInterrupt;
+            bool receiveDone;
+        } u_return;
+    } return_trans3_t;
+
 
 typedef interface radio_if_t {
-# 352 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 367 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void uspi_do_aux_adafruit_rfm69hcw_RST_pulse
-                                                            (const unsigned maskof_pin);
+                                                              (const unsigned maskof_pin);
 
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     void uspi_initialize (const rfm69_params_t init);
@@ -2377,13 +2392,14 @@ typedef interface radio_if_t {
     uint32_t uspi_getFrequencyRegister (void);
 
     void uspi_ultimateIRQclear (void);
-# 398 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
-                                      void send_trans1 (const uint8_t TARGETID_toAddress, const packet_t PACKET);
-                                      void readRSSI_dBm_trans1 (const forceTrigger_t forceTrigger);
-                                      void handleSPIInterrupt_trans1 (void);
-                                      void ultimateIRQclear_trans1 (void);
+# 418 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+                                time32_t send_trans1 (const bool timed_out_trans1to2, const uint8_t TARGETID_toAddress, const packet_t PACKET);
+                                time32_t readRSSI_dBm_trans1 (const bool timed_out_trans1to2, const forceTrigger_t forceTrigger);
+                                time32_t handleSPIInterrupt_trans1 (const bool timed_out_trans1to2);
+                                time32_t ultimateIRQclear_trans1 (const bool timed_out_trans1to2);
+                                time32_t receiveDone_trans1 (const bool timed_out_trans1to2);
         [[notification]] slave void session_trans2 (void);
-        [[clears_notification]] session_return_from_trans3_t session_trans3 (void);
+        [[clears_notification]] return_trans3_t session_trans3 (void);
 
 
 
@@ -2418,9 +2434,12 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
+# 471 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+    void do_sessions_trans2to3 (
+        client radio_if_t i_radio,
+               timing_transx_t &session_trans,
+               return_trans3_t &return_trans3);
 
-
-unsigned get_radio_log_value (unsigned *unsafe log_value_ptr);
 
 [[combinable]]
 void IRQ_interrupt_task (
