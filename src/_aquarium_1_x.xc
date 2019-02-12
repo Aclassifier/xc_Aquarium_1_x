@@ -69,7 +69,7 @@
 #define DEBUG_PRINT_AQUARIUM 0
 #define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_X 1
+#define DEBUG_PRINT_X 0
 #define debug_print_x(fmt, ...) do { if((DEBUG_PRINT_X==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_Y 0
@@ -94,18 +94,19 @@ typedef enum {
 
 typedef enum display_screen_name_t {
     // English-Norwegian here because the screens are in Norwegian
-    //                            // # sub_is_editable | char_takes_press_for_10_seconds_right_button_str | String                             | OTHER
-    //                            //   --------------- | ------------------------------------------------ | ---------------------------------- | -----------------------------
-    SCREEN_0_X_FEIL,              // 0 NO              | YES                                              | display_ts1_chars in screen_logg_t | "X" identifies it
-    SCREEN_1_AKVARIETEMPERATURER, // 1 NO              | YES                                              | display_ts1_chars                  | SCREEN_NORMALLY_FIRST
-    SCREEN_2_VANNTEMP_REG,        // 2 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_3_LYSGULERING,         // 3 YES             | YES                                              | display_ts1_chars                  |
-    SCREEN_4_BOKSDATA,            // 4 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_5_VERSJON,             // 5 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_6_KONSTANTER,          // 6 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_7_NT_KLOKKE,           // 7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
-    SCREEN_8_RADIO,               // 8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
-    SCREEN_X_NONE,                // 9 No screen, just a special parameter for "except none" == "all"
+    //                            //  # sub_is_editable | char_takes_press_for_10_seconds_right_button_str | String                             | OTHER
+    //                            //    --------------- | ------------------------------------------------ | ---------------------------------- | -----------------------------
+    SCREEN_0_X_FEIL,              //  0 NO              | YES                                              | display_ts1_chars in screen_logg_t | "X" identifies it
+    SCREEN_1_AKVARIETEMPERATURER, //  1 NO              | YES                                              | display_ts1_chars                  | SCREEN_NORMALLY_FIRST
+    SCREEN_2_VANNTEMP_REG,        //  2 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_3_LYSGULERING,         //  3 YES             | YES                                              | display_ts1_chars                  |
+    SCREEN_4_BOKSDATA,            //  4 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_5_VERSJON,             //  5 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_6_KONSTANTER,          //  6 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_7_NT_KLOKKE,           //  7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
+    SCREEN_8_RADIO,               //  8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
+    SCREEN_9_RADIO,               //  9 NO              | YES                                              | display_ts1_chars
+    SCREEN_X_NONE,                // 10 No screen, just a special parameter for "except none" == "all"
 } display_screen_name_t;
 
 #define SCREEN_NORMALLY_FIRST SCREEN_1_AKVARIETEMPERATURER
@@ -1169,28 +1170,48 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
         //
         // SCREEN_8_RADIO
+        // SCREEN_9_RADIO
 
-        case SCREEN_8_RADIO: {
+        case SCREEN_8_RADIO:
+        case SCREEN_9_RADIO:{
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            const char pa_str [] = {'P', CHAR_AA, 0};
+            if (context.display_screen_name_present == SCREEN_8_RADIO) {
+                const char pa_str [] = {'P', CHAR_AA, 0};
 
-            sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "8 RADIO %s %s%ums\n  #TX %u\n  #RX %u\n  #%us %u",
-                    (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
-                    (context.timing_transx.timed_out_trans1to2) ? "!" : "=",
-                     context.timing_transx.maxtime_used_us_trans1to2/1000,
-                    context.TX_appSeqCnt,
-                    context.RX_messageNotForThisNode_cnt,
-                    IRQ_HIGH_MAX_TIME_MILLIS/1000,
-                    context.ultimateIRQclearCnt);
-                    //                                            ..........----------.
-                    //                                            7 RADIO AV =123ms      // RADIO PÅ
-                    //                                              #TX 1234
-                    //                                              #RX 0
-                    //                                              #2s 0                // SI-unit is small 's'
+                sprintf_numchars = sprintf (context.display_ts1_chars,
+                        "8 RADIO %s\n  #TX %u\n  #RX %u\n  #%us %u",
+                        (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
+                        context.TX_appSeqCnt,
+                        context.RX_messageNotForThisNode_cnt,
+                        IRQ_HIGH_MAX_TIME_MILLIS/1000,
+                        context.ultimateIRQclearCnt);
+                        //                                            ..........----------.
+                        //                                            8 RADIO AV             // RADIO PÅ
+                        //                                              #TX 1234
+                        //                                              #RX 0
+                        //                                              #2s 0                // SI-unit is small 's'
+            } else {
+
+                unsigned radio_log_value = 0;
+                #if (DEBUG_SHARED_LOG_VALUE==1)
+                {
+                    radio_log_value = get_radio_log_value();
+                }
+                #endif
+
+                sprintf_numchars = sprintf (context.display_ts1_chars,
+                        "9 RADIO %s\n  MAX %u ms\n  LOG %08X",
+                        (context.timing_transx.timed_out_trans1to2) ? "FEIL?" : "OK",
+                         context.timing_transx.maxtime_used_us_trans1to2/1000,
+                         radio_log_value);
+                        //                                            ..........----------.
+                        //                                            9 RADIO OK            RADIO FEIL?
+                        //                                              MAX 16 ms
+                        //                                              LOG 87654321
+            }
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);

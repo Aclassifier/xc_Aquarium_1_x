@@ -2093,7 +2093,9 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 100 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 69 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+    extern unsigned g_radio_log_value;
+# 129 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2102,13 +2104,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 122 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 151 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 144 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 173 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2122,9 +2124,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 108 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 110 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 123 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 125 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2171,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 176 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 178 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 194 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 196 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2401,11 +2403,6 @@ typedef interface radio_if_t {
         [[notification]] slave void session_trans2 (void);
         [[clears_notification]] return_trans3_t session_trans3 (void);
 
-
-
-
-
-
 } radio_if_t;
 
 typedef struct {
@@ -2434,7 +2431,16 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
-# 471 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+
+
+    unsigned get_radio_log_value (void);
+
+
+
+
+
+
+
     void do_sessions_trans2to3 (
         client radio_if_t i_radio,
                timing_transx_t &session_trans,

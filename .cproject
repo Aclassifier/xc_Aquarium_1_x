@@ -201,6 +201,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc/api}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_spi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.1503879819" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -528,6 +530,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc/api}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_spi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.494518744" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -860,6 +864,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_rfm69_xc/api}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lib_spi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_xc_ptr}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.256198653" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>

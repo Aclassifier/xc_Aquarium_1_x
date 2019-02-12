@@ -2,6 +2,7 @@
 # compiled for. It either refers to an XN file in the source directories
 # or a valid argument for the --target option when compiling
 TARGET = STARTKIT
+# TARGET = XCORE-200-EXPLORER
 
 # The APP_NAME variable determines the name of the final .xe file. It should
 # not include the .xe postfix. If left blank the name will default to
@@ -21,7 +22,7 @@ USED_MODULES = lib_rfm69_xc lib_spi lib_startkit_support lib_xassert module_i2c_
 
 ifeq ($(TARGET),STARTKIT)
 XCC_FLAGS = -Os -g -fxscope -save-temps -DMYTARGET=STARKIT -DISMASTER=1 -DISAQUARIUM=0 -DWARNINGS=0 -D_USERMAKEFILE_LIB_RFM69_XC_USER=2 -D_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08=40 -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_PRINT_GLOBAL=0 -D_USERMAKEFILE_LIB_RFM69_XC_RADIO_IF_READALLREGS=0 -D_USERMAKEFILE_LIB_RFM69_XC_TRANS=1
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE=0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE=1
 endif
 
 # ISAQUARIUM=1 is AQUARIUM proper!
