@@ -80,6 +80,10 @@
         #define CLIENT_ALLOW_SESSION_TYPE_TRANS 0
     #endif
 
+    // _USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE not used here, it's for lib_rfm69_xc
+    // However, when it is defined in this makefile, the generated code in the library is about 550 bytes more (RFM69_DRIVER_VERSION_STR "0.9.13" )
+    // DEBUG_SHARED_LOG_VALUE then not defined either, not needed
+
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
 

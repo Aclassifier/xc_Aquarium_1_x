@@ -276,14 +276,15 @@ typedef struct handler_context_t {
     unsigned                    error_bits_history;
     bool                        error_beeper_blip_now_muted; // Muted on left button when going dark, then screen reappears. Cleared after 10 seconds press of right button
     bool                        heat_cables_forced_off_by_watchdog;
-    bool                        radio_board_fault;
-    bool                        radio_send_data;
-    bool                        radio_sent_data_display_it;
     uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
     unsigned                    ultimateIRQclearCnt; // AQU=065 new
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
+    bool                        radio_board_fault;
+    bool                        radio_send_data;
+    bool                        radio_sent_data_display_it;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
+    unsigned                    radio_log_value; // Independent of DEBUG_SHARED_LOG_VALUE
     #ifdef DEBUG_TEST_WATCHDOG
         bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
     #endif
@@ -1195,18 +1196,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         //                                              #2s 0                // SI-unit is small 's'
             } else {
 
-                unsigned radio_log_value = 0;
-                #if (DEBUG_SHARED_LOG_VALUE==1)
-                {
-                    radio_log_value = get_radio_log_value();
-                }
-                #endif
-
                 sprintf_numchars = sprintf (context.display_ts1_chars,
                         "9 RADIO %s\n  MAX %u ms\n  LOG %08X",
                         (context.timing_transx.timed_out_trans1to2) ? "FEIL?" : "OK",
                          context.timing_transx.maxtime_used_us_trans1to2/1000,
-                         radio_log_value);
+                         context.radio_log_value);
                         //                                            ..........----------.
                         //                                            9 RADIO OK            RADIO FEIL?
                         //                                              MAX 16 ms
@@ -2035,6 +2029,7 @@ void System_Task (
     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE;
     context.error_beeper_blip_now_muted = false;
     context.ultimateIRQclearCnt = 0;
+    context.radio_log_value = 0;
 
     #ifdef DEBUG_TEST_WATCHDOG
         context.do_watchdog_retrigger_ms_debug = false;
@@ -2234,7 +2229,7 @@ void System_Task (
                             context.timing_transx.start_time_trans1 =
                                     i_radio.send_trans1 (context.timing_transx.timed_out_trans1to2, TX_gatewayid, TX_PACKET_U);
                             // MUST be run now:
-                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                            context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                             // Return value not picked out, since not used
                         }
                         #else
@@ -2317,7 +2312,7 @@ void System_Task (
 
                         context.timing_transx.start_time_trans1 = i_radio.readRSSI_dBm_trans1 (context.timing_transx.timed_out_trans1to2, FORCETRIGGER_OFF);
                         // MUST be run now:
-                        do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                        context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
                         nowRSSI = context.return_trans3.u_return.rssi_dBm;
 
@@ -2325,7 +2320,7 @@ void System_Task (
 
                         context.timing_transx.start_time_trans1 = i_radio.handleSPIInterrupt_trans1 (context.timing_transx.timed_out_trans1to2);
                         // MUST be run now:
-                        do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                        context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
                         some_rfm69_internals      = context.return_trans3.u_return.handleSPIInterrupt.return_some_rfm69_internals;
                         RX_PACKET_U               = context.return_trans3.u_return.handleSPIInterrupt.return_PACKET;
@@ -2343,7 +2338,7 @@ void System_Task (
                                 // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
                                 context.timing_transx.start_time_trans1 = i_radio.receiveDone_trans1 (context.timing_transx.timed_out_trans1to2);
                                 // MUST be run now:
-                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                                context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                             #else
                                 if (i_radio.uspi_receiveDone()) {} // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
                             #endif
@@ -2370,7 +2365,7 @@ void System_Task (
                       // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
                        context.timing_transx.start_time_trans1 = i_radio.ultimateIRQclear_trans1 (context.timing_transx.timed_out_trans1to2);
                        // MUST be run now:
-                       do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                       context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                     #else
                        i_radio.uspi_ultimateIRQclear();
                     #endif
