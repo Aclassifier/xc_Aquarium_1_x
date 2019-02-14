@@ -2227,7 +2227,7 @@ void System_Task (
                         {
                             // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
                             context.timing_transx.start_time_trans1 =
-                                    i_radio.send_trans1 (context.timing_transx.timed_out_trans1to2, TX_gatewayid, TX_PACKET_U);
+                                    send_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, TX_gatewayid, TX_PACKET_U);
                             // MUST be run now:
                             context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                             // Return value not picked out, since not used
@@ -2242,7 +2242,12 @@ void System_Task (
                            }
                         #endif
 
-                        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                            // SYNC CALL IF NOT TIMED OUT
+                            {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                        #else
+                            {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+                        #endif
 
                         if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
                             debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
@@ -2310,7 +2315,7 @@ void System_Task (
                     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         // FIRST ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
 
-                        context.timing_transx.start_time_trans1 = i_radio.readRSSI_dBm_trans1 (context.timing_transx.timed_out_trans1to2, FORCETRIGGER_OFF);
+                        context.timing_transx.start_time_trans1 = readRSSI_dBm_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, FORCETRIGGER_OFF);
                         // MUST be run now:
                         context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
@@ -2318,7 +2323,7 @@ void System_Task (
 
                         // SECOND ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
 
-                        context.timing_transx.start_time_trans1 = i_radio.handleSPIInterrupt_trans1 (context.timing_transx.timed_out_trans1to2);
+                        context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
                         // MUST be run now:
                         context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
@@ -2336,7 +2341,7 @@ void System_Task (
                         case messageReceivedOk_IRQ: {
                             #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                                 // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
-                                context.timing_transx.start_time_trans1 = i_radio.receiveDone_trans1 (context.timing_transx.timed_out_trans1to2);
+                                context.timing_transx.start_time_trans1 = receiveDone_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
                                 // MUST be run now:
                                 context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                             #else
@@ -2357,13 +2362,20 @@ void System_Task (
 
                         } break;
                     }
-                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+
+                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                        // SYNC CALL IF NOT TIMED OUT
+                        getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                    #else
+                        i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                    #endif
+
                 } else if (irq_update == pin_gone_low) {
                     // No cod
                 } else if (irq_update == pin_still_high_timeout) {
                     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                       // ASYNC CALL AND BACKGROUND ACTION WITH TIMEOUT
-                       context.timing_transx.start_time_trans1 = i_radio.ultimateIRQclear_trans1 (context.timing_transx.timed_out_trans1to2);
+                       context.timing_transx.start_time_trans1 = ultimateIRQclear_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
                        // MUST be run now:
                        context.radio_log_value = do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
                     #else
