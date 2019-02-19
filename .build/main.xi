@@ -2093,9 +2093,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 75 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
-    extern unsigned g_radio_log_value;
-# 140 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 149 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2104,13 +2102,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 162 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 171 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 184 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 193 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2124,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 114 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 118 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 129 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 133 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2171,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 182 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 200 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 204 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2301,16 +2299,7 @@ typedef enum {
 # 289 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
-
-
-typedef enum {
-    iof_RegOpMode = 0,
-    iof_RegIrqFlags1 = 1,
-    iof_RegIrqFlags2 = 2,
-    iof_radio_mode = 3,
-    iof_waitForIRQInterruptCause = 4
-} iof_debug_bytes_e;
-
+# 308 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     debug_none,
     debug_just_read_some_registers,
@@ -2334,8 +2323,18 @@ typedef enum {
     session_encrypt16_trans1,
     session_getDeviceType_trans1,
     session_rcCalibration_trans1,
-    session_readTemperature_degC_trans1
+    session_readTemperature_degC_trans1,
+    session_setHighPower_trans1,
+    session_setMode_trans1,
+    session_setPowerLevel_dBm_trans1,
+    session_setFrequencyRegister,
+    session_getFrequencyRegister
+
+
+
+
 } session_transx_id_e;
+
 
 
 
@@ -2353,6 +2352,7 @@ typedef enum {
         unsigned maxtime_allowed_ms_trans1to2;
         unsigned maxtime_used_us_trans1to2;
         bool timed_out_trans1to2;
+        unsigned radio_log_value;
     } timing_transx_t;
 
 
@@ -2364,13 +2364,17 @@ typedef enum {
             from_handleSPIInterrupt_t handleSPIInterrupt;
             bool receiveDone;
             uint8_t deviceType;
-            int8_t return_temperature_degC;
-        } u_return;
+            int8_t temperature_degC;
+            uint32_t register_value;
+
+
+
+        } u_out;
     } return_trans3_t;
 
 
 typedef interface radio_if_t {
-# 377 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 399 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
     void setListenToAll (const bool doListenToAll);
@@ -2379,9 +2383,11 @@ typedef interface radio_if_t {
 
 
     void uspi_do_aux_adafruit_rfm69hcw_RST_pulse (const unsigned maskof_pin);
-    waitForIRQInterruptCause_e uspi_send (const uint8_t TARGETID_toAddress, const packet_t PACKET);
-    dBm_t uspi_readRSSI_dBm (const forceTrigger_t forceTrigger);
-    {some_rfm69_internals_t, packet_t, interruptAndParsingResult_e} uspi_handleSPIInterrupt (void);
+
+
+
+
+
     void uspi_ultimateIRQclear (void);
     bool uspi_receiveDone (void);
     void uspi_initialize (const rfm69_params_t init);
@@ -2389,16 +2395,13 @@ typedef interface radio_if_t {
     uint8_t uspi_getDeviceType (void);
     void uspi_rcCalibration (void);
     int8_t uspi_readTemperature_degC (const int8_t calOffset_degC);
-
-
     void uspi_setHighPower (const bool isHighPowerOn);
-
     void uspi_setMode (const uint8_t newMode);
     void uspi_setPowerLevel_dBm (const uint8_t powerLevel_dBm);
-    void uspi_sleep (void);
+
     void uspi_setFrequencyRegister (const uint32_t register_value);
     uint32_t uspi_getFrequencyRegister (void);
-# 425 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 443 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
                                 time32_t do_aux_adafruit_rfm69hcw_RST_pulse_trans1 (const unsigned maskof_pin);
                                 time32_t initialize_trans1 (const rfm69_params_t init);
                                 time32_t getDeviceType_trans1 (void);
@@ -2410,6 +2413,14 @@ typedef interface radio_if_t {
                                 time32_t receiveDone_trans1 (void);
                                 time32_t rcCalibration_trans1 (void);
                                 time32_t readTemperature_degC_trans1 (const int8_t calOffset_degC);
+                                time32_t setHighPower_trans1 (const bool isHighPowerOn);
+                                time32_t setMode_trans1 (const uint8_t newMode);
+                                time32_t setPowerLevel_dBm_trans1 (const uint8_t powerLevel_dBm);
+                                time32_t setFrequencyRegister_trans1 (const uint32_t register_value);
+                                time32_t getFrequencyRegister_trans1 (void);
+
+
+
         [[notification]] slave void session_trans2 (void);
         [[clears_notification]] return_trans3_t session_trans3 (void);
 
@@ -2441,14 +2452,7 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
-
-
-    unsigned get_radio_log_value (void);
-
-
-
-
-
+# 501 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits_iff (const bool timed_out_trans1to2, client radio_if_t i_radio);
     void setListenToAll_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const bool doListenToAll);
@@ -2458,18 +2462,30 @@ void RFM69_driver (
     time32_t initialize_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const rfm69_params_t init);
     time32_t getDeviceType_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
     time32_t encrypt16_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const char key[16]);
-    time32_t send_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const uint8_t TARGETID_toAddress, const packet_t PACKET);
-    time32_t readRSSI_dBm_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const forceTrigger_t forceTrigger);
-    time32_t handleSPIInterrupt_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
-    time32_t ultimateIRQclear_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
-    time32_t receiveDone_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
+# 518 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     time32_t rcCalibration_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
     time32_t readTemperature_degC_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const int8_t calOffset_degC);
+    time32_t setHighPower_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const bool isHighPowerOn);
+    time32_t setMode_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const uint8_t newMode);
+    time32_t setPowerLevel_dBm_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const uint8_t powerLevel_dBm);
+    time32_t setFrequencyRegister_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const uint32_t register_value);
+    time32_t getFrequencyRegister_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
 
 
 
 
-    unsigned do_sessions_trans2to3 (
+
+        waitForIRQInterruptCause_e send_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const uint8_t TARGETID_toAddress, const packet_t PACKET);
+        dBm_t readRSSI_dBm_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const forceTrigger_t forceTrigger);
+        interruptAndParsingResult_e handleSPIInterrupt_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, some_rfm69_internals_t return_some_rfm69_internals, packet_t return_PACKET);
+        bool receiveDone_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans);
+        void ultimateIRQclear_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans);
+
+
+
+
+
+    void do_sessions_trans2to3 (
         client radio_if_t i_radio,
                timing_transx_t &session_trans,
                return_trans3_t &return_trans3);

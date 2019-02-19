@@ -76,8 +76,15 @@
 
     #ifdef _USERMAKEFILE_LIB_RFM69_XC_TRANS // AQU=073 new
         #define CLIENT_ALLOW_SESSION_TYPE_TRANS _USERMAKEFILE_LIB_RFM69_XC_TRANS
+
+        #ifdef _USERMAKEFILE_LIB_RFM69_XC_DEBUG_ASYNCH_WRAPPED
+            #define DEBUG_ASYNCH_WRAPPED _USERMAKEFILE_LIB_RFM69_XC_DEBUG_ASYNCH_WRAPPED
+        #else
+            #define DEBUG_ASYNCH_WRAPPED 0
+        #endif
     #else
         #define CLIENT_ALLOW_SESSION_TYPE_TRANS 0
+        #define DEBUG_ASYNCH_WRAPPED 0
     #endif
 
     // _USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE not used here, it's for lib_rfm69_xc
