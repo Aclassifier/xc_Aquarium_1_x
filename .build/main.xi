@@ -2122,9 +2122,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 118 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 121 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 133 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 136 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2169,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 189 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 204 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 207 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2358,6 +2358,7 @@ typedef enum {
 
     typedef struct {
         session_transx_id_e id_trans1;
+        unsigned test_qwe;
         union {
             waitForIRQInterruptCause_e waitForIRQInterruptCause;
             dBm_t rssi_dBm;
@@ -2369,12 +2370,13 @@ typedef enum {
 
 
 
+
         } u_out;
     } return_trans3_t;
 
 
 typedef interface radio_if_t {
-# 399 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 401 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
     void setListenToAll (const bool doListenToAll);
@@ -2401,7 +2403,7 @@ typedef interface radio_if_t {
 
     void uspi_setFrequencyRegister (const uint32_t register_value);
     uint32_t uspi_getFrequencyRegister (void);
-# 443 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 445 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
                                 time32_t do_aux_adafruit_rfm69hcw_RST_pulse_trans1 (const unsigned maskof_pin);
                                 time32_t initialize_trans1 (const rfm69_params_t init);
                                 time32_t getDeviceType_trans1 (void);
@@ -2452,7 +2454,7 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
-# 501 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 503 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits_iff (const bool timed_out_trans1to2, client radio_if_t i_radio);
     void setListenToAll_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const bool doListenToAll);
@@ -2462,7 +2464,7 @@ void RFM69_driver (
     time32_t initialize_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const rfm69_params_t init);
     time32_t getDeviceType_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
     time32_t encrypt16_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const char key[16]);
-# 518 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 520 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     time32_t rcCalibration_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio);
     time32_t readTemperature_degC_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const int8_t calOffset_degC);
     time32_t setHighPower_iff_trans1 (const bool timed_out_trans1to2, client radio_if_t i_radio, const bool isHighPowerOn);

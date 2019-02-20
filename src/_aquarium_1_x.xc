@@ -285,10 +285,12 @@ typedef struct handler_context_t {
     bool                        radio_sent_data_display_it;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
     unsigned                    radio_log_value; // Independent of DEBUG_SHARED_LOG_VALUE
+
     #ifdef DEBUG_TEST_WATCHDOG
-        bool                    do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
+        bool do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
     #endif
-    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
         timing_transx_t timing_transx;
         return_trans3_t return_trans3;
     #endif
@@ -1987,6 +1989,7 @@ void System_Task (
         context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
         context.timing_transx.maxtime_used_us_trans1to2    = 0;     // Increased by do_sessions_trans2to3, but we need to zero it first
         context.timing_transx.maxtime_allowed_ms_trans1to2 = CLIENT_WAIT_FOR_RADIO_MAX_MS; // Set only here
+        context.timing_transx.radio_log_value              = 0; // Overwritten
     #endif
 
     i_radio.uspi_do_aux_adafruit_rfm69hcw_RST_pulse (MASKOF_SPI_AUX0_RST);
@@ -2236,6 +2239,9 @@ void System_Task (
                         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         {
                             // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+                            #if (DEBUG_SHARED_LOG_VALUE==1)
+                                clr_radio_log_value();
+                            #endif
 
                             #if (DEBUG_ASYNCH_WRAPPED==1)
                                 waitForIRQInterruptCause_e waitForIRQInterruptCause; // Not used
