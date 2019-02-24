@@ -2365,7 +2365,7 @@ void System_Task (
                         // FIRST ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
 
                         #if (TRANS_ASYNCH_WRAPPED==1)
-                            nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF); // TESTED OK
+                            nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF);
                         #else
                             context.timing_transx.start_time_trans1 = readRSSI_dBm_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, FORCETRIGGER_OFF);
                             //MUST be run now:
@@ -2377,12 +2377,11 @@ void System_Task (
                         // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
 
                         #if (I_RADIO_ANY==1)
-                            nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
-                             {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                            interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
                         #elif (TRANS_ASYNCH_WRAPPED==1)
-                            interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS
+                            interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
                         #else
-                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); //FAILS
+                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); // FAILS on startKIT, ok on eXplorerKIT
                             // MUST be run now:
                             do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 

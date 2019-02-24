@@ -2095,7 +2095,7 @@ typedef enum spi_transfer_type_t {
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
 # 93 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
     extern unsigned g_radio_log_value;
-# 123 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 137 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2104,13 +2104,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 145 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 159 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 167 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 181 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2124,9 +2124,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 127 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 128 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 142 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 143 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2171,9 +2171,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 195 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 196 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 213 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 214 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2352,13 +2352,7 @@ typedef enum {
 
 
 } session_transx_id_e;
-
-
-
-
-
-
-
+# 353 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     typedef struct {
         some_rfm69_internals_t return_some_rfm69_internals;
         packet_t return_PACKET;
@@ -2393,7 +2387,7 @@ typedef enum {
 
 
 typedef interface radio_if_t {
-# 400 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 404 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
     void setListenToAll (const bool doListenToAll);
@@ -2422,7 +2416,7 @@ typedef interface radio_if_t {
 
     void uspi_setFrequencyRegister (const uint32_t register_value);
     uint32_t uspi_getFrequencyRegister (void);
-# 446 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 450 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
                                 time32_t do_aux_adafruit_rfm69hcw_RST_pulse_trans1 (const unsigned maskof_pin);
                                 time32_t initialize_trans1 (const rfm69_params_t init);
                                 time32_t getDeviceType_trans1 (void);
@@ -2519,7 +2513,7 @@ void RFM69_driver (
         void ultimateIRQclear_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans);
         void setPowerLevel_dBm_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const uint8_t powerLevel_dBm);
         void encrypt16_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const char key[16]);
-# 551 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 555 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_sessions_trans2to3 (
         client radio_if_t i_radio,
                timing_transx_t &session_trans,

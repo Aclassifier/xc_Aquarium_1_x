@@ -93,11 +93,23 @@
         #define TRANS_ASYNCH_WRAPPED 0
     #endif
 
+    #if (I_RADIO_ANY==1)
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==0)
+            #error We need to have maxtime_allowed_ms_trans1to2 etc. defined!
+        #endif
+    #endif
+
     #ifdef _USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE
         #define DEBUG_SHARED_LOG_VALUE _USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE
     #else
         #define DEBUG_SHARED_LOG_VALUE 0
     #endif
+
+    //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 10 // FEIL? slår til. LOG 1A802AE2
+    //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 15 // FEIL? slår til. LOG 1A802AE2
+    #define CLIENT_WAIT_FOR_RADIO_MAX_MS 16 // FEIL? slår til. LOG 1A802AE2
+    //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 17 / Vranglås som AQU=065
+    //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 20 // Vranglås som AQU=065
 
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
