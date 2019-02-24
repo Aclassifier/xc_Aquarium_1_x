@@ -2377,17 +2377,12 @@ void System_Task (
                         // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
 
                         #if (I_RADIO_ANY==1)
-                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
-                            // MUST be run now:
-                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-
-                            some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
-                            RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
-                            interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
+                            nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
+                             {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
                         #elif (TRANS_ASYNCH_WRAPPED==1)
                             interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS
                         #else
-                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
+                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); //FAILS
                             // MUST be run now:
                             do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
