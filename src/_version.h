@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.26" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1426  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.27" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1427  // Is "application_version_num_t"
+// 1.4.27     24Feb2019         Had forgotten to pick up interruptAndParsingResult after handleSPIInterrupt_iff_trans1
 // 1.4.26     24Feb2019         Using working encrypt16_iff_asynch but handleSPIInterrupt_iff_asynch still fails even if handleSPIInterrupt_iff_trans1 works!
 // 1.4.25     23Feb2019         I_RADIO_ANY is new (to be able to test more by hand here)
 // 1.4.24     19Feb2019         TRANS_ASYNCH_WRAPPED now tested and works. But problems with shared log value. RFM69_DRIVER_VERSION_STR=0.9.18

@@ -2383,6 +2383,7 @@ void System_Task (
 
                             some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
                             RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
+                            interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
                         #elif (TRANS_ASYNCH_WRAPPED==1)
                             interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS
                         #else
