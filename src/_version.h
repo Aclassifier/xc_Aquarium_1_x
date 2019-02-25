@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.30" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1430  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.31" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1431  // Is "application_version_num_t"
+// 1.4.31     25Feb2019         spi_master_2 now in another par part in main. Did not help, but test with it for a while. At least it saved 76 bytes!
 // 1.4.30     25Feb2019         Now all i_radio-calls include ..iff_asynch versions. This version works because I_RADIO_ANY==1 uses uspi_handleSPIInterrupt
 // 1.4.29     24Feb2019 AQU=065 CLIENT_WAIT_FOR_RADIO_MAX_MS==16 detects AQU=065-like situation
 // 1.4.28     24Feb2018         Reverting to i_radio.uspi_handleSPIInterrupt
