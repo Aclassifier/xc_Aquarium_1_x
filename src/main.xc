@@ -198,6 +198,9 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
+#define SPI_MASTER_POS 2 // 1 fails
+//                       // 2 works, but not if all scope probes are attached
+
 int main() {
     chan c_analogue; // chans always untyped
 
@@ -242,9 +245,11 @@ int main() {
                   (Stack: 6796, Code: 49866, Data: 5822)
                 */
             #endif
-            // 63184:
-            on tile[0]: spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
-                                      SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+            #if (SPI_MASTER_POS==1)
+                // 63184:
+                on tile[0]: spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
+                                         SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+            #endif
         }
         on tile[0]: {
             [[combine]]
@@ -284,9 +289,11 @@ int main() {
             par {
                 RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[combinable]] now
                 IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
-                // 63260:
-                // spi_master_2    (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
-                //                  SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                #if (SPI_MASTER_POS==2)
+                    // 63260:
+                    spi_master_2    (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
+                                      SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                #endif
             }
         }
     }
