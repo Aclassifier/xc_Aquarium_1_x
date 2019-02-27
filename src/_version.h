@@ -18,9 +18,11 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.33" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1433  // Is "application_version_num_t"
-// 1.4.33     26Feb2019         Works with SPI_MASTER_POS==2 in main.c but not if all scope probes are attached! Compiled with RFM69_DRIVER_VERSION_STR "0.9.27"
+#define APPLICATION_VERSION_STR "1.4.34" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1434  // Is "application_version_num_t"
+// 1.4.34     27Feb2019         I_RADIO_ANY==1 and SPI_MASTER_POS=02 so works
+// 1.4.33     26Feb2019         Works with SPI_MASTER_POS==2 in main.c but not if all scope probes are attached (But I had switcehd digital MSO GND and IRQ!)
+//                              Compiled with RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.32     26Feb2019         Have scoped but now no config works! So, testing older versions
 // 1.4.31     25Feb2019         spi_master_2 now in another par part in main. Did not help, but test with it for a while. At least it saved 76 bytes!
 // 1.4.30     25Feb2019         Now all i_radio-calls include ..iff_asynch versions. This version works because I_RADIO_ANY==1 uses uspi_handleSPIInterrupt

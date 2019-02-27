@@ -198,8 +198,8 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
-#define SPI_MASTER_POS 2 // 1 fails
-//                       // 2 works, but not if all scope probes are attached
+#define SPI_MASTER_POS 2 // 1 fails, also with 33R on the SPI SCK line.
+//                       // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1
 
 int main() {
     chan c_analogue; // chans always untyped
