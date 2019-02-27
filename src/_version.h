@@ -20,6 +20,8 @@ typedef uint16_t application_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define APPLICATION_VERSION_STR "1.4.37" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
 #define APPLICATION_VERSION_NUM    1437  // Is "application_version_num_t"
+//            27Feb2019         Added a 33R in the SCK line of the RFM69 radio SPI board (the one that fits on BLACK_BOARD). This did not seem to help. Bet I kept it there,
+//                              see http://www.teigfam.net/oyvind/home/technology/143-my-xcore-200-explorerkit-notes-wifi/#loading_spi_clk_is_no_good (Loading SPI_CLK is no good)
 // 1.4.37     27Feb2019         Fails since SPI_MASTER_POS==1  (I_RADIO_ANY==1).                RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.36     27Feb2019         Fails since SPI_MASTER_POS==1 & I_RADIO_ANY==0 (double reason). RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.35     27Feb2019         Fails since I_RADIO_ANY==1    (SPI_MASTER_POS=2).               RFM69_DRIVER_VERSION_STR "0.9.27"

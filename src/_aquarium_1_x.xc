@@ -2023,11 +2023,12 @@ void System_Task (
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
         // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
         #if (TRANS_ASYNCH_WRAPPED==1)
-        device_type =  getDeviceType_iff_asynch (i_radio, context.timing_transx);
+            device_type =  getDeviceType_iff_asynch (i_radio, context.timing_transx);
         #else
             context.timing_transx.start_time_trans1 = getDeviceType_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
             // MUST be run now:
             do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+            device_type = context.return_trans3.u_out.deviceType;
         #endif
         context.radio_log_value = context.timing_transx.radio_log_value;
     #else
@@ -2103,7 +2104,7 @@ void System_Task (
             #if (TRANS_ASYNCH_WRAPPED==1)
                 receiveDone_iff_asynch (i_radio, context.timing_transx);
             #else
-                context.timing_transx.start_time_trans1 = receiveDone_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, APPPOWERLEVEL_MIN_DBM);
+                context.timing_transx.start_time_trans1 = receiveDone_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
                 // MUST be run now:
                 do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
             #endif
