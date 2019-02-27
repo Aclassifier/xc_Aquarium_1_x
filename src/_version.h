@@ -18,8 +18,9 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.35" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1435  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.36" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1436  // Is "application_version_num_t"
+// 1.4.36     27Feb2019         Fails since SPI_MASTER_POS==1 (I_RADIO_ANY==0). RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.35     27Feb2019         Fails since I_RADIO_ANY==1 (SPI_MASTER_POS=2). RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.34     27Feb2019         I_RADIO_ANY==1 and SPI_MASTER_POS=2 so works. RFM69_DRIVER_VERSION_STR "0.9.27"
 // 1.4.33     26Feb2019         Works with SPI_MASTER_POS==2 in main.c but not if all scope probes are attached (But I had switcehd digital MSO GND and IRQ!)

@@ -2564,7 +2564,10 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 253 "../src/main.xc"
+# 250 "../src/main.xc"
+                on tile[0]: spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
+                                         null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+
         }
         on tile[0]: {
             [[combine]]
@@ -2595,8 +2598,8 @@ int main() {
                 IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, 2000);
 
 
-                    spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
-                                      null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
+
+
 
             }
         }
