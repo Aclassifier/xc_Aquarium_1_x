@@ -1983,7 +1983,19 @@ typedef struct
     unsigned maskof_probe_outer;
 
 } maskof_spi_and_probe_pins_t;
-# 140 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 120 "/Users/teig/workspace/lib_spi/api/spi.h"
+[[distributable]]
+void spi_master_3 (server interface spi_master_if i,
+        out buffered port:32 sclk,
+        out buffered port:32 ?mosi,
+        in buffered port:32 ?miso,
+        __clock_t ?cb,
+        out port p_cs_en,
+
+
+
+        maskof_spi_and_probe_pins_t mask);
+# 160 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master_2(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -1998,7 +2010,7 @@ void spi_master_2(server interface spi_master_if i[num_clients],
 
         maskof_spi_and_probe_pins_t masks [num_spi_slaves],
         static const unsigned num_spi_slaves);
-# 178 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 198 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -2015,16 +2027,16 @@ void spi_master(server interface spi_master_if i[num_clients],
 
 
 typedef interface spi_master_async_if {
-# 206 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 226 "/Users/teig/workspace/lib_spi/api/spi.h"
   void begin_transaction(unsigned device_index,
                          unsigned speed_in_khz, spi_mode_t mode);
-# 219 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 239 "/Users/teig/workspace/lib_spi/api/spi.h"
   void end_transaction(unsigned ss_deassert_time);
-# 236 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 256 "/Users/teig/workspace/lib_spi/api/spi.h"
   void init_transfer_array_8(uint8_t * movable inbuf,
                              uint8_t * movable outbuf,
                              size_t nbytes);
-# 255 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 275 "/Users/teig/workspace/lib_spi/api/spi.h"
   void init_transfer_array_32(uint32_t * movable inbuf,
                               uint32_t * movable outbuf,
                               size_t nwords);
@@ -2036,16 +2048,16 @@ typedef interface spi_master_async_if {
 
   [[notification]]
   slave void transfer_complete(void);
-# 278 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 298 "/Users/teig/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_8(uint8_t * movable &inbuf,
                                    uint8_t * movable &outbuf);
-# 294 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 314 "/Users/teig/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_32(uint32_t * movable &inbuf,
                                     uint32_t * movable &outbuf);
 } spi_master_async_if;
-# 317 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 337 "/Users/teig/workspace/lib_spi/api/spi.h"
 [[combinable]]
 void spi_master_async(server interface spi_master_async_if i[num_clients],
         static const size_t num_clients,
@@ -2068,9 +2080,9 @@ typedef interface spi_slave_callback_if {
 
 
   void master_ends_transaction(void);
-# 351 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 371 "/Users/teig/workspace/lib_spi/api/spi.h"
   uint32_t master_requires_data(void);
-# 362 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 382 "/Users/teig/workspace/lib_spi/api/spi.h"
   void master_supplied_data(uint32_t datum, uint32_t valid_bits);
 
 } spi_slave_callback_if;
@@ -2081,7 +2093,7 @@ typedef enum spi_transfer_type_t {
   SPI_TRANSFER_SIZE_8,
   SPI_TRANSFER_SIZE_32
 } spi_transfer_type_t;
-# 389 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 409 "/Users/teig/workspace/lib_spi/api/spi.h"
  [[combinable]]
   void spi_slave(client spi_slave_callback_if spi_i,
                  in port p_sclk,
@@ -2122,9 +2134,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 129 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 130 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 144 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 145 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2169,9 +2181,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 197 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 198 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 215 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 216 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2421,7 +2433,7 @@ in buffered port:32 p_miso = on tile[0]: 0x10a00;
 out buffered port:32 p_sclk = on tile[0]: 0x10800;
 out buffered port:32 p_mosi = on tile[0]: 0x10900;
 __clock_t clk_spi = on tile[0]: 0x106;
-# 98 "../src/main.xc"
+# 97 "../src/main.xc"
 maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 {
     { 0x01, 0x02, 0x04, 0x08 }
@@ -2432,7 +2444,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [1] =
 
 
 };
-# 179 "../src/main.xc"
+# 178 "../src/main.xc"
 out port p_spi_cs_en = on tile[0]:0x40200;
 out port p_spi_aux = on tile[0]:0x40300;
 in port p_spi_irq = on tile[0]:0x10b00;
@@ -2453,7 +2465,6 @@ out port p_display_notReset = on tile[0]:0x10c00;
 # 204 "../src/main.xc"
 int main() {
     chan c_analogue;
-
 
     button_if i_buttons[3];
     spi_master_if i_spi [1];
@@ -2482,10 +2493,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 250 "../src/main.xc"
-                on tile[0]: spi_master_2 (i_spi, 1, p_sclk, p_mosi, p_miso,
-                                         null, p_spi_cs_en, maskof_spi_and_probe_pins, 1);
-
+# 257 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2505,7 +2513,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 284 "../src/main.xc"
+# 288 "../src/main.xc"
             }
         }
         on tile[0]: {
@@ -2517,6 +2525,8 @@ int main() {
 
 
 
+
+                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
 
 
             }

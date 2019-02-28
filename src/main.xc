@@ -76,7 +76,6 @@ out buffered port:32 p_sclk  = on tile[0]: SPI_CLK;      // New as above | Was X
 out buffered port:32 p_mosi  = on tile[0]: SPI_MOSI;     // New as above | Was XS1_PORT_1D, but that's for sliceKIT
 clock                clk_spi = on tile[0]: XS1_CLKBLK_1; // See USE_CLOCK_BLOCK
 
-
 #define NUM_SPI_CLIENT_USERS 1 // Number of users per board
 
 #define                     SPI_CLIENT_0    0 // BOTH HERE: Remember a call to i_spi.await_spi_port_init_by_all_clients(); before use of spi_master_if (by i_spi)
@@ -106,7 +105,7 @@ maskof_spi_and_probe_pins_t maskof_spi_and_probe_pins [NUM_SPI_CS_SETS] = // (*)
     #endif
 };
 
-#define USE_CLOCK_BLOCK 0
+#define USE_CLOCK_BLOCK 0 // AQU=065 1 did not help (28Feb2019)
 //
 // From spi.pdf
 //     The final parameter of the spi_master task is an optional clock block. If the clock block is supplied then the
@@ -198,13 +197,13 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
-#define SPI_MASTER_POS 1 // 1 fails, also with 33R on the SPI SCK line, also with the synchronous i_radio.uspi_send-like versions
-//                       // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1
+#define SPI_MASTER_POS 2 // 1 fails, also with 33R on the SPI SCK line, also with the synchronous i_radio.uspi_send-like versions
+//                       // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1 (but with prints I have seen it fail!)
+#define USE_SPI_MASTER 3 // 2 or 3
 
 int main() {
     chan c_analogue; // chans always untyped
 
-    // interfaces:
     button_if                      i_buttons[BUTTONS_NUM_CLIENTS];
     spi_master_if                  i_spi    [NUM_SPI_CLIENT_USERS];
     radio_if_t                     i_radio;
@@ -246,9 +245,14 @@ int main() {
                 */
             #endif
             #if (SPI_MASTER_POS==1)
-                // 63184:
-                on tile[0]: spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
-                                         SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                #if (USE_SPI_MASTER==2)
+                    on tile[0]: spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                #elif (USE_SPI_MASTER==3)
+                    #if (NUM_SPI_CLIENT_USERS!=1)
+                        #error
+                    #endif
+                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+                #endif
             #endif
         }
         on tile[0]: {
@@ -290,9 +294,11 @@ int main() {
                 RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[combinable]] now
                 IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
                 #if (SPI_MASTER_POS==2)
-                    // 63260:
-                    spi_master_2    (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso,                // [[distributable]], used by the above only
-                                      SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                    #if (USE_SPI_MASTER==2)
+                        spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);
+                    #elif (USE_SPI_MASTER==3)
+                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+                    #endif
                 #endif
             }
         }

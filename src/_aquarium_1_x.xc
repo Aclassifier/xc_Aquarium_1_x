@@ -2037,7 +2037,10 @@ void System_Task (
 
     debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
 
-    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+    #if (SKIP_GETANDCLEARERRORBITS==1)
+        some_rfm69_internals.error_bits = ERROR_BITS_NONE;
+        is_new_error = false;
+    #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
         // SYNC CALL IF NOT TIMED OUT
         {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
     #else
@@ -2114,7 +2117,9 @@ void System_Task (
             i_radio.uspi_receiveDone(); // To have setMode(RF69_MODE_RX) done (via receiveBegin)
         #endif
 
-        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+        #if (SKIP_GETANDCLEARERRORBITS==1)
+            // No code
+        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
             // SYNC CALL IF NOT TIMED OUT
             {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
         #else
@@ -2372,7 +2377,9 @@ void System_Task (
                         }
                         #endif
 
-                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                        #if (SKIP_GETANDCLEARERRORBITS==1)
+                            // No code
+                        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                             // SYNC CALL IF NOT TIMED OUT
                             {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                         #else
@@ -2512,7 +2519,9 @@ void System_Task (
 
                     // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
 
-                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                    #if (SKIP_GETANDCLEARERRORBITS==1)
+                        // No code
+                    #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         // SYNC CALL IF NOT TIMED OUT
                         getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #else
