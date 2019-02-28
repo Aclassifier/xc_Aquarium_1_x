@@ -2346,11 +2346,17 @@ typedef enum {
 
 
 } session_transx_id_e;
-# 386 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 352 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+typedef struct {
+    error_bits_e error_bits;
+    is_error_e is_error;
+} error_t;
+# 391 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef interface radio_if_t {
-# 404 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 409 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
+    error_t getAndClearErrorBits_ (void);
     void setListenToAll (const bool doListenToAll);
     uint8_t setNODEID (const uint8_t newNODEID);
 
@@ -2375,7 +2381,7 @@ typedef interface radio_if_t {
     void uspi_setMode (const uint8_t newMode);
     void uspi_setFrequencyRegister (const uint32_t register_value);
     uint32_t uspi_getFrequencyRegister (void);
-# 470 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 476 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } radio_if_t;
 
 typedef struct {
@@ -2404,7 +2410,7 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
-# 562 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 568 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 [[combinable]]
 void IRQ_interrupt_task (
                 chanend c_irq_update,
@@ -2493,7 +2499,10 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 257 "../src/main.xc"
+# 254 "../src/main.xc"
+                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+
+
         }
         on tile[0]: {
             [[combine]]
@@ -2526,7 +2535,7 @@ int main() {
 
 
 
-                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+
 
 
             }

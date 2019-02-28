@@ -116,6 +116,8 @@
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
 
-    #define SKIP_GETANDCLEARERRORBITS 1
+    #define SKIP_GETANDCLEARERRORBITS 1 // 0 and SPI_MASTER_POS 1 fails
+                                        // 1 and SPI_MASTER_POS 1 works
+                                        // 2 and SPI_MASTER_POS 1 fails
 
 #endif /* GLOBALS_H_ */
