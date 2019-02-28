@@ -20,7 +20,7 @@ typedef uint16_t application_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define APPLICATION_VERSION_STR "1.4.42" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
 #define APPLICATION_VERSION_NUM    1442  // Is "application_version_num_t"
-// 1.4.42     28Feb2019         SKIP_GETANDCLEARERRORBITS 2 did not help (with a new getAndClearErrorBits_ function)
+// 1.4.42     28Feb2019         SKIP_GETANDCLEARERRORBITS 2 did not help (with a new getAndClearErrorBits_ function). But moving it away with do_getAndClearErrorBits HELPED!
 // 1.4.41     28Feb2019         This is the first version that works with SPI_MASTER_POS 1. I made SKIP_GETANDCLEARERRORBITS and set it to 1.
 //                              Maybe it's that getAndClearErrorBits call that is wrong coded? Strange that no other i_radio call deadlocks!
 //                              Also observe that this is compiled with a one only client version of spi_master_2 called spi_master_3. No change, but it saved some 700 bytes

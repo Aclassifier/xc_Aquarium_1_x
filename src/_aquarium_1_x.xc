@@ -1916,6 +1916,8 @@ void System_Task (
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
+    bool do_getAndClearErrorBits = false; // AQU=065
+
     // Radio
 
     uint8_t  device_type;
@@ -2275,6 +2277,11 @@ void System_Task (
                     }
                 }
 
+                if (do_getAndClearErrorBits) {
+                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                    do_getAndClearErrorBits = false;
+                }
+
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,
                      i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
@@ -2513,7 +2520,7 @@ void System_Task (
                             #endif
                         } break;
 
-                        case messagePacketSentOk_IRQ:
+                        case messagePacketSentOk_IRQ: // AQU=065 comes in here
                         case messagePacketSentOk2_IRQ: {
                             context.radio_sent_data_display_it = true;
                         } break;
@@ -2541,7 +2548,9 @@ void System_Task (
                         getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #else
                         debug_print_x ("%s\n", "BEF4");
-                        i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                        // delay_milliseconds(anything, really); DOES NOT HELP!
+                        do_getAndClearErrorBits = true;
+                        // i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #endif
 
                 } else if (irq_update == pin_gone_low) {
