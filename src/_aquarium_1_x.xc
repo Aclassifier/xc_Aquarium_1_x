@@ -69,7 +69,7 @@
 #define DEBUG_PRINT_AQUARIUM 0
 #define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
-#define DEBUG_PRINT_X 0
+#define DEBUG_PRINT_X 1
 #define debug_print_x(fmt, ...) do { if((DEBUG_PRINT_X==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
 
 #define DEBUG_PRINT_Y 0
@@ -2041,6 +2041,7 @@ void System_Task (
         // SYNC CALL IF NOT TIMED OUT
         {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
     #else
+        debug_print_x ("%s\n", "BEF1");
         {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
     #endif
 
@@ -2117,6 +2118,7 @@ void System_Task (
             // SYNC CALL IF NOT TIMED OUT
             {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
         #else
+            debug_print_x ("%s\n", "BEF2");
             {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
         #endif
 
@@ -2374,6 +2376,7 @@ void System_Task (
                             // SYNC CALL IF NOT TIMED OUT
                             {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                         #else
+                            debug_print_x ("%s\n", "BEF3");
                             {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
                         #endif
 
@@ -2507,10 +2510,13 @@ void System_Task (
                         } break;
                     }
 
+                    // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
+
                     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         // SYNC CALL IF NOT TIMED OUT
                         getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #else
+                        debug_print_x ("%s\n", "BEF4");
                         i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #endif
 

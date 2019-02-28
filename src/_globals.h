@@ -113,7 +113,7 @@
     //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 17 // Vranglås som AQU=065
     //efine CLIENT_WAIT_FOR_RADIO_MAX_MS 20 // Vranglås som AQU=065
 
-    #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
+    #define DEBUG_PRINT_GLOBAL_APP 1 // 0: all printf off
                                      // 1: controlled locally in each xc file
 
 #endif /* GLOBALS_H_ */

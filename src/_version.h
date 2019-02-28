@@ -18,8 +18,11 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.38" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1438  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.40" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1440  // Is "application_version_num_t"
+// 1.4.40     28Feb2019         Working on a system that fails, equal to  1.4.38 with SPI_MASTER_POS 1. Deadlock on call getAndClearErrorBit after messagePacketSentOk_IRQ
+//                              Testing to see what I can do in rfm69_xc.xc 0.9.27
+// 1.4.39     28Feb2019         65368 bytes. As below but with SPI_MASTER_POS 2
 // 1.4.38     28Feb2019         65348 bytes with log! Doing prints and scope picture 52 etc. SPI_MASTER_POS 1 fails. Also see log.
 //            27Feb2019         Added a 33R in the SCK line of the RFM69 radio SPI board (the one that fits on BLACK_BOARD). This did not seem to help. Bet I kept it there,
 //                              see http://www.teigfam.net/oyvind/home/technology/143-my-xcore-200-explorerkit-notes-wifi/#loading_spi_clk_is_no_good (Loading SPI_CLK is no good)
