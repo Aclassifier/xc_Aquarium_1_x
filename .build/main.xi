@@ -2468,7 +2468,7 @@ port inP_button_right = on tile[0]: 0x10f00;
 
 
 out port p_display_notReset = on tile[0]:0x10c00;
-# 204 "../src/main.xc"
+# 206 "../src/main.xc"
 int main() {
     chan c_analogue;
 
@@ -2499,10 +2499,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 254 "../src/main.xc"
-                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
-
-
+# 259 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2522,7 +2519,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 288 "../src/main.xc"
+# 290 "../src/main.xc"
             }
         }
         on tile[0]: {
@@ -2535,7 +2532,7 @@ int main() {
 
 
 
-
+                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
 
 
             }

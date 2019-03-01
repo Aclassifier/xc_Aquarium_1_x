@@ -197,9 +197,11 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
     // as it looks like much of the logic is the same as for 128 z 32 bits.
     // At least 3 us low to reset
 
-#define SPI_MASTER_POS 1 // 1 fails, also with 33R on the SPI SCK line, also with the synchronous i_radio.uspi_send-like versions
-//                       // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1 (but with prints I have seen it fail!)
-#define USE_SPI_MASTER 3 // 2 or 3
+#define SPI_MASTER_POS 2 // 1 fails, also with 33R on the SPI SCK line, also with the synchronous i_radio.uspi_send-like versions
+                         // 1 works if DO_OUTOF_IRQ_GETANDCLEARERRORBITS
+                         // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1 (but with prints I have seen it fail!)
+                         // 2 works if DO_OUTOF_IRQ_GETANDCLEARERRORBITS
+#define USE_SPI_MASTER 3 // 2 or 3. No change in any behaviour no matter defines go
 
 int main() {
     chan c_analogue; // chans always untyped

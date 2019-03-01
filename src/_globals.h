@@ -118,6 +118,8 @@
 
     #define SKIP_GETANDCLEARERRORBITS 0 // 0 and SPI_MASTER_POS 1 fails
                                         // 1 and SPI_MASTER_POS 1 works
-                                        // 2 and SPI_MASTER_POS 1 fails
+                                        // 2 and SPI_MASTER_POS 1 fails INTERESTING!
+
+    #define DO_OUTOF_IRQ_GETANDCLEARERRORBITS 1 // 1 works!
 
 #endif /* GLOBALS_H_ */

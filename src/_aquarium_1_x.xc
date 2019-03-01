@@ -2277,10 +2277,25 @@ void System_Task (
                     }
                 }
 
-                if (do_getAndClearErrorBits) {
-                    i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
-                    do_getAndClearErrorBits = false;
-                }
+                #if (DO_OUTOF_IRQ_GETANDCLEARERRORBITS==1)
+                    if (do_getAndClearErrorBits) {
+                        do_getAndClearErrorBits = false;
+                        #if (SKIP_GETANDCLEARERRORBITS==1)
+                            // No code
+                        #elif (SKIP_GETANDCLEARERRORBITS==2)
+                            error_t return_error;
+                            return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
+                            some_rfm69_internals.error_bits = return_error.error_bits;
+                            is_new_error                    = return_error.is_error;
+                        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                            // SYNC CALL IF NOT TIMED OUT
+                            getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                        #else
+                            debug_print_x ("%s\n", "BEF4");
+                            i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                        #endif
+                    } else {}
+                #endif
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,
@@ -2536,7 +2551,9 @@ void System_Task (
 
                     // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
 
-                    #if (SKIP_GETANDCLEARERRORBITS==1)
+                    #if (DO_OUTOF_IRQ_GETANDCLEARERRORBITS==1)
+                        do_getAndClearErrorBits = true; // delay_milliseconds(anything, really) here DOES NOT HELP!
+                    #elif (SKIP_GETANDCLEARERRORBITS==1)
                         // No code
                     #elif (SKIP_GETANDCLEARERRORBITS==2)
                         error_t return_error;
@@ -2548,9 +2565,7 @@ void System_Task (
                         getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #else
                         debug_print_x ("%s\n", "BEF4");
-                        // delay_milliseconds(anything, really); DOES NOT HELP!
-                        do_getAndClearErrorBits = true;
-                        // i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                        i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                     #endif
 
                 } else if (irq_update == pin_gone_low) {
