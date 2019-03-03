@@ -2227,7 +2227,9 @@ void System_Task (
         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
             // OK! No blocking calls with RFM69_driver -> SPI_Master_2 here
         #else
-            #warning BLOCKING CALLS!
+            #if (WARNINGS == 1)
+                #warning BLOCKING CALLS!
+            #endif
         #endif
         select {
             case tmr when timerafter(time) :> void: {
@@ -2573,9 +2575,22 @@ void System_Task (
                     // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
 
                     #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-                        do_getAndClearErrorBits = true; // delay_milliseconds(anything, really) here DOES NOT HELP!
+                        // do_getAndClearErrorBits = true; // delay_milliseconds(anything, really) here DOES NOT HELP!
                         // i_radio.uspi_ultimateIRQclear(); // adding this and it fails again, so there is some kind of state between here and RFM69_driver
-                        do_ultimateIRQclear = true; // Testing. This works! See scope picture ...SDS00059.png
+                        // do_ultimateIRQclear = true; // Testing. This works! See scope picture ...SDS00059.png
+
+                        // AQU=065c I THOUGHT I removed the AQU=065 error with DO_OUTOF_IRQ_I_RADIO_CALLS but with this, but I did not!
+                        // delay_milliseconds(100); // Any value does not help!
+                        tmr :> time; // Immediate run. This reintroduced the AQU=065 error again. So I have proven that DO_OUTOF_IRQ_I_RADIO_CALLS is a dead end!
+                        // Not even did it reintroduce it, I could remove both settings of do_getAndClearErrorBits and do_ultimateIRQclear (one of them or BOTH!)
+                        // and I would get the error: this process is being deadlocked some place (in send, see below)
+                        // I can see this because the error LED blinks once per 10 seconds and I have a hang here in IRQ_interrupt_task:
+                        //     c_irq_update <: pin_gone_high; // Send "pin_gone_high since last pin_gone_low sent".
+                        // HOWEVER, THIS task hangs on:
+                        //     waitForIRQInterruptCause = i_radio.uspi_send (
+                        // Testing with DO_OUTOF_IRQ_I_RADIO_CALLS==1 and TRANS_ASYNCH_WRAPPED==1 and CLIENT_ALLOW_SESSION_TYPE_TRANS==1 DID NOT HELP!
+                        // RFM69_driver IS BUSY LIVELOCKED? WITH SOMETHING!
+
                     #elif (SKIP_GETANDCLEARERRORBITS==1)
                         // No code
                     #elif (SKIP_GETANDCLEARERRORBITS==2)

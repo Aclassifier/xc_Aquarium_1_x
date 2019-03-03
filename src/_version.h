@@ -17,8 +17,15 @@ typedef uint16_t application_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.44" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1444  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.46" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1446  // Is "application_version_num_t"
+// 1.4.46     03Mar2019 AQU=065c Going on width even more in-depth testing og AQU=065 around DO_OUTOF_IRQ_I_RADIO_CALLS
+//                               I see that DO_OUTOF_IRQ_I_RADIO_CALLS is a dead end because a tmr:>time reintroduces it.
+//                               TRANS_ASYNCH_WRAPPED==1 and CLIENT_ALLOW_SESSION_TYPE_TRANS==1 also are dead ends.
+//                               It must be RFM69_driver that IS BUSY LIVELOCKED? WITH SOMETHING!
+//                               THIS runs because flags are set that way, basically with SPI_MASTER_POS.
+//                               Much of this test code will be removed, only keeping enough to be able to test when I sooner or later
+//                               may find the ROOT CAUSE
 // 1.4.45     03Mar2019 AQU=065b Renamed DO_OUTOF_IRQ_GETANDCLEARERRORBITS to DO_OUTOF_IRQ_I_RADIO_CALLS, since any call will cuase a malfunction
 // 1.4.44     03Mar2019 AQU=074a An extra test was not needed
 // 1.4.43     01Mar2019 AQU=065a Introduced DO_OUTOF_IRQ_GETANDCLEARERRORBITS to make the concept better explainable
