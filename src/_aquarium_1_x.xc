@@ -1916,7 +1916,8 @@ void System_Task (
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
-    bool do_getAndClearErrorBits = false; // AQU=065
+    bool do_getAndClearErrorBits = false; // AQU=065a
+    bool do_ultimateIRQclear = false;     // AQU=065b
 
     // Radio
 
@@ -2277,7 +2278,7 @@ void System_Task (
                     }
                 }
 
-                #if (DO_OUTOF_IRQ_GETANDCLEARERRORBITS==1)
+                #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
                     if (do_getAndClearErrorBits) {
                         do_getAndClearErrorBits = false;
                         #if (SKIP_GETANDCLEARERRORBITS==1)
@@ -2294,6 +2295,26 @@ void System_Task (
                             debug_print_x ("%s\n", "BEF4");
                             i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                         #endif
+                    } else {}
+                #endif
+
+                #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
+                    if (do_ultimateIRQclear) {
+                        do_ultimateIRQclear = false;
+                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                            // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+                            #if (TRANS_ASYNCH_WRAPPED==1)
+                                ultimateIRQclear_iff_asynch (i_radio, context.timing_transx);
+                            #else
+                                context.timing_transx.start_time_trans1 = ultimateIRQclear_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
+                                // MUST be run now:
+                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                            #endif
+                            context.radio_log_value = context.timing_transx.radio_log_value;
+                        #else
+                           i_radio.uspi_ultimateIRQclear();
+                        #endif
+                        context.ultimateIRQclearCnt++;
                     } else {}
                 #endif
 
@@ -2551,8 +2572,10 @@ void System_Task (
 
                     // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
 
-                    #if (DO_OUTOF_IRQ_GETANDCLEARERRORBITS==1)
+                    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
                         do_getAndClearErrorBits = true; // delay_milliseconds(anything, really) here DOES NOT HELP!
+                        // i_radio.uspi_ultimateIRQclear(); // adding this and it fails again, so there is some kind of state between here and RFM69_driver
+                        do_ultimateIRQclear = true; // Testing. This works! See scope picture ...SDS00059.png
                     #elif (SKIP_GETANDCLEARERRORBITS==1)
                         // No code
                     #elif (SKIP_GETANDCLEARERRORBITS==2)
@@ -2571,7 +2594,9 @@ void System_Task (
                 } else if (irq_update == pin_gone_low) {
                     // No cod
                 } else if (irq_update == pin_still_high_timeout) {
-                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
+                        do_ultimateIRQclear = true;
+                    #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                         // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
                         #if (TRANS_ASYNCH_WRAPPED==1)
                             ultimateIRQclear_iff_asynch (i_radio, context.timing_transx);
@@ -2584,7 +2609,6 @@ void System_Task (
                     #else
                        i_radio.uspi_ultimateIRQclear();
                     #endif
-
                     context.ultimateIRQclearCnt++;
                 } else {} // Never here
 

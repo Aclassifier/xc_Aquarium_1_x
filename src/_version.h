@@ -16,12 +16,12 @@ typedef uint16_t application_version_num_t;
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
-
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define APPLICATION_VERSION_STR "1.4.44" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
 #define APPLICATION_VERSION_NUM    1444  // Is "application_version_num_t"
+// 1.4.45     03Mar2019 AQU=065b Renamed DO_OUTOF_IRQ_GETANDCLEARERRORBITS to DO_OUTOF_IRQ_I_RADIO_CALLS, since any call will cuase a malfunction
 // 1.4.44     03Mar2019 AQU=074a An extra test was not needed
-// 1.4.43     01Mar2019          Introduced DO_OUTOF_IRQ_GETANDCLEARERRORBITS to make the concept better explainable
+// 1.4.43     01Mar2019 AQU=065a Introduced DO_OUTOF_IRQ_GETANDCLEARERRORBITS to make the concept better explainable
 // 1.4.42     28Feb2019          SKIP_GETANDCLEARERRORBITS 2 did not help (with a new getAndClearErrorBits_ function). But moving it away with do_getAndClearErrorBits HELPED!
 // 1.4.41     28Feb2019          This is the first version that works with SPI_MASTER_POS 1. I made SKIP_GETANDCLEARERRORBITS and set it to 1.
 //                               Maybe it's that getAndClearErrorBits call that is wrong coded? Strange that no other i_radio call deadlocks!
@@ -136,7 +136,7 @@ typedef uint16_t application_version_num_t;
 //                                  _11650_ + 3600  => _15250_    _ALL_ALWAYS_ON
 //                                  _ON_ONLY_3000K  =>            _ON_ONLY_CENTER (was wrong, now more general)
 //                                  _ON_ONLY_6000K  =>            _ON_ONLY_FRONT  (more general name)
-/
+//
 //                               8,9,27: 62360 (Cores,timers,chanends,memory)
 // 1.2.04     15Oct2018 AQU=057 Reuse matter: chronodot_ds3231.h is new needed file to have interface and chrodot params separate
 //                      AQU=056 Reuse matter: A debug print removed in f_conversions.xc
