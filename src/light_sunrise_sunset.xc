@@ -364,12 +364,10 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {}
     } else {}
 
-    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {
-        context.allow_normal_light_change_by_clock = (context.it_is_day_or_night == IT_IS_DAY); // AQU=074
-    } else {
-        context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
-                                                      (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
-    }
+    // AQU=074a an extra test here was not needed, removed
+
+    context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
+                                                  (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
     //{{{  context.do_light_amount_by_menu by IOF_BUTTON_RIGHT
 
@@ -508,7 +506,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         const bool trigger_hour_changed_half_light =
                 (context.trigger_hour_changed_stick) and
                 (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) and
-                (context.allow_normal_light_change_by_clock) and
+                (context.it_is_day_or_night == IT_IS_DAY) and // AQU=074a no direct allow_normal_light_change_by_clock usage here, test moved from above to here
                 (context.allow_normal_light_change_by_menu);
 
         if (trigger_hour_changed_half_light) {

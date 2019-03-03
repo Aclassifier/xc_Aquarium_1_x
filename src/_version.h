@@ -18,125 +18,126 @@ typedef uint16_t application_version_num_t;
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.43" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1443  // Is "application_version_num_t"
-// 1.4.43     01Mar2019         Introduced DO_OUTOF_IRQ_GETANDCLEARERRORBITS to make the concept better explainable
-// 1.4.42     28Feb2019         SKIP_GETANDCLEARERRORBITS 2 did not help (with a new getAndClearErrorBits_ function). But moving it away with do_getAndClearErrorBits HELPED!
-// 1.4.41     28Feb2019         This is the first version that works with SPI_MASTER_POS 1. I made SKIP_GETANDCLEARERRORBITS and set it to 1.
-//                              Maybe it's that getAndClearErrorBits call that is wrong coded? Strange that no other i_radio call deadlocks!
-//                              Also observe that this is compiled with a one only client version of spi_master_2 called spi_master_3. No change, but it saved some 700 bytes
-// 1.4.40     28Feb2019         Working on a system that fails, equal to 1.4.38 with SPI_MASTER_POS 1. Deadlock on call getAndClearErrorBit after messagePacketSentOk_IRQ
-//                              Testing to see what I can do in rfm69_xc.xc 0.9.28
-// 1.4.39     28Feb2019         65368 bytes. As below but with SPI_MASTER_POS 2
-// 1.4.38     28Feb2019         65348 bytes with log! Doing prints and scope picture 52 etc. SPI_MASTER_POS 1 fails. Also see log.
-//            27Feb2019         Added a 33R in the SCK line of the RFM69 radio SPI board (the one that fits on BLACK_BOARD). This did not seem to help. Bet I kept it there,
-//                              see http://www.teigfam.net/oyvind/home/technology/143-my-xcore-200-explorerkit-notes-wifi/#loading_spi_clk_is_no_good (Loading SPI_CLK is no good)
-// 1.4.37     27Feb2019         Fails since SPI_MASTER_POS==1  (I_RADIO_ANY==1).                RFM69_DRIVER_VERSION_STR "0.9.27"
-// 1.4.36     27Feb2019         Fails since SPI_MASTER_POS==1 & I_RADIO_ANY==0 (double reason). RFM69_DRIVER_VERSION_STR "0.9.27"
-// 1.4.35     27Feb2019         Fails since I_RADIO_ANY==1    (SPI_MASTER_POS=2).               RFM69_DRIVER_VERSION_STR "0.9.27"
-// 1.4.34     27Feb2019         I_RADIO_ANY==1 and SPI_MASTER_POS=2 so works. RFM69_DRIVER_VERSION_STR "0.9.27"
-// 1.4.33     26Feb2019         Works with SPI_MASTER_POS==2 in main.c but not if all scope probes are attached (But I had switcehd digital MSO GND and IRQ!)
-//                              Compiled with RFM69_DRIVER_VERSION_STR "0.9.27"
-// 1.4.32     26Feb2019         Have scoped but now no config works! So, testing older versions
-// 1.4.31     25Feb2019         spi_master_2 now in another par part in main. Did not help, but test with it for a while. At least it saved 76 bytes!
-// 1.4.30     25Feb2019         Now all i_radio-calls include ..iff_asynch versions. This version works because I_RADIO_ANY==1 uses uspi_handleSPIInterrupt
-// 1.4.29     24Feb2019 AQU=065 CLIENT_WAIT_FOR_RADIO_MAX_MS==16 detects AQU=065-like situation
-// 1.4.28     24Feb2018         Reverting to i_radio.uspi_handleSPIInterrupt
-// 1.4.27     24Feb2019         Had forgotten to pick up interruptAndParsingResult after handleSPIInterrupt_iff_trans1
-// 1.4.26     24Feb2019         Using working encrypt16_iff_asynch but handleSPIInterrupt_iff_asynch still fails even if handleSPIInterrupt_iff_trans1 works!
-// 1.4.25     23Feb2019         I_RADIO_ANY is new (to be able to test more by hand here)
-// 1.4.24     19Feb2019         TRANS_ASYNCH_WRAPPED now tested and works. But problems with shared log value. RFM69_DRIVER_VERSION_STR=0.9.18
-// 1.4.23     14Feb2019         radio_log_value 1842181E when DEBUG_FOREVER_LOOP in [[combinable]] RFM69 task is detected and display works!
-// 1.4.22     13Feb2019         radio_log_value now returned from do_sessions_trans2to3
-// 1.4.21     12Feb2019         Testing SET_SHARED_GLOBAL and GET_SHARED_GLOBAL. SCREEN_9_RADIO is new. Seems rather ok!
-// 1.4.20     11Feb2019         do_sessions_trans2to3 is now called all places inside while(1) in System_Task. RFM69_DRIVER_VERSION_STR=0.9.09
-// 1.4.19     07Feb2019         Use of get_radio_log_value and i_radio.get_radio_log_value_ptr is new
-// 1.4.18     06Feb2019         Undoing AQU=076
-// 1.4.17     06Feb2019 AQU=076 testing with code to restart, see https://www.xcore.com/viewtopic.php?f=44&t=7065
-// 1.4.16     05Feb2019         Just today's
-// 1.4.15     04Feb2019 AQU=075 Now the lib_rfm69_xc call using _trans1 starts _trans2 does any spi action and _trans3 delivers result are truly asynchronous and non-blocking
-// 1.4.14     03Feb2019 AQU=074 When NORMAL_LIGHT_IS_HALF_RANDOM_F2N light change always legal when IT_IS_DAY
-//                      AQU=073 CLIENT_ALLOW_SESSION_TYPE_TRANS is new. This should make it possible to detect AQU=065 without main loop stopping
-// 1.4.13     03Feb2019         radio_enabled when FLASH_BLACK_BOARD
-//            --------- Running from 2Feb2019
-// 1.4.12     02Feb2019         Same as below with ISAQUARIUM=1
-// 1.4.11     02Feb2019 AQU=072 radio_enabled_state is nw, and it may be set from the right button 10 seconds press
-// 1.4.10     31Jan2019         context.radio_board_fault also flushes c_irq_update
-//                              Constraints: C:8/8 T:10/9 C:32/27 M:60540 S:6732 C:47958 D:5850
-// 1.4.09     31Jan2019 AQU=071 First stable light in the day was wrong, using last element of the night-to-day table. Now a new value is calculated
-// 1.4.08     31Jan2019         Testing assert_exception. There is no rest
-//            30Jan2019 AQU=065 Same error that I have worked with below.
-//                              1.4.07 all of a sudden stoppped and beeped in the AQUARIUM box.
-//                              BLACK_BOARD was also sending at the same frequency
-//                              Unpower and power was necessary
-//                              Display was not on, so it's not IIC
-//                              Can this be interference from the radio the the SPI bus?
-//                              This has happended several times. IRQ LED is high. LED D1 (ADC) off and D2 (IRQ line seen as high) is low,
-//                              the LEDS are pulsed OK and the beeper beeds every 10 seconds. Heat id off. Main loop has stopped, obviously.
-//                              DISCUSSION: At first I guess I must be able to detect the problem, the later to fix it.
-//                              I could use the asynchronous version of spi_master_2 (the spi_master_async) but
-//                              it would not help if it's the RFM69_driver protocol that is the problem. Every call to
-//                              the latter uses is an RPC call, and if it blocks forever (in the SPI call or in some
-//                              functional call talking with the radio (but I have a timeout on all loops). See this
-//                              discussed by searching for RFM69=009 in lib_rfm69_xc. I will try to see if I have
-//                              space for another task to isolate everything with the radio, like an RFM69_driver_asynch
-//                              - I got this one when I pushed the buttons fast. Right button. But the solution burnt in 1.4.15 does not do the asynch lib_rfm60_xc calls on all calls
-//                              But then, I also get this error when the aquarium is just standing there and handling the radio
-//                              - I heard it beep, but the IRQ was still black! Then, after 1-2 seconds the IRQ lit. I had to restart. (9Feb2019)
+#define APPLICATION_VERSION_STR "1.4.44" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1444  // Is "application_version_num_t"
+// 1.4.44     03Mar2019 AQU=074a An extra test was not needed
+// 1.4.43     01Mar2019          Introduced DO_OUTOF_IRQ_GETANDCLEARERRORBITS to make the concept better explainable
+// 1.4.42     28Feb2019          SKIP_GETANDCLEARERRORBITS 2 did not help (with a new getAndClearErrorBits_ function). But moving it away with do_getAndClearErrorBits HELPED!
+// 1.4.41     28Feb2019          This is the first version that works with SPI_MASTER_POS 1. I made SKIP_GETANDCLEARERRORBITS and set it to 1.
+//                               Maybe it's that getAndClearErrorBits call that is wrong coded? Strange that no other i_radio call deadlocks!
+//                               Also observe that this is compiled with a one only client version of spi_master_2 called spi_master_3. No change, but it saved some 700 bytes
+// 1.4.40     28Feb2019          Working on a system that fails, equal to 1.4.38 with SPI_MASTER_POS 1. Deadlock on call getAndClearErrorBit after messagePacketSentOk_IRQ
+//                               Testing to see what I can do in rfm69_xc.xc 0.9.28
+// 1.4.39     28Feb2019          65368 bytes. As below but with SPI_MASTER_POS 2
+// 1.4.38     28Feb2019          65348 bytes with log! Doing prints and scope picture 52 etc. SPI_MASTER_POS 1 fails. Also see log.
+//            27Feb2019          Added a 33R in the SCK line of the RFM69 radio SPI board (the one that fits on BLACK_BOARD). This did not seem to help. Bet I kept it there,
+//                               see http://www.teigfam.net/oyvind/home/technology/143-my-xcore-200-explorerkit-notes-wifi/#loading_spi_clk_is_no_good (Loading SPI_CLK is no good)
+// 1.4.37     27Feb2019          Fails since SPI_MASTER_POS==1  (I_RADIO_ANY==1).                RFM69_DRIVER_VERSION_STR "0.9.27"
+// 1.4.36     27Feb2019          Fails since SPI_MASTER_POS==1 & I_RADIO_ANY==0 (double reason). RFM69_DRIVER_VERSION_STR "0.9.27"
+// 1.4.35     27Feb2019          Fails since I_RADIO_ANY==1    (SPI_MASTER_POS=2).               RFM69_DRIVER_VERSION_STR "0.9.27"
+// 1.4.34     27Feb2019          I_RADIO_ANY==1 and SPI_MASTER_POS=2 so works. RFM69_DRIVER_VERSION_STR "0.9.27"
+// 1.4.33     26Feb2019          Works with SPI_MASTER_POS==2 in main.c but not if all scope probes are attached (But I had switcehd digital MSO GND and IRQ!)
+//                               Compiled with RFM69_DRIVER_VERSION_STR "0.9.27"
+// 1.4.32     26Feb2019          Have scoped but now no config works! So, testing older versions
+// 1.4.31     25Feb2019          spi_master_2 now in another par part in main. Did not help, but test with it for a while. At least it saved 76 bytes!
+// 1.4.30     25Feb2019          Now all i_radio-calls include ..iff_asynch versions. This version works because I_RADIO_ANY==1 uses uspi_handleSPIInterrupt
+// 1.4.29     24Feb2019 AQU=065  CLIENT_WAIT_FOR_RADIO_MAX_MS==16 detects AQU=065-like situation
+// 1.4.28     24Feb2018          Reverting to i_radio.uspi_handleSPIInterrupt
+// 1.4.27     24Feb2019          Had forgotten to pick up interruptAndParsingResult after handleSPIInterrupt_iff_trans1
+// 1.4.26     24Feb2019          Using working encrypt16_iff_asynch but handleSPIInterrupt_iff_asynch still fails even if handleSPIInterrupt_iff_trans1 works!
+// 1.4.25     23Feb2019          I_RADIO_ANY is new (to be able to test more by hand here)
+// 1.4.24     19Feb2019          TRANS_ASYNCH_WRAPPED now tested and works. But problems with shared log value. RFM69_DRIVER_VERSION_STR=0.9.18
+// 1.4.23     14Feb2019          radio_log_value 1842181E when DEBUG_FOREVER_LOOP in [[combinable]] RFM69 task is detected and display works!
+// 1.4.22     13Feb2019          radio_log_value now returned from do_sessions_trans2to3
+// 1.4.21     12Feb2019          Testing SET_SHARED_GLOBAL and GET_SHARED_GLOBAL. SCREEN_9_RADIO is new. Seems rather ok!
+// 1.4.20     11Feb2019          do_sessions_trans2to3 is now called all places inside while(1) in System_Task. RFM69_DRIVER_VERSION_STR=0.9.09
+// 1.4.19     07Feb2019          Use of get_radio_log_value and i_radio.get_radio_log_value_ptr is new
+// 1.4.18     06Feb2019          Undoing AQU=076
+// 1.4.17     06Feb2019 AQU=076  testing with code to restart, see https://www.xcore.com/viewtopic.php?f=44&t=7065
+// 1.4.16     05Feb2019          Just today's
+// 1.4.15     04Feb2019 AQU=075  Now the lib_rfm69_xc call using _trans1 starts _trans2 does any spi action and _trans3 delivers result are truly asynchronous and non-blocking
+// 1.4.14     03Feb2019 AQU=074  When NORMAL_LIGHT_IS_HALF_RANDOM_F2N light change always legal when IT_IS_DAY
+//                      AQU=073  CLIENT_ALLOW_SESSION_TYPE_TRANS is new. This should make it possible to detect AQU=065 without main loop stopping
+// 1.4.13     03Feb2019          radio_enabled when FLASH_BLACK_BOARD
+//            --------- Running  from 2Feb2019
+// 1.4.12     02Feb2019          Same as below with ISAQUARIUM=1
+// 1.4.11     02Feb2019 AQU=072  radio_enabled_state is nw, and it may be set from the right button 10 seconds press
+// 1.4.10     31Jan2019          context.radio_board_fault also flushes c_irq_update
+//                               Constraints: C:8/8 T:10/9 C:32/27 M:60540 S:6732 C:47958 D:5850
+// 1.4.09     31Jan2019 AQU=071  First stable light in the day was wrong, using last element of the night-to-day table. Now a new value is calculated
+// 1.4.08     31Jan2019          Testing assert_exception. There is no rest
+//            30Jan2019 AQU=065  Same error that I have worked with below.
+//                               1.4.07 all of a sudden stoppped and beeped in the AQUARIUM box.
+//                               BLACK_BOARD was also sending at the same frequency
+//                               Unpower and power was necessary
+//                               Display was not on, so it's not IIC
+//                               Can this be interference from the radio the the SPI bus?
+//                               This has happended several times. IRQ LED is high. LED D1 (ADC) off and D2 (IRQ line seen as high) is low,
+//                               the LEDS are pulsed OK and the beeper beeds every 10 seconds. Heat id off. Main loop has stopped, obviously.
+//                               DISCUSSION: At first I guess I must be able to detect the problem, the later to fix it.
+//                               I could use the asynchronous version of spi_master_2 (the spi_master_async) but
+//                               it would not help if it's the RFM69_driver protocol that is the problem. Every call to
+//                               the latter uses is an RPC call, and if it blocks forever (in the SPI call or in some
+//                               functional call talking with the radio (but I have a timeout on all loops). See this
+//                               discussed by searching for RFM69=009 in lib_rfm69_xc. I will try to see if I have
+//                               space for another task to isolate everything with the radio, like an RFM69_driver_asynch
+//                               - I got this one when I pushed the buttons fast. Right button. But the solution burnt in 1.4.15 does not do the asynch lib_rfm60_xc calls on all calls
+//                               But then, I also get this error when the aquarium is just standing there and handling the radio
+//                               - I heard it beep, but the IRQ was still black! Then, after 1-2 seconds the IRQ lit. I had to restart. (9Feb2019)
 //            --------- Running from 30Jan2019
-// 1.4.07     30Jan2019         Compiled with ISAQUARIUM=1
-// 1.4.06     29Jan2019 AQU=070 trigger_hour_changed_random uses a randdom_number but we cammot reuse it!
-// 1.4.05     29Jan2019         SCREEN_8_RADIO changed, some other screen layout
-// 1.4.04     29Jan2019 AQU=069 pressed_for_10_seconds removed TODO remove the code as well, just commented out by now
-// 1.4.03     29Jan2019         NORMAL_LIGHT_IS_ONE_THIRD_F2N no random change, just low all the time
-// 1.4.02     27Jan2019         New names like LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT
-// 1.4.01     27Jan2019 AQU=068 Renumbering of light_composition_t to increasing wattage only
-//                              Making darkest random value above all light levels for UP and DOWN
-//                              Darker_Light_Composition_Iff and Brighter_Light_Composition_Iff removed
-//                              DEBUG_TEST_DAY_NIGHT_DAY removed
-//                              Get_Light_Composition -> Get_Normal_Light_Composition
-// 1.4.00     27jan2019 AQU=067 New IRQ handling function IRQ_interrupt_task by several iterations with lib_rfm69 and the EXPLORER_BOX client
-// 1.3.05     20Jan2019         irq.time_since_last_change_sec trying to fix deadlock? see in  2019 01 20 A Hang between rfm69 and aquarium-sw.jpeg  etc.
-// 1.3.04     19Jan2019 AQU=066 trigger_hour_changed data race since Handle_Light_Sunrise_Sunset_Etc only ran when light_is_stable
-//                              See  2019 01 18 B AQU=066 problem seen.txt . Comments seen in commit f1c1a01
-// 1.3.03     17Jan2019         Triggers every some three minutes every hour. Sending off .debug
-// 1.3.02     15Jan2019 AQU=064 Had forgotton to include allow_normal_light_change_by_clock in trigger_hour_changed_half_light
-// 1.3.01     15Jan2019 AQU=064 Allow for light_amount_t of half and one third
-//                              Compiled for VERSION_OF_APP_PAYLOAD_02
-// 1.2.12     12Jan2019         ISAQUARIUM to be defined in makefile to avoid header-file sequence problems
-// 1.2.11     11Jan2019         radio_sent_data_display_it is new
-// 1.2.10     09Jan2019         Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
-//                      AQU=063 Set max temp in heating compartment from 40 to 35 deg?
-//                              TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING -> TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
-//                              With 40 degC we had (from  2019 01 02-04 Log.txt )
-//                                  MAX: On: 16% @ Watt: 7 - Heater:40.9 Ambient:24.5 Water:25.1 Mean:39.7 Box:28.7
-//                                  NOW: On: 16% @ Watt: 7 - Heater:28.1 Ambient:24.4 Water:25.1 Mean:39.5 Box:28.4
-//                                  MIN: On:  0% @ Watt: 0 - Heater:24.9 Ambient:21.6 Water:24.8 Mean:25.6 Box:25.1
-//                              This probably opens for testing out 35.0 degC, also since we have had so little new leaves. But the
-//                              roots look ok, but no plant growth. Light? CO2? Too hot roots? But now I have seen one leaf now,
-//                              after 2.5 months by the plant Echinodorus 'BleheraeÕ
-// 1.2.09     09Jan2019 AQU=062 Button_Task opdated. Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
-// 1.2.08     22Nov2018 AQU=061 New light and heating regulating names of text constants. NŒ change in code size
-// 1.2.07     13Nov2018 AQU=060 Replaced  NULL  with  null  when nullable type as parameter.
-//                              See http://www.teigfam.net/oyvind/home/technology/141-xc-is-c-plus-x/#nullable_types_null_and_null
-//                              In other cases use of NULL causes  error: invalid initialization of reference for argument
-// 1.2.06     30Oct2018 AQU=059 outP_display_notReset -> p_display_notReset and parameterised. A trend to parameterise ports! COST: 200 bytes!
-// 1.2.05     19Oct2018 AQU=058 New light regime again. One 1.4W 6000K Inspired LED out and the 5W North Light 3000K in again. This was
-//                              also used Aug-Nov 2017. Still have 3.6W of 6000K left. The last regime probably was too white, it looked
-//                              like nothing but algae would grow in it!
-//                                 All names with _FRONTX_ changed by 1200,2400 or 3600 since we now have 3600 mW more on _FRONTN_:
-//                                 _2799_  + 1200  =>  _3999_    _FRONT1_
-//                                 _3882_  + 1200  =>  _5082_    _FRONT1_
-//                                 _5000_  + 3600  =>  _8600_    _FRONT3_
-//                                 _7182_  + 1200  =>  _8382_    _FRONT1_
-//                                 _7765_  + 2400  => _10165_    _FRONT2_
-//                                 _8316_  + 1200  =>  _9516_    _FRONT1_
-//                                 _9983_  + 2400  => _12383_    _FRONT2_
-//                                 _11650_ + 3600  => _15250_    _ALL_ALWAYS_ON
-//                                 _ON_ONLY_3000K  =>            _ON_ONLY_CENTER (was wrong, now more general)
-//                                 _ON_ONLY_6000K  =>            _ON_ONLY_FRONT  (more general name)
-//
-//                              8,9,27: 62360 (Cores,timers,chanends,memory)
+// 1.4.07     30Jan2019          Compiled with ISAQUARIUM=1
+// 1.4.06     29Jan2019 AQU=070  trigger_hour_changed_random uses a randdom_number but we cammot reuse it!
+// 1.4.05     29Jan2019          SCREEN_8_RADIO changed, some other screen layout
+// 1.4.04     29Jan2019 AQU=069  pressed_for_10_seconds removed TODO remove the code as well, just commented out by now
+// 1.4.03     29Jan2019          NORMAL_LIGHT_IS_ONE_THIRD_F2N no random change, just low all the time
+// 1.4.02     27Jan2019          New names like LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT
+// 1.4.01     27Jan2019 AQU=068  Renumbering of light_composition_t to increasing wattage only
+//                               Making darkest random value above all light levels for UP and DOWN
+//                               Darker_Light_Composition_Iff and Brighter_Light_Composition_Iff removed
+//                               DEBUG_TEST_DAY_NIGHT_DAY removed
+//                               Get_Light_Composition -> Get_Normal_Light_Composition
+// 1.4.00     27jan2019 AQU=067  New IRQ handling function IRQ_interrupt_task by several iterations with lib_rfm69 and the EXPLORER_BOX client
+// 1.3.05     20Jan2019          irq.time_since_last_change_sec trying to fix deadlock? see in  2019 01 20 A Hang between rfm69 and aquarium-sw.jpeg  etc.
+// 1.3.04     19Jan2019 AQU=066  trigger_hour_changed data race since Handle_Light_Sunrise_Sunset_Etc only ran when light_is_stable
+//                               See  2019 01 18 B AQU=066 problem seen.txt . Comments seen in commit f1c1a01
+// 1.3.03     17Jan2019          Triggers every some three minutes every hour. Sending off .debug
+// 1.3.02     15Jan2019 AQU=064  Had forgotton to include allow_normal_light_change_by_clock in trigger_hour_changed_half_light
+// 1.3.01     15Jan2019 AQU=064  Allow for light_amount_t of half and one third
+//                               Compiled for VERSION_OF_APP_PAYLOAD_02
+// 1.2.12     12Jan2019          ISAQUARIUM to be defined in makefile to avoid header-file sequence problems
+// 1.2.11     11Jan2019          radio_sent_data_display_it is new
+// 1.2.10     09Jan2019          Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
+//                      AQU=063  Set max temp in heating compartment from 40 to 35 deg?
+//                               TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING -> TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
+//                               With 40 degC we had (from  2019 01 02-04 Log.txt )
+//                                   MAX: On: 16% @ Watt: 7 - Heater:40.9 Ambient:24.5 Water:25.1 Mean:39.7 Box:28.7
+//                                   NOW: On: 16% @ Watt: 7 - Heater:28.1 Ambient:24.4 Water:25.1 Mean:39.5 Box:28.4
+//                                   MIN: On:  0% @ Watt: 0 - Heater:24.9 Ambient:21.6 Water:24.8 Mean:25.6 Box:25.1
+//                               This probably opens for testing out 35.0 degC, also since we have had so little new leaves. But the
+//                               roots look ok, but no plant growth. Light? CO2? Too hot roots? But now I have seen one leaf now,
+//                               after 2.5 months by the plant Echinodorus 'BleheraeÕ
+// 1.2.09     09Jan2019 AQU=062  Button_Task opdated. Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
+// 1.2.08     22Nov2018 AQU=061  New light and heating regulating names of text constants. NŒ change in code size
+// 1.2.07     13Nov2018 AQU=060  Replaced  NULL  with  null  when nullable type as parameter.
+//                               See http://www.teigfam.net/oyvind/home/technology/141-xc-is-c-plus-x/#nullable_types_null_and_null
+//                               In other cases use of NULL causes  error: invalid initialization of reference for argument
+// 1.2.06     30Oct2018 AQU=059  outP_display_notReset -> p_display_notReset and parameterised. A trend to parameterise ports! COST: 200 bytes!
+// 1.2.05     19Oct2018 AQU=058  New light regime again. One 1.4W 6000K Inspired LED out and the 5W North Light 3000K in again. This was
+//                               also used Aug-Nov 2017. Still have 3.6W of 6000K left. The last regime probably was too white, it looked
+//                               like nothing but algae would grow in it!
+//                                   All names with _FRONTX_ changed by 1200,2400 or 3600 since we now have 3600 mW more on _FRONTN_:
+//                                  _2799_  + 1200  =>  _3999_    _FRONT1_
+//                                  _3882_  + 1200  =>  _5082_    _FRONT1_
+//                                  _5000_  + 3600  =>  _8600_    _FRONT3_
+//                                  _7182_  + 1200  =>  _8382_    _FRONT1_
+//                                  _7765_  + 2400  => _10165_    _FRONT2_
+//                                  _8316_  + 1200  =>  _9516_    _FRONT1_
+//                                  _9983_  + 2400  => _12383_    _FRONT2_
+//                                  _11650_ + 3600  => _15250_    _ALL_ALWAYS_ON
+//                                  _ON_ONLY_3000K  =>            _ON_ONLY_CENTER (was wrong, now more general)
+//                                  _ON_ONLY_6000K  =>            _ON_ONLY_FRONT  (more general name)
+/
+//                               8,9,27: 62360 (Cores,timers,chanends,memory)
 // 1.2.04     15Oct2018 AQU=057 Reuse matter: chronodot_ds3231.h is new needed file to have interface and chrodot params separate
 //                      AQU=056 Reuse matter: A debug print removed in f_conversions.xc
 // 1.2.03     09Oct2018 AQU=055 Exporting strings. It even saved 120 bytes!

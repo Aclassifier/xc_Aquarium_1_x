@@ -2499,7 +2499,10 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 259 "../src/main.xc"
+# 256 "../src/main.xc"
+                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+
+
         }
         on tile[0]: {
             [[combine]]
@@ -2532,7 +2535,7 @@ int main() {
 
 
 
-                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+
 
 
             }
