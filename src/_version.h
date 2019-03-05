@@ -17,8 +17,9 @@ typedef uint16_t application_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.46" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1446  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.47" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1447  // Is "application_version_num_t"
+// 1.4.47     05Mar2019 AQU=066d Ref OK with XScope. _USERMAKEFILE_LIB_RFM69_XC_VALUE_XSCOPE is new. RFM69_DRIVER_VERSION_STR "0.9.29"
 // 1.4.46     03Mar2019 AQU=065c Going on width even more in-depth testing og AQU=065 around DO_OUTOF_IRQ_I_RADIO_CALLS
 //                               I see that DO_OUTOF_IRQ_I_RADIO_CALLS is a dead end because a tmr:>time reintroduces it.
 //                               TRANS_ASYNCH_WRAPPED==1 and CLIENT_ALLOW_SESSION_TYPE_TRANS==1 also are dead ends.

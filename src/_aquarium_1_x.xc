@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <iso646.h>
 #include <xccompat.h> // REFERENCE_PARAMs
+#include <xscope.h>
 #include "xassert.h"
 
 #include "_rfm69_commprot.h"
@@ -1910,6 +1911,8 @@ void System_Task (
     int   time;
     timer tmr;
 
+    uint irq_value_xscope = 0;
+
     unsigned                       num_notify_expexted = 0;
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
@@ -2492,6 +2495,10 @@ void System_Task (
 
             // Interrupt from radio board:
             case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+
+                xscope_int(IRQ_VALUE, irq_value_xscope);
+
+                irq_value_xscope++;
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
