@@ -2134,9 +2134,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 131 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 135 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 146 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 150 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2181,9 +2181,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 199 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 203 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 217 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 221 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2468,7 +2468,7 @@ port inP_button_right = on tile[0]: 0x10f00;
 
 
 out port p_display_notReset = on tile[0]:0x10c00;
-# 206 "../src/main.xc"
+# 207 "../src/main.xc"
 int main() {
     chan c_analogue;
 
@@ -2499,7 +2499,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 259 "../src/main.xc"
+# 260 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2519,7 +2519,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 290 "../src/main.xc"
+# 291 "../src/main.xc"
             }
         }
         on tile[0]: {

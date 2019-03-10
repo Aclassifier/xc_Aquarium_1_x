@@ -105,6 +105,24 @@
         #define DEBUG_SHARED_LOG_VALUE 0
     #endif
 
+    #ifdef _USERMAKEFILE_VALUE_XSCOPE
+        #if (_USERMAKEFILE_VALUE_XSCOPE==1)
+            #define VALUE_XSCOPE(value,new) \
+                    do {  \
+                        if ((value == new) or ((-value) == new)) { \
+                            value = (-value); \
+                        } else { \
+                            value = new; \
+                        } \
+                        xscope_int (RFM69_VALUE, value); \
+                     } while(0)
+        #else
+            #define VALUE_XSCOPE(value,new) // Empty
+        #endif
+    #else
+        #define VALUE_XSCOPE(value,new) // Empty
+    #endif
+
     // APPLICATION_VERSION_STR "1.4.29" and FM69_DRIVER_VERSION_STR "0.9.26" 24Feb2019
     //
     //#define CLIENT_WAIT_FOR_RADIO_MAX_MS 50 // FEIL? slår til. LOG 1A802AE2

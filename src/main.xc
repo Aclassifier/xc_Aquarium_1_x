@@ -201,6 +201,7 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
                          // 1 works if DO_OUTOF_IRQ_I_RADIO_CALLS
                          // 2 works, if I_RADIO_ANY==0, fails if I_RADIO_ANY==1 (but with prints I have seen it fail!)
                          // 2 works if DO_OUTOF_IRQ_I_RADIO_CALLS
+                         // 2 fails if XSCOPE variables are used, at least some times! (10Mar2019)
 #define USE_SPI_MASTER 3 // 2 or 3. No change in any behaviour no matter defines go
 
 int main() {

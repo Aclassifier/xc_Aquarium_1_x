@@ -1912,6 +1912,7 @@ void System_Task (
     timer tmr;
 
     uint irq_value_xscope = 0;
+    signed value_xscope = 0;
 
     unsigned                       num_notify_expexted = 0;
     handler_context_t              context;
@@ -2496,7 +2497,7 @@ void System_Task (
             // Interrupt from radio board:
             case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
-                xscope_int(IRQ_VALUE, irq_value_xscope);
+                //xscope_int(IRQ_VALUE, irq_value_xscope);
 
                 irq_value_xscope++;
 
@@ -2544,6 +2545,10 @@ void System_Task (
                     #else
                         nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
                         {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+
+                        // VALUE_XSCOPE(value_xscope,21818);
+                        // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-vaule is used it will not work
+                        // This was new 10Mar2019. Very strange
                     #endif
 
                     switch (interruptAndParsingResult) {
