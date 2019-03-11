@@ -107,20 +107,15 @@
 
     #ifdef _USERMAKEFILE_VALUE_XSCOPE
         #if (_USERMAKEFILE_VALUE_XSCOPE==1)
-            #define VALUE_XSCOPE(value,new) \
-                    do {  \
-                        if ((value == new) or ((-value) == new)) { \
-                            value = (-value); \
-                        } else { \
-                            value = new; \
-                        } \
-                        xscope_int (RFM69_VALUE, value); \
-                     } while(0)
+            #define VALUE_XSCOPE(name,value) do {xscope_int(name,value);} while(0)
+            #define DEBUG_XSCOPE 1
         #else
-            #define VALUE_XSCOPE(value,new) // Empty
+            #define VALUE_XSCOPE(name,value) // Empty
+            #define DEBUG_XSCOPE 0
         #endif
     #else
-        #define VALUE_XSCOPE(value,new) // Empty
+        #define VALUE_XSCOPE(name,value) // Empty
+        #define DEBUG_XSCOPE 0
     #endif
 
     // APPLICATION_VERSION_STR "1.4.29" and FM69_DRIVER_VERSION_STR "0.9.26" 24Feb2019

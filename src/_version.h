@@ -17,8 +17,9 @@ typedef uint16_t application_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.50" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1450  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.51" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1451  // Is "application_version_num_t"
+// 1.4.51     11Mar2019 AQU=065  Fixed VALUE_XSCOPE to make it more general. This code runs
 // 1.4.50     10Mar2019 AQU=065g xscope seems to destroy effect of good code with SPI_MASTER_POS 2. This code runs
 // 1.4.49     05Mar2019 AQU=065e Experimenting with return from func_handleSPIInterrupt
 // 1.4.48     05Mar2019 AQU=065d SPI_MASTER_POS 1 (was 0 below) Fails. RFM69_DRIVER_VERSION_STR "0.9.30"

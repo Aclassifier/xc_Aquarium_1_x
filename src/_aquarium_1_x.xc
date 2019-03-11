@@ -1911,8 +1911,9 @@ void System_Task (
     int   time;
     timer tmr;
 
-    uint irq_value_xscope = 0;
-    signed value_xscope = 0;
+    #if (DEBUG_XSCOPE==1)
+        uint irq_value_xscope = 0;
+    #endif
 
     unsigned                       num_notify_expexted = 0;
     handler_context_t              context;
@@ -1920,8 +1921,10 @@ void System_Task (
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
-    bool do_getAndClearErrorBits = false; // AQU=065a
-    bool do_ultimateIRQclear = false;     // AQU=065b
+    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
+        bool do_getAndClearErrorBits = false; // AQU=065a
+        bool do_ultimateIRQclear = false;     // AQU=065b
+    #endif
 
     // Radio
 
@@ -2497,9 +2500,10 @@ void System_Task (
             // Interrupt from radio board:
             case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
-                //xscope_int(IRQ_VALUE, irq_value_xscope);
-
-                irq_value_xscope++;
+                VALUE_XSCOPE (IRQ_VALUE, irq_value_xscope);
+                #if (DEBUG_XSCOPE==1)
+                    irq_value_xscope++;
+                #endif
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
@@ -2546,9 +2550,9 @@ void System_Task (
                         nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
                         {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
-                        // VALUE_XSCOPE(value_xscope,21818);
+                        VALUE_XSCOPE(RFM69_VALUE,21818);
                         // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-vaule is used it will not work
-                        // This was new 10Mar2019. Very strange
+                        // This was new 10Mar2019. Very strange. AQU=065g
                     #endif
 
                     switch (interruptAndParsingResult) {
