@@ -107,15 +107,24 @@
 
     #ifdef _USERMAKEFILE_VALUE_XSCOPE
         #if (_USERMAKEFILE_VALUE_XSCOPE==1)
-            #define VALUE_XSCOPE(name,value) do {xscope_int(name,value);} while(0)
+            #define VALUE_XSCOPE(name,value) do {xscope_core_int(name,value);} while(0) // or xscope_int
+            #define PING_XSCOPE              do {xscope_ping();} while(0)
             #define DEBUG_XSCOPE 1
-        #else
-            #define VALUE_XSCOPE(name,value) // Empty
+        #else // Empty:
+            #define VALUE_XSCOPE(name,value)
+            #define PING_XSCOPE
             #define DEBUG_XSCOPE 0
         #endif
-    #else
+    #else // Empty:
         #define VALUE_XSCOPE(name,value) // Empty
+        #define PING_XSCOPE
         #define DEBUG_XSCOPE 0
+    #endif
+
+    #ifdef _USERMAKEFILE_SPI_MASTER_POS
+        #define SPI_MASTER_POS _USERMAKEFILE_SPI_MASTER_POS
+    #else // Empty:
+        #define SPI_MASTER_POS 2
     #endif
 
     // APPLICATION_VERSION_STR "1.4.29" and FM69_DRIVER_VERSION_STR "0.9.26" 24Feb2019

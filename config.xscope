@@ -22,6 +22,6 @@
   <!-- <Probe name="ADC1" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/> -->
   <!-- <Probe name="ADC2" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/> -->
   <!-- <Probe name="ADC3" type="CONTINUOUS" datatype="INT" units="n" enabled="true"/> -->
-  <Probe name="RFM69_VALUE" type="DISCRETE" datatype="INT" units="RFM69_VALUE" enabled="true"/> 
-  <Probe name="IRQ_VALUE" type="DISCRETE" datatype="UINT" units="IRQ_VALUE" enabled="true"/> 
+  <Probe name="RFM69_VALUE" type="DISCRETE" datatype="UINT" units="RFM69_VALUE" enabled="true"/> 
+  <Probe name="IRQ_VALUE"   type="DISCRETE" datatype="UINT" units="IRQ_VALUE"   enabled="true"/> 
 </xSCOPEconfig>

@@ -1926,6 +1926,8 @@ void System_Task (
         bool do_ultimateIRQclear = false;     // AQU=065b
     #endif
 
+    VALUE_XSCOPE(RFM69_VALUE,21820); // Seen
+
     // Radio
 
     uint8_t  device_type;
@@ -2228,6 +2230,8 @@ void System_Task (
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
     }
 
+    VALUE_XSCOPE(RFM69_VALUE,21819); // Seen
+
     tmr :> time;
 
     while(1) {
@@ -2500,10 +2504,14 @@ void System_Task (
             // Interrupt from radio board:
             case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
 
-                VALUE_XSCOPE (IRQ_VALUE, irq_value_xscope);
+                PING_XSCOPE;
+                VALUE_XSCOPE (IRQ_VALUE, 999);                 // Seen, but not if PING_XSCOPE above (not consistent)
+                // VALUE_XSCOPE (IRQ_VALUE, 1000);             // Seen if the below line, that is not seen, is here:
+                // VALUE_XSCOPE (IRQ_VALUE, irq_value_xscope); // Not seen
                 #if (DEBUG_XSCOPE==1)
                     irq_value_xscope++;
                 #endif
+                VALUE_XSCOPE(RFM69_VALUE,41819); // Seen
 
                 if (context.radio_enabled_state == radio_disabled) {
                     if (irq_update == pin_still_high_timeout) {
@@ -2547,10 +2555,11 @@ void System_Task (
                         #endif
                         context.radio_log_value = context.timing_transx.radio_log_value;
                     #else
+                        VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
                         nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
                         {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
-                        VALUE_XSCOPE(RFM69_VALUE,21818);
+                        VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
                         // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-vaule is used it will not work
                         // This was new 10Mar2019. Very strange. AQU=065g
                     #endif
