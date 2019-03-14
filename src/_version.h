@@ -17,8 +17,17 @@ typedef uint16_t application_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.52" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1452  // Is "application_version_num_t"
+#define APPLICATION_VERSION_STR "1.4.53" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
+#define APPLICATION_VERSION_NUM    1453  // Is "application_version_num_t"
+// 1.4.53     14Mar2019 AQU=077a Last code before I clean up much of the tools to try to catch the xTIMEcomposer 14.3.3 tool problem. This code runs
+//            14Mar2918 AQU=077  A replacement for AQU=065?, see below. I DECIDE THAT IT IS OUT OF MY CONTROL TO FIX THIS AS IT MUST BE A PROBLEM
+//                               WITH xTIMEcomposer 14.3.3. Therefore I will clean up the code that tries try to catch AQU=077 and try to see if TRANS_ASYNCH_WRAPPED
+//                               may (after all) be a method to isolate the AQU=065 problem. And let the aquarium run with that for a while.
+//            14Mar2019 AQU=065? It is not certain that the original AQU=065 stop and the fact that the AQU=065letter entries below are the same problem!
+//                               The latter is about the fact that (on the startKIT?, some specific par placement?, some sequence?) do not seem to be able
+//                               to exit from some early i_radio.nn interface call. See llts of log and scope pictures.
+//                               However, the original AQU=065 does survive for days before a stop is seen. In both cases the SW starts to beep every
+//                               10 seconds in Port_Pins_Heat_Light_Task.
 // 1.4.52     13Mar2019          _USERMAKEFILE_SPI_MASTER_POS now defines SPI_MASTER_POS. This code runs
 // 1.4.51     11Mar2019 AQU=065  Fixed VALUE_XSCOPE to make it more general. This code runs
 // 1.4.50     10Mar2019 AQU=065g xscope seems to destroy effect of good code with SPI_MASTER_POS 2. This code runs
