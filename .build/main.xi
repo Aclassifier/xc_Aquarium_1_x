@@ -1299,7 +1299,7 @@ typedef out buffered port:32 out_buffered_port_32_t;
 
 # 1 "../src/_version.h" 1
 # 11 "../src/_version.h"
-typedef uint16_t application_version_num_t;
+typedef uint16_t aquarium_version_num_t;
 # 20 "../src/main.xc" 2
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"
@@ -1310,7 +1310,7 @@ typedef uint16_t application_version_num_t;
 # 1 "../src/_rfm69_commprot.h" 1
 # 30 "../src/_rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_r;
-typedef uint16_t application_version_num_r;
+typedef uint16_t aquarium_version_num_r;
 typedef uint16_t error_bits_r;
 typedef uint8_t heater_on_percent_r;
 typedef uint8_t heater_on_watt_r;
@@ -1355,7 +1355,7 @@ typedef struct {
     onetenthDegC_r internal_box_temp_onetenthDegC;
     onetenthVolt_r rr_24V_heat_onetenthV;
     onetenthVolt_r rr_12V_LEDlight_onetenthV;
-    application_version_num_r application_version_num;
+    aquarium_version_num_r aquarium_version_num;
     light_intensity_thirds_r light_intensity_thirds_front;
     light_intensity_thirds_r light_intensity_thirds_center;
     light_intensity_thirds_r light_intensity_thirds_back;

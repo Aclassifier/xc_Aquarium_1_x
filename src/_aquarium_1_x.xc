@@ -879,7 +879,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             sprintf_numchars = sprintf (context.display_ts1_chars,
                                "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig",
                                __DATE__,
-                               APPLICATION_VERSION_STR,
+                               AQUARIUM_VERSION_STR,
                                RFM69_DRIVER_VERSION_STR,
                                char_OE_str);
             //                                            5 BOKS  XMOS startKIT
@@ -2203,7 +2203,7 @@ void System_Task (
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
 
-    debug_print("\nSystem_Task started with v%s\n", APPLICATION_VERSION_STR);
+    debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 
     // Display matters (not internal i2c matters)
     // NEXT
@@ -2344,7 +2344,7 @@ void System_Task (
                     } else {
 
                         // No extra code as using the VALUE directly. However, more systematic in my view:
-                        const application_version_num_t application_version_num = APPLICATION_VERSION_NUM; // Using APPLICATION_VERSION_STR would have been more expensive
+                        const aquarium_version_num_t aquarium_version_num = AQUARIUM_VERSION_NUM; // Using AQUARIUM_VERSION_STR would have been more expensive
 
                         context.TX_appSeqCnt++;
 
@@ -2383,7 +2383,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.internal_box_temp_onetenthDegC     = (onetenthDegC_r)                    context.internal_box_temp_onetenthDegC;
                         TX_radio_payload.u.payload_u0.rr_24V_heat_onetenthV              = (onetenthVolt_r)                    context.rr_24V_heat_onetenthV;
                         TX_radio_payload.u.payload_u0.rr_12V_LEDlight_onetenthV          = (onetenthVolt_r)                    context.rr_12V_LEDlight_onetenthV;
-                        TX_radio_payload.u.payload_u0.application_version_num            = (application_version_num_r)         application_version_num;
+                        TX_radio_payload.u.payload_u0.aquarium_version_num               = (aquarium_version_num_r)            AQUARIUM_VERSION_NUM;
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_front       = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_FRONT];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_center      = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_CENTER];
                         TX_radio_payload.u.payload_u0.light_intensity_thirds_back        = (light_intensity_thirds_r)          context.light_intensity_thirds[IOF_LED_STRIP_BACK];

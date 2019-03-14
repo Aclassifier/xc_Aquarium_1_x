@@ -28,7 +28,7 @@
 //
 //                                                     DERIVED FROM                      DEFINED IN FILE
 typedef uint8_t  version_of_app_payload_r;          // version_of_app_payload_t          rfm69_commprot.h in lib_rfm69_xc
-typedef uint16_t application_version_num_r;         // application_version_num_t         _version.h
+typedef uint16_t aquarium_version_num_r;            // aquarium_version_num_t            _version.h
 typedef uint16_t error_bits_r;                      // error_bits_t                      _aquarium_1_x.xc
 typedef uint8_t  heater_on_percent_r;               // heater_on_percent_t               temperature_heater_task.h
 typedef uint8_t  heater_on_watt_r;                  // heater_on_watt_t                  temperature_heater_task.h
@@ -116,7 +116,7 @@ typedef struct { // Size must be modulo 4                                       
     onetenthDegC_r                    internal_box_temp_onetenthDegC;               // 21-22        light_sensor_intensity not exported
     onetenthVolt_r                    rr_24V_heat_onetenthV;                        //       23-24
     onetenthVolt_r                    rr_12V_LEDlight_onetenthV;                    // 25-26
-    application_version_num_r         application_version_num;                      //       27-28
+    aquarium_version_num_r            aquarium_version_num;                         //       27-28
     light_intensity_thirds_r          light_intensity_thirds_front;                 // 29           Since "thirds" in the name just use "3" to show "n/3"
     light_intensity_thirds_r          light_intensity_thirds_center;                //    30        --"--
     light_intensity_thirds_r          light_intensity_thirds_back;                  //       31     --"--

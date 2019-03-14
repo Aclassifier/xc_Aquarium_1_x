@@ -1493,7 +1493,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 
 # 1 "../src/_version.h" 1
 # 11 "../src/_version.h"
-typedef uint16_t application_version_num_t;
+typedef uint16_t aquarium_version_num_t;
 # 24 "../src/f_conversions.xc" 2
 # 1 "../src/_globals.h" 1
 # 13 "../src/_globals.h"

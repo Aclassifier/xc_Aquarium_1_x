@@ -8,7 +8,7 @@
 #ifndef VERSION_H_
 #define VERSION_H_
 
-typedef uint16_t application_version_num_t;
+typedef uint16_t aquarium_version_num_t;
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
@@ -17,10 +17,15 @@ typedef uint16_t application_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define APPLICATION_VERSION_STR "1.4.53" // Always use "X.Y.NN" since we introduced APPLICATION_VERSION_NUM:
-#define APPLICATION_VERSION_NUM    1453  // Is "application_version_num_t"
+#define AQUARIUM_VERSION_STR "1.4.54" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1454  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.54     14Mar2019          Just rename of
+//                               APPLICATION_VERSION_STR   -> AQUARIUM_VERSION_STR
+//                               APPLICATION_VERSION_NUM   -> AQUARIUM_VERSION_NUM
+//                               application_version_num_t -> aquarium_version_num_t
+//                               application_version_num_r -> aquarium_version_num_r
 // 1.4.53     14Mar2019 AQU=077a Last code before I clean up much of the tools to try to catch the xTIMEcomposer 14.3.3 tool problem. This code runs
-//            14Mar2918 AQU=077  A replacement for AQU=065?, see below. I DECIDE THAT IT IS OUT OF MY CONTROL TO FIX THIS AS IT MUST BE A PROBLEM
+//            14Mar2019 AQU=077  A replacement for AQU=065?, see below. I DECIDE THAT IT IS OUT OF MY CONTROL TO FIX THIS AS IT MUST BE A PROBLEM
 //                               WITH xTIMEcomposer 14.3.3. Therefore I will clean up the code that tries try to catch AQU=077 and try to see if TRANS_ASYNCH_WRAPPED
 //                               may (after all) be a method to isolate the AQU=065 problem. And let the aquarium run with that for a while.
 //            14Mar2019 AQU=065? It is not certain that the original AQU=065 stop and the fact that the AQU=065letter entries below are the same problem!
