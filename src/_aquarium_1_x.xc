@@ -1926,6 +1926,10 @@ void System_Task (
         bool do_ultimateIRQclear = false;     // AQU=065b
     #endif
 
+    #if (USE_GUARD_ON_IRQ_UPDATE==1)
+        bool guard_on_irq_update = false;
+    #endif
+
     VALUE_XSCOPE(RFM69_VALUE,21820); // Seen
 
     // Radio
@@ -2502,8 +2506,15 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            case c_irq_update :> irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
-
+            #if (USE_GUARD_ON_IRQ_UPDATE==1)
+                case guard_on_irq_update => c_irq_update :> irq_update : // No guard with (not context.radio_board_fault) here, not necessary
+            #else
+                case c_irq_update :> irq_update : // No guard with (not context.radio_board_fault) here, not necessary
+            #endif
+            {
+                #if (USE_GUARD_ON_IRQ_UPDATE==1)
+                    guard_on_irq_update = false;
+                #endif
                 PING_XSCOPE;
                 VALUE_XSCOPE (IRQ_VALUE, 999);                 // Seen, but not if PING_XSCOPE above (not consistent)
                 // VALUE_XSCOPE (IRQ_VALUE, 1000);             // Seen if the below line, that is not seen, is here:
@@ -2560,7 +2571,7 @@ void System_Task (
                         {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
                         VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
-                        // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-vaule is used it will not work
+                        // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
                         // This was new 10Mar2019. Very strange. AQU=065g
                     #endif
 
@@ -2655,6 +2666,10 @@ void System_Task (
                 if (context.radio_enabled_state == radio_disabled_pending) {
                     context.radio_enabled_state = radio_disabled;
                 } else {}
+
+                #if (USE_GUARD_ON_IRQ_UPDATE==1)
+                    guard_on_irq_update = true;
+                #endif
             } break;
         }
     }

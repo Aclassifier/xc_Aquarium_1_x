@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.54" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1454  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.55" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1455  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.55     21Mar2019          TEST_VECTOR_WORKS A. With RFM69_DRIVER_VERSION_STR "0.9.36". This code runs
 // 1.4.54     14Mar2019          Just rename of
 //                               APPLICATION_VERSION_STR   -> AQUARIUM_VERSION_STR
 //                               APPLICATION_VERSION_NUM   -> AQUARIUM_VERSION_NUM

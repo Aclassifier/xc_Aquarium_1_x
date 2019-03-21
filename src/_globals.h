@@ -110,6 +110,7 @@
             #define VALUE_XSCOPE(name,value) do {xscope_core_int(name,value);} while(0) // or xscope_int
             #define PING_XSCOPE              do {xscope_ping();} while(0)
             #define DEBUG_XSCOPE 1
+#warning 1
         #else // Empty:
             #define VALUE_XSCOPE(name,value)
             #define PING_XSCOPE
@@ -119,6 +120,12 @@
         #define VALUE_XSCOPE(name,value) // Empty
         #define PING_XSCOPE
         #define DEBUG_XSCOPE 0
+    #endif
+
+    #ifdef _USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE
+       #define USE_GUARD_ON_IRQ_UPDATE _USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE
+    #else // Empty:
+        #define USE_GUARD_ON_IRQ_UPDATE 0
     #endif
 
     #ifdef _USERMAKEFILE_SPI_MASTER_POS

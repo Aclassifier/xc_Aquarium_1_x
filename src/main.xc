@@ -204,7 +204,7 @@ out port p_display_notReset = on tile[0]:XS1_PORT_1M; // I_NRES RES at startKIT 
 //     2 works if DO_OUTOF_IRQ_I_RADIO_CALLS
 //     2 fails if XSCOPE variables are used, at least some times! (10Mar2019)
 #if (not ((SPI_MASTER_POS==1) or (SPI_MASTER_POS==2)))
-    #error Must be 2 or 3
+    #error Must be 1 or 2
 #endif
 
 #define USE_SPI_MASTER 3 // 2 or 3. No change in any behaviour no matter defines go
