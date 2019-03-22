@@ -2105,7 +2105,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 163 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2114,13 +2114,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 179 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 185 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 201 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 207 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2134,9 +2134,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 139 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 140 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 154 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 155 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2181,9 +2181,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 207 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 208 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 225 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 226 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2573,10 +2573,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 262 "../src/main.xc"
-                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
-
-
+# 265 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2609,7 +2606,7 @@ int main() {
 
 
 
-
+                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
 
 
             }

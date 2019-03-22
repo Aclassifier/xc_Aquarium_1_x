@@ -1927,7 +1927,10 @@ void System_Task (
     #endif
 
     #if (USE_GUARD_ON_IRQ_UPDATE==1)
-        bool guard_on_irq_update = false;
+        bool guard_on_irq_update = false; // This guard is completely meaningless since it's alwasy true at the used select.
+                                          // But when I fight with a deadlock that may perhaps be because of xTIMEcomposer 14.3.3 I must try everything
+                                          // That being said, with this guard used I did see a case where a working example failed,
+                                          // but it did not remove the deadlock
     #endif
 
     VALUE_XSCOPE(RFM69_VALUE,21820); // Seen

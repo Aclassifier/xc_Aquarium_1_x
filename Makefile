@@ -25,24 +25,28 @@ XCC_FLAGS = -Os -g -fxscope -save-temps -DMYTARGET=STARKIT -DISMASTER=1 -DISAQUA
 XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08=40         #
 XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_PRINT_GLOBAL=0     #
 XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_RADIO_IF_READALLREGS=0   #
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_USER=2                   # 2 2 2 2 2 2
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_I_RADIO_ANY=0            # 0 0 0 0 0 0
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_TRANS=1                  # 0 0 1 1 1 1
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_TRANS_ASYNCH_WRAPPED=1   # 0 0 0 0 1 1 
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE=0 # 1 0 0 0 0 0
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_FOREVER_LOOP=0     # 0 0 0 0 0 0
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_VALUE_XSCOPE=0           # 0 0 0 0 0 0
-XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_STRETCH_IRQ=1            # 0 0 0 0 0 1
-XCC_FLAGS += -D_USERMAKEFILE_VALUE_XSCOPE=0                        # 0 0 0 0 0 0
-XCC_FLAGS += -D_USERMAKEFILE_SPI_MASTER_POS=1                      # 2 2 2 1 1 1
-XCC_FLAGS += -D_USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE=0             # 0 0 0 0 0 0
-#                                                LAST COMMIT       #           X
-#                                                TEST_VECTOR_WORKS # A B  
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_USER=2                   # 2 2 2 2 2 2 2 2
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_I_RADIO_ANY=0            # 0 0 0 0 0 0 0 0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_TRANS=1                  # 0 0 1 1 1 1 1 1
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_TRANS_ASYNCH_WRAPPED=1   # 0 0 0 0 1 1 0 1
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_SHARED_LOG_VALUE=0 # 1 0 0 0 0 0 0 0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_DEBUG_FOREVER_LOOP=0     # 0 0 0 0 0 0 0 0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_VALUE_XSCOPE=0           # 0 0 0 0 0 0 0 0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_STRETCH_IRQ=0            # 0 0 0 0 0 1 0 0
+XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND=1            # 0 0 0 0 0 0 1 1
+XCC_FLAGS += -D_USERMAKEFILE_VALUE_XSCOPE=0                        # 0 0 0 0 0 0 0 0
+XCC_FLAGS += -D_USERMAKEFILE_SPI_MASTER_POS=2                      # 2 2 2 1 1 1 2 2
+XCC_FLAGS += -D_USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE=0             # 0 0 0 0 0 0 0 0
+#                                                LAST COMMIT       #               X
+#                                                LAST_COMPILE      #               X
+#                                                TEST_VECTOR_WORKS # A B         
 #                                                TEST_VECTOR_FAILS #     C D E
 #                                                TEST_VECTOR_OK_1  #           F
+#                                                TEST_VECTOR_OK_2  #             G H
 # WORKS means sends every 4 seconds
 # FAILS means that one sending only, then it does not return from RFM69_driver and IRQ_interrupt_task deadlocks/hangs on with System_Task  
-# OK_1  means sends every 4 seconds but IRQ is high and low 2 seconds at a time
+# OK_1  means sends every 4 seconds but IRQ is high and low 2 seconds at a time because of another register handling
+# OK_2  means that the IRQ is not handled, but since we don't listen on anything, then it's OK. The IRQ line will stay high most of the time
     
 endif
 

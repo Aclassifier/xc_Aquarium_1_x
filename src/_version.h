@@ -17,8 +17,11 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.56" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1456  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.57" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1457  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.57     22Mar2019          _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND=1. TEST_VECTOR_OK_2 H. This code runs, with IRQ high most of the time.
+//                               RFM69_DRIVER_VERSION_STR "0.9.37". See scope picture ..SDS00064.png
+//                               Constraints: C:8/8 T:10/9 C:32/28 M:62516 S:6748 C:49834 D:5934
 // 1.4.56     21Mar2019          TEST_VECTOR_OK_1 F. This code runs
 // 1.4.55     21Mar2019          TEST_VECTOR_WORKS A. With RFM69_DRIVER_VERSION_STR "0.9.36". This code runs. FLASHED
 // 1.4.54     14Mar2019          Just rename of
@@ -90,7 +93,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.13     03Feb2019          radio_enabled when FLASH_BLACK_BOARD
 //            --------- Running  from 2Feb2019
 // 1.4.12     02Feb2019          Same as below with ISAQUARIUM=1
-// 1.4.11     02Feb2019 AQU=072  radio_enabled_state is nw, and it may be set from the right button 10 seconds press
+// 1.4.11     02Feb2019 AQU=072  radio_enabled_state is new, and it may be set from the right button 10 seconds press
 // 1.4.10     31Jan2019          context.radio_board_fault also flushes c_irq_update
 //                               Constraints: C:8/8 T:10/9 C:32/27 M:60540 S:6732 C:47958 D:5850
 // 1.4.09     31Jan2019 AQU=071  First stable light in the day was wrong, using last element of the night-to-day table. Now a new value is calculated
@@ -175,7 +178,7 @@ typedef uint16_t aquarium_version_num_t;
 //            --------- Running from 06Oct2018 to 30Jan2019
 // 1.2.00     06Oct2018         Diffed with  1.1.4 . VERSION_OF_APP_PAYLOAD_01 is 1
 //                              Linked with lib_rfm69_xc  0.8.0  of 08Aug2018
-// TODO       17Jan2019 AQU=065 1.2.00 all of a sudden stoppped. It beeped every like 5 secs. No buttons, display or radio. Power off/on ok
+//            17Jan2019 AQU=065 1.2.00 all of a sudden stoppped. It beeped every like 5 secs. No buttons, display or radio. Power off/on ok
 //                              I was working with BLACK_BAORD that I restarted, so that it would send full power for some ms
 //                              Was this the problem? Is SPI asynch?
 //                              Happened again on 19Jan2019, when BLACK_BOARD was also sending. A beep every 10 seconds.
