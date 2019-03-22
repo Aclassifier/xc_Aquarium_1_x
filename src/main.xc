@@ -299,8 +299,13 @@ int main() {
 
             [[combine]]
             par {
-                RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);             // [[combinable]] now
-                IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
+                RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);         // [[combinable]] now
+                #if (NO_IRQ_SEND==1)
+                    IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
+                #else
+                    IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
+                #endif
+
                 #if (SPI_MASTER_POS==2)
                     #if (USE_SPI_MASTER==2)
                         spi_master_2 (i_spi, NUM_SPI_CLIENT_USERS, p_sclk, p_mosi, p_miso, SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins, NUM_SPI_CS_SETS);

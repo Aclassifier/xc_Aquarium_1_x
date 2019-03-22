@@ -17,8 +17,13 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.58" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1458  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.59" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1459  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.59     22Mar2019          Now NO_IRQ_SEND==1 sets IRQ_interrupt_task first param c_irq_update to null, looks better
+//            22Mar2019 AQU=077b From TEST_VECTOR_OK_2 I now see that the problem IS a deadlock that MUST be because of some xTIMEcomposer 14.3.3
+//                               code generation, that seems to be present in the startKIT code only. And since this code is never going to read radio RX
+//                               I could just drop reading the IRQ channel. Everything works well without. However, it would be nice to see the LED blink on
+//                               instead of blinking off. I must think..
 // 1.4.58     22Mar2019          NO_IRQ_SEND=1 I now do radio interrupt handling off-line, every second. This causes the IRQ LED
 //                               to lit for 1 second and then off for 3 seconds. See See scope picture ..SDS00066.png
 // 1.4.57     22Mar2019          _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND=1. TEST_VECTOR_OK_2 H. This code runs, with IRQ high most of the time.

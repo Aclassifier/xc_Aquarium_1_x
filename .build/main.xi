@@ -2105,7 +2105,7 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 163 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2114,13 +2114,13 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 185 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 179 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 207 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 201 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
@@ -2134,9 +2134,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 140 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 141 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 155 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 156 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2181,9 +2181,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 208 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 209 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 226 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 227 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2487,7 +2487,7 @@ void RFM69_driver (
 
 [[combinable]]
 void IRQ_interrupt_task (
-                chanend c_irq_update,
+                chanend ?c_irq_update,
                 in port p_irq,
                 probe_pins_t &?p_probe,
          const unsigned irq_high_max_time_ms
@@ -2604,14 +2604,9 @@ int main() {
             [[combine]]
             par {
                 RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
-                IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, 2000);
 
-
-
-
-
-
-
+                    IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, 2000);
+# 316 "../src/main.xc"
             }
         }
     }
