@@ -134,6 +134,12 @@
         #define SPI_MASTER_POS 2
     #endif
 
+    #ifdef _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND
+        #define NO_IRQ_SEND _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND
+    #else
+        #define NO_IRQ_SEND 0
+    #endif
+
     // APPLICATION_VERSION_STR "1.4.29" and FM69_DRIVER_VERSION_STR "0.9.26" 24Feb2019
     //
     //#define CLIENT_WAIT_FOR_RADIO_MAX_MS 50 // FEIL? slår til. LOG 1A802AE2

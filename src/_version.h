@@ -17,8 +17,10 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.57" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1457  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.58" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1458  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.58     22Mar2019          NO_IRQ_SEND=1 I now do radio interrupt handling off-line, every second. This causes the IRQ LED
+//                               to lit for 1 second and then off for 3 seconds. See See scope picture ..SDS00066.png
 // 1.4.57     22Mar2019          _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND=1. TEST_VECTOR_OK_2 H. This code runs, with IRQ high most of the time.
 //                               RFM69_DRIVER_VERSION_STR "0.9.37". See scope picture ..SDS00064.png
 //                               Constraints: C:8/8 T:10/9 C:32/28 M:62516 S:6748 C:49834 D:5934

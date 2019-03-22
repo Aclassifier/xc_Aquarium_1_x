@@ -235,6 +235,7 @@ typedef enum error_bits_t {
 //
 // handler_context_t
 typedef enum { radio_enabled, radio_disabled_pending, radio_disabled } radio_enabled_state_e; // Coding depending on this being three cases only!
+typedef enum { send_idle, send, sent } radio_send_data_e;
 
 typedef struct handler_context_t {
     display_appear_state_t      display_appear_state;
@@ -282,7 +283,7 @@ typedef struct handler_context_t {
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
     bool                        radio_board_fault;
-    bool                        radio_send_data;
+    radio_send_data_e           radio_send_data;
     bool                        radio_sent_data_display_it;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
     unsigned                    radio_log_value; // Independent of DEBUG_SHARED_LOG_VALUE
@@ -1601,7 +1602,9 @@ void System_Task_Data_Handler (
             } else {}
 
             // Regularly after init
-            context.radio_send_data = ((context.datetime.second % MY_RFM69_REPEAT_SEND_EVERY_SEC) == 0);
+            if ((context.datetime.second % MY_RFM69_REPEAT_SEND_EVERY_SEC) == 0) {
+                context.radio_send_data = send;
+            } else {}
         }
     } else {} // Must just wait until internal I2C works!
 
@@ -1999,7 +2002,7 @@ void System_Task (
             (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
 
     context.radio_board_fault            = false;
-    context.radio_send_data              = false;
+    context.radio_send_data              = send_idle;
     context.radio_sent_data_display_it   = false;
     context.RX_messageNotForThisNode_cnt = 0;
     context.TX_appSeqCnt                 = 0;
@@ -2251,6 +2254,55 @@ void System_Task (
         #endif
         select {
             case tmr when timerafter(time) :> void: {
+
+                if (context.radio_send_data == sent) {
+                    context.radio_send_data = send_idle;
+                    #if (NO_IRQ_SEND==1)
+                        packet_t                    RX_PACKET_U;
+                        int16_t                     nowRSSI;
+                        interruptAndParsingResult_e interruptAndParsingResult;
+
+                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                            // FIRST ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+
+                            #if (TRANS_ASYNCH_WRAPPED==1)
+                                nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF);
+                            #else
+                                context.timing_transx.start_time_trans1 = readRSSI_dBm_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, FORCETRIGGER_OFF);
+                                //MUST be run now:
+                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                                nowRSSI = context.return_trans3.u_out.rssi_dBm;
+                            #endif
+                            context.radio_log_value = context.timing_transx.radio_log_value;
+
+                            // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+
+                            #if (I_RADIO_ANY==1)
+                                {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                            #elif (TRANS_ASYNCH_WRAPPED==1)
+                                interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
+                            #else
+                                context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); // FAILS on startKIT, ok on eXplorerKIT
+                                // MUST be run now:
+                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+
+                                some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
+                                RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
+                                interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
+                            #endif
+                            context.radio_log_value = context.timing_transx.radio_log_value;
+                        #else
+                            VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
+                            nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
+                            {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+
+                            VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
+                            // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
+                            // This was new 10Mar2019. Very strange. AQU=065g
+                        #endif
+                    #endif
+                } else {}
+
                 // Once per second
 
                 unsigned read_reg;
@@ -2342,8 +2394,7 @@ void System_Task (
                      light_sunrise_sunset_context,
                      i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
 
-                if (context.radio_send_data) {
-                    context.radio_send_data = false;
+                if (context.radio_send_data == send) {
                     if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
                         // No code
                     } else if (context.radio_board_fault) {
@@ -2466,6 +2517,8 @@ void System_Task (
                         } else {
                             debug_print_y ("TX %u\n", context.TX_appSeqCnt);
                         }
+
+                        context.radio_send_data = sent;
                     }
                 }
             } break;
