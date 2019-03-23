@@ -2505,8 +2505,11 @@ extern void System_Task (
     client temperature_water_commands_if i_temperature_water_commands,
     out port p_display_notReset,
     server button_if i_button_in[3],
-            chanend c_irq_update,
-    client radio_if_t i_radio);
+    client radio_if_t i_radio,
+
+    chanend ?c_irq_update,
+    in port ?p_irq,
+    probe_pins_t &?p_probe);
 # 50 "../src/main.xc" 2
 # 74 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
@@ -2549,7 +2552,6 @@ int main() {
     button_if i_buttons[3];
     spi_master_if i_spi [1];
     radio_if_t i_radio;
-    chan c_irq_update;
     i2c_external_commands_if i_i2c_external_commands [2];
     i2c_internal_commands_if i_i2c_internal_commands [1];
     startkit_adc_acquire_if i_startkit_adc_acquire;
@@ -2558,22 +2560,29 @@ int main() {
     temperature_heater_commands_if i_temperature_heater_commands[2];
     temperature_water_commands_if i_temperature_water_commands;
 
+
+
+
+
     par {
         on tile[0]: installExceptionHandler();
         par {
                         startkit_adc (c_analogue);
             on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands,
                                               1000);
-            on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0],
-                                              i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
-                                              i_temperature_heater_commands[0], i_temperature_water_commands,
-                                              p_display_notReset,
-                                              i_buttons, c_irq_update, i_radio);
+# 245 "../src/main.xc"
+                on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0],
+                                         i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
+                                         i_temperature_heater_commands[0], i_temperature_water_commands,
+                                         p_display_notReset,
+                                         i_buttons,
+                                         i_radio, null, p_spi_irq, probe_led_d2);
+
             on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 262 "../src/main.xc"
+# 276 "../src/main.xc"
                     on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
 
 
@@ -2596,7 +2605,7 @@ int main() {
                                            i_port_heat_light_commands[1]);
                 Temperature_Water_Task (i_temperature_water_commands,
                                            i_temperature_heater_commands[1]);
-# 296 "../src/main.xc"
+# 310 "../src/main.xc"
             }
         }
         on tile[0]: {
@@ -2604,9 +2613,7 @@ int main() {
             [[combine]]
             par {
                 RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
-
-                    IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, 2000);
-# 316 "../src/main.xc"
+# 332 "../src/main.xc"
             }
         }
     }

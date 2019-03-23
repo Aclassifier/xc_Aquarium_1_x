@@ -122,12 +122,6 @@
         #define DEBUG_XSCOPE 0
     #endif
 
-    #ifdef _USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE
-       #define USE_GUARD_ON_IRQ_UPDATE _USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE
-    #else // Empty:
-        #define USE_GUARD_ON_IRQ_UPDATE 0
-    #endif
-
     #ifdef _USERMAKEFILE_SPI_MASTER_POS
         #define SPI_MASTER_POS _USERMAKEFILE_SPI_MASTER_POS
     #else // Empty:
@@ -138,6 +132,12 @@
         #define NO_IRQ_SEND _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND
     #else
         #define NO_IRQ_SEND 0
+    #endif
+
+    #ifdef _USERMAKEFILE_LOCAL_IRQ_PORT_HANDLING
+        #define LOCAL_IRQ_PORT_HANDLING _USERMAKEFILE_LOCAL_IRQ_PORT_HANDLING
+    #else
+        #define LOCAL_IRQ_PORT_HANDLING 0
     #endif
 
     // APPLICATION_VERSION_STR "1.4.29" and FM69_DRIVER_VERSION_STR "0.9.26" 24Feb2019
@@ -154,7 +154,5 @@
     #define SKIP_GETANDCLEARERRORBITS 0 // 0 and SPI_MASTER_POS 1 fails
                                         // 1 and SPI_MASTER_POS 1 works
                                         // 2 and SPI_MASTER_POS 1 fails INTERESTING!
-
-    #define DO_OUTOF_IRQ_I_RADIO_CALLS 0
 
 #endif /* GLOBALS_H_ */

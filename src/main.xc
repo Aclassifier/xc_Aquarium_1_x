@@ -215,7 +215,6 @@ int main() {
     button_if                      i_buttons[BUTTONS_NUM_CLIENTS];
     spi_master_if                  i_spi    [NUM_SPI_CLIENT_USERS];
     radio_if_t                     i_radio;
-    chan                           c_irq_update; // AQU=067
     i2c_external_commands_if       i_i2c_external_commands [I2C_EXTERNAL_NUM_CLIENTS];
     i2c_internal_commands_if       i_i2c_internal_commands [I2C_INTERNAL_NUM_CLIENTS];
     startkit_adc_acquire_if        i_startkit_adc_acquire;
@@ -224,17 +223,32 @@ int main() {
     temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
     temperature_water_commands_if  i_temperature_water_commands;
 
+    #if (LOCAL_IRQ_PORT_HANDLING==0)
+        chan c_irq_update; // AQU=067
+    #endif
+
     par {
         on tile[0]: installExceptionHandler();
         par {
                         startkit_adc         (c_analogue);                                            // Is none since a "service"/hardware
             on tile[0]: My_startKIT_ADC_Task (i_startkit_adc_acquire, i_lib_startkit_adc_commands,    // Is none since contains a nested select
                                               NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
-            on tile[0]: System_Task          (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
-                                              i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
-                                              i_temperature_heater_commands[0], i_temperature_water_commands,
-                                              p_display_notReset,
-                                              i_buttons, c_irq_update, i_radio);
+
+            #if (LOCAL_IRQ_PORT_HANDLING==0)
+                on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
+                                         i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
+                                         i_temperature_heater_commands[0], i_temperature_water_commands,
+                                         p_display_notReset,
+                                         i_buttons,
+                                         i_radio, c_irq_update, null, null);
+            #elif (LOCAL_IRQ_PORT_HANDLING==1)
+                on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
+                                         i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
+                                         i_temperature_heater_commands[0], i_temperature_water_commands,
+                                         p_display_notReset,
+                                         i_buttons,
+                                         i_radio, null, p_spi_irq, probe_led_d2);
+            #endif
             on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
                                               ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
             #if (PORT_PINS_HEAT_LIGHT_TASK_COMBINABLE==0)
@@ -300,7 +314,9 @@ int main() {
             [[combine]]
             par {
                 RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);         // [[combinable]] now
-                #if (NO_IRQ_SEND==1)
+                #if (LOCAL_IRQ_PORT_HANDLING!=0)
+                    // IRQ_interrupt_task is not started
+                #elif (NO_IRQ_SEND==1)
                     IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
                 #else
                     IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]

@@ -22,7 +22,10 @@ extern void System_Task (
     client  temperature_water_commands_if  i_temperature_water_commands,
     out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
-            chanend                        c_irq_update,
-    client  radio_if_t                     i_radio);
+    client  radio_if_t                     i_radio,
+                                                          // #### #### configurations
+    chanend                                ?c_irq_update, // used null from task that handles interrupt pin
+    in port                                ?p_irq,        // null used interrupt pin
+    probe_pins_t                           &?p_probe);    // null used LED and scope test pin
 
 #endif /* AQUARIUM_H_ */

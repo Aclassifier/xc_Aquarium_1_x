@@ -287,6 +287,9 @@ typedef struct handler_context_t {
     bool                        radio_sent_data_display_it;
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
     unsigned                    radio_log_value; // Independent of DEBUG_SHARED_LOG_VALUE
+    is_error_e                  is_new_error;
+    irq_update_e                irq_update;
+    some_rfm69_internals_t      some_rfm69_internals;
 
     #ifdef DEBUG_TEST_WATCHDOG
         bool do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
@@ -296,6 +299,11 @@ typedef struct handler_context_t {
         timing_transx_t timing_transx;
         return_trans3_t return_trans3;
     #endif
+
+    #if (DEBUG_XSCOPE==1)
+        uint irq_value_xscope;
+    #endif
+
 } handler_context_t;
 
 
@@ -1877,6 +1885,146 @@ void System_Task_Data_Handler (
 
     //
 }
+
+
+void radio_irq_handler (
+        client  radio_if_t        i_radio,
+                handler_context_t &context)
+{
+    PING_XSCOPE;
+    VALUE_XSCOPE (IRQ_VALUE, 999);                         // Seen, but not if PING_XSCOPE above (not consistent)
+    // VALUE_XSCOPE (IRQ_VALUE, 1000);                     // Seen if the below line, that is not seen, is here:
+    // VALUE_XSCOPE (IRQ_VALUE, context.irq_value_xscope); // Not seen
+    #if (DEBUG_XSCOPE==1)
+        context.irq_value_xscope++;
+    #endif
+    VALUE_XSCOPE(RFM69_VALUE,41819); // Seen
+
+    if (context.radio_enabled_state == radio_disabled) {
+        if (context.irq_update == pin_still_high_timeout) {
+            context.ultimateIRQclearCnt++; // Only the count, not to do any i_radio call
+        } else {}
+    // radio_enabled or radio_disabled_pending:
+    } else if (context.radio_board_fault) {
+        // No code. If no board then this pin is high by HW design. Don't use i_radio
+    } else if (context.irq_update == pin_gone_high) {
+        packet_t                    RX_PACKET_U;
+        int16_t                     nowRSSI;
+        interruptAndParsingResult_e interruptAndParsingResult;
+
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+            // FIRST ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+
+            #if (TRANS_ASYNCH_WRAPPED==1)
+                nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF);
+            #else
+                context.timing_transx.start_time_trans1 = readRSSI_dBm_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, FORCETRIGGER_OFF);
+                //MUST be run now:
+                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                nowRSSI = context.return_trans3.u_out.rssi_dBm;
+            #endif
+            context.radio_log_value = context.timing_transx.radio_log_value;
+
+            // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+
+            #if (I_RADIO_ANY==1)
+                {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+            #elif (TRANS_ASYNCH_WRAPPED==1)
+                interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, context.some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
+            #else
+                context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); // FAILS on startKIT, ok on eXplorerKIT
+                // MUST be run now:
+                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+
+                context.some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
+                RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
+                interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
+            #endif
+            context.radio_log_value = context.timing_transx.radio_log_value;
+        #else
+            VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
+            nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
+            {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+
+            VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
+            // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
+            // This was new 10Mar2019. Very strange. AQU=065g
+        #endif
+
+        switch (interruptAndParsingResult) {
+            case messageReceivedOk_IRQ: {
+                // // Ignoring return value:
+                #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+                    // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+                    #if (TRANS_ASYNCH_WRAPPED==1)
+                        receiveDone_iff_asynch (i_radio, context.timing_transx);
+                    #else
+                        context.timing_transx.start_time_trans1 = receiveDone_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
+                        // MUST be run now:
+                        do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+                    #endif
+                    context.radio_log_value = context.timing_transx.radio_log_value;
+
+                #else
+                    i_radio.uspi_receiveDone(); // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
+                #endif
+            } break;
+
+            case messagePacketSentOk_IRQ: // AQU=065 comes in here
+            case messagePacketSentOk2_IRQ: {
+                context.radio_sent_data_display_it = true;
+            } break;
+
+            case messageNotForThisNode_IRQ: {
+                context.RX_messageNotForThisNode_cnt++; // If AQUARIUM probably from BLACK_BOARD and vice versa
+            } break;
+
+            default: {
+
+            } break;
+        }
+
+        // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
+
+        #if (SKIP_GETANDCLEARERRORBITS==1)
+            // No code
+        #elif (SKIP_GETANDCLEARERRORBITS==2)
+            error_t return_error;
+            return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
+            context.some_rfm69_internals.error_bits = return_error.error_bits;
+            context.is_new_error            = return_error.is_error;
+        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+            // SYNC CALL IF NOT TIMED OUT
+            getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+        #else
+            debug_print_x ("%s\n", "BEF4");
+            i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+        #endif
+
+    } else if (context.irq_update == pin_gone_low) {
+        // No cod
+    } else if (context.irq_update == pin_still_high_timeout) {
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+            // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
+            #if (TRANS_ASYNCH_WRAPPED==1)
+                ultimateIRQclear_iff_asynch (i_radio, context.timing_transx);
+            #else
+                context.timing_transx.start_time_trans1 = ultimateIRQclear_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
+                // MUST be run now:
+                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
+            #endif
+            context.radio_log_value = context.timing_transx.radio_log_value;
+        #else
+           i_radio.uspi_ultimateIRQclear();
+        #endif
+        context.ultimateIRQclearCnt++;
+    } else {} // Never here
+
+    if (context.radio_enabled_state == radio_disabled_pending) {
+        context.radio_enabled_state = radio_disabled;
+    } else {}
+}
+
 //
 // System_Task
 
@@ -1907,33 +2055,28 @@ void System_Task (
     client  temperature_water_commands_if  i_temperature_water_commands,
     out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
-            chanend                        c_irq_update,
-    client  radio_if_t                     i_radio)
+    client  radio_if_t                     i_radio,
+                                                          // #### #### configurations
+    chanend                                ?c_irq_update, // used null from task that handles interrupt pin
+    in port                                ?p_irq,        // null used interrupt pin
+    probe_pins_t                           &?p_probe)     // null used LED and scope test pin
 {
     // Time keeping
     int   time;
     timer tmr;
 
-    #if (DEBUG_XSCOPE==1)
-        uint irq_value_xscope = 0;
-    #endif
-
-    unsigned                       num_notify_expexted = 0;
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
+    unsigned                       num_notify_expexted = 0;
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
-    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-        bool do_getAndClearErrorBits = false; // AQU=065a
-        bool do_ultimateIRQclear = false;     // AQU=065b
+    #if (DEBUG_XSCOPE==1)
+        context.irq_value_xscope = 0;
     #endif
 
-    #if (USE_GUARD_ON_IRQ_UPDATE==1)
-        bool guard_on_irq_update = false; // This guard is completely meaningless since it's alwasy true at the used select.
-                                          // But when I fight with a deadlock that may perhaps be because of xTIMEcomposer 14.3.3 I must try everything
-                                          // That being said, with this guard used I did see a case where a working example failed,
-                                          // but it did not remove the deadlock
+    #if (LOCAL_IRQ_PORT_HANDLING==1)
+        pin_e pin_value;
     #endif
 
     VALUE_XSCOPE(RFM69_VALUE,21820); // Seen
@@ -1945,9 +2088,11 @@ void System_Task (
 
     packet_t   TX_PACKET_U;
     uint8_t    TX_gatewayid = GATEWAYID;
-    is_error_e is_new_error;
 
-    irq_update_e irq_update;
+    #define BLOCK_INIT
+    #define BLOCK_SELECT_TIMERAFTER
+
+    #ifdef BLOCK_INIT
 
     #if (IS_MYTARGET_MASTER==0)
        #error ONLY MASTER CODED HERE
@@ -1968,8 +2113,6 @@ void System_Task (
            {KEY},
            IS_RFM69HW_HCW // Must be true or else my Adafruit high power module won't work!
     };
-
-    some_rfm69_internals_t some_rfm69_internals;
 
     #if ((PACKET_LEN_FACIT % 4) != 0)
         #error sizeof packet_u1_t must be word aligned (12, 16, 20 ...)
@@ -2060,17 +2203,17 @@ void System_Task (
     debug_print ("\n---> DEVICE TYPE 0x%02X <---\n\n", device_type);
 
     #if (SKIP_GETANDCLEARERRORBITS!=0)
-        some_rfm69_internals.error_bits = ERROR_BITS_NONE;
-        is_new_error = false;
+        context.some_rfm69_internals.error_bits = ERROR_BITS_NONE;
+        context.is_new_error = false;
     #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
         // SYNC CALL IF NOT TIMED OUT
-        {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+        {context.some_rfm69_internals.error_bits, context.is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
     #else
         debug_print_x ("%s\n", "BEF1");
-        {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+        {context.some_rfm69_internals.error_bits, context.is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
     #endif
 
-    if (some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
+    if (context.some_rfm69_internals.error_bits == ERROR_BITS_NONE) {
 
         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
             // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
@@ -2144,23 +2287,23 @@ void System_Task (
         #elif (SKIP_GETANDCLEARERRORBITS==2)
             error_t return_error;
             return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
-            some_rfm69_internals.error_bits = return_error.error_bits;
-            is_new_error                    = return_error.is_error;
+            context.some_rfm69_internals.error_bits = return_error.error_bits;
+            context.is_new_error            = return_error.is_error;
         #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
             // SYNC CALL IF NOT TIMED OUT
-            {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+            {context.some_rfm69_internals.error_bits, context.is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
         #else
             debug_print_x ("%s\n", "BEF2");
-            {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+            {context.some_rfm69_internals.error_bits, context.is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
         #endif
 
-        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-            debug_print_y ("RFM69 err2 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+        if (context.some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+            debug_print_y ("RFM69 err2 new %u code %04X\n", context.is_new_error, context.some_rfm69_internals.error_bits);
             context.radio_board_fault = true; // Some other error, let's just give up. Aquarium is most important
         }
 
     } else {
-        debug_print_y ("No radio board: RFM69 err1 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+        debug_print_y ("No radio board: RFM69 err1 new %u code %04X\n", context.is_new_error, context.some_rfm69_internals.error_bits);
         context.radio_board_fault = true; // Probably not plugged in
     }
 
@@ -2240,7 +2383,12 @@ void System_Task (
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
     }
 
+    #endif // BLOCK_INIT
     VALUE_XSCOPE(RFM69_VALUE,21819); // Seen
+
+    #if (LOCAL_IRQ_PORT_HANDLING==1)
+        p_irq :> pin_value;
+    #endif
 
     tmr :> time;
 
@@ -2254,10 +2402,13 @@ void System_Task (
         #endif
         select {
             case tmr when timerafter(time) :> void: {
+                #ifdef BLOCK_SELECT_TIMERAFTER
 
                 if (context.radio_send_data == sent) {
                     context.radio_send_data = send_idle;
-                    #if (NO_IRQ_SEND==1)
+                    #if (LOCAL_IRQ_PORT_HANDLING!=0)
+                        // No code here if LOCAL_IRQ_PORT_HANDLING==1
+                    #elif (NO_IRQ_SEND==1)
                         packet_t                    RX_PACKET_U;
                         int16_t                     nowRSSI;
                         interruptAndParsingResult_e interruptAndParsingResult;
@@ -2278,15 +2429,15 @@ void System_Task (
                             // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
 
                             #if (I_RADIO_ANY==1)
-                                {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                                {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
                             #elif (TRANS_ASYNCH_WRAPPED==1)
-                                interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
+                                interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, context.some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
                             #else
                                 context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); // FAILS on startKIT, ok on eXplorerKIT
                                 // MUST be run now:
                                 do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
 
-                                some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
+                                context.some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
                                 RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
                                 interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
                             #endif
@@ -2294,7 +2445,7 @@ void System_Task (
                         #else
                             VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
                             nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
-                            {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
+                            {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
                             VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
                             // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
@@ -2349,46 +2500,6 @@ void System_Task (
                         } break;
                     }
                 }
-
-                #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-                    if (do_getAndClearErrorBits) {
-                        do_getAndClearErrorBits = false;
-                        #if (SKIP_GETANDCLEARERRORBITS==1)
-                            // No code
-                        #elif (SKIP_GETANDCLEARERRORBITS==2)
-                            error_t return_error;
-                            return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
-                            some_rfm69_internals.error_bits = return_error.error_bits;
-                            is_new_error                    = return_error.is_error;
-                        #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                            // SYNC CALL IF NOT TIMED OUT
-                            getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
-                        #else
-                            debug_print_x ("%s\n", "BEF4");
-                            i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
-                        #endif
-                    } else {}
-                #endif
-
-                #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-                    if (do_ultimateIRQclear) {
-                        do_ultimateIRQclear = false;
-                        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                            // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
-                            #if (TRANS_ASYNCH_WRAPPED==1)
-                                ultimateIRQclear_iff_asynch (i_radio, context.timing_transx);
-                            #else
-                                context.timing_transx.start_time_trans1 = ultimateIRQclear_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
-                                // MUST be run now:
-                                do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-                            #endif
-                            context.radio_log_value = context.timing_transx.radio_log_value;
-                        #else
-                           i_radio.uspi_ultimateIRQclear();
-                        #endif
-                        context.ultimateIRQclearCnt++;
-                    } else {}
-                #endif
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,
@@ -2501,18 +2612,18 @@ void System_Task (
                         #elif (SKIP_GETANDCLEARERRORBITS==2)
                             error_t return_error;
                             return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
-                            some_rfm69_internals.error_bits = return_error.error_bits;
-                            is_new_error                    = return_error.is_error;
+                            context.some_rfm69_internals.error_bits = return_error.error_bits;
+                            context.is_new_error            = return_error.is_error;
                         #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
                             // SYNC CALL IF NOT TIMED OUT
-                            {some_rfm69_internals.error_bits, is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
+                            {context.some_rfm69_internals.error_bits, context.is_new_error} = getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
                         #else
                             debug_print_x ("%s\n", "BEF3");
-                            {some_rfm69_internals.error_bits, is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
+                            {context.some_rfm69_internals.error_bits, context.is_new_error} = i_radio.getAndClearErrorBits(); // No SPI comm
                         #endif
 
-                        if (some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
-                            debug_print_y ("RFM69 err3 new %u code %04X\n", is_new_error, some_rfm69_internals.error_bits);
+                        if (context.some_rfm69_internals.error_bits != ERROR_BITS_NONE) {
+                            debug_print_y ("RFM69 err3 new %u code %04X\n", context.is_new_error, context.some_rfm69_internals.error_bits);
                             // Don't set context.radio_board_fault here since some errors may not appear next time
                         } else {
                             debug_print_y ("TX %u\n", context.TX_appSeqCnt);
@@ -2521,6 +2632,7 @@ void System_Task (
                         context.radio_send_data = sent;
                     }
                 }
+                #endif // BLOCK_SELECT_TIMERAFTER
             } break;
 
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
@@ -2562,171 +2674,26 @@ void System_Task (
             } break;
 
             // Interrupt from radio board:
-            #if (USE_GUARD_ON_IRQ_UPDATE==1)
-                case guard_on_irq_update => c_irq_update :> irq_update : // No guard with (not context.radio_board_fault) here, not necessary
-            #else
-                case c_irq_update :> irq_update : // No guard with (not context.radio_board_fault) here, not necessary
-            #endif
-            {
-                #if (USE_GUARD_ON_IRQ_UPDATE==1)
-                    guard_on_irq_update = false;
-                #endif
-                PING_XSCOPE;
-                VALUE_XSCOPE (IRQ_VALUE, 999);                 // Seen, but not if PING_XSCOPE above (not consistent)
-                // VALUE_XSCOPE (IRQ_VALUE, 1000);             // Seen if the below line, that is not seen, is here:
-                // VALUE_XSCOPE (IRQ_VALUE, irq_value_xscope); // Not seen
-                #if (DEBUG_XSCOPE==1)
-                    irq_value_xscope++;
-                #endif
-                VALUE_XSCOPE(RFM69_VALUE,41819); // Seen
 
-                if (context.radio_enabled_state == radio_disabled) {
-                    if (irq_update == pin_still_high_timeout) {
-                        context.ultimateIRQclearCnt++; // Only the count, not to do any i_radio call
+            #if (LOCAL_IRQ_PORT_HANDLING==0)
+                case c_irq_update :> context.irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+                    radio_irq_handler (i_radio, context);
+                } break;
+            #elif (LOCAL_IRQ_PORT_HANDLING==1)
+                case p_irq when pinsneq (pin_value) :> pin_value: { // edge triggering
+
+                    if (not isnull(p_probe)) {
+                        p_probe.probe_when_irq <: pin_value; // A TEST PIN
                     } else {}
-                // radio_enabled or radio_disabled_pending:
-                } else if (context.radio_board_fault) {
-                    // No code. If no board then this pin is high by HW design. Don't use i_radio
-                } else if (irq_update == pin_gone_high) {
-                    packet_t                    RX_PACKET_U;
-                    int16_t                     nowRSSI;
-                    interruptAndParsingResult_e interruptAndParsingResult;
 
-                    #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                        // FIRST ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
-
-                        #if (TRANS_ASYNCH_WRAPPED==1)
-                            nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF);
-                        #else
-                            context.timing_transx.start_time_trans1 = readRSSI_dBm_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio, FORCETRIGGER_OFF);
-                            //MUST be run now:
-                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-                            nowRSSI = context.return_trans3.u_out.rssi_dBm;
-                        #endif
-                        context.radio_log_value = context.timing_transx.radio_log_value;
-
-                        // SECOND ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
-
-                        #if (I_RADIO_ANY==1)
-                            {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
-                        #elif (TRANS_ASYNCH_WRAPPED==1)
-                            interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
-                        #else
-                            context.timing_transx.start_time_trans1 = handleSPIInterrupt_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio); // FAILS on startKIT, ok on eXplorerKIT
-                            // MUST be run now:
-                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-
-                            some_rfm69_internals      = context.return_trans3.u_out.handleSPIInterrupt.return_some_rfm69_internals;
-                            RX_PACKET_U               = context.return_trans3.u_out.handleSPIInterrupt.return_PACKET;
-                            interruptAndParsingResult = context.return_trans3.u_out.handleSPIInterrupt.return_interruptAndParsingResult;
-                        #endif
-                        context.radio_log_value = context.timing_transx.radio_log_value;
-                    #else
-                        VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
-                        nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
-                        {some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
-
-                        VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
-                        // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
-                        // This was new 10Mar2019. Very strange. AQU=065g
-                    #endif
-
-                    switch (interruptAndParsingResult) {
-                        case messageReceivedOk_IRQ: {
-                            // // Ignoring return value:
-                            #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                                // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
-                                #if (TRANS_ASYNCH_WRAPPED==1)
-                                    receiveDone_iff_asynch (i_radio, context.timing_transx);
-                                #else
-                                    context.timing_transx.start_time_trans1 = receiveDone_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
-                                    // MUST be run now:
-                                    do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-                                #endif
-                                context.radio_log_value = context.timing_transx.radio_log_value;
-
-                            #else
-                                i_radio.uspi_receiveDone(); // In the _Aquarium_rfm69_client this is run after every i_radio.uspi_handleSPIInterrupt
-                            #endif
-                        } break;
-
-                        case messagePacketSentOk_IRQ: // AQU=065 comes in here
-                        case messagePacketSentOk2_IRQ: {
-                            context.radio_sent_data_display_it = true;
-                        } break;
-
-                        case messageNotForThisNode_IRQ: {
-                            context.RX_messageNotForThisNode_cnt++; // If AQUARIUM probably from BLACK_BOARD and vice versa
-                        } break;
-
-                        default: {
-
-                        } break;
+                    if (pin_value == high) {
+                        context.irq_update = pin_gone_high;
+                    } else { // pin_value == low
+                        context.irq_update = pin_gone_low; // Send "pin_gone_low since last pin_gone_high sent".
                     }
-
-                    // AQU=065 DEADLOCKS ON THIS CALL, IT DOES NOT COME INSIDE i_radio.getAndClearErrorBits
-
-                    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-                        // do_getAndClearErrorBits = true; // delay_milliseconds(anything, really) here DOES NOT HELP!
-                        // i_radio.uspi_ultimateIRQclear(); // adding this and it fails again, so there is some kind of state between here and RFM69_driver
-                        // do_ultimateIRQclear = true; // Testing. This works! See scope picture ...SDS00059.png
-
-                        // AQU=065c I THOUGHT I removed the AQU=065 error with DO_OUTOF_IRQ_I_RADIO_CALLS but with this, but I did not!
-                        // delay_milliseconds(100); // Any value does not help!
-                        tmr :> time; // Immediate run. This reintroduced the AQU=065 error again. So I have proven that DO_OUTOF_IRQ_I_RADIO_CALLS is a dead end!
-                        // Not even did it reintroduce it, I could remove both settings of do_getAndClearErrorBits and do_ultimateIRQclear (one of them or BOTH!)
-                        // and I would get the error: this process is being deadlocked some place (in send, see below)
-                        // I can see this because the error LED blinks once per 10 seconds and I have a hang here in IRQ_interrupt_task:
-                        //     c_irq_update <: pin_gone_high; // Send "pin_gone_high since last pin_gone_low sent".
-                        // HOWEVER, THIS task hangs on:
-                        //     waitForIRQInterruptCause = i_radio.uspi_send (
-                        // Testing with DO_OUTOF_IRQ_I_RADIO_CALLS==1 and TRANS_ASYNCH_WRAPPED==1 and CLIENT_ALLOW_SESSION_TYPE_TRANS==1 DID NOT HELP!
-                        // RFM69_driver IS BUSY LIVELOCKED? WITH SOMETHING!
-
-                    #elif (SKIP_GETANDCLEARERRORBITS==1)
-                        // No code
-                    #elif (SKIP_GETANDCLEARERRORBITS==2)
-                        error_t return_error;
-                        return_error                    = i_radio.getAndClearErrorBits_(); // No SPI comm
-                        some_rfm69_internals.error_bits = return_error.error_bits;
-                        is_new_error                    = return_error.is_error;
-                    #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                        // SYNC CALL IF NOT TIMED OUT
-                        getAndClearErrorBits_iff (context.timing_transx.timed_out_trans1to2, i_radio); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
-                    #else
-                        debug_print_x ("%s\n", "BEF4");
-                        i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
-                    #endif
-
-                } else if (irq_update == pin_gone_low) {
-                    // No cod
-                } else if (irq_update == pin_still_high_timeout) {
-                    #if (DO_OUTOF_IRQ_I_RADIO_CALLS==1)
-                        do_ultimateIRQclear = true;
-                    #elif (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
-                        // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
-                        #if (TRANS_ASYNCH_WRAPPED==1)
-                            ultimateIRQclear_iff_asynch (i_radio, context.timing_transx);
-                        #else
-                            context.timing_transx.start_time_trans1 = ultimateIRQclear_iff_trans1 (context.timing_transx.timed_out_trans1to2, i_radio);
-                            // MUST be run now:
-                            do_sessions_trans2to3 (i_radio, context.timing_transx, context.return_trans3);
-                        #endif
-                        context.radio_log_value = context.timing_transx.radio_log_value;
-                    #else
-                       i_radio.uspi_ultimateIRQclear();
-                    #endif
-                    context.ultimateIRQclearCnt++;
-                } else {} // Never here
-
-                if (context.radio_enabled_state == radio_disabled_pending) {
-                    context.radio_enabled_state = radio_disabled;
-                } else {}
-
-                #if (USE_GUARD_ON_IRQ_UPDATE==1)
-                    guard_on_irq_update = true;
-                #endif
-            } break;
+                    radio_irq_handler (i_radio, context);
+                } break;
+            #endif
         }
     }
 }

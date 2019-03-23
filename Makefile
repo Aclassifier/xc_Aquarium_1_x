@@ -36,19 +36,22 @@ XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_STRETCH_IRQ=0            # 0 0 0 0 0 1
 XCC_FLAGS += -D_USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND=1            # 0 0 0 0 0 0 1 1 0
 XCC_FLAGS += -D_USERMAKEFILE_VALUE_XSCOPE=0                        # 0 0 0 0 0 0 0 0 0
 XCC_FLAGS += -D_USERMAKEFILE_SPI_MASTER_POS=1                      # 2 2 2 1 1 1 2 2 1
-XCC_FLAGS += -D_USERMAKEFILE_USE_GUARD_ON_IRQ_UPDATE=0             # 0 0 0 0 0 0 0 0 0
-#                                                LAST COMMIT       #                 X
-#                                                LAST_COMPILE      #                 X
+XCC_FLAGS += -D_USERMAKEFILE_LOCAL_IRQ_PORT_HANDLING=1             # . . . . . . . . . 1
+#                                                LAST COMMIT       #                   X
+#                                                LAST_COMPILE      #                   X
 #                                                TEST_VECTOR_WORKS # A B         
 #                                                TEST_VECTOR_FAILS #     C D E   c d e
 #                                                TEST_VECTOR_OK_1  #           F v v 
 #                                                TEST_VECTOR_OK_2  #             G H I
+#                                                TEST_VECTOR_OK_3  #                   J
 
 # WORKS means sends every 4 seconds
 # FAILS means that one sending only, then it does not return from RFM69_driver and IRQ_interrupt_task deadlocks/hangs on with System_Task  
 # OK_1  means sends every 4 seconds but IRQ is high and low 2 seconds at a time because of another register handling
 # OK_2  means that the IRQ is not handled, but since we don't listen on anything, then it's OK. The IRQ line will stay high most of the time
 #       with _USERMAKEFILE_LIB_RFM69_XC_NO_IRQ_SEND all TEST_VECTOR_FAILS vectors -> TEST_VECTOR_OK_2
+# OK_3  means that it simply works, it sends out and it treats IRQ interrupts - NOT in IRQ_interrupt_task that daedlocks - but in 
+#       System_Task's own select where it waits for a change on the IRQ pin.
     
 endif
 
