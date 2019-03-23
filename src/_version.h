@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.60" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1460  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.61" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1461  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.61     23Mar2019          pin_still_high_timeout also coded with LOCAL_IRQ_PORT_HANDLING==1. FLASHED
 // 1.4.60     23Mar2019          USE_GUARD_ON_IRQ_UPDATE removed. DO_OUTOF_IRQ_I_RADIO_CALLS removed
 //                               radio_irq_handler new, LOCAL_IRQ_PORT_HANDLING new. This code runs, and treats IRQ interrupts like it should
 //                               See ..SDS00067.png - ..SDS00090.png scope pictures

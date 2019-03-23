@@ -2509,7 +2509,8 @@ extern void System_Task (
 
     chanend ?c_irq_update,
     in port ?p_irq,
-    probe_pins_t &?p_probe);
+    probe_pins_t &?p_probe,
+    const unsigned irq_high_max_time_ms);
 # 50 "../src/main.xc" 2
 # 74 "../src/main.xc"
 in buffered port:32 p_miso = on tile[0]: 0x10a00;
@@ -2576,7 +2577,7 @@ int main() {
                                          i_temperature_heater_commands[0], i_temperature_water_commands,
                                          p_display_notReset,
                                          i_buttons,
-                                         i_radio, null, p_spi_irq, probe_led_d2);
+                                         i_radio, null, p_spi_irq, probe_led_d2, 2000);
 
             on tile[0]: adc_task (i_startkit_adc_acquire, c_analogue,
                                               0);

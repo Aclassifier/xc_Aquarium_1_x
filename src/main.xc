@@ -240,14 +240,14 @@ int main() {
                                          i_temperature_heater_commands[0], i_temperature_water_commands,
                                          p_display_notReset,
                                          i_buttons,
-                                         i_radio, c_irq_update, null, null);
+                                         i_radio, c_irq_update, null, null, 0);
             #elif (LOCAL_IRQ_PORT_HANDLING==1)
                 on tile[0]: System_Task (i_i2c_internal_commands[0], i_i2c_external_commands[0], // Is none since contains a nested select
                                          i_lib_startkit_adc_commands[0], i_port_heat_light_commands[0],
                                          i_temperature_heater_commands[0], i_temperature_water_commands,
                                          p_display_notReset,
                                          i_buttons,
-                                         i_radio, null, p_spi_irq, probe_led_d2);
+                                         i_radio, null, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);
             #endif
             on tile[0]: adc_task             (i_startkit_adc_acquire, c_analogue,                     // [[combinable]]
                                               ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
@@ -313,13 +313,13 @@ int main() {
 
             [[combine]]
             par {
-                RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);         // [[combinable]] now
+                RFM69_driver (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0); // [[combinable]] now
                 #if (LOCAL_IRQ_PORT_HANDLING!=0)
                     // IRQ_interrupt_task is not started
                 #elif (NO_IRQ_SEND==1)
-                    IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
+                    IRQ_interrupt_task (null, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS); // [[combinable]]
                 #else
-                    IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);   // [[combinable]]
+                    IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS); // [[combinable]]
                 #endif
 
                 #if (SPI_MASTER_POS==2)

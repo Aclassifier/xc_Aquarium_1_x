@@ -288,8 +288,12 @@ typedef struct handler_context_t {
     radio_enabled_state_e       radio_enabled_state; // AQU=072 new
     unsigned                    radio_log_value; // Independent of DEBUG_SHARED_LOG_VALUE
     is_error_e                  is_new_error;
-    irq_update_e                irq_update;
+    irq_update_e                radio_irq_update;
     some_rfm69_internals_t      some_rfm69_internals;
+
+    #if (LOCAL_IRQ_PORT_HANDLING==1)
+        signed now_irq_high_max_time_ms; // Letting it be counted down until negative
+    #endif
 
     #ifdef DEBUG_TEST_WATCHDOG
         bool do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
@@ -1901,13 +1905,13 @@ void radio_irq_handler (
     VALUE_XSCOPE(RFM69_VALUE,41819); // Seen
 
     if (context.radio_enabled_state == radio_disabled) {
-        if (context.irq_update == pin_still_high_timeout) {
+        if (context.radio_irq_update == pin_still_high_timeout) {
             context.ultimateIRQclearCnt++; // Only the count, not to do any i_radio call
         } else {}
     // radio_enabled or radio_disabled_pending:
     } else if (context.radio_board_fault) {
         // No code. If no board then this pin is high by HW design. Don't use i_radio
-    } else if (context.irq_update == pin_gone_high) {
+    } else if (context.radio_irq_update == pin_gone_high) {
         packet_t                    RX_PACKET_U;
         int16_t                     nowRSSI;
         interruptAndParsingResult_e interruptAndParsingResult;
@@ -2001,9 +2005,9 @@ void radio_irq_handler (
             i_radio.getAndClearErrorBits(); // {error_bits, is_error} not used, not interested in incoming to disturb us! No SPI
         #endif
 
-    } else if (context.irq_update == pin_gone_low) {
+    } else if (context.radio_irq_update == pin_gone_low) {
         // No cod
-    } else if (context.irq_update == pin_still_high_timeout) {
+    } else if (context.radio_irq_update == pin_still_high_timeout) {
         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
             // ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
             #if (TRANS_ASYNCH_WRAPPED==1)
@@ -2056,10 +2060,11 @@ void System_Task (
     out port                               p_display_notReset,
     server  button_if                      i_button_in[BUTTONS_NUM_CLIENTS],
     client  radio_if_t                     i_radio,
-                                                          // #### #### configurations
-    chanend                                ?c_irq_update, // used null from task that handles interrupt pin
-    in port                                ?p_irq,        // null used interrupt pin
-    probe_pins_t                           &?p_probe)     // null used LED and scope test pin
+                                                                 // #### #### configurations
+    chanend                                ?c_irq_update,        // used null from task that handles interrupt pin | LOCAL_IRQ_PORT_HANDLING==0
+    in port                                ?p_irq,               // null used interrupt pin                        | LOCAL_IRQ_PORT_HANDLING==1
+    probe_pins_t                           &?p_probe,            // null used LED and scope test pin               | LOCAL_IRQ_PORT_HANDLING==1
+    const unsigned                         irq_high_max_time_ms) // na.  used                                      | LOCAL_IRQ_PORT_HANDLING==1
 {
     // Time keeping
     int   time;
@@ -2071,12 +2076,12 @@ void System_Task (
     unsigned                       watchdog_rest_ms;
     unsigned                       debug_button_cnt = 0;
 
-    #if (DEBUG_XSCOPE==1)
-        context.irq_value_xscope = 0;
+    #if (LOCAL_IRQ_PORT_HANDLING==1)
+        pin_e radio_irq_pin_value;
     #endif
 
-    #if (LOCAL_IRQ_PORT_HANDLING==1)
-        pin_e pin_value;
+    #if (DEBUG_XSCOPE==1)
+        context.irq_value_xscope = 0;
     #endif
 
     VALUE_XSCOPE(RFM69_VALUE,21820); // Seen
@@ -2089,10 +2094,9 @@ void System_Task (
     packet_t   TX_PACKET_U;
     uint8_t    TX_gatewayid = GATEWAYID;
 
-    #define BLOCK_INIT
-    #define BLOCK_SELECT_TIMERAFTER
+    #define FOLD_BLOCK_INIT // Folding with this does not seem to work for all blocks
 
-    #ifdef BLOCK_INIT
+    #ifdef FOLD_BLOCK_INIT
 
     #if (IS_MYTARGET_MASTER==0)
        #error ONLY MASTER CODED HERE
@@ -2383,11 +2387,11 @@ void System_Task (
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
     }
 
-    #endif // BLOCK_INIT
+    #endif // FOLD_BLOCK_INIT
     VALUE_XSCOPE(RFM69_VALUE,21819); // Seen
 
     #if (LOCAL_IRQ_PORT_HANDLING==1)
-        p_irq :> pin_value;
+        p_irq :> radio_irq_pin_value;
     #endif
 
     tmr :> time;
@@ -2401,8 +2405,20 @@ void System_Task (
             #endif
         #endif
         select {
-            case tmr when timerafter(time) :> void: {
-                #ifdef BLOCK_SELECT_TIMERAFTER
+            case tmr when timerafter(time) :> void: { // Every second
+
+                #if (LOCAL_IRQ_PORT_HANDLING==1)
+                    if (context.radio_irq_update == pin_gone_high) {
+                        // If BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND:
+                        context.now_irq_high_max_time_ms -= 1000; // On the first second this will be too much, but we're only after a stuck IRQ anyhow
+                        if (context.now_irq_high_max_time_ms < 0) {
+                            context.radio_irq_update = pin_still_high_timeout;
+                            radio_irq_handler (i_radio, context);
+                        } else {
+                            // No code: pin_gone_high or context.radio_irq_update
+                        }
+                    } else {}
+                #endif
 
                 if (context.radio_send_data == sent) {
                     context.radio_send_data = send_idle;
@@ -2632,7 +2648,6 @@ void System_Task (
                         context.radio_send_data = sent;
                     }
                 }
-                #endif // BLOCK_SELECT_TIMERAFTER
             } break;
 
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
@@ -2676,21 +2691,23 @@ void System_Task (
             // Interrupt from radio board:
 
             #if (LOCAL_IRQ_PORT_HANDLING==0)
-                case c_irq_update :> context.irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
+                case c_irq_update :> context.radio_irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
                     radio_irq_handler (i_radio, context);
                 } break;
             #elif (LOCAL_IRQ_PORT_HANDLING==1)
-                case p_irq when pinsneq (pin_value) :> pin_value: { // edge triggering
+                case p_irq when pinsneq (radio_irq_pin_value) :> radio_irq_pin_value: { // edge triggering
 
                     if (not isnull(p_probe)) {
-                        p_probe.probe_when_irq <: pin_value; // A TEST PIN
+                        p_probe.probe_when_irq <: radio_irq_pin_value; // A TEST PIN
                     } else {}
 
-                    if (pin_value == high) {
-                        context.irq_update = pin_gone_high;
-                    } else { // pin_value == low
-                        context.irq_update = pin_gone_low; // Send "pin_gone_low since last pin_gone_high sent".
+                    if (radio_irq_pin_value == high) {
+                        context.radio_irq_update = pin_gone_high;
+                        context.now_irq_high_max_time_ms = irq_high_max_time_ms; // Letting it be counted down until negative
+                    } else { // radio_irq_pin_value == low
+                        context.radio_irq_update = pin_gone_low; // Send "pin_gone_low since last pin_gone_high sent".
                     }
+
                     radio_irq_handler (i_radio, context);
                 } break;
             #endif
