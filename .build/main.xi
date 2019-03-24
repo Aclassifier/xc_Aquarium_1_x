@@ -2105,6 +2105,8 @@ typedef enum spi_transfer_type_t {
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
+# 113 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+    extern unsigned g_radio_log_value;
 # 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
@@ -2451,7 +2453,14 @@ void RFM69_driver (
         client spi_master_if i_spi,
                unsigned spi_client
 );
-# 512 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+
+
+    void clr_radio_log_value (void);
+
+
+
+
+
     void do_spi_aux_pin_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits_iff (const bool timed_out_trans1to2, client radio_if_t i_radio);
     void setListenToAll_iff (const bool timed_out_trans1to2, client radio_if_t i_radio, const bool doListenToAll);
@@ -2583,10 +2592,7 @@ int main() {
                                               0);
 
                 on tile[0]: Port_Pins_Heat_Light_Task (i_port_heat_light_commands);
-# 276 "../src/main.xc"
-                    on tile[0]: spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
-
-
+# 279 "../src/main.xc"
         }
         on tile[0]: {
             [[combine]]
@@ -2614,7 +2620,10 @@ int main() {
             [[combine]]
             par {
                 RFM69_driver (i_radio, p_spi_aux, i_spi[0], 0);
-# 332 "../src/main.xc"
+# 329 "../src/main.xc"
+                        spi_master_3 (i_spi[0], p_sclk, p_mosi, p_miso, null, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+
+
             }
         }
     }

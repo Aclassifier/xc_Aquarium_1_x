@@ -2409,8 +2409,9 @@ void System_Task (
 
                 #if (LOCAL_IRQ_PORT_HANDLING==1)
                     if (context.radio_irq_update == pin_gone_high) {
-                        // If BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND:
-                        context.now_irq_high_max_time_ms -= 1000; // On the first second this will be too much, but we're only after a stuck IRQ anyhow
+                        // On the first second this will be too much, but we're only after a stuck IRQ anyhow
+                        context.now_irq_high_max_time_ms -= BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS;
+
                         if (context.now_irq_high_max_time_ms < 0) {
                             context.radio_irq_update = pin_still_high_timeout;
                             radio_irq_handler (i_radio, context);
