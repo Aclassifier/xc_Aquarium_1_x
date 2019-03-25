@@ -48,10 +48,10 @@
 
     #if (ISAQUARIUM==1) // some make problem, ended up with values like 0 and 1
         #define FLASH_BLACK_BOARD 0
-        #define MASTER_ID  MASTER_ID_AQUARIUM
+        #define MASTER_ID MASTER_ID_AQUARIUM
     #elif (ISAQUARIUM==0)
         #define FLASH_BLACK_BOARD 1
-        #define MASTER_ID  MASTER_ID_BLACK_BOARD // causing WRONG_CODE_STARTKIT since we cannot have this in
+        #define MASTER_ID MASTER_ID_BLACK_BOARD // causing WRONG_CODE_STARTKIT since we cannot have this in
     #else
         #error
     #endif
@@ -76,6 +76,9 @@
 
     #ifdef _USERMAKEFILE_LIB_RFM69_XC_I_RADIO_ANY
         #define I_RADIO_ANY _USERMAKEFILE_LIB_RFM69_XC_I_RADIO_ANY
+        #if (I_RADIO_ANY==1)
+            #warning I_RADIO_ANY not used
+        #endif
     #else
         #define I_RADIO_ANY 0
     #endif
@@ -83,8 +86,15 @@
     #ifdef _USERMAKEFILE_LIB_RFM69_XC_TRANS // AQU=073 new
         #define CLIENT_ALLOW_SESSION_TYPE_TRANS _USERMAKEFILE_LIB_RFM69_XC_TRANS
 
+        #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==1)
+            #error CLIENT_ALLOW_SESSION_TYPE_TRANS==1 not used. Value 2 replaces 1 and TRANS_ASYNCH_WRAPPED=01
+        #endif
+
         #ifdef _USERMAKEFILE_LIB_RFM69_XC_TRANS_ASYNCH_WRAPPED
             #define TRANS_ASYNCH_WRAPPED _USERMAKEFILE_LIB_RFM69_XC_TRANS_ASYNCH_WRAPPED
+            #if (TRANS_ASYNCH_WRAPPED==1)
+                #warning TRANS_ASYNCH_WRAPPED not used
+            #endif
         #else
             #define TRANS_ASYNCH_WRAPPED 0
         #endif
@@ -110,7 +120,6 @@
             #define VALUE_XSCOPE(name,value) do {xscope_core_int(name,value);} while(0) // or xscope_int
             #define PING_XSCOPE              do {xscope_ping();} while(0)
             #define DEBUG_XSCOPE 1
-#warning 1
         #else // Empty:
             #define VALUE_XSCOPE(name,value)
             #define PING_XSCOPE
@@ -150,9 +159,4 @@
 
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
-
-    #define SKIP_GETANDCLEARERRORBITS 0 // 0 and SPI_MASTER_POS 1 fails
-                                        // 1 and SPI_MASTER_POS 1 works
-                                        // 2 and SPI_MASTER_POS 1 fails INTERESTING!
-
 #endif /* GLOBALS_H_ */

@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.62" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1462  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.63" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1463  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.63     25Mar2019          CLIENT_ALLOW_SESSION_TYPE_TRANS==2 is new, SKIP_GETANDCLEARERRORBITS removed. RFM69_DRIVER_VERSION_STR "0.9.39". This code runs
 // 1.4.62     24Mar2019          Last version before I_RADIO_ANY, CLIENT_ALLOW_SESSION_TYPE_TRANS==1 and TRANS_ASYNCH_WRAPPED==0 removal of code here in the client
 // 1.4.61     23Mar2019          pin_still_high_timeout also coded with LOCAL_IRQ_PORT_HANDLING==1. FLASHED
 // 1.4.60     23Mar2019          USE_GUARD_ON_IRQ_UPDATE removed. DO_OUTOF_IRQ_I_RADIO_CALLS removed
