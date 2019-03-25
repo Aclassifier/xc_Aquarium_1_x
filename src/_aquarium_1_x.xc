@@ -1896,13 +1896,11 @@ void radio_irq_handler (
                 handler_context_t &context)
 {
     PING_XSCOPE;
-    // VALUE_XSCOPE (IRQ_VALUE, 999);                   // Seen, but not if PING_XSCOPE above (not consistent)
-    // VALUE_XSCOPE (IRQ_VALUE, 1000);                  // Seen if the below line, that is not seen, is here:
     VALUE_XSCOPE (IRQ_VALUE, context.irq_value_xscope);
     #if (DEBUG_XSCOPE==1)
         context.irq_value_xscope++;
     #endif
-    VALUE_XSCOPE(RFM69_VALUE,41819); // Seen
+    VALUE_XSCOPE(RFM69_VALUE,41819);
 
     if (context.radio_enabled_state == radio_disabled) {
         if (context.radio_irq_update == pin_still_high_timeout) {
