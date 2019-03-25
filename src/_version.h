@@ -17,8 +17,11 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.65" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1465  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.66" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1466  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  from 26Feb2019
+// 1.4.66     25Mar2019          ISAQUARIUM ie FLASH_BLACK_BOARD=0. Same as 1.4.65
+//                               Constraints: C:8/8 T:10/9 C:32/26 M:62576 S:6692 C:49938 D:5946
 // 1.4.65     25Mar2019          Last compile with FLASH_BLACK_BOARD, FLASHED there
 //                               Constraints: C:8/8 T:10/9 C:32/26 M:62664 S:6676 C:50046 D:5942
 // 1.4.64     25Mar2019          Also works with XSCOPE, 2 variables. Never seen this before. See xscope.xmt -> "2019 03 25 A ...txt"

@@ -173,7 +173,7 @@
 	.globl slider_task.select.0.enable.cases.maxchanends
 	.set slider_task.select.0.enable.cases,0
 	.globl slider_task.select.0.enable.cases
-	.set slider_task.select.0.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set slider_task.select.0.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.0.enable.cases.nstackwords
 	.set slider_task.dynalloc_maxchanends, 0 + slider_periodic.dynalloc_maxchanends + slider.dynalloc_maxchanends + absolute_slider.dynalloc_maxchanends
 	.globl slider_task.dynalloc_maxchanends
@@ -259,7 +259,7 @@
 	.globl slider_task.select.yield.enable.cases.maxchanends
 	.set slider_task.select.yield.enable.cases,0
 	.globl slider_task.select.yield.enable.cases
-	.set slider_task.select.yield.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set slider_task.select.yield.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.yield.enable.cases.nstackwords
 	.set slider_task.select.enable.savedstate,28+ absolute_slider.select.enable.savedstate+ slider.select.enable.savedstate+ slider_periodic.select.enable.savedstate
 	.globl slider_task.select.enable.savedstate
@@ -271,7 +271,7 @@
 	.globl slider_task.select.enable.cases.maxchanends
 	.set slider_task.select.enable.cases,0
 	.globl slider_task.select.enable.cases
-	.set slider_task.select.enable.cases.nstackwords, 0 $M (slider.select.enable.cases.nstackwords) $M (slider_periodic.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set slider_task.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
 	.globl slider_task.select.enable.cases.nstackwords
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.weak _i.slider_query_if.filter.maxcores.group
