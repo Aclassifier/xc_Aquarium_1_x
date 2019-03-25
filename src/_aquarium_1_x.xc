@@ -1896,9 +1896,9 @@ void radio_irq_handler (
                 handler_context_t &context)
 {
     PING_XSCOPE;
-    VALUE_XSCOPE (IRQ_VALUE, 999);                         // Seen, but not if PING_XSCOPE above (not consistent)
-    // VALUE_XSCOPE (IRQ_VALUE, 1000);                     // Seen if the below line, that is not seen, is here:
-    // VALUE_XSCOPE (IRQ_VALUE, context.irq_value_xscope); // Not seen
+    // VALUE_XSCOPE (IRQ_VALUE, 999);                   // Seen, but not if PING_XSCOPE above (not consistent)
+    // VALUE_XSCOPE (IRQ_VALUE, 1000);                  // Seen if the below line, that is not seen, is here:
+    VALUE_XSCOPE (IRQ_VALUE, context.irq_value_xscope);
     #if (DEBUG_XSCOPE==1)
         context.irq_value_xscope++;
     #endif
@@ -1925,13 +1925,11 @@ void radio_irq_handler (
             interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, context.some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
             context.radio_log_value = context.timing_transx.radio_log_value;
         #else
-            VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
+            VALUE_XSCOPE(RFM69_VALUE,31818);
             nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
             {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
 
-            VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
-            // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
-            // This was new 10Mar2019. Very strange. AQU=065g
+            VALUE_XSCOPE(RFM69_VALUE,21818);
         #endif
 
         switch (interruptAndParsingResult) {
@@ -2047,10 +2045,10 @@ void System_Task (
     #endif
 
     #if (DEBUG_XSCOPE==1)
-        context.irq_value_xscope = 0;
+        context.irq_value_xscope = AQUARIUM_VERSION_NUM;
     #endif
 
-    VALUE_XSCOPE(RFM69_VALUE,21820); // Seen
+    VALUE_XSCOPE (IRQ_VALUE, context.irq_value_xscope);
 
     // Radio
 
@@ -2311,7 +2309,7 @@ void System_Task (
     }
 
     #endif // FOLD_BLOCK_INIT
-    VALUE_XSCOPE(RFM69_VALUE,21819); // Seen
+    VALUE_XSCOPE(RFM69_VALUE,21819);
 
     #if (LOCAL_IRQ_PORT_HANDLING==1)
         p_irq :> radio_irq_pin_value;
@@ -2353,6 +2351,7 @@ void System_Task (
                         int16_t                     nowRSSI;
                         interruptAndParsingResult_e interruptAndParsingResult;
 
+                        VALUE_XSCOPE(RFM69_VALUE,31818);
                         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
                             // FIRST ASYNCH CALL AND BACKGROUND ACTION WITH TIMEOUT
                             nowRSSI = readRSSI_dBm_iff_asynch (i_radio, context.timing_transx, FORCETRIGGER_OFF);
@@ -2362,14 +2361,10 @@ void System_Task (
                             interruptAndParsingResult = handleSPIInterrupt_iff_asynch (i_radio, context.timing_transx, context.some_rfm69_internals, RX_PACKET_U); // FAILS on startKIT, ok on eXplorerKIT
                             context.radio_log_value = context.timing_transx.radio_log_value;
                         #else
-                            VALUE_XSCOPE(RFM69_VALUE,31818); // Seen
                             nowRSSI = i_radio.uspi_readRSSI_dBm (FORCETRIGGER_OFF);
                             {context.some_rfm69_internals, RX_PACKET_U, interruptAndParsingResult} = i_radio.uspi_handleSPIInterrupt();
-
-                            VALUE_XSCOPE(RFM69_VALUE,21818); // Not seen
-                            // SPI_MASTER_POS 1 or 2,a s long as a single XSCOPE-value is used it will not work
-                            // This was new 10Mar2019. Very strange. AQU=065g
                         #endif
+                        VALUE_XSCOPE(RFM69_VALUE,21818);
                     #endif
                 } else {}
 
