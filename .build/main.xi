@@ -1478,7 +1478,7 @@ void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_p
 # 25 "../src/main.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
-# 42 "../src/defines_adafruit.h"
+# 44 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
 # 27 "../src/main.xc" 2
@@ -1560,14 +1560,14 @@ typedef interface chronodot_ds3231_if {
 # 29 "../src/main.xc" 2
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
-typedef enum i2c_dev_address_internal_t {
+typedef enum i2c_dev_address_internal_e {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_FRAM = 0x50,
     I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
     I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
-} i2c_dev_address_internal_t;
+} i2c_dev_address_internal_e;
 
 
 
@@ -1581,7 +1581,7 @@ typedef interface i2c_internal_commands_if {
 
 
 
-    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
+    bool read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
 
 
@@ -1628,23 +1628,24 @@ extern void drawHorisontalLineInternal_in_buffer (int16_t x, int16_t y, int16_t 
 # 31 "../src/main.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
 # 26 "../src/I2C_External_Task.h"
-typedef enum i2c_dev_address_external_t {
+typedef enum i2c_dev_address_external_e {
 
 
     I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
     I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
-    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2),
+    I2C_ADDRESS_OF_PORT_EXPANDER = (0x20)
+} i2c_dev_address_external_e;
 
 
 
 
-typedef enum iof_temps_t {
+typedef enum iof_temps_e {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
-} iof_temps_t;
+} iof_temps_e;
 
 
 typedef struct tag_i2c_temps_t {
@@ -1652,19 +1653,35 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum i2c_command_external_t {
+typedef enum i2c_command_external_e {
     VER_TEMPC_CHIPS,
-    GET_TEMPC_ALL
-} i2c_command_external_t;
+    GET_TEMPC_ALL,
+
+    INIT_IOCHIP,
+    READ_IOCHIP_BUTTON
+} i2c_command_external_e;
 
 typedef interface i2c_external_commands_if {
+
+
+
+
+
     [[clears_notification]]
     i2c_temps_t read_temperature_ok (void);
+
+    [[clears_notification]]
+    bool get_iochip_ok (void);
+
+    [[clears_notification]]
+    {bool, bool, bool} get_iochip_button_ok (void);
 
     [[notification]]
     slave void notify (void);
 
-    void trigger (const i2c_command_external_t command);
+    void trigger_command (const i2c_command_external_e command);
+    void trigger_write_iochip_pins (const uint8_t output_pins);
+
 } i2c_external_commands_if;
 
 
@@ -1699,7 +1716,7 @@ typedef struct {
 [[combinable]]
 void Button_Task (
         const unsigned button_n,
-        port p_button,
+        in port p_button,
         client button_if i_button_out);
 # 33 "../src/main.xc" 2
 # 1 "../src/_texts_and_constants.h" 1
@@ -1861,7 +1878,7 @@ typedef interface temperature_heater_commands_if {
     [[guarded]] void heater_set_temp_degC (const heater_wires_t heater_wires, const temp_onetenthDegC_t temp_onetenthDegC);
                 void get_mean_i2c_temps ( temp_onetenthDegC_t return_temps_onetenthDegC [3]);
                 {temp_onetenthDegC_t} get_mean_last_cycle_temp (void);
-                void get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[5]);
+                void get_temp_degC_str (const iof_temps_e iof_temp, char return_value_string[5]);
 
                 {bool, bool, heater_on_percent_t, heater_on_watt_t}
                                       get_regulator_data (const onetenthVolt_t rr_24V_voltage_onetenthV);
@@ -1892,7 +1909,7 @@ typedef enum now_regulating_at_t {
 } now_regulating_at_t;
 
 typedef interface temperature_water_commands_if {
-    [[guarded]] void get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[5]);
+    [[guarded]] void get_temp_degC_str (const iof_temps_e i2c_iof_temps, char return_value_string[5]);
     [[guarded]] {now_regulating_at_t, unsigned int} get_now_regulating_at (void);
 
     [[guarded]] void clear_debug_log (void);

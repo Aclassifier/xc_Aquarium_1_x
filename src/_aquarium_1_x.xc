@@ -308,6 +308,8 @@ typedef struct handler_context_t {
         uint irq_value_xscope;
     #endif
 
+    bool iochip_ok;
+
 } handler_context_t;
 
 
@@ -890,11 +892,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig",
+                               "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig WD=%u",
                                __DATE__,
                                AQUARIUM_VERSION_STR,
                                RFM69_DRIVER_VERSION_STR,
-                               char_OE_str);
+                               char_OE_str,
+                               context.iochip_ok);
             //                                            5 BOKS  XMOS startKIT
             //                                              XC KODE Jun 14 2017
             //                                              A:1.0.12  R:0.9.00
@@ -2237,6 +2240,12 @@ void System_Task (
         context.radio_enabled_state = radio_disabled_pending;
     #endif
 
+    // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
+
+    i_i2c_external_commands.trigger_command (INIT_IOCHIP);
+    select {case i_i2c_external_commands.notify(): {} break;}
+    context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+
     // Init and clear display
 
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
@@ -2293,7 +2302,7 @@ void System_Task (
     {
         bool read_ok;
 
-        {read_ok} = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+        read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
 
         if (not read_ok) {
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = NORMAL_LIGHT_IS_VOID_F0N;
@@ -2384,7 +2393,7 @@ void System_Task (
 
                 // Fetch data (1)
                 i_startkit_adc_acquire.trigger(); // awaits i_startkit_adc_acquire.notify
-                i_i2c_external_commands.trigger (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
+                i_i2c_external_commands.trigger_command (GET_TEMPC_ALL); // awaits i_i2c_external_commands.notify
 
                 num_notify_expexted = 2;
 
@@ -2399,7 +2408,7 @@ void System_Task (
                 }
 
                 // Nested select OK since this is not a [[combinable]] task anyhow and will use its own core:
-                while (num_notify_expexted > 0) { // AQU=065 should not be caused by this, as this ran for 1.5 years OK, but only whne the radio appared did we see that problem
+                while (num_notify_expexted > 0) { // AQU=065 should not be caused by this, as this ran for 1.5 years OK, but only when the radio appared did we see that problem
                     select {
                         case i_i2c_external_commands.notify(): {
                             context.i2c_temps = i_i2c_external_commands.read_temperature_ok ();
@@ -2412,6 +2421,12 @@ void System_Task (
                         } break;
                     }
                 }
+
+                // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
+
+                i_i2c_external_commands.trigger_command (INIT_IOCHIP);
+                select {case i_i2c_external_commands.notify(): {} break;}
+                context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,

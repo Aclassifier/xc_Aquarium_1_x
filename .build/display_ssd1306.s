@@ -4221,7 +4221,7 @@ postmask:
 .asciiz"s2"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	3452
+	.long	3460
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -4604,19 +4604,19 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.byte	134
-	.long	3184
+	.long	3192
 	.byte	14
 	.long	.Ldebug_loc1
 	.long	.Linfo_string66
 	.byte	1
 	.byte	134
-	.long	3184
+	.long	3192
 	.byte	14
 	.long	.Ldebug_loc2
 	.long	.Linfo_string67
 	.byte	1
 	.byte	134
-	.long	3191
+	.long	3199
 	.byte	0
 	.byte	15
 	.long	.Linfo_string19
@@ -4651,13 +4651,13 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	77
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc4
 	.long	.Linfo_string71
 	.byte	1
 	.byte	78
-	.long	3205
+	.long	3213
 	.byte	18
 	.long	.Ldebug_ranges4
 	.byte	19
@@ -4673,7 +4673,7 @@ postmask:
 	.long	.Linfo_string73
 	.byte	1
 	.byte	84
-	.long	3212
+	.long	3220
 	.byte	20
 	.long	757
 	.long	.Ldebug_ranges2
@@ -4702,7 +4702,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	54
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc6
 	.long	.Linfo_string23
@@ -4726,7 +4726,7 @@ postmask:
 	.long	.Linfo_string75
 	.byte	1
 	.byte	57
-	.long	3217
+	.long	3225
 	.byte	18
 	.long	.Ldebug_ranges6
 	.byte	19
@@ -4755,7 +4755,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	65
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc8
 	.long	.Linfo_string23
@@ -4779,7 +4779,7 @@ postmask:
 	.long	.Linfo_string75
 	.byte	1
 	.byte	68
-	.long	3217
+	.long	3225
 	.byte	18
 	.long	.Ldebug_ranges10
 	.byte	19
@@ -4808,7 +4808,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	164
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc10
 	.long	.Linfo_string77
@@ -4841,7 +4841,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	180
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc12
 	.long	.Linfo_string78
@@ -4880,7 +4880,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	199
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc15
 	.long	.Linfo_string78
@@ -4919,7 +4919,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	218
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc18
 	.long	.Linfo_string78
@@ -4958,7 +4958,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	239
-	.long	3198
+	.long	3206
 	.byte	14
 	.long	.Ldebug_loc21
 	.long	.Linfo_string78
@@ -4997,7 +4997,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.short	256
-	.long	3198
+	.long	3206
 	.byte	18
 	.long	.Ldebug_ranges24
 	.byte	25
@@ -5024,7 +5024,7 @@ postmask:
 	.long	.Linfo_string69
 	.byte	1
 	.short	264
-	.long	3198
+	.long	3206
 	.byte	18
 	.long	.Ldebug_ranges30
 	.byte	26
@@ -5040,7 +5040,7 @@ postmask:
 	.long	.Linfo_string77
 	.byte	1
 	.short	284
-	.long	3191
+	.long	3199
 	.byte	18
 	.long	.Ldebug_ranges28
 	.byte	25
@@ -5058,7 +5058,7 @@ postmask:
 	.long	.Linfo_string75
 	.byte	1
 	.short	292
-	.long	3230
+	.long	3238
 	.byte	18
 	.long	.Ldebug_ranges26
 	.byte	27
@@ -5066,7 +5066,7 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.short	294
-	.long	3191
+	.long	3199
 	.byte	0
 	.byte	0
 	.byte	0
@@ -5151,25 +5151,25 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.short	385
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc27
 	.long	.Linfo_string66
 	.byte	1
 	.short	385
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc28
 	.long	.Linfo_string80
 	.byte	1
 	.short	385
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc29
 	.long	.Linfo_string67
 	.byte	1
 	.short	385
-	.long	3191
+	.long	3199
 	.byte	18
 	.long	.Ldebug_ranges35
 	.byte	26
@@ -5195,25 +5195,25 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.short	315
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc32
 	.long	.Linfo_string66
 	.byte	1
 	.short	315
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc33
 	.long	.Linfo_string82
 	.byte	1
 	.short	315
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc34
 	.long	.Linfo_string67
 	.byte	1
 	.short	315
-	.long	3191
+	.long	3199
 	.byte	18
 	.long	.Ldebug_ranges37
 	.byte	26
@@ -5239,25 +5239,25 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.short	418
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc37
 	.long	.Linfo_string83
 	.byte	1
 	.short	418
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc38
 	.long	.Linfo_string84
 	.byte	1
 	.short	418
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc39
 	.long	.Linfo_string67
 	.byte	1
 	.short	418
-	.long	3191
+	.long	3199
 	.byte	18
 	.long	.Ldebug_ranges45
 	.byte	35
@@ -5330,25 +5330,25 @@ postmask:
 	.long	.Linfo_string64
 	.byte	1
 	.short	350
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc41
 	.long	.Linfo_string66
 	.byte	1
 	.short	350
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc42
 	.long	.Linfo_string82
 	.byte	1
 	.short	350
-	.long	3184
+	.long	3192
 	.byte	24
 	.long	.Ldebug_loc43
 	.long	.Linfo_string67
 	.byte	1
 	.short	350
-	.long	3191
+	.long	3199
 	.byte	18
 	.long	.Ldebug_ranges48
 	.byte	35
@@ -5372,10 +5372,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3250
+	.long	3258
 	.byte	0
 	.byte	36
 	.long	.Linfo_string28
@@ -5383,10 +5383,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3250
+	.long	3258
 	.byte	0
 	.byte	38
 	.long	.Linfo_string29
@@ -5395,10 +5395,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3287
+	.long	3295
 	.byte	0
 	.byte	36
 	.long	.Linfo_string30
@@ -5406,7 +5406,7 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	0
 	.byte	38
 	.long	.Linfo_string31
@@ -5415,10 +5415,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3287
+	.long	3295
 	.byte	0
 	.byte	36
 	.long	.Linfo_string32
@@ -5426,7 +5426,7 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	0
 	.byte	38
 	.long	.Linfo_string33
@@ -5435,33 +5435,34 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3364
+	.long	3372
 	.byte	37
 	.long	.Linfo_string102
-	.long	3369
+	.long	3377
 	.byte	0
-	.byte	36
+	.byte	38
 	.long	.Linfo_string34
 	.long	.Linfo_string34
+	.long	184
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3364
+	.long	3372
 	.byte	37
 	.long	.Linfo_string102
-	.long	3387
+	.long	3395
 	.byte	0
 	.byte	38
 	.long	.Linfo_string35
@@ -5470,13 +5471,13 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3405
+	.long	3413
 	.byte	0
 	.byte	36
 	.long	.Linfo_string36
@@ -5484,10 +5485,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	0
 	.byte	38
 	.long	.Linfo_string37
@@ -5496,19 +5497,19 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string102
-	.long	3440
+	.long	3448
 	.byte	37
 	.long	.Linfo_string105
-	.long	3450
+	.long	3458
 	.byte	0
 	.byte	38
 	.long	.Linfo_string38
@@ -5517,33 +5518,34 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3364
+	.long	3372
 	.byte	37
 	.long	.Linfo_string102
-	.long	3369
+	.long	3377
 	.byte	0
-	.byte	36
+	.byte	38
 	.long	.Linfo_string39
 	.long	.Linfo_string39
+	.long	184
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3364
+	.long	3372
 	.byte	37
 	.long	.Linfo_string102
-	.long	3387
+	.long	3395
 	.byte	0
 	.byte	38
 	.long	.Linfo_string40
@@ -5552,13 +5554,13 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3405
+	.long	3413
 	.byte	0
 	.byte	36
 	.long	.Linfo_string41
@@ -5566,10 +5568,10 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	0
 	.byte	38
 	.long	.Linfo_string42
@@ -5578,19 +5580,19 @@ postmask:
 	.byte	1
 	.byte	37
 	.long	.Linfo_string26
-	.long	3255
+	.long	3263
 	.byte	37
 	.long	.Linfo_string91
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string101
-	.long	3359
+	.long	3367
 	.byte	37
 	.long	.Linfo_string102
-	.long	3440
+	.long	3448
 	.byte	37
 	.long	.Linfo_string105
-	.long	3450
+	.long	3458
 	.byte	0
 	.byte	39
 	.long	.Linfo_string43
@@ -5627,12 +5629,12 @@ postmask:
 	.long	.Linfo_string106
 	.byte	3
 	.byte	8
-	.long	3440
+	.long	3448
 	.byte	16
 	.long	.Linfo_string107
 	.byte	3
 	.byte	8
-	.long	3440
+	.long	3448
 	.byte	16
 	.long	.Linfo_string25
 	.byte	3
@@ -5655,7 +5657,7 @@ postmask:
 	.long	.Linfo_string107
 	.byte	3
 	.byte	12
-	.long	3440
+	.long	3448
 	.byte	16
 	.long	.Linfo_string25
 	.byte	3
@@ -5701,13 +5703,13 @@ postmask:
 	.byte	41
 	.long	159
 	.byte	42
-	.long	3260
+	.long	3268
 	.byte	43
 	.long	.Linfo_string93
 	.byte	8
 	.byte	44
 	.long	.Linfo_string89
-	.long	3243
+	.long	3251
 	.byte	0
 	.byte	44
 	.long	.Linfo_string92
@@ -5715,13 +5717,13 @@ postmask:
 	.byte	4
 	.byte	0
 	.byte	41
-	.long	3292
+	.long	3300
 	.byte	43
 	.long	.Linfo_string100
 	.byte	8
 	.byte	44
 	.long	.Linfo_string94
-	.long	3191
+	.long	3199
 	.byte	0
 	.byte	44
 	.long	.Linfo_string95
@@ -5747,18 +5749,18 @@ postmask:
 	.byte	41
 	.long	66
 	.byte	41
-	.long	3191
+	.long	3199
 	.byte	42
-	.long	3374
+	.long	3382
 	.byte	3
-	.long	3359
+	.long	3367
 	.byte	8
 	.long	73
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	42
-	.long	3392
+	.long	3400
 	.byte	3
 	.long	66
 	.byte	8
@@ -5767,13 +5769,13 @@ postmask:
 	.byte	1
 	.byte	0
 	.byte	41
-	.long	3410
+	.long	3418
 	.byte	43
 	.long	.Linfo_string104
 	.byte	19
 	.byte	44
 	.long	.Linfo_string103
-	.long	3427
+	.long	3435
 	.byte	0
 	.byte	0
 	.byte	3
@@ -5784,9 +5786,9 @@ postmask:
 	.byte	18
 	.byte	0
 	.byte	42
-	.long	3445
+	.long	3453
 	.byte	45
-	.long	3359
+	.long	3367
 	.byte	41
 	.long	782
 	.byte	0
@@ -7539,37 +7541,37 @@ postmask:
 .asciiz"drawHorisontalLineInternal_in_buffer"
 	.long	2443
 .asciiz"_i.button_if._chan_yield.button"
-	.long	2718
+	.long	2722
 .asciiz"_i.i2c_internal_commands_if._chan.read_chronodot_ok"
 	.long	1975
 .asciiz"drawHorisontalLine_in_buffer"
-	.long	2858
+	.long	2862
 .asciiz"_i.i2c_internal_commands_if._chan_yield.read_byte_fram_ok"
-	.long	2905
+	.long	2913
 .asciiz"_i.i2c_internal_commands_if._chan_yield.write_chronodot_ok"
 	.long	2414
 .asciiz"_i.button_if._chan.button"
 	.long	137
 .asciiz"postmask"
-	.long	2976
+	.long	2984
 .asciiz"_i.i2c_internal_commands_if._chan_yield.write_display_ok"
 	.long	757
 .asciiz"delay_milliseconds"
 	.long	1597
 .asciiz"writeToDisplay_i2c_all_buffer"
-	.long	2807
+	.long	2811
 .asciiz"_i.i2c_internal_commands_if._chan_yield.write_byte_fram_ok"
 	.long	2629
 .asciiz"_i.i2c_internal_commands_if._chan.read_byte_fram_ok"
-	.long	2676
+	.long	2680
 .asciiz"_i.i2c_internal_commands_if._chan.write_chronodot_ok"
-	.long	3134
+	.long	3142
 .asciiz"_safe_memmove"
 	.long	31
 .asciiz"buffer"
-	.long	3084
+	.long	3092
 .asciiz"_safe_memcmp"
-	.long	2747
+	.long	2751
 .asciiz"_i.i2c_internal_commands_if._chan.write_display_ok"
 	.long	1868
 .asciiz"drawVerticalLine_in_buffer"
@@ -7599,7 +7601,7 @@ postmask:
 .asciiz"_i.chronodot_ds3231_if._chan_yield.set_time_ok"
 	.long	102
 .asciiz"premask"
-	.long	3060
+	.long	3068
 .asciiz"delay_microseconds"
 	.long	1537
 .asciiz"tellDisplay_i2c_stopscroll"
@@ -7607,9 +7609,9 @@ postmask:
 .asciiz"_i.chronodot_ds3231_if._chan.set_time_ok"
 	.long	897
 .asciiz"writeDisplay_i2c_command"
-	.long	3036
+	.long	3044
 .asciiz"delay_seconds"
-	.long	2947
+	.long	2955
 .asciiz"_i.i2c_internal_commands_if._chan_yield.read_chronodot_ok"
 	.long	1189
 .asciiz"tellDisplay_i2c_startscrollright"
@@ -7623,27 +7625,27 @@ postmask:
 	.long	.L.debug_info_begin0
 .Lset108 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset108
-	.long	3292
+	.long	3300
 .asciiz"__TYPE_12"
 	.long	329
 .asciiz"display_vccstate_t"
-	.long	3205
+	.long	3213
 .asciiz"port"
-	.long	3410
+	.long	3418
 .asciiz"chronodot_d3231_registers_t"
 	.long	782
 .asciiz"unsigned int"
 	.long	1794
 .asciiz"int"
-	.long	3191
+	.long	3199
 .asciiz"unsigned short"
-	.long	3184
+	.long	3192
 .asciiz"short"
-	.long	3198
+	.long	3206
 .asciiz"interface"
-	.long	3243
+	.long	3251
 .asciiz"chanend"
-	.long	3260
+	.long	3268
 .asciiz"yieldArg"
 	.long	670
 .asciiz"__TYPE_7"

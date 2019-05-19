@@ -140,7 +140,7 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
             } break;
 
-            case i_i2c_internal_commands[int index_of_client].read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [NUM_BYTES_IN_FRAM_MEMORY]) -> {bool ok} : {
+            case i_i2c_internal_commands[int index_of_client].read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [NUM_BYTES_IN_FRAM_MEMORY]) -> bool ok : {
                 i2c_result_t i2c_result;
                 uint8_t read_data_ [NUM_BYTES_IN_FRAM_MEMORY];
                 i2c_result = i2c_master_16bit_read_reg ((int)dev_addr, address, read_data_, NUM_BYTES_IN_FRAM_MEMORY, i2c_internal_config);
@@ -150,7 +150,7 @@ void I2C_Internal_Task (server i2c_internal_commands_if i_i2c_internal_commands[
                 }
             } break;
 
-            case i_i2c_internal_commands[int index_of_client].write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [NUM_BYTES_IN_FRAM_MEMORY]) -> {bool ok} : {
+            case i_i2c_internal_commands[int index_of_client].write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [NUM_BYTES_IN_FRAM_MEMORY]) -> bool ok : {
                 i2c_result_t i2c_result;
                 uint8_t write_data_ [NUM_BYTES_IN_FRAM_MEMORY];
                 for (unsigned index = 0; index < NUM_BYTES_IN_FRAM_MEMORY; index++) { // Using NUM_BYTES_IN_FRAM_MEMORY instead of NUM_ELEMENTS for clarity

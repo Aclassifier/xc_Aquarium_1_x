@@ -1517,7 +1517,7 @@ typedef struct {
 [[combinable]]
 void Button_Task (
         const unsigned button_n,
-        port p_button,
+        in port p_button,
         client button_if i_button_out);
 # 23 "../src/tempchip_mcp9808.xc" 2
 
@@ -1562,23 +1562,24 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 25 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/I2C_External_Task.h" 1
 # 26 "../src/I2C_External_Task.h"
-typedef enum i2c_dev_address_external_t {
+typedef enum i2c_dev_address_external_e {
 
 
     I2C_ADDRESS_OF_TEMPC_HEATER = 0x18,
     I2C_ADDRESS_OF_TEMPC_AMBIENT = (0x18 + 1),
-    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2)
-} i2c_dev_address_external_t;
+    I2C_ADDRESS_OF_TEMPC_WATER = (0x18 + 2),
+    I2C_ADDRESS_OF_PORT_EXPANDER = (0x20)
+} i2c_dev_address_external_e;
 
 
 
 
-typedef enum iof_temps_t {
+typedef enum iof_temps_e {
     IOF_TEMPC_HEATER,
     IOF_TEMPC_AMBIENT,
     IOF_TEMPC_WATER,
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
-} iof_temps_t;
+} iof_temps_e;
 
 
 typedef struct tag_i2c_temps_t {
@@ -1586,19 +1587,35 @@ typedef struct tag_i2c_temps_t {
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
 } i2c_temps_t;
 
-typedef enum i2c_command_external_t {
+typedef enum i2c_command_external_e {
     VER_TEMPC_CHIPS,
-    GET_TEMPC_ALL
-} i2c_command_external_t;
+    GET_TEMPC_ALL,
+
+    INIT_IOCHIP,
+    READ_IOCHIP_BUTTON
+} i2c_command_external_e;
 
 typedef interface i2c_external_commands_if {
+
+
+
+
+
     [[clears_notification]]
     i2c_temps_t read_temperature_ok (void);
+
+    [[clears_notification]]
+    bool get_iochip_ok (void);
+
+    [[clears_notification]]
+    {bool, bool, bool} get_iochip_button_ok (void);
 
     [[notification]]
     slave void notify (void);
 
-    void trigger (const i2c_command_external_t command);
+    void trigger_command (const i2c_command_external_e command);
+    void trigger_write_iochip_pins (const uint8_t output_pins);
+
 } i2c_external_commands_if;
 
 
@@ -1607,7 +1624,7 @@ typedef interface i2c_external_commands_if {
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[2]);
 # 26 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/defines_adafruit.h" 1
-# 42 "../src/defines_adafruit.h"
+# 44 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
 # 27 "../src/tempchip_mcp9808.xc" 2

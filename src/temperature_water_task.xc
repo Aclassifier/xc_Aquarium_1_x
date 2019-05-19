@@ -228,7 +228,7 @@ void Temperature_Water_Task (
                 } else {}
             } break;
 
-            case (guard_first_value_read) => i_temperature_water_commands.get_temp_degC_str (const iof_temps_t i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
+            case (guard_first_value_read) => i_temperature_water_commands.get_temp_degC_str (const iof_temps_e i2c_iof_temps, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
                 //{{{  Fetch temperatures
 
                 // Not filtered here, but in Temperature_Heater_Task

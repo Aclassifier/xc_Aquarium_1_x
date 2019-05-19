@@ -22,7 +22,7 @@
 	.globl Button_Task.select.yield.enable.cases.maxchanends
 	.set Button_Task.select.yield.enable.cases,0
 	.globl Button_Task.select.yield.enable.cases
-	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.0.nstackwords) $M (Button_Task.select.yield.case.1.nstackwords)
+	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.1.nstackwords) $M (Button_Task.select.yield.case.0.nstackwords)
 	.globl Button_Task.select.yield.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
@@ -2368,10 +2368,10 @@ Button_Task.select.case.1:
 	.typestring _i.button_if._chan.button, "f{0}(chd,:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.typestring _i.button_if._chan_yield.button, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.overlay_reference _i.button_if._chan_yield.button,_i.button_if._client_call_y.fns
-	.typestring Button_Task, "k:f{0}(:ui,p,ic(button_if){m(button){f{0}(:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})}})"
+	.typestring Button_Task, "k:f{0}(:ui,i:p,ic(button_if){m(button){f{0}(:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})}})"
 	.overlay_reference Button_Task,_i.button_if.button.fns
 	.typestring Button_Task.init.1, "k:f{0}(u:q(ui))"
-	.typestring Button_Task.init.0, "k:f{0}(u:q(ui),:ui,p,ic(button_if){m(button){f{0}(:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})}})"
+	.typestring Button_Task.init.0, "k:f{0}(u:q(ui),:ui,i:p,ic(button_if){m(button){f{0}(:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})}})"
 	.typestring Button_Task.select.yield.enable, "k:fe{0}()"
 	.typestring Button_Task.select.enable, "k:fe{0}()"
 	.typestring Button_Task.fini, "k:f{0}(u:q(ui))"

@@ -17,8 +17,13 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.66" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1466  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.69" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1469  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.69     19May2019 AQU=078  Starting to use these more seriously. See I2C scope pictures ..95.png - ..97.png
+//                               Name: Get_Random_Light_Composition_For_Some_HourChanges -> Get_Weighted_Random_Light_Composition_For_Some_HourChanges
+//                               name: Get_Random_Light_Composition_For_Half_Light -> Get_Weighted_Random_Light_Composition_For_Half_Light
+// 1.4.68     13May2019 AQU=078  Starting with testing USB_WATCHDOG_AND_RELAY_BOX
+// 1.4.67     02Apr2019 AQU=078  I2C_ADDRESS_OF_PORT_EXPANDER added for MCP23008 to be purchased from Adafruit
 //            --------- Running  from 26Feb2019
 // 1.4.66     25Mar2019          ISAQUARIUM ie FLASH_BLACK_BOARD=0. Same as 1.4.65
 //                               Constraints: C:8/8 T:10/9 C:32/26 M:62576 S:6692 C:49938 D:5946

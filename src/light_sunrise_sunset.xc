@@ -136,7 +136,7 @@ Update_Daytime_Hours (light_sunrise_sunset_context_t &context) { // No & compile
 }
 
 light_composition_t
-Get_Random_Light_Composition_For_Half_Light (const random_generator_t random_number) {
+Get_Weighted_Random_Light_Composition_For_Half_Light (const random_generator_t random_number) {
     light_composition_t return_light_composition;
 
     unsigned random_number_0_9 = random_number % 10; // Not necessary with more steps, however may need so many to balance use of the different LEDs
@@ -164,12 +164,12 @@ Get_Random_Light_Composition_For_Half_Light (const random_generator_t random_num
         //                                          =====                               //        -----
     }   //                                      SUM 80672 / 10 = 8067 is half good enough         10/10
 
-    debug_print ("Get_Random_Light_Composition_For_Half_Light to %u\n", return_light_composition);
+    debug_print ("Get_Weighted_Random_Light_Composition_For_Half_Light to %u\n", return_light_composition);
     return return_light_composition;
 }
 
 light_composition_t
-Get_Random_Light_Composition_For_Some_HourChanges (const random_generator_t random_number) {
+Get_Weighted_Random_Light_Composition_For_Some_HourChanges (const random_generator_t random_number) {
     light_composition_t return_light_composition;
 
     // This will cause the light amount to increase or decrease, depending on the present setting
@@ -199,7 +199,7 @@ Get_Random_Light_Composition_For_Some_HourChanges (const random_generator_t rand
                                                                                               //       -----
     }                                                                                         //       18/18
                                                                                               //       =====
-    debug_print ("Get_Random_Light_Composition_For_Some_HourChanges to %u\n", return_light_composition);
+    debug_print ("Get_Weighted_Random_Light_Composition_For_Some_HourChanges to %u\n", return_light_composition);
     return return_light_composition;
 }
 
@@ -511,7 +511,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
         if (trigger_hour_changed_half_light) {
             // random_number is not already used in condition
-            new_light_composition = Get_Random_Light_Composition_For_Half_Light (random_number);      //     Once every 10 it would come out unchanged. OK!
+            new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number);      //     Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
         } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
             if (context.allow_normal_light_change_by_clock) {                                         // L3: And when it's day-time'ish
@@ -532,7 +532,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                             } else { // L7:
                                 // random_number already used in condition, we have to get a new value:
                                 random_number = random_get_random_number(context.random_number); // AQU=070 we want all, not just the even numbered ones!
-                                new_light_composition = Get_Random_Light_Composition_For_Some_HourChanges (random_number);
+                                new_light_composition = Get_Weighted_Random_Light_Composition_For_Some_HourChanges (random_number);
                                 // Change, down (more SKY) or even up now allowed (less SKY)!
                                 i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102);
                                 #if ((FLASH_BLACK_BOARD==1) and (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==0))

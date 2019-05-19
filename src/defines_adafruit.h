@@ -26,6 +26,8 @@ All text above, and the splash screen must be included in any redistribution
 #ifndef DEFINES_ADAFRUIT_H_
 #define DEFINES_ADAFRUIT_H_
 
+#define LEN_I2C_REG 1 // register address is one byte1. It's sent after dev_addr
+
 // #define Wire_begin()
 // #define Wire_beginTransmission(i2c_dev_address)
 // #define WIRE_WRITE(control);

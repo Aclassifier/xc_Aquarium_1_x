@@ -190,7 +190,7 @@ void Temperature_Heater_Task (
                 } else if (method_of_on_off == ON_OFF_TEMPC_HEATER) { // HERE
                     if (temp_measurement_ticks_cnt == 0) { // Every TEMP_MEASURE_INTERVAL_IS_10_SECONDS
 
-                        i_i2c_external_commands.trigger (GET_TEMPC_ALL); // Trigger for i_i2c_external_commands.notify
+                        i_i2c_external_commands.trigger_command (GET_TEMPC_ALL); // Trigger for i_i2c_external_commands.notify
 
                         is_doing = IS_READING_TEMPS;
                     } else {}
@@ -469,7 +469,7 @@ void Temperature_Heater_Task (
             //}}}
             //{{{  i_temperature_heater_commands[].get_temp_degC_str
 
-            case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_t iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
+            case i_temperature_heater_commands[int index_of_client].get_temp_degC_str (const iof_temps_e iof_temp, char return_value_string[GENERIC_DEGC_TEXT_LEN]) : {
 
                 if ((iof_temp == IOF_TEMPC_HEATER_MEAN_LAST_CYCLE) and
                     (temp_onetenthDegC_heater_limit == TEMP_ONETENTHDEGC_10_0_FAST_COOLING) and

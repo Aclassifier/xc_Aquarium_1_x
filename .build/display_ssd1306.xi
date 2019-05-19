@@ -1470,7 +1470,7 @@ typedef struct {
 [[combinable]]
 void Button_Task (
         const unsigned button_n,
-        port p_button,
+        in port p_button,
         client button_if i_button_out);
 # 40 "../src/display_ssd1306.xc" 2
 
@@ -1515,7 +1515,7 @@ int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
 # 42 "../src/display_ssd1306.xc" 2
 
 # 1 "../src/defines_adafruit.h" 1
-# 42 "../src/defines_adafruit.h"
+# 44 "../src/defines_adafruit.h"
 typedef uint8_t i2c_PortReg_t;
 typedef uint8_t i2c_PortMask_t;
 # 44 "../src/display_ssd1306.xc" 2
@@ -1651,14 +1651,14 @@ typedef interface chronodot_ds3231_if {
 # 47 "../src/display_ssd1306.xc" 2
 # 1 "../src/I2C_Internal_Task.h" 1
 # 11 "../src/I2C_Internal_Task.h"
-typedef enum i2c_dev_address_internal_t {
+typedef enum i2c_dev_address_internal_e {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
     I2C_ADDRESS_OF_FRAM = 0x50,
     I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
     I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
     I2C_ADDRESS_OF_CHRONODOT = 0x68
-} i2c_dev_address_internal_t;
+} i2c_dev_address_internal_e;
 
 
 
@@ -1672,7 +1672,7 @@ typedef interface i2c_internal_commands_if {
 
 
 
-    {bool} read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
+    bool read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
     bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
 
 
