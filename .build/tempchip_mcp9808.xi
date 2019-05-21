@@ -1601,20 +1601,20 @@ typedef interface i2c_external_commands_if {
 
 
 
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
-
-    [[clears_notification]]
-    bool get_iochip_ok (void);
-
-    [[clears_notification]]
-    {bool, bool, bool} get_iochip_button_ok (void);
+    void trigger_command (const i2c_command_external_e command);
 
     [[notification]]
     slave void notify (void);
 
-    void trigger_command (const i2c_command_external_e command);
-    void trigger_write_iochip_pins (const uint8_t output_pins);
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
+
+
+
+
+    void init_iochip (unsigned &mcp23008_err_cnt);
+    void write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins);
+    {bool, bool} get_iochip_button (unsigned &mcp23008_err_cnt);
 
 } i2c_external_commands_if;
 

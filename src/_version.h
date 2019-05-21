@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.70" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1470  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.71" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1471  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.71     21May2019 AQU=078  Some interface calls to i2c_internal_commands_if are now not notification based, but client/server
 // 1.4.70     19May2019 AQU=078  SCREEN_10_USB_WATCHDOG_RELAY_BOX is new
 // 1.4.69     19May2019 AQU=078  Starting to use these more seriously. See I2C scope pictures ..95.png - ..97.png
 //                               Name: Get_Random_Light_Composition_For_Some_HourChanges -> Get_Weighted_Random_Light_Composition_For_Some_HourChanges

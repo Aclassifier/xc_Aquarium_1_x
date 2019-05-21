@@ -51,7 +51,7 @@ typedef struct tag_i2c_temps_t {
 typedef enum i2c_command_external_e {
     VER_TEMPC_CHIPS, // Only returns i2c_temp_ok as valid (always EXTERNAL_TEMPERATURE_MAX_ONETENTHDEGC in i2c_temp_onetenthDegC_t)
     GET_TEMPC_ALL,
-                       // IOCHIP is MCP23008 on USB_WATCHDOG_AND_RELAY_BOX
+
     INIT_IOCHIP,       // Finish with get_iochip_ok
     READ_IOCHIP_BUTTON // Finish with get_iochip_button_ok
 } i2c_command_external_e;
@@ -62,20 +62,20 @@ typedef interface i2c_external_commands_if {
     // time, and we need both data sets per "round" (1 second) in the client. However, with i2c_external_config setup
     // for 100 kbit/s a full sequence would only take 2 ms! See scope pictures ..95.png - ..97.png for version 1.4.69
 
-    [[clears_notification]]
-    i2c_temps_t read_temperature_ok (void);
-
-    [[clears_notification]]
-    bool get_iochip_ok (void); // ok
-
-    [[clears_notification]]
-    {bool, bool, bool} get_iochip_button_ok (void); // { ok, button_pressed, button_changed }
+    void trigger_command  (const i2c_command_external_e command); // Finish with read_temperature_ok
 
     [[notification]]
     slave void notify (void);
 
-    void trigger_command           (const i2c_command_external_e command); // Finish with read_temperature_ok
-    void trigger_write_iochip_pins (const uint8_t output_pins); // Only those pins that are output. Finish with get_iochip_ok
+    [[clears_notification]]
+    i2c_temps_t read_temperature_ok (void);
+
+    // Client/server with no notification:
+    // IOCHIP is MCP23008 on USB_WATCHDOG_AND_RELAY_BOX
+
+    void         init_iochip       (unsigned &mcp23008_err_cnt);
+    void         write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins); // Only those pins that are output. Finish with get_iochip_ok
+    {bool, bool} get_iochip_button (unsigned &mcp23008_err_cnt);                            // {button_pressed, button_changed}
 
 } i2c_external_commands_if;
 

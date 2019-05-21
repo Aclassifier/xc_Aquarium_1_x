@@ -311,7 +311,6 @@ typedef struct handler_context_t {
     #endif
 
     // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
-    bool                  iochip_ok;
     unsigned              mcp23008_err_cnt;
     uint8_t               iochip_output_pins;
     relay_button_ustate_t iochip_relay_button_ustate;
@@ -1258,7 +1257,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
                                "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u",
-                               context.iochip_ok ? "TILKOBLET" : "MANGLER",
+                               (context.mcp23008_err_cnt==0) ? "TILKOBLET" : "MANGLER",
                                context.iochip_relay_button_ustate.u.cnt);
             //                                            ..........----------.
             //                                            10 USB-BOKS
@@ -2336,13 +2335,7 @@ void System_Task (
     context.iochip_output_pins = MY_MCP23008_ALL_OFF;
     context.iochip_seconds_cnt = 0;
 
-    i_i2c_external_commands.trigger_command (INIT_IOCHIP);
-    select {case i_i2c_external_commands.notify(): {} break;}
-    context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
-
-    if (not context.iochip_ok) {
-        context.mcp23008_err_cnt++;
-    } else {}
+    i_i2c_external_commands.init_iochip (context.mcp23008_err_cnt);
 
     // Init and clear display
 
@@ -2521,7 +2514,6 @@ void System_Task (
                 }
 
                 // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
-
                 // HANDLE MCP23008 BUTTON AND WATCHDOG TRIGGER
 
                 context.iochip_seconds_cnt++;
@@ -2530,48 +2522,29 @@ void System_Task (
                     context.mcp23008_err_cnt = 0;
                     context.iochip_relay_button_ustate.u.cnt = 0;
 
-                    i_i2c_external_commands.trigger_command (INIT_IOCHIP);
-                    select {case i_i2c_external_commands.notify(): {} break;}
-                    context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+                    i_i2c_external_commands.init_iochip (context.mcp23008_err_cnt);
 
-                    if (not context.iochip_ok) {
-                        context.mcp23008_err_cnt++;
-                    } else {}
                 } else {} // Unit present, go on:
 
                 if (context.mcp23008_err_cnt == 0) { // Unit present or become present
                     bool relay_button_pressed;
                     bool relay_button_changed;
-                    i_i2c_external_commands.trigger_command (READ_IOCHIP_BUTTON);
-                    select {case i_i2c_external_commands.notify(): {} break;}
-                    {context.iochip_ok, relay_button_pressed, relay_button_changed} =
-                            i_i2c_external_commands.get_iochip_button_ok(); // { ok, button_pressed, button_changed }
-                    if (not context.iochip_ok) {
-                        context.mcp23008_err_cnt++;
-                    } else {
+
+                    {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (context.mcp23008_err_cnt);
+                    if (context.mcp23008_err_cnt == 0) {
                         if (relay_button_changed and relay_button_pressed) { // Next state
                             context.iochip_relay_button_ustate.u.cnt++;
                             if (context.iochip_relay_button_ustate.u.state == RELAYBUTT_ROOF) {
                                 context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
                             } else {}
                         } else {}
-                    }
-
-                    if (context.mcp23008_err_cnt == 0) {
                         context.iochip_output_pins =
                                 i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
                                         context.iochip_relay_button_ustate,
                                         context.iochip_seconds_cnt);
-                        i_i2c_external_commands.trigger_write_iochip_pins (context.iochip_output_pins);
-                        select {case i_i2c_external_commands.notify(): {} break;}
-                        context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
-
-                        if (not context.iochip_ok) {
-                            context.mcp23008_err_cnt++;
-                        } else {}
+                        i_i2c_external_commands.write_iochip_pins (context.mcp23008_err_cnt, context.iochip_output_pins);
                     } else {}
                 } else {} // context.mcp23008_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
-
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,

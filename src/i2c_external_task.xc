@@ -64,10 +64,7 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
     i2c_temps_t i2c_temps;
     i2c_master_init (i2c_external_config); // XMOS library
 
-    bool iochip_ok;
-    bool iochip_button_pressed      = false;
     bool iochip_button_pressed_prev = false;
-    bool iochip_button_changed      = false;
 
     while (1) {
         select {
@@ -99,36 +96,6 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                         i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER]   = Tempchip_MCP9808_ReadTempC (i2c_external_config, i2c_external_params, i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]);
                     } break;
 
-                    case INIT_IOCHIP:  { // Finish with get_iochip_ok
-                        i2c_result_t i2c_result;
-                        {
-                            unsigned char the_register_arr1 [1] = {MCP23008_IODIR_ALL_PINS_DIR_OUTPUT bitor MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK};
-                            // bitor above since MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK has bit high as MCP23008_PIN_DIR_INPUT
-                            i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_IODIR, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                            iochip_ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                        }
-                        if (iochip_ok) {
-                            unsigned char the_register_arr1 [1] = {MY_MCP23008_ALL_OFF};
-                            i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                            iochip_ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                        } else {}
-                    } break;
-
-                    case READ_IOCHIP_BUTTON: { // Finish with get_iochip_button_ok
-                        i2c_result_t i2c_result;
-                        uint8_t the_register_arr1 [1];
-
-                        i2c_result = i2c_master_read_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                        iochip_ok = (i2c_result == I2C_OK);
-
-                        if (iochip_ok) {
-                            iochip_button_pressed = ((the_register_arr1[0] bitand MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK) == 0); // When pin has been taken low
-                            if ((iochip_button_pressed != iochip_button_pressed_prev) and iochip_button_pressed) {
-                                iochip_button_changed = true;
-                            } else {}
-                        } else {}
-                    } break;
-
                     default: { // programming error
                         for (int i=0; i++; i<NUM_ELEMENTS(i_i2c_external_commands)) {
                             i2c_temps.i2c_temp_ok[i] = false;
@@ -141,17 +108,6 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 i_i2c_external_commands[index_of_client].notify();
             } break; // trigger_command
 
-            // Another trigger
-            case i_i2c_external_commands[int index_of_client].trigger_write_iochip_pins (const uint8_t output_pins) : {
-                i2c_result_t i2c_result;
-                unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
-
-                i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                iochip_ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-
-                i_i2c_external_commands[index_of_client].notify(); // Finish with get_iochip_ok
-            } break; // trigger_write_iochip_pins
-
             // clears_notification
             case i_i2c_external_commands[int index_of_client].read_temperature_ok (void) -> i2c_temps_t return_i2c_temps: {
                 debug_print ("%s", "i2c-x read_temperature_ok\n");
@@ -160,18 +116,60 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 debug_print ("I2C: GET_TEMPC_ALL Y %u\n", index_of_client);
             } break; // read_temperature_ok
 
-            // clears_notification
-            case i_i2c_external_commands[int index_of_client].get_iochip_ok (void) -> bool ok: {
-                ok = iochip_ok;
-            } break; // get_iochip_ok
 
-            // clears_notification
-            case i_i2c_external_commands[int index_of_client].get_iochip_button_ok (void) -> {bool ok, bool button_pressed, bool button_changed}: {
-                iochip_button_pressed_prev = iochip_button_pressed;
+            // client/server
+            case i_i2c_external_commands[int index_of_client].init_iochip (unsigned &mcp23008_err_cnt) : {
+                i2c_result_t i2c_result;
+                bool ok;
+                {
+                    unsigned char the_register_arr1 [1] = {MCP23008_IODIR_ALL_PINS_DIR_OUTPUT bitor MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK};
+                    // bitor above since MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK has bit high as MCP23008_PIN_DIR_INPUT
+                    i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_IODIR, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+                    ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+                }
+                if (ok) {
+                    unsigned char the_register_arr1 [1] = {MY_MCP23008_ALL_OFF};
+                    i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+                    ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+                } else {}
 
-                ok             = iochip_ok;
-                button_pressed = iochip_button_pressed;
-                button_changed = iochip_button_changed;
+                if (not ok) {
+                    mcp23008_err_cnt++;
+                } else {}
+            } break; // init_iochip_ok
+
+            // client/server
+            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins) : {
+                i2c_result_t i2c_result;
+                bool ok;
+                unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
+
+                i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+                ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
+                if (not ok) {
+                    mcp23008_err_cnt++;
+                } else {}
+            } break; // trigger_write_iochip_pins
+
+            // client/server
+            case i_i2c_external_commands[int index_of_client].get_iochip_button (unsigned &mcp23008_err_cnt) -> {bool button_pressed, bool button_changed}: {
+                i2c_result_t i2c_result;
+                bool ok;
+                uint8_t the_register_arr1 [1];
+
+                i2c_result = i2c_master_read_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+                ok = (i2c_result == I2C_OK);
+
+                if (ok) {
+                    button_pressed             = ((the_register_arr1[0] bitand MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK) == 0); // When pin has been taken low
+                    button_changed             = (button_pressed != iochip_button_pressed_prev);
+                    iochip_button_pressed_prev = button_pressed;
+                } else {
+                    button_pressed = false;
+                    button_changed = false;
+
+                    mcp23008_err_cnt++;
+                }
             } break; // get_iochip_button_ok
         }
     }
