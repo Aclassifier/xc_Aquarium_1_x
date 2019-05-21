@@ -75,7 +75,7 @@ typedef interface i2c_external_commands_if {
     slave void notify (void);
 
     void trigger_command           (const i2c_command_external_e command); // Finish with read_temperature_ok
-    void trigger_write_iochip_pins (const uint8_t output_pins); // // Only those pins that are output. Finish with get_iochip_ok
+    void trigger_write_iochip_pins (const uint8_t output_pins); // Only those pins that are output. Finish with get_iochip_ok
 
 } i2c_external_commands_if;
 

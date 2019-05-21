@@ -34,6 +34,7 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "chronodot_ds3231.h"
+#include "ioexpanderchip_mcp23008.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 
@@ -95,19 +96,20 @@ typedef enum {
 
 typedef enum display_screen_name_t {
     // English-Norwegian here because the screens are in Norwegian
-    //                            //  # sub_is_editable | char_takes_press_for_10_seconds_right_button_str | String                             | OTHER
-    //                            //    --------------- | ------------------------------------------------ | ---------------------------------- | -----------------------------
-    SCREEN_0_X_FEIL,              //  0 NO              | YES                                              | display_ts1_chars in screen_logg_t | "X" identifies it
-    SCREEN_1_AKVARIETEMPERATURER, //  1 NO              | YES                                              | display_ts1_chars                  | SCREEN_NORMALLY_FIRST
-    SCREEN_2_VANNTEMP_REG,        //  2 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_3_LYSGULERING,         //  3 YES             | YES                                              | display_ts1_chars                  |
-    SCREEN_4_BOKSDATA,            //  4 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_5_VERSJON,             //  5 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_6_KONSTANTER,          //  6 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_7_NT_KLOKKE,           //  7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
-    SCREEN_8_RADIO,               //  8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
-    SCREEN_9_RADIO,               //  9 NO              | YES                                              | display_ts1_chars
-    SCREEN_X_NONE,                // 10 No screen, just a special parameter for "except none" == "all"
+    //                                //  # sub_is_editable | char_takes_press_for_10_seconds_right_button_str | String                             | OTHER
+    //                                //    --------------- | ------------------------------------------------ | ---------------------------------- | -----------------------------
+    SCREEN_0_X_FEIL,                  //  0 NO              | YES                                              | display_ts1_chars in screen_logg_t | "X" identifies it
+    SCREEN_1_AKVARIETEMPERATURER,     //  1 NO              | YES                                              | display_ts1_chars                  | SCREEN_NORMALLY_FIRST
+    SCREEN_2_VANNTEMP_REG,            //  2 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_3_LYSGULERING,             //  3 YES             | YES                                              | display_ts1_chars                  |
+    SCREEN_4_BOKSDATA,                //  4 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_5_VERSJON,                 //  5 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_6_KONSTANTER,              //  6 NO              | NO                                               | display_ts1_chars                  |
+    SCREEN_7_NT_KLOKKE,               //  7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
+    SCREEN_8_RADIO,                   //  8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
+    SCREEN_9_RADIO,                   //  9 NO              | YES                                              | display_ts1_chars
+    SCREEN_10_USB_WATCHDOG_RELAY_BOX, //  9 NO              | NO                                               | display_ts1_chars                  | New with AQU=076
+    SCREEN_X_NONE,                    // 10 No screen, just a special parameter for "except none" == "all"
 } display_screen_name_t;
 
 #define SCREEN_NORMALLY_FIRST SCREEN_1_AKVARIETEMPERATURER
@@ -308,7 +310,12 @@ typedef struct handler_context_t {
         uint irq_value_xscope;
     #endif
 
-    bool iochip_ok;
+    // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
+    bool                  iochip_ok;
+    unsigned              mcp23008_err_cnt;
+    uint8_t               iochip_output_pins;
+    relay_button_ustate_t iochip_relay_button_ustate;
+    unsigned              iochip_seconds_cnt;
 
 } handler_context_t;
 
@@ -892,12 +899,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig WD=%u",
+                               "5 BOKS XMOS startKIT\n  XC KODE %s  A:%s  R:%s\n  %syvind Teig",
                                __DATE__,
                                AQUARIUM_VERSION_STR,
                                RFM69_DRIVER_VERSION_STR,
-                               char_OE_str,
-                               context.iochip_ok);
+                               char_OE_str);
             //                                            5 BOKS  XMOS startKIT
             //                                              XC KODE Jun 14 2017
             //                                              A:1.0.12  R:0.9.00
@@ -1193,7 +1199,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
         // SCREEN_9_RADIO
 
         case SCREEN_8_RADIO:
-        case SCREEN_9_RADIO:{
+        case SCREEN_9_RADIO: {
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
@@ -1235,6 +1241,29 @@ void Handle_Real_Or_Clocked_Button_Actions (
             #endif
 
             }
+
+            Clear_All_Pixels_In_Buffer();
+            setTextSize(1);
+            setTextColor(WHITE);
+            setCursor(0,0);
+            display_print (context.display_ts1_chars, (SSD1306_TS1_LINE_CHAR_NUM*4)); // No need for the \0
+            writeToDisplay_i2c_all_buffer(i_i2c_internal_commands);
+            context.display_is_on = true;
+        } break;
+
+        case SCREEN_10_USB_WATCHDOG_RELAY_BOX: {
+            for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
+                context.display_ts1_chars [index_of_char] = ' ';
+            }
+
+            sprintf_numchars = sprintf (context.display_ts1_chars,
+                               "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u",
+                               context.iochip_ok ? "TILKOBLET" : "MANGLER",
+                               context.iochip_relay_button_ustate.u.cnt);
+            //                                            ..........----------.
+            //                                            10 USB-BOKS
+            //                                              VAKTHUND TILKOBLET // VAKTHUND MANGLER
+            //                                              RELE:0
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1994,6 +2023,66 @@ void radio_irq_handler (
     } else {}
 }
 
+
+uint8_t i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
+          relay_button_ustate_t &relay_button_ustate,
+          const unsigned        &seconds_cnt)
+{
+    uint8_t port_pins = MY_MCP23008_ALL_OFF; // So we need to build all ACTIVE ON bits anew:
+
+    switch (relay_button_ustate.u.state) {
+        case RELAYBUTT_0: {
+            // BLINK GREEN LED:
+            if ((seconds_cnt % 2) == 0) {
+                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            } else {}; // GREEN LED OFF: no code (done)
+             // BOTH RELAYS OFF: no code (done)
+        } break;
+        case RELAYBUTT_1: {
+            // GREEN LED ON:
+            port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            // RELAY1 ON:
+            port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+        } break;
+        case RELAYBUTT_2: {
+            // RED LED ON:
+            port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK; // RED LED ON
+            // RELAY2 ON:
+            port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
+        } break;
+        case RELAYBUTT_3: {
+            // BOTH LEDS ON:
+            port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED   LED ON
+            // BOTH RELAYS ON:
+            port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+            port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
+        } break;
+        case RELAYBUTT_4: {
+            // SWAP AND BLINK LEDS:
+            if ((seconds_cnt % 2) == 0) {
+                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            } else {
+                port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED   LED ON
+            }
+            // SWAP RELAYS:
+            unsigned seconds_cnt_128 = seconds_cnt bitand (128-1);
+            if (seconds_cnt_128 < 64) {
+                port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+            } else {
+                port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
+            }
+        } break;
+        default: {} break; // Should not happen
+    }
+
+    if ((seconds_cnt % 2) == 0) {
+        port_pins or_eq MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK; // TO HIGH: resets watchdog
+    } else {} // TO LOW: no code (done)
+
+    return port_pins;
+}
+
 //
 // System_Task
 
@@ -2242,9 +2331,18 @@ void System_Task (
 
     // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
 
+    context.mcp23008_err_cnt = 0;
+    context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
+    context.iochip_output_pins = MY_MCP23008_ALL_OFF;
+    context.iochip_seconds_cnt = 0;
+
     i_i2c_external_commands.trigger_command (INIT_IOCHIP);
     select {case i_i2c_external_commands.notify(): {} break;}
     context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+
+    if (not context.iochip_ok) {
+        context.mcp23008_err_cnt++;
+    } else {}
 
     // Init and clear display
 
@@ -2424,9 +2522,56 @@ void System_Task (
 
                 // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
 
-                i_i2c_external_commands.trigger_command (INIT_IOCHIP);
-                select {case i_i2c_external_commands.notify(): {} break;}
-                context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+                // HANDLE MCP23008 BUTTON AND WATCHDOG TRIGGER
+
+                context.iochip_seconds_cnt++;
+
+                if (context.mcp23008_err_cnt != 0) { // Init MPC23008 again
+                    context.mcp23008_err_cnt = 0;
+                    context.iochip_relay_button_ustate.u.cnt = 0;
+
+                    i_i2c_external_commands.trigger_command (INIT_IOCHIP);
+                    select {case i_i2c_external_commands.notify(): {} break;}
+                    context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+
+                    if (not context.iochip_ok) {
+                        context.mcp23008_err_cnt++;
+                    } else {}
+                } else {} // Unit present, go on:
+
+                if (context.mcp23008_err_cnt == 0) { // Unit present or become present
+                    bool relay_button_pressed;
+                    bool relay_button_changed;
+                    i_i2c_external_commands.trigger_command (READ_IOCHIP_BUTTON);
+                    select {case i_i2c_external_commands.notify(): {} break;}
+                    {context.iochip_ok, relay_button_pressed, relay_button_changed} =
+                            i_i2c_external_commands.get_iochip_button_ok(); // { ok, button_pressed, button_changed }
+                    if (not context.iochip_ok) {
+                        context.mcp23008_err_cnt++;
+                    } else {
+                        if (relay_button_changed and relay_button_pressed) { // Next state
+                            context.iochip_relay_button_ustate.u.cnt++;
+                            if (context.iochip_relay_button_ustate.u.state == RELAYBUTT_ROOF) {
+                                context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
+                            } else {}
+                        } else {}
+                    }
+
+                    if (context.mcp23008_err_cnt == 0) {
+                        context.iochip_output_pins =
+                                i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
+                                        context.iochip_relay_button_ustate,
+                                        context.iochip_seconds_cnt);
+                        i_i2c_external_commands.trigger_write_iochip_pins (context.iochip_output_pins);
+                        select {case i_i2c_external_commands.notify(): {} break;}
+                        context.iochip_ok = i_i2c_external_commands.get_iochip_ok();
+
+                        if (not context.iochip_ok) {
+                            context.mcp23008_err_cnt++;
+                        } else {}
+                    } else {}
+                } else {} // context.mcp23008_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
+
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,
