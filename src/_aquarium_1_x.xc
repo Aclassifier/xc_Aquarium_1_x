@@ -311,7 +311,7 @@ typedef struct handler_context_t {
     #endif
 
     // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
-    unsigned              mcp23008_err_cnt;
+    unsigned              iochip_err_cnt;
     uint8_t               iochip_output_pins;
     relay_button_ustate_t iochip_relay_button_ustate;
     unsigned              iochip_seconds_cnt;
@@ -1259,7 +1259,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
                                "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u\n  RESTART:%u",
-                               (context.mcp23008_err_cnt==0) ? "TILKOBLET" : "MANGLER",
+                               (context.iochip_err_cnt==0) ? "TILKOBLET" : "MANGLER",
                                context.iochip_relay_button_ustate.u.cnt,
                                context.number_of_restarts);
             //                                            ..........----------.
@@ -1840,16 +1840,12 @@ void System_Task_Data_Handler (
             bool write_ok;
 
             context.number_of_restarts_init_do_fram_write = false; // Set to false after true once
-
-            // AQU=079 context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY] = (uint8_t) light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
-            // AQU=079 context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY]       = (uint8_t) light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
+            light_sunrise_sunset_context.do_FRAM_write    = false;
 
             context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles          = light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
             context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory = light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
             context.fram_bytes.u.bytes.number_of_restarts                       = context.number_of_restarts;
 
-            light_sunrise_sunset_context.do_FRAM_write = false;
-            // AQU=079 write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
             write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
             debug_print ("FRAM light_amount_in_FRAM_memory written ok=%u\n", write_ok);
         } else {}
@@ -2343,12 +2339,12 @@ void System_Task (
 
     // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
 
-    context.mcp23008_err_cnt = 0;
+    context.iochip_err_cnt = 0;
     context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
     context.iochip_output_pins = MY_MCP23008_ALL_OFF;
     context.iochip_seconds_cnt = 0;
 
-    i_i2c_external_commands.init_iochip (context.mcp23008_err_cnt);
+    i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
 
     // Init and clear display
 
@@ -2406,7 +2402,6 @@ void System_Task (
     {
         bool read_ok;
 
-        // AQU=079 read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
         read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
 
         if (not read_ok) {
@@ -2414,9 +2409,6 @@ void System_Task (
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = IOF_HH_IS_VOID;
             context.number_of_restarts                                                    = 0;
         } else {
-            // AQU=079 light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles  =                               context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
-            // AQU=079 light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory          = (light_daytime_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
-
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles;
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory;
             context.number_of_restarts                                                    = context.fram_bytes.u.bytes.number_of_restarts;
@@ -2540,20 +2532,20 @@ void System_Task (
 
                 context.iochip_seconds_cnt++;
 
-                if (context.mcp23008_err_cnt != 0) { // Init MPC23008 again
-                    context.mcp23008_err_cnt = 0;
+                if (context.iochip_err_cnt != 0) { // Init MPC23008 again
+                    context.iochip_err_cnt = 0;
                     context.iochip_relay_button_ustate.u.cnt = 0;
 
-                    i_i2c_external_commands.init_iochip (context.mcp23008_err_cnt);
+                    i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
 
                 } else {} // Unit present, go on:
 
-                if (context.mcp23008_err_cnt == 0) { // Unit present or become present
+                if (context.iochip_err_cnt == 0) { // Unit present or become present
                     bool relay_button_pressed;
                     bool relay_button_changed;
 
-                    {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (context.mcp23008_err_cnt);
-                    if (context.mcp23008_err_cnt == 0) {
+                    {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (context.iochip_err_cnt);
+                    if (context.iochip_err_cnt == 0) {
                         if (relay_button_changed and relay_button_pressed) { // Next state
                             context.iochip_relay_button_ustate.u.cnt++;
                             if (context.iochip_relay_button_ustate.u.state == RELAYBUTT_ROOF) {
@@ -2564,9 +2556,9 @@ void System_Task (
                                 i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
                                         context.iochip_relay_button_ustate,
                                         context.iochip_seconds_cnt);
-                        i_i2c_external_commands.write_iochip_pins (context.mcp23008_err_cnt, context.iochip_output_pins);
+                        i_i2c_external_commands.write_iochip_pins (context.iochip_err_cnt, context.iochip_output_pins);
                     } else {}
-                } else {} // context.mcp23008_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
+                } else {} // context.iochip_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
 
                 System_Task_Data_Handler (context,
                      light_sunrise_sunset_context,

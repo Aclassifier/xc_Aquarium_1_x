@@ -73,9 +73,9 @@ typedef interface i2c_external_commands_if {
     // Client/server with no notification:
     // IOCHIP is MCP23008 on USB_WATCHDOG_AND_RELAY_BOX
 
-    void         init_iochip       (unsigned &mcp23008_err_cnt);
-    void         write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins); // Only those pins that are output. Finish with get_iochip_ok
-    {bool, bool} get_iochip_button (unsigned &mcp23008_err_cnt);                            // {button_pressed, button_changed}
+    void         init_iochip       (unsigned &iochip_err_cnt);
+    void         write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins); // Only those pins that are output. Finish with get_iochip_ok
+    {bool, bool} get_iochip_button (unsigned &iochip_err_cnt);                            // {button_pressed, button_changed}
 
 } i2c_external_commands_if;
 

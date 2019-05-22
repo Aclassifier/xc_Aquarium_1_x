@@ -118,7 +118,7 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
 
 
             // client/server
-            case i_i2c_external_commands[int index_of_client].init_iochip (unsigned &mcp23008_err_cnt) : {
+            case i_i2c_external_commands[int index_of_client].init_iochip (unsigned &iochip_err_cnt) : {
                 i2c_result_t i2c_result;
                 bool ok;
                 {
@@ -134,12 +134,12 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 } else {}
 
                 if (not ok) {
-                    mcp23008_err_cnt++;
+                    iochip_err_cnt++;
                 } else {}
             } break; // init_iochip_ok
 
             // client/server
-            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins) : {
+            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins) : {
                 i2c_result_t i2c_result;
                 bool ok;
                 unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
@@ -147,12 +147,12 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
                 if (not ok) {
-                    mcp23008_err_cnt++;
+                    iochip_err_cnt++;
                 } else {}
             } break; // trigger_write_iochip_pins
 
             // client/server
-            case i_i2c_external_commands[int index_of_client].get_iochip_button (unsigned &mcp23008_err_cnt) -> {bool button_pressed, bool button_changed}: {
+            case i_i2c_external_commands[int index_of_client].get_iochip_button (unsigned &iochip_err_cnt) -> {bool button_pressed, bool button_changed}: {
                 i2c_result_t i2c_result;
                 bool ok;
                 uint8_t the_register_arr1 [1];
@@ -168,7 +168,7 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                     button_pressed = false;
                     button_changed = false;
 
-                    mcp23008_err_cnt++;
+                    iochip_err_cnt++;
                 }
             } break; // get_iochip_button_ok
         }

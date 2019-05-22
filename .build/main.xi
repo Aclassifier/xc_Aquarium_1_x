@@ -1688,9 +1688,9 @@ typedef interface i2c_external_commands_if {
 
 
 
-    void init_iochip (unsigned &mcp23008_err_cnt);
-    void write_iochip_pins (unsigned &mcp23008_err_cnt, const uint8_t output_pins);
-    {bool, bool} get_iochip_button (unsigned &mcp23008_err_cnt);
+    void init_iochip (unsigned &iochip_err_cnt);
+    void write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins);
+    {bool, bool} get_iochip_button (unsigned &iochip_err_cnt);
 
 } i2c_external_commands_if;
 
