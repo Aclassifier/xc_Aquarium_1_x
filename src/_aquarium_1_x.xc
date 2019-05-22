@@ -34,7 +34,7 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "chronodot_ds3231.h"
-#include "ioexpanderchip_mcp23008.h"
+#include "iochip_mcp23008.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 
@@ -1257,16 +1257,20 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
+            bool relay1 = ((context.iochip_output_pins bitand MY_MCP23008_OUT_RELAY1_ON_MASK) != 0);
+            bool relay2 = ((context.iochip_output_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
+
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u\n  RESTART:%u",
-                               (context.iochip_err_cnt==0) ? "TILKOBLET" : "MANGLER",
+                               "10 USB-BOKS %s\n  TILSTAND  %u\n  RELEER    %1u.%1u\n  RESTARTER %u",
+                               (context.iochip_err_cnt==0) ? "VAKTHUND" : "MANGLER",
                                context.iochip_relay_button_ustate.u.cnt,
+                               relay1, relay2,
                                context.number_of_restarts);
             //                                            ..........----------.
-            //                                            10 USB-BOKS
-            //                                              VAKTHUND TILKOBLET // VAKTHUND MANGLER
-            //                                              RELE:0
-            //                                              OPPSTARTER:123
+            //                                            10 USB-BOKS VAKTHUND // MANGLER
+            //                                              TILSTAND  0
+            //                                              RELEER    0.1
+            //                                              RESTARTER 123
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -2031,11 +2035,17 @@ void radio_irq_handler (
 }
 
 
-uint8_t i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
-          relay_button_ustate_t &relay_button_ustate,
-          const unsigned        &seconds_cnt)
+void handle_button_and_watchdog_trigger ( // port_pins
+          const relay_button_ustate_t relay_button_ustate,
+          const unsigned              &seconds_cnt,
+          uint8_t                     &port_pins_)
 {
-    uint8_t port_pins = MY_MCP23008_ALL_OFF; // So we need to build all ACTIVE ON bits anew:
+    uint8_t port_pins = MY_MCP23008_ALL_OFF bitor (port_pins_ bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK);
+    //
+    // To MY_MCP23008_ALL_OFF so that we (below) need to build all ACTIVE ON bits anew.
+    // Except for the pin that we masked into here (above) and that triggers the watchdog, it shall always toggle:
+    //
+    port_pins xor_eq MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK; // When to TO HIGH it resets the watchdog
 
     switch (relay_button_ustate.u.state) {
         case RELAYBUTT_0: {
@@ -2083,11 +2093,7 @@ uint8_t i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
         default: {} break; // Should not happen
     }
 
-    if ((seconds_cnt % 2) == 0) {
-        port_pins or_eq MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK; // TO HIGH: resets watchdog
-    } else {} // TO LOW: no code (done)
-
-    return port_pins;
+    port_pins_ = port_pins;
 }
 
 //
@@ -2341,10 +2347,13 @@ void System_Task (
 
     context.iochip_err_cnt = 0;
     context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
-    context.iochip_output_pins = MY_MCP23008_ALL_OFF;
     context.iochip_seconds_cnt = 0;
 
     i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
+
+    // Trig as fast as possible
+    context.iochip_output_pins = MY_MCP23008_OFF_BIT_FIRST_TRIG;
+    i_i2c_external_commands.write_iochip_pins (context.iochip_err_cnt, context.iochip_output_pins);
 
     // Init and clear display
 
@@ -2552,10 +2561,10 @@ void System_Task (
                                 context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
                             } else {}
                         } else {}
-                        context.iochip_output_pins =
-                                i2c_general_mcp23008_handle_button_and_watchdog_trigger ( // port_pins
-                                        context.iochip_relay_button_ustate,
-                                        context.iochip_seconds_cnt);
+                            handle_button_and_watchdog_trigger ( // port_pins
+                                    context.iochip_relay_button_ustate,
+                                    context.iochip_seconds_cnt,
+                                    context.iochip_output_pins);
                         i_i2c_external_commands.write_iochip_pins (context.iochip_err_cnt, context.iochip_output_pins);
                     } else {}
                 } else {} // context.iochip_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present

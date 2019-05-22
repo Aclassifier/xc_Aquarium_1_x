@@ -1,5 +1,5 @@
 /*
- * ioexpanderchip_mcp23008.h
+ * iochip_mcp23008.h
  *
  *  Created on: 14. mai 2019
  *      Author: teig
@@ -33,24 +33,25 @@
     typedef enum {MCP23008_PIN_LOW,            MCP23008_PIN_HIGH}         mcp23008_value_e;
 
 
+    //                                                                 #
+    #define MY_MCP23008_OUT_RELAY2_ON_BIT                7 // ON=1 OFF=0
+    //                                                   6 //    .     . not used
+    #define MY_MCP23008_OUT_RELAY1_ON_BIT                5 // ON=1 OFF=0
+    //                                                   4 //    .     . not used
+    #define MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT  3 //    .     . low-to-high on pin resets watchdog
+    #define MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_BIT      2 //    .     . input, low when buttton pressed
+    #define MY_MCP23008_OUT_RED_LED_OFF_BIT              1 // ON=0 OFF=1
+    #define MY_MCP23008_OUT_GREEN_LED_OFF_BIT            0 // ON=0 OFF=1
     //                                                                #
-    #define MY_MCP23008_OUT_RELAY2_ON_BIT               7 // ON=1 OFF=0
-    //                                                  6 //    .     . not used
-    #define MY_MCP23008_OUT_RELAY1_ON_BIT               5 // ON=1 OFF=0
-    //                                                  4 //    .     . not used
-    #define MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT 3 //    .     . low-to-high on pin resets watchdog
-    #define MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_BIT     2 //    .     . input, low when buttton pressed
-    #define MY_MCP23008_OUT_RED_LED_OFF_BIT             1 // ON=0 OFF=1
-    #define MY_MCP23008_OUT_GREEN_LED_OFF_BIT           0 // ON=0 OFF=1
-    //                                                                #
-    #define MY_MCP23008_ALL_OFF                      0x03 //          # 0.0...11 as 00000011
-
+    #define MY_MCP23008_ALL_OFF                          0x03 //          # 0.0...11 as 00000011
     #define MY_MCP23008_OUT_RELAY2_ON_MASK               (1<<MY_MCP23008_OUT_RELAY2_ON_BIT)
     #define MY_MCP23008_OUT_RELAY1_ON_MASK               (1<<MY_MCP23008_OUT_RELAY1_ON_BIT)
     #define MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK (1<<MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
     #define MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK     (1<<MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_BIT) // Bit high as MCP23008_PIN_DIR_INPUT
     #define MY_MCP23008_OUT_RED_LED_OFF_MASK             (1<<MY_MCP23008_OUT_RED_LED_OFF_BIT)
     #define MY_MCP23008_OUT_GREEN_LED_OFF_MASK           (1<<MY_MCP23008_OUT_GREEN_LED_OFF_BIT)
+
+    #define MY_MCP23008_OFF_BIT_FIRST_TRIG               (MY_MCP23008_ALL_OFF bitor MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
 
     typedef enum {
         RELAYBUTT_0,

@@ -41,7 +41,7 @@
 
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
-#include "ioexpanderchip_mcp23008.h"
+#include "iochip_mcp23008.h"
 #include "i2c_external_task.h"
 #endif
 
