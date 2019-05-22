@@ -17,10 +17,20 @@ typedef enum i2c_dev_address_internal_e {
     I2C_ADDRESS_OF_CHRONODOT = 0x68  // DS3231 Extremely Accurate I2C-Integrated RTC/TCXO/Crystal by Maxim
 } i2c_dev_address_internal_e; // i2c_dev_address_t
 
-// AQU=049 had to expand and then also change read and write function call params:
-#define IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY  0
-#define IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY        1
-#define NUM_BYTES_IN_FRAM_MEMORY                            2
+typedef struct fram_bytes_t {
+    uint8_t  light_amount_fraction_2_nibbles;
+    uint8_t  light_daytime_hours_index_in_FRAM_memory;
+    uint32_t number_of_restarts;
+} fram_bytes_t;
+
+#define NUM_BYTES_IN_FRAM_MEMORY sizeof (fram_bytes_t)
+
+typedef struct fram_bytes_u {
+    union {
+        fram_bytes_t bytes;
+        uint8_t      bytes_u_uint8_arr[NUM_BYTES_IN_FRAM_MEMORY];
+    } u;
+} fram_bytes_u;
 
 typedef interface i2c_internal_commands_if {
     bool                                write_display_ok   (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, const unsigned char data[], const unsigned nbytes);

@@ -1660,10 +1660,20 @@ typedef enum i2c_dev_address_internal_e {
     I2C_ADDRESS_OF_CHRONODOT = 0x68
 } i2c_dev_address_internal_e;
 
+typedef struct fram_bytes_t {
+    uint8_t light_amount_fraction_2_nibbles;
+    uint8_t light_daytime_hours_index_in_FRAM_memory;
+    uint32_t number_of_restarts;
+} fram_bytes_t;
 
 
 
-
+typedef struct fram_bytes_u {
+    union {
+        fram_bytes_t bytes;
+        uint8_t bytes_u_uint8_arr[sizeof (fram_bytes_t)];
+    } u;
+} fram_bytes_u;
 
 typedef interface i2c_internal_commands_if {
     bool write_display_ok (const i2c_dev_address_t dev_addr, const i2c_reg_address_t reg_addr, const unsigned char data[], const unsigned nbytes);
@@ -1672,8 +1682,8 @@ typedef interface i2c_internal_commands_if {
 
 
 
-    bool read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [2]);
-    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [2]);
+    bool read_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, uint8_t read_data [sizeof (fram_bytes_t)]);
+    bool write_byte_fram_ok (const i2c_dev_address_t dev_addr, const uint16_t address, const uint8_t write_data [sizeof (fram_bytes_t)]);
 
 
 

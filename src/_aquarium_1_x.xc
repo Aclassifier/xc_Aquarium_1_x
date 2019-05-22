@@ -280,7 +280,7 @@ typedef struct handler_context_t {
     unsigned                    error_bits_history;
     bool                        error_beeper_blip_now_muted; // Muted on left button when going dark, then screen reappears. Cleared after 10 seconds press of right button
     bool                        heat_cables_forced_off_by_watchdog;
-    uint8_t                     fram_data [NUM_BYTES_IN_FRAM_MEMORY];
+    fram_bytes_u                fram_bytes; // AQU=079 was fram_data [NUM_BYTES_IN_FRAM_MEMORY];
     unsigned                    ultimateIRQclearCnt; // AQU=065 new
     uint32_t                    TX_appSeqCnt;
     uint32_t                    RX_messageNotForThisNode_cnt;
@@ -315,6 +315,8 @@ typedef struct handler_context_t {
     uint8_t               iochip_output_pins;
     relay_button_ustate_t iochip_relay_button_ustate;
     unsigned              iochip_seconds_cnt;
+    unsigned              number_of_restarts; // AQU=079
+    bool                  number_of_restarts_init_do_fram_write; // AQU=069
 
 } handler_context_t;
 
@@ -1256,13 +1258,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
             }
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u",
+                               "10 USB-BOKS\n  VAKTHUND %s\n  RELE:%u\n  RESTART:%u",
                                (context.mcp23008_err_cnt==0) ? "TILKOBLET" : "MANGLER",
-                               context.iochip_relay_button_ustate.u.cnt);
+                               context.iochip_relay_button_ustate.u.cnt,
+                               context.number_of_restarts);
             //                                            ..........----------.
             //                                            10 USB-BOKS
             //                                              VAKTHUND TILKOBLET // VAKTHUND MANGLER
             //                                              RELE:0
+            //                                              OPPSTARTER:123
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1832,13 +1836,21 @@ void System_Task_Data_Handler (
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands); // ..then this
 
         // Update FRAM if needed
-        if (light_sunrise_sunset_context.do_FRAM_write) {
+        if (context.number_of_restarts_init_do_fram_write or light_sunrise_sunset_context.do_FRAM_write) {
             bool write_ok;
-            context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY]  = (uint8_t) light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
-            context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY]        = (uint8_t) light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
+
+            context.number_of_restarts_init_do_fram_write = false; // Set to false after true once
+
+            // AQU=079 context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY] = (uint8_t) light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
+            // AQU=079 context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY]       = (uint8_t) light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
+
+            context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles          = light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
+            context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory = light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
+            context.fram_bytes.u.bytes.number_of_restarts                       = context.number_of_restarts;
 
             light_sunrise_sunset_context.do_FRAM_write = false;
-            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+            // AQU=079 write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
             debug_print ("FRAM light_amount_in_FRAM_memory written ok=%u\n", write_ok);
         } else {}
 
@@ -2201,11 +2213,12 @@ void System_Task (
             (SEMANTICS_DO_CRC_ERR_NO_IRQ == 1) ? "no" : "with",
             (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
 
-    context.radio_board_fault            = false;
-    context.radio_send_data              = send_idle;
-    context.radio_sent_data_display_it   = false;
-    context.RX_messageNotForThisNode_cnt = 0;
-    context.TX_appSeqCnt                 = 0;
+    context.number_of_restarts_init_do_fram_write = false;
+    context.radio_board_fault                     = false;
+    context.radio_send_data                       = send_idle;
+    context.radio_sent_data_display_it            = false;
+    context.RX_messageNotForThisNode_cnt          = 0;
+    context.TX_appSeqCnt                          = 0;
 
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
         context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
@@ -2393,14 +2406,23 @@ void System_Task (
     {
         bool read_ok;
 
-        read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+        // AQU=079 read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_data);
+        read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
 
         if (not read_ok) {
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = NORMAL_LIGHT_IS_VOID_F0N;
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = IOF_HH_IS_VOID;
+            context.number_of_restarts                                                    = 0;
         } else {
-            light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles  =                               context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
-            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory          = (light_daytime_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
+            // AQU=079 light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles  =                               context.fram_data[IOF_LIGHT_AMOUNT_FULL_OR_TWO_THIRDS_IN_FRAM_MEMORY];
+            // AQU=079 light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory          = (light_daytime_hours_index_t) context.fram_data[IOF_LIGHT_DAYTIME_HOURS_INDEX_IN_FRAM_MEMORY];
+
+            light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles;
+            light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory;
+            context.number_of_restarts                                                    = context.fram_bytes.u.bytes.number_of_restarts;
+
+            context.number_of_restarts++;
+            context.number_of_restarts_init_do_fram_write = true; // Set to true once
         }
 
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
