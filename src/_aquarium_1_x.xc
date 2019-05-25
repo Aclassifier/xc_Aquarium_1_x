@@ -1842,13 +1842,11 @@ void System_Task_Data_Handler (
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands); // ..then this
 
         if (light_sunrise_sunset_context.iochip_handle_relays) {
-            context.iochip_output_pins and_eq compl (MY_MCP23008_OUT_RELAY1_ON_BIT bitor MY_MCP23008_OUT_RELAY2_ON_BIT);
+            context.iochip_output_pins and_eq compl (MY_MCP23008_OUT_RELAY1_ON_MASK bitor MY_MCP23008_OUT_RELAY2_ON_MASK); // Both off
 
             context.iochip_output_pins or_eq (light_sunrise_sunset_context.iochip_relay_1 << MY_MCP23008_OUT_RELAY1_ON_BIT);
             context.iochip_output_pins or_eq (light_sunrise_sunset_context.iochip_relay_2 << MY_MCP23008_OUT_RELAY2_ON_BIT);
-        } else {} // Don't tocuh relays
-
-
+        } else {} // Don't touch relays
 
         // Update FRAM if needed
         if (context.number_of_restarts_init_do_fram_write or light_sunrise_sunset_context.do_FRAM_write) {
