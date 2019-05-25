@@ -1835,9 +1835,20 @@ void System_Task_Data_Handler (
 
     if (light_sunrise_sunset_context.light_is_stable) { // We won't disturb typically LED slowly DOWN
 
-        // HANDLE LIGHT INTENSITY
-        light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = Set_Dont_Disturb_Screen_3_Lysregulering (context); // First this..
+        // Set some params
+        light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = Set_Dont_Disturb_Screen_3_Lysregulering (context);                               // First this..
+        light_sunrise_sunset_context.iochip_handle_relays                = (context.iochip_relay_button_ustate.u.state == RELAYBUTT_1);                     // ..and this..
+
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands); // ..then this
+
+        if (light_sunrise_sunset_context.iochip_handle_relays) {
+            context.iochip_output_pins and_eq compl (MY_MCP23008_OUT_RELAY1_ON_BIT bitor MY_MCP23008_OUT_RELAY2_ON_BIT);
+
+            context.iochip_output_pins or_eq (light_sunrise_sunset_context.iochip_relay_1 << MY_MCP23008_OUT_RELAY1_ON_BIT);
+            context.iochip_output_pins or_eq (light_sunrise_sunset_context.iochip_relay_2 << MY_MCP23008_OUT_RELAY2_ON_BIT);
+        } else {} // Don't tocuh relays
+
+
 
         // Update FRAM if needed
         if (context.number_of_restarts_init_do_fram_write or light_sunrise_sunset_context.do_FRAM_write) {
@@ -2038,9 +2049,9 @@ void radio_irq_handler (
 void handle_button_and_watchdog_trigger ( // port_pins
           const relay_button_ustate_t relay_button_ustate,
           const unsigned              &seconds_cnt,
-          uint8_t                     &port_pins_)
+          uint8_t                     &port_pins)
 {
-    uint8_t port_pins = MY_MCP23008_ALL_OFF bitor (port_pins_ bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK);
+    //uint8_t port_pins = MY_MCP23008_ALL_OFF bitor (port_pins_ bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK);
     //
     // To MY_MCP23008_ALL_OFF so that we (below) need to build all ACTIVE ON bits anew.
     // Except for the pin that we masked into here (above) and that triggers the watchdog, it shall always toggle:
@@ -2049,51 +2060,62 @@ void handle_button_and_watchdog_trigger ( // port_pins
 
     switch (relay_button_ustate.u.state) {
         case RELAYBUTT_0: {
-            // BLINK GREEN LED:
+            // RED   GREEN   RELAY_1  RELAY_2
+            // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot
+
             if ((seconds_cnt % 2) == 0) {
-                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
-            } else {}; // GREEN LED OFF: no code (done)
-             // BOTH RELAYS OFF: no code (done)
+                port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED ON
+            } else {
+                port_pins or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+            };
+            port_pins     or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+
+            port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
+            port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF
         } break;
         case RELAYBUTT_1: {
-            // GREEN LED ON:
-            port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
-            // RELAY1 ON:
-            port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+            // RED   GREEN   RELAY_1  RELAY_2
+            // OFF   OFF     ###      ###      Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark
+
+            port_pins or_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+            port_pins or_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
         } break;
         case RELAYBUTT_2: {
-            // RED LED ON:
-            port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK; // RED LED ON
-            // RELAY2 ON:
+            // RED   GREEN   RELAY_1  RELAY_2
+            // OFF   BLINK   ON       ON
+
+            if ((seconds_cnt % 2) == 0) {
+                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            } else {
+                port_pins or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+            };
+            port_pins     or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+
+            port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
             port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
         } break;
         case RELAYBUTT_3: {
-            // BOTH LEDS ON:
-            port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
-            port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED   LED ON
-            // BOTH RELAYS ON:
-            port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
-            port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
+            // RED   GREEN   RELAY_1  RELAY_2
+            // ON    OFF     ON       OFF
+
+            port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED ON
+            port_pins or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+
+            port_pins or_eq        MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+            port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF
         } break;
         case RELAYBUTT_4: {
-            // SWAP AND BLINK LEDS:
-            if ((seconds_cnt % 2) == 0) {
-                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
-            } else {
-                port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED   LED ON
-            }
-            // SWAP RELAYS:
-            unsigned seconds_cnt_128 = seconds_cnt bitand (128-1);
-            if (seconds_cnt_128 < 64) {
-                port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
-            } else {
-                port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
-            }
+            // RED   GREEN   RELAY_1  RELAY_2
+            // OFF   ON      OFF      ON
+
+            port_pins or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+            port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+
+            port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
+            port_pins or_eq        MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
         } break;
         default: {} break; // Should not happen
     }
-
-    port_pins_ = port_pins;
 }
 
 //

@@ -5,7 +5,6 @@
  *      Author: teig
  */
 
-
 #ifndef IOEXPANDERCHIP_MCP23008_H_
 #define IOEXPANDERCHIP_MCP23008_H_
 
@@ -54,11 +53,12 @@
     #define MY_MCP23008_OFF_BIT_FIRST_TRIG               (MY_MCP23008_ALL_OFF bitor MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
 
     typedef enum {
-        RELAYBUTT_0,
-        RELAYBUTT_1,
-        RELAYBUTT_2,
-        RELAYBUTT_3,
-        RELAYBUTT_4,
+        //           // RED   GREEN   RELAY_1  RELAY_2
+        RELAYBUTT_0, // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot since RELAYBUTT_1 is bothe LEDs off. Also relays off as init for next state:
+        RELAYBUTT_1, // OFF   OFF     ###      ###      Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark
+        RELAYBUTT_2, // OFF   BLINK   ON       ON
+        RELAYBUTT_3, // ON    OFF     ON       OFF
+        RELAYBUTT_4, // OFF   ON      OFF      ON
         RELAYBUTT_ROOF // Not used
     } relay_button_state_e;
 

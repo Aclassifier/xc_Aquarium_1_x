@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.74" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1474  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.75" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1475  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.75     25May2019 AQU=079  New thinking around states in relay_button_state_e. Plus last before Italy
 // 1.4.74     22May2019          USB-BOKS VAKTHUND new text in SCREEN_10_USB_WATCHDOG_RELAY_BOX
 // 1.4.73     22May2019 AQU=079  Names only
 // 1.4.72     22may2019 AQU=079  Now number_of_restarts in FRAM memory: number_of_restarts

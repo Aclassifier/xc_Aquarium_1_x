@@ -137,6 +137,10 @@ typedef struct light_sunrise_sunset_context_t {
     hour_t                             day_start_light_hour;                     // AQU=051
     hour_t                             night_start_dark_hour;                    // AQU=051
     uint8_t                            debug;
+    // AQU=080 all new:
+    bool                               iochip_handle_relays;
+    bool                               iochip_relay_1; // true is on
+    bool                               iochip_relay_2; // true is on
     //
 } light_sunrise_sunset_context_t;
 

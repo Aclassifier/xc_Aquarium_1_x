@@ -259,6 +259,8 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;
         context.debug = 0;
+        context.iochip_relay_1 = false; // off
+        context.iochip_relay_1 = false; // off
 
         if (context.light_amount_in_FRAM_memory.u.fraction_2_nibbles == NORMAL_LIGHT_IS_VOID_F0N) {               // No FRAM chip? Set if read failed
             context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_FULL_F2N;                                 // Default. Will trigger do_FRAM_write
