@@ -2368,6 +2368,8 @@ void System_Task (
     context.iochip_err_cnt = 0;
     context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
     context.iochip_seconds_cnt = 0;
+    light_sunrise_sunset_context.iochip_relay_1 = false;
+    light_sunrise_sunset_context.iochip_relay_2 = false;
 
     i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
 
