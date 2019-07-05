@@ -176,7 +176,7 @@ typedef enum error_bits_t {
                                            // LIMITS
     ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
     ERROR_BIT_I2C_WATER              =  1,
-    ERROR_BIT_I2C_HEATER             =  2,
+    ERROR_BIT_I2C_HEATER             =  2, // See AQU=080
     ERROR_BIT_HEATER_CABLE_UNPLUGGED =  3, // AQU=025 never signalled (so this bit is now VACANT)
                                            // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
                                            // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) after the point when the lowest temperature

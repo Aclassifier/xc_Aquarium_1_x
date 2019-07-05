@@ -19,6 +19,7 @@ typedef uint16_t aquarium_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define AQUARIUM_VERSION_STR "1.4.77" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
 #define AQUARIUM_VERSION_NUM    1477  // Is "AQUARIUM_VERSION_NUM_t"
+//                      AQU=081  next
 // 1.4.77     26May2019 AQU=079  iochip_output_pins missed an init. _Now_ to Italy!
 // 1.4.76     25May2019 AQU=079  iochip_output_pins fault fixed. No, it does not work as expected. But I have to quit now
 // 1.4.75     25May2019 AQU=079  New thinking around states in relay_button_state_e. Plus last before Italy
@@ -33,6 +34,10 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.68     13May2019 AQU=078  Starting with testing USB_WATCHDOG_AND_RELAY_BOX
 // 1.4.67     02Apr2019 AQU=078  I2C_ADDRESS_OF_PORT_EXPANDER added for MCP23008 to be purchased from Adafruit
 //            --------- Running  from 26Feb2019
+//            05Jul2019 AQU=080  Saw ERROR_BIT_I2C_HEATER probably because I used a timer to switch the skimmer pump, and it made
+//                               noise. I actually switched it off by hand. I don't know exactly when it happened. May also have been
+//                               the plasma lamp that was on at the kitchen for the first time. I just acknowledged and the message was gone.
+//                               So it must have been spurious because it measured OK when I saw the error message. This point is only for logging
 // 1.4.66     25Mar2019          ISAQUARIUM ie FLASH_BLACK_BOARD=0. Same as 1.4.65
 //                               Constraints: C:8/8 T:10/9 C:32/26 M:62576 S:6692 C:49938 D:5946
 // 1.4.65     25Mar2019          Last compile with FLASH_BLACK_BOARD, FLASHED there
