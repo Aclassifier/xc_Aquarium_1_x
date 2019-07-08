@@ -2112,6 +2112,15 @@ void handle_button_and_watchdog_trigger ( // port_pins
             port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
             port_pins or_eq        MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON
         } break;
+        case RELAYBUTT_5: {
+            // RED   GREEN   RELAY_1  RELAY_2
+            // BLINK BLINK   "BLINK"  "BLINK"
+
+            port_pins xor_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;
+            port_pins xor_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK;
+            port_pins xor_eq MY_MCP23008_OUT_RELAY1_ON_MASK;
+            port_pins xor_eq MY_MCP23008_OUT_RELAY2_ON_MASK;
+        } break;
         default: {} break; // Should not happen
     }
 }

@@ -54,11 +54,12 @@
 
     typedef enum {
         //           // RED   GREEN   RELAY_1  RELAY_2
-        RELAYBUTT_0, // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot since RELAYBUTT_1 is bothe LEDs off. Also relays off as init for next state:
+        RELAYBUTT_0, // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot since RELAYBUTT_1 is both LEDs off. Also relays off as init for next state:
         RELAYBUTT_1, // OFF   OFF     ###      ###      Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark
         RELAYBUTT_2, // OFF   BLINK   ON       ON
         RELAYBUTT_3, // ON    OFF     ON       OFF
         RELAYBUTT_4, // OFF   ON      OFF      ON
+        RELAYBUTT_5, // BLINK BLINK  "BLINK"  "BLINK"   temporary
         RELAYBUTT_ROOF // Not used
     } relay_button_state_e;
 
