@@ -588,12 +588,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     sprintf_numchars = sprintf (context.display_ts1_chars,
-                            "%s3 LYS F:%uW M:%uW B:%uW       %u/3  %u/3  %u/3 %s      %s %u/%u %s%ut%s%s      %s%s %s %u %s",
-                          // A         B     C     D         E     F     G    H       I  --J-- K L  M N       O P  Q  R  S
+                            "%s3 LYS F:%uW M:%uW B:%uW     %s %u/3  %u/3  %u/3 %s      %s %u/%u %s%ut%s%s      %s%s %s %u %s",
+                          // A         B     C     D       T  E     F     G    H       I  --J-- K L  M N       O P  Q  R  S
                           /* A */ char_takes_press_for_10_seconds_right_button_str,                                                                        // "±"                                                                       //  Å
                           /* B */ WATTOF_LED_STRIP_FRONT,                                                                                                  // "5"
                           /* C */ WATTOF_LED_STRIP_CENTER,                                                                                                 // "4"
                           /* D */ WATTOF_LED_STRIP_BACK,                                                                                                   // "2"
+                          /* T */ light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat ? "H" : "=",                                 // "H" or "=" (for Norwegian "HET" = WARM)
                           /* E */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                                     // "1"
                           /* F */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                                    // "2"
                           /* G */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                                      // "3"
@@ -614,7 +615,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* S */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
                     //                                            ..........----------.
                     //                                            ±3 LYS F:5W M:4W B:2W
-                    //                                                   1/3  2/3  3/3.
+                    //                                                 = 1/3  2/3  3/3.
+                    //                                                 H 1/3  2/3  3/3.
                     //                                            ±      NORM 3/3 =14t
                     //                                                   INIT ± 10 M:12
                     //                                                    DAG ± 10 M:12
@@ -1462,6 +1464,7 @@ void Handle_Real_Or_Clocked_Buttons (
                         if (caller != CALLER_IS_REFRESH) {
                             //   -------------------------- SCREEN_3_LYSGULERING -----------------------------
                             if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state >= SUB_STATE_01) {
+
                                 if ((context.display_sub_context[SCREEN_3_LYSGULERING].sub_state % 2) == 0) { // Even 02, 04 by IOF_BUTTON_CENTER
                                      context.display_sub_context[SCREEN_3_LYSGULERING].sub_state += 1; // To odd numbers
                                 } else {
@@ -1538,10 +1541,12 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_3_LYSGULERING: { // 3
                             if ((context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable) and
                                 (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
+
                                 context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
                                 context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
+                                light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false;
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
@@ -1662,7 +1667,7 @@ void System_Task_Data_Handler (
     context.heat_cables_forced_off_by_watchdog = i_port_heat_light_commands.get_heat_cables_forced_off_by_watchdog();
 
     //
-    // HANDLE ERROR SITUATIONS
+    // HANDLE ERROR SITUATIONS and also set status values
 
     #if ((FLASH_BLACK_BOARD==1) or (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==1))
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WRONG_CODE_STARTKIT); // AQU=034 new
@@ -1678,10 +1683,13 @@ void System_Task_Data_Handler (
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
-    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) {
-        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);  // Unfiltered, single measurement!
-    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) {
-        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message. Unfiltered, single measurement!
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) { // Unfiltered, single measurement!
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);
+        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = true;
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT) { // Unfiltered, single measurement!
+        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = true; // For the rest of the day or until SCREEN_3_LYSGULERING
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) { // Unfiltered, single measurement!
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message
     } else {}
 
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_HEATER]) {
@@ -2119,7 +2127,7 @@ void handle_button_and_watchdog_trigger ( // port_pins
             port_pins xor_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;
             port_pins xor_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK;
             port_pins xor_eq MY_MCP23008_OUT_RELAY1_ON_MASK;
-            port_pins xor_eq MY_MCP23008_OUT_RELAY2_ON_MASK;
+            //port_pins xor_eq MY_MCP23008_OUT_RELAY2_ON_MASK;
         } break;
         default: {} break; // Should not happen
     }
@@ -2427,6 +2435,11 @@ void System_Task (
     light_sunrise_sunset_context.do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
+    #if (FLASH_BLACK_BOARD == 1)
+        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false; // Just for testing, right now also false
+    #else
+        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false;
+    #endif
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 

@@ -32,6 +32,7 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
                                                                                                                   //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
                                                                                                                   //           holding temp of 60 degC and max temp should then be 84-30=54 degC
     #define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           (150 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 15.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED.
+    #define TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT       (257)                                               // 25.7 degC AQU=081 new
     #define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 14.5 degC half a degree below limit. Bad econmics to let i cool completely
     #define TEMP_ONETENTHDEGC_10_0_FAST_COOLING                100                                                // 10.0 degC But if ambient is above water limit, off completely
     #define TEMP_ONETENTHDEGC_00_2_HYSTERESIS                    2                                                //  0.2 degC switching when >= or <= gives of course mean value that's most like LIMIT
@@ -44,6 +45,7 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
                                                                                                                   //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
                                                                                                                   //           holding temp of 60 degC and max temp should then be 84-30=54 degC
     #define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           (250 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
+    #define TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT       (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT + 5)       // 25.5 degC AQU=081 new
     #define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 24.5 degC half a degree below limit. Bad econmics to let i cool completely
     #define TEMP_ONETENTHDEGC_10_0_FAST_COOLING                150                                                // 15.0 degC But if ambient is above water limit, off completely
     #define TEMP_ONETENTHDEGC_00_2_HYSTERESIS                    2                                                //  0.2 degC switching when >= or <= gives of course mean value that's most like LIMIT
@@ -51,6 +53,8 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
     #define TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE  10                                                //  1.0 degC
 
 #endif
+
+
 //
 // About hysteresis: With on/off or bang-bang regulation we always get
 // overshoot (it continues to become hotter for a while after it's been switched off) and

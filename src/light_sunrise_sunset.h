@@ -98,49 +98,55 @@ typedef enum {
     CNT_10 = 10
 } cnt_10_t; // Since they are hand-coded so much
 
+typedef bool mute_light_t; // AQU=081
+
 typedef struct light_sunrise_sunset_context_t {
-    bool                               do_init;
-    it_is_day_or_night_t               it_is_day_or_night;
-    DateTime_t                         datetime_copy;
-    bool                               trigger_minute_changed_stick;                       // AQU=66 moved trigger_minute_changed out to here
-    bool                               trigger_hour_changed_stick;                         // AQU=66 moved trigger_hour_changed out to here
-    bool                               trigger_day_changed_stick;                          // AQU=66 new
-    bool                               datetime_previous_not_initialised;
-    bool                               allow_normal_light_change_by_clock;
-    bool                               allow_normal_light_change_by_menu;                  // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
-    bool                               allow_normal_light_change_by_menu_next;             // AQU=030 new
-    cnt_10_t                           screen_3_lysregulering_center_button_cnt_1to6_to10; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
-    unsigned                           iof_day_night_action_list;
-    unsigned                           num_minutes_left_of_day_night_action;               // AQU=024
-    random_generator_t                 random_number;
-    unsigned                           num_minutes_left_of_random;                         // AQU=023
-    unsigned                           minutes_into_day_of_next_action_random_off;         // AQU=023 new
-    unsigned                           num_random_sequences_left;
-    light_amount_t                     light_amount;
-    light_amount_t                     light_amount_in_FRAM_memory;                        // From Fujitsu MB85RC256V
-    light_amount_t                     light_amount_next;
-    bool                               do_light_amount_by_menu;
-    bool                               stop_normal_light_changed_by_menu;                 // menu=SCREEN_3_LYSGULERING AQU=031
-    bool                               dont_disturb_screen_3_lysregulering;               // AQU=031 AQU=036
-    light_sensor_range_t               light_sensor_intensity;
-    light_sensor_range_t               light_sensor_intensity_previous;
-    light_sensor_diff_state_t          light_sensor_diff_state;
-    unsigned                           print_value_previous;                     // With debug_print this value must be visible, but even this will removed and not complained about not being used
-    bool                               do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
-    bool                               light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc
-    num_days_since_start_t             num_days_since_start;                     // Done for radio, instead of the longer date of start
-                                                                                 // All four AQU=049 new:
-    light_daytime_hours_index_t        light_daytime_hours_index;                // This is the offset in hours (0,1,2,3) which is the same as the index of the list of daytime hours (AQU=049 new)
-    light_daytime_hours_t              light_daytime_hours;                      // Daytime hours (14,12,10,8)
-    light_daytime_hours_index_t        light_daytime_hours_index_in_FRAM_memory; // Daytime hours as used to store or get from FRAM (parameter)
-    light_daytime_hours_by_menu_t      light_daytime_hours_by_menu;              // State and daytime hours, as used by SCREEN_3_LYSGULERING
-    hour_t                             day_start_light_hour;                     // AQU=051
-    hour_t                             night_start_dark_hour;                    // AQU=051
-    uint8_t                            debug;
+    bool                          do_init;
+    it_is_day_or_night_t          it_is_day_or_night;
+    DateTime_t                    datetime_copy;
+    bool                          trigger_minute_changed_stick;                       // AQU=66 moved trigger_minute_changed out to here
+    bool                          trigger_hour_changed_stick;                         // AQU=66 moved trigger_hour_changed out to here
+    bool                          trigger_day_changed_stick;                          // AQU=66 new
+    bool                          datetime_previous_not_initialised;
+    bool                          allow_normal_light_change_by_clock;
+    bool                          allow_normal_light_change_by_menu;                  // AQU=030 new If true display "NORM" else "FAST" (for "STEADY")
+    bool                          allow_normal_light_change_by_menu_next;             // AQU=030 new
+    cnt_10_t                      screen_3_lysregulering_center_button_cnt_1to6_to10; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
+    unsigned                      iof_day_night_action_list;
+    unsigned                      num_minutes_left_of_day_night_action;               // AQU=024
+    random_generator_t            random_number;
+    unsigned                      num_minutes_left_of_random;                         // AQU=023
+    unsigned                      minutes_into_day_of_next_action_random_off;         // AQU=023 new
+    unsigned                      num_random_sequences_left;
+    light_amount_t                light_amount;
+    light_amount_t                light_amount_in_FRAM_memory;                        // From Fujitsu MB85RC256V
+    light_amount_t                light_amount_next;
+    bool                          do_light_amount_by_menu;
+    bool                          stop_normal_light_changed_by_menu;                 // menu=SCREEN_3_LYSGULERING AQU=031
+    bool                          dont_disturb_screen_3_lysregulering;               // AQU=031 AQU=036
+    light_sensor_range_t          light_sensor_intensity;
+    light_sensor_range_t          light_sensor_intensity_previous;
+    light_sensor_diff_state_t     light_sensor_diff_state;
+    unsigned                      print_value_previous;                     // With debug_print this value must be visible, but even this will removed and not complained about not being used
+    bool                          do_FRAM_write;                            // When NORMAL light changes to TWO_THIRDS or FULL
+    bool                          light_is_stable;                          // Set or polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in Handle_Light_Sunrise_Sunset_Etc
+    num_days_since_start_t        num_days_since_start;                     // Done for radio, instead of the longer date of start
+                                                                            // All four AQU=049 new:
+    light_daytime_hours_index_t   light_daytime_hours_index;                // This is the offset in hours (0,1,2,3) which is the same as the index of the list of daytime hours (AQU=049 new)
+    light_daytime_hours_t         light_daytime_hours;                      // Daytime hours (14,12,10,8)
+    light_daytime_hours_index_t   light_daytime_hours_index_in_FRAM_memory; // Daytime hours as used to store or get from FRAM (parameter)
+    light_daytime_hours_by_menu_t light_daytime_hours_by_menu;              // State and daytime hours, as used by SCREEN_3_LYSGULERING
+    hour_t                        day_start_light_hour;                     // AQU=051
+    hour_t                        night_start_dark_hour;                    // AQU=051
+    uint8_t                       debug;
     // AQU=080 all new:
-    bool                               iochip_handle_relays;
-    bool                               iochip_relay_1; // true is on
-    bool                               iochip_relay_2; // true is on
+    bool                          iochip_handle_relays;
+    bool                          iochip_relay_1; // true is on
+    bool                          iochip_relay_2; // true is on
+
+                                  // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then muted for the rest of the day or until SCREEN_3_LYSGULERING:
+    mute_light_t                  mute_to_one_third_light_composition_cause_heat; // AQU=081
+
     //
 } light_sunrise_sunset_context_t;
 

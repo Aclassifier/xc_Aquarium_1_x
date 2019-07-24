@@ -40,7 +40,7 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_3299_mW_FMB_021_ON                =  3,  //   2
     LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM =  4,  //   3
     LIGHT_COMPOSITION_4383_mW_FMB_031_ON                =  5,  //   4
-    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD      =  6,  //  12
+    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD      =  6,  //  12 Also if mute_to_one_third_light_composition_cause_heat
     LIGHT_COMPOSITION_5516_mW_FMB_032_ON                =  7,  //   5
     LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF           =  8,  //   6
     LIGHT_COMPOSITION_8382_mW_FMB_132_ON                =  9,  //  11
@@ -89,7 +89,8 @@ typedef interface port_heat_light_commands_if {
 
     {light_composition_t} get_light_composition (void);
 
-    {   light_composition_t,   // return_light_composition
+    {
+        light_composition_t,   // return_light_composition
         light_control_scheme_t // return_light_control_scheme
     } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [NUM_LED_STRIPS]);
 

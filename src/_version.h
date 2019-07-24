@@ -17,9 +17,10 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.78" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1478  // Is "AQUARIUM_VERSION_NUM_t"
-//                      AQU=081  next
+#define AQUARIUM_VERSION_STR "1.4.79" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1479  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.79     24Jul2019 AQU=081  mute_light_t is new
+//                               TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT is new
 // 1.4.78     08Jul2019          RELAYBUTT_5 is new for testing, just temporary
 // 1.4.77     26May2019 AQU=079  iochip_output_pins missed an init. _Now_ to Italy!
 // 1.4.76     25May2019 AQU=079  iochip_output_pins fault fixed. No, it does not work as expected. But I have to quit now

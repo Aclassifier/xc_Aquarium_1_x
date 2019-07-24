@@ -106,7 +106,7 @@ typedef struct { // Size must be modulo 4                                       
     second_r                          second;                                       // 05
     heater_on_percent_r               heater_on_percent;                            //    06
     heater_on_watt_r                  heater_on_watt;                               //       07
-    light_control_scheme_r            light_control_scheme;                         //          08 num_minutes_left.. (two counters) not exported
+    light_control_scheme_r            light_control_scheme;                         //          08 However, num_minutes_left.. (two counters) not exported
     error_bits_r                      error_bits_now;                               // 09-10       (Intermediate errors will disappeear)
     error_bits_r                      error_bits_history;                           //       11-12 (bitor'ed from above but both cleared with right button 10 seconds)
     onetenthDegC_r                    i2c_temp_heater_onetenthDegC;                 // 13-14

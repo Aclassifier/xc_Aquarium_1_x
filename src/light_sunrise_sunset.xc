@@ -384,8 +384,8 @@ Handle_Light_Sunrise_Sunset_Etc (
         debug_print ("do_light_amount_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
 
     } else if (context.stop_normal_light_changed_by_menu) {
-        light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
         context.stop_normal_light_changed_by_menu = false;
+        light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
         context.num_minutes_left_of_random = 0;
         i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44);
         {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
@@ -420,6 +420,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                     return_beeper_blip = true;
                     light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
                     context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
+                    context.mute_to_one_third_light_composition_cause_heat = false; // .. for the rest of the day now finished
                 } break;
                 case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                     return_beeper_blip = true;
@@ -511,16 +512,26 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.it_is_day_or_night == IT_IS_DAY) and // AQU=074a no direct allow_normal_light_change_by_clock usage here, test moved from above to here
                 (context.allow_normal_light_change_by_menu);
 
-        if (trigger_hour_changed_half_light) {
+        const bool trigger_hot_water = // AQU=081
+                (context.mute_to_one_third_light_composition_cause_heat) and
+                (context.it_is_day_or_night == IT_IS_DAY) and
+                (context.allow_normal_light_change_by_menu);
+
+        if (trigger_hot_water) {
+            // For the rest of the day or until SCREEN_3_LYSGULERING:
+            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 107);
+            context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_ONE_THIRD_F2N;
+            return_beeper_blip = true; // Since it's triggered by some external event
+        } else if (trigger_hour_changed_half_light) {
             // random_number is not already used in condition
-            new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number);      //     Once every 10 it would come out unchanged. OK!
+            new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number);  // Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
-        } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) { // L2: Start random only once every two hours or when light changes
-            if (context.allow_normal_light_change_by_clock) {                                         // L3: And when it's day-time'ish
-                if (context.allow_normal_light_change_by_menu) {                                      // L4: AQU=030 additional. Default or allowed again by menu
-                    if (context.num_minutes_left_of_random == 0) {                                    // L5: When it's not doing random already
-                        if (context.num_random_sequences_left > 0) {                                  // L6: Some left to do
-                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {                     // L7: Handle LYKT first
+        } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) {      // L2: Start random only once every two hours or when light changes
+            if (context.allow_normal_light_change_by_clock) {                                              // L3: And when it's day-time'ish
+                if (context.allow_normal_light_change_by_menu) {                                           // L4: AQU=030 additional. Default or allowed again by menu
+                    if (context.num_minutes_left_of_random == 0) {                                         // L5: When it's not doing random already
+                        if (context.num_random_sequences_left > 0) {                                       // L6: Some left to do
+                            if (context.light_sensor_diff_state == DIFF_ENOUGH) {                          // L7: Handle LYKT first
                                 context.light_sensor_diff_state = DIFF_ACTIVE;
                                 debug_set_val_to (print_value,101);
                                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3299_mW_FMB_021_ON, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105);

@@ -53,7 +53,11 @@ r_i2c i2c_external_config = {
     on tile[0]:XS1_PORT_1H, // X_SDA SDA is at startKIT GPIO header (J7.4) port P1H0, processor pin X0D23
     1000                    // clockTics, smaller is faster
                             // Length of I2C clock period in reference clock ticks(10ns)
-                            // 1000 * 10ns = 10.000 ns = 10 us -> 100.00 kbit/s operation
+                            //
+                            // OBSERVE THAT IF THIS IS TOO SLOW THEN ANY RELAY'S OUTPUT NOISE MAY INTERFERE WITH THE ONGOING I2C MESSAGE'S TWO LAST CLOCK PULSES!
+                            // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_outputs_interfering_with_ongoing_i2c
+                            //
+                            // 1000 * 10ns = 10.000 ns = 10 us -> 100.00 kbit/s operation USING THIS
                             //  300 * 10ns =  3.000 ns =  3 us -> 333.33 kbit/s operation
 };
 
