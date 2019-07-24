@@ -30,6 +30,7 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "chronodot_ds3231.h"
+#include "iochip_mcp23008.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 
@@ -495,6 +496,30 @@ Handle_Light_Sunrise_Sunset_Etc (
     }
 
     //}}}  
+
+    //{{{ Trigger SKIMMER water pump
+    {
+        /*const bool trigger_hour_changed_random_mod3 =
+                context.trigger_hour_changed_stick and
+                (context.iochip_relay1_skimmer_pump_state == RELAY_IS_OFF_INACTIVE) and
+                ((random_number % 3) == 0);
+        if (trigger_hour_changed_random_mod3) {
+            context.iochip_relay1_skimmer_pump_state = RELAY_TO_ON;
+        } else {} */
+
+
+        // (context.trigger_hour_changed_stick) and
+        // (context.it_is_day_or_night == IT_IS_DAY) and
+        // (context.allow_normal_light_change_by_menu);
+        if ((context.iochip_relay_button_ustate.u.state == RELAYBUTT_1) and
+           ((context.iochip_minutes_now %3) == 0) and
+            (context.iochip_relay1_skimmer_pump_state == RELAY_IS_OFF_INACTIVE)) {
+             // Make ready to set relay automatically:
+             context.iochip_relay1_skimmer_pump_state = RELAY_TO_ON;
+        } else {}
+    }
+
+    //}}}
     //{{{  Trigger_hour_changed or light sensor internally changed or NORMAL_LIGHT_IS_HALF_RANDOM_F2N
 
     light_composition_t new_light_composition;
@@ -502,9 +527,9 @@ Handle_Light_Sunrise_Sunset_Etc (
     if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
         // No code, no automatic change of light
     } else if (context.light_is_stable) {                                                             // L1: Light is not changing right now
-        const bool trigger_hour_changed_random =
+        const bool trigger_hour_changed_random_mod2 =
                 context.trigger_hour_changed_stick and
-                ((random_number % 2) == 0); // AQU=070 we cannot reuse this number below since it's limited even numbers only
+                ((random_number % 2) == 0); // AQU=070 we cannot reuse this number below since it's limited to even numbers only
 
         const bool trigger_hour_changed_half_light =
                 (context.trigger_hour_changed_stick) and
@@ -526,7 +551,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             // random_number is not already used in condition
             new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number);  // Once every 10 it would come out unchanged. OK!
             i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106);
-        } else if (trigger_hour_changed_random or (context.light_sensor_diff_state == DIFF_ENOUGH)) {      // L2: Start random only once every two hours or when light changes
+        } else if (trigger_hour_changed_random_mod2 or (context.light_sensor_diff_state == DIFF_ENOUGH)) {      // L2: Start random only once every two hours or when light changes
             if (context.allow_normal_light_change_by_clock) {                                              // L3: And when it's day-time'ish
                 if (context.allow_normal_light_change_by_menu) {                                           // L4: AQU=030 additional. Default or allowed again by menu
                     if (context.num_minutes_left_of_random == 0) {                                         // L5: When it's not doing random already

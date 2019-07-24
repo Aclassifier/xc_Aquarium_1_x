@@ -312,21 +312,22 @@ _i.i2c_external_commands_if._chan.get_iochip_button:
 	.cc_top _i.i2c_external_commands_if._chan.write_iochip_pins.function,_i.i2c_external_commands_if._chan.write_iochip_pins
 _i.i2c_external_commands_if._chan.write_iochip_pins:
 	.cfi_startproc
-	getr r3, 2
-	setd res[r3], r0
-	add r0, r3, 3
-	out res[r3], r0
-	outct res[r3], 2
-	chkct res[r3], 1
+	getr r11, 2
+	setd res[r11], r0
+	add r0, r11, 3
+	out res[r11], r0
+	outct res[r11], 2
+	chkct res[r11], 1
 	ldw r0, r1[0]
-	out res[r3], r0
-	outt res[r3], r2
-	outct res[r3], 2
-	in r0, res[r3]
-	in r0, res[r3]
+	out res[r11], r0
+	outt res[r11], r2
+	out res[r11], r3
+	outct res[r11], 2
+	in r0, res[r11]
+	in r0, res[r11]
 	stw r0, r1[0]
-	chkct res[r3], 1
-	freer res[r3]
+	chkct res[r11], 1
+	freer res[r11]
 	retsp 0
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.i2c_external_commands_if._chan.write_iochip_pins.function
@@ -557,6 +558,7 @@ _i.i2c_external_commands_if._chan_yield.write_iochip_pins:
 	ldw r1, r4[0]
 	out res[r5], r1
 	outt res[r5], r2
+	out res[r5], r3
 	outct res[r5], 2
 	ldw r2, r0[1]
 	ldc r1, 0
@@ -1370,20 +1372,22 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string84:
 .asciiz"param2"
 .Linfo_string85:
-.asciiz"clientNotifyFlag"
+.asciiz"param3"
 .Linfo_string86:
-.asciiz"delay"
+.asciiz"clientNotifyFlag"
 .Linfo_string87:
-.asciiz"s1"
+.asciiz"delay"
 .Linfo_string88:
-.asciiz"s2"
+.asciiz"s1"
 .Linfo_string89:
-.asciiz"n"
+.asciiz"s2"
 .Linfo_string90:
+.asciiz"n"
+.Linfo_string91:
 .asciiz"c"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	1757
+	.long	1780
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -1500,26 +1504,26 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string50
 	.byte	1
 	.byte	33
-	.long	1564
+	.long	1582
 	.byte	6
 	.long	.Ldebug_loc1
 	.long	.Linfo_string57
 	.byte	1
 	.byte	33
-	.long	1628
+	.long	1646
 	.byte	6
 	.long	.Ldebug_loc2
 	.long	.Linfo_string61
 	.byte	1
 	.byte	33
-	.long	1500
+	.long	1518
 	.byte	7
 	.long	.Ldebug_ranges1
 	.byte	8
 	.long	.Linfo_string62
 	.byte	1
 	.byte	35
-	.long	1557
+	.long	1575
 	.byte	0
 	.byte	0
 	.byte	5
@@ -1531,33 +1535,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string45
 	.byte	1
 	.byte	57
-	.long	1122
+	.long	1131
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc3
 	.long	.Linfo_string50
 	.byte	1
 	.byte	57
-	.long	1564
+	.long	1582
 	.byte	6
 	.long	.Ldebug_loc4
 	.long	.Linfo_string57
 	.byte	1
 	.byte	57
-	.long	1628
+	.long	1646
 	.byte	6
 	.long	.Ldebug_loc5
 	.long	.Linfo_string63
 	.byte	1
 	.byte	57
-	.long	1666
+	.long	1684
 	.byte	7
 	.long	.Ldebug_ranges4
 	.byte	8
 	.long	.Linfo_string62
 	.byte	1
 	.byte	59
-	.long	1557
+	.long	1575
 	.byte	7
 	.long	.Ldebug_ranges3
 	.byte	9
@@ -1565,7 +1569,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string64
 	.byte	1
 	.byte	64
-	.long	1671
+	.long	1689
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1584,32 +1588,32 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string50
 	.byte	1
 	.byte	109
-	.long	1564
+	.long	1582
 	.byte	6
 	.long	.Ldebug_loc8
 	.long	.Linfo_string57
 	.byte	1
 	.byte	109
-	.long	1628
+	.long	1646
 	.byte	6
 	.long	.Ldebug_loc9
 	.long	.Linfo_string67
 	.byte	1
 	.byte	109
-	.long	1500
+	.long	1518
 	.byte	6
 	.long	.Ldebug_loc10
 	.long	.Linfo_string68
 	.byte	1
 	.byte	109
-	.long	1557
+	.long	1575
 	.byte	7
 	.long	.Ldebug_ranges11
 	.byte	8
 	.long	.Linfo_string71
 	.byte	1
 	.byte	110
-	.long	1438
+	.long	1456
 	.byte	7
 	.long	.Ldebug_ranges10
 	.byte	9
@@ -1617,21 +1621,21 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	111
-	.long	1438
+	.long	1456
 	.byte	7
 	.long	.Ldebug_ranges9
 	.byte	8
 	.long	.Linfo_string72
 	.byte	1
 	.byte	112
-	.long	1500
+	.long	1518
 	.byte	7
 	.long	.Ldebug_ranges8
 	.byte	8
 	.long	.Linfo_string73
 	.byte	1
 	.byte	113
-	.long	1500
+	.long	1518
 	.byte	7
 	.long	.Ldebug_ranges7
 	.byte	11
@@ -1641,7 +1645,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string66
 	.byte	1
 	.byte	114
-	.long	1678
+	.long	1696
 	.byte	7
 	.long	.Ldebug_ranges6
 	.byte	12
@@ -1649,7 +1653,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string70
 	.byte	1
 	.byte	115
-	.long	1438
+	.long	1456
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1666,33 +1670,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string48
 	.byte	1
 	.byte	122
-	.long	1557
+	.long	1575
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc12
 	.long	.Linfo_string50
 	.byte	1
 	.byte	122
-	.long	1564
+	.long	1582
 	.byte	6
 	.long	.Ldebug_loc13
 	.long	.Linfo_string57
 	.byte	1
 	.byte	122
-	.long	1628
+	.long	1646
 	.byte	6
 	.long	.Ldebug_loc14
 	.long	.Linfo_string67
 	.byte	1
 	.byte	122
-	.long	1500
+	.long	1518
 	.byte	7
 	.long	.Ldebug_ranges19
 	.byte	8
 	.long	.Linfo_string71
 	.byte	1
 	.byte	123
-	.long	1438
+	.long	1456
 	.byte	7
 	.long	.Ldebug_ranges18
 	.byte	9
@@ -1700,14 +1704,14 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string69
 	.byte	1
 	.byte	124
-	.long	1438
+	.long	1456
 	.byte	7
 	.long	.Ldebug_ranges17
 	.byte	8
 	.long	.Linfo_string66
 	.byte	1
 	.byte	125
-	.long	1678
+	.long	1696
 	.byte	7
 	.long	.Ldebug_ranges16
 	.byte	12
@@ -1715,28 +1719,28 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string70
 	.byte	1
 	.byte	126
-	.long	1438
+	.long	1456
 	.byte	7
 	.long	.Ldebug_ranges15
 	.byte	8
 	.long	.Linfo_string74
 	.byte	1
 	.byte	127
-	.long	1557
+	.long	1575
 	.byte	7
 	.long	.Ldebug_ranges14
 	.byte	8
 	.long	.Linfo_string72
 	.byte	1
 	.byte	134
-	.long	1557
+	.long	1575
 	.byte	7
 	.long	.Ldebug_ranges13
 	.byte	8
 	.long	.Linfo_string73
 	.byte	1
 	.byte	135
-	.long	1557
+	.long	1575
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1761,13 +1765,13 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string50
 	.byte	1
 	.byte	90
-	.long	1564
+	.long	1582
 	.byte	6
 	.long	.Ldebug_loc17
 	.long	.Linfo_string57
 	.byte	1
 	.byte	90
-	.long	1628
+	.long	1646
 	.byte	6
 	.long	.Ldebug_loc18
 	.long	.Linfo_string75
@@ -1780,14 +1784,14 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string76
 	.byte	1
 	.byte	92
-	.long	1557
+	.long	1575
 	.byte	7
 	.long	.Ldebug_ranges21
 	.byte	8
 	.long	.Linfo_string77
 	.byte	1
 	.byte	93
-	.long	1557
+	.long	1575
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1797,10 +1801,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
 	.long	.Linfo_string80
-	.long	1698
+	.long	1716
 	.byte	0
 	.byte	13
 	.long	.Linfo_string20
@@ -1808,10 +1812,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
 	.long	.Linfo_string80
-	.long	1698
+	.long	1716
 	.byte	0
 	.byte	13
 	.long	.Linfo_string21
@@ -1819,10 +1823,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	0
 	.byte	13
 	.long	.Linfo_string22
@@ -1830,13 +1834,16 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	14
 	.long	.Linfo_string84
-	.long	1740
+	.long	1758
+	.byte	14
+	.long	.Linfo_string85
+	.long	1763
 	.byte	0
 	.byte	13
 	.long	.Linfo_string23
@@ -1844,39 +1851,39 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	0
 	.byte	15
 	.long	.Linfo_string24
 	.long	.Linfo_string24
-	.long	1062
+	.long	1071
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
-	.long	.Linfo_string85
-	.long	1621
+	.long	.Linfo_string86
+	.long	1639
 	.byte	0
 	.byte	16
 	.long	.Linfo_string29
 	.byte	20
 	.byte	17
 	.long	.Linfo_string25
-	.long	1089
+	.long	1098
 	.byte	0
 	.byte	17
 	.long	.Linfo_string27
-	.long	1109
+	.long	1118
 	.byte	12
 	.byte	0
 	.byte	18
 	.long	56
 	.byte	19
-	.long	1102
+	.long	1111
 	.byte	0
 	.byte	2
 	.byte	0
@@ -1885,9 +1892,9 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	8
 	.byte	7
 	.byte	18
-	.long	1122
+	.long	1131
 	.byte	19
-	.long	1102
+	.long	1111
 	.byte	0
 	.byte	2
 	.byte	0
@@ -1901,10 +1908,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	14
 	.long	.Linfo_string80
-	.long	1745
+	.long	1768
 	.byte	0
 	.byte	13
 	.long	.Linfo_string31
@@ -1912,10 +1919,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	0
 	.byte	13
 	.long	.Linfo_string32
@@ -1923,13 +1930,16 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	14
 	.long	.Linfo_string84
-	.long	1740
+	.long	1758
+	.byte	14
+	.long	.Linfo_string85
+	.long	1763
 	.byte	0
 	.byte	13
 	.long	.Linfo_string33
@@ -1937,22 +1947,22 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
 	.long	.Linfo_string80
-	.long	1735
+	.long	1753
 	.byte	0
 	.byte	15
 	.long	.Linfo_string34
 	.long	.Linfo_string34
-	.long	1062
+	.long	1071
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
-	.long	.Linfo_string85
-	.long	1621
+	.long	.Linfo_string86
+	.long	1639
 	.byte	0
 	.byte	13
 	.long	.Linfo_string35
@@ -1960,10 +1970,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	14
 	.long	.Linfo_string81
-	.long	1703
+	.long	1721
 	.byte	14
 	.long	.Linfo_string80
-	.long	1745
+	.long	1768
 	.byte	0
 	.byte	22
 	.long	.Linfo_string36
@@ -1972,10 +1982,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	46
 	.byte	1
 	.byte	23
-	.long	.Linfo_string86
+	.long	.Linfo_string87
 	.byte	2
 	.byte	46
-	.long	1621
+	.long	1639
 	.byte	0
 	.byte	22
 	.long	.Linfo_string37
@@ -1984,10 +1994,10 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	54
 	.byte	1
 	.byte	23
-	.long	.Linfo_string86
+	.long	.Linfo_string87
 	.byte	2
 	.byte	54
-	.long	1621
+	.long	1639
 	.byte	0
 	.byte	22
 	.long	.Linfo_string38
@@ -1996,33 +2006,33 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	62
 	.byte	1
 	.byte	23
-	.long	.Linfo_string86
+	.long	.Linfo_string87
 	.byte	2
 	.byte	62
-	.long	1621
+	.long	1639
 	.byte	0
 	.byte	24
 	.long	.Linfo_string39
 	.long	.Linfo_string39
 	.byte	3
 	.byte	8
-	.long	1438
+	.long	1456
 	.byte	1
-	.byte	23
-	.long	.Linfo_string87
-	.byte	3
-	.byte	8
-	.long	1750
 	.byte	23
 	.long	.Linfo_string88
 	.byte	3
 	.byte	8
-	.long	1750
+	.long	1773
 	.byte	23
 	.long	.Linfo_string89
 	.byte	3
 	.byte	8
-	.long	1621
+	.long	1773
+	.byte	23
+	.long	.Linfo_string90
+	.byte	3
+	.byte	8
+	.long	1639
 	.byte	0
 	.byte	21
 	.long	.Linfo_string40
@@ -2033,26 +2043,26 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string41
 	.byte	3
 	.byte	12
-	.long	1495
+	.long	1513
 	.byte	1
-	.byte	23
-	.long	.Linfo_string87
-	.byte	3
-	.byte	12
-	.long	1495
 	.byte	23
 	.long	.Linfo_string88
 	.byte	3
 	.byte	12
-	.long	1750
+	.long	1513
 	.byte	23
 	.long	.Linfo_string89
 	.byte	3
 	.byte	12
-	.long	1621
+	.long	1773
+	.byte	23
+	.long	.Linfo_string90
+	.byte	3
+	.byte	12
+	.long	1639
 	.byte	0
 	.byte	25
-	.long	1500
+	.long	1518
 	.byte	21
 	.long	.Linfo_string42
 	.byte	8
@@ -2062,30 +2072,30 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Linfo_string43
 	.byte	3
 	.byte	18
-	.long	1495
+	.long	1513
 	.byte	1
 	.byte	23
 	.long	.Linfo_string81
 	.byte	3
 	.byte	18
-	.long	1495
+	.long	1513
+	.byte	23
+	.long	.Linfo_string91
+	.byte	3
+	.byte	18
+	.long	1456
 	.byte	23
 	.long	.Linfo_string90
 	.byte	3
 	.byte	18
-	.long	1438
-	.byte	23
-	.long	.Linfo_string89
-	.byte	3
-	.byte	18
-	.long	1621
+	.long	1639
 	.byte	0
 	.byte	21
 	.long	.Linfo_string49
 	.byte	7
 	.byte	2
 	.byte	26
-	.long	1569
+	.long	1587
 	.byte	27
 	.long	.Linfo_string56
 	.byte	12
@@ -2093,19 +2103,19 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	33
 	.byte	28
 	.long	.Linfo_string51
-	.long	1614
+	.long	1632
 	.byte	1
 	.byte	33
 	.byte	0
 	.byte	28
 	.long	.Linfo_string53
-	.long	1614
+	.long	1632
 	.byte	1
 	.byte	33
 	.byte	4
 	.byte	28
 	.long	.Linfo_string54
-	.long	1621
+	.long	1639
 	.byte	1
 	.byte	33
 	.byte	8
@@ -2119,7 +2129,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	7
 	.byte	4
 	.byte	26
-	.long	1633
+	.long	1651
 	.byte	27
 	.long	.Linfo_string60
 	.byte	8
@@ -2127,7 +2137,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	33
 	.byte	28
 	.long	.Linfo_string58
-	.long	1500
+	.long	1518
 	.byte	1
 	.byte	33
 	.byte	0
@@ -2145,9 +2155,9 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	5
 	.byte	4
 	.byte	18
-	.long	1500
+	.long	1518
 	.byte	19
-	.long	1102
+	.long	1111
 	.byte	0
 	.byte	1
 	.byte	0
@@ -2158,29 +2168,31 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	29
 	.long	31
 	.byte	26
-	.long	1708
+	.long	1726
 	.byte	16
 	.long	.Linfo_string83
 	.byte	8
 	.byte	17
 	.long	.Linfo_string78
-	.long	1691
+	.long	1709
 	.byte	0
 	.byte	17
 	.long	.Linfo_string82
-	.long	1621
+	.long	1639
 	.byte	4
 	.byte	0
 	.byte	26
-	.long	1621
+	.long	1639
 	.byte	29
-	.long	1500
+	.long	1518
+	.byte	29
+	.long	1639
 	.byte	29
 	.long	75
 	.byte	26
-	.long	1755
+	.long	1778
 	.byte	30
-	.long	1740
+	.long	1758
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -2991,49 +3003,49 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.Lset35
 	.long	933
 .asciiz"_i.i2c_external_commands_if._chan.get_iochip_button"
-	.long	1254
+	.long	1272
 .asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
 	.long	389
 .asciiz"Tempchip_MCP9808_Write16"
-	.long	1388
+	.long	1406
 .asciiz"_safe_memcmp"
 	.long	904
 .asciiz"_i.button_if._chan_yield.button"
-	.long	1507
+	.long	1525
 .asciiz"_safe_memset"
 	.long	962
 .asciiz"_i.i2c_external_commands_if._chan.write_iochip_pins"
-	.long	1029
+	.long	1038
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 	.long	772
 .asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
-	.long	1225
+	.long	1243
 .asciiz"_i.i2c_external_commands_if._chan_yield.init_iochip"
 	.long	196
 .asciiz"Tempchip_MCP9808_Begin_Ok"
 	.long	875
 .asciiz"_i.button_if._chan.button"
-	.long	1287
+	.long	1305
 .asciiz"_i.i2c_external_commands_if._chan_yield.trigger_command"
-	.long	1445
+	.long	1463
 .asciiz"_safe_memmove"
-	.long	1340
+	.long	1358
 .asciiz"delay_milliseconds"
 	.long	282
 .asciiz"Tempchip_MCP9808_ReadTempC"
-	.long	1158
+	.long	1167
 .asciiz"_i.i2c_external_commands_if._chan_yield.get_iochip_button"
-	.long	1364
+	.long	1382
 .asciiz"delay_microseconds"
-	.long	1000
+	.long	1009
 .asciiz"_i.i2c_external_commands_if._chan.init_iochip"
 	.long	579
 .asciiz"Tempchip_MCP9808_Read16"
-	.long	1129
+	.long	1138
 .asciiz"_i.i2c_external_commands_if._chan.trigger_command"
-	.long	1316
+	.long	1334
 .asciiz"delay_seconds"
-	.long	1187
+	.long	1196
 .asciiz"_i.i2c_external_commands_if._chan_yield.write_iochip_pins"
 	.long	0
 .LpubNames_end0:
@@ -3045,29 +3057,29 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.L.debug_info_begin0
 .Lset37 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset37
-	.long	1708
+	.long	1726
 .asciiz"yieldArg"
 	.long	75
 .asciiz"i2c_command_external_e"
-	.long	1614
+	.long	1632
 .asciiz"port"
-	.long	1633
+	.long	1651
 .asciiz"tag_i2c_master_param_t"
-	.long	1621
+	.long	1639
 .asciiz"unsigned int"
-	.long	1438
+	.long	1456
 .asciiz"int"
-	.long	1557
+	.long	1575
 .asciiz"unsigned short"
-	.long	1569
+	.long	1587
 .asciiz"r_i2c"
-	.long	1122
+	.long	1131
 .asciiz"short"
-	.long	1671
+	.long	1689
 .asciiz"long"
-	.long	1691
+	.long	1709
 .asciiz"chanend"
-	.long	1062
+	.long	1071
 .asciiz"tag_i2c_temps_t"
 	.long	175
 .asciiz"__TYPE_7"
@@ -3075,7 +3087,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .asciiz"__TYPE_8"
 	.long	31
 .asciiz"__TYPE_9"
-	.long	1500
+	.long	1518
 .asciiz"unsigned char"
 	.long	0
 .LpubTypes_end0:
@@ -3085,13 +3097,13 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.typestring _i.button_if._chan_yield.button, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.overlay_reference _i.button_if._chan_yield.button,_i.button_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.get_iochip_button, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}}}(chd,&(ui))"
-	.typestring _i.i2c_external_commands_if._chan.write_iochip_pins, "f{0}(chd,&(ui),:uc)"
+	.typestring _i.i2c_external_commands_if._chan.write_iochip_pins, "f{0}(chd,&(ui),:uc,:ui)"
 	.typestring _i.i2c_external_commands_if._chan.init_iochip, "f{0}(chd,&(ui))"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
 	.typestring _i.i2c_external_commands_if._chan.trigger_command, "f{0}(chd,:e(i2c_command_external_e){m(GET_TEMPC_ALL){1},m(INIT_IOCHIP){2},m(READ_IOCHIP_BUTTON){3},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan_yield.get_iochip_button, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui))"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.get_iochip_button,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_yield.write_iochip_pins, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui),:uc)"
+	.typestring _i.i2c_external_commands_if._chan_yield.write_iochip_pins, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui),:uc,:ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.write_iochip_pins,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_yield.init_iochip, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui))"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.init_iochip,_i.i2c_external_commands_if._client_call_y.fns

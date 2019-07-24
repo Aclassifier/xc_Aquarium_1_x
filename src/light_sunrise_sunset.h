@@ -98,6 +98,12 @@ typedef enum {
     CNT_10 = 10
 } cnt_10_t; // Since they are hand-coded so much
 
+typedef enum {
+    RELAY_IS_OFF_INACTIVE,
+    RELAY_TO_ON,
+    RELAY_IS_ON
+} relay_state_t; // AQU=082
+
 typedef bool mute_light_t; // AQU=081
 
 typedef struct light_sunrise_sunset_context_t {
@@ -140,13 +146,14 @@ typedef struct light_sunrise_sunset_context_t {
     hour_t                        night_start_dark_hour;                    // AQU=051
     uint8_t                       debug;
     // AQU=080 all new:
-    bool                          iochip_handle_relays;
     bool                          iochip_relay_1; // true is on
     bool                          iochip_relay_2; // true is on
 
                                   // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then muted for the rest of the day or until SCREEN_3_LYSGULERING:
     mute_light_t                  mute_to_one_third_light_composition_cause_heat; // AQU=081
-
+    relay_state_t                 iochip_relay1_skimmer_pump_state; // AQU=082
+    unsigned                      iochip_minutes_now; // TODO REMOVE
+    relay_button_ustate_t         iochip_relay_button_ustate; // AQU=082
     //
 } light_sunrise_sunset_context_t;
 

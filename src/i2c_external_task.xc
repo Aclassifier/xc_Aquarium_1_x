@@ -31,6 +31,7 @@
 #include <string.h>
 #include <iso646.h>
 #include <errno.h>
+#include <timer.h> // For delay_milliseconds (but it compiles without?)
 
 #include "_globals.h"
 #include "param.h"
@@ -143,7 +144,7 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
             } break; // init_iochip_ok
 
             // client/server
-            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins) : {
+            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms) : {
                 i2c_result_t i2c_result;
                 bool ok;
                 unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
@@ -152,6 +153,11 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
                 if (not ok) {
                     iochip_err_cnt++;
+                } else {}
+
+                if (silence_after_write_ms > 0) {
+                    delay_milliseconds (silence_after_write_ms); // This is supposed to be blocking, see
+                    // https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
                 } else {}
             } break; // trigger_write_iochip_pins
 
