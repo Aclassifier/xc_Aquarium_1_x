@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.80" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1480  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.81" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1481  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.81     25Jul2019          iochip_mcp23008.xc is new and code moved to it: init_iochip_i2c_external_iff and handle_iochip_i2c_external_iff
 // 1.4.80     24Jul2019 AQU=082  Real control of MY_MCP23008_OUT_RELAY1_ON_BIT as iochip_relay1_skimmer_pump_secs_cntdown
 // 1.4.79     24Jul2019 AQU=081  mute_light_t is new
 //                               TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT is new
