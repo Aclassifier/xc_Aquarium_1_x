@@ -356,7 +356,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t              &context,
             light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client i2c_internal_commands_if        i_i2c_internal_commands,
-    client port_heat_light_commands_if     i_port_heat_light_commands,
     client temperature_water_commands_if   i_temperature_water_commands,  // SCREEN_1_AKVARIETEMPERATURER
     client temperature_heater_commands_if  i_temperature_heater_commands, // SCREEN_2_VANNTEMP_REG
     const  caller_t                        caller)
@@ -1347,7 +1346,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
                     if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
                         // Display what was left last time:
-                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         context.iof_button_last_taken_action = iof_button;
                     } else {}
                 } break;
@@ -1380,7 +1379,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
                         // Always even number here ("edit")
                         context.beeper_blip_now = true;
-                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
                     //   -------------------------- SCREEN_7_NT_KLOKKE ----------------------------------
                     } else if (context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state >= SUB_STATE_01) {
@@ -1399,9 +1398,9 @@ void Handle_Real_Or_Clocked_Buttons (
 
                         // Always even number here ("edit")
                         context.beeper_blip_now = true;
-                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     } else if (caller == CALLER_IS_REFRESH) {
-                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                     } else if (caller != CALLER_IS_REFRESH) {
                         // -------- GO TO PREVIOUS SCREEN --------
                         if (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED) {
@@ -1416,7 +1415,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             } else {
                                 context.display_screen_name_present--; // Previous "screen"
                             }
-                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                             context.iof_button_last_taken_action = iof_button;
                         } else {}
                     }
@@ -1452,10 +1451,10 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST; // Wrap around
                                 }
                             } else {}
-                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                             context.iof_button_last_taken_action = iof_button;
                         } else if (caller == CALLER_IS_REFRESH) {
-                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } else {}
                     } else if (context.display_appear_state == DISPLAY_APPEAR_EDITABLE) {
                         if (caller != CALLER_IS_REFRESH) {
@@ -1469,7 +1468,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 }
 
                                 // Always odd number here ("next")
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 context.beeper_blip_now = true;
 
                                 //   -------------------------- SCREEN_7_NT_KLOKKE ----------------------------------
@@ -1490,7 +1489,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 } else {}
 
                                 // Always odd number here  ("next")
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
                             } else {}
                         } else {}
@@ -1512,7 +1511,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     #if (FLASH_BLACK_BOARD==1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = not context.screen_logg.disabled_toggled_on_acknowledge_10secs;
                                     #endif
-                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {} // On below
                             } else {}
                         } break;
@@ -1528,7 +1527,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     #if (FLASH_BLACK_BOARD==1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = false;
                                     #endif
-                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                    Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 } else {}
                             } else {}
                         } break;
@@ -1544,7 +1543,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
 
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
                                 light_sunrise_sunset_context.mute_stack.light_control_scheme_actual = context.light_control_scheme;
                                 light_sunrise_sunset_context.mute_stack.pop_now                     = light_sunrise_sunset_context.mute_stack.push_done;
@@ -1568,7 +1567,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
-                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                                Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 debug_print ("%s","  SCREEN_7_NT_KLOKKE\n");
                             } else {}
                         } break;
@@ -1587,7 +1586,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             context.TX_appSeqCnt = 0;
                             context.RX_messageNotForThisNode_cnt = 0;
                             context.ultimateIRQclearCnt = 0;
-                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
                         default: break;
