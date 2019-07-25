@@ -98,13 +98,6 @@ typedef enum {
     CNT_10 = 10
 } cnt_10_t; // Since they are hand-coded so much
 
-typedef enum {
-    RELAY_TO_OFF,
-    RELAY_IS_OFF,
-    RELAY_TO_ON,
-    RELAY_IS_ON
-} relay_state_t; // AQU=082
-
 typedef bool mute_light_t; // AQU=081
 
 typedef struct light_sunrise_sunset_context_t {

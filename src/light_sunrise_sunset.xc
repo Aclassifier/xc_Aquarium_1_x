@@ -30,7 +30,6 @@
 #include "defines_adafruit.h"
 #include "tempchip_mcp9808.h"
 #include "chronodot_ds3231.h"
-#include "iochip_mcp23008.h"
 #include "I2C_Internal_Task.h"
 #include "chronodot_ds3231_task.h"
 

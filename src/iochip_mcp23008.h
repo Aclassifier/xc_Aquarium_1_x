@@ -67,4 +67,33 @@
         } u;
     } relay_button_ustate_t;
 
+    typedef enum {
+        RELAY_TO_OFF,
+        RELAY_IS_OFF,
+        RELAY_TO_ON,
+        RELAY_IS_ON
+    } relay_state_t; // AQU=082
+
+    typedef struct iochip_t {
+        // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
+        unsigned               err_cnt;
+        uint8_t                port_pins;
+        unsigned               seconds_cnt;
+        unsigned               relay1_skimmer_pump_minutes_cntdown;
+        relay_state_t          relay1_skimmer_pump_state;
+        relay_button_ustate_t  button_ustate;
+        unsigned               minute; // For FLASH_BLACK_BOARD==1 only
+    } iochip_t;
+
+    #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
+
+    void init_iochip_i2c_external_iff (
+            client  i2c_external_commands_if i_i2c_external_commands,
+            iochip_t                         &iochip);
+
+    // ASSUMED TO BE CALLED EVERY SECOND
+    void handle_iochip_i2c_external_iff (
+            client  i2c_external_commands_if i_i2c_external_commands,
+            iochip_t                         &iochip);
+
 #endif /* IOEXPANDERCHIP_MCP23008_H_ */
