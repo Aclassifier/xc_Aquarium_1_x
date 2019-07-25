@@ -54,10 +54,10 @@
 
     typedef enum {
         //           // RED   GREEN   RELAY_1  RELAY_2
-        RELAYBUTT_0, // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot since RELAYBUTT_1 is both LEDs off. Also relays off as init for next state:
-        RELAYBUTT_1, // OFF   OFF     ###      ###      Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark. With short timeout
-        RELAYBUTT_2, // OFF   BLINK   ON       ON       With long timeout
-        RELAYBUTT_ROOF // Not used
+        BUTTON_STATE_0, // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot since BUTTON_STATE_1 is both LEDs off. Also relays off as init for next state:
+        BUTTON_STATE_1, // OFF   OFF     ###      ###      Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark. With short timeout
+        BUTTON_STATE_2, // OFF   BLINK   ON       ON       With long timeout
+        BUTTON_STATE_ROOF // Not used
     } relay_button_state_e;
 
     typedef struct relay_button_ustate_t {

@@ -260,8 +260,6 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;
         context.debug = 0;
-        context.iochip_relay_1 = false; // off
-        context.iochip_relay_1 = false; // off
 
         if (context.light_amount_in_FRAM_memory.u.fraction_2_nibbles == NORMAL_LIGHT_IS_VOID_F0N) {               // No FRAM chip? Set if read failed
             context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_FULL_F2N;                                 // Default. Will trigger do_FRAM_write
@@ -496,30 +494,6 @@ Handle_Light_Sunrise_Sunset_Etc (
     }
 
     //}}}  
-
-    //{{{ Trigger SKIMMER water pump
-    {
-        /*const bool trigger_hour_changed_random_mod3 =
-                context.trigger_hour_changed_stick and
-                (context.iochip_relay1_skimmer_pump_state == RELAY_IS_OFF_INACTIVE) and
-                ((random_number % 3) == 0);
-        if (trigger_hour_changed_random_mod3) {
-            context.iochip_relay1_skimmer_pump_state = RELAY_TO_ON;
-        } else {} */
-
-
-        // (context.trigger_hour_changed_stick) and
-        // (context.it_is_day_or_night == IT_IS_DAY) and
-        // (context.allow_normal_light_change_by_menu);
-        if ((context.iochip_relay_button_ustate.u.state == RELAYBUTT_1) and
-           ((context.iochip_minutes_now %3) == 0) and
-            (context.iochip_relay1_skimmer_pump_state == RELAY_IS_OFF_INACTIVE)) {
-             // Make ready to set relay automatically:
-             context.iochip_relay1_skimmer_pump_state = RELAY_TO_ON;
-        } else {}
-    }
-
-    //}}}
     //{{{  Trigger_hour_changed or light sensor internally changed or NORMAL_LIGHT_IS_HALF_RANDOM_F2N
 
     light_composition_t new_light_composition;

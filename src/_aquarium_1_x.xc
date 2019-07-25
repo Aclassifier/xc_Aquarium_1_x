@@ -220,11 +220,11 @@ typedef enum error_bits_t {
 #define SEND_PACKET_ON_NO_CHANGE_TIMOEUT_SECONDS 1                     // MINIMUM 1! For sendPacket_seconds_cntdown
 
 #if (FLASH_BLACK_BOARD==1)
-    #define AUTO_RELAYBUTT_1_RELAY1_SKIMMER_PUMP_ON_MINUTES     1 // MAX time is this, so it may be 59 seconds less
-    #define MANUAL_RELAYBUTT_2_RELAY1_SKIMMER_PUMP_ON_MINUTES   2 // MAX time is this, so it may be 59 seconds less
+    #define AUTO_BUTTON_STATE_1_RELAY1_SKIMMER_PUMP_ON_MINUTES     1 // MAX time is this, so it may be 59 seconds less
+    #define MANUAL_BUTTON_STATE_2_RELAY1_SKIMMER_PUMP_ON_MINUTES   2 // MAX time is this, so it may be 59 seconds less
 #else
-    #define AUTO_RELAYBUTT_1_RELAY1_SKIMMER_PUMP_ON_MINUTES    15 // MAX time is this, so it may be 59 seconds less
-    #define MANUAL_RELAYBUTT_2_RELAY1_SKIMMER_PUMP_ON_MINUTES 180 // MAX time is this, so it may be 59 seconds less
+    #define AUTO_BUTTON_STATE_1_RELAY1_SKIMMER_PUMP_ON_MINUTES    15 // MAX time is this, so it may be 59 seconds less
+    #define MANUAL_BUTTON_STATE_2_RELAY1_SKIMMER_PUMP_ON_MINUTES 180 // MAX time is this, so it may be 59 seconds less
 #endif
 
 // 433 MHz band shared with Shared with ØM11 (1) indoor/outdoor thermometer and (2) kitchen light switch over the table and (3) car key
@@ -248,6 +248,16 @@ typedef enum error_bits_t {
 // handler_context_t
 typedef enum { radio_enabled, radio_disabled_pending, radio_disabled } radio_enabled_state_e; // Coding depending on this being three cases only!
 typedef enum { send_idle, send, sent } radio_send_data_e;
+
+typedef struct iochip_t {
+    // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
+    unsigned               iochip_err_cnt;
+    uint8_t                iochip_port_pins;
+    unsigned               iochip_seconds_cnt;
+    unsigned               iochip_relay1_skimmer_pump_minutes_cntdown;
+    relay_state_t          iochip_relay1_skimmer_pump_state;
+    relay_button_ustate_t  iochip_button_ustate;
+} iochip_t;
 
 typedef struct handler_context_t {
     display_appear_state_t      display_appear_state;
@@ -320,13 +330,11 @@ typedef struct handler_context_t {
         uint irq_value_xscope;
     #endif
 
-    // USB_WATCHDOG_ANDRELAY_BOX contains an I2C MCP23008 chip:
-    unsigned  iochip_err_cnt;
-    uint8_t   iochip_output_pins;
-    unsigned  iochip_relay1_skimmer_pump_minutes_cntdown; // AQU=082
-    unsigned  iochip_seconds_cnt;
+    iochip_t iochip;
+
     unsigned  number_of_restarts; // AQU=079
     bool      number_of_restarts_init_do_fram_write; // AQU=069
+
 } handler_context_t;
 
 
@@ -1268,13 +1276,13 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 context.display_ts1_chars [index_of_char] = ' ';
             }
 
-            bool relay1 = ((context.iochip_output_pins bitand MY_MCP23008_OUT_RELAY1_ON_MASK) != 0);
-            bool relay2 = ((context.iochip_output_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
+            bool relay1 = ((context.iochip.iochip_port_pins bitand MY_MCP23008_OUT_RELAY1_ON_MASK) != 0);
+            bool relay2 = ((context.iochip.iochip_port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
                                "10 USB-BOKS %s\n  TILSTAND  %u\n  RELEER    %1u.%1u\n  RESTARTER %u",
-                               (context.iochip_err_cnt==0) ? "VAKTHUND" : "MANGLER",
-                               light_sunrise_sunset_context.iochip_relay_button_ustate.u.cnt,
+                               (context.iochip.iochip_err_cnt==0) ? "VAKTHUND" : "MANGLER",
+                               context.iochip.iochip_button_ustate.u.cnt,
                                relay1, relay2,
                                context.number_of_restarts);
             //                                            ..........----------.
@@ -1641,7 +1649,6 @@ void System_Task_Data_Handler (
 
         context.datetime                           = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
         light_sunrise_sunset_context.datetime_copy = context.datetime; // Need a copy there. Only place it's modified
-        light_sunrise_sunset_context.iochip_minutes_now = context.datetime.minute;
 
         // Do init of "previous" of aquarium datetime for light
         if (light_sunrise_sunset_context.datetime_previous_not_initialised) {
@@ -1673,8 +1680,8 @@ void System_Task_Data_Handler (
             } else {}
 
             if (light_sunrise_sunset_context.trigger_minute_changed_stick) {
-                if (context.iochip_relay1_skimmer_pump_minutes_cntdown > 0) {
-                    context.iochip_relay1_skimmer_pump_minutes_cntdown--;
+                if (context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown > 0) {
+                    context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown--;
                 } else {}
             }
         }
@@ -2057,54 +2064,50 @@ void radio_irq_handler (
     } else {}
 }
 
-
-void handle_button_and_watchdog_trigger ( // port_pins
-          const relay_button_ustate_t relay_button_ustate,
-          const unsigned              &seconds_cnt,
-          uint8_t                     &port_pins)
+void handle_button_and_watchdog_trigger (iochip_t &iochip)
 {
     // Always toggle WATCHDOG :
 
-    if ((port_pins bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK) == 0) {
-        port_pins or_eq MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK; // When to TO HIGH it resets the watchdog
+    if ((iochip.iochip_port_pins bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK) == 0) {
+        iochip.iochip_port_pins or_eq MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK; // When to TO HIGH it resets the watchdog
     } else {
-        port_pins and_eq compl MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK;
+        iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK;
     }
 
     // Then the rest of the bits:
 
-    switch (relay_button_ustate.u.state) {
-        case RELAYBUTT_0: {
+    switch (iochip.iochip_button_ustate.u.state) {
+        case BUTTON_STATE_0: {
             // RED   GREEN   RELAY_1  RELAY_2
             // BLINK OFF     OFF      OFF      Standard after INIT, easy to spot
 
-            if ((seconds_cnt % 2) == 0) {
-                port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED ON
+            if ((iochip.iochip_seconds_cnt % 2) == 0) {
+                iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED ON
             } else {
-                port_pins or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+                iochip.iochip_port_pins or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
             };
-            port_pins     or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+            iochip.iochip_port_pins     or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
 
-            port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
-            port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF
+            iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
+            iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF
         } break;
-        case RELAYBUTT_1: {
+        case BUTTON_STATE_1: {
             // RED   GREEN   RELAY_1  RELAY_2
             // OFF   OFF     ###      ###
 
-            port_pins or_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
-            port_pins or_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+            iochip.iochip_port_pins or_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+            iochip.iochip_port_pins or_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
         } break;
-        case RELAYBUTT_2: {
+        case BUTTON_STATE_2: {
             // RED   GREEN   RELAY_1  RELAY_2
             // OFF   BLINK   ###      ###
 
-            if ((seconds_cnt % 2) == 0) {
-                port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
+            if ((iochip.iochip_seconds_cnt % 2) == 0) {
+                iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
             } else {
-                port_pins or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
+                iochip.iochip_port_pins or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
             };
-            port_pins     or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
+            iochip.iochip_port_pins     or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
 
         } break;
 
@@ -2237,7 +2240,6 @@ void System_Task (
     context.radio_sent_data_display_it                 = false;
     context.RX_messageNotForThisNode_cnt               = 0;
     context.TX_appSeqCnt                               = 0;
-    context.iochip_relay1_skimmer_pump_minutes_cntdown = 0;
 
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
         context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
@@ -2362,17 +2364,17 @@ void System_Task (
 
     // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
 
-    context.iochip_err_cnt = 0;
-    context.iochip_seconds_cnt = 0;
-    light_sunrise_sunset_context.iochip_relay_1 = false;
-    light_sunrise_sunset_context.iochip_relay_2 = false;
-    light_sunrise_sunset_context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
+    context.iochip.iochip_err_cnt = 0;
+    context.iochip.iochip_seconds_cnt = 0;
+    context.iochip.iochip_button_ustate.u.state = BUTTON_STATE_0;
+    context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown = 0;
+    context.iochip.iochip_relay1_skimmer_pump_state = RELAY_IS_OFF;
 
-    i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
+    i_i2c_external_commands.init_iochip (context.iochip.iochip_err_cnt);
 
     // Trig as fast as possible
-    context.iochip_output_pins = MY_MCP23008_OFF_BIT_FIRST_TRIG;
-    i_i2c_external_commands.write_iochip_pins (context.iochip_err_cnt, context.iochip_output_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
+    context.iochip.iochip_port_pins = MY_MCP23008_OFF_BIT_FIRST_TRIG;
+    i_i2c_external_commands.write_iochip_pins (context.iochip.iochip_err_cnt, context.iochip.iochip_port_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
 
     // Init and clear display
 
@@ -2420,7 +2422,6 @@ void System_Task (
     #else
         light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false;
     #endif
-    light_sunrise_sunset_context.iochip_relay1_skimmer_pump_state = RELAY_IS_OFF_INACTIVE;
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 
@@ -2568,65 +2569,76 @@ void System_Task (
                 // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
                 // HANDLE MCP23008 BUTTON AND WATCHDOG TRIGGER
 
-                context.iochip_seconds_cnt++;
+                context.iochip.iochip_seconds_cnt++;
 
-                if (context.iochip_err_cnt != 0) { // Init MPC23008 again
-                    context.iochip_err_cnt = 0;
-                    light_sunrise_sunset_context.iochip_relay_button_ustate.u.cnt = 0;
+                if (context.iochip.iochip_err_cnt != 0) { // Init MPC23008 again
+                    context.iochip.iochip_err_cnt = 0;
+                    context.iochip.iochip_button_ustate.u.cnt = 0;
 
-                    i_i2c_external_commands.init_iochip (context.iochip_err_cnt);
+                    i_i2c_external_commands.init_iochip (context.iochip.iochip_err_cnt);
 
                 } else {} // Unit present, go on:
 
-                if (context.iochip_err_cnt == 0) { // Unit present or become present
+                if (context.iochip.iochip_err_cnt == 0) { // Unit present or become present
                     bool relay_button_pressed;
                     bool relay_button_changed;
 
-                    {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (context.iochip_err_cnt);
-                    if (context.iochip_err_cnt == 0) {
+                    {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (context.iochip.iochip_err_cnt);
+                    if (context.iochip.iochip_err_cnt == 0) {
+
+                        // HANDLE PRESSING OF BUTTON ON IOCHIP BOX FOR MORE THAN 1 SEC AND STATES BUTTON_STATE_0 and BUTTON_STATE_2 RELAY HANDLING
 
                         if (relay_button_changed and relay_button_pressed) { // Next state
-                            light_sunrise_sunset_context.iochip_relay_button_ustate.u.cnt++;
-                            if (light_sunrise_sunset_context.iochip_relay_button_ustate.u.state == RELAYBUTT_ROOF) {
-                                light_sunrise_sunset_context.iochip_relay_button_ustate.u.state = RELAYBUTT_0;
+                            context.iochip.iochip_button_ustate.u.cnt++;
+                            if (context.iochip.iochip_button_ustate.u.state == BUTTON_STATE_ROOF) {
+                                context.iochip.iochip_button_ustate.u.state = BUTTON_STATE_0;
                             } else {}
                             // State changed:
-                            if (light_sunrise_sunset_context.iochip_relay_button_ustate.u.state == RELAYBUTT_0) {
-                                // Clearing of outputs will be done in handle_button_and_watchdog_trigger (later), shadow state here:
-                                context.iochip_relay1_skimmer_pump_minutes_cntdown = 0;
-                            } else if (light_sunrise_sunset_context.iochip_relay_button_ustate.u.state == RELAYBUTT_2) {
-                                light_sunrise_sunset_context.iochip_relay1_skimmer_pump_state = RELAY_IS_ON;
-                                context.iochip_relay1_skimmer_pump_minutes_cntdown            = MANUAL_RELAYBUTT_2_RELAY1_SKIMMER_PUMP_ON_MINUTES; // Not stopped by IT_IS_NIGHT, only by timeout
-                                context.iochip_output_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
-                                context.iochip_output_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON just to follow for testing with lamp
-                            } else {} // RELAYBUTT_1 handled below:
+                            if (context.iochip.iochip_button_ustate.u.state == BUTTON_STATE_0) {
+                                context.iochip.iochip_relay1_skimmer_pump_state = RELAY_TO_OFF;
+                            } else if (context.iochip.iochip_button_ustate.u.state == BUTTON_STATE_2) {
+                                context.iochip.iochip_relay1_skimmer_pump_state = RELAY_TO_ON;
+                                context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown            = MANUAL_BUTTON_STATE_2_RELAY1_SKIMMER_PUMP_ON_MINUTES; // Not stopped by IT_IS_NIGHT, only by timeout
+                            } else {} // BUTTON_STATE_1 handled below:
                         } else {}
 
-                        if (light_sunrise_sunset_context.iochip_relay_button_ustate.u.state == RELAYBUTT_1) {
-                            if (light_sunrise_sunset_context.iochip_relay1_skimmer_pump_state == RELAY_TO_ON) { // Triggered in Handle_Light_Sunrise_Sunset_Etc
-                                light_sunrise_sunset_context.iochip_relay1_skimmer_pump_state = RELAY_IS_ON;
-                                context.iochip_relay1_skimmer_pump_minutes_cntdown            = AUTO_RELAYBUTT_1_RELAY1_SKIMMER_PUMP_ON_MINUTES;
+                        // HANDLE AUTOMATIC RELAY HANDLING FOR BUTTON_STATE_1
 
-                                context.iochip_output_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
-                                context.iochip_output_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON just to follow for testing with lamp
+                        if (context.iochip.iochip_button_ustate.u.state == BUTTON_STATE_1) {
+                            if (((context.datetime.minute %3) == 0) and
+                                (context.iochip.iochip_relay1_skimmer_pump_state == RELAY_IS_OFF)) {
+
+                                // Make ready to set relay automatically:
+                                context.iochip.iochip_relay1_skimmer_pump_state  = RELAY_TO_ON;
+                                context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown = AUTO_BUTTON_STATE_1_RELAY1_SKIMMER_PUMP_ON_MINUTES;
                             } else {}
                         } else {}
 
                         // iochip_relay1_skimmer_pump_minutes_cntdown decremented in System_Task_Data_Handler next time around
-                        if (context.iochip_relay1_skimmer_pump_minutes_cntdown == 0) { // STOP
-                            light_sunrise_sunset_context.iochip_relay1_skimmer_pump_state = RELAY_IS_OFF_INACTIVE;
-
-                            context.iochip_output_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
-                            context.iochip_output_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF just to follow for testing with lamp
+                        if (context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown == 0) { // STOP
+                            context.iochip.iochip_relay1_skimmer_pump_state = RELAY_TO_OFF;
                         } else {}
 
-                        handle_button_and_watchdog_trigger ( // port_pins
-                                light_sunrise_sunset_context.iochip_relay_button_ustate,
-                                context.iochip_seconds_cnt,
-                                context.iochip_output_pins);
-                        i_i2c_external_commands.write_iochip_pins (context.iochip_err_cnt, context.iochip_output_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
+                        if (context.iochip.iochip_relay1_skimmer_pump_state == RELAY_TO_ON) {
+                            context.iochip.iochip_relay1_skimmer_pump_state = RELAY_IS_ON;
+
+                            context.iochip.iochip_port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
+                            context.iochip.iochip_port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON just to follow for testing with lamp
+
+                        } else if (context.iochip.iochip_relay1_skimmer_pump_state == RELAY_TO_OFF) {
+                            context.iochip.iochip_relay1_skimmer_pump_state = RELAY_IS_OFF;
+
+                            context.iochip.iochip_relay1_skimmer_pump_minutes_cntdown = 0;
+
+                            context.iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
+                            context.iochip.iochip_port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF just to follow for testing with lamp
+
+                        } else {}
+
+                        handle_button_and_watchdog_trigger (context.iochip);
+                        i_i2c_external_commands.write_iochip_pins (context.iochip.iochip_err_cnt, context.iochip.iochip_port_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
                     } else {}
-                } else {} // context.iochip_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
+                } else {} // context.iochip.iochip_err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
 
                 if (context.radio_send_data == send) {
                     if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending

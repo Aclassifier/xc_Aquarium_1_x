@@ -22,7 +22,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.80     24Jul2019 AQU=082  Real control of MY_MCP23008_OUT_RELAY1_ON_BIT as iochip_relay1_skimmer_pump_secs_cntdown
 // 1.4.79     24Jul2019 AQU=081  mute_light_t is new
 //                               TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT is new
-// 1.4.78     08Jul2019          RELAYBUTT_5 is new for testing, just temporary
+// 1.4.78     08Jul2019          BUTTON_STATE_5 is new for testing, just temporary
 // 1.4.77     26May2019 AQU=079  iochip_output_pins missed an init. _Now_ to Italy!
 // 1.4.76     25May2019 AQU=079  iochip_output_pins fault fixed. No, it does not work as expected. But I have to quit now
 // 1.4.75     25May2019 AQU=079  New thinking around states in relay_button_state_e. Plus last before Italy
