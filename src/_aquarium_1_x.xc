@@ -1543,7 +1543,9 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
-                                light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false;
+
+                                light_sunrise_sunset_context.mute_stack.pop_now = light_sunrise_sunset_context.mute_stack.push_done;
+
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
@@ -1842,7 +1844,7 @@ void System_Task_Data_Handler (
     //}}}
     // Handle control of aquarium top LED lights, with respect to time and box internal light sensor
 
-    {light_sunrise_sunset_context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+    light_sunrise_sunset_context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
     if (light_sunrise_sunset_context.light_is_stable) { // We won't disturb typically LED slowly DOWN
 
@@ -1867,7 +1869,7 @@ void System_Task_Data_Handler (
 
         // Now, how did it go, how is light controlled right now?
         // Get the results as soon as possible to show in the display
-        {light_sunrise_sunset_context.light_is_stable}            = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+        light_sunrise_sunset_context.light_is_stable              = i_port_heat_light_commands.get_light_is_stable_sync_internal();
         {context.light_composition, context.light_control_scheme} = i_port_heat_light_commands.get_light_composition_etc_sync_internal (context.light_intensity_thirds);
 
         light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity;

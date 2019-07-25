@@ -100,6 +100,13 @@ typedef enum {
 
 typedef bool mute_light_t; // AQU=081
 
+typedef struct mute_stack_t { // AQU=083
+    bool                pop_now;
+    bool                push_done;
+    light_composition_t light_composition;
+    light_amount_t      light_amount;
+} mute_stack_t;
+
 typedef struct light_sunrise_sunset_context_t {
     bool                          do_init;
     it_is_day_or_night_t          it_is_day_or_night;
@@ -141,6 +148,7 @@ typedef struct light_sunrise_sunset_context_t {
     uint8_t                       debug;
                                   // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then muted for the rest of the day or until SCREEN_3_LYSGULERING:
     mute_light_t                  mute_to_one_third_light_composition_cause_heat; // AQU=081
+    mute_stack_t                  mute_stack;
     //
 } light_sunrise_sunset_context_t;
 

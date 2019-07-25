@@ -259,6 +259,8 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;
         context.debug = 0;
+        context.mute_stack.push_done = false;
+        context.mute_stack.pop_now = false;
 
         if (context.light_amount_in_FRAM_memory.u.fraction_2_nibbles == NORMAL_LIGHT_IS_VOID_F0N) {               // No FRAM chip? Set if read failed
             context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_FULL_F2N;                                 // Default. Will trigger do_FRAM_write
@@ -334,7 +336,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35);
             }
         #endif
-       {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+       context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
        // AQU=030 init them here:
        context.allow_normal_light_change_by_menu = true;
@@ -377,7 +379,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
         debug_set_val_to (print_value,44);
         i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44);
-        {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+        context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
         debug_print ("do_light_amount_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
 
@@ -386,7 +388,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
         context.num_minutes_left_of_random = 0;
         i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44);
-        {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+        context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
     } else {}
 
     //}}}  
@@ -418,7 +420,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                     return_beeper_blip = true;
                     light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
                     context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
-                    context.mute_to_one_third_light_composition_cause_heat = false; // .. for the rest of the day now finished
+                    context.mute_stack.pop_now = context.mute_stack.push_done; // .. for the rest of the day now finished
                 } break;
                 case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                     return_beeper_blip = true;
@@ -444,7 +446,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             // ------------ CHANGE LIGHT LEVEL ------------
             debug_set_val_to (print_value,22);
             i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22);
-            {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+            context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
             debug_print ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
 
@@ -465,7 +467,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 // ------------------------ CHANGE LIGHT LEVEL BACK TO "NORM" ------------------------
                 debug_set_val_to (print_value,104);
                 i_port_heat_light_commands.set_light_composition (Get_Normal_Light_Composition (context.light_amount), LIGHT_CONTROL_IS_DAY, 104);
-                {context.light_is_stable} = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+                context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
                 if (context.light_sensor_diff_state == DIFF_ACTIVE) {
                     context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
@@ -497,8 +499,17 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     light_composition_t new_light_composition;
 
+    if (context.mute_stack.pop_now) {
+        context.mute_stack.pop_now                             = false;
+        context.mute_stack.push_done                           = false;
+        context.mute_to_one_third_light_composition_cause_heat = false;
+        context.light_amount                                   = context.mute_stack.light_amount;
+        new_light_composition                                  = context.mute_stack.light_composition;
+        i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 108);
+    } else {}
+
     if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
-        // No code, no automatic change of light
+        // No change now!
     } else if (context.light_is_stable) {                                                             // L1: Light is not changing right now
         const bool trigger_hour_changed_random_mod2 =
                 context.trigger_hour_changed_stick and
@@ -516,9 +527,14 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.allow_normal_light_change_by_menu);
 
         if (trigger_hot_water) {
+            context.mute_stack.push_done         = true;
+            context.mute_stack.light_amount      = context.light_amount;
+            context.mute_stack.light_composition = i_port_heat_light_commands.get_light_composition ();
+
             // For the rest of the day or until SCREEN_3_LYSGULERING:
-            i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 107);
-            context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_ONE_THIRD_F2N;
+            new_light_composition = LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD;
+            i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 107);
+            context.light_amount.u.fraction_2_nibbles = NORMAL_LIGHT_IS_ONE_THIRD_F2N; // Locks out all this code by test above
             return_beeper_blip = true; // Since it's triggered by some external event
         } else if (trigger_hour_changed_half_light) {
             // random_number is not already used in condition

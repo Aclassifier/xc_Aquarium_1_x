@@ -1840,14 +1840,14 @@ typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
 
-    {light_composition_t} get_light_composition (void);
+    light_composition_t get_light_composition (void);
 
     {
         light_composition_t,
         light_control_scheme_t
     } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [3]);
 
-    {bool} get_light_is_stable_sync_internal (void);
+    bool get_light_is_stable_sync_internal (void);
 
 
 
