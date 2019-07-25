@@ -1297,7 +1297,6 @@ void Handle_Real_Or_Clocked_Buttons (
            handler_context_t              &context,
            light_sunrise_sunset_context_t &light_sunrise_sunset_context,
     client i2c_internal_commands_if       i_i2c_internal_commands,
-    client port_heat_light_commands_if    i_port_heat_light_commands,
     client temperature_water_commands_if  i_temperature_water_commands,
     client temperature_heater_commands_if i_temperature_heater_commands,
     const  int                            iof_button,
@@ -1609,7 +1608,7 @@ void System_Task_Data_Handler (
  client i2c_internal_commands_if       i_i2c_internal_commands,
  client port_heat_light_commands_if    i_port_heat_light_commands,
  client temperature_water_commands_if  i_temperature_water_commands,
- client temperature_heater_commands_if i_temperature_heater_commands)
+ client temperature_heater_commands_if i_temperature_heater_commands_)
 {
     int        sprintf_numchars;
     const char char_takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
@@ -1931,7 +1930,7 @@ void System_Task_Data_Handler (
 
         Handle_Real_Or_Clocked_Buttons (context,
             light_sunrise_sunset_context,
-            i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
+            i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands,
             context.iof_button_last_taken_action, BUTTON_ACTION_RELEASED, caller);
 
     } else {} // Not now
@@ -2635,7 +2634,7 @@ void System_Task (
 
                 Handle_Real_Or_Clocked_Buttons (context,
                     light_sunrise_sunset_context,
-                    i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands,
+                    i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands,
                     iof_button, button_action, CALLER_IS_BUTTON);
 
                 if (display_is_on_pre != context.display_is_on) {
