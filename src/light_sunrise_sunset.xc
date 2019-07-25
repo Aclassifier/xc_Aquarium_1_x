@@ -420,7 +420,9 @@ Handle_Light_Sunrise_Sunset_Etc (
                     return_beeper_blip = true;
                     light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
                     context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
-                    context.mute_stack.pop_now = context.mute_stack.push_done; // .. for the rest of the day now finished
+                    //
+                    context.mute_stack.light_control_scheme_actual = light_control_scheme;
+                    context.mute_stack.pop_now                     = context.mute_stack.push_done; // .. for the rest of the day now finished
                 } break;
                 case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                     return_beeper_blip = true;
@@ -502,10 +504,11 @@ Handle_Light_Sunrise_Sunset_Etc (
     if (context.mute_stack.pop_now) {
         context.mute_stack.pop_now                             = false;
         context.mute_stack.push_done                           = false;
-        context.mute_to_one_third_light_composition_cause_heat = false;
+        context.mute_to_one_third_light_composition_cause_heat = false; // If still hot then it would start again
+        // POP FROM "STACK":
         context.light_amount                                   = context.mute_stack.light_amount;
         new_light_composition                                  = context.mute_stack.light_composition;
-        i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 108);
+        i_port_heat_light_commands.set_light_composition (new_light_composition, context.mute_stack.light_control_scheme_actual, 108);
     } else {}
 
     if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
@@ -528,6 +531,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
         if (trigger_hot_water) {
             context.mute_stack.push_done         = true;
+            // PUSH TO "STACK":
             context.mute_stack.light_amount      = context.light_amount;
             context.mute_stack.light_composition = i_port_heat_light_commands.get_light_composition ();
 

@@ -1544,9 +1544,11 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true;
 
-                                light_sunrise_sunset_context.mute_stack.pop_now = light_sunrise_sunset_context.mute_stack.push_done;
-
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+
+                                light_sunrise_sunset_context.mute_stack.light_control_scheme_actual = context.light_control_scheme;
+                                light_sunrise_sunset_context.mute_stack.pop_now                     = light_sunrise_sunset_context.mute_stack.push_done;
+
                                 debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
                         } break;

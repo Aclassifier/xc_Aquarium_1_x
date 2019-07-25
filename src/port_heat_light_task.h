@@ -91,14 +91,16 @@ typedef interface port_heat_light_commands_if {
 
     {
         light_composition_t,   // return_light_composition
-        light_control_scheme_t // return_light_control_scheme
+        light_control_scheme_t // return_light_control_scheme. May be read by another process than the one that set_light_composition for storage only. Instead of a global variable!
     } get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [NUM_LED_STRIPS]);
 
     bool get_light_is_stable_sync_internal (void); // return_is_stable
     // Polled-for value, light_unstable must be over in less than a minute, required by minute-resolution in client. (it takes 6.75 secs)
     // May be false on return, but true in the nec«xt line of the caller
 
-    void set_light_composition                  (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
+    void set_light_composition                  (const light_composition_t iof_light_composition_level,
+            const light_control_scheme_t,  // To be stored only, used for nothing, and retrieved with get_light_composition_etc_sync_internal (by another process f.ex)
+            const unsigned value_to_print);
     void beeper_on_command                      (const bool beeper_on);
     void beeper_blip_command                    (const unsigned ms);
     void heat_cables_command                    (const heat_cable_commands_t heat_cable_commands);

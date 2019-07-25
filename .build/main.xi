@@ -1851,7 +1851,9 @@ typedef interface port_heat_light_commands_if {
 
 
 
-    void set_light_composition (const light_composition_t iof_light_composition_level, const light_control_scheme_t, const unsigned value_to_print);
+    void set_light_composition (const light_composition_t iof_light_composition_level,
+            const light_control_scheme_t,
+            const unsigned value_to_print);
     void beeper_on_command (const bool beeper_on);
     void beeper_blip_command (const unsigned ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
@@ -1860,7 +1862,7 @@ typedef interface port_heat_light_commands_if {
     unsigned watchdog_retrigger_with (const unsigned ms);
 
 } port_heat_light_commands_if;
-# 121 "../src/port_heat_light_task.h"
+# 123 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
