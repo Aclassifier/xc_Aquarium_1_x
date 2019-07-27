@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.82" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1482  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.83" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1483  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.4.83     27Jul2019 AQU=084  freeze_light_composition instead of difficult handling on the outside (also mute_store_t will be reomved)
 // 1.4.82     25Jul2019 AQU=083  Down with light at high temp, resore too!
 // 1.4.81     25Jul2019          iochip_mcp23008.xc is new and code moved to it: init_iochip_i2c_external_iff and handle_iochip_i2c_external_iff
 // 1.4.80     24Jul2019 AQU=082  Real control of MY_MCP23008_OUT_RELAY1_ON_BIT as iochip_relay1_skimmer_pump_secs_cntdown

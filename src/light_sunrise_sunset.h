@@ -98,16 +98,6 @@ typedef enum {
     CNT_10 = 10
 } cnt_10_t; // Since they are hand-coded so much
 
-typedef bool mute_light_t; // AQU=081
-
-typedef struct mute_stack_t { // AQU=083
-    bool                   pop_now;
-    bool                   push_done;
-    light_composition_t    light_composition;
-    light_amount_t         light_amount;
-    light_control_scheme_t light_control_scheme_actual; // Value just before pop_now
-} mute_stack_t;
-
 typedef struct light_sunrise_sunset_context_t {
     bool                          do_init;
     it_is_day_or_night_t          it_is_day_or_night;
@@ -147,9 +137,11 @@ typedef struct light_sunrise_sunset_context_t {
     hour_t                        day_start_light_hour;                     // AQU=051
     hour_t                        night_start_dark_hour;                    // AQU=051
     uint8_t                       debug;
-                                  // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then muted for the rest of the day or until SCREEN_3_LYSGULERING:
-    mute_light_t                  mute_to_one_third_light_composition_cause_heat; // AQU=081
-    mute_stack_t                  mute_stack; // "mute" light when it's hot
+                                  // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then light is muted or unmuted on next hour's passing if IT_IS_DAY.
+                                  // Change of light by menu is allowed, as it would be changed on next hour's passing if water_high_temp_handle_light_on_the_hour.
+                                  // Darker to black in the evening and dark to light in the morning will go normally, even to full light, then
+                                  // on the next hour's passing it would be muted again if water_high_temp_handle_light_on_the_hour
+    bool                          water_high_temp_handle_light_on_the_hour;
     //
 } light_sunrise_sunset_context_t;
 

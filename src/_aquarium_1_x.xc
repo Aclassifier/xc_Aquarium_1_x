@@ -351,6 +351,7 @@ void Clear_All_Screen_Sub_Is_Editable_Except (
 
 //
 // Handle_Real_Or_Clocked_Button_Actions
+// CALLED FROM Handle_Real_Or_Clocked_Buttons ONLY
 
 void Handle_Real_Or_Clocked_Button_Actions (
             handler_context_t              &context,
@@ -590,7 +591,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* B */ WATTOF_LED_STRIP_FRONT,                                                                                                  // "5"
                           /* C */ WATTOF_LED_STRIP_CENTER,                                                                                                 // "4"
                           /* D */ WATTOF_LED_STRIP_BACK,                                                                                                   // "2"
-                          /* T */ light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat ? "H" : "=",                                 // "H" or "=" (for Norwegian "HET" = WARM)
+                          /* T */ light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour ? "H" : "=",                                       // "H" or "=" (for Norwegian "HET" = WARM)
                           /* E */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                                     // "1"
                           /* F */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                                    // "2"
                           /* G */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                                      // "3"
@@ -648,7 +649,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     } else {
                         // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                         // called at least once per minute, in practice once per second
-                        light_sunrise_sunset_context.do_light_amount_by_menu = true;
+                        light_sunrise_sunset_context.do_light_amount_by_menu = true; // If water_high_temp_handle_light_on_the_hour then accept until next hour's change
                         light_sunrise_sunset_context.light_amount = light_sunrise_sunset_context.light_amount_next;
 
                         light_sunrise_sunset_context.do_FRAM_write = true;
@@ -677,7 +678,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             // RANDOM change of light is active. Now beep and let light softly enter DAY again
                             light_is_ready_for_new_change = false;
 
-                            light_sunrise_sunset_context.stop_normal_light_changed_by_menu = true;
+                            light_sunrise_sunset_context.stop_normal_light_changed_by_menu = true;  // If water_high_temp_handle_light_on_the_hour then accept until next hour's change
                             light_sunrise_sunset_context.allow_normal_light_change_by_menu = false; // Enters "FAST" (steady)
                         } else {
                             light_is_ready_for_new_change = false;
@@ -1289,9 +1290,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
     // By switching -DXASSERT_ENABLE_ASSERTIONS=0 or 1 I saw that these two assert cost 100 bytes
     assert_exception((not(sprintf_numchars < 0))                                    and msg ("sprintf parse error"));    // Not necessary, would have been seen in the display
     assert_exception((not((sprintf_numchars+1) > sizeof context.display_ts1_chars)) and msg ("sprint memory overflow")); // VERY necessary!
-}
+} // Handle_Real_Or_Clocked_Button_Actions
+
 //
 // Handle_Real_Or_Clocked_Buttons
+// CALLED FROM System_Task_Data_Handler and also DIRECTLY FROM System_Task
 
 void Handle_Real_Or_Clocked_Buttons (
            handler_context_t              &context,
@@ -1544,8 +1547,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
-                                light_sunrise_sunset_context.mute_stack.light_control_scheme_actual = context.light_control_scheme;
-                                light_sunrise_sunset_context.mute_stack.pop_now                     = light_sunrise_sunset_context.mute_stack.push_done;
+                                // If water_high_temp_handle_light_on_the_hour then it will be muted again next hour's passing
 
                                 debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
@@ -1601,6 +1603,7 @@ void Handle_Real_Or_Clocked_Buttons (
 }
 //
 // System_Task_Data_Handler
+// CALLED ONCE FROM System_Task
 
 void System_Task_Data_Handler (
         handler_context_t              &context,
@@ -1608,7 +1611,7 @@ void System_Task_Data_Handler (
  client i2c_internal_commands_if       i_i2c_internal_commands,
  client port_heat_light_commands_if    i_port_heat_light_commands,
  client temperature_water_commands_if  i_temperature_water_commands,
- client temperature_heater_commands_if i_temperature_heater_commands_)
+ client temperature_heater_commands_if i_temperature_heater_commands)
 {
     int        sprintf_numchars;
     const char char_takes_press_for_10_seconds_right_button_str [] = CHAR_PLUS_MINUS_STR; // "±"
@@ -1685,14 +1688,15 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
     } else {}
 
+    light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = false; // may be set below:
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);
-        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = true;
+        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = true;
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT) { // Unfiltered, single measurement!
-        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = true; // For the rest of the day or until SCREEN_3_LYSGULERING
+        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = true;
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message
     } else {}
@@ -1935,15 +1939,12 @@ void System_Task_Data_Handler (
 
     } else {} // Not now
 
-    //
     // Shall we beep?
 
     if (context.beeper_blip_now) {
         i_port_heat_light_commands.beeper_blip_command (100);
     } else {} // No blip
-
-    //
-}
+} // System_Task_Data_Handler
 
 
 void radio_irq_handler (
@@ -2108,8 +2109,8 @@ void System_Task (
     uint8_t  device_type;
     bool     doListenToAll = false; // Set to 'true' to sniff all packets on the same network
 
-    packet_t   TX_PACKET_U;
-    uint8_t    TX_gatewayid = GATEWAYID;
+    packet_t TX_PACKET_U;
+    uint8_t  TX_gatewayid = GATEWAYID;
 
     #define FOLD_BLOCK_INIT // Folding with this does not seem to work for all blocks
 
@@ -2339,9 +2340,9 @@ void System_Task (
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
     #if (FLASH_BLACK_BOARD == 1)
-        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false; // Just for testing, right now also false
+        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour      = false; // Just for testing, right now also false
     #else
-        light_sunrise_sunset_context.mute_to_one_third_light_composition_cause_heat = false;
+        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = false;
     #endif
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
@@ -2632,7 +2633,8 @@ void System_Task (
                     } break;
                 }
 
-                Handle_Real_Or_Clocked_Buttons (context,
+                Handle_Real_Or_Clocked_Buttons ( // ALSO CALLED FROM System_Task_Data_Handler
+                    context,
                     light_sunrise_sunset_context,
                     i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands,
                     iof_button, button_action, CALLER_IS_BUTTON);
