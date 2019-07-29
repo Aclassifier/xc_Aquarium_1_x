@@ -40,7 +40,7 @@ typedef enum light_composition_t {
     LIGHT_COMPOSITION_3299_mW_FMB_021_ON                =  3,  //   2
     LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM =  4,  //   3
     LIGHT_COMPOSITION_4383_mW_FMB_031_ON                =  5,  //   4
-    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD      =  6,  //  12 Also if water_high_temp_handle_light_on_the_hour
+    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD      =  6,  //  12 Also if hot_water
     LIGHT_COMPOSITION_5516_mW_FMB_032_ON                =  7,  //   5
     LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF           =  8,  //   6
     LIGHT_COMPOSITION_8382_mW_FMB_132_ON                =  9,  //  11
@@ -103,8 +103,8 @@ typedef interface port_heat_light_commands_if {
             const light_control_scheme_t light_control_scheme, // To be stored only, used for nothing, and retrieved with get_light_composition_etc_sync_internal (by another process f.ex)
             const unsigned               value_to_print);
 
-    void                                                freeze_light_composition (void);    // set_light_composition not taken between this and..
-    {bool, light_composition_t, light_control_scheme_t} un_freeze_light_composition (void); // ..this. Return value bool is "data valid" of the other two return values
+    void                                                   freeze_light_composition (void); // set_light_composition not taken between this and..
+    {bool, light_composition_t, light_control_scheme_t} un_freeze_light_composition (void); // ..this. Return value bool is "already read" of the other two return values
 
     void beeper_on_command                      (const bool beeper_on);
     void beeper_blip_command                    (const unsigned ms);

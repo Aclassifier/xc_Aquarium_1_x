@@ -82,7 +82,7 @@
         unsigned               relay1_skimmer_pump_minutes_cntdown;
         relay_state_t          relay1_skimmer_pump_state;
         relay_button_ustate_t  button_ustate;
-        unsigned               minute; // For FLASH_BLACK_BOARD==1 only
+        bool                   trigger_relay1_minutes_on_previous;
     } iochip_t;
 
     #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
@@ -92,8 +92,9 @@
             iochip_t                         &iochip);
 
     // ASSUMED TO BE CALLED EVERY SECOND
-    void handle_iochip_i2c_external_iff (
-            client  i2c_external_commands_if i_i2c_external_commands,
-            iochip_t                         &iochip);
+    bool handle_iochip_i2c_external_iff ( // beeper_blip_now
+            client     i2c_external_commands_if i_i2c_external_commands,
+            iochip_t   &iochip,
+            const bool trigger_relay1_minutes_on);
 
 #endif /* IOEXPANDERCHIP_MCP23008_H_ */

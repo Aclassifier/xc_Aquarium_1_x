@@ -137,11 +137,12 @@ typedef struct light_sunrise_sunset_context_t {
     hour_t                        day_start_light_hour;                     // AQU=051
     hour_t                        night_start_dark_hour;                    // AQU=051
     uint8_t                       debug;
-                                  // If above TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT then light is muted or unmuted on next hour's passing if IT_IS_DAY.
-                                  // Change of light by menu is allowed, as it would be changed on next hour's passing if water_high_temp_handle_light_on_the_hour.
+                                  // If REGULATING_AT_HOTTER_AMBIENT then light is muted or unmuted on next hour's passing if IT_IS_DAY.
+                                  // Change of light by menu is allowed, as it would be changed on next hour's passing if hot_water.
                                   // Darker to black in the evening and dark to light in the morning will go normally, even to full light, then
-                                  // on the next hour's passing it would be muted again if water_high_temp_handle_light_on_the_hour
-    bool                          water_high_temp_handle_light_on_the_hour;
+                                  // on the next hour's passing it would be muted again if hot_water
+    bool                          hot_water;
+    bool                          trigger_relay1_minutes_on; // MUST be SET and CLEARED! May be kept on while condition is on, handle_iochip_i2c_external_iff takes diff and true
     //
 } light_sunrise_sunset_context_t;
 

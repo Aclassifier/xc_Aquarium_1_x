@@ -506,32 +506,31 @@ Handle_Light_Sunrise_Sunset_Etc (
     } else if (context.light_is_stable) {
         // L1: Light is not changing right now
 
-        const bool trigger_water_high_temp_handle_light_on_the_hour = // AQU=081, AQU=084
-                (context.trigger_hour_changed_stick) and
-                (context.it_is_day_or_night == IT_IS_DAY) and
-                (context.allow_normal_light_change_by_menu);
+        if ((context.trigger_hour_changed_stick) and
+            (context.it_is_day_or_night == IT_IS_DAY) and
+            (context.allow_normal_light_change_by_menu)) {
 
-        if (trigger_water_high_temp_handle_light_on_the_hour) {
-            if (context.water_high_temp_handle_light_on_the_hour) {
+            if (context.hot_water) { // Not doing edge detection here with _prev, since that might be before and after IT_IS_DAY etc.
                 // MUTE LIGHT AND SET TO FREEZE
                 i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
                 i_port_heat_light_commands.freeze_light_composition(); // ..THEN THIS
-                context.water_high_temp_handle_light_on_the_hour = context.water_high_temp_handle_light_on_the_hour;
-            } else {
+                return_beeper_blip = true;
+            } else { // Since no edge detection (see above) this will run every hour. This is ok, as this would  not give side effects:
                 // REMOVE FREEZE AND SET LIGHT BACK
                 light_composition_t    light_composition;
                 light_control_scheme_t light_control_scheme;
-                bool                   return_data_valid;
+                bool                   return_data_already_read;
 
-                {return_data_valid, light_composition, light_control_scheme} =
+                {return_data_already_read, light_composition, light_control_scheme} =
                         i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are those set but ignored while frozen
-                if (return_data_valid) {
+                if (not return_data_already_read) {
                     i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
+                    return_beeper_blip = true;
                 } else {}
             }
         } else {}
 
-        if (context.water_high_temp_handle_light_on_the_hour) {
+        if (context.hot_water) {
             // No code here
 
             // While waiting for change it's no point in changing the light automatically before next on the hour.
@@ -551,7 +550,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
             if (trigger_hour_changed_half_light) {
                 // random_number is not already used in condition
-                light_composition_t new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number);  // Once every 10 it would come out unchanged. OK!
+                light_composition_t new_light_composition = Get_Weighted_Random_Light_Composition_For_Half_Light (random_number); // Once every 10 it would come out unchanged. OK!
                 i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_DAY, 106); // Ignoring return value freeze_on
             } else if (trigger_hour_changed_random_mod2 or (context.light_sensor_diff_state == DIFF_ENOUGH)) {       // L2: Start random only once every two hours or when light changes
                 if (context.allow_normal_light_change_by_clock) {                                                    // L3: And when it's day-time'ish
@@ -594,6 +593,18 @@ Handle_Light_Sunrise_Sunset_Etc (
                 } else {debug_set_val_to (print_value,3);}             // L3: Night-time'ish
             } else {}  // L2: Nothing if not per the hour
         }
+
+        #if (FLASH_BLACK_BOARD==1)
+            context.trigger_relay1_minutes_on = ((context.datetime_copy.minute % 3) == 0); // Every third minute
+        #else
+            const bool trigger_relay1_minutes =
+                  ((context.trigger_hour_changed_stick) and
+                  (context.it_is_day_or_night == IT_IS_DAY) and
+                  ((random_number % 3) == 0));  // On the average every third hour
+
+            context.trigger_relay1_minutes_on = trigger_relay1_minutes;
+        #endif
+
 
     } else {
         // L1: light is unstable, no code here

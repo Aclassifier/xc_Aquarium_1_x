@@ -40,7 +40,6 @@
 #include "display_ssd1306.h"
 
 #include "I2C_External_Task.h"
-#include "iochip_mcp23008.h"
 #include "button_press.h"
 //
 #include "port_heat_light_task.h"
@@ -52,6 +51,7 @@
 #include "core_graphics_font5x8.h"
 #include "my_adc_startkit_task.h"
 #include "light_sunrise_sunset.h"
+#include "iochip_mcp23008.h"
 #include "exception_handler.h"
 
 #include <spi.h>
@@ -249,7 +249,7 @@ typedef struct handler_context_t {
     unsigned                    display_is_on_seconds_cnt;   // Counting up from ZERO while display_is_on to DISPLAY_ON_FOR_SECONDS
     char                        display_ts1_chars [SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN]; // 84 chars for display needs 85 char buffer (with NUL) when sprintf is use (use SSD1306_TS1_DISPLAY_ALL_CHAR_LEN for full flexibility)
     screen_logg_t               screen_logg; // Only SCREEN_LOGG_RAW_TEMPS, SCREEN_LOGG_ERROR_BITS
-    bool                        beeper_blip_now;
+    bool                        beeper_blip_now; // Beeping done in System_Task only
     button_state_t              buttons_state [BUTTONS_NUM_CLIENTS];
     int                         iof_button_last_taken_action; // Since index of channel must(?) be int
     light_control_scheme_t      light_control_scheme;
@@ -504,11 +504,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
             setCursor(101,14);
 
             if (context.heat_cables_forced_off_by_watchdog) {
-                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
+                display_print (now_regulating_at_char[HEAT_CABLE_FORCED_OFF_BY_WATCHDOG],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH); // "0"
             } else if (not context.heater_on_ok) {
-                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
+                display_print (now_regulating_at_char[HEAT_CABLE_ERROR],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH); // "?"
             } else {
-                display_print (now_regulating_at_char[context.now_regulating_at],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH);
+                display_print (now_regulating_at_char[context.now_regulating_at],NOW_REGULATING_AT_CHAR_TEXTS_LENGTH); // "#", "2", "1", "=", "H", "-",
             }
 
             setTextSize(1);
@@ -591,7 +591,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* B */ WATTOF_LED_STRIP_FRONT,                                                                                                  // "5"
                           /* C */ WATTOF_LED_STRIP_CENTER,                                                                                                 // "4"
                           /* D */ WATTOF_LED_STRIP_BACK,                                                                                                   // "2"
-                          /* T */ light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour ? "H" : "=",                                       // "H" or "=" (for Norwegian "HET" = WARM)
+                          /* T */ light_sunrise_sunset_context.hot_water ? "H" : "=",                                                                      // "H" or "=" (for Norwegian "HET" = WARM)
                           /* E */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                                     // "1"
                           /* F */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                                    // "2"
                           /* G */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                                      // "3"
@@ -649,7 +649,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     } else {
                         // light_sunrise_sunset_context is for function Handle_Light_Sunrise_Sunset_Etc that's
                         // called at least once per minute, in practice once per second
-                        light_sunrise_sunset_context.do_light_amount_by_menu = true; // If water_high_temp_handle_light_on_the_hour then accept until next hour's change
+                        light_sunrise_sunset_context.do_light_amount_by_menu = true; // If hot_water then accept until next hour's change
                         light_sunrise_sunset_context.light_amount = light_sunrise_sunset_context.light_amount_next;
 
                         light_sunrise_sunset_context.do_FRAM_write = true;
@@ -678,7 +678,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             // RANDOM change of light is active. Now beep and let light softly enter DAY again
                             light_is_ready_for_new_change = false;
 
-                            light_sunrise_sunset_context.stop_normal_light_changed_by_menu = true;  // If water_high_temp_handle_light_on_the_hour then accept until next hour's change
+                            light_sunrise_sunset_context.stop_normal_light_changed_by_menu = true;  // If hot_water then accept until next hour's change
                             light_sunrise_sunset_context.allow_normal_light_change_by_menu = false; // Enters "FAST" (steady)
                         } else {
                             light_is_ready_for_new_change = false;
@@ -690,7 +690,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     if (not light_is_ready_for_new_change) {
-                        context.beeper_blip_now = true;
+                        context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Button_Actions
                         context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
                         context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
@@ -1471,7 +1471,7 @@ void Handle_Real_Or_Clocked_Buttons (
 
                                 // Always odd number here ("next")
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
-                                context.beeper_blip_now = true;
+                                context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
 
                                 //   -------------------------- SCREEN_7_NT_KLOKKE ----------------------------------
                             } else if (context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state >= SUB_STATE_01) {
@@ -1486,7 +1486,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
                                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                                     context.display_sub_editing_seconds_cntdown = 0;
-                                    context.beeper_blip_now = true;
+                                    context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
 
                                 } else {}
 
@@ -1505,7 +1505,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             if (context.screen_logg.exists) {
                                 if (context.display_sub_context[SCREEN_0_X_FEIL].sub_state == SUB_STATE_SHOW) {
                                     context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_DARK;
-                                    context.beeper_blip_now = true;
+                                    context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
                                     context.display_screen_name_present = SCREEN_NORMALLY_FIRST;
                                     context.error_bits_now = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
@@ -1521,7 +1521,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             if (context.screen_logg.exists) {
                                 if (context.display_sub_context[SCREEN_0_X_FEIL].sub_state == SUB_STATE_DARK) {
                                     context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_SHOW;
-                                    context.beeper_blip_now = true;
+                                    context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
                                     context.display_screen_name_present = SCREEN_0_X_FEIL;
                                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
@@ -1543,11 +1543,11 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
                                 context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
-                                context.beeper_blip_now = true;
+                                context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
 
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
-                                // If water_high_temp_handle_light_on_the_hour then it will be muted again next hour's passing
+                                // If hot_water then it will be muted again next hour's passing
 
                                 debug_print ("%s", "SCREEN_3_LYSGULERING\n");
                             } else {}
@@ -1567,14 +1567,14 @@ void Handle_Real_Or_Clocked_Buttons (
                                 context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
                                 context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
-                                context.beeper_blip_now = true;
+                                context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                                 debug_print ("%s","  SCREEN_7_NT_KLOKKE\n");
                             } else {}
                         } break;
 
                         case SCREEN_8_RADIO: { // 8
-                            context.beeper_blip_now = true;
+                            context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
                             if (context.radio_enabled_state == radio_enabled) {
                                 context.radio_enabled_state = radio_disabled_pending;
                             } else { // radio_disabled or radio_disabled_pending
@@ -1688,15 +1688,15 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
     } else {}
 
-    light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = false; // may be set below:
+    light_sunrise_sunset_context.hot_water = false; // CLR when OK! May be set below:
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);
-        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = true;
+        light_sunrise_sunset_context.hot_water = true;
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT) { // Unfiltered, single measurement!
-        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = true;
+        light_sunrise_sunset_context.hot_water = true;
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message
     } else {}
@@ -1751,7 +1751,7 @@ void System_Task_Data_Handler (
     #endif
     {
         if ((error_bits_now != AQUARIUM_ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
-            context.beeper_blip_now = true;
+            context.beeper_blip_now = true; // In System_Task_Data_Handler
         } else {}
 
         context.error_bits_now     =     error_bits_now; // Now
@@ -1765,7 +1765,7 @@ void System_Task_Data_Handler (
             if (context.error_bits_history != AQUARIUM_ERROR_BITS_NONE) {
                 if (context.display_sub_context[SCREEN_0_X_FEIL].sub_state == SUB_STATE_DARK) {
                     context.display_sub_context[SCREEN_0_X_FEIL].sub_state = SUB_STATE_SHOW;
-                    context.beeper_blip_now = (context.error_bits_now != AQUARIUM_ERROR_BITS_NONE); // Only beep if existing
+                    context.beeper_blip_now = (context.error_bits_now != AQUARIUM_ERROR_BITS_NONE); // In System_Task_Data_Handler. Only beep if existing
                     context.display_screen_name_present = SCREEN_0_X_FEIL;
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
 
@@ -1854,7 +1854,7 @@ void System_Task_Data_Handler (
 
         // Set some params
         light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = Set_Dont_Disturb_Screen_3_Lysregulering (context);                                // First this..
-        context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // ..then this TODO why?
+        context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // ..then this. In System_Task_Data_Handler
 
         // Update FRAM if needed
         if (context.number_of_restarts_init_do_fram_write or light_sunrise_sunset_context.do_FRAM_write) {
@@ -1923,7 +1923,7 @@ void System_Task_Data_Handler (
         if (context.display_sub_editing_seconds_cntdown == 0) {
             context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
             Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
-            context.beeper_blip_now = true;
+            context.beeper_blip_now = true; // In System_Task_Data_Handler
         } else {}
     } else {}
 
@@ -1939,11 +1939,6 @@ void System_Task_Data_Handler (
 
     } else {} // Not now
 
-    // Shall we beep?
-
-    if (context.beeper_blip_now) {
-        i_port_heat_light_commands.beeper_blip_command (100);
-    } else {} // No blip
 } // System_Task_Data_Handler
 
 
@@ -2339,11 +2334,7 @@ void System_Task (
     light_sunrise_sunset_context.do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
-    #if (FLASH_BLACK_BOARD == 1)
-        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour      = false; // Just for testing, right now also false
-    #else
-        light_sunrise_sunset_context.water_high_temp_handle_light_on_the_hour = false;
-    #endif
+    light_sunrise_sunset_context.hot_water = false;
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 
@@ -2488,8 +2479,16 @@ void System_Task (
                      light_sunrise_sunset_context,
                      i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
 
-                context.iochip.minute = context.datetime.minute;
-                handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip);
+                // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
+                // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE:
+                //
+                context.beeper_blip_now or_eq handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, light_sunrise_sunset_context.trigger_relay1_minutes_on);
+
+                // Shall we beep?
+
+                if (context.beeper_blip_now) {
+                    i_port_heat_light_commands.beeper_blip_command (100); // In System_Task
+                } else {} // No blip
 
                 if (context.radio_send_data == send) {
                     if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
@@ -2644,7 +2643,7 @@ void System_Task (
                 } else {} // No code
 
                 if (context.beeper_blip_now) {
-                    i_port_heat_light_commands.beeper_blip_command (100);
+                    i_port_heat_light_commands.beeper_blip_command (100); // In System_Task
                 } else {} // No blip
 
                 //
