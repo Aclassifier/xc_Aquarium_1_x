@@ -107,7 +107,7 @@ typedef interface port_heat_light_commands_if {
     {bool, light_composition_t, light_control_scheme_t} un_freeze_light_composition (void); // ..this. Return value bool is "already read" of the other two return values
 
     void beeper_on_command                      (const bool beeper_on);
-    void beeper_blip_command                    (const unsigned ms);
+    void do_beeper_blip_pulse                   (const beeper_blip_now_ms_t ms);
     void heat_cables_command                    (const heat_cable_commands_t heat_cable_commands);
     bool get_heat_cables_forced_off_by_watchdog (void); // bool return is return_watchdog_timed_out
 

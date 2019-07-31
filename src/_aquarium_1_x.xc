@@ -2482,12 +2482,14 @@ void System_Task (
                 // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
                 // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE:
                 //
-                context.beeper_blip_now or_eq handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, light_sunrise_sunset_context.trigger_relay1_minutes_on);
+                beeper_blip_now_ms_t beeper_blip_now_ms = handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, light_sunrise_sunset_context.trigger_relay1_minutes_on);
 
                 // Shall we beep?
 
                 if (context.beeper_blip_now) {
-                    i_port_heat_light_commands.beeper_blip_command (100); // In System_Task
+                    i_port_heat_light_commands.do_beeper_blip_pulse (STANDARD_BEEP_MS); // In System_Task
+                } else if (beeper_blip_now_ms > 0) {
+                    i_port_heat_light_commands.do_beeper_blip_pulse (beeper_blip_now_ms); // In System_Task
                 } else {} // No blip
 
                 if (context.radio_send_data == send) {
@@ -2639,11 +2641,11 @@ void System_Task (
                     iof_button, button_action, CALLER_IS_BUTTON);
 
                 if (display_is_on_pre != context.display_is_on) {
-                    i_port_heat_light_commands.beeper_blip_command (50); // Display on or off
+                    i_port_heat_light_commands.do_beeper_blip_pulse (SHORT_BEEP_MS); // Display on or off
                 } else {} // No code
 
                 if (context.beeper_blip_now) {
-                    i_port_heat_light_commands.beeper_blip_command (100); // In System_Task
+                    i_port_heat_light_commands.do_beeper_blip_pulse (STANDARD_BEEP_MS); // In System_Task
                 } else {} // No blip
 
                 //

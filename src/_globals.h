@@ -42,6 +42,12 @@
 
     // FOR ONE-ONE connection MASTER/SLAVE MUST BE UNIQUE
 
+    typedef enum beeper_blip_now_ms_t {
+        SHORT_BEEP_MS    =  50,
+        STANDARD_BEEP_MS = 100, // Or multiples: 100, 200, 300
+        LONG_BEEP_MS     = 400
+    } beeper_blip_now_ms_t;
+
     #ifndef ISAQUARIUM
         #error must be defined in makefile
     #endif

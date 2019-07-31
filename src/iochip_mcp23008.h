@@ -92,7 +92,7 @@
             iochip_t                         &iochip);
 
     // ASSUMED TO BE CALLED EVERY SECOND
-    bool handle_iochip_i2c_external_iff ( // beeper_blip_now
+    beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
             client     i2c_external_commands_if i_i2c_external_commands,
             iochip_t   &iochip,
             const bool trigger_relay1_minutes_on);

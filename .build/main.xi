@@ -1306,6 +1306,12 @@ typedef uint16_t aquarium_version_num_t;
     typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
     typedef signed int time32_t;
+# 45 "../src/_globals.h"
+    typedef enum beeper_blip_now_ms_t {
+        SHORT_BEEP_MS = 50,
+        STANDARD_BEEP_MS = 100,
+        LONG_BEEP_MS = 400
+    } beeper_blip_now_ms_t;
 # 21 "../src/main.xc" 2
 # 1 "../src/_rfm69_commprot.h" 1
 # 30 "../src/_rfm69_commprot.h"
@@ -1860,7 +1866,7 @@ typedef interface port_heat_light_commands_if {
     {bool, light_composition_t, light_control_scheme_t} un_freeze_light_composition (void);
 
     void beeper_on_command (const bool beeper_on);
-    void beeper_blip_command (const unsigned ms);
+    void do_beeper_blip_pulse (const beeper_blip_now_ms_t ms);
     void heat_cables_command (const heat_cable_commands_t heat_cable_commands);
     bool get_heat_cables_forced_off_by_watchdog (void);
 

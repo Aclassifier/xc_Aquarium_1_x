@@ -1309,6 +1309,12 @@ typedef out buffered port:32 out_buffered_port_32_t;
     typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
     typedef signed int time32_t;
+# 45 "../src/_globals.h"
+    typedef enum beeper_blip_now_ms_t {
+        SHORT_BEEP_MS = 50,
+        STANDARD_BEEP_MS = 100,
+        LONG_BEEP_MS = 400
+    } beeper_blip_now_ms_t;
 # 18 "../src/button_press.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

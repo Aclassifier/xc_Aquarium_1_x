@@ -381,9 +381,8 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         watchdog_timed_out = true;
                         watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // Repeat, assuming watchdog_retrigger_with is dead
 
-                        // Simulate beeper_blip_command (300 ms)
                         port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
-                        beeper_blip_ticks_cntdown = 300; // The longest beep, easily distinguishable
+                        beeper_blip_ticks_cntdown = LONG_BEEP_MS; // The longest beep, easily distinguishable
 
                         // Switch off heat
                         port_value and_eq compl BITS_HEAT_BOTH;
@@ -581,7 +580,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 myport_p32 <: DO_MYPORT_P32(port_value);
             } break;
 
-            case i_port_heat_light_commands[int index_of_client].beeper_blip_command (const unsigned ms): {
+            case i_port_heat_light_commands[int index_of_client].do_beeper_blip_pulse (const beeper_blip_now_ms_t ms): {
 
                 port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
                 myport_p32 <: DO_MYPORT_P32(port_value);
@@ -594,7 +593,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
             //     So if caller stops we get the beep.
             // Since it also returns how much that has been counted down, the caller is able to monitor that this code runs as well.
             //     So it this stops we may get a beep, if caller does do this.
-            //     However, the beep is produced with beeper_blip_command _here_, so it's hard to tell whether this is of much value.
+            //     However, the beep is produced with do_beeper_blip_pulse _here_, so it's hard to tell whether this is of much value.
             //     With respect to overheating of the aquarium it's not an issue if DO_HEAT_PULSING_THROUGH_BOARD_9 is defined (yes, it is!).
             //     It requires active pulses with the monostable hw latch. If pulsing stops the power is switched off. I did a board for this (board 9)
             //

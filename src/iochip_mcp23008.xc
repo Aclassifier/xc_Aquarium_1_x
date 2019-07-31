@@ -66,7 +66,7 @@ void init_iochip_i2c_external_iff (
 }
 
 // ASSUMED TO BE CALLED EVERY SECOND
-bool handle_iochip_i2c_external_iff ( // beeper_blip_now
+beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
         client     i2c_external_commands_if i_i2c_external_commands,
         iochip_t   &iochip,
         const bool trigger_relay1_minutes_on)
@@ -74,7 +74,7 @@ bool handle_iochip_i2c_external_iff ( // beeper_blip_now
     // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
     // HANDLE MCP23008 BUTTON AND WATCHDOG TRIGGER
 
-    bool beeper_blip_now = false;
+    beeper_blip_now_ms_t beeper_blip_now_ms = false;
     iochip.seconds_cnt++;
 
     if (iochip.err_cnt != 0) { // Init MPC23008 again
@@ -95,11 +95,11 @@ bool handle_iochip_i2c_external_iff ( // beeper_blip_now
             // HANDLE PRESSING OF BUTTON ON IOCHIP BOX FOR MORE THAN 1 SEC AND STATES BUTTON_STATE_0 and BUTTON_STATE_2 RELAY HANDLING
 
             if (relay_button_changed and relay_button_pressed) { // Next state
-                beeper_blip_now = true;
                 iochip.button_ustate.u.cnt++;
                 if (iochip.button_ustate.u.state == BUTTON_STATE_ROOF) {
                     iochip.button_ustate.u.state = BUTTON_STATE_0;
                 } else {}
+                beeper_blip_now_ms = ((iochip.button_ustate.u.cnt+1) * STANDARD_BEEP_MS); // 100, 200 or 300
                 // State changed:
                 if (iochip.button_ustate.u.state == BUTTON_STATE_0) {
                     iochip.relay1_skimmer_pump_state = RELAY_TO_OFF;
@@ -193,5 +193,5 @@ bool handle_iochip_i2c_external_iff ( // beeper_blip_now
         } else {}
     } else {} // iochip.err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
     
-    return beeper_blip_now;
+    return beeper_blip_now_ms;
 }
