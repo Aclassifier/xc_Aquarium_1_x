@@ -585,9 +585,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     sprintf_numchars = sprintf (context.display_ts1_chars,
-                            "%s3 LYS F:%uW M:%uW B:%uW     %s %u/3  %u/3  %u/3 %s      %s %u/%u %s%ut%s%s      %s%s %s %u %s",
+                            "3%s LYS F:%uW M:%uW B:%uW     %s %u/3  %u/3  %u/3 %s      %s %u/%u %s%ut%s%s      %s%s %s %u %s",
                           // A         B     C     D       T  E     F     G    H       I  --J-- K L  M N       O P  Q  R  S
-                          /* A */ char_takes_press_for_10_seconds_right_button_str,                                                                        // "±"                                                                       //  Å
+                          /* A */ char_takes_press_for_10_seconds_right_button_str,                                                                        // "±" "3±" new with AQU=085, not "±3"                                                                    //  Å
                           /* B */ WATTOF_LED_STRIP_FRONT,                                                                                                  // "5"
                           /* C */ WATTOF_LED_STRIP_CENTER,                                                                                                 // "4"
                           /* D */ WATTOF_LED_STRIP_BACK,                                                                                                   // "2"
@@ -611,7 +611,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* R */ context.light_composition,                                                                                      // 10
                           /* S */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
                     //                                            ..........----------.
-                    //                                            ±3 LYS F:5W M:4W B:2W
+                    //                                            3± LYS F:5W M:4W B:2W
                     //                                                 = 1/3  2/3  3/3.
                     //                                                 H 1/3  2/3  3/3.
                     //                                            ±      NORM 3/3 =14t
@@ -1208,7 +1208,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 const char pa_str [] = {'P', CHAR_AA, 0};
 
                 sprintf_numchars = sprintf (context.display_ts1_chars,
-                        "8 RADIO %s\n  #TX %u\n  #RX %u\n  #%us %u",
+                        "8%s RADIO %s\n  #TX %u\n  #RX %u\n  #%us %u",
+                        char_takes_press_for_10_seconds_right_button_str, // ± new with AQU=085
                         (context.radio_enabled_state == radio_enabled) ? pa_str : "AV",
                         context.TX_appSeqCnt,
                         context.RX_messageNotForThisNode_cnt,
@@ -2361,7 +2362,13 @@ void System_Task (
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory;
             context.number_of_restarts                                                    = context.fram_bytes.u.bytes.number_of_restarts;
 
-            context.number_of_restarts++;
+            #if (CLEAR_NUMBER_OF_RESTARTS==1)
+                context.number_of_restarts = 0;
+                #warning CLEAR_NUMBER_OF_RESTARTS
+            #else
+                context.number_of_restarts++;
+            #endif
+
             context.number_of_restarts_init_do_fram_write = true; // Set to true once
         }
 

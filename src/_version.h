@@ -17,8 +17,11 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.4.84" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1484  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.4.85" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1485  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  from 31Jul2019 (2nd)
+// 1.4.85     31Jul2019          CLEAR_NUMBER_OF_RESTARTS is new
+//                               AQU=085  SCREEN_8_RADIO now also CHAR_PLUS_MINUS_STR "±" plus SCREEN_3_LYSGULERING now 3±
 //            --------- Running  from 31Jul2019
 // 1.4.84     31Jul2019          beeper_blip_now_ms_t is new
 //                      AQU=084  freeze_light_composition instead of difficult handling on the outside (also mute_store_t will be reomved).

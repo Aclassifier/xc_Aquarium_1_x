@@ -165,4 +165,7 @@
 
     #define DEBUG_PRINT_GLOBAL_APP 0 // 0: all printf off
                                      // 1: controlled locally in each xc file
+
+    #define CLEAR_NUMBER_OF_RESTARTS 0
+
 #endif /* GLOBALS_H_ */
