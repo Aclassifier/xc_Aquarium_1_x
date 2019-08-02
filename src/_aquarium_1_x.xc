@@ -943,20 +943,21 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "6 KONSTANTER           %s%sC VANN OG MAX   %s%sC UNDERVARME    %04u.%02u.%02u BOKS P%s",
+                    "6 VANN %s%sC\n  MAX  %s%sC UNDER\n  BOKS P%s %04u.%02u.%02u\n  %u RESTARTER",
                     temp_water_degc_str,
                     char_degC_circle_str,
                     temp_heater_degc_str,
                     char_degC_circle_str,
+                    char_AA_str,
                     context.datetime_at_startup.year,
                     context.datetime_at_startup.month,
                     context.datetime_at_startup.day,
-                    char_AA_str);
+                    context.number_of_restarts);
                     //                                            ..........----------.
-                    //                                            6 KONSTANTER
-                    //                                              25.0oC VANN OG MAX
-                    //                                              40.0oC UNDERVARME
-                    //                                              2017.03.14 BOKS PÅ
+                    //                                            6 VANN 25.0oC
+                    //                                              MAX  35.0oC UNDER
+                    //                                              BOKS PÅ 2017.03.14
+                    //                                              1234 RESTARTER
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1261,16 +1262,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS %s\n  TILSTAND  %u\n  RELEER    %1u.%1u\n  RESTARTER %u",
+                               "10 USB-BOKS %s\n  TILSTAND %u\n  RELEER   %1u.%1u\n  P%s I DAG %u",
                                (context.iochip.err_cnt==0) ? "VAKTHUND" : "MANGLER",
                                context.iochip.button_ustate.u.cnt,
                                relay1, relay2,
-                               context.number_of_restarts);
+                               char_AA_str,
+                               context.iochip.relays_change_cnt_today);
             //                                            ..........----------.
             //                                            10 USB-BOKS VAKTHUND // MANGLER
-            //                                              TILSTAND  0
-            //                                              RELEER    0.1
-            //                                              RESTARTER 123
+            //                                              TILSTAND 0
+            //                                              RELEER   0.1
+            //                                              PÅ I DAG 123
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1670,6 +1672,10 @@ void System_Task_Data_Handler (
                     context.iochip.relay1_skimmer_pump_minutes_cntdown--;
                 } else {}
             }
+
+            if (light_sunrise_sunset_context.trigger_day_changed_stick) {
+                context.iochip.relays_change_cnt_today;
+            } else {}
         }
     } else {} // Must just wait until internal I2C works!
 

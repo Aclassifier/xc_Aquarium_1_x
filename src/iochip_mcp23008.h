@@ -83,6 +83,7 @@
         relay_state_t          relay1_skimmer_pump_state;
         relay_button_ustate_t  button_ustate;
         bool                   trigger_relay1_minutes_on_previous;
+        unsigned               relays_change_cnt_today; // AQU=086 new. RELAY1 and RELAY2 will count up this same value. Just for seeing if the rather slow action happens
     } iochip_t;
 
     #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c

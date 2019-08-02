@@ -5,7 +5,7 @@
  *      Author: teig
  */
 
-//{{{  #include
+// #include
 
 #define INCLUDES
 #ifdef INCLUDES
@@ -50,15 +50,13 @@
 #include "light_sunrise_sunset.h"
 #endif
 
-//}}}  
-//{{{  debug_print
+// debug_print
 
 #define DEBUG_PRINT_LIGHT_SUNRISE_SUNSET 0 // Cost 0.4k
 //
 #define debug_print(fmt, ...)    do { if((DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0)
 #define debug_set_val_to(val,to) do { if((DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1) and (DEBUG_PRINT_GLOBAL_APP==1)) val=to;                   } while (0)
 
-//}}}  
 
 #if (FLASH_BLACK_BOARD==1)
     // No code
@@ -68,7 +66,7 @@
     #endif
 #endif
 
-//{{{  definitions
+// definitions
 
 #define IOF_HOUR_INLIST      0
 #define IOF_MINUTES_INLIST   1
@@ -203,7 +201,7 @@ Get_Weighted_Random_Light_Composition_For_Some_HourChanges (const random_generat
     return return_light_composition;
 }
 
-//{{{  Get_Normal_Light_Composition
+// Get_Normal_Light_Composition
 
 light_composition_t
 Get_Normal_Light_Composition (const light_amount_t light_amount) {
@@ -227,9 +225,7 @@ Get_Normal_Light_Composition (const light_amount_t light_amount) {
     return return_light_composition;
 }
 
-//}}}  
-
-//{{{  Handle_Light_Sunrise_Sunset_Etc
+// Handle_Light_Sunrise_Sunset_Etc
 
 // This is not a task, it's a function that's called regularly, once per second (must be fast enough to catch up with context.light_is_stable)
 //
@@ -238,7 +234,6 @@ Handle_Light_Sunrise_Sunset_Etc (
            light_sunrise_sunset_context_t &context,
     client port_heat_light_commands_if    i_port_heat_light_commands) {
 
-    //{{{  
     bool return_beeper_blip = false;
 
     const light_sensor_range_t light_sensor_range_diff = context.light_sensor_intensity - context.light_sensor_intensity_previous;
@@ -249,7 +244,10 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     random_generator_t random_number = random_get_random_number(context.random_number); // Only need one per round. AQU=070 NO const removed!
 
-    //{{{  Init once
+    // ENSURE THAT ONLY ONE set_light_composition CALL FOR EACH CALL OF this=Handle_Light_Sunrise_Sunset_Etc.,
+    // ELSE LIGHT MAY NOT GO SOFT FROM ONE LEVEL TO ANOTHER. Do this with get_light_is_stable_sync_internal into context.light_is_stable
+
+    // Init once
 
     if (context.do_init) {
         light_composition_t light_composition_now;
@@ -336,7 +334,6 @@ Handle_Light_Sunrise_Sunset_Etc (
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35); // Ignoring return value freeze_on
             }
         #endif
-       context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
        // AQU=030 init them here:
        context.allow_normal_light_change_by_menu = true;
@@ -345,9 +342,7 @@ Handle_Light_Sunrise_Sunset_Etc (
        context.stop_normal_light_changed_by_menu = false;
        context.num_days_since_start = 0;
 
-    } else {} // init done
-
-    //}}}  
+    } else { // Init done:
 
     if (context.trigger_day_changed_stick) {
         context.num_days_since_start++;
@@ -366,12 +361,10 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {}
     } else {}
 
-    // AQU=074a an extra test here was not needed, removed
-
     context.allow_normal_light_change_by_clock = ((minutes_into_day_now >= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_EARLIEST) and
                                                   (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
-    //{{{  context.do_light_amount_by_menu by IOF_BUTTON_RIGHT
+    // context.do_light_amount_by_menu by IOF_BUTTON_RIGHT
 
     if (context.do_light_amount_by_menu) { // AQU=031 several tests avoided here now, so will only arrive here if LIGHT_CONTROL_IS_DAY
         context.do_light_amount_by_menu = false;
@@ -380,7 +373,6 @@ Handle_Light_Sunrise_Sunset_Etc (
         light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
         debug_set_val_to (print_value,44);
         i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44); // Ignoring return value freeze_on
-        context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
         debug_print ("do_light_amount_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
 
@@ -391,15 +383,15 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.num_minutes_left_of_random = 0;
         i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
         i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44); // Ignoring return value freeze_on
-        context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
+
     } else {}
 
-    //}}}  
-    //{{{  context.trigger_minute_changed_stick
+    context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal(); // After set_light_composition
 
-    if (context.trigger_minute_changed_stick and context.light_is_stable) {
-        // light_is_stable is modified above, so this test needed, even if Handle_Light_Sunrise_Sunset_Etc
-        // is not called if not light_is_stable
+    if (not context.light_is_stable) {
+        // No code here. No change allowed
+    } else if (context.trigger_minute_changed_stick) {
+
         unsigned minutes_into_day_of_next_action_listed_darker_or_lighter =
                 (hour_minute_light_action_list[context.iof_day_night_action_list][IOF_HOUR_INLIST] * 60) +
                  hour_minute_light_action_list[context.iof_day_night_action_list][IOF_MINUTES_INLIST];
@@ -415,7 +407,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             light_composition_t    light_composition_now = hour_minute_light_action_list[context.iof_day_night_action_list][IOF_IOF_LIGHT_INLIST]; // AQU=071 If NUMLIGHT_COMPOSITION_LEVELS it's overwritten below
             light_control_scheme_t light_control_scheme  = LIGHT_CONTROL_IS_VOID; // If passed as such: no change
 
-            //{{{  Main state changes done in here
+            // Main state changes done in here
 
             switch (context.iof_day_night_action_list) {
                 case IOF_TIMED_DAY_TO_NIGHT_LIST_START: {
@@ -443,14 +435,11 @@ Handle_Light_Sunrise_Sunset_Etc (
                 default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
             }
 
-            //}}}  
-
             i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
 
             // ------------ CHANGE LIGHT LEVEL ------------
             debug_set_val_to (print_value,22);
             i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22); // Ignoring return value freeze_on
-            context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
             debug_print ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
 
@@ -471,7 +460,6 @@ Handle_Light_Sunrise_Sunset_Etc (
                 // ------------------------ CHANGE LIGHT LEVEL BACK TO "NORM" ------------------------
                 debug_set_val_to (print_value,104);
                 i_port_heat_light_commands.set_light_composition (Get_Normal_Light_Composition (context.light_amount), LIGHT_CONTROL_IS_DAY, 104); // Ignoring return value freeze_on
-                context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal();
 
                 if (context.light_sensor_diff_state == DIFF_ACTIVE) {
                     context.light_sensor_diff_state = DIFF_VOID; // This is where it's cleared! So that we can beep:
@@ -484,8 +472,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         }
     } else {} // Action only at minute change
 
-    //}}}  
-    //{{{  Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
+    // Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
 
     if (context.dont_disturb_screen_3_lysregulering) {
         // No code. No change of level from change of light level (with a torch!) when we're in SCREEN_3_LYSGULERING
@@ -498,12 +485,13 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {} // Not enough change
     }
 
-    //}}}  
-    //{{{  Trigger_hour_changed or light sensor internally changed or NORMAL_LIGHT_IS_HALF_RANDOM_F2N
+    context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal(); // After set_light_composition
 
-    if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
+    if (not context.light_is_stable) {
+        // No code here. No change allowed
+    } else if (context.light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
         // No change now!
-    } else if (context.light_is_stable) {
+    } else {
         // L1: Light is not changing right now
 
         if ((context.trigger_hour_changed_stick) and
@@ -519,20 +507,23 @@ Handle_Light_Sunrise_Sunset_Etc (
                 // REMOVE FREEZE AND SET LIGHT BACK
                 light_composition_t    light_composition;
                 light_control_scheme_t light_control_scheme;
-                bool                   return_data_already_read;
+                bool                   return_data_while_frozen;
 
-                {return_data_already_read, light_composition, light_control_scheme} =
+                {return_data_while_frozen, light_composition, light_control_scheme} =
                         i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are those set but ignored while frozen
-                if (not return_data_already_read) {
+                if (return_data_while_frozen) { // AQU=085 problem was here
                     i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
                     return_beeper_blip = true;
                 } else {}
             }
         } else {}
 
-        if (context.hot_water) {
-            // No code here
+        context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal(); // After set_light_composition
 
+        if (not context.light_is_stable) {
+            // No code here, no change allowed
+        } else if (context.hot_water) {
+            // No code here
             // While waiting for change it's no point in changing the light automatically before next on the hour.
             // Same if indeed high temp
             // Even if any change wont' be accpeted because of the freeze_light_composition mechanism.
@@ -604,14 +595,9 @@ Handle_Light_Sunrise_Sunset_Etc (
 
             context.trigger_relay1_minutes_on = trigger_relay1_minutes;
         #endif
-
-
-    } else {
-        // L1: light is unstable, no code here
     }
 
-    //}}}  
-    //{{{  DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
+    // DEBUG_PRINT_LIGHT_SUNRISE_SUNSET
 
     #if (DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1)
         if (context.print_value_previous != print_value) {
@@ -622,8 +608,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         } else {}
     #endif
 
-    //}}}  
-    //{{{  reset light sensor internally if change didn't cause anything in this call
+    // reset light sensor internally if change didn't cause anything in this call
 
     if (context.light_sensor_diff_state == DIFF_ENOUGH) {
 
@@ -634,17 +619,15 @@ Handle_Light_Sunrise_Sunset_Etc (
         context.light_sensor_diff_state = DIFF_VOID;
     } else {}
 
-    //}}}
-
-    // Now they should have been properly used (and testing them in the right sequence), let's dispose of them.
+    // Now they should have been properly used (and having testing them in the right sequence), let's dispose of them.
     // They wont' stick any more:
     context.trigger_minute_changed_stick = false;
     context.trigger_hour_changed_stick   = false;
     context.trigger_day_changed_stick    = false;
 
-    //}}}  
+    context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal(); // After set_light_composition, just now (for the display)
+    }
+
     return return_beeper_blip;
 }
-
-//}}}  
 

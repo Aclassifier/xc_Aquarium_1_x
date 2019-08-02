@@ -433,11 +433,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
             } break;
 
             case i_port_heat_light_commands[int index_of_client].un_freeze_light_composition (void) ->
-                    {bool                   return_data_already_read,
+                    {bool                   return_data_while_frozen,
                      light_composition_t    return_light_composition_while_frozen,
                      light_control_scheme_t return_light_control_scheme_while_frozen} : {
 
-                return_data_already_read = freeze_on; // First this.. un_freeze_light_composition called once then the returned data set is not already read:
+                return_data_while_frozen = freeze_on; // First this.. un_freeze_light_composition called once then the returned data set is not already read:
                 freeze_on = false;                    //.. then this
 
                 return_light_composition_while_frozen    = iof_light_composition_level_while_frozen;
