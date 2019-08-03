@@ -1674,7 +1674,7 @@ void System_Task_Data_Handler (
             }
 
             if (light_sunrise_sunset_context.trigger_day_changed_stick) {
-                context.iochip.relays_change_cnt_today;
+                context.iochip.relays_change_cnt_today = 0; // AQU=086
             } else {}
         }
     } else {} // Must just wait until internal I2C works!
