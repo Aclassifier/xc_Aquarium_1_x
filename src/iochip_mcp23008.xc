@@ -57,7 +57,7 @@ void init_iochip_i2c_external_iff (
     iochip.relay1_skimmer_pump_state           = RELAY_IS_OFF;
     iochip.button_ustate.u.state               = BUTTON_STATE_0;
     iochip.trigger_relay1_minutes_on_previous  = false;
-    iochip.relays_change_cnt_today                   = 0;
+    iochip.relay1_change_cnt_today             = 0;
 
     i_i2c_external_commands.init_iochip (iochip.err_cnt);
 
@@ -134,9 +134,8 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
                 iochip.relay1_skimmer_pump_state = RELAY_IS_ON;
 
                 iochip.port_pins or_eq MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 ON
-                iochip.port_pins or_eq MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 ON just to follow for testing with lamp
 
-                iochip.relays_change_cnt_today++;
+                iochip.relay1_change_cnt_today++;
 
             } else if (iochip.relay1_skimmer_pump_state == RELAY_TO_OFF) {
                 iochip.relay1_skimmer_pump_state = RELAY_IS_OFF;
@@ -144,7 +143,6 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
                 iochip.relay1_skimmer_pump_minutes_cntdown = 0;
 
                 iochip.port_pins and_eq compl MY_MCP23008_OUT_RELAY1_ON_MASK; // RELAY1 OFF
-                iochip.port_pins and_eq compl MY_MCP23008_OUT_RELAY2_ON_MASK; // RELAY2 OFF just to follow for testing with lamp
 
             } else {}
 

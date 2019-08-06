@@ -1262,17 +1262,17 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS %s\n  TILSTAND %u\n  RELEER   %1u.%1u\n  P%s I DAG %u",
+                               "10 USB-BOKS %s\n  TILSTAND   %u\n  RELE R1.R2 %1u.%1u\n  R1 #P%s     %u",
                                (context.iochip.err_cnt==0) ? "VAKTHUND" : "MANGLER",
                                context.iochip.button_ustate.u.cnt,
                                relay1, relay2,
                                char_AA_str,
-                               context.iochip.relays_change_cnt_today);
+                               context.iochip.relay1_change_cnt_today);
             //                                            ..........----------.
             //                                            10 USB-BOKS VAKTHUND // MANGLER
-            //                                              TILSTAND 0
-            //                                              RELEER   0.1
-            //                                              PÅ I DAG 123
+            //                                              TILSTAND   0
+            //                                              RELE R1.R2 0.1
+            //                                              R1 #PÅ     123
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1667,14 +1667,17 @@ void System_Task_Data_Handler (
                 context.radio_send_data = send;
             } else {}
 
-            if (light_sunrise_sunset_context.trigger_minute_changed_stick) {
+            if (light_sunrise_sunset_context.trigger_day_changed_stick) {
+                context.iochip.relay1_change_cnt_today = 0; // AQU=086
+                if (context.iochip.button_ustate.u.state == BUTTON_STATE_2) { // AQU=088
+                    // Pump was on for 180 minutes, set by hand after replacing 1/3 water (but probably off now, probably forgotten to swicth back by hand)
+                    context.iochip.button_ustate.u.state = BUTTON_STATE_1; // Pump on like on the average every third hour for 15 minutes
+                    context.iochip.relay1_skimmer_pump_minutes_cntdown = 0;
+                } else {}
+            } else if (light_sunrise_sunset_context.trigger_minute_changed_stick) {
                 if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
                     context.iochip.relay1_skimmer_pump_minutes_cntdown--;
                 } else {}
-            }
-
-            if (light_sunrise_sunset_context.trigger_day_changed_stick) {
-                context.iochip.relays_change_cnt_today = 0; // AQU=086
             } else {}
         }
     } else {} // Must just wait until internal I2C works!

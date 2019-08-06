@@ -17,14 +17,17 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.01" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1501  // Is "AQUARIUM_VERSION_NUM_t"
-//            --------- Running  4Aug2019
+#define AQUARIUM_VERSION_STR "1.5.02" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1502  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  6Aug2019
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64468 S:6832 C:51554 D:6082
+// 1.5.02     06Aug2019          SCREEN_10_USB_WATCHDOG_RELAY_BOX changed
+//                      AQU=089  RELAY2 will not follow RELAY1 any more
+//                      AQU=088  if BUTTON_STATE_2 -> BUTTON_STATE_1 at midnight
 // 1.5.01     04Aug2019 AQU=087  Changes of string in SCREEN_3_LYSGULERING
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64460 S:6832 C:51554 D:6074
-// 1.5.00     03Aug2019 AQU=086  relays_change_cnt_today was not cleared on new day
+// 1.5.00     03Aug2019 AQU=086  relay1_change_cnt_today was not cleared on new day
 // 1.4.86     02Aug2019          SCREEN_6_KONSTANTER and SCREEN_10_USB_WATCHDOG_RELAY_BOX modified
-//                               AQU=086  relays_change_cnt_today new
+//                               AQU=086  relay1_change_cnt_today new
 //                      AQU=085  Light changes fast then soft, after a few seconds. Seems like this is for every change. I must have messed
 //                               up with missing get_light_is_stable_sync_internal after too many set_light_composition
 // 1.4.85     31Jul2019          CLEAR_NUMBER_OF_RESTARTS is new
