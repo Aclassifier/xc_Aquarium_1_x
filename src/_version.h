@@ -17,11 +17,13 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.03" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1503  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.10" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1510  // Is "AQUARIUM_VERSION_NUM_t"
 //            --------- Running  8Aug2019
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64508 S:6832 C:51594 D:6082
-// 1.5.03     08Aug2019 AQU=090  Another timing scheme for RELAY1 skimmer pump. Average every 3 hours may mean _never_ during a day!
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64532 S:6828 C:51622 D:6082
+// 1.5.10     08Aug2019 AQU=091  Deciding when to trigger_relay1_minutes_on was hidden behind 1/3 light, now moved out of Handle_Light_Sunrise_Sunset_Etc
+//                               Also, changed trigger_relay1_minutes_on to every hour divisable by three at day
+// 1.5.03     08Aug2019 AQU=090  Another timing scheme for RELAY1 skimmer pump. Average every 3 hours may mean _never_ during a day! (Was anotehr point, see AQU=091)
 // 1.5.02     06Aug2019          SCREEN_10_USB_WATCHDOG_RELAY_BOX changed
 //                      AQU=089  RELAY2 will not follow RELAY1 any more
 //                      AQU=088  if BUTTON_STATE_2 -> BUTTON_STATE_1 at midnight

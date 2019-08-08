@@ -40,7 +40,7 @@
     #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES 2
 #else                                                          // BUTTON_STATE   is incremented by pressing USB RELAY AND WATCHDOG BOX button for at least one second
                                                                //                Pump may go on into IT_IS_NIGHT
-                                                               // BUTTON_STATE_0 when BLINKING RED LED: deafult at power up. Relays off, no pump
+                                                               // BUTTON_STATE_0 when BLINKING RED LED: default at power up. Relays off, no pump
     #define AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES             15 // BUTTON_STATE_1 when BOTH LEDS OFF:    15 minutes pump automatically every now and then. Some criteria, but never when IT_IS_NIGHT
     #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES 180 // BUTTON_STATE_2 when BLINK GREEN LED:  3 hours pump started manually,after aquarium cleaning
 #endif

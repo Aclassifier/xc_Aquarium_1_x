@@ -2339,7 +2339,7 @@ void System_Task (
     context.screen_logg.exists = true;
     context.screen_logg.disabled_toggled_on_acknowledge_10secs = false;
 
-    light_sunrise_sunset_context.random_number = random_create_generator_from_hw_seed(); // xmos
+    light_sunrise_sunset_context.random_number_seed = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
     light_sunrise_sunset_context.do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
@@ -2495,10 +2495,25 @@ void System_Task (
                      light_sunrise_sunset_context,
                      i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
 
-                // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
-                // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE:
-                //
-                beeper_blip_now_ms_t beeper_blip_now_ms = handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, light_sunrise_sunset_context.trigger_relay1_minutes_on);
+                beeper_blip_now_ms_t beeper_blip_now_ms;
+                { // AQU=091 moved out here:
+                    bool trigger_relay1_minutes_on;
+                    // IOCHIP matters
+
+                    #if (FLASH_BLACK_BOARD==1)
+                        trigger_relay1_minutes_on = ((light_sunrise_sunset_context.datetime_copy.minute % 3) == 0); // Every third minute (dividable by three)
+                    #else // AQU=091 changed criteria:
+                        trigger_relay1_minutes_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
+                              (light_sunrise_sunset_context.trigger_hour_changed_stick) and
+                              (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) and
+                              ((light_sunrise_sunset_context.datetime_copy.hour % 3) == 0); // Every third hour (dividable by three)
+                    #endif
+
+                    // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
+                    // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE:
+                    //
+                   beeper_blip_now_ms = handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, trigger_relay1_minutes_on);
+                }
 
                 // Shall we beep?
 

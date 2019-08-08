@@ -112,7 +112,7 @@ typedef struct light_sunrise_sunset_context_t {
     cnt_10_t                      screen_3_lysregulering_center_button_cnt_1to6_to10; // AQU=030 new AQU=050 ..to8 since TIMED_HH_DAY_LIST_NUMS
     unsigned                      iof_day_night_action_list;
     unsigned                      num_minutes_left_of_day_night_action;               // AQU=024
-    random_generator_t            random_number;
+    random_generator_t            random_number_seed;
     unsigned                      num_minutes_left_of_random;                         // AQU=023
     unsigned                      minutes_into_day_of_next_action_random_off;         // AQU=023 new
     unsigned                      num_random_sequences_left;
@@ -142,7 +142,6 @@ typedef struct light_sunrise_sunset_context_t {
                                   // Darker to black in the evening and dark to light in the morning will go normally, even to full light, then
                                   // on the next hour's passing it would be muted again if hot_water
     bool                          hot_water;
-    bool                          trigger_relay1_minutes_on; // MUST be SET and CLEARED! May be kept on while condition is on, handle_iochip_i2c_external_iff takes diff and true
     //
 } light_sunrise_sunset_context_t;
 
@@ -200,9 +199,6 @@ typedef struct light_sunrise_sunset_context_t {
 #define     MM_00_DAY_RANDOM_EARLIEST         0
 #define HH_20_NIGHT_RANDOM_LATEST      20
 #define     MM_00_NIGHT_RANDOM_LATEST         0
-
-#define HH_12_DAY 12
-#define HH_18_DAY 18
 
 // After AQU=049 we need run-time calculations, the preprocessor can't do it alone. MUL is one cycle
 #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_hours_index) * 60) + MM_00_NIGHT)               // Earlier so subtract
