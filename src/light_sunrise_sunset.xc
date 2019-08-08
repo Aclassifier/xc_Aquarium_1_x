@@ -588,12 +588,17 @@ Handle_Light_Sunrise_Sunset_Etc (
         #if (FLASH_BLACK_BOARD==1)
             context.trigger_relay1_minutes_on = ((context.datetime_copy.minute % 3) == 0); // Every third minute
         #else
-            const bool trigger_relay1_minutes =
-                  ((context.trigger_hour_changed_stick) and
+            const bool state_trigger_as_nature =
+                  (context.trigger_hour_changed_stick) and
                   (context.it_is_day_or_night == IT_IS_DAY) and
-                  ((random_number % 3) == 0));  // On the average every third hour
+                  ((random_number % 3) == 0);  // On the average every third hour, before or after state_trigger_avoid_clogged_filter hours
 
-            context.trigger_relay1_minutes_on = trigger_relay1_minutes;
+            const bool state_trigger_avoid_clogged_filter =
+                  context.trigger_hour_changed_stick and // So that state_trigger_as_nature may also hit on the hour after 12 and 18 (13 and 19)
+                  ((context.datetime_copy.hour == HH_12_DAY) or (context.datetime_copy.hour == HH_18_DAY)); // AQU=090 new
+
+            context.trigger_relay1_minutes_on = state_trigger_as_nature or state_trigger_avoid_clogged_filter;
+            // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
         #endif
     }
 

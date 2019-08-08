@@ -201,6 +201,9 @@ typedef struct light_sunrise_sunset_context_t {
 #define HH_20_NIGHT_RANDOM_LATEST      20
 #define     MM_00_NIGHT_RANDOM_LATEST         0
 
+#define HH_12_DAY 12
+#define HH_18_DAY 18
+
 // After AQU=049 we need run-time calculations, the preprocessor can't do it alone. MUL is one cycle
 #define NUM_MINUTES_INTO_DAY_OF_DAY_TO_NIGHT_LIST_START (((HH_22_NIGHT               - context.light_daytime_hours_index) * 60) + MM_00_NIGHT)               // Earlier so subtract
 #define NUM_MINUTES_INTO_DAY_OF_NIGHT_TO_DAY_LIST_START (((HH_08_DAY                 + context.light_daytime_hours_index) * 60) + MM_00_DAY)                 // Later so add
