@@ -257,6 +257,7 @@ typedef struct handler_context_t {
     DateTime_t                  datetime;
     DateTime_t                  datetime_editable;
     DateTime_t                  datetime_at_startup;
+    DateTime_t                  datetime_old; // AQU=092 moved out here
     bool                        read_chronodot_ok;
     i2c_temps_t                 i2c_temps;
     light_composition_t         light_composition;
@@ -1106,7 +1107,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 case SUB_STATE_02: { // Even number from IOF_BUTTON_CENTER ("edit")
                     context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_7_NT_KLOKKE: SUB_STATE_02
                     if (context.datetime_editable.year == 2000) { // New display
-                        context.datetime_editable.year   = 2017;  // When I retire, quite soon now!
+                        context.datetime_editable.year   = 2017;  // When I retire, quite soon now! (Correction: more than two years ago!)
                         context.datetime_editable.month  =    6;
                         context.datetime_editable.day    =   14;
                         context.datetime_editable.hour   =    0;
@@ -1633,7 +1634,8 @@ void System_Task_Data_Handler (
 
     // READ DATE AND TIME AND PRINT OUT EVERY MINUTE
     if (context.read_chronodot_ok) { // AQU=040 testing on it!
-        DateTime_t datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised, see below
+                                                 // Copy before reading:
+        context.datetime_old = context.datetime; // Not valid when light_sunrise_sunset_context.datetime_previous_not_initialised, see below
 
         context.datetime                           = chronodot_registers_to_datetime (context.chronodot_d3231_registers);
         light_sunrise_sunset_context.datetime_copy = context.datetime; // Need a copy there. Only place it's modified
@@ -1647,16 +1649,16 @@ void System_Task_Data_Handler (
             light_sunrise_sunset_context.trigger_day_changed_stick    = false;
 
             context.datetime_at_startup = context.datetime; // Assigned only here. If ChronoDot not initialised then set new date and time and restart the box
+            context.datetime_old        = context.datetime; // AQU=092 added
             debug_print("%s", "Init\n");
             debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
         } else {
 
-            light_sunrise_sunset_context.trigger_minute_changed_stick or_eq (context.datetime.minute != datetime_old.minute);
-            light_sunrise_sunset_context.trigger_hour_changed_stick   or_eq (context.datetime.hour   != datetime_old.hour);
-            light_sunrise_sunset_context.trigger_day_changed_stick    or_eq (context.datetime.day    != datetime_old.day);
+            light_sunrise_sunset_context.trigger_minute_changed_stick or_eq (context.datetime.minute != context.datetime_old.minute);
+            light_sunrise_sunset_context.trigger_hour_changed_stick   or_eq (context.datetime.hour   != context.datetime_old.hour);
+            light_sunrise_sunset_context.trigger_day_changed_stick    or_eq (context.datetime.day    != context.datetime_old.day);
 
-
-            if (context.datetime.minute != datetime_old.minute) {
+            if (context.datetime.minute != context.datetime_old.minute) {
                 debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
             } else if (context.heater_data_aged) {
                 debug_printf_datetime(context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
@@ -2495,22 +2497,24 @@ void System_Task (
                      light_sunrise_sunset_context,
                      i_i2c_internal_commands, i_port_heat_light_commands, i_temperature_water_commands, i_temperature_heater_commands);
 
+                // IOCHIP matters
+
                 beeper_blip_now_ms_t beeper_blip_now_ms;
                 { // AQU=091 moved out here:
                     bool trigger_relay1_minutes_on;
-                    // IOCHIP matters
 
                     #if (FLASH_BLACK_BOARD==1)
-                        trigger_relay1_minutes_on = ((light_sunrise_sunset_context.datetime_copy.minute % 3) == 0); // Every third minute (dividable by three)
-                    #else // AQU=091 changed criteria:
+                        trigger_relay1_minutes_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
+                    #else // AQU=091, AQU=092 changed criteria:
                         trigger_relay1_minutes_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
-                              (light_sunrise_sunset_context.trigger_hour_changed_stick) and
+                              (context.datetime.hour != context.datetime_old.hour) and // AQU=092 not using trigger_hour_changed_stick that may have been cleared by Handle_Light_Sunrise_Sunset_Etc
                               (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) and
-                              ((light_sunrise_sunset_context.datetime_copy.hour % 3) == 0); // Every third hour (dividable by three)
+                              ((context.datetime.hour % 3) == 0); // Every third hour (dividable by three)
                     #endif
 
                     // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
-                    // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE:
+                    // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE
+                    // THIS CODE BLOCKS FOR WRITE_IOCHIP_PINS_WAIT_AFTER_MS
                     //
                    beeper_blip_now_ms = handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, trigger_relay1_minutes_on);
                 }
