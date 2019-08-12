@@ -36,8 +36,13 @@
 #ifndef FLASH_BLACK_BOARD
     #error
 #elif (FLASH_BLACK_BOARD==1)
-    #define AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES            1
-    #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES 2
+    #if (FLASH_BLACK_BOARD_FAST_RELAY1==1)
+        #define AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES             1
+        #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES  2
+    #else
+        #define AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES             5
+        #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES 15
+    #endif
 #else                                                          // BUTTON_STATE   is incremented by pressing USB RELAY AND WATCHDOG BOX button for at least one second
                                                                //                Pump may go on into IT_IS_NIGHT
                                                                // BUTTON_STATE_0 when BLINKING RED LED: default at power up. Relays off, no pump
@@ -93,41 +98,57 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
         {relay_button_pressed, relay_button_changed} = i_i2c_external_commands.get_iochip_button (iochip.err_cnt);
         if (iochip.err_cnt == 0) {
 
-            // HANDLE PRESSING OF BUTTON ON IOCHIP BOX FOR MORE THAN 1 SEC AND STATES BUTTON_STATE_0 and BUTTON_STATE_2 RELAY HANDLING
-
+            // HANDLE PRESSING OF BUTTON ON IOCHIP BOX FOR MORE THAN 1 SEC
+            //
             if (relay_button_changed and relay_button_pressed) { // Next state
                 iochip.button_ustate.u.cnt++;
                 if (iochip.button_ustate.u.state == BUTTON_STATE_ROOF) {
                     iochip.button_ustate.u.state = BUTTON_STATE_0;
                 } else {}
+
                 beeper_blip_now_ms = ((iochip.button_ustate.u.cnt+1) * STANDARD_BEEP_MS); // 100, 200 or 300
+
                 // State changed:
-                if (iochip.button_ustate.u.state == BUTTON_STATE_0) {
-                    iochip.relay1_skimmer_pump_state = RELAY_TO_OFF;
-                } else if (iochip.button_ustate.u.state == BUTTON_STATE_2) {
-                    iochip.relay1_skimmer_pump_state = RELAY_TO_ON;
-                    iochip.relay1_skimmer_pump_minutes_cntdown = MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES; // Not stopped by IT_IS_NIGHT, only by timeout
-                } else {} // BUTTON_STATE_1 handled below:
+                switch (iochip.button_ustate.u.state) {
+                    case BUTTON_STATE_0: // Fall-through
+                    case BUTTON_STATE_1: // new with AQU=093
+                    {
+                        iochip.relay1_skimmer_pump_state = RELAY_TO_OFF;
+                    } break;
+                    case BUTTON_STATE_2:
+                    {
+                        iochip.relay1_skimmer_pump_state = RELAY_TO_ON;
+                        iochip.relay1_skimmer_pump_minutes_cntdown = MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES; // Not stopped by IT_IS_NIGHT, only by timeout
+                    } break;
+                    default: break; // Will not happen
+                }
             } else {}
 
             // HANDLE AUTOMATIC RELAY HANDLING FOR BUTTON_STATE_1
+            //
+            if (iochip.trigger_relay1_minutes_on_previous != trigger_relay1_minutes_on) {
+                iochip.trigger_relay1_minutes_on_previous = trigger_relay1_minutes_on; // Throw it away even if not used below:
 
-            if (iochip.button_ustate.u.state == BUTTON_STATE_1) {
-                if (iochip.trigger_relay1_minutes_on_previous != trigger_relay1_minutes_on) {
+                if (iochip.button_ustate.u.state == BUTTON_STATE_1) {
                     if (trigger_relay1_minutes_on == true) {
                         if (iochip.relay1_skimmer_pump_state == RELAY_IS_OFF) {
                             // Make ready to set relay automatically:
                             iochip.relay1_skimmer_pump_state           = RELAY_TO_ON;
                             iochip.relay1_skimmer_pump_minutes_cntdown = AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES; // Not stopped by IT_IS_NIGHT, only by timeout
                         } else {}
-                    } else {}
-                    iochip.trigger_relay1_minutes_on_previous = trigger_relay1_minutes_on; 
+                    } else {} // BUTTON_STATE_0 and BUTTON_STATE_2 not here
                 } else {}
             } else {}
 
-            // iochip_relay1_skimmer_pump_minutes_cntdown decremented in System_Task_Data_Handler next time around
-            if (iochip.relay1_skimmer_pump_minutes_cntdown == 0) { // STOP
+            // HANDLE DECREMENTED MINUTES FOR BUTTON_STATE_1 and BUTTON_STATE_2
+            // iochip_relay1_skimmer_pump_minutes_cntdown decremented in System_Task_Data_Handler
+            //
+            if ((iochip.relay1_skimmer_pump_state == RELAY_IS_ON) and // AQU=093
+                (iochip.relay1_skimmer_pump_minutes_cntdown == 0)) { // STOP
                 iochip.relay1_skimmer_pump_state = RELAY_TO_OFF;
+                if (iochip.button_ustate.u.state == BUTTON_STATE_2) {
+                    iochip.button_ustate.u.state = BUTTON_STATE_1; // AQU=093
+                } else {}
             } else {}
 
             if (iochip.relay1_skimmer_pump_state == RELAY_TO_ON) {

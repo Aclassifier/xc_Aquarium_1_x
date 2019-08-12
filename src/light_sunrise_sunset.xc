@@ -225,16 +225,6 @@ Get_Normal_Light_Composition (const light_amount_t light_amount) {
     return return_light_composition;
 }
 
-void clear_clock_changed_stick (
-        light_sunrise_sunset_context_t &context) {
-
-    // Now they should have been properly used (and having testing them in the right sequence), let's dispose of them.
-    // They wont' stick any more:
-    context.trigger_minute_changed_stick = false;
-    context.trigger_hour_changed_stick   = false;
-    context.trigger_day_changed_stick    = false;
-}
-
 // Handle_Light_Sunrise_Sunset_Etc
 
 // This is not a task, it's a function that's called regularly, once per second (must be fast enough to catch up with context.light_is_stable)
@@ -594,10 +584,12 @@ Handle_Light_Sunrise_Sunset_Etc (
                     } else {debug_set_val_to (print_value,3);}             // L3: Night-time'ish
                 } else {}  // L2: Nothing if not per the hour
             }
-
-            clear_clock_changed_stick (context);
-
         } // End of light matters for now
+
+        // No need to preserve any even if not used. Moved out here with AQU=093, but has been here "always" before my starting to misuse _stick with iochip RELAY1
+        context.trigger_minute_changed_stick = false;
+        context.trigger_hour_changed_stick   = false;
+        context.trigger_day_changed_stick    = false;
 
         // reset light sensor internally if change didn't cause anything in this call
 

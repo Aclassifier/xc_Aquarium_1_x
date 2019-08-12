@@ -17,10 +17,13 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.11" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1511  // Is "AQUARIUM_VERSION_NUM_t"
-//            --------- Running  8Aug2019
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64544 S:6840v C:51622 D:6082
+#define AQUARIUM_VERSION_STR "1.5.12" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1512  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  12Aug2019
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64548 S:6840 C:51638 D:6070
+// 1.5.12     11Aug2019 AQU=093  When I pressed button in BUTTON_STATE_1 the RELAY1 went on with beep but it went off again on the next second.
+//                               Cnt was not counted and it went back to BUTTON_STATE_1, it must have been from BUTTON_STATE_2. RELAY1 was on when we came home, so had automatically not gone off
+//                               FLASH_BLACK_BOARD_FAST_RELAY1 is new
 // 1.5.11     08Aug2019 AQU=092  AQU=091 did not work
 // 1.5.10     08Aug2019 AQU=091  Deciding when to trigger_relay1_minutes_on was hidden behind 1/3 light, now moved out of Handle_Light_Sunrise_Sunset_Etc
 //                               Also, changed trigger_relay1_minutes_on to every hour divisable by three at day

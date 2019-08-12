@@ -1263,17 +1263,18 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS %s\n  TILSTAND   %u\n  RELE R1.R2 %1u.%1u\n  R1 #P%s     %u",
-                               (context.iochip.err_cnt==0) ? "VAKTHUND" : "MANGLER",
-                               context.iochip.button_ustate.u.cnt,
-                               relay1, relay2,
-                               char_AA_str,
-                               context.iochip.relay1_change_cnt_today);
+                               "10 USB-BOKS %s\n   R1.R2  %1u.%1u kode %1u\n  #R1.min %u.%u",
+                               //           1             2   3        4              5  6
+                               (context.iochip.err_cnt==0) ? "VAKTHUND" : "MANGLER", // 1
+                               relay1, relay2, // 2,3
+                               context.iochip.button_ustate.u.cnt, // 4
+                               context.iochip.relay1_change_cnt_today, // 5
+                               context.iochip.relay1_skimmer_pump_minutes_cntdown); // 6
             //                                            ..........----------.
-            //                                            10 USB-BOKS VAKTHUND // MANGLER
-            //                                              TILSTAND   0
-            //                                              RELE R1.R2 0.1
-            //                                              R1 #PÅ     123
+            //                                            10 USB-BOKS VAKTHUND // USB-BOKS MANGLER
+            //                                               R1.R2  0.1 kode 1
+            //                                              #R1.min 4.180      // AQU=093 .180
+            //                                              For feeding output
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1669,14 +1670,11 @@ void System_Task_Data_Handler (
                 context.radio_send_data = send;
             } else {}
 
-            if (light_sunrise_sunset_context.trigger_day_changed_stick) {
-                context.iochip.relay1_change_cnt_today = 0; // AQU=086
-                if (context.iochip.button_ustate.u.state == BUTTON_STATE_2) { // AQU=088
-                    // Pump was on for 180 minutes, set by hand after replacing 1/3 water (but probably off now, probably forgotten to swicth back by hand)
-                    context.iochip.button_ustate.u.state = BUTTON_STATE_1; // Pump on like on the average every third hour for 15 minutes
-                    context.iochip.relay1_skimmer_pump_minutes_cntdown = 0;
-                } else {}
-            } else if (light_sunrise_sunset_context.trigger_minute_changed_stick) {
+            if (context.datetime.day != context.datetime_old.day) {
+                context.iochip.relay1_change_cnt_today = 0;
+            } else {}
+
+           if (context.datetime.minute != context.datetime_old.minute) { // AQU=093 back to only this criterion
                 if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
                     context.iochip.relay1_skimmer_pump_minutes_cntdown--;
                 } else {}
@@ -2503,8 +2501,8 @@ void System_Task (
                 { // AQU=091 moved out here:
                     bool trigger_relay1_minutes_on;
 
-                    #if (FLASH_BLACK_BOARD==1)
-                        trigger_relay1_minutes_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
+                    #if (FLASH_BLACK_BOARD_FAST_RELAY1==1)
+                         trigger_relay1_minutes_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
                     #else // AQU=091, AQU=092 changed criteria:
                         trigger_relay1_minutes_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
                               (context.datetime.hour != context.datetime_old.hour) and // AQU=092 not using trigger_hour_changed_stick that may have been cleared by Handle_Light_Sunrise_Sunset_Etc
