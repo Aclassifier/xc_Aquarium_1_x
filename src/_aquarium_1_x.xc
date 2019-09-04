@@ -65,8 +65,6 @@
 
 // #define DEBUG_TEST_MAKE_SPRINTF_OVERFLOW_WHEN_BOX_LIGHT_IS_LOW
 
-// debug_print and DEBUG_TEST_WATCHDOG
-
 // http://stackoverflow.com/questions/1644868/c-define-macro-for-debug-printing
 #define DEBUG_PRINT_AQUARIUM 0
 #define debug_print(fmt, ...) do { if((DEBUG_PRINT_AQUARIUM==1) and (DEBUG_PRINT_GLOBAL_APP==1)) printf(fmt, __VA_ARGS__); } while (0) // gcc-type ##__VA_ARGS__ doesn't work
@@ -82,8 +80,6 @@
         #error CODE DROPPED!
     #endif
 #endif
-
-// #define DEBUG_TEST_WATCHDOG // Toggles on/off in SCREEN_4_BOKSDATA. Name used in comment in another file
 
 //
 // definitions
@@ -108,7 +104,7 @@ typedef enum display_screen_name_t {
     SCREEN_7_NT_KLOKKE,               //  7 YES             | YES (well, not really, not visible)              | display_ts1_chars                  | "NT" identifies it (NormalTid = vintertid). Defines SCREEN_NAME_NUMS as 8
     SCREEN_8_RADIO,                   //  8 NO              | YES                                              | display_ts1_chars                  | New with AQU=065
     SCREEN_9_RADIO,                   //  9 NO              | YES                                              | display_ts1_chars
-    SCREEN_10_USB_WATCHDOG_RELAY_BOX, //  9 NO              | NO                                               | display_ts1_chars                  | New with AQU=076
+    SCREEN_10_X_BOX,                  //  9 NO              | YES                                              | display_ts1_chars                  | iochip = 5V USB watchdog, LEDS, two relays, two open drian outputs. New with AQU=076
     SCREEN_X_NONE,                    // 10 No screen, just a special parameter for "except none" == "all"
 } display_screen_name_t;
 
@@ -175,7 +171,7 @@ typedef enum display_appear_state_t {
 typedef enum error_bits_t {
                                            // LIMITS
     ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
-    ERROR_BIT_I2C_WATER              =  1,
+    ERROR_BIT_I2C_WATER              =  1, // Also when water sensor has fallen out of its housing (reed relay has cut power to sensor)
     ERROR_BIT_I2C_HEATER             =  2, // See AQU=080
     ERROR_BIT_HEATER_CABLE_UNPLUGGED =  3, // AQU=025 never signalled (so this bit is now VACANT)
                                            // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
@@ -204,8 +200,6 @@ typedef enum error_bits_t {
 #define DISPLAY_SUB_ON_FOR_SECONDS (2*60) // Counting DOWN FROM. Must be at least 1 sec more than BUTTON_ACTION_PRESSED_FOR_10_SECONDS
                                           // Should be larger than 1 minute since seconds are not set when we set the clock at SCREEN_7_NT_KLOKKE.SUB_STATE_12, and wee need to wait for the next minute
 
-// FROM main.xc in _app_rfm69_on_xmos_native (start)
-
 //      SPI_AUX bits:
 #define MASKOF_SPI_AUX0_RST        0x01 // RST is port SPI_AUX BIT0. Search for SPI_AUX0_RST to see HW-defined timing
 #define MASKOF_SPI_AUX0_PROBE3_IRQ 0x02 // Test pin for IRQ. "LED1"
@@ -232,9 +226,6 @@ typedef enum error_bits_t {
 #define KEY             MY_KEY // From _commprot.h
 #define IS_RFM69HW_HCW  true   // 1 for Adafruit RFM69HCW (high power)
 
-// FROM main.xc in _app_rfm69_on_xmos_native (end)
-
-//
 // handler_context_t
 typedef enum { radio_enabled, radio_disabled_pending, radio_disabled } radio_enabled_state_e; // Coding depending on this being three cases only!
 typedef enum { send_idle, send, sent } radio_send_data_e;
@@ -296,10 +287,6 @@ typedef struct handler_context_t {
 
     #if (LOCAL_IRQ_PORT_HANDLING==1)
         signed now_irq_high_max_time_ms; // Letting it be counted down until negative
-    #endif
-
-    #ifdef DEBUG_TEST_WATCHDOG
-        bool do_watchdog_retrigger_ms_debug; // Toggles on/off in SCREEN_4_BOKSDATA.
     #endif
 
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
@@ -878,10 +865,6 @@ void Handle_Real_Or_Clocked_Button_Actions (
             if (caller != CALLER_IS_REFRESH) {
                 Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
                 debug_print ("AKVARIELYS %sV, AKVARIEVARME %sV, BOKS TEMP %sC, BOKS STUELYS %u\n", rr_12V_str, rr_24V_str, temp_degC_str, light_sensor_intensity);
-                #ifdef DEBUG_TEST_WATCHDOG
-                    // If you do this while heating is on then you will observe that it goes off
-                    context.do_watchdog_retrigger_ms_debug = not context.do_watchdog_retrigger_ms_debug;
-                #endif
             } else {}
         } break;
 
@@ -1254,7 +1237,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             context.display_is_on = true;
         } break;
 
-        case SCREEN_10_USB_WATCHDOG_RELAY_BOX: {
+        case SCREEN_10_X_BOX: {
             for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                 context.display_ts1_chars [index_of_char] = ' ';
             }
@@ -1263,18 +1246,22 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10 USB-BOKS %s\n   R1.R2  %1u.%1u kode %1u\n  #R1.min %u.%u",
-                               //           1             2   3        4              5  6
-                               (context.iochip.err_cnt==0) ? "VAKTHUND" : "MANGLER", // 1
-                               relay1, relay2, // 2,3
-                               context.iochip.button_ustate.u.cnt, // 4
-                               context.iochip.relay1_change_cnt_today, // 5
-                               context.iochip.relay1_skimmer_pump_minutes_cntdown); // 6
+                               "10%s X-BOKS %s\n   R1.R2  %1u.%1u KODE %1u\n  #R1.MIN %u.%u\n  #S1.mS  %u.%u:%s",
+                               // 1           2             3   4        5             6  7             8  9  10
+                               char_takes_press_for_10_seconds_right_button_str, // 1 ± new with AQU=086
+                               (context.iochip.err_cnt==0) ? "IO" : "MANGLER", // 2
+                               relay1, relay2, // 3,4
+                               context.iochip.button_ustate.u.cnt, // 5
+                               context.iochip.relay1_change_cnt_today, // 6
+                               context.iochip.relay1_skimmer_pump_minutes_cntdown, // 7
+                               context.iochip.solenoid1_change_cnt_today, // 8
+                               context.iochip.solenoid1_ms, // 9
+                               context.iochip.feeding.auto_feeding_double_config ? "TO" : "EN"); // 10
             //                                            ..........----------.
-            //                                            10 USB-BOKS VAKTHUND // USB-BOKS MANGLER
-            //                                               R1.R2  0.1 kode 1
-            //                                              #R1.min 4.180      // AQU=093 .180
-            //                                              For feeding output
+            //                                            10± X-BOKS IO // X-BOKS MANGLER
+            //                                               R1.R2  0.1 KODE 1
+            //                                              #R1.MIN 4.180
+            //                                              #S1.mS  1.200:TO    // "EN"
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1595,6 +1582,17 @@ void Handle_Real_Or_Clocked_Buttons (
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
+                        case SCREEN_10_X_BOX: { // 10
+                            context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
+                            context.iochip.feeding.auto_feeding_double_config = not context.iochip.feeding.auto_feeding_double_config;
+                            if (context.iochip.feeding.auto_feeding_double_config) {
+                                context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
+                            } else {
+                                context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
+                            }
+                            Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
+                        } break;
+
                         default: break;
                     }
                 } break;
@@ -1672,6 +1670,7 @@ void System_Task_Data_Handler (
 
             if (context.datetime.day != context.datetime_old.day) {
                 context.iochip.relay1_change_cnt_today = 0;
+                context.iochip.solenoid1_change_cnt_today = 0;
             } else {}
 
            if (context.datetime.minute != context.datetime_old.minute) { // AQU=093 back to only this criterion
@@ -1743,7 +1742,6 @@ void System_Task_Data_Handler (
 
     if (context.heat_cables_forced_off_by_watchdog) {
         // This task is mostly watching iself, even if delays elsewhere may also cause this
-        // Test with DEBUG_TEST_WATCHDOG
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATCHDOG_TIMED_OUT);
     } else {}
 
@@ -2058,10 +2056,10 @@ void radio_irq_handler (
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS 1000
 #define BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_IS_1_SECOND (BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS * XS1_TIMER_KHZ)
 
-#define WATCHDOG_EXTRA_MS 100 // Name used in comment in Port_Pins_Heat_Light_Task
+#define WATCHDOG_EXTRA_MS 100 // Name used in comment in Port_Pins_Heat_Light_Task. After AQU=096 this is probably not needed. Keep it anyway
 //                          0    i_port_heat_light_commands beeps every time
 //                          1    Beeps two of three times
-//                          2    Never seems to beep (so watchdog_rest_ms is 1 or 3)
+//                          2    Never seems to beep
 //                          5    Using this to get some margin. No, the beep came some times when I used the display (at least when DO_HEAT_PULSING_THROUGH_BOARD_9 was introduced)
 //                               I also heard it some times when I made EMC by unplugging the air pump. I2C retransmit?
 //                               I also heard it some times during downloading with the debugger!
@@ -2095,8 +2093,7 @@ void System_Task (
 
     handler_context_t              context;
     light_sunrise_sunset_context_t light_sunrise_sunset_context;
-    unsigned                       num_notify_expexted = 0;
-    unsigned                       watchdog_rest_ms;
+    unsigned                       num_notify_expexted = 0;;
     unsigned                       debug_button_cnt = 0;
 
     #if (LOCAL_IRQ_PORT_HANDLING==1)
@@ -2171,12 +2168,12 @@ void System_Task (
             (SEMANTICS_DO_CRC_ERR_NO_IRQ == 1) ? "no" : "with",
             (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
 
-    context.number_of_restarts_init_do_fram_write      = false;
-    context.radio_board_fault                          = false;
-    context.radio_send_data                            = send_idle;
-    context.radio_sent_data_display_it                 = false;
-    context.RX_messageNotForThisNode_cnt               = 0;
-    context.TX_appSeqCnt                               = 0;
+    context.number_of_restarts_init_do_fram_write = false;
+    context.radio_board_fault                     = false;
+    context.radio_send_data                       = send_idle;
+    context.radio_sent_data_display_it            = false;
+    context.RX_messageNotForThisNode_cnt          = 0;
+    context.TX_appSeqCnt                          = 0;
 
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
         context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
@@ -2303,6 +2300,13 @@ void System_Task (
 
     init_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip);
 
+    // Some compromise between dimension of hole, how fast the food will start to flow,
+    // type of food (dimensions and type(s) of forms) etc.
+    context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_SINGLE_MS; // 35 Too little food
+                                                              // 50 Seems ok
+                                                              // Even 10 ms takes it fully down. Add WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10
+    context.iochip.feeding.auto_feeding_double_config = false;
+
     // Init and clear display
 
     context.display_appear_state = DISPLAY_APPEAR_BLACK;
@@ -2315,10 +2319,6 @@ void System_Task (
     context.error_beeper_blip_now_muted = false;
     context.ultimateIRQclearCnt = 0;
     context.radio_log_value = 0;
-
-    #ifdef DEBUG_TEST_WATCHDOG
-        context.do_watchdog_retrigger_ms_debug = false;
-    #endif
 
     for (unsigned iof_button = 0; iof_button < NUM_ELEMENTS(context.buttons_state); iof_button++) {
         context.buttons_state[iof_button].pressed_now = false;
@@ -2393,7 +2393,7 @@ void System_Task (
 
     tmr :> time;
 
-    while(1) {
+    while(1) { // System_Task
         #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
             // OK! No blocking calls with RFM69_driver -> SPI_Master_2 here
         #else
@@ -2466,15 +2466,7 @@ void System_Task (
 
                 num_notify_expexted = 2;
 
-                #ifdef DEBUG_TEST_WATCHDOG
-                if (context.do_watchdog_retrigger_ms_debug) {
-                    // No watchdog_retrigger_with
-                } else
-                #endif
-                {
-                    watchdog_rest_ms = i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS);
-                    // debug_print ("watchdog_rest_ms %u\n", watchdog_rest_ms);
-                }
+                i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS); // ignoring return value
 
                 // Nested select OK since this is not a [[combinable]] task anyhow and will use its own core:
                 while (num_notify_expexted > 0) { // AQU=065 should not be caused by this, as this ran for 1.5 years OK, but only when the radio appared did we see that problem
@@ -2499,22 +2491,55 @@ void System_Task (
 
                 beeper_blip_now_ms_t beeper_blip_now_ms;
                 { // AQU=091 moved out here:
-                    bool trigger_relay1_minutes_on;
+                    bool trigger_relay1_on;
 
                     #if (FLASH_BLACK_BOARD_FAST_RELAY1==1)
-                         trigger_relay1_minutes_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
+                         trigger_relay1_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
                     #else // AQU=091, AQU=092 changed criteria:
-                        trigger_relay1_minutes_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
+                        trigger_relay1_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
                               (context.datetime.hour != context.datetime_old.hour) and // AQU=092 not using trigger_hour_changed_stick that may have been cleared by Handle_Light_Sunrise_Sunset_Etc
                               (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) and
                               ((context.datetime.hour % 3) == 0); // Every third hour (dividable by three)
                     #endif
 
+                    bool manual_trigger_solenoid1_on = (context.iochip.feeding.manual_feeding_trigger == true);
+                    context.iochip.feeding.manual_feeding_trigger = false;
+
+                    bool timed_trigger_solenoid1_on = false;
+                    if (context.datetime.minute != context.datetime_old.minute) {
+                        const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
+                        if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
+                            timed_trigger_solenoid1_on = true; // Always feed once per day
+                        } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
+                            if (context.iochip.feeding.auto_feeding_double_config == true) {
+                                timed_trigger_solenoid1_on = true; // Only if double feed the second time
+                            } else {} // Not allowed
+                        } else {} // Not at this time
+                    } else {} // No minute change
+
                     // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
                     // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE
                     // THIS CODE BLOCKS FOR WRITE_IOCHIP_PINS_WAIT_AFTER_MS
-                    //
-                   beeper_blip_now_ms = handle_iochip_i2c_external_iff (i_i2c_external_commands, context.iochip, trigger_relay1_minutes_on);
+
+                    bool trigger_solenoid1_on = false;
+
+                    if (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) {
+                        trigger_solenoid1_on = (manual_trigger_solenoid1_on or timed_trigger_solenoid1_on);
+                        if (trigger_solenoid1_on) {
+                            if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
+                                context.iochip.relay1_skimmer_pump_minutes_cntdown = 0; // Stop skimmer pump as it would suck up the food!
+                            } else {} // Nothing to stop
+                        } else {} // skimmer pump not on
+                    } else {} // Not day. XMOS [Product Bug #32326] 3Sep2019 on missing "{}" here
+
+                    const bool is_solenoid2_on = (context.iochip.solenoid1_change_cnt_today > 0); // == LED in connector box ON after one feeding (would be delayed by 1 sec)
+
+                    beeper_blip_now_ms = handle_iochip_i2c_external_iff (
+                           i_i2c_external_commands,
+                           context.iochip,
+                           trigger_relay1_on,
+                           trigger_solenoid1_on,
+                           is_solenoid2_on); // == LED in connector box
                 }
 
                 // Shall we beep?
@@ -2643,6 +2668,7 @@ void System_Task (
                         context.radio_send_data = sent;
                     }
                 }
+                i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS); // ignoring return value
             } break;
 
             case i_button_in[int iof_button].button (const button_action_t button_action) : {
@@ -2681,7 +2707,7 @@ void System_Task (
                     i_port_heat_light_commands.do_beeper_blip_pulse (STANDARD_BEEP_MS); // In System_Task
                 } else {} // No blip
 
-                //
+                i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS); // ignoring return value
             } break;
 
             // Interrupt from radio board:
@@ -2689,8 +2715,9 @@ void System_Task (
             #if (LOCAL_IRQ_PORT_HANDLING==0)
                 case c_irq_update :> context.radio_irq_update : { // No guard with (not context.radio_board_fault) here, not necessary
                     radio_irq_handler (i_radio, context);
+                    i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS); // ignoring return value
                 } break;
-            #elif (LOCAL_IRQ_PORT_HANDLING==1)
+            #elif (LOCAL_IRQ_PORT_HANDLING==1) // STANDARD
                 case p_irq when pinsneq (radio_irq_pin_value) :> radio_irq_pin_value: { // edge triggering
 
                     if (not isnull(p_probe)) {
@@ -2705,6 +2732,7 @@ void System_Task (
                     }
 
                     radio_irq_handler (i_radio, context);
+                    i_port_heat_light_commands.watchdog_retrigger_with(BACKGROUND_POLLING_OF_ALL_DATA_FOR_DISPLAY_MS + WATCHDOG_EXTRA_MS); // ignoring return value
                 } break;
             #endif
         }

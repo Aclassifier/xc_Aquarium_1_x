@@ -1500,12 +1500,8 @@ typedef uint16_t aquarium_version_num_t;
     typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
     typedef signed int time32_t;
-# 45 "../src/_globals.h"
-    typedef enum beeper_blip_now_ms_t {
-        SHORT_BEEP_MS = 50,
-        STANDARD_BEEP_MS = 100,
-        LONG_BEEP_MS = 400
-    } beeper_blip_now_ms_t;
+# 51 "../src/_globals.h"
+    typedef unsigned beeper_blip_now_ms_t;
 # 25 "../src/f_conversions.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

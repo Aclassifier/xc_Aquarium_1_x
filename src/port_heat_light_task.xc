@@ -262,8 +262,9 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
         bool pulse_heat_2 = false;
     #endif
 
-    unsigned watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
-    bool     watchdog_timed_out     = false;
+    unsigned watchdog_ticks_cntdown          = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // 10 seconds
+    bool     watchdog_timed_out              = false;
+    unsigned watchdog_retriggered_with_ticks = watchdog_ticks_cntdown; // 10 seconds for now AQU=096 new, and watchdog is reset to this value on _every_ call
 
     unsigned beeper_blip_ticks_cntdown = 0;
 
@@ -382,7 +383,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(WATCHDOG_TICKS_TIMEOUT_MS); // Repeat, assuming watchdog_retrigger_with is dead
 
                         port_value and_eq compl BIT_BEEPER_LOW; // BEEPER ON: clear pin since pull-down
-                        beeper_blip_ticks_cntdown = LONG_BEEP_MS; // The longest beep, easily distinguishable
+                        beeper_blip_ticks_cntdown = NUM_TICKS_FROM_MS(LONG_BEEP_MS); // The longest beep, easily distinguishable AQU=096 did not have NUM_TICKS_FROM_MS, so was even longer
 
                         // Switch off heat
                         port_value and_eq compl BITS_HEAT_BOTH;
@@ -395,7 +396,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                         // after that call that might be killed here within. This ensures that we don't need a button acknowledge should the cause of the watchdog
                         // timeout repair itself. So neither the Temperature_Heater_Task nor the Temperature_Water_Task will know about this,
                         // it has by design not been propagated up. However, System_Task will know by the get_heat_cables_forced_off_by_watchdog and will take
-                        // appropriate action in the display. Test with DEBUG_TEST_WATCHDOG
+                        // appropriate action in the display.
 
                         myport_p32 <: DO_MYPORT_P32(port_value); // Out with beep and heat
                     } else {}
@@ -426,10 +427,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 } else {
                     beeper_blip_ticks_cntdown--;
                 } // Do nothing
-            } break;
+            } break; // timerafter
 
             case i_port_heat_light_commands[int index_of_client].freeze_light_composition (void) : {
                 freeze_on = true;
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].un_freeze_light_composition (void) ->
@@ -442,6 +444,8 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 return_light_composition_while_frozen    = iof_light_composition_level_while_frozen;
                 return_light_control_scheme_while_frozen = light_control_scheme_while_frozen;
+
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (
@@ -524,12 +528,13 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                     iof_light_composition_level_present = iof_light_composition_level; // Check not needed, runtime will take it
                 }
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_composition (void) -> {light_composition_t return_light_composition} : {
 
                 return_light_composition = iof_light_composition_level_present;
-
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_composition_etc_sync_internal (light_intensity_thirds_t return_thirds [NUM_LED_STRIPS]) ->
@@ -562,6 +567,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 } else {}
 
                 return_light_control_scheme = light_control_scheme;
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_is_stable_sync_internal (void) -> {bool return_is_stable} : {
@@ -569,6 +575,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 if (return_is_stable) { // synch_internal
                     light_control_scheme = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
                 } else {}
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].beeper_on_command (const bool beeper_on): {
@@ -578,6 +585,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     port_value or_eq BIT_BEEPER_LOW; // BEEPER_OFF: set pin high
                 }
                 myport_p32 <: DO_MYPORT_P32(port_value);
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].do_beeper_blip_pulse (const beeper_blip_now_ms_t ms): {
@@ -586,7 +594,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 myport_p32 <: DO_MYPORT_P32(port_value);
 
                 beeper_blip_ticks_cntdown = NUM_TICKS_FROM_MS(ms);
-
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             // The idea here is to let this task count down ms and do a beep if it reaches zero before watchdog_retrigger_with is called again.
@@ -597,18 +605,19 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
             //     With respect to overheating of the aquarium it's not an issue if DO_HEAT_PULSING_THROUGH_BOARD_9 is defined (yes, it is!).
             //     It requires active pulses with the monostable hw latch. If pulsing stops the power is switched off. I did a board for this (board 9)
             //
-            case i_port_heat_light_commands[int index_of_client].watchdog_retrigger_with (const unsigned set_new_ms) -> {unsigned return_rest_ms}: {
+            case i_port_heat_light_commands[int index_of_client].watchdog_retrigger_with (const beeper_blip_now_ms_t set_new_ms) -> {unsigned return_rest_ms}: {
                 unsigned watchdog_ticks_cntdown_copy = watchdog_ticks_cntdown;
 
-                return_rest_ms         = NUM_MS_FROM_TICS(watchdog_ticks_cntdown);
-                watchdog_ticks_cntdown = NUM_TICKS_FROM_MS(set_new_ms);
-                debug_print ("NEW=%ums->%ucnt, OLD=%ucnt->%ums\n", set_new_ms, watchdog_ticks_cntdown, watchdog_ticks_cntdown_copy, return_rest_ms);
+                return_rest_ms                  = NUM_MS_FROM_TICS(watchdog_ticks_cntdown);
+                watchdog_retriggered_with_ticks = NUM_TICKS_FROM_MS(set_new_ms);
+
                 // There are 1500 in the formulae, so they are bound to be non-linear:
                 // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=1cnt->1ms
                 // WATCHDOG_EXTRA_MS 3  NEW=1003ms->668cnt, OLD=2cnt->3ms
                 // WATCHDOG_EXTRA_MS 4  NEW=1004ms->669cnt, OLD=3cnt->4ms
                 // WATCHDOG_EXTRA_MS 5  NEW=1005ms->670cnt, OLD=4cnt->6ms
                 watchdog_timed_out = false;
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].heat_cables_command (const heat_cable_commands_t heat_cable_commands): {
@@ -682,10 +691,12 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                     } else {} // Do nothing
 
                 } else {} // No code
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_heat_cables_forced_off_by_watchdog (void) -> {bool return_watchdog_timed_out}: {
                 return_watchdog_timed_out = watchdog_timed_out;
+                watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
         }
     }

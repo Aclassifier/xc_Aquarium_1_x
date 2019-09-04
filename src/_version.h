@@ -17,8 +17,14 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.12" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1512  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.15" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1515  // Is "AQUARIUM_VERSION_NUM_t"
+//                      AQU=097  I could see 1.5.15 flashed take in the button bit from iochip but not blink with any LED or any other outputs!
+// 1.5.15     04Sep2019 AQU=096  On 1.5.12. LONG_BEEP_MS heard all of a sudden(?). I looked at the aquarium, and it lokked like it was at the exact moment when
+//                               the light changed at 22.20 for the next to last before going black for the night
+//                               Now all usage of i_port_heat_light_commands will retrigger watchdog, plus watchdog_retrigger_with explicitly called on every System_Task alive point
+// 1.5.14     03Sep2019 AQU=095  First real version of AUTO_FEEDING
+// 1.5.13     22Aug2019 AQU=094  MY_MCP23008_OUT_SOLENOID1_ON_BIT MY_MCP23008_OUT_SOLENOID2_ON_BIT are new
 //            --------- Running  12Aug2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64548 S:6840 C:51638 D:6070
 // 1.5.12     11Aug2019 AQU=093  When I pressed button in BUTTON_STATE_1 the RELAY1 went on with beep but it went off again on the next second.
@@ -28,12 +34,12 @@ typedef uint16_t aquarium_version_num_t;
 // 1.5.10     08Aug2019 AQU=091  Deciding when to trigger_relay1_minutes_on was hidden behind 1/3 light, now moved out of Handle_Light_Sunrise_Sunset_Etc
 //                               Also, changed trigger_relay1_minutes_on to every hour divisable by three at day
 // 1.5.03     08Aug2019 AQU=090  Another timing scheme for RELAY1 skimmer pump. Average every 3 hours may mean _never_ during a day! (Was anotehr point, see AQU=091)
-// 1.5.02     06Aug2019          SCREEN_10_USB_WATCHDOG_RELAY_BOX changed
+// 1.5.02     06Aug2019          SCREEN_10_X_BOX changed
 //                      AQU=089  RELAY2 will not follow RELAY1 any more
 //                      AQU=088  if BUTTON_STATE_2 -> BUTTON_STATE_1 at midnight
 // 1.5.01     04Aug2019 AQU=087  Changes of string in SCREEN_3_LYSGULERING
 // 1.5.00     03Aug2019 AQU=086  relay1_change_cnt_today was not cleared on new day
-// 1.4.86     02Aug2019          SCREEN_6_KONSTANTER and SCREEN_10_USB_WATCHDOG_RELAY_BOX modified
+// 1.4.86     02Aug2019          SCREEN_6_KONSTANTER and SCREEN_10_X_BOX modified
 //                               AQU=086  relay1_change_cnt_today new
 //                      AQU=085  Light changes fast then soft, after a few seconds. Seems like this is for every change. I must have messed
 //                               up with missing get_light_is_stable_sync_internal after too many set_light_composition
@@ -51,11 +57,11 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.77     26May2019 AQU=079  iochip_output_pins missed an init. _Now_ to Italy!
 // 1.4.76     25May2019 AQU=079  iochip_output_pins fault fixed. No, it does not work as expected. But I have to quit now
 // 1.4.75     25May2019 AQU=079  New thinking around states in relay_button_state_e. Plus last before Italy
-// 1.4.74     22May2019          USB-BOKS VAKTHUND new text in SCREEN_10_USB_WATCHDOG_RELAY_BOX
+// 1.4.74     22May2019          USB-BOKS VAKTHUND new text in SCREEN_10_X_BOX
 // 1.4.73     22May2019 AQU=079  Names only
 // 1.4.72     22may2019 AQU=079  Now number_of_restarts in FRAM memory: number_of_restarts
 // 1.4.71     21May2019 AQU=078  Some interface calls to i2c_internal_commands_if are now not notification based, but client/server
-// 1.4.70     19May2019 AQU=078  SCREEN_10_USB_WATCHDOG_RELAY_BOX is new
+// 1.4.70     19May2019 AQU=078  SCREEN_10_X_BOX is new
 // 1.4.69     19May2019 AQU=078  Starting to use these more seriously. See I2C scope pictures ..95.png - ..97.png
 //                               Name: Get_Random_Light_Composition_For_Some_HourChanges -> Get_Weighted_Random_Light_Composition_For_Some_HourChanges
 //                               name: Get_Random_Light_Composition_For_Half_Light -> Get_Weighted_Random_Light_Composition_For_Half_Light

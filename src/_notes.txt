@@ -5,3 +5,45 @@
 
 [[distributable]] void spi_master (..)
 [[combinable]]    void spi_master_async (..)
+
+
+Search for XMOS_2019_09_03_ISSUE in _aquarium_1_x.xc:
+
+
+bool trigger_solenoid1_on = false;
+
+if (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) {
+
+    if (manual_trigger_solenoid1_on) {
+        trigger_solenoid1_on = true;
+        context.iochip.feeding.manual_feeding_today_cnt++;
+    } else if (timed_trigger_solenoid1_on) {
+        trigger_solenoid1_on = true;
+        context.iochip.feeding.auto_feeding_today_cnt++;
+    } else {}
+    if (trigger_solenoid1_on) {
+        if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
+            context.iochip.relay1_skimmer_pump_minutes_cntdown = 0; // Stop skimmer pump as it would suck up the food!
+        } else {}
+    } else {}
+} else // XMOS_2019_09_03_ISSUE Missing {} here causes
+/*
+    Creating dependencies for _aquarium_1_x.xc
+    Compiling _aquarium_1_x.xc
+    xcc1: internal compiler error
+    Failed in /Users/Shared/buildbot/slave/tools/osx_10_9_nightly_rel_14_4/build/sb/tools_xcc1_c_llvm/BackEnd/LLVM/llvmgen.cpp, line 14277
+        UNREACHABLE
+    For bug reporting instructions, please see:
+    http://www.xmos.com/support
+    xmake[1]: *** [.build/src/_aquarium_1_x.xc.o] Error 1
+    xmake: *** [bin//_aquarium_1_x.xe] Error
+*/
+
+const bool is_solenoid2_on = (context.iochip.solenoid1_change_cnt_today > 0); // == LED in connector box ON after one feeding (would be delayed by 1 sec)
+
+beeper_blip_now_ms = handle_iochip_i2c_external_iff (
+       i_i2c_external_commands,
+       context.iochip,
+       trigger_relay1_on,
+       trigger_solenoid1_on,
+       is_solenoid2_on); // == LED in connector box

@@ -112,7 +112,8 @@ typedef interface port_heat_light_commands_if {
     void heat_cables_command                    (const heat_cable_commands_t heat_cable_commands);
     bool get_heat_cables_forced_off_by_watchdog (void); // bool return is return_watchdog_timed_out
 
-    unsigned watchdog_retrigger_with (const unsigned ms); // Returns zero when timed out. See WATCHDOG_TICKS_TIMEOUT_MS above
+    unsigned watchdog_retrigger_with (const beeper_blip_now_ms_t ms); // Returns zero when timed out. See WATCHDOG_TICKS_TIMEOUT_MS above.
+                                                                      // AQU=096 ALSO SETS NEW countdown-value used on every other call
 
 } port_heat_light_commands_if;
 

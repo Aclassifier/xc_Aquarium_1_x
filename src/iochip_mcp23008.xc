@@ -63,6 +63,8 @@ void init_iochip_i2c_external_iff (
     iochip.button_ustate.u.state               = BUTTON_STATE_0;
     iochip.trigger_relay1_minutes_on_previous  = false;
     iochip.relay1_change_cnt_today             = 0;
+    iochip.solenoid1_change_cnt_today          = 0;
+    iochip.feeding.manual_feeding_trigger      = false;
 
     i_i2c_external_commands.init_iochip (iochip.err_cnt);
 
@@ -75,12 +77,14 @@ void init_iochip_i2c_external_iff (
 beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
         client     i2c_external_commands_if i_i2c_external_commands,
         iochip_t   &iochip,
-        const bool trigger_relay1_minutes_on)
+        const bool trigger_relay1_on,
+        const bool trigger_solenoid1_on,
+        const bool is_solenoid2_on)
 {
     // Check USB_WATCHDOG_AND_RELAY_BOX (AQU=078)
     // HANDLE MCP23008 BUTTON AND WATCHDOG TRIGGER
 
-    beeper_blip_now_ms_t beeper_blip_now_ms = false;
+    beeper_blip_now_ms_t beeper_blip_now_ms = NO_BEEP_MS; // AQU=096 was false
     iochip.seconds_cnt++;
 
     if (iochip.err_cnt != 0) { // Init MPC23008 again
@@ -104,6 +108,7 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
                 iochip.button_ustate.u.cnt++;
                 if (iochip.button_ustate.u.state == BUTTON_STATE_ROOF) {
                     iochip.button_ustate.u.state = BUTTON_STATE_0;
+                    iochip.feeding.manual_feeding_trigger = true; // Now going down to RELAY_TO_OFF so that pump is not active, on next round
                 } else {}
 
                 beeper_blip_now_ms = ((iochip.button_ustate.u.cnt+1) * STANDARD_BEEP_MS); // 100, 200 or 300
@@ -126,11 +131,11 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
 
             // HANDLE AUTOMATIC RELAY HANDLING FOR BUTTON_STATE_1
             //
-            if (iochip.trigger_relay1_minutes_on_previous != trigger_relay1_minutes_on) {
-                iochip.trigger_relay1_minutes_on_previous = trigger_relay1_minutes_on; // Throw it away even if not used below:
+            if (iochip.trigger_relay1_minutes_on_previous != trigger_relay1_on) {
+                iochip.trigger_relay1_minutes_on_previous = trigger_relay1_on; // Throw it away even if not used below:
 
                 if (iochip.button_ustate.u.state == BUTTON_STATE_1) {
-                    if (trigger_relay1_minutes_on == true) {
+                    if (trigger_relay1_on == true) {
                         if (iochip.relay1_skimmer_pump_state == RELAY_IS_OFF) {
                             // Make ready to set relay automatically:
                             iochip.relay1_skimmer_pump_state           = RELAY_TO_ON;
@@ -167,6 +172,17 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
 
             } else {}
 
+            if (trigger_solenoid1_on) {
+                iochip.port_pins or_eq MY_MCP23008_OUT_SOLENOID1_ON_MASK;
+                iochip.solenoid1_change_cnt_today++;
+            } else {}
+
+            if (is_solenoid2_on) {
+                iochip.port_pins or_eq MY_MCP23008_OUT_SOLENOID2_ON_MASK; // Is LED in connector box: ON
+            } else {
+                iochip.port_pins bitand compl MY_MCP23008_OUT_SOLENOID2_ON_MASK; // Is LED in connector box: OFF
+            }
+
             // ALWAYS TOGGLE WATCHDOG PIN:
 
             if ((iochip.port_pins bitand MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK) == 0) {
@@ -181,7 +197,6 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
                 case BUTTON_STATE_0: {
                     // RED   GREEN
                     // BLINK OFF
-
                     if ((iochip.seconds_cnt % 2) == 0) {
                         iochip.port_pins and_eq compl MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED ON
                     } else {
@@ -192,26 +207,29 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
                 case BUTTON_STATE_1: {
                     // RED   GREEN
                     // OFF   OFF
-
                     iochip.port_pins or_eq MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
                     iochip.port_pins or_eq MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
                 } break;
                 case BUTTON_STATE_2: {
                     // RED   GREEN
                     // OFF   BLINK
-
                     if ((iochip.seconds_cnt % 2) == 0) {
                         iochip.port_pins and_eq compl MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED ON
                     } else {
                         iochip.port_pins or_eq        MY_MCP23008_OUT_GREEN_LED_OFF_MASK; // GREEN LED OFF
                     };
                     iochip.port_pins     or_eq        MY_MCP23008_OUT_RED_LED_OFF_MASK;   // RED LED OFF
-
                 } break;
-
                 default: {} break; // Should not happen
             }
+
             i_i2c_external_commands.write_iochip_pins (iochip.err_cnt, iochip.port_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
+
+            if (trigger_solenoid1_on) {
+                delay_milliseconds (iochip.solenoid1_ms - WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
+                iochip.port_pins and_eq compl MY_MCP23008_OUT_SOLENOID1_ON_MASK;
+                i_i2c_external_commands.write_iochip_pins (iochip.err_cnt, iochip.port_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
+            } else {}
         } else {}
     } else {} // iochip.err_cnt has value, cable out or no USB_WATCHDOG_AND_RELAY_BOX present
     

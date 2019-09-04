@@ -1461,12 +1461,8 @@ int * alias _safe_errno_addr(void);
     typedef enum {false,true} bool;
 # 24 "../src/_globals.h"
     typedef signed int time32_t;
-# 45 "../src/_globals.h"
-    typedef enum beeper_blip_now_ms_t {
-        SHORT_BEEP_MS = 50,
-        STANDARD_BEEP_MS = 100,
-        LONG_BEEP_MS = 400
-    } beeper_blip_now_ms_t;
+# 51 "../src/_globals.h"
+    typedef unsigned beeper_blip_now_ms_t;
 # 20 "../src/tempchip_mcp9808.xc" 2
 # 1 "../src/param.h" 1
 # 13 "../src/param.h"

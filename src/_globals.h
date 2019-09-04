@@ -42,11 +42,13 @@
 
     // FOR ONE-ONE connection MASTER/SLAVE MUST BE UNIQUE
 
-    typedef enum beeper_blip_now_ms_t {
-        SHORT_BEEP_MS    =  50,
-        STANDARD_BEEP_MS = 100, // Or multiples: 100, 200, 300
-        LONG_BEEP_MS     = 400
-    } beeper_blip_now_ms_t;
+    // AQU=096 removed type beeper_blip_now_ms_t as enum, using defines instead:
+    #define NO_BEEP_MS         0
+    #define SHORT_BEEP_MS     50
+    #define STANDARD_BEEP_MS 100 // Or multiples: 100, 200, 300
+    #define LONG_BEEP_MS     400
+
+    typedef unsigned beeper_blip_now_ms_t; // AQU=096 now just an unsigned
 
     #ifndef ISAQUARIUM
         #error must be defined in makefile
