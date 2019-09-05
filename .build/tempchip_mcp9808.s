@@ -31,18 +31,6 @@
 	.globl _i.i2c_external_commands_if.read_temperature_ok.fns.group
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.max.nstackwords, _i.i2c_external_commands_if.read_temperature_ok.nstackwords.group, 0
 	.max_reduce _i.i2c_external_commands_if.read_temperature_ok.fns, _i.i2c_external_commands_if.read_temperature_ok.fns.group, 0
-	.weak _i.i2c_external_commands_if.init_iochip.maxchanends.group
-	.max_reduce _i.i2c_external_commands_if.init_iochip.max.maxchanends, _i.i2c_external_commands_if.init_iochip.maxchanends.group, 0
-	.weak _i.i2c_external_commands_if.init_iochip.maxcores.group
-	.max_reduce _i.i2c_external_commands_if.init_iochip.max.maxcores, _i.i2c_external_commands_if.init_iochip.maxcores.group, 0
-	.weak _i.i2c_external_commands_if.init_iochip.maxtimers.group
-	.max_reduce _i.i2c_external_commands_if.init_iochip.max.maxtimers, _i.i2c_external_commands_if.init_iochip.maxtimers.group, 0
-	.weak _i.i2c_external_commands_if.init_iochip.nstackwords.group
-	.globl _i.i2c_external_commands_if.init_iochip.nstackwords.group
-	.weak _i.i2c_external_commands_if.init_iochip.fns.group
-	.globl _i.i2c_external_commands_if.init_iochip.fns.group
-	.max_reduce _i.i2c_external_commands_if.init_iochip.max.nstackwords, _i.i2c_external_commands_if.init_iochip.nstackwords.group, 0
-	.max_reduce _i.i2c_external_commands_if.init_iochip.fns, _i.i2c_external_commands_if.init_iochip.fns.group, 0
 	.weak _i.i2c_external_commands_if.write_iochip_pins.maxchanends.group
 	.max_reduce _i.i2c_external_commands_if.write_iochip_pins.max.maxchanends, _i.i2c_external_commands_if.write_iochip_pins.maxchanends.group, 0
 	.weak _i.i2c_external_commands_if.write_iochip_pins.maxcores.group
@@ -273,7 +261,7 @@ _i.i2c_external_commands_if._chan.get_iochip_button:
 	.cfi_startproc
 	getr r2, 2
 	setd res[r2], r0
-	add r0, r2, 4
+	add r0, r2, 3
 	out res[r2], r0
 	outct res[r2], 2
 	chkct res[r2], 1
@@ -312,26 +300,36 @@ _i.i2c_external_commands_if._chan.get_iochip_button:
 	.cc_top _i.i2c_external_commands_if._chan.write_iochip_pins.function,_i.i2c_external_commands_if._chan.write_iochip_pins
 _i.i2c_external_commands_if._chan.write_iochip_pins:
 	.cfi_startproc
-	getr r11, 2
-	setd res[r11], r0
-	add r0, r11, 3
-	out res[r11], r0
-	outct res[r11], 2
-	chkct res[r11], 1
-	ldw r0, r1[0]
-	out res[r11], r0
-	outt res[r11], r2
-	out res[r11], r3
-	outct res[r11], 2
-	in r0, res[r11]
-	in r0, res[r11]
-	stw r0, r1[0]
-	chkct res[r11], 1
-	freer res[r11]
+	extsp 1
+.Ltmp6:
+	.cfi_def_cfa_offset 4
+	stw r4, sp[0]
+.Ltmp7:
+	.cfi_offset 4, -4
+	ldw r11, sp[2]
+	getr r4, 2
+	setd res[r4], r0
+	add r0, r4, 2
+	out res[r4], r0
+	outct res[r4], 2
+	chkct res[r4], 1
+	out res[r4], r1
+	ldw r0, r2[0]
+	out res[r4], r0
+	outt res[r4], r3
+	out res[r4], r11
+	outct res[r4], 2
+	in r0, res[r4]
+	in r0, res[r4]
+	stw r0, r2[0]
+	chkct res[r4], 1
+	freer res[r4]
+	ldw r4, sp[0]
+	ldaw sp, sp[1]
 	retsp 0
 	# RETURN_REG_HOLDER
 	.cc_bottom _i.i2c_external_commands_if._chan.write_iochip_pins.function
-	.set	_i.i2c_external_commands_if._chan.write_iochip_pins.nstackwords,0
+	.set	_i.i2c_external_commands_if._chan.write_iochip_pins.nstackwords,1
 	.globl	_i.i2c_external_commands_if._chan.write_iochip_pins.nstackwords
 	.weak	_i.i2c_external_commands_if._chan.write_iochip_pins.nstackwords
 	.set	_i.i2c_external_commands_if._chan.write_iochip_pins.maxcores,1
@@ -343,47 +341,8 @@ _i.i2c_external_commands_if._chan.write_iochip_pins:
 	.set	_i.i2c_external_commands_if._chan.write_iochip_pins.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.write_iochip_pins.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.write_iochip_pins.maxchanends
-.Ltmp6:
-	.size	_i.i2c_external_commands_if._chan.write_iochip_pins, .Ltmp6-_i.i2c_external_commands_if._chan.write_iochip_pins
-	.cfi_endproc
-
-	.weak	_i.i2c_external_commands_if._chan.init_iochip
-	.align	2
-	.type	_i.i2c_external_commands_if._chan.init_iochip,@function
-	.cc_top _i.i2c_external_commands_if._chan.init_iochip.function,_i.i2c_external_commands_if._chan.init_iochip
-_i.i2c_external_commands_if._chan.init_iochip:
-	.cfi_startproc
-	getr r2, 2
-	setd res[r2], r0
-	add r0, r2, 2
-	out res[r2], r0
-	outct res[r2], 2
-	chkct res[r2], 1
-	ldw r0, r1[0]
-	out res[r2], r0
-	outct res[r2], 2
-	in r0, res[r2]
-	in r0, res[r2]
-	stw r0, r1[0]
-	chkct res[r2], 1
-	freer res[r2]
-	retsp 0
-	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan.init_iochip.function
-	.set	_i.i2c_external_commands_if._chan.init_iochip.nstackwords,0
-	.globl	_i.i2c_external_commands_if._chan.init_iochip.nstackwords
-	.weak	_i.i2c_external_commands_if._chan.init_iochip.nstackwords
-	.set	_i.i2c_external_commands_if._chan.init_iochip.maxcores,1
-	.globl	_i.i2c_external_commands_if._chan.init_iochip.maxcores
-	.weak	_i.i2c_external_commands_if._chan.init_iochip.maxcores
-	.set	_i.i2c_external_commands_if._chan.init_iochip.maxtimers,0
-	.globl	_i.i2c_external_commands_if._chan.init_iochip.maxtimers
-	.weak	_i.i2c_external_commands_if._chan.init_iochip.maxtimers
-	.set	_i.i2c_external_commands_if._chan.init_iochip.maxchanends,1
-	.globl	_i.i2c_external_commands_if._chan.init_iochip.maxchanends
-	.weak	_i.i2c_external_commands_if._chan.init_iochip.maxchanends
-.Ltmp7:
-	.size	_i.i2c_external_commands_if._chan.init_iochip, .Ltmp7-_i.i2c_external_commands_if._chan.init_iochip
+.Ltmp8:
+	.size	_i.i2c_external_commands_if._chan.write_iochip_pins, .Ltmp8-_i.i2c_external_commands_if._chan.write_iochip_pins
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok
@@ -393,12 +352,12 @@ _i.i2c_external_commands_if._chan.init_iochip:
 _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.cfi_startproc
 	entsp 2
-.Ltmp8:
-	.cfi_def_cfa_offset 8
 .Ltmp9:
+	.cfi_def_cfa_offset 8
+.Ltmp10:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp10:
+.Ltmp11:
 	.cfi_offset 4, -4
 	mov r3, r0
 	getr r4, 2
@@ -432,8 +391,8 @@ _i.i2c_external_commands_if._chan.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends,(1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.read_temperature_ok.maxchanends
-.Ltmp11:
-	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp11-_i.i2c_external_commands_if._chan.read_temperature_ok
+.Ltmp12:
+	.size	_i.i2c_external_commands_if._chan.read_temperature_ok, .Ltmp12-_i.i2c_external_commands_if._chan.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan.trigger_command
@@ -467,8 +426,8 @@ _i.i2c_external_commands_if._chan.trigger_command:
 	.set	_i.i2c_external_commands_if._chan.trigger_command.maxchanends,1
 	.globl	_i.i2c_external_commands_if._chan.trigger_command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan.trigger_command.maxchanends
-.Ltmp12:
-	.size	_i.i2c_external_commands_if._chan.trigger_command, .Ltmp12-_i.i2c_external_commands_if._chan.trigger_command
+.Ltmp13:
+	.size	_i.i2c_external_commands_if._chan.trigger_command, .Ltmp13-_i.i2c_external_commands_if._chan.trigger_command
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.get_iochip_button
@@ -478,21 +437,21 @@ _i.i2c_external_commands_if._chan.trigger_command:
 _i.i2c_external_commands_if._chan_yield.get_iochip_button:
 	.cfi_startproc
 	entsp 3
-.Ltmp13:
-	.cfi_def_cfa_offset 12
 .Ltmp14:
+	.cfi_def_cfa_offset 12
+.Ltmp15:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp15:
+.Ltmp16:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp16:
+.Ltmp17:
 	.cfi_offset 5, -8
 	mov r4, r1
 	ldw r1, r0[0]
 	getr r5, 2
 	setd res[r5], r1
-	add r1, r5, 4
+	add r1, r5, 3
 	out res[r5], r1
 	outct res[r5], 2
 	chkct res[r5], 1
@@ -526,8 +485,8 @@ _i.i2c_external_commands_if._chan_yield.get_iochip_button:
 	.set	_i.i2c_external_commands_if._chan_yield.get_iochip_button.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.get_iochip_button.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.get_iochip_button.maxchanends
-.Ltmp17:
-	.size	_i.i2c_external_commands_if._chan_yield.get_iochip_button, .Ltmp17-_i.i2c_external_commands_if._chan_yield.get_iochip_button
+.Ltmp18:
+	.size	_i.i2c_external_commands_if._chan_yield.get_iochip_button, .Ltmp18-_i.i2c_external_commands_if._chan_yield.get_iochip_button
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.write_iochip_pins
@@ -537,28 +496,30 @@ _i.i2c_external_commands_if._chan_yield.get_iochip_button:
 _i.i2c_external_commands_if._chan_yield.write_iochip_pins:
 	.cfi_startproc
 	entsp 3
-.Ltmp18:
-	.cfi_def_cfa_offset 12
 .Ltmp19:
+	.cfi_def_cfa_offset 12
+.Ltmp20:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp20:
+.Ltmp21:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp21:
+.Ltmp22:
 	.cfi_offset 5, -8
-	mov r4, r1
-	ldw r1, r0[0]
+	mov r4, r2
+	ldw r2, sp[4]
+	ldw r11, r0[0]
 	getr r5, 2
-	setd res[r5], r1
-	add r1, r5, 3
-	out res[r5], r1
+	setd res[r5], r11
+	add r11, r5, 2
+	out res[r5], r11
 	outct res[r5], 2
 	chkct res[r5], 1
+	out res[r5], r1
 	ldw r1, r4[0]
 	out res[r5], r1
-	outt res[r5], r2
-	out res[r5], r3
+	outt res[r5], r3
+	out res[r5], r2
 	outct res[r5], 2
 	ldw r2, r0[1]
 	ldc r1, 0
@@ -585,65 +546,8 @@ _i.i2c_external_commands_if._chan_yield.write_iochip_pins:
 	.set	_i.i2c_external_commands_if._chan_yield.write_iochip_pins.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.write_iochip_pins.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.write_iochip_pins.maxchanends
-.Ltmp22:
-	.size	_i.i2c_external_commands_if._chan_yield.write_iochip_pins, .Ltmp22-_i.i2c_external_commands_if._chan_yield.write_iochip_pins
-	.cfi_endproc
-
-	.weak	_i.i2c_external_commands_if._chan_yield.init_iochip
-	.align	2
-	.type	_i.i2c_external_commands_if._chan_yield.init_iochip,@function
-	.cc_top _i.i2c_external_commands_if._chan_yield.init_iochip.function,_i.i2c_external_commands_if._chan_yield.init_iochip
-_i.i2c_external_commands_if._chan_yield.init_iochip:
-	.cfi_startproc
-	entsp 3
 .Ltmp23:
-	.cfi_def_cfa_offset 12
-.Ltmp24:
-	.cfi_offset 15, 0
-	stw r4, sp[2]
-.Ltmp25:
-	.cfi_offset 4, -4
-	stw r5, sp[1]
-.Ltmp26:
-	.cfi_offset 5, -8
-	mov r4, r1
-	ldw r1, r0[0]
-	getr r5, 2
-	setd res[r5], r1
-	add r1, r5, 2
-	out res[r5], r1
-	outct res[r5], 2
-	chkct res[r5], 1
-	ldw r1, r4[0]
-	out res[r5], r1
-	outct res[r5], 2
-	ldw r2, r0[1]
-	ldc r1, 0
-	mov r0, r5
-	bl __interface_client_call_y
-	in r0, res[r5]
-	stw r0, r4[0]
-	chkct res[r5], 1
-	freer res[r5]
-	ldw r5, sp[1]
-	ldw r4, sp[2]
-	retsp 3
-	# RETURN_REG_HOLDER
-	.cc_bottom _i.i2c_external_commands_if._chan_yield.init_iochip.function
-	.set	_i.i2c_external_commands_if._chan_yield.init_iochip.nstackwords,((_i.i2c_external_commands_if._client_call_y.max.nstackwords $M ($D __interface_client_call_y.nstackwords ? __interface_client_call_y.nstackwords $: _i.i2c_external_commands_if._client_call_y.max.nstackwords)) + 3)
-	.globl	_i.i2c_external_commands_if._chan_yield.init_iochip.nstackwords
-	.weak	_i.i2c_external_commands_if._chan_yield.init_iochip.nstackwords
-	.set	_i.i2c_external_commands_if._chan_yield.init_iochip.maxcores,($D __interface_client_call_y.maxcores ? __interface_client_call_y.maxcores $: _i.i2c_external_commands_if._client_call_y.max.maxcores) $M 1
-	.globl	_i.i2c_external_commands_if._chan_yield.init_iochip.maxcores
-	.weak	_i.i2c_external_commands_if._chan_yield.init_iochip.maxcores
-	.set	_i.i2c_external_commands_if._chan_yield.init_iochip.maxtimers,($D __interface_client_call_y.maxtimers ? __interface_client_call_y.maxtimers $: _i.i2c_external_commands_if._client_call_y.max.maxtimers) $M 0
-	.globl	_i.i2c_external_commands_if._chan_yield.init_iochip.maxtimers
-	.weak	_i.i2c_external_commands_if._chan_yield.init_iochip.maxtimers
-	.set	_i.i2c_external_commands_if._chan_yield.init_iochip.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
-	.globl	_i.i2c_external_commands_if._chan_yield.init_iochip.maxchanends
-	.weak	_i.i2c_external_commands_if._chan_yield.init_iochip.maxchanends
-.Ltmp27:
-	.size	_i.i2c_external_commands_if._chan_yield.init_iochip, .Ltmp27-_i.i2c_external_commands_if._chan_yield.init_iochip
+	.size	_i.i2c_external_commands_if._chan_yield.write_iochip_pins, .Ltmp23-_i.i2c_external_commands_if._chan_yield.write_iochip_pins
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok
@@ -653,15 +557,15 @@ _i.i2c_external_commands_if._chan_yield.init_iochip:
 _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.cfi_startproc
 	entsp 3
-.Ltmp28:
+.Ltmp24:
 	.cfi_def_cfa_offset 12
-.Ltmp29:
+.Ltmp25:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp30:
+.Ltmp26:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp31:
+.Ltmp27:
 	.cfi_offset 5, -8
 	mov r4, r0
 	ldw r0, r1[0]
@@ -700,8 +604,8 @@ _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 	.set	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M (1 + sin_char_array.maxchanends) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.read_temperature_ok.maxchanends
-.Ltmp32:
-	.size	_i.i2c_external_commands_if._chan_yield.read_temperature_ok, .Ltmp32-_i.i2c_external_commands_if._chan_yield.read_temperature_ok
+.Ltmp28:
+	.size	_i.i2c_external_commands_if._chan_yield.read_temperature_ok, .Ltmp28-_i.i2c_external_commands_if._chan_yield.read_temperature_ok
 	.cfi_endproc
 
 	.weak	_i.i2c_external_commands_if._chan_yield.trigger_command
@@ -711,12 +615,12 @@ _i.i2c_external_commands_if._chan_yield.read_temperature_ok:
 _i.i2c_external_commands_if._chan_yield.trigger_command:
 	.cfi_startproc
 	entsp 2
-.Ltmp33:
+.Ltmp29:
 	.cfi_def_cfa_offset 8
-.Ltmp34:
+.Ltmp30:
 	.cfi_offset 15, 0
 	stw r4, sp[1]
-.Ltmp35:
+.Ltmp31:
 	.cfi_offset 4, -4
 	ldw r2, r0[0]
 	getr r4, 2
@@ -748,8 +652,8 @@ _i.i2c_external_commands_if._chan_yield.trigger_command:
 	.set	_i.i2c_external_commands_if._chan_yield.trigger_command.maxchanends,(1 + ($D __interface_client_call_y.maxchanends ? __interface_client_call_y.maxchanends $: _i.i2c_external_commands_if._client_call_y.max.maxchanends)) $M 1
 	.globl	_i.i2c_external_commands_if._chan_yield.trigger_command.maxchanends
 	.weak	_i.i2c_external_commands_if._chan_yield.trigger_command.maxchanends
-.Ltmp36:
-	.size	_i.i2c_external_commands_if._chan_yield.trigger_command, .Ltmp36-_i.i2c_external_commands_if._chan_yield.trigger_command
+.Ltmp32:
+	.size	_i.i2c_external_commands_if._chan_yield.trigger_command, .Ltmp32-_i.i2c_external_commands_if._chan_yield.trigger_command
 	.cfi_endproc
 
 	.globl	Tempchip_MCP9808_Begin_Ok
@@ -757,30 +661,30 @@ _i.i2c_external_commands_if._chan_yield.trigger_command:
 	.type	Tempchip_MCP9808_Begin_Ok,@function
 	.cc_top Tempchip_MCP9808_Begin_Ok.function,Tempchip_MCP9808_Begin_Ok
 Tempchip_MCP9808_Begin_Ok:
-.Lfunc_begin12:
+.Lfunc_begin10:
 	.loc	1 33 0
 	.cfi_startproc
 .Lxtalabel0:
 	entsp 3
-.Ltmp37:
+.Ltmp33:
 	.cfi_def_cfa_offset 12
-.Ltmp38:
+.Ltmp34:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp39:
+.Ltmp35:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp40:
+.Ltmp36:
 	.cfi_offset 5, -8
 	mov r4, r1
-.Ltmp41:
+.Ltmp37:
 	mov r5, r0
-.Ltmp42:
+.Ltmp38:
 	.loc	1 36 0 prologue_end
 	ldc r0, 0
 	st8 r2, r4[r0]
 	ldc r2, 6
-.Ltmp43:
+.Ltmp39:
 	.loc	1 38 0
 	mov r0, r5
 .Lxta.call_labels0:
@@ -789,13 +693,13 @@ Tempchip_MCP9808_Begin_Ok:
 	ldw r1, r4[1]
 	.loc	1 39 5
 	eq r1, r1, 1
-	bf r1, .LBB12_3
-.Ltmp44:
+	bf r1, .LBB10_3
+.Ltmp40:
 .Lxtalabel1:
 	ldc r1, 84
 	eq r0, r0, r1
-	bf r0, .LBB12_3
-.Ltmp45:
+	bf r0, .LBB10_3
+.Ltmp41:
 .Lxtalabel2:
 	mkmsk r2, 3
 	.loc	1 41 0
@@ -812,12 +716,12 @@ Tempchip_MCP9808_Begin_Ok:
 	eq r0, r0, r2
 	.loc	1 42 9
 	and r0, r1, r0
-	bu .LBB12_4
-.Ltmp46:
-.LBB12_3:
+	bu .LBB10_4
+.Ltmp42:
+.LBB10_3:
 .Lxtalabel3:
 	ldc r0, 0
-.LBB12_4:
+.LBB10_4:
 .Lxtalabel4:
 	ldw r5, sp[1]
 	ldw r4, sp[2]
@@ -832,99 +736,99 @@ Tempchip_MCP9808_Begin_Ok:
 	.globl	Tempchip_MCP9808_Begin_Ok.maxtimers
 	.set	Tempchip_MCP9808_Begin_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Begin_Ok.maxchanends
-.Ltmp47:
-	.size	Tempchip_MCP9808_Begin_Ok, .Ltmp47-Tempchip_MCP9808_Begin_Ok
-.Lfunc_end12:
+.Ltmp43:
+	.size	Tempchip_MCP9808_Begin_Ok, .Ltmp43-Tempchip_MCP9808_Begin_Ok
+.Lfunc_end10:
 	.cfi_endproc
 
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
-	.cc_top .LCPI13_0.data,.LCPI13_0
+	.cc_top .LCPI11_0.data,.LCPI11_0
 	.align	4
-	.type	.LCPI13_0,@object
-	.size	.LCPI13_0, 4
-.LCPI13_0:
+	.type	.LCPI11_0,@object
+	.size	.LCPI11_0, 4
+.LCPI11_0:
 	.long	3435973837
-	.cc_bottom .LCPI13_0.data
+	.cc_bottom .LCPI11_0.data
 	.text
 	.globl	Tempchip_MCP9808_ReadTempC
 	.align	2
 	.type	Tempchip_MCP9808_ReadTempC,@function
 	.cc_top Tempchip_MCP9808_ReadTempC.function,Tempchip_MCP9808_ReadTempC
 Tempchip_MCP9808_ReadTempC:
-.Lfunc_begin13:
+.Lfunc_begin11:
 	.loc	1 57 0
 	.cfi_startproc
 .Lxtalabel5:
 	entsp 3
-.Ltmp48:
+.Ltmp44:
 	.cfi_def_cfa_offset 12
-.Ltmp49:
+.Ltmp45:
 	.cfi_offset 15, 0
 	stw r4, sp[2]
-.Ltmp50:
+.Ltmp46:
 	.cfi_offset 4, -4
 	stw r5, sp[1]
-.Ltmp51:
+.Ltmp47:
 	.cfi_offset 5, -8
 	mov r4, r2
-.Ltmp52:
+.Ltmp48:
 	mov r5, r1
-.Ltmp53:
+.Ltmp49:
 	ldc r2, 5
 	.loc	1 59 0 prologue_end
-.Ltmp54:
+.Ltmp50:
 .Lxta.call_labels2:
 	bl Tempchip_MCP9808_Read16
-.Ltmp55:
+.Ltmp51:
 	.loc	1 61 5
 	ldw r1, r5[1]
 	.loc	1 61 5
 	eq r1, r1, 1
-	bf r1, .LBB13_5
-.Ltmp56:
+	bf r1, .LBB11_5
+.Ltmp52:
 .Lxtalabel6:
 	ldc r1, 4096
 	.loc	1 62 9
 	and r1, r0, r1
 	.loc	1 62 9
-	bf r1, .LBB13_2
-.Ltmp57:
+	bf r1, .LBB11_2
+.Ltmp53:
 .Lxtalabel7:
 	ldc r0, 0
 	.loc	1 77 0
 	stw r0, r4[0]
-	bu .LBB13_4
-.Ltmp58:
-.LBB13_5:
+	bu .LBB11_4
+.Ltmp54:
+.LBB11_5:
 .Lxtalabel8:
 	ldc r0, 0
 	.loc	1 82 0
 	stw r0, r4[0]
 	ldc r0, 999
-	bu .LBB13_4
-.Ltmp59:
-.LBB13_2:
+	bu .LBB11_4
+.Ltmp55:
+.LBB11_2:
 .Lxtalabel9:
 	ldc r1, 4095
 	.loc	1 64 0
-.Ltmp60:
+.Ltmp56:
 	and r0, r0, r1
-.Ltmp61:
+.Ltmp57:
 	ldc r1, 100
 	.loc	1 71 0
 	mul r0, r0, r1
-.Ltmp62:
+.Ltmp58:
 	ldc r1, 0
-	ldw r2, cp[.LCPI13_0]
+	ldw r2, cp[.LCPI11_0]
 	.loc	1 72 0
 	lmul r0, r1, r0, r2, r1, r1
 	shr r0, r0, 7
-.Ltmp63:
+.Ltmp59:
 	mkmsk r1, 1
 	.loc	1 74 0
 	stw r1, r4[0]
-.Ltmp64:
-.LBB13_4:
+.Ltmp60:
+.LBB11_4:
 	sext r0, 16
 	ldw r5, sp[1]
 	ldw r4, sp[2]
@@ -939,9 +843,9 @@ Tempchip_MCP9808_ReadTempC:
 	.globl	Tempchip_MCP9808_ReadTempC.maxtimers
 	.set	Tempchip_MCP9808_ReadTempC.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M 0
 	.globl	Tempchip_MCP9808_ReadTempC.maxchanends
-.Ltmp65:
-	.size	Tempchip_MCP9808_ReadTempC, .Ltmp65-Tempchip_MCP9808_ReadTempC
-.Lfunc_end13:
+.Ltmp61:
+	.size	Tempchip_MCP9808_ReadTempC, .Ltmp61-Tempchip_MCP9808_ReadTempC
+.Lfunc_end11:
 	.cfi_endproc
 
 	.globl	Tempchip_MCP9808_Write16
@@ -949,67 +853,67 @@ Tempchip_MCP9808_ReadTempC:
 	.type	Tempchip_MCP9808_Write16,@function
 	.cc_top Tempchip_MCP9808_Write16.function,Tempchip_MCP9808_Write16
 Tempchip_MCP9808_Write16:
-.Lfunc_begin14:
+.Lfunc_begin12:
 	.loc	1 109 0
 	.cfi_startproc
 .Lxtalabel10:
 	entsp 7
-.Ltmp66:
+.Ltmp62:
 	.cfi_def_cfa_offset 28
-.Ltmp67:
+.Ltmp63:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp68:
+.Ltmp64:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp69:
+.Ltmp65:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp70:
+.Ltmp66:
 	.cfi_offset 6, -12
-.Ltmp71:
+.Ltmp67:
 	mov r4, r1
-.Ltmp72:
+.Ltmp68:
 	.loc	1 114 0 prologue_end
 	ldc r5, 0
-.Ltmp73:
+.Ltmp69:
 	.loc	1 110 0
 	ld8u r1, r4[r5]
 	.loc	1 112 0
-.Ltmp74:
+.Ltmp70:
 	shr r6, r3, 8
 	ldaw r11, sp[3]
 	.loc	1 114 0
-.Ltmp75:
+.Ltmp71:
 	st8 r6, r11[r5]
 	mkmsk r6, 1
 	.loc	1 114 0
 	or r6, r11, r6
 	.loc	1 114 0
 	st8 r3, r6[r5]
-.Ltmp76:
+.Ltmp72:
 	ldc r3, 2
-.Ltmp77:
+.Ltmp73:
 	.loc	1 117 0
 	stw r3, sp[2]
 	stw r0, sp[1]
 	mov r0, r1
-.Ltmp78:
+.Ltmp74:
 	mov r1, r2
-.Ltmp79:
+.Ltmp75:
 	mov r2, r11
 .Lxta.call_labels3:
 	bl i2c_master_write_reg
-.Ltmp80:
+.Ltmp76:
 	.loc	1 117 0
 	stw r0, r4[1]
 	ldw r6, sp[4]
 	ldw r5, sp[5]
 	ldw r4, sp[6]
-.Ltmp81:
+.Ltmp77:
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp82:
+.Ltmp78:
 	.cc_bottom Tempchip_MCP9808_Write16.function
 	.set	Tempchip_MCP9808_Write16.nstackwords,(i2c_master_write_reg.nstackwords + 7)
 	.globl	Tempchip_MCP9808_Write16.nstackwords
@@ -1019,9 +923,9 @@ Tempchip_MCP9808_Write16:
 	.globl	Tempchip_MCP9808_Write16.maxtimers
 	.set	Tempchip_MCP9808_Write16.maxchanends,i2c_master_write_reg.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Write16.maxchanends
-.Ltmp83:
-	.size	Tempchip_MCP9808_Write16, .Ltmp83-Tempchip_MCP9808_Write16
-.Lfunc_end14:
+.Ltmp79:
+	.size	Tempchip_MCP9808_Write16, .Ltmp79-Tempchip_MCP9808_Write16
+.Lfunc_end12:
 	.cfi_endproc
 
 	.globl	Tempchip_MCP9808_Read16
@@ -1029,70 +933,70 @@ Tempchip_MCP9808_Write16:
 	.type	Tempchip_MCP9808_Read16,@function
 	.cc_top Tempchip_MCP9808_Read16.function,Tempchip_MCP9808_Read16
 Tempchip_MCP9808_Read16:
-.Lfunc_begin15:
+.Lfunc_begin13:
 	.loc	1 122 0
 	.cfi_startproc
 .Lxtalabel11:
 	entsp 7
-.Ltmp84:
+.Ltmp80:
 	.cfi_def_cfa_offset 28
-.Ltmp85:
+.Ltmp81:
 	.cfi_offset 15, 0
 	stw r4, sp[6]
-.Ltmp86:
+.Ltmp82:
 	.cfi_offset 4, -4
 	stw r5, sp[5]
-.Ltmp87:
+.Ltmp83:
 	.cfi_offset 5, -8
 	stw r6, sp[4]
-.Ltmp88:
+.Ltmp84:
 	.cfi_offset 6, -12
-.Ltmp89:
+.Ltmp85:
 	mov r4, r1
-.Ltmp90:
+.Ltmp86:
 	.loc	1 134 0 prologue_end
 	ldc r6, 0
-.Ltmp91:
+.Ltmp87:
 	.loc	1 123 0
 	ld8u r1, r4[r6]
 	ldaw r5, sp[3]
 	.loc	1 125 0
-.Ltmp92:
+.Ltmp88:
 	st16 r6, r5[r6]
-.Ltmp93:
+.Ltmp89:
 	ldc r3, 2
 	.loc	1 129 0
-.Ltmp94:
+.Ltmp90:
 	stw r3, sp[2]
 	stw r0, sp[1]
 	mov r0, r1
-.Ltmp95:
+.Ltmp91:
 	mov r1, r2
-.Ltmp96:
+.Ltmp92:
 	mov r2, r5
 .Lxta.call_labels4:
 	bl i2c_master_read_reg
-.Ltmp97:
+.Ltmp93:
 	.loc	1 129 0
 	stw r0, r4[1]
 	.loc	1 134 0
-.Ltmp98:
+.Ltmp94:
 	ld16s r0, r5[r6]
 	zext r0, 16
 	.loc	1 134 0
 	shl r1, r0, 8
 	shr r0, r0, 8
 	.loc	1 136 0
-.Ltmp99:
+.Ltmp95:
 	or r0, r1, r0
 	zext r0, 16
 	ldw r6, sp[4]
 	ldw r5, sp[5]
 	ldw r4, sp[6]
-.Ltmp100:
+.Ltmp96:
 	retsp 7
 	# RETURN_REG_HOLDER
-.Ltmp101:
+.Ltmp97:
 	.cc_bottom Tempchip_MCP9808_Read16.function
 	.set	Tempchip_MCP9808_Read16.nstackwords,(i2c_master_read_reg.nstackwords + 7)
 	.globl	Tempchip_MCP9808_Read16.nstackwords
@@ -1102,9 +1006,9 @@ Tempchip_MCP9808_Read16:
 	.globl	Tempchip_MCP9808_Read16.maxtimers
 	.set	Tempchip_MCP9808_Read16.maxchanends,i2c_master_read_reg.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Read16.maxchanends
-.Ltmp102:
-	.size	Tempchip_MCP9808_Read16, .Ltmp102-Tempchip_MCP9808_Read16
-.Lfunc_end15:
+.Ltmp98:
+	.size	Tempchip_MCP9808_Read16, .Ltmp98-Tempchip_MCP9808_Read16
+.Lfunc_end13:
 	.cfi_endproc
 
 	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok
@@ -1112,58 +1016,58 @@ Tempchip_MCP9808_Read16:
 	.type	Tempchip_MCP9808_Shutdown_Wake_Ok,@function
 	.cc_top Tempchip_MCP9808_Shutdown_Wake_Ok.function,Tempchip_MCP9808_Shutdown_Wake_Ok
 Tempchip_MCP9808_Shutdown_Wake_Ok:
-.Lfunc_begin16:
+.Lfunc_begin14:
 	.loc	1 90 0
 	.cfi_startproc
 .Lxtalabel12:
 	entsp 4
-.Ltmp103:
+.Ltmp99:
 	.cfi_def_cfa_offset 16
-.Ltmp104:
+.Ltmp100:
 	.cfi_offset 15, 0
 	stw r4, sp[3]
-.Ltmp105:
+.Ltmp101:
 	.cfi_offset 4, -4
 	stw r5, sp[2]
-.Ltmp106:
+.Ltmp102:
 	.cfi_offset 5, -8
 	stw r6, sp[1]
-.Ltmp107:
+.Ltmp103:
 	.cfi_offset 6, -12
 	mov r6, r2
-.Ltmp108:
+.Ltmp104:
 	mov r4, r1
-.Ltmp109:
+.Ltmp105:
 	mov r5, r0
-.Ltmp110:
+.Ltmp106:
 	mkmsk r2, 1
 	.loc	1 93 0 prologue_end
-.Ltmp111:
+.Ltmp107:
 .Lxta.call_labels5:
 	bl Tempchip_MCP9808_Read16
 	.loc	1 95 5
 	ldw r1, r4[1]
 	.loc	1 95 5
 	eq r1, r1, 1
-	bf r1, .LBB16_1
-.Ltmp112:
+	bf r1, .LBB14_1
+.Ltmp108:
 .Lxtalabel13:
 	ldc r1, 256
 	.loc	1 96 9
-	bf r6, .LBB16_6
-.Ltmp113:
+	bf r6, .LBB14_6
+.Ltmp109:
 .Lxtalabel14:
 	.loc	1 97 0
 	or r3, r0, r1
-	bu .LBB16_4
-.LBB16_1:
+	bu .LBB14_4
+.LBB14_1:
 	ldc r0, 0
-	bu .LBB16_5
-.LBB16_6:
+	bu .LBB14_5
+.LBB14_6:
 .Lxtalabel15:
 	.loc	1 100 0
 	xor r3, r0, r1
-.LBB16_4:
+.LBB14_4:
 .Lxtalabel16:
 	mkmsk r2, 1
 	.loc	1 98 0
@@ -1171,13 +1075,13 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	mov r1, r4
 .Lxta.call_labels6:
 	bl Tempchip_MCP9808_Write16
-.Ltmp114:
+.Ltmp110:
 	.loc	1 103 9
 	ldw r0, r4[1]
 	.loc	1 103 9
 	eq r0, r0, 1
-.Ltmp115:
-.LBB16_5:
+.Ltmp111:
+.LBB14_5:
 	ldw r6, sp[1]
 	ldw r5, sp[2]
 	ldw r4, sp[3]
@@ -1192,9 +1096,9 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxtimers
 	.set	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends,Tempchip_MCP9808_Read16.maxchanends $M Tempchip_MCP9808_Write16.maxchanends $M 0
 	.globl	Tempchip_MCP9808_Shutdown_Wake_Ok.maxchanends
-.Ltmp116:
-	.size	Tempchip_MCP9808_Shutdown_Wake_Ok, .Ltmp116-Tempchip_MCP9808_Shutdown_Wake_Ok
-.Lfunc_end16:
+.Ltmp112:
+	.size	Tempchip_MCP9808_Shutdown_Wake_Ok, .Ltmp112-Tempchip_MCP9808_Shutdown_Wake_Ok
+.Lfunc_end14:
 	.cfi_endproc
 
 .Ldebug_end0:
@@ -1216,178 +1120,182 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string6:
 .asciiz"__TYPE_9"
 .Linfo_string7:
-.asciiz"false"
+.asciiz"false_no_init"
 .Linfo_string8:
-.asciiz"true"
+.asciiz"true_do_init"
 .Linfo_string9:
-.asciiz"__TYPE_7"
+.asciiz"__TYPE_11"
 .Linfo_string10:
-.asciiz"VER_TEMPC_CHIPS"
+.asciiz"false"
 .Linfo_string11:
-.asciiz"GET_TEMPC_ALL"
+.asciiz"true"
 .Linfo_string12:
-.asciiz"INIT_IOCHIP"
+.asciiz"__TYPE_7"
 .Linfo_string13:
-.asciiz"READ_IOCHIP_BUTTON"
+.asciiz"VER_TEMPC_CHIPS"
 .Linfo_string14:
-.asciiz"i2c_command_external_e"
+.asciiz"GET_TEMPC_ALL"
 .Linfo_string15:
-.asciiz"I2C_ERR"
+.asciiz"INIT_IOCHIP"
 .Linfo_string16:
-.asciiz"I2C_OK"
+.asciiz"READ_IOCHIP_BUTTON"
 .Linfo_string17:
-.asciiz"I2C_PARAM_ERR"
+.asciiz"i2c_command_external_e"
 .Linfo_string18:
-.asciiz"__TYPE_8"
+.asciiz"I2C_ERR"
 .Linfo_string19:
-.asciiz"_i.button_if._chan.button"
+.asciiz"I2C_OK"
 .Linfo_string20:
-.asciiz"_i.button_if._chan_yield.button"
+.asciiz"I2C_PARAM_ERR"
 .Linfo_string21:
-.asciiz"_i.i2c_external_commands_if._chan.get_iochip_button"
+.asciiz"__TYPE_8"
 .Linfo_string22:
-.asciiz"_i.i2c_external_commands_if._chan.write_iochip_pins"
+.asciiz"_i.button_if._chan.button"
 .Linfo_string23:
-.asciiz"_i.i2c_external_commands_if._chan.init_iochip"
+.asciiz"_i.button_if._chan_yield.button"
 .Linfo_string24:
-.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
+.asciiz"_i.i2c_external_commands_if._chan.get_iochip_button"
 .Linfo_string25:
-.asciiz"i2c_temp_ok"
+.asciiz"_i.i2c_external_commands_if._chan.write_iochip_pins"
 .Linfo_string26:
-.asciiz"sizetype"
+.asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
 .Linfo_string27:
-.asciiz"i2c_temp_onetenthDegC"
+.asciiz"i2c_temp_ok"
 .Linfo_string28:
-.asciiz"short"
+.asciiz"sizetype"
 .Linfo_string29:
-.asciiz"tag_i2c_temps_t"
+.asciiz"i2c_temp_onetenthDegC"
 .Linfo_string30:
-.asciiz"_i.i2c_external_commands_if._chan.trigger_command"
+.asciiz"short"
 .Linfo_string31:
-.asciiz"_i.i2c_external_commands_if._chan_yield.get_iochip_button"
+.asciiz"tag_i2c_temps_t"
 .Linfo_string32:
-.asciiz"_i.i2c_external_commands_if._chan_yield.write_iochip_pins"
+.asciiz"_i.i2c_external_commands_if._chan.trigger_command"
 .Linfo_string33:
-.asciiz"_i.i2c_external_commands_if._chan_yield.init_iochip"
+.asciiz"_i.i2c_external_commands_if._chan_yield.get_iochip_button"
 .Linfo_string34:
-.asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
+.asciiz"_i.i2c_external_commands_if._chan_yield.write_iochip_pins"
 .Linfo_string35:
-.asciiz"_i.i2c_external_commands_if._chan_yield.trigger_command"
+.asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
 .Linfo_string36:
-.asciiz"delay_seconds"
+.asciiz"_i.i2c_external_commands_if._chan_yield.trigger_command"
 .Linfo_string37:
-.asciiz"delay_milliseconds"
+.asciiz"delay_seconds"
 .Linfo_string38:
-.asciiz"delay_microseconds"
+.asciiz"delay_milliseconds"
 .Linfo_string39:
-.asciiz"_safe_memcmp"
+.asciiz"delay_microseconds"
 .Linfo_string40:
-.asciiz"int"
+.asciiz"_safe_memcmp"
 .Linfo_string41:
-.asciiz"_safe_memmove"
+.asciiz"int"
 .Linfo_string42:
-.asciiz"unsigned char"
+.asciiz"_safe_memmove"
 .Linfo_string43:
-.asciiz"_safe_memset"
+.asciiz"unsigned char"
 .Linfo_string44:
-.asciiz"Tempchip_MCP9808_Begin_Ok"
+.asciiz"_safe_memset"
 .Linfo_string45:
-.asciiz"Tempchip_MCP9808_ReadTempC"
+.asciiz"Tempchip_MCP9808_Begin_Ok"
 .Linfo_string46:
-.asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
+.asciiz"Tempchip_MCP9808_ReadTempC"
 .Linfo_string47:
-.asciiz"Tempchip_MCP9808_Write16"
+.asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
 .Linfo_string48:
-.asciiz"Tempchip_MCP9808_Read16"
+.asciiz"Tempchip_MCP9808_Write16"
 .Linfo_string49:
-.asciiz"unsigned short"
+.asciiz"Tempchip_MCP9808_Read16"
 .Linfo_string50:
-.asciiz"i2c_external_config"
+.asciiz"unsigned short"
 .Linfo_string51:
-.asciiz"scl"
+.asciiz"i2c_external_config"
 .Linfo_string52:
-.asciiz"port"
+.asciiz"scl"
 .Linfo_string53:
-.asciiz"sda"
+.asciiz"port"
 .Linfo_string54:
-.asciiz"clockTicks"
+.asciiz"sda"
 .Linfo_string55:
-.asciiz"unsigned int"
+.asciiz"clockTicks"
 .Linfo_string56:
-.asciiz"r_i2c"
+.asciiz"unsigned int"
 .Linfo_string57:
-.asciiz"i2c_external_params"
+.asciiz"r_i2c"
 .Linfo_string58:
-.asciiz"_use_dev_address"
+.asciiz"i2c_external_params"
 .Linfo_string59:
-.asciiz"_result"
+.asciiz"_use_dev_address"
 .Linfo_string60:
-.asciiz"tag_i2c_master_param_t"
+.asciiz"_result"
 .Linfo_string61:
-.asciiz"address"
+.asciiz"tag_i2c_master_param_t"
 .Linfo_string62:
-.asciiz"read_val"
+.asciiz"address"
 .Linfo_string63:
-.asciiz"ok"
+.asciiz"read_val"
 .Linfo_string64:
-.asciiz"math_i32"
+.asciiz"ok"
 .Linfo_string65:
-.asciiz"long"
+.asciiz"math_i32"
 .Linfo_string66:
-.asciiz"data"
+.asciiz"long"
 .Linfo_string67:
-.asciiz"reg"
+.asciiz"data"
 .Linfo_string68:
-.asciiz"val"
+.asciiz"reg"
 .Linfo_string69:
-.asciiz"reg_addr"
+.asciiz"val"
 .Linfo_string70:
-.asciiz"nbytes"
+.asciiz"reg_addr"
 .Linfo_string71:
-.asciiz"device"
+.asciiz"nbytes"
 .Linfo_string72:
-.asciiz"msb"
+.asciiz"device"
 .Linfo_string73:
-.asciiz"lsb"
+.asciiz"msb"
 .Linfo_string74:
-.asciiz"return_val"
+.asciiz"lsb"
 .Linfo_string75:
-.asciiz"shutdown"
+.asciiz"return_val"
 .Linfo_string76:
-.asciiz"conf_shutdown"
+.asciiz"shutdown"
 .Linfo_string77:
-.asciiz"conf_reg_address"
+.asciiz"conf_shutdown"
 .Linfo_string78:
-.asciiz"dest"
+.asciiz"conf_reg_address"
 .Linfo_string79:
-.asciiz"chanend"
+.asciiz"dest"
 .Linfo_string80:
-.asciiz"param1"
+.asciiz"chanend"
 .Linfo_string81:
-.asciiz"s"
+.asciiz"param1"
 .Linfo_string82:
-.asciiz"yield"
+.asciiz"s"
 .Linfo_string83:
-.asciiz"yieldArg"
+.asciiz"yield"
 .Linfo_string84:
-.asciiz"param2"
+.asciiz"yieldArg"
 .Linfo_string85:
-.asciiz"param3"
+.asciiz"param2"
 .Linfo_string86:
-.asciiz"clientNotifyFlag"
+.asciiz"param3"
 .Linfo_string87:
-.asciiz"delay"
+.asciiz"param4"
 .Linfo_string88:
-.asciiz"s1"
+.asciiz"clientNotifyFlag"
 .Linfo_string89:
-.asciiz"s2"
+.asciiz"delay"
 .Linfo_string90:
-.asciiz"n"
+.asciiz"s1"
 .Linfo_string91:
+.asciiz"s2"
+.Linfo_string92:
+.asciiz"n"
+.Linfo_string93:
 .asciiz"c"
 	.section	.debug_info,"",@progbits
 .L.debug_info_begin0:
-	.long	1780
+	.long	1764
 	.short	3
 	.long	.Lsection_abbrev
 	.byte	4
@@ -1422,7 +1330,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	0
 	.byte	2
-	.long	.Linfo_string14
+	.long	.Linfo_string12
 	.byte	4
 	.byte	3
 	.long	.Linfo_string10
@@ -1430,62 +1338,72 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	3
 	.long	.Linfo_string11
 	.byte	1
-	.byte	3
-	.long	.Linfo_string12
+	.byte	0
 	.byte	2
+	.long	.Linfo_string17
+	.byte	4
 	.byte	3
 	.long	.Linfo_string13
-	.byte	3
-	.byte	0
-	.byte	4
-	.long	.Linfo_string9
-	.byte	4
-	.byte	1
-	.byte	33
-	.byte	3
-	.long	.Linfo_string7
 	.byte	0
 	.byte	3
-	.long	.Linfo_string8
+	.long	.Linfo_string14
 	.byte	1
-	.byte	0
-	.byte	4
-	.long	.Linfo_string18
-	.byte	4
-	.byte	1
-	.byte	33
 	.byte	3
 	.long	.Linfo_string15
-	.byte	0
+	.byte	2
 	.byte	3
 	.long	.Linfo_string16
+	.byte	3
+	.byte	0
+	.byte	4
+	.long	.Linfo_string12
+	.byte	4
+	.byte	1
+	.byte	33
+	.byte	3
+	.long	.Linfo_string10
+	.byte	0
+	.byte	3
+	.long	.Linfo_string11
+	.byte	1
+	.byte	0
+	.byte	4
+	.long	.Linfo_string21
+	.byte	4
+	.byte	1
+	.byte	33
+	.byte	3
+	.long	.Linfo_string18
+	.byte	0
+	.byte	3
+	.long	.Linfo_string19
 	.byte	1
 	.byte	3
-	.long	.Linfo_string17
+	.long	.Linfo_string20
 	.byte	2
 	.byte	0
 	.byte	4
-	.long	.Linfo_string9
+	.long	.Linfo_string12
 	.byte	4
 	.byte	1
 	.byte	57
 	.byte	3
-	.long	.Linfo_string7
+	.long	.Linfo_string10
 	.byte	0
 	.byte	3
-	.long	.Linfo_string8
+	.long	.Linfo_string11
 	.byte	1
 	.byte	0
 	.byte	4
-	.long	.Linfo_string9
+	.long	.Linfo_string12
 	.byte	4
 	.byte	1
 	.byte	90
 	.byte	3
-	.long	.Linfo_string7
+	.long	.Linfo_string10
 	.byte	0
 	.byte	3
-	.long	.Linfo_string8
+	.long	.Linfo_string11
 	.byte	1
 	.byte	0
 	.byte	5
@@ -1493,37 +1411,37 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string44
-	.long	.Linfo_string44
+	.long	.Linfo_string45
+	.long	.Linfo_string45
 	.byte	1
 	.byte	33
-	.long	106
+	.long	125
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc0
-	.long	.Linfo_string50
+	.long	.Linfo_string51
 	.byte	1
 	.byte	33
-	.long	1582
+	.long	1561
 	.byte	6
 	.long	.Ldebug_loc1
-	.long	.Linfo_string57
+	.long	.Linfo_string58
 	.byte	1
 	.byte	33
-	.long	1646
+	.long	1625
 	.byte	6
 	.long	.Ldebug_loc2
-	.long	.Linfo_string61
+	.long	.Linfo_string62
 	.byte	1
 	.byte	33
-	.long	1518
+	.long	1497
 	.byte	7
 	.long	.Ldebug_ranges1
 	.byte	8
-	.long	.Linfo_string62
+	.long	.Linfo_string63
 	.byte	1
 	.byte	35
-	.long	1575
+	.long	1554
 	.byte	0
 	.byte	0
 	.byte	5
@@ -1531,45 +1449,45 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string45
-	.long	.Linfo_string45
+	.long	.Linfo_string46
+	.long	.Linfo_string46
 	.byte	1
 	.byte	57
-	.long	1131
+	.long	1130
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc3
-	.long	.Linfo_string50
+	.long	.Linfo_string51
 	.byte	1
 	.byte	57
-	.long	1582
+	.long	1561
 	.byte	6
 	.long	.Ldebug_loc4
-	.long	.Linfo_string57
+	.long	.Linfo_string58
 	.byte	1
 	.byte	57
-	.long	1646
+	.long	1625
 	.byte	6
 	.long	.Ldebug_loc5
-	.long	.Linfo_string63
+	.long	.Linfo_string64
 	.byte	1
 	.byte	57
-	.long	1684
+	.long	1663
 	.byte	7
 	.long	.Ldebug_ranges4
 	.byte	8
-	.long	.Linfo_string62
+	.long	.Linfo_string63
 	.byte	1
 	.byte	59
-	.long	1575
+	.long	1554
 	.byte	7
 	.long	.Ldebug_ranges3
 	.byte	9
 	.long	.Ldebug_loc6
-	.long	.Linfo_string64
+	.long	.Linfo_string65
 	.byte	1
 	.byte	64
-	.long	1689
+	.long	1668
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1578,82 +1496,82 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string47
-	.long	.Linfo_string47
+	.long	.Linfo_string48
+	.long	.Linfo_string48
 	.byte	1
 	.byte	109
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc7
-	.long	.Linfo_string50
+	.long	.Linfo_string51
 	.byte	1
 	.byte	109
-	.long	1582
+	.long	1561
 	.byte	6
 	.long	.Ldebug_loc8
-	.long	.Linfo_string57
+	.long	.Linfo_string58
 	.byte	1
 	.byte	109
-	.long	1646
+	.long	1625
 	.byte	6
 	.long	.Ldebug_loc9
-	.long	.Linfo_string67
-	.byte	1
-	.byte	109
-	.long	1518
-	.byte	6
-	.long	.Ldebug_loc10
 	.long	.Linfo_string68
 	.byte	1
 	.byte	109
-	.long	1575
+	.long	1497
+	.byte	6
+	.long	.Ldebug_loc10
+	.long	.Linfo_string69
+	.byte	1
+	.byte	109
+	.long	1554
 	.byte	7
 	.long	.Ldebug_ranges11
 	.byte	8
-	.long	.Linfo_string71
+	.long	.Linfo_string72
 	.byte	1
 	.byte	110
-	.long	1456
+	.long	1435
 	.byte	7
 	.long	.Ldebug_ranges10
 	.byte	9
 	.long	.Ldebug_loc11
-	.long	.Linfo_string69
+	.long	.Linfo_string70
 	.byte	1
 	.byte	111
-	.long	1456
+	.long	1435
 	.byte	7
 	.long	.Ldebug_ranges9
 	.byte	8
-	.long	.Linfo_string72
+	.long	.Linfo_string73
 	.byte	1
 	.byte	112
-	.long	1518
+	.long	1497
 	.byte	7
 	.long	.Ldebug_ranges8
 	.byte	8
-	.long	.Linfo_string73
+	.long	.Linfo_string74
 	.byte	1
 	.byte	113
-	.long	1518
+	.long	1497
 	.byte	7
 	.long	.Ldebug_ranges7
 	.byte	11
 	.byte	2
 	.byte	145
 	.byte	12
-	.long	.Linfo_string66
+	.long	.Linfo_string67
 	.byte	1
 	.byte	114
-	.long	1696
+	.long	1675
 	.byte	7
 	.long	.Ldebug_ranges6
 	.byte	12
 	.byte	2
-	.long	.Linfo_string70
+	.long	.Linfo_string71
 	.byte	1
 	.byte	115
-	.long	1456
+	.long	1435
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1666,81 +1584,81 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string48
-	.long	.Linfo_string48
+	.long	.Linfo_string49
+	.long	.Linfo_string49
 	.byte	1
 	.byte	122
-	.long	1575
+	.long	1554
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc12
-	.long	.Linfo_string50
+	.long	.Linfo_string51
 	.byte	1
 	.byte	122
-	.long	1582
+	.long	1561
 	.byte	6
 	.long	.Ldebug_loc13
-	.long	.Linfo_string57
+	.long	.Linfo_string58
 	.byte	1
 	.byte	122
-	.long	1646
+	.long	1625
 	.byte	6
 	.long	.Ldebug_loc14
-	.long	.Linfo_string67
+	.long	.Linfo_string68
 	.byte	1
 	.byte	122
-	.long	1518
+	.long	1497
 	.byte	7
 	.long	.Ldebug_ranges19
 	.byte	8
-	.long	.Linfo_string71
+	.long	.Linfo_string72
 	.byte	1
 	.byte	123
-	.long	1456
+	.long	1435
 	.byte	7
 	.long	.Ldebug_ranges18
 	.byte	9
 	.long	.Ldebug_loc15
-	.long	.Linfo_string69
+	.long	.Linfo_string70
 	.byte	1
 	.byte	124
-	.long	1456
+	.long	1435
 	.byte	7
 	.long	.Ldebug_ranges17
 	.byte	8
-	.long	.Linfo_string66
+	.long	.Linfo_string67
 	.byte	1
 	.byte	125
-	.long	1696
+	.long	1675
 	.byte	7
 	.long	.Ldebug_ranges16
 	.byte	12
 	.byte	2
-	.long	.Linfo_string70
+	.long	.Linfo_string71
 	.byte	1
 	.byte	126
-	.long	1456
+	.long	1435
 	.byte	7
 	.long	.Ldebug_ranges15
 	.byte	8
-	.long	.Linfo_string74
+	.long	.Linfo_string75
 	.byte	1
 	.byte	127
-	.long	1575
+	.long	1554
 	.byte	7
 	.long	.Ldebug_ranges14
 	.byte	8
-	.long	.Linfo_string72
+	.long	.Linfo_string73
 	.byte	1
 	.byte	134
-	.long	1575
+	.long	1554
 	.byte	7
 	.long	.Ldebug_ranges13
 	.byte	8
-	.long	.Linfo_string73
+	.long	.Linfo_string74
 	.byte	1
 	.byte	135
-	.long	1575
+	.long	1554
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1754,445 +1672,431 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	1
 	.byte	94
 	.byte	1
-	.long	.Linfo_string46
-	.long	.Linfo_string46
+	.long	.Linfo_string47
+	.long	.Linfo_string47
 	.byte	1
 	.byte	90
-	.long	175
+	.long	194
 	.byte	1
 	.byte	6
 	.long	.Ldebug_loc16
-	.long	.Linfo_string50
+	.long	.Linfo_string51
 	.byte	1
 	.byte	90
-	.long	1582
+	.long	1561
 	.byte	6
 	.long	.Ldebug_loc17
-	.long	.Linfo_string57
+	.long	.Linfo_string58
 	.byte	1
 	.byte	90
-	.long	1646
+	.long	1625
 	.byte	6
 	.long	.Ldebug_loc18
-	.long	.Linfo_string75
+	.long	.Linfo_string76
 	.byte	1
 	.byte	90
-	.long	175
+	.long	194
 	.byte	7
 	.long	.Ldebug_ranges22
 	.byte	8
-	.long	.Linfo_string76
+	.long	.Linfo_string77
 	.byte	1
 	.byte	92
-	.long	1575
+	.long	1554
 	.byte	7
 	.long	.Ldebug_ranges21
 	.byte	8
-	.long	.Linfo_string77
+	.long	.Linfo_string78
 	.byte	1
 	.byte	93
-	.long	1575
+	.long	1554
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	13
-	.long	.Linfo_string19
-	.long	.Linfo_string19
+	.long	.Linfo_string22
+	.long	.Linfo_string22
 	.byte	1
 	.byte	14
-	.long	.Linfo_string78
-	.long	1709
-	.byte	14
-	.long	.Linfo_string80
-	.long	1716
-	.byte	0
-	.byte	13
-	.long	.Linfo_string20
-	.long	.Linfo_string20
-	.byte	1
+	.long	.Linfo_string79
+	.long	1688
 	.byte	14
 	.long	.Linfo_string81
-	.long	1721
-	.byte	14
-	.long	.Linfo_string80
-	.long	1716
+	.long	1695
 	.byte	0
 	.byte	13
-	.long	.Linfo_string21
-	.long	.Linfo_string21
+	.long	.Linfo_string23
+	.long	.Linfo_string23
 	.byte	1
 	.byte	14
-	.long	.Linfo_string78
-	.long	1709
+	.long	.Linfo_string82
+	.long	1700
 	.byte	14
-	.long	.Linfo_string80
-	.long	1753
+	.long	.Linfo_string81
+	.long	1695
 	.byte	0
 	.byte	13
-	.long	.Linfo_string22
-	.long	.Linfo_string22
+	.long	.Linfo_string24
+	.long	.Linfo_string24
 	.byte	1
 	.byte	14
-	.long	.Linfo_string78
-	.long	1709
+	.long	.Linfo_string79
+	.long	1688
 	.byte	14
-	.long	.Linfo_string80
-	.long	1753
+	.long	.Linfo_string81
+	.long	1732
+	.byte	0
+	.byte	13
+	.long	.Linfo_string25
+	.long	.Linfo_string25
+	.byte	1
 	.byte	14
-	.long	.Linfo_string84
-	.long	1758
+	.long	.Linfo_string79
+	.long	1688
+	.byte	14
+	.long	.Linfo_string81
+	.long	1737
 	.byte	14
 	.long	.Linfo_string85
-	.long	1763
-	.byte	0
-	.byte	13
-	.long	.Linfo_string23
-	.long	.Linfo_string23
-	.byte	1
-	.byte	14
-	.long	.Linfo_string78
-	.long	1709
-	.byte	14
-	.long	.Linfo_string80
-	.long	1753
-	.byte	0
-	.byte	15
-	.long	.Linfo_string24
-	.long	.Linfo_string24
-	.long	1071
-	.byte	1
-	.byte	14
-	.long	.Linfo_string78
-	.long	1709
+	.long	1732
 	.byte	14
 	.long	.Linfo_string86
-	.long	1639
+	.long	1742
+	.byte	14
+	.long	.Linfo_string87
+	.long	1747
+	.byte	0
+	.byte	15
+	.long	.Linfo_string26
+	.long	.Linfo_string26
+	.long	1070
+	.byte	1
+	.byte	14
+	.long	.Linfo_string79
+	.long	1688
+	.byte	14
+	.long	.Linfo_string88
+	.long	1618
 	.byte	0
 	.byte	16
-	.long	.Linfo_string29
+	.long	.Linfo_string31
 	.byte	20
 	.byte	17
-	.long	.Linfo_string25
-	.long	1098
+	.long	.Linfo_string27
+	.long	1097
 	.byte	0
 	.byte	17
-	.long	.Linfo_string27
-	.long	1118
+	.long	.Linfo_string29
+	.long	1117
 	.byte	12
 	.byte	0
 	.byte	18
-	.long	56
+	.long	75
 	.byte	19
-	.long	1111
+	.long	1110
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	20
-	.long	.Linfo_string26
+	.long	.Linfo_string28
 	.byte	8
 	.byte	7
 	.byte	18
-	.long	1131
+	.long	1130
 	.byte	19
-	.long	1111
+	.long	1110
 	.byte	0
 	.byte	2
 	.byte	0
 	.byte	21
-	.long	.Linfo_string28
+	.long	.Linfo_string30
 	.byte	5
 	.byte	2
 	.byte	13
-	.long	.Linfo_string30
-	.long	.Linfo_string30
-	.byte	1
-	.byte	14
-	.long	.Linfo_string78
-	.long	1709
-	.byte	14
-	.long	.Linfo_string80
-	.long	1768
-	.byte	0
-	.byte	13
-	.long	.Linfo_string31
-	.long	.Linfo_string31
-	.byte	1
-	.byte	14
-	.long	.Linfo_string81
-	.long	1721
-	.byte	14
-	.long	.Linfo_string80
-	.long	1753
-	.byte	0
-	.byte	13
 	.long	.Linfo_string32
 	.long	.Linfo_string32
 	.byte	1
 	.byte	14
+	.long	.Linfo_string79
+	.long	1688
+	.byte	14
 	.long	.Linfo_string81
-	.long	1721
+	.long	1752
+	.byte	0
+	.byte	13
+	.long	.Linfo_string33
+	.long	.Linfo_string33
+	.byte	1
 	.byte	14
-	.long	.Linfo_string80
-	.long	1753
+	.long	.Linfo_string82
+	.long	1700
 	.byte	14
-	.long	.Linfo_string84
-	.long	1758
+	.long	.Linfo_string81
+	.long	1732
+	.byte	0
+	.byte	13
+	.long	.Linfo_string34
+	.long	.Linfo_string34
+	.byte	1
+	.byte	14
+	.long	.Linfo_string82
+	.long	1700
+	.byte	14
+	.long	.Linfo_string81
+	.long	1737
 	.byte	14
 	.long	.Linfo_string85
-	.long	1763
-	.byte	0
-	.byte	13
-	.long	.Linfo_string33
-	.long	.Linfo_string33
-	.byte	1
-	.byte	14
-	.long	.Linfo_string81
-	.long	1721
-	.byte	14
-	.long	.Linfo_string80
-	.long	1753
-	.byte	0
-	.byte	15
-	.long	.Linfo_string34
-	.long	.Linfo_string34
-	.long	1071
-	.byte	1
-	.byte	14
-	.long	.Linfo_string81
-	.long	1721
+	.long	1732
 	.byte	14
 	.long	.Linfo_string86
-	.long	1639
+	.long	1742
+	.byte	14
+	.long	.Linfo_string87
+	.long	1747
+	.byte	0
+	.byte	15
+	.long	.Linfo_string35
+	.long	.Linfo_string35
+	.long	1070
+	.byte	1
+	.byte	14
+	.long	.Linfo_string82
+	.long	1700
+	.byte	14
+	.long	.Linfo_string88
+	.long	1618
 	.byte	0
 	.byte	13
-	.long	.Linfo_string35
-	.long	.Linfo_string35
+	.long	.Linfo_string36
+	.long	.Linfo_string36
 	.byte	1
+	.byte	14
+	.long	.Linfo_string82
+	.long	1700
 	.byte	14
 	.long	.Linfo_string81
-	.long	1721
-	.byte	14
-	.long	.Linfo_string80
-	.long	1768
-	.byte	0
-	.byte	22
-	.long	.Linfo_string36
-	.long	.Linfo_string36
-	.byte	2
-	.byte	46
-	.byte	1
-	.byte	23
-	.long	.Linfo_string87
-	.byte	2
-	.byte	46
-	.long	1639
+	.long	1752
 	.byte	0
 	.byte	22
 	.long	.Linfo_string37
 	.long	.Linfo_string37
 	.byte	2
-	.byte	54
+	.byte	46
 	.byte	1
-	.byte	23
-	.long	.Linfo_string87
-	.byte	2
-	.byte	54
-	.long	1639
-	.byte	0
-	.byte	22
-	.long	.Linfo_string38
-	.long	.Linfo_string38
-	.byte	2
-	.byte	62
-	.byte	1
-	.byte	23
-	.long	.Linfo_string87
-	.byte	2
-	.byte	62
-	.long	1639
-	.byte	0
-	.byte	24
-	.long	.Linfo_string39
-	.long	.Linfo_string39
-	.byte	3
-	.byte	8
-	.long	1456
-	.byte	1
-	.byte	23
-	.long	.Linfo_string88
-	.byte	3
-	.byte	8
-	.long	1773
 	.byte	23
 	.long	.Linfo_string89
-	.byte	3
-	.byte	8
-	.long	1773
-	.byte	23
-	.long	.Linfo_string90
-	.byte	3
-	.byte	8
-	.long	1639
+	.byte	2
+	.byte	46
+	.long	1618
 	.byte	0
-	.byte	21
+	.byte	22
+	.long	.Linfo_string38
+	.long	.Linfo_string38
+	.byte	2
+	.byte	54
+	.byte	1
+	.byte	23
+	.long	.Linfo_string89
+	.byte	2
+	.byte	54
+	.long	1618
+	.byte	0
+	.byte	22
+	.long	.Linfo_string39
+	.long	.Linfo_string39
+	.byte	2
+	.byte	62
+	.byte	1
+	.byte	23
+	.long	.Linfo_string89
+	.byte	2
+	.byte	62
+	.long	1618
+	.byte	0
+	.byte	24
 	.long	.Linfo_string40
-	.byte	5
-	.byte	4
-	.byte	24
-	.long	.Linfo_string41
-	.long	.Linfo_string41
+	.long	.Linfo_string40
 	.byte	3
-	.byte	12
-	.long	1513
+	.byte	8
+	.long	1435
 	.byte	1
-	.byte	23
-	.long	.Linfo_string88
-	.byte	3
-	.byte	12
-	.long	1513
-	.byte	23
-	.long	.Linfo_string89
-	.byte	3
-	.byte	12
-	.long	1773
 	.byte	23
 	.long	.Linfo_string90
 	.byte	3
-	.byte	12
-	.long	1639
-	.byte	0
-	.byte	25
-	.long	1518
-	.byte	21
-	.long	.Linfo_string42
 	.byte	8
-	.byte	1
-	.byte	24
-	.long	.Linfo_string43
-	.long	.Linfo_string43
-	.byte	3
-	.byte	18
-	.long	1513
-	.byte	1
-	.byte	23
-	.long	.Linfo_string81
-	.byte	3
-	.byte	18
-	.long	1513
+	.long	1757
 	.byte	23
 	.long	.Linfo_string91
 	.byte	3
-	.byte	18
-	.long	1456
+	.byte	8
+	.long	1757
+	.byte	23
+	.long	.Linfo_string92
+	.byte	3
+	.byte	8
+	.long	1618
+	.byte	0
+	.byte	21
+	.long	.Linfo_string41
+	.byte	5
+	.byte	4
+	.byte	24
+	.long	.Linfo_string42
+	.long	.Linfo_string42
+	.byte	3
+	.byte	12
+	.long	1492
+	.byte	1
 	.byte	23
 	.long	.Linfo_string90
 	.byte	3
+	.byte	12
+	.long	1492
+	.byte	23
+	.long	.Linfo_string91
+	.byte	3
+	.byte	12
+	.long	1757
+	.byte	23
+	.long	.Linfo_string92
+	.byte	3
+	.byte	12
+	.long	1618
+	.byte	0
+	.byte	25
+	.long	1497
+	.byte	21
+	.long	.Linfo_string43
+	.byte	8
+	.byte	1
+	.byte	24
+	.long	.Linfo_string44
+	.long	.Linfo_string44
+	.byte	3
 	.byte	18
-	.long	1639
+	.long	1492
+	.byte	1
+	.byte	23
+	.long	.Linfo_string82
+	.byte	3
+	.byte	18
+	.long	1492
+	.byte	23
+	.long	.Linfo_string93
+	.byte	3
+	.byte	18
+	.long	1435
+	.byte	23
+	.long	.Linfo_string92
+	.byte	3
+	.byte	18
+	.long	1618
 	.byte	0
 	.byte	21
-	.long	.Linfo_string49
+	.long	.Linfo_string50
 	.byte	7
 	.byte	2
 	.byte	26
-	.long	1587
+	.long	1566
 	.byte	27
-	.long	.Linfo_string56
+	.long	.Linfo_string57
 	.byte	12
 	.byte	1
 	.byte	33
 	.byte	28
-	.long	.Linfo_string51
-	.long	1632
+	.long	.Linfo_string52
+	.long	1611
 	.byte	1
 	.byte	33
 	.byte	0
-	.byte	28
-	.long	.Linfo_string53
-	.long	1632
-	.byte	1
-	.byte	33
-	.byte	4
 	.byte	28
 	.long	.Linfo_string54
-	.long	1639
+	.long	1611
+	.byte	1
+	.byte	33
+	.byte	4
+	.byte	28
+	.long	.Linfo_string55
+	.long	1618
 	.byte	1
 	.byte	33
 	.byte	8
 	.byte	0
 	.byte	21
-	.long	.Linfo_string52
+	.long	.Linfo_string53
 	.byte	7
 	.byte	4
 	.byte	21
-	.long	.Linfo_string55
+	.long	.Linfo_string56
 	.byte	7
 	.byte	4
 	.byte	26
-	.long	1651
+	.long	1630
 	.byte	27
-	.long	.Linfo_string60
+	.long	.Linfo_string61
 	.byte	8
 	.byte	1
 	.byte	33
-	.byte	28
-	.long	.Linfo_string58
-	.long	1518
-	.byte	1
-	.byte	33
-	.byte	0
 	.byte	28
 	.long	.Linfo_string59
-	.long	127
+	.long	1497
+	.byte	1
+	.byte	33
+	.byte	0
+	.byte	28
+	.long	.Linfo_string60
+	.long	146
 	.byte	1
 	.byte	33
 	.byte	4
 	.byte	0
 	.byte	26
-	.long	154
+	.long	173
 	.byte	21
-	.long	.Linfo_string65
+	.long	.Linfo_string66
 	.byte	5
 	.byte	4
 	.byte	18
-	.long	1518
+	.long	1497
 	.byte	19
-	.long	1111
+	.long	1110
 	.byte	0
 	.byte	1
 	.byte	0
 	.byte	21
-	.long	.Linfo_string79
+	.long	.Linfo_string80
 	.byte	7
 	.byte	4
 	.byte	29
 	.long	31
 	.byte	26
-	.long	1726
+	.long	1705
 	.byte	16
-	.long	.Linfo_string83
+	.long	.Linfo_string84
 	.byte	8
 	.byte	17
-	.long	.Linfo_string78
-	.long	1709
+	.long	.Linfo_string79
+	.long	1688
 	.byte	0
 	.byte	17
-	.long	.Linfo_string82
-	.long	1639
+	.long	.Linfo_string83
+	.long	1618
 	.byte	4
 	.byte	0
 	.byte	26
-	.long	1639
+	.long	1618
 	.byte	29
-	.long	1518
+	.long	56
 	.byte	29
-	.long	1639
+	.long	1497
 	.byte	29
-	.long	75
+	.long	1618
+	.byte	29
+	.long	94
 	.byte	26
-	.long	1778
+	.long	1762
 	.byte	30
-	.long	1758
+	.long	1742
 	.byte	0
 .L.debug_info_end0:
 	.section	.debug_abbrev,"",@progbits
@@ -2565,432 +2469,432 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.byte	0
 	.section	.debug_ranges,"",@progbits
 .Ldebug_ranges0:
+	.long	.Lfunc_begin10
+	.long	.Lfunc_end10
+	.long	0
+	.long	0
+.Ldebug_ranges1:
+	.long	.Ltmp38
+	.long	.Ltmp42
+	.long	0
+	.long	0
+.Ldebug_ranges2:
+	.long	.Lfunc_begin11
+	.long	.Lfunc_end11
+	.long	0
+	.long	0
+.Ldebug_ranges3:
+	.long	.Ltmp56
+	.long	.Ltmp60
+	.long	0
+	.long	0
+.Ldebug_ranges4:
+	.long	.Ltmp50
+	.long	.Ltmp60
+	.long	0
+	.long	0
+.Ldebug_ranges5:
 	.long	.Lfunc_begin12
 	.long	.Lfunc_end12
 	.long	0
 	.long	0
-.Ldebug_ranges1:
-	.long	.Ltmp42
-	.long	.Ltmp46
+.Ldebug_ranges6:
+	.long	.Ltmp73
+	.long	.Ltmp78
 	.long	0
 	.long	0
-.Ldebug_ranges2:
+.Ldebug_ranges7:
+	.long	.Ltmp68
+	.long	.Ltmp69
+	.long	.Ltmp71
+	.long	.Ltmp78
+	.long	0
+	.long	0
+.Ldebug_ranges8:
+	.long	.Ltmp68
+	.long	.Ltmp69
+	.long	.Ltmp71
+	.long	.Ltmp78
+	.long	0
+	.long	0
+.Ldebug_ranges9:
+	.long	.Ltmp68
+	.long	.Ltmp69
+	.long	.Ltmp70
+	.long	.Ltmp78
+	.long	0
+	.long	0
+.Ldebug_ranges10:
+	.long	.Ltmp68
+	.long	.Ltmp69
+	.long	.Ltmp70
+	.long	.Ltmp78
+	.long	0
+	.long	0
+.Ldebug_ranges11:
+	.long	.Ltmp68
+	.long	.Ltmp78
+	.long	0
+	.long	0
+.Ldebug_ranges12:
 	.long	.Lfunc_begin13
 	.long	.Lfunc_end13
 	.long	0
 	.long	0
-.Ldebug_ranges3:
-	.long	.Ltmp60
-	.long	.Ltmp64
+.Ldebug_ranges13:
+	.long	.Ltmp95
+	.long	.Ltmp97
 	.long	0
 	.long	0
-.Ldebug_ranges4:
-	.long	.Ltmp54
-	.long	.Ltmp64
+.Ldebug_ranges14:
+	.long	.Ltmp86
+	.long	.Ltmp87
+	.long	.Ltmp94
+	.long	.Ltmp97
 	.long	0
 	.long	0
-.Ldebug_ranges5:
+.Ldebug_ranges15:
+	.long	.Ltmp86
+	.long	.Ltmp87
+	.long	.Ltmp90
+	.long	.Ltmp97
+	.long	0
+	.long	0
+.Ldebug_ranges16:
+	.long	.Ltmp86
+	.long	.Ltmp87
+	.long	.Ltmp90
+	.long	.Ltmp97
+	.long	0
+	.long	0
+.Ldebug_ranges17:
+	.long	.Ltmp86
+	.long	.Ltmp87
+	.long	.Ltmp88
+	.long	.Ltmp97
+	.long	0
+	.long	0
+.Ldebug_ranges18:
+	.long	.Ltmp86
+	.long	.Ltmp87
+	.long	.Ltmp88
+	.long	.Ltmp97
+	.long	0
+	.long	0
+.Ldebug_ranges19:
+	.long	.Ltmp86
+	.long	.Ltmp97
+	.long	0
+	.long	0
+.Ldebug_ranges20:
 	.long	.Lfunc_begin14
 	.long	.Lfunc_end14
 	.long	0
 	.long	0
-.Ldebug_ranges6:
-	.long	.Ltmp77
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges7:
-	.long	.Ltmp72
-	.long	.Ltmp73
-	.long	.Ltmp75
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges8:
-	.long	.Ltmp72
-	.long	.Ltmp73
-	.long	.Ltmp75
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges9:
-	.long	.Ltmp72
-	.long	.Ltmp73
-	.long	.Ltmp74
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges10:
-	.long	.Ltmp72
-	.long	.Ltmp73
-	.long	.Ltmp74
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges11:
-	.long	.Ltmp72
-	.long	.Ltmp82
-	.long	0
-	.long	0
-.Ldebug_ranges12:
-	.long	.Lfunc_begin15
-	.long	.Lfunc_end15
-	.long	0
-	.long	0
-.Ldebug_ranges13:
-	.long	.Ltmp99
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges14:
-	.long	.Ltmp90
-	.long	.Ltmp91
-	.long	.Ltmp98
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges15:
-	.long	.Ltmp90
-	.long	.Ltmp91
-	.long	.Ltmp94
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges16:
-	.long	.Ltmp90
-	.long	.Ltmp91
-	.long	.Ltmp94
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges17:
-	.long	.Ltmp90
-	.long	.Ltmp91
-	.long	.Ltmp92
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges18:
-	.long	.Ltmp90
-	.long	.Ltmp91
-	.long	.Ltmp92
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges19:
-	.long	.Ltmp90
-	.long	.Ltmp101
-	.long	0
-	.long	0
-.Ldebug_ranges20:
-	.long	.Lfunc_begin16
-	.long	.Lfunc_end16
-	.long	0
-	.long	0
 .Ldebug_ranges21:
+	.long	.Ltmp107
 	.long	.Ltmp111
-	.long	.Ltmp115
 	.long	0
 	.long	0
 .Ldebug_ranges22:
+	.long	.Ltmp107
 	.long	.Ltmp111
-	.long	.Ltmp115
 	.long	0
 	.long	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
-	.long	.Lfunc_begin12
-	.long	.Ltmp42
-.Lset0 = .Ltmp118-.Ltmp117
+	.long	.Lfunc_begin10
+	.long	.Ltmp38
+.Lset0 = .Ltmp114-.Ltmp113
 	.short	.Lset0
-.Ltmp117:
+.Ltmp113:
 	.byte	80
-.Ltmp118:
+.Ltmp114:
+	.long	.Ltmp38
 	.long	.Ltmp42
-	.long	.Ltmp46
-.Lset1 = .Ltmp120-.Ltmp119
+.Lset1 = .Ltmp116-.Ltmp115
 	.short	.Lset1
-.Ltmp119:
+.Ltmp115:
 	.byte	85
-.Ltmp120:
+.Ltmp116:
 	.long	0
 	.long	0
 .Ldebug_loc1:
-	.long	.Lfunc_begin12
-	.long	.Ltmp41
-.Lset2 = .Ltmp122-.Ltmp121
+	.long	.Lfunc_begin10
+	.long	.Ltmp37
+.Lset2 = .Ltmp118-.Ltmp117
 	.short	.Lset2
-.Ltmp121:
+.Ltmp117:
 	.byte	81
-.Ltmp122:
-	.long	.Ltmp41
-	.long	.Ltmp46
-.Lset3 = .Ltmp124-.Ltmp123
+.Ltmp118:
+	.long	.Ltmp37
+	.long	.Ltmp42
+.Lset3 = .Ltmp120-.Ltmp119
 	.short	.Lset3
-.Ltmp123:
+.Ltmp119:
 	.byte	84
-.Ltmp124:
+.Ltmp120:
 	.long	0
 	.long	0
 .Ldebug_loc2:
-	.long	.Lfunc_begin12
-	.long	.Ltmp43
-.Lset4 = .Ltmp126-.Ltmp125
+	.long	.Lfunc_begin10
+	.long	.Ltmp39
+.Lset4 = .Ltmp122-.Ltmp121
 	.short	.Lset4
-.Ltmp125:
+.Ltmp121:
 	.byte	82
-.Ltmp126:
+.Ltmp122:
 	.long	0
 	.long	0
 .Ldebug_loc3:
-	.long	.Lfunc_begin13
-	.long	.Ltmp55
-.Lset5 = .Ltmp128-.Ltmp127
+	.long	.Lfunc_begin11
+	.long	.Ltmp51
+.Lset5 = .Ltmp124-.Ltmp123
 	.short	.Lset5
-.Ltmp127:
+.Ltmp123:
 	.byte	80
-.Ltmp128:
+.Ltmp124:
 	.long	0
 	.long	0
 .Ldebug_loc4:
-	.long	.Lfunc_begin13
-	.long	.Ltmp53
-.Lset6 = .Ltmp130-.Ltmp129
+	.long	.Lfunc_begin11
+	.long	.Ltmp49
+.Lset6 = .Ltmp126-.Ltmp125
 	.short	.Lset6
-.Ltmp129:
+.Ltmp125:
 	.byte	81
-.Ltmp130:
-	.long	.Ltmp53
-	.long	.Ltmp56
-.Lset7 = .Ltmp132-.Ltmp131
+.Ltmp126:
+	.long	.Ltmp49
+	.long	.Ltmp52
+.Lset7 = .Ltmp128-.Ltmp127
 	.short	.Lset7
-.Ltmp131:
+.Ltmp127:
 	.byte	85
-.Ltmp132:
+.Ltmp128:
 	.long	0
 	.long	0
 .Ldebug_loc5:
-	.long	.Lfunc_begin13
-	.long	.Ltmp52
-.Lset8 = .Ltmp134-.Ltmp133
+	.long	.Lfunc_begin11
+	.long	.Ltmp48
+.Lset8 = .Ltmp130-.Ltmp129
 	.short	.Lset8
-.Ltmp133:
+.Ltmp129:
 	.byte	82
-.Ltmp134:
-	.long	.Ltmp52
-	.long	.Ltmp64
-.Lset9 = .Ltmp136-.Ltmp135
+.Ltmp130:
+	.long	.Ltmp48
+	.long	.Ltmp60
+.Lset9 = .Ltmp132-.Ltmp131
 	.short	.Lset9
-.Ltmp135:
+.Ltmp131:
 	.byte	84
-.Ltmp136:
+.Ltmp132:
 	.long	0
 	.long	0
 .Ldebug_loc6:
-	.long	.Ltmp61
-	.long	.Ltmp62
-.Lset10 = .Ltmp138-.Ltmp137
+	.long	.Ltmp57
+	.long	.Ltmp58
+.Lset10 = .Ltmp134-.Ltmp133
 	.short	.Lset10
-.Ltmp137:
+.Ltmp133:
 	.byte	80
-.Ltmp138:
-	.long	.Ltmp63
-	.long	.Ltmp64
-.Lset11 = .Ltmp140-.Ltmp139
+.Ltmp134:
+	.long	.Ltmp59
+	.long	.Ltmp60
+.Lset11 = .Ltmp136-.Ltmp135
 	.short	.Lset11
-.Ltmp139:
+.Ltmp135:
 	.byte	80
-.Ltmp140:
+.Ltmp136:
 	.long	0
 	.long	0
 .Ldebug_loc7:
-	.long	.Lfunc_begin14
-	.long	.Ltmp78
-.Lset12 = .Ltmp142-.Ltmp141
+	.long	.Lfunc_begin12
+	.long	.Ltmp74
+.Lset12 = .Ltmp138-.Ltmp137
 	.short	.Lset12
-.Ltmp141:
+.Ltmp137:
 	.byte	80
-.Ltmp142:
+.Ltmp138:
 	.long	0
 	.long	0
 .Ldebug_loc8:
-	.long	.Lfunc_begin14
-	.long	.Ltmp72
-.Lset13 = .Ltmp144-.Ltmp143
+	.long	.Lfunc_begin12
+	.long	.Ltmp68
+.Lset13 = .Ltmp140-.Ltmp139
 	.short	.Lset13
-.Ltmp143:
+.Ltmp139:
 	.byte	81
-.Ltmp144:
-	.long	.Ltmp72
-	.long	.Ltmp81
-.Lset14 = .Ltmp146-.Ltmp145
+.Ltmp140:
+	.long	.Ltmp68
+	.long	.Ltmp77
+.Lset14 = .Ltmp142-.Ltmp141
 	.short	.Lset14
-.Ltmp145:
+.Ltmp141:
 	.byte	84
-.Ltmp146:
+.Ltmp142:
 	.long	0
 	.long	0
 .Ldebug_loc9:
-	.long	.Lfunc_begin14
-	.long	.Ltmp79
-.Lset15 = .Ltmp148-.Ltmp147
+	.long	.Lfunc_begin12
+	.long	.Ltmp75
+.Lset15 = .Ltmp144-.Ltmp143
 	.short	.Lset15
-.Ltmp147:
+.Ltmp143:
 	.byte	82
-.Ltmp148:
-	.long	.Ltmp79
-	.long	.Ltmp80
-.Lset16 = .Ltmp150-.Ltmp149
+.Ltmp144:
+	.long	.Ltmp75
+	.long	.Ltmp76
+.Lset16 = .Ltmp146-.Ltmp145
 	.short	.Lset16
-.Ltmp149:
+.Ltmp145:
 	.byte	81
-.Ltmp150:
+.Ltmp146:
 	.long	0
 	.long	0
 .Ldebug_loc10:
-	.long	.Lfunc_begin14
-	.long	.Ltmp77
-.Lset17 = .Ltmp152-.Ltmp151
+	.long	.Lfunc_begin12
+	.long	.Ltmp73
+.Lset17 = .Ltmp148-.Ltmp147
 	.short	.Lset17
-.Ltmp151:
+.Ltmp147:
 	.byte	83
-.Ltmp152:
+.Ltmp148:
 	.long	0
 	.long	0
 .Ldebug_loc11:
-	.long	.Ltmp71
-	.long	.Ltmp79
-.Lset18 = .Ltmp154-.Ltmp153
+	.long	.Ltmp67
+	.long	.Ltmp75
+.Lset18 = .Ltmp150-.Ltmp149
 	.short	.Lset18
-.Ltmp153:
+.Ltmp149:
 	.byte	82
-.Ltmp154:
-	.long	.Ltmp79
-	.long	.Ltmp80
-.Lset19 = .Ltmp156-.Ltmp155
+.Ltmp150:
+	.long	.Ltmp75
+	.long	.Ltmp76
+.Lset19 = .Ltmp152-.Ltmp151
 	.short	.Lset19
-.Ltmp155:
+.Ltmp151:
 	.byte	81
-.Ltmp156:
+.Ltmp152:
 	.long	0
 	.long	0
 .Ldebug_loc12:
-	.long	.Lfunc_begin15
-	.long	.Ltmp95
-.Lset20 = .Ltmp158-.Ltmp157
+	.long	.Lfunc_begin13
+	.long	.Ltmp91
+.Lset20 = .Ltmp154-.Ltmp153
 	.short	.Lset20
-.Ltmp157:
+.Ltmp153:
 	.byte	80
-.Ltmp158:
+.Ltmp154:
 	.long	0
 	.long	0
 .Ldebug_loc13:
-	.long	.Lfunc_begin15
-	.long	.Ltmp90
-.Lset21 = .Ltmp160-.Ltmp159
+	.long	.Lfunc_begin13
+	.long	.Ltmp86
+.Lset21 = .Ltmp156-.Ltmp155
 	.short	.Lset21
-.Ltmp159:
+.Ltmp155:
 	.byte	81
-.Ltmp160:
-	.long	.Ltmp90
-	.long	.Ltmp100
-.Lset22 = .Ltmp162-.Ltmp161
+.Ltmp156:
+	.long	.Ltmp86
+	.long	.Ltmp96
+.Lset22 = .Ltmp158-.Ltmp157
 	.short	.Lset22
-.Ltmp161:
+.Ltmp157:
 	.byte	84
-.Ltmp162:
+.Ltmp158:
 	.long	0
 	.long	0
 .Ldebug_loc14:
-	.long	.Lfunc_begin15
-	.long	.Ltmp96
-.Lset23 = .Ltmp164-.Ltmp163
+	.long	.Lfunc_begin13
+	.long	.Ltmp92
+.Lset23 = .Ltmp160-.Ltmp159
 	.short	.Lset23
+.Ltmp159:
+	.byte	82
+.Ltmp160:
+	.long	.Ltmp92
+	.long	.Ltmp93
+.Lset24 = .Ltmp162-.Ltmp161
+	.short	.Lset24
+.Ltmp161:
+	.byte	81
+.Ltmp162:
+	.long	0
+	.long	0
+.Ldebug_loc15:
+	.long	.Ltmp85
+	.long	.Ltmp92
+.Lset25 = .Ltmp164-.Ltmp163
+	.short	.Lset25
 .Ltmp163:
 	.byte	82
 .Ltmp164:
-	.long	.Ltmp96
-	.long	.Ltmp97
-.Lset24 = .Ltmp166-.Ltmp165
-	.short	.Lset24
+	.long	.Ltmp92
+	.long	.Ltmp93
+.Lset26 = .Ltmp166-.Ltmp165
+	.short	.Lset26
 .Ltmp165:
 	.byte	81
 .Ltmp166:
 	.long	0
 	.long	0
-.Ldebug_loc15:
-	.long	.Ltmp89
-	.long	.Ltmp96
-.Lset25 = .Ltmp168-.Ltmp167
-	.short	.Lset25
+.Ldebug_loc16:
+	.long	.Lfunc_begin14
+	.long	.Ltmp106
+.Lset27 = .Ltmp168-.Ltmp167
+	.short	.Lset27
 .Ltmp167:
-	.byte	82
+	.byte	80
 .Ltmp168:
-	.long	.Ltmp96
-	.long	.Ltmp97
-.Lset26 = .Ltmp170-.Ltmp169
-	.short	.Lset26
+	.long	.Ltmp106
+	.long	.Ltmp109
+.Lset28 = .Ltmp170-.Ltmp169
+	.short	.Lset28
 .Ltmp169:
-	.byte	81
+	.byte	85
 .Ltmp170:
 	.long	0
 	.long	0
-.Ldebug_loc16:
-	.long	.Lfunc_begin16
-	.long	.Ltmp110
-.Lset27 = .Ltmp172-.Ltmp171
-	.short	.Lset27
-.Ltmp171:
-	.byte	80
-.Ltmp172:
-	.long	.Ltmp110
-	.long	.Ltmp113
-.Lset28 = .Ltmp174-.Ltmp173
-	.short	.Lset28
-.Ltmp173:
-	.byte	85
-.Ltmp174:
-	.long	0
-	.long	0
 .Ldebug_loc17:
-	.long	.Lfunc_begin16
-	.long	.Ltmp109
-.Lset29 = .Ltmp176-.Ltmp175
+	.long	.Lfunc_begin14
+	.long	.Ltmp105
+.Lset29 = .Ltmp172-.Ltmp171
 	.short	.Lset29
-.Ltmp175:
+.Ltmp171:
 	.byte	81
-.Ltmp176:
+.Ltmp172:
+	.long	.Ltmp105
 	.long	.Ltmp109
-	.long	.Ltmp113
-.Lset30 = .Ltmp178-.Ltmp177
+.Lset30 = .Ltmp174-.Ltmp173
 	.short	.Lset30
-.Ltmp177:
+.Ltmp173:
 	.byte	84
-.Ltmp178:
-	.long	.Ltmp114
-	.long	.Ltmp115
-.Lset31 = .Ltmp180-.Ltmp179
+.Ltmp174:
+	.long	.Ltmp110
+	.long	.Ltmp111
+.Lset31 = .Ltmp176-.Ltmp175
 	.short	.Lset31
-.Ltmp179:
+.Ltmp175:
 	.byte	84
-.Ltmp180:
+.Ltmp176:
 	.long	0
 	.long	0
 .Ldebug_loc18:
-	.long	.Lfunc_begin16
-	.long	.Ltmp108
-.Lset32 = .Ltmp182-.Ltmp181
+	.long	.Lfunc_begin14
+	.long	.Ltmp104
+.Lset32 = .Ltmp178-.Ltmp177
 	.short	.Lset32
-.Ltmp181:
+.Ltmp177:
 	.byte	82
-.Ltmp182:
-	.long	.Ltmp108
-	.long	.Ltmp113
-.Lset33 = .Ltmp184-.Ltmp183
+.Ltmp178:
+	.long	.Ltmp104
+	.long	.Ltmp109
+.Lset33 = .Ltmp180-.Ltmp179
 	.short	.Lset33
-.Ltmp183:
+.Ltmp179:
 	.byte	86
-.Ltmp184:
+.Ltmp180:
 	.long	0
 	.long	0
 	.section	.debug_pubnames,"",@progbits
@@ -3001,51 +2905,47 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.L.debug_info_begin0
 .Lset35 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset35
-	.long	933
+	.long	952
 .asciiz"_i.i2c_external_commands_if._chan.get_iochip_button"
-	.long	1272
+	.long	1251
 .asciiz"_i.i2c_external_commands_if._chan_yield.read_temperature_ok"
-	.long	389
+	.long	408
 .asciiz"Tempchip_MCP9808_Write16"
-	.long	1406
+	.long	1385
 .asciiz"_safe_memcmp"
-	.long	904
+	.long	923
 .asciiz"_i.button_if._chan_yield.button"
-	.long	1525
+	.long	1504
 .asciiz"_safe_memset"
-	.long	962
+	.long	981
 .asciiz"_i.i2c_external_commands_if._chan.write_iochip_pins"
-	.long	1038
+	.long	1037
 .asciiz"_i.i2c_external_commands_if._chan.read_temperature_ok"
-	.long	772
+	.long	791
 .asciiz"Tempchip_MCP9808_Shutdown_Wake_Ok"
-	.long	1243
-.asciiz"_i.i2c_external_commands_if._chan_yield.init_iochip"
-	.long	196
+	.long	215
 .asciiz"Tempchip_MCP9808_Begin_Ok"
-	.long	875
-.asciiz"_i.button_if._chan.button"
-	.long	1305
-.asciiz"_i.i2c_external_commands_if._chan_yield.trigger_command"
-	.long	1463
-.asciiz"_safe_memmove"
-	.long	1358
-.asciiz"delay_milliseconds"
-	.long	282
+	.long	301
 .asciiz"Tempchip_MCP9808_ReadTempC"
-	.long	1167
-.asciiz"_i.i2c_external_commands_if._chan_yield.get_iochip_button"
-	.long	1382
-.asciiz"delay_microseconds"
-	.long	1009
-.asciiz"_i.i2c_external_commands_if._chan.init_iochip"
-	.long	579
+	.long	894
+.asciiz"_i.button_if._chan.button"
+	.long	1284
+.asciiz"_i.i2c_external_commands_if._chan_yield.trigger_command"
+	.long	1442
+.asciiz"_safe_memmove"
+	.long	1337
+.asciiz"delay_milliseconds"
+	.long	598
 .asciiz"Tempchip_MCP9808_Read16"
-	.long	1138
+	.long	1166
+.asciiz"_i.i2c_external_commands_if._chan_yield.get_iochip_button"
+	.long	1361
+.asciiz"delay_microseconds"
+	.long	1137
 .asciiz"_i.i2c_external_commands_if._chan.trigger_command"
-	.long	1334
+	.long	1313
 .asciiz"delay_seconds"
-	.long	1196
+	.long	1195
 .asciiz"_i.i2c_external_commands_if._chan_yield.write_iochip_pins"
 	.long	0
 .LpubNames_end0:
@@ -3057,37 +2957,39 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.long	.L.debug_info_begin0
 .Lset37 = .L.debug_info_end0-.L.debug_info_begin0
 	.long	.Lset37
-	.long	1726
+	.long	1705
 .asciiz"yieldArg"
-	.long	75
+	.long	56
+.asciiz"__TYPE_11"
+	.long	94
 .asciiz"i2c_command_external_e"
-	.long	1632
+	.long	1611
 .asciiz"port"
-	.long	1651
+	.long	1630
 .asciiz"tag_i2c_master_param_t"
-	.long	1639
+	.long	1618
 .asciiz"unsigned int"
-	.long	1456
+	.long	1435
 .asciiz"int"
-	.long	1575
+	.long	1554
 .asciiz"unsigned short"
-	.long	1587
+	.long	1566
 .asciiz"r_i2c"
-	.long	1131
+	.long	1130
 .asciiz"short"
-	.long	1689
+	.long	1668
 .asciiz"long"
-	.long	1709
+	.long	1688
 .asciiz"chanend"
-	.long	1071
+	.long	1070
 .asciiz"tag_i2c_temps_t"
-	.long	175
+	.long	194
 .asciiz"__TYPE_7"
-	.long	127
+	.long	146
 .asciiz"__TYPE_8"
 	.long	31
 .asciiz"__TYPE_9"
-	.long	1518
+	.long	1497
 .asciiz"unsigned char"
 	.long	0
 .LpubTypes_end0:
@@ -3097,16 +2999,13 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 	.typestring _i.button_if._chan_yield.button, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(BUTTON_ACTION_PRESSED){0},m(BUTTON_ACTION_PRESSED_FOR_10_SECONDS){1},m(BUTTON_ACTION_RELEASED){2}})"
 	.overlay_reference _i.button_if._chan_yield.button,_i.button_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan.get_iochip_button, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}}}(chd,&(ui))"
-	.typestring _i.i2c_external_commands_if._chan.write_iochip_pins, "f{0}(chd,&(ui),:uc,:ui)"
-	.typestring _i.i2c_external_commands_if._chan.init_iochip, "f{0}(chd,&(ui))"
+	.typestring _i.i2c_external_commands_if._chan.write_iochip_pins, "f{0}(chd,:e(){m(false_no_init){0},m(true_do_init){1}},&(ui),:uc,:ui)"
 	.typestring _i.i2c_external_commands_if._chan.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(chd,ui)"
 	.typestring _i.i2c_external_commands_if._chan.trigger_command, "f{0}(chd,:e(i2c_command_external_e){m(GET_TEMPC_ALL){1},m(INIT_IOCHIP){2},m(READ_IOCHIP_BUTTON){3},m(VER_TEMPC_CHIPS){0}})"
 	.typestring _i.i2c_external_commands_if._chan_yield.get_iochip_button, "f{e(){m(false){0},m(true){1}},e(){m(false){0},m(true){1}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui))"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.get_iochip_button,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_yield.write_iochip_pins, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui),:uc,:ui)"
+	.typestring _i.i2c_external_commands_if._chan_yield.write_iochip_pins, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(){m(false_no_init){0},m(true_do_init){1}},&(ui),:uc,:ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.write_iochip_pins,_i.i2c_external_commands_if._client_call_y.fns
-	.typestring _i.i2c_external_commands_if._chan_yield.init_iochip, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),&(ui))"
-	.overlay_reference _i.i2c_external_commands_if._chan_yield.init_iochip,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_yield.read_temperature_ok, "l:f{s(tag_i2c_temps_t){m(i2c_temp_ok){a(3:e(){m(false){0},m(true){1}})},m(i2c_temp_onetenthDegC){a(3:ss)}}}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),ui)"
 	.overlay_reference _i.i2c_external_commands_if._chan_yield.read_temperature_ok,_i.i2c_external_commands_if._client_call_y.fns
 	.typestring _i.i2c_external_commands_if._chan_yield.trigger_command, "f{0}(&(s(yieldArg){m(dest){chd},m(yield){ui}}),:e(i2c_command_external_e){m(GET_TEMPC_ALL){1},m(INIT_IOCHIP){2},m(READ_IOCHIP_BUTTON){3},m(VER_TEMPC_CHIPS){0}})"

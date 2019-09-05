@@ -93,11 +93,13 @@ extern unsigned char font[];
 //}}}
 
 #define CHAR_SMILEY              2 // Alternatively 1
-#define CHAR_FILLED_RIGHT_ARROW 16
+#define CHAR_FILLED_RIGHT_ARROW 16 // ► in string as "\x10" or char as 0x10 did not save bytes!
+#define CHAR_FILLED_LEFT_ARROW  17 // ◀ in string as "\x11" or char as 0x11 saves bytes
 #define CHAR_UP_ARROW           24 // ↑
 #define CHAR_DOWN_ARROW         25 // ↓
 #define CHAR_RIGHT_ARROW        26 // -> but nicer
 #define CHAR_LEFT_ARROW         27 // <- but nicer
+#define CHAR_FILLED_DOWN_ARROW  31 // ▼ in string as "\x1f" or char as 0x1f saves bytes
 #define CHAR_aa                132 // å MODIFIED, was a-umlaut ä
 #define CHAR_AA                143 // Å MODIFIED, was A-ring (but a dot)
 #define CHAR_AA_hex           0x8f // Å MODIFIED, was A-ring (but a dot)

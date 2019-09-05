@@ -99,7 +99,7 @@ typedef enum {
 } cnt_10_t; // Since they are hand-coded so much
 
 typedef struct light_sunrise_sunset_context_t {
-    bool                          do_init;
+    bool                          true_do_init;
     it_is_day_or_night_t          it_is_day_or_night;
     DateTime_t                    datetime_copy;
     bool                          trigger_minute_changed_stick;                       // AQU=66 moved trigger_minute_changed out to here

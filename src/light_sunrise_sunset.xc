@@ -249,10 +249,10 @@ Handle_Light_Sunrise_Sunset_Etc (
 
     // Init once
 
-    if (context.do_init) {
+    if (context.true_do_init) {
         light_composition_t light_composition_now;
 
-        context.do_init = false;
+        context.true_do_init = false;
         context.num_minutes_left_of_random = 0;
         context.num_random_sequences_left = NUM_RANDOM_SEQUENCES_MAX;
         context.num_minutes_left_of_day_night_action = 0;

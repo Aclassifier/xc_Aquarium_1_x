@@ -1659,7 +1659,6 @@ typedef enum iof_temps_e {
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE
 } iof_temps_e;
 
-
 typedef struct tag_i2c_temps_t {
     bool i2c_temp_ok [3];
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [3];
@@ -1672,6 +1671,8 @@ typedef enum i2c_command_external_e {
     INIT_IOCHIP,
     READ_IOCHIP_BUTTON
 } i2c_command_external_e;
+
+typedef enum {false_no_init, true_do_init} bool_init_e;
 
 typedef interface i2c_external_commands_if {
 
@@ -1689,9 +1690,7 @@ typedef interface i2c_external_commands_if {
 
 
 
-
-    void init_iochip (unsigned &iochip_err_cnt);
-    void write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms);
+    void write_iochip_pins (const bool_init_e bool_init, unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms);
     {bool, bool} get_iochip_button (unsigned &iochip_err_cnt);
 
 } i2c_external_commands_if;

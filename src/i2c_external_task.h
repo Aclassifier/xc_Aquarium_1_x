@@ -42,7 +42,6 @@ typedef enum iof_temps_e {
     IOF_TEMPC_HEATER_MEAN_LAST_CYCLE // NOT I2C, INTERNAL
 } iof_temps_e;
 
-
 typedef struct tag_i2c_temps_t {
     bool                    i2c_temp_ok [NUM_I2C_TEMPERATURES];
     i2c_temp_onetenthDegC_t i2c_temp_onetenthDegC [NUM_I2C_TEMPERATURES]; // Possibly valid value only if GET_TEMPC_ALL
@@ -55,6 +54,8 @@ typedef enum i2c_command_external_e {
     INIT_IOCHIP,       // Finish with get_iochip_ok
     READ_IOCHIP_BUTTON // Finish with get_iochip_button_ok
 } i2c_command_external_e;
+
+typedef enum {false_no_init, true_do_init} bool_init_e; // Inherits bool in a way
 
 typedef interface i2c_external_commands_if {
 
@@ -72,9 +73,7 @@ typedef interface i2c_external_commands_if {
 
     // Client/server with no notification:
     // IOCHIP is MCP23008 on USB_WATCHDOG_AND_RELAY_BOX
-
-    void         init_iochip       (unsigned &iochip_err_cnt);
-    void         write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms); // Only those pins that are output
+    void         write_iochip_pins (const bool_init_e bool_init, unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms); // Only those pins that are output
     {bool, bool} get_iochip_button (unsigned &iochip_err_cnt); // {button_pressed, button_changed}
 
 } i2c_external_commands_if;

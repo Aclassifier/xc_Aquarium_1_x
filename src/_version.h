@@ -17,14 +17,16 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.15" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1515  // Is "AQUARIUM_VERSION_NUM_t"
-//                      AQU=097  I could see 1.5.15 flashed take in the button bit from iochip but not blink with any LED or any other outputs!
+#define AQUARIUM_VERSION_STR "1.5.16" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1516  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.5.16     05Sep2019 AQU=097  I could see 1.5.15 flashed take in the button bit from iochip but not blink with any LED or any other outputs!
+//                               I added a init_iochip before every write and added Z1, C1 and C2 on diagram 22, also see below figure 8 at
+//                               https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#fish_feeder
 // 1.5.15     04Sep2019 AQU=096  On 1.5.12. LONG_BEEP_MS heard all of a sudden(?). I looked at the aquarium, and it lokked like it was at the exact moment when
 //                               the light changed at 22.20 for the next to last before going black for the night
 //                               Now all usage of i_port_heat_light_commands will retrigger watchdog, plus watchdog_retrigger_with explicitly called on every System_Task alive point
 // 1.5.14     03Sep2019 AQU=095  First real version of AUTO_FEEDING
-// 1.5.13     22Aug2019 AQU=094  MY_MCP23008_OUT_SOLENOID1_ON_BIT MY_MCP23008_OUT_SOLENOID2_ON_BIT are new
+// 1.5.13     22Aug2019 AQU=094  MY_MCP23008_OUT_FEEDER_SOLENOID_ON_BIT MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_BIT are new
 //            --------- Running  12Aug2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64548 S:6840 C:51638 D:6070
 // 1.5.12     11Aug2019 AQU=093  When I pressed button in BUTTON_STATE_1 the RELAY1 went on with beep but it went off again on the next second.
@@ -38,9 +40,9 @@ typedef uint16_t aquarium_version_num_t;
 //                      AQU=089  RELAY2 will not follow RELAY1 any more
 //                      AQU=088  if BUTTON_STATE_2 -> BUTTON_STATE_1 at midnight
 // 1.5.01     04Aug2019 AQU=087  Changes of string in SCREEN_3_LYSGULERING
-// 1.5.00     03Aug2019 AQU=086  relay1_change_cnt_today was not cleared on new day
+// 1.5.00     03Aug2019 AQU=086  relay1_skimmer_pump_change_cnt_today was not cleared on new day
 // 1.4.86     02Aug2019          SCREEN_6_KONSTANTER and SCREEN_10_X_BOX modified
-//                               AQU=086  relay1_change_cnt_today new
+//                               AQU=086  relay1_skimmer_pump_change_cnt_today new
 //                      AQU=085  Light changes fast then soft, after a few seconds. Seems like this is for every change. I must have messed
 //                               up with missing get_light_is_stable_sync_internal after too many set_light_composition
 // 1.4.85     31Jul2019          CLEAR_NUMBER_OF_RESTARTS is new

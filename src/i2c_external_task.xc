@@ -62,6 +62,27 @@ r_i2c i2c_external_config = {
                             //  300 * 10ns =  3.000 ns =  3 us -> 333.33 kbit/s operation
 };
 
+i2c_result_t do_init_iochip (const uint8_t output_pins) {
+
+    i2c_result_t i2c_result;
+    {
+        unsigned char the_register_arr1 [1] = {MCP23008_IODIR_ALL_PINS_DIR_OUTPUT bitor MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK};
+        // bitor above since MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK has bit high as MCP23008_PIN_DIR_INPUT
+        i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_IODIR, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+    }
+
+    // AQU=097: Any persisting high output would go low for a while (*), so better be fast. This MAY be a show stopper, depending on the output type (#)!
+    // (*) Relays and open drain outputs will go low because the pins are all pulled down by an R-R network to gate and then ground
+    // (#) Avoided with MY_AVOID_GLITCHES_MASK in iochip_mcp23008.h. Only LEDs contril pins high are allowed to glitch:
+
+    if (i2c_result == I2C_OK) {
+        unsigned char the_register_arr1 [1] = {output_pins};
+        i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
+    } else {}
+
+    return i2c_result;
+}
+
 [[distributable]] // [[combinable]]
 void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[I2C_EXTERNAL_NUM_CLIENTS]) {
 
@@ -121,37 +142,24 @@ void I2C_External_Task (server i2c_external_commands_if i_i2c_external_commands[
                 debug_print ("I2C: GET_TEMPC_ALL Y %u\n", index_of_client);
             } break; // read_temperature_ok
 
-
             // client/server
-            case i_i2c_external_commands[int index_of_client].init_iochip (unsigned &iochip_err_cnt) : {
+            case i_i2c_external_commands[int index_of_client].write_iochip_pins (
+                    const bool_init_e bool_init,
+                    unsigned          &iochip_err_cnt,
+                    const uint8_t     output_pins,
+                    unsigned const    silence_after_write_ms) : {
+
                 i2c_result_t i2c_result;
-                bool ok;
-                {
-                    unsigned char the_register_arr1 [1] = {MCP23008_IODIR_ALL_PINS_DIR_OUTPUT bitor MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK};
-                    // bitor above since MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK has bit high as MCP23008_PIN_DIR_INPUT
-                    i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_IODIR, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                    ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                }
-                if (ok) {
-                    unsigned char the_register_arr1 [1] = {MY_MCP23008_ALL_OFF};
+
+                if (bool_init == true_do_init) {
+                    iochip_err_cnt = 0;
+                    i2c_result = do_init_iochip (output_pins); // Updates iochip_err_cnt
+                } else {
+                    unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
                     i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                    ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                } else {}
+                }
 
-                if (not ok) {
-                    iochip_err_cnt++;
-                } else {}
-            } break; // init_iochip_ok
-
-            // client/server
-            case i_i2c_external_commands[int index_of_client].write_iochip_pins (unsigned &iochip_err_cnt, const uint8_t output_pins, unsigned const silence_after_write_ms) : {
-                i2c_result_t i2c_result;
-                bool ok;
-                unsigned char the_register_arr1 [1] = {output_pins}; // Only those pins that are output
-
-                i2c_result = i2c_master_write_reg (I2C_ADDRESS_OF_PORT_EXPANDER, MCP23008_GPIO, the_register_arr1, sizeof the_register_arr1, i2c_external_config);
-                ok = (i2c_result == I2C_OK); // 1 = (1==1), all OK when 1
-                if (not ok) {
+                if ((i2c_result != I2C_OK)) {
                     iochip_err_cnt++;
                 } else {}
 

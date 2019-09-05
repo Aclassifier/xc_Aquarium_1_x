@@ -33,26 +33,34 @@
 
 
     //                                                                 #
-    #define MY_MCP23008_OUT_RELAY2_ON_BIT                7 // ON=1 OFF=0
-    #define MY_MCP23008_OUT_SOLENOID1_ON_BIT             6 // ON=1 OFF=0
-    #define MY_MCP23008_OUT_RELAY1_ON_BIT                5 // ON=1 OFF=0
-    #define MY_MCP23008_OUT_SOLENOID2_ON_BIT             4 // ON=1 OFF=0
+    #define MY_MCP23008_OUT_RELAY2_ON_BIT                7 // ON=1 OFF=0 NOT CONNECTED, SO ALWAYS OFF, VIA 230V FEMALE CONTACT
+    #define MY_MCP23008_OUT_FEEDER_SOLENOID_ON_BIT       6 // ON=1 OFF=0 USED FOR FEEDER,              VIA 3-PIN OPEN DRAIN OUTPUT
+    #define MY_MCP23008_OUT_RELAY1_ON_BIT                5 // ON=1 OFF=0 SKIMMER PUMP,                 VIA 230V FEMALE CONTACT
+    #define MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_BIT  4 // ON=1 OFF=0 THAT LED,                     VIA 3-PIN OPEN DRAIN OUTPUT
     #define MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT  3 //    .     . low-to-high on pin resets watchdog
     #define MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_BIT      2 //    .     . input, low when buttton pressed
     #define MY_MCP23008_OUT_RED_LED_OFF_BIT              1 // ON=0 OFF=1
     #define MY_MCP23008_OUT_GREEN_LED_OFF_BIT            0 // ON=0 OFF=1
     //                                                                #
-    #define MY_MCP23008_ALL_OFF                          0x03 //          # 0.0...11 as 00000011
+    #define MY_MCP23008_ALL_OFF                          0x03 //      # 0.0...11 as 00000011
     #define MY_MCP23008_OUT_RELAY1_ON_MASK               (1<<MY_MCP23008_OUT_RELAY1_ON_BIT)
     #define MY_MCP23008_OUT_RELAY2_ON_MASK               (1<<MY_MCP23008_OUT_RELAY2_ON_BIT)
-    #define MY_MCP23008_OUT_SOLENOID1_ON_MASK            (1<<MY_MCP23008_OUT_SOLENOID1_ON_BIT)
-    #define MY_MCP23008_OUT_SOLENOID2_ON_MASK            (1<<MY_MCP23008_OUT_SOLENOID2_ON_BIT)
+    #define MY_MCP23008_OUT_FEEDER_SOLENOID_ON_MASK      (1<<MY_MCP23008_OUT_FEEDER_SOLENOID_ON_BIT)
+    #define MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_MASK (1<<MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_BIT)
     #define MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK (1<<MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
     #define MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_MASK     (1<<MY_MPC23008_IN_BUTTON_PRESS_WHENLOW_BIT) // Bit high as MCP23008_PIN_DIR_INPUT
     #define MY_MCP23008_OUT_RED_LED_OFF_MASK             (1<<MY_MCP23008_OUT_RED_LED_OFF_BIT)
     #define MY_MCP23008_OUT_GREEN_LED_OFF_MASK           (1<<MY_MCP23008_OUT_GREEN_LED_OFF_BIT)
 
-    #define MY_MCP23008_OFF_BIT_FIRST_TRIG               (MY_MCP23008_ALL_OFF bitor MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
+    // Only LEDs contril pins high are allowed to glitch
+    // Turning these off during init would create unnecessary EMC. LEDs are unoticeable
+    #define MY_AVOID_GLITCHES_MASK ( \
+                MY_MCP23008_OUT_RELAY1_ON_MASK bitor \
+                MY_MCP23008_OUT_RELAY2_ON_MASK bitor \
+                MY_MCP23008_OUT_FEEDER_SOLENOID_ON_MASK bitor \
+                MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_MASK)
+
+    #define MY_MCP23008_OFF_BIT_FIRST_TRIG (MY_MCP23008_ALL_OFF bitor MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
 
     typedef enum {
         //           // RED   GREEN   RELAY_1  RELAY_2
@@ -79,21 +87,21 @@
     #ifndef FLASH_BLACK_BOARD
         #error
     #elif (FLASH_BLACK_BOARD==1)
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((15*60)+4)
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((18*60)+30) // Just the time when I tested
     #else
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12 * 60) + 30) // 12.30 AQU=095 new
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12 * 60) + 30) // 12.30 AQU=095 new. Will not collide with RELAY1 skimmer pump since it only goes for to 12.15
     #endif
 
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2  (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 2) // Two minutes later
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // One minute later
 
     #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
 
-    #define AUTO_FEEDING_NUM_SINGLE_MS (50)
-    #define AUTO_FEEDING_NUM_DOUBLE_MS (35)
+    #define AUTO_FEEDING_NUM_SINGLE_MS (50) // For single clicks of the feeder solenoid
+    #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid
 
     typedef struct feeding_t { // AQU=095
-        bool auto_feeding_double_config; // Settable from SCREEN_10_X_BOX
-        bool manual_feeding_trigger;
+        bool double_timed_trigger_config; // Settable from SCREEN_10_X_BOX
+        bool manual_trigger;
     } feeding_t; // solenoid1 is the feeding, solenoid2 is the LED
 
     typedef struct iochip_t {
@@ -103,11 +111,11 @@
         unsigned              seconds_cnt;
         unsigned              relay1_skimmer_pump_minutes_cntdown;
         relay_state_t         relay1_skimmer_pump_state;
+        bool                  relay1_skimmer_pump_on_trigger_previous;
+        unsigned              relay1_skimmer_pump_change_cnt_today; // Just for seeing if the rather slow action happens. Cleared at midninght
         relay_button_ustate_t button_ustate;
-        bool                  trigger_relay1_minutes_on_previous;
-        unsigned              relay1_change_cnt_today; // Just for seeing if the rather slow action happens. Cleared at midninght
-        unsigned              solenoid1_change_cnt_today; // AQU=094
-        unsigned              solenoid1_ms; // AQU=094
+        unsigned              solenoid_feeder_changes_today_cnt; // AQU=094
+        unsigned              solenoid_feeder_time_on_ms; // AQU=094
         feeding_t             feeding;
     } iochip_t;
 
@@ -119,8 +127,8 @@
     beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
             client     i2c_external_commands_if i_i2c_external_commands,
             iochip_t   &iochip,
-            const bool trigger_relay1_on,
-            const bool trigger_solenoid1_on,
-            const bool is_solenoid2_on); // AQU=095
+            const bool relay1_skimmer_pump_on_trigger,
+            const bool solenoid_feeder_on_trigger,
+            const bool solenoid_LED_on_active); // AQU=095
 
 #endif /* IOEXPANDERCHIP_MCP23008_H_ */

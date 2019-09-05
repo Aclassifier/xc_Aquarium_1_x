@@ -353,14 +353,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
     // TODO these const char are quite expensive! With a %s it's possible to use CHAR_CIRCLE instead of char_degC_circle_str
     //      The eol must then not be present. Check this
+    //      I did this when building string for SCREEN_10_X_BOX and saved 256 bytes! Search for CHAR_FILLED_LEFT_ARROW and CHAR_FILLED_DOWN_ARROW
     const char char_degC_circle_str[]                             = DEGC_CIRCLE_STR;
     const char char_AA_str[]                                      = CHAR_AA_STR;          // A
     const char char_OE_str[]                                      = CHAR_OE_STR;          // Ø
     const char char_takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR;  // ±
     const char char_triple_bar_str[]                              = CHAR_TRIPLE_BAR_STR;  // ≡
     const char char_right_arrow_str[]                             = CHAR_RIGHT_ARROW_STR; // → for timed change
-    const char char_filled_right_arrow_str[]                      = CHAR_FILLED_RIGHT_ARROW_STR;
-
+    const char char_filled_right_arrow_str[]                      = CHAR_FILLED_RIGHT_ARROW_STR; // Removing this did not make shorter code!
+    //
     debug_print ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
     switch (context.display_screen_name_present) {
@@ -1246,22 +1247,28 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10%s X-BOKS %s\n   R1.R2  %1u.%1u KODE %1u\n  #R1.MIN %u.%u\n  #S1.mS  %u.%u:%s",
-                               // 1           2             3   4        5             6  7             8  9  10
+                               "10%s X-BOKS %s\n   R1.R2  %1u.%1u KODE %1u\n  #R1.MIN %u.%u %c\n  #S1.mS  %u.%u %s",
+                               // 1           2             3   4        5             6  7  8             9 10
                                char_takes_press_for_10_seconds_right_button_str, // 1 ± new with AQU=086
                                (context.iochip.err_cnt==0) ? "IO" : "MANGLER", // 2
                                relay1, relay2, // 3,4
                                context.iochip.button_ustate.u.cnt, // 5
-                               context.iochip.relay1_change_cnt_today, // 6
+                               context.iochip.relay1_skimmer_pump_change_cnt_today, // 6
                                context.iochip.relay1_skimmer_pump_minutes_cntdown, // 7
-                               context.iochip.solenoid1_change_cnt_today, // 8
-                               context.iochip.solenoid1_ms, // 9
-                               context.iochip.feeding.auto_feeding_double_config ? "TO" : "EN"); // 10
+                               0x11, // 8 CHAR_FILLED_LEFT_ARROW used (*)
+                               context.iochip.solenoid_feeder_changes_today_cnt, // 9
+                               context.iochip.solenoid_feeder_time_on_ms, // 10
+                               // context.iochip.feeding.double_timed_trigger_config ? char_filled_2_down_arrow_str : char_filled_down_arrow_str); // 11
+                               context.iochip.feeding.double_timed_trigger_config ? "\x1F\x1F" : "\x1F"); // 11 CHAR_FILLED_DOWN_ARROW used (*)
             //                                            ..........----------.
             //                                            10± X-BOKS IO // X-BOKS MANGLER
             //                                               R1.R2  0.1 KODE 1
-            //                                              #R1.MIN 4.180
-            //                                              #S1.mS  1.200:TO    // "EN"
+            //                                              #R1.MIN 4.180 ◀   // Arrow to kind of show the skimmer pump that blows to the left!
+            //                                              #S1.mS  1.200 ▼▼ // One or two arrows down for single or double feeding
+            //
+            // (*) These three (◀,▼, ▼▼) hard coded values saved me 65100 - 64844 = 256 bytes! Instead of making strings like this:
+            //     const char char_filled_left_arrow_str[] = CHAR_FILLED_LEFT_ARROW_STR;
+            //     However, it doesn't always downscale like this! Was it a library function that was included? Around AQU=097
 
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
@@ -1584,11 +1591,11 @@ void Handle_Real_Or_Clocked_Buttons (
 
                         case SCREEN_10_X_BOX: { // 10
                             context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
-                            context.iochip.feeding.auto_feeding_double_config = not context.iochip.feeding.auto_feeding_double_config;
-                            if (context.iochip.feeding.auto_feeding_double_config) {
-                                context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
+                            context.iochip.feeding.double_timed_trigger_config = not context.iochip.feeding.double_timed_trigger_config;
+                            if (context.iochip.feeding.double_timed_trigger_config) {
+                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
                             } else {
-                                context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
+                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
                             }
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
@@ -1669,8 +1676,8 @@ void System_Task_Data_Handler (
             } else {}
 
             if (context.datetime.day != context.datetime_old.day) {
-                context.iochip.relay1_change_cnt_today = 0;
-                context.iochip.solenoid1_change_cnt_today = 0;
+                context.iochip.relay1_skimmer_pump_change_cnt_today = 0;
+                context.iochip.solenoid_feeder_changes_today_cnt = 0;
             } else {}
 
            if (context.datetime.minute != context.datetime_old.minute) { // AQU=093 back to only this criterion
@@ -1849,7 +1856,7 @@ void System_Task_Data_Handler (
         bool light_sensor_intensity_ok;
         {light_sunrise_sunset_context.light_sensor_intensity, light_sensor_intensity_ok} =
             Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (context.adc_vals_for_use.x[IOF_ADC_STARTKIT_LUX], null);
-        if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.do_init) {
+        if ((not light_sensor_intensity_ok) or light_sunrise_sunset_context.true_do_init) {
             light_sunrise_sunset_context.light_sensor_intensity_previous = light_sunrise_sunset_context.light_sensor_intensity; // No diff, both INNER_MAX_LUX or ok value
         } else {} // Fine
     }
@@ -2302,10 +2309,10 @@ void System_Task (
 
     // Some compromise between dimension of hole, how fast the food will start to flow,
     // type of food (dimensions and type(s) of forms) etc.
-    context.iochip.solenoid1_ms = AUTO_FEEDING_NUM_SINGLE_MS; // 35 Too little food
+    context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // 35 Too little food
                                                               // 50 Seems ok
                                                               // Even 10 ms takes it fully down. Add WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10
-    context.iochip.feeding.auto_feeding_double_config = false;
+    context.iochip.feeding.double_timed_trigger_config = false;
 
     // Init and clear display
 
@@ -2341,7 +2348,7 @@ void System_Task (
 
     light_sunrise_sunset_context.random_number_seed = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
-    light_sunrise_sunset_context.do_init = true;
+    light_sunrise_sunset_context.true_do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
     light_sunrise_sunset_context.hot_water = false;
@@ -2491,28 +2498,30 @@ void System_Task (
 
                 beeper_blip_now_ms_t beeper_blip_now_ms;
                 { // AQU=091 moved out here:
-                    bool trigger_relay1_on;
+                    bool relay1_skimmer_pump_on_trigger;
 
                     #if (FLASH_BLACK_BOARD_FAST_RELAY1==1)
-                         trigger_relay1_on = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
+                         relay1_skimmer_pump_on_trigger = ((context.datetime.minute % 3) == 0); // Every third minute (dividable by three)
                     #else // AQU=091, AQU=092 changed criteria:
-                        trigger_relay1_on = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
+                        relay1_skimmer_pump_on_trigger = // May in theory be true on several successive calls, handle_iochip_i2c_external_iff sees the diff anyhow
                               (context.datetime.hour != context.datetime_old.hour) and // AQU=092 not using trigger_hour_changed_stick that may have been cleared by Handle_Light_Sunrise_Sunset_Etc
                               (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) and
                               ((context.datetime.hour % 3) == 0); // Every third hour (dividable by three)
+                        // Make sure that NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 will not overlap here, even if it would stop RELAY1 if it had started,
+                        // with clearing of context.iochip.relay1_skimmer_pump_minutes_cntdow (below)
                     #endif
 
-                    bool manual_trigger_solenoid1_on = (context.iochip.feeding.manual_feeding_trigger == true);
-                    context.iochip.feeding.manual_feeding_trigger = false;
+                    bool solenoid_feeder_manual_on = (context.iochip.feeding.manual_trigger == true);
+                    context.iochip.feeding.manual_trigger = false;
 
-                    bool timed_trigger_solenoid1_on = false;
+                    bool solenoid_feeder_timed_on = false;
                     if (context.datetime.minute != context.datetime_old.minute) {
                         const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
                         if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
-                            timed_trigger_solenoid1_on = true; // Always feed once per day
+                            solenoid_feeder_timed_on = true; // Always feed once per day
                         } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
-                            if (context.iochip.feeding.auto_feeding_double_config == true) {
-                                timed_trigger_solenoid1_on = true; // Only if double feed the second time
+                            if (context.iochip.feeding.double_timed_trigger_config == true) {
+                                solenoid_feeder_timed_on = true; // Only if double feed the second time
                             } else {} // Not allowed
                         } else {} // Not at this time
                     } else {} // No minute change
@@ -2521,25 +2530,25 @@ void System_Task (
                     // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE
                     // THIS CODE BLOCKS FOR WRITE_IOCHIP_PINS_WAIT_AFTER_MS
 
-                    bool trigger_solenoid1_on = false;
+                    bool solenoid_feeder_on_trigger = false;
 
                     if (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) {
-                        trigger_solenoid1_on = (manual_trigger_solenoid1_on or timed_trigger_solenoid1_on);
-                        if (trigger_solenoid1_on) {
+                        solenoid_feeder_on_trigger = (solenoid_feeder_manual_on or solenoid_feeder_timed_on);
+                        if (solenoid_feeder_on_trigger) {
                             if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
                                 context.iochip.relay1_skimmer_pump_minutes_cntdown = 0; // Stop skimmer pump as it would suck up the food!
                             } else {} // Nothing to stop
                         } else {} // skimmer pump not on
                     } else {} // Not day. XMOS [Product Bug #32326] 3Sep2019 on missing "{}" here
 
-                    const bool is_solenoid2_on = (context.iochip.solenoid1_change_cnt_today > 0); // == LED in connector box ON after one feeding (would be delayed by 1 sec)
+                    const bool solenoid_LED_on_active = (context.iochip.solenoid_feeder_changes_today_cnt > 0); // == LED in connector box ON after one feeding (would be delayed by 1 sec)
 
                     beeper_blip_now_ms = handle_iochip_i2c_external_iff (
                            i_i2c_external_commands,
                            context.iochip,
-                           trigger_relay1_on,
-                           trigger_solenoid1_on,
-                           is_solenoid2_on); // == LED in connector box
+                           relay1_skimmer_pump_on_trigger,
+                           solenoid_feeder_on_trigger,
+                           solenoid_LED_on_active); // == LED in connector box
                 }
 
                 // Shall we beep?
