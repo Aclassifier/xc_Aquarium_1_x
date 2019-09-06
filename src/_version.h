@@ -17,9 +17,12 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.16" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1516  // Is "AQUARIUM_VERSION_NUM_t"
-// 1.5.16     05Sep2019 AQU=097  I could see 1.5.15 flashed take in the button bit from iochip but not blink with any LED or any other outputs!
+#define AQUARIUM_VERSION_STR "1.5.17" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1517  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  7Sep2019
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65008 S:6844 C:52066 D:6098
+// 1.5.17     06Sep2019          Better SCREEN_10_X_BOX
+// 1.5.16     05Sep2019 AQU=097  I could see 1.5.15 flashed code take in the button bit from iochip but not blink with any LED or any other outputs!
 //                               I added a init_iochip before every write and added Z1, C1 and C2 on diagram 22, also see below figure 8 at
 //                               https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#fish_feeder
 // 1.5.15     04Sep2019 AQU=096  On 1.5.12. LONG_BEEP_MS heard all of a sudden(?). I looked at the aquarium, and it lokked like it was at the exact moment when

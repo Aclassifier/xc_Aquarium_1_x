@@ -23,6 +23,7 @@
 #define CHAR_aa_STR                  {CHAR_aa,0}
 #define CHAR_OE_STR                  {CHAR_OE,0}
 #define CHAR_TRIPLE_BAR_STR          {CHAR_TRIPLE_BAR,0}  // ≡
+#define CHAR_PAA_STR                 {0x50,CHAR_AA,0} // PÅ
 
 // ALL ..._LEN include terminating NUL (\0) CHAR! I try to call the others .._NUM etc. (NULL is used for void pointer)
 

@@ -355,12 +355,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
     //      The eol must then not be present. Check this
     //      I did this when building string for SCREEN_10_X_BOX and saved 256 bytes! Search for CHAR_FILLED_LEFT_ARROW and CHAR_FILLED_DOWN_ARROW
     const char char_degC_circle_str[]                             = DEGC_CIRCLE_STR;
-    const char char_AA_str[]                                      = CHAR_AA_STR;          // A
     const char char_OE_str[]                                      = CHAR_OE_STR;          // Ø
     const char char_takes_press_for_10_seconds_right_button_str[] = CHAR_PLUS_MINUS_STR;  // ±
     const char char_triple_bar_str[]                              = CHAR_TRIPLE_BAR_STR;  // ≡
     const char char_right_arrow_str[]                             = CHAR_RIGHT_ARROW_STR; // → for timed change
     const char char_filled_right_arrow_str[]                      = CHAR_FILLED_RIGHT_ARROW_STR; // Removing this did not make shorter code!
+    const char char_PAA_str[]                                     = CHAR_PAA_STR; // PÅ
     //
     debug_print ("SCREEN %u @ %u \n", context.display_screen_name_present, context.display_sub_context[context.display_screen_name_present].sub_state);
 
@@ -462,11 +462,11 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 78 chars plus \0
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "2 VANNTEMP-REG %s%sC %sP%s       %3u%%        SYKLUS %s%sC       %sEFFEKT    %2uW",
+                    "2 VANNTEMP-REG %s%sC %s%s       %3u%%        SYKLUS %s%sC       %sEFFEKT    %2uW",
                     temp_degC_water_str,
                     char_degC_circle_str,
                     (context.heater_data_aged) ? ">" : " ",
-                    char_AA_str,
+                    char_PAA_str,
                     context.heater_on_percent, // PÅ
                     temp_degC_heater_mean_last_cycle_str, // SNITT
                     char_degC_circle_str,
@@ -690,7 +690,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                             context.display_ts1_chars [index_of_char] = ' ';
                         }
 
-                        sprintf_numchars = sprintf (context.display_ts1_chars, "3%s LYS P%s", char_takes_press_for_10_seconds_right_button_str, char_AA_str); // AQU=087 3± instead of ±3
+                        sprintf_numchars = sprintf (context.display_ts1_chars, "3%s LYS %s", char_takes_press_for_10_seconds_right_button_str, char_PAA_str); // AQU=087 3± instead of ±3
                         Clear_All_Pixels_In_Buffer();
                         setTextSize(1);
                         setTextColor(WHITE);
@@ -928,12 +928,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
             // FILLS 84 chars plus \0
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                    "6 VANN %s%sC\n  MAX  %s%sC UNDER\n  BOKS P%s %04u.%02u.%02u\n  %u RESTARTER",
+                    "6 VANN %s%sC\n  MAX  %s%sC UNDER\n  BOKS %s %04u.%02u.%02u\n  %u RESTARTER",
                     temp_water_degc_str,
                     char_degC_circle_str,
                     temp_heater_degc_str,
                     char_degC_circle_str,
-                    char_AA_str,
+                    char_PAA_str, // PÅ
                     context.datetime_at_startup.year,
                     context.datetime_at_startup.month,
                     context.datetime_at_startup.day,
@@ -1247,29 +1247,25 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10%s X-BOKS %s\n   R1.R2  %1u.%1u KODE %1u\n  #R1.MIN %u.%u %c\n  #S1.mS  %u.%u %s",
-                               // 1           2             3   4        5             6  7  8             9 10
+                               "10%s X-BOKS %s\nR1.R2     %1u.%1u %s %s\nPUMPE.min %u.%u\nMATER.mS  %u.%u %s",
+                               // 1         2               3   4  5             6  7             8  9 10
                                char_takes_press_for_10_seconds_right_button_str, // 1 ± new with AQU=086
                                (context.iochip.err_cnt==0) ? "IO" : "MANGLER", // 2
                                relay1, relay2, // 3,4
-                               context.iochip.button_ustate.u.cnt, // 5
+                               (context.iochip.button_ustate.u.cnt==0) ? "AV" :
+                               (context.iochip.button_ustate.u.cnt==1) ? "TID" : char_PAA_str, // 5
+                               (context.iochip.button_ustate.u.cnt==0) ? "R" :
+                               (context.iochip.button_ustate.u.cnt==1) ? "-" : "G", // 5
                                context.iochip.relay1_skimmer_pump_change_cnt_today, // 6
                                context.iochip.relay1_skimmer_pump_minutes_cntdown, // 7
-                               0x11, // 8 CHAR_FILLED_LEFT_ARROW used (*)
-                               context.iochip.solenoid_feeder_changes_today_cnt, // 9
-                               context.iochip.solenoid_feeder_time_on_ms, // 10
-                               // context.iochip.feeding.double_timed_trigger_config ? char_filled_2_down_arrow_str : char_filled_down_arrow_str); // 11
-                               context.iochip.feeding.double_timed_trigger_config ? "\x1F\x1F" : "\x1F"); // 11 CHAR_FILLED_DOWN_ARROW used (*)
+                               context.iochip.solenoid_feeder_changes_today_cnt, // 8
+                               context.iochip.solenoid_feeder_time_on_ms, // 9
+                               context.iochip.feeding.double_timed_trigger_config ? "2X" : "1X"); // 10
             //                                            ..........----------.
             //                                            10± X-BOKS IO // X-BOKS MANGLER
-            //                                               R1.R2  0.1 KODE 1
-            //                                              #R1.MIN 4.180 ◀   // Arrow to kind of show the skimmer pump that blows to the left!
-            //                                              #S1.mS  1.200 ▼▼ // One or two arrows down for single or double feeding
-            //
-            // (*) These three (◀,▼, ▼▼) hard coded values saved me 65100 - 64844 = 256 bytes! Instead of making strings like this:
-            //     const char char_filled_left_arrow_str[] = CHAR_FILLED_LEFT_ARROW_STR;
-            //     However, it doesn't always downscale like this! Was it a library function that was included? Around AQU=097
-
+            //                                            R1.R2     0.1 AV R  // "AV R" "TID -" "PÅ G"
+            //                                            PUMPE.min 4.180
+            //                                            MATER.mS  1.50 2X // 1 gang eller 2 ganger
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);

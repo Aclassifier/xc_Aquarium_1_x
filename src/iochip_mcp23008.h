@@ -63,10 +63,10 @@
     #define MY_MCP23008_OFF_BIT_FIRST_TRIG (MY_MCP23008_ALL_OFF bitor MY_MCP23008_OUT_WATCHDOG_LOWTOHIGH_EDGE_BIT)
 
     typedef enum {
-        //           // RED   GREEN   RELAY_1  RELAY_2
-        BUTTON_STATE_0, // BLINK OFF     OFF      OFF  Standard after INIT, easy to spot since BUTTON_STATE_1 is both LEDs off. Also relays off as init for next state:
-        BUTTON_STATE_1, // OFF   OFF     ###      ###  Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark. With short timeout
-        BUTTON_STATE_2, // OFF   BLINK   ON       ON   With long timeout. Every midnight cleared to BUTTON_STATE_1 AQU=088
+        //                // SCREEN_10_X_BOX RED   GREEN   RELAY_1  RELAY_2
+        BUTTON_STATE_0,   // "AV r"          BLINK OFF     OFF      OFF  Standard after INIT, easy to spot since BUTTON_STATE_1 is both LEDs off. Also relays off as init for next state:
+        BUTTON_STATE_1,   // "TID"           OFF   OFF     ###      ###  Controlled by Handle_Light_Sunrise_Sunset_Etc. LEDs dark. With short timeout
+        BUTTON_STATE_2,   // "PÅ g"          OFF   BLINK   ON       ON   With long timeout. Every midnight cleared to BUTTON_STATE_1 AQU=088
         BUTTON_STATE_ROOF // Not used
     } relay_button_state_e;
 
