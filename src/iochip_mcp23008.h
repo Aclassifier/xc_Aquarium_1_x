@@ -87,9 +87,11 @@
     #ifndef FLASH_BLACK_BOARD
         #error
     #elif (FLASH_BLACK_BOARD==1)
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((18*60)+30) // Just the time when I tested
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((9*60)+59) // Just the time when I tested
     #else
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12 * 60) + 30) // 12.30 AQU=095 new. Will not collide with RELAY1 skimmer pump since it only goes for to 12.15
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12*60) + 30) // 12.30 is 13.30 arm clock summer time
+        // 12.30 AQU=095 new. Will not collide with RELAY1 skimmer pump since it only goes for to 12.15
+        // Also observe HH_08_IS_DAY which gives day of 11-19 (full light finished 11.30). So this time must be AFTER 11.30
     #endif
 
     #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // One minute later

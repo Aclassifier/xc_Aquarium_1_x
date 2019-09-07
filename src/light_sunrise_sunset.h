@@ -46,11 +46,12 @@ typedef enum light_sensor_diff_state_t {
 
 typedef uint16_t num_days_since_start_t;
 
-
-#define HH_14_IS_DAY 14 //  8-22
-#define HH_12_IS_DAY 12 //  9-21
-#define HH_10_IS_DAY 10 // 10-20
-#define HH_08_IS_DAY  8 // 11-19
+//                                SUMMER TIME not in display here, only that's WATCH TIME for me
+#define HH_14_IS_DAY 14 //  8-22  SUMMER TIME:  9-23
+#define HH_12_IS_DAY 12 //  9-21  SUMMER TIME: 10-22
+#define HH_10_IS_DAY 10 // 10-20  SUMMER TIME: 11-21
+#define HH_08_IS_DAY  8 // 11-19  SUMMER TIME: 12-20
+//      NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 MUST BE AFTER 11.30, WHICH IS WHEN LIGHT IS LATEST STABILE
 //
 #define TIMED_HH_DAY_LIST_NUMS 4
 //
@@ -71,7 +72,7 @@ typedef enum light_daytime_hours_e {
     HH_08_IS_DAY_VAL = HH_08_IS_DAY
 } light_daytime_hours_e;
 //
-typedef light_daytime_hours_e light_daytime_hours_t;
+typedef light_daytime_hours_e light_daytime_hours_t; // TODO why did I do this?
 
 typedef enum {
     LIGHT_DAYTIME_HOURS_VOID,

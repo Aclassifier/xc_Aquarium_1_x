@@ -17,9 +17,10 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.17" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1517  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.18" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1518  // Is "AQUARIUM_VERSION_NUM_t"
 //            --------- Running  7Sep2019
+// 1.5.18     07Sep2019          Added beeping when NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 to hear feeing time when the feeder is not connected
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65008 S:6844 C:52066 D:6098
 // 1.5.17     06Sep2019          Better SCREEN_10_X_BOX
 // 1.5.16     05Sep2019 AQU=097  I could see 1.5.15 flashed code take in the button bit from iochip but not blink with any LED or any other outputs!

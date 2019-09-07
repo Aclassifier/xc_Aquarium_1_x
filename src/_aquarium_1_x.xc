@@ -2503,6 +2503,7 @@ void System_Task (
                               (context.datetime.hour != context.datetime_old.hour) and // AQU=092 not using trigger_hour_changed_stick that may have been cleared by Handle_Light_Sunrise_Sunset_Etc
                               (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) and
                               ((context.datetime.hour % 3) == 0); // Every third hour (dividable by three)
+                        // No context.beeper_blip_now = true here since that would be too much beeping!
                         // Make sure that NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 will not overlap here, even if it would stop RELAY1 if it had started,
                         // with clearing of context.iochip.relay1_skimmer_pump_minutes_cntdow (below)
                     #endif
@@ -2515,6 +2516,7 @@ void System_Task (
                         const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
                         if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
                             solenoid_feeder_timed_on = true; // Always feed once per day
+                            context.beeper_blip_now = true; // To hear it if the feeder is not connected. However, not if double, that would be too much beeping:
                         } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
                             if (context.iochip.feeding.double_timed_trigger_config == true) {
                                 solenoid_feeder_timed_on = true; // Only if double feed the second time
