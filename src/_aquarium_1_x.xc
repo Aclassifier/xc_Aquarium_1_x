@@ -2528,16 +2528,12 @@ void System_Task (
                     // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE
                     // THIS CODE BLOCKS FOR WRITE_IOCHIP_PINS_WAIT_AFTER_MS
 
-                    bool solenoid_feeder_on_trigger = false;
-
-                    if (light_sunrise_sunset_context.it_is_day_or_night == IT_IS_DAY) {
-                        solenoid_feeder_on_trigger = (solenoid_feeder_manual_on or solenoid_feeder_timed_on);
-                        if (solenoid_feeder_on_trigger) {
-                            if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
-                                context.iochip.relay1_skimmer_pump_minutes_cntdown = 0; // Stop skimmer pump as it would suck up the food!
-                            } else {} // Nothing to stop
-                        } else {} // skimmer pump not on
-                    } else {} // Not day. XMOS [Product Bug #32326] 3Sep2019 on missing "{}" here
+                    bool solenoid_feeder_on_trigger = (solenoid_feeder_manual_on or solenoid_feeder_timed_on); // AQU=098 no IT_IS_DAY
+                    if (solenoid_feeder_on_trigger) {
+                        if (context.iochip.relay1_skimmer_pump_minutes_cntdown > 0) {
+                            context.iochip.relay1_skimmer_pump_minutes_cntdown = 0; // Stop skimmer pump as it would suck up the food!
+                        } else {} // Nothing to stop
+                    } else {} // skimmer pump not on
 
                     const bool solenoid_LED_on_active = (context.iochip.solenoid_feeder_changes_today_cnt > 0); // == LED in connector box ON after one feeding (would be delayed by 1 sec)
 

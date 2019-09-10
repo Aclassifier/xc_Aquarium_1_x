@@ -96,10 +96,17 @@
 
     #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // One minute later
 
-    #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
+    #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See
+    // https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
 
+    // Solenoid plunger dip is at 22 ms. 50% more is 22+11=33 ms. So 35 ms probably the shortes time possible. See
+    // https://www.teigfam.net/oyvind/home/hobby/193-my-aquarium-holiday-automatic-feeder-for-granules/#shortest_engagement_time
+    // Also see Detection of Plunger Movement in DC Solenoids by Manu Balakrishnan and Navaneeth Kumar N at Texas Instruments
+    // (June 2015), see http://www.ti.com/lit/wp/ssiy001/ssiy001.pdf
+    //
     #define AUTO_FEEDING_NUM_SINGLE_MS (50) // For single clicks of the feeder solenoid
-    #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid
+    #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid SHORTEST POSSIBLE (above)
+
 
     typedef struct feeding_t { // AQU=095
         bool double_timed_trigger_config; // Settable from SCREEN_10_X_BOX

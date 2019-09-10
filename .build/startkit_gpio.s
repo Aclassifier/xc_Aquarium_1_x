@@ -329,7 +329,7 @@
 	.globl startkit_gpio_driver.select.0.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.0.enable.cases,0
 	.globl startkit_gpio_driver.select.0.enable.cases
-	.set startkit_gpio_driver.select.0.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.0.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.0.enable.cases.nstackwords
 	.set startkit_gpio_driver.select.1.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
 	.globl startkit_gpio_driver.select.1.enable.savedstate
@@ -341,7 +341,7 @@
 	.globl startkit_gpio_driver.select.1.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.1.enable.cases,0
 	.globl startkit_gpio_driver.select.1.enable.cases
-	.set startkit_gpio_driver.select.1.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.1.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.1.enable.cases.nstackwords
 	.set startkit_gpio_driver.select.2.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
 	.globl startkit_gpio_driver.select.2.enable.savedstate
@@ -353,7 +353,7 @@
 	.globl startkit_gpio_driver.select.2.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.2.enable.cases,0
 	.globl startkit_gpio_driver.select.2.enable.cases
-	.set startkit_gpio_driver.select.2.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.2.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.2.enable.cases.nstackwords
 	.set startkit_gpio_driver.select.3.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
 	.globl startkit_gpio_driver.select.3.enable.savedstate
@@ -365,7 +365,7 @@
 	.globl startkit_gpio_driver.select.3.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.3.enable.cases,0
 	.globl startkit_gpio_driver.select.3.enable.cases
-	.set startkit_gpio_driver.select.3.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.3.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.3.enable.cases.nstackwords
 	.set startkit_gpio_driver.dynalloc_maxchanends, 0 + absolute_slider.dynalloc_maxchanends + absolute_slider.dynalloc_maxchanends + slider.dynalloc_maxchanends + slider.dynalloc_maxchanends + startkit_gpio_driver_aux.dynalloc_maxchanends
 	.globl startkit_gpio_driver.dynalloc_maxchanends
@@ -517,7 +517,7 @@
 	.globl startkit_gpio_driver.select.yield.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.yield.enable.cases,0
 	.globl startkit_gpio_driver.select.yield.enable.cases
-	.set startkit_gpio_driver.select.yield.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.yield.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.yield.enable.cases.nstackwords
 	.set startkit_gpio_driver.select.enable.savedstate,44+ startkit_gpio_driver_aux.select.enable.savedstate+ slider.select.enable.savedstate+ slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate+ absolute_slider.select.enable.savedstate
 	.globl startkit_gpio_driver.select.enable.savedstate
@@ -529,7 +529,7 @@
 	.globl startkit_gpio_driver.select.enable.cases.maxchanends
 	.set startkit_gpio_driver.select.enable.cases,0
 	.globl startkit_gpio_driver.select.enable.cases
-	.set startkit_gpio_driver.select.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (absolute_slider.select.enable.cases.nstackwords)
+	.set startkit_gpio_driver.select.enable.cases.nstackwords, 0 $M (absolute_slider.select.enable.cases.nstackwords) $M (slider.select.enable.cases.nstackwords) $M (startkit_gpio_driver_aux.select.enable.cases.nstackwords)
 	.globl startkit_gpio_driver.select.enable.cases.nstackwords
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.weak _i.slider_query_if.filter.maxcores.group
