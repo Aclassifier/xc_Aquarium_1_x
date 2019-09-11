@@ -19,7 +19,8 @@ typedef uint16_t aquarium_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define AQUARIUM_VERSION_STR "1.5.20" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
 #define AQUARIUM_VERSION_NUM    1520  // Is "AQUARIUM_VERSION_NUM_t"
-//            --------- Running  10Sep019
+//            11Sep2019          SET THE CHRONODOT DS3231 CLOCK BACK 45 SECONDS. IT HAS BEEN RUNNING SINCE JAN2017, FOR 32 MONTHS: 1.5 SECS PER MONTH
+//            --------- Running  10Sep2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65008 S:6844 C:52066 D:6098
 // 1.5.20     10Sep2019 AQU=098  Allowing testing solenoid for all hours of the day, removing 1.5.19
 // 1.5.19     09Sep2019          solenoid_feeder_on_it_is_day is new, just for FLASH_BLACK_BOARD. See AQU=098
@@ -355,7 +356,7 @@ typedef uint16_t aquarium_version_num_t;
 //                      AQU=018 debug_printf_datetime is new, so that I now get printouts of Date: Time: easier
 // 1.0.11    24Jul2017
 //                      AQU=017  LYKT  2 minutes before  SKY  shall accpet both LYKTs light up again and SKY's DOWN (search for light_is_stable) (tested ok, log exists)
-// 1.0.10     21Jul2017
+// 1.0.10    21Jul2017
 //                      AQU=016 get_light_is_stable_sync_internal now is a separate function (ok)
 //                      AQU=015 Renaming, all tasks now  Task . Includes renaming of files (Git commits do follow file renaming, but not history) (ok)
 //                              I2C_Internal_Server -> I2C_Internal_Task

@@ -87,7 +87,7 @@
     #ifndef FLASH_BLACK_BOARD
         #error
     #elif (FLASH_BLACK_BOARD==1)
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((9*60)+59) // Just the time when I tested
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((15*60)+01) // Just the time when I tested
     #else
         #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12*60) + 30) // 12.30 is 13.30 arm clock summer time
         // 12.30 AQU=095 new. Will not collide with RELAY1 skimmer pump since it only goes for to 12.15
@@ -106,7 +106,6 @@
     //
     #define AUTO_FEEDING_NUM_SINGLE_MS (50) // For single clicks of the feeder solenoid
     #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid SHORTEST POSSIBLE (above)
-
 
     typedef struct feeding_t { // AQU=095
         bool double_timed_trigger_config; // Settable from SCREEN_10_X_BOX
