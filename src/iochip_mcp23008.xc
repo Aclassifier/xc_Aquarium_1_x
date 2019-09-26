@@ -55,16 +55,16 @@ void init_iochip_i2c_external_iff (
         client  i2c_external_commands_if i_i2c_external_commands,
         iochip_t                         &iochip)
 {
-    iochip.err_cnt                              = 0;
-    iochip.port_pins                            = MY_MCP23008_OFF_BIT_FIRST_TRIG;
-    iochip.seconds_cnt                          = 0;
-    iochip.relay1_skimmer_pump_minutes_cntdown  = 0;
-    iochip.relay1_skimmer_pump_state            = RELAY_IS_OFF;
-    iochip.button_ustate.u.state                = BUTTON_STATE_0;
-    iochip.relay1_skimmer_pump_on_trigger_previous   = false;
-    iochip.relay1_skimmer_pump_change_cnt_today = 0;
-    iochip.solenoid_feeder_changes_today_cnt           = 0;
-    iochip.feeding.manual_trigger       = false;
+    iochip.err_cnt                                 = 0;
+    iochip.port_pins                               = MY_MCP23008_OFF_BIT_FIRST_TRIG;
+    iochip.seconds_cnt                             = 0;
+    iochip.relay1_skimmer_pump_minutes_cntdown     = 0;
+    iochip.relay1_skimmer_pump_state               = RELAY_IS_OFF;
+    iochip.button_ustate.u.state                   = BUTTON_STATE_0;
+    iochip.relay1_skimmer_pump_on_trigger_previous = false;
+    iochip.relay1_skimmer_pump_change_cnt_today    = 0;
+    iochip.solenoid_feeder_changes_today_cnt       = 0;
+    iochip.feeding.manual_trigger                  = false;
 
     i_i2c_external_commands.write_iochip_pins (true_do_init, iochip.err_cnt, iochip.port_pins, WRITE_IOCHIP_PINS_WAIT_AFTER_MS);
 }
@@ -181,7 +181,7 @@ beeper_blip_now_ms_t handle_iochip_i2c_external_iff (
             if (solenoid_LED_on_active) {
                 iochip.port_pins or_eq MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_MASK; // Is LED in connector box: ON
             } else {
-                iochip.port_pins bitand compl MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_MASK; // Is LED in connector box: OFF
+                iochip.port_pins and_eq compl MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_MASK; // Is LED in connector box: OFF AQU=099 was 'bitand'
             }
 
             // ALWAYS TOGGLE WATCHDOG PIN:
