@@ -143,7 +143,7 @@ typedef enum display_sub_state_t {
 
 typedef struct screen_logg_t {
     bool     exists;
-    bool     disabled_toggled_on_acknowledge_10secs; // Just so that the display will not be on all the time (if FLASH_BLACK_BOARD==1)
+    bool     disabled_toggled_on_acknowledge_10secs; // Just so that the display will not be on all the time (if FLASH_BLACK_BOARD>=1)
     unsigned display_ts1_chars_num;
     char     display_ts1_chars [SSD1306_TS1_DISPLAY_VISIBLE_CHAR_LEN];
 } screen_logg_t;
@@ -1505,7 +1505,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     context.error_bits_now = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_bits_history = AQUARIUM_ERROR_BITS_NONE; // Only place it's cleared!
                                     context.error_beeper_blip_now_muted = false; // Only place it's cleared!
-                                    #if (FLASH_BLACK_BOARD==1)
+                                    #if (FLASH_BLACK_BOARD>=1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = not context.screen_logg.disabled_toggled_on_acknowledge_10secs;
                                     #endif
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
@@ -1521,7 +1521,7 @@ void Handle_Real_Or_Clocked_Buttons (
                                     if (context.display_appear_state == DISPLAY_APPEAR_BLACK) {
                                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED; // DISPLAY_APPEAR_BACKROUND_UPDATED set two places
                                     } else {}
-                                    #if (FLASH_BLACK_BOARD==1)
+                                    #if (FLASH_BLACK_BOARD>=1)
                                         context.screen_logg.disabled_toggled_on_acknowledge_10secs = false;
                                     #endif
                                     Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
@@ -1689,7 +1689,7 @@ void System_Task_Data_Handler (
     //
     // HANDLE ERROR SITUATIONS and also set status values
 
-    #if ((FLASH_BLACK_BOARD==1) or (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==1))
+    #if ((FLASH_BLACK_BOARD>=1) or (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==1))
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WRONG_CODE_STARTKIT); // AQU=034 new
     #endif
 
@@ -1754,7 +1754,7 @@ void System_Task_Data_Handler (
 
     // No new assignment of local error_bits_now after here
 
-    #if (FLASH_BLACK_BOARD==1)
+    #if (FLASH_BLACK_BOARD>=1)
     if (context.screen_logg.disabled_toggled_on_acknowledge_10secs) {
         // error_bits already cleared, don't use error_bits_now
     }
@@ -2293,7 +2293,7 @@ void System_Task (
     }
 
     // Modify with right button pressed for 10 seconds when SCREEN_8_RADIO:
-    #if (FLASH_BLACK_BOARD == 1)
+    #if (FLASH_BLACK_BOARD>=1)
         context.radio_enabled_state = radio_enabled;
     #else
         context.radio_enabled_state = radio_disabled_pending;

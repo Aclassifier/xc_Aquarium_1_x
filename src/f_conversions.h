@@ -22,7 +22,7 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
 #define TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT ( 0) // Like 25.0 DegC
 //efine TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT (-5) // Like 24.5 DegC Test init with this
 
-#if (FLASH_BLACK_BOARD==1) // SPECIAL
+#if (FLASH_BLACK_BOARD>=1) // SPECIAL
 
     // TODO: Consider there from time to time:
     //       40 degC too high (?) when still water? "Burning" roots?

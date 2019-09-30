@@ -17,8 +17,9 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.21" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1521  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.22" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1522  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.5.22     30Sep2019          FLASH_BLACK_BOARD now is either 0 or 2 with new LED board, see diagram 16.2
 //            --------- Running  26Sep2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65012 S:6844 C:52070 D:6098
 // 1.5.21     26Sep2019 AQU=099  solenoid_LED_on_active never was taken off

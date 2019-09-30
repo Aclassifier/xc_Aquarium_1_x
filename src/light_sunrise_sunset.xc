@@ -58,7 +58,7 @@
 #define debug_set_val_to(val,to) do { if((DEBUG_PRINT_LIGHT_SUNRISE_SUNSET==1) and (DEBUG_PRINT_GLOBAL_APP==1)) val=to;                   } while (0)
 
 
-#if (FLASH_BLACK_BOARD==1)
+#if (FLASH_BLACK_BOARD>=1)
     // No code
 #else
     #ifdef DEBUG_TEST_DAY_NIGHT_DAY
@@ -565,7 +565,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                         light_composition_t new_light_composition = Get_Weighted_Random_Light_Composition_For_Some_HourChanges (random_number);
                                         // Change, down (more SKY) or even up now allowed (less SKY)!
                                         i_port_heat_light_commands.set_light_composition (new_light_composition, LIGHT_CONTROL_IS_RANDOM, 102); // Ignoring return value freeze_on
-                                        #if ((FLASH_BLACK_BOARD==1) and (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==0))
+                                        #if ((FLASH_BLACK_BOARD>=1) and (USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM==0))
                                             context.num_minutes_left_of_random = 3; // To test AQU=023
                                         #else
                                             context.num_minutes_left_of_random =

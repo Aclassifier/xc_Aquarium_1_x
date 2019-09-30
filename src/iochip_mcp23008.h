@@ -86,7 +86,7 @@
 
     #ifndef FLASH_BLACK_BOARD
         #error
-    #elif (FLASH_BLACK_BOARD==1)
+    #elif (FLASH_BLACK_BOARD>=1)
         #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((15*60)+01) // Just the time when I tested
     #else
         #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12*60) + 30) // 12.30 is 13.30 arm clock summer time

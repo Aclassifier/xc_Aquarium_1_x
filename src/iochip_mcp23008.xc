@@ -35,7 +35,7 @@
 // MAX time are the blow, they may be 59 seconds less
 #ifndef FLASH_BLACK_BOARD
     #error
-#elif (FLASH_BLACK_BOARD==1)
+#elif (FLASH_BLACK_BOARD>=1)
     #if (FLASH_BLACK_BOARD_FAST_RELAY1==1)
         #define AUTO_RELAY1_SKIMMER_PUMP_ON_MINUTES             1
         #define MANUAL_RELAY1_SKIMMER_PUMP_ON_HOURS_IN_MINUTES  2
