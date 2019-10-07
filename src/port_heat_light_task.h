@@ -8,18 +8,35 @@
 
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK; often in a two-dim array with NUM_PWM_TIME_WINDOWS (so not using NUM_ELEMENTS)
 
-typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
-    //                                                |             |  1/3  |  2/3  |  FULL
-    IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#5,#6 | 6000K+3000K | 2867  | 5733  |  8600  8.6   = 5.0W + 2.2W + 1.4W | 380lm + 240lm + 150lm = 770lm AQU=038,AQU=058
-    IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour      | 1083  | 2166  |  3250  3.25W = 1.12W RED + 1.12W BLUE + 1W GREEN                  AQU=041
-    IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K       | 1133  | 2266  |  3400  3.4W                       | 440lm                         AQU=041
-} iof_LED_strip_t; //                                                                  ##
-//                                                                                     15250 -> "15W"
-typedef enum { //                                                                      ##
-    WATTOF_LED_STRIP_FRONT  = 8, // ->                                              -> ## AQU=058 TODO: Check 3000K from InspiredLED instead. Only get 380 lm from 5W here
-    WATTOF_LED_STRIP_CENTER = 4, // ->                                              -> ##
-    WATTOF_LED_STRIP_BACK   = 3  // ->                                              -> ##
-} wattOf_LED_strip_t;
+#if (IS_LED_CONFIG<6)
+    typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
+        //                                                |             |  1/3  |  2/3  |  FULL
+        IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#5,#6 | 6000K+3000K | 2867  | 5733  |  8600  8.6   = 5.0W + 2.2W + 1.4W | 380lm + 240lm + 150lm = 770lm AQU=038,AQU=058
+        IOF_LED_STRIP_CENTER, // "CENTER" STRIPS #2,#3,#4 | Colour      | 1083  | 2166  |  3250  3.25W = 1.12W RED + 1.12W BLUE + 1W GREEN                  AQU=041
+        IOF_LED_STRIP_BACK    // "BACK"   STRIP # 7       | 4200K       | 1133  | 2266  |  3400  3.4W                       | 440lm                         AQU=041
+        //                                                                                15250 -> "15W"
+    } iof_LED_strip_t;
+    typedef enum {
+        WATTOF_LED_STRIP_FRONT_DP1  = 86, // AQU=058 TODO: Check 3000K from InspiredLED instead. Only get 380 lm from 5W here
+        WATTOF_LED_STRIP_CENTER_DP1 = 33,
+        WATTOF_LED_STRIP_BACK_DP1   = 34
+        //                           153 = 15.3W Including serial resistors (AQU=100)
+    } wattOf_LED_strip_t;
+#elif (IS_LED_CONFIG==6)
+    typedef enum iof_LED_strip_t {
+        IOF_LED_STRIP_FRONT,
+        IOF_LED_STRIP_CENTER,
+        IOF_LED_STRIP_BACK
+    } iof_LED_strip_t;
+    typedef enum {
+        // Plant Tech LED list PlantLED PRO60. 9 (as 3*3) out of 10 used: Across LEDS: 8.48V @ 0.39A = 3.3W. 9 Ohm in series. 12V supply.
+        WATTOF_LED_STRIP_FRONT_DP1  = 33, // 3.3W
+        WATTOF_LED_STRIP_CENTER_DP1 = 33, // 3.3W
+        WATTOF_LED_STRIP_BACK_DP1   = 33  // 3.3W
+        // SUM                        99  =  9.9W Excluding serial resistors, only LEDs (AQU=100)
+    } wattOf_LED_strip_t;
+#endif
+
 
 
 

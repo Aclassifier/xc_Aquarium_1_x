@@ -1777,24 +1777,26 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
 # 35 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
-# 11 "../src/port_heat_light_task.h"
-typedef enum iof_LED_strip_t {
+# 26 "../src/port_heat_light_task.h"
+    typedef enum iof_LED_strip_t {
+        IOF_LED_STRIP_FRONT,
+        IOF_LED_STRIP_CENTER,
+        IOF_LED_STRIP_BACK
+    } iof_LED_strip_t;
+    typedef enum {
 
-    IOF_LED_STRIP_FRONT,
-    IOF_LED_STRIP_CENTER,
-    IOF_LED_STRIP_BACK
-} iof_LED_strip_t;
+        WATTOF_LED_STRIP_FRONT_DP1 = 33,
+        WATTOF_LED_STRIP_CENTER_DP1 = 33,
+        WATTOF_LED_STRIP_BACK_DP1 = 33
 
-typedef enum {
-    WATTOF_LED_STRIP_FRONT = 8,
-    WATTOF_LED_STRIP_CENTER = 4,
-    WATTOF_LED_STRIP_BACK = 3
-} wattOf_LED_strip_t;
+    } wattOf_LED_strip_t;
+
+
 
 
 
 typedef enum light_composition_t {
-# 37 "../src/port_heat_light_task.h"
+# 54 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF = 0,
     LIGHT_COMPOSITION_1133_mW_FMB_001_ON = 1,
     LIGHT_COMPOSITION_3250_mW_FMB_030_ON_ONLY_CENTER = 2,
@@ -1836,7 +1838,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 86 "../src/port_heat_light_task.h"
+# 103 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
@@ -1870,7 +1872,7 @@ typedef interface port_heat_light_commands_if {
 
 
 } port_heat_light_commands_if;
-# 130 "../src/port_heat_light_task.h"
+# 147 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1

@@ -565,50 +565,41 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         sprintf (left_of_minutes_or_count_str, "...");                                                                      // "..." in effect, all random sequences used today
                     }
 
-                    // FILLS 77 chars plus \0
-                    bool light_daytime_hours_add_trailing_space = false;
-                    if (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) {
-                        light_daytime_hours_add_trailing_space = (light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours <= 9);
-                    } else {
-                        light_daytime_hours_add_trailing_space = (light_sunrise_sunset_context.light_daytime_hours <= 9);
-                    }
-
+                    // AQU=100 changed layout
                     sprintf_numchars = sprintf (context.display_ts1_chars,
-                            "3%s LYS F:%uW M:%uW B:%uW     %s %u/3  %u/3  %u/3        %s %u/%u %s%ut%s%s      %s%s %s %u %s",
-                          // A         B     C     D       T  E     F     G    H      I  --J-- K L  M N       O P  Q  R  S
-                          /* A */ char_takes_press_for_10_seconds_right_button_str,                                                                        // "±" "3±" new with AQU=085, not "±3"                                                                    //  Å
-                          /* B */ WATTOF_LED_STRIP_FRONT,                                                                                                  // "5"
-                          /* C */ WATTOF_LED_STRIP_CENTER,                                                                                                 // "4"
-                          /* D */ WATTOF_LED_STRIP_BACK,                                                                                                   // "2"
-                          /* T */ light_sunrise_sunset_context.hot_water ? "H" : "=",                                                                      // "H" or "=" (for Norwegian "HET" = WARM)
-                          /* E */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                                                                     // "1"
-                          /* F */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],                                                                    // "2"
-                          /* G */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                                                                      // "3"
-                          /* H */                                                                                                                          // "±" removed with AQU=87
-                          /* I */ (light_sunrise_sunset_context.allow_normal_light_change_by_menu) ? light_control_norm_str : light_control_steady_str,    // "NORM" or "FAST"
-                          /* J */ num_light_amount, den_light_amount,                                                                                      // "2/3" etc
-                          /* K */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ? " " : "=",
-                          /* L */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
+                            "3%s  LYS W %u.%u %u.%u %u.%u    FSB %s %u/3 %u/3 %u/3   %s %u/%u %s%ut%s\n   %s %s %u %s",
+                          //  A         B  b  C  c  D  d         E  F    G    H      I  J  j  K L  M      N  O  P  Q
+                          //
+                          /* A   */ char_takes_press_for_10_seconds_right_button_str,                   // "±" "3±" new with AQU=085, not "±3"                                                                    //  Å
+                          /* B b */ WATTOF_LED_STRIP_FRONT_DP1  / 10, WATTOF_LED_STRIP_FRONT_DP1  % 10, // "8.6" (from 86)
+                          /* C c */ WATTOF_LED_STRIP_CENTER_DP1 / 10, WATTOF_LED_STRIP_CENTER_DP1 % 10, // "3.4" (from 34)
+                          /* D d */ WATTOF_LED_STRIP_BACK_DP1   / 10, WATTOF_LED_STRIP_BACK_DP1   % 10, // "3."3 (from 33)
+                          /* E   */ light_sunrise_sunset_context.hot_water ? "H" : "=",                 // "H" or "=" (for Norwegian "HET" = WARM)
+                          /* F   */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                // "1"
+                          /* G   */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],               // "2"
+                          /* H   */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                 // "3"
+                          /* I   */ (light_sunrise_sunset_context.allow_normal_light_change_by_menu) ? light_control_norm_str : light_control_steady_str, // "NORM" or "FAST"
+                          /* J j */ num_light_amount, den_light_amount,                                                                                   // "2/3" etc
+                          /* K   */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ? " " : "=",
+                          /* L   */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
                                        light_sunrise_sunset_context.light_daytime_hours_by_menu.light_daytime_hours :
                                        light_sunrise_sunset_context.light_daytime_hours,
-                          /* M */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
+                          /* M   */ (light_sunrise_sunset_context.light_daytime_hours_by_menu.state == LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU) ?
                                        char_right_arrow_str : " ",
-                          /* N */ (light_daytime_hours_add_trailing_space) ? " " : "",                                                            // "=14t", "12t→", "10t→", "8t→ "
-                          /* O */ (light_control_scheme_add_leading_space) ? " " : "",                                                            // So that " INIT" and "  DAG" will be left aligned first visible char
-                          /* P */ light_control_scheme_strings[context.light_control_scheme],                                                     // "NATT" etc.
-                          /* Q */ (light_sunrise_sunset_context.light_is_stable) ? stable_str : char_takes_press_for_10_seconds_right_button_str, // "=" or "±"
-                          /* R */ context.light_composition,                                                                                      // 10
-                          /* S */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
+                          /* N   */ light_control_scheme_strings[context.light_control_scheme],                                                     // "NATT" etc.
+                          /* O   */ (light_sunrise_sunset_context.light_is_stable) ? stable_str : char_takes_press_for_10_seconds_right_button_str, // "=" or "±"
+                          /* P   */ context.light_composition,                                                                                      // 10
+                          /* Q   */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
                     //                                            ..........----------.
-                    //                                            3± LYS F:5W M:4W B:2W
-                    //                                                 = 1/3  2/3  3/3.
-                    //                                                 H 1/3  2/3  3/3.
-                    //                                                   NORM 3/3 =14t
-                    //                                                   INIT ± 10 M:12
-                    //                                                    DAG ± 10 M:12
-                    //                                                   NATT = 0 T≡8
-                    //                                                    NED = 3 M:4
-                    //                                                   LYKT ± 10 T:12
+                    //                                            3±  LYS W 8.6 3.3 3.4
+                    //                                                FSB = 1/3 2/3 3/3
+                    //                                                FSB H 1/3 2/3 3/3
+                    //                                               NORM 3/3 =14t        "=14t", "12t→", "10t→", "8t→ "
+                    //                                               INIT ± 10 M:12
+                    //                                                DAG ± 10 M:12
+                    //                                               NATT = 0 T≡8
+                    //                                                NED = 3 M:4
+                    //                                               LYKT ± 10 T:12
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
