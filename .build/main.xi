@@ -1792,26 +1792,24 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
     } wattOf_LED_strip_t;
 
 
-
-
-
 typedef enum light_composition_t {
-# 54 "../src/port_heat_light_task.h"
+# 51 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF = 0,
-    LIGHT_COMPOSITION_1133_mW_FMB_001_ON = 1,
-    LIGHT_COMPOSITION_3250_mW_FMB_030_ON_ONLY_CENTER = 2,
-    LIGHT_COMPOSITION_3299_mW_FMB_021_ON = 3,
-    LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM = 4,
-    LIGHT_COMPOSITION_4383_mW_FMB_031_ON = 5,
-    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD = 6,
-    LIGHT_COMPOSITION_5516_mW_FMB_032_ON = 7,
-    LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF = 8,
-    LIGHT_COMPOSITION_8382_mW_FMB_132_ON = 9,
-    LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT = 10,
-    LIGHT_COMPOSITION_9516_mW_FMB_133_ON = 11,
-    LIGHT_COMPOSITION_10165_mW_FMB_222_ON_TWO_THIRDS = 12,
-    LIGHT_COMPOSITION_12383_mW_FMB_233_ON = 13,
-    LIGHT_COMPOSITION_15250_mW_FMB_333_ALL_ON = 14,
+    LIGHT_COMPOSITION_1100_mW_FMB_001_ON = 1,
+    LIGHT_COMPOSITION_2200_mW_FMB_011_ON = 2,
+    LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD = 3,
+    LIGHT_COMPOSITION_3300_mW_FMB_021_ON = 4,
+    LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM = 5,
+    LIGHT_COMPOSITION_4400_mW_FMB_031_ON = 6,
+    LIGHT_COMPOSITION_5500_mW_FMB_032_ON = 7,
+    LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF = 8,
+    LIGHT_COMPOSITION_6600_mW_FMB_132_ON = 9,
+
+    LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT = 10,
+    LIGHT_COMPOSITION_7700_mW_FMB_133_ON = 11,
+    LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS = 12,
+    LIGHT_COMPOSITION_8800_mW_FMB_233_ON = 13,
+    LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON = 14,
     NUMLIGHT_COMPOSITION_LEVELS_ = 15
 
 
@@ -1838,7 +1836,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 103 "../src/port_heat_light_task.h"
+# 101 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
@@ -1872,7 +1870,7 @@ typedef interface port_heat_light_commands_if {
 
 
 } port_heat_light_commands_if;
-# 147 "../src/port_heat_light_task.h"
+# 145 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1

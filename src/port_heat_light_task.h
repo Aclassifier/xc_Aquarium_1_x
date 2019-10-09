@@ -37,38 +37,36 @@
     } wattOf_LED_strip_t;
 #endif
 
-
-
-
 typedef enum light_composition_t {
     // Since doing 0-100% pwm caused flickering even on fast speeds when we did 100 levels we ended up with the below scheme
     // (where all off in any time window is avoided as much as possible)
 
     // AQU=068 Since there is not any one output that controls a single colour, but all are more or less white, we order
-    // this table accordning to wattage only. This would doung UP and DOWN easier in the case where HALF could end up
+    // this table accordning to wattage only. This would doing UP and DOWN easier in the case where HALF could end up
     // with a value priror to DOWN as "lower" and after UP as "higher" than the immediate next value.
 
+    // AQU=101 New names since LED frame #2 is used. Last commit with previous values is 5280474 on Oct 7, 2019
+    //                #### mW         See below: FATAL!   ##
+    //                        FMB=FrontMidtenBak
+    LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF           =  0,
+    LIGHT_COMPOSITION_1100_mW_FMB_001_ON                =  1,
+    LIGHT_COMPOSITION_2200_mW_FMB_011_ON                =  2,
+    LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD      =  3, // Also if hot_water
+    LIGHT_COMPOSITION_3300_mW_FMB_021_ON                =  4, // Also "one third" but uneven
+    LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM =  5,
+    LIGHT_COMPOSITION_4400_mW_FMB_031_ON                =  6, // Also 4400 but more at the center
+    LIGHT_COMPOSITION_5500_mW_FMB_032_ON                =  7,
+    LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF           =  8, // Also 5500 but wider spread. Gone for the larger "almost half" from 4400/5500:
+    LIGHT_COMPOSITION_6600_mW_FMB_132_ON                =  9,
     //
-    //                #### mW         See below: FATAL! ##   // Before
-    //                        FMB=FrontMidtenBak               // AQU=068
-    LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF           =  0,  //   0
-    LIGHT_COMPOSITION_1133_mW_FMB_001_ON                =  1,  //   1
-    LIGHT_COMPOSITION_3250_mW_FMB_030_ON_ONLY_CENTER    =  2,  //  13
-    LIGHT_COMPOSITION_3299_mW_FMB_021_ON                =  3,  //   2
-    LIGHT_COMPOSITION_3999_mW_FMB_101_ON_DARKEST_RANDOM =  4,  //   3
-    LIGHT_COMPOSITION_4383_mW_FMB_031_ON                =  5,  //   4
-    LIGHT_COMPOSITION_5082_mW_FMB_111_ON_ONE_THIRD      =  6,  //  12 Also if hot_water
-    LIGHT_COMPOSITION_5516_mW_FMB_032_ON                =  7,  //   5
-    LIGHT_COMPOSITION_7949_mW_FMB_211_ON_HALF           =  8,  //   6
-    LIGHT_COMPOSITION_8382_mW_FMB_132_ON                =  9,  //  11
-    LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT     = 10,  //  14
-    LIGHT_COMPOSITION_9516_mW_FMB_133_ON                = 11,  //   7
-    LIGHT_COMPOSITION_10165_mW_FMB_222_ON_TWO_THIRDS    = 12,  //  10
-    LIGHT_COMPOSITION_12383_mW_FMB_233_ON               = 13,  //   8
-    LIGHT_COMPOSITION_15250_mW_FMB_333_ALL_ON           = 14,  //   9  (I might hear a sound from the LEDs?)
-    NUMLIGHT_COMPOSITION_LEVELS_                        = 15   //  15
-    //                                           FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
-    //                                                  ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
+    LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT     = 10,
+    LIGHT_COMPOSITION_7700_mW_FMB_133_ON                = 11,
+    LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS     = 12,
+    LIGHT_COMPOSITION_8800_mW_FMB_233_ON                = 13,
+    LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON            = 14,  // I might hear a sound from the LEDs?
+    NUMLIGHT_COMPOSITION_LEVELS_                        = 15
+    //                                             FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
+    //                                                    ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows
 } light_composition_t;
 
 #define NUMLIGHT_COMPOSITION_LEVELS_MONOTONOUS 10

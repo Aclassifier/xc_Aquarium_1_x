@@ -17,8 +17,11 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.23" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1523  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.24" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1524  // Is "AQUARIUM_VERSION_NUM_t"
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64832 S:6832 C:51926 D:6074
+// 1.5.24     09Oct2019 AQU=101  New names since LED frame #2 is used. Last commit with previous values is 5280474 on Oct 7, 2019
+//                               Example = *LIGHT_COMPOSITION_1133_mW_FMB_001_ON -> *LIGHT_COMPOSITION_1100_mW_FMB_001_ON (* added to avoid later wildcard replace)
 // 1.5.23     07Oct2019 AQU=100  ISLED is new. Compiled with ISLED=6 -> IS_LED_CONFIG==6. SCREEN_3_LYSGULERING changed
 // 1.5.22     30Sep2019          FLASH_BLACK_BOARD now is either 0 or 2 with new LED board, see diagram 16.2
 //            --------- Running  26Sep2019
@@ -208,7 +211,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.05     29Jan2019          SCREEN_8_RADIO changed, some other screen layout
 // 1.4.04     29Jan2019 AQU=069  pressed_for_10_seconds removed TODO remove the code as well, just commented out by now
 // 1.4.03     29Jan2019          NORMAL_LIGHT_IS_ONE_THIRD_F2N no random change, just low all the time
-// 1.4.02     27Jan2019          New names like LIGHT_COMPOSITION_8600_mW_FMB_300_ON_ONLY_FRONT
+// 1.4.02     27Jan2019          New names like LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT
 // 1.4.01     27Jan2019 AQU=068  Renumbering of light_composition_t to increasing wattage only
 //                               Making darkest random value above all light levels for UP and DOWN
 //                               Darker_Light_Composition_Iff and Brighter_Light_Composition_Iff removed
@@ -286,7 +289,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.1.??     ??Sep2018 AQU=043 See  2018 09 12 A fail IRQ 7 still not solved.txt . But this is on client RX side. TODO
 // 1.1.15     26Sep2018 AQU=044 Setting down light intensity less often again..
 // 1.1.14     11Sep2018 AQU=042 To avoid using any colured LED strips alone when UP and down (it looked eerie):
-//                              LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_1133_mW_FMB_001_ON
+//                              LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_1100_mW_FMB_001_ON
 //                              LIGHT_COMPOSITION_2166_mW_CENTER2_ON -> LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
 // 1.1.13     10Sep2018         now_regulating_at also exported in payload_u0_t;
 // 1.1.12      7Sep2018         error_bits_history also exported in payload_u0_t;
@@ -387,7 +390,7 @@ typedef uint16_t aquarium_version_num_t;
 //                      AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
 //                      AQU=013 Max  1.0.12  with 6 visible chars allowed (was 5) (tested ok)
 // 1.0.8     18Jul2017          Tagged VER_1_0_8_with_fishes
-//                      AQU=012 Random light now starts at LIGHT_COMPOSITION_3299_mW_FMB_021_ON (2) (tested ok)
+//                      AQU=012 Random light now starts at LIGHT_COMPOSITION_3300_mW_FMB_021_ON (2) (tested ok)
 //                      AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
 //                      AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
 // 1.0.7     17Jul2017          Tagged VER_1_0_7_with_fishes
