@@ -273,11 +273,11 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
     soft_change_pwm_window_timer_us_t soft_change_pwm_window_timer_us = {0,0,0};         // (*1) No need to initialise..
     pin_change_t                      pin_change [NUM_LED_STRIPS][NUM_PWM_TIME_WINDOWS]; // .. this, since we did the above
-    light_control_scheme_t            light_control_scheme      = LIGHT_CONTROL_IS_VOID;
-    light_control_scheme_t            light_control_scheme_next = LIGHT_CONTROL_IS_VOID; // AQU=031 new After soft change in same cases
+    light_control_scheme_t            light_control_scheme_present = LIGHT_CONTROL_IS_VOID;
+    light_control_scheme_t            light_control_scheme_next    = LIGHT_CONTROL_IS_VOID; // AQU=031 new After soft change in same cases
 
-    light_control_scheme_t            light_control_scheme_while_frozen        = light_control_scheme; // AQU=031 new After soft change in same cases
-    light_composition_t               iof_light_composition_level_while_frozen = iof_light_composition_level_present;
+    light_control_scheme_t            light_control_scheme_while_frozen        = light_control_scheme_present; // AQU=031 new After soft change in same cases
+    light_composition_t               iof_light_composition_level_while_frozen = iof_light_composition_level_present; // == LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF
 
     #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
         bool pulse_heat_1 = false;
@@ -308,7 +308,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
         select {
             case tmr when timerafter(time) :> void: {
                 time += (TIME_PER_PWM_WINDOW_MICROSECONDS * XS1_TIMER_MHZ);
-                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+                uint32_t mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window]; // iof_light_composition_level_present as USED
 
                 if (soft_change_pwm_window_timer_us[iof_light_pwm_window] == 0) { // STANDARD STABLE
                     // I think I can hear high frequency beeping from the LEDs at all pulsing levels - also 100% on! However, I am more certain at full, 100% load.
@@ -453,6 +453,12 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
             case i_port_heat_light_commands[int index_of_client].freeze_light_composition (void) : {
                 freeze_on = true;
+
+                // Set _frozen values to present, because there may not have been any set_light_composition before un_freeze_light_composition:
+                // AQU=102 fix is to set these two values to present. Now set_light_composition as next call not longer necessary
+                light_control_scheme_while_frozen        = light_control_scheme_present;
+                iof_light_composition_level_while_frozen = iof_light_composition_level_present;
+
                 watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
@@ -471,26 +477,26 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
             } break;
 
             case i_port_heat_light_commands[int index_of_client].set_light_composition (
-                    const light_composition_t    iof_light_composition_level,
+                    const light_composition_t    iof_light_composition_level_in,
                     const light_control_scheme_t light_control_scheme_in, // AQU=031 I don't think this is ever LIGHT_CONTROL_IS_VOID
                     const unsigned               value_to_print) -> bool return_freeze_on : {
 
-                debug_print ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level, light_control_scheme_in, value_to_print);
+                debug_print ("i_port_heat_light_commands[%u] ilight %u as %u, called by %u\n", index_of_client, iof_light_composition_level_in, light_control_scheme_in, value_to_print);
 
                 return_freeze_on = freeze_on;
 
                 if (freeze_on) {
                     // don't do anything, just store:
                     light_control_scheme_while_frozen        = light_control_scheme_in;
-                    iof_light_composition_level_while_frozen = iof_light_composition_level;
+                    iof_light_composition_level_while_frozen = iof_light_composition_level_in;
                     debug_print ("%s", "freeze_on!\n");
                 } else {
-                    bool do_light_always_if_first = (light_control_scheme == LIGHT_CONTROL_IS_VOID);
+                    bool do_light_always_if_first = (light_control_scheme_present == LIGHT_CONTROL_IS_VOID);
 
                     if (light_control_scheme_in != LIGHT_CONTROL_IS_VOID) {
                         if (light_control_scheme_in == LIGHT_CONTROL_IS_DAY) {
 
-                            // AQU=031: KEEP OLD "DOWN" light_control_scheme until it's finished with UP  #### JUST FOR THE DISPLAY! Not for PWM!
+                            // AQU=031: KEEP OLD "DOWN" light_control_scheme_present until it's finished with UP  #### JUST FOR THE DISPLAY! Not for PWM!
                             //                                                                            ####
                             //                              NOT HERE                                      HERE
                             //                              Light DOWN phase is OK, "SKY" NOE             Light UP phase would start "DAY" now if not it's taken care of here
@@ -505,23 +511,23 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                             // Observe that iof_light_composition_level_present is not (and shall not) be given the same "delay" as it's used by the PWM
                             light_control_scheme_next = light_control_scheme_in; // Use LIGHT_CONTROL_IS_DAY when Is_Stable later on (let compiler make one statement of this..)
-                        } else {
-                            light_control_scheme      = light_control_scheme_in;
-                            light_control_scheme_next = light_control_scheme_in; // So that _next is always valid (..and this)
+                        } else { // LIGHT_CONTROL_IS_DAY_TO_NIGHT, LIGHT_CONTROL_IS_NIGHT, LIGHT_CONTROL_IS_NIGHT_TO_DAY, LIGHT_CONTROL_IS_RANDOM, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE
+                            light_control_scheme_present = light_control_scheme_in;
+                            light_control_scheme_next    = light_control_scheme_in; // So that _next is always valid (..and this)
                         }
                     } else {} // LIGHT_CONTROL_IS_VOID, do nothing
 
-                    if ((iof_light_composition_level_present != iof_light_composition_level) or do_light_always_if_first) {
+                    if ((iof_light_composition_level_present != iof_light_composition_level_in) or do_light_always_if_first) {
                         for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
 
-                            uint32_t mask     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
-                            uint32_t mask_new = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level]        [iof_light_pwm_window];
+                            uint32_t mask_present = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+                            uint32_t mask_new     = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_in]     [iof_light_pwm_window];
 
-                            uint32_t mask_xor = mask xor mask_new;
+                            uint32_t mask_xor = mask_present xor mask_new;
 
                             if ((mask_xor bitand BIT_LIGHT_FRONT) == 0) { // xor is zero then equal
                                 pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_SAME_LIGHT;
-                            } else if (((mask bitand BIT_LIGHT_FRONT) == 0) and ((mask_new bitand BIT_LIGHT_FRONT) != 0)) {
+                            } else if (((mask_present bitand BIT_LIGHT_FRONT) == 0) and ((mask_new bitand BIT_LIGHT_FRONT) != 0)) {
                                 pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_LIGHTER;
                             } else {
                                 pin_change [IOF_LED_STRIP_FRONT][iof_light_pwm_window] = PIN_NIGHTER;
@@ -529,7 +535,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                             if ((mask_xor bitand BIT_LIGHT_CENTER) == 0) { // xor is zero then equal
                                 pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_SAME_LIGHT;
-                            } else if (((mask bitand BIT_LIGHT_CENTER) == 0) and ((mask_new bitand BIT_LIGHT_CENTER) != 0)) {
+                            } else if (((mask_present bitand BIT_LIGHT_CENTER) == 0) and ((mask_new bitand BIT_LIGHT_CENTER) != 0)) {
                                 pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_LIGHTER;
                             } else {
                                 pin_change [IOF_LED_STRIP_CENTER][iof_light_pwm_window] = PIN_NIGHTER;
@@ -537,7 +543,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                             if ((mask_xor bitand BIT_LIGHT_BACK) == 0) { // xor is zero then equal
                                 pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_SAME_LIGHT;
-                            } else if (((mask bitand BIT_LIGHT_BACK) == 0) and ((mask_new bitand BIT_LIGHT_BACK) != 0)) {
+                            } else if (((mask_present bitand BIT_LIGHT_BACK) == 0) and ((mask_new bitand BIT_LIGHT_BACK) != 0)) {
                                 pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_LIGHTER;
                             } else {
                                 pin_change [IOF_LED_STRIP_BACK][iof_light_pwm_window] = PIN_NIGHTER;
@@ -548,7 +554,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                     } else {}
 
-                    iof_light_composition_level_present = iof_light_composition_level; // Check not needed, runtime will take it
+                    iof_light_composition_level_present = iof_light_composition_level_in; // Check not needed, runtime will take it
                 }
                 watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
@@ -569,7 +575,8 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
 
                 // Could have picked this out of a table, but I thought this was rather ok:
                 for (unsigned iof_light_pwm_window=0; iof_light_pwm_window < NUM_PWM_TIME_WINDOWS; iof_light_pwm_window++) {
-                    unsigned int mask  = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+                    unsigned int mask = p32_bits_for_light_composition_pwm_windows[iof_light_composition_level_present][iof_light_pwm_window];
+
                     if ((mask bitand BIT_LIGHT_FRONT)  != 0) return_thirds[IOF_LED_STRIP_FRONT]  += 1; // ..then conditionally increment
                     if ((mask bitand BIT_LIGHT_CENTER) != 0) return_thirds[IOF_LED_STRIP_CENTER] += 1; // ..then conditionally increment
                     if ((mask bitand BIT_LIGHT_BACK)   != 0) return_thirds[IOF_LED_STRIP_BACK]   += 1; // ..then conditionally increment
@@ -585,17 +592,17 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
                 return_light_composition = iof_light_composition_level_present;
 
                 if (Is_Stable (soft_change_pwm_window_timer_us)) { // synch_internal
-                    light_control_scheme = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
+                    light_control_scheme_present = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
                 } else {}
 
-                return_light_control_scheme = light_control_scheme;
+                return_light_control_scheme = light_control_scheme_present;
                 watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;
 
             case i_port_heat_light_commands[int index_of_client].get_light_is_stable_sync_internal (void) -> {bool return_is_stable} : {
                 return_is_stable = Is_Stable (soft_change_pwm_window_timer_us); // OBS my issue 10576 with XMOS here (8Nov2017)
                 if (return_is_stable) { // synch_internal
-                    light_control_scheme = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
+                    light_control_scheme_present = light_control_scheme_next; // Now use LIGHT_CONTROL_IS_DAY
                 } else {}
                 watchdog_ticks_cntdown = watchdog_retriggered_with_ticks;
             } break;

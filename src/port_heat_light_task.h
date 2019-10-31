@@ -118,7 +118,7 @@ typedef interface port_heat_light_commands_if {
             const light_control_scheme_t light_control_scheme, // To be stored only, used for nothing, and retrieved with get_light_composition_etc_sync_internal (by another process f.ex)
             const unsigned               value_to_print);
 
-    void                                                   freeze_light_composition (void); // set_light_composition not taken between this and..
+    void                                                   freeze_light_composition (void); // Only used if hot_water: set_light_composition not taken between this and..
     {bool, light_composition_t, light_control_scheme_t} un_freeze_light_composition (void); // ..this. Return true if data set tried to be set set, but not used,
                                                                                             // while frozen: return_data_while_frozen. AQU=085 changed polarity!
 

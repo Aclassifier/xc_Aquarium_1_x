@@ -17,8 +17,18 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.24" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1524  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.25" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1525  // Is "AQUARIUM_VERSION_NUM_t"
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64800 S:6832 C:51894 D:6074
+// 1.5.25     31Oct2019  AQU=102 I saw that light all of a sudden went to zero! I had been filling water, so it may have been hot_water.
+//                               I had been placing the light so that it may have triggered LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE. This was just before 17.00 o clock
+//                               so there might have been a LIGHT_CONTROL_IS_RANDOM that overtook it. SCREEN_3_LYSGULERING showed correctly 0/3 on all 3 and
+//                               DAG = 0 (LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF). I am in doubt about DAG but not about 0. NORMAL_LIGHT_IS_FULL_F2N.
+//                               Also, it did not restart, that's a completely different procedure.
+//                               I fixed it by holding for 10 seconds and changing light intensity to something else.
+//                               ==> Fix in freeze_light_composition. hot_water at 17.59 then remove it at 18.00. Not tested, but logical glitch found.
+//                                   Now freeze_light_composition then un_freeze_light_composition ok, and set_light_composition not required in between
+//            --------- Running  10Oct2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64832 S:6832 C:51926 D:6074
 // 1.5.24     09Oct2019 AQU=101  New names since LED frame #2 is used. Last commit with previous values is 5280474 on Oct 7, 2019
 //                               Example = *LIGHT_COMPOSITION_1133_mW_FMB_001_ON -> *LIGHT_COMPOSITION_1100_mW_FMB_001_ON (* added to avoid later wildcard replace)
@@ -63,7 +73,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.85     31Jul2019          CLEAR_NUMBER_OF_RESTARTS is new
 //                               AQU=085  SCREEN_8_RADIO now also CHAR_PLUS_MINUS_STR "±" plus SCREEN_3_LYSGULERING now 3±
 // 1.4.84     31Jul2019          beeper_blip_now_ms_t is new
-//                      AQU=084  freeze_light_composition instead of difficult handling on the outside (also mute_store_t will be reomved).
+//                      AQU=084  freeze_light_composition instead of difficult handling on the outside (also mute_store_t will be removed).
 //                               do_beeper_blip_pulse moved out of System_Task_Data_Handler
 // 1.4.82     25Jul2019 AQU=083  Down with light at high temp, resore too!
 // 1.4.81     25Jul2019          iochip_mcp23008.xc is new and code moved to it: init_iochip_i2c_external_iff and handle_iochip_i2c_external_iff

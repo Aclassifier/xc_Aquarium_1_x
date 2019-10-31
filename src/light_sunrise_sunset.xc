@@ -140,23 +140,23 @@ Get_Weighted_Random_Light_Composition_For_Half_Light (const random_generator_t r
     unsigned random_number_0_9 = random_number % 10; // Not necessary with more steps, however may need so many to balance use of the different LEDs
 
     if  (random_number_0_9       == 9) {
-        return_light_composition = LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON;           //  [14]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON;           //  [14]  1/10
     } else if (random_number_0_9 == 8) {
-        return_light_composition = LIGHT_COMPOSITION_8800_mW_FMB_233_ON;               //  [13]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_8800_mW_FMB_233_ON;               //  [13]  1/10
     } else if (random_number_0_9 == 7) {
-        return_light_composition = LIGHT_COMPOSITION_7700_mW_FMB_133_ON;                //  [11]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_7700_mW_FMB_133_ON;               //  [11]  1/10
     } else if (random_number_0_9 == 6) {
         return_light_composition =  LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT;    //  [10]  1/10
     } else if (random_number_0_9 == 5) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;           //   [8]  1/10 HERE..
+        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;          //   [8]  1/10 HERE..
     } else if (random_number_0_9 == 4) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;           //   [8]  1/10 ..AND HERE
+        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;          //   [8]  1/10 ..AND HERE
     } else if (random_number_0_9 == 3) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_032_ON;                //   [7]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_032_ON;               //   [7]  1/10
     } else if (random_number_0_9 == 2) {
-        return_light_composition = LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;      //   [6]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;     //   [6]  1/10
     } else if (random_number_0_9 == 1) {
-        return_light_composition = LIGHT_COMPOSITION_4400_mW_FMB_031_ON;                //   [5]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_4400_mW_FMB_031_ON;               //   [5]  1/10
     } else {                  // == 0
         return_light_composition = LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM; //   [4]  1/10
         //                                          =====                               //        -----
@@ -175,25 +175,25 @@ Get_Weighted_Random_Light_Composition_For_Some_HourChanges (const random_generat
 
     unsigned random_number_0_17 = random_number % 18;
     if (random_number_0_17 > 8) { // 9 10 11 12 13 14 15 16 17
-        return_light_composition = LIGHT_COMPOSITION_6600_mW_FMB_132_ON;                      //  [9]  9/18
+        return_light_composition  =  LIGHT_COMPOSITION_6600_mW_FMB_132_ON;                    //  [9]  9/18
     } else if (random_number_0_17 == 8) {
-        return_light_composition = LIGHT_COMPOSITION_8800_mW_FMB_233_ON;                     // [13]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_8800_mW_FMB_233_ON;                    // [13]  1/18
     } else if (random_number_0_17 == 7) {
-        return_light_composition =  LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS;         // [12]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS;         // [12]  1/18
     } else if (random_number_0_17 == 6) {
-        return_light_composition =  LIGHT_COMPOSITION_7700_mW_FMB_133_ON;                     // [11]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_7700_mW_FMB_133_ON;                    // [11]  1/18
     } else if (random_number_0_17 == 5) {
-        return_light_composition = LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT;           // [10]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT;         // [10]  1/18
     } else if (random_number_0_17 == 4) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;                 //  [8]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;               //  [8]  1/18
     } else if (random_number_0_17 == 3) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_032_ON;                      //  [7]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_5500_mW_FMB_032_ON;                    //  [7]  1/18
     } else if (random_number_0_17 == 2) {
-        return_light_composition = LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;            //  [6]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;          //  [6]  1/18
     } else if (random_number_0_17 == 1) {
-        return_light_composition = LIGHT_COMPOSITION_4400_mW_FMB_031_ON;                      //  [5]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_4400_mW_FMB_031_ON;                    //  [5]  1/18
     } else {                   // == 0
-        return_light_composition = LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM;       //  [4]  1/18
+        return_light_composition =  LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM;      //  [4]  1/18
                                                                                               //       -----
     }                                                                                         //       18/18
                                                                                               //       =====
@@ -365,26 +365,28 @@ Handle_Light_Sunrise_Sunset_Etc (
                                                       (minutes_into_day_now <= NUM_MINUTES_INTO_DAY_RANDOM_ALLOWED_LATEST));
 
         // context.do_light_amount_by_menu by IOF_BUTTON_RIGHT
+        {
+            bool do_set_light_composition = false; // With AQU=102 I saw this, saves 28 bytes and looks nicer
 
-        if (context.do_light_amount_by_menu) { // AQU=031 several tests avoided here now, so will only arrive here if LIGHT_CONTROL_IS_DAY
-            context.do_light_amount_by_menu = false;
+            if (context.do_light_amount_by_menu) { // AQU=031 several tests avoided here now, so will only arrive here if LIGHT_CONTROL_IS_DAY
+                context.do_light_amount_by_menu = false;
+                do_set_light_composition = true;
+            } else if (context.stop_normal_light_changed_by_menu) {
+                context.stop_normal_light_changed_by_menu = false;
+                context.num_minutes_left_of_random = 0;
+                do_set_light_composition = true;
+            } else {}
 
-            i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
-            light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
-            debug_set_val_to (print_value,44);
-            i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44); // Ignoring return value freeze_on
+            if (do_set_light_composition) {
+                debug_set_val_to (print_value,44);
 
-            debug_print ("do_light_amount_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
+                light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
+                i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
+                i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44); // Ignoring return value freeze_on
 
-        } else if (context.stop_normal_light_changed_by_menu) {
-            context.stop_normal_light_changed_by_menu = false;
-
-            light_composition_t light_composition_now = Get_Normal_Light_Composition (context.light_amount);
-            context.num_minutes_left_of_random = 0;
-            i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
-            i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 44); // Ignoring return value freeze_on
-
-        } else {}
+                debug_print ("do_light_amount_by_menu r=%u n=%u\n", context.num_minutes_left_of_random, context.it_is_day_or_night); // num_min..=0 and IT_IS_DAY=0 per def
+            } else {}
+        }
 
         context.light_is_stable = i_port_heat_light_commands.get_light_is_stable_sync_internal(); // After set_light_composition
 
@@ -435,10 +437,9 @@ Handle_Light_Sunrise_Sunset_Etc (
                     default: break; // No handling so LIGHT_CONTROL_IS_VOID (no change)
                 }
 
-                i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
-
                 // ------------ CHANGE LIGHT LEVEL ------------
                 debug_set_val_to (print_value,22);
+                i_port_heat_light_commands.un_freeze_light_composition (); // ignoring all return data
                 i_port_heat_light_commands.set_light_composition (light_composition_now, light_control_scheme, 22); // Ignoring return value freeze_on
 
                 debug_print ("CHANGE [%u] LIGHT %u\n", context.iof_day_night_action_list, light_composition_now);
@@ -470,7 +471,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             } else {
                 debug_print ("NO CHANGE LIGHT %u %d\n", context.iof_day_night_action_list, minutes_into_day_of_next_action_listed_darker_or_lighter - minutes_into_day_now);
             }
-        } else {} // Action only at minute change
+        } else {} // Action above only at minute change
 
         // Handle conditions for change of light sensor internally in the box. Has anobody covered the box with a hand? Or used a torch?
 
@@ -499,7 +500,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.allow_normal_light_change_by_menu)) {
 
                 if (context.hot_water) { // Not doing edge detection here with _prev, since that might be before and after IT_IS_DAY etc.
-                    // MUTE LIGHT AND SET TO FREEZE
+                    // MUTE LIGHT AND SET TO FREEZE. AQU=102 first here, like at 17.59
                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
                     i_port_heat_light_commands.freeze_light_composition(); // ..THEN THIS
                     return_beeper_blip = true;
@@ -511,7 +512,10 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                     {return_data_while_frozen, light_composition, light_control_scheme} =
                             i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are those set but ignored while frozen
-                    if (return_data_while_frozen) { // AQU=085 problem was here
+                    // AQU=102 second here, at 18.00. Since no  set_light_composition after freeze_light_composition and this is the first time with hot_water then
+                    //         light_composition comes with LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF and return_data_while_frozen is true
+                    if (return_data_while_frozen) {
+                        // AQU=102 BANG! set light to LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF here. Fix in freeze_light_composition
                         i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
                         return_beeper_blip = true;
                     } else {}
@@ -526,7 +530,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 // No code here
                 // While waiting for change it's no point in changing the light automatically before next on the hour.
                 // Same if indeed high temp
-                // Even if any change wont' be accpeted because of the freeze_light_composition mechanism.
+                // Even if any change wont' be accepted because of the freeze_light_composition mechanism.
                 // Observe that we have other places where set_light_composition is run, so we still need the freeze_light_composition mechanism.
             } else {
                 const bool trigger_hour_changed_random_mod2 =
@@ -548,7 +552,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                         if (context.allow_normal_light_change_by_menu) {                                                 // L4: AQU=030 additional. Default or allowed again by menu
                             if (context.num_minutes_left_of_random == 0) {                                               // L5: When it's not doing random already
                                 if (context.num_random_sequences_left > 0) {                                             // L6: Some left to do
-                                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {                                // L7: Handle LYKT first
+                                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {                                // L7: Handle LYKT first AQU=102 first here?
                                         context.light_sensor_diff_state = DIFF_ACTIVE;
                                         debug_set_val_to (print_value,101);
                                         i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3300_mW_FMB_021_ON, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105); // Ignoring return value freeze_on
@@ -559,7 +563,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                                         return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
                                         context.num_random_sequences_left--;
-                                    } else { // L7:
+                                    } else { // L7: AQU=102 then here?
                                         // random_number already used in condition, we have to get a new value:
                                         random_number = random_get_random_number(context.random_number_seed); // AQU=070 we want all, not just the even numbered ones!
                                         light_composition_t new_light_composition = Get_Weighted_Random_Light_Composition_For_Some_HourChanges (random_number);
