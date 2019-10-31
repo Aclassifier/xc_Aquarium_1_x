@@ -552,7 +552,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                         if (context.allow_normal_light_change_by_menu) {                                                 // L4: AQU=030 additional. Default or allowed again by menu
                             if (context.num_minutes_left_of_random == 0) {                                               // L5: When it's not doing random already
                                 if (context.num_random_sequences_left > 0) {                                             // L6: Some left to do
-                                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {                                // L7: Handle LYKT first AQU=102 first here?
+                                    if (context.light_sensor_diff_state == DIFF_ENOUGH) {                                // L7: Handle LYKT first
                                         context.light_sensor_diff_state = DIFF_ACTIVE;
                                         debug_set_val_to (print_value,101);
                                         i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3300_mW_FMB_021_ON, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105); // Ignoring return value freeze_on
@@ -563,7 +563,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                                         return_beeper_blip = true; // Since it's triggered by some human like Anna, Jakob, Filip or Linnéa
                                         context.num_random_sequences_left--;
-                                    } else { // L7: AQU=102 then here?
+                                    } else { // L7:
                                         // random_number already used in condition, we have to get a new value:
                                         random_number = random_get_random_number(context.random_number_seed); // AQU=070 we want all, not just the even numbered ones!
                                         light_composition_t new_light_composition = Get_Weighted_Random_Light_Composition_For_Some_HourChanges (random_number);
