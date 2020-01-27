@@ -1,4 +1,5 @@
-.build/src/display_ssd1306.xc.d .build/src/display_ssd1306.xc.o .build/src/display_ssd1306.xc.pca.xml: ./src/display_ssd1306.xc \
+.build/src/display_ssd1306.xc.d .build/src/display_ssd1306.xc.o .build/src/display_ssd1306.xc.pca.xml: \
+  ./src/display_ssd1306.xc \
   ../../workspace/_Aquarium_1_x/src/_globals.h \
   ../../workspace/_Aquarium_1_x/src/param.h \
   ../../workspace/_Aquarium_1_x/src/button_press.h \

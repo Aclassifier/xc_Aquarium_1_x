@@ -567,14 +567,15 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     // AQU=100 changed layout
                     sprintf_numchars = sprintf (context.display_ts1_chars,
-                            "3%s  LYS W %u.%u %u.%u %u.%u    FSB %s %u/3 %u/3 %u/3   %s %u/%u %s%ut%s\n   %s %s %u %s",
-                          //  A         B  b  C  c  D  d         E  F    G    H      I  J  j  K L  M      N  O  P  Q
+                            "3%s  LYS W %u.%u %u.%u %u.%u     FSB%s %u/3 %u/3 %u/3    %s=%u/%u %s%ut%s\n    %s%s%u %s #%u",
+                          //  A         B  b  C  c  D  d         E  F    G    H       I  J  j  K L  M       N O P  Q  R
+                          //  --------1------------------==========2==============-------3------------   ========4=========
                           //
                           /* A   */ char_takes_press_for_10_seconds_right_button_str,                   // "±" "3±" new with AQU=085, not "±3"                                                                    //  Å
                           /* B b */ WATTOF_LED_STRIP_FRONT_DP1  / 10, WATTOF_LED_STRIP_FRONT_DP1  % 10, // "8.6" (from 86)
                           /* C c */ WATTOF_LED_STRIP_CENTER_DP1 / 10, WATTOF_LED_STRIP_CENTER_DP1 % 10, // "3.4" (from 34)
                           /* D d */ WATTOF_LED_STRIP_BACK_DP1   / 10, WATTOF_LED_STRIP_BACK_DP1   % 10, // "3."3 (from 33)
-                          /* E   */ light_sunrise_sunset_context.hot_water ? "H" : "=",                 // "H" or "=" (for Norwegian "HET" = WARM)
+                          /* E   */ light_sunrise_sunset_context.hot_water ? "!" : "=",                 // "!" or "=" (!means= WARM)
                           /* F   */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                // "1"
                           /* G   */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],               // "2"
                           /* H   */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                 // "3"
@@ -589,17 +590,18 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* N   */ light_control_scheme_strings[context.light_control_scheme],                                                     // "NATT" etc.
                           /* O   */ (light_sunrise_sunset_context.light_is_stable) ? stable_str : char_takes_press_for_10_seconds_right_button_str, // "=" or "±"
                           /* P   */ context.light_composition,                                                                                      // 10
-                          /* Q   */ left_of_minutes_or_count_str);                                                                                  // M:2 or T:8 or ...
+                          /* Q   */ left_of_minutes_or_count_str,                                                                                   // M:2 or T:8 or ...
+                          /* R   */ NUM_RANDOM_SEQUENCES_MAX - light_sunrise_sunset_context.num_random_sequences_left);                             // random_light_change_cnt AQU=104
                     //                                            ..........----------.
                     //                                            3±  LYS W 8.6 3.3 3.4
-                    //                                                FSB = 1/3 2/3 3/3
-                    //                                                FSB H 1/3 2/3 3/3
-                    //                                               NORM 3/3 =14t        "=14t", "12t→", "10t→", "8t→ "
-                    //                                               INIT ± 10 M:12
-                    //                                                DAG ± 10 M:12
-                    //                                               NATT = 0 T≡8
-                    //                                                NED = 3 M:4
-                    //                                               LYKT ± 10 T:12
+                    //                                                 FSB= 1/3 2/3 3/3
+                    //                                                 FSB! 1/3 2/3 3/3
+                    //                                                NORM=3/3 =14t        "=14t", "12t→", "10t→", "8t→ "
+                    //                                                INIT±10 M:12 #10
+                    //                                                DAG±10 M:12 #10
+                    //                                                NATT=0 T≡8 #10
+                    //                                                NED=3 M:4 #10
+                    //                                                LYKT±10 T:12 #10
 
                     Clear_All_Pixels_In_Buffer();
                     setTextSize(1);
@@ -2565,7 +2567,7 @@ void System_Task (
                         // ---- General payload part ----
 
                         TX_PACKET_U.u.packet_u3.appHeading.numbytes_of_full_payload = PACKET_LEN08;
-                        TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload  = VERSION_OF_APP_PAYLOAD_02;
+                        TX_PACKET_U.u.packet_u3.appHeading.version_of_full_payload  = VERSION_OF_APP_PAYLOAD_03;
                         TX_PACKET_U.u.packet_u3.appHeading.num_of_this_app_payload  = NUM_OF_THIS_APP_PAYLOAD_01;
 
                         TX_PACKET_U.u.packet_u3.appNODEID         = NODEID;
@@ -2602,6 +2604,7 @@ void System_Task (
                         TX_radio_payload.u.payload_u0.debug                              = (uint8_t)                           (context.ultimateIRQclearCnt bitand 0xff); // This bitand generates no code
                         TX_radio_payload.u.payload_u0.day_start_light_hour               = (hour_r)                            light_sunrise_sunset_context.day_start_light_hour;
                         TX_radio_payload.u.payload_u0.night_start_dark_hour              = (hour_r)                            light_sunrise_sunset_context.night_start_dark_hour;
+                        TX_radio_payload.u.payload_u0.random_light_change_cnt            =                                     NUM_RANDOM_SEQUENCES_MAX - light_sunrise_sunset_context.num_random_sequences_left;
 
                         light_sunrise_sunset_context.debug = 0; // Clear it adter sending
 

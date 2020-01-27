@@ -1564,10 +1564,10 @@ i2c_master_do_rx:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
+	.file	2 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
 .Linfo_string2:

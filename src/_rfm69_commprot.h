@@ -16,6 +16,7 @@
 
 #define VERSION_OF_APP_PAYLOAD_01  1
 #define VERSION_OF_APP_PAYLOAD_02  2
+#define VERSION_OF_APP_PAYLOAD_03  3 // New with AQU=104
 
 //      VERSION_OF_APP_PAYLOAD_01:
 #define NORMAL_LIGHT_THIRDS_OFFSET 30
@@ -63,8 +64,8 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 #define ONETENTHDEGC_R_MAX      990 // 99.0 SHRT_MAX
 #define ONETENTHDEGC_R_MIN        0 //      SHRT_MIN
 
-#define RSSI_DB_STRONGEST           0 // -100 is weaker
-#define RSSI_DB_WEAKEST          -300 //  -80 is stronger
+#define RSSI_DB_STRONGEST         0 // -100 is weaker
+#define RSSI_DB_WEAKEST        -300 //  -80 is stronger
 
 
 // AQU=055, AQU=061
@@ -97,7 +98,7 @@ typedef uint8_t  light_daytime_hours_r;             // light_daytime_hours_t    
 //
 typedef struct { // Size must be modulo 4                                           // WORD ALIGN
 
-    // For VERSION_OF_APP_PAYLOAD_01 and VERSION_OF_APP_PAYLOAD_02
+    // For VERSION_OF_APP_PAYLOAD_01 and VERSION_OF_APP_PAYLOAD_02 and #define VERSION_OF_APP_PAYLOAD_03
 
     num_days_since_start_r            num_days_since_start;                         // 01,02        Saving 4 bytes for year, month and day (start date is seen in SCREEN_6_KONSTANTER)
                                                                                     //              SPARE 1 since it may be calculated from appSeqCnt in packet_u3_t
@@ -127,7 +128,7 @@ typedef struct { // Size must be modulo 4                                       
     uint8_t                           debug;                                        //          36  SPARE 2
     uint8_t                           day_start_light_hour;                         // 37           SPARE 3 since light_daytime_hours reflects the same
     uint8_t                           night_start_dark_hour;                        //    38        SPARE 4 since light_daytime_hours reflects the same
-    uint8_t                           padding_39;                                   //       39     SPARE 5
+    uint8_t                           random_light_change_cnt;                      //       39     SPARE 5 AQU=104 Max is NUM_RANDOM_SEQUENCES_MAX. VERSION_OF_APP_PAYLOAD_03
     uint8_t                           padding_40;                                   //          40  SPARE 6
     //                                                                                          ##
     // _USERMAKEFILE_LIB_RFM69_XC_PAYLOAD_LEN08                                                 40  -> SET IN makefile -> Must be modulo 4. Add "uint8_t padding_nn" if needed

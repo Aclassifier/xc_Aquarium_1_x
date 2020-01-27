@@ -99,6 +99,8 @@ typedef enum {
     CNT_10 = 10
 } cnt_10_t; // Since they are hand-coded so much
 
+#define MAX_LIGHT_CHANGE_CNT 1000 // For light_change_cnt
+
 typedef struct light_sunrise_sunset_context_t {
     bool                          true_do_init;
     it_is_day_or_night_t          it_is_day_or_night;

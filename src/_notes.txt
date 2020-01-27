@@ -1,3 +1,40 @@
+    TTY=`find /dev -name cu.usbmodem*`
+    
+    chip.bin: chip.v trail.v trail.pcf
+        yosys -q -p "synth_ice40 -blif chip.blif" chip.v trail.v
+        arachne-pnr -d 8k -P tq144:4k -p trail.pcf chip.blif -o chip.txt
+        icepack chip.txt chip.bin
+    
+    .PHONY: upload
+    upload:
+        echo $(TTY)
+        stty -f $(TTY) raw
+        cat chip.bin > $(TTY)
+    
+    .PHONY: clean
+    clean:
+        $(RM) -f chip.blif chip.txt chip.ex chip.bin
+        
+        
+    TTY=$(shell find /dev -name 'cu.usbmodem*' 2> /dev/null) 
+    
+    chip.bin: chip.v trail.v trail.pcf
+        yosys -q -p "synth_ice40 -blif chip.blif" chip.v trail.v
+        arachne-pnr -d 8k -P tq144:4k -p trail.pcf chip.blif -o chip.txt
+        icepack chip.txt chip.bin
+    
+    .PHONY: upload
+    upload:
+        stty -f $(TTY) raw
+        @cat chip.bin > $(TTY)
+    
+    .PHONY: clean
+    clean:
+        $(RM) -f chip.blif chip.txt chip.ex chip.bin
+    
+
+
+
 [[distributable]] void i2c_master_single_port (..)
 [[distributable]] void i2c_master (..)
 [[combinable]]    void i2c_master_async_comb (..)

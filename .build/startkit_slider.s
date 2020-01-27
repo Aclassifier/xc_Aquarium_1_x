@@ -25,7 +25,7 @@
 	.set slider_periodic.select.enable.cases.maxcores,0 $M slider_periodic.select.case.1.maxcores $M slider_periodic.select.case.0.maxcores
 	.set slider_periodic.select.enable.cases.maxchanends,0 $M slider_periodic.select.case.1.maxchanends $M slider_periodic.select.case.0.maxchanends
 	.set slider_periodic.select.enable.cases,0
-	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.0.nstackwords) $M (slider_periodic.select.case.1.nstackwords)
+	.set slider_periodic.select.enable.cases.nstackwords, 0 $M (slider_periodic.select.case.1.nstackwords) $M (slider_periodic.select.case.0.nstackwords)
 	.weak slider_task.3.maxargsize.group
 	.globl slider_task.3.maxargsize.group
 	.add_to_set slider_task.3.maxargsize.group, 1
@@ -1147,7 +1147,7 @@ slider_task:
 	bf r0, .LBB12_1
 	bu .LBB12_2
 	.cc_bottom slider_task.function
-	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M slider_periodic.select.enable.cases.nstackwords $M slider.select.enable.cases.nstackwords $M absolute_slider.select.enable.cases.nstackwords)) + 28)
+	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M slider.select.enable.cases.nstackwords $M absolute_slider.select.enable.cases.nstackwords $M slider_periodic.select.enable.cases.nstackwords)) + 28)
 	.globl	slider_task.nstackwords
 	.set	slider_task.maxcores,((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + 1)))
 	.globl	slider_task.maxcores
@@ -2247,10 +2247,10 @@ slider_periodic.select.case.1:
 	.cc_bottom .vtable3.data
 	.text
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
 .Linfo_string2:

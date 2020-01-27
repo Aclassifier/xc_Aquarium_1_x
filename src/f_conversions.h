@@ -41,9 +41,15 @@ typedef int light_sensor_range_t; // [0..99] = [00..INNER_MAX_LUX]
 
 #else // STANDARD
 
-    #define TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING 350                                                 // 40.0 degC Was AQU=063 before 40.0 degC
-                                                                                                                  //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
-                                                                                                                  //           holding temp of 60 degC and max temp should then be 84-30=54 degC
+    #define TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING 350 // 40.0 degC Was AQU=063 before 40.0 degC
+                                                                  //           Observe thermal Cut-off melting fuse NTE8081 at 84 degC that has a constant
+                                                                  //           holding temp of 60 degC and max temp should then be 84-30=54 degC
+                                                                  // 35.0 degC SOME MEASURED DATA:
+                                                                  //           Night max: with -6 outside and lowest inside 19.4 (Netatmo) but lowest ambient (I2C)
+                                                                  //           22.0 then min water was 24.7 degC and max heater 37.1 degC. Max power was 6W 14%.
+                                                                  //           Aquarium covered on two sides with gray frame (Nov2019).
+                                                                  //           As compared to water 24.8 with max limit 40.0 degC (7W, 16%), see AQU=063 list in _version.h
+    //
     #define TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT           (250 + TEMP_ONETENTHDEGC_XX_Y_TEST_FLASHED_INIT)    // 25.0 degC THERE IS NO CODE THAT ALLOWS THIS TO BE CHANGED
     #define TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT       (TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT + 5)       // 25.5 degC AQU=081 new
     #define TEMP_ONETENTHDEGC_24_5_SLOW_COOLING               (      TEMP_ONETENTHDEGC_25_0_WATER_FISH_PLANT - 5) // 24.5 degC half a degree below limit. Bad econmics to let i cool completely

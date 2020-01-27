@@ -22,7 +22,7 @@
 	.globl Button_Task.select.yield.enable.cases.maxchanends
 	.set Button_Task.select.yield.enable.cases,0
 	.globl Button_Task.select.yield.enable.cases
-	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.0.nstackwords) $M (Button_Task.select.yield.case.1.nstackwords)
+	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.1.nstackwords) $M (Button_Task.select.yield.case.0.nstackwords)
 	.globl Button_Task.select.yield.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
@@ -34,7 +34,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.weak _i.button_if.button.maxchanends.group
 	.max_reduce _i.button_if.button.max.maxchanends, _i.button_if.button.maxchanends.group, 0
@@ -1101,10 +1101,10 @@ Button_Task.select.case.1:
 	.cfi_endproc
 
 .Ldebug_end0:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
 .asciiz"../src/button_press.xc"
 .Linfo_string2:

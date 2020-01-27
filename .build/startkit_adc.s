@@ -35,7 +35,7 @@
 	.globl adc_task.select.yield.enable.cases.maxchanends
 	.set adc_task.select.yield.enable.cases,0
 	.globl adc_task.select.yield.enable.cases
-	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.2.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.3.nstackwords)
+	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.3.nstackwords) $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.2.nstackwords)
 	.globl adc_task.select.yield.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate
@@ -2911,10 +2911,10 @@ adc_sample:
 .Ldebug_end0:
 	.text
 .Ldebug_end1:
-	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.3.3/target/include/timer.h"
+	.file	3 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h"
 	.section	.debug_str,"MS",@progbits,1
 .Linfo_string0:
-.asciiz"XMOS 32-bit XC Compiler Community_14.3.3 (build 22296, Apr-19-2018)"
+.asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
 .asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
 .Linfo_string2:

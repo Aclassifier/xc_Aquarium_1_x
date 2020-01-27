@@ -12,15 +12,19 @@ typedef uint16_t aquarium_version_num_t;
 
 // SHOULD THE LENGTH OF THESE NEED TO CHANGE THEN THE STRING THEY ARE COPIED INTO MUST BE MODIFIED
 //
-#define XTIMECOMPOSER_VERSION_STR "14.3.3" // Works! Previous that worked was 14.3.1 and then 14.2.4.
+#define XTIMECOMPOSER_VERSION_STR "14.4.1" // Works! Previous that worked was 14.3.1 and then 14.2.4.
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.25" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1525  // Is "AQUARIUM_VERSION_NUM_t"
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64800 S:6832 C:51894 D:6074
-// 1.5.25     31Oct2019  AQU=102 I saw that light all of a sudden went to zero! I had been filling water, so it may have been hot_water.
+#define AQUARIUM_VERSION_STR "1.5.27" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1527  // Is "AQUARIUM_VERSION_NUM_t"
+// 1.5.27     27Jan2020  AQU=104 random_light_change_cnt is new, for VERSION_OF_APP_PAYLOAD_03
+//                               SCREEN_3_LYSGULERING layout includes it plus tighter layout and hot_water 'H'->'!'
+// 1.5.26     20Jan2020  AQU=103 FIRST WITH xTIMEcomposer Version: Community_14.4.1 (build 235-acbb966, Dec-01-2019) Copyright 2015 Xmos Ltd.
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64800 S:6832 C:51894 D:6074 HELT LIKT!
+// 1.5.25     31Oct2019  AQU=102 ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64800 S:6832 C:51894 D:6074
+//                               I saw that light all of a sudden went to zero! I had been filling water, so it may have been hot_water.
 //                               I had been placing the light so that it may have triggered LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE. This was just before 17.00 o clock
 //                               so there might have been a LIGHT_CONTROL_IS_RANDOM that overtook it. SCREEN_3_LYSGULERING showed correctly 0/3 on all 3 and
 //                               DAG = 0 (LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF). I am in doubt about DAG but not about 0. NORMAL_LIGHT_IS_FULL_F2N.
@@ -240,7 +244,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.2.10     09Jan2019          Same Constraints: C:8/8 T:10/9 C:32/23 M:62712 S:6836 C:50070 D:5806
 //                      AQU=063  Set max temp in heating compartment from 40 to 35 deg?
 //                               TEMP_ONETENTHDEGC_40_0_MAX_OF_HEATER_FAST_HEATING -> TEMP_ONETENTHDEGC_35_0_MAX_OF_HEATER_FAST_HEATING
-//                               With 40 degC we had (from  2019 01 02-04 Log.txt )
+//                               With 40 degC we had (from  2019 01 02-04 Log.txt)
 //                                   MAX: On: 16% @ Watt: 7 - Heater:40.9 Ambient:24.5 Water:25.1 Mean:39.7 Box:28.7
 //                                   NOW: On: 16% @ Watt: 7 - Heater:28.1 Ambient:24.4 Water:25.1 Mean:39.5 Box:28.4
 //                                   MIN: On:  0% @ Watt: 0 - Heater:24.9 Ambient:21.6 Water:24.8 Mean:25.6 Box:25.1
