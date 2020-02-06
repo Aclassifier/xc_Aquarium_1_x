@@ -19,7 +19,9 @@ typedef uint16_t aquarium_version_num_t;
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define AQUARIUM_VERSION_STR "1.5.27" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
 #define AQUARIUM_VERSION_NUM    1527  // Is "AQUARIUM_VERSION_NUM_t"
-// 1.5.27     27Jan2020  AQU=104 random_light_change_cnt is new, for VERSION_OF_APP_PAYLOAD_03
+//            --------- Running  6Feb2020
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64812 S:6840 C:51894 D:6078
+// 1.5.27     06Feb2020  AQU=104 random_light_change_cnt is new, for VERSION_OF_APP_PAYLOAD_03
 //                               SCREEN_3_LYSGULERING layout includes it plus tighter layout and hot_water 'H'->'!'
 // 1.5.26     20Jan2020  AQU=103 FIRST WITH xTIMEcomposer Version: Community_14.4.1 (build 235-acbb966, Dec-01-2019) Copyright 2015 Xmos Ltd.
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64800 S:6832 C:51894 D:6074 HELT LIKT!
