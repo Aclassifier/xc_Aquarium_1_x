@@ -108,10 +108,10 @@ typedef enum heat_cable_alternating_t {
 //
 #define TIME_PER_PIN_OUTPUT_MICROSECONDS (TIME_PER_PWM_WINDOW_MICROSECONDS / (TIME_PER_PWM_WINDOW_MICROSECONDS*NUM_LED_STRIPS)) // 1500/(3*3)=166us
 //
-#if (IS_LED_CONFIG<6)
+#if (IS_LED_CONFIG < IS_LED_CONFIG_6)
     #warning light_composition_t value names  not compatible (but will compile and work with strange? colours)
     //       AQU=101: This means that since IS_LED_CONFIG=1 also has colours, the colour mix that would appear might look strange
-    //       Should IS_LED_CONFIG=1 ever be used again, make some switchable define list (or another indirection array) by comparing against commit 5280474 on Oct 7, 2019
+    //       Should IS_LED_CONFIG=IS_LED_CONFIG_1 ever be used again, make some switchable define list (or another indirection array) by comparing against commit 5280474 on Oct 7, 2019
 #endif
 // The only way (that I know of) to init a struct is as an array, ending up as a static. Don't like it:
 // AQU=101 New names since LED frame #2 is used

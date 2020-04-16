@@ -417,6 +417,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                         return_beeper_blip = true;
                         light_control_scheme = LIGHT_CONTROL_IS_DAY_TO_NIGHT;
                         context.allow_normal_light_change_by_menu = true; // AQU=030 won't allow more than one day
+                        context.hot_water_state = HOT_WATER_NONE; // Into night
                     } break;
                     case IOF_TIMED_DAY_TO_NIGHT_LIST_LAST : {
                         return_beeper_blip = true;
@@ -499,12 +500,16 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.it_is_day_or_night == IT_IS_DAY) and
                 (context.allow_normal_light_change_by_menu)) {
 
-                if (context.hot_water) { // Not doing edge detection here with _prev, since that might be before and after IT_IS_DAY etc.
+                if ((context.hot_water_state == HOT_WATER_NONE) and (context.hot_water)) {
+
                     // MUTE LIGHT AND SET TO FREEZE. AQU=102 first here, like at 17.59
                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
                     i_port_heat_light_commands.freeze_light_composition(); // ..THEN THIS
                     return_beeper_blip = true;
-                } else { // Since no edge detection (see above) this will run every hour. This is ok, as this would  not give side effects:
+                    context.hot_water_state = HOT_WATER_NOW_LIGHT_DIMMED;
+
+                } else if ((context.hot_water_state == HOT_WATER_NOW_LIGHT_DIMMED) and (context.hot_water == false)) {
+
                     // REMOVE FREEZE AND SET LIGHT BACK
                     light_composition_t    light_composition;
                     light_control_scheme_t light_control_scheme;
@@ -519,6 +524,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                         i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
                         return_beeper_blip = true;
                     } else {}
+                    context.hot_water_state = HOT_WATER_CLEARED;
                 }
             } else {}
 
@@ -526,7 +532,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
             if (not context.light_is_stable) {
                 // No code here, no change allowed
-            } else if (context.hot_water) {
+            } else if (context.hot_water_state != HOT_WATER_NONE) {
                 // No code here
                 // While waiting for change it's no point in changing the light automatically before next on the hour.
                 // Same if indeed high temp

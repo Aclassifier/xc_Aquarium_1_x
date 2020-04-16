@@ -64,14 +64,19 @@
         #error
     #endif
 
+    #define IS_LED_CONFIG_1 1 // Obsoleted, have soldered away from this!
+    #define IS_LED_CONFIG_6 6 // Old, but exists
+    #define IS_LED_CONFIG_7 7 // Now in aquarium
+
     #ifndef ISLED // New with AQU=100
         #error must be defined in makefile
-    #elif (ISLED==1)
-        #define IS_LED_CONFIG ISLED
-    #elif ((ISLED==6) || (ISAQUARIUM==0))
-        #define IS_LED_CONFIG 6 // No LED jumpers (="out") on the old LED compartment at ¯M11 office test site
-    #elif (ISLED==7) // AQU=106 new
-        #define IS_LED_CONFIG 7 // All three LED jumpers in, present LED compartment at ¯M11 aquarium
+    #elif (ISLED==IS_LED_CONFIG_1)
+        #define IS_LED_CONFIG IS_LED_CONFIG_1
+    #elif ((ISLED==IS_LED_CONFIG_6) || (ISAQUARIUM==0))
+        #define IS_LED_CONFIG IS_LED_CONFIG_6 // No LED jumpers (="out") on the old LED compartment at ¯M11 office test site
+    #elif (ISLED==IS_LED_CONFIG_7) // AQU=106 new
+        #define IS_LED_CONFIG IS_LED_CONFIG_7 // All three LED jumpers in, present LED compartment at ¯M11 aquarium
+        // Also sets TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT
     #else
         #error
     #endif

@@ -97,7 +97,7 @@ typedef enum display_screen_name_t {
     SCREEN_0_X_FEIL,                  //  0 NO              | YES                                              | display_ts1_chars in screen_logg_t | "X" identifies it
     SCREEN_1_AKVARIETEMPERATURER,     //  1 NO              | YES                                              | display_ts1_chars                  | SCREEN_NORMALLY_FIRST
     SCREEN_2_VANNTEMP_REG,            //  2 NO              | NO                                               | display_ts1_chars                  |
-    SCREEN_3_LYSGULERING,             //  3 YES             | YES                                              | display_ts1_chars                  |
+    SCREEN_3_LYSREGULERING,           //  3 YES             | YES                                              | display_ts1_chars                  |
     SCREEN_4_BOKSDATA,                //  4 NO              | NO                                               | display_ts1_chars                  |
     SCREEN_5_VERSJON,                 //  5 NO              | NO                                               | display_ts1_chars                  |
     SCREEN_6_KONSTANTER,              //  6 NO              | NO                                               | display_ts1_chars                  |
@@ -123,7 +123,7 @@ typedef enum display_sub_state_t {
     SUB_STATE_SHOW, // MUST BE ZERO!     DAYLY
     SUB_STATE_01,   // MUST BE ONE etc.. INIT after pressing right button for 10 seconds. First display
     SUB_STATE_02,   // Even number is center button for edit values
-    SUB_STATE_03,   // Odd  number is right  button for next field. LAST VALUE FOR SCREEN_3_LYSGULERING
+    SUB_STATE_03,   // Odd  number is right  button for next field. LAST VALUE FOR SCREEN_3_LYSREGULERING
     SUB_STATE_04,   // Even number is center button for edit values
     SUB_STATE_05,   // Odd  number is right  button for next field
     SUB_STATE_06,   // Even number is center button for edit values
@@ -310,10 +310,10 @@ typedef struct handler_context_t {
 
 bool Set_Dont_Disturb_Screen_3_Lysregulering (handler_context_t &context) { // New with AQU=036
 
-    // dont_disturb_screen_3_lysregulering = SCREEN_3_LYSGULERING and (DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE)
+    // dont_disturb_screen_3_lysregulering = SCREEN_3_LYSREGULERING and (DISPLAY_APPEAR_BACKROUND_UPDATED or DISPLAY_APPEAR_EDITABLE)
     // Read as DONT DISTURB SCREEN_3_LYSREGULERING WITH LYKT IF IT'S VISIBILE
 
-    return ((context.display_screen_name_present == SCREEN_3_LYSGULERING) and (context.display_appear_state != DISPLAY_APPEAR_BLACK));
+    return ((context.display_screen_name_present == SCREEN_3_LYSREGULERING) and (context.display_appear_state != DISPLAY_APPEAR_BLACK));
 }
 
 //}}}
@@ -326,10 +326,10 @@ void Clear_All_Screen_Sub_Is_Editable_Except (
     handler_context_t           &context,
     const display_screen_name_t except_screen) // If SCREEN_X_NONE all are cleared
 {
-    if (except_screen != SCREEN_3_LYSGULERING) { // SCREEN_X_NONE also passes here
-        context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = false;
-        context.display_sub_context[SCREEN_3_LYSGULERING].sub_state       = SUB_STATE_SHOW;
-    } else {} // SCREEN_3_LYSGULERING as parameter causes this exception
+    if (except_screen != SCREEN_3_LYSREGULERING) { // SCREEN_X_NONE also passes here
+        context.display_sub_context[SCREEN_3_LYSREGULERING].sub_is_editable = false;
+        context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state       = SUB_STATE_SHOW;
+    } else {} // SCREEN_3_LYSREGULERING as parameter causes this exception
 
     if (except_screen != SCREEN_7_NT_KLOKKE) { // SCREEN_X_NONE also passes here
         context.display_sub_context[SCREEN_7_NT_KLOKKE].sub_is_editable = false;
@@ -514,14 +514,14 @@ void Handle_Real_Or_Clocked_Button_Actions (
         } break;
 
         //
-        // SCREEN_3_LYSGULERING
+        // SCREEN_3_LYSREGULERING
 
-        case SCREEN_3_LYSGULERING: {
+        case SCREEN_3_LYSREGULERING: {
 
             const char light_control_norm_str   [] = "NORM";
             const char light_control_steady_str [] = "FAST";
 
-            switch (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state) {
+            switch (context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state) {
                 case SUB_STATE_SHOW: {
 
                     const char stable_str   [] = "=";
@@ -566,6 +566,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     }
 
                     // AQU=100 changed layout
+                    const bool hot_water_now_light_dimmed = (light_sunrise_sunset_context.hot_water_state == HOT_WATER_NOW_LIGHT_DIMMED);
+
                     sprintf_numchars = sprintf (context.display_ts1_chars,
                             "3%s  LYS W %u.%u %u.%u %u.%u     FSB%s %u/3 %u/3 %u/3    %s=%u/%u %s%ut%s\n    %s%s%u %s #%u",
                           //  A         B  b  C  c  D  d         E  F    G    H       I  J  j  K L  M       N O P  Q  R
@@ -574,8 +576,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                           /* A   */ char_takes_press_for_10_seconds_right_button_str,                   // "±" "3±" new with AQU=085, not "±3"                                                                    //  Å
                           /* B b */ WATTOF_LED_STRIP_FRONT_DP1  / 10, WATTOF_LED_STRIP_FRONT_DP1  % 10, // "8.6" (from 86)
                           /* C c */ WATTOF_LED_STRIP_CENTER_DP1 / 10, WATTOF_LED_STRIP_CENTER_DP1 % 10, // "3.4" (from 34)
-                          /* D d */ WATTOF_LED_STRIP_BACK_DP1   / 10, WATTOF_LED_STRIP_BACK_DP1   % 10, // "3."3 (from 33)
-                          /* E   */ light_sunrise_sunset_context.hot_water ? "!" : "=",                 // "!" or "=" (!means= WARM)
+                          /* D d */ WATTOF_LED_STRIP_BACK_DP1   / 10, WATTOF_LED_STRIP_BACK_DP1   % 10, // "3.3" (from 33)
+                          /* E   */ hot_water_now_light_dimmed ? "!" : "=",                             // "!" or "=" (!means= WARM)
                           /* F   */ context.light_intensity_thirds[IOF_LED_STRIP_FRONT],                // "1"
                           /* G   */ context.light_intensity_thirds[IOF_LED_STRIP_CENTER],               // "2"
                           /* H   */ context.light_intensity_thirds[IOF_LED_STRIP_BACK],                 // "3"
@@ -612,8 +614,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
                     context.display_is_on = true;
 
                     if (caller != CALLER_IS_REFRESH) {
-                        Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_3_LYSGULERING);
-                        context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = true;
+                        Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_3_LYSREGULERING);
+                        context.display_sub_context[SCREEN_3_LYSREGULERING].sub_is_editable = true;
                         debug_print ("LYS: %u %u %u @ %u, %u\n",
                             context.light_intensity_thirds[IOF_LED_STRIP_FRONT],
                             context.light_intensity_thirds[IOF_LED_STRIP_CENTER],
@@ -640,9 +642,9 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         light_sunrise_sunset_context.allow_normal_light_change_by_menu = light_sunrise_sunset_context.allow_normal_light_change_by_menu_next;
                     }
 
-                    context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
-                    // context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
-                    context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
+                    context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state = SUB_STATE_SHOW;
+                    // context.display_sub_context[SCREEN_3_LYSREGULERING].sub_is_editable = false; NOT this since we want to do it again from same screen
+                    context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSREGULERING: SUB_STATE_03
                     context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                     light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to6_to10 = CNT_0;
                 } break;
@@ -652,8 +654,8 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     bool light_is_ready_for_new_change = true;
 
-                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_3_LYSGULERING: SUB_STATE_01 SUB_STATE_02
-                    if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_01) {
+                    context.display_sub_editing_seconds_cntdown = DISPLAY_SUB_ON_FOR_SECONDS; // SCREEN_3_LYSREGULERING: SUB_STATE_01 SUB_STATE_02
+                    if (context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state == SUB_STATE_01) {
                         if (context.light_control_scheme == LIGHT_CONTROL_IS_DAY) {
                             // No code here. Awaiting IOF_BUTTON_CENTER. But print in display (below)
                         } else if ((context.light_control_scheme == LIGHT_CONTROL_IS_RANDOM) or (context.light_control_scheme == LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE)) {
@@ -665,7 +667,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         } else {
                             light_is_ready_for_new_change = false;
                         }
-                    } else if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state == SUB_STATE_02) {
+                    } else if (context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state == SUB_STATE_02) {
                         // No code here, see switch/case below
                     } else {
                         light_is_ready_for_new_change = false;
@@ -673,11 +675,12 @@ void Handle_Real_Or_Clocked_Button_Actions (
 
                     if (not light_is_ready_for_new_change) {
                         context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Button_Actions
-                        context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_SHOW;
-                        context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSGULERING: SUB_STATE_03
+                        context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state = SUB_STATE_SHOW;
+                        context.display_sub_editing_seconds_cntdown = 0; // SCREEN_3_LYSREGULERING: SUB_STATE_03
                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                         light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to6_to10 = CNT_0;
                     } else {
+                        light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE; // SCREEN_3_LYSREGULERING, but if temp is too high the light may be dimmed again
 
                         for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                             context.display_ts1_chars [index_of_char] = ' ';
@@ -798,7 +801,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                 default: break; // Error, not used
             }
             if (caller != CALLER_IS_REFRESH) {
-                debug_print ("%s", "SCREEN_3_LYSGULERING\n");
+                debug_print ("%s", "SCREEN_3_LYSREGULERING\n");
             } else {}
 
         } break;
@@ -1320,7 +1323,7 @@ void Handle_Real_Or_Clocked_Buttons (
                            light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to6_to10 = 0;
 
                            // Don't touch light_sunrise_sunset_context.light_daytime_hours_by_menu.state because it is fully set and cleared
-                           // within the SCREEN_3_LYSGULERING. Treating it here may cause pressing left button to clear any set
+                           // within the SCREEN_3_LYSREGULERING. Treating it here may cause pressing left button to clear any set
                            // LIGHT_DAYTIME_HOURS_AT_MIDNIGHT_BY_MENU to be cleared.
 
                            if (context.error_bits_now == AQUARIUM_ERROR_BITS_NONE) {
@@ -1358,11 +1361,11 @@ void Handle_Real_Or_Clocked_Buttons (
                 } break;
 
                 case BUTTON_ACTION_RELEASED: {
-                    //   -------------------------- SCREEN_3_LYSGULERING -----------------------------
-                    if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state >= SUB_STATE_01) {
+                    //   -------------------------- SCREEN_3_LYSREGULERING -----------------------------
+                    if (context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state >= SUB_STATE_01) {
 
-                        if ((context.display_sub_context[SCREEN_3_LYSGULERING].sub_state % 2) == 1) { // 01 only, really (so far, perhaps)
-                            context.display_sub_context[SCREEN_3_LYSGULERING].sub_state += 1; // to even numbers
+                        if ((context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state % 2) == 1) { // 01 only, really (so far, perhaps)
+                            context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state += 1; // to even numbers
                         } else {
                             // Even numbers just pass through, that's for edit
                         }
@@ -1448,13 +1451,13 @@ void Handle_Real_Or_Clocked_Buttons (
                         } else {}
                     } else if (context.display_appear_state == DISPLAY_APPEAR_EDITABLE) {
                         if (caller != CALLER_IS_REFRESH) {
-                            //   -------------------------- SCREEN_3_LYSGULERING -----------------------------
-                            if (context.display_sub_context[SCREEN_3_LYSGULERING].sub_state >= SUB_STATE_01) {
+                            //   -------------------------- SCREEN_3_LYSREGULERING -----------------------------
+                            if (context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state >= SUB_STATE_01) {
 
-                                if ((context.display_sub_context[SCREEN_3_LYSGULERING].sub_state % 2) == 0) { // Even 02, 04 by IOF_BUTTON_CENTER
-                                     context.display_sub_context[SCREEN_3_LYSGULERING].sub_state += 1; // To odd numbers
+                                if ((context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state % 2) == 0) { // Even 02, 04 by IOF_BUTTON_CENTER
+                                     context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state += 1; // To odd numbers
                                 } else {
-                                    context.display_sub_context[SCREEN_3_LYSGULERING].sub_state += 2; // To next odd number since IOF_BUTTON_CENTER hasn't touched
+                                    context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state += 2; // To next odd number since IOF_BUTTON_CENTER hasn't touched
                                 }
 
                                 // Always odd number here ("next")
@@ -1524,20 +1527,20 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_2_VANNTEMP_REG: { // 2
                             // No code
                         } break;
-                        case SCREEN_3_LYSGULERING: { // 3
-                            if ((context.display_sub_context[SCREEN_3_LYSGULERING].sub_is_editable) and
+                        case SCREEN_3_LYSREGULERING: { // 3
+                            if ((context.display_sub_context[SCREEN_3_LYSREGULERING].sub_is_editable) and
                                 (context.display_appear_state == DISPLAY_APPEAR_BACKROUND_UPDATED)) {
 
                                 context.display_appear_state = DISPLAY_APPEAR_EDITABLE;
-                                context.display_sub_context[SCREEN_3_LYSGULERING].sub_state = SUB_STATE_01;
+                                context.display_sub_context[SCREEN_3_LYSREGULERING].sub_state = SUB_STATE_01;
                                 context.display_sub_edited = false;
                                 context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
 
                                 Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
 
-                                // If hot_water then it will be muted again next hour's passing
+                                // If hot_water then it will be muted again on next hour's passing
 
-                                debug_print ("%s", "SCREEN_3_LYSGULERING\n");
+                                debug_print ("%s", "SCREEN_3_LYSREGULERING\n");
                             } else {}
                         } break;
                         case SCREEN_4_BOKSDATA: { // 4
@@ -1693,14 +1696,19 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
     } else {}
 
-    light_sunrise_sunset_context.hot_water = false; // CLR when OK! May be set below:
+    if (light_sunrise_sunset_context.hot_water_state == HOT_WATER_CLEARED) {
+        light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE; // AQU=107 new. Ready to be set again
+    } else {}
+
+    light_sunrise_sunset_context.hot_water = false;
+
     if (not context.i2c_temps.i2c_temp_ok[IOF_TEMPC_WATER]) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_WATER);
         // i_temperature_water_commands.regulate_now ();
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_30_0_WATER_MAX) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_OVERHEAT);
         light_sunrise_sunset_context.hot_water = true;
-    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT) { // Unfiltered, single measurement!
+    } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] > TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT) { // Unfiltered, single measurement!
         light_sunrise_sunset_context.hot_water = true;
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_WATER] < TEMP_ONETENTHDEGC_23_0_WATER_COLD) { // Unfiltered, single measurement!
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_WATER_COLD);  // AQU=025 new message
@@ -1774,7 +1782,7 @@ void System_Task_Data_Handler (
                     Clear_All_Screen_Sub_Is_Editable_Except (context, SCREEN_X_NONE);
 
                     // When there is no DISPLAY_APPEAR_BLACK condition here then the display will get off but on again next second for all screens.
-                    // This was designed so to also break through for SCREEN_3_LYSGULERING or SCREEN_7_NT_KLOKKE while being edited with sub_is_editable.
+                    // This was designed so to also break through for SCREEN_3_LYSREGULERING or SCREEN_7_NT_KLOKKE while being edited with sub_is_editable.
                     // This short black screen actually looks right since it draws the attention to something new and important
                     //
                     context.iof_button_last_taken_action = IOF_BUTTON_LEFT;
@@ -2323,7 +2331,7 @@ void System_Task (
     }
 
     for (unsigned iof_sub = 0; iof_sub < NUM_ELEMENTS(context.display_sub_context); iof_sub++) {
-        // Only SCREEN_3_LYSGULERING and SCREEN_7_NT_KLOKKE may have sub_is_editable ever set later on
+        // Only SCREEN_3_LYSREGULERING and SCREEN_7_NT_KLOKKE may have sub_is_editable ever set later on
         context.display_sub_context[iof_sub].sub_is_editable = false;
         context.display_sub_context[iof_sub].sub_state = SUB_STATE_SHOW; // For one case..
     }
@@ -2340,7 +2348,9 @@ void System_Task (
     light_sunrise_sunset_context.true_do_init = true;
     light_sunrise_sunset_context.do_FRAM_write = false;
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
+    light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE;
     light_sunrise_sunset_context.hot_water = false;
+
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 

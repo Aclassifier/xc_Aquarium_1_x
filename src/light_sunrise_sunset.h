@@ -101,6 +101,13 @@ typedef enum {
 
 #define MAX_LIGHT_CHANGE_CNT 1000 // For light_change_cnt
 
+typedef enum { // AQU=107 new
+    HOT_WATER_NONE,
+    HOT_WATER_NOW,              // next is HOT_WATER_NOW_LIGHT_DIMMED
+    HOT_WATER_NOW_LIGHT_DIMMED, // next is HOT_WATER_CLEARED
+    HOT_WATER_CLEARED           // next is HOT_WATER_NONE or HOT_WATER_NOW
+} state_hot_water_e;
+
 typedef struct light_sunrise_sunset_context_t {
     bool                          true_do_init;
     it_is_day_or_night_t          it_is_day_or_night;
@@ -145,6 +152,7 @@ typedef struct light_sunrise_sunset_context_t {
                                   // Darker to black in the evening and dark to light in the morning will go normally, even to full light, then
                                   // on the next hour's passing it would be muted again if hot_water
     bool                          hot_water;
+    state_hot_water_e             hot_water_state; // AQU=107 new
     //
 } light_sunrise_sunset_context_t;
 

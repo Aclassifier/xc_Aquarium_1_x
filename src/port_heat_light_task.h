@@ -8,7 +8,8 @@
 
 #define NUM_LED_STRIPS 3 // FRONT, CENTER, BACK; often in a two-dim array with NUM_PWM_TIME_WINDOWS (so not using NUM_ELEMENTS)
 
-#if (IS_LED_CONFIG<6)
+#if (IS_LED_CONFIG < IS_LED_CONFIG_6)
+
     typedef enum iof_LED_strip_t { //     STRIPS #1 to #7
         //                                                |             |  1/3  |  2/3  |  FULL
         IOF_LED_STRIP_FRONT,  // "FRONT"  STRIPS #1,#5,#6 | 6000K+3000K | 2867  | 5733  |  8600  8.6   = 5.0W + 2.2W + 1.4W | 380lm + 240lm + 150lm = 770lm AQU=038,AQU=058
@@ -22,7 +23,9 @@
         WATTOF_LED_STRIP_BACK_DP1   = 34
         //                           153 = 15.3W Including serial resistors (AQU=100)
     } wattOf_LED_strip_t;
-#elif (IS_LED_CONFIG==6) // All jumpers out
+
+#elif (IS_LED_CONFIG == IS_LED_CONFIG_6) // All jumpers out
+
     typedef enum iof_LED_strip_t {
         IOF_LED_STRIP_FRONT,
         IOF_LED_STRIP_CENTER,
@@ -36,7 +39,9 @@
         WATTOF_LED_STRIP_BACK_DP1   = 33  // 3.3W Jumper out
         // SUM                        99  =  9.9W Excluding serial resistors, only LEDs (AQU=100)
     } wattOf_LED_strip_t;
-#elif (IS_LED_CONFIG==7) // All jumpers in. AQU=106 new
+
+#elif (IS_LED_CONFIG == IS_LED_CONFIG_7) // All jumpers in. AQU=106 new
+
     typedef enum iof_LED_strip_t {
         IOF_LED_STRIP_FRONT,
         IOF_LED_STRIP_CENTER,
@@ -50,6 +55,7 @@
         WATTOF_LED_STRIP_BACK_DP1   = 49  //  4.9W Jumper in
         // SUM                       147  =  14.7W Excluding serial resistors, only LEDs (AQU=100)
     } wattOf_LED_strip_t;
+
 #endif
 
 typedef enum light_composition_t {
@@ -60,25 +66,25 @@ typedef enum light_composition_t {
     // this table accordning to wattage only. This would doing UP and DOWN easier in the case where HALF could end up
     // with a value priror to DOWN as "lower" and after UP as "higher" than the immediate next value.
 
-    // IS_LED_CONFIG==6
     // AQU=101 New names since LED frame #2 is used. Last commit with previous values is 5280474 on Oct 7, 2019
-    //                FMB=FrontMidtenBak                      mW 6  mW 7 = IS_LED_CONFIG
-    LIGHT_COMPOSITION_FMB_000_ALL_OFF           =  0, // 0    0000  0000
-    LIGHT_COMPOSITION_FMB_001_ON                =  1, // 1/9  1100  1633
-    LIGHT_COMPOSITION_FMB_011_ON                =  2, // 2/9  2200  3267
-    LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD      =  3, // 3/9  3300  4900 Also if hot_water
-    LIGHT_COMPOSITION_FMB_021_ON                =  4, // 3/9  3300  4900 Also "one third" but uneven
-    LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM =  5, // 4/9  4400  6533
-    LIGHT_COMPOSITION_FMB_031_ON                =  6, // 4/9  4400  6533 Also 4400 but more at the center
-    LIGHT_COMPOSITION_FMB_032_ON                =  7, // 5/9  5500  8167
-    LIGHT_COMPOSITION_FMB_221_ON_HALF           =  8, // 5/9  5500  8167 Also 5500 but wider spread. Gone for the larger "almost half" from 4400/5500:
-    LIGHT_COMPOSITION_FMB_132_ON                =  9, // 6/9  6600  9800
+    //                FMB=FrontMidtenBak                      mW              mW
+    //                                                        IS_LED_CONFIG_6 IS_LED_CONFIG_7
+    LIGHT_COMPOSITION_FMB_000_ALL_OFF           =  0, // 0    0000            0000
+    LIGHT_COMPOSITION_FMB_001_ON                =  1, // 1/9  1100            1633
+    LIGHT_COMPOSITION_FMB_011_ON                =  2, // 2/9  2200            3267
+    LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD      =  3, // 3/9  3300            4900 Also if hot_water
+    LIGHT_COMPOSITION_FMB_021_ON                =  4, // 3/9  3300            4900 Also "one third" but uneven
+    LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM =  5, // 4/9  4400            6533
+    LIGHT_COMPOSITION_FMB_031_ON                =  6, // 4/9  4400            6533 Also 4400 but more at the center
+    LIGHT_COMPOSITION_FMB_032_ON                =  7, // 5/9  5500            8167
+    LIGHT_COMPOSITION_FMB_221_ON_HALF           =  8, // 5/9  5500            8167 Also 5500 but wider spread. Gone for the larger "almost half" from 4400/5500:
+    LIGHT_COMPOSITION_FMB_132_ON                =  9, // 6/9  6600            9800
     //
-    LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT     = 10, // 1/3  3300  1633
-    LIGHT_COMPOSITION_FMB_133_ON                = 11, // 7/9  7700 11433
-    LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS     = 12, // 6/9  6600  9800
-    LIGHT_COMPOSITION_FMB_233_ON                = 13, // 8/9  8800 13067
-    LIGHT_COMPOSITION_FMB_333_ALL_ON            = 14, // 9/9  9900 14700 I might hear a sound from the LEDs?
+    LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT     = 10, // 1/3  3300            1633
+    LIGHT_COMPOSITION_FMB_133_ON                = 11, // 7/9  7700           11433
+    LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS     = 12, // 6/9  6600            9800
+    LIGHT_COMPOSITION_FMB_233_ON                = 13, // 8/9  8800           13067
+    LIGHT_COMPOSITION_FMB_333_ALL_ON            = 14, // 9/9  9900           14700 I might hear a sound from the LEDs?
     NUMLIGHT_COMPOSITION_LEVELS_                = 15
     //                                             FATAL! ## FOR LIGHT AMOUNT IF THESE VALUES DON'T ALIGN WITH
     //                                                    ## INIT ARRAYS OF p32_bits_for_light_composition_pwm_windows

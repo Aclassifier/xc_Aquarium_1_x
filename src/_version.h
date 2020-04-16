@@ -17,16 +17,20 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.28" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1528  // Is "AQUARIUM_VERSION_NUM_t"
-//            --------- Running  16Apr2020
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64812 S:6840 C:51894 D:6074
+#define AQUARIUM_VERSION_STR "1.5.29" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1529  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  17Apr2020
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64856 S:6840 C:51938 D:6078
+// 1.5.29     16Apr2020  AQU=108 TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT -> TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT
+//                       AQU=107 When I introduced IS_LED_CONFIG==7 then hot_water triggered fast. I also saw it blink between
+//                               FSB! and FSB= in SCREEN_3_LYSGULERING. Adding a new  hot_water_state
 // 1.5.28     16Apr2020  AQU=106 From light_composition_t removed all naming with mW, like
 //                               _LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD -> LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD
 //                               Set by ISLED in makefile is now set to 7:
 //                                      IS_LED_CONFIG==7 All jumpers in  -> MAX 14.7W used by the 9 LEDs
 //                                      IS_LED_CONFIG==6 All jumpers out -> MAX  9.9W used by the 9 LEDs
 //            13Apr2020  AQU=105 On 1.5.27 LONG_BEEP_MS heard all of a sudden around some time before 08 aquarium time. Everything seemed fine.
+//                               UPDATE: it probably was hot_water!
 //                               Hypothesis: SCREEN_8_RADIO ultimateIRQclearCnt was 7 after. But I don't know what it was before.
 //                               I could see that on the radio client EXPLORER_BOX that it did not receive, strange because the radio sending
 //                               LED blinked on the aquarium. Another unlikely hypothses is that radio_enabled_state had become
@@ -99,7 +103,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.81     25Jul2019          iochip_mcp23008.xc is new and code moved to it: init_iochip_i2c_external_iff and handle_iochip_i2c_external_iff
 // 1.4.80     24Jul2019 AQU=082  Real control of MY_MCP23008_OUT_RELAY1_ON_BIT as iochip_relay1_skimmer_pump_secs_cntdown
 // 1.4.79     24Jul2019 AQU=081  mute_light_t is new
-//                               TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT is new
+//                               TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT is new
 // 1.4.78     08Jul2019          BUTTON_STATE_5 is new for testing, just temporary
 // 1.4.77     26May2019 AQU=079  iochip_output_pins missed an init. _Now_ to Italy!
 // 1.4.76     25May2019 AQU=079  iochip_output_pins fault fixed. No, it does not work as expected. But I have to quit now

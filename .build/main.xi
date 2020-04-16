@@ -1737,7 +1737,7 @@ void Button_Task (
 typedef int16_t temp_onetenthDegC_t;
 typedef int16_t onetenthVolt_t;
 typedef int light_sensor_range_t;
-# 88 "../src/f_conversions.h"
+# 99 "../src/f_conversions.h"
 typedef struct temp_degC_str_t { char string[5]; } temp_degC_str_t;
 
 typedef struct temp_degC_strings_t {
@@ -1757,7 +1757,7 @@ typedef struct temp_onetenthDegC_mean_t {
     unsigned temps_num;
     temp_onetenthDegC_t temps_sum_mten_previous;
 } temp_onetenthDegC_mean_t;
-# 131 "../src/f_conversions.h"
+# 142 "../src/f_conversions.h"
 {temp_onetenthDegC_t, bool} Temp_OnetenthDegC_To_String (const i2c_temp_onetenthDegC_t degC_dp1, char temp_degC_str[5]);
 {temp_onetenthDegC_t, bool} TC1047_Raw_DegC_To_String_Ok (const unsigned int adc_val_mean_i, char (&?temp_degC_str)[5]);
 {light_sensor_range_t, bool} Ambient_Light_Sensor_ALS_PDIC243_To_String_Ok (const unsigned int adc_val_mean_i, char (&?lux_str)[3]);
@@ -1777,7 +1777,7 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
 # 35 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
-# 40 "../src/port_heat_light_task.h"
+# 45 "../src/port_heat_light_task.h"
     typedef enum iof_LED_strip_t {
         IOF_LED_STRIP_FRONT,
         IOF_LED_STRIP_CENTER,
@@ -1793,8 +1793,9 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
     } wattOf_LED_strip_t;
 
 
+
 typedef enum light_composition_t {
-# 66 "../src/port_heat_light_task.h"
+# 72 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_FMB_000_ALL_OFF = 0,
     LIGHT_COMPOSITION_FMB_001_ON = 1,
     LIGHT_COMPOSITION_FMB_011_ON = 2,
@@ -1837,7 +1838,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 116 "../src/port_heat_light_task.h"
+# 122 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
@@ -1871,7 +1872,7 @@ typedef interface port_heat_light_commands_if {
 
 
 } port_heat_light_commands_if;
-# 160 "../src/port_heat_light_task.h"
+# 166 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1
