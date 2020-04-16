@@ -126,7 +126,7 @@
 	.globl startkit_gpio_driver_aux.select.enable.cases.maxchanends
 	.set startkit_gpio_driver_aux.select.enable.cases,0
 	.globl startkit_gpio_driver_aux.select.enable.cases
-	.set startkit_gpio_driver_aux.select.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.case.2.nstackwords) $M (startkit_gpio_driver_aux.select.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.case.0.nstackwords)
+	.set startkit_gpio_driver_aux.select.enable.cases.nstackwords, 0 $M (startkit_gpio_driver_aux.select.case.3.nstackwords) $M (startkit_gpio_driver_aux.select.case.4.nstackwords) $M (startkit_gpio_driver_aux.select.case.1.nstackwords) $M (startkit_gpio_driver_aux.select.case.0.nstackwords) $M (startkit_gpio_driver_aux.select.case.2.nstackwords)
 	.globl startkit_gpio_driver_aux.select.enable.cases.nstackwords
 	.weak _i.slider_query_if.filter.maxchanends.group
 	.add_to_set _i.slider_query_if.filter.maxchanends.group, _i.slider_query_if.slider._c0.filter.maxchanends, _i.slider_query_if.slider._c0.filter
@@ -16810,8 +16810,8 @@ map:
 	.typestring slider.init.0, "dk:f{0}(u:q(ui),is(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},ic(absolute_slider_if){m(get_coord){f{si}(0)}})"
 	.typestring slider.select.enable, "dk:fe{0}()"
 	.typestring startkit_gpio_driver_aux, "k:f{0}(n:is(startkit_led_if){m(set){f{0}(ui,ui,ui)},m(set_multiple){f{0}(ui,ui)}},n:is(startkit_button_if){m(changed){st:f{0}(0)},m(get_value){l:f{e(button_val){m(BUTTON_DOWN){1},m(BUTTON_UP){0}}}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},n:is(slider_if){m(changed_state){st:f{0}(0)},m(get_slider_state){l:f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},p,ic(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}},ic(slider_query_if){m(filter){f{e(){m(IDLE){0},m(LEFTING){2},m(PRESSED){1},m(PRESSING){5},m(RELEASED){4},m(RIGHTING){3}}}(0)},m(get_coord){f{si}(0)}})"
-	.overlay_reference startkit_gpio_driver_aux,_i.slider_query_if.filter.fns
 	.overlay_reference startkit_gpio_driver_aux,_i.slider_query_if.get_coord.fns
+	.overlay_reference startkit_gpio_driver_aux,_i.slider_query_if.filter.fns
 	.typestring startkit_gpio_driver_aux.select.0.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver_aux.select.1.enable, "k:fe{0}()"
 	.typestring startkit_gpio_driver_aux.select.2.enable, "k:fe{0}()"

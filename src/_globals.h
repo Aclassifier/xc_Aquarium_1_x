@@ -68,8 +68,10 @@
         #error must be defined in makefile
     #elif (ISLED==1)
         #define IS_LED_CONFIG ISLED
-    #elif (ISLED==6)
-        #define IS_LED_CONFIG ISLED
+    #elif ((ISLED==6) || (ISAQUARIUM==0))
+        #define IS_LED_CONFIG 6 // No LED jumpers (="out") on the old LED compartment at ¯M11 office test site
+    #elif (ISLED==7) // AQU=106 new
+        #define IS_LED_CONFIG 7 // All three LED jumpers in, present LED compartment at ¯M11 aquarium
     #else
         #error
     #endif

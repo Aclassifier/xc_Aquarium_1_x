@@ -1777,7 +1777,7 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
 # 35 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
-# 26 "../src/port_heat_light_task.h"
+# 40 "../src/port_heat_light_task.h"
     typedef enum iof_LED_strip_t {
         IOF_LED_STRIP_FRONT,
         IOF_LED_STRIP_CENTER,
@@ -1785,31 +1785,32 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
     } iof_LED_strip_t;
     typedef enum {
 
-        WATTOF_LED_STRIP_FRONT_DP1 = 33,
-        WATTOF_LED_STRIP_CENTER_DP1 = 33,
-        WATTOF_LED_STRIP_BACK_DP1 = 33
+
+        WATTOF_LED_STRIP_FRONT_DP1 = 49,
+        WATTOF_LED_STRIP_CENTER_DP1 = 49,
+        WATTOF_LED_STRIP_BACK_DP1 = 49
 
     } wattOf_LED_strip_t;
 
 
 typedef enum light_composition_t {
-# 51 "../src/port_heat_light_task.h"
-    LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF = 0,
-    LIGHT_COMPOSITION_1100_mW_FMB_001_ON = 1,
-    LIGHT_COMPOSITION_2200_mW_FMB_011_ON = 2,
-    LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD = 3,
-    LIGHT_COMPOSITION_3300_mW_FMB_021_ON = 4,
-    LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM = 5,
-    LIGHT_COMPOSITION_4400_mW_FMB_031_ON = 6,
-    LIGHT_COMPOSITION_5500_mW_FMB_032_ON = 7,
-    LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF = 8,
-    LIGHT_COMPOSITION_6600_mW_FMB_132_ON = 9,
+# 66 "../src/port_heat_light_task.h"
+    LIGHT_COMPOSITION_FMB_000_ALL_OFF = 0,
+    LIGHT_COMPOSITION_FMB_001_ON = 1,
+    LIGHT_COMPOSITION_FMB_011_ON = 2,
+    LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD = 3,
+    LIGHT_COMPOSITION_FMB_021_ON = 4,
+    LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM = 5,
+    LIGHT_COMPOSITION_FMB_031_ON = 6,
+    LIGHT_COMPOSITION_FMB_032_ON = 7,
+    LIGHT_COMPOSITION_FMB_221_ON_HALF = 8,
+    LIGHT_COMPOSITION_FMB_132_ON = 9,
 
-    LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT = 10,
-    LIGHT_COMPOSITION_7700_mW_FMB_133_ON = 11,
-    LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS = 12,
-    LIGHT_COMPOSITION_8800_mW_FMB_233_ON = 13,
-    LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON = 14,
+    LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT = 10,
+    LIGHT_COMPOSITION_FMB_133_ON = 11,
+    LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS = 12,
+    LIGHT_COMPOSITION_FMB_233_ON = 13,
+    LIGHT_COMPOSITION_FMB_333_ALL_ON = 14,
     NUMLIGHT_COMPOSITION_LEVELS_ = 15
 
 
@@ -1836,7 +1837,7 @@ typedef enum heat_cable_commands_t {
     HEAT_CABLES_ONE_ON,
     HEAT_CABLES_BOTH_ON
 } heat_cable_commands_t;
-# 101 "../src/port_heat_light_task.h"
+# 116 "../src/port_heat_light_task.h"
 typedef uint8_t light_intensity_thirds_t;
 
 typedef interface port_heat_light_commands_if {
@@ -1870,7 +1871,7 @@ typedef interface port_heat_light_commands_if {
 
 
 } port_heat_light_commands_if;
-# 145 "../src/port_heat_light_task.h"
+# 160 "../src/port_heat_light_task.h"
 void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_light_commands[2]);
 # 36 "../src/main.xc" 2
 # 1 "../src/temperature_heater_task.h" 1

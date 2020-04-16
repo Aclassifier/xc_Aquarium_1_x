@@ -119,81 +119,80 @@ typedef enum heat_cable_alternating_t {
 static unsigned int p32_bits_for_light_composition_pwm_windows [NUMLIGHT_COMPOSITION_LEVELS][NUM_PWM_TIME_WINDOWS] =
 {
     {
-        //                                                               ##
-                                                                   0, //  0 [LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF][0]
-                                                                   0, //  0 [LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF][1]
-                                                                   0  //  0 [LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF][2]
+        //                                                               ## 0
+                                                                   0, //  0 [LIGHT_COMPOSITION_FMB_000_ALL_OFF][0]
+                                                                   0, //  0 [LIGHT_COMPOSITION_FMB_000_ALL_OFF][1]
+                                                                   0  //  0 [LIGHT_COMPOSITION_FMB_000_ALL_OFF][2]
 
-    }, {                                                              // ##
-                                                                   0, //  1 [LIGHT_COMPOSITION_1100_mW_FMB_001_ON][0]
-                                                                   0, //  1 [LIGHT_COMPOSITION_1100_mW_FMB_001_ON][1]
-                                                      BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_1100_mW_FMB_001_ON][2]
+    }, {                                                              // ## 1/9
+                                                                   0, //  1 [LIGHT_COMPOSITION_FMB_001_ON][0]
+                                                                   0, //  1 [LIGHT_COMPOSITION_FMB_001_ON][1]
+                                                      BIT_LIGHT_BACK  //  1 [LIGHT_COMPOSITION_FMB_001_ON][2]
 
-    }, {                                                              // ##
-                                                                      //  2 [LIGHT_COMPOSITION_2200_mW_FMB_011_ON][0]
-                               BIT_LIGHT_CENTER                     , //  2 [LIGHT_COMPOSITION_2200_mW_FMB_011_ON][1]
-                                                      BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_2200_mW_FMB_011_ON][2]
+    }, {                                                              // ## 2/9
+                                                                      //  2 [LIGHT_COMPOSITION_FMB_011_ON][0]
+                               BIT_LIGHT_CENTER                     , //  2 [LIGHT_COMPOSITION_FMB_011_ON][1]
+                                                      BIT_LIGHT_BACK  //  2 [LIGHT_COMPOSITION_FMB_011_ON][2]
 
-    }, {                                                              // ##
-         BIT_LIGHT_FRONT                                            , //  3 [LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD][0]
-                               BIT_LIGHT_CENTER                     , //  3 [LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD][1]
-                                                      BIT_LIGHT_BACK  //  3 [LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD][2]
+    }, {                                                              // ## 3/9 even ONE_THIRD
+         BIT_LIGHT_FRONT                                            , //  3 [LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD][0]
+                               BIT_LIGHT_CENTER                     , //  3 [LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD][1]
+                                                      BIT_LIGHT_BACK  //  3 [LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD][2]
 
-    }, {                                                              // ## Also "one third" but uneven:
-                                                      BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_3300_mW_FMB_021_ON][0]
-                               BIT_LIGHT_CENTER                     , //  5 [LIGHT_COMPOSITION_3300_mW_FMB_021_ON][1]
-                               BIT_LIGHT_CENTER                       //  5 [LIGHT_COMPOSITION_3300_mW_FMB_021_ON][2]
+    }, {                                                              // ## 3/9 uneven
+                                                      BIT_LIGHT_BACK, //  5 [LIGHT_COMPOSITION_FMB_021_ON][0]
+                               BIT_LIGHT_CENTER                     , //  5 [LIGHT_COMPOSITION_FMB_021_ON][1]
+                               BIT_LIGHT_CENTER                       //  5 [LIGHT_COMPOSITION_FMB_021_ON][2]
 
-    }, {                                                              // ##
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  4 [LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM][0]
-                               BIT_LIGHT_CENTER                     , //  4 [LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM][1]
-                                                      BIT_LIGHT_BACK  //  5 [LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM][2]
+    }, {                                                              // ## 4/9
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  4 [LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM][0]
+                               BIT_LIGHT_CENTER                     , //  4 [LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM][1]
+                                                      BIT_LIGHT_BACK  //  5 [LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM][2]
 
-    }, {                                                              // ## Also 4400 but more intense at the center:
-                               BIT_LIGHT_CENTER                     , //  6 [LIGHT_COMPOSITION_4400_mW_FMB_031_ON][0]
-                               BIT_LIGHT_CENTER                     , //  6 [LIGHT_COMPOSITION_4400_mW_FMB_031_ON][1]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_4400_mW_FMB_031_ON][2]
+    }, {                                                              // ## 4/9
+                               BIT_LIGHT_CENTER                     , //  6 [LIGHT_COMPOSITION_FMB_031_ON][0]
+                               BIT_LIGHT_CENTER                     , //  6 [LIGHT_COMPOSITION_FMB_031_ON][1]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  6 [LIGHT_COMPOSITION_FMB_031_ON][2]
 
-    }, {                                                              // ##
-                               BIT_LIGHT_CENTER                     , //  7 [LIGHT_COMPOSITION_5500_mW_FMB_032_ON][0]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_5500_mW_FMB_032_ON][1]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_5500_mW_FMB_032_ON][2]
+    }, {                                                              // ## 5/9 uneven
+                               BIT_LIGHT_CENTER                     , //  7 [LIGHT_COMPOSITION_FMB_032_ON][0]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  7 [LIGHT_COMPOSITION_FMB_032_ON][1]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  7 [LIGHT_COMPOSITION_FMB_032_ON][2]
 
-    }, {                                                              // ## Gone for the larger "almost half" from 4400/5500:
-                                                                      //    Also 5500 but wider spread:
-                                                                   0, //  8 [LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF][0]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  8 [LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF][1]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF][2]
+    }, {                                                              // ## 5/9 most even ON_HALF
+                                                                   0, //  8 [LIGHT_COMPOSITION_FMB_221_ON_HALF][0]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , //  8 [LIGHT_COMPOSITION_FMB_221_ON_HALF][1]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  8 [LIGHT_COMPOSITION_FMB_221_ON_HALF][2]
 
-    }, {                                                              // ##
-                               BIT_LIGHT_CENTER                     , //  9 [LIGHT_COMPOSITION_6600_mW_FMB_132_ON][0]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_6600_mW_FMB_132_ON][1]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_6600_mW_FMB_132_ON][2]
+    }, {                                                              // ## 6/9 the other is more even
+                               BIT_LIGHT_CENTER                     , //  9 [LIGHT_COMPOSITION_FMB_132_ON][0]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, //  9 [LIGHT_COMPOSITION_FMB_132_ON][1]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  //  9 [LIGHT_COMPOSITION_FMB_132_ON][2]
 
-    }, {                                                              // ##
-         BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT][0]
-         BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT][1]
-         BIT_LIGHT_FRONT                                              // 10 [LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT][2]
+    }, {                                                              // ## 3/9
+         BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT][0]
+         BIT_LIGHT_FRONT                                            , // 10 [LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT][1]
+         BIT_LIGHT_FRONT                                              // 10 [LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT][2]
 
-    }, {                                                              // ##
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_7700_mW_FMB_133_ON][0]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_7700_mW_FMB_133_ON][1]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 11 [LIGHT_COMPOSITION_7700_mW_FMB_133_ON][2]
+    }, {                                                              // ## 7/9
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_FMB_133_ON][0]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 11 [LIGHT_COMPOSITION_FMB_133_ON][1]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 11 [LIGHT_COMPOSITION_FMB_133_ON][2]
 
-    }, {                                                              // ##
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , // 12 [LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS][0]
-         BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, // 12 [LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS][1]
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 12 [LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS][2]
+    }, {                                                              // ## 6/9 even TWO_THIRDS
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER                     , // 12 [LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS][0]
+         BIT_LIGHT_FRONT bitor                        BIT_LIGHT_BACK, // 12 [LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS][1]
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 12 [LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS][2]
 
-    }, {                                                              // ##
-                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 13 [LIGHT_COMPOSITION_8800_mW_FMB_233_ON][0]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 13 [LIGHT_COMPOSITION_8800_mW_FMB_233_ON][1]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 14 [LIGHT_COMPOSITION_8800_mW_FMB_233_ON][2]
+    }, {                                                              // ## 8/9
+                               BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 13 [LIGHT_COMPOSITION_FMB_233_ON][0]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 13 [LIGHT_COMPOSITION_FMB_233_ON][1]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 14 [LIGHT_COMPOSITION_FMB_233_ON][2]
 
-    }, {                                                              // ##
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 15 [LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON][0]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 15 [LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON][1]
-         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 15 [LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON][2]
+    }, {                                                              // ## 9/9 ALL_ON
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 15 [LIGHT_COMPOSITION_FMB_333_ALL_ON][0]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK, // 15 [LIGHT_COMPOSITION_FMB_333_ALL_ON][1]
+         BIT_LIGHT_FRONT bitor BIT_LIGHT_CENTER bitor BIT_LIGHT_BACK  // 15 [LIGHT_COMPOSITION_FMB_333_ALL_ON][2]
     }                                                                 // ##
 };
 
@@ -265,7 +264,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
     uint32_t                 port_value = UINT32_HIGH_BITS;
     timer                    tmr;
     int                      time;
-    light_composition_t      iof_light_composition_level_present = LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF;
+    light_composition_t      iof_light_composition_level_present = LIGHT_COMPOSITION_FMB_000_ALL_OFF;
     unsigned int             iof_light_pwm_window                = 0; // 0,1,2 if NUM_PWM_TIME_WINDOWS==3
     heat_cable_alternating_t heat_cable_alternating              = HEAT_1_ON; // To wear both heating cables equally much and get optimal spread of heat
                                                                               // (even if the cables are mounted beside each other all the way)
@@ -277,7 +276,7 @@ void Port_Pins_Heat_Light_Task (server port_heat_light_commands_if i_port_heat_l
     light_control_scheme_t            light_control_scheme_next    = LIGHT_CONTROL_IS_VOID; // AQU=031 new After soft change in same cases
 
     light_control_scheme_t            light_control_scheme_while_frozen        = light_control_scheme_present; // AQU=031 new After soft change in same cases
-    light_composition_t               iof_light_composition_level_while_frozen = iof_light_composition_level_present; // == LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF
+    light_composition_t               iof_light_composition_level_while_frozen = iof_light_composition_level_present; // == LIGHT_COMPOSITION_FMB_000_ALL_OFF
 
     #ifdef DO_HEAT_PULSING_THROUGH_BOARD_9
         bool pulse_heat_1 = false;

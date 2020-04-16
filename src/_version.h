@@ -17,8 +17,22 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.27" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1527  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.28" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1528  // Is "AQUARIUM_VERSION_NUM_t"
+//            --------- Running  16Apr2020
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64812 S:6840 C:51894 D:6074
+// 1.5.28     16Apr2020  AQU=106 From light_composition_t removed all naming with mW, like
+//                               _LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD -> LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD
+//                               Set by ISLED in makefile is now set to 7:
+//                                      IS_LED_CONFIG==7 All jumpers in  -> MAX 14.7W used by the 9 LEDs
+//                                      IS_LED_CONFIG==6 All jumpers out -> MAX  9.9W used by the 9 LEDs
+//            13Apr2020  AQU=105 On 1.5.27 LONG_BEEP_MS heard all of a sudden around some time before 08 aquarium time. Everything seemed fine.
+//                               Hypothesis: SCREEN_8_RADIO ultimateIRQclearCnt was 7 after. But I don't know what it was before.
+//                               I could see that on the radio client EXPLORER_BOX that it did not receive, strange because the radio sending
+//                               LED blinked on the aquarium. Another unlikely hypothses is that radio_enabled_state had become
+//                               radio_disabled_pending, because when BUTTON_ACTION_PRESSED_FOR_10_SECONDS.SCREEN_8_RADIO button it started sending,
+//                               so when I came up to see EXPLORER_BOX then it received again. No, it could not be that since
+//                               I did not press for 10 seconds! I MUST BE MORE ACCURATE IN MY OBSERVATIONS!
 //            --------- Running  6Feb2020
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64812 S:6840 C:51894 D:6078
 // 1.5.27     06Feb2020  AQU=104 random_light_change_cnt is new, for VERSION_OF_APP_PAYLOAD_03
@@ -29,7 +43,7 @@ typedef uint16_t aquarium_version_num_t;
 //                               I saw that light all of a sudden went to zero! I had been filling water, so it may have been hot_water.
 //                               I had been placing the light so that it may have triggered LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE. This was just before 17.00 o clock
 //                               so there might have been a LIGHT_CONTROL_IS_RANDOM that overtook it. SCREEN_3_LYSGULERING showed correctly 0/3 on all 3 and
-//                               DAG = 0 (LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF). I am in doubt about DAG but not about 0. NORMAL_LIGHT_IS_FULL_F2N.
+//                               DAG = 0 (LIGHT_COMPOSITION_FMB_000_ALL_OFF). I am in doubt about DAG but not about 0. NORMAL_LIGHT_IS_FULL_F2N.
 //                               Also, it did not restart, that's a completely different procedure.
 //                               I fixed it by holding for 10 seconds and changing light intensity to something else.
 //                               ==> Fix in freeze_light_composition. hot_water at 17.59 then remove it at 18.00. Not tested, but logical glitch found.
@@ -37,7 +51,7 @@ typedef uint16_t aquarium_version_num_t;
 //            --------- Running  10Oct2019
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64832 S:6832 C:51926 D:6074
 // 1.5.24     09Oct2019 AQU=101  New names since LED frame #2 is used. Last commit with previous values is 5280474 on Oct 7, 2019
-//                               Example = *LIGHT_COMPOSITION_1133_mW_FMB_001_ON -> *LIGHT_COMPOSITION_1100_mW_FMB_001_ON (* added to avoid later wildcard replace)
+//                               Example = *LIGHT_COMPOSITION_1133_mW_FMB_001_ON -> *LIGHT_COMPOSITION_FMB_001_ON (* added to avoid later wildcard replace)
 // 1.5.23     07Oct2019 AQU=100  ISLED is new. Compiled with ISLED=6 -> IS_LED_CONFIG==6. SCREEN_3_LYSGULERING changed
 // 1.5.22     30Sep2019          FLASH_BLACK_BOARD now is either 0 or 2 with new LED board, see diagram 16.2
 //            --------- Running  26Sep2019
@@ -53,8 +67,8 @@ typedef uint16_t aquarium_version_num_t;
 // 1.5.16     05Sep2019 AQU=097  I could see 1.5.15 flashed code take in the button bit from iochip but not blink with any LED or any other outputs!
 //                               I added a init_iochip before every write and added Z1, C1 and C2 on diagram 22, also see below figure 8 at
 //                               https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#fish_feeder
-// 1.5.15     04Sep2019 AQU=096  On 1.5.12. LONG_BEEP_MS heard all of a sudden(?). I looked at the aquarium, and it lokked like it was at the exact moment when
-//                               the light changed at 22.20 for the next to last before going black for the night
+// 1.5.15     04Sep2019 AQU=096  On 1.5.12 LONG_BEEP_MS heard all of a sudden(?). I looked at the aquarium, and it looked like it was at the exact moment when
+//                               the light changed at 22.20 for the next to last before going black for the night.
 //                               Now all usage of i_port_heat_light_commands will retrigger watchdog, plus watchdog_retrigger_with explicitly called on every System_Task alive point
 // 1.5.14     03Sep2019 AQU=095  First real version of AUTO_FEEDING
 // 1.5.13     22Aug2019 AQU=094  MY_MCP23008_OUT_FEEDER_SOLENOID_ON_BIT MY_MCP23008_OUT_LED_IN_CONNECTOR_BOX_ON_BIT are new
@@ -227,7 +241,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.4.05     29Jan2019          SCREEN_8_RADIO changed, some other screen layout
 // 1.4.04     29Jan2019 AQU=069  pressed_for_10_seconds removed TODO remove the code as well, just commented out by now
 // 1.4.03     29Jan2019          NORMAL_LIGHT_IS_ONE_THIRD_F2N no random change, just low all the time
-// 1.4.02     27Jan2019          New names like LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT
+// 1.4.02     27Jan2019          New names like LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT
 // 1.4.01     27Jan2019 AQU=068  Renumbering of light_composition_t to increasing wattage only
 //                               Making darkest random value above all light levels for UP and DOWN
 //                               Darker_Light_Composition_Iff and Brighter_Light_Composition_Iff removed
@@ -305,7 +319,7 @@ typedef uint16_t aquarium_version_num_t;
 // 1.1.??     ??Sep2018 AQU=043 See  2018 09 12 A fail IRQ 7 still not solved.txt . But this is on client RX side. TODO
 // 1.1.15     26Sep2018 AQU=044 Setting down light intensity less often again..
 // 1.1.14     11Sep2018 AQU=042 To avoid using any colured LED strips alone when UP and down (it looked eerie):
-//                              LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_1100_mW_FMB_001_ON
+//                              LIGHT_COMPOSITION_1083_mW_CENTER1_ON -> LIGHT_COMPOSITION_FMB_001_ON
 //                              LIGHT_COMPOSITION_2166_mW_CENTER2_ON -> LIGHT_COMPOSITION_2799_mW_FRONT1_BACK1_ON
 // 1.1.13     10Sep2018         now_regulating_at also exported in payload_u0_t;
 // 1.1.12      7Sep2018         error_bits_history also exported in payload_u0_t;
@@ -406,7 +420,7 @@ typedef uint16_t aquarium_version_num_t;
 //                      AQU=014 Error causing beep only if an error exists _now_ (but error screen still on) (tested ok)
 //                      AQU=013 Max  1.0.12  with 6 visible chars allowed (was 5) (tested ok)
 // 1.0.8     18Jul2017          Tagged VER_1_0_8_with_fishes
-//                      AQU=012 Random light now starts at LIGHT_COMPOSITION_3300_mW_FMB_021_ON (2) (tested ok)
+//                      AQU=012 Random light now starts at LIGHT_COMPOSITION_FMB_021_ON (2) (tested ok)
 //                      AQU=011 WATCHDOG_EXTRA_MS from 10 to 100 ms for complex display printing (tested ok)
 //                      AQU=010 Renamed i2c_external_commands_if.command to i2c_external_commands_if.trigger (tested ok)
 // 1.0.7     17Jul2017          Tagged VER_1_0_7_with_fishes

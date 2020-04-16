@@ -1566,7 +1566,7 @@ void Handle_Real_Or_Clocked_Buttons (
                             if (context.radio_enabled_state == radio_enabled) {
                                 context.radio_enabled_state = radio_disabled_pending;
                             } else { // radio_disabled or radio_disabled_pending
-                                context.radio_enabled_state = radio_enabled;
+                                context.radio_enabled_state = radio_enabled; // Was this what had happened at AQU=105? No, I did not press for 10 seconds!
                                 #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
                                     context.timing_transx.timed_out_trans1to2       = false; // Set       by do_sessions_trans2to3, but we need to clear it first
                                     context.timing_transx.maxtime_used_us_trans1to2 = 0;     // Increased by do_sessions_trans2to3, but we need to zero it first
@@ -1742,7 +1742,7 @@ void System_Task_Data_Handler (
     } else {}
 
     if (context.radio_board_fault) {
-        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_RADIO_BOARD);
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_RADIO_BOARD); // AQU=105?
     }
 
     // No new assignment of local error_bits_now after here
@@ -1755,7 +1755,7 @@ void System_Task_Data_Handler (
     #endif
     {
         if ((error_bits_now != AQUARIUM_ERROR_BITS_NONE) and (not context.error_beeper_blip_now_muted)) {
-            context.beeper_blip_now = true; // In System_Task_Data_Handler
+            context.beeper_blip_now = true; // In System_Task_Data_Handler  AQU=105?
         } else {}
 
         context.error_bits_now     =     error_bits_now; // Now
@@ -2550,7 +2550,7 @@ void System_Task (
                     if (context.radio_enabled_state != radio_enabled) { // radio_disabled or radio_disabled_pending
                         // No code
                     } else if (context.radio_board_fault) {
-                        // No code. If no board then this pin is high by HW design. Don't use i_radio
+                        // No code. If no board then this pin is high by HW design. Don't use i_radio. AQU=105? No, because sending LED blinked
                     } else {
 
                         // No extra code as using the VALUE directly. However, more systematic in my view:

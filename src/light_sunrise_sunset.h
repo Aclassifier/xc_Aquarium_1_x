@@ -216,15 +216,15 @@ typedef struct light_sunrise_sunset_context_t {
 
 //   hours        minutes                                                              IOF_TIMED light_composition_t
 #define TIMED_DAY_TO_NIGHT_LIST_INIT \
-    {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD},     /* [3] 0=IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
-    {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_2200_mW_FMB_011_ON},               /* [2] */\
-    {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_1100_mW_FMB_001_ON},               /* [1] */\
-    {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF}           /* [0] 3=IOF_TIMED_DAY_TO_NIGHT_LIST_LAST */
+    {HH_22_NIGHT, MM_00_NIGHT, LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD},     /* [3] 0=IOF_TIMED_DAY_TO_NIGHT_LIST_START */\
+    {HH_22_NIGHT, MM_10_NIGHT, LIGHT_COMPOSITION_FMB_011_ON},               /* [2] */\
+    {HH_22_NIGHT, MM_20_NIGHT, LIGHT_COMPOSITION_FMB_001_ON},               /* [1] */\
+    {HH_22_NIGHT, MM_30_NIGHT, LIGHT_COMPOSITION_FMB_000_ALL_OFF}           /* [0] 3=IOF_TIMED_DAY_TO_NIGHT_LIST_LAST */
 //   hours      minutes
 #define TIMED_NIGHT_TO_DAY_LIST_INIT \
-    {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_1100_mW_FMB_001_ON},                   /* [1] 4=IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
-    {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_2200_mW_FMB_011_ON},                   /* [2] */\
-    {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD},         /* [3] */\
+    {HH_08_DAY, MM_00_DAY, LIGHT_COMPOSITION_FMB_001_ON},                   /* [1] 4=IOF_TIMED_NIGHT_TO_DAY_LIST_START */\
+    {HH_08_DAY, MM_10_DAY, LIGHT_COMPOSITION_FMB_011_ON},                   /* [2] */\
+    {HH_08_DAY, MM_20_DAY, LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD},         /* [3] */\
     {HH_08_DAY, MM_30_DAY, NUMLIGHT_COMPOSITION_LEVELS}                             /* [.] 7=IOF_TIMED_NIGHT_TO_DAY_LIST_LAST Using Get_Normal_Light_Composition AQU=071 */
 
 #define NUM_RANDOM_SEQUENCES_MAX 10 // With all hitting 1+(20-10)=11 times would have beeen max

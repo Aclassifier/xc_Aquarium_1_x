@@ -24,7 +24,7 @@
 #include "param.h"
 #include "startkit_adc.h"
 
-#include "random.h" // xmos. ALso uses "random_conf.h"
+#include "random.h" // xmos. Also uses "random_conf.h"
 //
 #include "_version.h"
 #include "defines_adafruit.h"
@@ -140,25 +140,25 @@ Get_Weighted_Random_Light_Composition_For_Half_Light (const random_generator_t r
     unsigned random_number_0_9 = random_number % 10; // Not necessary with more steps, however may need so many to balance use of the different LEDs
 
     if  (random_number_0_9       == 9) {
-        return_light_composition =  LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON;           //  [14]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_333_ALL_ON;           //  [14]  1/10
     } else if (random_number_0_9 == 8) {
-        return_light_composition =  LIGHT_COMPOSITION_8800_mW_FMB_233_ON;               //  [13]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_233_ON;               //  [13]  1/10
     } else if (random_number_0_9 == 7) {
-        return_light_composition =  LIGHT_COMPOSITION_7700_mW_FMB_133_ON;               //  [11]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_133_ON;               //  [11]  1/10
     } else if (random_number_0_9 == 6) {
-        return_light_composition =  LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT;    //  [10]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT;    //  [10]  1/10
     } else if (random_number_0_9 == 5) {
-        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;          //   [8]  1/10 HERE..
+        return_light_composition =  LIGHT_COMPOSITION_FMB_221_ON_HALF;          //   [8]  1/10 HERE..
     } else if (random_number_0_9 == 4) {
-        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;          //   [8]  1/10 ..AND HERE
+        return_light_composition =  LIGHT_COMPOSITION_FMB_221_ON_HALF;          //   [8]  1/10 ..AND HERE
     } else if (random_number_0_9 == 3) {
-        return_light_composition =  LIGHT_COMPOSITION_5500_mW_FMB_032_ON;               //   [7]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_032_ON;               //   [7]  1/10
     } else if (random_number_0_9 == 2) {
-        return_light_composition =  LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;     //   [6]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD;     //   [6]  1/10
     } else if (random_number_0_9 == 1) {
-        return_light_composition =  LIGHT_COMPOSITION_4400_mW_FMB_031_ON;               //   [5]  1/10
+        return_light_composition =  LIGHT_COMPOSITION_FMB_031_ON;               //   [5]  1/10
     } else {                  // == 0
-        return_light_composition = LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM; //   [4]  1/10
+        return_light_composition = LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM; //   [4]  1/10
         //                                          =====                               //        -----
     }   //                                      SUM 80672 / 10 = 8067 is half good enough         10/10
 
@@ -175,25 +175,25 @@ Get_Weighted_Random_Light_Composition_For_Some_HourChanges (const random_generat
 
     unsigned random_number_0_17 = random_number % 18;
     if (random_number_0_17 > 8) { // 9 10 11 12 13 14 15 16 17
-        return_light_composition  =  LIGHT_COMPOSITION_6600_mW_FMB_132_ON;                    //  [9]  9/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_132_ON;                    //  [9]  9/18
     } else if (random_number_0_17 == 8) {
-        return_light_composition  =  LIGHT_COMPOSITION_8800_mW_FMB_233_ON;                    // [13]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_233_ON;                    // [13]  1/18
     } else if (random_number_0_17 == 7) {
-        return_light_composition  =  LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS;         // [12]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS;         // [12]  1/18
     } else if (random_number_0_17 == 6) {
-        return_light_composition  =  LIGHT_COMPOSITION_7700_mW_FMB_133_ON;                    // [11]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_133_ON;                    // [11]  1/18
     } else if (random_number_0_17 == 5) {
-        return_light_composition  =  LIGHT_COMPOSITION_3300_mW_FMB_300_ON_ONLY_FRONT;         // [10]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_300_ON_ONLY_FRONT;         // [10]  1/18
     } else if (random_number_0_17 == 4) {
-        return_light_composition  =  LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF;               //  [8]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_221_ON_HALF;               //  [8]  1/18
     } else if (random_number_0_17 == 3) {
-        return_light_composition  =  LIGHT_COMPOSITION_5500_mW_FMB_032_ON;                    //  [7]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_032_ON;                    //  [7]  1/18
     } else if (random_number_0_17 == 2) {
-        return_light_composition  =  LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;          //  [6]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD;          //  [6]  1/18
     } else if (random_number_0_17 == 1) {
-        return_light_composition  =  LIGHT_COMPOSITION_4400_mW_FMB_031_ON;                    //  [5]  1/18
+        return_light_composition  =  LIGHT_COMPOSITION_FMB_031_ON;                    //  [5]  1/18
     } else {                   // == 0
-        return_light_composition =  LIGHT_COMPOSITION_4400_mW_FMB_121_ON_DARKEST_RANDOM;      //  [4]  1/18
+        return_light_composition =  LIGHT_COMPOSITION_FMB_121_ON_DARKEST_RANDOM;      //  [4]  1/18
                                                                                               //       -----
     }                                                                                         //       18/18
                                                                                               //       =====
@@ -209,15 +209,15 @@ Get_Normal_Light_Composition (const light_amount_t light_amount) {
     light_composition_t return_light_composition;
 
     if (light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_FULL_F2N) {
-        return_light_composition = LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON;
+        return_light_composition = LIGHT_COMPOSITION_FMB_333_ALL_ON;
     } else if (light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_TWO_THIRDS_F2N) {
-        return_light_composition = LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS;
+        return_light_composition = LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS;
     } else if (light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_HALF_RANDOM_F2N) {
-        return_light_composition = LIGHT_COMPOSITION_5500_mW_FMB_221_ON_HALF; // Not Get_Random_Light_Composition_For_Half now
+        return_light_composition = LIGHT_COMPOSITION_FMB_221_ON_HALF; // Not Get_Random_Light_Composition_For_Half now
     } else if (light_amount.u.fraction_2_nibbles == NORMAL_LIGHT_IS_ONE_THIRD_F2N) {
-        return_light_composition = LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD;
+        return_light_composition = LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD;
     } else {
-        return_light_composition = LIGHT_COMPOSITION_6600_mW_FMB_222_ON_TWO_THIRDS;
+        return_light_composition = LIGHT_COMPOSITION_FMB_222_ON_TWO_THIRDS;
     }
 
     debug_print ("Light_Composition to %u\n", return_light_composition);
@@ -306,7 +306,7 @@ Handle_Light_Sunrise_Sunset_Etc (
         #ifdef DEBUG_TEST_DAY_NIGHT_DAY
             context.it_is_day_or_night = IT_IS_DAY;
             context.iof_day_night_action_list = IOF_TIMED_DAY_TO_NIGHT_LIST_START;
-            light_composition_now = LIGHT_COMPOSITION_9900_mW_FMB_333_ALL_ON;
+            light_composition_now = LIGHT_COMPOSITION_FMB_333_ALL_ON;
             // --------------------- SET FIRST LIGHT LEVEL ---------------------
             debug_set_val_to (print_value,33);
             i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 33); // Ignoring return value freeze_on
@@ -328,7 +328,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_DAY, 34); // Ignoring return value freeze_on
             } else {
                 context.iof_day_night_action_list = IOF_TIMED_NIGHT_TO_DAY_LIST_START;
-                light_composition_now = LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF;
+                light_composition_now = LIGHT_COMPOSITION_FMB_000_ALL_OFF;
                 // --------------------- SET FIRST LIGHT LEVEL ---------------------
                 debug_set_val_to (print_value,35);
                 i_port_heat_light_commands.set_light_composition (light_composition_now, LIGHT_CONTROL_IS_NIGHT, 35); // Ignoring return value freeze_on
@@ -481,7 +481,7 @@ Handle_Light_Sunrise_Sunset_Etc (
             // Piggy-back on the random change of light level
             //
             if ((light_sensor_range_diff > LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL) or (light_sensor_range_diff < (-LIGHT_SENSOR_RANGE_DIFF_TRIGGER_LEVEL))) {
-                // If it's randomly taken below then we always go to LIGHT_COMPOSITION_3300_mW_FMB_021_ON because it's quite visible
+                // If it's randomly taken below then we always go to LIGHT_COMPOSITION_FMB_021_ON because it's quite visible
                 context.light_sensor_diff_state = DIFF_ENOUGH; // Will not be taken if context.num_minutes_left_of_random counting etc.
             } else {} // Not enough change
         }
@@ -501,7 +501,7 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                 if (context.hot_water) { // Not doing edge detection here with _prev, since that might be before and after IT_IS_DAY etc.
                     // MUTE LIGHT AND SET TO FREEZE. AQU=102 first here, like at 17.59
-                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
+                    i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
                     i_port_heat_light_commands.freeze_light_composition(); // ..THEN THIS
                     return_beeper_blip = true;
                 } else { // Since no edge detection (see above) this will run every hour. This is ok, as this would  not give side effects:
@@ -513,9 +513,9 @@ Handle_Light_Sunrise_Sunset_Etc (
                     {return_data_while_frozen, light_composition, light_control_scheme} =
                             i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are those set but ignored while frozen
                     // AQU=102 second here, at 18.00. Since no  set_light_composition after freeze_light_composition and this is the first time with hot_water then
-                    //         light_composition comes with LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF and return_data_while_frozen is true
+                    //         light_composition comes with LIGHT_COMPOSITION_FMB_000_ALL_OFF and return_data_while_frozen is true
                     if (return_data_while_frozen) {
-                        // AQU=102 BANG! set light to LIGHT_COMPOSITION_0000_mW_FMB_000_ALL_OFF here. Fix in freeze_light_composition
+                        // AQU=102 BANG! set light to LIGHT_COMPOSITION_FMB_000_ALL_OFF here. Fix in freeze_light_composition
                         i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
                         return_beeper_blip = true;
                     } else {}
@@ -555,7 +555,7 @@ Handle_Light_Sunrise_Sunset_Etc (
                                     if (context.light_sensor_diff_state == DIFF_ENOUGH) {                                // L7: Handle LYKT first
                                         context.light_sensor_diff_state = DIFF_ACTIVE;
                                         debug_set_val_to (print_value,101);
-                                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_3300_mW_FMB_021_ON, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105); // Ignoring return value freeze_on
+                                        i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_FMB_021_ON, LIGHT_CONTROL_IS_SUDDEN_LIGHT_CHANGE, 105); // Ignoring return value freeze_on
 
                                         context.num_minutes_left_of_random = NUM_MINUTES_LIGHT_SENSOR_RANGE_DIFF; // If 2 then it should give 1-2 mins since we're not in phase
                                                                                                                   // with the random triggering on the hours and minute in this case
