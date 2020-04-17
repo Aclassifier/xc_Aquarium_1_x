@@ -680,7 +680,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
                         context.display_appear_state = DISPLAY_APPEAR_BACKROUND_UPDATED;
                         light_sunrise_sunset_context.screen_3_lysregulering_center_button_cnt_1to6_to10 = CNT_0;
                     } else {
-                        light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE; // SCREEN_3_LYSREGULERING, but if temp is too high the light may be dimmed again
+                        light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE; // Zero this state (but if still hot_water it would go on again on next hour's passing)
 
                         for (int index_of_char = 0; index_of_char < NUM_ELEMENTS(context.display_ts1_chars); index_of_char++) {
                             context.display_ts1_chars [index_of_char] = ' ';
@@ -1694,10 +1694,6 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_AMBIENT);
     } else if (context.i2c_temps.i2c_temp_onetenthDegC[IOF_TEMPC_AMBIENT] > TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX) {
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_AMBIENT_OVERHEAT); // Unfiltered, single measurement!
-    } else {}
-
-    if (light_sunrise_sunset_context.hot_water_state == HOT_WATER_CLEARED) {
-        light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE; // AQU=107 new. Ready to be set again
     } else {}
 
     light_sunrise_sunset_context.hot_water = false;

@@ -501,8 +501,9 @@ Handle_Light_Sunrise_Sunset_Etc (
                 (context.allow_normal_light_change_by_menu)) {
 
                 if ((context.hot_water_state == HOT_WATER_NONE) and (context.hot_water)) {
+                    // DIM LIGHT AND SET TO FREEZE
 
-                    // MUTE LIGHT AND SET TO FREEZE. AQU=102 first here, like at 17.59
+                    context.light_composition_before_freeze = i_port_heat_light_commands.get_light_composition (); // AQU=109 new
                     i_port_heat_light_commands.set_light_composition (LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD, LIGHT_CONTROL_IS_DAY, 200); // FIRST THIS..
                     i_port_heat_light_commands.freeze_light_composition(); // ..THEN THIS
                     return_beeper_blip = true;
@@ -510,21 +511,10 @@ Handle_Light_Sunrise_Sunset_Etc (
 
                 } else if ((context.hot_water_state == HOT_WATER_NOW_LIGHT_DIMMED) and (context.hot_water == false)) {
 
-                    // REMOVE FREEZE AND SET LIGHT BACK
-                    light_composition_t    light_composition;
-                    light_control_scheme_t light_control_scheme;
-                    bool                   return_data_while_frozen;
-
-                    {return_data_while_frozen, light_composition, light_control_scheme} =
-                            i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are those set but ignored while frozen
-                    // AQU=102 second here, at 18.00. Since no  set_light_composition after freeze_light_composition and this is the first time with hot_water then
-                    //         light_composition comes with LIGHT_COMPOSITION_FMB_000_ALL_OFF and return_data_while_frozen is true
-                    if (return_data_while_frozen) {
-                        // AQU=102 BANG! set light to LIGHT_COMPOSITION_FMB_000_ALL_OFF here. Fix in freeze_light_composition
-                        i_port_heat_light_commands.set_light_composition (light_composition, light_control_scheme, 200); // THEN THIS..  Ignoring return value freeze_on
-                        return_beeper_blip = true;
-                    } else {}
-                    context.hot_water_state = HOT_WATER_CLEARED;
+                    i_port_heat_light_commands.un_freeze_light_composition (); // FIRST THIS.. Return values are ignored
+                    i_port_heat_light_commands.set_light_composition (context.light_composition_before_freeze, LIGHT_CONTROL_IS_DAY, 200); // T..HEN THIS
+                    return_beeper_blip = true;
+                    context.hot_water_state = HOT_WATER_NONE;
                 }
             } else {}
 

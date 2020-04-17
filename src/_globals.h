@@ -76,7 +76,6 @@
         #define IS_LED_CONFIG IS_LED_CONFIG_6 // No LED jumpers (="out") on the old LED compartment at ¯M11 office test site
     #elif (ISLED==IS_LED_CONFIG_7) // AQU=106 new
         #define IS_LED_CONFIG IS_LED_CONFIG_7 // All three LED jumpers in, present LED compartment at ¯M11 aquarium
-        // Also sets TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT
     #else
         #error
     #endif

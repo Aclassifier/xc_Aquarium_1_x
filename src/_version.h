@@ -16,14 +16,18 @@ typedef uint16_t aquarium_version_num_t;
                                            // 14.3.2 did not work for me on macOS High Sierra because of some JAVA JRE. XMOS ISSUE 10555
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
-//                                          Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.29" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1529  // Is "AQUARIUM_VERSION_NUM_t"
-//            --------- Running  17Apr2020
-//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64856 S:6840 C:51938 D:6078
+//                                                   Holes with respect to list below allowed. Nice when FLASHing intermediate
+#define AQUARIUM_VERSION_STR "1.5.31" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1531  // Is "AQUARIUM_VERSION_NUM_t"
+
+//            --------- Running  18Apr2020
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64880 S:6844 C:51985 D:6078
+// 1.5.31     17Apr2020  AQU=109 AQU=107 test failed. Light did not return correctly, it came to 1/3 of course!
+//                               light_composition_before_freeze new. HOT_WATER_CLEARED removed. Tested ok
+// 1.5.30     17Apr2020          TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT from 25.5 to 26.6 for FLASH_BLACK_BOARD to make teting easier
 // 1.5.29     16Apr2020  AQU=108 TEMP_ONETENTHDEGC_25_5_WATER_FISH_PLANT_HOT -> TEMP_ONETENTHDEGC_25_X_WATER_FISH_PLANT_HOT
 //                       AQU=107 When I introduced IS_LED_CONFIG==7 then hot_water triggered fast. I also saw it blink between
-//                               FSB! and FSB= in SCREEN_3_LYSGULERING. Adding a new  hot_water_state
+//                               FSB! and FSB= in SCREEN_3_LYSGULERING. Adding a new  hot_water_state. Test failed, see AQU=109
 // 1.5.28     16Apr2020  AQU=106 From light_composition_t removed all naming with mW, like
 //                               _LIGHT_COMPOSITION_3300_mW_FMB_111_ON_ONE_THIRD -> LIGHT_COMPOSITION_FMB_111_ON_ONE_THIRD
 //                               Set by ISLED in makefile is now set to 7:

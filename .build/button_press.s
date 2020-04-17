@@ -34,7 +34,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.weak _i.button_if.button.maxchanends.group
 	.max_reduce _i.button_if.button.max.maxchanends, _i.button_if.button.maxchanends.group, 0
