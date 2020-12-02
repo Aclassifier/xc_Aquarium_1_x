@@ -7,6 +7,6 @@
   ../../workspace/_Aquarium_1_x/src/defines_adafruit.h \
   ../../workspace/_Aquarium_1_x/src/core_graphics_adafruit_GFX.h \
   ../../workspace/_Aquarium_1_x/src/chronodot_ds3231.h \
-  ../../workspace/_Aquarium_1_x/src/I2C_Internal_Task.h \
+  ../../workspace/_Aquarium_1_x/src/i2c_internal_task.h \
   ../../workspace/_Aquarium_1_x/src/display_ssd1306.h
 

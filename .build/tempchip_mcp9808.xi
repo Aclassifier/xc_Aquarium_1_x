@@ -1498,7 +1498,6 @@ typedef enum {
     BUTTON_ACTION_PRESSED,
     BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
     BUTTON_ACTION_RELEASED
-
 } button_action_t;
 
 typedef interface button_if {
@@ -1509,7 +1508,7 @@ typedef interface button_if {
     void button (const button_action_t button_action);
 
 } button_if;
-# 35 "../src/button_press.h"
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
 

@@ -1706,7 +1706,6 @@ typedef enum {
     BUTTON_ACTION_PRESSED,
     BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
     BUTTON_ACTION_RELEASED
-
 } button_action_t;
 
 typedef interface button_if {
@@ -1717,7 +1716,7 @@ typedef interface button_if {
     void button (const button_action_t button_action);
 
 } button_if;
-# 35 "../src/button_press.h"
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
 
@@ -2176,9 +2175,9 @@ calc_CRC32 (
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
 # 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 142 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 143 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 157 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 158 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2223,9 +2222,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 210 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 211 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 228 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 229 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];

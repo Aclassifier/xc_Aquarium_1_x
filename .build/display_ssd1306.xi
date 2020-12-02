@@ -1451,7 +1451,6 @@ typedef enum {
     BUTTON_ACTION_PRESSED,
     BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
     BUTTON_ACTION_RELEASED
-
 } button_action_t;
 
 typedef interface button_if {
@@ -1462,7 +1461,7 @@ typedef interface button_if {
     void button (const button_action_t button_action);
 
 } button_if;
-# 35 "../src/button_press.h"
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
 
@@ -1651,8 +1650,8 @@ typedef interface chronodot_ds3231_if {
                  bool set_time_ok (const DateTime_t datetime);
 } chronodot_ds3231_if;
 # 47 "../src/display_ssd1306.xc" 2
-# 1 "../src/I2C_Internal_Task.h" 1
-# 11 "../src/I2C_Internal_Task.h"
+# 1 "../src/i2c_internal_task.h" 1
+# 11 "../src/i2c_internal_task.h"
 typedef enum i2c_dev_address_internal_e {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,

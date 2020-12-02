@@ -1344,7 +1344,6 @@ typedef enum {
     BUTTON_ACTION_PRESSED,
     BUTTON_ACTION_PRESSED_FOR_10_SECONDS,
     BUTTON_ACTION_RELEASED
-
 } button_action_t;
 
 typedef interface button_if {
@@ -1355,7 +1354,7 @@ typedef interface button_if {
     void button (const button_action_t button_action);
 
 } button_if;
-# 35 "../src/button_press.h"
+# 34 "../src/button_press.h"
 typedef struct {
     bool pressed_now;
 
@@ -1368,20 +1367,13 @@ void Button_Task (
         in port p_button,
         client button_if i_button_out);
 # 20 "../src/button_press.xc" 2
-
-
-
-
-
-
-
-
+# 30 "../src/button_press.xc"
 [[combinable]]
 void Button_Task (
         const unsigned button_n,
         in port p_button,
-        client button_if i_button_out
-        ) {
+        client button_if i_button_out)
+{
 
 
     int current_val = 0;
@@ -1427,8 +1419,7 @@ void Button_Task (
                         do { if((0==1) && (0==1)) printf(" BUTTON_ACTION_PRESSED %u sent\n", button_n); } while (0);
                         tmr :> current_time;
                         timeout = current_time + (10000 * ((100U) * 1000U));
-                    }
-                    else {
+                    } else {
                         if (initial_released_stopped == false) {
                             initial_released_stopped = true;
                             do { if((0==1) && (0==1)) printf(" Button %u filtered away\n", button_n); } while (0);

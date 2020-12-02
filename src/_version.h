@@ -19,7 +19,12 @@ typedef uint16_t aquarium_version_num_t;
 //                                                   Holes with respect to list below allowed. Nice when FLASHing intermediate
 #define AQUARIUM_VERSION_STR "1.5.31" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
 #define AQUARIUM_VERSION_NUM    1531  // Is "AQUARIUM_VERSION_NUM_t"
+
+//            NEXT               lag en side i manualen om hva som lager pip uten Œ f¿re til feil
+//            NEXT               let the pump go if the temperature is above 27.5 degrees?
 //            NEXT               change button ports to buffered
+//            NEXT               Check if "defines_adafruit.h" is needed
+//            NEXT               Consider button_states_t not button_state_t
 //            --------- Running  18Apr2020
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64880 S:6844 C:51985 D:6078
 // 1.5.31     17Apr2020  AQU=109 AQU=107 test failed. Light did not return correctly, it came to 1/3 of course!
