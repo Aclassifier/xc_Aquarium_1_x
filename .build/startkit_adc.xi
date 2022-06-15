@@ -1,10 +1,10 @@
-# 1 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
 # 23 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
@@ -389,7 +389,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 3 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 3 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 1 3
 
 
@@ -1013,11 +1013,11 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 2 3
-# 4 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 4 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 3
-# 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
-# 13 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 3
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
+# 13 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 3
 extern tileref tile[1];
 extern tileref xscope_tile;
 extern tileref adc_tile;
@@ -1028,7 +1028,7 @@ extern tileref adc_tile;
 service xscope_host_data(chanend c);;
 service startkit_adc(chanend c);;
 # 22 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 2 3
-# 5 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 1 3
 # 38 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 3
 typedef enum {
@@ -1146,9 +1146,9 @@ void xscope_data_from_host(chanend c, char buf[256], int &n);
 
 void xscope_connect_data_from_host(chanend from_host);
 # 420 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 3
-# 1 "/Users/teig/workspace/_Aquarium_1_x/.build/xscope_probes.h" 1 3
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/xscope_probes.h" 1 3
 # 420 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 2 3
-# 6 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 6 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printchar(char value);
@@ -1255,9 +1255,9 @@ int printbinln(unsigned value);
 int printstr(const char (& alias s)[]);
 # 145 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printstrln(const char (& alias s)[]);
-# 7 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
-# 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_adc.h" 1
+# 31 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_adc.h"
 typedef interface startkit_adc_acquire_if {
 
 
@@ -1288,7 +1288,7 @@ typedef interface startkit_adc_acquire_if {
 
 [[combinable]]
 void adc_task(server startkit_adc_acquire_if i_adc, chanend c_adc, int trigger_period);
-# 8 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc" 2
+# 8 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc" 2
 
 out port adc_sample = 0x10200;
 

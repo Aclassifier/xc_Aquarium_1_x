@@ -302,6 +302,7 @@ typedef struct handler_context_t {
 
     unsigned  number_of_restarts; // AQU=079
     bool      number_of_restarts_init_do_fram_write; // AQU=069
+    bool      restarted_do_solenoid_feeder_if_past_the_hour; // AQU=110
 
 } handler_context_t;
 
@@ -2174,6 +2175,8 @@ void System_Task (
     context.radio_sent_data_display_it            = false;
     context.RX_messageNotForThisNode_cnt          = 0;
     context.TX_appSeqCnt                          = 0;
+    //
+    context.restarted_do_solenoid_feeder_if_past_the_hour = true;
 
     #if (CLIENT_ALLOW_SESSION_TYPE_TRANS==2)
         context.timing_transx.timed_out_trans1to2          = false; // Set       by do_sessions_trans2to3, but we need to clear it first
@@ -2513,15 +2516,29 @@ void System_Task (
                     bool solenoid_feeder_timed_on = false;
                     if (context.datetime.minute != context.datetime_old.minute) {
                         const unsigned minutes_into_day_now = ((context.datetime.hour * 60) + context.datetime.minute);
-                        if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
-                            solenoid_feeder_timed_on = true; // Always feed once per day
-                            context.beeper_blip_now = true; // To hear it if the feeder is not connected. However, not if double, that would be too much beeping:
-                        } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
-                            if (context.iochip.feeding.double_timed_trigger_config == true) {
-                                solenoid_feeder_timed_on = true; // Only if double feed the second time
-                            } else {} // Not allowed
-                        } else {} // Not at this time
+                        if (context.restarted_do_solenoid_feeder_if_past_the_hour) {
+                            // AQU=110
+                            context.restarted_do_solenoid_feeder_if_past_the_hour = false;
+                            if (minutes_into_day_now >= NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
+                                solenoid_feeder_timed_on = true;
+                                // Do this feeding if mains has been down and the time is too late for feeding.
+                                // But only one feeding, as this might in theory be the N'th feeding this day.
+                                // Since the mains power so rarely is down, I don't store any state info about
+                                // "has been doing feeding today" in the  mains-surviving fram_bytes
+                                context.beeper_blip_now = true; // To hear it if the feeder is not connected.
+                            } else {} // Not at this time
+                        } else {
+                            if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1) {
+                                solenoid_feeder_timed_on = true; // Always feed once per day
+                                context.beeper_blip_now = true; // To hear it if the feeder is not connected. However, not if double, that would be too much beeping:
+                            } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
+                                if (context.iochip.feeding.double_timed_trigger_config == true) {
+                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                } else {} // Not allowed
+                            } else {} // Not at this time
+                        }
                     } else {} // No minute change
+
 
                     // IF THE AQUARIUM CONTROLLER UNIT IS POWERED VIA THE USB WATCHDOG BOX THEN
                     // THIS CODE _MUST_ BE CALLED EVERY SECOND SINCE WATCHDOG TRIGGING DONE HERE

@@ -1,11 +1,11 @@
-# 1 "/Users/teig/workspace/module_random/src/random.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/module_random/src/random.xc" 2
-# 1 "/Users/teig/workspace/module_random/src/random.h" 1
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 1
 
 
 
@@ -24,12 +24,12 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 5 "/Users/teig/workspace/module_random/src/random.h" 2
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 2
 
 
 # 1 ".././src/random_conf.h" 1
-# 8 "/Users/teig/workspace/module_random/src/random.h" 2
-# 20 "/Users/teig/workspace/module_random/src/random.h"
+# 8 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 2
+# 20 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 typedef unsigned random_generator_t;
 
 
@@ -39,12 +39,12 @@ typedef unsigned random_generator_t;
 
 
 random_generator_t random_create_generator_from_seed(unsigned seed);
-# 38 "/Users/teig/workspace/module_random/src/random.h"
+# 38 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 random_generator_t random_create_generator_from_hw_seed(void);
-# 49 "/Users/teig/workspace/module_random/src/random.h"
+# 49 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 unsigned
 random_get_random_number(random_generator_t &g);
-# 2 "/Users/teig/workspace/module_random/src/random.xc" 2
+# 2 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
 # 23 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h" 1 3
@@ -428,7 +428,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 3 "/Users/teig/workspace/module_random/src/random.xc" 2
+# 3 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc" 2
 
 static const unsigned random_poly = 0xEDB88320;
 

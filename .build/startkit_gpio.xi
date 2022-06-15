@@ -1,10 +1,10 @@
-# 1 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
@@ -112,7 +112,7 @@ int printbinln(unsigned value);
 int printstr(const char (& alias s)[]);
 # 145 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printstrln(const char (& alias s)[]);
-# 3 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 3 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
 # 23 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h" 1 3
@@ -496,9 +496,9 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 4 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/capsens.h" 1
-# 15 "/Users/teig/workspace/lib_startkit_support/src/capsens.h"
+# 4 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h" 1
+# 15 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h"
 void capsenseInitClock(__clock_t k);
 
 void setupNbit(port cap, const __clock_t k);
@@ -514,15 +514,15 @@ void measureAverage(port cap, unsigned int avg[width],
 void measureAveragePrint(port cap, unsigned int avg[width],
                          static const unsigned width,
                          static const unsigned N);
-# 5 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h" 1
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h" 1
 
 
 
 
 
-# 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h" 1
-# 11 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h" 1
+# 11 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h"
 typedef enum {IDLE, PRESSED, LEFTING, RIGHTING, RELEASED, PRESSING} sliderstate;
 
 
@@ -533,14 +533,14 @@ typedef interface slider_if {
   [[clears_notification]] sliderstate get_slider_state();
   int get_coord();
 } slider_if;
-# 41 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h"
+# 41 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h"
 [[combinable]]
 void slider_task(server slider_if i, port cap, const __clock_t clk,
                  static const int n_elements,
                  static const int N,
                  int threshold_pressed,
                  int threshold_unpressed);
-# 7 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h" 2
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h" 2
 
 
 
@@ -563,7 +563,7 @@ typedef interface startkit_led_if {
 
 
   void set(unsigned row, unsigned col, unsigned val);
-# 44 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h"
+# 44 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h"
   void set_multiple(unsigned mask, unsigned val);
 
 } startkit_led_if;
@@ -580,7 +580,7 @@ typedef enum button_val {
 
 
 typedef interface startkit_button_if {
-# 73 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h"
+# 73 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h"
   [[notification]] slave void changed();
 
 
@@ -591,7 +591,7 @@ typedef interface startkit_button_if {
   [[clears_notification]] button_val_t get_value();
 
 } startkit_button_if;
-# 95 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h"
+# 95 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h"
 [[distributable]]
 void startkit_led_driver(server startkit_led_if i_led[n], unsigned n, port p32);
 
@@ -606,16 +606,16 @@ typedef struct startkit_gpio_ports
   port capy;
   __clock_t clk;
 } startkit_gpio_ports;
-# 126 "/Users/teig/workspace/lib_startkit_support/api/startkit_gpio.h"
+# 126 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_gpio.h"
 [[combinable]]
 void startkit_gpio_driver(server startkit_led_if ?i_led,
                           server startkit_button_if ?i_button,
                           server slider_if ?i_slider_x,
                           server slider_if ?i_slider_y,
                           startkit_gpio_ports &ps);
-# 6 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/slider.h" 1
-# 10 "/Users/teig/workspace/lib_startkit_support/src/slider.h"
+# 6 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.h" 1
+# 10 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.h"
 typedef interface absolute_slider_if {
   int get_coord();
 } absolute_slider_if;
@@ -633,8 +633,8 @@ typedef interface slider_query_if {
 
 [[distributable]]
 void slider(server slider_query_if i, client absolute_slider_if abs);
-# 7 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
-# 18 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc" 2
+# 18 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 static const unsigned int map[3][3] = {
   {0x80000, 0x40000, 0x20000},
   {0x01000, 0x00800, 0x00400},

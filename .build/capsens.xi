@@ -1,10 +1,10 @@
-# 1 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc" 2
 
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
@@ -390,7 +390,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 4 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc" 2
+# 4 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printchar(char value);
@@ -497,7 +497,7 @@ int printbinln(unsigned value);
 int printstr(const char (& alias s)[]);
 # 145 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printstrln(const char (& alias s)[]);
-# 5 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc" 2
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 1 3
 
 
@@ -1121,9 +1121,9 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 2 3
-# 6 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/capsens.h" 1
-# 15 "/Users/teig/workspace/lib_startkit_support/src/capsens.h"
+# 6 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h" 1
+# 15 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h"
 void capsenseInitClock(__clock_t k);
 
 void setupNbit(port cap, const __clock_t k);
@@ -1139,7 +1139,7 @@ void measureAverage(port cap, unsigned int avg[width],
 void measureAveragePrint(port cap, unsigned int avg[width],
                          static const unsigned width,
                          static const unsigned N);
-# 7 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc" 2
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc" 2
 
 void capsenseInitClock(__clock_t k)
 {

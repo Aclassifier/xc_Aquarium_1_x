@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -717,8 +717,8 @@
 	.set usage.anon.1,0
 	.set usage.anon.2,0
 	.set usage.anon.3,0
-	.globread startkit_gpio_driver_aux,usage.anon.3,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:154:22: note: object used here\n            data &= ~map[row][col];\n                     ^~~~~~~~~~~~~"
-	.globread startkit_led_driver,usage.anon.3,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: note: object used here\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~"
+	.globread startkit_gpio_driver_aux,usage.anon.3,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:154:22: note: object used here\n            data &= ~map[row][col];\n                     ^~~~~~~~~~~~~"
+	.globread startkit_led_driver,usage.anon.3,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: note: object used here\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~"
 	.call startkit_gpio_driver,startkit_gpio_driver_aux
 	.call startkit_gpio_driver,slider
 	.call startkit_gpio_driver,capsenseInitClock
@@ -726,16 +726,16 @@
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par startkit_gpio_driver_aux,slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par startkit_gpio_driver_aux,slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par startkit_gpio_driver_aux,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par startkit_gpio_driver_aux,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par absolute_slider,absolute_slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par startkit_gpio_driver_aux,slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par startkit_gpio_driver_aux,slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par startkit_gpio_driver_aux,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par startkit_gpio_driver_aux,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par absolute_slider,absolute_slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:221:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
 	.set startkit_led_driver.locnoside, 0
 	.set startkit_gpio_driver_aux.locnoside, 0
 	.set startkit_gpio_driver.locnoside, 0
@@ -743,7 +743,7 @@
 	.set startkit_gpio_driver_aux.locnoglobalaccess, 0
 	.set startkit_led_driver.locnointerfaceaccess, 0
 	.set startkit_gpio_driver_aux.locnointerfaceaccess, 0
-	.assert 1,capsenseInitClock.actnointerfaceaccess,"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:219:3: error: call to function `capsenseInitClock\' which accesses an interface in initialization of nested combinable function\n  capsenseInitClock(ps.clk);\n  ^~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,capsenseInitClock.actnointerfaceaccess,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:219:3: error: call to function `capsenseInitClock\' which accesses an interface in initialization of nested combinable function\n  capsenseInitClock(ps.clk);\n  ^~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -760,7 +760,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.text
 	.globl	_i.startkit_led_if.startkit_led_driver._c0.set_multiple
 	.align	4
@@ -8984,9 +8984,9 @@ map:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"map"
 .Linfo_string4:
@@ -16833,172 +16833,172 @@ map:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	.Lxta.call_labels16
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	.Lxta.call_labels20
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	.Lxta.call_labels24
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	.Lxta.call_labels17
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	.Lxta.call_labels25
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	.Lxta.call_labels21
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels14
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels26
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels18
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels1
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	.Lxta.call_labels22
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels0
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels27
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels19
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels23
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	.Lxta.call_labels15
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	219
 	.long	.Lxta.call_labels8
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	219
 	.long	.Lxta.call_labels2
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	222
 	.long	.Lxta.call_labels3
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	222
 	.long	.Lxta.call_labels9
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	224
 	.long	.Lxta.call_labels4
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	224
 	.long	.Lxta.call_labels10
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.call_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	225
 	.long	.Lxta.call_labels11
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	225
 	.long	.Lxta.call_labels5
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	226
 	.long	.Lxta.call_labels6
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.call_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	226
 	.long	.Lxta.call_labels12
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	227
 	.long	.Lxta.call_labels13
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.call_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	227
 	.long	.Lxta.call_labels7
@@ -17008,220 +17008,220 @@ map:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_28,.Lxta.endpoint_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	31
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.endpoint_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	31
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.endpoint_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.endpoint_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels8
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.endpoint_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels10
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.endpoint_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels12
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.endpoint_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels5
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.endpoint_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels7
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.endpoint_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels9
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.endpoint_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels11
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.endpoint_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	92
 	.long	.Lxta.endpoint_labels13
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.endpoint_labels21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	92
 	.long	.Lxta.endpoint_labels21
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.endpoint_labels14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	97
 	.long	.Lxta.endpoint_labels14
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.endpoint_labels22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	.Lxta.endpoint_labels22
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.endpoint_labels29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	.Lxta.endpoint_labels29
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.endpoint_labels15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels15
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.endpoint_labels30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels30
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.endpoint_labels23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels23
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.endpoint_labels16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	105
 	.long	.Lxta.endpoint_labels16
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.endpoint_labels31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	105
 	.long	.Lxta.endpoint_labels31
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.endpoint_labels24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	105
 	.long	.Lxta.endpoint_labels24
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.endpoint_labels17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	106
 	.long	.Lxta.endpoint_labels17
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.endpoint_labels32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	106
 	.long	.Lxta.endpoint_labels32
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.endpoint_labels25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	106
 	.long	.Lxta.endpoint_labels25
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.endpoint_labels18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	107
 	.long	.Lxta.endpoint_labels18
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.endpoint_labels26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	107
 	.long	.Lxta.endpoint_labels26
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.endpoint_labels33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	107
 	.long	.Lxta.endpoint_labels33
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.endpoint_labels27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	.Lxta.endpoint_labels27
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.endpoint_labels34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	.Lxta.endpoint_labels34
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.endpoint_labels19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	.Lxta.endpoint_labels19
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.endpoint_labels28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	.Lxta.endpoint_labels28
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.endpoint_labels20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	.Lxta.endpoint_labels20
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.endpoint_labels35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	.Lxta.endpoint_labels35
@@ -17231,3846 +17231,3846 @@ map:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_64,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	28
 	.long	28
 	.long	.Lxtalabel24
 .cc_bottom cc_64
 .cc_top cc_65,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	28
 	.long	28
 	.long	.Lxtalabel35
 .cc_bottom cc_65
 .cc_top cc_66,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	30
 	.long	32
 	.long	.Lxtalabel24
 .cc_bottom cc_66
 .cc_top cc_67,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	30
 	.long	32
 	.long	.Lxtalabel35
 .cc_bottom cc_67
 .cc_top cc_68,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	33
 	.long	34
 	.long	.Lxtalabel26
 .cc_bottom cc_68
 .cc_top cc_69,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	37
 	.long	37
 	.long	.Lxtalabel38
 .cc_bottom cc_69
 .cc_top cc_70,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	37
 	.long	37
 	.long	.Lxtalabel56
 .cc_bottom cc_70
 .cc_top cc_71,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	37
 	.long	37
 	.long	.Lxtalabel47
 .cc_bottom cc_71
 .cc_top cc_72,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	37
 	.long	37
 	.long	.Lxtalabel27
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel47
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel38
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel27
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	39
 	.long	39
 	.long	.Lxtalabel56
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel47
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel27
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel38
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel56
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	45
 	.long	.Lxtalabel38
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	45
 	.long	.Lxtalabel27
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	45
 	.long	.Lxtalabel56
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	43
 	.long	45
 	.long	.Lxtalabel47
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel49
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel48
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel4
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel50
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel5
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel51
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel52
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel45
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel44
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel6
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel43
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel42
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel41
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel40
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel39
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel8
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel53
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel3
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel54
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel2
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel9
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel57
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel58
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel34
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel33
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel10
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel32
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel31
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel30
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel29
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel11
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel28
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel59
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel1
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel60
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel12
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel61
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel62
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel63
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel0
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel13
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel14
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel13
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel13
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel63
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel13
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel14
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel14
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel14
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel63
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel63
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel0
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel62
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel62
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel62
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel0
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel61
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel61
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel61
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel0
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel60
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel60
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel60
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel59
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel59
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel59
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel1
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel58
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel58
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel58
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel1
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel57
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel57
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel57
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel1
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel2
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel2
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel2
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel54
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel54
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel54
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel53
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel53
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel53
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel3
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel52
 .cc_bottom cc_170
 .cc_top cc_171,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel52
 .cc_bottom cc_171
 .cc_top cc_172,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel52
 .cc_bottom cc_172
 .cc_top cc_173,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel12
 .cc_bottom cc_173
 .cc_top cc_174,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel3
 .cc_bottom cc_174
 .cc_top cc_175,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel12
 .cc_bottom cc_175
 .cc_top cc_176,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel12
 .cc_bottom cc_176
 .cc_top cc_177,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel51
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel11
 .cc_bottom cc_178
 .cc_top cc_179,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel11
 .cc_bottom cc_179
 .cc_top cc_180,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel11
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel28
 .cc_bottom cc_181
 .cc_top cc_182,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel28
 .cc_bottom cc_182
 .cc_top cc_183,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel28
 .cc_bottom cc_183
 .cc_top cc_184,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel51
 .cc_bottom cc_184
 .cc_top cc_185,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel51
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel29
 .cc_bottom cc_186
 .cc_top cc_187,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel29
 .cc_bottom cc_187
 .cc_top cc_188,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel29
 .cc_bottom cc_188
 .cc_top cc_189,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel3
 .cc_bottom cc_189
 .cc_top cc_190,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel10
 .cc_bottom cc_190
 .cc_top cc_191,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel30
 .cc_bottom cc_191
 .cc_top cc_192,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel30
 .cc_bottom cc_192
 .cc_top cc_193,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel30
 .cc_bottom cc_193
 .cc_top cc_194,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel50
 .cc_bottom cc_194
 .cc_top cc_195,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel10
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel31
 .cc_bottom cc_196
 .cc_top cc_197,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel31
 .cc_bottom cc_197
 .cc_top cc_198,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel31
 .cc_bottom cc_198
 .cc_top cc_199,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel50
 .cc_bottom cc_199
 .cc_top cc_200,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel10
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel32
 .cc_bottom cc_201
 .cc_top cc_202,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel32
 .cc_bottom cc_202
 .cc_top cc_203,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel32
 .cc_bottom cc_203
 .cc_top cc_204,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel50
 .cc_bottom cc_204
 .cc_top cc_205,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel49
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel33
 .cc_bottom cc_206
 .cc_top cc_207,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel33
 .cc_bottom cc_207
 .cc_top cc_208,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel33
 .cc_bottom cc_208
 .cc_top cc_209,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel49
 .cc_bottom cc_209
 .cc_top cc_210,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel9
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel34
 .cc_bottom cc_211
 .cc_top cc_212,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel34
 .cc_bottom cc_212
 .cc_top cc_213,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel34
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel49
 .cc_bottom cc_214
 .cc_top cc_215,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel9
 .cc_bottom cc_215
 .cc_top cc_216,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel9
 .cc_bottom cc_216
 .cc_top cc_217,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel4
 .cc_bottom cc_217
 .cc_top cc_218,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel48
 .cc_bottom cc_218
 .cc_top cc_219,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel48
 .cc_bottom cc_219
 .cc_top cc_220,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel48
 .cc_bottom cc_220
 .cc_top cc_221,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel4
 .cc_bottom cc_221
 .cc_top cc_222,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel8
 .cc_bottom cc_222
 .cc_top cc_223,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel8
 .cc_bottom cc_223
 .cc_top cc_224,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel8
 .cc_bottom cc_224
 .cc_top cc_225,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel4
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel39
 .cc_bottom cc_226
 .cc_top cc_227,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel39
 .cc_bottom cc_227
 .cc_top cc_228,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel39
 .cc_bottom cc_228
 .cc_top cc_229,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel5
 .cc_bottom cc_229
 .cc_top cc_230,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel5
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel40
 .cc_bottom cc_231
 .cc_top cc_232,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel40
 .cc_bottom cc_232
 .cc_top cc_233,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel40
 .cc_bottom cc_233
 .cc_top cc_234,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel45
 .cc_bottom cc_234
 .cc_top cc_235,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel6
 .cc_bottom cc_235
 .cc_top cc_236,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel41
 .cc_bottom cc_236
 .cc_top cc_237,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel41
 .cc_bottom cc_237
 .cc_top cc_238,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel41
 .cc_bottom cc_238
 .cc_top cc_239,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel45
 .cc_bottom cc_239
 .cc_top cc_240,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel6
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel42
 .cc_bottom cc_241
 .cc_top cc_242,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel42
 .cc_bottom cc_242
 .cc_top cc_243,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel42
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel45
 .cc_bottom cc_244
 .cc_top cc_245,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel6
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel43
 .cc_bottom cc_246
 .cc_top cc_247,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel43
 .cc_bottom cc_247
 .cc_top cc_248,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel43
 .cc_bottom cc_248
 .cc_top cc_249,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel5
 .cc_bottom cc_249
 .cc_top cc_250,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel44
 .cc_bottom cc_250
 .cc_top cc_251,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel44
 .cc_bottom cc_251
 .cc_top cc_252,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxtalabel44
 .cc_bottom cc_252
 .cc_top cc_253,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel5
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel44
 .cc_bottom cc_254
 .cc_top cc_255,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel43
 .cc_bottom cc_255
 .cc_top cc_256,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel42
 .cc_bottom cc_256
 .cc_top cc_257,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel41
 .cc_bottom cc_257
 .cc_top cc_258,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel40
 .cc_bottom cc_258
 .cc_top cc_259,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel45
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel63
 .cc_bottom cc_260
 .cc_top cc_261,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel6
 .cc_bottom cc_261
 .cc_top cc_262,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel39
 .cc_bottom cc_262
 .cc_top cc_263,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel4
 .cc_bottom cc_263
 .cc_top cc_264,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel13
 .cc_bottom cc_264
 .cc_top cc_265,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel8
 .cc_bottom cc_265
 .cc_top cc_266,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel14
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel62
 .cc_bottom cc_267
 .cc_top cc_268,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel61
 .cc_bottom cc_268
 .cc_top cc_269,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel48
 .cc_bottom cc_269
 .cc_top cc_270,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel60
 .cc_bottom cc_270
 .cc_top cc_271,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel34
 .cc_bottom cc_271
 .cc_top cc_272,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel33
 .cc_bottom cc_272
 .cc_top cc_273,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel9
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel49
 .cc_bottom cc_274
 .cc_top cc_275,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel3
 .cc_bottom cc_275
 .cc_top cc_276,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel32
 .cc_bottom cc_276
 .cc_top cc_277,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel31
 .cc_bottom cc_277
 .cc_top cc_278,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel30
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel50
 .cc_bottom cc_279
 .cc_top cc_280,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel29
 .cc_bottom cc_280
 .cc_top cc_281,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel10
 .cc_bottom cc_281
 .cc_top cc_282,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel28
 .cc_bottom cc_282
 .cc_top cc_283,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel11
 .cc_bottom cc_283
 .cc_top cc_284,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel51
 .cc_bottom cc_284
 .cc_top cc_285,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel0
 .cc_bottom cc_285
 .cc_top cc_286,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel12
 .cc_bottom cc_286
 .cc_top cc_287,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel59
 .cc_bottom cc_287
 .cc_top cc_288,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel58
 .cc_bottom cc_288
 .cc_top cc_289,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel52
 .cc_bottom cc_289
 .cc_top cc_290,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel57
 .cc_bottom cc_290
 .cc_top cc_291,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel1
 .cc_bottom cc_291
 .cc_top cc_292,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel54
 .cc_bottom cc_292
 .cc_top cc_293,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel2
 .cc_bottom cc_293
 .cc_top cc_294,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel53
 .cc_bottom cc_294
 .cc_top cc_295,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel15
 .cc_bottom cc_295
 .cc_top cc_296,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel7
 .cc_bottom cc_296
 .cc_top cc_297,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel46
 .cc_bottom cc_297
 .cc_top cc_298,.Lxtalabel64
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel64
 .cc_bottom cc_298
 .cc_top cc_299,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel25
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel55
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	58
 	.long	60
 	.long	.Lxtalabel55
 .cc_bottom cc_300
 .cc_top cc_301,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	74
 	.long	76
 	.long	.Lxtalabel103
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	74
 	.long	76
 	.long	.Lxtalabel65
 .cc_bottom cc_302
 .cc_top cc_303,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	78
 	.long	79
 	.long	.Lxtalabel65
 .cc_bottom cc_303
 .cc_top cc_304,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	78
 	.long	79
 	.long	.Lxtalabel103
 .cc_bottom cc_304
 .cc_top cc_305,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	81
 	.long	81
 	.long	.Lxtalabel65
 .cc_bottom cc_305
 .cc_top cc_306,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	81
 	.long	81
 	.long	.Lxtalabel103
 .cc_bottom cc_306
 .cc_top cc_307,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	84
 	.long	84
 	.long	.Lxtalabel65
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	84
 	.long	84
 	.long	.Lxtalabel103
 .cc_bottom cc_308
 .cc_top cc_309,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	86
 	.long	96
 	.long	.Lxtalabel103
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	86
 	.long	96
 	.long	.Lxtalabel65
 .cc_bottom cc_310
 .cc_top cc_311,.Lxtalabel66
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel66
 .cc_bottom cc_311
 .cc_top cc_312,.Lxtalabel67
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel67
 .cc_bottom cc_312
 .cc_top cc_313,.Lxtalabel66
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	99
 	.long	.Lxtalabel66
 .cc_bottom cc_313
 .cc_top cc_314,.Lxtalabel67
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	99
 	.long	99
 	.long	.Lxtalabel67
 .cc_bottom cc_314
 .cc_top cc_315,.Lxtalabel151
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	100
 	.long	101
 	.long	.Lxtalabel151
 .cc_bottom cc_315
 .cc_top cc_316,.Lxtalabel116
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	100
 	.long	101
 	.long	.Lxtalabel116
 .cc_bottom cc_316
 .cc_top cc_317,.Lxtalabel68
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	100
 	.long	101
 	.long	.Lxtalabel68
 .cc_bottom cc_317
 .cc_top cc_318,.Lxtalabel69
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	102
 	.long	108
 	.long	.Lxtalabel69
 .cc_bottom cc_318
 .cc_top cc_319,.Lxtalabel152
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	102
 	.long	108
 	.long	.Lxtalabel152
 .cc_bottom cc_319
 .cc_top cc_320,.Lxtalabel117
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	102
 	.long	108
 	.long	.Lxtalabel117
 .cc_bottom cc_320
 .cc_top cc_321,.Lxtalabel153
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel153
 .cc_bottom cc_321
 .cc_top cc_322,.Lxtalabel70
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel70
 .cc_bottom cc_322
 .cc_top cc_323,.Lxtalabel118
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel118
 .cc_bottom cc_323
 .cc_top cc_324,.Lxtalabel155
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	113
 	.long	113
 	.long	.Lxtalabel155
 .cc_bottom cc_324
 .cc_top cc_325,.Lxtalabel120
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	113
 	.long	113
 	.long	.Lxtalabel120
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel71
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	113
 	.long	113
 	.long	.Lxtalabel71
 .cc_bottom cc_326
 .cc_top cc_327,.Lxtalabel120
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	116
 	.long	116
 	.long	.Lxtalabel120
 .cc_bottom cc_327
 .cc_top cc_328,.Lxtalabel71
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	116
 	.long	116
 	.long	.Lxtalabel71
 .cc_bottom cc_328
 .cc_top cc_329,.Lxtalabel155
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	116
 	.long	116
 	.long	.Lxtalabel155
 .cc_bottom cc_329
 .cc_top cc_330,.Lxtalabel156
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	117
 	.long	120
 	.long	.Lxtalabel156
 .cc_bottom cc_330
 .cc_top cc_331,.Lxtalabel121
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	117
 	.long	120
 	.long	.Lxtalabel121
 .cc_bottom cc_331
 .cc_top cc_332,.Lxtalabel72
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	117
 	.long	120
 	.long	.Lxtalabel72
 .cc_bottom cc_332
 .cc_top cc_333,.Lxtalabel154
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	122
 	.long	124
 	.long	.Lxtalabel154
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel85
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	122
 	.long	124
 	.long	.Lxtalabel85
 .cc_bottom cc_334
 .cc_top cc_335,.Lxtalabel119
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	122
 	.long	124
 	.long	.Lxtalabel119
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel157
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	126
 	.long	126
 	.long	.Lxtalabel157
 .cc_bottom cc_336
 .cc_top cc_337,.Lxtalabel122
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	126
 	.long	126
 	.long	.Lxtalabel122
 .cc_bottom cc_337
 .cc_top cc_338,.Lxtalabel86
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	126
 	.long	126
 	.long	.Lxtalabel86
 .cc_bottom cc_338
 .cc_top cc_339,.Lxtalabel123
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	127
 	.long	127
 	.long	.Lxtalabel123
 .cc_bottom cc_339
 .cc_top cc_340,.Lxtalabel87
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	127
 	.long	127
 	.long	.Lxtalabel87
 .cc_bottom cc_340
 .cc_top cc_341,.Lxtalabel158
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	127
 	.long	127
 	.long	.Lxtalabel158
 .cc_bottom cc_341
 .cc_top cc_342,.Lxtalabel159
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	129
 	.long	.Lxtalabel159
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel124
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	129
 	.long	.Lxtalabel124
 .cc_bottom cc_343
 .cc_top cc_344,.Lxtalabel88
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	128
 	.long	129
 	.long	.Lxtalabel88
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel92
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	130
 	.long	132
 	.long	.Lxtalabel92
 .cc_bottom cc_345
 .cc_top cc_346,.Lxtalabel160
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	130
 	.long	132
 	.long	.Lxtalabel160
 .cc_bottom cc_346
 .cc_top cc_347,.Lxtalabel125
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	130
 	.long	132
 	.long	.Lxtalabel125
 .cc_bottom cc_347
 .cc_top cc_348,.Lxtalabel89
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	135
 	.long	135
 	.long	.Lxtalabel89
 .cc_bottom cc_348
 .cc_top cc_349,.Lxtalabel126
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	135
 	.long	135
 	.long	.Lxtalabel126
 .cc_bottom cc_349
 .cc_top cc_350,.Lxtalabel161
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	135
 	.long	135
 	.long	.Lxtalabel161
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel90
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	137
 	.long	.Lxtalabel90
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel127
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	137
 	.long	.Lxtalabel127
 .cc_bottom cc_352
 .cc_top cc_353,.Lxtalabel162
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	136
 	.long	137
 	.long	.Lxtalabel162
 .cc_bottom cc_353
 .cc_top cc_354,.Lxtalabel163
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel163
 .cc_bottom cc_354
 .cc_top cc_355,.Lxtalabel91
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel91
 .cc_bottom cc_355
 .cc_top cc_356,.Lxtalabel128
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel128
 .cc_bottom cc_356
 .cc_top cc_357,.Lxtalabel93
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel93
 .cc_bottom cc_357
 .cc_top cc_358,.Lxtalabel130
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel130
 .cc_bottom cc_358
 .cc_top cc_359,.Lxtalabel165
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel165
 .cc_bottom cc_359
 .cc_top cc_360,.Lxtalabel164
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel164
 .cc_bottom cc_360
 .cc_top cc_361,.Lxtalabel129
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	143
 	.long	146
 	.long	.Lxtalabel129
 .cc_bottom cc_361
 .cc_top cc_362,.Lxtalabel94
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	148
 	.long	149
 	.long	.Lxtalabel94
 .cc_bottom cc_362
 .cc_top cc_363,.Lxtalabel166
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxtalabel166
 .cc_bottom cc_363
 .cc_top cc_364,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxtalabel131
 .cc_bottom cc_364
 .cc_top cc_365,.Lxtalabel95
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxtalabel95
 .cc_bottom cc_365
 .cc_top cc_366,.Lxtalabel170
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel170
 .cc_bottom cc_366
 .cc_top cc_367,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel133
 .cc_bottom cc_367
 .cc_top cc_368,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel99
 .cc_bottom cc_368
 .cc_top cc_369,.Lxtalabel168
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel168
 .cc_bottom cc_369
 .cc_top cc_370,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel131
 .cc_bottom cc_370
 .cc_top cc_371,.Lxtalabel135
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel135
 .cc_bottom cc_371
 .cc_top cc_372,.Lxtalabel95
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel95
 .cc_bottom cc_372
 .cc_top cc_373,.Lxtalabel166
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel166
 .cc_bottom cc_373
 .cc_top cc_374,.Lxtalabel97
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	153
 	.long	153
 	.long	.Lxtalabel97
 .cc_bottom cc_374
 .cc_top cc_375,.Lxtalabel132
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel132
 .cc_bottom cc_375
 .cc_top cc_376,.Lxtalabel134
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel134
 .cc_bottom cc_376
 .cc_top cc_377,.Lxtalabel96
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel96
 .cc_bottom cc_377
 .cc_top cc_378,.Lxtalabel98
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel98
 .cc_bottom cc_378
 .cc_top cc_379,.Lxtalabel136
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel136
 .cc_bottom cc_379
 .cc_top cc_380,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel100
 .cc_bottom cc_380
 .cc_top cc_381,.Lxtalabel171
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel171
 .cc_bottom cc_381
 .cc_top cc_382,.Lxtalabel169
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel169
 .cc_bottom cc_382
 .cc_top cc_383,.Lxtalabel167
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	154
 	.long	155
 	.long	.Lxtalabel167
 .cc_bottom cc_383
 .cc_top cc_384,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel133
 .cc_bottom cc_384
 .cc_top cc_385,.Lxtalabel168
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel168
 .cc_bottom cc_385
 .cc_top cc_386,.Lxtalabel135
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel135
 .cc_bottom cc_386
 .cc_top cc_387,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel99
 .cc_bottom cc_387
 .cc_top cc_388,.Lxtalabel170
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel170
 .cc_bottom cc_388
 .cc_top cc_389,.Lxtalabel97
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel97
 .cc_bottom cc_389
 .cc_top cc_390,.Lxtalabel137
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel137
 .cc_bottom cc_390
 .cc_top cc_391,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel101
 .cc_bottom cc_391
 .cc_top cc_392,.Lxtalabel172
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel172
 .cc_bottom cc_392
 .cc_top cc_393,.Lxtalabel172
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxtalabel172
 .cc_bottom cc_393
 .cc_top cc_394,.Lxtalabel137
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxtalabel137
 .cc_bottom cc_394
 .cc_top cc_395,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxtalabel101
 .cc_bottom cc_395
 .cc_top cc_396,.Lxtalabel173
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	159
 	.long	.Lxtalabel173
 .cc_bottom cc_396
 .cc_top cc_397,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	159
 	.long	.Lxtalabel102
 .cc_bottom cc_397
 .cc_top cc_398,.Lxtalabel138
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	159
 	.long	159
 	.long	.Lxtalabel138
 .cc_bottom cc_398
 .cc_top cc_399,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	163
 	.long	.Lxtalabel102
 .cc_bottom cc_399
 .cc_top cc_400,.Lxtalabel173
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	163
 	.long	.Lxtalabel173
 .cc_bottom cc_400
 .cc_top cc_401,.Lxtalabel138
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	161
 	.long	163
 	.long	.Lxtalabel138
 .cc_bottom cc_401
 .cc_top cc_402,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	166
 	.long	166
 	.long	.Lxtalabel102
 .cc_bottom cc_402
 .cc_top cc_403,.Lxtalabel173
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	166
 	.long	166
 	.long	.Lxtalabel173
 .cc_bottom cc_403
 .cc_top cc_404,.Lxtalabel138
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	166
 	.long	166
 	.long	.Lxtalabel138
 .cc_bottom cc_404
 .cc_top cc_405,.Lxtalabel174
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	167
 	.long	168
 	.long	.Lxtalabel174
 .cc_bottom cc_405
 .cc_top cc_406,.Lxtalabel139
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	167
 	.long	168
 	.long	.Lxtalabel139
 .cc_bottom cc_406
 .cc_top cc_407,.Lxtalabel73
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	167
 	.long	168
 	.long	.Lxtalabel73
 .cc_bottom cc_407
 .cc_top cc_408,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	167
 	.long	168
 	.long	.Lxtalabel113
 .cc_bottom cc_408
 .cc_top cc_409,.Lxtalabel73
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
 	.long	.Lxtalabel73
 .cc_bottom cc_409
 .cc_top cc_410,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
 	.long	.Lxtalabel113
 .cc_bottom cc_410
 .cc_top cc_411,.Lxtalabel139
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
 	.long	.Lxtalabel139
 .cc_bottom cc_411
 .cc_top cc_412,.Lxtalabel174
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	171
 	.long	172
 	.long	.Lxtalabel174
 .cc_bottom cc_412
 .cc_top cc_413,.Lxtalabel175
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	174
 	.long	175
 	.long	.Lxtalabel175
 .cc_bottom cc_413
 .cc_top cc_414,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	174
 	.long	175
 	.long	.Lxtalabel104
 .cc_bottom cc_414
 .cc_top cc_415,.Lxtalabel140
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	174
 	.long	175
 	.long	.Lxtalabel140
 .cc_bottom cc_415
 .cc_top cc_416,.Lxtalabel74
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	174
 	.long	175
 	.long	.Lxtalabel74
 .cc_bottom cc_416
 .cc_top cc_417,.Lxtalabel74
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxtalabel74
 .cc_bottom cc_417
 .cc_top cc_418,.Lxtalabel175
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxtalabel175
 .cc_bottom cc_418
 .cc_top cc_419,.Lxtalabel140
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxtalabel140
 .cc_bottom cc_419
 .cc_top cc_420,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxtalabel104
 .cc_bottom cc_420
 .cc_top cc_421,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel77
 .cc_bottom cc_421
 .cc_top cc_422,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel181
 .cc_bottom cc_422
 .cc_top cc_423,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel180
 .cc_bottom cc_423
 .cc_top cc_424,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel179
 .cc_bottom cc_424
 .cc_top cc_425,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel178
 .cc_bottom cc_425
 .cc_top cc_426,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel177
 .cc_bottom cc_426
 .cc_top cc_427,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel176
 .cc_bottom cc_427
 .cc_top cc_428,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel81
 .cc_bottom cc_428
 .cc_top cc_429,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel105
 .cc_bottom cc_429
 .cc_top cc_430,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel16
 .cc_bottom cc_430
 .cc_top cc_431,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel17
 .cc_bottom cc_431
 .cc_top cc_432,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel18
 .cc_bottom cc_432
 .cc_top cc_433,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel19
 .cc_bottom cc_433
 .cc_top cc_434,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel106
 .cc_bottom cc_434
 .cc_top cc_435,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel20
 .cc_bottom cc_435
 .cc_top cc_436,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel21
 .cc_bottom cc_436
 .cc_top cc_437,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel22
 .cc_bottom cc_437
 .cc_top cc_438,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel147
 .cc_bottom cc_438
 .cc_top cc_439,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel107
 .cc_bottom cc_439
 .cc_top cc_440,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel146
 .cc_bottom cc_440
 .cc_top cc_441,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel145
 .cc_bottom cc_441
 .cc_top cc_442,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel144
 .cc_bottom cc_442
 .cc_top cc_443,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel143
 .cc_bottom cc_443
 .cc_top cc_444,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel108
 .cc_bottom cc_444
 .cc_top cc_445,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel142
 .cc_bottom cc_445
 .cc_top cc_446,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel141
 .cc_bottom cc_446
 .cc_top cc_447,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel182
 .cc_bottom cc_447
 .cc_top cc_448,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel75
 .cc_bottom cc_448
 .cc_top cc_449,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel109
 .cc_bottom cc_449
 .cc_top cc_450,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel76
 .cc_bottom cc_450
 .cc_top cc_451,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel78
 .cc_bottom cc_451
 .cc_top cc_452,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel79
 .cc_bottom cc_452
 .cc_top cc_453,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel80
 .cc_bottom cc_453
 .cc_top cc_454,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel110
 .cc_bottom cc_454
 .cc_top cc_455,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxtalabel111
 .cc_bottom cc_455
 .cc_top cc_456,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel110
 .cc_bottom cc_456
 .cc_top cc_457,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel110
 .cc_bottom cc_457
 .cc_top cc_458,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel180
 .cc_bottom cc_458
 .cc_top cc_459,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel110
 .cc_bottom cc_459
 .cc_top cc_460,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel111
 .cc_bottom cc_460
 .cc_top cc_461,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel111
 .cc_bottom cc_461
 .cc_top cc_462,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel111
 .cc_bottom cc_462
 .cc_top cc_463,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel180
 .cc_bottom cc_463
 .cc_top cc_464,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel180
 .cc_bottom cc_464
 .cc_top cc_465,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel179
 .cc_bottom cc_465
 .cc_top cc_466,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel80
 .cc_bottom cc_466
 .cc_top cc_467,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel179
 .cc_bottom cc_467
 .cc_top cc_468,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel179
 .cc_bottom cc_468
 .cc_top cc_469,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel80
 .cc_bottom cc_469
 .cc_top cc_470,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel80
 .cc_bottom cc_470
 .cc_top cc_471,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel178
 .cc_bottom cc_471
 .cc_top cc_472,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel178
 .cc_bottom cc_472
 .cc_top cc_473,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel79
 .cc_bottom cc_473
 .cc_top cc_474,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel79
 .cc_bottom cc_474
 .cc_top cc_475,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel79
 .cc_bottom cc_475
 .cc_top cc_476,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel109
 .cc_bottom cc_476
 .cc_top cc_477,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel178
 .cc_bottom cc_477
 .cc_top cc_478,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel78
 .cc_bottom cc_478
 .cc_top cc_479,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel78
 .cc_bottom cc_479
 .cc_top cc_480,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel78
 .cc_bottom cc_480
 .cc_top cc_481,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel109
 .cc_bottom cc_481
 .cc_top cc_482,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel81
 .cc_bottom cc_482
 .cc_top cc_483,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel77
 .cc_bottom cc_483
 .cc_top cc_484,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel77
 .cc_bottom cc_484
 .cc_top cc_485,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel77
 .cc_bottom cc_485
 .cc_top cc_486,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel182
 .cc_bottom cc_486
 .cc_top cc_487,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel177
 .cc_bottom cc_487
 .cc_top cc_488,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel76
 .cc_bottom cc_488
 .cc_top cc_489,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel76
 .cc_bottom cc_489
 .cc_top cc_490,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel76
 .cc_bottom cc_490
 .cc_top cc_491,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel109
 .cc_bottom cc_491
 .cc_top cc_492,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel177
 .cc_bottom cc_492
 .cc_top cc_493,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel75
 .cc_bottom cc_493
 .cc_top cc_494,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel75
 .cc_bottom cc_494
 .cc_top cc_495,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel75
 .cc_bottom cc_495
 .cc_top cc_496,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel177
 .cc_bottom cc_496
 .cc_top cc_497,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel182
 .cc_bottom cc_497
 .cc_top cc_498,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel182
 .cc_bottom cc_498
 .cc_top cc_499,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel108
 .cc_bottom cc_499
 .cc_top cc_500,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel81
 .cc_bottom cc_500
 .cc_top cc_501,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel176
 .cc_bottom cc_501
 .cc_top cc_502,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel176
 .cc_bottom cc_502
 .cc_top cc_503,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel108
 .cc_bottom cc_503
 .cc_top cc_504,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel141
 .cc_bottom cc_504
 .cc_top cc_505,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel141
 .cc_bottom cc_505
 .cc_top cc_506,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel141
 .cc_bottom cc_506
 .cc_top cc_507,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel176
 .cc_bottom cc_507
 .cc_top cc_508,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel108
 .cc_bottom cc_508
 .cc_top cc_509,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel142
 .cc_bottom cc_509
 .cc_top cc_510,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel142
 .cc_bottom cc_510
 .cc_top cc_511,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel142
 .cc_bottom cc_511
 .cc_top cc_512,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel81
 .cc_bottom cc_512
 .cc_top cc_513,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel105
 .cc_bottom cc_513
 .cc_top cc_514,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel143
 .cc_bottom cc_514
 .cc_top cc_515,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel143
 .cc_bottom cc_515
 .cc_top cc_516,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel143
 .cc_bottom cc_516
 .cc_top cc_517,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel181
 .cc_bottom cc_517
 .cc_top cc_518,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel107
 .cc_bottom cc_518
 .cc_top cc_519,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel144
 .cc_bottom cc_519
 .cc_top cc_520,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel144
 .cc_bottom cc_520
 .cc_top cc_521,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel144
 .cc_bottom cc_521
 .cc_top cc_522,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel16
 .cc_bottom cc_522
 .cc_top cc_523,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel107
 .cc_bottom cc_523
 .cc_top cc_524,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel145
 .cc_bottom cc_524
 .cc_top cc_525,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel145
 .cc_bottom cc_525
 .cc_top cc_526,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel145
 .cc_bottom cc_526
 .cc_top cc_527,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel16
 .cc_bottom cc_527
 .cc_top cc_528,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel107
 .cc_bottom cc_528
 .cc_top cc_529,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel146
 .cc_bottom cc_529
 .cc_top cc_530,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel146
 .cc_bottom cc_530
 .cc_top cc_531,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel146
 .cc_bottom cc_531
 .cc_top cc_532,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel16
 .cc_bottom cc_532
 .cc_top cc_533,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel105
 .cc_bottom cc_533
 .cc_top cc_534,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel147
 .cc_bottom cc_534
 .cc_top cc_535,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel147
 .cc_bottom cc_535
 .cc_top cc_536,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel147
 .cc_bottom cc_536
 .cc_top cc_537,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel17
 .cc_bottom cc_537
 .cc_top cc_538,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel17
 .cc_bottom cc_538
 .cc_top cc_539,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel181
 .cc_bottom cc_539
 .cc_top cc_540,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel181
 .cc_bottom cc_540
 .cc_top cc_541,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel22
 .cc_bottom cc_541
 .cc_top cc_542,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel22
 .cc_bottom cc_542
 .cc_top cc_543,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel22
 .cc_bottom cc_543
 .cc_top cc_544,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel106
 .cc_bottom cc_544
 .cc_top cc_545,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel17
 .cc_bottom cc_545
 .cc_top cc_546,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel21
 .cc_bottom cc_546
 .cc_top cc_547,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel21
 .cc_bottom cc_547
 .cc_top cc_548,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel21
 .cc_bottom cc_548
 .cc_top cc_549,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel106
 .cc_bottom cc_549
 .cc_top cc_550,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel105
 .cc_bottom cc_550
 .cc_top cc_551,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel20
 .cc_bottom cc_551
 .cc_top cc_552,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel20
 .cc_bottom cc_552
 .cc_top cc_553,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel20
 .cc_bottom cc_553
 .cc_top cc_554,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel106
 .cc_bottom cc_554
 .cc_top cc_555,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel18
 .cc_bottom cc_555
 .cc_top cc_556,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel19
 .cc_bottom cc_556
 .cc_top cc_557,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel19
 .cc_bottom cc_557
 .cc_top cc_558,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel19
 .cc_bottom cc_558
 .cc_top cc_559,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel18
 .cc_bottom cc_559
 .cc_top cc_560,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	186
 	.long	188
 	.long	.Lxtalabel18
 .cc_bottom cc_560
 .cc_top cc_561,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel18
 .cc_bottom cc_561
 .cc_top cc_562,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel105
 .cc_bottom cc_562
 .cc_top cc_563,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel19
 .cc_bottom cc_563
 .cc_top cc_564,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel20
 .cc_bottom cc_564
 .cc_top cc_565,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel17
 .cc_bottom cc_565
 .cc_top cc_566,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel21
 .cc_bottom cc_566
 .cc_top cc_567,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel143
 .cc_bottom cc_567
 .cc_top cc_568,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel147
 .cc_bottom cc_568
 .cc_top cc_569,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel106
 .cc_bottom cc_569
 .cc_top cc_570,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel16
 .cc_bottom cc_570
 .cc_top cc_571,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel146
 .cc_bottom cc_571
 .cc_top cc_572,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel145
 .cc_bottom cc_572
 .cc_top cc_573,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel144
 .cc_bottom cc_573
 .cc_top cc_574,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel107
 .cc_bottom cc_574
 .cc_top cc_575,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel142
 .cc_bottom cc_575
 .cc_top cc_576,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel141
 .cc_bottom cc_576
 .cc_top cc_577,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel22
 .cc_bottom cc_577
 .cc_top cc_578,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel180
 .cc_bottom cc_578
 .cc_top cc_579,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel176
 .cc_bottom cc_579
 .cc_top cc_580,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel181
 .cc_bottom cc_580
 .cc_top cc_581,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel108
 .cc_bottom cc_581
 .cc_top cc_582,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel75
 .cc_bottom cc_582
 .cc_top cc_583,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel76
 .cc_bottom cc_583
 .cc_top cc_584,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel177
 .cc_bottom cc_584
 .cc_top cc_585,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel77
 .cc_bottom cc_585
 .cc_top cc_586,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel78
 .cc_bottom cc_586
 .cc_top cc_587,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel79
 .cc_bottom cc_587
 .cc_top cc_588,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel109
 .cc_bottom cc_588
 .cc_top cc_589,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel178
 .cc_bottom cc_589
 .cc_top cc_590,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel81
 .cc_bottom cc_590
 .cc_top cc_591,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel182
 .cc_bottom cc_591
 .cc_top cc_592,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel110
 .cc_bottom cc_592
 .cc_top cc_593,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel80
 .cc_bottom cc_593
 .cc_top cc_594,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel179
 .cc_bottom cc_594
 .cc_top cc_595,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel111
 .cc_bottom cc_595
 .cc_top cc_596,.Lxtalabel112
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel112
 .cc_bottom cc_596
 .cc_top cc_597,.Lxtalabel82
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel82
 .cc_bottom cc_597
 .cc_top cc_598,.Lxtalabel183
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel183
 .cc_bottom cc_598
 .cc_top cc_599,.Lxtalabel23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel23
 .cc_bottom cc_599
 .cc_top cc_600,.Lxtalabel148
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	190
 	.long	191
 	.long	.Lxtalabel148
 .cc_bottom cc_600
 .cc_top cc_601,.Lxtalabel83
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
 	.long	.Lxtalabel83
 .cc_bottom cc_601
 .cc_top cc_602,.Lxtalabel149
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
 	.long	.Lxtalabel149
 .cc_bottom cc_602
 .cc_top cc_603,.Lxtalabel184
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
 	.long	.Lxtalabel184
 .cc_bottom cc_603
 .cc_top cc_604,.Lxtalabel114
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	192
 	.long	194
 	.long	.Lxtalabel114
 .cc_bottom cc_604
 .cc_top cc_605,.Lxtalabel185
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	200
 	.long	.Lxtalabel185
 .cc_bottom cc_605
 .cc_top cc_606,.Lxtalabel115
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	200
 	.long	.Lxtalabel115
 .cc_bottom cc_606
 .cc_top cc_607,.Lxtalabel150
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	200
 	.long	.Lxtalabel150
 .cc_bottom cc_607
 .cc_top cc_608,.Lxtalabel84
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	198
 	.long	200
 	.long	.Lxtalabel84
 .cc_bottom cc_608
 .cc_top cc_609,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	215
 	.long	219
 	.long	.Lxtalabel37
 .cc_bottom cc_609
 .cc_top cc_610,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	215
 	.long	219
 	.long	.Lxtalabel36
 .cc_bottom cc_610
 .cc_top cc_611,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	221
 	.long	229
 	.long	.Lxtalabel36
 .cc_bottom cc_611
 .cc_top cc_612,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	221
 	.long	229
@@ -21081,199 +21081,199 @@ map:
 .Lentries_start6:
 	.long	.Lentries_end7-.Lentries_start6
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_613,.Lxta.loop_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_613
 .cc_top cc_614,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_614
 .cc_top cc_615,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_615
 .cc_top cc_616,.Lxta.loop_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_616
 .cc_top cc_617,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_617
 .cc_top cc_618,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_618
 .cc_top cc_619,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_619
 .cc_top cc_620,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_620
 .cc_top cc_621,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_621
 .cc_top cc_622,.Lxta.loop_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_622
 .cc_top cc_623,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_623
 .cc_top cc_624,.Lxta.loop_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_624
 .cc_top cc_625,.Lxta.loop_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxta.loop_labels12
 .cc_bottom cc_625
 .cc_top cc_626,.Lxta.loop_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxta.loop_labels10
 .cc_bottom cc_626
 .cc_top cc_627,.Lxta.loop_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	150
 	.long	150
 	.long	.Lxta.loop_labels8
 .cc_bottom cc_627
 .cc_top cc_628,.Lxta.loop_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels12
 .cc_bottom cc_628
 .cc_top cc_629,.Lxta.loop_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels10
 .cc_bottom cc_629
 .cc_top cc_630,.Lxta.loop_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	157
 	.long	157
 	.long	.Lxta.loop_labels8
 .cc_bottom cc_630
 .cc_top cc_631,.Lxta.loop_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_631
 .cc_top cc_632,.Lxta.loop_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels13
 .cc_bottom cc_632
 .cc_top cc_633,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_633
 .cc_top cc_634,.Lxta.loop_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_634
 .cc_top cc_635,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	185
 	.long	185
 	.long	.Lxta.loop_labels11
 .cc_bottom cc_635
 .cc_top cc_636,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels11
 .cc_bottom cc_636
 .cc_top cc_637,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_637
 .cc_top cc_638,.Lxta.loop_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_638
 .cc_top cc_639,.Lxta.loop_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_639
 .cc_top cc_640,.Lxta.loop_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc"
 	.byte	0
 	.long	189
 	.long	189
@@ -21286,7 +21286,7 @@ map:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -21294,7 +21294,7 @@ map:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -21302,7 +21302,7 @@ map:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -21310,7 +21310,7 @@ map:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3
@@ -21318,7 +21318,7 @@ map:
 .cc_bottom cc_trapinfo_3
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str4:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_4,.Ltrap_info4
 	.long	.Ltrap_info4
@@ -21326,7 +21326,7 @@ map:
 .cc_bottom cc_trapinfo_4
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str5:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_5,.Ltrap_info5
 	.long	.Ltrap_info5
@@ -21334,7 +21334,7 @@ map:
 .cc_bottom cc_trapinfo_5
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str6:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_6,.Ltrap_info6
 	.long	.Ltrap_info6
@@ -21342,7 +21342,7 @@ map:
 .cc_bottom cc_trapinfo_6
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str7:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_7,.Ltrap_info7
 	.long	.Ltrap_info7
@@ -21350,7 +21350,7 @@ map:
 .cc_bottom cc_trapinfo_7
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str8:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_8,.Ltrap_info8
 	.long	.Ltrap_info8
@@ -21358,7 +21358,7 @@ map:
 .cc_bottom cc_trapinfo_8
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str9:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_9,.Ltrap_info9
 	.long	.Ltrap_info9
@@ -21366,7 +21366,7 @@ map:
 .cc_bottom cc_trapinfo_9
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str10:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_10,.Ltrap_info10
 	.long	.Ltrap_info10
@@ -21374,7 +21374,7 @@ map:
 .cc_bottom cc_trapinfo_10
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str11:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_11,.Ltrap_info11
 	.long	.Ltrap_info11
@@ -21382,7 +21382,7 @@ map:
 .cc_bottom cc_trapinfo_11
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str12:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_12,.Ltrap_info12
 	.long	.Ltrap_info12
@@ -21390,7 +21390,7 @@ map:
 .cc_bottom cc_trapinfo_12
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str13:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:39:16: error: out of bounds array access\n      data &= ~map[row][col];\n               ^~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_13,.Ltrap_info13
 	.long	.Ltrap_info13
@@ -21398,7 +21398,7 @@ map:
 .cc_bottom cc_trapinfo_13
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str14:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_14,.Ltrap_info14
 	.long	.Ltrap_info14
@@ -21406,7 +21406,7 @@ map:
 .cc_bottom cc_trapinfo_14
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str15:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_15,.Ltrap_info15
 	.long	.Ltrap_info15
@@ -21414,7 +21414,7 @@ map:
 .cc_bottom cc_trapinfo_15
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str16:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_16,.Ltrap_info16
 	.long	.Ltrap_info16
@@ -21422,7 +21422,7 @@ map:
 .cc_bottom cc_trapinfo_16
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str17:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_17,.Ltrap_info17
 	.long	.Ltrap_info17
@@ -21430,7 +21430,7 @@ map:
 .cc_bottom cc_trapinfo_17
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str18:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_18,.Ltrap_info18
 	.long	.Ltrap_info18
@@ -21438,7 +21438,7 @@ map:
 .cc_bottom cc_trapinfo_18
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str19:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_19,.Ltrap_info19
 	.long	.Ltrap_info19
@@ -21446,7 +21446,7 @@ map:
 .cc_bottom cc_trapinfo_19
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str20:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_20,.Ltrap_info20
 	.long	.Ltrap_info20
@@ -21454,7 +21454,7 @@ map:
 .cc_bottom cc_trapinfo_20
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str21:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_21,.Ltrap_info21
 	.long	.Ltrap_info21
@@ -21462,7 +21462,7 @@ map:
 .cc_bottom cc_trapinfo_21
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str22:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_22,.Ltrap_info22
 	.long	.Ltrap_info22
@@ -21470,7 +21470,7 @@ map:
 .cc_bottom cc_trapinfo_22
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str23:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_23,.Ltrap_info23
 	.long	.Ltrap_info23
@@ -21478,7 +21478,7 @@ map:
 .cc_bottom cc_trapinfo_23
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str24:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_24,.Ltrap_info24
 	.long	.Ltrap_info24
@@ -21486,7 +21486,7 @@ map:
 .cc_bottom cc_trapinfo_24
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str25:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_25,.Ltrap_info25
 	.long	.Ltrap_info25
@@ -21494,7 +21494,7 @@ map:
 .cc_bottom cc_trapinfo_25
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str26:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_26,.Ltrap_info26
 	.long	.Ltrap_info26
@@ -21502,7 +21502,7 @@ map:
 .cc_bottom cc_trapinfo_26
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str27:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_27,.Ltrap_info27
 	.long	.Ltrap_info27
@@ -21510,7 +21510,7 @@ map:
 .cc_bottom cc_trapinfo_27
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str28:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_28,.Ltrap_info28
 	.long	.Ltrap_info28
@@ -21518,7 +21518,7 @@ map:
 .cc_bottom cc_trapinfo_28
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str29:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_29,.Ltrap_info29
 	.long	.Ltrap_info29
@@ -21526,7 +21526,7 @@ map:
 .cc_bottom cc_trapinfo_29
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str30:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_30,.Ltrap_info30
 	.long	.Ltrap_info30
@@ -21534,7 +21534,7 @@ map:
 .cc_bottom cc_trapinfo_30
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str31:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_31,.Ltrap_info31
 	.long	.Ltrap_info31
@@ -21542,7 +21542,7 @@ map:
 .cc_bottom cc_trapinfo_31
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str32:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_32,.Ltrap_info32
 	.long	.Ltrap_info32
@@ -21550,7 +21550,7 @@ map:
 .cc_bottom cc_trapinfo_32
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str33:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_33,.Ltrap_info33
 	.long	.Ltrap_info33
@@ -21558,7 +21558,7 @@ map:
 .cc_bottom cc_trapinfo_33
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str34:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_34,.Ltrap_info34
 	.long	.Ltrap_info34
@@ -21566,7 +21566,7 @@ map:
 .cc_bottom cc_trapinfo_34
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str35:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_35,.Ltrap_info35
 	.long	.Ltrap_info35
@@ -21574,7 +21574,7 @@ map:
 .cc_bottom cc_trapinfo_35
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str36:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_36,.Ltrap_info36
 	.long	.Ltrap_info36
@@ -21582,7 +21582,7 @@ map:
 .cc_bottom cc_trapinfo_36
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str37:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_37,.Ltrap_info37
 	.long	.Ltrap_info37
@@ -21590,7 +21590,7 @@ map:
 .cc_bottom cc_trapinfo_37
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str38:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_38,.Ltrap_info38
 	.long	.Ltrap_info38
@@ -21598,7 +21598,7 @@ map:
 .cc_bottom cc_trapinfo_38
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str39:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_39,.Ltrap_info39
 	.long	.Ltrap_info39
@@ -21606,7 +21606,7 @@ map:
 .cc_bottom cc_trapinfo_39
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str40:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_40,.Ltrap_info40
 	.long	.Ltrap_info40
@@ -21614,7 +21614,7 @@ map:
 .cc_bottom cc_trapinfo_40
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str41:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_41,.Ltrap_info41
 	.long	.Ltrap_info41
@@ -21622,7 +21622,7 @@ map:
 .cc_bottom cc_trapinfo_41
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str42:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_42,.Ltrap_info42
 	.long	.Ltrap_info42
@@ -21630,7 +21630,7 @@ map:
 .cc_bottom cc_trapinfo_42
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str43:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_43,.Ltrap_info43
 	.long	.Ltrap_info43
@@ -21638,7 +21638,7 @@ map:
 .cc_bottom cc_trapinfo_43
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str44:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_44,.Ltrap_info44
 	.long	.Ltrap_info44
@@ -21646,7 +21646,7 @@ map:
 .cc_bottom cc_trapinfo_44
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str45:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_45,.Ltrap_info45
 	.long	.Ltrap_info45
@@ -21654,7 +21654,7 @@ map:
 .cc_bottom cc_trapinfo_45
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str46:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_46,.Ltrap_info46
 	.long	.Ltrap_info46
@@ -21662,7 +21662,7 @@ map:
 .cc_bottom cc_trapinfo_46
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str47:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_47,.Ltrap_info47
 	.long	.Ltrap_info47
@@ -21670,7 +21670,7 @@ map:
 .cc_bottom cc_trapinfo_47
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str48:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_48,.Ltrap_info48
 	.long	.Ltrap_info48
@@ -21678,7 +21678,7 @@ map:
 .cc_bottom cc_trapinfo_48
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str49:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_49,.Ltrap_info49
 	.long	.Ltrap_info49
@@ -21686,7 +21686,7 @@ map:
 .cc_bottom cc_trapinfo_49
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str50:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_50,.Ltrap_info50
 	.long	.Ltrap_info50
@@ -21694,7 +21694,7 @@ map:
 .cc_bottom cc_trapinfo_50
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str51:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_51,.Ltrap_info51
 	.long	.Ltrap_info51
@@ -21702,7 +21702,7 @@ map:
 .cc_bottom cc_trapinfo_51
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str52:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:166:31: error: passing null argument to a non-null parameter\n    case !isnull(i_button) => i_button.get_value() -> button_val_t res:\n                              ^~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_52,.Ltrap_info52
 	.long	.Ltrap_info52
@@ -21710,7 +21710,7 @@ map:
 .cc_bottom cc_trapinfo_52
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str53:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_53,.Ltrap_info53
 	.long	.Ltrap_info53
@@ -21718,7 +21718,7 @@ map:
 .cc_bottom cc_trapinfo_53
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str54:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:178:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set_multiple(unsigned mask,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_54,.Ltrap_info54
 	.long	.Ltrap_info54
@@ -21726,7 +21726,7 @@ map:
 .cc_bottom cc_trapinfo_54
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str55:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_55,.Ltrap_info55
 	.long	.Ltrap_info55
@@ -21734,7 +21734,7 @@ map:
 .cc_bottom cc_trapinfo_55
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str56:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_56,.Ltrap_info56
 	.long	.Ltrap_info56
@@ -21742,7 +21742,7 @@ map:
 .cc_bottom cc_trapinfo_56
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str57:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:174:7: error: out of bounds array access\n      level[row][col] = val / (LED_ON / pwm_res);\n      ^~~~~~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_57,.Ltrap_info57
 	.long	.Ltrap_info57
@@ -21750,7 +21750,7 @@ map:
 .cc_bottom cc_trapinfo_57
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str58:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:171:28: error: passing null argument to a non-null parameter\n    case !isnull(i_led) => i_led.set(unsigned row, unsigned col,\n                           ^~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_58,.Ltrap_info58
 	.long	.Ltrap_info58
@@ -21758,7 +21758,7 @@ map:
 .cc_bottom cc_trapinfo_58
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str59:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:191:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_59,.Ltrap_info59
 	.long	.Ltrap_info59
@@ -21766,7 +21766,7 @@ map:
 .cc_bottom cc_trapinfo_59
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str60:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_60,.Ltrap_info60
 	.long	.Ltrap_info60
@@ -21774,7 +21774,7 @@ map:
 .cc_bottom cc_trapinfo_60
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str61:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:194:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_x) => i_slider_x.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_61,.Ltrap_info61
 	.long	.Ltrap_info61
@@ -21782,7 +21782,7 @@ map:
 .cc_bottom cc_trapinfo_61
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str62:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:197:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_coord() -> int coord:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_62,.Ltrap_info62
 	.long	.Ltrap_info62
@@ -21790,7 +21790,7 @@ map:
 .cc_bottom cc_trapinfo_62
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str63:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_63,.Ltrap_info63
 	.long	.Ltrap_info63
@@ -21798,7 +21798,7 @@ map:
 .cc_bottom cc_trapinfo_63
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str64:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_gpio.xc:200:33: error: passing null argument to a non-null parameter\n    case !isnull(i_slider_y) => i_slider_y.get_slider_state() -> sliderstate ret:\n                                ^~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_64,.Ltrap_info64
 	.long	.Ltrap_info64

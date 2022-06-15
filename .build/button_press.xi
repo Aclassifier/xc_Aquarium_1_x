@@ -15,7 +15,7 @@
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 3
-# 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
 
 
 
@@ -402,7 +402,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 5 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 2 3
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 2 3
 
 
 

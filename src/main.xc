@@ -334,3 +334,82 @@ int main() {
     }
     return 0;
 }
+
+
+/* THIS IS JUST TO SHOW HOW THE ABOVE IS COMPILES AS:
+
+
+int main() {
+    chan c_analogue;
+
+    button_if                      i_buttons[BUTTONS_NUM_CLIENTS];
+    spi_master_if                  i_spi    [NUM_SPI_CLIENT_USERS];
+    radio_if_t                     i_radio;
+    i2c_external_commands_if       i_i2c_external_commands [I2C_EXTERNAL_NUM_CLIENTS];
+    i2c_internal_commands_if       i_i2c_internal_commands [I2C_INTERNAL_NUM_CLIENTS];
+    startkit_adc_acquire_if        i_startkit_adc_acquire;
+    lib_startkit_adc_commands_if   i_lib_startkit_adc_commands  [ADC_STARTKIT_NUM_CLIENTS];
+    port_heat_light_commands_if    i_port_heat_light_commands   [PORT_HEAT_LIGHT_SERVER_NUM_CLIENTS];
+    temperature_heater_commands_if i_temperature_heater_commands[HEATER_CONTROLLER_NUM_CLIENTS];
+    temperature_water_commands_if  i_temperature_water_commands;
+
+    par {
+        on tile[0]: installExceptionHandler();
+        par {
+            startkit_adc (c_analogue);
+            on tile[0]: My_startKIT_ADC_Task (
+                    i_startkit_adc_acquire,
+                    i_lib_startkit_adc_commands,
+                    NUM_STARTKIT_ADC_NEEDED_DATA_SETS);
+            on tile[0]: System_Task (
+                    i_i2c_internal_commands[0],
+                    i_i2c_external_commands[0],
+                    i_lib_startkit_adc_commands[0],
+                    i_port_heat_light_commands[0],
+                    i_temperature_heater_commands[0],
+                    i_temperature_water_commands,
+                    p_display_notReset,
+                    i_buttons,
+                    i_radio, c_irq_update, null, null, 0);
+            on tile[0]: adc_task (
+                    i_startkit_adc_acquire,
+                    c_analogue,
+                    ADC_PERIOD_TIME_USEC_ZERO_IS_ONY_QUERY_BASED);
+            on tile[0]: Port_Pins_Heat_Light_Task (
+                    i_port_heat_light_commands);
+        }
+        on tile[0]: {
+            [[combine]]
+            par {
+                Button_Task (IOF_BUTTON_LEFT,   inP_button_left,   i_buttons[IOF_BUTTON_LEFT]);
+                Button_Task (IOF_BUTTON_CENTER, inP_button_center, i_buttons[IOF_BUTTON_CENTER]);
+                Button_Task (IOF_BUTTON_RIGHT,  inP_button_right,  i_buttons[IOF_BUTTON_RIGHT]);
+            }
+        }
+        on tile[0]: {
+            [[combine]]
+            par {
+                I2C_Internal_Task       (i_i2c_internal_commands);
+                I2C_External_Task       (i_i2c_external_commands);
+                Temperature_Heater_Task (i_temperature_heater_commands,
+                                         i_i2c_external_commands[1],
+                                         i_port_heat_light_commands[1]);
+                Temperature_Water_Task  (i_temperature_water_commands,
+                                         i_temperature_heater_commands[1]);
+            }
+        }
+        on tile[0]: {
+            [[combine]]
+            par {
+                RFM69_driver       (i_radio, p_spi_aux, i_spi[SPI_CLIENT_0], SPI_CLIENT_0);
+                IRQ_interrupt_task (c_irq_update, p_spi_irq, probe_led_d2, IRQ_HIGH_MAX_TIME_MILLIS);
+                spi_master_3       (i_spi[0], p_sclk, p_mosi, p_miso,
+                        SPI_CLOCK, p_spi_cs_en, maskof_spi_and_probe_pins[0]);
+            }
+        }
+    }
+    return 0;
+}
+
+*/
+

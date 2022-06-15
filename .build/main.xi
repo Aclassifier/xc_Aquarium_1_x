@@ -8,7 +8,7 @@
 # 11 "../src/main.xc"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 1 3
 # 21 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/platform.h" 3
-# 1 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 1 3
 
 
 
@@ -395,7 +395,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 5 "/Users/teig/workspace/_Aquarium_1_x/.build/STARTKIT.h" 2 3
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/STARTKIT.h" 2 3
 
 
 
@@ -1406,8 +1406,8 @@ typedef struct tag_startkit_adc_vals {
     unsigned short x[4];
 } t_startkit_adc_vals;
 # 23 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
-# 27 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h" 1
+# 27 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 typedef struct r_i2c {
     port scl;
     port sda;
@@ -1421,32 +1421,32 @@ typedef struct r_i2c {
 
 
 void i2c_master_init(struct r_i2c &i2c_master);
-# 54 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 54 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_rx(int device, unsigned char data[], int nbytes,
                   struct r_i2c &i2c);
-# 73 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 73 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_read_reg(int device, int reg_addr,
                         unsigned char data[],
                         int nbytes,
                         struct r_i2c &i2c_master);
-# 94 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 94 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_16bit_read_reg(int device, unsigned int reg_addr,
                         unsigned char data[],
                         int nbytes,
                         struct r_i2c &i2c_master);
-# 117 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 117 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_write_reg(int device, int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 138 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 138 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
 # 24 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h" 1
-# 31 "/Users/teig/workspace/lib_startkit_support/api/startkit_adc.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_adc.h" 1
+# 31 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_adc.h"
 typedef interface startkit_adc_acquire_if {
 
 
@@ -1978,14 +1978,14 @@ void My_startKIT_ADC_Task (
    const unsigned int Num_of_data_sets);
 # 42 "../src/main.xc" 2
 
-# 1 "/Users/teig/workspace/lib_spi/api/spi.h" 1
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h" 1
 
 
 
 
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/clang/stddef.h" 1 3
-# 7 "/Users/teig/workspace/lib_spi/api/spi.h" 2
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h" 2
 
 
 typedef enum spi_mode_t {
@@ -1998,17 +1998,17 @@ typedef enum spi_mode_t {
 
 
 typedef interface spi_master_if {
-# 29 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 29 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void await_spi_port_init_by_all_clients (void);
-# 43 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 43 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   [[guarded]]
   void begin_transaction(unsigned device_index,
                          unsigned speed_in_khz, spi_mode_t mode);
-# 58 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 58 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void end_transaction(unsigned ss_deassert_time);
-# 69 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 69 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   uint8_t transfer8(uint8_t data);
-# 80 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 80 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   uint32_t transfer32(uint32_t data);
 
 } spi_master_if;
@@ -2022,7 +2022,7 @@ typedef struct
     unsigned maskof_probe_outer;
 
 } maskof_spi_and_probe_pins_t;
-# 120 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 120 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master_3 (server interface spi_master_if i,
         out buffered port:32 sclk,
@@ -2034,7 +2034,7 @@ void spi_master_3 (server interface spi_master_if i,
 
 
         maskof_spi_and_probe_pins_t mask);
-# 160 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 160 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master_2(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -2049,7 +2049,7 @@ void spi_master_2(server interface spi_master_if i[num_clients],
 
         maskof_spi_and_probe_pins_t masks [num_spi_slaves],
         static const unsigned num_spi_slaves);
-# 198 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 198 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
 [[distributable]]
 void spi_master(server interface spi_master_if i[num_clients],
         static const size_t num_clients,
@@ -2066,16 +2066,16 @@ void spi_master(server interface spi_master_if i[num_clients],
 
 
 typedef interface spi_master_async_if {
-# 226 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 226 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void begin_transaction(unsigned device_index,
                          unsigned speed_in_khz, spi_mode_t mode);
-# 239 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 239 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void end_transaction(unsigned ss_deassert_time);
-# 256 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 256 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void init_transfer_array_8(uint8_t * movable inbuf,
                              uint8_t * movable outbuf,
                              size_t nbytes);
-# 275 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 275 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void init_transfer_array_32(uint32_t * movable inbuf,
                               uint32_t * movable outbuf,
                               size_t nwords);
@@ -2087,16 +2087,16 @@ typedef interface spi_master_async_if {
 
   [[notification]]
   slave void transfer_complete(void);
-# 298 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 298 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_8(uint8_t * movable &inbuf,
                                    uint8_t * movable &outbuf);
-# 314 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 314 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   [[clears_notification]]
   void retrieve_transfer_buffers_32(uint32_t * movable &inbuf,
                                     uint32_t * movable &outbuf);
 } spi_master_async_if;
-# 337 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 337 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
 [[combinable]]
 void spi_master_async(server interface spi_master_async_if i[num_clients],
         static const size_t num_clients,
@@ -2119,9 +2119,9 @@ typedef interface spi_slave_callback_if {
 
 
   void master_ends_transaction(void);
-# 371 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 371 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   uint32_t master_requires_data(void);
-# 382 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 382 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
   void master_supplied_data(uint32_t datum, uint32_t valid_bits);
 
 } spi_slave_callback_if;
@@ -2132,7 +2132,7 @@ typedef enum spi_transfer_type_t {
   SPI_TRANSFER_SIZE_8,
   SPI_TRANSFER_SIZE_32
 } spi_transfer_type_t;
-# 409 "/Users/teig/workspace/lib_spi/api/spi.h"
+# 409 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_spi/api/spi.h"
  [[combinable]]
   void spi_slave(client spi_slave_callback_if spi_i,
                  in port p_sclk,
@@ -2143,10 +2143,10 @@ typedef enum spi_transfer_type_t {
                  static const spi_mode_t mode,
                  static const spi_transfer_type_t transfer_type);
 # 44 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
-# 120 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_globals.h" 1
+# 120 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_globals.h"
     extern unsigned g_radio_log_value;
-# 164 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 164 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef enum {low,high} pin_e;
 
 typedef enum {
@@ -2155,17 +2155,17 @@ typedef enum {
     logic_inverted
 
 } logic_e;
-# 186 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 186 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 typedef struct {
     union {
         uint32_t value;
         uint8_t bytes[4];
     } u;
-# 208 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_globals.h"
+# 208 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_globals.h"
 } fourbytes_u;
 # 45 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
-# 11 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_crc.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_crc.h" 1
+# 11 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_crc.h"
 typedef uint32_t crc32_t;
 
 
@@ -2174,10 +2174,10 @@ calc_CRC32 (
         uint32_t data[], static const int num_words,
         crc32_t expected_crc);
 # 46 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
-# 143 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_commprot.h" 1
+# 143 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t version_of_app_payload_t;
-# 158 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 158 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef uint8_t lenm1_t;
 
 
@@ -2222,9 +2222,9 @@ typedef struct {
     uint32_t appSeqCnt;
 
     crc32_t appCRC32;
-# 211 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 211 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 } packet_u3_t;
-# 229 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
+# 229 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_commprot.h"
 typedef struct {
     RFM69_comm_header32_t CommHeaderRFM69;
     uint8_t appPayload_uint8_arr [((sizeof(packet_u3_t)) - (sizeof(RFM69_comm_header32_t)) - (sizeof(crc32_t)))];
@@ -2242,8 +2242,8 @@ typedef struct {
     } u;
 } packet_t;
 # 47 "../src/main.xc" 2
-# 1 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
-# 27 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h" 1
+# 27 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
 
     ERROR_NO_SPI_UNIT_CONNECTED = 0,
@@ -2274,7 +2274,7 @@ typedef enum {
 } error_bits_e;
 
 typedef enum {NO_ERR, IS_ERR} is_error_e;
-# 94 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 94 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
 
     uint8_t preamble0;
@@ -2295,7 +2295,7 @@ typedef struct {
 
     uint8_t CRC16_LSB;
     uint8_t CRC16_MSB;
-# 129 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 129 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 } rfm69_packet_t;
 
 typedef enum {
@@ -2321,7 +2321,7 @@ typedef enum {
     messageAppCRC32Err_IRQ = 10
 
 } interruptAndParsingResult_e;
-# 164 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 164 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     uint8_t nodeID;
     uint32_t RegFrf;
@@ -2339,7 +2339,7 @@ typedef struct {
     uint8_t RegIrqFlags2;
 
 } some_rfm69_internals_t;
-# 204 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 204 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     FORCETRIGGER_OFF,
     FORCETRIGGER_ON
@@ -2349,10 +2349,10 @@ typedef enum {
     RX_TX_IRQ,
     RX_IRQ
 } handleIRQ_t;
-# 289 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 289 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 unsigned freq_register_value_to_Hz (const uint32_t register_value);
 uint32_t freq_Hz_to_register_value (const unsigned frequency_Hz);
-# 308 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 308 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef enum {
     debug_none,
     debug_just_read_some_registers,
@@ -2387,7 +2387,7 @@ typedef enum {
 
 
 } session_transx_id_e;
-# 352 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 352 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
 typedef struct {
     error_bits_e error_bits;
     is_error_e is_error;
@@ -2428,20 +2428,20 @@ typedef struct {
 
 
 typedef interface radio_if_t {
-# 409 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 409 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_spi_aux_pin (const unsigned maskof_pin, const pin_e value);
     {error_bits_e, is_error_e} getAndClearErrorBits (void);
     error_t getAndClearErrorBits_ (void);
     void setListenToAll (const bool doListenToAll);
     uint8_t setNODEID (const uint8_t newNODEID);
-# 430 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 430 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void uspi_ultimateIRQclear (void);
     void uspi_rcCalibration (void);
     int8_t uspi_readTemperature_degC (const int8_t calOffset_degC);
     void uspi_setMode (const uint8_t newMode);
     void uspi_setFrequencyRegister (const uint32_t register_value);
     uint32_t uspi_getFrequencyRegister (void);
-# 454 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 454 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
                                 time32_t do_aux_adafruit_rfm69hcw_RST_pulse_trans1 (const unsigned maskof_pin);
                                 time32_t initialize_trans1 (const rfm69_params_t init);
                                 time32_t getDeviceType_trans1 (void);
@@ -2541,7 +2541,7 @@ void RFM69_driver (
         void encrypt16_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const char key[16]);
         void setHighPower_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans, const bool isHighPowerOn);
         bool receiveDone_iff_asynch (client radio_if_t i_radio, timing_transx_t &session_trans);
-# 562 "/Users/teig/workspace/lib_rfm69_xc/api/rfm69_xc.h"
+# 562 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_rfm69_xc/api/rfm69_xc.h"
     void do_sessions_trans2to3 (
         client radio_if_t i_radio,
                timing_transx_t &session_trans,

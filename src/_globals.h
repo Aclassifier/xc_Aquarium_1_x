@@ -53,13 +53,13 @@
     #ifndef ISAQUARIUM
         #error must be defined in makefile
     #elif (ISAQUARIUM==1) // some make problem, ended up with values like 0 and 1
-        #define FLASH_BLACK_BOARD 0             // ALWAYS!
+        #define FLASH_BLACK_BOARD             0 // ALWAYS!
         #define FLASH_BLACK_BOARD_FAST_RELAY1 0 // ALWAYS!
-        #define MASTER_ID MASTER_ID_AQUARIUM
+        #define MASTER_ID                     MASTER_ID_AQUARIUM
     #elif (ISAQUARIUM==0)
-        #define FLASH_BLACK_BOARD 2             // ALWAYS! 1 removed with 1.5.22
+        #define FLASH_BLACK_BOARD             2 // ALWAYS! 1 removed with 1.5.22
         #define FLASH_BLACK_BOARD_FAST_RELAY1 0 // 0 or 1
-        #define MASTER_ID MASTER_ID_BLACK_BOARD // causing WRONG_CODE_STARTKIT since we cannot have this in
+        #define MASTER_ID                     MASTER_ID_BLACK_BOARD // causing WRONG_CODE_STARTKIT since we cannot have this in
     #else
         #error
     #endif

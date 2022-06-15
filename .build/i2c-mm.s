@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -87,7 +87,7 @@
 	.cc_top i2c_master_init.function,i2c_master_init
 i2c_master_init:
 .Lfunc_begin0:
-	.file	1 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.loc	1 13 0
 	.cfi_startproc
 .Lxtalabel0:
@@ -1569,9 +1569,9 @@ i2c_master_do_rx:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"delay_seconds"
 .Linfo_string4:
@@ -3693,292 +3693,292 @@ i2c_master_do_rx:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels28
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	28
 	.long	.Lxta.call_labels28
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels29
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels29
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels30
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	37
 	.long	.Lxta.call_labels30
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels31
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	39
 	.long	.Lxta.call_labels31
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels32
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.call_labels32
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels33
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	45
 	.long	.Lxta.call_labels33
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels34
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	71
 	.long	.Lxta.call_labels34
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels35
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	74
 	.long	.Lxta.call_labels35
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels36
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	76
 	.long	.Lxta.call_labels36
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels37
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	81
 	.long	.Lxta.call_labels37
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels38
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels38
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels39
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	85
 	.long	.Lxta.call_labels39
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels40
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	90
 	.long	.Lxta.call_labels40
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels41
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	99
 	.long	.Lxta.call_labels41
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels42
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.call_labels42
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels43
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	108
 	.long	.Lxta.call_labels43
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels44
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	116
 	.long	.Lxta.call_labels44
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels45
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	119
 	.long	.Lxta.call_labels45
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels46
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	124
 	.long	.Lxta.call_labels46
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels47
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	130
 	.long	.Lxta.call_labels47
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	135
 	.long	.Lxta.call_labels0
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	136
 	.long	.Lxta.call_labels1
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	140
 	.long	.Lxta.call_labels2
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	141
 	.long	.Lxta.call_labels3
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	142
 	.long	.Lxta.call_labels4
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	145
 	.long	.Lxta.call_labels5
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.call_labels6
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	147
 	.long	.Lxta.call_labels6
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.call_labels7
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	148
 	.long	.Lxta.call_labels7
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.call_labels8
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	149
 	.long	.Lxta.call_labels8
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.call_labels9
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	153
 	.long	.Lxta.call_labels9
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.call_labels10
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	154
 	.long	.Lxta.call_labels10
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.call_labels11
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	155
 	.long	.Lxta.call_labels11
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.call_labels12
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	156
 	.long	.Lxta.call_labels12
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.call_labels13
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	158
 	.long	.Lxta.call_labels13
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.call_labels14
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	160
 	.long	.Lxta.call_labels14
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.call_labels15
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	161
 	.long	.Lxta.call_labels15
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.call_labels16
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	162
 	.long	.Lxta.call_labels16
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.call_labels17
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	168
 	.long	.Lxta.call_labels17
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.call_labels18
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	169
 	.long	.Lxta.call_labels18
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.call_labels19
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	174
 	.long	.Lxta.call_labels19
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.call_labels20
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	178
 	.long	.Lxta.call_labels20
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.call_labels21
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	180
 	.long	.Lxta.call_labels21
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.call_labels22
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	186
 	.long	.Lxta.call_labels22
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.call_labels23
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	187
 	.long	.Lxta.call_labels23
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.call_labels24
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	189
 	.long	.Lxta.call_labels24
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.call_labels25
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	190
 	.long	.Lxta.call_labels25
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.call_labels26
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	193
 	.long	.Lxta.call_labels26
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.call_labels27
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	195
 	.long	.Lxta.call_labels27
@@ -3988,160 +3988,160 @@ i2c_master_do_rx:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_48,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	14
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	15
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.endpoint_labels6
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	22
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.endpoint_labels7
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	24
 	.long	.Lxta.endpoint_labels7
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.endpoint_labels8
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	35
 	.long	.Lxta.endpoint_labels8
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.endpoint_labels9
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	38
 	.long	.Lxta.endpoint_labels9
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.endpoint_labels10
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	41
 	.long	.Lxta.endpoint_labels10
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.endpoint_labels11
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	44
 	.long	.Lxta.endpoint_labels11
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.endpoint_labels12
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	56
 	.long	.Lxta.endpoint_labels12
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.endpoint_labels16
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels16
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.endpoint_labels14
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels14
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.endpoint_labels15
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	.Lxta.endpoint_labels15
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.endpoint_labels13
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	60
 	.long	.Lxta.endpoint_labels13
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.endpoint_labels17
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	73
 	.long	.Lxta.endpoint_labels17
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.endpoint_labels18
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	75
 	.long	.Lxta.endpoint_labels18
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.endpoint_labels19
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	80
 	.long	.Lxta.endpoint_labels19
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.endpoint_labels20
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	82
 	.long	.Lxta.endpoint_labels20
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.endpoint_labels21
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	84
 	.long	.Lxta.endpoint_labels21
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.endpoint_labels22
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels22
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.endpoint_labels23
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels23
 .cc_bottom cc_67
 .cc_top cc_68,.Lxta.endpoint_labels24
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	103
 	.long	.Lxta.endpoint_labels24
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.endpoint_labels25
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	123
 	.long	.Lxta.endpoint_labels25
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	144
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.endpoint_labels3
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	146
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_71
 .cc_top cc_72,.Lxta.endpoint_labels4
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	157
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_72
 .cc_top cc_73,.Lxta.endpoint_labels5
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	159
 	.long	.Lxta.endpoint_labels5
@@ -4151,423 +4151,423 @@ i2c_master_do_rx:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_74,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	14
 	.long	16
 	.long	.Lxtalabel0
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	19
 	.long	20
 	.long	.Lxtalabel22
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	22
 	.long	25
 	.long	.Lxtalabel22
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel23
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	28
 	.long	30
 	.long	.Lxtalabel23
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	33
 	.long	34
 	.long	.Lxtalabel24
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	35
 	.long	36
 	.long	.Lxtalabel25
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	37
 	.long	40
 	.long	.Lxtalabel26
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	41
 	.long	42
 	.long	.Lxtalabel27
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	43
 	.long	47
 	.long	.Lxtalabel28
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	50
 	.long	50
 	.long	.Lxtalabel29
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	51
 	.long	57
 	.long	.Lxtalabel30
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	59
 	.long	.Lxtalabel33
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	59
 	.long	.Lxtalabel32
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	58
 	.long	59
 	.long	.Lxtalabel31
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	60
 	.long	62
 	.long	.Lxtalabel35
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	63
 	.long	65
 	.long	.Lxtalabel34
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	66
 	.long	68
 	.long	.Lxtalabel36
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	71
 	.long	72
 	.long	.Lxtalabel37
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	73
 	.long	77
 	.long	.Lxtalabel38
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	80
 	.long	86
 	.long	.Lxtalabel39
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	89
 	.long	93
 	.long	.Lxtalabel40
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	96
 	.long	97
 	.long	.Lxtalabel41
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	98
 	.long	98
 	.long	.Lxtalabel42
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	99
 	.long	99
 	.long	.Lxtalabel43
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	100
 	.long	101
 	.long	.Lxtalabel43
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	102
 	.long	102
 	.long	.Lxtalabel43
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	103
 	.long	105
 	.long	.Lxtalabel44
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel45
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	108
 	.long	109
 	.long	.Lxtalabel46
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	113
 	.long	114
 	.long	.Lxtalabel47
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	116
 	.long	116
 	.long	.Lxtalabel47
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	117
 	.long	117
 	.long	.Lxtalabel48
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	118
 	.long	118
 	.long	.Lxtalabel49
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	119
 	.long	121
 	.long	.Lxtalabel50
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	122
 	.long	122
 	.long	.Lxtalabel51
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	123
 	.long	125
 	.long	.Lxtalabel53
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	126
 	.long	127
 	.long	.Lxtalabel52
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	128
 	.long	129
 	.long	.Lxtalabel54
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel55
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	130
 	.long	132
 	.long	.Lxtalabel55
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	135
 	.long	137
 	.long	.Lxtalabel1
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel2
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	142
 	.long	142
 	.long	.Lxtalabel3
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	144
 	.long	150
 	.long	.Lxtalabel4
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	153
 	.long	154
 	.long	.Lxtalabel5
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	155
 	.long	155
 	.long	.Lxtalabel6
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	156
 	.long	156
 	.long	.Lxtalabel7
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	157
 	.long	163
 	.long	.Lxtalabel8
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	168
 	.long	169
 	.long	.Lxtalabel9
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	174
 	.long	174
 	.long	.Lxtalabel10
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	177
 	.long	177
 	.long	.Lxtalabel11
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	178
 	.long	178
 	.long	.Lxtalabel12
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	179
 	.long	179
 	.long	.Lxtalabel13
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	180
 	.long	182
 	.long	.Lxtalabel14
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	186
 	.long	187
 	.long	.Lxtalabel15
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	189
 	.long	189
 	.long	.Lxtalabel16
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	190
 	.long	190
 	.long	.Lxtalabel17
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	192
 	.long	192
 	.long	.Lxtalabel18
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	193
 	.long	193
 	.long	.Lxtalabel19
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	194
 	.long	194
 	.long	.Lxtalabel20
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	195
 	.long	197
@@ -4578,45 +4578,45 @@ i2c_master_do_rx:
 .Lentries_start6:
 	.long	.Lentries_end7-.Lentries_start6
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_134,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	98
 	.long	107
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_134
 .cc_top cc_135,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	118
 	.long	118
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_135
 .cc_top cc_136,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	119
 	.long	121
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_136
 .cc_top cc_137,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	122
 	.long	129
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_137
 .cc_top cc_138,.Lxta.loop_labels0
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	178
 	.long	179
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_138
 .cc_top cc_139,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 	.byte	0
 	.long	193
 	.long	194
@@ -4629,7 +4629,7 @@ i2c_master_do_rx:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc:178:22: error: out of bounds array access\n       if (!tx8(i2c, s_data[j])) return floatWires(i2c);\n                     ^~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc:178:22: error: out of bounds array access\n       if (!tx8(i2c, s_data[j])) return floatWires(i2c);\n                     ^~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -4637,7 +4637,7 @@ i2c_master_do_rx:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc:193:22: error: out of bounds array access\n       if (!tx8(i2c, s_data[j])) return floatWires(i2c);\n                     ^~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc:193:22: error: out of bounds array access\n       if (!tx8(i2c, s_data[j])) return floatWires(i2c);\n                     ^~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -4645,7 +4645,7 @@ i2c_master_do_rx:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc:128:8: error: out of bounds array access\n       data[j] = rdData;\n       ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc:128:8: error: out of bounds array access\n       data[j] = rdData;\n       ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2

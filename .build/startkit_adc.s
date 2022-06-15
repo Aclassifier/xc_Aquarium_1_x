@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -35,7 +35,7 @@
 	.globl adc_task.select.yield.enable.cases.maxchanends
 	.set adc_task.select.yield.enable.cases,0
 	.globl adc_task.select.yield.enable.cases
-	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.3.nstackwords) $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.2.nstackwords)
+	.set adc_task.select.yield.enable.cases.nstackwords, 0 $M (adc_task.select.yield.case.2.nstackwords) $M (adc_task.select.yield.case.0.nstackwords) $M (adc_task.select.yield.case.1.nstackwords) $M (adc_task.select.yield.case.3.nstackwords)
 	.globl adc_task.select.yield.enable.cases.nstackwords
 	.set adc_task.select.enable.savedstate,10
 	.globl adc_task.select.enable.savedstate
@@ -47,7 +47,7 @@
 	.globl adc_task.select.enable.cases.maxchanends
 	.set adc_task.select.enable.cases,0
 	.globl adc_task.select.enable.cases
-	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.3.nstackwords) $M (adc_task.select.case.2.nstackwords) $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.1.nstackwords)
+	.set adc_task.select.enable.cases.nstackwords, 0 $M (adc_task.select.case.0.nstackwords) $M (adc_task.select.case.3.nstackwords) $M (adc_task.select.case.2.nstackwords) $M (adc_task.select.case.1.nstackwords)
 	.globl adc_task.select.enable.cases.nstackwords
 	.weak _i.startkit_adc_acquire_if.trigger.maxchanends.group
 	.max_reduce _i.startkit_adc_acquire_if.trigger.max.maxchanends, _i.startkit_adc_acquire_if.trigger.maxchanends.group, 0
@@ -107,10 +107,10 @@
 	.set usage.anon.2,0
 	.set usage.anon.3,0
 	.set usage.anon.4,0
-	.globread usage.anon.4,adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:31:22: note: object used here\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n                     ^~~~~~~~"
-	.globread usage.anon.3,tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:18:27: note: object used here\n     read_node_config_reg(tile[0], 0x87, data);\n                          ^~~~~~~"
-	.globwrite adc_task,adc_sample,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:88:11: note: object used here\n          adc_sample <: 1;                  // LED D1 ON - Send first rising edge to trigger ADC\n          ^~~~~~~~~~"
-	.globwrite usage.anon.4,adc_sample,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:46:6: note: object used here\n     adc_sample <: 0 @ time;       //Ensure trigger startes low. Grab timestamp into time\n     ^~~~~~~~~~"
+	.globread usage.anon.4,adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:31:22: note: object used here\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n                     ^~~~~~~~"
+	.globread usage.anon.3,tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:18:27: note: object used here\n     read_node_config_reg(tile[0], 0x87, data);\n                          ^~~~~~~"
+	.globwrite adc_task,adc_sample,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:88:11: note: object used here\n          adc_sample <: 1;                  // LED D1 ON - Send first rising edge to trigger ADC\n          ^~~~~~~~~~"
+	.globwrite usage.anon.4,adc_sample,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:46:6: note: object used here\n     adc_sample <: 0 @ time;       //Ensure trigger startes low. Grab timestamp into time\n     ^~~~~~~~~~"
 	.call adc_task,usage.anon.4
 	.call adc_task,usage.anon.3
 	.call adc_task,get_adc_data
@@ -128,16 +128,16 @@
 	.set usage.anon.4.locnoglobalaccess, 0
 	.set adc_task.locnoglobalaccess, 0
 	.set adc_task.locnointerfaceaccess, 0
-	.assert 1,get_adc_data.actnonotificationselect,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:133:9: error: call to function `get_adc_data\' which selects on a notification in a combinable function select case\n        get_adc_data(c_adc, adc_samps[1]);  //Get second packet\n        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:43:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:39:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0xc, 1, data);  //Enable Ch 3\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:38:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x8, 1, data);  //Enable Ch 2\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:37:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x4, 1, data);  //Enable Ch 1\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:36:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x0, 1, data);  //Enable Ch 0\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_periph_32, adc_tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:31:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_node_config_reg, tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:21:10: error: call to `write_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n         write_node_config_reg(tile[0], 0x85, 0xC1002004);  //and say hello\n         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref write_node_config_reg, tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:20:10: error: call to `write_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n         write_node_config_reg(tile[0], 0x85, 0xC0002004);  //open\n         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	.globpassesref read_node_config_reg, tile,"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc:18:6: error: call to `read_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n     read_node_config_reg(tile[0], 0x87, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,get_adc_data.actnonotificationselect,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:133:9: error: call to function `get_adc_data\' which selects on a notification in a combinable function select case\n        get_adc_data(c_adc, adc_samps[1]);  //Get second packet\n        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:43:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:39:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0xc, 1, data);  //Enable Ch 3\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:38:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x8, 1, data);  //Enable Ch 2\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:37:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x4, 1, data);  //Enable Ch 1\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:36:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x0, 1, data);  //Enable Ch 0\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_periph_32, adc_tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:31:6: error: call to `write_periph_32\' in `init_adc_periph\' makes alias of global \'adc_tile\'\n     write_periph_32(adc_tile, 2, 0x20, 1, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_node_config_reg, tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:21:10: error: call to `write_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n         write_node_config_reg(tile[0], 0x85, 0xC1002004);  //and say hello\n         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref write_node_config_reg, tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:20:10: error: call to `write_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n         write_node_config_reg(tile[0], 0x85, 0xC0002004);  //open\n         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.globpassesref read_node_config_reg, tile,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc:18:6: error: call to `read_node_config_reg\' in `init_adc_network\' makes alias of global \'tile\'\n     read_node_config_reg(tile[0], 0x87, data);\n     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -154,7 +154,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.text
 	.globl	_i.startkit_adc_acquire_if.adc_task._c0.read
 	.align	4
@@ -2916,9 +2916,9 @@ adc_sample:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"adc_sample"
 .Linfo_string4:
@@ -4983,94 +4983,94 @@ adc_sample:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	18
 	.long	.Lxta.call_labels4
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	20
 	.long	.Lxta.call_labels5
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	21
 	.long	.Lxta.call_labels6
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	22
 	.long	.Lxta.call_labels7
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	23
 	.long	.Lxta.call_labels8
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	31
 	.long	.Lxta.call_labels9
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	36
 	.long	.Lxta.call_labels10
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	37
 	.long	.Lxta.call_labels11
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	38
 	.long	.Lxta.call_labels12
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	39
 	.long	.Lxta.call_labels13
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.call_labels14
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	67
 	.long	.Lxta.call_labels2
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	67
 	.long	.Lxta.call_labels0
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	68
 	.long	.Lxta.call_labels3
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	68
 	.long	.Lxta.call_labels1
@@ -5080,316 +5080,316 @@ adc_sample:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_15,.Lxta.endpoint_labels51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels51
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.endpoint_labels50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels50
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.endpoint_labels41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels41
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.endpoint_labels40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels40
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.endpoint_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels9
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.endpoint_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels8
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.endpoint_labels15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	.Lxta.endpoint_labels15
 .cc_bottom cc_21
 .cc_top cc_22,.Lxta.endpoint_labels16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	46
 	.long	.Lxta.endpoint_labels16
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.endpoint_labels25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels25
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.endpoint_labels27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels27
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.endpoint_labels19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels19
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.endpoint_labels17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels17
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.endpoint_labels23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels23
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.endpoint_labels21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.endpoint_labels21
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.endpoint_labels26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels26
 .cc_bottom cc_29
 .cc_top cc_30,.Lxta.endpoint_labels22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels22
 .cc_bottom cc_30
 .cc_top cc_31,.Lxta.endpoint_labels28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels28
 .cc_bottom cc_31
 .cc_top cc_32,.Lxta.endpoint_labels24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels24
 .cc_bottom cc_32
 .cc_top cc_33,.Lxta.endpoint_labels18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels18
 .cc_bottom cc_33
 .cc_top cc_34,.Lxta.endpoint_labels20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.endpoint_labels20
 .cc_bottom cc_34
 .cc_top cc_35,.Lxta.endpoint_labels29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	55
 	.long	.Lxta.endpoint_labels29
 .cc_bottom cc_35
 .cc_top cc_36,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	78
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_36
 .cc_top cc_37,.Lxta.endpoint_labels14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	78
 	.long	.Lxta.endpoint_labels14
 .cc_bottom cc_37
 .cc_top cc_38,.Lxta.endpoint_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	82
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_38
 .cc_top cc_39,.Lxta.endpoint_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	82
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_39
 .cc_top cc_40,.Lxta.endpoint_labels32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	.Lxta.endpoint_labels32
 .cc_bottom cc_40
 .cc_top cc_41,.Lxta.endpoint_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	.Lxta.endpoint_labels11
 .cc_bottom cc_41
 .cc_top cc_42,.Lxta.endpoint_labels30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	.Lxta.endpoint_labels30
 .cc_bottom cc_42
 .cc_top cc_43,.Lxta.endpoint_labels42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	.Lxta.endpoint_labels42
 .cc_bottom cc_43
 .cc_top cc_44,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_44
 .cc_top cc_45,.Lxta.endpoint_labels33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels33
 .cc_bottom cc_45
 .cc_top cc_46,.Lxta.endpoint_labels31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels31
 .cc_bottom cc_46
 .cc_top cc_47,.Lxta.endpoint_labels43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels43
 .cc_bottom cc_47
 .cc_top cc_48,.Lxta.endpoint_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels12
 .cc_bottom cc_48
 .cc_top cc_49,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	89
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_49
 .cc_top cc_50,.Lxta.endpoint_labels34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	.Lxta.endpoint_labels34
 .cc_bottom cc_50
 .cc_top cc_51,.Lxta.endpoint_labels44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	.Lxta.endpoint_labels44
 .cc_bottom cc_51
 .cc_top cc_52,.Lxta.endpoint_labels35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	.Lxta.endpoint_labels35
 .cc_bottom cc_52
 .cc_top cc_53,.Lxta.endpoint_labels45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	.Lxta.endpoint_labels45
 .cc_bottom cc_53
 .cc_top cc_54,.Lxta.endpoint_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_54
 .cc_top cc_55,.Lxta.endpoint_labels46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels46
 .cc_bottom cc_55
 .cc_top cc_56,.Lxta.endpoint_labels36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels36
 .cc_bottom cc_56
 .cc_top cc_57,.Lxta.endpoint_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	104
 	.long	.Lxta.endpoint_labels5
 .cc_bottom cc_57
 .cc_top cc_58,.Lxta.endpoint_labels47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	112
 	.long	.Lxta.endpoint_labels47
 .cc_bottom cc_58
 .cc_top cc_59,.Lxta.endpoint_labels37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	112
 	.long	.Lxta.endpoint_labels37
 .cc_bottom cc_59
 .cc_top cc_60,.Lxta.endpoint_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	.Lxta.endpoint_labels7
 .cc_bottom cc_60
 .cc_top cc_61,.Lxta.endpoint_labels38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	.Lxta.endpoint_labels38
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.endpoint_labels48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	.Lxta.endpoint_labels48
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.endpoint_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	.Lxta.endpoint_labels10
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.endpoint_labels49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	.Lxta.endpoint_labels49
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.endpoint_labels39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	.Lxta.endpoint_labels39
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.endpoint_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	124
 	.long	.Lxta.endpoint_labels13
@@ -5399,731 +5399,731 @@ adc_sample:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_67,.Lxtalabel23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel23
 .cc_bottom cc_67
 .cc_top cc_68,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel44
 .cc_bottom cc_68
 .cc_top cc_69,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel57
 .cc_bottom cc_69
 .cc_top cc_70,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel57
 .cc_bottom cc_70
 .cc_top cc_71,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel12
 .cc_bottom cc_71
 .cc_top cc_72,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel12
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	13
 	.long	14
 	.long	.Lxtalabel44
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	17
 	.long	19
 	.long	.Lxtalabel24
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	20
 	.long	24
 	.long	.Lxtalabel25
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	25
 	.long	25
 	.long	.Lxtalabel26
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	28
 	.long	28
 	.long	.Lxtalabel27
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	30
 	.long	34
 	.long	.Lxtalabel27
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	36
 	.long	39
 	.long	.Lxtalabel27
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel27
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	45
 	.long	46
 	.long	.Lxtalabel27
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	48
 	.long	48
 	.long	.Lxtalabel27
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	49
 	.long	53
 	.long	.Lxtalabel27
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	54
 	.long	56
 	.long	.Lxtalabel27
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	60
 	.long	65
 	.long	.Lxtalabel3
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	60
 	.long	65
 	.long	.Lxtalabel22
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	67
 	.long	68
 	.long	.Lxtalabel22
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	67
 	.long	68
 	.long	.Lxtalabel3
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	70
 	.long	70
 	.long	.Lxtalabel3
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	70
 	.long	70
 	.long	.Lxtalabel22
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	77
 	.long	77
 	.long	.Lxtalabel3
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	77
 	.long	77
 	.long	.Lxtalabel22
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	78
 	.long	79
 	.long	.Lxtalabel4
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	78
 	.long	79
 	.long	.Lxtalabel20
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	81
 	.long	81
 	.long	.Lxtalabel21
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	82
 	.long	83
 	.long	.Lxtalabel5
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	82
 	.long	83
 	.long	.Lxtalabel6
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	87
 	.long	87
 	.long	.Lxtalabel7
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	87
 	.long	87
 	.long	.Lxtalabel32
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	87
 	.long	87
 	.long	.Lxtalabel45
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	87
 	.long	87
 	.long	.Lxtalabel28
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	92
 	.long	.Lxtalabel34
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	92
 	.long	.Lxtalabel16
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	92
 	.long	.Lxtalabel47
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	92
 	.long	.Lxtalabel1
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	88
 	.long	92
 	.long	.Lxtalabel30
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	93
 	.long	93
 	.long	.Lxtalabel0
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	93
 	.long	93
 	.long	.Lxtalabel15
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	93
 	.long	93
 	.long	.Lxtalabel33
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	93
 	.long	93
 	.long	.Lxtalabel46
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	93
 	.long	93
 	.long	.Lxtalabel29
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel17
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel48
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel2
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel31
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	94
 	.long	94
 	.long	.Lxtalabel35
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel2
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel31
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel48
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel17
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel35
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	101
 	.long	102
 	.long	.Lxtalabel8
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	101
 	.long	102
 	.long	.Lxtalabel36
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	101
 	.long	102
 	.long	.Lxtalabel49
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	107
 	.long	.Lxtalabel37
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	107
 	.long	.Lxtalabel9
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	103
 	.long	107
 	.long	.Lxtalabel50
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	108
 	.long	108
 	.long	.Lxtalabel49
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	108
 	.long	108
 	.long	.Lxtalabel8
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	108
 	.long	108
 	.long	.Lxtalabel36
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel51
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel38
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	112
 	.long	112
 	.long	.Lxtalabel51
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	112
 	.long	112
 	.long	.Lxtalabel38
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	116
 	.long	117
 	.long	.Lxtalabel52
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	116
 	.long	117
 	.long	.Lxtalabel39
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	116
 	.long	117
 	.long	.Lxtalabel10
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	120
 	.long	.Lxtalabel53
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	120
 	.long	.Lxtalabel11
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	118
 	.long	120
 	.long	.Lxtalabel40
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	121
 	.long	121
 	.long	.Lxtalabel54
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	121
 	.long	121
 	.long	.Lxtalabel41
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	121
 	.long	121
 	.long	.Lxtalabel13
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	122
 	.long	.Lxtalabel42
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel55
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	122
 	.long	.Lxtalabel55
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	122
 	.long	122
 	.long	.Lxtalabel14
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel18
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	125
 	.long	126
 	.long	.Lxtalabel43
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	125
 	.long	126
 	.long	.Lxtalabel56
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	125
 	.long	126
 	.long	.Lxtalabel19
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel43
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel56
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel19
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	133
 	.long	133
 	.long	.Lxtalabel57
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	133
 	.long	133
 	.long	.Lxtalabel44
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	133
 	.long	133
 	.long	.Lxtalabel12
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel57
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel12
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel44
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel44
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel12
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	138
 	.long	140
 	.long	.Lxtalabel57
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel12
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel57
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_adc.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_adc.xc"
 	.byte	0
 	.long	143
 	.long	143

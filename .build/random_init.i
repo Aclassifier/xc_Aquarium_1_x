@@ -1,11 +1,11 @@
-# 1 "/Users/teig/workspace/module_random/src/random_init.c"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 290 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/module_random/src/random_init.c" 2
-# 1 "/Users/teig/workspace/module_random/src/random.h" 1
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 1
 
 
 
@@ -86,12 +86,12 @@ typedef unsigned out_buffered_port_32_t;
 
 
 typedef unsigned clock;
-# 5 "/Users/teig/workspace/module_random/src/random.h" 2
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 2
 
 
 # 1 ".././src/random_conf.h" 1
-# 8 "/Users/teig/workspace/module_random/src/random.h" 2
-# 20 "/Users/teig/workspace/module_random/src/random.h"
+# 8 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h" 2
+# 20 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 typedef unsigned random_generator_t;
 
 
@@ -101,12 +101,12 @@ typedef unsigned random_generator_t;
 
 
 random_generator_t random_create_generator_from_seed(unsigned seed);
-# 38 "/Users/teig/workspace/module_random/src/random.h"
+# 38 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 random_generator_t random_create_generator_from_hw_seed(void);
-# 49 "/Users/teig/workspace/module_random/src/random.h"
+# 49 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.h"
 unsigned
 random_get_random_number(random_generator_t *g);
-# 2 "/Users/teig/workspace/module_random/src/random_init.c" 2
+# 2 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
 # 23 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/timer.h" 1 3
@@ -197,7 +197,7 @@ __attribute__((deprecated)) static inline unsigned get_core_id(void) {
 __attribute__((deprecated)) static inline unsigned get_thread_id(void) {
   return __builtin_getid();
 }
-# 3 "/Users/teig/workspace/module_random/src/random_init.c" 2
+# 3 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c" 2
 
 
 

@@ -22,7 +22,7 @@
 	.globl Button_Task.select.yield.enable.cases.maxchanends
 	.set Button_Task.select.yield.enable.cases,0
 	.globl Button_Task.select.yield.enable.cases
-	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.1.nstackwords) $M (Button_Task.select.yield.case.0.nstackwords)
+	.set Button_Task.select.yield.enable.cases.nstackwords, 0 $M (Button_Task.select.yield.case.0.nstackwords) $M (Button_Task.select.yield.case.1.nstackwords)
 	.globl Button_Task.select.yield.enable.cases.nstackwords
 	.set Button_Task.select.enable.savedstate,11
 	.globl Button_Task.select.enable.savedstate
@@ -34,7 +34,7 @@
 	.globl Button_Task.select.enable.cases.maxchanends
 	.set Button_Task.select.enable.cases,0
 	.globl Button_Task.select.enable.cases
-	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.1.nstackwords) $M (Button_Task.select.case.0.nstackwords)
+	.set Button_Task.select.enable.cases.nstackwords, 0 $M (Button_Task.select.case.0.nstackwords) $M (Button_Task.select.case.1.nstackwords)
 	.globl Button_Task.select.enable.cases.nstackwords
 	.weak _i.button_if.button.maxchanends.group
 	.max_reduce _i.button_if.button.max.maxchanends, _i.button_if.button.maxchanends.group, 0
@@ -1108,7 +1108,7 @@ Button_Task.select.case.1:
 .Linfo_string1:
 .asciiz"../src/button_press.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"BUTTON_ACTION_PRESSED"
 .Linfo_string4:
@@ -2381,7 +2381,7 @@ Button_Task.select.case.1:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels8
 	.ascii	"../src/button_press.xc"
@@ -2442,7 +2442,7 @@ Button_Task.select.case.1:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_9,.Lxta.endpoint_labels0
 	.ascii	"../src/button_press.xc"
@@ -2521,7 +2521,7 @@ Button_Task.select.case.1:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_21,.Lxtalabel0
 	.ascii	"../src/button_press.xc"

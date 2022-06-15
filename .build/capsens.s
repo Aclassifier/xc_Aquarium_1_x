@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -110,7 +110,7 @@
 	.cc_top capsenseInitClock.function,capsenseInitClock
 capsenseInitClock:
 .Lfunc_begin0:
-	.file	1 "/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.loc	1 9 0
 	.cfi_startproc
 .Lxtalabel0:
@@ -862,9 +862,9 @@ measureAverageBoth:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"delay_seconds"
 .Linfo_string4:
@@ -2195,40 +2195,40 @@ measureAverageBoth:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	16
 	.long	.Lxta.call_labels0
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	84
 	.long	.Lxta.call_labels3
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	84
 	.long	.Lxta.call_labels4
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	95
 	.long	.Lxta.call_labels5
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	106
 	.long	.Lxta.call_labels2
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	112
 	.long	.Lxta.call_labels1
@@ -2238,52 +2238,52 @@ measureAverageBoth:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_6,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	31
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	38
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.endpoint_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	39
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.endpoint_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	42
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.endpoint_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	43
 	.long	.Lxta.endpoint_labels5
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.endpoint_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	44
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.endpoint_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	45
 	.long	.Lxta.endpoint_labels7
@@ -2293,332 +2293,332 @@ measureAverageBoth:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_14,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	9
 	.long	9
 	.long	.Lxtalabel0
 .cc_bottom cc_14
 .cc_top cc_15,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	10
 	.long	10
 	.long	.Lxtalabel0
 .cc_bottom cc_15
 .cc_top cc_16,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	11
 	.long	11
 	.long	.Lxtalabel0
 .cc_bottom cc_16
 .cc_top cc_17,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	12
 	.long	12
 	.long	.Lxtalabel0
 .cc_bottom cc_17
 .cc_top cc_18,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	13
 	.long	13
 	.long	.Lxtalabel0
 .cc_bottom cc_18
 .cc_top cc_19,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	16
 	.long	17
 	.long	.Lxtalabel1
 .cc_bottom cc_19
 .cc_top cc_20,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	22
 	.long	25
 	.long	.Lxtalabel2
 .cc_bottom cc_20
 .cc_top cc_21,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	27
 	.long	31
 	.long	.Lxtalabel2
 .cc_bottom cc_21
 .cc_top cc_22,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	32
 	.long	32
 	.long	.Lxtalabel2
 .cc_bottom cc_22
 .cc_top cc_23,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	33
 	.long	36
 	.long	.Lxtalabel2
 .cc_bottom cc_23
 .cc_top cc_24,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	38
 	.long	39
 	.long	.Lxtalabel2
 .cc_bottom cc_24
 .cc_top cc_25,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel2
 .cc_bottom cc_25
 .cc_top cc_26,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	42
 	.long	46
 	.long	.Lxtalabel3
 .cc_bottom cc_26
 .cc_top cc_27,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	47
 	.long	50
 	.long	.Lxtalabel2
 .cc_bottom cc_27
 .cc_top cc_28,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	47
 	.long	50
 	.long	.Lxtalabel4
 .cc_bottom cc_28
 .cc_top cc_29,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	51
 	.long	51
 	.long	.Lxtalabel5
 .cc_bottom cc_29
 .cc_top cc_30,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	52
 	.long	54
 	.long	.Lxtalabel15
 .cc_bottom cc_30
 .cc_top cc_31,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	52
 	.long	54
 	.long	.Lxtalabel6
 .cc_bottom cc_31
 .cc_top cc_32,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel15
 .cc_bottom cc_32
 .cc_top cc_33,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel6
 .cc_bottom cc_33
 .cc_top cc_34,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel7
 .cc_bottom cc_34
 .cc_top cc_35,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel8
 .cc_bottom cc_35
 .cc_top cc_36,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	59
 	.long	59
 	.long	.Lxtalabel9
 .cc_bottom cc_36
 .cc_top cc_37,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	60
 	.long	61
 	.long	.Lxtalabel10
 .cc_bottom cc_37
 .cc_top cc_38,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	60
 	.long	61
 	.long	.Lxtalabel15
 .cc_bottom cc_38
 .cc_top cc_39,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	62
 	.long	64
 	.long	.Lxtalabel11
 .cc_bottom cc_39
 .cc_top cc_40,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	65
 	.long	65
 	.long	.Lxtalabel12
 .cc_bottom cc_40
 .cc_top cc_41,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	65
 	.long	65
 	.long	.Lxtalabel13
 .cc_bottom cc_41
 .cc_top cc_42,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	66
 	.long	66
 	.long	.Lxtalabel14
 .cc_bottom cc_42
 .cc_top cc_43,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	74
 	.long	75
 	.long	.Lxtalabel18
 .cc_bottom cc_43
 .cc_top cc_44,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	76
 	.long	78
 	.long	.Lxtalabel19
 .cc_bottom cc_44
 .cc_top cc_45,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	80
 	.long	81
 	.long	.Lxtalabel20
 .cc_bottom cc_45
 .cc_top cc_46,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	82
 	.long	83
 	.long	.Lxtalabel21
 .cc_bottom cc_46
 .cc_top cc_47,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	84
 	.long	85
 	.long	.Lxtalabel22
 .cc_bottom cc_47
 .cc_top cc_48,.Lxtalabel23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	86
 	.long	88
 	.long	.Lxtalabel23
 .cc_bottom cc_48
 .cc_top cc_49,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	89
 	.long	89
 	.long	.Lxtalabel24
 .cc_bottom cc_49
 .cc_top cc_50,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	90
 	.long	90
 	.long	.Lxtalabel25
 .cc_bottom cc_50
 .cc_top cc_51,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	91
 	.long	94
 	.long	.Lxtalabel27
 .cc_bottom cc_51
 .cc_top cc_52,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	91
 	.long	94
 	.long	.Lxtalabel26
 .cc_bottom cc_52
 .cc_top cc_53,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	95
 	.long	96
 	.long	.Lxtalabel26
 .cc_bottom cc_53
 .cc_top cc_54,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel26
 .cc_bottom cc_54
 .cc_top cc_55,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel27
 .cc_bottom cc_55
 .cc_top cc_56,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	98
 	.long	98
 	.long	.Lxtalabel28
 .cc_bottom cc_56
 .cc_top cc_57,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	99
 	.long	100
 	.long	.Lxtalabel29
 .cc_bottom cc_57
 .cc_top cc_58,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	101
 	.long	101
 	.long	.Lxtalabel30
 .cc_bottom cc_58
 .cc_top cc_59,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel17
 .cc_bottom cc_59
 .cc_top cc_60,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	112
 	.long	113
@@ -2629,87 +2629,87 @@ measureAverageBoth:
 .Lentries_start6:
 	.long	.Lentries_end7-.Lentries_start6
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_61,.Lxta.loop_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	42
 	.long	46
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_61
 .cc_top cc_62,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	52
 	.long	55
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_62
 .cc_top cc_63,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	56
 	.long	59
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_63
 .cc_top cc_64,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	60
 	.long	64
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_64
 .cc_top cc_65,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	76
 	.long	78
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_65
 .cc_top cc_66,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	80
 	.long	81
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_66
 .cc_top cc_67,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	82
 	.long	83
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_67
 .cc_top cc_68,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	84
 	.long	85
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_68
 .cc_top cc_69,.Lxta.loop_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	86
 	.long	88
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_69
 .cc_top cc_70,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	89
 	.long	89
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_70
 .cc_top cc_71,.Lxta.loop_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	91
 	.long	97
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_71
 .cc_top cc_72,.Lxta.loop_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/capsens.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc"
 	.byte	0
 	.long	91
 	.long	97
@@ -2722,7 +2722,7 @@ measureAverageBoth:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/capsens.xc:43:16: error: out of bounds array access\n        cap :> values[i+1];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc:43:16: error: out of bounds array access\n        cap :> values[i+1];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -2730,7 +2730,7 @@ measureAverageBoth:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/capsens.xc:44:16: error: out of bounds array access\n        cap :> values[i+2];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc:44:16: error: out of bounds array access\n        cap :> values[i+2];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -2738,7 +2738,7 @@ measureAverageBoth:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/capsens.xc:45:16: error: out of bounds array access\n        cap :> values[i+3];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.xc:45:16: error: out of bounds array access\n        cap :> values[i+3];                          // Too high a value of N costs memory and time\n               ^~~~~~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2

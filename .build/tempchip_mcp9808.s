@@ -1110,7 +1110,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Linfo_string1:
 .asciiz"../src/tempchip_mcp9808.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"BUTTON_ACTION_PRESSED"
 .Linfo_string4:
@@ -3021,7 +3021,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels0
 	.ascii	"../src/tempchip_mcp9808.xc"
@@ -3070,7 +3070,7 @@ Tempchip_MCP9808_Shutdown_Wake_Ok:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_7,.Lxtalabel0
 	.ascii	"../src/tempchip_mcp9808.xc"

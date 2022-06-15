@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -311,7 +311,7 @@
 	.set slider.locnoside, 0
 	.set absolute_slider.locnointerfaceaccess, 0
 	.set slider.locnointerfaceaccess, 0
-	.assert 1,measureAverage.actnonotificationselect,"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:7: error: call to function `measureAverage\' which selects on a notification in a combinable function select case\n      measureAverage(cap, t, n_elements, N);\n      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	.assert 1,measureAverage.actnonotificationselect,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:7: error: call to function `measureAverage\' which selects on a notification in a combinable function select case\n      measureAverage(cap, t, n_elements, N);\n      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 
 	.section	.debug_info,"",@progbits
@@ -328,7 +328,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.text
 	.globl	_i.absolute_slider_if.absolute_slider._c0.get_coord
 	.align	4
@@ -5405,9 +5405,9 @@ slider.select.case.0:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"IDLE"
 .Linfo_string4:
@@ -10138,136 +10138,136 @@ slider.select.case.0:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	18
 	.long	.Lxta.call_labels9
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	18
 	.long	.Lxta.call_labels6
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	19
 	.long	.Lxta.call_labels10
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	19
 	.long	.Lxta.call_labels7
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels13
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels15
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels1
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels14
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels8
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	.Lxta.call_labels0
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels11
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels16
 .cc_bottom cc_11
 .cc_top cc_12,.Lxta.call_labels20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels20
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels4
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.call_labels18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels18
 .cc_bottom cc_14
 .cc_top cc_15,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	.Lxta.call_labels2
 .cc_bottom cc_15
 .cc_top cc_16,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels5
 .cc_bottom cc_16
 .cc_top cc_17,.Lxta.call_labels17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels17
 .cc_bottom cc_17
 .cc_top cc_18,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels3
 .cc_bottom cc_18
 .cc_top cc_19,.Lxta.call_labels19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels19
 .cc_bottom cc_19
 .cc_top cc_20,.Lxta.call_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels12
 .cc_bottom cc_20
 .cc_top cc_21,.Lxta.call_labels21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	93
 	.long	.Lxta.call_labels21
@@ -10277,52 +10277,52 @@ slider.select.case.0:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_22,.Lxta.endpoint_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	77
 	.long	.Lxta.endpoint_labels4
 .cc_bottom cc_22
 .cc_top cc_23,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	77
 	.long	.Lxta.endpoint_labels2
 .cc_bottom cc_23
 .cc_top cc_24,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_24
 .cc_top cc_25,.Lxta.endpoint_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels3
 .cc_bottom cc_25
 .cc_top cc_26,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_26
 .cc_top cc_27,.Lxta.endpoint_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels5
 .cc_bottom cc_27
 .cc_top cc_28,.Lxta.endpoint_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels6
 .cc_bottom cc_28
 .cc_top cc_29,.Lxta.endpoint_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	91
 	.long	.Lxta.endpoint_labels7
@@ -10332,2306 +10332,2306 @@ slider.select.case.0:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_30,.Lxtalabel54
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	15
 	.long	20
 	.long	.Lxtalabel54
 .cc_bottom cc_30
 .cc_top cc_31,.Lxtalabel65
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	15
 	.long	20
 	.long	.Lxtalabel65
 .cc_bottom cc_31
 .cc_top cc_32,.Lxtalabel55
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	21
 	.long	22
 	.long	.Lxtalabel55
 .cc_bottom cc_32
 .cc_top cc_33,.Lxtalabel63
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	21
 	.long	22
 	.long	.Lxtalabel63
 .cc_bottom cc_33
 .cc_top cc_34,.Lxtalabel64
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	23
 	.long	23
 	.long	.Lxtalabel64
 .cc_bottom cc_34
 .cc_top cc_35,.Lxtalabel126
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	26
 	.long	27
 	.long	.Lxtalabel126
 .cc_bottom cc_35
 .cc_top cc_36,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	26
 	.long	27
 	.long	.Lxtalabel56
 .cc_bottom cc_36
 .cc_top cc_37,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	26
 	.long	27
 	.long	.Lxtalabel108
 .cc_bottom cc_37
 .cc_top cc_38,.Lxtalabel117
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	26
 	.long	27
 	.long	.Lxtalabel117
 .cc_bottom cc_38
 .cc_top cc_39,.Lxtalabel117
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	30
 	.long	.Lxtalabel117
 .cc_bottom cc_39
 .cc_top cc_40,.Lxtalabel56
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	30
 	.long	.Lxtalabel56
 .cc_bottom cc_40
 .cc_top cc_41,.Lxtalabel126
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	30
 	.long	.Lxtalabel126
 .cc_bottom cc_41
 .cc_top cc_42,.Lxtalabel108
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	29
 	.long	30
 	.long	.Lxtalabel108
 .cc_bottom cc_42
 .cc_top cc_43,.Lxtalabel118
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel118
 .cc_bottom cc_43
 .cc_top cc_44,.Lxtalabel57
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel57
 .cc_bottom cc_44
 .cc_top cc_45,.Lxtalabel109
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel109
 .cc_bottom cc_45
 .cc_top cc_46,.Lxtalabel127
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel127
 .cc_bottom cc_46
 .cc_top cc_47,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel0
 .cc_bottom cc_47
 .cc_top cc_48,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxtalabel8
 .cc_bottom cc_48
 .cc_top cc_49,.Lxtalabel119
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel119
 .cc_bottom cc_49
 .cc_top cc_50,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel9
 .cc_bottom cc_50
 .cc_top cc_51,.Lxtalabel128
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel128
 .cc_bottom cc_51
 .cc_top cc_52,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel1
 .cc_bottom cc_52
 .cc_top cc_53,.Lxtalabel110
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	41
 	.long	41
 	.long	.Lxtalabel110
 .cc_bottom cc_53
 .cc_top cc_54,.Lxtalabel129
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel129
 .cc_bottom cc_54
 .cc_top cc_55,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel10
 .cc_bottom cc_55
 .cc_top cc_56,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel2
 .cc_bottom cc_56
 .cc_top cc_57,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel111
 .cc_bottom cc_57
 .cc_top cc_58,.Lxtalabel120
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel120
 .cc_bottom cc_58
 .cc_top cc_59,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxtalabel58
 .cc_bottom cc_59
 .cc_top cc_60,.Lxtalabel120
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel120
 .cc_bottom cc_60
 .cc_top cc_61,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel10
 .cc_bottom cc_61
 .cc_top cc_62,.Lxtalabel129
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel129
 .cc_bottom cc_62
 .cc_top cc_63,.Lxtalabel58
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel58
 .cc_bottom cc_63
 .cc_top cc_64,.Lxtalabel111
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel111
 .cc_bottom cc_64
 .cc_top cc_65,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel2
 .cc_bottom cc_65
 .cc_top cc_66,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel3
 .cc_bottom cc_66
 .cc_top cc_67,.Lxtalabel130
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel130
 .cc_bottom cc_67
 .cc_top cc_68,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel11
 .cc_bottom cc_68
 .cc_top cc_69,.Lxtalabel59
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel59
 .cc_bottom cc_69
 .cc_top cc_70,.Lxtalabel121
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel121
 .cc_bottom cc_70
 .cc_top cc_71,.Lxtalabel112
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	55
 	.long	55
 	.long	.Lxtalabel112
 .cc_bottom cc_71
 .cc_top cc_72,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel113
 .cc_bottom cc_72
 .cc_top cc_73,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel4
 .cc_bottom cc_73
 .cc_top cc_74,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel12
 .cc_bottom cc_74
 .cc_top cc_75,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel131
 .cc_bottom cc_75
 .cc_top cc_76,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel60
 .cc_bottom cc_76
 .cc_top cc_77,.Lxtalabel122
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	56
 	.long	56
 	.long	.Lxtalabel122
 .cc_bottom cc_77
 .cc_top cc_78,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel13
 .cc_bottom cc_78
 .cc_top cc_79,.Lxtalabel114
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel114
 .cc_bottom cc_79
 .cc_top cc_80,.Lxtalabel123
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel123
 .cc_bottom cc_80
 .cc_top cc_81,.Lxtalabel132
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel132
 .cc_bottom cc_81
 .cc_top cc_82,.Lxtalabel60
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel60
 .cc_bottom cc_82
 .cc_top cc_83,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	57
 	.long	58
 	.long	.Lxtalabel5
 .cc_bottom cc_83
 .cc_top cc_84,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel14
 .cc_bottom cc_84
 .cc_top cc_85,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel61
 .cc_bottom cc_85
 .cc_top cc_86,.Lxtalabel124
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel124
 .cc_bottom cc_86
 .cc_top cc_87,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel6
 .cc_bottom cc_87
 .cc_top cc_88,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel133
 .cc_bottom cc_88
 .cc_top cc_89,.Lxtalabel115
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	60
 	.long	60
 	.long	.Lxtalabel115
 .cc_bottom cc_89
 .cc_top cc_90,.Lxtalabel116
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel116
 .cc_bottom cc_90
 .cc_top cc_91,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel15
 .cc_bottom cc_91
 .cc_top cc_92,.Lxtalabel61
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel61
 .cc_bottom cc_92
 .cc_top cc_93,.Lxtalabel125
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel125
 .cc_bottom cc_93
 .cc_top cc_94,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel7
 .cc_bottom cc_94
 .cc_top cc_95,.Lxtalabel134
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	61
 	.long	62
 	.long	.Lxtalabel134
 .cc_bottom cc_95
 .cc_top cc_96,.Lxtalabel114
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel114
 .cc_bottom cc_96
 .cc_top cc_97,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel14
 .cc_bottom cc_97
 .cc_top cc_98,.Lxtalabel134
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel134
 .cc_bottom cc_98
 .cc_top cc_99,.Lxtalabel122
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel122
 .cc_bottom cc_99
 .cc_top cc_100,.Lxtalabel123
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel123
 .cc_bottom cc_100
 .cc_top cc_101,.Lxtalabel115
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel115
 .cc_bottom cc_101
 .cc_top cc_102,.Lxtalabel125
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel125
 .cc_bottom cc_102
 .cc_top cc_103,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel133
 .cc_bottom cc_103
 .cc_top cc_104,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel6
 .cc_bottom cc_104
 .cc_top cc_105,.Lxtalabel132
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel132
 .cc_bottom cc_105
 .cc_top cc_106,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel7
 .cc_bottom cc_106
 .cc_top cc_107,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel62
 .cc_bottom cc_107
 .cc_top cc_108,.Lxtalabel124
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel124
 .cc_bottom cc_108
 .cc_top cc_109,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel4
 .cc_bottom cc_109
 .cc_top cc_110,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel131
 .cc_bottom cc_110
 .cc_top cc_111,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel113
 .cc_bottom cc_111
 .cc_top cc_112,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel13
 .cc_bottom cc_112
 .cc_top cc_113,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel5
 .cc_bottom cc_113
 .cc_top cc_114,.Lxtalabel116
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel116
 .cc_bottom cc_114
 .cc_top cc_115,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel12
 .cc_bottom cc_115
 .cc_top cc_116,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	64
 	.long	64
 	.long	.Lxtalabel15
 .cc_bottom cc_116
 .cc_top cc_117,.Lxtalabel12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel12
 .cc_bottom cc_117
 .cc_top cc_118,.Lxtalabel116
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel116
 .cc_bottom cc_118
 .cc_top cc_119,.Lxtalabel14
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel14
 .cc_bottom cc_119
 .cc_top cc_120,.Lxtalabel124
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel124
 .cc_bottom cc_120
 .cc_top cc_121,.Lxtalabel13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel13
 .cc_bottom cc_121
 .cc_top cc_122,.Lxtalabel134
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel134
 .cc_bottom cc_122
 .cc_top cc_123,.Lxtalabel15
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel15
 .cc_bottom cc_123
 .cc_top cc_124,.Lxtalabel125
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel125
 .cc_bottom cc_124
 .cc_top cc_125,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel4
 .cc_bottom cc_125
 .cc_top cc_126,.Lxtalabel113
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel113
 .cc_bottom cc_126
 .cc_top cc_127,.Lxtalabel62
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel62
 .cc_bottom cc_127
 .cc_top cc_128,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel7
 .cc_bottom cc_128
 .cc_top cc_129,.Lxtalabel115
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel115
 .cc_bottom cc_129
 .cc_top cc_130,.Lxtalabel123
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel123
 .cc_bottom cc_130
 .cc_top cc_131,.Lxtalabel131
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel131
 .cc_bottom cc_131
 .cc_top cc_132,.Lxtalabel122
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel122
 .cc_bottom cc_132
 .cc_top cc_133,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel6
 .cc_bottom cc_133
 .cc_top cc_134,.Lxtalabel132
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel132
 .cc_bottom cc_134
 .cc_top cc_135,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel5
 .cc_bottom cc_135
 .cc_top cc_136,.Lxtalabel133
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel133
 .cc_bottom cc_136
 .cc_top cc_137,.Lxtalabel114
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	66
 	.long	67
 	.long	.Lxtalabel114
 .cc_bottom cc_137
 .cc_top cc_138,.Lxtalabel107
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	73
 	.long	80
 	.long	.Lxtalabel107
 .cc_bottom cc_138
 .cc_top cc_139,.Lxtalabel66
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	73
 	.long	80
 	.long	.Lxtalabel66
 .cc_bottom cc_139
 .cc_top cc_140,.Lxtalabel156
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	85
 	.long	.Lxtalabel156
 .cc_bottom cc_140
 .cc_top cc_141,.Lxtalabel67
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	85
 	.long	.Lxtalabel67
 .cc_bottom cc_141
 .cc_top cc_142,.Lxtalabel177
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	85
 	.long	.Lxtalabel177
 .cc_bottom cc_142
 .cc_top cc_143,.Lxtalabel135
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	83
 	.long	85
 	.long	.Lxtalabel135
 .cc_bottom cc_143
 .cc_top cc_144,.Lxtalabel83
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel83
 .cc_bottom cc_144
 .cc_top cc_145,.Lxtalabel140
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel140
 .cc_bottom cc_145
 .cc_top cc_146,.Lxtalabel39
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel39
 .cc_bottom cc_146
 .cc_top cc_147,.Lxtalabel182
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel182
 .cc_bottom cc_147
 .cc_top cc_148,.Lxtalabel161
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel161
 .cc_bottom cc_148
 .cc_top cc_149,.Lxtalabel87
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel87
 .cc_bottom cc_149
 .cc_top cc_150,.Lxtalabel86
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel86
 .cc_bottom cc_150
 .cc_top cc_151,.Lxtalabel20
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel20
 .cc_bottom cc_151
 .cc_top cc_152,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel77
 .cc_bottom cc_152
 .cc_top cc_153,.Lxtalabel85
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel85
 .cc_bottom cc_153
 .cc_top cc_154,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel78
 .cc_bottom cc_154
 .cc_top cc_155,.Lxtalabel84
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel84
 .cc_bottom cc_155
 .cc_top cc_156,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel79
 .cc_bottom cc_156
 .cc_top cc_157,.Lxtalabel82
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel82
 .cc_bottom cc_157
 .cc_top cc_158,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel80
 .cc_bottom cc_158
 .cc_top cc_159,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	97
 	.long	97
 	.long	.Lxtalabel81
 .cc_bottom cc_159
 .cc_top cc_160,.Lxtalabel81
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel81
 .cc_bottom cc_160
 .cc_top cc_161,.Lxtalabel82
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel82
 .cc_bottom cc_161
 .cc_top cc_162,.Lxtalabel80
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel80
 .cc_bottom cc_162
 .cc_top cc_163,.Lxtalabel83
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel83
 .cc_bottom cc_163
 .cc_top cc_164,.Lxtalabel21
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel21
 .cc_bottom cc_164
 .cc_top cc_165,.Lxtalabel84
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel84
 .cc_bottom cc_165
 .cc_top cc_166,.Lxtalabel79
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel79
 .cc_bottom cc_166
 .cc_top cc_167,.Lxtalabel85
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel85
 .cc_bottom cc_167
 .cc_top cc_168,.Lxtalabel78
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel78
 .cc_bottom cc_168
 .cc_top cc_169,.Lxtalabel86
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel86
 .cc_bottom cc_169
 .cc_top cc_170,.Lxtalabel40
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel40
 .cc_bottom cc_170
 .cc_top cc_171,.Lxtalabel87
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel87
 .cc_bottom cc_171
 .cc_top cc_172,.Lxtalabel183
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel183
 .cc_bottom cc_172
 .cc_top cc_173,.Lxtalabel141
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel141
 .cc_bottom cc_173
 .cc_top cc_174,.Lxtalabel77
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel77
 .cc_bottom cc_174
 .cc_top cc_175,.Lxtalabel162
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	98
 	.long	102
 	.long	.Lxtalabel162
 .cc_bottom cc_175
 .cc_top cc_176,.Lxtalabel163
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	103
 	.long	104
 	.long	.Lxtalabel163
 .cc_bottom cc_176
 .cc_top cc_177,.Lxtalabel184
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	103
 	.long	104
 	.long	.Lxtalabel184
 .cc_bottom cc_177
 .cc_top cc_178,.Lxtalabel142
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	103
 	.long	104
 	.long	.Lxtalabel142
 .cc_bottom cc_178
 .cc_top cc_179,.Lxtalabel42
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel42
 .cc_bottom cc_179
 .cc_top cc_180,.Lxtalabel23
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel23
 .cc_bottom cc_180
 .cc_top cc_181,.Lxtalabel24
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel24
 .cc_bottom cc_181
 .cc_top cc_182,.Lxtalabel165
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel165
 .cc_bottom cc_182
 .cc_top cc_183,.Lxtalabel43
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel43
 .cc_bottom cc_183
 .cc_top cc_184,.Lxtalabel144
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel144
 .cc_bottom cc_184
 .cc_top cc_185,.Lxtalabel90
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel90
 .cc_bottom cc_185
 .cc_top cc_186,.Lxtalabel89
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel89
 .cc_bottom cc_186
 .cc_top cc_187,.Lxtalabel143
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel143
 .cc_bottom cc_187
 .cc_top cc_188,.Lxtalabel186
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel186
 .cc_bottom cc_188
 .cc_top cc_189,.Lxtalabel164
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel164
 .cc_bottom cc_189
 .cc_top cc_190,.Lxtalabel185
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	105
 	.long	105
 	.long	.Lxtalabel185
 .cc_bottom cc_190
 .cc_top cc_191,.Lxtalabel187
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel187
 .cc_bottom cc_191
 .cc_top cc_192,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel44
 .cc_bottom cc_192
 .cc_top cc_193,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel145
 .cc_bottom cc_193
 .cc_top cc_194,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel25
 .cc_bottom cc_194
 .cc_top cc_195,.Lxtalabel166
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel166
 .cc_bottom cc_195
 .cc_top cc_196,.Lxtalabel91
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	106
 	.long	107
 	.long	.Lxtalabel91
 .cc_bottom cc_196
 .cc_top cc_197,.Lxtalabel91
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel91
 .cc_bottom cc_197
 .cc_top cc_198,.Lxtalabel187
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel187
 .cc_bottom cc_198
 .cc_top cc_199,.Lxtalabel145
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel145
 .cc_bottom cc_199
 .cc_top cc_200,.Lxtalabel25
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel25
 .cc_bottom cc_200
 .cc_top cc_201,.Lxtalabel44
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel44
 .cc_bottom cc_201
 .cc_top cc_202,.Lxtalabel166
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	109
 	.long	109
 	.long	.Lxtalabel166
 .cc_bottom cc_202
 .cc_top cc_203,.Lxtalabel146
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel146
 .cc_bottom cc_203
 .cc_top cc_204,.Lxtalabel45
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel45
 .cc_bottom cc_204
 .cc_top cc_205,.Lxtalabel167
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel167
 .cc_bottom cc_205
 .cc_top cc_206,.Lxtalabel26
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel26
 .cc_bottom cc_206
 .cc_top cc_207,.Lxtalabel92
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel92
 .cc_bottom cc_207
 .cc_top cc_208,.Lxtalabel188
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	110
 	.long	113
 	.long	.Lxtalabel188
 .cc_bottom cc_208
 .cc_top cc_209,.Lxtalabel28
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel28
 .cc_bottom cc_209
 .cc_top cc_210,.Lxtalabel148
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel148
 .cc_bottom cc_210
 .cc_top cc_211,.Lxtalabel169
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel169
 .cc_bottom cc_211
 .cc_top cc_212,.Lxtalabel190
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel190
 .cc_bottom cc_212
 .cc_top cc_213,.Lxtalabel47
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel47
 .cc_bottom cc_213
 .cc_top cc_214,.Lxtalabel97
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	114
 	.long	117
 	.long	.Lxtalabel97
 .cc_bottom cc_214
 .cc_top cc_215,.Lxtalabel170
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel170
 .cc_bottom cc_215
 .cc_top cc_216,.Lxtalabel191
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel191
 .cc_bottom cc_216
 .cc_top cc_217,.Lxtalabel48
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel48
 .cc_bottom cc_217
 .cc_top cc_218,.Lxtalabel98
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel98
 .cc_bottom cc_218
 .cc_top cc_219,.Lxtalabel149
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel149
 .cc_bottom cc_219
 .cc_top cc_220,.Lxtalabel29
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	118
 	.long	121
 	.long	.Lxtalabel29
 .cc_bottom cc_220
 .cc_top cc_221,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel105
 .cc_bottom cc_221
 .cc_top cc_222,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel102
 .cc_bottom cc_222
 .cc_top cc_223,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel99
 .cc_bottom cc_223
 .cc_top cc_224,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel49
 .cc_bottom cc_224
 .cc_top cc_225,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel100
 .cc_bottom cc_225
 .cc_top cc_226,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel106
 .cc_bottom cc_226
 .cc_top cc_227,.Lxtalabel171
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel171
 .cc_bottom cc_227
 .cc_top cc_228,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel101
 .cc_bottom cc_228
 .cc_top cc_229,.Lxtalabel150
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel150
 .cc_bottom cc_229
 .cc_top cc_230,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel104
 .cc_bottom cc_230
 .cc_top cc_231,.Lxtalabel192
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel192
 .cc_bottom cc_231
 .cc_top cc_232,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel103
 .cc_bottom cc_232
 .cc_top cc_233,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	123
 	.long	124
 	.long	.Lxtalabel30
 .cc_bottom cc_233
 .cc_top cc_234,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel101
 .cc_bottom cc_234
 .cc_top cc_235,.Lxtalabel49
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel49
 .cc_bottom cc_235
 .cc_top cc_236,.Lxtalabel192
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel192
 .cc_bottom cc_236
 .cc_top cc_237,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel100
 .cc_bottom cc_237
 .cc_top cc_238,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel102
 .cc_bottom cc_238
 .cc_top cc_239,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel106
 .cc_bottom cc_239
 .cc_top cc_240,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel103
 .cc_bottom cc_240
 .cc_top cc_241,.Lxtalabel150
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel150
 .cc_bottom cc_241
 .cc_top cc_242,.Lxtalabel171
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel171
 .cc_bottom cc_242
 .cc_top cc_243,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel104
 .cc_bottom cc_243
 .cc_top cc_244,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel105
 .cc_bottom cc_244
 .cc_top cc_245,.Lxtalabel30
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel30
 .cc_bottom cc_245
 .cc_top cc_246,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	129
 	.long	129
 	.long	.Lxtalabel99
 .cc_bottom cc_246
 .cc_top cc_247,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel101
 .cc_bottom cc_247
 .cc_top cc_248,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel99
 .cc_bottom cc_248
 .cc_top cc_249,.Lxtalabel193
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel193
 .cc_bottom cc_249
 .cc_top cc_250,.Lxtalabel31
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel31
 .cc_bottom cc_250
 .cc_top cc_251,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel102
 .cc_bottom cc_251
 .cc_top cc_252,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel103
 .cc_bottom cc_252
 .cc_top cc_253,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel105
 .cc_bottom cc_253
 .cc_top cc_254,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel106
 .cc_bottom cc_254
 .cc_top cc_255,.Lxtalabel50
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel50
 .cc_bottom cc_255
 .cc_top cc_256,.Lxtalabel172
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel172
 .cc_bottom cc_256
 .cc_top cc_257,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel104
 .cc_bottom cc_257
 .cc_top cc_258,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel100
 .cc_bottom cc_258
 .cc_top cc_259,.Lxtalabel151
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	131
 	.long	133
 	.long	.Lxtalabel151
 .cc_bottom cc_259
 .cc_top cc_260,.Lxtalabel152
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel152
 .cc_bottom cc_260
 .cc_top cc_261,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel104
 .cc_bottom cc_261
 .cc_top cc_262,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel103
 .cc_bottom cc_262
 .cc_top cc_263,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel105
 .cc_bottom cc_263
 .cc_top cc_264,.Lxtalabel173
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel173
 .cc_bottom cc_264
 .cc_top cc_265,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel101
 .cc_bottom cc_265
 .cc_top cc_266,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel102
 .cc_bottom cc_266
 .cc_top cc_267,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel106
 .cc_bottom cc_267
 .cc_top cc_268,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel99
 .cc_bottom cc_268
 .cc_top cc_269,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel100
 .cc_bottom cc_269
 .cc_top cc_270,.Lxtalabel32
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel32
 .cc_bottom cc_270
 .cc_top cc_271,.Lxtalabel194
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel194
 .cc_bottom cc_271
 .cc_top cc_272,.Lxtalabel51
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	134
 	.long	134
 	.long	.Lxtalabel51
 .cc_bottom cc_272
 .cc_top cc_273,.Lxtalabel106
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel106
 .cc_bottom cc_273
 .cc_top cc_274,.Lxtalabel105
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel105
 .cc_bottom cc_274
 .cc_top cc_275,.Lxtalabel104
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel104
 .cc_bottom cc_275
 .cc_top cc_276,.Lxtalabel103
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel103
 .cc_bottom cc_276
 .cc_top cc_277,.Lxtalabel102
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel102
 .cc_bottom cc_277
 .cc_top cc_278,.Lxtalabel101
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel101
 .cc_bottom cc_278
 .cc_top cc_279,.Lxtalabel100
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel100
 .cc_bottom cc_279
 .cc_top cc_280,.Lxtalabel99
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel99
 .cc_bottom cc_280
 .cc_top cc_281,.Lxtalabel174
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel174
 .cc_bottom cc_281
 .cc_top cc_282,.Lxtalabel33
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel33
 .cc_bottom cc_282
 .cc_top cc_283,.Lxtalabel153
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel153
 .cc_bottom cc_283
 .cc_top cc_284,.Lxtalabel195
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel195
 .cc_bottom cc_284
 .cc_top cc_285,.Lxtalabel52
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	136
 	.long	138
 	.long	.Lxtalabel52
 .cc_bottom cc_285
 .cc_top cc_286,.Lxtalabel94
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel94
 .cc_bottom cc_286
 .cc_top cc_287,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel147
 .cc_bottom cc_287
 .cc_top cc_288,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel27
 .cc_bottom cc_288
 .cc_top cc_289,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel46
 .cc_bottom cc_289
 .cc_top cc_290,.Lxtalabel95
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel95
 .cc_bottom cc_290
 .cc_top cc_291,.Lxtalabel96
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel96
 .cc_bottom cc_291
 .cc_top cc_292,.Lxtalabel168
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel168
 .cc_bottom cc_292
 .cc_top cc_293,.Lxtalabel189
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	140
 	.long	141
 	.long	.Lxtalabel189
 .cc_bottom cc_293
 .cc_top cc_294,.Lxtalabel189
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel189
 .cc_bottom cc_294
 .cc_top cc_295,.Lxtalabel46
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel46
 .cc_bottom cc_295
 .cc_top cc_296,.Lxtalabel168
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel168
 .cc_bottom cc_296
 .cc_top cc_297,.Lxtalabel95
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel95
 .cc_bottom cc_297
 .cc_top cc_298,.Lxtalabel27
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel27
 .cc_bottom cc_298
 .cc_top cc_299,.Lxtalabel94
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel94
 .cc_bottom cc_299
 .cc_top cc_300,.Lxtalabel147
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel147
 .cc_bottom cc_300
 .cc_top cc_301,.Lxtalabel96
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	143
 	.long	143
 	.long	.Lxtalabel96
 .cc_bottom cc_301
 .cc_top cc_302,.Lxtalabel196
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	144
 	.long	145
 	.long	.Lxtalabel196
 .cc_bottom cc_302
 .cc_top cc_303,.Lxtalabel154
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	144
 	.long	145
 	.long	.Lxtalabel154
 .cc_bottom cc_303
 .cc_top cc_304,.Lxtalabel175
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	144
 	.long	145
 	.long	.Lxtalabel175
 .cc_bottom cc_304
 .cc_top cc_305,.Lxtalabel178
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel178
 .cc_bottom cc_305
 .cc_top cc_306,.Lxtalabel179
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel179
 .cc_bottom cc_306
 .cc_top cc_307,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel35
 .cc_bottom cc_307
 .cc_top cc_308,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel22
 .cc_bottom cc_308
 .cc_top cc_309,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel76
 .cc_bottom cc_309
 .cc_top cc_310,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel38
 .cc_bottom cc_310
 .cc_top cc_311,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel41
 .cc_bottom cc_311
 .cc_top cc_312,.Lxtalabel157
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel157
 .cc_bottom cc_312
 .cc_top cc_313,.Lxtalabel158
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel158
 .cc_bottom cc_313
 .cc_top cc_314,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel19
 .cc_bottom cc_314
 .cc_top cc_315,.Lxtalabel88
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel88
 .cc_bottom cc_315
 .cc_top cc_316,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel16
 .cc_bottom cc_316
 .cc_top cc_317,.Lxtalabel137
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel137
 .cc_bottom cc_317
 .cc_top cc_318,.Lxtalabel136
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel136
 .cc_bottom cc_318
 .cc_top cc_319,.Lxtalabel68
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	146
 	.long	146
 	.long	.Lxtalabel68
 .cc_bottom cc_319
 .cc_top cc_320,.Lxtalabel70
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel70
 .cc_bottom cc_320
 .cc_top cc_321,.Lxtalabel73
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel73
 .cc_bottom cc_321
 .cc_top cc_322,.Lxtalabel69
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel69
 .cc_bottom cc_322
 .cc_top cc_323,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel75
 .cc_bottom cc_323
 .cc_top cc_324,.Lxtalabel74
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel74
 .cc_bottom cc_324
 .cc_top cc_325,.Lxtalabel17
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel17
 .cc_bottom cc_325
 .cc_top cc_326,.Lxtalabel159
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel159
 .cc_bottom cc_326
 .cc_top cc_327,.Lxtalabel180
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel180
 .cc_bottom cc_327
 .cc_top cc_328,.Lxtalabel72
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel72
 .cc_bottom cc_328
 .cc_top cc_329,.Lxtalabel138
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel138
 .cc_bottom cc_329
 .cc_top cc_330,.Lxtalabel36
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel36
 .cc_bottom cc_330
 .cc_top cc_331,.Lxtalabel71
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	148
 	.long	148
 	.long	.Lxtalabel71
 .cc_bottom cc_331
 .cc_top cc_332,.Lxtalabel37
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel37
 .cc_bottom cc_332
 .cc_top cc_333,.Lxtalabel71
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel71
 .cc_bottom cc_333
 .cc_top cc_334,.Lxtalabel18
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel18
 .cc_bottom cc_334
 .cc_top cc_335,.Lxtalabel75
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel75
 .cc_bottom cc_335
 .cc_top cc_336,.Lxtalabel69
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel69
 .cc_bottom cc_336
 .cc_top cc_337,.Lxtalabel72
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel72
 .cc_bottom cc_337
 .cc_top cc_338,.Lxtalabel70
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel70
 .cc_bottom cc_338
 .cc_top cc_339,.Lxtalabel181
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel181
 .cc_bottom cc_339
 .cc_top cc_340,.Lxtalabel139
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel139
 .cc_bottom cc_340
 .cc_top cc_341,.Lxtalabel74
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel74
 .cc_bottom cc_341
 .cc_top cc_342,.Lxtalabel160
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel160
 .cc_bottom cc_342
 .cc_top cc_343,.Lxtalabel73
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	149
 	.long	152
 	.long	.Lxtalabel73
 .cc_bottom cc_343
 .cc_top cc_344,.Lxtalabel68
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel68
 .cc_bottom cc_344
 .cc_top cc_345,.Lxtalabel35
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel35
 .cc_bottom cc_345
 .cc_top cc_346,.Lxtalabel41
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel41
 .cc_bottom cc_346
 .cc_top cc_347,.Lxtalabel22
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel22
 .cc_bottom cc_347
 .cc_top cc_348,.Lxtalabel38
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel38
 .cc_bottom cc_348
 .cc_top cc_349,.Lxtalabel76
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel76
 .cc_bottom cc_349
 .cc_top cc_350,.Lxtalabel88
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel88
 .cc_bottom cc_350
 .cc_top cc_351,.Lxtalabel19
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel19
 .cc_bottom cc_351
 .cc_top cc_352,.Lxtalabel16
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	156
 	.long	157
 	.long	.Lxtalabel16
 .cc_bottom cc_352
 .cc_top cc_353,.Lxtalabel34
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel34
 .cc_bottom cc_353
 .cc_top cc_354,.Lxtalabel53
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel53
 .cc_bottom cc_354
 .cc_top cc_355,.Lxtalabel176
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel176
 .cc_bottom cc_355
 .cc_top cc_356,.Lxtalabel155
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel155
 .cc_bottom cc_356
 .cc_top cc_357,.Lxtalabel93
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
 	.long	.Lxtalabel93
 .cc_bottom cc_357
 .cc_top cc_358,.Lxtalabel197
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	158
 	.long	159
@@ -12642,143 +12642,143 @@ slider.select.case.0:
 .Lentries_start6:
 	.long	.Lentries_end7-.Lentries_start6
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_359,.Lxta.loop_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	21
 	.long	22
 	.long	.Lxta.loop_labels7
 .cc_bottom cc_359
 .cc_top cc_360,.Lxta.loop_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	21
 	.long	22
 	.long	.Lxta.loop_labels4
 .cc_bottom cc_360
 .cc_top cc_361,.Lxta.loop_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels0
 .cc_bottom cc_361
 .cc_top cc_362,.Lxta.loop_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels2
 .cc_bottom cc_362
 .cc_top cc_363,.Lxta.loop_labels12
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels12
 .cc_bottom cc_363
 .cc_top cc_364,.Lxta.loop_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels10
 .cc_bottom cc_364
 .cc_top cc_365,.Lxta.loop_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels8
 .cc_bottom cc_365
 .cc_top cc_366,.Lxta.loop_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	31
 	.long	32
 	.long	.Lxta.loop_labels5
 .cc_bottom cc_366
 .cc_top cc_367,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_367
 .cc_top cc_368,.Lxta.loop_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels13
 .cc_bottom cc_368
 .cc_top cc_369,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_369
 .cc_top cc_370,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_370
 .cc_top cc_371,.Lxta.loop_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_371
 .cc_top cc_372,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	42
 	.long	43
 	.long	.Lxta.loop_labels11
 .cc_bottom cc_372
 .cc_top cc_373,.Lxta.loop_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
 	.long	.Lxta.loop_labels3
 .cc_bottom cc_373
 .cc_top cc_374,.Lxta.loop_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
 	.long	.Lxta.loop_labels9
 .cc_bottom cc_374
 .cc_top cc_375,.Lxta.loop_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
 	.long	.Lxta.loop_labels11
 .cc_bottom cc_375
 .cc_top cc_376,.Lxta.loop_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
 	.long	.Lxta.loop_labels1
 .cc_bottom cc_376
 .cc_top cc_377,.Lxta.loop_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
 	.long	.Lxta.loop_labels6
 .cc_bottom cc_377
 .cc_top cc_378,.Lxta.loop_labels13
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 	.byte	0
 	.long	45
 	.long	54
@@ -12791,7 +12791,7 @@ slider.select.case.0:
 	.long	1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str0:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_0,.Ltrap_info0
 	.long	.Ltrap_info0
@@ -12799,7 +12799,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_0
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_1,.Ltrap_info1
 	.long	.Ltrap_info1
@@ -12807,7 +12807,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_1
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str2:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_2,.Ltrap_info2
 	.long	.Ltrap_info2
@@ -12815,7 +12815,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_2
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str3:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_3,.Ltrap_info3
 	.long	.Ltrap_info3
@@ -12823,7 +12823,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_3
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str4:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_4,.Ltrap_info4
 	.long	.Ltrap_info4
@@ -12831,7 +12831,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_4
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str5:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_5,.Ltrap_info5
 	.long	.Ltrap_info5
@@ -12839,7 +12839,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_5
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str6:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_6,.Ltrap_info6
 	.long	.Ltrap_info6
@@ -12847,7 +12847,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_6
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str7:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_7,.Ltrap_info7
 	.long	.Ltrap_info7
@@ -12855,7 +12855,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_7
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str8:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:21:5: error: out of bounds array access\n    base[k] >>= 1;\n    ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:21:5: error: out of bounds array access\n    base[k] >>= 1;\n    ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_8,.Ltrap_info8
 	.long	.Ltrap_info8
@@ -12863,7 +12863,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_8
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str9:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_9,.Ltrap_info9
 	.long	.Ltrap_info9
@@ -12871,7 +12871,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_9
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str10:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_10,.Ltrap_info10
 	.long	.Ltrap_info10
@@ -12879,7 +12879,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_10
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str11:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:19:23: error: array argument has fewer elements than parameter type\n  measureAverage(cap, base, n_elements, N);\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:19:23: error: array argument has fewer elements than parameter type\n  measureAverage(cap, base, n_elements, N);\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_11,.Ltrap_info11
 	.long	.Ltrap_info11
@@ -12887,7 +12887,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_11
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str12:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:21:5: error: out of bounds array access\n    base[k] >>= 1;\n    ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:21:5: error: out of bounds array access\n    base[k] >>= 1;\n    ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_12,.Ltrap_info12
 	.long	.Ltrap_info12
@@ -12895,7 +12895,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_12
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str13:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_13,.Ltrap_info13
 	.long	.Ltrap_info13
@@ -12903,7 +12903,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_13
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str14:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_14,.Ltrap_info14
 	.long	.Ltrap_info14
@@ -12911,7 +12911,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_14
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str15:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_15,.Ltrap_info15
 	.long	.Ltrap_info15
@@ -12919,7 +12919,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_15
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str16:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_16,.Ltrap_info16
 	.long	.Ltrap_info16
@@ -12927,7 +12927,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_16
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str17:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_17,.Ltrap_info17
 	.long	.Ltrap_info17
@@ -12935,7 +12935,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_17
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str18:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_18,.Ltrap_info18
 	.long	.Ltrap_info18
@@ -12943,7 +12943,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_18
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str19:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_19,.Ltrap_info19
 	.long	.Ltrap_info19
@@ -12951,7 +12951,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_19
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str20:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_20,.Ltrap_info20
 	.long	.Ltrap_info20
@@ -12959,7 +12959,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_20
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str21:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:29:27: error: array argument has fewer elements than parameter type\n      measureAverage(cap, t, n_elements, N);\n                          ^\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_21,.Ltrap_info21
 	.long	.Ltrap_info21
@@ -12967,7 +12967,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_21
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str22:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:31:9: error: out of bounds array access\n        t[k] >>= 1;\n        ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_22,.Ltrap_info22
 	.long	.Ltrap_info22
@@ -12975,7 +12975,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_22
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str23:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:23: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                      ^~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_23,.Ltrap_info23
 	.long	.Ltrap_info23
@@ -12983,7 +12983,7 @@ slider.select.case.0:
 .cc_bottom cc_trapinfo_23
 	.section	.trap_info_str,"MS",@progbits
 .Ltrap_info_str24:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc:42:28: error: out of bounds array access\n        int offset = (t[k]-base[k]);// - minoffset;\n                           ^~~~~~~\n"
 	.section	.trap_info,"",@progbits
 .cc_top cc_trapinfo_24,.Ltrap_info24
 	.long	.Ltrap_info24

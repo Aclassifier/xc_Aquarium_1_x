@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -371,9 +371,9 @@
 	.call usage.anon.2,delay_ticks_longlong
 	.call usage.anon.1,delay_ticks_longlong
 	.call usage.anon.0,delay_ticks_longlong
-	.par absolute_slider,slider,"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par absolute_slider,usage.anon.3,"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
-	.par slider,usage.anon.3,"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par absolute_slider,slider,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par absolute_slider,usage.anon.3,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
+	.par slider,usage.anon.3,"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc:49:3: error: use of `%s\' violates parallel usage rules\n  par {\n  ^~~"
 	.set usage.anon.3.locnoside, 0
 	.set slider_task.locnoside, 0
 	.set usage.anon.3.locnointerfaceaccess, 0
@@ -393,7 +393,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.text
 	.globl	_i.slider_if.slider_task._c0.get_coord
 	.align	4
@@ -1147,7 +1147,7 @@ slider_task:
 	bf r0, .LBB12_1
 	bu .LBB12_2
 	.cc_bottom slider_task.function
-	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M absolute_slider.select.enable.cases.nstackwords $M slider.select.enable.cases.nstackwords $M slider_periodic.select.enable.cases.nstackwords)) + 28)
+	.set	slider_task.nstackwords,((((((absolute_slider.init.0.savedstate << 2) + 4) >> 2) + (((slider.init.0.savedstate << 2) + 4) >> 2)) + ((5 + absolute_slider.init.0.nstackwords) $M (1 + slider.init.0.nstackwords) $M (1 + slider_periodic.init.0.nstackwords) $M (1 + absolute_slider.init.1.nstackwords) $M (1 + slider.init.1.nstackwords) $M (1 + slider_periodic.init.1.nstackwords) $M (1 + absolute_slider.select.enable.nstackwords) $M (1 + slider.select.enable.nstackwords) $M (1 + slider_periodic.select.enable.nstackwords) $M absolute_slider.select.enable.cases.nstackwords $M slider_periodic.select.enable.cases.nstackwords $M slider.select.enable.cases.nstackwords)) + 28)
 	.globl	slider_task.nstackwords
 	.set	slider_task.maxcores,((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + absolute_slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.0.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.init.1.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + slider_periodic.select.enable.cases.maxcores))) $M ((1 * absolute_slider.dynalloc_maxcores) + ((1 * slider.dynalloc_maxcores) + ((1 * slider_periodic.dynalloc_maxcores) + 1)))
 	.globl	slider_task.maxcores
@@ -2252,9 +2252,9 @@ slider_periodic.select.case.1:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"IDLE"
 .Linfo_string4:
@@ -4138,76 +4138,76 @@ slider_periodic.select.case.1:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	23
 	.long	.Lxta.call_labels10
 .cc_bottom cc_0
 .cc_top cc_1,.Lxta.call_labels8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	23
 	.long	.Lxta.call_labels8
 .cc_bottom cc_1
 .cc_top cc_2,.Lxta.call_labels11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	34
 	.long	.Lxta.call_labels11
 .cc_bottom cc_2
 .cc_top cc_3,.Lxta.call_labels7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	34
 	.long	.Lxta.call_labels7
 .cc_bottom cc_3
 .cc_top cc_4,.Lxta.call_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	34
 	.long	.Lxta.call_labels0
 .cc_bottom cc_4
 .cc_top cc_5,.Lxta.call_labels9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	34
 	.long	.Lxta.call_labels9
 .cc_bottom cc_5
 .cc_top cc_6,.Lxta.call_labels4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.call_labels4
 .cc_bottom cc_6
 .cc_top cc_7,.Lxta.call_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	50
 	.long	.Lxta.call_labels1
 .cc_bottom cc_7
 .cc_top cc_8,.Lxta.call_labels5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.call_labels5
 .cc_bottom cc_8
 .cc_top cc_9,.Lxta.call_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	52
 	.long	.Lxta.call_labels2
 .cc_bottom cc_9
 .cc_top cc_10,.Lxta.call_labels3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	53
 	.long	.Lxta.call_labels3
 .cc_bottom cc_10
 .cc_top cc_11,.Lxta.call_labels6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	53
 	.long	.Lxta.call_labels6
@@ -4217,22 +4217,22 @@ slider_periodic.select.case.1:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_12,.Lxta.endpoint_labels0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	19
 	.long	.Lxta.endpoint_labels0
 .cc_bottom cc_12
 .cc_top cc_13,.Lxta.endpoint_labels1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	22
 	.long	.Lxta.endpoint_labels1
 .cc_bottom cc_13
 .cc_top cc_14,.Lxta.endpoint_labels2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	22
 	.long	.Lxta.endpoint_labels2
@@ -4242,101 +4242,101 @@ slider_periodic.select.case.1:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_15,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	15
 	.long	20
 	.long	.Lxtalabel2
 .cc_bottom cc_15
 .cc_top cc_16,.Lxtalabel4
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	23
 	.long	24
 	.long	.Lxtalabel4
 .cc_bottom cc_16
 .cc_top cc_17,.Lxtalabel8
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	23
 	.long	24
 	.long	.Lxtalabel8
 .cc_bottom cc_17
 .cc_top cc_18,.Lxtalabel9
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	25
 	.long	27
 	.long	.Lxtalabel9
 .cc_bottom cc_18
 .cc_top cc_19,.Lxtalabel5
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	25
 	.long	27
 	.long	.Lxtalabel5
 .cc_bottom cc_19
 .cc_top cc_20,.Lxtalabel10
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	28
 	.long	30
 	.long	.Lxtalabel10
 .cc_bottom cc_20
 .cc_top cc_21,.Lxtalabel6
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	28
 	.long	30
 	.long	.Lxtalabel6
 .cc_bottom cc_21
 .cc_top cc_22,.Lxtalabel11
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	31
 	.long	33
 	.long	.Lxtalabel11
 .cc_bottom cc_22
 .cc_top cc_23,.Lxtalabel3
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	31
 	.long	33
 	.long	.Lxtalabel3
 .cc_bottom cc_23
 .cc_top cc_24,.Lxtalabel7
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	31
 	.long	33
 	.long	.Lxtalabel7
 .cc_bottom cc_24
 .cc_top cc_25,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel1
 .cc_bottom cc_25
 .cc_top cc_26,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	45
 	.long	47
 	.long	.Lxtalabel0
 .cc_bottom cc_26
 .cc_top cc_27,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	49
 	.long	55
 	.long	.Lxtalabel1
 .cc_bottom cc_27
 .cc_top cc_28,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/lib_startkit_support/src/startkit_slider.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/startkit_slider.xc"
 	.byte	0
 	.long	49
 	.long	55

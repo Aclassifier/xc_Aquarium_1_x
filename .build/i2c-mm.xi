@@ -1,10 +1,10 @@
-# 1 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc" 2
 
 
 
@@ -395,7 +395,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 9 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
+# 9 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xclib.h" 1 3
 # 35 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xclib.h" 3
 unsigned bitrev(unsigned x);
@@ -403,7 +403,7 @@ unsigned bitrev(unsigned x);
 unsigned byterev(unsigned x);
 # 59 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xclib.h" 3
 int clz(unsigned x);
-# 10 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
+# 10 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 1 3
 
 
@@ -1027,9 +1027,9 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 2 3
-# 11 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
-# 1 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 1
-# 21 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 11 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h" 1
+# 21 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xccompat.h" 1 3
 # 201 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xccompat.h" 3
 typedef streaming chanend streaming_chanend_t;
@@ -1045,7 +1045,7 @@ typedef out buffered port:4 out_buffered_port_4_t;
 typedef out buffered port:8 out_buffered_port_8_t;
 typedef out buffered port:16 out_buffered_port_16_t;
 typedef out buffered port:32 out_buffered_port_32_t;
-# 22 "/Users/teig/workspace/module_i2c_master/src/i2c.h" 2
+# 22 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h" 2
 
 
 
@@ -1064,30 +1064,30 @@ typedef struct r_i2c {
 
 
 void i2c_master_init(struct r_i2c &i2c_master);
-# 54 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 54 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_rx(int device, unsigned char data[], int nbytes,
                   struct r_i2c &i2c);
-# 73 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 73 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_read_reg(int device, int reg_addr,
                         unsigned char data[],
                         int nbytes,
                         struct r_i2c &i2c_master);
-# 94 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 94 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_16bit_read_reg(int device, unsigned int reg_addr,
                         unsigned char data[],
                         int nbytes,
                         struct r_i2c &i2c_master);
-# 117 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 117 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_write_reg(int device, int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 138 "/Users/teig/workspace/module_i2c_master/src/i2c.h"
+# 138 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c.h"
 int i2c_master_16bit_write_reg(int device, unsigned int reg_addr,
                          unsigned char data[],
                          int nbytes,
                          struct r_i2c &i2c_master);
-# 12 "/Users/teig/workspace/module_i2c_master/src/i2c-mm.xc" 2
+# 12 "/Users/oyvindteig/Documents/dev/xc/workspace/module_i2c_master/src/i2c-mm.xc" 2
 
 void i2c_master_init(struct r_i2c &i2c_master) {
  i2c_master.scl :> void;

@@ -1,5 +1,5 @@
 	.text
-	.file	"/Users/teig/workspace/module_random/src/random.xc"
+	.file	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 
 	.inline_definition delay_seconds
 	.inline_definition delay_milliseconds
@@ -9,8 +9,8 @@
 	.set usage.anon.2,0
 	.set usage.anon.3,0
 	.set usage.anon.4,0
-	.globread random_create_generator_from_hw_seed,usage.anon.4,"/Users/teig/workspace/module_random/src/random.xc:23:30: note: object used here\n  unsigned init_seed = getps(XS1_L_RING_OSCILLATOR_VALUE_REG);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h:1747:36: note: expanded from macro \'getps\'\n#define getps(reg) __builtin_getps(reg)\n                                   ^"
-	.globread random_get_random_number,usage.anon.3,"/Users/teig/workspace/module_random/src/random.xc:8:16: note: object used here\n  crc32(g, -1, random_poly);\n               ^~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h:1431:79: note: expanded from macro \'crc32\'\n#define crc32(checksum, data, poly)           __builtin_crc32(checksum, data, poly)\n                                                                              ^"
+	.globread random_create_generator_from_hw_seed,usage.anon.4,"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc:23:30: note: object used here\n  unsigned init_seed = getps(XS1_L_RING_OSCILLATOR_VALUE_REG);\n                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h:1747:36: note: expanded from macro \'getps\'\n#define getps(reg) __builtin_getps(reg)\n                                   ^"
+	.globread random_get_random_number,usage.anon.3,"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc:8:16: note: object used here\n  crc32(g, -1, random_poly);\n               ^~~~~~~~~~~\n/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h:1431:79: note: expanded from macro \'crc32\'\n#define crc32(checksum, data, poly)           __builtin_crc32(checksum, data, poly)\n                                                                              ^"
 	.call random_create_generator_from_hw_seed,random_create_generator_from_seed
 	.call random_create_generator_from_seed,random_get_random_number
 	.call usage.anon.2,delay_ticks_longlong
@@ -35,7 +35,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/module_random/src/random.xc"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.section	.cp.rodata.cst4,"aMc",@progbits,4
 	.cc_top .LCPI0_0.data,.LCPI0_0
 	.align	4
@@ -173,9 +173,9 @@ random_get_random_number:
 .Linfo_string0:
 .asciiz"XMOS 32-bit XC Compiler Community_14.4.1 (build 235-acbb966, Dec-01-2019)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/module_random/src/random.xc"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"random_poly"
 .Linfo_string4:
@@ -773,87 +773,87 @@ random_get_random_number:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	7
 	.long	7
 	.long	.Lxtalabel0
 .cc_bottom cc_0
 .cc_top cc_1,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	7
 	.long	7
 	.long	.Lxtalabel2
 .cc_bottom cc_1
 .cc_top cc_2,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	7
 	.long	7
 	.long	.Lxtalabel1
 .cc_bottom cc_2
 .cc_top cc_3,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	8
 	.long	8
 	.long	.Lxtalabel1
 .cc_bottom cc_3
 .cc_top cc_4,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	8
 	.long	8
 	.long	.Lxtalabel0
 .cc_bottom cc_4
 .cc_top cc_5,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	8
 	.long	8
 	.long	.Lxtalabel2
 .cc_bottom cc_5
 .cc_top cc_6,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	9
 	.long	10
 	.long	.Lxtalabel1
 .cc_bottom cc_6
 .cc_top cc_7,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	9
 	.long	10
 	.long	.Lxtalabel0
 .cc_bottom cc_7
 .cc_top cc_8,.Lxtalabel2
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	9
 	.long	10
 	.long	.Lxtalabel2
 .cc_bottom cc_8
 .cc_top cc_9,.Lxtalabel0
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	13
 	.long	17
 	.long	.Lxtalabel0
 .cc_bottom cc_9
 .cc_top cc_10,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	13
 	.long	17
 	.long	.Lxtalabel1
 .cc_bottom cc_10
 .cc_top cc_11,.Lxtalabel1
-	.ascii	"/Users/teig/workspace/module_random/src/random.xc"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random.xc"
 	.byte	0
 	.long	22
 	.long	25

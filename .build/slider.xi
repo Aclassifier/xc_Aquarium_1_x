@@ -1,10 +1,10 @@
-# 1 "/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 141 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
 
 
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 1 3
@@ -390,7 +390,7 @@ unsigned get_local_tile_id(void);
 unsigned get_tile_id(tileref t);
 # 2136 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xs1.h" 3
 unsigned get_logical_core_id(void);
-# 4 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
+# 4 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 1 3
 # 38 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 3
 typedef enum {
@@ -508,9 +508,9 @@ void xscope_data_from_host(chanend c, char buf[256], int &n);
 
 void xscope_connect_data_from_host(chanend from_host);
 # 420 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 3
-# 1 "/Users/teig/workspace/_Aquarium_1_x/.build/xscope_probes.h" 1 3
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build/xscope_probes.h" 1 3
 # 420 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xscope.h" 2 3
-# 5 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
+# 5 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 1 3
 # 34 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printchar(char value);
@@ -617,7 +617,7 @@ int printbinln(unsigned value);
 int printstr(const char (& alias s)[]);
 # 145 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/print.h" 3
 int printstrln(const char (& alias s)[]);
-# 6 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
+# 6 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
 # 1 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 1 3
 
 
@@ -1241,9 +1241,9 @@ int _safe_fclose(FILE * movable fp);
 int _safe_remove(const char file[]);
 int _safe_rename(const char from[], const char to[]);
 # 6 "/Applications/XMOS_xTIMEcomposer_Community_14.4.1/target/include/xc/stdio.h" 2 3
-# 7 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/capsens.h" 1
-# 15 "/Users/teig/workspace/lib_startkit_support/src/capsens.h"
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h" 1
+# 15 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/capsens.h"
 void capsenseInitClock(__clock_t k);
 
 void setupNbit(port cap, const __clock_t k);
@@ -1259,15 +1259,15 @@ void measureAverage(port cap, unsigned int avg[width],
 void measureAveragePrint(port cap, unsigned int avg[width],
                          static const unsigned width,
                          static const unsigned N);
-# 8 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
-# 1 "/Users/teig/workspace/lib_startkit_support/src/slider.h" 1
+# 8 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.h" 1
 
 
 
 
 
-# 1 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h" 1
-# 11 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h"
+# 1 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h" 1
+# 11 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h"
 typedef enum {IDLE, PRESSED, LEFTING, RIGHTING, RELEASED, PRESSING} sliderstate;
 
 
@@ -1278,14 +1278,14 @@ typedef interface slider_if {
   [[clears_notification]] sliderstate get_slider_state();
   int get_coord();
 } slider_if;
-# 41 "/Users/teig/workspace/lib_startkit_support/api/startkit_slider.h"
+# 41 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/api/startkit_slider.h"
 [[combinable]]
 void slider_task(server slider_if i, port cap, const __clock_t clk,
                  static const int n_elements,
                  static const int N,
                  int threshold_pressed,
                  int threshold_unpressed);
-# 7 "/Users/teig/workspace/lib_startkit_support/src/slider.h" 2
+# 7 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.h" 2
 
 
 
@@ -1306,7 +1306,7 @@ typedef interface slider_query_if {
 
 [[distributable]]
 void slider(server slider_query_if i, client absolute_slider_if abs);
-# 9 "/Users/teig/workspace/lib_startkit_support/src/slider.xc" 2
+# 9 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc" 2
 
 [[distributable]]
 void absolute_slider(server absolute_slider_if i, port cap, const __clock_t k,
@@ -1331,7 +1331,7 @@ void absolute_slider(server absolute_slider_if i, port cap, const __clock_t k,
       for(int k = 0; k < n_elements; k++) {
         t[k] >>= 1;
       }
-# 41 "/Users/teig/workspace/lib_startkit_support/src/slider.xc"
+# 41 "/Users/oyvindteig/Documents/dev/xc/workspace/lib_startkit_support/src/slider.xc"
       for(int k = 0; k < n_elements; k++) {
         int offset = (t[k]-base[k]);
         unsigned int h, l, correctionSpeed;

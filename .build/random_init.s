@@ -14,7 +14,7 @@
 .Lsection_debug_loc:
 	.section	.debug_ranges,"",@progbits
 .Ldebug_range:
-	.file	1 "/Users/teig/workspace/module_random/src/random_init.c"
+	.file	1 "/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c"
 	.text
 	.globl	random_simple_init_seed
 	.align	2
@@ -56,9 +56,9 @@ random_simple_init_seed:
 .Linfo_string0:
 .asciiz"XMOS-235-acbb966-Dec-01-2019 clang version 3.6.0  (based on LLVM 3.6.0svn)"
 .Linfo_string1:
-.asciiz"/Users/teig/workspace/module_random/src/random_init.c"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/module_random/src/random_init.c"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"XS1_L_RING_OSCILLATOR_CONTROL_REG"
 .Linfo_string4:

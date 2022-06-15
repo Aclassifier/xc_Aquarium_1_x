@@ -17,9 +17,14 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                                   Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.31" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1531  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.32" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1532  // Is "AQUARIUM_VERSION_NUM_t"
 
+// 1.5.32     15Jun2022  AQU=110 Make sure feeding is done if restarted after "the hour" of feeding
+//            --------- Running  15June2022
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64888 S:6852 C:51958 D:6078
+//
+//            19Jun2021          SET THE CHRONODOT DS3231 CLOCK BACK _ABOUT_ 45 SECONDS. It was last set 11Sep20219. FOR 21 MONTHS: _ABOUT_ 2.2 SECS PER MONTH
 //            NEXT               lag en side i manualen om hva som lager pip uten Œ f¿re til feil
 //            NEXT               let the pump go if the temperature is above 27.5 degrees?
 //            NEXT               change button ports to buffered

@@ -1138,7 +1138,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Linfo_string1:
 .asciiz"../src/f_conversions.xc"
 .Linfo_string2:
-.asciiz"/Users/teig/workspace/_Aquarium_1_x/.build"
+.asciiz"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 .Linfo_string3:
 .asciiz"false"
 .Linfo_string4:
@@ -3399,7 +3399,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lentries_start0:
 	.long	.Lentries_end1-.Lentries_start0
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_0,.Lxta.call_labels0
 	.ascii	"../src/f_conversions.xc"
@@ -3430,7 +3430,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lentries_start2:
 	.long	.Lentries_end3-.Lentries_start2
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_4,.Lxtalabel25
 	.ascii	"../src/f_conversions.xc"
@@ -4368,7 +4368,7 @@ Do_Arithmetic_Mean_Temp_OnetenthDegC:
 .Lentries_start4:
 	.long	.Lentries_end5-.Lentries_start4
 	.long	0
-	.ascii	"/Users/teig/workspace/_Aquarium_1_x/.build"
+	.ascii	"/Users/oyvindteig/Documents/dev/xc/workspace/_Aquarium_1_x/.build"
 	.byte	0
 .cc_top cc_137,.Lxta.loop_labels0
 	.ascii	"../src/f_conversions.xc"
