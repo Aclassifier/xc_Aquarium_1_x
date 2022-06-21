@@ -95,6 +95,8 @@
     #endif
 
     #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // One minute later
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 2) // Two minutes later
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 3) // Three minutes later
 
     #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See
     // https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
@@ -107,9 +109,15 @@
     #define AUTO_FEEDING_NUM_SINGLE_MS (50) // For single clicks of the feeder solenoid
     #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid SHORTEST POSSIBLE (above)
 
+    // AQU=111 new
+    #define AUTO_FEEDING_CNT_1_MIN  1
+    #define AUTO_FEEDING_CNT_2_INIT 2
+    #define AUTO_FEEDING_CNT_3_PLUS 3
+    #define AUTO_FEEDING_CNT_4_MAX  4
+
     typedef struct feeding_t { // AQU=095
-        bool double_timed_trigger_config; // Settable from SCREEN_10_X_BOX
-        bool manual_trigger;
+        unsigned timed_trigger_cnt_config; // Settable from SCREEN_10_X_BOX (AQU=111 a value)
+        bool     manual_trigger;
     } feeding_t; // solenoid1 is the feeding, solenoid2 is the LED
 
     typedef struct iochip_t {

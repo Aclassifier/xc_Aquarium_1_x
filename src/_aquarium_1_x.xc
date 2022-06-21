@@ -1244,25 +1244,25 @@ void Handle_Real_Or_Clocked_Button_Actions (
             bool relay2 = ((context.iochip.port_pins bitand MY_MCP23008_OUT_RELAY2_ON_MASK) != 0);
 
             sprintf_numchars = sprintf (context.display_ts1_chars,
-                               "10%s X-BOKS %s\nR1.R2     %1u.%1u %s %s\nPUMPE.min %u.%u\nMATER.mS  %u.%u %s",
-                               // 1         2               3   4  5             6  7             8  9 10
+                               "10%s X-BOKS %s\nR1.R2     %1u.%1u %s %s\nPUMPE.min %u.%u\nMATER.mS  %u.%u %uX",
+                               // 1         2               3   4  5  6             7  8             9 10 11
                                char_takes_press_for_10_seconds_right_button_str, // 1 ± new with AQU=086
                                (context.iochip.err_cnt==0) ? "IO" : "MANGLER", // 2
                                relay1, relay2, // 3,4
                                (context.iochip.button_ustate.u.cnt==0) ? "AV" :
                                (context.iochip.button_ustate.u.cnt==1) ? "TID" : char_PAA_str, // 5
                                (context.iochip.button_ustate.u.cnt==0) ? "R" :
-                               (context.iochip.button_ustate.u.cnt==1) ? "-" : "G", // 5
-                               context.iochip.relay1_skimmer_pump_change_cnt_today, // 6
-                               context.iochip.relay1_skimmer_pump_minutes_cntdown, // 7
-                               context.iochip.solenoid_feeder_changes_today_cnt, // 8
-                               context.iochip.solenoid_feeder_time_on_ms, // 9
-                               context.iochip.feeding.double_timed_trigger_config ? "2X" : "1X"); // 10
+                               (context.iochip.button_ustate.u.cnt==1) ? "-" : "G", // 6
+                               context.iochip.relay1_skimmer_pump_change_cnt_today, // 7
+                               context.iochip.relay1_skimmer_pump_minutes_cntdown, // 8
+                               context.iochip.solenoid_feeder_changes_today_cnt, // 9
+                               context.iochip.solenoid_feeder_time_on_ms, // 10
+                               context.iochip.feeding.timed_trigger_cnt_config); // 11
             //                                            ..........----------.
             //                                            10± X-BOKS IO // X-BOKS MANGLER
             //                                            R1.R2     0.1 AV R  // "AV R" "TID -" "PÅ G"
             //                                            PUMPE.min 4.180
-            //                                            MATER.mS  1.50 2X // 1 gang eller 2 ganger
+            //                                            MATER.mS  1.50 2X // 1X-X ganger
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
@@ -1584,8 +1584,14 @@ void Handle_Real_Or_Clocked_Buttons (
 
                         case SCREEN_10_X_BOX: { // 10
                             context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
-                            context.iochip.feeding.double_timed_trigger_config = not context.iochip.feeding.double_timed_trigger_config;
-                            if (context.iochip.feeding.double_timed_trigger_config) {
+
+                            context.iochip.feeding.timed_trigger_cnt_config++;
+
+                            if (context.iochip.feeding.timed_trigger_cnt_config > AUTO_FEEDING_CNT_4_MAX) {
+                                context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_1_MIN;
+                            } else {}
+
+                            if (context.iochip.feeding.timed_trigger_cnt_config == AUTO_FEEDING_CNT_1_MIN) {
                                 context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
                             } else {
                                 context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
@@ -2308,7 +2314,8 @@ void System_Task (
     context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // 35 Too little food
                                                               // 50 Seems ok
                                                               // Even 10 ms takes it fully down. Add WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10
-    context.iochip.feeding.double_timed_trigger_config = false;
+
+    context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_2_INIT;
 
     // Init and clear display
 
@@ -2532,7 +2539,15 @@ void System_Task (
                                 solenoid_feeder_timed_on = true; // Always feed once per day
                                 context.beeper_blip_now = true; // To hear it if the feeder is not connected. However, not if double, that would be too much beeping:
                             } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
-                                if (context.iochip.feeding.double_timed_trigger_config == true) {
+                                if (context.iochip.feeding.timed_trigger_cnt_config >= AUTO_FEEDING_CNT_2_INIT) {
+                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                } else {} // Not allowed
+                            } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3) {
+                                if (context.iochip.feeding.timed_trigger_cnt_config >= AUTO_FEEDING_CNT_3_PLUS) {
+                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                } else {} // Not allowed
+                            } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4) {
+                                if (context.iochip.feeding.timed_trigger_cnt_config == AUTO_FEEDING_CNT_4_MAX) {
                                     solenoid_feeder_timed_on = true; // Only if double feed the second time
                                 } else {} // Not allowed
                             } else {} // Not at this time

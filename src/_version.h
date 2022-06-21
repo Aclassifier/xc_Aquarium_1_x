@@ -17,8 +17,8 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                                   Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.32" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1532  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.33" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1533  // Is "AQUARIUM_VERSION_NUM_t"
 
 //            NEXT               lag en side i manualen om hva som lager pip uten Œ f¿re til feil
 //            NEXT               let the pump go if the temperature is above 27.5 degrees?
@@ -26,6 +26,9 @@ typedef uint16_t aquarium_version_num_t;
 //            NEXT               Check if "defines_adafruit.h" is needed
 //            NEXT               Consider button_states_t not button_state_t
 
+// 1.5.33     21JUN2022  AQU=111 Auto feeding now max 4, not 2. defaults to 2
+//            --------- Running  27June2022
+//                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:64884 S:6852 C:51958 D:6074
 // 1.5.32     15Jun2022  AQU=110 Made sure that a feeding is done if restarted after "the hour" of feeding.
 //                               230V AC mains failure is a rarity, but it could be fatal if we were away, as
 //                               one day without food for these small fishes is serious. And watchdog
