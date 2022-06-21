@@ -1262,7 +1262,7 @@ void Handle_Real_Or_Clocked_Button_Actions (
             //                                            10± X-BOKS IO // X-BOKS MANGLER
             //                                            R1.R2     0.1 AV R  // "AV R" "TID -" "PÅ G"
             //                                            PUMPE.min 4.180
-            //                                            MATER.mS  1.50 2X // 1X-X ganger
+            //                                            MATER.mS  1.50 2X // 1X-4X ganger
             Clear_All_Pixels_In_Buffer();
             setTextSize(1);
             setTextColor(WHITE);
@@ -1589,13 +1589,11 @@ void Handle_Real_Or_Clocked_Buttons (
 
                             if (context.iochip.feeding.timed_trigger_cnt_config > AUTO_FEEDING_CNT_4_MAX) {
                                 context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_1_MIN;
-                            } else {}
-
-                            if (context.iochip.feeding.timed_trigger_cnt_config == AUTO_FEEDING_CNT_1_MIN) {
                                 context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
-                            } else {
+                            } else { // 2,3,4
                                 context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
                             }
+
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
                         } break;
 
