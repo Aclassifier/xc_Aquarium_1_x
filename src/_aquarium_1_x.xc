@@ -2401,9 +2401,11 @@ void System_Task (
                 context.number_of_restarts++;
             #endif
 
-            if (context.iochip.feeding.timed_trigger_cnt_config == 0) {
+            if ((context.iochip.feeding.timed_trigger_cnt_config == 0) or
+                (context.iochip.feeding.timed_trigger_cnt_config > NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4)) {
                 // From https://learn.adafruit.com/adafruit-i2c-fram-breakout it looks like unprogrammed is 0x00
                 // Nothing about this in the data sheet, I think
+                // Also testing against max since FRAM may contain other older data (it did!)
                 context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_2_INIT;
             } else {}
 

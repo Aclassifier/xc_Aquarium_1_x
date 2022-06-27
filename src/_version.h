@@ -17,8 +17,8 @@ typedef uint16_t aquarium_version_num_t;
 
 #define USE_STANDARD_NUM_MINUTES_LEFT_OF_RANDOM 0 // 1 is causing WRONG_CODE_STARTKIT if in real use.
 //                                                   Holes with respect to list below allowed. Nice when FLASHing intermediate
-#define AQUARIUM_VERSION_STR "1.5.36" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
-#define AQUARIUM_VERSION_NUM    1536  // Is "AQUARIUM_VERSION_NUM_t"
+#define AQUARIUM_VERSION_STR "1.5.37" // Always use "X.Y.NN" since we introduced AQUARIUM_VERSION_NUM:
+#define AQUARIUM_VERSION_NUM    1537  // Is "AQUARIUM_VERSION_NUM_t"
 
 //            NEXT               lag en side i manualen om hva som lager pip uten Œ f¿re til feil
 //            NEXT               let the pump go if the temperature is above 27.5 degrees?
@@ -27,9 +27,10 @@ typedef uint16_t aquarium_version_num_t;
 //            NEXT               Consider button_states_t not button_state_t
 
 //            --------- Running  27June2022
-// 1.5.36     27Jun2022  AQU=113 ERROR_BIT_HEATER_CABLE_UNPLUGGED reused for ERROR_BIT_I2C_FRAM
+// 1.5.37     27Jun2022          Max value from FRAM also tested against (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4)
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65024 of 65536 S:6860 C:52090 D:6074
-//
+
+// 1.5.36     27Jun2022  AQU=113 ERROR_BIT_HEATER_CABLE_UNPLUGGED reused for ERROR_BIT_I2C_FRAM
 // 1.5.35     27Jun2022  AQU=112 NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3 etc. now 1,2,3 minutes after previous
 //                               MB85RC256V FRAM: feeding_timed_trigger_cnt_config now in fram_bytes_t so that it survives restart
 // 1.5.34     21Jun2022          Just a small rewrite still as 1.5.33
