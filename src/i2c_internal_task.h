@@ -11,9 +11,11 @@
 typedef enum i2c_dev_address_internal_e {
                                      // NO SOLDERING NEEDED ON ANY OF THESE BOARDS
     I2C_ADDRESS_OF_DISPLAY   = 0x3C, // UG-2832HSWEG02 with chip SSD1306 from Univision Technology Inc.
-    I2C_ADDRESS_OF_FRAM      = 0x50, // Fujitsu MB85RC256V (MB85RC)
-    I2C_ADDRESS_OF_FRAM_F8   = 0xF8, // Fujitsu MB85RC256V Device ID first address (Not used)
-    I2C_ADDRESS_OF_FRAM_F9   = 0xF9, // Fujitsu MB85RC256V Device ID second address (Not used)
+                                     // FRAM: Adafruit "I2C FRAM breakout" https://www.adafruit.com/product/1895
+                                     //       Fujitsu MB85RC256V (MB85RC)
+    I2C_ADDRESS_OF_FRAM      = 0x50, // Device ID
+    I2C_ADDRESS_OF_FRAM_F8   = 0xF8, // Device ID first address (Not used)
+    I2C_ADDRESS_OF_FRAM_F9   = 0xF9, // Device ID second address (Not used)
     I2C_ADDRESS_OF_CHRONODOT = 0x68  // DS3231 Extremely Accurate I2C-Integrated RTC/TCXO/Crystal by Maxim
 } i2c_dev_address_internal_e; // i2c_dev_address_t
 
@@ -21,6 +23,7 @@ typedef struct fram_bytes_t {
     uint8_t  light_amount_fraction_2_nibbles;
     uint8_t  light_daytime_hours_index_in_FRAM_memory;
     uint32_t number_of_restarts;
+    uint32_t feeding_timed_trigger_cnt_config; // AQU=112 new
 } fram_bytes_t;
 
 #define NUM_BYTES_IN_FRAM_MEMORY sizeof (fram_bytes_t)

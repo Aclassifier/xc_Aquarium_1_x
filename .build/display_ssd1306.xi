@@ -1655,6 +1655,8 @@ typedef interface chronodot_ds3231_if {
 typedef enum i2c_dev_address_internal_e {
 
     I2C_ADDRESS_OF_DISPLAY = 0x3C,
+
+
     I2C_ADDRESS_OF_FRAM = 0x50,
     I2C_ADDRESS_OF_FRAM_F8 = 0xF8,
     I2C_ADDRESS_OF_FRAM_F9 = 0xF9,
@@ -1665,6 +1667,7 @@ typedef struct fram_bytes_t {
     uint8_t light_amount_fraction_2_nibbles;
     uint8_t light_daytime_hours_index_in_FRAM_memory;
     uint32_t number_of_restarts;
+    uint32_t feeding_timed_trigger_cnt_config;
 } fram_bytes_t;
 
 

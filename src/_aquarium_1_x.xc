@@ -301,7 +301,8 @@ typedef struct handler_context_t {
     iochip_t iochip;
 
     unsigned  number_of_restarts; // AQU=079
-    bool      number_of_restarts_init_do_fram_write; // AQU=069
+    bool      do_FRAM_write; // AQU=069 (number_of_restarts_init_do_FRAM_write)
+                             // AQU=112 (feeding_timed_trigger_cnt_config_do_FRAM_write)
     bool      restarted_do_solenoid_feeder_if_past_the_hour; // AQU=110
 
 } handler_context_t;
@@ -1585,13 +1586,14 @@ void Handle_Real_Or_Clocked_Buttons (
                         case SCREEN_10_X_BOX: { // 10
                             context.beeper_blip_now = true; // In Handle_Real_Or_Clocked_Buttons
 
-                            context.iochip.feeding.timed_trigger_cnt_config++;
+                            context.iochip.feeding.timed_trigger_cnt_config++; // Store in..
+                            context.do_FRAM_write = true;                      // ..MB85RC256V FRAM (later), including these changes:
 
                             if (context.iochip.feeding.timed_trigger_cnt_config > AUTO_FEEDING_CNT_4_MAX) {
                                 context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_1_MIN;
-                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_DOUBLE_MS; // Shorter
+                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SHORT_MS;
                             } else { // 2,3,4
-                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // Longer
+                                context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_LONG_MS;
                             }
 
                             Handle_Real_Or_Clocked_Button_Actions (context, light_sunrise_sunset_context, i_i2c_internal_commands, i_temperature_water_commands, i_temperature_heater_commands, caller);
@@ -1869,21 +1871,6 @@ void System_Task_Data_Handler (
         light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = Set_Dont_Disturb_Screen_3_Lysregulering (context);                                // First this..
         context.beeper_blip_now = context.beeper_blip_now bitor Handle_Light_Sunrise_Sunset_Etc (light_sunrise_sunset_context, i_port_heat_light_commands);  // ..then this. In System_Task_Data_Handler
 
-        // Update FRAM if needed
-        if (context.number_of_restarts_init_do_fram_write or light_sunrise_sunset_context.do_FRAM_write) {
-            bool write_ok;
-
-            context.number_of_restarts_init_do_fram_write = false; // Set to false after true once
-            light_sunrise_sunset_context.do_FRAM_write    = false;
-
-            context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles          = light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
-            context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory = light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
-            context.fram_bytes.u.bytes.number_of_restarts                       = context.number_of_restarts;
-
-            write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
-            debug_print ("FRAM light_amount_in_FRAM_memory written ok=%u\n", write_ok);
-        } else {}
-
         // Now, how did it go, how is light controlled right now?
         // Get the results as soon as possible to show in the display
         light_sunrise_sunset_context.light_is_stable              = i_port_heat_light_commands.get_light_is_stable_sync_internal();
@@ -1904,7 +1891,26 @@ void System_Task_Data_Handler (
 
         debug_printf_datetime (context.datetime); // DEBUG_PRINT_DATETIME must be 1 (defined in chronodot_ds3231_task.xc)
     }
-    //}}}
+
+    // Update FRAM if needed
+    if (context.do_FRAM_write or light_sunrise_sunset_context.do_FRAM_write)
+    {
+        bool write_ok;
+
+        context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles          = light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles;
+        context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory = light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory;
+        context.fram_bytes.u.bytes.number_of_restarts                       = context.number_of_restarts;
+        context.fram_bytes.u.bytes.feeding_timed_trigger_cnt_config         = context.iochip.feeding.timed_trigger_cnt_config;
+
+        write_ok = i_i2c_internal_commands.write_byte_fram_ok (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
+        debug_print ("FRAM light_amount_in_FRAM_memory written ok=%u\n", write_ok);
+
+        if (write_ok) {
+            context.do_FRAM_write = false;
+            light_sunrise_sunset_context.do_FRAM_write = false;
+        } else {} // No code, perhaps some error code here?
+
+    } else {}
 
     // Switch display off automatically after a timeout
 
@@ -2173,12 +2179,12 @@ void System_Task (
             (SEMANTICS_DO_CRC_ERR_NO_IRQ == 1) ? "no" : "with",
             (SEMANTICS_DO_LOOP_FOR_RF_IRQFLAGS2_PACKETSENT == 1) ? "loop for" : "state for");
 
-    context.number_of_restarts_init_do_fram_write = false;
-    context.radio_board_fault                     = false;
-    context.radio_send_data                       = send_idle;
-    context.radio_sent_data_display_it            = false;
-    context.RX_messageNotForThisNode_cnt          = 0;
-    context.TX_appSeqCnt                          = 0;
+    context.do_FRAM_write                = false;
+    context.radio_board_fault            = false;
+    context.radio_send_data              = send_idle;
+    context.radio_sent_data_display_it   = false;
+    context.RX_messageNotForThisNode_cnt = 0;
+    context.TX_appSeqCnt                 = 0;
     //
     context.restarted_do_solenoid_feeder_if_past_the_hour = true;
 
@@ -2309,11 +2315,9 @@ void System_Task (
 
     // Some compromise between dimension of hole, how fast the food will start to flow,
     // type of food (dimensions and type(s) of forms) etc.
-    context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_SINGLE_MS; // 35 Too little food
+    context.iochip.solenoid_feeder_time_on_ms = AUTO_FEEDING_NUM_LONG_MS; // 35 Too little food
                                                               // 50 Seems ok
                                                               // Even 10 ms takes it fully down. Add WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10
-
-    context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_2_INIT;
 
     // Init and clear display
 
@@ -2347,6 +2351,8 @@ void System_Task (
     context.screen_logg.exists = true;
     context.screen_logg.disabled_toggled_on_acknowledge_10secs = false;
 
+    context.do_FRAM_write = false;
+
     light_sunrise_sunset_context.random_number_seed = random_create_generator_from_hw_seed(); // xmos
     light_sunrise_sunset_context.datetime_previous_not_initialised = true;
     light_sunrise_sunset_context.true_do_init = true;
@@ -2354,7 +2360,6 @@ void System_Task (
     light_sunrise_sunset_context.dont_disturb_screen_3_lysregulering = false;
     light_sunrise_sunset_context.hot_water_state = HOT_WATER_NONE;
     light_sunrise_sunset_context.hot_water = false;
-
 
     debug_print("\nSystem_Task started with v%s\n", AQUARIUM_VERSION_STR);
 
@@ -2376,10 +2381,12 @@ void System_Task (
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = NORMAL_LIGHT_IS_VOID_F0N;
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = IOF_HH_IS_VOID;
             context.number_of_restarts                                                    = 0;
+            context.iochip.feeding.timed_trigger_cnt_config                               = AUTO_FEEDING_CNT_2_INIT;
         } else {
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = context.fram_bytes.u.bytes.light_amount_fraction_2_nibbles;
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = context.fram_bytes.u.bytes.light_daytime_hours_index_in_FRAM_memory;
             context.number_of_restarts                                                    = context.fram_bytes.u.bytes.number_of_restarts;
+            context.iochip.feeding.timed_trigger_cnt_config                               = context.fram_bytes.u.bytes.feeding_timed_trigger_cnt_config;
 
             #if (CLEAR_NUMBER_OF_RESTARTS==1)
                 context.number_of_restarts = 0;
@@ -2388,7 +2395,13 @@ void System_Task (
                 context.number_of_restarts++;
             #endif
 
-            context.number_of_restarts_init_do_fram_write = true; // Set to true once
+            if (context.iochip.feeding.timed_trigger_cnt_config == 0) {
+                // From https://learn.adafruit.com/adafruit-i2c-fram-breakout it looks like unprogrammed is 0x00
+                // Nothing about this in the data sheet, I think
+                context.iochip.feeding.timed_trigger_cnt_config = AUTO_FEEDING_CNT_2_INIT;
+            } else {}
+
+            context.do_FRAM_write = true;
         }
 
         debug_print ("FRAM read ok=%u: amount=%u index\n", read_ok, light_sunrise_sunset_context.light_amount_in_FRAM_memory, light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory);
@@ -2538,15 +2551,15 @@ void System_Task (
                                 context.beeper_blip_now = true; // To hear it if the feeder is not connected. However, not if double, that would be too much beeping:
                             } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2) {
                                 if (context.iochip.feeding.timed_trigger_cnt_config >= AUTO_FEEDING_CNT_2_INIT) {
-                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                    solenoid_feeder_timed_on = true;
                                 } else {} // Not allowed
                             } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3) {
                                 if (context.iochip.feeding.timed_trigger_cnt_config >= AUTO_FEEDING_CNT_3_PLUS) {
-                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                    solenoid_feeder_timed_on = true;
                                 } else {} // Not allowed
                             } else if (minutes_into_day_now == NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4) {
                                 if (context.iochip.feeding.timed_trigger_cnt_config == AUTO_FEEDING_CNT_4_MAX) {
-                                    solenoid_feeder_timed_on = true; // Only if double feed the second time
+                                    solenoid_feeder_timed_on = true;
                                 } else {} // Not allowed
                             } else {} // Not at this time
                         }

@@ -87,16 +87,16 @@
     #ifndef FLASH_BLACK_BOARD
         #error
     #elif (FLASH_BLACK_BOARD>=1)
-        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((15*60)+01) // Just the time when I tested
+        #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((13*60)+34) // 13.34 Just the time when I tested
     #else
         #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 ((12*60) + 30) // 12.30 is 13.30 arm clock summer time
         // 12.30 AQU=095 new. Will not collide with RELAY1 skimmer pump since it only goes for to 12.15
         // Also observe HH_08_IS_DAY which gives day of 11-19 (full light finished 11.30). So this time must be AFTER 11.30
     #endif
 
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // One minute later
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 2) // Two minutes later
-    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 3) // Three minutes later
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_2 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 1) // 1 minute after first
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_3 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 3) // 2 minutes after previous
+    #define NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4 (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_1 + 6) // 3 minutes after previous
 
     #define WRITE_IOCHIP_PINS_WAIT_AFTER_MS 10 // See
     // https://www.teigfam.net/oyvind/home/technology/187-my-usb-watchdog-and-relay-output-box/#relay_emp_outputs_interfering_with_ongoing_i2c
@@ -106,17 +106,17 @@
     // Also see Detection of Plunger Movement in DC Solenoids by Manu Balakrishnan and Navaneeth Kumar N at Texas Instruments
     // (June 2015), see http://www.ti.com/lit/wp/ssiy001/ssiy001.pdf
     //
-    #define AUTO_FEEDING_NUM_SINGLE_MS (50) // For single clicks of the feeder solenoid
-    #define AUTO_FEEDING_NUM_DOUBLE_MS (35) // For double clicks of the feeder solenoid SHORTEST POSSIBLE (above)
+    #define AUTO_FEEDING_NUM_LONG_MS  (50) // For single clicks of the feeder solenoid
+    #define AUTO_FEEDING_NUM_SHORT_MS (35) // For more clicks of the feeder solenoid SHORTEST POSSIBLE (above)
 
     // AQU=111 new
-    #define AUTO_FEEDING_CNT_1_MIN  1
-    #define AUTO_FEEDING_CNT_2_INIT 2
-    #define AUTO_FEEDING_CNT_3_PLUS 3
-    #define AUTO_FEEDING_CNT_4_MAX  4
+    #define AUTO_FEEDING_CNT_1_MIN  1 // AUTO_FEEDING_NUM_LONG_MS
+    #define AUTO_FEEDING_CNT_2_INIT 2 // AUTO_FEEDING_NUM_SHORT_MS
+    #define AUTO_FEEDING_CNT_3_PLUS 3 // --''--
+    #define AUTO_FEEDING_CNT_4_MAX  4 // --''--
 
     typedef struct feeding_t { // AQU=095
-        unsigned timed_trigger_cnt_config; // Settable from SCREEN_10_X_BOX (AQU=111 a value)
+        uint32_t timed_trigger_cnt_config; // Settable from SCREEN_10_X_BOX (AQU=111 a value). Stored in FRAM, survives restart
         bool     manual_trigger;
     } feeding_t; // solenoid1 is the feeding, solenoid2 is the LED
 
