@@ -170,10 +170,11 @@ typedef enum display_appear_state_t {
 #define AQUARIUM_ERROR_BITS_NONE 0
 typedef enum error_bits_t {
                                            // LIMITS
-    ERROR_BIT_I2C_AMBIENT            =  0, // BLACK_BOARD SETS IT
-    ERROR_BIT_I2C_WATER              =  1, // Also when water sensor has fallen out of its housing (reed relay has cut power to sensor)
-    ERROR_BIT_I2C_HEATER             =  2, // See AQU=080
-    ERROR_BIT_HEATER_CABLE_UNPLUGGED =  3, // AQU=025 never signalled (so this bit is now VACANT)
+    ERROR_BIT_I2C_AMBIENT               =  0, // BLACK_BOARD SETS IT
+    ERROR_BIT_I2C_WATER                 =  1, // Also when water sensor has fallen out of its housing (reed relay has cut power to sensor)
+    ERROR_BIT_I2C_HEATER                =  2, // See AQU=080
+    ERROR_BIT_I2C_FRAM                  =  3, // AQU=113
+    // ERROR_BIT_HEATER_CABLE_UNPLUGGED =  3, // AQU=025 never signalled (so this bit is now VACANT)
                                            // Heater temp not rised by TEMP_ONETENTHDEGC_01_0_EXPECTED_SMALLEST_TEMP_RISE (1.0 degC) after
                                            // CABLE_HEATER_ASSUMED_POWERED_SECONDS (3 minutes) after the point when the lowest temperature
                                            // has been passed. That's when assumed heat without temperature rise indicates an unplugged cable.
@@ -181,18 +182,18 @@ typedef enum error_bits_t {
                                            // when the heating cable has been connected.
                                            // Heating elements not below the aquarium but on the table may also trigger this alarm,
                                            // but only 1.0 degC is very little and is easily observed even in that case!
-    ERROR_BIT_LOW_12V_LIGHT          =  4, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
-    ERROR_BIT_HIGH_12V_LIGHT         =  5, // INNER_RR_12V_MAX_VOLTS_DP1
-    ERROR_BIT_LOW_24V_HEAT           =  6, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
-    ERROR_BIT_HIGH_24V_HEAT          =  7, // INNER_RR_24V_MAX_VOLTS_DP1
-    ERROR_BIT_BOX_OVERHEAT           =  8, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
-    ERROR_BIT_WATER_COLD             =  9, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
-    ERROR_BIT_AMBIENT_OVERHEAT       = 10, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX AQU=035
-    ERROR_BIT_WATER_OVERHEAT         = 11, // TEMP_ONETENTHDEGC_30_0_WATER_MAX AQU=035
-    ERROR_BIT_HEATER_OVERHEAT        = 12, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
-    ERROR_BIT_WATCHDOG_TIMED_OUT     = 13, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
-    ERROR_BIT_RADIO_BOARD            = 14, // From board not plugged in to other errors
-    ERROR_BIT_WRONG_CODE_STARTKIT    = 15  // WRONG_CODE_STARTKIT AQU=033 AQU=035
+    ERROR_BIT_LOW_12V_LIGHT             =  4, // INNER_RR_12V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
+    ERROR_BIT_HIGH_12V_LIGHT            =  5, // INNER_RR_12V_MAX_VOLTS_DP1
+    ERROR_BIT_LOW_24V_HEAT              =  6, // INNER_RR_24V_MIN_VOLTS_DP1 // BLACK_BOARD SETS IT
+    ERROR_BIT_HIGH_24V_HEAT             =  7, // INNER_RR_24V_MAX_VOLTS_DP1
+    ERROR_BIT_BOX_OVERHEAT              =  8, // TEMP_ONETENTHDEGC_50_0_BOX_MAX
+    ERROR_BIT_WATER_COLD                =  9, // TEMP_ONETENTHDEGC_23_0_WATER_COLD AQU=025 new
+    ERROR_BIT_AMBIENT_OVERHEAT          = 10, // TEMP_ONETENTHDEGC_35_0_AMBIENT_MAX AQU=035
+    ERROR_BIT_WATER_OVERHEAT            = 11, // TEMP_ONETENTHDEGC_30_0_WATER_MAX AQU=035
+    ERROR_BIT_HEATER_OVERHEAT           = 12, // TEMP_ONETENTHDEGC_50_0_HEATER_MAX AQU=035
+    ERROR_BIT_WATCHDOG_TIMED_OUT        = 13, // HEAT CABLES FAILED TO SAFE: OFF AQU=035
+    ERROR_BIT_RADIO_BOARD               = 14, // From board not plugged in to other errors
+    ERROR_BIT_WRONG_CODE_STARTKIT       = 15  // WRONG_CODE_STARTKIT AQU=033 AQU=035
     //
 } error_bits_t; // Observe must equal error_bits_now_t
 
@@ -284,6 +285,7 @@ typedef struct handler_context_t {
     is_error_e                  is_new_error;
     irq_update_e                radio_irq_update;
     some_rfm69_internals_t      some_rfm69_internals;
+    bool                        i2c_fram_ok; // AQU=113
 
     #if (LOCAL_IRQ_PORT_HANDLING==1)
         signed now_irq_high_max_time_ms; // Letting it be counted down until negative
@@ -1723,8 +1725,9 @@ void System_Task_Data_Handler (
         error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_OVERHEAT);  // Unfiltered, single measurement!
     } else {}
 
-    if (not context.heater_on_ok) { // AQU=025 now never signalled as false, so never any error message here:
-        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_HEATER_CABLE_UNPLUGGED);
+    if (not context.i2c_fram_ok) {
+        context.i2c_fram_ok = true; // "repairable"
+        error_bits_now = error_bits_now bitor (1<<ERROR_BIT_I2C_FRAM);
     } else {}
 
     if (context.rr_12V_LEDlight_onetenthV < INNER_RR_12V_MIN_VOLTS_DP1) {
@@ -1908,8 +1911,9 @@ void System_Task_Data_Handler (
         if (write_ok) {
             context.do_FRAM_write = false;
             light_sunrise_sunset_context.do_FRAM_write = false;
-        } else {} // No code, perhaps some error code here?
-
+        } else {
+            context.i2c_fram_ok = false; // Report and try again forever
+        }
     } else {}
 
     // Switch display off automatically after a timeout
@@ -2185,6 +2189,7 @@ void System_Task (
     context.radio_sent_data_display_it   = false;
     context.RX_messageNotForThisNode_cnt = 0;
     context.TX_appSeqCnt                 = 0;
+    context.i2c_fram_ok                  = true; // until proven false
     //
     context.restarted_do_solenoid_feeder_if_past_the_hour = true;
 
@@ -2374,10 +2379,11 @@ void System_Task (
     // Read from FRAM module
     {
         bool read_ok;
-
         read_ok = i_i2c_internal_commands.read_byte_fram_ok  (I2C_ADDRESS_OF_FRAM, FRAM_BYTE_NORMAL_LIGHT, context.fram_bytes.u.bytes_u_uint8_arr);
 
         if (not read_ok) {
+            context.i2c_fram_ok = false; // only if false
+
             light_sunrise_sunset_context.light_amount_in_FRAM_memory.u.fraction_2_nibbles = NORMAL_LIGHT_IS_VOID_F0N;
             light_sunrise_sunset_context.light_daytime_hours_index_in_FRAM_memory         = IOF_HH_IS_VOID;
             context.number_of_restarts                                                    = 0;
