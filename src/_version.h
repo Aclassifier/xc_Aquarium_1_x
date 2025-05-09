@@ -26,6 +26,7 @@ typedef uint16_t aquarium_version_num_t;
 //            NEXT               Check if "defines_adafruit.h" is needed
 //            NEXT               Consider button_states_t not button_state_t
 
+// 1.5.37     09May2025          First commit with GitHub Desktop from iMac (this code is on MacMini2)
 //            --------- Running  27June2022
 // 1.5.37     27Jun2022          Max value from FRAM also tested against (NUM_MINUTES_INTO_DAY_OF_DAY_AUTO_FEEDING_NUM_4)
 //                               ISAQUARIUM: Constraints: C:8/8 T:10/9 C:32/26 M:65024 of 65536 S:6860 C:52090 D:6074

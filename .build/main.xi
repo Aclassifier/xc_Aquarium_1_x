@@ -1779,7 +1779,7 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
                                                           const temp_onetenthDegC_t temps_onetenthDeg);
 # 35 "../src/main.xc" 2
 # 1 "../src/port_heat_light_task.h" 1
-# 45 "../src/port_heat_light_task.h"
+# 29 "../src/port_heat_light_task.h"
     typedef enum iof_LED_strip_t {
         IOF_LED_STRIP_FRONT,
         IOF_LED_STRIP_CENTER,
@@ -1788,14 +1788,12 @@ temp_onetenthDegC_t Do_Arithmetic_Mean_Temp_OnetenthDegC (temp_onetenthDegC_mean
     typedef enum {
 
 
-        WATTOF_LED_STRIP_FRONT_DP1 = 49,
-        WATTOF_LED_STRIP_CENTER_DP1 = 49,
-        WATTOF_LED_STRIP_BACK_DP1 = 49
+        WATTOF_LED_STRIP_FRONT_DP1 = 33,
+        WATTOF_LED_STRIP_CENTER_DP1 = 33,
+        WATTOF_LED_STRIP_BACK_DP1 = 33
 
     } wattOf_LED_strip_t;
-
-
-
+# 61 "../src/port_heat_light_task.h"
 typedef enum light_composition_t {
 # 72 "../src/port_heat_light_task.h"
     LIGHT_COMPOSITION_FMB_000_ALL_OFF = 0,
